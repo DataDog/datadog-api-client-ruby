@@ -1,0 +1,248 @@
+# DatadogAPIClient::V1::PagerDutyIntegrationApi
+
+All URIs are relative to *https://api.datadoghq.com*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**create_pager_duty_integration_service**](PagerDutyIntegrationApi.md#create_pager_duty_integration_service) | **POST** /api/v1/integration/pagerduty/configuration/services | Create a new service object
+[**delete_pager_duty_integration_service**](PagerDutyIntegrationApi.md#delete_pager_duty_integration_service) | **DELETE** /api/v1/integration/pagerduty/configuration/services/{service_name} | Delete a single service object
+[**get_pager_duty_integration_service**](PagerDutyIntegrationApi.md#get_pager_duty_integration_service) | **GET** /api/v1/integration/pagerduty/configuration/services/{service_name} | Get a single service object
+[**update_pager_duty_integration_service**](PagerDutyIntegrationApi.md#update_pager_duty_integration_service) | **PUT** /api/v1/integration/pagerduty/configuration/services/{service_name} | Update a single service object
+
+
+
+## create_pager_duty_integration_service
+
+> PagerDutyServiceName create_pager_duty_integration_service(body)
+
+Create a new service object
+
+Create a new service object in the PagerDuty integration.
+
+### Example
+
+```ruby
+# load the gem
+require 'datadog_api_client/v1'
+# setup authorization
+DatadogAPIClient::V1.configure do |config|
+  # Configure API key authorization: apiKeyAuth
+  config.api_key['DD-API-KEY'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['DD-API-KEY'] = 'Bearer'
+
+  # Configure API key authorization: appKeyAuth
+  config.api_key['DD-APPLICATION-KEY'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['DD-APPLICATION-KEY'] = 'Bearer'
+end
+
+api_instance = DatadogAPIClient::V1::PagerDutyIntegrationApi.new
+body = DatadogAPIClient::V1::PagerDutyService.new # PagerDutyService | Create a new service object request body.
+
+begin
+  #Create a new service object
+  result = api_instance.create_pager_duty_integration_service(body)
+  p result
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Exception when calling PagerDutyIntegrationApi->create_pager_duty_integration_service: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**PagerDutyService**](PagerDutyService.md)| Create a new service object request body. | 
+
+### Return type
+
+[**PagerDutyServiceName**](PagerDutyServiceName.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## delete_pager_duty_integration_service
+
+> delete_pager_duty_integration_service(service_name)
+
+Delete a single service object
+
+Delete a single service object in the Datadog-PagerDuty integration.
+
+### Example
+
+```ruby
+# load the gem
+require 'datadog_api_client/v1'
+# setup authorization
+DatadogAPIClient::V1.configure do |config|
+  # Configure API key authorization: apiKeyAuth
+  config.api_key['DD-API-KEY'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['DD-API-KEY'] = 'Bearer'
+
+  # Configure API key authorization: appKeyAuth
+  config.api_key['DD-APPLICATION-KEY'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['DD-APPLICATION-KEY'] = 'Bearer'
+end
+
+api_instance = DatadogAPIClient::V1::PagerDutyIntegrationApi.new
+service_name = 'service_name_example' # String | The service name
+
+begin
+  #Delete a single service object
+  api_instance.delete_pager_duty_integration_service(service_name)
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Exception when calling PagerDutyIntegrationApi->delete_pager_duty_integration_service: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **service_name** | **String**| The service name | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_pager_duty_integration_service
+
+> PagerDutyServiceName get_pager_duty_integration_service(service_name)
+
+Get a single service object
+
+Get service name in the Datadog-PagerDuty integration.
+
+### Example
+
+```ruby
+# load the gem
+require 'datadog_api_client/v1'
+# setup authorization
+DatadogAPIClient::V1.configure do |config|
+  # Configure API key authorization: apiKeyAuth
+  config.api_key['DD-API-KEY'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['DD-API-KEY'] = 'Bearer'
+
+  # Configure API key authorization: appKeyAuth
+  config.api_key['DD-APPLICATION-KEY'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['DD-APPLICATION-KEY'] = 'Bearer'
+end
+
+api_instance = DatadogAPIClient::V1::PagerDutyIntegrationApi.new
+service_name = 'service_name_example' # String | The service name.
+
+begin
+  #Get a single service object
+  result = api_instance.get_pager_duty_integration_service(service_name)
+  p result
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Exception when calling PagerDutyIntegrationApi->get_pager_duty_integration_service: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **service_name** | **String**| The service name. | 
+
+### Return type
+
+[**PagerDutyServiceName**](PagerDutyServiceName.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## update_pager_duty_integration_service
+
+> update_pager_duty_integration_service(service_name, body)
+
+Update a single service object
+
+Update a single service object in the Datadog-PagerDuty integration.
+
+### Example
+
+```ruby
+# load the gem
+require 'datadog_api_client/v1'
+# setup authorization
+DatadogAPIClient::V1.configure do |config|
+  # Configure API key authorization: apiKeyAuth
+  config.api_key['DD-API-KEY'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['DD-API-KEY'] = 'Bearer'
+
+  # Configure API key authorization: appKeyAuth
+  config.api_key['DD-APPLICATION-KEY'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['DD-APPLICATION-KEY'] = 'Bearer'
+end
+
+api_instance = DatadogAPIClient::V1::PagerDutyIntegrationApi.new
+service_name = 'service_name_example' # String | The service name
+body = DatadogAPIClient::V1::PagerDutyServiceKey.new # PagerDutyServiceKey | Update an existing service object request body.
+
+begin
+  #Update a single service object
+  api_instance.update_pager_duty_integration_service(service_name, body)
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Exception when calling PagerDutyIntegrationApi->update_pager_duty_integration_service: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **service_name** | **String**| The service name | 
+ **body** | [**PagerDutyServiceKey**](PagerDutyServiceKey.md)| Update an existing service object request body. | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
