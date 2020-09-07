@@ -1,0 +1,17 @@
+# DatadogAPIClient::V1::SyntheticsCITestBody
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**tests** | [**Array&lt;SyntheticsCITest&gt;**](SyntheticsCITest.md) | Individual synthetics test. | [optional] 
+
+## Code Sample
+
+```ruby
+require 'DatadogAPIClient::V1'
+
+instance = DatadogAPIClient::V1::SyntheticsCITestBody.new(tests: null)
+```
+
+

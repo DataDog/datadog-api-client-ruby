@@ -1,0 +1,16 @@
+{
+    "additional_stamps": [],
+    "info_version": "2",
+    "spec_versions": {
+        "v1": {
+            "apigentools_version": "1.2.0",
+            "regenerated": "2020-09-07 11:57:15.663580",
+            "spec_repo_commit": "bed202f"
+        },
+        "v2": {
+            "apigentools_version": "1.2.0",
+            "regenerated": "2020-09-07 11:57:24.574149",
+            "spec_repo_commit": "bed202f"
+        }
+    }
+}
