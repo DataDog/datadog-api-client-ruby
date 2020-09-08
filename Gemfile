@@ -14,4 +14,5 @@ group :development, :test do
   gem 'reek'
   gem 'rspec-expectations'
   gem 'solargraph'
+  gem 'timecop'
 end
