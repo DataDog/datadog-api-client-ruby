@@ -15,4 +15,5 @@ group :development, :test do
   gem 'rspec-expectations'
   gem 'solargraph'
   gem 'timecop'
+  gem 'webmock'
 end

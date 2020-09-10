@@ -1,0 +1,109 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.datadoghq.com/api/v2/users
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"email":"ruby-Get-a-user-permissions-returns-OK-response-1599759345@datadoghq.com"},"type":"users"}}'
+    headers:
+      User-Agent:
+      - OpenAPI-Generator/0.1.0/ruby
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Thu, 10 Sep 2020 17:35:45 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '607'
+      Connection:
+      - keep-alive
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      Set-Cookie:
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 17-Sep-2020 17:35:45 GMT;
+        secure; HttpOnly
+      X-Dd-Version:
+      - '35.3014711'
+      X-Dd-Debug:
+      - P1Zl2WBjv6MmQy4Wz5dVVmMx+jZ8eifOyWRE5KLp6dZWiS4DybK2ThOqXH2WyhkS
+      Dd-Pool:
+      - dogweb
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"users","id":"0e8e56c8-f38c-11ea-ac35-6b538ba7e3de","attributes":{"name":null,"handle":"ruby-get-a-user-permissions-returns-ok-response-1599759345@datadoghq.com","created_at":"2020-09-10T17:35:45.338510+00:00","email":"ruby-get-a-user-permissions-returns-ok-response-1599759345@datadoghq.com","icon":"https://secure.gravatar.com/avatar/127c4f554b56d44938af56de87f34148?s=48&d=retro","title":null,"verified":false,"disabled":false,"allowed_login_methods":[],"status":"Pending"},"relationships":{"roles":{"data":[]},"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}}'
+  recorded_at: Thu, 10 Sep 2020 17:35:45 GMT
+- request:
+    method: get
+    uri: https://api.datadoghq.com/api/v2/users/0e8e56c8-f38c-11ea-ac35-6b538ba7e3de/permissions
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - OpenAPI-Generator/0.1.0/ruby
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 10 Sep 2020 17:35:45 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '11'
+      Connection:
+      - keep-alive
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      Set-Cookie:
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 17-Sep-2020 17:35:45 GMT;
+        secure; HttpOnly
+      X-Dd-Version:
+      - '35.3014711'
+      X-Dd-Debug:
+      - b7N5fdPhYXDjMBDnrRAJWxJNxeU8H5y+B5ea/L1cXAMez449FKZtw3SF5mhatH7J
+      Dd-Pool:
+      - dogweb
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+    body:
+      encoding: UTF-8
+      string: '{"data":[]}'
+  recorded_at: Thu, 10 Sep 2020 17:35:45 GMT
+recorded_with: VCR 6.0.0
