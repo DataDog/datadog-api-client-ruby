@@ -9,4 +9,4 @@ RUN bundle install && \
     gem install ./datadog_api_client.gem
 
 
-CMD ["./run-tests.sh"]
+CMD ["/datadog-api-client-ruby/run-tests.sh"]

@@ -1,0 +1,129 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.datadoghq.com/api/v2/roles
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"ruby-Get-a-role-returns-OK-response-1599759324"},"type":"roles"}}'
+    headers:
+      User-Agent:
+      - OpenAPI-Generator/0.1.0/ruby
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 10 Sep 2020 17:35:24 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '414'
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      Set-Cookie:
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 17-Sep-2020 17:35:24 GMT;
+        secure; HttpOnly
+      X-Dd-Version:
+      - '35.3014711'
+      X-Ratelimit-Limit:
+      - '500'
+      X-Ratelimit-Period:
+      - '60'
+      X-Ratelimit-Reset:
+      - '36'
+      X-Ratelimit-Remaining:
+      - '494'
+      X-Dd-Debug:
+      - CUBCyaoXY2JdeHi5oQm4sg9onCJMsjgVJ5jLk2ugM2iR7uz4Q+lvjzDdvtcYDFC3
+      Dd-Pool:
+      - dogweb
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"roles","id":"024072ac-f38c-11ea-ac35-2fbe3cbe477a","attributes":{"name":"ruby-Get-a-role-returns-OK-response-1599759324","created_at":"2020-09-10T17:35:24.695800+00:00","modified_at":"2020-09-10T17:35:24.695800+00:00"},"relationships":{"permissions":{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2"},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304"}]}}}}'
+  recorded_at: Thu, 10 Sep 2020 17:35:24 GMT
+- request:
+    method: get
+    uri: https://api.datadoghq.com/api/v2/roles/024072ac-f38c-11ea-ac35-2fbe3cbe477a
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - OpenAPI-Generator/0.1.0/ruby
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 10 Sep 2020 17:35:24 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '429'
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      Set-Cookie:
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 17-Sep-2020 17:35:24 GMT;
+        secure; HttpOnly
+      X-Dd-Version:
+      - '35.3014711'
+      X-Ratelimit-Limit:
+      - '500'
+      X-Ratelimit-Period:
+      - '60'
+      X-Ratelimit-Reset:
+      - '36'
+      X-Ratelimit-Remaining:
+      - '493'
+      X-Dd-Debug:
+      - 92/tpeRQ0by9nn7WsSPyVyXsoLNu8gimYih2BuL6sJV2amfIFPaN8R5eGATyWG3E
+      Dd-Pool:
+      - dogweb
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"roles","id":"024072ac-f38c-11ea-ac35-2fbe3cbe477a","attributes":{"name":"ruby-Get-a-role-returns-OK-response-1599759324","created_at":"2020-09-10T17:35:24.695800+00:00","modified_at":"2020-09-10T17:35:24.695800+00:00","user_count":0},"relationships":{"permissions":{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2"},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304"}]}}}}'
+  recorded_at: Thu, 10 Sep 2020 17:35:24 GMT
+recorded_with: VCR 6.0.0
