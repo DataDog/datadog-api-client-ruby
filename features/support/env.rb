@@ -8,7 +8,24 @@ Datadog.configure do |c|
   # c.use :action_cable, options
 end
 
+module RecordMode
+  def self.true(config)
+    config.default_cassette_options = { :record => :all }
+  end
+
+  def self.false(config)
+    config.default_cassette_options = { :record => :none }
+  end
+
+  def self.none(config)
+    config.ignore_request do
+      true
+    end
+  end
+end
+
 VCR.configure do |config|
+  RecordMode.send(ENV["RECORD"] || "false", config)
   config.cassette_library_dir = "cassettes"
   config.hook_into :webmock
   config.before_record do |i|
