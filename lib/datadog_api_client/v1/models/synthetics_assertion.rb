@@ -164,6 +164,14 @@ module DatadogAPIClient::V1
     # @return [Object] Returns the model itself
     def build_from_hash(attributes)
       return nil unless attributes.is_a?(Hash)
+      unless self.class.openapi_one_of.empty?
+        for _class in self.class.openapi_one_of.each do
+          _one_of = DatadogAPIClient::V1.const_get(_class).build_from_hash(attributes) rescue nil
+          if _one_of != nil && _one_of.valid?
+            return _one_of
+          end
+        end
+      end
       self.class.openapi_types.each_pair do |key, type|
         if type =~ /\AArray<(.*)>/i
           # check to ensure the input is an array given that the attribute

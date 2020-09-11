@@ -22,6 +22,8 @@ module DatadogAPIClient::V2
     THIRTY_MINUTES = 1800.freeze
     ONE_HOUR = 3600.freeze
     TWO_HOURS = 7200.freeze
+    THREE_HOURS = 10800.freeze
+    SIX_HOURS = 21600.freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
