@@ -1,0 +1,3 @@
+default: >
+  --publish-quiet
+  -t 'not @skip'
