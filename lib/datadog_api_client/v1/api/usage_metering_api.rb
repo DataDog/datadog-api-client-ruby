@@ -61,10 +61,6 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
       # return_type
       return_type = opts[:return_type] || 'UsageCustomReportsResponse' 
 
@@ -76,7 +72,7 @@ module DatadogAPIClient::V1
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => post_body,
+        :body => nil,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -130,10 +126,6 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
       # return_type
       return_type = opts[:return_type] || 'UsageCustomReportsResponse' 
 
@@ -145,7 +137,7 @@ module DatadogAPIClient::V1
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => post_body,
+        :body => nil,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -193,10 +185,6 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
       # return_type
       return_type = opts[:return_type] || 'UsageSpecifiedCustomReportsResponse' 
 
@@ -208,7 +196,7 @@ module DatadogAPIClient::V1
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => post_body,
+        :body => nil,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -256,10 +244,6 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
       # return_type
       return_type = opts[:return_type] || 'UsageSpecifiedCustomReportsResponse' 
 
@@ -271,7 +255,7 @@ module DatadogAPIClient::V1
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => post_body,
+        :body => nil,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -323,10 +307,6 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
       # return_type
       return_type = opts[:return_type] || 'UsageTracingWithoutLimitsResponse' 
 
@@ -338,7 +318,7 @@ module DatadogAPIClient::V1
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => post_body,
+        :body => nil,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -390,10 +370,6 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
       # return_type
       return_type = opts[:return_type] || 'UsageAnalyzedLogsResponse' 
 
@@ -405,7 +381,7 @@ module DatadogAPIClient::V1
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => post_body,
+        :body => nil,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -450,10 +426,6 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
       # return_type
       return_type = opts[:return_type] || 'UsageBillableSummaryResponse' 
 
@@ -465,7 +437,7 @@ module DatadogAPIClient::V1
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => post_body,
+        :body => nil,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -517,10 +489,6 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
       # return_type
       return_type = opts[:return_type] || 'UsageFargateResponse' 
 
@@ -532,7 +500,7 @@ module DatadogAPIClient::V1
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => post_body,
+        :body => nil,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -584,10 +552,6 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
       # return_type
       return_type = opts[:return_type] || 'UsageHostsResponse' 
 
@@ -599,7 +563,7 @@ module DatadogAPIClient::V1
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => post_body,
+        :body => nil,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -651,10 +615,6 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
       # return_type
       return_type = opts[:return_type] || 'UsageLambdaResponse' 
 
@@ -666,7 +626,7 @@ module DatadogAPIClient::V1
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => post_body,
+        :body => nil,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -718,10 +678,6 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
       # return_type
       return_type = opts[:return_type] || 'UsageLogsResponse' 
 
@@ -733,7 +689,7 @@ module DatadogAPIClient::V1
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => post_body,
+        :body => nil,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -788,10 +744,6 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
       # return_type
       return_type = opts[:return_type] || 'UsageLogsByIndexResponse' 
 
@@ -803,7 +755,7 @@ module DatadogAPIClient::V1
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => post_body,
+        :body => nil,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -855,10 +807,6 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
       # return_type
       return_type = opts[:return_type] || 'UsageNetworkFlowsResponse' 
 
@@ -870,7 +818,7 @@ module DatadogAPIClient::V1
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => post_body,
+        :body => nil,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -922,10 +870,6 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
       # return_type
       return_type = opts[:return_type] || 'UsageNetworkHostsResponse' 
 
@@ -937,7 +881,7 @@ module DatadogAPIClient::V1
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => post_body,
+        :body => nil,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -989,10 +933,6 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
       # return_type
       return_type = opts[:return_type] || 'UsageProfilingResponse' 
 
@@ -1004,7 +944,7 @@ module DatadogAPIClient::V1
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => post_body,
+        :body => nil,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -1056,10 +996,6 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
       # return_type
       return_type = opts[:return_type] || 'UsageRumSessionsResponse' 
 
@@ -1071,7 +1007,7 @@ module DatadogAPIClient::V1
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => post_body,
+        :body => nil,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -1123,10 +1059,6 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
       # return_type
       return_type = opts[:return_type] || 'UsageSNMPResponse' 
 
@@ -1138,7 +1070,7 @@ module DatadogAPIClient::V1
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => post_body,
+        :body => nil,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -1193,10 +1125,6 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
       # return_type
       return_type = opts[:return_type] || 'UsageSummaryResponse' 
 
@@ -1208,7 +1136,7 @@ module DatadogAPIClient::V1
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => post_body,
+        :body => nil,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -1260,10 +1188,6 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
       # return_type
       return_type = opts[:return_type] || 'UsageSyntheticsResponse' 
 
@@ -1275,7 +1199,7 @@ module DatadogAPIClient::V1
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => post_body,
+        :body => nil,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -1327,10 +1251,6 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
       # return_type
       return_type = opts[:return_type] || 'UsageSyntheticsAPIResponse' 
 
@@ -1342,7 +1262,7 @@ module DatadogAPIClient::V1
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => post_body,
+        :body => nil,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -1394,10 +1314,6 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
       # return_type
       return_type = opts[:return_type] || 'UsageSyntheticsBrowserResponse' 
 
@@ -1409,7 +1325,7 @@ module DatadogAPIClient::V1
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => post_body,
+        :body => nil,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -1461,10 +1377,6 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
       # return_type
       return_type = opts[:return_type] || 'UsageTimeseriesResponse' 
 
@@ -1476,7 +1388,7 @@ module DatadogAPIClient::V1
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => post_body,
+        :body => nil,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -1528,10 +1440,6 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
       # return_type
       return_type = opts[:return_type] || 'UsageTopAvgMetricsResponse' 
 
@@ -1543,7 +1451,7 @@ module DatadogAPIClient::V1
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => post_body,
+        :body => nil,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -1595,10 +1503,6 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
       # return_type
       return_type = opts[:return_type] || 'UsageTraceResponse' 
 
@@ -1610,7 +1514,7 @@ module DatadogAPIClient::V1
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => post_body,
+        :body => nil,
         :auth_names => auth_names,
         :return_type => return_type
       )
