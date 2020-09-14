@@ -68,6 +68,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"DashboardListsApi.create_dashboard_list",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -130,6 +131,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"DashboardListsApi.delete_dashboard_list",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -192,6 +194,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"DashboardListsApi.get_dashboard_list",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -248,6 +251,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"DashboardListsApi.list_dashboard_lists",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -318,6 +322,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"DashboardListsApi.update_dashboard_list",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,

@@ -72,6 +72,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"UsageMeteringApi.get_daily_custom_reports",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -140,6 +141,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"UsageMeteringApi.get_monthly_custom_reports",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -202,6 +204,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"UsageMeteringApi.get_specified_daily_custom_reports",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -264,6 +267,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"UsageMeteringApi.get_specified_monthly_custom_reports",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -330,6 +334,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"UsageMeteringApi.get_tracing_without_limits",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -396,6 +401,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"UsageMeteringApi.get_usage_analyzed_logs",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -455,6 +461,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"UsageMeteringApi.get_usage_billable_summary",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -521,6 +528,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"UsageMeteringApi.get_usage_fargate",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -587,6 +595,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"UsageMeteringApi.get_usage_hosts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -653,6 +662,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"UsageMeteringApi.get_usage_lambda",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -719,6 +729,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"UsageMeteringApi.get_usage_logs",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -788,6 +799,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"UsageMeteringApi.get_usage_logs_by_index",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -854,6 +866,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"UsageMeteringApi.get_usage_network_flows",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -920,6 +933,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"UsageMeteringApi.get_usage_network_hosts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -986,6 +1000,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"UsageMeteringApi.get_usage_profiling",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1052,6 +1067,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"UsageMeteringApi.get_usage_rum_sessions",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1118,6 +1134,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"UsageMeteringApi.get_usage_snmp",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1187,6 +1204,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"UsageMeteringApi.get_usage_summary",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1253,6 +1271,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"UsageMeteringApi.get_usage_synthetics",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1319,6 +1338,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"UsageMeteringApi.get_usage_synthetics_api",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1385,6 +1405,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"UsageMeteringApi.get_usage_synthetics_browser",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1451,6 +1472,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"UsageMeteringApi.get_usage_timeseries",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1517,6 +1539,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"UsageMeteringApi.get_usage_top_avg_metrics",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1583,6 +1606,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"UsageMeteringApi.get_usage_trace",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,

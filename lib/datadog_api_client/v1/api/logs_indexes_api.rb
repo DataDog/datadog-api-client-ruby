@@ -66,6 +66,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"LogsIndexesApi.get_logs_index",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -122,6 +123,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"LogsIndexesApi.get_logs_index_order",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -178,6 +180,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"LogsIndexesApi.list_log_indexes",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -244,6 +247,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"LogsIndexesApi.update_logs_index",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -304,6 +308,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"LogsIndexesApi.update_logs_index_order",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,

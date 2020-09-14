@@ -67,6 +67,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"ServiceLevelObjectivesApi.check_can_delete_slo",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -131,6 +132,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"ServiceLevelObjectivesApi.create_slo",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -196,6 +198,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"ServiceLevelObjectivesApi.delete_slo",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -260,6 +263,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"ServiceLevelObjectivesApi.delete_slo_timeframe_in_bulk",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -322,6 +326,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"ServiceLevelObjectivesApi.get_slo",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -398,6 +403,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"ServiceLevelObjectivesApi.get_slo_history",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -461,6 +467,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"ServiceLevelObjectivesApi.list_sl_os",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -531,6 +538,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"ServiceLevelObjectivesApi.update_slo",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,

@@ -68,6 +68,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"SyntheticsApi.create_global_variable",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -132,6 +133,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"SyntheticsApi.create_test",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -194,6 +196,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"SyntheticsApi.delete_global_variable",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -258,6 +261,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"SyntheticsApi.delete_tests",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -328,6 +332,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"SyntheticsApi.edit_global_variable",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -399,6 +404,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"SyntheticsApi.get_api_test_latest_results",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -467,6 +473,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"SyntheticsApi.get_api_test_result",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -529,6 +536,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"SyntheticsApi.get_browser_test",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -600,6 +608,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"SyntheticsApi.get_browser_test_latest_results",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -668,6 +677,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"SyntheticsApi.get_browser_test_result",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -730,6 +740,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"SyntheticsApi.get_test",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -786,6 +797,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"SyntheticsApi.list_locations",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -845,6 +857,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"SyntheticsApi.list_tests",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -909,6 +922,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"SyntheticsApi.trigger_ci_tests",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -979,6 +993,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"SyntheticsApi.update_test",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1049,6 +1064,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"SyntheticsApi.update_test_pause_status",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,

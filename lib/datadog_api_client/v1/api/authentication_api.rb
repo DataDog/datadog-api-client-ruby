@@ -60,6 +60,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"AuthenticationApi.validate",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,

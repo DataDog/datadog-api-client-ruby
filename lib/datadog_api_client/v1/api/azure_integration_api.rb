@@ -68,6 +68,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"AzureIntegrationApi.create_azure_integration",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -132,6 +133,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"AzureIntegrationApi.delete_azure_integration",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -188,6 +190,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"AzureIntegrationApi.list_azure_integration",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -252,6 +255,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"AzureIntegrationApi.update_azure_host_filters",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -316,6 +320,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"AzureIntegrationApi.update_azure_integration",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,

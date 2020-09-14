@@ -67,6 +67,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"MonitorsApi.check_can_delete_monitor",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -131,6 +132,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"MonitorsApi.create_monitor",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -196,6 +198,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"MonitorsApi.delete_monitor",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -261,6 +264,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"MonitorsApi.get_monitor",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -345,6 +349,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"MonitorsApi.list_monitors",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -415,6 +420,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"MonitorsApi.update_monitor",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -479,6 +485,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"MonitorsApi.validate_monitor",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,

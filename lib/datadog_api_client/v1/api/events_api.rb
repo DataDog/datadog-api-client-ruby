@@ -66,6 +66,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"EventsApi.get_event",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -148,6 +149,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"EventsApi.list_events",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,

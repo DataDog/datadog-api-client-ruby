@@ -68,6 +68,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"AWSIntegrationApi.create_aws_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -132,6 +133,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"AWSIntegrationApi.create_new_aws_external_id",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -196,6 +198,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"AWSIntegrationApi.delete_aws_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -252,6 +255,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"AWSIntegrationApi.list_available_aws_namespaces",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -317,6 +321,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"AWSIntegrationApi.list_aws_accounts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -390,6 +395,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"AWSIntegrationApi.update_aws_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,

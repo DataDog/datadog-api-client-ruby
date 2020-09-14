@@ -63,6 +63,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"HostsApi.get_host_totals",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -143,6 +144,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"HostsApi.list_hosts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -209,6 +211,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"HostsApi.mute_host",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -271,6 +274,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"HostsApi.unmute_host",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,

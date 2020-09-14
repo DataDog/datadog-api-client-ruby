@@ -68,6 +68,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"PagerDutyIntegrationApi.create_pager_duty_integration_service",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -130,6 +131,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"PagerDutyIntegrationApi.delete_pager_duty_integration_service",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -192,6 +194,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"PagerDutyIntegrationApi.get_pager_duty_integration_service",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -262,6 +265,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"PagerDutyIntegrationApi.update_pager_duty_integration_service",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,

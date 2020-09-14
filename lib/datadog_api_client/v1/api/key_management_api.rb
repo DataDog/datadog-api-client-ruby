@@ -68,6 +68,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"KeyManagementApi.create_api_key",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -132,6 +133,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"KeyManagementApi.create_application_key",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -194,6 +196,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"KeyManagementApi.delete_api_key",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -256,6 +259,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"KeyManagementApi.delete_application_key",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -318,6 +322,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"KeyManagementApi.get_api_key",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -380,6 +385,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"KeyManagementApi.get_application_key",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -436,6 +442,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"KeyManagementApi.list_api_keys",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -492,6 +499,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"KeyManagementApi.list_application_keys",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -562,6 +570,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"KeyManagementApi.update_api_key",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -632,6 +641,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"KeyManagementApi.update_application_key",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
