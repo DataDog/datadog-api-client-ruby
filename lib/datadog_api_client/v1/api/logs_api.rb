@@ -59,7 +59,7 @@ module DatadogAPIClient::V1
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] || @api_client.object_to_http_body(body) 
+      post_body = @api_client.object_to_http_body(body)
 
       # return_type
       return_type = opts[:return_type] || 'LogsListResponse' 

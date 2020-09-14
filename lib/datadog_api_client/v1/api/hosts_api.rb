@@ -52,10 +52,6 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
       # return_type
       return_type = opts[:return_type] || 'HostTotals' 
 
@@ -67,7 +63,7 @@ module DatadogAPIClient::V1
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => post_body,
+        :body => nil,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -133,10 +129,6 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
       # return_type
       return_type = opts[:return_type] || 'HostListResponse' 
 
@@ -148,7 +140,7 @@ module DatadogAPIClient::V1
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => post_body,
+        :body => nil,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -202,7 +194,7 @@ module DatadogAPIClient::V1
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] || @api_client.object_to_http_body(opts[:'body']) 
+      post_body = @api_client.object_to_http_body(opts[:'body'])
 
       # return_type
       return_type = opts[:return_type] || 'HostMuteResponse' 
@@ -263,10 +255,6 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
       # return_type
       return_type = opts[:return_type] || 'HostMuteResponse' 
 
@@ -278,7 +266,7 @@ module DatadogAPIClient::V1
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => post_body,
+        :body => nil,
         :auth_names => auth_names,
         :return_type => return_type
       )
