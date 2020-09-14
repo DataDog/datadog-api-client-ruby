@@ -21,6 +21,18 @@ module DatadogAPIClient::V1
     # Defines url base path
     attr_accessor :base_path
 
+    # Define server configuration index
+    attr_accessor :server_index
+
+    # Define server operation configuration index
+    attr_accessor :server_operation_index
+
+    # Default server variables
+    attr_accessor :server_variables
+
+    # Default server operation variables
+    attr_accessor :server_operation_variables
+
     # Defines API keys used with API Key authentications.
     #
     # @return [Hash] key: parameter name, value: parameter value (API key)
@@ -129,6 +141,10 @@ module DatadogAPIClient::V1
       @scheme = 'https'
       @host = 'api.datadoghq.com'
       @base_path = ''
+      @server_index = 0
+      @server_operation_index = {}
+      @server_variables = {}
+      @server_operation_variables = {}
       @api_key = {}
       @api_key_prefix = {}
       @timeout = 0
@@ -171,8 +187,12 @@ module DatadogAPIClient::V1
       @base_path = '' if @base_path == '/'
     end
 
-    def base_url
-      "#{scheme}://#{[host, base_path].join('/').gsub(/\/+/, '/')}".sub(/\/+\z/, '')
+    # Returns base URL for specified operation based on server settings
+    def base_url(operation = nil)
+      index = server_operation_index.fetch(operation, server_index)
+      return "#{scheme}://#{[host, base_path].join('/').gsub(/\/+/, '/')}".sub(/\/+\z/, '') if index == nil
+
+      server_url(index, server_operation_variables.fetch(operation, server_variables), operation_server_settings[operation])
     end
 
     # Gets API key (with prefix if set).
@@ -262,12 +282,51 @@ module DatadogAPIClient::V1
       ]
     end
 
+    def operation_server_settings
+      {
+        "IPRangesApi.get_ip_ranges": [
+          {
+          url: "https://{subdomain}.{site}",
+          description: "No description provided",
+          variables: {
+            site: {
+                description: "The regional site for our customers.",
+                default_value: "datadoghq.com",
+                enum_values: [
+                  "datadoghq.com",
+                  "datadoghq.eu"
+                ]
+              },
+            subdomain: {
+                description: "The subdomain where the API is deployed.",
+                default_value: "ip-ranges",
+              }
+            }
+          },
+          {
+          url: "{protocol}://{name}",
+          description: "No description provided",
+          variables: {
+            name: {
+                description: "Full site DNS name.",
+                default_value: "ip-ranges.datadoghq.com",
+              },
+            protocol: {
+                description: "The protocol for accessing the API.",
+                default_value: "https",
+              }
+            }
+          }
+        ],
+      }
+    end
+
     # Returns URL based on server settings
     #
     # @param index array index of the server settings
     # @param variables hash of variable and the corresponding value
-    def server_url(index, variables = {})
-      servers = server_settings
+    def server_url(index, variables = {}, servers = nil)
+      servers = server_settings if servers == nil
 
       # check array index out of bound
       if (index < 0 || index >= servers.size)

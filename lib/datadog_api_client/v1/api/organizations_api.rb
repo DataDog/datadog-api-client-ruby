@@ -68,6 +68,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"OrganizationsApi.create_child_org",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -130,6 +131,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"OrganizationsApi.get_org",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -186,6 +188,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"OrganizationsApi.list_orgs",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -256,6 +259,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"OrganizationsApi.update_org",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -327,6 +331,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"OrganizationsApi.upload_id_p_for_org",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,

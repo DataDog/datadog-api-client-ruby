@@ -68,6 +68,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"AWSLogsIntegrationApi.check_aws_logs_lambda_async",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -132,6 +133,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"AWSLogsIntegrationApi.check_aws_logs_services_async",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -196,6 +198,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"AWSLogsIntegrationApi.create_aws_lambda_arn",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -260,6 +263,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"AWSLogsIntegrationApi.delete_aws_lambda_arn",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -324,6 +328,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"AWSLogsIntegrationApi.enable_aws_log_services",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -380,6 +385,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"AWSLogsIntegrationApi.list_aws_logs_integrations",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -436,6 +442,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"AWSLogsIntegrationApi.list_aws_logs_services",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,

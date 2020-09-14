@@ -60,6 +60,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || []
 
       new_options = opts.merge(
+        :operation => :"IPRangesApi.get_ip_ranges",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,

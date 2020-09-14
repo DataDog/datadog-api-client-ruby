@@ -66,6 +66,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"MetricsApi.get_metric_metadata",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -132,6 +133,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"MetricsApi.list_active_metrics",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -195,6 +197,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"MetricsApi.list_metrics",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -272,6 +275,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"MetricsApi.query_metrics",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -342,6 +346,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"MetricsApi.update_metric_metadata",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,

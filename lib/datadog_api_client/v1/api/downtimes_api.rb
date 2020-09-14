@@ -66,6 +66,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"DowntimesApi.cancel_downtime",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -130,6 +131,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"DowntimesApi.cancel_downtimes_by_scope",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -194,6 +196,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"DowntimesApi.create_downtime",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -256,6 +259,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"DowntimesApi.get_downtime",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -315,6 +319,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"DowntimesApi.list_downtimes",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -385,6 +390,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"DowntimesApi.update_downtime",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,

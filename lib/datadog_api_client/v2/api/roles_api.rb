@@ -70,6 +70,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"RolesApi.add_permission_to_role",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -136,6 +137,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"RolesApi.add_user_to_role",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -196,6 +198,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"RolesApi.create_role",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -258,6 +261,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"RolesApi.delete_role",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -320,6 +324,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"RolesApi.get_role",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -376,6 +381,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"RolesApi.list_permissions",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -438,6 +444,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"RolesApi.list_role_permissions",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -512,6 +519,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"RolesApi.list_role_users",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -580,6 +588,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"RolesApi.list_roles",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -646,6 +655,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"RolesApi.remove_permission_from_role",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -712,6 +722,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"RolesApi.remove_user_from_role",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -778,6 +789,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"RolesApi.update_role",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,

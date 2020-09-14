@@ -68,6 +68,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"UsersApi.create_user",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -130,6 +131,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"UsersApi.disable_user",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -192,6 +194,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"UsersApi.get_user",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -248,6 +251,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"UsersApi.list_users",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -318,6 +322,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"UsersApi.update_user",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,

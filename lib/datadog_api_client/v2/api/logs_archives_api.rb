@@ -70,6 +70,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"LogsArchivesApi.add_read_role_to_archive",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -134,6 +135,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"LogsArchivesApi.create_logs_archive",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -196,6 +198,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"LogsArchivesApi.delete_logs_archive",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -258,6 +261,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"LogsArchivesApi.get_logs_archive",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -320,6 +324,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"LogsArchivesApi.list_archive_read_roles",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -376,6 +381,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"LogsArchivesApi.list_logs_archives",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -442,6 +448,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"LogsArchivesApi.remove_role_from_archive",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -512,6 +519,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"LogsArchivesApi.update_logs_archive",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,

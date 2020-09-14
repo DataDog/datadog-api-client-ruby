@@ -68,6 +68,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"LogsPipelinesApi.create_logs_pipeline",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -130,6 +131,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"LogsPipelinesApi.delete_logs_pipeline",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -192,6 +194,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"LogsPipelinesApi.get_logs_pipeline",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -248,6 +251,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"LogsPipelinesApi.get_logs_pipeline_order",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -304,6 +308,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"LogsPipelinesApi.list_logs_pipelines",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -374,6 +379,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"LogsPipelinesApi.update_logs_pipeline",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -438,6 +444,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"LogsPipelinesApi.update_logs_pipeline_order",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,

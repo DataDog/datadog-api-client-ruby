@@ -68,6 +68,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"LogsApi.list_logs",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,

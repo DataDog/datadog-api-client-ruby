@@ -64,6 +64,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"SecurityMonitoringApi.create_security_monitoring_rule",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -126,6 +127,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"SecurityMonitoringApi.delete_security_monitoring_rule",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -188,6 +190,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"SecurityMonitoringApi.get_security_monitoring_rule",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -250,6 +253,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"SecurityMonitoringApi.list_security_monitoring_rules",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -328,6 +332,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"SecurityMonitoringApi.list_security_monitoring_signals",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -388,6 +393,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"SecurityMonitoringApi.search_security_monitoring_signals",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -454,6 +460,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
+        :operation => :"SecurityMonitoringApi.update_security_monitoring_rule",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
