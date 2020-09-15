@@ -15,11 +15,16 @@ require 'date'
 module DatadogAPIClient::V2
   # Query for matching rule.
   class SecurityMonitoringRuleQueryCreate
+    attr_accessor :aggregation
+
     # Field for which the cardinality is measured. Sent as an array.
     attr_accessor :distinct_fields
 
     # Fields to group by.
     attr_accessor :group_by_fields
+
+    # The target field to aggregate over when using the sum or max aggregations.
+    attr_accessor :metric
 
     # Name of the query.
     attr_accessor :name
@@ -30,8 +35,10 @@ module DatadogAPIClient::V2
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'aggregation' => :'aggregation',
         :'distinct_fields' => :'distinctFields',
         :'group_by_fields' => :'groupByFields',
+        :'metric' => :'metric',
         :'name' => :'name',
         :'query' => :'query'
       }
@@ -40,8 +47,10 @@ module DatadogAPIClient::V2
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'aggregation' => :'SecurityMonitoringRuleQueryAggregation',
         :'distinct_fields' => :'Array<String>',
         :'group_by_fields' => :'Array<String>',
+        :'metric' => :'String',
         :'name' => :'String',
         :'query' => :'String'
       }
@@ -68,6 +77,10 @@ module DatadogAPIClient::V2
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'aggregation')
+        self.aggregation = attributes[:'aggregation']
+      end
+
       if attributes.key?(:'distinct_fields')
         if (value = attributes[:'distinct_fields']).is_a?(Array)
           self.distinct_fields = value
@@ -78,6 +91,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'group_by_fields']).is_a?(Array)
           self.group_by_fields = value
         end
+      end
+
+      if attributes.key?(:'metric')
+        self.metric = attributes[:'metric']
       end
 
       if attributes.key?(:'name')
@@ -112,8 +129,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          aggregation == o.aggregation &&
           distinct_fields == o.distinct_fields &&
           group_by_fields == o.group_by_fields &&
+          metric == o.metric &&
           name == o.name &&
           query == o.query
     end
@@ -127,7 +146,7 @@ module DatadogAPIClient::V2
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [distinct_fields, group_by_fields, name, query].hash
+      [aggregation, distinct_fields, group_by_fields, metric, name, query].hash
     end
 
     # Builds the object from hash
