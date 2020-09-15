@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gemspec
 
 group :development, :test do
+  gem 'codecov'
   gem 'cucumber'
   gem 'ddtrace'
   gem 'rake', '~> 13.0.1'

@@ -46,7 +46,9 @@ jobs:
   services:
     datadog-agent: datadog-agent
   steps:
-    - script: ./run-tests.sh
+    - script: |
+        bundle install
+        ./run-tests.sh
       displayName: Run integration tests
       env:
         CI: "true"

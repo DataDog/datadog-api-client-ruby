@@ -5,7 +5,8 @@ require 'timecop'
 require 'vcr'
 
 Datadog.configure do |c|
-  # c.use :action_cable, options
+  c.service = 'datadog-api-client-ruby'
+  c.analytics_enabled = true
 end
 
 module RecordMode
@@ -33,4 +34,9 @@ VCR.configure do |config|
     i.request.headers.delete('Dd-Application-Key')
     # TODO verify we don't store api_key and application_key as query params
   end
+end
+
+if ENV['CI'] == 'true'
+  require 'codecov'
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
 end
