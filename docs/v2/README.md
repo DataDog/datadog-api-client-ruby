@@ -215,6 +215,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::SecurityMonitoringRuleMaxSignalDuration](docs/SecurityMonitoringRuleMaxSignalDuration.md)
  - [DatadogAPIClient::V2::SecurityMonitoringRuleOptions](docs/SecurityMonitoringRuleOptions.md)
  - [DatadogAPIClient::V2::SecurityMonitoringRuleQuery](docs/SecurityMonitoringRuleQuery.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringRuleQueryAggregation](docs/SecurityMonitoringRuleQueryAggregation.md)
  - [DatadogAPIClient::V2::SecurityMonitoringRuleQueryCreate](docs/SecurityMonitoringRuleQueryCreate.md)
  - [DatadogAPIClient::V2::SecurityMonitoringRuleResponse](docs/SecurityMonitoringRuleResponse.md)
  - [DatadogAPIClient::V2::SecurityMonitoringRuleSeverity](docs/SecurityMonitoringRuleSeverity.md)

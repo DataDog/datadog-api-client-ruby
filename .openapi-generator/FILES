@@ -86,6 +86,7 @@ docs/SecurityMonitoringRuleKeepAlive.md
 docs/SecurityMonitoringRuleMaxSignalDuration.md
 docs/SecurityMonitoringRuleOptions.md
 docs/SecurityMonitoringRuleQuery.md
+docs/SecurityMonitoringRuleQueryAggregation.md
 docs/SecurityMonitoringRuleQueryCreate.md
 docs/SecurityMonitoringRuleResponse.md
 docs/SecurityMonitoringRuleSeverity.md
@@ -215,6 +216,7 @@ lib/datadog_api_client/v2/models/security_monitoring_rule_keep_alive.rb
 lib/datadog_api_client/v2/models/security_monitoring_rule_max_signal_duration.rb
 lib/datadog_api_client/v2/models/security_monitoring_rule_options.rb
 lib/datadog_api_client/v2/models/security_monitoring_rule_query.rb
+lib/datadog_api_client/v2/models/security_monitoring_rule_query_aggregation.rb
 lib/datadog_api_client/v2/models/security_monitoring_rule_query_create.rb
 lib/datadog_api_client/v2/models/security_monitoring_rule_response.rb
 lib/datadog_api_client/v2/models/security_monitoring_rule_severity.rb
@@ -340,6 +342,7 @@ spec/models/security_monitoring_rule_evaluation_window_spec.rb
 spec/models/security_monitoring_rule_keep_alive_spec.rb
 spec/models/security_monitoring_rule_max_signal_duration_spec.rb
 spec/models/security_monitoring_rule_options_spec.rb
+spec/models/security_monitoring_rule_query_aggregation_spec.rb
 spec/models/security_monitoring_rule_query_create_spec.rb
 spec/models/security_monitoring_rule_query_spec.rb
 spec/models/security_monitoring_rule_response_spec.rb
