@@ -46,8 +46,6 @@ jobs:
       uses: actions/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby-version }}
-    - name: Install
-      run: bundle install
     - name: Test
       run: ./run-tests.sh
       shell: bash
