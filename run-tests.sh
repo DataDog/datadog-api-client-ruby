@@ -6,6 +6,7 @@ function finish {
 }
 trap finish EXIT
 
+bundle install
 bundle exec cucumber -t 'not @skip' -f rerun -o rerun.txt -f pretty
 RESULT=$?
 if [ "$RERECORD_FAILED_TESTS" == "true" -a "$RESULT" -ne 0 ]; then
