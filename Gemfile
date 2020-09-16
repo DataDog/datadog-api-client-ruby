@@ -8,7 +8,7 @@ group :development, :test do
   gem 'codecov'
   gem 'cucumber'
   # gem 'ddtrace'
-  gem 'ddtrace', git: 'https://github.com/datadog/dd-trace-rb', branch: 'soulcutter-monotonic_clock'
+  gem 'ddtrace', git: 'https://github.com/datadog/dd-trace-rb', branch: 'timecop_extension'
   gem 'rake', '~> 13.0.1'
   gem 'pry-byebug'
   gem 'vcr'
