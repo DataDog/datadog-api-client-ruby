@@ -4,9 +4,11 @@ module APIWorld
   end
 
   def unique
-    now = Time.now
-    scenario_name = @scenario.name.gsub(/[^A-Za-z0-9]+/, '-')[0..100]
-    @unique ||= "ruby-#{scenario_name}-#{now.to_i}"
+    Timecop.freeze(@cassette.originally_recorded_at || Time.now) do
+      now = Time.now
+      scenario_name = @scenario.name.gsub(/[^A-Za-z0-9]+/, '-')[0..100]
+      @unique ||= "ruby-#{scenario_name}-#{now.to_i}"
+    end
   end
 
   def fixtures
