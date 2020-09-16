@@ -34,7 +34,7 @@ module DatadogAPIClient::V1
     # Query to use for the test.
     attr_accessor :query
 
-    # Timeout in millisecond for the test.
+    # Timeout in seconds for the test.
     attr_accessor :timeout
 
     # URL to perform the test with.

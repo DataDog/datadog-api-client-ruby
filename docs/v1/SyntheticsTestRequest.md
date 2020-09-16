@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **method** | [**HTTPMethod**](HTTPMethod.md) |  | [optional] 
 **port** | **Integer** | Port to use when performing the test. | [optional] 
 **query** | **Object** | Query to use for the test. | [optional] 
-**timeout** | **Float** | Timeout in millisecond for the test. | [optional] 
+**timeout** | **Float** | Timeout in seconds for the test. | [optional] 
 **url** | **String** | URL to perform the test with. | [optional] 
 
 ## Code Sample
