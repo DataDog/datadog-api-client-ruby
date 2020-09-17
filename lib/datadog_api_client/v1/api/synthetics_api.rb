@@ -781,20 +781,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get a list of tests
-    # Get the list of all Synthetic tests (can be filtered by type).
+    # Get the list of all tests
+    # Get the list of all Synthetic tests.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :check_type API or browser to filter the list by test type, undefined to get the unfiltered list.
     # @return [SyntheticsListTestsResponse]
     def list_tests(opts = {})
       data, _status_code, _headers = list_tests_with_http_info(opts)
       data
     end
 
-    # Get a list of tests
-    # Get the list of all Synthetic tests (can be filtered by type).
+    # Get the list of all tests
+    # Get the list of all Synthetic tests.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :check_type API or browser to filter the list by test type, undefined to get the unfiltered list.
     # @return [Array<(SyntheticsListTestsResponse, Integer, Hash)>] SyntheticsListTestsResponse data, response status code and response headers
     def list_tests_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -805,7 +803,6 @@ module DatadogAPIClient::V1
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'check_type'] = opts[:'check_type'] if !opts[:'check_type'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

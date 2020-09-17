@@ -16,7 +16,7 @@ Method | HTTP request | Description
 [**get_browser_test_result**](SyntheticsApi.md#get_browser_test_result) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results/{result_id} | Get a test result (browser)
 [**get_test**](SyntheticsApi.md#get_test) | **GET** /api/v1/synthetics/tests/{public_id} | Get a test configuration (API)
 [**list_locations**](SyntheticsApi.md#list_locations) | **GET** /api/v1/synthetics/locations | Get all locations (public and private)
-[**list_tests**](SyntheticsApi.md#list_tests) | **GET** /api/v1/synthetics/tests | Get a list of tests
+[**list_tests**](SyntheticsApi.md#list_tests) | **GET** /api/v1/synthetics/tests | Get the list of all tests
 [**trigger_ci_tests**](SyntheticsApi.md#trigger_ci_tests) | **POST** /api/v1/synthetics/tests/trigger/ci | Trigger some Synthetics tests for CI
 [**update_test**](SyntheticsApi.md#update_test) | **PUT** /api/v1/synthetics/tests/{public_id} | Edit a test
 [**update_test_pause_status**](SyntheticsApi.md#update_test_pause_status) | **PUT** /api/v1/synthetics/tests/{public_id}/status | Pause or start a test
@@ -750,11 +750,11 @@ This endpoint does not need any parameter.
 
 ## list_tests
 
-> SyntheticsListTestsResponse list_tests(opts)
+> SyntheticsListTestsResponse list_tests
 
-Get a list of tests
+Get the list of all tests
 
-Get the list of all Synthetic tests (can be filtered by type).
+Get the list of all Synthetic tests.
 
 ### Example
 
@@ -775,13 +775,10 @@ DatadogAPIClient::V1.configure do |config|
 end
 
 api_instance = DatadogAPIClient::V1::SyntheticsApi.new
-opts = {
-  check_type: 'check_type_example' # String | API or browser to filter the list by test type, undefined to get the unfiltered list.
-}
 
 begin
-  #Get a list of tests
-  result = api_instance.list_tests(opts)
+  #Get the list of all tests
+  result = api_instance.list_tests
   p result
 rescue DatadogAPIClient::V1::ApiError => e
   puts "Exception when calling SyntheticsApi->list_tests: #{e}"
@@ -790,10 +787,7 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **check_type** | **String**| API or browser to filter the list by test type, undefined to get the unfiltered list. | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 

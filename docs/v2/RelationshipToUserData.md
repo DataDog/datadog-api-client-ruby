@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | ID of the user. | [optional] 
-**type** | **String** | Users type. | [optional] [readonly] [default to &#39;users&#39;]
+**id** | **String** | ID of the user. | 
+**type** | [**UsersType**](UsersType.md) |  | 
 
 ## Code Sample
 
