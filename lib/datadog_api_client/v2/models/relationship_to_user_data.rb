@@ -18,7 +18,6 @@ module DatadogAPIClient::V2
     # ID of the user.
     attr_accessor :id
 
-    # Users type.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -33,7 +32,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'id' => :'String',
-        :'type' => :'String'
+        :'type' => :'UsersType'
       }
     end
 
@@ -64,8 +63,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
-      else
-        self.type = 'users'
       end
     end
 
@@ -73,12 +70,22 @@ module DatadogAPIClient::V2
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @id.nil?
+        invalid_properties.push('invalid value for "id", id cannot be nil.')
+      end
+
+      if @type.nil?
+        invalid_properties.push('invalid value for "type", type cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @id.nil?
+      return false if @type.nil?
       true
     end
 
