@@ -1,0 +1,111 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.datadoghq.com/api/v2/services
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"ruby-Get-details-of-a-service-returns-OK-response-1600684078"},"type":"services"}}'
+    headers:
+      User-Agent:
+      - OpenAPI-Generator/0.1.0/ruby
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Mon, 21 Sep 2020 10:27:59 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '920'
+      Connection:
+      - keep-alive
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      Set-Cookie:
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 28-Sep-2020 10:27:58 GMT;
+        secure; HttpOnly
+      X-Dd-Version:
+      - '35.3066091'
+      X-Dd-Debug:
+      - Rk64tCoF3V07+a4szeABxTtZIJ+mXpZWikk4VsgNuvqwu3MpGXqLHxCVHOt9N39v
+      Dd-Pool:
+      - dogweb
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+    body:
+      encoding: UTF-8
+      string: '{"included":[{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0","attributes":{"name":null,"handle":"frog@datadoghq.com","created_at":"2019-10-02T08:15:39.795051+00:00","email":"frog@datadoghq.com","icon":"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro","title":null,"verified":true,"disabled":false,"allowed_login_methods":[],"status":"Active"},"relationships":{"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}],"data":{"type":"services","id":"5c89da73-2435-5342-84b8-f156b04ce0b9","attributes":{"name":"ruby-Get-details-of-a-service-returns-OK-response-1600684078","created":"2020-09-21T10:27:59.005937+00:00","modified":"2020-09-21T10:27:59.005937+00:00"},"relationships":{"last_modified_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}},"created_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}}}}}'
+  recorded_at: Mon, 21 Sep 2020 10:27:58 GMT
+- request:
+    method: get
+    uri: https://api.datadoghq.com/api/v2/services/5c89da73-2435-5342-84b8-f156b04ce0b9
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - OpenAPI-Generator/0.1.0/ruby
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 21 Sep 2020 10:27:59 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '438'
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      Set-Cookie:
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 28-Sep-2020 10:27:59 GMT;
+        secure; HttpOnly
+      X-Dd-Version:
+      - '35.3066091'
+      X-Dd-Debug:
+      - CEeLq0Go7dWGJU+fr2n+CYAUDbVj0m8JNtbW3olNX1v3toKEuyF2ucrViqaycHWr
+      Dd-Pool:
+      - dogweb
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"services","id":"5c89da73-2435-5342-84b8-f156b04ce0b9","attributes":{"name":"ruby-Get-details-of-a-service-returns-OK-response-1600684078","created":"2020-09-21T10:27:59.005937+00:00","modified":"2020-09-21T10:27:59.005937+00:00"},"relationships":{"last_modified_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}},"created_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}}}}}'
+  recorded_at: Mon, 21 Sep 2020 10:27:58 GMT
+recorded_with: VCR 6.0.0
