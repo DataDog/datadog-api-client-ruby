@@ -166,6 +166,10 @@ Given(/^request contains "([^"]+)" parameter from "([^"]+)"$/) do |parameter_nam
   opts[parameter_name.to_sym] = fixtures.lookup(fixture_path)
 end
 
+Given(/^request contains "([^"]+)" parameter with value (.+)$/) do |parameter_name, value|
+  opts[parameter_name.snakecase.to_sym] = JSON.parse(value.templated fixtures)
+end
+
 Given(/^new "([^"]+)" request$/) do |name|
   @api_method = @api_instance.method("#{name.underscore}_with_http_info".to_sym)
 end
