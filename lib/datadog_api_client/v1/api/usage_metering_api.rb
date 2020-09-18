@@ -961,6 +961,7 @@ module DatadogAPIClient::V1
     # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
     # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+    # @option opts [String] :type RUM type: &#x60;[browser, mobile]&#x60;. Defaults to &#x60;browser&#x60;.
     # @return [UsageRumSessionsResponse]
     def get_usage_rum_sessions(start_hr, opts = {})
       data, _status_code, _headers = get_usage_rum_sessions_with_http_info(start_hr, opts)
@@ -972,6 +973,7 @@ module DatadogAPIClient::V1
     # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
     # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+    # @option opts [String] :type RUM type: &#x60;[browser, mobile]&#x60;. Defaults to &#x60;browser&#x60;.
     # @return [Array<(UsageRumSessionsResponse, Integer, Hash)>] UsageRumSessionsResponse data, response status code and response headers
     def get_usage_rum_sessions_with_http_info(start_hr, opts = {})
       if @api_client.config.debugging
@@ -988,6 +990,7 @@ module DatadogAPIClient::V1
       query_params = opts[:query_params] || {}
       query_params[:'start_hr'] = start_hr
       query_params[:'end_hr'] = opts[:'end_hr'] if !opts[:'end_hr'].nil?
+      query_params[:'type'] = opts[:'type'] if !opts[:'type'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
