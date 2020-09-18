@@ -1005,7 +1005,8 @@ end
 api_instance = DatadogAPIClient::V1::UsageMeteringApi.new
 start_hr = DateTime.parse('2013-10-20T19:20:30+01:00') # DateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
 opts = {
-  end_hr: DateTime.parse('2013-10-20T19:20:30+01:00') # DateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+  end_hr: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+  type: 'type_example' # String | RUM type: `[browser, mobile]`. Defaults to `browser`.
 }
 
 begin
@@ -1024,6 +1025,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start_hr** | **DateTime**| Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. | 
  **end_hr** | **DateTime**| Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] 
+ **type** | **String**| RUM type: &#x60;[browser, mobile]&#x60;. Defaults to &#x60;browser&#x60;. | [optional] 
 
 ### Return type
 

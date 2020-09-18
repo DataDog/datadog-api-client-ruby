@@ -66,6 +66,9 @@ module DatadogAPIClient::V1
     # Shows the sum of all log bytes ingested over all hours in the current date for all organizations.
     attr_accessor :ingested_events_bytes_sum
 
+    # Shows the sum of all mobile RUM Sessions over all hours in the current date for all organizations
+    attr_accessor :mobile_rum_session_count_sum
+
     # Shows the sum of all Network flows indexed over all hours in the current date for all organizations.
     attr_accessor :netflow_indexed_events_count_sum
 
@@ -78,7 +81,7 @@ module DatadogAPIClient::V1
     # Shows the 99th percentile of all profiled hosts over all hours in the current date for all organizations.
     attr_accessor :profiling_host_top99p
 
-    # Shows the sum of all RUM Sessions over all hours in the current date for all organizations
+    # Shows the sum of all browser RUM Sessions over all hours in the current date for all organizations
     attr_accessor :rum_session_count_sum
 
     # Shows the sum of all Synthetic browser tests over all hours in the current date for all organizations.
@@ -113,6 +116,7 @@ module DatadogAPIClient::V1
         :'indexed_events_count_sum' => :'indexed_events_count_sum',
         :'infra_host_top99p' => :'infra_host_top99p',
         :'ingested_events_bytes_sum' => :'ingested_events_bytes_sum',
+        :'mobile_rum_session_count_sum' => :'mobile_rum_session_count_sum',
         :'netflow_indexed_events_count_sum' => :'netflow_indexed_events_count_sum',
         :'npm_host_top99p' => :'npm_host_top99p',
         :'orgs' => :'orgs',
@@ -145,6 +149,7 @@ module DatadogAPIClient::V1
         :'indexed_events_count_sum' => :'Integer',
         :'infra_host_top99p' => :'Integer',
         :'ingested_events_bytes_sum' => :'Integer',
+        :'mobile_rum_session_count_sum' => :'Integer',
         :'netflow_indexed_events_count_sum' => :'Integer',
         :'npm_host_top99p' => :'Integer',
         :'orgs' => :'Array<UsageSummaryDateOrg>',
@@ -246,6 +251,10 @@ module DatadogAPIClient::V1
         self.ingested_events_bytes_sum = attributes[:'ingested_events_bytes_sum']
       end
 
+      if attributes.key?(:'mobile_rum_session_count_sum')
+        self.mobile_rum_session_count_sum = attributes[:'mobile_rum_session_count_sum']
+      end
+
       if attributes.key?(:'netflow_indexed_events_count_sum')
         self.netflow_indexed_events_count_sum = attributes[:'netflow_indexed_events_count_sum']
       end
@@ -320,6 +329,7 @@ module DatadogAPIClient::V1
           indexed_events_count_sum == o.indexed_events_count_sum &&
           infra_host_top99p == o.infra_host_top99p &&
           ingested_events_bytes_sum == o.ingested_events_bytes_sum &&
+          mobile_rum_session_count_sum == o.mobile_rum_session_count_sum &&
           netflow_indexed_events_count_sum == o.netflow_indexed_events_count_sum &&
           npm_host_top99p == o.npm_host_top99p &&
           orgs == o.orgs &&
@@ -340,7 +350,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_host_top99p, apm_host_top99p, aws_host_top99p, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p, billable_ingested_bytes_sum, container_avg, container_hwm, custom_ts_avg, date, fargate_tasks_count_avg, fargate_tasks_count_hwm, gcp_host_top99p, indexed_events_count_sum, infra_host_top99p, ingested_events_bytes_sum, netflow_indexed_events_count_sum, npm_host_top99p, orgs, profiling_host_top99p, rum_session_count_sum, synthetics_browser_check_calls_count_sum, synthetics_check_calls_count_sum, trace_search_indexed_events_count_sum, twol_ingested_events_bytes_sum].hash
+      [agent_host_top99p, apm_host_top99p, aws_host_top99p, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p, billable_ingested_bytes_sum, container_avg, container_hwm, custom_ts_avg, date, fargate_tasks_count_avg, fargate_tasks_count_hwm, gcp_host_top99p, indexed_events_count_sum, infra_host_top99p, ingested_events_bytes_sum, mobile_rum_session_count_sum, netflow_indexed_events_count_sum, npm_host_top99p, orgs, profiling_host_top99p, rum_session_count_sum, synthetics_browser_check_calls_count_sum, synthetics_check_calls_count_sum, trace_search_indexed_events_count_sum, twol_ingested_events_bytes_sum].hash
     end
 
     # Builds the object from hash
