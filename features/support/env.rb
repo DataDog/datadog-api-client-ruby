@@ -39,6 +39,11 @@ VCR.configure do |c|
     i.request.headers.delete('Dd-Application-Key')
     # TODO verify we don't store api_key and application_key as query params
   end
+
+  c.ignore_request do |request|
+    # Ignore traces
+    request.headers.key? :'Datadog-Meta-Tracer-Version'
+  end
 end
 
 if ENV['CI'] == 'true'
