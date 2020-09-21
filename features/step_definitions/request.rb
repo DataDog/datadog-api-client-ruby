@@ -59,6 +59,44 @@ module APIWorld
     api_instance.delete_role(response[0].data.id)
   end
 
+  def create_service
+    api_instance = DatadogAPIClient::V2::ServicesApi.new
+
+    service_create_request = DatadogAPIClient::V2::ServiceCreateRequest.new
+    service_create_request.data = DatadogAPIClient::V2::ServiceCreateData.new
+    service_create_request.data.type = "services"
+    service_create_request.data.attributes = DatadogAPIClient::V2::ServiceCreateAttributes.new
+    service_create_request.data.attributes.name = unique
+
+    response = api_instance.create_service_with_http_info(service_create_request)
+    @undo << lambda { undo_create_service(response) }
+    response[0]
+  end
+
+  def undo_create_service(response)
+    api_instance = DatadogAPIClient::V2::ServicesApi.new
+    api_instance.delete_service(response[0].data.id)
+  end
+
+  def create_team
+    api_instance = DatadogAPIClient::V2::TeamsApi.new
+
+    team_create_request = DatadogAPIClient::V2::TeamCreateRequest.new
+    team_create_request.data = DatadogAPIClient::V2::TeamCreateData.new
+    team_create_request.data.type = "teams"
+    team_create_request.data.attributes = DatadogAPIClient::V2::TeamCreateAttributes.new
+    team_create_request.data.attributes.name = unique
+
+    response = api_instance.create_team_with_http_info(team_create_request)
+    @undo << lambda { undo_create_team(response) }
+    response[0]
+  end
+
+  def undo_create_team(response)
+    api_instance = DatadogAPIClient::V2::TeamsApi.new
+    api_instance.delete_team(response[0].data.id)
+  end
+
   def create_permission
     api_instance = DatadogAPIClient::V2::RolesApi.new
 
@@ -104,6 +142,10 @@ end
 Given(/^an instance of "([^"]+)" API$/) do |api_name|
   api.configure.debugging = ENV["DEBUG"].present?
   @api_instance = api.const_get("#{api_name}Api").new
+end
+
+Given('operation {string} enabled') do |name|
+  log "TODO enable #{name.underscore}"
 end
 
 Given(/^body (.*)$/) do |body|

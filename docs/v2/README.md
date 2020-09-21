@@ -121,6 +121,16 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V2::SecurityMonitoringApi* | [**list_security_monitoring_signals**](docs/SecurityMonitoringApi.md#list_security_monitoring_signals) | **GET** /api/v2/security_monitoring/signals | Get a quick list of security signals
 *DatadogAPIClient::V2::SecurityMonitoringApi* | [**search_security_monitoring_signals**](docs/SecurityMonitoringApi.md#search_security_monitoring_signals) | **POST** /api/v2/security_monitoring/signals/search | Get a list of security signals
 *DatadogAPIClient::V2::SecurityMonitoringApi* | [**update_security_monitoring_rule**](docs/SecurityMonitoringApi.md#update_security_monitoring_rule) | **PUT** /api/v2/security_monitoring/rules/{rule_id} | Update an existing rule
+*DatadogAPIClient::V2::ServicesApi* | [**create_service**](docs/ServicesApi.md#create_service) | **POST** /api/v2/services | Create a new service
+*DatadogAPIClient::V2::ServicesApi* | [**delete_service**](docs/ServicesApi.md#delete_service) | **DELETE** /api/v2/services/{service_id} | Delete an existing service
+*DatadogAPIClient::V2::ServicesApi* | [**get_service**](docs/ServicesApi.md#get_service) | **GET** /api/v2/services/{service_id} | Get details of a service
+*DatadogAPIClient::V2::ServicesApi* | [**get_services**](docs/ServicesApi.md#get_services) | **GET** /api/v2/services | Get a list of all services
+*DatadogAPIClient::V2::ServicesApi* | [**update_service**](docs/ServicesApi.md#update_service) | **PATCH** /api/v2/services/{service_id} | Update an existing service
+*DatadogAPIClient::V2::TeamsApi* | [**create_team**](docs/TeamsApi.md#create_team) | **POST** /api/v2/teams | Create a new team
+*DatadogAPIClient::V2::TeamsApi* | [**delete_team**](docs/TeamsApi.md#delete_team) | **DELETE** /api/v2/teams/{team_id} | Delete an existing team
+*DatadogAPIClient::V2::TeamsApi* | [**get_team**](docs/TeamsApi.md#get_team) | **GET** /api/v2/teams/{team_id} | Get details of a team
+*DatadogAPIClient::V2::TeamsApi* | [**get_teams**](docs/TeamsApi.md#get_teams) | **GET** /api/v2/teams | Get a list of all teams
+*DatadogAPIClient::V2::TeamsApi* | [**update_team**](docs/TeamsApi.md#update_team) | **PATCH** /api/v2/teams/{team_id} | Update an existing team
 *DatadogAPIClient::V2::UsersApi* | [**create_user**](docs/UsersApi.md#create_user) | **POST** /api/v2/users | Create a user
 *DatadogAPIClient::V2::UsersApi* | [**disable_user**](docs/UsersApi.md#disable_user) | **DELETE** /api/v2/users/{user_id} | Disable a user
 *DatadogAPIClient::V2::UsersApi* | [**get_invitation**](docs/UsersApi.md#get_invitation) | **GET** /api/v2/user_invitations/{user_invitation_uuid} | Get a user invitation
@@ -231,6 +241,34 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::SecurityMonitoringSignalsListResponseMeta](docs/SecurityMonitoringSignalsListResponseMeta.md)
  - [DatadogAPIClient::V2::SecurityMonitoringSignalsListResponseMetaPage](docs/SecurityMonitoringSignalsListResponseMetaPage.md)
  - [DatadogAPIClient::V2::SecurityMonitoringSignalsSort](docs/SecurityMonitoringSignalsSort.md)
+ - [DatadogAPIClient::V2::ServiceCreateAttributes](docs/ServiceCreateAttributes.md)
+ - [DatadogAPIClient::V2::ServiceCreateData](docs/ServiceCreateData.md)
+ - [DatadogAPIClient::V2::ServiceCreateRequest](docs/ServiceCreateRequest.md)
+ - [DatadogAPIClient::V2::ServiceIncludedItems](docs/ServiceIncludedItems.md)
+ - [DatadogAPIClient::V2::ServiceRelationships](docs/ServiceRelationships.md)
+ - [DatadogAPIClient::V2::ServiceResponse](docs/ServiceResponse.md)
+ - [DatadogAPIClient::V2::ServiceResponseAttributes](docs/ServiceResponseAttributes.md)
+ - [DatadogAPIClient::V2::ServiceResponseData](docs/ServiceResponseData.md)
+ - [DatadogAPIClient::V2::ServiceType](docs/ServiceType.md)
+ - [DatadogAPIClient::V2::ServiceUpdateAttributes](docs/ServiceUpdateAttributes.md)
+ - [DatadogAPIClient::V2::ServiceUpdateData](docs/ServiceUpdateData.md)
+ - [DatadogAPIClient::V2::ServiceUpdateRequest](docs/ServiceUpdateRequest.md)
+ - [DatadogAPIClient::V2::ServicesResponse](docs/ServicesResponse.md)
+ - [DatadogAPIClient::V2::ServicesResponseMeta](docs/ServicesResponseMeta.md)
+ - [DatadogAPIClient::V2::ServicesResponseMetaPagination](docs/ServicesResponseMetaPagination.md)
+ - [DatadogAPIClient::V2::TeamCreateAttributes](docs/TeamCreateAttributes.md)
+ - [DatadogAPIClient::V2::TeamCreateData](docs/TeamCreateData.md)
+ - [DatadogAPIClient::V2::TeamCreateRequest](docs/TeamCreateRequest.md)
+ - [DatadogAPIClient::V2::TeamIncludedItems](docs/TeamIncludedItems.md)
+ - [DatadogAPIClient::V2::TeamRelationships](docs/TeamRelationships.md)
+ - [DatadogAPIClient::V2::TeamResponse](docs/TeamResponse.md)
+ - [DatadogAPIClient::V2::TeamResponseAttributes](docs/TeamResponseAttributes.md)
+ - [DatadogAPIClient::V2::TeamResponseData](docs/TeamResponseData.md)
+ - [DatadogAPIClient::V2::TeamType](docs/TeamType.md)
+ - [DatadogAPIClient::V2::TeamUpdateAttributes](docs/TeamUpdateAttributes.md)
+ - [DatadogAPIClient::V2::TeamUpdateData](docs/TeamUpdateData.md)
+ - [DatadogAPIClient::V2::TeamUpdateRequest](docs/TeamUpdateRequest.md)
+ - [DatadogAPIClient::V2::TeamsResponse](docs/TeamsResponse.md)
  - [DatadogAPIClient::V2::User](docs/User.md)
  - [DatadogAPIClient::V2::UserAttributes](docs/UserAttributes.md)
  - [DatadogAPIClient::V2::UserCreateAttributes](docs/UserCreateAttributes.md)
@@ -244,6 +282,8 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::UserInvitationsRequest](docs/UserInvitationsRequest.md)
  - [DatadogAPIClient::V2::UserInvitationsResponse](docs/UserInvitationsResponse.md)
  - [DatadogAPIClient::V2::UserInvitationsType](docs/UserInvitationsType.md)
+ - [DatadogAPIClient::V2::UserRelationship](docs/UserRelationship.md)
+ - [DatadogAPIClient::V2::UserRelationshipData](docs/UserRelationshipData.md)
  - [DatadogAPIClient::V2::UserRelationships](docs/UserRelationships.md)
  - [DatadogAPIClient::V2::UserResponse](docs/UserResponse.md)
  - [DatadogAPIClient::V2::UserResponseIncludedItem](docs/UserResponseIncludedItem.md)
