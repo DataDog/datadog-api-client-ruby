@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attributes** | [**UserUpdateAttributes**](UserUpdateAttributes.md) |  | [optional] 
-**id** | **String** | ID of the user. | [optional] 
-**type** | [**UsersType**](UsersType.md) |  | [optional] 
+**attributes** | [**UserUpdateAttributes**](UserUpdateAttributes.md) |  | 
+**id** | **String** | ID of the user. | 
+**type** | [**UsersType**](UsersType.md) |  | 
 
 ## Code Sample
 

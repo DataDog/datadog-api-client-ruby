@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**RoleUpdateData**](RoleUpdateData.md) |  | [optional] 
+**data** | [**RoleUpdateData**](RoleUpdateData.md) |  | 
 
 ## Code Sample
 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**created_by** | [**UserRelationship**](UserRelationship.md) |  | [optional] 
-**last_modified_by** | [**UserRelationship**](UserRelationship.md) |  | [optional] 
+**created_by** | [**RelationshipToUser**](RelationshipToUser.md) |  | [optional] 
+**last_modified_by** | [**RelationshipToUser**](RelationshipToUser.md) |  | [optional] 
 
 ## Code Sample
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**RelationshipToUserData**](RelationshipToUserData.md) |  | [optional] 
+**data** | [**RelationshipToUserData**](RelationshipToUserData.md) |  | 
 
 ## Code Sample
 

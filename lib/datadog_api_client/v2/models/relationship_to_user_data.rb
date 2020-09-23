@@ -15,7 +15,7 @@ require 'date'
 module DatadogAPIClient::V2
   # Relationship to user object.
   class RelationshipToUserData
-    # ID of the user.
+    # A unique identifier that represents the user.
     attr_accessor :id
 
     attr_accessor :type

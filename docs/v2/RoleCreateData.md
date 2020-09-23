@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attributes** | [**RoleCreateAttributes**](RoleCreateAttributes.md) |  | [optional] 
+**attributes** | [**RoleCreateAttributes**](RoleCreateAttributes.md) |  | 
 **relationships** | [**RoleRelationships**](RoleRelationships.md) |  | [optional] 
 **type** | [**RolesType**](RolesType.md) |  | [optional] 
 

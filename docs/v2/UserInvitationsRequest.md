@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**Array&lt;UserInvitationData&gt;**](UserInvitationData.md) | List of user invitations. | [optional] 
+**data** | [**Array&lt;UserInvitationData&gt;**](UserInvitationData.md) | List of user invitations. | 
 
 ## Code Sample
 

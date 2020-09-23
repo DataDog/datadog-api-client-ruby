@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**Array&lt;RelationshipToOrganizationData&gt;**](RelationshipToOrganizationData.md) | Relationships to organization objects. | [optional] 
+**data** | [**Array&lt;RelationshipToOrganizationData&gt;**](RelationshipToOrganizationData.md) | Relationships to organization objects. | 
 
 ## Code Sample
 

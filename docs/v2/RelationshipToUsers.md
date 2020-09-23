@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**Array&lt;RelationshipToUserData&gt;**](RelationshipToUserData.md) | Relationships to user objects. | [optional] 
+**data** | [**Array&lt;RelationshipToUserData&gt;**](RelationshipToUserData.md) | Relationships to user objects. | 
 
 ## Code Sample
 

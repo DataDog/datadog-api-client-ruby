@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**RoleCreateData**](RoleCreateData.md) |  | [optional] 
+**data** | [**RoleCreateData**](RoleCreateData.md) |  | 
 
 ## Code Sample
 
