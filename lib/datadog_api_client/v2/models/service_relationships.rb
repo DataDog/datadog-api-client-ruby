@@ -30,8 +30,8 @@ module DatadogAPIClient::V2
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'created_by' => :'UserRelationship',
-        :'last_modified_by' => :'UserRelationship'
+        :'created_by' => :'RelationshipToUser',
+        :'last_modified_by' => :'RelationshipToUser'
       }
     end
 

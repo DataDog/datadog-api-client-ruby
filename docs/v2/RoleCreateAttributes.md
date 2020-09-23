@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **created_at** | **DateTime** | Creation time of the role. | [optional] [readonly] 
 **modified_at** | **DateTime** | Time of last role modification. | [optional] [readonly] 
-**name** | **String** | Name of the role. | [optional] 
+**name** | **String** | Name of the role. | 
 
 ## Code Sample
 

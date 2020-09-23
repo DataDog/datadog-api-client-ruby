@@ -77,12 +77,22 @@ module DatadogAPIClient::V2
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @attributes.nil?
+        invalid_properties.push('invalid value for "attributes", attributes cannot be nil.')
+      end
+
+      if @type.nil?
+        invalid_properties.push('invalid value for "type", type cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @attributes.nil?
+      return false if @type.nil?
       true
     end
 

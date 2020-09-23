@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**UserUpdateData**](UserUpdateData.md) |  | [optional] 
+**data** | [**UserUpdateData**](UserUpdateData.md) |  | 
 
 ## Code Sample
 

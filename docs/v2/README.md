@@ -282,8 +282,6 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::UserInvitationsRequest](docs/UserInvitationsRequest.md)
  - [DatadogAPIClient::V2::UserInvitationsResponse](docs/UserInvitationsResponse.md)
  - [DatadogAPIClient::V2::UserInvitationsType](docs/UserInvitationsType.md)
- - [DatadogAPIClient::V2::UserRelationship](docs/UserRelationship.md)
- - [DatadogAPIClient::V2::UserRelationshipData](docs/UserRelationshipData.md)
  - [DatadogAPIClient::V2::UserRelationships](docs/UserRelationships.md)
  - [DatadogAPIClient::V2::UserResponse](docs/UserResponse.md)
  - [DatadogAPIClient::V2::UserResponseIncludedItem](docs/UserResponseIncludedItem.md)

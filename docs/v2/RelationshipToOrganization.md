@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**RelationshipToOrganizationData**](RelationshipToOrganizationData.md) |  | [optional] 
+**data** | [**RelationshipToOrganizationData**](RelationshipToOrganizationData.md) |  | 
 
 ## Code Sample
 

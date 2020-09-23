@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**UserCreateData**](UserCreateData.md) |  | [optional] 
+**data** | [**UserCreateData**](UserCreateData.md) |  | 
 
 ## Code Sample
 

@@ -145,8 +145,6 @@ docs/UserInvitationResponseData.md
 docs/UserInvitationsRequest.md
 docs/UserInvitationsResponse.md
 docs/UserInvitationsType.md
-docs/UserRelationship.md
-docs/UserRelationshipData.md
 docs/UserRelationships.md
 docs/UserResponse.md
 docs/UserResponseIncludedItem.md
@@ -307,8 +305,6 @@ lib/datadog_api_client/v2/models/user_invitation_response_data.rb
 lib/datadog_api_client/v2/models/user_invitations_request.rb
 lib/datadog_api_client/v2/models/user_invitations_response.rb
 lib/datadog_api_client/v2/models/user_invitations_type.rb
-lib/datadog_api_client/v2/models/user_relationship.rb
-lib/datadog_api_client/v2/models/user_relationship_data.rb
 lib/datadog_api_client/v2/models/user_relationships.rb
 lib/datadog_api_client/v2/models/user_response.rb
 lib/datadog_api_client/v2/models/user_response_included_item.rb
@@ -465,8 +461,6 @@ spec/models/user_invitation_response_spec.rb
 spec/models/user_invitations_request_spec.rb
 spec/models/user_invitations_response_spec.rb
 spec/models/user_invitations_type_spec.rb
-spec/models/user_relationship_data_spec.rb
-spec/models/user_relationship_spec.rb
 spec/models/user_relationships_spec.rb
 spec/models/user_response_included_item_spec.rb
 spec/models/user_response_relationships_spec.rb

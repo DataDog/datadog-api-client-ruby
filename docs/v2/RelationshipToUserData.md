@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | ID of the user. | 
+**id** | **String** | A unique identifier that represents the user. | 
 **type** | [**UsersType**](UsersType.md) |  | 
 
 ## Code Sample
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ```ruby
 require 'DatadogAPIClient::V2'
 
-instance = DatadogAPIClient::V2::RelationshipToUserData.new(id: null,
+instance = DatadogAPIClient::V2::RelationshipToUserData.new(id: 00000000-0000-0000-0000-000000000000,
                                  type: null)
 ```
 
