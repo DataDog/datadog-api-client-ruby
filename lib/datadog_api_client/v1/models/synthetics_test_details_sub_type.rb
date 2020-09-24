@@ -17,6 +17,7 @@ module DatadogAPIClient::V1
     HTTP = "http".freeze
     SSL = "ssl".freeze
     TCP = "tcp".freeze
+    DNS = "dns".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
