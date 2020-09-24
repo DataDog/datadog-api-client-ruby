@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # @option config [Configuration] Configuration for initializing the object, default to Configuration.default
     def initialize(config = Configuration.default)
       @config = config
-      @user_agent = "OpenAPI-Generator/#{VERSION}/ruby"
+      @user_agent = "#{DatadogAPIClient::USER_AGENT}"
       @default_headers = {
         'Content-Type' => 'application/json',
         'User-Agent' => @user_agent
