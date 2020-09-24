@@ -184,6 +184,10 @@ Then(/^the response "([^"]+)" has the same value as "(.*)"$/) do |response_path,
   expect(@response[0].lookup response_path).to eq fixtures.lookup(fixture_path)
 end
 
+Then(/^the response "([^"]+)" has length ([0-9]+)$/) do |response_path, fixture_length|
+  expect((@response[0].lookup response_path).length).to eq fixture_length.to_i
+end
+
 Given('there is a valid {string} in the system') do |name|
   fixtures[name.to_sym] = self.send("create_#{name}".to_sym)
 end
