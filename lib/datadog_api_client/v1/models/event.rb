@@ -15,9 +15,6 @@ require 'date'
 module DatadogAPIClient::V1
   # Object representing an event.
   class Event
-    # An arbitrary string to use for aggregation. Limited to 100 characters. If you specify a key, all events using that key are grouped together in the Event Stream.
-    attr_accessor :aggregation_key
-
     attr_accessor :alert_type
 
     # POSIX timestamp of the event. Must be sent as an integer (i.e. no quotes). Limited to events no older than 7 days.
@@ -37,9 +34,6 @@ module DatadogAPIClient::V1
 
     attr_accessor :priority
 
-    # ID of the parent event. Must be sent as an integer (i.e. no quotes).
-    attr_accessor :related_event_id
-
     # The type of event being posted. Option examples include nagios, hudson, jenkins, my_apps, chef, puppet, git, bitbucket, etc. A complete list of source attribute values [available here](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
     attr_accessor :source_type_name
 
@@ -58,7 +52,6 @@ module DatadogAPIClient::V1
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'aggregation_key' => :'aggregation_key',
         :'alert_type' => :'alert_type',
         :'date_happened' => :'date_happened',
         :'device_name' => :'device_name',
@@ -66,7 +59,6 @@ module DatadogAPIClient::V1
         :'id' => :'id',
         :'payload' => :'payload',
         :'priority' => :'priority',
-        :'related_event_id' => :'related_event_id',
         :'source_type_name' => :'source_type_name',
         :'tags' => :'tags',
         :'text' => :'text',
@@ -78,7 +70,6 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'aggregation_key' => :'String',
         :'alert_type' => :'EventAlertType',
         :'date_happened' => :'Integer',
         :'device_name' => :'String',
@@ -86,7 +77,6 @@ module DatadogAPIClient::V1
         :'id' => :'Integer',
         :'payload' => :'String',
         :'priority' => :'EventPriority',
-        :'related_event_id' => :'Integer',
         :'source_type_name' => :'String',
         :'tags' => :'Array<String>',
         :'text' => :'String',
@@ -116,10 +106,6 @@ module DatadogAPIClient::V1
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'aggregation_key')
-        self.aggregation_key = attributes[:'aggregation_key']
-      end
-
       if attributes.key?(:'alert_type')
         self.alert_type = attributes[:'alert_type']
       end
@@ -146,10 +132,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'priority')
         self.priority = attributes[:'priority']
-      end
-
-      if attributes.key?(:'related_event_id')
-        self.related_event_id = attributes[:'related_event_id']
       end
 
       if attributes.key?(:'source_type_name')
@@ -179,23 +161,11 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@aggregation_key.nil? && @aggregation_key.to_s.length > 100
-        invalid_properties.push('invalid value for "aggregation_key", the character length must be smaller than or equal to 100.')
-      end
-
-      if @text.nil?
-        invalid_properties.push('invalid value for "text", text cannot be nil.')
-      end
-
-      if @text.to_s.length > 4000
+      if !@text.nil? && @text.to_s.length > 4000
         invalid_properties.push('invalid value for "text", the character length must be smaller than or equal to 4000.')
       end
 
-      if @title.nil?
-        invalid_properties.push('invalid value for "title", title cannot be nil.')
-      end
-
-      if @title.to_s.length > 100
+      if !@title.nil? && @title.to_s.length > 100
         invalid_properties.push('invalid value for "title", the character length must be smaller than or equal to 100.')
       end
 
@@ -205,32 +175,15 @@ module DatadogAPIClient::V1
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if !@aggregation_key.nil? && @aggregation_key.to_s.length > 100
-      return false if @text.nil?
-      return false if @text.to_s.length > 4000
-      return false if @title.nil?
-      return false if @title.to_s.length > 100
+      return false if !@text.nil? && @text.to_s.length > 4000
+      return false if !@title.nil? && @title.to_s.length > 100
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] aggregation_key Value to be assigned
-    def aggregation_key=(aggregation_key)
-      if !aggregation_key.nil? && aggregation_key.to_s.length > 100
-        fail ArgumentError, 'invalid value for "aggregation_key", the character length must be smaller than or equal to 100.'
-      end
-
-      @aggregation_key = aggregation_key
     end
 
     # Custom attribute writer method with validation
     # @param [Object] text Value to be assigned
     def text=(text)
-      if text.nil?
-        fail ArgumentError, 'text cannot be nil'
-      end
-
-      if text.to_s.length > 4000
+      if !text.nil? && text.to_s.length > 4000
         fail ArgumentError, 'invalid value for "text", the character length must be smaller than or equal to 4000.'
       end
 
@@ -240,11 +193,7 @@ module DatadogAPIClient::V1
     # Custom attribute writer method with validation
     # @param [Object] title Value to be assigned
     def title=(title)
-      if title.nil?
-        fail ArgumentError, 'title cannot be nil'
-      end
-
-      if title.to_s.length > 100
+      if !title.nil? && title.to_s.length > 100
         fail ArgumentError, 'invalid value for "title", the character length must be smaller than or equal to 100.'
       end
 
@@ -256,7 +205,6 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          aggregation_key == o.aggregation_key &&
           alert_type == o.alert_type &&
           date_happened == o.date_happened &&
           device_name == o.device_name &&
@@ -264,7 +212,6 @@ module DatadogAPIClient::V1
           id == o.id &&
           payload == o.payload &&
           priority == o.priority &&
-          related_event_id == o.related_event_id &&
           source_type_name == o.source_type_name &&
           tags == o.tags &&
           text == o.text &&
@@ -281,7 +228,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aggregation_key, alert_type, date_happened, device_name, host, id, payload, priority, related_event_id, source_type_name, tags, text, title, url].hash
+      [alert_type, date_happened, device_name, host, id, payload, priority, source_type_name, tags, text, title, url].hash
     end
 
     # Builds the object from hash
