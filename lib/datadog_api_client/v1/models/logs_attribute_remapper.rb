@@ -36,7 +36,7 @@ module DatadogAPIClient::V1
     # Final attribute or tag name to remap the sources to.
     attr_accessor :target
 
-    # Defines if the sources are from log `attribute` or `tag`.
+    # Defines if the final attribute or tag name is from log `attribute` or `tag`.
     attr_accessor :target_type
 
     attr_accessor :type
