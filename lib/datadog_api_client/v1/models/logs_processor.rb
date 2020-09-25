@@ -46,7 +46,7 @@ module DatadogAPIClient::V1
     # Name of the attribute that contains the corresponding value in the mapping list or the `default_lookup` if not found in the mapping list.
     attr_accessor :target
 
-    # Defines if the sources are from log `attribute` or `tag`.
+    # Defines if the final attribute or tag name is from log `attribute` or `tag`.
     attr_accessor :target_type
 
     # Normalize the ending slashes or not.
