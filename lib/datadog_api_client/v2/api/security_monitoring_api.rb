@@ -35,6 +35,16 @@ module DatadogAPIClient::V2
     # @option opts [SecurityMonitoringRuleCreatePayload] :body 
     # @return [Array<(SecurityMonitoringRuleResponse, Integer, Hash)>] SecurityMonitoringRuleResponse data, response status code and response headers
     def create_security_monitoring_rule_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:create_security_monitoring_rule)
+        unstable_enabled = @api_client.config.unstable_operations[:create_security_monitoring_rule]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_security_monitoring_rule")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "create_security_monitoring_rule"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringApi.create_security_monitoring_rule ...'
       end
@@ -96,6 +106,16 @@ module DatadogAPIClient::V2
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_security_monitoring_rule_with_http_info(rule_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:delete_security_monitoring_rule)
+        unstable_enabled = @api_client.config.unstable_operations[:delete_security_monitoring_rule]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_security_monitoring_rule")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "delete_security_monitoring_rule"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringApi.delete_security_monitoring_rule ...'
       end
@@ -155,6 +175,16 @@ module DatadogAPIClient::V2
     # @param [Hash] opts the optional parameters
     # @return [Array<(SecurityMonitoringRuleResponse, Integer, Hash)>] SecurityMonitoringRuleResponse data, response status code and response headers
     def get_security_monitoring_rule_with_http_info(rule_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_security_monitoring_rule)
+        unstable_enabled = @api_client.config.unstable_operations[:get_security_monitoring_rule]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_security_monitoring_rule")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_security_monitoring_rule"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringApi.get_security_monitoring_rule ...'
       end
@@ -216,6 +246,16 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_number Specific page number to return.
     # @return [Array<(SecurityMonitoringListRulesResponse, Integer, Hash)>] SecurityMonitoringListRulesResponse data, response status code and response headers
     def list_security_monitoring_rules_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_security_monitoring_rules)
+        unstable_enabled = @api_client.config.unstable_operations[:list_security_monitoring_rules]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_security_monitoring_rules")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "list_security_monitoring_rules"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringApi.list_security_monitoring_rules ...'
       end
@@ -283,6 +323,16 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_limit The maximum number of security signals in the response.
     # @return [Array<(SecurityMonitoringSignalsListResponse, Integer, Hash)>] SecurityMonitoringSignalsListResponse data, response status code and response headers
     def list_security_monitoring_signals_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_security_monitoring_signals)
+        unstable_enabled = @api_client.config.unstable_operations[:list_security_monitoring_signals]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_security_monitoring_signals")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "list_security_monitoring_signals"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringApi.list_security_monitoring_signals ...'
       end
@@ -348,6 +398,16 @@ module DatadogAPIClient::V2
     # @option opts [SecurityMonitoringSignalListRequest] :body 
     # @return [Array<(SecurityMonitoringSignalsListResponse, Integer, Hash)>] SecurityMonitoringSignalsListResponse data, response status code and response headers
     def search_security_monitoring_signals_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:search_security_monitoring_signals)
+        unstable_enabled = @api_client.config.unstable_operations[:search_security_monitoring_signals]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "search_security_monitoring_signals")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "search_security_monitoring_signals"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringApi.search_security_monitoring_signals ...'
       end
@@ -411,6 +471,16 @@ module DatadogAPIClient::V2
     # @option opts [SecurityMonitoringRuleUpdatePayload] :body 
     # @return [Array<(SecurityMonitoringRuleResponse, Integer, Hash)>] SecurityMonitoringRuleResponse data, response status code and response headers
     def update_security_monitoring_rule_with_http_info(rule_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:update_security_monitoring_rule)
+        unstable_enabled = @api_client.config.unstable_operations[:update_security_monitoring_rule]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_security_monitoring_rule")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "update_security_monitoring_rule"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringApi.update_security_monitoring_rule ...'
       end

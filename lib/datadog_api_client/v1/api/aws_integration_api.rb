@@ -35,6 +35,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(AWSAccountCreateResponse, Integer, Hash)>] AWSAccountCreateResponse data, response status code and response headers
     def create_aws_account_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:create_aws_account)
+        unstable_enabled = @api_client.config.unstable_operations[:create_aws_account]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_aws_account")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "create_aws_account"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSIntegrationApi.create_aws_account ...'
       end
@@ -100,6 +110,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(AWSAccountCreateResponse, Integer, Hash)>] AWSAccountCreateResponse data, response status code and response headers
     def create_new_aws_external_id_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:create_new_aws_external_id)
+        unstable_enabled = @api_client.config.unstable_operations[:create_new_aws_external_id]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_new_aws_external_id")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "create_new_aws_external_id"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSIntegrationApi.create_new_aws_external_id ...'
       end
@@ -165,6 +185,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def delete_aws_account_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:delete_aws_account)
+        unstable_enabled = @api_client.config.unstable_operations[:delete_aws_account]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_aws_account")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "delete_aws_account"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSIntegrationApi.delete_aws_account ...'
       end
@@ -228,6 +258,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<String>, Integer, Hash)>] Array<String> data, response status code and response headers
     def list_available_aws_namespaces_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_available_aws_namespaces)
+        unstable_enabled = @api_client.config.unstable_operations[:list_available_aws_namespaces]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_available_aws_namespaces")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "list_available_aws_namespaces"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSIntegrationApi.list_available_aws_namespaces ...'
       end
@@ -287,6 +327,16 @@ module DatadogAPIClient::V1
     # @option opts [String] :access_key_id Only return AWS accounts that matches this &#x60;access_key_id&#x60;.
     # @return [Array<(AWSAccountListResponse, Integer, Hash)>] AWSAccountListResponse data, response status code and response headers
     def list_aws_accounts_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_aws_accounts)
+        unstable_enabled = @api_client.config.unstable_operations[:list_aws_accounts]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_aws_accounts")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "list_aws_accounts"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSIntegrationApi.list_aws_accounts ...'
       end
@@ -351,6 +401,16 @@ module DatadogAPIClient::V1
     # @option opts [String] :access_key_id Only return AWS accounts that matches this &#x60;access_key_id&#x60;. Required if none of the other two options are specified.
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def update_aws_account_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:update_aws_account)
+        unstable_enabled = @api_client.config.unstable_operations[:update_aws_account]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_aws_account")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "update_aws_account"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSIntegrationApi.update_aws_account ...'
       end

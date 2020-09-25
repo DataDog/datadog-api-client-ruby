@@ -35,6 +35,16 @@ module DatadogAPIClient::V2
     # @option opts [UserCreateRequest] :body 
     # @return [Array<(UserResponse, Integer, Hash)>] UserResponse data, response status code and response headers
     def create_user_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:create_user)
+        unstable_enabled = @api_client.config.unstable_operations[:create_user]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_user")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "create_user"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsersApi.create_user ...'
       end
@@ -96,6 +106,16 @@ module DatadogAPIClient::V2
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def disable_user_with_http_info(user_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:disable_user)
+        unstable_enabled = @api_client.config.unstable_operations[:disable_user]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "disable_user")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "disable_user"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsersApi.disable_user ...'
       end
@@ -155,6 +175,16 @@ module DatadogAPIClient::V2
     # @param [Hash] opts the optional parameters
     # @return [Array<(UserInvitationResponse, Integer, Hash)>] UserInvitationResponse data, response status code and response headers
     def get_invitation_with_http_info(user_invitation_uuid, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_invitation)
+        unstable_enabled = @api_client.config.unstable_operations[:get_invitation]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_invitation")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_invitation"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsersApi.get_invitation ...'
       end
@@ -214,6 +244,16 @@ module DatadogAPIClient::V2
     # @param [Hash] opts the optional parameters
     # @return [Array<(UserResponse, Integer, Hash)>] UserResponse data, response status code and response headers
     def get_user_with_http_info(user_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_user)
+        unstable_enabled = @api_client.config.unstable_operations[:get_user]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_user")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_user"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsersApi.get_user ...'
       end
@@ -273,6 +313,16 @@ module DatadogAPIClient::V2
     # @param [Hash] opts the optional parameters
     # @return [Array<(UserResponse, Integer, Hash)>] UserResponse data, response status code and response headers
     def list_user_organizations_with_http_info(user_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_user_organizations)
+        unstable_enabled = @api_client.config.unstable_operations[:list_user_organizations]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_user_organizations")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "list_user_organizations"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsersApi.list_user_organizations ...'
       end
@@ -332,6 +382,16 @@ module DatadogAPIClient::V2
     # @param [Hash] opts the optional parameters
     # @return [Array<(PermissionsResponse, Integer, Hash)>] PermissionsResponse data, response status code and response headers
     def list_user_permissions_with_http_info(user_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_user_permissions)
+        unstable_enabled = @api_client.config.unstable_operations[:list_user_permissions]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_user_permissions")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "list_user_permissions"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsersApi.list_user_permissions ...'
       end
@@ -401,6 +461,16 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_status Filter on status attribute. Comma separated list, with possible values &#x60;Active&#x60;, &#x60;Pending&#x60;, and &#x60;Disabled&#x60;. Defaults to no filtering.
     # @return [Array<(UsersResponse, Integer, Hash)>] UsersResponse data, response status code and response headers
     def list_users_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_users)
+        unstable_enabled = @api_client.config.unstable_operations[:list_users]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_users")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "list_users"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsersApi.list_users ...'
       end
@@ -462,6 +532,16 @@ module DatadogAPIClient::V2
     # @option opts [UserInvitationsRequest] :body 
     # @return [Array<(UserInvitationsResponse, Integer, Hash)>] UserInvitationsResponse data, response status code and response headers
     def send_invitations_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:send_invitations)
+        unstable_enabled = @api_client.config.unstable_operations[:send_invitations]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "send_invitations")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "send_invitations"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsersApi.send_invitations ...'
       end
@@ -525,6 +605,16 @@ module DatadogAPIClient::V2
     # @option opts [UserUpdateRequest] :body 
     # @return [Array<(UserResponse, Integer, Hash)>] UserResponse data, response status code and response headers
     def update_user_with_http_info(user_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:update_user)
+        unstable_enabled = @api_client.config.unstable_operations[:update_user]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_user")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "update_user"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsersApi.update_user ...'
       end

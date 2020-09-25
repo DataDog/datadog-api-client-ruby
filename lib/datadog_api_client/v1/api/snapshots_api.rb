@@ -45,6 +45,16 @@ module DatadogAPIClient::V1
     # @option opts [String] :title A title for the graph. If no title is specified, the graph does not have a title.
     # @return [Array<(GraphSnapshot, Integer, Hash)>] GraphSnapshot data, response status code and response headers
     def get_graph_snapshot_with_http_info(start, _end, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_graph_snapshot)
+        unstable_enabled = @api_client.config.unstable_operations[:get_graph_snapshot]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_graph_snapshot")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_graph_snapshot"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SnapshotsApi.get_graph_snapshot ...'
       end

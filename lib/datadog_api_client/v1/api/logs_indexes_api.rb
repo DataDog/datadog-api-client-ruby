@@ -35,6 +35,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(LogsIndex, Integer, Hash)>] LogsIndex data, response status code and response headers
     def get_logs_index_with_http_info(name, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_logs_index)
+        unstable_enabled = @api_client.config.unstable_operations[:get_logs_index]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_logs_index")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_logs_index"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsIndexesApi.get_logs_index ...'
       end
@@ -92,6 +102,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(LogsIndexesOrder, Integer, Hash)>] LogsIndexesOrder data, response status code and response headers
     def get_logs_index_order_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_logs_index_order)
+        unstable_enabled = @api_client.config.unstable_operations[:get_logs_index_order]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_logs_index_order")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_logs_index_order"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsIndexesApi.get_logs_index_order ...'
       end
@@ -145,6 +165,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(LogsIndexListResponse, Integer, Hash)>] LogsIndexListResponse data, response status code and response headers
     def list_log_indexes_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_log_indexes)
+        unstable_enabled = @api_client.config.unstable_operations[:list_log_indexes]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_log_indexes")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "list_log_indexes"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsIndexesApi.list_log_indexes ...'
       end
@@ -202,6 +232,16 @@ module DatadogAPIClient::V1
     # @option opts [LogsIndex] :body Object containing the new &#x60;LogsIndex&#x60;.
     # @return [Array<(LogsIndex, Integer, Hash)>] LogsIndex data, response status code and response headers
     def update_logs_index_with_http_info(name, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:update_logs_index)
+        unstable_enabled = @api_client.config.unstable_operations[:update_logs_index]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_logs_index")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "update_logs_index"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsIndexesApi.update_logs_index ...'
       end
@@ -267,6 +307,16 @@ module DatadogAPIClient::V1
     # @option opts [LogsIndexesOrder] :body Object containing the new ordered list of index names
     # @return [Array<(LogsIndexesOrder, Integer, Hash)>] LogsIndexesOrder data, response status code and response headers
     def update_logs_index_order_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:update_logs_index_order)
+        unstable_enabled = @api_client.config.unstable_operations[:update_logs_index_order]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_logs_index_order")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "update_logs_index_order"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsIndexesApi.update_logs_index_order ...'
       end

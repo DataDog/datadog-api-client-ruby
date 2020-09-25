@@ -35,6 +35,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def create_azure_integration_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:create_azure_integration)
+        unstable_enabled = @api_client.config.unstable_operations[:create_azure_integration]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_azure_integration")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "create_azure_integration"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AzureIntegrationApi.create_azure_integration ...'
       end
@@ -100,6 +110,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def delete_azure_integration_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:delete_azure_integration)
+        unstable_enabled = @api_client.config.unstable_operations[:delete_azure_integration]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_azure_integration")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "delete_azure_integration"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AzureIntegrationApi.delete_azure_integration ...'
       end
@@ -163,6 +183,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<AzureAccount>, Integer, Hash)>] Array<AzureAccount> data, response status code and response headers
     def list_azure_integration_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_azure_integration)
+        unstable_enabled = @api_client.config.unstable_operations[:list_azure_integration]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_azure_integration")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "list_azure_integration"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AzureIntegrationApi.list_azure_integration ...'
       end
@@ -218,6 +248,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def update_azure_host_filters_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:update_azure_host_filters)
+        unstable_enabled = @api_client.config.unstable_operations[:update_azure_host_filters]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_azure_host_filters")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "update_azure_host_filters"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AzureIntegrationApi.update_azure_host_filters ...'
       end
@@ -283,6 +323,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def update_azure_integration_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:update_azure_integration)
+        unstable_enabled = @api_client.config.unstable_operations[:update_azure_integration]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_azure_integration")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "update_azure_integration"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AzureIntegrationApi.update_azure_integration ...'
       end

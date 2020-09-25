@@ -35,6 +35,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(Dashboard, Integer, Hash)>] Dashboard data, response status code and response headers
     def create_dashboard_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:create_dashboard)
+        unstable_enabled = @api_client.config.unstable_operations[:create_dashboard]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_dashboard")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "create_dashboard"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DashboardsApi.create_dashboard ...'
       end
@@ -100,6 +110,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(DashboardDeleteResponse, Integer, Hash)>] DashboardDeleteResponse data, response status code and response headers
     def delete_dashboard_with_http_info(dashboard_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:delete_dashboard)
+        unstable_enabled = @api_client.config.unstable_operations[:delete_dashboard]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_dashboard")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "delete_dashboard"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DashboardsApi.delete_dashboard ...'
       end
@@ -159,6 +179,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(Dashboard, Integer, Hash)>] Dashboard data, response status code and response headers
     def get_dashboard_with_http_info(dashboard_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_dashboard)
+        unstable_enabled = @api_client.config.unstable_operations[:get_dashboard]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_dashboard")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_dashboard"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DashboardsApi.get_dashboard ...'
       end
@@ -216,6 +246,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(DashboardSummary, Integer, Hash)>] DashboardSummary data, response status code and response headers
     def list_dashboards_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_dashboards)
+        unstable_enabled = @api_client.config.unstable_operations[:list_dashboards]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_dashboards")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "list_dashboards"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DashboardsApi.list_dashboards ...'
       end
@@ -273,6 +313,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(Dashboard, Integer, Hash)>] Dashboard data, response status code and response headers
     def update_dashboard_with_http_info(dashboard_id, body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:update_dashboard)
+        unstable_enabled = @api_client.config.unstable_operations[:update_dashboard]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_dashboard")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "update_dashboard"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DashboardsApi.update_dashboard ...'
       end

@@ -35,6 +35,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(AWSLogsAsyncResponse, Integer, Hash)>] AWSLogsAsyncResponse data, response status code and response headers
     def check_aws_logs_lambda_async_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:check_aws_logs_lambda_async)
+        unstable_enabled = @api_client.config.unstable_operations[:check_aws_logs_lambda_async]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "check_aws_logs_lambda_async")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "check_aws_logs_lambda_async"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSLogsIntegrationApi.check_aws_logs_lambda_async ...'
       end
@@ -100,6 +110,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(AWSLogsAsyncResponse, Integer, Hash)>] AWSLogsAsyncResponse data, response status code and response headers
     def check_aws_logs_services_async_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:check_aws_logs_services_async)
+        unstable_enabled = @api_client.config.unstable_operations[:check_aws_logs_services_async]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "check_aws_logs_services_async")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "check_aws_logs_services_async"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSLogsIntegrationApi.check_aws_logs_services_async ...'
       end
@@ -165,6 +185,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def create_aws_lambda_arn_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:create_aws_lambda_arn)
+        unstable_enabled = @api_client.config.unstable_operations[:create_aws_lambda_arn]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_aws_lambda_arn")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "create_aws_lambda_arn"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSLogsIntegrationApi.create_aws_lambda_arn ...'
       end
@@ -230,6 +260,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def delete_aws_lambda_arn_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:delete_aws_lambda_arn)
+        unstable_enabled = @api_client.config.unstable_operations[:delete_aws_lambda_arn]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_aws_lambda_arn")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "delete_aws_lambda_arn"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSLogsIntegrationApi.delete_aws_lambda_arn ...'
       end
@@ -295,6 +335,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def enable_aws_log_services_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:enable_aws_log_services)
+        unstable_enabled = @api_client.config.unstable_operations[:enable_aws_log_services]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "enable_aws_log_services")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "enable_aws_log_services"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSLogsIntegrationApi.enable_aws_log_services ...'
       end
@@ -358,6 +408,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<AWSLogsListResponse>, Integer, Hash)>] Array<AWSLogsListResponse> data, response status code and response headers
     def list_aws_logs_integrations_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_aws_logs_integrations)
+        unstable_enabled = @api_client.config.unstable_operations[:list_aws_logs_integrations]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_aws_logs_integrations")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "list_aws_logs_integrations"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSLogsIntegrationApi.list_aws_logs_integrations ...'
       end
@@ -411,6 +471,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<AWSLogsListServicesResponse>, Integer, Hash)>] Array<AWSLogsListServicesResponse> data, response status code and response headers
     def list_aws_logs_services_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_aws_logs_services)
+        unstable_enabled = @api_client.config.unstable_operations[:list_aws_logs_services]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_aws_logs_services")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "list_aws_logs_services"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AWSLogsIntegrationApi.list_aws_logs_services ...'
       end

@@ -35,6 +35,16 @@ module DatadogAPIClient::V2
     # @param [Hash] opts the optional parameters
     # @return [Array<(ServiceResponse, Integer, Hash)>] ServiceResponse data, response status code and response headers
     def create_service_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:create_service)
+        unstable_enabled = @api_client.config.unstable_operations[:create_service]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_service")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "create_service"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServicesApi.create_service ...'
       end
@@ -100,6 +110,16 @@ module DatadogAPIClient::V2
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_service_with_http_info(service_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:delete_service)
+        unstable_enabled = @api_client.config.unstable_operations[:delete_service]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_service")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "delete_service"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServicesApi.delete_service ...'
       end
@@ -161,6 +181,16 @@ module DatadogAPIClient::V2
     # @option opts [String] :include Specifies which types of related objects should be included in the response.
     # @return [Array<(ServiceResponse, Integer, Hash)>] ServiceResponse data, response status code and response headers
     def get_service_with_http_info(service_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_service)
+        unstable_enabled = @api_client.config.unstable_operations[:get_service]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_service")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_service"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServicesApi.get_service ...'
       end
@@ -229,6 +259,16 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_offset Specific offset to use as the beginning of the returned page.
     # @return [Array<(ServicesResponse, Integer, Hash)>] ServicesResponse data, response status code and response headers
     def get_services_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_services)
+        unstable_enabled = @api_client.config.unstable_operations[:get_services]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_services")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_services"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServicesApi.get_services ...'
       end
@@ -293,6 +333,16 @@ module DatadogAPIClient::V2
     # @param [Hash] opts the optional parameters
     # @return [Array<(ServiceResponse, Integer, Hash)>] ServiceResponse data, response status code and response headers
     def update_service_with_http_info(service_id, body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:update_service)
+        unstable_enabled = @api_client.config.unstable_operations[:update_service]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_service")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "update_service"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServicesApi.update_service ...'
       end

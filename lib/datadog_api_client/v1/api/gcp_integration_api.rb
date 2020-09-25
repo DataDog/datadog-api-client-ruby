@@ -35,6 +35,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def create_gcp_integration_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:create_gcp_integration)
+        unstable_enabled = @api_client.config.unstable_operations[:create_gcp_integration]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_gcp_integration")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "create_gcp_integration"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GCPIntegrationApi.create_gcp_integration ...'
       end
@@ -100,6 +110,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def delete_gcp_integration_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:delete_gcp_integration)
+        unstable_enabled = @api_client.config.unstable_operations[:delete_gcp_integration]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_gcp_integration")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "delete_gcp_integration"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GCPIntegrationApi.delete_gcp_integration ...'
       end
@@ -163,6 +183,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<GCPAccount>, Integer, Hash)>] Array<GCPAccount> data, response status code and response headers
     def list_gcp_integration_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_gcp_integration)
+        unstable_enabled = @api_client.config.unstable_operations[:list_gcp_integration]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_gcp_integration")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "list_gcp_integration"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GCPIntegrationApi.list_gcp_integration ...'
       end
@@ -218,6 +248,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def update_gcp_integration_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:update_gcp_integration)
+        unstable_enabled = @api_client.config.unstable_operations[:update_gcp_integration]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_gcp_integration")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "update_gcp_integration"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GCPIntegrationApi.update_gcp_integration ...'
       end

@@ -3,6 +3,14 @@ module APIWorld
     Object.const_get("DatadogAPIClient::V#{@api_version}")
   end
 
+  def configuration
+    @configuration ||= api.const_get("Configuration").new
+  end
+
+  def api_client
+    @api_client ||= api.const_get("ApiClient").new configuration
+  end
+
   def unique
     now = Time.now
     scenario_name = @scenario.name.gsub(/[^A-Za-z0-9]+/, '-')[0..100]
@@ -18,7 +26,7 @@ module APIWorld
   end
 
   def create_user
-    api_instance = DatadogAPIClient::V2::UsersApi.new
+    api_instance = DatadogAPIClient::V2::UsersApi.new api_client
 
     user = DatadogAPIClient::V2::UserCreateRequest.new
     user.data = DatadogAPIClient::V2::UserCreateData.new
@@ -34,12 +42,12 @@ module APIWorld
   end
 
   def undo_create_user(response)
-    api_instance = DatadogAPIClient::V2::UsersApi.new
+    api_instance = DatadogAPIClient::V2::UsersApi.new api_client
     api_instance.disable_user(response[0].data.id)
   end
 
   def create_role
-    api_instance = DatadogAPIClient::V2::RolesApi.new
+    api_instance = DatadogAPIClient::V2::RolesApi.new api_client
 
     role = DatadogAPIClient::V2::RoleCreateRequest.new
     role.data = DatadogAPIClient::V2::RoleCreateData.new
@@ -55,12 +63,13 @@ module APIWorld
   end
 
   def undo_create_role(response)
-    api_instance = DatadogAPIClient::V2::RolesApi.new
+    api_instance = DatadogAPIClient::V2::RolesApi.new api_client
     api_instance.delete_role(response[0].data.id)
   end
 
   def create_service
-    api_instance = DatadogAPIClient::V2::ServicesApi.new
+    configuration.unstable_operations[:create_service] = true
+    api_instance = DatadogAPIClient::V2::ServicesApi.new api_client
 
     service_create_request = DatadogAPIClient::V2::ServiceCreateRequest.new
     service_create_request.data = DatadogAPIClient::V2::ServiceCreateData.new
@@ -74,12 +83,14 @@ module APIWorld
   end
 
   def undo_create_service(response)
-    api_instance = DatadogAPIClient::V2::ServicesApi.new
+    configuration.config.unstable_operations[:delete_service] = true
+    api_instance = DatadogAPIClient::V2::ServicesApi.new api_client
     api_instance.delete_service(response[0].data.id)
   end
 
   def create_team
-    api_instance = DatadogAPIClient::V2::TeamsApi.new
+    configuration.unstable_operations[:create_team] = true
+    api_instance = DatadogAPIClient::V2::TeamsApi.new api_client
 
     team_create_request = DatadogAPIClient::V2::TeamCreateRequest.new
     team_create_request.data = DatadogAPIClient::V2::TeamCreateData.new
@@ -93,12 +104,13 @@ module APIWorld
   end
 
   def undo_create_team(response)
-    api_instance = DatadogAPIClient::V2::TeamsApi.new
+    configuration.unstable_operations[:delete_team] = true
+    api_instance = DatadogAPIClient::V2::TeamsApi.new api_client
     api_instance.delete_team(response[0].data.id)
   end
 
   def create_permission
-    api_instance = DatadogAPIClient::V2::RolesApi.new
+    api_instance = DatadogAPIClient::V2::RolesApi.new api_client
 
     response = api_instance.list_permissions
     response.data[0]
@@ -130,22 +142,22 @@ World(APIWorld)
 
 
 Given('a valid "apiKeyAuth" key in the system') do
-  api.configure.api_key['DD-API-KEY'] = ENV["DD_TEST_CLIENT_API_KEY"]
-  # TODO api.configure.api_key['apiKeyAuth'] = ENV["DD_TEST_CLIENT_API_KEY"]
+  configuration.api_key['DD-API-KEY'] = ENV["DD_TEST_CLIENT_API_KEY"]
+  # TODO configuration.api_key['apiKeyAuth'] = ENV["DD_TEST_CLIENT_API_KEY"]
 end
 
 Given('a valid "appKeyAuth" key in the system') do
-  api.configure.api_key['DD-APPLICATION-KEY'] = ENV["DD_TEST_CLIENT_APP_KEY"]
-  # TODO api.configure.api_key['appKeyAuth'] = ENV["DD_TEST_CLIENT_APP_KEY"]
+  configuration.api_key['DD-APPLICATION-KEY'] = ENV["DD_TEST_CLIENT_APP_KEY"]
+  # TODO configuration.api_key['appKeyAuth'] = ENV["DD_TEST_CLIENT_APP_KEY"]
 end
 
 Given(/^an instance of "([^"]+)" API$/) do |api_name|
-  api.configure.debugging = ENV["DEBUG"].present?
-  @api_instance = api.const_get("#{api_name}Api").new
+  configuration.debugging = ENV["DEBUG"].present?
+  @api_instance = api.const_get("#{api_name}Api").new api_client
 end
 
 Given('operation {string} enabled') do |name|
-  log "TODO enable #{name.underscore}"
+  configuration.unstable_operations[name.snakecase.to_sym] = true
 end
 
 Given(/^body (.*)$/) do |body|

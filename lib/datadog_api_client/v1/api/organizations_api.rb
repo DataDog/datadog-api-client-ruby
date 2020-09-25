@@ -35,6 +35,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(OrganizationCreateResponse, Integer, Hash)>] OrganizationCreateResponse data, response status code and response headers
     def create_child_org_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:create_child_org)
+        unstable_enabled = @api_client.config.unstable_operations[:create_child_org]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_child_org")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "create_child_org"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrganizationsApi.create_child_org ...'
       end
@@ -100,6 +110,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(OrganizationResponse, Integer, Hash)>] OrganizationResponse data, response status code and response headers
     def get_org_with_http_info(public_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_org)
+        unstable_enabled = @api_client.config.unstable_operations[:get_org]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_org")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_org"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrganizationsApi.get_org ...'
       end
@@ -157,6 +177,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(OrganizationListResponse, Integer, Hash)>] OrganizationListResponse data, response status code and response headers
     def list_orgs_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_orgs)
+        unstable_enabled = @api_client.config.unstable_operations[:list_orgs]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_orgs")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "list_orgs"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrganizationsApi.list_orgs ...'
       end
@@ -214,6 +244,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(OrganizationResponse, Integer, Hash)>] OrganizationResponse data, response status code and response headers
     def update_org_with_http_info(public_id, body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:update_org)
+        unstable_enabled = @api_client.config.unstable_operations[:update_org]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_org")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "update_org"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrganizationsApi.update_org ...'
       end
@@ -285,6 +325,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(IdpResponse, Integer, Hash)>] IdpResponse data, response status code and response headers
     def upload_id_p_for_org_with_http_info(public_id, idp_file, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:upload_id_p_for_org)
+        unstable_enabled = @api_client.config.unstable_operations[:upload_id_p_for_org]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "upload_id_p_for_org")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "upload_id_p_for_org"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrganizationsApi.upload_id_p_for_org ...'
       end

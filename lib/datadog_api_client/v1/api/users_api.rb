@@ -35,6 +35,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(UserResponse, Integer, Hash)>] UserResponse data, response status code and response headers
     def create_user_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:create_user)
+        unstable_enabled = @api_client.config.unstable_operations[:create_user]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_user")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "create_user"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsersApi.create_user ...'
       end
@@ -100,6 +110,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(UserDisableResponse, Integer, Hash)>] UserDisableResponse data, response status code and response headers
     def disable_user_with_http_info(user_handle, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:disable_user)
+        unstable_enabled = @api_client.config.unstable_operations[:disable_user]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "disable_user")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "disable_user"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsersApi.disable_user ...'
       end
@@ -159,6 +179,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(UserResponse, Integer, Hash)>] UserResponse data, response status code and response headers
     def get_user_with_http_info(user_handle, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_user)
+        unstable_enabled = @api_client.config.unstable_operations[:get_user]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_user")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_user"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsersApi.get_user ...'
       end
@@ -216,6 +246,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(UserListResponse, Integer, Hash)>] UserListResponse data, response status code and response headers
     def list_users_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_users)
+        unstable_enabled = @api_client.config.unstable_operations[:list_users]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_users")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "list_users"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsersApi.list_users ...'
       end
@@ -273,6 +313,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(UserResponse, Integer, Hash)>] UserResponse data, response status code and response headers
     def update_user_with_http_info(user_handle, body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:update_user)
+        unstable_enabled = @api_client.config.unstable_operations[:update_user]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_user")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "update_user"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsersApi.update_user ...'
       end
