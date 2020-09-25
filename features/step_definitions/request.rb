@@ -145,7 +145,7 @@ Given(/^an instance of "([^"]+)" API$/) do |api_name|
 end
 
 Given('operation {string} enabled') do |name|
-  log "TODO enable #{name.underscore}"
+  api.configure { |config| config.unstable_operations[name.snakecase.to_sym] = true }
 end
 
 Given(/^body (.*)$/) do |body|
