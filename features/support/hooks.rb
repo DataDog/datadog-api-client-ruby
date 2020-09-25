@@ -33,6 +33,9 @@ Around do |scenario, block|
   @scenario = scenario
   m = scenario.location.file.match /features\/v(?<version>\d+)\/.*/
   @api_version = m[:version]
+  api = Object.const_get("DatadogAPIClient::V#{@api_version}")
+  @configuration = api.const_get("Configuration").new
+  @api_client = api.const_get("ApiClient").new @configuration
   block.call
 end
 
