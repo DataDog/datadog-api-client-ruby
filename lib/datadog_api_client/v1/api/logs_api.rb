@@ -35,6 +35,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(LogsListResponse, Integer, Hash)>] LogsListResponse data, response status code and response headers
     def list_logs_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_logs)
+        unstable_enabled = @api_client.config.unstable_operations[:list_logs]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_logs")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "list_logs"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsApi.list_logs ...'
       end

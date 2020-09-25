@@ -35,6 +35,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(MetricMetadata, Integer, Hash)>] MetricMetadata data, response status code and response headers
     def get_metric_metadata_with_http_info(metric_name, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_metric_metadata)
+        unstable_enabled = @api_client.config.unstable_operations[:get_metric_metadata]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_metric_metadata")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_metric_metadata"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsApi.get_metric_metadata ...'
       end
@@ -96,6 +106,16 @@ module DatadogAPIClient::V1
     # @option opts [String] :host Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag.
     # @return [Array<(MetricsListResponse, Integer, Hash)>] MetricsListResponse data, response status code and response headers
     def list_active_metrics_with_http_info(from, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_active_metrics)
+        unstable_enabled = @api_client.config.unstable_operations[:list_active_metrics]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_active_metrics")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "list_active_metrics"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsApi.list_active_metrics ...'
       end
@@ -157,6 +177,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(MetricSearchResponse, Integer, Hash)>] MetricSearchResponse data, response status code and response headers
     def list_metrics_with_http_info(q, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_metrics)
+        unstable_enabled = @api_client.config.unstable_operations[:list_metrics]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_metrics")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "list_metrics"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsApi.list_metrics ...'
       end
@@ -221,6 +251,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(MetricsQueryResponse, Integer, Hash)>] MetricsQueryResponse data, response status code and response headers
     def query_metrics_with_http_info(from, to, query, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:query_metrics)
+        unstable_enabled = @api_client.config.unstable_operations[:query_metrics]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "query_metrics")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "query_metrics"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsApi.query_metrics ...'
       end
@@ -293,6 +333,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(MetricMetadata, Integer, Hash)>] MetricMetadata data, response status code and response headers
     def update_metric_metadata_with_http_info(metric_name, body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:update_metric_metadata)
+        unstable_enabled = @api_client.config.unstable_operations[:update_metric_metadata]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_metric_metadata")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "update_metric_metadata"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsApi.update_metric_metadata ...'
       end

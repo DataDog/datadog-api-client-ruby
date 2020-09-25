@@ -35,6 +35,16 @@ module DatadogAPIClient::V2
     # @param [Hash] opts the optional parameters
     # @return [Array<(TeamResponse, Integer, Hash)>] TeamResponse data, response status code and response headers
     def create_team_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:create_team)
+        unstable_enabled = @api_client.config.unstable_operations[:create_team]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_team")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "create_team"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsApi.create_team ...'
       end
@@ -100,6 +110,16 @@ module DatadogAPIClient::V2
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_team_with_http_info(team_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:delete_team)
+        unstable_enabled = @api_client.config.unstable_operations[:delete_team]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_team")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "delete_team"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsApi.delete_team ...'
       end
@@ -161,6 +181,16 @@ module DatadogAPIClient::V2
     # @option opts [String] :include Specifies which types of related objects should be included in the response.
     # @return [Array<(TeamResponse, Integer, Hash)>] TeamResponse data, response status code and response headers
     def get_team_with_http_info(team_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_team)
+        unstable_enabled = @api_client.config.unstable_operations[:get_team]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_team")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_team"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsApi.get_team ...'
       end
@@ -229,6 +259,16 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_offset Specific offset to use as the beginning of the returned page.
     # @return [Array<(TeamsResponse, Integer, Hash)>] TeamsResponse data, response status code and response headers
     def get_teams_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_teams)
+        unstable_enabled = @api_client.config.unstable_operations[:get_teams]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_teams")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_teams"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsApi.get_teams ...'
       end
@@ -293,6 +333,16 @@ module DatadogAPIClient::V2
     # @param [Hash] opts the optional parameters
     # @return [Array<(TeamResponse, Integer, Hash)>] TeamResponse data, response status code and response headers
     def update_team_with_http_info(team_id, body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:update_team)
+        unstable_enabled = @api_client.config.unstable_operations[:update_team]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_team")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "update_team"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeamsApi.update_team ...'
       end

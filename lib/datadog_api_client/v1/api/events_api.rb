@@ -35,6 +35,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(EventResponse, Integer, Hash)>] EventResponse data, response status code and response headers
     def get_event_with_http_info(event_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_event)
+        unstable_enabled = @api_client.config.unstable_operations[:get_event]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_event")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_event"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EventsApi.get_event ...'
       end
@@ -104,6 +114,16 @@ module DatadogAPIClient::V1
     # @option opts [Boolean] :unaggregated Set unaggregated to &#x60;true&#x60; to return all events within the specified [&#x60;start&#x60;,&#x60;end&#x60;] timeframe. Otherwise if an event is aggregated to a parent event with a timestamp outside of the timeframe, it won&#39;t be available in the output.
     # @return [Array<(EventListResponse, Integer, Hash)>] EventListResponse data, response status code and response headers
     def list_events_with_http_info(start, _end, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_events)
+        unstable_enabled = @api_client.config.unstable_operations[:list_events]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_events")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "list_events"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EventsApi.list_events ...'
       end

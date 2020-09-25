@@ -91,6 +91,9 @@ module DatadogAPIClient::V1
     # @return [true, false]
     attr_accessor :client_side_validation
 
+    # Keep track of the unstable operations, and if they have been enabled
+    attr_accessor :unstable_operations
+
     ### TLS/SSL setting
     # Set this to false to skip verifying SSL certificate when calling API from https server.
     # Default to true.
@@ -158,6 +161,18 @@ module DatadogAPIClient::V1
       @inject_format = false
       @force_ending_format = false
       @logger = defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
+      @unstable_operations = {
+            get_logs_index: false,
+            get_logs_index_order: false,
+            list_log_indexes: false,
+            update_logs_index: false,
+            update_logs_index_order: false,
+            get_slo_history: false,
+            get_daily_custom_reports: false,
+            get_monthly_custom_reports: false,
+            get_specified_daily_custom_reports: false,
+            get_specified_monthly_custom_reports: false,
+      }
 
       yield(self) if block_given?
     end

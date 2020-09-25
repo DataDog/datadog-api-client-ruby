@@ -37,6 +37,16 @@ module DatadogAPIClient::V2
     # @param [Hash] opts the optional parameters
     # @return [Array<(DashboardListAddItemsResponse, Integer, Hash)>] DashboardListAddItemsResponse data, response status code and response headers
     def create_dashboard_list_items_with_http_info(dashboard_list_id, body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:create_dashboard_list_items)
+        unstable_enabled = @api_client.config.unstable_operations[:create_dashboard_list_items]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_dashboard_list_items")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "create_dashboard_list_items"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DashboardListsApi.create_dashboard_list_items ...'
       end
@@ -108,6 +118,16 @@ module DatadogAPIClient::V2
     # @param [Hash] opts the optional parameters
     # @return [Array<(DashboardListDeleteItemsResponse, Integer, Hash)>] DashboardListDeleteItemsResponse data, response status code and response headers
     def delete_dashboard_list_items_with_http_info(dashboard_list_id, body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:delete_dashboard_list_items)
+        unstable_enabled = @api_client.config.unstable_operations[:delete_dashboard_list_items]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_dashboard_list_items")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "delete_dashboard_list_items"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DashboardListsApi.delete_dashboard_list_items ...'
       end
@@ -177,6 +197,16 @@ module DatadogAPIClient::V2
     # @param [Hash] opts the optional parameters
     # @return [Array<(DashboardListItems, Integer, Hash)>] DashboardListItems data, response status code and response headers
     def get_dashboard_list_items_with_http_info(dashboard_list_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_dashboard_list_items)
+        unstable_enabled = @api_client.config.unstable_operations[:get_dashboard_list_items]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_dashboard_list_items")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_dashboard_list_items"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DashboardListsApi.get_dashboard_list_items ...'
       end
@@ -238,6 +268,16 @@ module DatadogAPIClient::V2
     # @param [Hash] opts the optional parameters
     # @return [Array<(DashboardListUpdateItemsResponse, Integer, Hash)>] DashboardListUpdateItemsResponse data, response status code and response headers
     def update_dashboard_list_items_with_http_info(dashboard_list_id, body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:update_dashboard_list_items)
+        unstable_enabled = @api_client.config.unstable_operations[:update_dashboard_list_items]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_dashboard_list_items")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "update_dashboard_list_items"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DashboardListsApi.update_dashboard_list_items ...'
       end

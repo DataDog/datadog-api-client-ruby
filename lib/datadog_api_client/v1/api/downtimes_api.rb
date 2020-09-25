@@ -35,6 +35,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def cancel_downtime_with_http_info(downtime_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:cancel_downtime)
+        unstable_enabled = @api_client.config.unstable_operations[:cancel_downtime]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "cancel_downtime")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "cancel_downtime"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DowntimesApi.cancel_downtime ...'
       end
@@ -94,6 +104,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(CanceledDowntimesIds, Integer, Hash)>] CanceledDowntimesIds data, response status code and response headers
     def cancel_downtimes_by_scope_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:cancel_downtimes_by_scope)
+        unstable_enabled = @api_client.config.unstable_operations[:cancel_downtimes_by_scope]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "cancel_downtimes_by_scope")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "cancel_downtimes_by_scope"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DowntimesApi.cancel_downtimes_by_scope ...'
       end
@@ -159,6 +179,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(Downtime, Integer, Hash)>] Downtime data, response status code and response headers
     def create_downtime_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:create_downtime)
+        unstable_enabled = @api_client.config.unstable_operations[:create_downtime]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_downtime")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "create_downtime"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DowntimesApi.create_downtime ...'
       end
@@ -224,6 +254,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(Downtime, Integer, Hash)>] Downtime data, response status code and response headers
     def get_downtime_with_http_info(downtime_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_downtime)
+        unstable_enabled = @api_client.config.unstable_operations[:get_downtime]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_downtime")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_downtime"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DowntimesApi.get_downtime ...'
       end
@@ -283,6 +323,16 @@ module DatadogAPIClient::V1
     # @option opts [Boolean] :current_only Only return downtimes that are active when the request is made.
     # @return [Array<(Array<Downtime>, Integer, Hash)>] Array<Downtime> data, response status code and response headers
     def list_downtimes_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_downtimes)
+        unstable_enabled = @api_client.config.unstable_operations[:list_downtimes]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_downtimes")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "list_downtimes"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DowntimesApi.list_downtimes ...'
       end
@@ -341,6 +391,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(Downtime, Integer, Hash)>] Downtime data, response status code and response headers
     def update_downtime_with_http_info(downtime_id, body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:update_downtime)
+        unstable_enabled = @api_client.config.unstable_operations[:update_downtime]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_downtime")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "update_downtime"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DowntimesApi.update_downtime ...'
       end

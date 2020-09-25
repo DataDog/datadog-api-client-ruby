@@ -35,6 +35,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(CheckCanDeleteMonitorResponse, Integer, Hash)>] CheckCanDeleteMonitorResponse data, response status code and response headers
     def check_can_delete_monitor_with_http_info(monitor_ids, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:check_can_delete_monitor)
+        unstable_enabled = @api_client.config.unstable_operations[:check_can_delete_monitor]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "check_can_delete_monitor")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "check_can_delete_monitor"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MonitorsApi.check_can_delete_monitor ...'
       end
@@ -95,6 +105,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(Monitor, Integer, Hash)>] Monitor data, response status code and response headers
     def create_monitor_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:create_monitor)
+        unstable_enabled = @api_client.config.unstable_operations[:create_monitor]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_monitor")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "create_monitor"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MonitorsApi.create_monitor ...'
       end
@@ -162,6 +182,16 @@ module DatadogAPIClient::V1
     # @option opts [String] :force Delete the monitor even if it&#39;s referenced by other resources (e.g. SLO, composite monitor).
     # @return [Array<(DeletedMonitor, Integer, Hash)>] DeletedMonitor data, response status code and response headers
     def delete_monitor_with_http_info(monitor_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:delete_monitor)
+        unstable_enabled = @api_client.config.unstable_operations[:delete_monitor]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_monitor")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "delete_monitor"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MonitorsApi.delete_monitor ...'
       end
@@ -224,6 +254,16 @@ module DatadogAPIClient::V1
     # @option opts [String] :group_states When specified, shows additional information about the group states. Choose one or more from &#x60;all&#x60;, &#x60;alert&#x60;, &#x60;warn&#x60;, and &#x60;no data&#x60;.
     # @return [Array<(Monitor, Integer, Hash)>] Monitor data, response status code and response headers
     def get_monitor_with_http_info(monitor_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_monitor)
+        unstable_enabled = @api_client.config.unstable_operations[:get_monitor]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_monitor")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_monitor"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MonitorsApi.get_monitor ...'
       end
@@ -298,6 +338,16 @@ module DatadogAPIClient::V1
     # @option opts [Integer] :page_size The number of monitors to return per page. If the page argument is not specified, the default behavior returns all monitors without a &#x60;page_size&#x60; limit. However, if page is specified and &#x60;page_size&#x60; is not, the argument defaults to 100.
     # @return [Array<(Array<Monitor>, Integer, Hash)>] Array<Monitor> data, response status code and response headers
     def list_monitors_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_monitors)
+        unstable_enabled = @api_client.config.unstable_operations[:list_monitors]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_monitors")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "list_monitors"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MonitorsApi.list_monitors ...'
       end
@@ -367,6 +417,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(Monitor, Integer, Hash)>] Monitor data, response status code and response headers
     def update_monitor_with_http_info(monitor_id, body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:update_monitor)
+        unstable_enabled = @api_client.config.unstable_operations[:update_monitor]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_monitor")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "update_monitor"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MonitorsApi.update_monitor ...'
       end
@@ -436,6 +496,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(Monitor, Integer, Hash)>] Monitor data, response status code and response headers
     def validate_monitor_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:validate_monitor)
+        unstable_enabled = @api_client.config.unstable_operations[:validate_monitor]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "validate_monitor")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "validate_monitor"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MonitorsApi.validate_monitor ...'
       end

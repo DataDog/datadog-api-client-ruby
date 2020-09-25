@@ -35,6 +35,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(SyntheticsGlobalVariable, Integer, Hash)>] SyntheticsGlobalVariable data, response status code and response headers
     def create_global_variable_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:create_global_variable)
+        unstable_enabled = @api_client.config.unstable_operations[:create_global_variable]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_global_variable")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "create_global_variable"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsApi.create_global_variable ...'
       end
@@ -100,6 +110,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(SyntheticsTestDetails, Integer, Hash)>] SyntheticsTestDetails data, response status code and response headers
     def create_test_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:create_test)
+        unstable_enabled = @api_client.config.unstable_operations[:create_test]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_test")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "create_test"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsApi.create_test ...'
       end
@@ -165,6 +185,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_global_variable_with_http_info(variable_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:delete_global_variable)
+        unstable_enabled = @api_client.config.unstable_operations[:delete_global_variable]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_global_variable")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "delete_global_variable"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsApi.delete_global_variable ...'
       end
@@ -224,6 +254,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(SyntheticsDeleteTestsResponse, Integer, Hash)>] SyntheticsDeleteTestsResponse data, response status code and response headers
     def delete_tests_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:delete_tests)
+        unstable_enabled = @api_client.config.unstable_operations[:delete_tests]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_tests")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "delete_tests"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsApi.delete_tests ...'
       end
@@ -291,6 +331,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(SyntheticsGlobalVariable, Integer, Hash)>] SyntheticsGlobalVariable data, response status code and response headers
     def edit_global_variable_with_http_info(variable_id, body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:edit_global_variable)
+        unstable_enabled = @api_client.config.unstable_operations[:edit_global_variable]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "edit_global_variable")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "edit_global_variable"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsApi.edit_global_variable ...'
       end
@@ -366,6 +416,16 @@ module DatadogAPIClient::V1
     # @option opts [Array<String>] :probe_dc Locations for which to query results.
     # @return [Array<(SyntheticsGetAPITestLatestResultsResponse, Integer, Hash)>] SyntheticsGetAPITestLatestResultsResponse data, response status code and response headers
     def get_api_test_latest_results_with_http_info(public_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_api_test_latest_results)
+        unstable_enabled = @api_client.config.unstable_operations[:get_api_test_latest_results]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_api_test_latest_results")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_api_test_latest_results"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsApi.get_api_test_latest_results ...'
       end
@@ -430,6 +490,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(SyntheticsAPITestResultFull, Integer, Hash)>] SyntheticsAPITestResultFull data, response status code and response headers
     def get_api_test_result_with_http_info(public_id, result_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_api_test_result)
+        unstable_enabled = @api_client.config.unstable_operations[:get_api_test_result]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_api_test_result")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_api_test_result"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsApi.get_api_test_result ...'
       end
@@ -493,6 +563,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(SyntheticsTestDetails, Integer, Hash)>] SyntheticsTestDetails data, response status code and response headers
     def get_browser_test_with_http_info(public_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_browser_test)
+        unstable_enabled = @api_client.config.unstable_operations[:get_browser_test]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_browser_test")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_browser_test"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsApi.get_browser_test ...'
       end
@@ -558,6 +638,16 @@ module DatadogAPIClient::V1
     # @option opts [Array<String>] :probe_dc Locations for which to query results.
     # @return [Array<(SyntheticsGetBrowserTestLatestResultsResponse, Integer, Hash)>] SyntheticsGetBrowserTestLatestResultsResponse data, response status code and response headers
     def get_browser_test_latest_results_with_http_info(public_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_browser_test_latest_results)
+        unstable_enabled = @api_client.config.unstable_operations[:get_browser_test_latest_results]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_browser_test_latest_results")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_browser_test_latest_results"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsApi.get_browser_test_latest_results ...'
       end
@@ -622,6 +712,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(SyntheticsBrowserTestResultFull, Integer, Hash)>] SyntheticsBrowserTestResultFull data, response status code and response headers
     def get_browser_test_result_with_http_info(public_id, result_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_browser_test_result)
+        unstable_enabled = @api_client.config.unstable_operations[:get_browser_test_result]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_browser_test_result")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_browser_test_result"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsApi.get_browser_test_result ...'
       end
@@ -685,6 +785,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(SyntheticsTestDetails, Integer, Hash)>] SyntheticsTestDetails data, response status code and response headers
     def get_test_with_http_info(public_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_test)
+        unstable_enabled = @api_client.config.unstable_operations[:get_test]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_test")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_test"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsApi.get_test ...'
       end
@@ -742,6 +852,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(SyntheticsLocations, Integer, Hash)>] SyntheticsLocations data, response status code and response headers
     def list_locations_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_locations)
+        unstable_enabled = @api_client.config.unstable_operations[:list_locations]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_locations")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "list_locations"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsApi.list_locations ...'
       end
@@ -795,6 +915,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(SyntheticsListTestsResponse, Integer, Hash)>] SyntheticsListTestsResponse data, response status code and response headers
     def list_tests_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_tests)
+        unstable_enabled = @api_client.config.unstable_operations[:list_tests]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_tests")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "list_tests"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsApi.list_tests ...'
       end
@@ -850,6 +980,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(SyntheticsTriggerCITestsResponse, Integer, Hash)>] SyntheticsTriggerCITestsResponse data, response status code and response headers
     def trigger_ci_tests_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:trigger_ci_tests)
+        unstable_enabled = @api_client.config.unstable_operations[:trigger_ci_tests]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "trigger_ci_tests")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "trigger_ci_tests"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsApi.trigger_ci_tests ...'
       end
@@ -917,6 +1057,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(SyntheticsTestDetails, Integer, Hash)>] SyntheticsTestDetails data, response status code and response headers
     def update_test_with_http_info(public_id, body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:update_test)
+        unstable_enabled = @api_client.config.unstable_operations[:update_test]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_test")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "update_test"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsApi.update_test ...'
       end
@@ -988,6 +1138,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(Boolean, Integer, Hash)>] Boolean data, response status code and response headers
     def update_test_pause_status_with_http_info(public_id, body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:update_test_pause_status)
+        unstable_enabled = @api_client.config.unstable_operations[:update_test_pause_status]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_test_pause_status")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "update_test_pause_status"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SyntheticsApi.update_test_pause_status ...'
       end

@@ -41,6 +41,16 @@ module DatadogAPIClient::V1
     # @option opts [UsageSort] :sort The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;.
     # @return [Array<(UsageCustomReportsResponse, Integer, Hash)>] UsageCustomReportsResponse data, response status code and response headers
     def get_daily_custom_reports_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_daily_custom_reports)
+        unstable_enabled = @api_client.config.unstable_operations[:get_daily_custom_reports]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_daily_custom_reports")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_daily_custom_reports"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringApi.get_daily_custom_reports ...'
       end
@@ -106,6 +116,16 @@ module DatadogAPIClient::V1
     # @option opts [UsageSort] :sort The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;.
     # @return [Array<(UsageCustomReportsResponse, Integer, Hash)>] UsageCustomReportsResponse data, response status code and response headers
     def get_monthly_custom_reports_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_monthly_custom_reports)
+        unstable_enabled = @api_client.config.unstable_operations[:get_monthly_custom_reports]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_monthly_custom_reports")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_monthly_custom_reports"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringApi.get_monthly_custom_reports ...'
       end
@@ -165,6 +185,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(UsageSpecifiedCustomReportsResponse, Integer, Hash)>] UsageSpecifiedCustomReportsResponse data, response status code and response headers
     def get_specified_daily_custom_reports_with_http_info(report_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_specified_daily_custom_reports)
+        unstable_enabled = @api_client.config.unstable_operations[:get_specified_daily_custom_reports]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_specified_daily_custom_reports")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_specified_daily_custom_reports"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringApi.get_specified_daily_custom_reports ...'
       end
@@ -224,6 +254,16 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @return [Array<(UsageSpecifiedCustomReportsResponse, Integer, Hash)>] UsageSpecifiedCustomReportsResponse data, response status code and response headers
     def get_specified_monthly_custom_reports_with_http_info(report_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_specified_monthly_custom_reports)
+        unstable_enabled = @api_client.config.unstable_operations[:get_specified_monthly_custom_reports]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_specified_monthly_custom_reports")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_specified_monthly_custom_reports"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringApi.get_specified_monthly_custom_reports ...'
       end
@@ -285,6 +325,16 @@ module DatadogAPIClient::V1
     # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
     # @return [Array<(UsageTracingWithoutLimitsResponse, Integer, Hash)>] UsageTracingWithoutLimitsResponse data, response status code and response headers
     def get_tracing_without_limits_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_tracing_without_limits)
+        unstable_enabled = @api_client.config.unstable_operations[:get_tracing_without_limits]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_tracing_without_limits")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_tracing_without_limits"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringApi.get_tracing_without_limits ...'
       end
@@ -348,6 +398,16 @@ module DatadogAPIClient::V1
     # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
     # @return [Array<(UsageAnalyzedLogsResponse, Integer, Hash)>] UsageAnalyzedLogsResponse data, response status code and response headers
     def get_usage_analyzed_logs_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_usage_analyzed_logs)
+        unstable_enabled = @api_client.config.unstable_operations[:get_usage_analyzed_logs]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_analyzed_logs")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_usage_analyzed_logs"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringApi.get_usage_analyzed_logs ...'
       end
@@ -409,6 +469,16 @@ module DatadogAPIClient::V1
     # @option opts [DateTime] :month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage starting this month.
     # @return [Array<(UsageBillableSummaryResponse, Integer, Hash)>] UsageBillableSummaryResponse data, response status code and response headers
     def get_usage_billable_summary_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_usage_billable_summary)
+        unstable_enabled = @api_client.config.unstable_operations[:get_usage_billable_summary]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_billable_summary")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_usage_billable_summary"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringApi.get_usage_billable_summary ...'
       end
@@ -467,6 +537,16 @@ module DatadogAPIClient::V1
     # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageFargateResponse, Integer, Hash)>] UsageFargateResponse data, response status code and response headers
     def get_usage_fargate_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_usage_fargate)
+        unstable_enabled = @api_client.config.unstable_operations[:get_usage_fargate]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_fargate")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_usage_fargate"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringApi.get_usage_fargate ...'
       end
@@ -530,6 +610,16 @@ module DatadogAPIClient::V1
     # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageHostsResponse, Integer, Hash)>] UsageHostsResponse data, response status code and response headers
     def get_usage_hosts_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_usage_hosts)
+        unstable_enabled = @api_client.config.unstable_operations[:get_usage_hosts]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_hosts")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_usage_hosts"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringApi.get_usage_hosts ...'
       end
@@ -593,6 +683,16 @@ module DatadogAPIClient::V1
     # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageLambdaResponse, Integer, Hash)>] UsageLambdaResponse data, response status code and response headers
     def get_usage_lambda_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_usage_lambda)
+        unstable_enabled = @api_client.config.unstable_operations[:get_usage_lambda]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_lambda")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_usage_lambda"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringApi.get_usage_lambda ...'
       end
@@ -656,6 +756,16 @@ module DatadogAPIClient::V1
     # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageLogsResponse, Integer, Hash)>] UsageLogsResponse data, response status code and response headers
     def get_usage_logs_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_usage_logs)
+        unstable_enabled = @api_client.config.unstable_operations[:get_usage_logs]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_logs")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_usage_logs"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringApi.get_usage_logs ...'
       end
@@ -721,6 +831,16 @@ module DatadogAPIClient::V1
     # @option opts [Array<String>] :index_name Comma-separated list of log index names.
     # @return [Array<(UsageLogsByIndexResponse, Integer, Hash)>] UsageLogsByIndexResponse data, response status code and response headers
     def get_usage_logs_by_index_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_usage_logs_by_index)
+        unstable_enabled = @api_client.config.unstable_operations[:get_usage_logs_by_index]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_logs_by_index")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_usage_logs_by_index"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringApi.get_usage_logs_by_index ...'
       end
@@ -785,6 +905,16 @@ module DatadogAPIClient::V1
     # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
     # @return [Array<(UsageNetworkFlowsResponse, Integer, Hash)>] UsageNetworkFlowsResponse data, response status code and response headers
     def get_usage_network_flows_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_usage_network_flows)
+        unstable_enabled = @api_client.config.unstable_operations[:get_usage_network_flows]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_network_flows")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_usage_network_flows"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringApi.get_usage_network_flows ...'
       end
@@ -848,6 +978,16 @@ module DatadogAPIClient::V1
     # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageNetworkHostsResponse, Integer, Hash)>] UsageNetworkHostsResponse data, response status code and response headers
     def get_usage_network_hosts_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_usage_network_hosts)
+        unstable_enabled = @api_client.config.unstable_operations[:get_usage_network_hosts]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_network_hosts")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_usage_network_hosts"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringApi.get_usage_network_hosts ...'
       end
@@ -911,6 +1051,16 @@ module DatadogAPIClient::V1
     # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
     # @return [Array<(UsageProfilingResponse, Integer, Hash)>] UsageProfilingResponse data, response status code and response headers
     def get_usage_profiling_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_usage_profiling)
+        unstable_enabled = @api_client.config.unstable_operations[:get_usage_profiling]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_profiling")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_usage_profiling"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringApi.get_usage_profiling ...'
       end
@@ -976,6 +1126,16 @@ module DatadogAPIClient::V1
     # @option opts [String] :type RUM type: &#x60;[browser, mobile]&#x60;. Defaults to &#x60;browser&#x60;.
     # @return [Array<(UsageRumSessionsResponse, Integer, Hash)>] UsageRumSessionsResponse data, response status code and response headers
     def get_usage_rum_sessions_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_usage_rum_sessions)
+        unstable_enabled = @api_client.config.unstable_operations[:get_usage_rum_sessions]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_rum_sessions")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_usage_rum_sessions"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringApi.get_usage_rum_sessions ...'
       end
@@ -1040,6 +1200,16 @@ module DatadogAPIClient::V1
     # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
     # @return [Array<(UsageSNMPResponse, Integer, Hash)>] UsageSNMPResponse data, response status code and response headers
     def get_usage_snmp_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_usage_snmp)
+        unstable_enabled = @api_client.config.unstable_operations[:get_usage_snmp]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_snmp")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_usage_snmp"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringApi.get_usage_snmp ...'
       end
@@ -1105,6 +1275,16 @@ module DatadogAPIClient::V1
     # @option opts [Boolean] :include_org_details Include usage summaries for each sub-org.
     # @return [Array<(UsageSummaryResponse, Integer, Hash)>] UsageSummaryResponse data, response status code and response headers
     def get_usage_summary_with_http_info(start_month, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_usage_summary)
+        unstable_enabled = @api_client.config.unstable_operations[:get_usage_summary]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_summary")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_usage_summary"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringApi.get_usage_summary ...'
       end
@@ -1169,6 +1349,16 @@ module DatadogAPIClient::V1
     # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageSyntheticsResponse, Integer, Hash)>] UsageSyntheticsResponse data, response status code and response headers
     def get_usage_synthetics_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_usage_synthetics)
+        unstable_enabled = @api_client.config.unstable_operations[:get_usage_synthetics]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_synthetics")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_usage_synthetics"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringApi.get_usage_synthetics ...'
       end
@@ -1232,6 +1422,16 @@ module DatadogAPIClient::V1
     # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageSyntheticsAPIResponse, Integer, Hash)>] UsageSyntheticsAPIResponse data, response status code and response headers
     def get_usage_synthetics_api_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_usage_synthetics_api)
+        unstable_enabled = @api_client.config.unstable_operations[:get_usage_synthetics_api]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_synthetics_api")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_usage_synthetics_api"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringApi.get_usage_synthetics_api ...'
       end
@@ -1295,6 +1495,16 @@ module DatadogAPIClient::V1
     # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageSyntheticsBrowserResponse, Integer, Hash)>] UsageSyntheticsBrowserResponse data, response status code and response headers
     def get_usage_synthetics_browser_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_usage_synthetics_browser)
+        unstable_enabled = @api_client.config.unstable_operations[:get_usage_synthetics_browser]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_synthetics_browser")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_usage_synthetics_browser"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringApi.get_usage_synthetics_browser ...'
       end
@@ -1358,6 +1568,16 @@ module DatadogAPIClient::V1
     # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageTimeseriesResponse, Integer, Hash)>] UsageTimeseriesResponse data, response status code and response headers
     def get_usage_timeseries_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_usage_timeseries)
+        unstable_enabled = @api_client.config.unstable_operations[:get_usage_timeseries]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_timeseries")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_usage_timeseries"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringApi.get_usage_timeseries ...'
       end
@@ -1421,6 +1641,16 @@ module DatadogAPIClient::V1
     # @option opts [Array<String>] :names Comma-separated list of metric names.
     # @return [Array<(UsageTopAvgMetricsResponse, Integer, Hash)>] UsageTopAvgMetricsResponse data, response status code and response headers
     def get_usage_top_avg_metrics_with_http_info(month, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_usage_top_avg_metrics)
+        unstable_enabled = @api_client.config.unstable_operations[:get_usage_top_avg_metrics]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_top_avg_metrics")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_usage_top_avg_metrics"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringApi.get_usage_top_avg_metrics ...'
       end
@@ -1484,6 +1714,16 @@ module DatadogAPIClient::V1
     # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageTraceResponse, Integer, Hash)>] UsageTraceResponse data, response status code and response headers
     def get_usage_trace_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_usage_trace)
+        unstable_enabled = @api_client.config.unstable_operations[:get_usage_trace]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_trace")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_usage_trace"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringApi.get_usage_trace ...'
       end

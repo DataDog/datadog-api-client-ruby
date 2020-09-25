@@ -37,6 +37,16 @@ module DatadogAPIClient::V2
     # @option opts [RelationshipToRole] :body 
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def add_read_role_to_archive_with_http_info(archive_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:add_read_role_to_archive)
+        unstable_enabled = @api_client.config.unstable_operations[:add_read_role_to_archive]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "add_read_role_to_archive")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "add_read_role_to_archive"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsArchivesApi.add_read_role_to_archive ...'
       end
@@ -102,6 +112,16 @@ module DatadogAPIClient::V2
     # @param [Hash] opts the optional parameters
     # @return [Array<(LogsArchive, Integer, Hash)>] LogsArchive data, response status code and response headers
     def create_logs_archive_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:create_logs_archive)
+        unstable_enabled = @api_client.config.unstable_operations[:create_logs_archive]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_logs_archive")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "create_logs_archive"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsArchivesApi.create_logs_archive ...'
       end
@@ -167,6 +187,16 @@ module DatadogAPIClient::V2
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_logs_archive_with_http_info(archive_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:delete_logs_archive)
+        unstable_enabled = @api_client.config.unstable_operations[:delete_logs_archive]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_logs_archive")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "delete_logs_archive"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsArchivesApi.delete_logs_archive ...'
       end
@@ -226,6 +256,16 @@ module DatadogAPIClient::V2
     # @param [Hash] opts the optional parameters
     # @return [Array<(LogsArchive, Integer, Hash)>] LogsArchive data, response status code and response headers
     def get_logs_archive_with_http_info(archive_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_logs_archive)
+        unstable_enabled = @api_client.config.unstable_operations[:get_logs_archive]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_logs_archive")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_logs_archive"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsArchivesApi.get_logs_archive ...'
       end
@@ -285,6 +325,16 @@ module DatadogAPIClient::V2
     # @param [Hash] opts the optional parameters
     # @return [Array<(RolesResponse, Integer, Hash)>] RolesResponse data, response status code and response headers
     def list_archive_read_roles_with_http_info(archive_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_archive_read_roles)
+        unstable_enabled = @api_client.config.unstable_operations[:list_archive_read_roles]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_archive_read_roles")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "list_archive_read_roles"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsArchivesApi.list_archive_read_roles ...'
       end
@@ -342,6 +392,16 @@ module DatadogAPIClient::V2
     # @param [Hash] opts the optional parameters
     # @return [Array<(LogsArchives, Integer, Hash)>] LogsArchives data, response status code and response headers
     def list_logs_archives_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_logs_archives)
+        unstable_enabled = @api_client.config.unstable_operations[:list_logs_archives]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_logs_archives")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "list_logs_archives"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsArchivesApi.list_logs_archives ...'
       end
@@ -399,6 +459,16 @@ module DatadogAPIClient::V2
     # @option opts [RelationshipToRole] :body 
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def remove_role_from_archive_with_http_info(archive_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:remove_role_from_archive)
+        unstable_enabled = @api_client.config.unstable_operations[:remove_role_from_archive]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "remove_role_from_archive")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "remove_role_from_archive"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsArchivesApi.remove_role_from_archive ...'
       end
@@ -466,6 +536,16 @@ module DatadogAPIClient::V2
     # @param [Hash] opts the optional parameters
     # @return [Array<(LogsArchive, Integer, Hash)>] LogsArchive data, response status code and response headers
     def update_logs_archive_with_http_info(archive_id, body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:update_logs_archive)
+        unstable_enabled = @api_client.config.unstable_operations[:update_logs_archive]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_logs_archive")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "update_logs_archive"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsArchivesApi.update_logs_archive ...'
       end
