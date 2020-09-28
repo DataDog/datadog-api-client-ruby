@@ -1,7 +1,7 @@
 Given('the "user" has a "user_invitation"') do
   user = fixtures[:user]
 
-  api_instance = DatadogAPIClient::V2::UsersApi.new
+  api_instance = DatadogAPIClient::V2::UsersApi.new api_client
 
   data = DatadogAPIClient::V2::UserInvitationData.new
   data.type = "user_invitations"

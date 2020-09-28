@@ -2,7 +2,7 @@ Given('the "user" has the "role"') do
   user = fixtures[:user]
   role = fixtures[:role]
 
-  api_instance = DatadogAPIClient::V2::RolesApi.new
+  api_instance = DatadogAPIClient::V2::RolesApi.new api_client
 
   body = DatadogAPIClient::V2::RelationshipToUser.new
   body.data = DatadogAPIClient::V2::RelationshipToUserData.new
@@ -16,7 +16,7 @@ Given('the "permission" is granted to the "role"') do
   permission = fixtures[:permission]
   role = fixtures[:role]
 
-  api_instance = DatadogAPIClient::V2::RolesApi.new
+  api_instance = DatadogAPIClient::V2::RolesApi.new api_client
 
   body = DatadogAPIClient::V2::RelationshipToPermission.new
   body.data = DatadogAPIClient::V2::RelationshipToPermissionData.new
