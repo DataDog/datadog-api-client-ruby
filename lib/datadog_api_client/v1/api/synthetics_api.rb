@@ -769,6 +769,75 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
+    # Get a global variable
+    # Get the detailed configuration of a global variable.
+    # @param variable_id [String] The ID of the global variable.
+    # @param [Hash] opts the optional parameters
+    # @return [SyntheticsGlobalVariable]
+    def get_global_variable(variable_id, opts = {})
+      data, _status_code, _headers = get_global_variable_with_http_info(variable_id, opts)
+      data
+    end
+
+    # Get a global variable
+    # Get the detailed configuration of a global variable.
+    # @param variable_id [String] The ID of the global variable.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(SyntheticsGlobalVariable, Integer, Hash)>] SyntheticsGlobalVariable data, response status code and response headers
+    def get_global_variable_with_http_info(variable_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_global_variable)
+        unstable_enabled = @api_client.config.unstable_operations[:get_global_variable]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_global_variable")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_global_variable"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsApi.get_global_variable ...'
+      end
+      # verify the required parameter 'variable_id' is set
+      if @api_client.config.client_side_validation && variable_id.nil?
+        fail ArgumentError, "Missing the required parameter 'variable_id' when calling SyntheticsApi.get_global_variable"
+      end
+      # resource path
+      local_var_path = '/api/v1/synthetics/variables/{variable_id}'.sub('{' + 'variable_id' + '}', CGI.escape(variable_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+      # return_type
+      return_type = opts[:return_type] || 'SyntheticsGlobalVariable' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"SyntheticsApi.get_global_variable",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => nil,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsApi#get_global_variable\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a test configuration (API)
     # Get the detailed configuration associated with a Synthetics test.
     # @param public_id [String] The public ID of the test to get details from.
