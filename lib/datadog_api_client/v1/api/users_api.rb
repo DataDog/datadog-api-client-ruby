@@ -232,8 +232,8 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get all users
-    # Get all users for your organization.
+    # List all users
+    # List all users for your organization.
     # @param [Hash] opts the optional parameters
     # @return [UserListResponse]
     def list_users(opts = {})
@@ -241,8 +241,8 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get all users
-    # Get all users for your organization.
+    # List all users
+    # List all users for your organization.
     # @param [Hash] opts the optional parameters
     # @return [Array<(UserListResponse, Integer, Hash)>] UserListResponse data, response status code and response headers
     def list_users_with_http_info(opts = {})

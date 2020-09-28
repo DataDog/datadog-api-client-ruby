@@ -228,7 +228,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get a user
+    # Get user details
     # Get a user in the organization specified by the user’s `user_id`.
     # @param user_id [String] The ID of the user.
     # @param [Hash] opts the optional parameters
@@ -238,7 +238,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get a user
+    # Get user details
     # Get a user in the organization specified by the user’s &#x60;user_id&#x60;.
     # @param user_id [String] The ID of the user.
     # @param [Hash] opts the optional parameters

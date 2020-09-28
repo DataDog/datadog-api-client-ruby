@@ -236,7 +236,7 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::UsersApi* | [**create_user**](docs/UsersApi.md#create_user) | **POST** /api/v1/user | Create a user
 *DatadogAPIClient::V1::UsersApi* | [**disable_user**](docs/UsersApi.md#disable_user) | **DELETE** /api/v1/user/{user_handle} | Disable a user
 *DatadogAPIClient::V1::UsersApi* | [**get_user**](docs/UsersApi.md#get_user) | **GET** /api/v1/user/{user_handle} | Get user details
-*DatadogAPIClient::V1::UsersApi* | [**list_users**](docs/UsersApi.md#list_users) | **GET** /api/v1/user | Get all users
+*DatadogAPIClient::V1::UsersApi* | [**list_users**](docs/UsersApi.md#list_users) | **GET** /api/v1/user | List all users
 *DatadogAPIClient::V1::UsersApi* | [**update_user**](docs/UsersApi.md#update_user) | **PUT** /api/v1/user/{user_handle} | Update a user
 
 
