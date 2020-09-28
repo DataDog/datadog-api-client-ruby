@@ -198,6 +198,7 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::SyntheticsApi* | [**get_browser_test**](docs/SyntheticsApi.md#get_browser_test) | **GET** /api/v1/synthetics/tests/browser/{public_id} | Get a test configuration (browser)
 *DatadogAPIClient::V1::SyntheticsApi* | [**get_browser_test_latest_results**](docs/SyntheticsApi.md#get_browser_test_latest_results) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results | Get the test's latest results summaries (browser)
 *DatadogAPIClient::V1::SyntheticsApi* | [**get_browser_test_result**](docs/SyntheticsApi.md#get_browser_test_result) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results/{result_id} | Get a test result (browser)
+*DatadogAPIClient::V1::SyntheticsApi* | [**get_global_variable**](docs/SyntheticsApi.md#get_global_variable) | **GET** /api/v1/synthetics/variables/{variable_id} | Get a global variable
 *DatadogAPIClient::V1::SyntheticsApi* | [**get_test**](docs/SyntheticsApi.md#get_test) | **GET** /api/v1/synthetics/tests/{public_id} | Get a test configuration (API)
 *DatadogAPIClient::V1::SyntheticsApi* | [**list_locations**](docs/SyntheticsApi.md#list_locations) | **GET** /api/v1/synthetics/locations | Get all locations (public and private)
 *DatadogAPIClient::V1::SyntheticsApi* | [**list_tests**](docs/SyntheticsApi.md#list_tests) | **GET** /api/v1/synthetics/tests | Get the list of all tests

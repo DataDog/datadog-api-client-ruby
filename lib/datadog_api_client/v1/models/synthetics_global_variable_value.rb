@@ -18,7 +18,7 @@ module DatadogAPIClient::V1
     # Determines if the variable is secure.
     attr_accessor :secure
 
-    # Value of the global variable.
+    # Value of the global variable. When reading a global variable, the value will not be present if the variable is secure.
     attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.
