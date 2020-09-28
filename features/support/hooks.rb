@@ -13,7 +13,7 @@ AfterConfiguration do |config|
     unless current_span.nil?
       if current_span.span_type == 'test'
         if event.result.failed?
-          current_span.set_tag(Datadog::Ext::Errors::MSG, "failed")
+          current_span.status = 1
         end
         current_span.finish
       end
