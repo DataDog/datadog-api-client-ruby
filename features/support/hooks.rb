@@ -22,6 +22,11 @@ AfterConfiguration do |config|
       if current_span.span_type == 'step'
         unless step.result.passed?
           current_span.set_error step.result.exception
+          # mark all parents spans as failed
+          s = current_span
+          while s = s.parent
+            s.set_tag(Datadog::Ext::Errors::MSG, "failed #{step.test_step}") unless s.get_tag(Datadog::Ext::Errors::MSG)
+          end
         end
         current_span.finish
       end
