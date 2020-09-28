@@ -20,6 +20,8 @@ module DatadogAPIClient::V1
     CERTIFICATE = "certificate".freeze
     RESPONSE_TIME = "responseTime".freeze
     PROPERTY = "property".freeze
+    RECORD_EVERY = "recordEvery".freeze
+    RECORD_SOME = "recordSome".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
