@@ -22,7 +22,7 @@ module DatadogAPIClient::V1
 
     attr_accessor :apm_query
 
-    attr_accessor :apm_resources_query
+    attr_accessor :apm_stats_query
 
     # List of conditional formats.
     attr_accessor :conditional_formats
@@ -53,7 +53,7 @@ module DatadogAPIClient::V1
         :'aggregator' => :'aggregator',
         :'_alias' => :'alias',
         :'apm_query' => :'apm_query',
-        :'apm_resources_query' => :'apm_resources_query',
+        :'apm_stats_query' => :'apm_stats_query',
         :'conditional_formats' => :'conditional_formats',
         :'event_query' => :'event_query',
         :'limit' => :'limit',
@@ -73,7 +73,7 @@ module DatadogAPIClient::V1
         :'aggregator' => :'WidgetAggregator',
         :'_alias' => :'String',
         :'apm_query' => :'LogQueryDefinition',
-        :'apm_resources_query' => :'ApmResourcesQueryDefinition',
+        :'apm_stats_query' => :'ApmStatsQueryDefinition',
         :'conditional_formats' => :'Array<WidgetConditionalFormat>',
         :'event_query' => :'EventQueryDefinition',
         :'limit' => :'Integer',
@@ -120,8 +120,8 @@ module DatadogAPIClient::V1
         self.apm_query = attributes[:'apm_query']
       end
 
-      if attributes.key?(:'apm_resources_query')
-        self.apm_resources_query = attributes[:'apm_resources_query']
+      if attributes.key?(:'apm_stats_query')
+        self.apm_stats_query = attributes[:'apm_stats_query']
       end
 
       if attributes.key?(:'conditional_formats')
@@ -188,7 +188,7 @@ module DatadogAPIClient::V1
           aggregator == o.aggregator &&
           _alias == o._alias &&
           apm_query == o.apm_query &&
-          apm_resources_query == o.apm_resources_query &&
+          apm_stats_query == o.apm_stats_query &&
           conditional_formats == o.conditional_formats &&
           event_query == o.event_query &&
           limit == o.limit &&
@@ -210,7 +210,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aggregator, _alias, apm_query, apm_resources_query, conditional_formats, event_query, limit, log_query, network_query, order, process_query, q, rum_query, security_query].hash
+      [aggregator, _alias, apm_query, apm_stats_query, conditional_formats, event_query, limit, log_query, network_query, order, process_query, q, rum_query, security_query].hash
     end
 
     # Builds the object from hash
