@@ -142,13 +142,11 @@ World(APIWorld)
 
 
 Given('a valid "apiKeyAuth" key in the system') do
-  configuration.api_key['DD-API-KEY'] = ENV["DD_TEST_CLIENT_API_KEY"]
-  # TODO configuration.api_key['apiKeyAuth'] = ENV["DD_TEST_CLIENT_API_KEY"]
+  configuration.api_key['apiKeyAuth'] = ENV["DD_TEST_CLIENT_API_KEY"]
 end
 
 Given('a valid "appKeyAuth" key in the system') do
-  configuration.api_key['DD-APPLICATION-KEY'] = ENV["DD_TEST_CLIENT_APP_KEY"]
-  # TODO configuration.api_key['appKeyAuth'] = ENV["DD_TEST_CLIENT_APP_KEY"]
+  configuration.api_key['appKeyAuth'] = ENV["DD_TEST_CLIENT_APP_KEY"]
 end
 
 Given(/^an instance of "([^"]+)" API$/) do |api_name|
