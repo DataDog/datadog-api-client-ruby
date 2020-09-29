@@ -13,8 +13,8 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 require 'date'
 
 module DatadogAPIClient::V1
-  # The APM resources (stats) query for Table Widget.
-  class ApmResourcesQueryDefinition
+  # The APM stats query for table and distributions widgets.
+  class ApmStatsQueryDefinition
     # Column names used by front end for display.
     attr_accessor :columns
 
@@ -24,8 +24,13 @@ module DatadogAPIClient::V1
     # Operation name associated with service.
     attr_accessor :name
 
+    # The organization's host group name and value.
+    attr_accessor :primary_tag
+
     # Resource name.
     attr_accessor :resource
+
+    attr_accessor :row_type
 
     # Service name.
     attr_accessor :service
@@ -36,7 +41,9 @@ module DatadogAPIClient::V1
         :'columns' => :'columns',
         :'env' => :'env',
         :'name' => :'name',
+        :'primary_tag' => :'primary_tag',
         :'resource' => :'resource',
+        :'row_type' => :'row_type',
         :'service' => :'service'
       }
     end
@@ -47,7 +54,9 @@ module DatadogAPIClient::V1
         :'columns' => :'Array<String>',
         :'env' => :'String',
         :'name' => :'String',
+        :'primary_tag' => :'String',
         :'resource' => :'String',
+        :'row_type' => :'ApmStatsQueryRowType',
         :'service' => :'String'
       }
     end
@@ -62,13 +71,13 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::ApmResourcesQueryDefinition` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::ApmStatsQueryDefinition` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::ApmResourcesQueryDefinition`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::ApmStatsQueryDefinition`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -87,8 +96,16 @@ module DatadogAPIClient::V1
         self.name = attributes[:'name']
       end
 
+      if attributes.key?(:'primary_tag')
+        self.primary_tag = attributes[:'primary_tag']
+      end
+
       if attributes.key?(:'resource')
         self.resource = attributes[:'resource']
+      end
+
+      if attributes.key?(:'row_type')
+        self.row_type = attributes[:'row_type']
       end
 
       if attributes.key?(:'service')
@@ -108,6 +125,14 @@ module DatadogAPIClient::V1
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
+      if @primary_tag.nil?
+        invalid_properties.push('invalid value for "primary_tag", primary_tag cannot be nil.')
+      end
+
+      if @row_type.nil?
+        invalid_properties.push('invalid value for "row_type", row_type cannot be nil.')
+      end
+
       if @service.nil?
         invalid_properties.push('invalid value for "service", service cannot be nil.')
       end
@@ -120,6 +145,8 @@ module DatadogAPIClient::V1
     def valid?
       return false if @env.nil?
       return false if @name.nil?
+      return false if @primary_tag.nil?
+      return false if @row_type.nil?
       return false if @service.nil?
       true
     end
@@ -132,7 +159,9 @@ module DatadogAPIClient::V1
           columns == o.columns &&
           env == o.env &&
           name == o.name &&
+          primary_tag == o.primary_tag &&
           resource == o.resource &&
+          row_type == o.row_type &&
           service == o.service
     end
 
@@ -145,7 +174,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [columns, env, name, resource, service].hash
+      [columns, env, name, primary_tag, resource, row_type, service].hash
     end
 
     # Builds the object from hash

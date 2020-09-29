@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **aggregator** | [**WidgetAggregator**](WidgetAggregator.md) |  | [optional] 
 **_alias** | **String** | The column name (defaults to the metric name). | [optional] 
 **apm_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] 
-**apm_resources_query** | [**ApmResourcesQueryDefinition**](ApmResourcesQueryDefinition.md) |  | [optional] 
+**apm_stats_query** | [**ApmStatsQueryDefinition**](ApmStatsQueryDefinition.md) |  | [optional] 
 **conditional_formats** | [**Array&lt;WidgetConditionalFormat&gt;**](WidgetConditionalFormat.md) | List of conditional formats. | [optional] 
 **event_query** | [**EventQueryDefinition**](EventQueryDefinition.md) |  | [optional] 
 **limit** | **Integer** | For metric queries, the number of lines to show in the table. Only one request should have this property. | [optional] 
@@ -27,7 +27,7 @@ require 'DatadogAPIClient::V1'
 instance = DatadogAPIClient::V1::TableWidgetRequest.new(aggregator: null,
                                  _alias: null,
                                  apm_query: null,
-                                 apm_resources_query: null,
+                                 apm_stats_query: null,
                                  conditional_formats: null,
                                  event_query: null,
                                  limit: null,
