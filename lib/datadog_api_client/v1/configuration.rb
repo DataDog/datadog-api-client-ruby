@@ -212,11 +212,13 @@ module DatadogAPIClient::V1
 
     # Gets API key (with prefix if set).
     # @param [String] param_name the parameter name of API key auth
-    def api_key_with_prefix(param_name)
+    def api_key_with_prefix(param_name, param_alias = nil)
+      key = @api_key[param_name]
+      key = @api_key.fetch(param_alias, key) unless param_alias.nil?
       if @api_key_prefix[param_name]
-        "#{@api_key_prefix[param_name]} #{@api_key[param_name]}"
+        "#{@api_key_prefix[param_name]} #{key}"
       else
-        @api_key[param_name]
+        key
       end
     end
 
@@ -233,28 +235,28 @@ module DatadogAPIClient::V1
             type: 'api_key',
             in: 'header',
             key: 'DD-API-KEY',
-            value: api_key_with_prefix('DD-API-KEY')
+            value: api_key_with_prefix('apiKeyAuth')
           },
         'apiKeyAuthQuery' =>
           {
             type: 'api_key',
             in: 'query',
             key: 'api_key',
-            value: api_key_with_prefix('api_key')
+            value: api_key_with_prefix('apiKeyAuthQuery', 'apiKeyAuth')
           },
         'appKeyAuth' =>
           {
             type: 'api_key',
             in: 'header',
             key: 'DD-APPLICATION-KEY',
-            value: api_key_with_prefix('DD-APPLICATION-KEY')
+            value: api_key_with_prefix('appKeyAuth')
           },
         'appKeyAuthQuery' =>
           {
             type: 'api_key',
             in: 'query',
             key: 'application_key',
-            value: api_key_with_prefix('application_key')
+            value: api_key_with_prefix('appKeyAuthQuery', 'appKeyAuth')
           },
       }
     end
