@@ -134,7 +134,7 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V2::UsersApi* | [**create_user**](docs/UsersApi.md#create_user) | **POST** /api/v2/users | Create a user
 *DatadogAPIClient::V2::UsersApi* | [**disable_user**](docs/UsersApi.md#disable_user) | **DELETE** /api/v2/users/{user_id} | Disable a user
 *DatadogAPIClient::V2::UsersApi* | [**get_invitation**](docs/UsersApi.md#get_invitation) | **GET** /api/v2/user_invitations/{user_invitation_uuid} | Get a user invitation
-*DatadogAPIClient::V2::UsersApi* | [**get_user**](docs/UsersApi.md#get_user) | **GET** /api/v2/users/{user_id} | Get a user
+*DatadogAPIClient::V2::UsersApi* | [**get_user**](docs/UsersApi.md#get_user) | **GET** /api/v2/users/{user_id} | Get user details
 *DatadogAPIClient::V2::UsersApi* | [**list_user_organizations**](docs/UsersApi.md#list_user_organizations) | **GET** /api/v2/users/{user_id}/orgs | Get a user organization
 *DatadogAPIClient::V2::UsersApi* | [**list_user_permissions**](docs/UsersApi.md#list_user_permissions) | **GET** /api/v2/users/{user_id}/permissions | Get a user permissions
 *DatadogAPIClient::V2::UsersApi* | [**list_users**](docs/UsersApi.md#list_users) | **GET** /api/v2/users | List all users

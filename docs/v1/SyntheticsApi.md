@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**get_browser_test**](SyntheticsApi.md#get_browser_test) | **GET** /api/v1/synthetics/tests/browser/{public_id} | Get a test configuration (browser)
 [**get_browser_test_latest_results**](SyntheticsApi.md#get_browser_test_latest_results) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results | Get the test&#39;s latest results summaries (browser)
 [**get_browser_test_result**](SyntheticsApi.md#get_browser_test_result) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results/{result_id} | Get a test result (browser)
+[**get_global_variable**](SyntheticsApi.md#get_global_variable) | **GET** /api/v1/synthetics/variables/{variable_id} | Get a global variable
 [**get_test**](SyntheticsApi.md#get_test) | **GET** /api/v1/synthetics/tests/{public_id} | Get a test configuration (API)
 [**list_locations**](SyntheticsApi.md#list_locations) | **GET** /api/v1/synthetics/locations | Get all locations (public and private)
 [**list_tests**](SyntheticsApi.md#list_tests) | **GET** /api/v1/synthetics/tests | Get the list of all tests
@@ -623,6 +624,65 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SyntheticsBrowserTestResultFull**](SyntheticsBrowserTestResultFull.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_global_variable
+
+> SyntheticsGlobalVariable get_global_variable(variable_id)
+
+Get a global variable
+
+Get the detailed configuration of a global variable.
+
+### Example
+
+```ruby
+# load the gem
+require 'datadog_api_client/v1'
+# setup authorization
+DatadogAPIClient::V1.configure do |config|
+  # Configure API key authorization: apiKeyAuth
+  config.api_key['DD-API-KEY'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['DD-API-KEY'] = 'Bearer'
+
+  # Configure API key authorization: appKeyAuth
+  config.api_key['DD-APPLICATION-KEY'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['DD-APPLICATION-KEY'] = 'Bearer'
+end
+
+api_instance = DatadogAPIClient::V1::SyntheticsApi.new
+variable_id = 'variable_id_example' # String | The ID of the global variable.
+
+begin
+  #Get a global variable
+  result = api_instance.get_global_variable(variable_id)
+  p result
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Exception when calling SyntheticsApi->get_global_variable: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **variable_id** | **String**| The ID of the global variable. | 
+
+### Return type
+
+[**SyntheticsGlobalVariable**](SyntheticsGlobalVariable.md)
 
 ### Authorization
 
