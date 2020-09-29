@@ -28,14 +28,14 @@ require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
-  config.api_key['DD-API-KEY'] = 'YOUR API KEY'
+  config.api_key['apiKeyAuth'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['DD-API-KEY'] = 'Bearer'
+  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
-  config.api_key['DD-APPLICATION-KEY'] = 'YOUR API KEY'
+  config.api_key['appKeyAuth'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['DD-APPLICATION-KEY'] = 'Bearer'
+  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::MetricsApi.new
@@ -87,14 +87,14 @@ require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
-  config.api_key['DD-API-KEY'] = 'YOUR API KEY'
+  config.api_key['apiKeyAuth'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['DD-API-KEY'] = 'Bearer'
+  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
-  config.api_key['DD-APPLICATION-KEY'] = 'YOUR API KEY'
+  config.api_key['appKeyAuth'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['DD-APPLICATION-KEY'] = 'Bearer'
+  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::MetricsApi.new
@@ -150,14 +150,14 @@ require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
-  config.api_key['DD-API-KEY'] = 'YOUR API KEY'
+  config.api_key['apiKeyAuth'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['DD-API-KEY'] = 'Bearer'
+  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
-  config.api_key['DD-APPLICATION-KEY'] = 'YOUR API KEY'
+  config.api_key['appKeyAuth'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['DD-APPLICATION-KEY'] = 'Bearer'
+  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::MetricsApi.new
@@ -209,14 +209,14 @@ require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
-  config.api_key['DD-API-KEY'] = 'YOUR API KEY'
+  config.api_key['apiKeyAuth'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['DD-API-KEY'] = 'Bearer'
+  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
-  config.api_key['DD-APPLICATION-KEY'] = 'YOUR API KEY'
+  config.api_key['appKeyAuth'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['DD-APPLICATION-KEY'] = 'Bearer'
+  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::MetricsApi.new
@@ -272,14 +272,14 @@ require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
-  config.api_key['DD-API-KEY'] = 'YOUR API KEY'
+  config.api_key['apiKeyAuth'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['DD-API-KEY'] = 'Bearer'
+  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
-  config.api_key['DD-APPLICATION-KEY'] = 'YOUR API KEY'
+  config.api_key['appKeyAuth'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['DD-APPLICATION-KEY'] = 'Bearer'
+  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::MetricsApi.new
