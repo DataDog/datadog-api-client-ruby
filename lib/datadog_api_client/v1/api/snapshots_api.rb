@@ -85,18 +85,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'GraphSnapshot' 
+      return_type = opts[:debug_return_type] || 'GraphSnapshot'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"SnapshotsApi.get_graph_snapshot",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )

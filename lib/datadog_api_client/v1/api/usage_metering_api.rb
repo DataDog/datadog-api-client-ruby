@@ -71,18 +71,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'UsageCustomReportsResponse' 
+      return_type = opts[:debug_return_type] || 'UsageCustomReportsResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"UsageMeteringApi.get_daily_custom_reports",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -146,18 +150,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'UsageCustomReportsResponse' 
+      return_type = opts[:debug_return_type] || 'UsageCustomReportsResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"UsageMeteringApi.get_monthly_custom_reports",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -215,18 +223,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'UsageSpecifiedCustomReportsResponse' 
+      return_type = opts[:debug_return_type] || 'UsageSpecifiedCustomReportsResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"UsageMeteringApi.get_specified_daily_custom_reports",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -284,18 +296,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'UsageSpecifiedCustomReportsResponse' 
+      return_type = opts[:debug_return_type] || 'UsageSpecifiedCustomReportsResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"UsageMeteringApi.get_specified_monthly_custom_reports",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -357,18 +373,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'UsageTracingWithoutLimitsResponse' 
+      return_type = opts[:debug_return_type] || 'UsageTracingWithoutLimitsResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"UsageMeteringApi.get_tracing_without_limits",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -430,18 +450,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'UsageAnalyzedLogsResponse' 
+      return_type = opts[:debug_return_type] || 'UsageAnalyzedLogsResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"UsageMeteringApi.get_usage_analyzed_logs",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -496,18 +520,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'UsageBillableSummaryResponse' 
+      return_type = opts[:debug_return_type] || 'UsageBillableSummaryResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"UsageMeteringApi.get_usage_billable_summary",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -569,18 +597,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'UsageFargateResponse' 
+      return_type = opts[:debug_return_type] || 'UsageFargateResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"UsageMeteringApi.get_usage_fargate",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -642,18 +674,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'UsageHostsResponse' 
+      return_type = opts[:debug_return_type] || 'UsageHostsResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"UsageMeteringApi.get_usage_hosts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -715,18 +751,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'UsageLambdaResponse' 
+      return_type = opts[:debug_return_type] || 'UsageLambdaResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"UsageMeteringApi.get_usage_lambda",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -788,18 +828,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'UsageLogsResponse' 
+      return_type = opts[:debug_return_type] || 'UsageLogsResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"UsageMeteringApi.get_usage_logs",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -864,18 +908,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'UsageLogsByIndexResponse' 
+      return_type = opts[:debug_return_type] || 'UsageLogsByIndexResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"UsageMeteringApi.get_usage_logs_by_index",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -937,18 +985,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'UsageNetworkFlowsResponse' 
+      return_type = opts[:debug_return_type] || 'UsageNetworkFlowsResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"UsageMeteringApi.get_usage_network_flows",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -1010,18 +1062,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'UsageNetworkHostsResponse' 
+      return_type = opts[:debug_return_type] || 'UsageNetworkHostsResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"UsageMeteringApi.get_usage_network_hosts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -1083,18 +1139,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'UsageProfilingResponse' 
+      return_type = opts[:debug_return_type] || 'UsageProfilingResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"UsageMeteringApi.get_usage_profiling",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -1159,18 +1219,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'UsageRumSessionsResponse' 
+      return_type = opts[:debug_return_type] || 'UsageRumSessionsResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"UsageMeteringApi.get_usage_rum_sessions",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -1232,18 +1296,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'UsageSNMPResponse' 
+      return_type = opts[:debug_return_type] || 'UsageSNMPResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"UsageMeteringApi.get_usage_snmp",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -1308,18 +1376,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'UsageSummaryResponse' 
+      return_type = opts[:debug_return_type] || 'UsageSummaryResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"UsageMeteringApi.get_usage_summary",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -1381,18 +1453,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'UsageSyntheticsResponse' 
+      return_type = opts[:debug_return_type] || 'UsageSyntheticsResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"UsageMeteringApi.get_usage_synthetics",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -1454,18 +1530,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'UsageSyntheticsAPIResponse' 
+      return_type = opts[:debug_return_type] || 'UsageSyntheticsAPIResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"UsageMeteringApi.get_usage_synthetics_api",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -1527,18 +1607,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'UsageSyntheticsBrowserResponse' 
+      return_type = opts[:debug_return_type] || 'UsageSyntheticsBrowserResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"UsageMeteringApi.get_usage_synthetics_browser",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -1600,18 +1684,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'UsageTimeseriesResponse' 
+      return_type = opts[:debug_return_type] || 'UsageTimeseriesResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"UsageMeteringApi.get_usage_timeseries",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -1673,18 +1761,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'UsageTopAvgMetricsResponse' 
+      return_type = opts[:debug_return_type] || 'UsageTopAvgMetricsResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"UsageMeteringApi.get_usage_top_avg_metrics",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -1746,18 +1838,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'UsageTraceResponse' 
+      return_type = opts[:debug_return_type] || 'UsageTraceResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"UsageMeteringApi.get_usage_trace",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )

@@ -71,13 +71,13 @@ module DatadogAPIClient::V2
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(opts[:'body'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'body'])
 
       # return_type
-      return_type = opts[:return_type] || 'PermissionsResponse' 
+      return_type = opts[:debug_return_type] || 'PermissionsResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"RolesApi.add_permission_to_role",
@@ -148,13 +148,13 @@ module DatadogAPIClient::V2
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(opts[:'body'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'body'])
 
       # return_type
-      return_type = opts[:return_type] || 'UsersResponse' 
+      return_type = opts[:debug_return_type] || 'UsersResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"RolesApi.add_user_to_role",
@@ -219,13 +219,13 @@ module DatadogAPIClient::V2
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(opts[:'body'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'body'])
 
       # return_type
-      return_type = opts[:return_type] || 'RoleCreateResponse' 
+      return_type = opts[:debug_return_type] || 'RoleCreateResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"RolesApi.create_role",
@@ -290,18 +290,22 @@ module DatadogAPIClient::V2
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] 
+      return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"RolesApi.delete_role",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -359,18 +363,22 @@ module DatadogAPIClient::V2
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'RoleResponse' 
+      return_type = opts[:debug_return_type] || 'RoleResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"RolesApi.get_role",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -422,18 +430,22 @@ module DatadogAPIClient::V2
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'PermissionsResponse' 
+      return_type = opts[:debug_return_type] || 'PermissionsResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"RolesApi.list_permissions",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -491,18 +503,22 @@ module DatadogAPIClient::V2
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'PermissionsResponse' 
+      return_type = opts[:debug_return_type] || 'PermissionsResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"RolesApi.list_role_permissions",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -572,18 +588,22 @@ module DatadogAPIClient::V2
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'UsersResponse' 
+      return_type = opts[:debug_return_type] || 'UsersResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"RolesApi.list_role_users",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -647,18 +667,22 @@ module DatadogAPIClient::V2
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'RolesResponse' 
+      return_type = opts[:debug_return_type] || 'RolesResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"RolesApi.list_roles",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -722,13 +746,13 @@ module DatadogAPIClient::V2
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(opts[:'body'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'body'])
 
       # return_type
-      return_type = opts[:return_type] || 'PermissionsResponse' 
+      return_type = opts[:debug_return_type] || 'PermissionsResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"RolesApi.remove_permission_from_role",
@@ -799,13 +823,13 @@ module DatadogAPIClient::V2
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(opts[:'body'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'body'])
 
       # return_type
-      return_type = opts[:return_type] || 'UsersResponse' 
+      return_type = opts[:debug_return_type] || 'UsersResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"RolesApi.remove_user_from_role",
@@ -876,13 +900,13 @@ module DatadogAPIClient::V2
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(opts[:'body'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'body'])
 
       # return_type
-      return_type = opts[:return_type] || 'RoleUpdateResponse' 
+      return_type = opts[:debug_return_type] || 'RoleUpdateResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"RolesApi.update_role",

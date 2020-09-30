@@ -65,18 +65,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] 
+      return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"DowntimesApi.cancel_downtime",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -138,13 +142,13 @@ module DatadogAPIClient::V1
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(body)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:return_type] || 'CanceledDowntimesIds' 
+      return_type = opts[:debug_return_type] || 'CanceledDowntimesIds'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"DowntimesApi.cancel_downtimes_by_scope",
@@ -213,13 +217,13 @@ module DatadogAPIClient::V1
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(body)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:return_type] || 'Downtime' 
+      return_type = opts[:debug_return_type] || 'Downtime'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"DowntimesApi.create_downtime",
@@ -284,18 +288,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'Downtime' 
+      return_type = opts[:debug_return_type] || 'Downtime'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"DowntimesApi.get_downtime",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -350,18 +358,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'Array<Downtime>' 
+      return_type = opts[:debug_return_type] || 'Array<Downtime>'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"DowntimesApi.list_downtimes",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -429,13 +441,13 @@ module DatadogAPIClient::V1
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(body)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:return_type] || 'Downtime' 
+      return_type = opts[:debug_return_type] || 'Downtime'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"DowntimesApi.update_downtime",

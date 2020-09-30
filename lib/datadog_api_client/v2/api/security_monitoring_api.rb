@@ -65,13 +65,13 @@ module DatadogAPIClient::V2
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(opts[:'body'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'body'])
 
       # return_type
-      return_type = opts[:return_type] || 'SecurityMonitoringRuleResponse' 
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringRuleResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"SecurityMonitoringApi.create_security_monitoring_rule",
@@ -136,18 +136,22 @@ module DatadogAPIClient::V2
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] 
+      return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"SecurityMonitoringApi.delete_security_monitoring_rule",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -205,18 +209,22 @@ module DatadogAPIClient::V2
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'SecurityMonitoringRuleResponse' 
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringRuleResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"SecurityMonitoringApi.get_security_monitoring_rule",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -274,18 +282,22 @@ module DatadogAPIClient::V2
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'SecurityMonitoringListRulesResponse' 
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringListRulesResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"SecurityMonitoringApi.list_security_monitoring_rules",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -359,18 +371,22 @@ module DatadogAPIClient::V2
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'SecurityMonitoringSignalsListResponse' 
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringSignalsListResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"SecurityMonitoringApi.list_security_monitoring_signals",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -428,13 +444,13 @@ module DatadogAPIClient::V2
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(opts[:'body'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'body'])
 
       # return_type
-      return_type = opts[:return_type] || 'SecurityMonitoringSignalsListResponse' 
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringSignalsListResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"SecurityMonitoringApi.search_security_monitoring_signals",
@@ -505,13 +521,13 @@ module DatadogAPIClient::V2
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(opts[:'body'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'body'])
 
       # return_type
-      return_type = opts[:return_type] || 'SecurityMonitoringRuleResponse' 
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringRuleResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"SecurityMonitoringApi.update_security_monitoring_rule",

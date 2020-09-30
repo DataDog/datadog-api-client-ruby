@@ -69,13 +69,13 @@ module DatadogAPIClient::V1
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(body)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:return_type] || 'ApiKeyResponse' 
+      return_type = opts[:debug_return_type] || 'ApiKeyResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"KeyManagementApi.create_api_key",
@@ -144,13 +144,13 @@ module DatadogAPIClient::V1
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(body)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:return_type] || 'ApplicationKeyResponse' 
+      return_type = opts[:debug_return_type] || 'ApplicationKeyResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"KeyManagementApi.create_application_key",
@@ -215,18 +215,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'ApiKeyResponse' 
+      return_type = opts[:debug_return_type] || 'ApiKeyResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"KeyManagementApi.delete_api_key",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -284,18 +288,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'ApplicationKeyResponse' 
+      return_type = opts[:debug_return_type] || 'ApplicationKeyResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"KeyManagementApi.delete_application_key",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -353,18 +361,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'ApiKeyResponse' 
+      return_type = opts[:debug_return_type] || 'ApiKeyResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"KeyManagementApi.get_api_key",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -422,18 +434,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'ApplicationKeyResponse' 
+      return_type = opts[:debug_return_type] || 'ApplicationKeyResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"KeyManagementApi.get_application_key",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -485,18 +501,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'ApiKeyListResponse' 
+      return_type = opts[:debug_return_type] || 'ApiKeyListResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"KeyManagementApi.list_api_keys",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -548,18 +568,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'ApplicationKeyListResponse' 
+      return_type = opts[:debug_return_type] || 'ApplicationKeyListResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"KeyManagementApi.list_application_keys",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )
@@ -627,13 +651,13 @@ module DatadogAPIClient::V1
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(body)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:return_type] || 'ApiKeyResponse' 
+      return_type = opts[:debug_return_type] || 'ApiKeyResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"KeyManagementApi.update_api_key",
@@ -708,13 +732,13 @@ module DatadogAPIClient::V1
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(body)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:return_type] || 'ApplicationKeyResponse' 
+      return_type = opts[:debug_return_type] || 'ApplicationKeyResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth', 'appKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
         :operation => :"KeyManagementApi.update_application_key",
