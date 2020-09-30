@@ -1,5 +1,5 @@
 =begin
-#Datadog API V1 Collection
+#Datadog API V2 Collection
 
 #Collection of all Datadog Public endpoints.
 
@@ -12,48 +12,28 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 
 require 'date'
 
-module DatadogAPIClient::V1
-  # JSON object containing all log attributes and their associated values.
-  class LogContent
-    # JSON object of attributes from your log.
-    attr_accessor :attributes
+module DatadogAPIClient::V2
+  # A timeseries point
+  class LogsAggregateBucketValueTimeseriesPoint
+    # The time value for this point
+    attr_accessor :time
 
-    # Name of the machine from where the logs are being sent.
-    attr_accessor :host
-
-    # The message [reserved attribute](https://docs.datadoghq.com/logs/log_collection/#reserved-attributes) of your log. By default, Datadog ingests the value of the message attribute as the body of the log entry. That value is then highlighted and displayed in the Logstream, where it is indexed for full text search.
-    attr_accessor :message
-
-    # The name of the application or service generating the log events. It is used to switch from Logs to APM, so make sure you define the same value when you use both products.
-    attr_accessor :service
-
-    # Array of tags associated with your log.
-    attr_accessor :tags
-
-    # Timestamp of your log.
-    attr_accessor :timestamp
+    # The value for this point
+    attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
-        :'host' => :'host',
-        :'message' => :'message',
-        :'service' => :'service',
-        :'tags' => :'tags',
-        :'timestamp' => :'timestamp'
+        :'time' => :'time',
+        :'value' => :'value'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'attributes' => :'Hash<String, Object>',
-        :'host' => :'String',
-        :'message' => :'String',
-        :'service' => :'String',
-        :'tags' => :'Array<Object>',
-        :'timestamp' => :'DateTime'
+        :'time' => :'String',
+        :'value' => :'Float'
       }
     end
 
@@ -67,43 +47,23 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::LogContent` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::LogsAggregateBucketValueTimeseriesPoint` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::LogContent`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::LogsAggregateBucketValueTimeseriesPoint`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'attributes')
-        if (value = attributes[:'attributes']).is_a?(Hash)
-          self.attributes = value
-        end
+      if attributes.key?(:'time')
+        self.time = attributes[:'time']
       end
 
-      if attributes.key?(:'host')
-        self.host = attributes[:'host']
-      end
-
-      if attributes.key?(:'message')
-        self.message = attributes[:'message']
-      end
-
-      if attributes.key?(:'service')
-        self.service = attributes[:'service']
-      end
-
-      if attributes.key?(:'tags')
-        if (value = attributes[:'tags']).is_a?(Array)
-          self.tags = value
-        end
-      end
-
-      if attributes.key?(:'timestamp')
-        self.timestamp = attributes[:'timestamp']
+      if attributes.key?(:'value')
+        self.value = attributes[:'value']
       end
     end
 
@@ -125,12 +85,8 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
-          host == o.host &&
-          message == o.message &&
-          service == o.service &&
-          tags == o.tags &&
-          timestamp == o.timestamp
+          time == o.time &&
+          value == o.value
     end
 
     # @see the `==` method
@@ -142,7 +98,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [attributes, host, message, service, tags, timestamp].hash
+      [time, value].hash
     end
 
     # Builds the object from hash
@@ -211,7 +167,7 @@ module DatadogAPIClient::V1
           end
         end
       else # model
-        DatadogAPIClient::V1.const_get(type).build_from_hash(value)
+        DatadogAPIClient::V2.const_get(type).build_from_hash(value)
       end
     end
 

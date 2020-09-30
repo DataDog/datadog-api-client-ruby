@@ -1,5 +1,5 @@
 =begin
-#Datadog API V1 Collection
+#Datadog API V2 Collection
 
 #Collection of all Datadog Public endpoints.
 
@@ -12,48 +12,28 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 
 require 'date'
 
-module DatadogAPIClient::V1
-  # JSON object containing all log attributes and their associated values.
-  class LogContent
-    # JSON object of attributes from your log.
-    attr_accessor :attributes
+module DatadogAPIClient::V2
+  # Paging attributes for listing logs.
+  class LogsListRequestPage
+    # List following results with a cursor provided in the previous query.
+    attr_accessor :cursor
 
-    # Name of the machine from where the logs are being sent.
-    attr_accessor :host
-
-    # The message [reserved attribute](https://docs.datadoghq.com/logs/log_collection/#reserved-attributes) of your log. By default, Datadog ingests the value of the message attribute as the body of the log entry. That value is then highlighted and displayed in the Logstream, where it is indexed for full text search.
-    attr_accessor :message
-
-    # The name of the application or service generating the log events. It is used to switch from Logs to APM, so make sure you define the same value when you use both products.
-    attr_accessor :service
-
-    # Array of tags associated with your log.
-    attr_accessor :tags
-
-    # Timestamp of your log.
-    attr_accessor :timestamp
+    # Maximum number of logs in the response.
+    attr_accessor :limit
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'attributes' => :'attributes',
-        :'host' => :'host',
-        :'message' => :'message',
-        :'service' => :'service',
-        :'tags' => :'tags',
-        :'timestamp' => :'timestamp'
+        :'cursor' => :'cursor',
+        :'limit' => :'limit'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'attributes' => :'Hash<String, Object>',
-        :'host' => :'String',
-        :'message' => :'String',
-        :'service' => :'String',
-        :'tags' => :'Array<Object>',
-        :'timestamp' => :'DateTime'
+        :'cursor' => :'String',
+        :'limit' => :'Integer'
       }
     end
 
@@ -67,43 +47,25 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::LogContent` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::LogsListRequestPage` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::LogContent`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::LogsListRequestPage`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'attributes')
-        if (value = attributes[:'attributes']).is_a?(Hash)
-          self.attributes = value
-        end
+      if attributes.key?(:'cursor')
+        self.cursor = attributes[:'cursor']
       end
 
-      if attributes.key?(:'host')
-        self.host = attributes[:'host']
-      end
-
-      if attributes.key?(:'message')
-        self.message = attributes[:'message']
-      end
-
-      if attributes.key?(:'service')
-        self.service = attributes[:'service']
-      end
-
-      if attributes.key?(:'tags')
-        if (value = attributes[:'tags']).is_a?(Array)
-          self.tags = value
-        end
-      end
-
-      if attributes.key?(:'timestamp')
-        self.timestamp = attributes[:'timestamp']
+      if attributes.key?(:'limit')
+        self.limit = attributes[:'limit']
+      else
+        self.limit = 10
       end
     end
 
@@ -111,13 +73,28 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@limit.nil? && @limit > 1000
+        invalid_properties.push('invalid value for "limit", must be smaller than or equal to 1000.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@limit.nil? && @limit > 1000
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] limit Value to be assigned
+    def limit=(limit)
+      if !limit.nil? && limit > 1000
+        fail ArgumentError, 'invalid value for "limit", must be smaller than or equal to 1000.'
+      end
+
+      @limit = limit
     end
 
     # Checks equality by comparing each attribute.
@@ -125,12 +102,8 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes &&
-          host == o.host &&
-          message == o.message &&
-          service == o.service &&
-          tags == o.tags &&
-          timestamp == o.timestamp
+          cursor == o.cursor &&
+          limit == o.limit
     end
 
     # @see the `==` method
@@ -142,7 +115,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [attributes, host, message, service, tags, timestamp].hash
+      [cursor, limit].hash
     end
 
     # Builds the object from hash
@@ -211,7 +184,7 @@ module DatadogAPIClient::V1
           end
         end
       else # model
-        DatadogAPIClient::V1.const_get(type).build_from_hash(value)
+        DatadogAPIClient::V2.const_get(type).build_from_hash(value)
       end
     end
 

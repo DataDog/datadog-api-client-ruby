@@ -94,6 +94,9 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V2::DashboardListsApi* | [**delete_dashboard_list_items**](docs/DashboardListsApi.md#delete_dashboard_list_items) | **DELETE** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Delete items from a dashboard list
 *DatadogAPIClient::V2::DashboardListsApi* | [**get_dashboard_list_items**](docs/DashboardListsApi.md#get_dashboard_list_items) | **GET** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Get a Dashboard List
 *DatadogAPIClient::V2::DashboardListsApi* | [**update_dashboard_list_items**](docs/DashboardListsApi.md#update_dashboard_list_items) | **PUT** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Update items of a dashboard list
+*DatadogAPIClient::V2::LogsApi* | [**aggregate_logs**](docs/LogsApi.md#aggregate_logs) | **POST** /api/v2/logs/analytics/aggregate | Aggregate events
+*DatadogAPIClient::V2::LogsApi* | [**list_logs**](docs/LogsApi.md#list_logs) | **POST** /api/v2/logs/events/search | Get a list of logs
+*DatadogAPIClient::V2::LogsApi* | [**list_logs_get**](docs/LogsApi.md#list_logs_get) | **GET** /api/v2/logs/events | Get a quick list of logs
 *DatadogAPIClient::V2::LogsArchivesApi* | [**add_read_role_to_archive**](docs/LogsArchivesApi.md#add_read_role_to_archive) | **POST** /api/v2/logs/config/archives/{archive_id}/readers | Grant role to an archive
 *DatadogAPIClient::V2::LogsArchivesApi* | [**create_logs_archive**](docs/LogsArchivesApi.md#create_logs_archive) | **POST** /api/v2/logs/config/archives | Create an archive
 *DatadogAPIClient::V2::LogsArchivesApi* | [**delete_logs_archive**](docs/LogsArchivesApi.md#delete_logs_archive) | **DELETE** /api/v2/logs/config/archives/{archive_id} | Delete an archive
@@ -157,6 +160,21 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::DashboardListUpdateItemsRequest](docs/DashboardListUpdateItemsRequest.md)
  - [DatadogAPIClient::V2::DashboardListUpdateItemsResponse](docs/DashboardListUpdateItemsResponse.md)
  - [DatadogAPIClient::V2::DashboardType](docs/DashboardType.md)
+ - [DatadogAPIClient::V2::Log](docs/Log.md)
+ - [DatadogAPIClient::V2::LogAttributes](docs/LogAttributes.md)
+ - [DatadogAPIClient::V2::LogType](docs/LogType.md)
+ - [DatadogAPIClient::V2::LogsAggregateBucket](docs/LogsAggregateBucket.md)
+ - [DatadogAPIClient::V2::LogsAggregateBucketValue](docs/LogsAggregateBucketValue.md)
+ - [DatadogAPIClient::V2::LogsAggregateBucketValueTimeseries](docs/LogsAggregateBucketValueTimeseries.md)
+ - [DatadogAPIClient::V2::LogsAggregateBucketValueTimeseriesPoint](docs/LogsAggregateBucketValueTimeseriesPoint.md)
+ - [DatadogAPIClient::V2::LogsAggregateRequest](docs/LogsAggregateRequest.md)
+ - [DatadogAPIClient::V2::LogsAggregateRequestPaging](docs/LogsAggregateRequestPaging.md)
+ - [DatadogAPIClient::V2::LogsAggregateResponse](docs/LogsAggregateResponse.md)
+ - [DatadogAPIClient::V2::LogsAggregateResponseData](docs/LogsAggregateResponseData.md)
+ - [DatadogAPIClient::V2::LogsAggregateResponseStatus](docs/LogsAggregateResponseStatus.md)
+ - [DatadogAPIClient::V2::LogsAggregateSort](docs/LogsAggregateSort.md)
+ - [DatadogAPIClient::V2::LogsAggregateSortType](docs/LogsAggregateSortType.md)
+ - [DatadogAPIClient::V2::LogsAggregationFunction](docs/LogsAggregationFunction.md)
  - [DatadogAPIClient::V2::LogsArchive](docs/LogsArchive.md)
  - [DatadogAPIClient::V2::LogsArchiveAttributes](docs/LogsArchiveAttributes.md)
  - [DatadogAPIClient::V2::LogsArchiveCreateRequest](docs/LogsArchiveCreateRequest.md)
@@ -176,6 +194,23 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::LogsArchiveIntegrationS3](docs/LogsArchiveIntegrationS3.md)
  - [DatadogAPIClient::V2::LogsArchiveState](docs/LogsArchiveState.md)
  - [DatadogAPIClient::V2::LogsArchives](docs/LogsArchives.md)
+ - [DatadogAPIClient::V2::LogsCompute](docs/LogsCompute.md)
+ - [DatadogAPIClient::V2::LogsComputeType](docs/LogsComputeType.md)
+ - [DatadogAPIClient::V2::LogsGroupBy](docs/LogsGroupBy.md)
+ - [DatadogAPIClient::V2::LogsGroupByHistogram](docs/LogsGroupByHistogram.md)
+ - [DatadogAPIClient::V2::LogsGroupByMissing](docs/LogsGroupByMissing.md)
+ - [DatadogAPIClient::V2::LogsGroupByTotal](docs/LogsGroupByTotal.md)
+ - [DatadogAPIClient::V2::LogsListRequest](docs/LogsListRequest.md)
+ - [DatadogAPIClient::V2::LogsListRequestPage](docs/LogsListRequestPage.md)
+ - [DatadogAPIClient::V2::LogsListResponse](docs/LogsListResponse.md)
+ - [DatadogAPIClient::V2::LogsListResponseLinks](docs/LogsListResponseLinks.md)
+ - [DatadogAPIClient::V2::LogsQueryFilter](docs/LogsQueryFilter.md)
+ - [DatadogAPIClient::V2::LogsQueryOptions](docs/LogsQueryOptions.md)
+ - [DatadogAPIClient::V2::LogsResponseMetadata](docs/LogsResponseMetadata.md)
+ - [DatadogAPIClient::V2::LogsResponseMetadataPage](docs/LogsResponseMetadataPage.md)
+ - [DatadogAPIClient::V2::LogsSort](docs/LogsSort.md)
+ - [DatadogAPIClient::V2::LogsSortOrder](docs/LogsSortOrder.md)
+ - [DatadogAPIClient::V2::LogsWarning](docs/LogsWarning.md)
  - [DatadogAPIClient::V2::Organization](docs/Organization.md)
  - [DatadogAPIClient::V2::OrganizationAttributes](docs/OrganizationAttributes.md)
  - [DatadogAPIClient::V2::OrganizationsType](docs/OrganizationsType.md)
