@@ -1,0 +1,64 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.datadoghq.com/api/v2/logs/events/search
+    body:
+      encoding: UTF-8
+      string: '{"filter":{"query":"datadog-agent","indexes":["main"],"from":"2020-09-17T11:48:36+01:00","to":"2020-09-17T12:48:36+01:00"},"sort":"timestamp","page":{"limit":5}}'
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/0.1.0 (ruby 2.7.1; os darwin19.4.0; arch x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 30 Sep 2020 13:47:56 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '11'
+      Connection:
+      - keep-alive
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      Set-Cookie:
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 07-Oct-2020 13:47:56 GMT;
+        secure; HttpOnly
+      X-Dd-Version:
+      - '35.3116128'
+      X-Ratelimit-Limit:
+      - '300'
+      X-Ratelimit-Period:
+      - '3600'
+      X-Ratelimit-Reset:
+      - '724'
+      X-Ratelimit-Remaining:
+      - '298'
+      X-Dd-Debug:
+      - Q3iASbmC8CXcQczZ/mmesVF9Hl3S9A+qhV6PH+/be9wZv0jITjuol3WLqcRl7oS5
+      Dd-Pool:
+      - dogweb
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+    body:
+      encoding: UTF-8
+      string: '{"data":[]}'
+  recorded_at: Wed, 30 Sep 2020 13:47:56 GMT
+recorded_with: VCR 6.0.0

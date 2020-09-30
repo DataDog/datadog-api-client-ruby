@@ -40,9 +40,9 @@ module DatadogAPIClient::V2
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'attributes' => :'Hash<String, AnyType>',
+        :'attributes' => :'Hash<String, Object>',
         :'message' => :'String',
-        :'tags' => :'Array<AnyType>',
+        :'tags' => :'Array<Object>',
         :'timestamp' => :'DateTime'
       }
     end

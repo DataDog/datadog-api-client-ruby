@@ -5,10 +5,10 @@ http_interactions:
     uri: https://api.datadoghq.com/api/v2/users
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"email":"ruby-Disable-a-user-returns-OK-response-1599759343@datadoghq.com"},"type":"users"}}'
+      string: '{"data":{"attributes":{"email":"ruby-Disable-a-user-returns-OK-response-1601469646@datadoghq.com"},"type":"users"}}'
     headers:
       User-Agent:
-      - OpenAPI-Generator/0.1.0/ruby
+      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -21,7 +21,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Thu, 10 Sep 2020 17:35:43 GMT
+      - Wed, 30 Sep 2020 12:40:46 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -33,12 +33,12 @@ http_interactions:
       Cache-Control:
       - no-cache
       Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 17-Sep-2020 17:35:43 GMT;
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 07-Oct-2020 12:40:46 GMT;
         secure; HttpOnly
       X-Dd-Version:
-      - '35.3014711'
+      - '35.3116014'
       X-Dd-Debug:
-      - s0LsNvQsMm21RUzMLDODd6jiqqojzRfEoHLrnASSfK5zaa+QnpY16tmznkR4zVSs
+      - IGILlPY3s4a9aUQtJHHVlvsXLPi5u8MQt/Dx/1ZwzrUgiVNBtJEB93e+6VlWNrdA
       Dd-Pool:
       - dogweb
       Content-Security-Policy:
@@ -51,17 +51,17 @@ http_interactions:
       - max-age=15724800;
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"users","id":"0d687c42-f38c-11ea-ac35-ff5f79d0db17","attributes":{"name":null,"handle":"ruby-disable-a-user-returns-ok-response-1599759343@datadoghq.com","created_at":"2020-09-10T17:35:43.412348+00:00","email":"ruby-disable-a-user-returns-ok-response-1599759343@datadoghq.com","icon":"https://secure.gravatar.com/avatar/4a9cf80020c9e558ef1898e897fc5eb0?s=48&d=retro","title":null,"verified":false,"disabled":false,"allowed_login_methods":[],"status":"Pending"},"relationships":{"roles":{"data":[]},"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}}'
-  recorded_at: Thu, 10 Sep 2020 17:35:43 GMT
+      string: '{"data":{"type":"users","id":"297a0228-031a-11eb-b513-cfaf5126dda1","attributes":{"name":null,"handle":"ruby-disable-a-user-returns-ok-response-1601469646@datadoghq.com","created_at":"2020-09-30T12:40:46.480954+00:00","email":"ruby-disable-a-user-returns-ok-response-1601469646@datadoghq.com","icon":"https://secure.gravatar.com/avatar/ff33ace6e6c1bca043d36d5fbaa240e1?s=48&d=retro","title":null,"verified":false,"disabled":false,"allowed_login_methods":[],"status":"Pending"},"relationships":{"roles":{"data":[]},"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}}'
+  recorded_at: Wed, 30 Sep 2020 12:40:46 GMT
 - request:
     method: delete
-    uri: https://api.datadoghq.com/api/v2/users/0d687c42-f38c-11ea-ac35-ff5f79d0db17
+    uri: https://api.datadoghq.com/api/v2/users/297a0228-031a-11eb-b513-cfaf5126dda1
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - OpenAPI-Generator/0.1.0/ruby
+      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -74,9 +74,9 @@ http_interactions:
       message: No Content
     headers:
       Date:
-      - Thu, 10 Sep 2020 17:35:43 GMT
+      - Wed, 30 Sep 2020 12:40:46 GMT
       Content-Type:
-      - text/html; charset=UTF-8
+      - application/json
       Content-Length:
       - '0'
       Connection:
@@ -86,12 +86,12 @@ http_interactions:
       Cache-Control:
       - no-cache
       Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 17-Sep-2020 17:35:43 GMT;
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 07-Oct-2020 12:40:46 GMT;
         secure; HttpOnly
       X-Dd-Version:
-      - '35.3014790'
+      - '35.3116014'
       X-Dd-Debug:
-      - pDS7Zrj1TgmEnWRyBzKLDh7mlmNUPuITZ/GwI6tiSzuW64zPbzNbNp9jLNX+Cpgz
+      - "+TTazL1HF8qoxYARkG/60PGoq8sbkYkmqeurNry46zV0aHqBZfUrKqxtiyo42NRf"
       Dd-Pool:
       - dogweb
       Content-Security-Policy:
@@ -105,5 +105,5 @@ http_interactions:
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Thu, 10 Sep 2020 17:35:43 GMT
+  recorded_at: Wed, 30 Sep 2020 12:40:46 GMT
 recorded_with: VCR 6.0.0

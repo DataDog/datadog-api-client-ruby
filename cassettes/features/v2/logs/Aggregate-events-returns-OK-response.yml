@@ -1,0 +1,66 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.datadoghq.com/api/v2/logs/analytics/aggregate
+    body:
+      encoding: UTF-8
+      string: '{"compute":[{"aggregation":"count","interval":"300","metric":"test.aggregation.ruby-Aggregate-events-returns-OK-response-1601473676","type":"timeseries"}],"filter":{"from":"1600348573","indexes":["main"],"query":"datadog-agent","to":"1600348600"}}'
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/0.1.0 (ruby 2.7.1; os darwin19.4.0; arch x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 30 Sep 2020 13:47:57 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '136'
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      Set-Cookie:
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 07-Oct-2020 13:47:57 GMT;
+        secure; HttpOnly
+      X-Dd-Version:
+      - '35.3116128'
+      X-Ratelimit-Limit:
+      - '5'
+      X-Ratelimit-Period:
+      - '30'
+      X-Ratelimit-Reset:
+      - '3'
+      X-Ratelimit-Remaining:
+      - '4'
+      X-Dd-Debug:
+      - jIHwMGAozg7YLLMxg68/xcSQvrFCUULkLnRH70ENUITWzZ3Z86IAFBgHj9JuCUXt
+      Dd-Pool:
+      - dogweb
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+    body:
+      encoding: UTF-8
+      string: '{"meta":{"status":"done","request_id":"aGptRFd1WGVTb1dzWUV3a1NPelFmUXxSX2lidGR4bGNXRXo3M3gtczRmVndn","elapsed":0},"data":{"buckets":[]}}'
+  recorded_at: Wed, 30 Sep 2020 13:47:56 GMT
+recorded_with: VCR 6.0.0

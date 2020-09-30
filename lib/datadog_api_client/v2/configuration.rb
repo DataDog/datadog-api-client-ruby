@@ -162,6 +162,9 @@ module DatadogAPIClient::V2
       @force_ending_format = false
       @logger = defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
       @unstable_operations = {
+            aggregate_logs: false,
+            list_logs: false,
+            list_logs_get: false,
             add_read_role_to_archive: false,
             list_archive_read_roles: false,
             remove_role_from_archive: false,

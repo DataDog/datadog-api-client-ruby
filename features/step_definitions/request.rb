@@ -119,13 +119,14 @@ module APIWorld
   def skip_undo?(method)
     method.to_s.start_with?(
       "undo_add_",
+      "undo_aggregate_logs",
+      "undo_delete_",
+      "undo_disable_",
       "undo_get_",
       "undo_list_",
-      "undo_disable_",
-      "undo_delete_",
       "undo_remove_",
-      "undo_update_",
       "undo_send_invitations",
+      "undo_update_",
     )
   end
 
@@ -164,6 +165,10 @@ end
 
 Given(/^request contains "([^"]+)" parameter from "([^"]+)"$/) do |parameter_name, fixture_path|
   opts[parameter_name.to_sym] = fixtures.lookup(fixture_path)
+end
+
+Given(/^request contains "([^"]+)" parameter with value (.+)$/) do |parameter_name, value|
+  opts[parameter_name.snakecase.to_sym] = JSON.parse(value.templated fixtures)
 end
 
 Given(/^new "([^"]+)" request$/) do |name|

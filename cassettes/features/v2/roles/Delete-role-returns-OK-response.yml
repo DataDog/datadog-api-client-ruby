@@ -5,10 +5,10 @@ http_interactions:
     uri: https://api.datadoghq.com/api/v2/roles
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"name":"ruby-Delete-role-returns-OK-response-1599759324"},"type":"roles"}}'
+      string: '{"data":{"attributes":{"name":"ruby-Delete-role-returns-OK-response-1601469619"},"type":"roles"}}'
     headers:
       User-Agent:
-      - OpenAPI-Generator/0.1.0/ruby
+      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 10 Sep 2020 17:35:24 GMT
+      - Wed, 30 Sep 2020 12:40:19 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -35,20 +35,20 @@ http_interactions:
       Cache-Control:
       - no-cache
       Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 17-Sep-2020 17:35:24 GMT;
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 07-Oct-2020 12:40:19 GMT;
         secure; HttpOnly
       X-Dd-Version:
-      - '35.3014711'
+      - '35.3116014'
       X-Ratelimit-Limit:
       - '500'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '36'
+      - '41'
       X-Ratelimit-Remaining:
       - '496'
       X-Dd-Debug:
-      - Lz3XQmS/aMrD2s8dTb68gJQbMlDQb/2odnJX/DHsjHnv1C9na1q4YNvmnKcr4AfX
+      - jQnCQ800IM9+AhjSbgOLP1olAAN0Zx3e3JL4dG9omKhKnkmdw7EJe7yfXnjuT+74
       Dd-Pool:
       - dogweb
       Content-Security-Policy:
@@ -61,17 +61,17 @@ http_interactions:
       - max-age=15724800;
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"roles","id":"01f80a76-f38c-11ea-ac35-6be5354949a7","attributes":{"name":"ruby-Delete-role-returns-OK-response-1599759324","created_at":"2020-09-10T17:35:24.221792+00:00","modified_at":"2020-09-10T17:35:24.221792+00:00"},"relationships":{"permissions":{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2"},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304"}]}}}}'
-  recorded_at: Thu, 10 Sep 2020 17:35:24 GMT
+      string: '{"data":{"type":"roles","id":"19994206-031a-11eb-b513-9fff24647d7d","attributes":{"name":"ruby-Delete-role-returns-OK-response-1601469619","created_at":"2020-09-30T12:40:19.843203+00:00","modified_at":"2020-09-30T12:40:19.843203+00:00"},"relationships":{"permissions":{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2"},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304"}]}}}}'
+  recorded_at: Wed, 30 Sep 2020 12:40:19 GMT
 - request:
     method: delete
-    uri: https://api.datadoghq.com/api/v2/roles/01f80a76-f38c-11ea-ac35-6be5354949a7
+    uri: https://api.datadoghq.com/api/v2/roles/19994206-031a-11eb-b513-9fff24647d7d
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - OpenAPI-Generator/0.1.0/ruby
+      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -84,7 +84,7 @@ http_interactions:
       message: No Content
     headers:
       Date:
-      - Thu, 10 Sep 2020 17:35:24 GMT
+      - Wed, 30 Sep 2020 12:40:20 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -96,20 +96,20 @@ http_interactions:
       Cache-Control:
       - no-cache
       Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 17-Sep-2020 17:35:24 GMT;
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 07-Oct-2020 12:40:20 GMT;
         secure; HttpOnly
       X-Dd-Version:
-      - '35.3014711'
+      - '35.3116014'
       X-Ratelimit-Limit:
       - '500'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '36'
+      - '40'
       X-Ratelimit-Remaining:
       - '495'
       X-Dd-Debug:
-      - GzqFsJiHmsMG2ZkgPZxP4KU7BbP1543ieTDBlTOcSv7mMVZ5sYoywme9ykeCrzfU
+      - qKfjlUOd47rTL8Zfe+ult0NC1XrJJZn5FzZo3l0g8EiEJqsLoAxULWUGtB1CS4r/
       Dd-Pool:
       - dogweb
       Content-Security-Policy:
@@ -123,5 +123,5 @@ http_interactions:
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Thu, 10 Sep 2020 17:35:24 GMT
+  recorded_at: Wed, 30 Sep 2020 12:40:19 GMT
 recorded_with: VCR 6.0.0

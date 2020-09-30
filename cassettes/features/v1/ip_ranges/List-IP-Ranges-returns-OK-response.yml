@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - OpenAPI-Generator/0.1.0/ruby
+      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -33,7 +33,7 @@ http_interactions:
       Server:
       - AmazonS3
       Date:
-      - Mon, 14 Sep 2020 11:11:09 GMT
+      - Wed, 30 Sep 2020 12:40:19 GMT
       Etag:
       - '"a10a4e3f85ed8c2509855388e149972a"'
       Vary:
@@ -41,11 +41,11 @@ http_interactions:
       X-Cache:
       - RefreshHit from cloudfront
       Via:
-      - 1.1 4ff22507315b19a746baedf1b2177aa8.cloudfront.net (CloudFront)
+      - 1.1 f53228ad4a89ddb44cebcab10a97f3c3.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - MAD51-C2
+      - LHR62-C1
       X-Amz-Cf-Id:
-      - HoOtamTKCC_prXC9_M6zewZhIWOTkFz0cwoGB4RAoOMXgkO-ZuD9-Q==
+      - 88IgQ5e7PN2F11kP6jVYZpdIV1pMUCdBIhVv_iUW7uCS4dYbsLQEqw==
     body:
       encoding: UTF-8
       string: |
