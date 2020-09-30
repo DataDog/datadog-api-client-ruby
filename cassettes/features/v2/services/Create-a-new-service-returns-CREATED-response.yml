@@ -5,10 +5,10 @@ http_interactions:
     uri: https://api.datadoghq.com/api/v2/services
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"services","attributes":{"name":"ruby-Create-a-new-service-returns-CREATED-response-1600684074"}}}'
+      string: '{"data":{"type":"services","attributes":{"name":"ruby-Create-a-new-service-returns-CREATED-response-1601469626"}}}'
     headers:
       User-Agent:
-      - OpenAPI-Generator/0.1.0/ruby
+      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -21,7 +21,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Mon, 21 Sep 2020 10:27:56 GMT
+      - Wed, 30 Sep 2020 12:40:28 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -33,12 +33,12 @@ http_interactions:
       Cache-Control:
       - no-cache
       Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 28-Sep-2020 10:27:54 GMT;
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 07-Oct-2020 12:40:26 GMT;
         secure; HttpOnly
       X-Dd-Version:
-      - '35.3066091'
+      - '35.3116014'
       X-Dd-Debug:
-      - jrMxFzD6DQaVakCp2nBENh1s4Jr6NTi3qR/BnCfgEGv+61BLJvJGE5mL8dgLrarj
+      - 1cd0/X8iFjFNZXjpX11JpiLJbbxmicjztoLT0xgVCngh7XkSAjfiT2A4vALPTlNE
       Dd-Pool:
       - dogweb
       Content-Security-Policy:
@@ -51,6 +51,6 @@ http_interactions:
       - max-age=15724800;
     body:
       encoding: UTF-8
-      string: '{"included":[{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0","attributes":{"name":null,"handle":"frog@datadoghq.com","created_at":"2019-10-02T08:15:39.795051+00:00","email":"frog@datadoghq.com","icon":"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro","title":null,"verified":true,"disabled":false,"allowed_login_methods":[],"status":"Active"},"relationships":{"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}],"data":{"type":"services","id":"6efdff88-6600-5c5c-847c-2f3a9a572a71","attributes":{"name":"ruby-Create-a-new-service-returns-CREATED-response-1600684074","created":"2020-09-21T10:27:54.387225+00:00","modified":"2020-09-21T10:27:54.387225+00:00"},"relationships":{"last_modified_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}},"created_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}}}}}'
-  recorded_at: Mon, 21 Sep 2020 10:27:54 GMT
+      string: '{"included":[{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0","attributes":{"name":null,"handle":"frog@datadoghq.com","created_at":"2019-10-02T08:15:39.795051+00:00","email":"frog@datadoghq.com","icon":"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro","title":null,"verified":true,"disabled":false,"allowed_login_methods":[],"status":"Active"},"relationships":{"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}],"data":{"type":"services","id":"865abc89-781a-5113-9cad-70dd6352b190","attributes":{"name":"ruby-Create-a-new-service-returns-CREATED-response-1601469626","created":"2020-09-30T12:40:26.716453+00:00","modified":"2020-09-30T12:40:26.716453+00:00"},"relationships":{"last_modified_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}},"created_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}}}}}'
+  recorded_at: Wed, 30 Sep 2020 12:40:26 GMT
 recorded_with: VCR 6.0.0

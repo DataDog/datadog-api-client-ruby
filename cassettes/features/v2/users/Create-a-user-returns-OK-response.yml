@@ -5,10 +5,10 @@ http_interactions:
     uri: https://api.datadoghq.com/api/v2/users
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"users","attributes":{"name":"Datadog API Client Python","email":"ruby-Create-a-user-returns-OK-response-1599759343@datadoghq.com"}}}'
+      string: '{"data":{"type":"users","attributes":{"name":"Datadog API Client Python","email":"ruby-Create-a-user-returns-OK-response-1601469646@datadoghq.com"}}}'
     headers:
       User-Agent:
-      - OpenAPI-Generator/0.1.0/ruby
+      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -21,7 +21,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Thu, 10 Sep 2020 17:35:43 GMT
+      - Wed, 30 Sep 2020 12:40:46 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -33,12 +33,12 @@ http_interactions:
       Cache-Control:
       - no-cache
       Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 17-Sep-2020 17:35:43 GMT;
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 07-Oct-2020 12:40:46 GMT;
         secure; HttpOnly
       X-Dd-Version:
-      - '35.3014790'
+      - '35.3116014'
       X-Dd-Debug:
-      - IkoXy2n4b8JW/FLw1112nSqmqmpT3x0GKpI+dLspr+YjKNH7w9mdXONKvOIf0EZ7
+      - "/waQ67o9EXsAiQILmFHWOTHDJ6E+x7ROC0G8iNmC+2lV58E3PSGYbXj1H62A/c+u"
       Dd-Pool:
       - dogweb
       Content-Security-Policy:
@@ -51,7 +51,7 @@ http_interactions:
       - max-age=15724800;
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"users","id":"0d390386-f38c-11ea-ac35-43d2f5294445","attributes":{"name":"Datadog
-        API Client Python","handle":"ruby-create-a-user-returns-ok-response-1599759343@datadoghq.com","created_at":"2020-09-10T17:35:43.101874+00:00","email":"ruby-create-a-user-returns-ok-response-1599759343@datadoghq.com","icon":"https://secure.gravatar.com/avatar/8f935c2a34c0eeddb8a733b1656ee179?s=48&d=retro","title":null,"verified":false,"disabled":false,"allowed_login_methods":[],"status":"Pending"},"relationships":{"roles":{"data":[]},"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}}'
-  recorded_at: Thu, 10 Sep 2020 17:35:43 GMT
+      string: '{"data":{"type":"users","id":"295593de-031a-11eb-b513-3fe77adf483a","attributes":{"name":"Datadog
+        API Client Python","handle":"ruby-create-a-user-returns-ok-response-1601469646@datadoghq.com","created_at":"2020-09-30T12:40:46.240051+00:00","email":"ruby-create-a-user-returns-ok-response-1601469646@datadoghq.com","icon":"https://secure.gravatar.com/avatar/9935b1cce6604467999f469ab6b57667?s=48&d=retro","title":null,"verified":false,"disabled":false,"allowed_login_methods":[],"status":"Pending"},"relationships":{"roles":{"data":[]},"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}}'
+  recorded_at: Wed, 30 Sep 2020 12:40:46 GMT
 recorded_with: VCR 6.0.0

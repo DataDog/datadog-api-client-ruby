@@ -5,10 +5,10 @@ http_interactions:
     uri: https://api.datadoghq.com/api/v2/roles
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"name":"ruby-Add-a-user-to-a-role-returns-OK-response-1599759329"},"type":"roles"}}'
+      string: '{"data":{"attributes":{"name":"ruby-Add-a-user-to-a-role-returns-OK-response-1601469625"},"type":"roles"}}'
     headers:
       User-Agent:
-      - OpenAPI-Generator/0.1.0/ruby
+      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 10 Sep 2020 17:35:30 GMT
+      - Wed, 30 Sep 2020 12:40:25 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -35,20 +35,20 @@ http_interactions:
       Cache-Control:
       - no-cache
       Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 17-Sep-2020 17:35:29 GMT;
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 07-Oct-2020 12:40:25 GMT;
         secure; HttpOnly
       X-Dd-Version:
-      - '35.3014711'
+      - '35.3116014'
       X-Ratelimit-Limit:
       - '500'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '31'
+      - '35'
       X-Ratelimit-Remaining:
       - '476'
       X-Dd-Debug:
-      - WmMtMFngDL31sZYuYCiUaMFRtAs90zyIJHnMIoB4iHZztA/Ona9SnOav516bWmh7
+      - YNPvfo/A+kRa92W7PZNTiFcSJq6YGkB9TIlX47+pHHndNDZ3ZySmub3fInFxn6Db
       Dd-Pool:
       - dogweb
       Content-Security-Policy:
@@ -61,17 +61,17 @@ http_interactions:
       - max-age=15724800;
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"roles","id":"056a82d8-f38c-11ea-ac35-c3fe378e05a1","attributes":{"name":"ruby-Add-a-user-to-a-role-returns-OK-response-1599759329","created_at":"2020-09-10T17:35:30.005078+00:00","modified_at":"2020-09-10T17:35:30.005078+00:00"},"relationships":{"permissions":{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2"},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304"}]}}}}'
-  recorded_at: Thu, 10 Sep 2020 17:35:29 GMT
+      string: '{"data":{"type":"roles","id":"1d11db14-031a-11eb-b513-1ffe8ca403bf","attributes":{"name":"ruby-Add-a-user-to-a-role-returns-OK-response-1601469625","created_at":"2020-09-30T12:40:25.666752+00:00","modified_at":"2020-09-30T12:40:25.666752+00:00"},"relationships":{"permissions":{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2"},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304"}]}}}}'
+  recorded_at: Wed, 30 Sep 2020 12:40:25 GMT
 - request:
     method: post
     uri: https://api.datadoghq.com/api/v2/users
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"email":"ruby-Add-a-user-to-a-role-returns-OK-response-1599759329@datadoghq.com"},"type":"users"}}'
+      string: '{"data":{"attributes":{"email":"ruby-Add-a-user-to-a-role-returns-OK-response-1601469625@datadoghq.com"},"type":"users"}}'
     headers:
       User-Agent:
-      - OpenAPI-Generator/0.1.0/ruby
+      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -84,7 +84,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Thu, 10 Sep 2020 17:35:30 GMT
+      - Wed, 30 Sep 2020 12:40:25 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -96,12 +96,12 @@ http_interactions:
       Cache-Control:
       - no-cache
       Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 17-Sep-2020 17:35:30 GMT;
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 07-Oct-2020 12:40:25 GMT;
         secure; HttpOnly
       X-Dd-Version:
-      - '35.3014711'
+      - '35.3116014'
       X-Dd-Debug:
-      - jQnCQ800IM9+AhjSbgOLP1olAAN0Zx3e3JL4dG9omKhKnkmdw7EJe7yfXnjuT+74
+      - V26KHlc/RfdWahgILvghYzp00rgLN6YCNAgg+V0KrlqUWK5TouaimNqGpGYzd/eX
       Dd-Pool:
       - dogweb
       Content-Security-Policy:
@@ -114,17 +114,17 @@ http_interactions:
       - max-age=15724800;
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"users","id":"059144f4-f38c-11ea-ac35-13168d5cd656","attributes":{"name":null,"handle":"ruby-add-a-user-to-a-role-returns-ok-response-1599759329@datadoghq.com","created_at":"2020-09-10T17:35:30.258389+00:00","email":"ruby-add-a-user-to-a-role-returns-ok-response-1599759329@datadoghq.com","icon":"https://secure.gravatar.com/avatar/bbf21b796ff481fbcad740dfe2a5c862?s=48&d=retro","title":null,"verified":false,"disabled":false,"allowed_login_methods":[],"status":"Pending"},"relationships":{"roles":{"data":[]},"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}}'
-  recorded_at: Thu, 10 Sep 2020 17:35:29 GMT
+      string: '{"data":{"type":"users","id":"1d31247e-031a-11eb-b513-ff033fe83294","attributes":{"name":null,"handle":"ruby-add-a-user-to-a-role-returns-ok-response-1601469625@datadoghq.com","created_at":"2020-09-30T12:40:25.871220+00:00","email":"ruby-add-a-user-to-a-role-returns-ok-response-1601469625@datadoghq.com","icon":"https://secure.gravatar.com/avatar/af0115f70d86036d7efb007ff3e28025?s=48&d=retro","title":null,"verified":false,"disabled":false,"allowed_login_methods":[],"status":"Pending"},"relationships":{"roles":{"data":[]},"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}}'
+  recorded_at: Wed, 30 Sep 2020 12:40:25 GMT
 - request:
     method: post
-    uri: https://api.datadoghq.com/api/v2/roles/056a82d8-f38c-11ea-ac35-c3fe378e05a1/users
+    uri: https://api.datadoghq.com/api/v2/roles/1d11db14-031a-11eb-b513-1ffe8ca403bf/users
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"059144f4-f38c-11ea-ac35-13168d5cd656","type":"users"}}'
+      string: '{"data":{"id":"1d31247e-031a-11eb-b513-ff033fe83294","type":"users"}}'
     headers:
       User-Agent:
-      - OpenAPI-Generator/0.1.0/ruby
+      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -137,7 +137,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 10 Sep 2020 17:35:30 GMT
+      - Wed, 30 Sep 2020 12:40:26 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -151,20 +151,20 @@ http_interactions:
       Cache-Control:
       - no-cache
       Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 17-Sep-2020 17:35:30 GMT;
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 07-Oct-2020 12:40:26 GMT;
         secure; HttpOnly
       X-Dd-Version:
-      - '35.3014711'
+      - '35.3116014'
       X-Ratelimit-Limit:
       - '500'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '30'
+      - '34'
       X-Ratelimit-Remaining:
       - '475'
       X-Dd-Debug:
-      - cTGY5ulPxaRmdZr4S1APOMLAfMePPA3fkzzqqKyRFf/m5ql3XuUZsd87RDo7B7RR
+      - Dx/lglfFHSSR55lZZXPJOntjJp7qb35tIKm/SqO1nkg0n+U6yMAlHYP22LPWSHfP
       Dd-Pool:
       - dogweb
       Content-Security-Policy:
@@ -177,6 +177,6 @@ http_interactions:
       - max-age=15724800;
     body:
       encoding: UTF-8
-      string: '{"meta":{"page":{"total_count":1}},"data":[{"type":"users","id":"059144f4-f38c-11ea-ac35-13168d5cd656","attributes":{"name":null,"handle":"ruby-add-a-user-to-a-role-returns-ok-response-1599759329@datadoghq.com","created_at":"2020-09-10T17:35:30.258389+00:00","email":"ruby-add-a-user-to-a-role-returns-ok-response-1599759329@datadoghq.com","icon":"https://secure.gravatar.com/avatar/bbf21b796ff481fbcad740dfe2a5c862?s=48&d=retro","title":null,"verified":false,"disabled":false,"allowed_login_methods":[],"status":"Pending"},"relationships":{"roles":{"data":[{"type":"roles","id":"056a82d8-f38c-11ea-ac35-c3fe378e05a1"}]},"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}]}'
-  recorded_at: Thu, 10 Sep 2020 17:35:29 GMT
+      string: '{"meta":{"page":{"total_count":1}},"data":[{"type":"users","id":"1d31247e-031a-11eb-b513-ff033fe83294","attributes":{"name":null,"handle":"ruby-add-a-user-to-a-role-returns-ok-response-1601469625@datadoghq.com","created_at":"2020-09-30T12:40:25.871220+00:00","email":"ruby-add-a-user-to-a-role-returns-ok-response-1601469625@datadoghq.com","icon":"https://secure.gravatar.com/avatar/af0115f70d86036d7efb007ff3e28025?s=48&d=retro","title":null,"verified":false,"disabled":false,"allowed_login_methods":[],"status":"Pending"},"relationships":{"roles":{"data":[{"type":"roles","id":"1d11db14-031a-11eb-b513-1ffe8ca403bf"}]},"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}]}'
+  recorded_at: Wed, 30 Sep 2020 12:40:25 GMT
 recorded_with: VCR 6.0.0

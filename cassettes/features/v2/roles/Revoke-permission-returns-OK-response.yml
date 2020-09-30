@@ -5,10 +5,10 @@ http_interactions:
     uri: https://api.datadoghq.com/api/v2/roles
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"name":"ruby-Revoke-permission-returns-OK-response-1599759325"},"type":"roles"}}'
+      string: '{"data":{"attributes":{"name":"ruby-Revoke-permission-returns-OK-response-1601469621"},"type":"roles"}}'
     headers:
       User-Agent:
-      - OpenAPI-Generator/0.1.0/ruby
+      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 10 Sep 2020 17:35:25 GMT
+      - Wed, 30 Sep 2020 12:40:22 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -35,20 +35,20 @@ http_interactions:
       Cache-Control:
       - no-cache
       Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 17-Sep-2020 17:35:25 GMT;
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 07-Oct-2020 12:40:22 GMT;
         secure; HttpOnly
       X-Dd-Version:
-      - '35.3014711'
+      - '35.3116014'
       X-Ratelimit-Limit:
       - '500'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '35'
+      - '38'
       X-Ratelimit-Remaining:
       - '490'
       X-Dd-Debug:
-      - saoIV/FA/z8H0gcXHP3CQ32hxYowRdGCvx+QRO7UdacLP4hVHOLNCuxXnf6LPRGD
+      - CUBCyaoXY2JdeHi5oQm4sg9onCJMsjgVJ5jLk2ugM2iR7uz4Q+lvjzDdvtcYDFC3
       Dd-Pool:
       - dogweb
       Content-Security-Policy:
@@ -61,8 +61,8 @@ http_interactions:
       - max-age=15724800;
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"roles","id":"02c86824-f38c-11ea-ac35-07b431f05b43","attributes":{"name":"ruby-Revoke-permission-returns-OK-response-1599759325","created_at":"2020-09-10T17:35:25.587013+00:00","modified_at":"2020-09-10T17:35:25.587013+00:00"},"relationships":{"permissions":{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2"},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304"}]}}}}'
-  recorded_at: Thu, 10 Sep 2020 17:35:25 GMT
+      string: '{"data":{"type":"roles","id":"1ae7ed7e-031a-11eb-b513-238aac056330","attributes":{"name":"ruby-Revoke-permission-returns-OK-response-1601469621","created_at":"2020-09-30T12:40:22.036539+00:00","modified_at":"2020-09-30T12:40:22.036539+00:00"},"relationships":{"permissions":{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2"},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304"}]}}}}'
+  recorded_at: Wed, 30 Sep 2020 12:40:21 GMT
 - request:
     method: get
     uri: https://api.datadoghq.com/api/v2/permissions
@@ -71,7 +71,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - OpenAPI-Generator/0.1.0/ruby
+      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -84,11 +84,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 10 Sep 2020 17:35:25 GMT
+      - Wed, 30 Sep 2020 12:40:22 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '8679'
+      - '9006'
       Connection:
       - keep-alive
       Vary:
@@ -98,12 +98,12 @@ http_interactions:
       Cache-Control:
       - no-cache
       Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 17-Sep-2020 17:35:25 GMT;
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 07-Oct-2020 12:40:22 GMT;
         secure; HttpOnly
       X-Dd-Version:
-      - '35.3014790'
+      - '35.3116014'
       X-Dd-Debug:
-      - Qun3wOuA/hQDIFGQqCVlq+iNpWCXkp0WuL8O89aP44h3eJ/Ies+yK10ByBbIISnG
+      - U6D+zHwhpLcyO0Eu02dM74d99H/EBAKoYzfZlZJm0EgywWQgfESFIq6V9eRQe6Gm
       Dd-Pool:
       - dogweb
       Content-Security-Policy:
@@ -169,17 +169,18 @@ http_interactions:
         Rules","description":"The ability to create and edit Detection rules.","created":"2020-06-09T13:52:39.099413+00:00","group_name":"Security
         Monitoring","display_type":"write","restricted":false}},{"type":"permissions","id":"80de1ec0-aa58-11ea-95e2-aff381626d5d","attributes":{"name":"security_monitoring_signals_read","display_name":"Security
         Signals","description":"The ability to view Security signals.","created":"2020-06-09T13:52:48.410398+00:00","group_name":"Security
-        Monitoring","display_type":"read","restricted":false}}]}'
-  recorded_at: Thu, 10 Sep 2020 17:35:25 GMT
+        Monitoring","display_type":"read","restricted":false}},{"type":"permissions","id":"07c3c146-f7f8-11ea-acf6-0bd62b9ae60e","attributes":{"name":"logs_write_historical_view","display_name":"Logs
+        Historical View","description":"The capability to rehydrate logs from Archives.","created":"2020-09-16T08:38:44.242076+00:00","group_name":"Logs","display_type":"write","restricted":false}}]}'
+  recorded_at: Wed, 30 Sep 2020 12:40:21 GMT
 - request:
     method: post
-    uri: https://api.datadoghq.com/api/v2/roles/02c86824-f38c-11ea-ac35-07b431f05b43/permissions
+    uri: https://api.datadoghq.com/api/v2/roles/1ae7ed7e-031a-11eb-b513-238aac056330/permissions
     body:
       encoding: UTF-8
       string: '{"data":{"id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","type":"permissions"}}'
     headers:
       User-Agent:
-      - OpenAPI-Generator/0.1.0/ruby
+      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -192,7 +193,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 10 Sep 2020 17:35:25 GMT
+      - Wed, 30 Sep 2020 12:40:22 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -206,20 +207,20 @@ http_interactions:
       Cache-Control:
       - no-cache
       Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 17-Sep-2020 17:35:25 GMT;
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 07-Oct-2020 12:40:22 GMT;
         secure; HttpOnly
       X-Dd-Version:
-      - '35.3014790'
+      - '35.3116014'
       X-Ratelimit-Limit:
       - '500'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '35'
+      - '38'
       X-Ratelimit-Remaining:
       - '489'
       X-Dd-Debug:
-      - ViVCPXX6Ly37Yq2uFkha4NuJPBq3hQNknFQSAg7/RbVncSIYTDoKelvl87NEURiA
+      - E/n/F3cyfMhzzJeB7O6BVmaq6hO3dCQFUY5AzeSSV4syTTIgel8CkF1YlP8TXzmG
       Dd-Pool:
       - dogweb
       Content-Security-Policy:
@@ -239,16 +240,16 @@ http_interactions:
         This permission is inclusive of all Standard access permissions.","created":"2018-10-19T15:35:23.734317+00:00","group_name":"General","display_type":"other","restricted":false}},{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2","attributes":{"name":"dashboards_read","display_name":"Dashboards","description":"The
         ability to view dashboards.","created":"2019-09-10T14:39:51.955175+00:00","group_name":"Dashboards","display_type":"read","restricted":true}},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304","attributes":{"name":"monitors_read","display_name":"Monitors","description":"The
         ability to view monitors.","created":"2019-09-16T18:39:07.744297+00:00","group_name":"Monitors","display_type":"read","restricted":true}}]}'
-  recorded_at: Thu, 10 Sep 2020 17:35:25 GMT
+  recorded_at: Wed, 30 Sep 2020 12:40:21 GMT
 - request:
     method: delete
-    uri: https://api.datadoghq.com/api/v2/roles/02c86824-f38c-11ea-ac35-07b431f05b43/permissions
+    uri: https://api.datadoghq.com/api/v2/roles/1ae7ed7e-031a-11eb-b513-238aac056330/permissions
     body:
       encoding: UTF-8
       string: '{"data":{"id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","type":"permissions"}}'
     headers:
       User-Agent:
-      - OpenAPI-Generator/0.1.0/ruby
+      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -261,7 +262,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 10 Sep 2020 17:35:26 GMT
+      - Wed, 30 Sep 2020 12:40:22 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -275,20 +276,20 @@ http_interactions:
       Cache-Control:
       - no-cache
       Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 17-Sep-2020 17:35:26 GMT;
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 07-Oct-2020 12:40:22 GMT;
         secure; HttpOnly
       X-Dd-Version:
-      - '35.3014790'
+      - '35.3116014'
       X-Ratelimit-Limit:
       - '500'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '34'
+      - '38'
       X-Ratelimit-Remaining:
       - '488'
       X-Dd-Debug:
-      - jUMr6d+5J+YuJ6qRYTR2w4bV5pSWL1aOCQq2Fsi4IDQJQgpLmKecXN7enHF4E9hf
+      - GVd3H6+s0wOEEQNbWfOlfSTR2GEFs46b/AVWKmAErR/5auOQpwMvzy3i6o9DNymz
       Dd-Pool:
       - dogweb
       Content-Security-Policy:
@@ -304,5 +305,5 @@ http_interactions:
       string: '{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2","attributes":{"name":"dashboards_read","display_name":"Dashboards","description":"The
         ability to view dashboards.","created":"2019-09-10T14:39:51.955175+00:00","group_name":"Dashboards","display_type":"read","restricted":true}},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304","attributes":{"name":"monitors_read","display_name":"Monitors","description":"The
         ability to view monitors.","created":"2019-09-16T18:39:07.744297+00:00","group_name":"Monitors","display_type":"read","restricted":true}}]}'
-  recorded_at: Thu, 10 Sep 2020 17:35:25 GMT
+  recorded_at: Wed, 30 Sep 2020 12:40:21 GMT
 recorded_with: VCR 6.0.0
