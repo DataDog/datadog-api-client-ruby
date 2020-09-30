@@ -20,7 +20,7 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
     # Aggregate events
-    # The public API endpoint to aggregate events into buckets and compute metrics and timeseries.
+    # The API endpoint to aggregate events into buckets and compute metrics and timeseries.
     # @param [Hash] opts the optional parameters
     # @option opts [LogsAggregateRequest] :body 
     # @return [LogsAggregateResponse]
@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     end
 
     # Aggregate events
-    # The public API endpoint to aggregate events into buckets and compute metrics and timeseries.
+    # The API endpoint to aggregate events into buckets and compute metrics and timeseries.
     # @param [Hash] opts the optional parameters
     # @option opts [LogsAggregateRequest] :body 
     # @return [Array<(LogsAggregateResponse, Integer, Hash)>] LogsAggregateResponse data, response status code and response headers
