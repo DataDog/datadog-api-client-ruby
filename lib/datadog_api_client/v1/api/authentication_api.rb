@@ -59,18 +59,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'AuthenticationValidationResponse' 
+      return_type = opts[:debug_return_type] || 'AuthenticationValidationResponse'
 
       # auth_names
-      auth_names = opts[:auth_names] || ['apiKeyAuth']
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth']
 
       new_options = opts.merge(
         :operation => :"AuthenticationApi.validate",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )

@@ -59,18 +59,22 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
       # return_type
-      return_type = opts[:return_type] || 'IPRanges' 
+      return_type = opts[:debug_return_type] || 'IPRanges'
 
       # auth_names
-      auth_names = opts[:auth_names] || []
+      auth_names = opts[:debug_auth_names] || []
 
       new_options = opts.merge(
         :operation => :"IPRangesApi.get_ip_ranges",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
-        :body => nil,
+        :body => post_body,
         :auth_names => auth_names,
         :return_type => return_type
       )

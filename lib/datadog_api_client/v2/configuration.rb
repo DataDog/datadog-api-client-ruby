@@ -142,7 +142,7 @@ module DatadogAPIClient::V2
 
     def initialize
       @scheme = 'https'
-      @host = 'api.datadoghq.com'
+      @host = 'api.datadoghq.com:-1'
       @base_path = ''
       @server_index = 0
       @server_operation_index = {}
@@ -310,10 +310,12 @@ module DatadogAPIClient::V2
       server = servers[index]
       url = server[:url]
 
+      return url unless server.key? :variables
+
       # go through variable and assign a value
       server[:variables].each do |name, variable|
         if variables.key?(name)
-          if (server[:variables][name][:enum_values].include? variables[name])
+          if (!server[:variables][name].key?(:enum_values) || server[:variables][name][:enum_values].include?(variables[name]))
             url.gsub! "{" + name.to_s + "}", variables[name]
           else
             fail ArgumentError, "The variable `#{name}` in the server URL has invalid value #{variables[name]}. Must be #{server[:variables][name][:enum_values]}."
