@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pipeline** | **String** |  | [optional] 
-**provider** | **String** |  | [optional] 
+**pipeline** | **String** | Name of the pipeline. | [optional] 
+**provider** | **String** | Name of the CI provider. | [optional] 
 
 ## Code Sample
 

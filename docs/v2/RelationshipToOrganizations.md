@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ```ruby
 require 'DatadogAPIClient::V2'
 
-instance = DatadogAPIClient::V2::RelationshipToOrganizations.new(data: null)
+instance = DatadogAPIClient::V2::RelationshipToOrganizations.new(data: [])
 ```
 
 

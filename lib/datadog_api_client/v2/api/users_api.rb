@@ -456,7 +456,7 @@ module DatadogAPIClient::V2
     end
 
     # List all users
-    # Get the list of all users in the organization. This list includes all users even if they are disabled or unverified.
+    # Get the list of all users in the organization. This list includes all users even if they are deactivated or unverified.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page_size Size for a given page. (default to 10)
     # @option opts [Integer] :page_number Specific page number to return. (default to 0)
@@ -471,7 +471,7 @@ module DatadogAPIClient::V2
     end
 
     # List all users
-    # Get the list of all users in the organization. This list includes all users even if they are disabled or unverified.
+    # Get the list of all users in the organization. This list includes all users even if they are deactivated or unverified.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page_size Size for a given page.
     # @option opts [Integer] :page_number Specific page number to return.

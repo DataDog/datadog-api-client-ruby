@@ -560,7 +560,7 @@ module DatadogAPIClient::V1
     end
 
     # Get a test configuration (browser)
-    # Get the detailed configuration (including steps) associated with a Synthetics browser test.
+    # Get the detailed configuration (including steps) associated with a Synthetic browser test.
     # @param public_id [String] The public ID of the test to get details from.
     # @param [Hash] opts the optional parameters
     # @return [SyntheticsTestDetails]
@@ -570,7 +570,7 @@ module DatadogAPIClient::V1
     end
 
     # Get a test configuration (browser)
-    # Get the detailed configuration (including steps) associated with a Synthetics browser test.
+    # Get the detailed configuration (including steps) associated with a Synthetic browser test.
     # @param public_id [String] The public ID of the test to get details from.
     # @param [Hash] opts the optional parameters
     # @return [Array<(SyntheticsTestDetails, Integer, Hash)>] SyntheticsTestDetails data, response status code and response headers
@@ -940,7 +940,7 @@ module DatadogAPIClient::V1
     end
 
     # Get all locations (public and private)
-    # Get the list of public and private locations available for Synthetics tests. No arguments required.
+    # Get the list of public and private locations available for Synthetic tests. No arguments required.
     # @param [Hash] opts the optional parameters
     # @return [SyntheticsLocations]
     def list_locations(opts = {})
@@ -949,7 +949,7 @@ module DatadogAPIClient::V1
     end
 
     # Get all locations (public and private)
-    # Get the list of public and private locations available for Synthetics tests. No arguments required.
+    # Get the list of public and private locations available for Synthetic tests. No arguments required.
     # @param [Hash] opts the optional parameters
     # @return [Array<(SyntheticsLocations, Integer, Hash)>] SyntheticsLocations data, response status code and response headers
     def list_locations_with_http_info(opts = {})

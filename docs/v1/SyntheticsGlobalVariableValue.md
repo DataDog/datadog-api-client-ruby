@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 require 'DatadogAPIClient::V1'
 
 instance = DatadogAPIClient::V1::SyntheticsGlobalVariableValue.new(secure: null,
-                                 value: null)
+                                 value: example-value)
 ```
 
 

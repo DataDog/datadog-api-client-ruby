@@ -13,9 +13,12 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 require 'date'
 
 module DatadogAPIClient::V1
+  # Git information.
   class SyntheticsCITestMetadataGit
+    # Branch name.
     attr_accessor :branch
 
+    # Commit SHA.
     attr_accessor :commit_sha
 
     # Attribute mapping from ruby-style variable name to JSON key.

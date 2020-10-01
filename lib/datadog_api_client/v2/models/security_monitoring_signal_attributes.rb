@@ -13,7 +13,7 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 require 'date'
 
 module DatadogAPIClient::V2
-  # The JSON object containing all signal attributes and their associated values.
+  # The object containing all signal attributes and their associated values.
   class SecurityMonitoringSignalAttributes
     # A JSON object of attributes in the security signal.
     attr_accessor :attributes

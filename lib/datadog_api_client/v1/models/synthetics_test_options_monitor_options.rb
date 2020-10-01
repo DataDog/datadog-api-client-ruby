@@ -13,7 +13,7 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 require 'date'
 
 module DatadogAPIClient::V1
-  # Object containing the options for a Synthetic test as a monitor (e.g. renotification).
+  # Object containing the options for a Synthetic test as a monitor (for example, renotification).
   class SyntheticsTestOptionsMonitorOptions
     # Time interval before renotifying if the test is still failing (in minutes).
     attr_accessor :renotify_interval

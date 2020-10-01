@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ```ruby
 require 'DatadogAPIClient::V2'
 
-instance = DatadogAPIClient::V2::TeamsResponse.new(data: null,
+instance = DatadogAPIClient::V2::TeamsResponse.new(data: [{&quot;attributes&quot;:{&quot;name&quot;:&quot;team name&quot;},&quot;id&quot;:&quot;00000000-0000-0000-0000-000000000000&quot;,&quot;type&quot;:&quot;teams&quot;}],
                                  included: null,
                                  meta: null)
 ```

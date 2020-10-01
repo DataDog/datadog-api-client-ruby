@@ -13,9 +13,12 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 require 'date'
 
 module DatadogAPIClient::V1
+  # Describe CI provider.
   class SyntheticsCITestMetadataCi
+    # Name of the pipeline.
     attr_accessor :pipeline
 
+    # Name of the CI provider.
     attr_accessor :provider
 
     # Attribute mapping from ruby-style variable name to JSON key.

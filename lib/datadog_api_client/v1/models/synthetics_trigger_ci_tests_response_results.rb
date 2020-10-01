@@ -13,6 +13,7 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 require 'date'
 
 module DatadogAPIClient::V1
+  # Information about a single test run.
   class SyntheticsTriggerCITestsResponseResults
     attr_accessor :device
 

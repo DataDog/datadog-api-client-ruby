@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**branch** | **String** |  | [optional] 
-**commit_sha** | **String** |  | [optional] 
+**branch** | **String** | Branch name. | [optional] 
+**commit_sha** | **String** | Commit SHA. | [optional] 
 
 ## Code Sample
 

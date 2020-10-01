@@ -34,7 +34,7 @@ instance = DatadogAPIClient::V1::SyntheticsCITest.new(allow_insecure_certificate
                                  headers: null,
                                  locations: null,
                                  metadata: null,
-                                 public_id: null,
+                                 public_id: aaa-aaa-aaa,
                                  _retry: null,
                                  start_url: null,
                                  variables: null)

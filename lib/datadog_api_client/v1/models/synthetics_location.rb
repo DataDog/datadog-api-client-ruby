@@ -13,7 +13,7 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 require 'date'
 
 module DatadogAPIClient::V1
-  # Synthetics location that can be used when creating or editing a test.
+  # Synthetic location that can be used when creating or editing a test.
   class SyntheticsLocation
     # Unique identifier of the location.
     attr_accessor :id
