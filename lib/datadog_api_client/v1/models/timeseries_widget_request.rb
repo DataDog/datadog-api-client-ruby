@@ -28,6 +28,9 @@ module DatadogAPIClient::V1
 
     attr_accessor :network_query
 
+    # Whether or not to display a second y-axis on the right.
+    attr_accessor :on_right_yaxis
+
     attr_accessor :process_query
 
     # Widget query.
@@ -48,6 +51,7 @@ module DatadogAPIClient::V1
         :'log_query' => :'log_query',
         :'metadata' => :'metadata',
         :'network_query' => :'network_query',
+        :'on_right_yaxis' => :'on_right_yaxis',
         :'process_query' => :'process_query',
         :'q' => :'q',
         :'rum_query' => :'rum_query',
@@ -65,6 +69,7 @@ module DatadogAPIClient::V1
         :'log_query' => :'LogQueryDefinition',
         :'metadata' => :'Array<TimeseriesWidgetRequestMetadata>',
         :'network_query' => :'LogQueryDefinition',
+        :'on_right_yaxis' => :'Boolean',
         :'process_query' => :'ProcessQueryDefinition',
         :'q' => :'String',
         :'rum_query' => :'LogQueryDefinition',
@@ -120,6 +125,10 @@ module DatadogAPIClient::V1
         self.network_query = attributes[:'network_query']
       end
 
+      if attributes.key?(:'on_right_yaxis')
+        self.on_right_yaxis = attributes[:'on_right_yaxis']
+      end
+
       if attributes.key?(:'process_query')
         self.process_query = attributes[:'process_query']
       end
@@ -165,6 +174,7 @@ module DatadogAPIClient::V1
           log_query == o.log_query &&
           metadata == o.metadata &&
           network_query == o.network_query &&
+          on_right_yaxis == o.on_right_yaxis &&
           process_query == o.process_query &&
           q == o.q &&
           rum_query == o.rum_query &&
@@ -181,7 +191,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [apm_query, display_type, event_query, log_query, metadata, network_query, process_query, q, rum_query, security_query, style].hash
+      [apm_query, display_type, event_query, log_query, metadata, network_query, on_right_yaxis, process_query, q, rum_query, security_query, style].hash
     end
 
     # Builds the object from hash

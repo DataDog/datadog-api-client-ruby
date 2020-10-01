@@ -82,6 +82,7 @@ Name | Type | Description | Notes
 **size_format** | [**WidgetSizeFormat**](WidgetSizeFormat.md) |  | [optional] 
 **span_name** | **String** | APM span name. | 
 **markers** | [**Array&lt;WidgetMarker&gt;**](WidgetMarker.md) | List of markers. | [optional] 
+**right_yaxis** | [**WidgetAxis**](WidgetAxis.md) |  | [optional] 
 
 ## Code Sample
 
@@ -165,7 +166,8 @@ instance = DatadogAPIClient::V1::WidgetDefinition.new(alert_id: null,
                                  show_resource_list: null,
                                  size_format: null,
                                  span_name: null,
-                                 markers: null)
+                                 markers: null,
+                                 right_yaxis: null)
 ```
 
 
