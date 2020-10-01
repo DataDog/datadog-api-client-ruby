@@ -21,7 +21,7 @@ instance = DatadogAPIClient::V2::SecurityMonitoringRuleQueryCreate.new(aggregati
                                  group_by_fields: null,
                                  metric: null,
                                  name: null,
-                                 query: null)
+                                 query: a &lt; 3)
 ```
 
 

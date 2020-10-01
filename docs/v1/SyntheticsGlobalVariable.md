@@ -15,10 +15,10 @@ Name | Type | Description | Notes
 ```ruby
 require 'DatadogAPIClient::V1'
 
-instance = DatadogAPIClient::V1::SyntheticsGlobalVariable.new(description: null,
+instance = DatadogAPIClient::V1::SyntheticsGlobalVariable.new(description: Example description,
                                  id: null,
-                                 name: null,
-                                 tags: null,
+                                 name: MY_VARIABLE,
+                                 tags: [&quot;team:front&quot;,&quot;test:workflow-1&quot;],
                                  value: null)
 ```
 

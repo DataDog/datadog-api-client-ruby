@@ -15,7 +15,7 @@ require 'DatadogAPIClient::V2'
 
 instance = DatadogAPIClient::V2::RoleCreateAttributes.new(created_at: null,
                                  modified_at: null,
-                                 name: null)
+                                 name: developers)
 ```
 
 

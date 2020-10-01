@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ```ruby
 require 'DatadogAPIClient::V2'
 
-instance = DatadogAPIClient::V2::UserCreateAttributes.new(email: null,
+instance = DatadogAPIClient::V2::UserCreateAttributes.new(email: joe.doe@example.com,
                                  name: null,
                                  title: null)
 ```
