@@ -227,6 +227,8 @@ module DatadogAPIClient::V1
     # List of markers.
     attr_accessor :markers
 
+    attr_accessor :right_yaxis
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -307,7 +309,8 @@ module DatadogAPIClient::V1
         :'show_resource_list' => :'show_resource_list',
         :'size_format' => :'size_format',
         :'span_name' => :'span_name',
-        :'markers' => :'markers'
+        :'markers' => :'markers',
+        :'right_yaxis' => :'right_yaxis'
       }
     end
 
@@ -391,7 +394,8 @@ module DatadogAPIClient::V1
         :'show_resource_list' => :'Boolean',
         :'size_format' => :'WidgetSizeFormat',
         :'span_name' => :'String',
-        :'markers' => :'Array<WidgetMarker>'
+        :'markers' => :'Array<WidgetMarker>',
+        :'right_yaxis' => :'WidgetAxis'
       }
     end
 
@@ -787,6 +791,10 @@ module DatadogAPIClient::V1
           self.markers = value
         end
       end
+
+      if attributes.key?(:'right_yaxis')
+        self.right_yaxis = attributes[:'right_yaxis']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -985,7 +993,8 @@ module DatadogAPIClient::V1
           show_resource_list == o.show_resource_list &&
           size_format == o.size_format &&
           span_name == o.span_name &&
-          markers == o.markers
+          markers == o.markers &&
+          right_yaxis == o.right_yaxis
     end
 
     # @see the `==` method
@@ -997,7 +1006,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [alert_id, time, title, title_align, title_size, type, viz_type, precision, text_align, unit, custom_links, requests, check, group, group_by, grouping, tags, legend_size, show_legend, event_size, query, tags_execution, color, font_size, text, layout_type, widgets, events, yaxis, no_group_hosts, no_metric_hosts, node_type, notes, scope, style, url, margin, sizing, columns, indexes, logset, message_display, show_date_column, show_message_column, sort, color_preference, count, display_format, hide_zero_counts, show_last_triggered, start, summary_type, background_color, content, show_tick, tick_edge, tick_pos, autoscale, custom_unit, color_by_groups, xaxis, show_error_budget, slo_id, time_windows, view_mode, view_type, filters, service, env, show_breakdown, show_distribution, show_errors, show_hits, show_latency, show_resource_list, size_format, span_name, markers].hash
+      [alert_id, time, title, title_align, title_size, type, viz_type, precision, text_align, unit, custom_links, requests, check, group, group_by, grouping, tags, legend_size, show_legend, event_size, query, tags_execution, color, font_size, text, layout_type, widgets, events, yaxis, no_group_hosts, no_metric_hosts, node_type, notes, scope, style, url, margin, sizing, columns, indexes, logset, message_display, show_date_column, show_message_column, sort, color_preference, count, display_format, hide_zero_counts, show_last_triggered, start, summary_type, background_color, content, show_tick, tick_edge, tick_pos, autoscale, custom_unit, color_by_groups, xaxis, show_error_budget, slo_id, time_windows, view_mode, view_type, filters, service, env, show_breakdown, show_distribution, show_errors, show_hits, show_latency, show_resource_list, size_format, span_name, markers, right_yaxis].hash
     end
 
     # Builds the object from hash

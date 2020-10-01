@@ -30,6 +30,8 @@ module DatadogAPIClient::V1
     # List of timeseries widget requests.
     attr_accessor :requests
 
+    attr_accessor :right_yaxis
+
     # (screenboard only) Show the legend for this widget.
     attr_accessor :show_legend
 
@@ -55,6 +57,7 @@ module DatadogAPIClient::V1
         :'legend_size' => :'legend_size',
         :'markers' => :'markers',
         :'requests' => :'requests',
+        :'right_yaxis' => :'right_yaxis',
         :'show_legend' => :'show_legend',
         :'time' => :'time',
         :'title' => :'title',
@@ -73,6 +76,7 @@ module DatadogAPIClient::V1
         :'legend_size' => :'String',
         :'markers' => :'Array<WidgetMarker>',
         :'requests' => :'Array<TimeseriesWidgetRequest>',
+        :'right_yaxis' => :'WidgetAxis',
         :'show_legend' => :'Boolean',
         :'time' => :'WidgetTime',
         :'title' => :'String',
@@ -130,6 +134,10 @@ module DatadogAPIClient::V1
         if (value = attributes[:'requests']).is_a?(Array)
           self.requests = value
         end
+      end
+
+      if attributes.key?(:'right_yaxis')
+        self.right_yaxis = attributes[:'right_yaxis']
       end
 
       if attributes.key?(:'show_legend')
@@ -194,6 +202,7 @@ module DatadogAPIClient::V1
           legend_size == o.legend_size &&
           markers == o.markers &&
           requests == o.requests &&
+          right_yaxis == o.right_yaxis &&
           show_legend == o.show_legend &&
           time == o.time &&
           title == o.title &&
@@ -212,7 +221,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [custom_links, events, legend_size, markers, requests, show_legend, time, title, title_align, title_size, type, yaxis].hash
+      [custom_links, events, legend_size, markers, requests, right_yaxis, show_legend, time, title, title_align, title_size, type, yaxis].hash
     end
 
     # Builds the object from hash

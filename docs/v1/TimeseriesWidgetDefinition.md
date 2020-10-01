@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **legend_size** | **String** | Available legend sizes for a widget. Should be one of \&quot;0\&quot;, \&quot;2\&quot;, \&quot;4\&quot;, \&quot;8\&quot;, \&quot;16\&quot;, or \&quot;auto\&quot;. | [optional] 
 **markers** | [**Array&lt;WidgetMarker&gt;**](WidgetMarker.md) | List of markers. | [optional] 
 **requests** | [**Array&lt;TimeseriesWidgetRequest&gt;**](TimeseriesWidgetRequest.md) | List of timeseries widget requests. | 
+**right_yaxis** | [**WidgetAxis**](WidgetAxis.md) |  | [optional] 
 **show_legend** | **Boolean** | (screenboard only) Show the legend for this widget. | [optional] 
 **time** | [**WidgetTime**](WidgetTime.md) |  | [optional] 
 **title** | **String** | Title of your widget. | [optional] 
@@ -27,6 +28,7 @@ instance = DatadogAPIClient::V1::TimeseriesWidgetDefinition.new(custom_links: nu
                                  legend_size: null,
                                  markers: null,
                                  requests: [{&quot;q/apm_query/log_query&quot;:&quot;&lt;METRIC_1&gt;{&lt;SCOPE_1&gt;}&quot;}],
+                                 right_yaxis: null,
                                  show_legend: null,
                                  time: null,
                                  title: null,
