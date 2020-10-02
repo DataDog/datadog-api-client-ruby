@@ -81,7 +81,7 @@ Name | Type | Description | Notes
 **show_resource_list** | **Boolean** | Whether to show the resource list or not. | [optional] 
 **size_format** | [**WidgetSizeFormat**](WidgetSizeFormat.md) |  | [optional] 
 **span_name** | **String** | APM span name. | 
-**has_search_bar** | **String** | Controls the display of the search bar. | [optional] [default to &#39;auto&#39;]
+**has_search_bar** | [**TableWidgetHasSearchBar**](TableWidgetHasSearchBar.md) |  | [optional] 
 **markers** | [**Array&lt;WidgetMarker&gt;**](WidgetMarker.md) | List of markers. | [optional] 
 **right_yaxis** | [**WidgetAxis**](WidgetAxis.md) |  | [optional] 
 
@@ -167,7 +167,7 @@ instance = DatadogAPIClient::V1::WidgetDefinition.new(alert_id: null,
                                  show_resource_list: null,
                                  size_format: null,
                                  span_name: null,
-                                 has_search_bar: auto,
+                                 has_search_bar: null,
                                  markers: null,
                                  right_yaxis: null)
 ```

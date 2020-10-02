@@ -50,28 +50,6 @@ module DatadogAPIClient::V1
 
     attr_accessor :security_query
 
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -100,7 +78,7 @@ module DatadogAPIClient::V1
         :'_alias' => :'String',
         :'apm_query' => :'LogQueryDefinition',
         :'apm_stats_query' => :'ApmStatsQueryDefinition',
-        :'cell_display_mode' => :'Array<String>',
+        :'cell_display_mode' => :'Array<TableWidgetCellDisplayMode>',
         :'conditional_formats' => :'Array<WidgetConditionalFormat>',
         :'event_query' => :'EventQueryDefinition',
         :'limit' => :'Integer',
