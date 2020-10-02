@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **custom_links** | [**Array&lt;WidgetCustomLink&gt;**](WidgetCustomLink.md) | List of custom links. | [optional] 
+**has_search_bar** | **String** | Controls the display of the search bar. | [optional] [default to &#39;auto&#39;]
 **requests** | [**Array&lt;TableWidgetRequest&gt;**](TableWidgetRequest.md) | Widget definition. | 
 **time** | [**WidgetTime**](WidgetTime.md) |  | [optional] 
 **title** | **String** | Title of your widget. | [optional] 
@@ -18,6 +19,7 @@ Name | Type | Description | Notes
 require 'DatadogAPIClient::V1'
 
 instance = DatadogAPIClient::V1::TableWidgetDefinition.new(custom_links: null,
+                                 has_search_bar: auto,
                                  requests: [{&quot;q/apm_query/log_query&quot;:&quot;&lt;METRIC_1&gt;{&lt;SCOPE_1&gt;}&quot;}],
                                  time: null,
                                  title: null,
