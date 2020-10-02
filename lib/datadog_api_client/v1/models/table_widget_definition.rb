@@ -18,7 +18,6 @@ module DatadogAPIClient::V1
     # List of custom links.
     attr_accessor :custom_links
 
-    # Controls the display of the search bar.
     attr_accessor :has_search_bar
 
     # Widget definition.
@@ -35,28 +34,6 @@ module DatadogAPIClient::V1
     attr_accessor :title_size
 
     attr_accessor :type
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -76,7 +53,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'custom_links' => :'Array<WidgetCustomLink>',
-        :'has_search_bar' => :'String',
+        :'has_search_bar' => :'TableWidgetHasSearchBar',
         :'requests' => :'Array<TableWidgetRequest>',
         :'time' => :'WidgetTime',
         :'title' => :'String',
@@ -115,8 +92,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'has_search_bar')
         self.has_search_bar = attributes[:'has_search_bar']
-      else
-        self.has_search_bar = 'auto'
       end
 
       if attributes.key?(:'requests')
@@ -164,21 +139,9 @@ module DatadogAPIClient::V1
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      has_search_bar_validator = EnumAttributeValidator.new('String', ["always", "never", "auto"])
-      return false unless has_search_bar_validator.valid?(@has_search_bar)
       return false if @requests.nil?
       return false if @type.nil?
       true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] has_search_bar Object to be assigned
-    def has_search_bar=(has_search_bar)
-      validator = EnumAttributeValidator.new('String', ["always", "never", "auto"])
-      unless validator.valid?(has_search_bar)
-        fail ArgumentError, "invalid value for \"has_search_bar\", must be one of #{validator.allowable_values}."
-      end
-      @has_search_bar = has_search_bar
     end
 
     # Checks equality by comparing each attribute.

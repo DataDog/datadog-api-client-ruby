@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **_alias** | **String** | The column name (defaults to the metric name). | [optional] 
 **apm_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] 
 **apm_stats_query** | [**ApmStatsQueryDefinition**](ApmStatsQueryDefinition.md) |  | [optional] 
-**cell_display_mode** | **Array&lt;String&gt;** | A list of display modes for each table cell. | [optional] 
+**cell_display_mode** | [**Array&lt;TableWidgetCellDisplayMode&gt;**](TableWidgetCellDisplayMode.md) | A list of display modes for each table cell. | [optional] 
 **conditional_formats** | [**Array&lt;WidgetConditionalFormat&gt;**](WidgetConditionalFormat.md) | List of conditional formats. | [optional] 
 **event_query** | [**EventQueryDefinition**](EventQueryDefinition.md) |  | [optional] 
 **limit** | **Integer** | For metric queries, the number of lines to show in the table. Only one request should have this property. | [optional] 

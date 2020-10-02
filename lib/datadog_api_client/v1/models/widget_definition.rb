@@ -224,35 +224,12 @@ module DatadogAPIClient::V1
     # APM span name.
     attr_accessor :span_name
 
-    # Controls the display of the search bar.
     attr_accessor :has_search_bar
 
     # List of markers.
     attr_accessor :markers
 
     attr_accessor :right_yaxis
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -420,7 +397,7 @@ module DatadogAPIClient::V1
         :'show_resource_list' => :'Boolean',
         :'size_format' => :'WidgetSizeFormat',
         :'span_name' => :'String',
-        :'has_search_bar' => :'String',
+        :'has_search_bar' => :'TableWidgetHasSearchBar',
         :'markers' => :'Array<WidgetMarker>',
         :'right_yaxis' => :'WidgetAxis'
       }
@@ -815,8 +792,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'has_search_bar')
         self.has_search_bar = attributes[:'has_search_bar']
-      else
-        self.has_search_bar = 'auto'
       end
 
       if attributes.key?(:'markers')
@@ -925,8 +900,6 @@ module DatadogAPIClient::V1
       return false if @service.nil?
       return false if @env.nil?
       return false if @span_name.nil?
-      has_search_bar_validator = EnumAttributeValidator.new('String', ["always", "never", "auto"])
-      return false unless has_search_bar_validator.valid?(@has_search_bar)
       _one_of_found = false
       self.class.openapi_one_of.each do |_class|
         _one_of = DatadogAPIClient::V1.const_get(_class).build_from_hash(self.to_hash)
@@ -944,16 +917,6 @@ module DatadogAPIClient::V1
       end
 
       true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] has_search_bar Object to be assigned
-    def has_search_bar=(has_search_bar)
-      validator = EnumAttributeValidator.new('String', ["always", "never", "auto"])
-      unless validator.valid?(has_search_bar)
-        fail ArgumentError, "invalid value for \"has_search_bar\", must be one of #{validator.allowable_values}."
-      end
-      @has_search_bar = has_search_bar
     end
 
     # Checks equality by comparing each attribute.
