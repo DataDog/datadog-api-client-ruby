@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **preserve_source** | **Boolean** | Remove or preserve the remapped source element. | [optional] [default to false]
 **source_type** | **String** | Defines if the sources are from log &#x60;attribute&#x60; or &#x60;tag&#x60;. | [optional] [default to &#39;attribute&#39;]
 **target** | **String** | Name of the attribute that contains the corresponding value in the mapping list or the &#x60;default_lookup&#x60; if not found in the mapping list. | 
+**target_format** | [**TargetFormatType**](TargetFormatType.md) |  | [optional] 
 **target_type** | **String** | Defines if the final attribute or tag name is from log &#x60;attribute&#x60; or &#x60;tag&#x60;. | [optional] [default to &#39;attribute&#39;]
 **normalize_ending_slashes** | **Boolean** | Normalize the ending slashes or not. | [optional] [default to false]
 **is_encoded** | **Boolean** | Define if the source attribute is URL encoded or not. | [optional] [default to false]
@@ -43,6 +44,7 @@ instance = DatadogAPIClient::V1::LogsProcessor.new(grok: null,
                                  preserve_source: null,
                                  source_type: null,
                                  target: null,
+                                 target_format: null,
                                  target_type: null,
                                  normalize_ending_slashes: null,
                                  is_encoded: null,

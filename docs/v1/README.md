@@ -546,6 +546,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::TableWidgetDefinitionType](docs/TableWidgetDefinitionType.md)
  - [DatadogAPIClient::V1::TableWidgetRequest](docs/TableWidgetRequest.md)
  - [DatadogAPIClient::V1::TagToHosts](docs/TagToHosts.md)
+ - [DatadogAPIClient::V1::TargetFormatType](docs/TargetFormatType.md)
  - [DatadogAPIClient::V1::TimeseriesWidgetDefinition](docs/TimeseriesWidgetDefinition.md)
  - [DatadogAPIClient::V1::TimeseriesWidgetDefinitionType](docs/TimeseriesWidgetDefinitionType.md)
  - [DatadogAPIClient::V1::TimeseriesWidgetRequest](docs/TimeseriesWidgetRequest.md)

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **source_type** | **String** | Defines if the sources are from log &#x60;attribute&#x60; or &#x60;tag&#x60;. | [optional] [default to &#39;attribute&#39;]
 **sources** | **Array&lt;String&gt;** | Array of source attributes. | 
 **target** | **String** | Final attribute or tag name to remap the sources to. | 
+**target_format** | [**TargetFormatType**](TargetFormatType.md) |  | [optional] 
 **target_type** | **String** | Defines if the final attribute or tag name is from log &#x60;attribute&#x60; or &#x60;tag&#x60;. | [optional] [default to &#39;attribute&#39;]
 **type** | [**LogsAttributeRemapperType**](LogsAttributeRemapperType.md) |  | 
 
@@ -26,6 +27,7 @@ instance = DatadogAPIClient::V1::LogsAttributeRemapper.new(is_enabled: null,
                                  source_type: null,
                                  sources: [&quot;web&quot;,&quot;gateway&quot;],
                                  target: operation_id,
+                                 target_format: null,
                                  target_type: null,
                                  type: null)
 ```
