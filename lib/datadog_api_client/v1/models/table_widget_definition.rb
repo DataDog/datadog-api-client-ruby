@@ -18,6 +18,9 @@ module DatadogAPIClient::V1
     # List of custom links.
     attr_accessor :custom_links
 
+    # Controls the display of the search bar.
+    attr_accessor :has_search_bar
+
     # Widget definition.
     attr_accessor :requests
 
@@ -33,10 +36,33 @@ module DatadogAPIClient::V1
 
     attr_accessor :type
 
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'custom_links' => :'custom_links',
+        :'has_search_bar' => :'has_search_bar',
         :'requests' => :'requests',
         :'time' => :'time',
         :'title' => :'title',
@@ -50,6 +76,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'custom_links' => :'Array<WidgetCustomLink>',
+        :'has_search_bar' => :'String',
         :'requests' => :'Array<TableWidgetRequest>',
         :'time' => :'WidgetTime',
         :'title' => :'String',
@@ -84,6 +111,12 @@ module DatadogAPIClient::V1
         if (value = attributes[:'custom_links']).is_a?(Array)
           self.custom_links = value
         end
+      end
+
+      if attributes.key?(:'has_search_bar')
+        self.has_search_bar = attributes[:'has_search_bar']
+      else
+        self.has_search_bar = 'auto'
       end
 
       if attributes.key?(:'requests')
@@ -131,9 +164,21 @@ module DatadogAPIClient::V1
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      has_search_bar_validator = EnumAttributeValidator.new('String', ["always", "never", "auto"])
+      return false unless has_search_bar_validator.valid?(@has_search_bar)
       return false if @requests.nil?
       return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] has_search_bar Object to be assigned
+    def has_search_bar=(has_search_bar)
+      validator = EnumAttributeValidator.new('String', ["always", "never", "auto"])
+      unless validator.valid?(has_search_bar)
+        fail ArgumentError, "invalid value for \"has_search_bar\", must be one of #{validator.allowable_values}."
+      end
+      @has_search_bar = has_search_bar
     end
 
     # Checks equality by comparing each attribute.
@@ -142,6 +187,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           custom_links == o.custom_links &&
+          has_search_bar == o.has_search_bar &&
           requests == o.requests &&
           time == o.time &&
           title == o.title &&
@@ -159,7 +205,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [custom_links, requests, time, title, title_align, title_size, type].hash
+      [custom_links, has_search_bar, requests, time, title, title_align, title_size, type].hash
     end
 
     # Builds the object from hash

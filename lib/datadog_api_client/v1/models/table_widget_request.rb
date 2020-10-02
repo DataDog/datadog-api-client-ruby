@@ -24,6 +24,9 @@ module DatadogAPIClient::V1
 
     attr_accessor :apm_stats_query
 
+    # A list of display modes for each table cell.
+    attr_accessor :cell_display_mode
+
     # List of conditional formats.
     attr_accessor :conditional_formats
 
@@ -47,6 +50,28 @@ module DatadogAPIClient::V1
 
     attr_accessor :security_query
 
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -54,6 +79,7 @@ module DatadogAPIClient::V1
         :'_alias' => :'alias',
         :'apm_query' => :'apm_query',
         :'apm_stats_query' => :'apm_stats_query',
+        :'cell_display_mode' => :'cell_display_mode',
         :'conditional_formats' => :'conditional_formats',
         :'event_query' => :'event_query',
         :'limit' => :'limit',
@@ -74,6 +100,7 @@ module DatadogAPIClient::V1
         :'_alias' => :'String',
         :'apm_query' => :'LogQueryDefinition',
         :'apm_stats_query' => :'ApmStatsQueryDefinition',
+        :'cell_display_mode' => :'Array<String>',
         :'conditional_formats' => :'Array<WidgetConditionalFormat>',
         :'event_query' => :'EventQueryDefinition',
         :'limit' => :'Integer',
@@ -122,6 +149,12 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'apm_stats_query')
         self.apm_stats_query = attributes[:'apm_stats_query']
+      end
+
+      if attributes.key?(:'cell_display_mode')
+        if (value = attributes[:'cell_display_mode']).is_a?(Array)
+          self.cell_display_mode = value
+        end
       end
 
       if attributes.key?(:'conditional_formats')
@@ -189,6 +222,7 @@ module DatadogAPIClient::V1
           _alias == o._alias &&
           apm_query == o.apm_query &&
           apm_stats_query == o.apm_stats_query &&
+          cell_display_mode == o.cell_display_mode &&
           conditional_formats == o.conditional_formats &&
           event_query == o.event_query &&
           limit == o.limit &&
@@ -210,7 +244,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aggregator, _alias, apm_query, apm_stats_query, conditional_formats, event_query, limit, log_query, network_query, order, process_query, q, rum_query, security_query].hash
+      [aggregator, _alias, apm_query, apm_stats_query, cell_display_mode, conditional_formats, event_query, limit, log_query, network_query, order, process_query, q, rum_query, security_query].hash
     end
 
     # Builds the object from hash
