@@ -36,6 +36,8 @@ module DatadogAPIClient::V1
     # Final attribute or tag name to remap the sources to.
     attr_accessor :target
 
+    attr_accessor :target_format
+
     # Defines if the final attribute or tag name is from log `attribute` or `tag`.
     attr_accessor :target_type
 
@@ -51,6 +53,7 @@ module DatadogAPIClient::V1
         :'source_type' => :'source_type',
         :'sources' => :'sources',
         :'target' => :'target',
+        :'target_format' => :'target_format',
         :'target_type' => :'target_type',
         :'type' => :'type'
       }
@@ -66,6 +69,7 @@ module DatadogAPIClient::V1
         :'source_type' => :'String',
         :'sources' => :'Array<String>',
         :'target' => :'String',
+        :'target_format' => :'TargetFormatType',
         :'target_type' => :'String',
         :'type' => :'LogsAttributeRemapperType'
       }
@@ -130,6 +134,10 @@ module DatadogAPIClient::V1
         self.target = attributes[:'target']
       end
 
+      if attributes.key?(:'target_format')
+        self.target_format = attributes[:'target_format']
+      end
+
       if attributes.key?(:'target_type')
         self.target_type = attributes[:'target_type']
       else
@@ -181,6 +189,7 @@ module DatadogAPIClient::V1
           source_type == o.source_type &&
           sources == o.sources &&
           target == o.target &&
+          target_format == o.target_format &&
           target_type == o.target_type &&
           type == o.type
     end
@@ -194,7 +203,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [is_enabled, name, override_on_conflict, preserve_source, source_type, sources, target, target_type, type].hash
+      [is_enabled, name, override_on_conflict, preserve_source, source_type, sources, target, target_format, target_type, type].hash
     end
 
     # Builds the object from hash

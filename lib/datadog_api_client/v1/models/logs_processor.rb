@@ -46,6 +46,8 @@ module DatadogAPIClient::V1
     # Name of the attribute that contains the corresponding value in the mapping list or the `default_lookup` if not found in the mapping list.
     attr_accessor :target
 
+    attr_accessor :target_format
+
     # Defines if the final attribute or tag name is from log `attribute` or `tag`.
     attr_accessor :target_type
 
@@ -92,6 +94,7 @@ module DatadogAPIClient::V1
         :'preserve_source' => :'preserve_source',
         :'source_type' => :'source_type',
         :'target' => :'target',
+        :'target_format' => :'target_format',
         :'target_type' => :'target_type',
         :'normalize_ending_slashes' => :'normalize_ending_slashes',
         :'is_encoded' => :'is_encoded',
@@ -120,6 +123,7 @@ module DatadogAPIClient::V1
         :'preserve_source' => :'Boolean',
         :'source_type' => :'String',
         :'target' => :'String',
+        :'target_format' => :'TargetFormatType',
         :'target_type' => :'String',
         :'normalize_ending_slashes' => :'Boolean',
         :'is_encoded' => :'Boolean',
@@ -231,6 +235,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'target')
         self.target = attributes[:'target']
+      end
+
+      if attributes.key?(:'target_format')
+        self.target_format = attributes[:'target_format']
       end
 
       if attributes.key?(:'target_type')
@@ -382,6 +390,7 @@ module DatadogAPIClient::V1
           preserve_source == o.preserve_source &&
           source_type == o.source_type &&
           target == o.target &&
+          target_format == o.target_format &&
           target_type == o.target_type &&
           normalize_ending_slashes == o.normalize_ending_slashes &&
           is_encoded == o.is_encoded &&
@@ -404,7 +413,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [grok, is_enabled, name, samples, source, type, sources, override_on_conflict, preserve_source, source_type, target, target_type, normalize_ending_slashes, is_encoded, categories, expression, is_replace_missing, template, filter, processors, default_lookup, lookup_table].hash
+      [grok, is_enabled, name, samples, source, type, sources, override_on_conflict, preserve_source, source_type, target, target_format, target_type, normalize_ending_slashes, is_encoded, categories, expression, is_replace_missing, template, filter, processors, default_lookup, lookup_table].hash
     end
 
     # Builds the object from hash
