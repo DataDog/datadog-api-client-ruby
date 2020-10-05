@@ -48,6 +48,10 @@ docs/LogsArchiveDestinationS3Type.md
 docs/LogsArchiveIntegrationAzure.md
 docs/LogsArchiveIntegrationGCS.md
 docs/LogsArchiveIntegrationS3.md
+docs/LogsArchiveOrder.md
+docs/LogsArchiveOrderAttributes.md
+docs/LogsArchiveOrderDefinition.md
+docs/LogsArchiveOrderDefinitionType.md
 docs/LogsArchiveState.md
 docs/LogsArchives.md
 docs/LogsArchivesApi.md
@@ -246,6 +250,10 @@ lib/datadog_api_client/v2/models/logs_archive_destination_s3_type.rb
 lib/datadog_api_client/v2/models/logs_archive_integration_azure.rb
 lib/datadog_api_client/v2/models/logs_archive_integration_gcs.rb
 lib/datadog_api_client/v2/models/logs_archive_integration_s3.rb
+lib/datadog_api_client/v2/models/logs_archive_order.rb
+lib/datadog_api_client/v2/models/logs_archive_order_attributes.rb
+lib/datadog_api_client/v2/models/logs_archive_order_definition.rb
+lib/datadog_api_client/v2/models/logs_archive_order_definition_type.rb
 lib/datadog_api_client/v2/models/logs_archive_state.rb
 lib/datadog_api_client/v2/models/logs_archives.rb
 lib/datadog_api_client/v2/models/logs_compute.rb
@@ -435,6 +443,10 @@ spec/models/logs_archive_destination_spec.rb
 spec/models/logs_archive_integration_azure_spec.rb
 spec/models/logs_archive_integration_gcs_spec.rb
 spec/models/logs_archive_integration_s3_spec.rb
+spec/models/logs_archive_order_attributes_spec.rb
+spec/models/logs_archive_order_definition_spec.rb
+spec/models/logs_archive_order_definition_type_spec.rb
+spec/models/logs_archive_order_spec.rb
 spec/models/logs_archive_spec.rb
 spec/models/logs_archive_state_spec.rb
 spec/models/logs_archives_spec.rb

@@ -101,10 +101,12 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V2::LogsArchivesApi* | [**create_logs_archive**](docs/LogsArchivesApi.md#create_logs_archive) | **POST** /api/v2/logs/config/archives | Create an archive
 *DatadogAPIClient::V2::LogsArchivesApi* | [**delete_logs_archive**](docs/LogsArchivesApi.md#delete_logs_archive) | **DELETE** /api/v2/logs/config/archives/{archive_id} | Delete an archive
 *DatadogAPIClient::V2::LogsArchivesApi* | [**get_logs_archive**](docs/LogsArchivesApi.md#get_logs_archive) | **GET** /api/v2/logs/config/archives/{archive_id} | Get an archive
+*DatadogAPIClient::V2::LogsArchivesApi* | [**get_logs_archive_order**](docs/LogsArchivesApi.md#get_logs_archive_order) | **GET** /api/v2/logs/config/archive-order | Get archive order
 *DatadogAPIClient::V2::LogsArchivesApi* | [**list_archive_read_roles**](docs/LogsArchivesApi.md#list_archive_read_roles) | **GET** /api/v2/logs/config/archives/{archive_id}/readers | List read roles for an archive
 *DatadogAPIClient::V2::LogsArchivesApi* | [**list_logs_archives**](docs/LogsArchivesApi.md#list_logs_archives) | **GET** /api/v2/logs/config/archives | Get all archives
 *DatadogAPIClient::V2::LogsArchivesApi* | [**remove_role_from_archive**](docs/LogsArchivesApi.md#remove_role_from_archive) | **DELETE** /api/v2/logs/config/archives/{archive_id}/readers | Revoke role from an archive
 *DatadogAPIClient::V2::LogsArchivesApi* | [**update_logs_archive**](docs/LogsArchivesApi.md#update_logs_archive) | **PUT** /api/v2/logs/config/archives/{archive_id} | Update an archive
+*DatadogAPIClient::V2::LogsArchivesApi* | [**update_logs_archive_order**](docs/LogsArchivesApi.md#update_logs_archive_order) | **PUT** /api/v2/logs/config/archive-order | Update archive order
 *DatadogAPIClient::V2::RolesApi* | [**add_permission_to_role**](docs/RolesApi.md#add_permission_to_role) | **POST** /api/v2/roles/{role_id}/permissions | Grant permission to a role
 *DatadogAPIClient::V2::RolesApi* | [**add_user_to_role**](docs/RolesApi.md#add_user_to_role) | **POST** /api/v2/roles/{role_id}/users | Add a user to a role
 *DatadogAPIClient::V2::RolesApi* | [**create_role**](docs/RolesApi.md#create_role) | **POST** /api/v2/roles | Create role
@@ -192,6 +194,10 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::LogsArchiveIntegrationAzure](docs/LogsArchiveIntegrationAzure.md)
  - [DatadogAPIClient::V2::LogsArchiveIntegrationGCS](docs/LogsArchiveIntegrationGCS.md)
  - [DatadogAPIClient::V2::LogsArchiveIntegrationS3](docs/LogsArchiveIntegrationS3.md)
+ - [DatadogAPIClient::V2::LogsArchiveOrder](docs/LogsArchiveOrder.md)
+ - [DatadogAPIClient::V2::LogsArchiveOrderAttributes](docs/LogsArchiveOrderAttributes.md)
+ - [DatadogAPIClient::V2::LogsArchiveOrderDefinition](docs/LogsArchiveOrderDefinition.md)
+ - [DatadogAPIClient::V2::LogsArchiveOrderDefinitionType](docs/LogsArchiveOrderDefinitionType.md)
  - [DatadogAPIClient::V2::LogsArchiveState](docs/LogsArchiveState.md)
  - [DatadogAPIClient::V2::LogsArchives](docs/LogsArchives.md)
  - [DatadogAPIClient::V2::LogsCompute](docs/LogsCompute.md)
