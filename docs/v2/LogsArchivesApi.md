@@ -8,10 +8,12 @@ Method | HTTP request | Description
 [**create_logs_archive**](LogsArchivesApi.md#create_logs_archive) | **POST** /api/v2/logs/config/archives | Create an archive
 [**delete_logs_archive**](LogsArchivesApi.md#delete_logs_archive) | **DELETE** /api/v2/logs/config/archives/{archive_id} | Delete an archive
 [**get_logs_archive**](LogsArchivesApi.md#get_logs_archive) | **GET** /api/v2/logs/config/archives/{archive_id} | Get an archive
+[**get_logs_archive_order**](LogsArchivesApi.md#get_logs_archive_order) | **GET** /api/v2/logs/config/archive-order | Get archive order
 [**list_archive_read_roles**](LogsArchivesApi.md#list_archive_read_roles) | **GET** /api/v2/logs/config/archives/{archive_id}/readers | List read roles for an archive
 [**list_logs_archives**](LogsArchivesApi.md#list_logs_archives) | **GET** /api/v2/logs/config/archives | Get all archives
 [**remove_role_from_archive**](LogsArchivesApi.md#remove_role_from_archive) | **DELETE** /api/v2/logs/config/archives/{archive_id}/readers | Revoke role from an archive
 [**update_logs_archive**](LogsArchivesApi.md#update_logs_archive) | **PUT** /api/v2/logs/config/archives/{archive_id} | Update an archive
+[**update_logs_archive_order**](LogsArchivesApi.md#update_logs_archive_order) | **PUT** /api/v2/logs/config/archive-order | Update archive order
 
 
 
@@ -253,6 +255,61 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## get_logs_archive_order
+
+> LogsArchiveOrder get_logs_archive_order
+
+Get archive order
+
+Get the current order of your archives. This endpoint takes no JSON arguments.
+
+### Example
+
+```ruby
+# load the gem
+require 'datadog_api_client/v2'
+# setup authorization
+DatadogAPIClient::V2.configure do |config|
+  # Configure API key authorization: apiKeyAuth
+  config.api_key['apiKeyAuth'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+
+  # Configure API key authorization: appKeyAuth
+  config.api_key['appKeyAuth'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+end
+
+api_instance = DatadogAPIClient::V2::LogsArchivesApi.new
+
+begin
+  #Get archive order
+  result = api_instance.get_logs_archive_order
+  p result
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Exception when calling LogsArchivesApi->get_logs_archive_order: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**LogsArchiveOrder**](LogsArchiveOrder.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## list_archive_read_roles
 
 > RolesResponse list_archive_read_roles(archive_id)
@@ -479,6 +536,65 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**LogsArchive**](LogsArchive.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## update_logs_archive_order
+
+> LogsArchiveOrder update_logs_archive_order(body)
+
+Update archive order
+
+Update the order of your archives. Since logs are processed sequentially, reordering an archive may change the structure and content of the data processed by other archives.  **Note**: Using the `PUT` method updates your archive's order by replacing the current order with the new one.
+
+### Example
+
+```ruby
+# load the gem
+require 'datadog_api_client/v2'
+# setup authorization
+DatadogAPIClient::V2.configure do |config|
+  # Configure API key authorization: apiKeyAuth
+  config.api_key['apiKeyAuth'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+
+  # Configure API key authorization: appKeyAuth
+  config.api_key['appKeyAuth'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+end
+
+api_instance = DatadogAPIClient::V2::LogsArchivesApi.new
+body = DatadogAPIClient::V2::LogsArchiveOrder.new # LogsArchiveOrder | An object containing the new ordered list of archive IDs.
+
+begin
+  #Update archive order
+  result = api_instance.update_logs_archive_order(body)
+  p result
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Exception when calling LogsArchivesApi->update_logs_archive_order: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**LogsArchiveOrder**](LogsArchiveOrder.md)| An object containing the new ordered list of archive IDs. | 
+
+### Return type
+
+[**LogsArchiveOrder**](LogsArchiveOrder.md)
 
 ### Authorization
 
