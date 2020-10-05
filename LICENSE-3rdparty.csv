@@ -1,0 +1,83 @@
+Origin,License,Authors
+activesupport,MIT,David Heinemeier Hansson
+addressable,Apache 2.0,Bob Aman
+ast,MIT,whitequark
+backport,MIT,Fred Snyder
+benchmark,Simplified BSD,Yukihiro Matsumoto
+builder,MIT,Jim Weirich
+bundler,MIT,"André Arko, Samuel Giddins, Colby Swandale, Hiroshi Shibata, David Rodríguez, Grey Baker, Stephanie Morillo, Chris Morris, James Wen, Tim Moore, André Medeiros, Jessica Lynn Suttles, Terence Lee, Carl Lerche, Yehuda Katz"
+byebug,Simplified BSD,"David Rodriguez, Kent Sibilev, Mark Moseley"
+codecov,MIT,codecov
+coderay,MIT,Kornelius Kalnbach
+concurrent-ruby,MIT,"Jerry D'Antonio, Petr Chalupa, The Ruby Concurrency Team"
+crack,MIT,John Nunemaker
+cucumber,MIT,"Aslak Hellesøy, Matt Wynne, Steve Tooke"
+cucumber-core,MIT,"Aslak Hellesøy, Matt Wynne, Steve Tooke, Oleg Sukhodolsky, Tom Brand"
+cucumber-create-meta,MIT,Vincent Prêtre
+cucumber-cucumber-expressions,MIT,Aslak Hellesøy
+cucumber-gherkin,MIT,"Gáspár Nagy, Aslak Hellesøy, Steve Tooke"
+cucumber-html-formatter,MIT,Vincent Prêtre
+cucumber-messages,MIT,Aslak Hellesøy
+cucumber-tag-expressions,MIT,"Andrea Nodari, Aslak Hellesøy"
+cucumber-wire,MIT,Matt Wynne
+datadog_api_client,Apache 2.0,"Datadog, Inc."
+ddtrace,New BSD,"Datadog, Inc."
+diff-lcs,"Artistic-2.0,GPL-2.0+,MIT",Austin Ziegler
+docile,MIT,Marc Siegel
+e2mmap,Simplified BSD,Keiju ISHITSUKA
+ethon,MIT,Hans Hasselberg
+ffi,New BSD,Wayne Meissner
+hashdiff,MIT,Liu Fengyun
+i18n,MIT,"Sven Fuchs, Joshua Harvey, Matt Aimonetti, Stephan Soller, Saimon Moore, Ryan Bigg"
+jaro_winkler,MIT,Jian Weihang
+json,ruby,Florian Frank
+kwalify,MIT,makoto kuwata
+license_finder,MIT,"Ryan Collins, Daniil Kouznetsov, Andy Shen, Shane Lattanzio, Li Sheng Tai, Vlad vassilovski, Jacob Maine, Matthew Kane Parker, Ian Lesperance, David Edwards, Paul Meskers, Brent Wheeldon, Trevor John, David Tengdin, William Ramsey, David Dening, Geoff Pleiss, Mike Chinigo, Mike Dalessio, Jeff Jun"
+maruku,MIT,"Andrea Censi, Nathan Weizenbaum, Ben Hollis"
+method_source,MIT,John Mair (banisterfiend)
+middleware,MIT,Mitchell Hashimoto
+mini_portile2,MIT,"Luis Lavena, Mike Dalessio, Lars Kanis"
+minitest,MIT,Ryan Davis
+msgpack,Apache 2.0,"Sadayuki Furuhashi, Theo Hultberg, Satoshi Tagomori"
+multi_test,MIT,"Matt Wynne, Steve Tooke"
+nokogiri,MIT,"Aaron Patterson, Mike Dalessio, Yoko Harada, Tim Elliott, Akinori MUSHA, John Shahid, Lars Kanis"
+parallel,MIT,Michael Grosser
+parser,MIT,whitequark
+protobuf-cucumber,MIT,"BJ Neilsen, Brandon Dewitt, Devin Christensen, Adam Hutchison"
+pry,MIT,"John Mair (banisterfiend), Conrad Irwin, Ryan Fitzgerald, Kyrylo Silin"
+pry-byebug,MIT,"David Rodríguez, Gopal Patel"
+psych,MIT,"Aaron Patterson, SHIBATA Hiroshi, Charles Oliver Nutter"
+public_suffix,MIT,Simone Carletti
+rainbow,MIT,"Marcin Kulik, Olle Jonsson"
+rake,MIT,"Hiroshi SHIBATA, Eric Hodel, Jim Weirich"
+reek,MIT,"Kevin Rutherford, Timo Roessner, Matijs van Zuijlen, Piotr Szotkowski"
+regexp_parser,MIT,Ammar Ali
+reverse_markdown,WTFPL,Johannes Opper
+rexml,Simplified BSD,Kouhei Sutou
+rspec,MIT,"Steven Baker, David Chelimsky, Myron Marston"
+rspec-core,MIT,"Steven Baker, David Chelimsky, Chad Humphries, Myron Marston"
+rspec-expectations,MIT,"Steven Baker, David Chelimsky, Myron Marston"
+rspec-mocks,MIT,"Steven Baker, David Chelimsky, Myron Marston"
+rspec-support,MIT,"David Chelimsky, Myron Marson, Jon Rowe, Sam Phippen, Xaviery Shay, Bradley Schaefer"
+rubocop,MIT,"Bozhidar Batsov, Jonas Arvidsson, Yuji Nakayama"
+rubocop-ast,MIT,"Bozhidar Batsov, Jonas Arvidsson, Yuji Nakayama"
+ruby-progressbar,MIT,"thekompanee, jfelchner"
+rubyzip,Simplified BSD,Alexander Simonov
+simplecov,MIT,"Christoph Olszowka, Tobias Pfeiffer"
+simplecov-html,MIT,Christoph Olszowka
+solargraph,MIT,Fred Snyder
+sys-uname,Apache 2.0,Daniel J. Berger
+thor,MIT,"Yehuda Katz, José Valim"
+thread_safe,Apache 2.0,"Charles Oliver Nutter, thedarkone"
+tilt,MIT,Ryan Tomayko
+timecop,MIT,"Travis Jeffery, John Trupiano"
+tomlrb,MIT,Francois Bernier
+typhoeus,MIT,"David Balatero, Paul Dix, Hans Hasselberg"
+tzinfo,MIT,Philip Ross
+unicode-display_width,MIT,Jan Lelis
+vcr,"Hippocratic-2.1,MIT","Myron Marston, Kurtis Rainbolt-Greene, Olle Jonsson"
+webmock,MIT,Bartosz Blimke
+with_env,MIT,Zach Dennis
+xml-simple,ruby,Maik Schmidt
+yard,MIT,Loren Segal
+zeitwerk,MIT,Xavier Noria
