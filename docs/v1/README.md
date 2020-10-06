@@ -262,6 +262,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::ApiKey](docs/ApiKey.md)
  - [DatadogAPIClient::V1::ApiKeyListResponse](docs/ApiKeyListResponse.md)
  - [DatadogAPIClient::V1::ApiKeyResponse](docs/ApiKeyResponse.md)
+ - [DatadogAPIClient::V1::ApmStatsQueryColumnType](docs/ApmStatsQueryColumnType.md)
  - [DatadogAPIClient::V1::ApmStatsQueryDefinition](docs/ApmStatsQueryDefinition.md)
  - [DatadogAPIClient::V1::ApmStatsQueryRowType](docs/ApmStatsQueryRowType.md)
  - [DatadogAPIClient::V1::ApplicationKey](docs/ApplicationKey.md)
