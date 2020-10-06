@@ -11,7 +11,7 @@ Datadog.configure do |c|
   c.service = 'datadog-api-client-ruby'
   c.analytics_enabled = true
   c.use :ethon, {}
-  c.diagnostics.debug = ENV["DEBUG"].present?
+  c.diagnostics.debug = (!ENV["DEBUG"].nil? and ENV["DEBUG"] != false)
 end
 
 module RecordMode
