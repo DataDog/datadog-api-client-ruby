@@ -23,6 +23,9 @@ module DatadogAPIClient::V2
     # The archive query/filter. Logs matching this query are included in the archive.
     attr_accessor :query
 
+    # An array of tags to add to rehydrated logs from an archive.
+    attr_accessor :rehydration_tags
+
     attr_accessor :state
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -31,6 +34,7 @@ module DatadogAPIClient::V2
         :'destination' => :'destination',
         :'name' => :'name',
         :'query' => :'query',
+        :'rehydration_tags' => :'rehydration_tags',
         :'state' => :'state'
       }
     end
@@ -41,6 +45,7 @@ module DatadogAPIClient::V2
         :'destination' => :'LogsArchiveDestination',
         :'name' => :'String',
         :'query' => :'String',
+        :'rehydration_tags' => :'Array<String>',
         :'state' => :'LogsArchiveState'
       }
     end
@@ -79,6 +84,12 @@ module DatadogAPIClient::V2
         self.query = attributes[:'query']
       end
 
+      if attributes.key?(:'rehydration_tags')
+        if (value = attributes[:'rehydration_tags']).is_a?(Array)
+          self.rehydration_tags = value
+        end
+      end
+
       if attributes.key?(:'state')
         self.state = attributes[:'state']
       end
@@ -115,6 +126,7 @@ module DatadogAPIClient::V2
           destination == o.destination &&
           name == o.name &&
           query == o.query &&
+          rehydration_tags == o.rehydration_tags &&
           state == o.state
     end
 
@@ -127,7 +139,7 @@ module DatadogAPIClient::V2
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [destination, name, query, state].hash
+      [destination, name, query, rehydration_tags, state].hash
     end
 
     # Builds the object from hash
