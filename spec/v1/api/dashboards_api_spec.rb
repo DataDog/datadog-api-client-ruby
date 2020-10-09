@@ -18,27 +18,42 @@ require 'json'
 describe 'DashboardsApi' do
   before(:context) do
     # run before each test
-    @configuration = DatadogAPIClient::V1::Configuration.new
-    @configuration.api_key["apiKeyAuth"] = ENV["DD_TEST_CLIENT_API_KEY"]
-    @configuration.api_key["appKeyAuth"] = ENV["DD_TEST_CLIENT_APP_KEY"]
-    @configuration.debugging = (!ENV["DEBUG"].nil? and ENV["DEBUG"] != false)
-    @api_client = DatadogAPIClient::V1::ApiClient.new @configuration
     @api = DatadogAPIClient::V1::DashboardsApi.new @api_client
+    @undo = Array.new
   end
 
   after do
     # run after each test
+    @undo.reverse_each do |proc|
+      proc.run
+    end
   end
 
   describe 'dashboards api test' do
     it 'dashboards lifecycle' do
       # Create a Dashboard with each available Widget type
 
-      # TODO: Create an SLO to reference in the SLO widget
-      # eventSLO.setName(getUniqueEntityName());
-      # SLOListResponse sloResp = sloApi.createSLO().body(eventSLO).execute();
-      # ServiceLevelObjective slo = sloResp.getData().get(0);
-      # deleteSLO = slo.getId();
+      # Create an SLO to reference in the SLO widget
+      slo_api = DatadogAPIClient::V1::ServiceLevelObjectivesApi.new @api_client
+      event_slo = DatadogAPIClient::V1::ServiceLevelObjectiveRequest.new({
+        name: @unique,
+        type: DatadogAPIClient::V1::SLOType::METRIC,
+        description: "Make sure we don't have too many failed HTTP responses",
+        thresholds: [DatadogAPIClient::V1::SLOThreshold.new({
+          timeframe: DatadogAPIClient::V1::SLOTimeframe::SEVEN_DAYS,
+          target: 95.0,
+          warning: 98.0
+        })],
+        query: DatadogAPIClient::V1::ServiceLevelObjectiveQuery.new({
+          numerator: "default(sum:non_existant_metric{*}.as_count(), 1)",
+          denominator: "default(sum:non_existant_metric{*}.as_count(), 2)"
+        })
+      })
+      slo_resp = slo_api.create_slo(event_slo)
+      slo = slo_resp.data[0]
+      @undo << Proc.new {
+        slo_api.delete_slo(slo.id)
+      }
 
       # Add widgets to this list and the created dashboard to have them dynamically tested against the "get" call
       ordered_widget_list = Set.new
@@ -58,6 +73,67 @@ describe 'DashboardsApi' do
       alert_graph_widget = DatadogAPIClient::V1::Widget.new({ definition: alert_graph_definition })
       ordered_widget_list.add(alert_graph_widget)
 
+      # Alert Value Widget
+      alert_value_definition = DatadogAPIClient::V1::AlertValueWidgetDefinition.new({
+        alert_id: "1234",
+        precision: 2,
+        unit: "ms",
+        title_size: "12",
+        text_align: DatadogAPIClient::V1::WidgetTextAlign::CENTER,
+        title: "Test Alert Value Widget",
+        title_align: DatadogAPIClient::V1::WidgetTextAlign::CENTER
+      })
+      alert_value_widget = DatadogAPIClient::V1::Widget.new({
+        definition: alert_value_definition
+      })
+      ordered_widget_list.add(alert_value_widget)
+
+      # Change Widget
+      change_widget_definition = new DatadogAPIClient::V1::ChangeWidgetDefinition.new({
+        title: "Test Change Widget",
+        title_align: DatadogAPIClient::V1::WidgetTextAlign::CENTER,
+        time: DatadogAPIClient::V1::WidgetTime.new({
+          live_span: DatadogAPIClient::V1::WidgetLiveSpan::PAST_FIFTEEN_MINUTES
+        }),
+        custom_links: [DatadogAPIClient::V1::WidgetCustomLink.new({
+          label: "Test Custom Link label",
+          link: "https://app.datadoghq.com/dashboard/lists"
+        })],
+        requests: [DatadogAPIClient::V1::ChangeWidgetRequest.new({
+          q: "avg:system.load.1{*}",
+          change_type: DatadogAPIClient::V1::WidgetChangeType::ABSOLUTE,
+          compare_to: DatadogAPIClient::V1::WidgetCompareTo::HOUR_BEFORE,
+          increase_good: true,
+          order_by: DatadogAPIClient::V1::WidgetOrderBy::CHANGE,
+          order_dir: DatadogAPIClient::V1::WidgetSort::ASCENDING,
+          show_present: true
+        })]
+      })
+
+      change_widget = DatadogAPIClient::V1::Widget.new({
+        definition: change_widget_definition
+      })
+      ordered_widget_list.add(change_widget)
+
+      # Check Status Widget
+      check_status_widget_definition = DatadogAPIClient::V1::CheckStatusWidgetDefinition.new({
+        check: "service_check.up",
+        grouping: DatadogAPIClient::V1::WidgetGrouping::CHECK,
+        group: "*",
+        tags: ["foo:bar"],
+        group_by: ["bar"],
+        title: "Test Check Status Widget",
+        title_align: DatadogAPIClient::V1::WidgetTextAlign::CENTER,
+        title_size: "16",
+        time: DatadogAPIClient::V1::WidgetTime.new({
+          live_span: DatadogAPIClient::V1::WidgetLiveSpan::PAST_FIFTEEN_MINUTES
+        }),
+      })
+      check_status_widget = DatadogAPIClient::V1::Widget.new({
+        definition: check_status_widget_definition
+      })
+      ordered_widget_list.add(check_status_widget);
+
       dashboard = DatadogAPIClient::V1::Dashboard.new({
         layout_type: DatadogAPIClient::V1::DashboardLayoutType::ORDERED,
         widgets: [alert_graph_widget],
@@ -69,6 +145,9 @@ describe 'DashboardsApi' do
 
       # Create ordered dashboard with all expected fields
       response = @api.create_dashboard(dashboard)
+      @undo << Proc.new {
+        @api.delete_dashboard(response.id)
+      }
 
       # Assert the get response for this dashboard matches the create response
       get_response = @api.get_dashboard(response.id)
