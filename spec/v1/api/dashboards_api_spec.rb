@@ -18,11 +18,6 @@ require 'json'
 describe 'DashboardsApi' do
   before(:example) do
     # run before each test
-    @configuration = DatadogAPIClient::V1::Configuration.new
-    @configuration.api_key["apiKeyAuth"] = ENV["DD_TEST_CLIENT_API_KEY"]
-    @configuration.api_key["appKeyAuth"] = ENV["DD_TEST_CLIENT_APP_KEY"]
-    @configuration.debugging = (!ENV["DEBUG"].nil? and ENV["DEBUG"] != false)
-    @api_client = DatadogAPIClient::V1::ApiClient.new @configuration
     @api = DatadogAPIClient::V1::DashboardsApi.new @api_client
     @undo = Array.new
   end
