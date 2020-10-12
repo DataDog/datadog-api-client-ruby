@@ -33,7 +33,7 @@ describe 'DashboardsApi' do
       begin
         proc.call
       rescue DatadogAPIClient::V1::ApiError => e
-        puts "Error undoing operation: #{e.message}"
+        puts "Error undoing operation, it was probably already undone during the test: #{e.message}"
       end
     end
   end
@@ -45,7 +45,7 @@ describe 'DashboardsApi' do
       # Create an SLO to reference in the SLO widget
       slo_api = DatadogAPIClient::V1::ServiceLevelObjectivesApi.new @api_client
       event_slo = DatadogAPIClient::V1::ServiceLevelObjectiveRequest.new({
-        name: @unique,
+        name: generate_unique_name,
         type: DatadogAPIClient::V1::SLOType::METRIC,
         description: "Make sure we don't have too many failed HTTP responses",
         thresholds: [DatadogAPIClient::V1::SLOThreshold.new({
@@ -873,7 +873,7 @@ describe 'DashboardsApi' do
           timeseries_widget_event_query,
           toplist_widget
         ],
-        title: @unique + "-ordered",
+        title: generate_unique_name("-ordered"),
         description: "Test dashboard for Ruby client",
         is_read_only: false,
         template_variables: template_variables,
@@ -903,7 +903,7 @@ describe 'DashboardsApi' do
           monitor_summary_widget,
           service_summary_widget,
         ],
-        title: @unique + "-free",
+        title: generate_unique_name("-free"),
         description: "Test Free layout dashboard for Ruby client",
         is_read_only: false,
         template_variables: template_variables
