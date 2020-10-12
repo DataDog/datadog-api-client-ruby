@@ -11,11 +11,16 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 =end
 
 require_relative '../features/support/env.rb'
+require 'webmock/rspec'
 
 
 module Helpers
   def generate_unique_name(suffix = "")
     "#{@unique}#{suffix}"
+  end
+
+  def load_fixture(fixture)
+    File.read(File.join(File.dirname(File.expand_path(__FILE__)), "v#{@api_version}", "fixtures", fixture))
   end
 end
 
@@ -62,6 +67,7 @@ RSpec.configure do |config|
     # a real object. This is generally recommended, and will default to
     # `true` in RSpec 4.
     mocks.verify_partial_doubles = true
+    mocks.verify_doubled_constant_names = true
   end
 
   config.around(:example) do |example|

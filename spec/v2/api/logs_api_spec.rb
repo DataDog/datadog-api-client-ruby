@@ -19,7 +19,7 @@ require 'json'
 describe 'LogsApi' do
   before do
     # run before each test
-    @api_instance = DatadogAPIClient::V2::LogsApi.new
+    @api_instance = DatadogAPIClient::V2::LogsApi.new @api_client
   end
 
   after do
@@ -32,15 +32,22 @@ describe 'LogsApi' do
     end
   end
 
-  # unit tests for aggregate_logs
-  # Aggregate events
-  # The API endpoint to aggregate events into buckets and compute metrics and timeseries.
-  # @param [Hash] opts the optional parameters
-  # @option opts [LogsAggregateRequest] :body 
-  # @return [LogsAggregateResponse]
   describe 'aggregate_logs test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    it 'deserializes logs aggregate with oneOf properly' do
+      stub_request(:post, "https://api.datadoghq.com/api/v2/logs/analytics/aggregate")
+        .to_return(body: load_fixture("logs_aggregate.json"), headers: {"Content-Type": "application/json"})
+      res = @api_instance.aggregate_logs
+      buckets = res.data.buckets
+      expect(buckets.length).to eq(1)
+      computes = buckets[0].computes
+      expect(computes["timeseries"]).to be_an_instance_of DatadogAPIClient::V2::LogsAggregateBucketValueTimeseries
+      expect(computes["timeseries"].length()).to eq(1)
+      expect(computes["timeseries"][0].time).to eq("2020-10-12T06:50:00.000Z")
+      expect(computes["timeseries"][0].value).to eq(6)
+      expect(computes["float"]).to eq(1.2)
+      expect(computes["string1"]).to eq("a string")
+      expect(computes["string2"]).to be_an_instance_of String
+      expect(computes["string2"]).to eq("1.4")
     end
   end
 
