@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **title** | **String** | Title of the widget. | [optional] 
 **title_align** | [**WidgetTextAlign**](WidgetTextAlign.md) |  | [optional] 
 **title_size** | **String** | Size of the title. | [optional] 
-**type** | [**EventTimelineWidgetDefinitionType**](EventTimelineWidgetDefinitionType.md) |  | 
+**type** | [**EventTimelineWidgetDefinitionType**](EventTimelineWidgetDefinitionType.md) |  | [default to &#39;event_timeline&#39;]
 
 ## Code Sample
 

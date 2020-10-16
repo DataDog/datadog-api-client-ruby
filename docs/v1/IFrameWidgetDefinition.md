@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | [**IFrameWidgetDefinitionType**](IFrameWidgetDefinitionType.md) |  | 
+**type** | [**IFrameWidgetDefinitionType**](IFrameWidgetDefinitionType.md) |  | [default to &#39;iframe&#39;]
 **url** | **String** | URL of the iframe. | 
 
 ## Code Sample

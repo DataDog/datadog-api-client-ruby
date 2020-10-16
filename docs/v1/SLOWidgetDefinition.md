@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **title** | **String** | Title of the widget. | [optional] 
 **title_align** | [**WidgetTextAlign**](WidgetTextAlign.md) |  | [optional] 
 **title_size** | **String** | Size of the title. | [optional] 
-**type** | [**SLOWidgetDefinitionType**](SLOWidgetDefinitionType.md) |  | 
+**type** | [**SLOWidgetDefinitionType**](SLOWidgetDefinitionType.md) |  | [default to &#39;slo&#39;]
 **view_mode** | [**WidgetViewMode**](WidgetViewMode.md) |  | [optional] 
 **view_type** | **String** | Type of view displayed by the widget. | [default to &#39;detail&#39;]
 

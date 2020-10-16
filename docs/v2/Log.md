@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **attributes** | [**LogAttributes**](LogAttributes.md) |  | [optional] 
 **id** | **String** | Unique ID of the Log. | [optional] 
-**type** | [**LogType**](LogType.md) |  | [optional] 
+**type** | [**LogType**](LogType.md) |  | [optional] [default to &#39;log&#39;]
 
 ## Code Sample
 

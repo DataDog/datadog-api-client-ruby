@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **title** | **String** | Title of your widget. | [optional] 
 **title_align** | [**WidgetTextAlign**](WidgetTextAlign.md) |  | [optional] 
 **title_size** | **String** | Size of the title. | [optional] 
-**type** | [**ScatterPlotWidgetDefinitionType**](ScatterPlotWidgetDefinitionType.md) |  | 
+**type** | [**ScatterPlotWidgetDefinitionType**](ScatterPlotWidgetDefinitionType.md) |  | [default to &#39;scatterplot&#39;]
 **xaxis** | [**WidgetAxis**](WidgetAxis.md) |  | [optional] 
 **yaxis** | [**WidgetAxis**](WidgetAxis.md) |  | [optional] 
 

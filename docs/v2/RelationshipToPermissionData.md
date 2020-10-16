@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | ID of the permission. | [optional] 
-**type** | [**PermissionsType**](PermissionsType.md) |  | [optional] 
+**type** | [**PermissionsType**](PermissionsType.md) |  | [optional] [default to &#39;permissions&#39;]
 
 ## Code Sample
 

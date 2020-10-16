@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | A unique identifier that represents the user. | 
-**type** | [**UsersType**](UsersType.md) |  | 
+**type** | [**UsersType**](UsersType.md) |  | [default to &#39;users&#39;]
 
 ## Code Sample
 

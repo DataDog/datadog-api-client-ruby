@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **title** | **String** | Title of your widget. | [optional] 
 **title_align** | [**WidgetTextAlign**](WidgetTextAlign.md) |  | [optional] 
 **title_size** | **String** | Size of the title. | [optional] 
-**type** | [**ToplistWidgetDefinitionType**](ToplistWidgetDefinitionType.md) |  | 
+**type** | [**ToplistWidgetDefinitionType**](ToplistWidgetDefinitionType.md) |  | [default to &#39;toplist&#39;]
 
 ## Code Sample
 

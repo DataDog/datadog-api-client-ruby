@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **bucket** | **String** | The bucket where the archive will be stored. | 
 **integration** | [**LogsArchiveIntegrationS3**](LogsArchiveIntegrationS3.md) |  | 
 **path** | **String** | The archive path. | [optional] 
-**type** | [**LogsArchiveDestinationS3Type**](LogsArchiveDestinationS3Type.md) |  | 
+**type** | [**LogsArchiveDestinationS3Type**](LogsArchiveDestinationS3Type.md) |  | [default to &#39;s3&#39;]
 
 ## Code Sample
 

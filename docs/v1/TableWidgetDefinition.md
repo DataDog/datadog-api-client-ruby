@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **title** | **String** | Title of your widget. | [optional] 
 **title_align** | [**WidgetTextAlign**](WidgetTextAlign.md) |  | [optional] 
 **title_size** | **String** | Size of the title. | [optional] 
-**type** | [**TableWidgetDefinitionType**](TableWidgetDefinitionType.md) |  | 
+**type** | [**TableWidgetDefinitionType**](TableWidgetDefinitionType.md) |  | [default to &#39;query_table&#39;]
 
 ## Code Sample
 

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **title** | **String** | Title of the widget. | [optional] 
 **title_align** | [**WidgetTextAlign**](WidgetTextAlign.md) |  | [optional] 
 **title_size** | **String** | Size of the title. | [optional] 
-**type** | [**EventStreamWidgetDefinitionType**](EventStreamWidgetDefinitionType.md) |  | 
+**type** | [**EventStreamWidgetDefinitionType**](EventStreamWidgetDefinitionType.md) |  | [default to &#39;event_stream&#39;]
 
 ## Code Sample
 

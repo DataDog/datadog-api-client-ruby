@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **title** | **String** | Title of your widget. | [optional] 
 **title_align** | [**WidgetTextAlign**](WidgetTextAlign.md) |  | [optional] 
 **title_size** | **String** | Size of the title. | [optional] 
-**type** | [**QueryValueWidgetDefinitionType**](QueryValueWidgetDefinitionType.md) |  | 
+**type** | [**QueryValueWidgetDefinitionType**](QueryValueWidgetDefinitionType.md) |  | [default to &#39;query_value&#39;]
 
 ## Code Sample
 

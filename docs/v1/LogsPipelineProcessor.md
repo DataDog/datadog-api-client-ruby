@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **is_enabled** | **Boolean** | Whether or not the processor is enabled. | [optional] [default to false]
 **name** | **String** | Name of the processor. | [optional] 
 **processors** | [**Array&lt;LogsProcessor&gt;**](LogsProcessor.md) | Ordered list of processors in this pipeline. | [optional] 
-**type** | [**LogsPipelineProcessorType**](LogsPipelineProcessorType.md) |  | 
+**type** | [**LogsPipelineProcessorType**](LogsPipelineProcessorType.md) |  | [default to &#39;pipeline&#39;]
 
 ## Code Sample
 

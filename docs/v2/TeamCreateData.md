@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **attributes** | [**TeamCreateAttributes**](TeamCreateAttributes.md) |  | [optional] 
 **relationships** | [**TeamRelationships**](TeamRelationships.md) |  | [optional] 
-**type** | [**TeamType**](TeamType.md) |  | 
+**type** | [**TeamType**](TeamType.md) |  | [default to &#39;teams&#39;]
 
 ## Code Sample
 

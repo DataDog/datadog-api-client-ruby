@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **font_size** | **String** | Size of the text. | [optional] 
 **text** | **String** | Text to display. | 
 **text_align** | [**WidgetTextAlign**](WidgetTextAlign.md) |  | [optional] 
-**type** | [**FreeTextWidgetDefinitionType**](FreeTextWidgetDefinitionType.md) |  | 
+**type** | [**FreeTextWidgetDefinitionType**](FreeTextWidgetDefinitionType.md) |  | [default to &#39;free_text&#39;]
 
 ## Code Sample
 

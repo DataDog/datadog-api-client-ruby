@@ -536,7 +536,7 @@ api_instance = DatadogAPIClient::V2::RolesApi.new
 opts = {
   page_size: 10, # Integer | Size for a given page.
   page_number: 0, # Integer | Specific page number to return.
-  sort: DatadogAPIClient::V2::RolesSort.new, # RolesSort | Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: `sort=-name`.
+  sort: 'name', # RolesSort | Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: `sort=-name`.
   filter: 'filter_example' # String | Filter all roles by the given string.
 }
 
@@ -556,7 +556,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page_size** | **Integer**| Size for a given page. | [optional] [default to 10]
  **page_number** | **Integer**| Specific page number to return. | [optional] [default to 0]
- **sort** | [**RolesSort**](.md)| Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: &#x60;sort&#x3D;-name&#x60;. | [optional] 
+ **sort** | [**RolesSort**](.md)| Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: &#x60;sort&#x3D;-name&#x60;. | [optional] [default to &#39;name&#39;]
  **filter** | **String**| Filter all roles by the given string. | [optional] 
 
 ### Return type

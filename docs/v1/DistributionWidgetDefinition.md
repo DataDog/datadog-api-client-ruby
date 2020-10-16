@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **title** | **String** | Title of the widget. | [optional] 
 **title_align** | [**WidgetTextAlign**](WidgetTextAlign.md) |  | [optional] 
 **title_size** | **String** | Size of the title. | [optional] 
-**type** | [**DistributionWidgetDefinitionType**](DistributionWidgetDefinitionType.md) |  | 
+**type** | [**DistributionWidgetDefinitionType**](DistributionWidgetDefinitionType.md) |  | [default to &#39;distribution&#39;]
 
 ## Code Sample
 

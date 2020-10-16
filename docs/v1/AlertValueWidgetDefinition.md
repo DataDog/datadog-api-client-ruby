@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **title** | **String** | Title of the widget. | [optional] 
 **title_align** | [**WidgetTextAlign**](WidgetTextAlign.md) |  | [optional] 
 **title_size** | **String** | Size of value in the widget. | [optional] 
-**type** | [**AlertValueWidgetDefinitionType**](AlertValueWidgetDefinitionType.md) |  | 
+**type** | [**AlertValueWidgetDefinitionType**](AlertValueWidgetDefinitionType.md) |  | [default to &#39;alert_value&#39;]
 **unit** | **String** | Unit to display with the value. | [optional] 
 
 ## Code Sample

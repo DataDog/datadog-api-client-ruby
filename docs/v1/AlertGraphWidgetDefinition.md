@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **title** | **String** | The title of the widget. | [optional] 
 **title_align** | [**WidgetTextAlign**](WidgetTextAlign.md) |  | [optional] 
 **title_size** | **String** | Size of the title. | [optional] 
-**type** | [**AlertGraphWidgetDefinitionType**](AlertGraphWidgetDefinitionType.md) |  | 
+**type** | [**AlertGraphWidgetDefinitionType**](AlertGraphWidgetDefinitionType.md) |  | [default to &#39;alert_graph&#39;]
 **viz_type** | [**WidgetVizType**](WidgetVizType.md) |  | 
 
 ## Code Sample
