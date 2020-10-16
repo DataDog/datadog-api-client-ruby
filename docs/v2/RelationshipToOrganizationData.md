@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | ID of the organization. | 
-**type** | [**OrganizationsType**](OrganizationsType.md) |  | 
+**type** | [**OrganizationsType**](OrganizationsType.md) |  | [default to &#39;orgs&#39;]
 
 ## Code Sample
 

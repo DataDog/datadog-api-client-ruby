@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **normalize_ending_slashes** | **Boolean** | Normalize the ending slashes or not. | [optional] [default to false]
 **sources** | **Array&lt;String&gt;** | Array of source attributes. | 
 **target** | **String** | Name of the parent attribute that contains all the extracted details from the &#x60;sources&#x60;. | [default to &#39;http.url_details&#39;]
-**type** | [**LogsURLParserType**](LogsURLParserType.md) |  | 
+**type** | [**LogsURLParserType**](LogsURLParserType.md) |  | [default to &#39;url-parser&#39;]
 
 ## Code Sample
 

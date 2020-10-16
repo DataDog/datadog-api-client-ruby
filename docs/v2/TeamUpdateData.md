@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **attributes** | [**TeamUpdateAttributes**](TeamUpdateAttributes.md) |  | [optional] 
 **id** | **String** | The team&#39;s ID. | 
 **relationships** | [**TeamRelationships**](TeamRelationships.md) |  | [optional] 
-**type** | [**TeamType**](TeamType.md) |  | 
+**type** | [**TeamType**](TeamType.md) |  | [default to &#39;teams&#39;]
 
 ## Code Sample
 

@@ -61,8 +61,8 @@ api_instance = DatadogAPIClient::V1::UsageMeteringApi.new
 opts = {
   page_size: 56, # Integer | The number of files to return in the response. `[default=60]`.
   page_number: 56, # Integer | The identifier of the first page to return. This parameter is used for the pagination feature `[default=0]`.
-  sort_dir: DatadogAPIClient::V1::UsageSortDirection.new, # UsageSortDirection | The direction to sort by: `[desc, asc]`.
-  sort: DatadogAPIClient::V1::UsageSort.new # UsageSort | The field to sort by: `[computed_on, size, start_date, end_date]`.
+  sort_dir: 'desc', # UsageSortDirection | The direction to sort by: `[desc, asc]`.
+  sort: 'start_date' # UsageSort | The field to sort by: `[computed_on, size, start_date, end_date]`.
 }
 
 begin
@@ -81,8 +81,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page_size** | **Integer**| The number of files to return in the response. &#x60;[default&#x3D;60]&#x60;. | [optional] 
  **page_number** | **Integer**| The identifier of the first page to return. This parameter is used for the pagination feature &#x60;[default&#x3D;0]&#x60;. | [optional] 
- **sort_dir** | [**UsageSortDirection**](.md)| The direction to sort by: &#x60;[desc, asc]&#x60;. | [optional] 
- **sort** | [**UsageSort**](.md)| The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;. | [optional] 
+ **sort_dir** | [**UsageSortDirection**](.md)| The direction to sort by: &#x60;[desc, asc]&#x60;. | [optional] [default to &#39;desc&#39;]
+ **sort** | [**UsageSort**](.md)| The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;. | [optional] [default to &#39;start_date&#39;]
 
 ### Return type
 
@@ -128,8 +128,8 @@ api_instance = DatadogAPIClient::V1::UsageMeteringApi.new
 opts = {
   page_size: 56, # Integer | The number of files to return in the response `[default=60].`
   page_number: 56, # Integer | The identifier of the first page to return. This parameter is used for the pagination feature `[default=0]`.
-  sort_dir: DatadogAPIClient::V1::UsageSortDirection.new, # UsageSortDirection | The direction to sort by: `[desc, asc]`.
-  sort: DatadogAPIClient::V1::UsageSort.new # UsageSort | The field to sort by: `[computed_on, size, start_date, end_date]`.
+  sort_dir: 'desc', # UsageSortDirection | The direction to sort by: `[desc, asc]`.
+  sort: 'start_date' # UsageSort | The field to sort by: `[computed_on, size, start_date, end_date]`.
 }
 
 begin
@@ -148,8 +148,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page_size** | **Integer**| The number of files to return in the response &#x60;[default&#x3D;60].&#x60; | [optional] 
  **page_number** | **Integer**| The identifier of the first page to return. This parameter is used for the pagination feature &#x60;[default&#x3D;0]&#x60;. | [optional] 
- **sort_dir** | [**UsageSortDirection**](.md)| The direction to sort by: &#x60;[desc, asc]&#x60;. | [optional] 
- **sort** | [**UsageSort**](.md)| The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;. | [optional] 
+ **sort_dir** | [**UsageSortDirection**](.md)| The direction to sort by: &#x60;[desc, asc]&#x60;. | [optional] [default to &#39;desc&#39;]
+ **sort** | [**UsageSort**](.md)| The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;. | [optional] [default to &#39;start_date&#39;]
 
 ### Return type
 

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **attributes** | [**RoleAttributes**](RoleAttributes.md) |  | [optional] 
 **id** | **String** | ID of the role. | [optional] 
-**type** | [**RolesType**](RolesType.md) |  | 
+**type** | [**RolesType**](RolesType.md) |  | [default to &#39;roles&#39;]
 **relationships** | [**RoleResponseRelationships**](RoleResponseRelationships.md) |  | [optional] 
 
 ## Code Sample

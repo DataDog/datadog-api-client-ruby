@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | ID of the role. | [optional] 
-**type** | [**RolesType**](RolesType.md) |  | [optional] 
+**type** | [**RolesType**](RolesType.md) |  | [optional] [default to &#39;roles&#39;]
 
 ## Code Sample
 

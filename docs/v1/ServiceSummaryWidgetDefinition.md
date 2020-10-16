@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **title** | **String** | Title of the widget. | [optional] 
 **title_align** | [**WidgetTextAlign**](WidgetTextAlign.md) |  | [optional] 
 **title_size** | **String** | Size of the title. | [optional] 
-**type** | [**ServiceSummaryWidgetDefinitionType**](ServiceSummaryWidgetDefinitionType.md) |  | 
+**type** | [**ServiceSummaryWidgetDefinitionType**](ServiceSummaryWidgetDefinitionType.md) |  | [default to &#39;trace_service&#39;]
 
 ## Code Sample
 

@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **target** | **String** | Final attribute or tag name to remap the sources to. | 
 **target_format** | [**TargetFormatType**](TargetFormatType.md) |  | [optional] 
 **target_type** | **String** | Defines if the final attribute or tag name is from log &#x60;attribute&#x60; or &#x60;tag&#x60;. | [optional] [default to &#39;attribute&#39;]
-**type** | [**LogsAttributeRemapperType**](LogsAttributeRemapperType.md) |  | 
+**type** | [**LogsAttributeRemapperType**](LogsAttributeRemapperType.md) |  | [default to &#39;attribute-remapper&#39;]
 
 ## Code Sample
 

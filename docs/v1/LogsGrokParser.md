@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **name** | **String** | Name of the processor. | [optional] 
 **samples** | **Array&lt;String&gt;** | List of sample logs to test this grok parser. | [optional] 
 **source** | **String** | Name of the log attribute to parse. | [default to &#39;message&#39;]
-**type** | [**LogsGrokParserType**](LogsGrokParserType.md) |  | 
+**type** | [**LogsGrokParserType**](LogsGrokParserType.md) |  | [default to &#39;grok-parser&#39;]
 
 ## Code Sample
 

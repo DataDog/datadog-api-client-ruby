@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **title** | **String** | Title of the widget. | [optional] 
 **title_align** | [**WidgetTextAlign**](WidgetTextAlign.md) |  | [optional] 
 **title_size** | **String** | Size of the title. | [optional] 
-**type** | [**LogStreamWidgetDefinitionType**](LogStreamWidgetDefinitionType.md) |  | 
+**type** | [**LogStreamWidgetDefinitionType**](LogStreamWidgetDefinitionType.md) |  | [default to &#39;log_stream&#39;]
 
 ## Code Sample
 

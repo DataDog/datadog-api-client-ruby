@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **attributes** | [**UserUpdateAttributes**](UserUpdateAttributes.md) |  | 
 **id** | **String** | ID of the user. | 
-**type** | [**UsersType**](UsersType.md) |  | 
+**type** | [**UsersType**](UsersType.md) |  | [default to &#39;users&#39;]
 
 ## Code Sample
 

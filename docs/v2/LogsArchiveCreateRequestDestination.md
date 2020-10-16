@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **path** | **String** | The archive path. | [optional] 
 **region** | **String** | The region where the archive will be stored. | [optional] 
 **storage_account** | **String** | The associated storage account. | 
-**type** | [**LogsArchiveDestinationS3Type**](LogsArchiveDestinationS3Type.md) |  | 
+**type** | [**LogsArchiveDestinationS3Type**](LogsArchiveDestinationS3Type.md) |  | [default to &#39;s3&#39;]
 **bucket** | **String** | The bucket where the archive will be stored. | 
 
 ## Code Sample

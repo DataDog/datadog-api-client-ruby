@@ -24,8 +24,8 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page_size The number of files to return in the response. &#x60;[default&#x3D;60]&#x60;.
     # @option opts [Integer] :page_number The identifier of the first page to return. This parameter is used for the pagination feature &#x60;[default&#x3D;0]&#x60;.
-    # @option opts [UsageSortDirection] :sort_dir The direction to sort by: &#x60;[desc, asc]&#x60;.
-    # @option opts [UsageSort] :sort The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;.
+    # @option opts [UsageSortDirection] :sort_dir The direction to sort by: &#x60;[desc, asc]&#x60;. (default to 'desc')
+    # @option opts [UsageSort] :sort The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;. (default to 'start_date')
     # @return [UsageCustomReportsResponse]
     def get_daily_custom_reports(opts = {})
       data, _status_code, _headers = get_daily_custom_reports_with_http_info(opts)
@@ -103,8 +103,8 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page_size The number of files to return in the response &#x60;[default&#x3D;60].&#x60;
     # @option opts [Integer] :page_number The identifier of the first page to return. This parameter is used for the pagination feature &#x60;[default&#x3D;0]&#x60;.
-    # @option opts [UsageSortDirection] :sort_dir The direction to sort by: &#x60;[desc, asc]&#x60;.
-    # @option opts [UsageSort] :sort The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;.
+    # @option opts [UsageSortDirection] :sort_dir The direction to sort by: &#x60;[desc, asc]&#x60;. (default to 'desc')
+    # @option opts [UsageSort] :sort The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;. (default to 'start_date')
     # @return [UsageCustomReportsResponse]
     def get_monthly_custom_reports(opts = {})
       data, _status_code, _headers = get_monthly_custom_reports_with_http_info(opts)

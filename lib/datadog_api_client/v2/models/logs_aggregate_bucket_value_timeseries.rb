@@ -98,7 +98,9 @@ module DatadogAPIClient::V2
       return nil unless attributes.is_a?(Hash)
       super(attributes)
       self.class.openapi_types.each_pair do |key, type|
-        if type =~ /\AArray<(.*)>/i
+        if attributes[self.class.attribute_map[key]].nil? && self.class.openapi_nullable.include?(key)
+          self.send("#{key}=", nil)
+        elsif type =~ /\AArray<(.*)>/i
           # check to ensure the input is an array given that the attribute
           # is documented as an array but the input is not
           if attributes[self.class.attribute_map[key]].is_a?(Array)
@@ -106,8 +108,6 @@ module DatadogAPIClient::V2
           end
         elsif !attributes[self.class.attribute_map[key]].nil?
           self.send("#{key}=", _deserialize(type, attributes[self.class.attribute_map[key]]))
-        elsif attributes[self.class.attribute_map[key]].nil? && self.class.openapi_nullable.include?(key)
-          self.send("#{key}=", nil)
         end
       end
 

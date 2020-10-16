@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **margin** | [**WidgetMargin**](WidgetMargin.md) |  | [optional] 
 **sizing** | [**WidgetImageSizing**](WidgetImageSizing.md) |  | [optional] 
-**type** | [**ImageWidgetDefinitionType**](ImageWidgetDefinitionType.md) |  | 
+**type** | [**ImageWidgetDefinitionType**](ImageWidgetDefinitionType.md) |  | [default to &#39;image&#39;]
 **url** | **String** | URL of the image. | 
 
 ## Code Sample

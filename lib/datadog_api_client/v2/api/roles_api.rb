@@ -620,7 +620,7 @@ module DatadogAPIClient::V2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page_size Size for a given page. (default to 10)
     # @option opts [Integer] :page_number Specific page number to return. (default to 0)
-    # @option opts [RolesSort] :sort Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: &#x60;sort&#x3D;-name&#x60;.
+    # @option opts [RolesSort] :sort Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: &#x60;sort&#x3D;-name&#x60;. (default to 'name')
     # @option opts [String] :filter Filter all roles by the given string.
     # @return [RolesResponse]
     def list_roles(opts = {})

@@ -84,6 +84,8 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
+      else
+        self.type = 'roles'
       end
 
       if attributes.key?(:'relationships')
@@ -169,7 +171,9 @@ module DatadogAPIClient::V2
         end
       end
       self.class.openapi_types.each_pair do |key, type|
-        if type =~ /\AArray<(.*)>/i
+        if attributes[self.class.attribute_map[key]].nil? && self.class.openapi_nullable.include?(key)
+          self.send("#{key}=", nil)
+        elsif type =~ /\AArray<(.*)>/i
           # check to ensure the input is an array given that the attribute
           # is documented as an array but the input is not
           if attributes[self.class.attribute_map[key]].is_a?(Array)
@@ -177,8 +181,6 @@ module DatadogAPIClient::V2
           end
         elsif !attributes[self.class.attribute_map[key]].nil?
           self.send("#{key}=", _deserialize(type, attributes[self.class.attribute_map[key]]))
-        elsif attributes[self.class.attribute_map[key]].nil? && self.class.openapi_nullable.include?(key)
-          self.send("#{key}=", nil)
         end
       end
 
