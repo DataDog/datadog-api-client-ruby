@@ -17,7 +17,7 @@ module DatadogAPIClient::V2
   class LogsAggregateSort
     attr_accessor :aggregation
 
-    # The metric to sort by (only used for type=metric)
+    # The metric to sort by (only used for `type=measure`)
     attr_accessor :metric
 
     attr_accessor :order
