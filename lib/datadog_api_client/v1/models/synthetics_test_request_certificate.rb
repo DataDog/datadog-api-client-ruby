@@ -13,69 +13,25 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 require 'date'
 
 module DatadogAPIClient::V1
-  # Object describing the Synthetic test request.
-  class SyntheticsTestRequest
-    attr_accessor :basic_auth
+  # Client certificate to use when performing the test request.
+  class SyntheticsTestRequestCertificate
+    attr_accessor :cert
 
-    # Body to include in the test.
-    attr_accessor :body
-
-    attr_accessor :certificate
-
-    # DNS server to use for DNS tests.
-    attr_accessor :dns_server
-
-    # Headers to include when performing the test.
-    attr_accessor :headers
-
-    # Host name to perform the test with.
-    attr_accessor :host
-
-    attr_accessor :method
-
-    # Port to use when performing the test.
-    attr_accessor :port
-
-    # Query to use for the test.
-    attr_accessor :query
-
-    # Timeout in seconds for the test.
-    attr_accessor :timeout
-
-    # URL to perform the test with.
-    attr_accessor :url
+    attr_accessor :key
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'basic_auth' => :'basicAuth',
-        :'body' => :'body',
-        :'certificate' => :'certificate',
-        :'dns_server' => :'dnsServer',
-        :'headers' => :'headers',
-        :'host' => :'host',
-        :'method' => :'method',
-        :'port' => :'port',
-        :'query' => :'query',
-        :'timeout' => :'timeout',
-        :'url' => :'url'
+        :'cert' => :'cert',
+        :'key' => :'key'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'basic_auth' => :'SyntheticsBasicAuth',
-        :'body' => :'String',
-        :'certificate' => :'SyntheticsTestRequestCertificate',
-        :'dns_server' => :'String',
-        :'headers' => :'Hash<String, String>',
-        :'host' => :'String',
-        :'method' => :'HTTPMethod',
-        :'port' => :'Integer',
-        :'query' => :'Object',
-        :'timeout' => :'Float',
-        :'url' => :'String'
+        :'cert' => :'SyntheticsTestRequestCertificateItem',
+        :'key' => :'SyntheticsTestRequestCertificateItem'
       }
     end
 
@@ -89,61 +45,23 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsTestRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsTestRequestCertificate` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SyntheticsTestRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SyntheticsTestRequestCertificate`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'basic_auth')
-        self.basic_auth = attributes[:'basic_auth']
+      if attributes.key?(:'cert')
+        self.cert = attributes[:'cert']
       end
 
-      if attributes.key?(:'body')
-        self.body = attributes[:'body']
-      end
-
-      if attributes.key?(:'certificate')
-        self.certificate = attributes[:'certificate']
-      end
-
-      if attributes.key?(:'dns_server')
-        self.dns_server = attributes[:'dns_server']
-      end
-
-      if attributes.key?(:'headers')
-        if (value = attributes[:'headers']).is_a?(Hash)
-          self.headers = value
-        end
-      end
-
-      if attributes.key?(:'host')
-        self.host = attributes[:'host']
-      end
-
-      if attributes.key?(:'method')
-        self.method = attributes[:'method']
-      end
-
-      if attributes.key?(:'port')
-        self.port = attributes[:'port']
-      end
-
-      if attributes.key?(:'query')
-        self.query = attributes[:'query']
-      end
-
-      if attributes.key?(:'timeout')
-        self.timeout = attributes[:'timeout']
-      end
-
-      if attributes.key?(:'url')
-        self.url = attributes[:'url']
+      if attributes.key?(:'key')
+        self.key = attributes[:'key']
       end
     end
 
@@ -165,17 +83,8 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          basic_auth == o.basic_auth &&
-          body == o.body &&
-          certificate == o.certificate &&
-          dns_server == o.dns_server &&
-          headers == o.headers &&
-          host == o.host &&
-          method == o.method &&
-          port == o.port &&
-          query == o.query &&
-          timeout == o.timeout &&
-          url == o.url
+          cert == o.cert &&
+          key == o.key
     end
 
     # @see the `==` method
@@ -187,7 +96,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [basic_auth, body, certificate, dns_server, headers, host, method, port, query, timeout, url].hash
+      [cert, key].hash
     end
 
     # Builds the object from hash

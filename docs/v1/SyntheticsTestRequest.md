@@ -6,6 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **basic_auth** | [**SyntheticsBasicAuth**](SyntheticsBasicAuth.md) |  | [optional] 
 **body** | **String** | Body to include in the test. | [optional] 
+**certificate** | [**SyntheticsTestRequestCertificate**](SyntheticsTestRequestCertificate.md) |  | [optional] 
+**dns_server** | **String** | DNS server to use for DNS tests. | [optional] 
 **headers** | **Hash&lt;String, String&gt;** | Headers to include when performing the test. | [optional] 
 **host** | **String** | Host name to perform the test with. | [optional] 
 **method** | [**HTTPMethod**](HTTPMethod.md) |  | [optional] 
@@ -21,6 +23,8 @@ require 'DatadogAPIClient::V1'
 
 instance = DatadogAPIClient::V1::SyntheticsTestRequest.new(basic_auth: null,
                                  body: null,
+                                 certificate: null,
+                                 dns_server: null,
                                  headers: null,
                                  host: null,
                                  method: null,

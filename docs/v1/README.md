@@ -536,6 +536,8 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::SyntheticsTestPauseStatus](docs/SyntheticsTestPauseStatus.md)
  - [DatadogAPIClient::V1::SyntheticsTestProcessStatus](docs/SyntheticsTestProcessStatus.md)
  - [DatadogAPIClient::V1::SyntheticsTestRequest](docs/SyntheticsTestRequest.md)
+ - [DatadogAPIClient::V1::SyntheticsTestRequestCertificate](docs/SyntheticsTestRequestCertificate.md)
+ - [DatadogAPIClient::V1::SyntheticsTestRequestCertificateItem](docs/SyntheticsTestRequestCertificateItem.md)
  - [DatadogAPIClient::V1::SyntheticsTickInterval](docs/SyntheticsTickInterval.md)
  - [DatadogAPIClient::V1::SyntheticsTiming](docs/SyntheticsTiming.md)
  - [DatadogAPIClient::V1::SyntheticsTriggerCITestsResponse](docs/SyntheticsTriggerCITestsResponse.md)
