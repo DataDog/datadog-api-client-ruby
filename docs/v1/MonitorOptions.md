@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **renotify_interval** | **Integer** | The number of minutes after the last notification before a monitor re-notifies on the current status. It only re-notifies if it’s not resolved. | [optional] 
 **require_full_window** | **Boolean** | A Boolean indicating whether this monitor needs a full window of data before it’s evaluated. We highly recommend you set this to &#x60;false&#x60; for sparse metrics, otherwise some evaluations are skipped. For “on average” “at all times” and “in total” aggregation, default is true. &#x60;False&#x60; otherwise. | [optional] [default to true]
 **silenced** | **Hash&lt;String, Integer&gt;** | Information about the downtime applied to the monitor. | [optional] 
-**synthetics_check_id** | **Integer** | ID of the corresponding Synthetic check. | [optional] 
+**synthetics_check_id** | **String** | ID of the corresponding Synthetic check. | [optional] 
 **threshold_windows** | [**MonitorThresholdWindowOptions**](MonitorThresholdWindowOptions.md) |  | [optional] 
 **thresholds** | [**MonitorThresholds**](MonitorThresholds.md) |  | [optional] 
 **timeout_h** | **Integer** | The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. | [optional] 
