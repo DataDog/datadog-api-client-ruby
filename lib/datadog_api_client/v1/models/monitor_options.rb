@@ -117,7 +117,7 @@ module DatadogAPIClient::V1
         :'renotify_interval' => :'Integer',
         :'require_full_window' => :'Boolean',
         :'silenced' => :'Hash<String, Integer>',
-        :'synthetics_check_id' => :'Integer',
+        :'synthetics_check_id' => :'String',
         :'threshold_windows' => :'MonitorThresholdWindowOptions',
         :'thresholds' => :'MonitorThresholds',
         :'timeout_h' => :'Integer'
