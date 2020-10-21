@@ -15,7 +15,7 @@ require 'date'
 module DatadogAPIClient::V1
   # Object to send with the request to retrieve a list of logs from your Organization.
   class LogsListRequest
-    # For multi-index organizations, the log index in which the request is performed. Default to '*' (all indexes).
+    # The log index on which the request is performed. For multi-index organizations, the default is all live indexes. Historical indexes of rehydrated logs must be specified.
     attr_accessor :index
 
     # Number of logs return in the response.
