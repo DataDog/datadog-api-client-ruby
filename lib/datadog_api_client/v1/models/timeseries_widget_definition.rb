@@ -13,7 +13,7 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 require 'date'
 
 module DatadogAPIClient::V1
-  # The timeseries visualization allows you to display the evolution of one or more metrics, log events, or Analyzed Spans over time.
+  # The timeseries visualization allows you to display the evolution of one or more metrics, log events, or Indexed Spans over time.
   class TimeseriesWidgetDefinition
     # List of custom links.
     attr_accessor :custom_links

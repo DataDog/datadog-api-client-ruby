@@ -18,7 +18,7 @@ module DatadogAPIClient::V1
     # The hour for the usage.
     attr_accessor :hour
 
-    # Contains the number of Analyzed Spans indexed.
+    # Contains the number of Indexed Spans indexed.
     attr_accessor :indexed_events_count
 
     # Attribute mapping from ruby-style variable name to JSON key.

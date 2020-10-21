@@ -90,7 +90,7 @@ module DatadogAPIClient::V1
     # Shows the sum of all Synthetic API tests over all hours in the current date for the given org.
     attr_accessor :synthetics_check_calls_count_sum
 
-    # Shows the sum of all analyzed spans indexed over all hours in the current date for the given org.
+    # Shows the sum of all Indexed Spans indexed over all hours in the current date for the given org.
     attr_accessor :trace_search_indexed_events_count_sum
 
     # Shows the sum of all tracing without limits bytes ingested over all hours in the current date for the given org.
