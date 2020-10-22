@@ -17,6 +17,9 @@ module DatadogAPIClient::V2
   class LogsArchiveAttributes
     attr_accessor :destination
 
+    # To store the tags in the archive, set the value \"true\". If it is set to \"false\", the tags will be deleted when the logs are sent to the archive.
+    attr_accessor :include_tags
+
     # The archive name.
     attr_accessor :name
 
@@ -32,6 +35,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'destination' => :'destination',
+        :'include_tags' => :'include_tags',
         :'name' => :'name',
         :'query' => :'query',
         :'rehydration_tags' => :'rehydration_tags',
@@ -43,6 +47,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'destination' => :'LogsArchiveDestination',
+        :'include_tags' => :'Boolean',
         :'name' => :'String',
         :'query' => :'String',
         :'rehydration_tags' => :'Array<String>',
@@ -74,6 +79,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'destination')
         self.destination = attributes[:'destination']
+      end
+
+      if attributes.key?(:'include_tags')
+        self.include_tags = attributes[:'include_tags']
+      else
+        self.include_tags = false
       end
 
       if attributes.key?(:'name')
@@ -124,6 +135,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           destination == o.destination &&
+          include_tags == o.include_tags &&
           name == o.name &&
           query == o.query &&
           rehydration_tags == o.rehydration_tags &&
@@ -139,7 +151,7 @@ module DatadogAPIClient::V2
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [destination, name, query, rehydration_tags, state].hash
+      [destination, include_tags, name, query, rehydration_tags, state].hash
     end
 
     # Builds the object from hash
