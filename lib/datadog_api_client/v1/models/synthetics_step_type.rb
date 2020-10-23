@@ -15,12 +15,16 @@ require 'date'
 module DatadogAPIClient::V1
   class SyntheticsStepType
     ASSERT_CURRENT_URL = "assertCurrentUrl".freeze
+    ASSERT_ELEMENT_ATTRIBUTE = "assertElementAttribute".freeze
     ASSERT_ELEMENT_CONTENT = "assertElementContent".freeze
     ASSERT_ELEMENT_PRESENT = "assertElementPresent".freeze
     ASSERT_EMAIL = "assertEmail".freeze
+    ASSERT_FILE_DOWNLOAD = "assertFileDownload".freeze
+    ASSERT_FROM_JAVASCRIPT = "assertFromJavascript".freeze
     ASSERT_PAGE_CONTAINS = "assertPageContains".freeze
     ASSERT_PAGE_LACKS = "assertPageLacks".freeze
     CLICK = "click".freeze
+    EXTRACT_FROM_JAVASCRIPT = "extractFromJavascript".freeze
     EXTRACT_VARIABLE = "extractVariable".freeze
     GO_TO_EMAIL_LINK = "goToEmailLink".freeze
     GO_TO_URL = "goToUrl".freeze
@@ -29,6 +33,8 @@ module DatadogAPIClient::V1
     PLAY_SUB_TEST = "playSubTest".freeze
     PRESS_KEY = "pressKey".freeze
     REFRESH = "refresh".freeze
+    RUN_API_TEST = "runApiTest".freeze
+    SCROLL = "scroll".freeze
     SELECT_OPTION = "selectOption".freeze
     TYPE_TEXT = "typeText".freeze
     UPLOAD_FILES = "uploadFiles".freeze
