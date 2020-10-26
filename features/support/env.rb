@@ -10,6 +10,7 @@ SimpleCov.start
 Datadog.configure do |c|
   c.service = 'datadog-api-client-ruby'
   c.analytics_enabled = true
+  c.use :cucumber, {}
   c.use :ethon, {}
   c.diagnostics.debug = ENV["DEBUG"].present?
 end
