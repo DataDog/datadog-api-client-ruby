@@ -1,6 +1,7 @@
 AfterConfiguration do |config|
   config.on_event :test_case_started do |event|
-    current_span = Datadog.tracer.active_span
+    current_span = Datadog::Pin.get_from(::Cucumber).tracer.active_span
+    puts current_span
     unless current_span.nil?
       event.test_case.tags.each do |tag|
         prefix = '@endpoint('
