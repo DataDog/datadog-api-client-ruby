@@ -1,15 +1,14 @@
-AfterConfiguration do |config|
-  config.on_event :test_case_started do |event|
-    current_span = Datadog::Pin.get_from(::Cucumber).tracer.active_span
-    puts current_span
-    unless current_span.nil?
-      event.test_case.tags.each do |tag|
-        prefix = '@endpoint('
-        current_span.set_tag('version', tag.name[prefix.length...-1]) if tag.name.start_with? prefix
-      end
+Around do |scenario, block|
+  current_span = Datadog::Pin.get_from(Cucumber).tracer.active_span
+  unless current_span.nil?
+    scenario.tags.each do |tag|
+      prefix = '@endpoint('
+      current_span.set_tag('version', tag.name[prefix.length...-1]) if tag.name.start_with? prefix
     end
   end
+  block.call
 end
+
 
 Around do |scenario, block|
   @scenario = scenario
