@@ -53,7 +53,7 @@ jobs:
         DD_AGENT_HOST: datadog-agent
         DD_ENV: prod
         DD_SERVICE: datadog-api-client-ruby
-        DD_TAGS: "team:integration-tools-and-libraries,git.branch:master"
+        DD_TAGS: "team:integration-tools-and-libraries"
         DD_TEST_CLIENT_API_KEY: $(datadogAPIKey)
         DD_TEST_CLIENT_APP_KEY: $(datadogAPPKey)
         DD_TRACE_ANALYTICS_ENABLED: "true"
