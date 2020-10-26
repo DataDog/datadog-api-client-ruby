@@ -1,37 +1,10 @@
 AfterConfiguration do |config|
   config.on_event :test_case_started do |event|
-    span = Datadog.tracer.trace('test', { 'resource': event.test_case.name, 'span_type': 'test' })
-    span.set_tag(Datadog::Ext::Analytics::TAG_ENABLED, true)
-    event.test_case.tags.each do |tag|
-      prefix = '@endpoint('
-      span.set_tag('version', tag.name[prefix.length...-1]) if tag.name.start_with? prefix
-    end
-  end
-
-  config.on_event :test_case_finished do |event|
     current_span = Datadog.tracer.active_span
     unless current_span.nil?
-      if current_span.span_type == 'test'
-        if event.result.failed?
-          current_span.status = 1
-        end
-        current_span.finish
-      end
-    end
-  end
-
-  config.on_event :test_step_started do |step|
-    Datadog.tracer.trace('step', { 'resource': step.test_step.to_s, 'span_type': 'step' })
-  end
-
-  config.on_event :test_step_finished do |step|
-    current_span = Datadog.tracer.active_span
-    unless current_span.nil?
-      if current_span.span_type == 'step'
-        unless step.result.passed?
-          current_span.set_error step.result.exception
-        end
-        current_span.finish
+      event.test_case.tags.each do |tag|
+        prefix = '@endpoint('
+        current_span.set_tag('version', tag.name[prefix.length...-1]) if tag.name.start_with? prefix
       end
     end
   end
