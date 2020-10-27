@@ -1,5 +1,5 @@
 Around do |scenario, block|
-  current_span = Datadog::Pin.get_from(Cucumber).tracer.active_span
+  current_span = Datadog.configuration[:cucumber][:tracer].active_span
   unless current_span.nil?
     scenario.tags.each do |tag|
       prefix = '@endpoint('
