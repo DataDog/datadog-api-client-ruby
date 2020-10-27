@@ -162,6 +162,16 @@ module DatadogAPIClient::V2
       @force_ending_format = false
       @logger = defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
       @unstable_operations = {
+            create_incident_service: false,
+            delete_incident_service: false,
+            get_incident_service: false,
+            get_incident_services: false,
+            update_incident_service: false,
+            create_incident_team: false,
+            delete_incident_team: false,
+            get_incident_team: false,
+            get_incident_teams: false,
+            update_incident_team: false,
             list_logs: false,
             list_logs_get: false,
             add_read_role_to_archive: false,
@@ -169,16 +179,6 @@ module DatadogAPIClient::V2
             remove_role_from_archive: false,
             list_security_monitoring_signals: false,
             search_security_monitoring_signals: false,
-            create_service: false,
-            delete_service: false,
-            get_service: false,
-            get_services: false,
-            update_service: false,
-            create_team: false,
-            delete_team: false,
-            get_team: false,
-            get_teams: false,
-            update_team: false,
       }
 
       yield(self) if block_given?
