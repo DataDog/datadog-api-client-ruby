@@ -68,45 +68,45 @@ module APIWorld
   end
 
   def create_service
-    configuration.unstable_operations[:create_service] = true
-    api_instance = DatadogAPIClient::V2::ServicesApi.new api_client
+    configuration.unstable_operations[:create_incident_service] = true
+    api_instance = DatadogAPIClient::V2::IncidentServicesApi.new api_client
 
-    service_create_request = DatadogAPIClient::V2::ServiceCreateRequest.new
-    service_create_request.data = DatadogAPIClient::V2::ServiceCreateData.new
-    service_create_request.data.type = "services"
-    service_create_request.data.attributes = DatadogAPIClient::V2::ServiceCreateAttributes.new
-    service_create_request.data.attributes.name = unique
+    incident_service_create_request = DatadogAPIClient::V2::IncidentServiceCreateRequest.new
+    incident_service_create_request.data = DatadogAPIClient::V2::IncidentServiceCreateData.new
+    incident_service_create_request.data.type = "services"
+    incident_service_create_request.data.attributes = DatadogAPIClient::V2::IncidentServiceCreateAttributes.new
+    incident_service_create_request.data.attributes.name = unique
 
-    response = api_instance.create_service_with_http_info(service_create_request)
-    @undo << lambda { undo_create_service(response) }
+    response = api_instance.create_incident_service_with_http_info(incident_service_create_request)
+    @undo << lambda { undo_create_incident_service(response) }
     response[0]
   end
 
-  def undo_create_service(response)
-    configuration.config.unstable_operations[:delete_service] = true
-    api_instance = DatadogAPIClient::V2::ServicesApi.new api_client
-    api_instance.delete_service(response[0].data.id)
+  def undo_create_incident_service(response)
+    configuration.config.unstable_operations[:delete_incident_service] = true
+    api_instance = DatadogAPIClient::V2::IncidentServicesApi.new api_client
+    api_instance.delete_incident_service(response[0].data.id)
   end
 
   def create_team
-    configuration.unstable_operations[:create_team] = true
-    api_instance = DatadogAPIClient::V2::TeamsApi.new api_client
+    configuration.unstable_operations[:create_incident_team] = true
+    api_instance = DatadogAPIClient::V2::IncidentTeamsApi.new api_client
 
-    team_create_request = DatadogAPIClient::V2::TeamCreateRequest.new
-    team_create_request.data = DatadogAPIClient::V2::TeamCreateData.new
-    team_create_request.data.type = "teams"
-    team_create_request.data.attributes = DatadogAPIClient::V2::TeamCreateAttributes.new
-    team_create_request.data.attributes.name = unique
+    incident_team_create_request = DatadogAPIClient::V2::IncidentTeamCreateRequest.new
+    incident_team_create_request.data = DatadogAPIClient::V2::IncidentTeamCreateData.new
+    incident_team_create_request.data.type = "teams"
+    incident_team_create_request.data.attributes = DatadogAPIClient::V2::IncidentTeamCreateAttributes.new
+    incident_team_create_request.data.attributes.name = unique
 
-    response = api_instance.create_team_with_http_info(team_create_request)
-    @undo << lambda { undo_create_team(response) }
+    response = api_instance.create_incident_team_with_http_info(incident_team_create_request)
+    @undo << lambda { undo_create_incident_team(response) }
     response[0]
   end
 
-  def undo_create_team(response)
-    configuration.unstable_operations[:delete_team] = true
-    api_instance = DatadogAPIClient::V2::TeamsApi.new api_client
-    api_instance.delete_team(response[0].data.id)
+  def undo_create_incident_team(response)
+    configuration.unstable_operations[:delete_incident_team] = true
+    api_instance = DatadogAPIClient::V2::IncidentTeamsApi.new api_client
+    api_instance.delete_incident_team(response[0].data.id)
   end
 
   def create_permission
