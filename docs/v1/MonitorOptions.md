@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **notify_audit** | **Boolean** | A Boolean indicating whether tagged users is notified on changes to this monitor. | [optional] [default to false]
 **notify_no_data** | **Boolean** | A Boolean indicating whether this monitor notifies when data stops reporting. | [optional] [default to false]
 **renotify_interval** | **Integer** | The number of minutes after the last notification before a monitor re-notifies on the current status. It only re-notifies if it’s not resolved. | [optional] 
-**require_full_window** | **Boolean** | A Boolean indicating whether this monitor needs a full window of data before it’s evaluated. We highly recommend you set this to &#x60;false&#x60; for sparse metrics, otherwise some evaluations are skipped. For “on average” “at all times” and “in total” aggregation, default is true. &#x60;False&#x60; otherwise. | [optional] [default to true]
+**require_full_window** | **Boolean** | A Boolean indicating whether this monitor needs a full window of data before it’s evaluated. We highly recommend you set this to &#x60;false&#x60; for sparse metrics, otherwise some evaluations are skipped. Default is false. | [optional] 
 **silenced** | **Hash&lt;String, Integer&gt;** | Information about the downtime applied to the monitor. | [optional] 
 **synthetics_check_id** | **String** | ID of the corresponding Synthetic check. | [optional] 
 **threshold_windows** | [**MonitorThresholdWindowOptions**](MonitorThresholdWindowOptions.md) |  | [optional] 
