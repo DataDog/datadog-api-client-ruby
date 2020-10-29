@@ -42,6 +42,9 @@ module DatadogAPIClient::V1
 
     attr_accessor :overall_state
 
+    # Integer from 1 (high) to 5 (low) indicating alert severity.
+    attr_accessor :priority
+
     # The monitor query.
     attr_accessor :query
 
@@ -65,6 +68,7 @@ module DatadogAPIClient::V1
         :'name' => :'name',
         :'options' => :'options',
         :'overall_state' => :'overall_state',
+        :'priority' => :'priority',
         :'query' => :'query',
         :'state' => :'state',
         :'tags' => :'tags',
@@ -85,6 +89,7 @@ module DatadogAPIClient::V1
         :'name' => :'String',
         :'options' => :'MonitorOptions',
         :'overall_state' => :'MonitorOverallStates',
+        :'priority' => :'Integer',
         :'query' => :'String',
         :'state' => :'MonitorState',
         :'tags' => :'Array<String>',
@@ -154,6 +159,10 @@ module DatadogAPIClient::V1
         self.overall_state = attributes[:'overall_state']
       end
 
+      if attributes.key?(:'priority')
+        self.priority = attributes[:'priority']
+      end
+
       if attributes.key?(:'query')
         self.query = attributes[:'query']
       end
@@ -177,13 +186,37 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@priority.nil? && @priority > 5
+        invalid_properties.push('invalid value for "priority", must be smaller than or equal to 5.')
+      end
+
+      if !@priority.nil? && @priority < 1
+        invalid_properties.push('invalid value for "priority", must be greater than or equal to 1.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@priority.nil? && @priority > 5
+      return false if !@priority.nil? && @priority < 1
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] priority Value to be assigned
+    def priority=(priority)
+      if !priority.nil? && priority > 5
+        fail ArgumentError, 'invalid value for "priority", must be smaller than or equal to 5.'
+      end
+
+      if !priority.nil? && priority < 1
+        fail ArgumentError, 'invalid value for "priority", must be greater than or equal to 1.'
+      end
+
+      @priority = priority
     end
 
     # Checks equality by comparing each attribute.
@@ -201,6 +234,7 @@ module DatadogAPIClient::V1
           name == o.name &&
           options == o.options &&
           overall_state == o.overall_state &&
+          priority == o.priority &&
           query == o.query &&
           state == o.state &&
           tags == o.tags &&
@@ -216,7 +250,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created, creator, deleted, id, message, modified, multi, name, options, overall_state, query, state, tags, type].hash
+      [created, creator, deleted, id, message, modified, multi, name, options, overall_state, priority, query, state, tags, type].hash
     end
 
     # Builds the object from hash
