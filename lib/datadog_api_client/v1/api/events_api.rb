@@ -93,7 +93,7 @@ module DatadogAPIClient::V1
     end
 
     # Query the event stream
-    # The event stream can be queried and filtered by time, priority, sources and tags.  **Note**: If the event you’re querying contains markdown formatting of any kind, you may see characters such as %,\\,n in your output.
+    # The event stream can be queried and filtered by time, priority, sources and tags.  **Notes**:  - If the event you’re querying contains markdown formatting of any kind, you may see characters such as `%`,`\\`,`n` in your output.  - This endpoint returns a maximum of `1000` most recent results. To return additional results, identify the last timestamp of the last result and set that as the `end` query time to [paginate](https://gist.github.com/ericmustin/250feab4c3640c8bf80c9ade535e73da) the results.
     # @param start [Integer] POSIX timestamp.
     # @param _end [Integer] POSIX timestamp.
     # @param [Hash] opts the optional parameters
@@ -108,7 +108,7 @@ module DatadogAPIClient::V1
     end
 
     # Query the event stream
-    # The event stream can be queried and filtered by time, priority, sources and tags.  **Note**: If the event you’re querying contains markdown formatting of any kind, you may see characters such as %,\\,n in your output.
+    # The event stream can be queried and filtered by time, priority, sources and tags.  **Notes**:  - If the event you’re querying contains markdown formatting of any kind, you may see characters such as &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output.  - This endpoint returns a maximum of &#x60;1000&#x60; most recent results. To return additional results, identify the last timestamp of the last result and set that as the &#x60;end&#x60; query time to [paginate](https://gist.github.com/ericmustin/250feab4c3640c8bf80c9ade535e73da) the results.
     # @param start [Integer] POSIX timestamp.
     # @param _end [Integer] POSIX timestamp.
     # @param [Hash] opts the optional parameters
