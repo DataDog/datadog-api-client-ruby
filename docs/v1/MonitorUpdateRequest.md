@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **name** | **String** | The monitor name. | [optional] 
 **options** | [**MonitorOptions**](MonitorOptions.md) |  | [optional] 
 **overall_state** | [**MonitorOverallStates**](MonitorOverallStates.md) |  | [optional] 
+**priority** | **Integer** | Integer from 1 (high) to 5 (low) indicating alert severity. | [optional] 
 **query** | **String** | The monitor query. | [optional] 
 **state** | [**MonitorState**](MonitorState.md) |  | [optional] 
 **tags** | **Array&lt;String&gt;** | Tags associated to your monitor. | [optional] 
@@ -34,6 +35,7 @@ instance = DatadogAPIClient::V1::MonitorUpdateRequest.new(created: null,
                                  name: null,
                                  options: null,
                                  overall_state: null,
+                                 priority: null,
                                  query: null,
                                  state: null,
                                  tags: null,

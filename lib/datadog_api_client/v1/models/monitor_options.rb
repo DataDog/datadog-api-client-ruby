@@ -56,7 +56,7 @@ module DatadogAPIClient::V1
     # The number of minutes after the last notification before a monitor re-notifies on the current status. It only re-notifies if it’s not resolved.
     attr_accessor :renotify_interval
 
-    # A Boolean indicating whether this monitor needs a full window of data before it’s evaluated. We highly recommend you set this to `false` for sparse metrics, otherwise some evaluations are skipped. For “on average” “at all times” and “in total” aggregation, default is true. `False` otherwise.
+    # A Boolean indicating whether this monitor needs a full window of data before it’s evaluated. We highly recommend you set this to `false` for sparse metrics, otherwise some evaluations are skipped. Default is false.
     attr_accessor :require_full_window
 
     # Information about the downtime applied to the monitor.
@@ -227,8 +227,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'require_full_window')
         self.require_full_window = attributes[:'require_full_window']
-      else
-        self.require_full_window = true
       end
 
       if attributes.key?(:'silenced')
