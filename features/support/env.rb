@@ -9,7 +9,9 @@ SimpleCov.start
 
 Datadog.configure do |c|
   c.service = 'datadog-api-client-ruby'
+  c.time_provider = :realtime_with_timecop
   c.analytics_enabled = true
+  c.use :cucumber, {'operation_name': 'test'}
   c.use :ethon, {}
   c.diagnostics.debug = ENV["DEBUG"].present?
 end
