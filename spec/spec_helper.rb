@@ -11,7 +11,16 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 =end
 
 require_relative '../features/support/env.rb'
+require 'ddtrace'
 require 'webmock/rspec'
+
+Datadog.configure do |c|
+  c.service = 'datadog-api-client-ruby'
+  c.analytics_enabled = true
+  c.use :ethon, {}
+  c.use :rspec, {}
+  c.diagnostics.debug = (!ENV["DEBUG"].nil? and ENV["DEBUG"] != false)
+end
 
 
 module Helpers
