@@ -60,12 +60,12 @@ require 'datadog_api_client/v1'
 # Setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = 'YOUR API KEY'
+  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = 'YOUR API KEY'
+  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
@@ -536,6 +536,8 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::SyntheticsTestPauseStatus](docs/SyntheticsTestPauseStatus.md)
  - [DatadogAPIClient::V1::SyntheticsTestProcessStatus](docs/SyntheticsTestProcessStatus.md)
  - [DatadogAPIClient::V1::SyntheticsTestRequest](docs/SyntheticsTestRequest.md)
+ - [DatadogAPIClient::V1::SyntheticsTestRequestCertificate](docs/SyntheticsTestRequestCertificate.md)
+ - [DatadogAPIClient::V1::SyntheticsTestRequestCertificateItem](docs/SyntheticsTestRequestCertificateItem.md)
  - [DatadogAPIClient::V1::SyntheticsTickInterval](docs/SyntheticsTickInterval.md)
  - [DatadogAPIClient::V1::SyntheticsTiming](docs/SyntheticsTiming.md)
  - [DatadogAPIClient::V1::SyntheticsTriggerCITestsResponse](docs/SyntheticsTriggerCITestsResponse.md)

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **attributes** | [**UserCreateAttributes**](UserCreateAttributes.md) |  | 
 **relationships** | [**UserRelationships**](UserRelationships.md) |  | [optional] 
-**type** | [**UsersType**](UsersType.md) |  | 
+**type** | [**UsersType**](UsersType.md) |  | [default to &#39;users&#39;]
 
 ## Code Sample
 

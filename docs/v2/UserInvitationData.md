@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **relationships** | [**UserInvitationRelationships**](UserInvitationRelationships.md) |  | 
-**type** | [**UserInvitationsType**](UserInvitationsType.md) |  | 
+**type** | [**UserInvitationsType**](UserInvitationsType.md) |  | [default to &#39;user_invitations&#39;]
 
 ## Code Sample
 

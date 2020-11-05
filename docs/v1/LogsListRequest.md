@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**index** | **String** | For multi-index organizations, the log index in which the request is performed. Default to &#39;*&#39; (all indexes). | [optional] 
+**index** | **String** | The log index on which the request is performed. For multi-index organizations, the default is all live indexes. Historical indexes of rehydrated logs must be specified. | [optional] 
 **limit** | **Integer** | Number of logs return in the response. | [optional] 
 **query** | **String** | The search query - following the log search syntax. | 
 **sort** | [**LogsSort**](LogsSort.md) |  | [optional] 

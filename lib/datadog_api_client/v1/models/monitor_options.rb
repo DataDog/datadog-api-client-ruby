@@ -56,7 +56,7 @@ module DatadogAPIClient::V1
     # The number of minutes after the last notification before a monitor re-notifies on the current status. It only re-notifies if it’s not resolved.
     attr_accessor :renotify_interval
 
-    # A Boolean indicating whether this monitor needs a full window of data before it’s evaluated. We highly recommend you set this to `false` for sparse metrics, otherwise some evaluations are skipped. For “on average” “at all times” and “in total” aggregation, default is true. `False` otherwise.
+    # A Boolean indicating whether this monitor needs a full window of data before it’s evaluated. We highly recommend you set this to `false` for sparse metrics, otherwise some evaluations are skipped. Default is false.
     attr_accessor :require_full_window
 
     # Information about the downtime applied to the monitor.
@@ -117,7 +117,7 @@ module DatadogAPIClient::V1
         :'renotify_interval' => :'Integer',
         :'require_full_window' => :'Boolean',
         :'silenced' => :'Hash<String, Integer>',
-        :'synthetics_check_id' => :'Integer',
+        :'synthetics_check_id' => :'String',
         :'threshold_windows' => :'MonitorThresholdWindowOptions',
         :'thresholds' => :'MonitorThresholds',
         :'timeout_h' => :'Integer'
@@ -227,8 +227,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'require_full_window')
         self.require_full_window = attributes[:'require_full_window']
-      else
-        self.require_full_window = true
       end
 
       if attributes.key?(:'silenced')
@@ -343,7 +341,9 @@ module DatadogAPIClient::V1
     def build_from_hash(attributes)
       return nil unless attributes.is_a?(Hash)
       self.class.openapi_types.each_pair do |key, type|
-        if type =~ /\AArray<(.*)>/i
+        if attributes[self.class.attribute_map[key]].nil? && self.class.openapi_nullable.include?(key)
+          self.send("#{key}=", nil)
+        elsif type =~ /\AArray<(.*)>/i
           # check to ensure the input is an array given that the attribute
           # is documented as an array but the input is not
           if attributes[self.class.attribute_map[key]].is_a?(Array)
@@ -351,8 +351,6 @@ module DatadogAPIClient::V1
           end
         elsif !attributes[self.class.attribute_map[key]].nil?
           self.send("#{key}=", _deserialize(type, attributes[self.class.attribute_map[key]]))
-        elsif attributes[self.class.attribute_map[key]].nil? && self.class.openapi_nullable.include?(key)
-          self.send("#{key}=", nil)
         end
       end
 

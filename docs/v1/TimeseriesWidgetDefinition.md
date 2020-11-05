@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **title** | **String** | Title of your widget. | [optional] 
 **title_align** | [**WidgetTextAlign**](WidgetTextAlign.md) |  | [optional] 
 **title_size** | **String** | Size of the title. | [optional] 
-**type** | [**TimeseriesWidgetDefinitionType**](TimeseriesWidgetDefinitionType.md) |  | 
+**type** | [**TimeseriesWidgetDefinitionType**](TimeseriesWidgetDefinitionType.md) |  | [default to &#39;timeseries&#39;]
 **yaxis** | [**WidgetAxis**](WidgetAxis.md) |  | [optional] 
 
 ## Code Sample

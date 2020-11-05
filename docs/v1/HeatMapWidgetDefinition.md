@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **title** | **String** | Title of the widget. | [optional] 
 **title_align** | [**WidgetTextAlign**](WidgetTextAlign.md) |  | [optional] 
 **title_size** | **String** | Size of the title. | [optional] 
-**type** | [**HeatMapWidgetDefinitionType**](HeatMapWidgetDefinitionType.md) |  | 
+**type** | [**HeatMapWidgetDefinitionType**](HeatMapWidgetDefinitionType.md) |  | [default to &#39;heatmap&#39;]
 **yaxis** | [**WidgetAxis**](WidgetAxis.md) |  | [optional] 
 
 ## Code Sample

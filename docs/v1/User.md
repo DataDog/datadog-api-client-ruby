@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**access_role** | [**AccessRole**](AccessRole.md) |  | [optional] 
+**access_role** | [**AccessRole**](AccessRole.md) |  | [optional] [default to &#39;st&#39;]
 **disabled** | **Boolean** | The new disabled status of the user. | [optional] 
 **email** | **String** | The new email of the user. | [optional] 
 **handle** | **String** | The user handle, must be a valid email. | [optional] 

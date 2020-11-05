@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **title** | **String** | Title of the widget. | [optional] 
 **title_align** | [**WidgetTextAlign**](WidgetTextAlign.md) |  | [optional] 
 **title_size** | **String** | Size of the title. | [optional] 
-**type** | [**ChangeWidgetDefinitionType**](ChangeWidgetDefinitionType.md) |  | 
+**type** | [**ChangeWidgetDefinitionType**](ChangeWidgetDefinitionType.md) |  | [default to &#39;change&#39;]
 
 ## Code Sample
 

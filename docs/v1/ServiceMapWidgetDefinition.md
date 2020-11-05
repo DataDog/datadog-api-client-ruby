@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **title** | **String** | The title of your widget. | [optional] 
 **title_align** | [**WidgetTextAlign**](WidgetTextAlign.md) |  | [optional] 
 **title_size** | **String** | Size of the title. | [optional] 
-**type** | [**ServiceMapWidgetDefinitionType**](ServiceMapWidgetDefinitionType.md) |  | 
+**type** | [**ServiceMapWidgetDefinitionType**](ServiceMapWidgetDefinitionType.md) |  | [default to &#39;servicemap&#39;]
 
 ## Code Sample
 

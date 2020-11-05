@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **text_align** | [**WidgetTextAlign**](WidgetTextAlign.md) |  | [optional] 
 **tick_edge** | [**WidgetTickEdge**](WidgetTickEdge.md) |  | [optional] 
 **tick_pos** | **String** | Where to position the tick on an edge. | [optional] 
-**type** | [**NoteWidgetDefinitionType**](NoteWidgetDefinitionType.md) |  | 
+**type** | [**NoteWidgetDefinitionType**](NoteWidgetDefinitionType.md) |  | [default to &#39;note&#39;]
 
 ## Code Sample
 

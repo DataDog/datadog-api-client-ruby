@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **attributes** | [**UsageSpecifiedCustomReportsAttributes**](UsageSpecifiedCustomReportsAttributes.md) |  | [optional] 
 **id** | **String** | The date for specified custom reports. | [optional] 
-**type** | [**UsageReportsType**](UsageReportsType.md) |  | [optional] 
+**type** | [**UsageReportsType**](UsageReportsType.md) |  | [optional] [default to &#39;reports&#39;]
 
 ## Code Sample
 

@@ -461,7 +461,7 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_size Size for a given page. (default to 10)
     # @option opts [Integer] :page_number Specific page number to return. (default to 0)
     # @option opts [String] :sort User attribute to order results by. Sort order is ascending by default. Sort order is descending if the field is prefixed by a negative sign, for example &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;modified_at&#x60;, &#x60;user_count&#x60;. (default to 'name')
-    # @option opts [QuerySortOrder] :sort_dir Direction of sort. Options: &#x60;asc&#x60;, &#x60;desc&#x60;.
+    # @option opts [QuerySortOrder] :sort_dir Direction of sort. Options: &#x60;asc&#x60;, &#x60;desc&#x60;. (default to 'desc')
     # @option opts [String] :filter Filter all users by the given string. Defaults to no filtering.
     # @option opts [String] :filter_status Filter on status attribute. Comma separated list, with possible values &#x60;Active&#x60;, &#x60;Pending&#x60;, and &#x60;Disabled&#x60;. Defaults to no filtering.
     # @return [UsersResponse]

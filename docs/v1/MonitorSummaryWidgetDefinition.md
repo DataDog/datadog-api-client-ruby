@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **title** | **String** | Title of the widget. | [optional] 
 **title_align** | [**WidgetTextAlign**](WidgetTextAlign.md) |  | [optional] 
 **title_size** | **String** | Size of the title. | [optional] 
-**type** | [**MonitorSummaryWidgetDefinitionType**](MonitorSummaryWidgetDefinitionType.md) |  | 
+**type** | [**MonitorSummaryWidgetDefinitionType**](MonitorSummaryWidgetDefinitionType.md) |  | [default to &#39;manage_status&#39;]
 
 ## Code Sample
 

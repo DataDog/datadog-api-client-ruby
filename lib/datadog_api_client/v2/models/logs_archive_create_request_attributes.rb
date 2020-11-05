@@ -17,18 +17,26 @@ module DatadogAPIClient::V2
   class LogsArchiveCreateRequestAttributes
     attr_accessor :destination
 
+    # To store the tags in the archive, set the value \"true\". If it is set to \"false\", the tags will be deleted when the logs are sent to the archive.
+    attr_accessor :include_tags
+
     # The archive name.
     attr_accessor :name
 
     # The archive query/filter. Logs matching this query are included in the archive.
     attr_accessor :query
 
+    # An array of tags to add to rehydrated logs from an archive.
+    attr_accessor :rehydration_tags
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'destination' => :'destination',
+        :'include_tags' => :'include_tags',
         :'name' => :'name',
-        :'query' => :'query'
+        :'query' => :'query',
+        :'rehydration_tags' => :'rehydration_tags'
       }
     end
 
@@ -36,8 +44,10 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'destination' => :'LogsArchiveCreateRequestDestination',
+        :'include_tags' => :'Boolean',
         :'name' => :'String',
-        :'query' => :'String'
+        :'query' => :'String',
+        :'rehydration_tags' => :'Array<String>'
       }
     end
 
@@ -66,12 +76,24 @@ module DatadogAPIClient::V2
         self.destination = attributes[:'destination']
       end
 
+      if attributes.key?(:'include_tags')
+        self.include_tags = attributes[:'include_tags']
+      else
+        self.include_tags = false
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
 
       if attributes.key?(:'query')
         self.query = attributes[:'query']
+      end
+
+      if attributes.key?(:'rehydration_tags')
+        if (value = attributes[:'rehydration_tags']).is_a?(Array)
+          self.rehydration_tags = value
+        end
       end
     end
 
@@ -109,8 +131,10 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           destination == o.destination &&
+          include_tags == o.include_tags &&
           name == o.name &&
-          query == o.query
+          query == o.query &&
+          rehydration_tags == o.rehydration_tags
     end
 
     # @see the `==` method
@@ -122,7 +146,7 @@ module DatadogAPIClient::V2
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [destination, name, query].hash
+      [destination, include_tags, name, query, rehydration_tags].hash
     end
 
     # Builds the object from hash
@@ -138,7 +162,9 @@ module DatadogAPIClient::V2
     def build_from_hash(attributes)
       return nil unless attributes.is_a?(Hash)
       self.class.openapi_types.each_pair do |key, type|
-        if type =~ /\AArray<(.*)>/i
+        if attributes[self.class.attribute_map[key]].nil? && self.class.openapi_nullable.include?(key)
+          self.send("#{key}=", nil)
+        elsif type =~ /\AArray<(.*)>/i
           # check to ensure the input is an array given that the attribute
           # is documented as an array but the input is not
           if attributes[self.class.attribute_map[key]].is_a?(Array)
@@ -146,8 +172,6 @@ module DatadogAPIClient::V2
           end
         elsif !attributes[self.class.attribute_map[key]].nil?
           self.send("#{key}=", _deserialize(type, attributes[self.class.attribute_map[key]]))
-        elsif attributes[self.class.attribute_map[key]].nil? && self.class.openapi_nullable.include?(key)
-          self.send("#{key}=", nil)
         end
       end
 

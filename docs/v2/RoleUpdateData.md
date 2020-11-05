@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **attributes** | [**RoleUpdateAttributes**](RoleUpdateAttributes.md) |  | 
 **id** | **String** | ID of the role. | 
-**type** | [**RolesType**](RolesType.md) |  | 
+**type** | [**RolesType**](RolesType.md) |  | [default to &#39;roles&#39;]
 
 ## Code Sample
 

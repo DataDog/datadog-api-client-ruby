@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **is_enabled** | **Boolean** | Whether or not the processor is enabled. | [optional] [default to false]
 **name** | **String** | Name of the processor. | [optional] 
 **target** | **String** | Name of the target attribute which value is defined by the matching category. | 
-**type** | [**LogsCategoryProcessorType**](LogsCategoryProcessorType.md) |  | 
+**type** | [**LogsCategoryProcessorType**](LogsCategoryProcessorType.md) |  | [default to &#39;category-processor&#39;]
 
 ## Code Sample
 

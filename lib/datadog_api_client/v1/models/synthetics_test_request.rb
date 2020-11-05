@@ -20,6 +20,11 @@ module DatadogAPIClient::V1
     # Body to include in the test.
     attr_accessor :body
 
+    attr_accessor :certificate
+
+    # DNS server to use for DNS tests.
+    attr_accessor :dns_server
+
     # Headers to include when performing the test.
     attr_accessor :headers
 
@@ -45,6 +50,8 @@ module DatadogAPIClient::V1
       {
         :'basic_auth' => :'basicAuth',
         :'body' => :'body',
+        :'certificate' => :'certificate',
+        :'dns_server' => :'dnsServer',
         :'headers' => :'headers',
         :'host' => :'host',
         :'method' => :'method',
@@ -60,6 +67,8 @@ module DatadogAPIClient::V1
       {
         :'basic_auth' => :'SyntheticsBasicAuth',
         :'body' => :'String',
+        :'certificate' => :'SyntheticsTestRequestCertificate',
+        :'dns_server' => :'String',
         :'headers' => :'Hash<String, String>',
         :'host' => :'String',
         :'method' => :'HTTPMethod',
@@ -97,6 +106,14 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'body')
         self.body = attributes[:'body']
+      end
+
+      if attributes.key?(:'certificate')
+        self.certificate = attributes[:'certificate']
+      end
+
+      if attributes.key?(:'dns_server')
+        self.dns_server = attributes[:'dns_server']
       end
 
       if attributes.key?(:'headers')
@@ -150,6 +167,8 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           basic_auth == o.basic_auth &&
           body == o.body &&
+          certificate == o.certificate &&
+          dns_server == o.dns_server &&
           headers == o.headers &&
           host == o.host &&
           method == o.method &&
@@ -168,7 +187,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [basic_auth, body, headers, host, method, port, query, timeout, url].hash
+      [basic_auth, body, certificate, dns_server, headers, host, method, port, query, timeout, url].hash
     end
 
     # Builds the object from hash
@@ -184,7 +203,9 @@ module DatadogAPIClient::V1
     def build_from_hash(attributes)
       return nil unless attributes.is_a?(Hash)
       self.class.openapi_types.each_pair do |key, type|
-        if type =~ /\AArray<(.*)>/i
+        if attributes[self.class.attribute_map[key]].nil? && self.class.openapi_nullable.include?(key)
+          self.send("#{key}=", nil)
+        elsif type =~ /\AArray<(.*)>/i
           # check to ensure the input is an array given that the attribute
           # is documented as an array but the input is not
           if attributes[self.class.attribute_map[key]].is_a?(Array)
@@ -192,8 +213,6 @@ module DatadogAPIClient::V1
           end
         elsif !attributes[self.class.attribute_map[key]].nil?
           self.send("#{key}=", _deserialize(type, attributes[self.class.attribute_map[key]]))
-        elsif attributes[self.class.attribute_map[key]].nil? && self.class.openapi_nullable.include?(key)
-          self.send("#{key}=", nil)
         end
       end
 

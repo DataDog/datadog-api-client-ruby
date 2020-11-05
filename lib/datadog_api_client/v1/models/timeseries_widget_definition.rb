@@ -13,7 +13,7 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 require 'date'
 
 module DatadogAPIClient::V1
-  # The timeseries visualization allows you to display the evolution of one or more metrics, log events, or Analyzed Spans over time.
+  # The timeseries visualization allows you to display the evolution of one or more metrics, log events, or Indexed Spans over time.
   class TimeseriesWidgetDefinition
     # List of custom links.
     attr_accessor :custom_links
@@ -162,6 +162,8 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
+      else
+        self.type = 'timeseries'
       end
 
       if attributes.key?(:'yaxis')
@@ -237,7 +239,9 @@ module DatadogAPIClient::V1
     def build_from_hash(attributes)
       return nil unless attributes.is_a?(Hash)
       self.class.openapi_types.each_pair do |key, type|
-        if type =~ /\AArray<(.*)>/i
+        if attributes[self.class.attribute_map[key]].nil? && self.class.openapi_nullable.include?(key)
+          self.send("#{key}=", nil)
+        elsif type =~ /\AArray<(.*)>/i
           # check to ensure the input is an array given that the attribute
           # is documented as an array but the input is not
           if attributes[self.class.attribute_map[key]].is_a?(Array)
@@ -245,8 +249,6 @@ module DatadogAPIClient::V1
           end
         elsif !attributes[self.class.attribute_map[key]].nil?
           self.send("#{key}=", _deserialize(type, attributes[self.class.attribute_map[key]]))
-        elsif attributes[self.class.attribute_map[key]].nil? && self.class.openapi_nullable.include?(key)
-          self.send("#{key}=", nil)
         end
       end
 

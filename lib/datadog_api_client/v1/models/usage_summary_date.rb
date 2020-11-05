@@ -90,7 +90,7 @@ module DatadogAPIClient::V1
     # Shows the sum of all Synthetic API tests over all hours in the current date for all organizations.
     attr_accessor :synthetics_check_calls_count_sum
 
-    # Shows the sum of all analyzed spans indexed over all hours in the current date for all organizations.
+    # Shows the sum of all Indexed Spans indexed over all hours in the current date for all organizations.
     attr_accessor :trace_search_indexed_events_count_sum
 
     # Shows the sum of all tracing without limits bytes ingested over all hours in the current date for all organizations.
@@ -366,7 +366,9 @@ module DatadogAPIClient::V1
     def build_from_hash(attributes)
       return nil unless attributes.is_a?(Hash)
       self.class.openapi_types.each_pair do |key, type|
-        if type =~ /\AArray<(.*)>/i
+        if attributes[self.class.attribute_map[key]].nil? && self.class.openapi_nullable.include?(key)
+          self.send("#{key}=", nil)
+        elsif type =~ /\AArray<(.*)>/i
           # check to ensure the input is an array given that the attribute
           # is documented as an array but the input is not
           if attributes[self.class.attribute_map[key]].is_a?(Array)
@@ -374,8 +376,6 @@ module DatadogAPIClient::V1
           end
         elsif !attributes[self.class.attribute_map[key]].nil?
           self.send("#{key}=", _deserialize(type, attributes[self.class.attribute_map[key]]))
-        elsif attributes[self.class.attribute_map[key]].nil? && self.class.openapi_nullable.include?(key)
-          self.send("#{key}=", nil)
         end
       end
 
