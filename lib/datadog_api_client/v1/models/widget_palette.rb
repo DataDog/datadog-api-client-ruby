@@ -30,6 +30,9 @@ module DatadogAPIClient::V1
     WHITE_ON_RED = "white_on_red".freeze
     WHITE_ON_YELLOW = "white_on_yellow".freeze
     YELLOW_ON_WHITE = "yellow_on_white".freeze
+    BLACK_ON_LIGHT_YELLOW = "black_on_light_yellow".freeze
+    BLACK_ON_LIGHT_GREEN = "black_on_light_green".freeze
+    BLACK_ON_LIGHT_RED = "black_on_light_red".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
