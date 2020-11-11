@@ -98,6 +98,83 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
+    # Get hourly usage for ingested spans
+    # Get hourly usage for ingested spans.
+    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+    # @param [Hash] opts the optional parameters
+    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+    # @return [UsageIngestedSpansResponse]
+    def get_ingested_spans(start_hr, opts = {})
+      data, _status_code, _headers = get_ingested_spans_with_http_info(start_hr, opts)
+      data
+    end
+
+    # Get hourly usage for ingested spans
+    # Get hourly usage for ingested spans.
+    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+    # @param [Hash] opts the optional parameters
+    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+    # @return [Array<(UsageIngestedSpansResponse, Integer, Hash)>] UsageIngestedSpansResponse data, response status code and response headers
+    def get_ingested_spans_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_ingested_spans)
+        unstable_enabled = @api_client.config.unstable_operations[:get_ingested_spans]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_ingested_spans")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_ingested_spans"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringApi.get_ingested_spans ...'
+      end
+      # verify the required parameter 'start_hr' is set
+      if @api_client.config.client_side_validation && start_hr.nil?
+        fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringApi.get_ingested_spans"
+      end
+      # resource path
+      local_var_path = '/api/v1/usage/ingested-spans'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'start_hr'] = start_hr
+      query_params[:'end_hr'] = opts[:'end_hr'] if !opts[:'end_hr'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UsageIngestedSpansResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"UsageMeteringApi.get_ingested_spans",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsageMeteringApi#get_ingested_spans\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get the list of available monthly custom reports
     # Get monthly custom reports.
     # @param [Hash] opts the optional parameters
@@ -324,7 +401,7 @@ module DatadogAPIClient::V1
     end
 
     # Get hourly usage for tracing without limits
-    # Get hourly usage for tracing without limits.
+    # Get hourly usage for tracing without limits.  **Note** This endpoint has been renamed to `/api/v1/usage/ingested-spans`.
     # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
     # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
@@ -335,7 +412,7 @@ module DatadogAPIClient::V1
     end
 
     # Get hourly usage for tracing without limits
-    # Get hourly usage for tracing without limits.
+    # Get hourly usage for tracing without limits.  **Note** This endpoint has been renamed to &#x60;/api/v1/usage/ingested-spans&#x60;.
     # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
     # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
@@ -697,6 +774,83 @@ module DatadogAPIClient::V1
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: UsageMeteringApi#get_usage_hosts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get hourly usage for indexed spans
+    # Get hourly usage for indexed spans.
+    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+    # @param [Hash] opts the optional parameters
+    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+    # @return [UsageIndexedSpansResponse]
+    def get_usage_indexed_spans(start_hr, opts = {})
+      data, _status_code, _headers = get_usage_indexed_spans_with_http_info(start_hr, opts)
+      data
+    end
+
+    # Get hourly usage for indexed spans
+    # Get hourly usage for indexed spans.
+    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+    # @param [Hash] opts the optional parameters
+    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+    # @return [Array<(UsageIndexedSpansResponse, Integer, Hash)>] UsageIndexedSpansResponse data, response status code and response headers
+    def get_usage_indexed_spans_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_usage_indexed_spans)
+        unstable_enabled = @api_client.config.unstable_operations[:get_usage_indexed_spans]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_indexed_spans")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_usage_indexed_spans"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringApi.get_usage_indexed_spans ...'
+      end
+      # verify the required parameter 'start_hr' is set
+      if @api_client.config.client_side_validation && start_hr.nil?
+        fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringApi.get_usage_indexed_spans"
+      end
+      # resource path
+      local_var_path = '/api/v1/usage/indexed-spans'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'start_hr'] = start_hr
+      query_params[:'end_hr'] = opts[:'end_hr'] if !opts[:'end_hr'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UsageIndexedSpansResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"UsageMeteringApi.get_usage_indexed_spans",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsageMeteringApi#get_usage_indexed_spans\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1789,7 +1943,7 @@ module DatadogAPIClient::V1
     end
 
     # Get hourly usage for Trace Search
-    # Get hourly usage for trace search.
+    # Get hourly usage for trace search.  **Note** This endpoint has been renamed to `/api/v1/usage/indexed-spans`.
     # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
     # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
@@ -1800,7 +1954,7 @@ module DatadogAPIClient::V1
     end
 
     # Get hourly usage for Trace Search
-    # Get hourly usage for trace search.
+    # Get hourly usage for trace search.  **Note** This endpoint has been renamed to &#x60;/api/v1/usage/indexed-spans&#x60;.
     # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
     # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
