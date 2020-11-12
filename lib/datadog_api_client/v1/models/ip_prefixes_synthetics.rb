@@ -18,14 +18,22 @@ module DatadogAPIClient::V1
     # List of IPv4 prefixes.
     attr_accessor :prefixes_ipv4
 
+    # List of IPv4 prefixes by location.
+    attr_accessor :prefixes_ipv4_by_location
+
     # List of IPv6 prefixes.
     attr_accessor :prefixes_ipv6
+
+    # List of IPv6 prefixes by location.
+    attr_accessor :prefixes_ipv6_by_location
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'prefixes_ipv4' => :'prefixes_ipv4',
-        :'prefixes_ipv6' => :'prefixes_ipv6'
+        :'prefixes_ipv4_by_location' => :'prefixes_ipv4_by_location',
+        :'prefixes_ipv6' => :'prefixes_ipv6',
+        :'prefixes_ipv6_by_location' => :'prefixes_ipv6_by_location'
       }
     end
 
@@ -33,7 +41,9 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'prefixes_ipv4' => :'Array<String>',
-        :'prefixes_ipv6' => :'Array<String>'
+        :'prefixes_ipv4_by_location' => :'Hash<String, Array<String>>',
+        :'prefixes_ipv6' => :'Array<String>',
+        :'prefixes_ipv6_by_location' => :'Hash<String, Array<String>>'
       }
     end
 
@@ -64,9 +74,21 @@ module DatadogAPIClient::V1
         end
       end
 
+      if attributes.key?(:'prefixes_ipv4_by_location')
+        if (value = attributes[:'prefixes_ipv4_by_location']).is_a?(Hash)
+          self.prefixes_ipv4_by_location = value
+        end
+      end
+
       if attributes.key?(:'prefixes_ipv6')
         if (value = attributes[:'prefixes_ipv6']).is_a?(Array)
           self.prefixes_ipv6 = value
+        end
+      end
+
+      if attributes.key?(:'prefixes_ipv6_by_location')
+        if (value = attributes[:'prefixes_ipv6_by_location']).is_a?(Hash)
+          self.prefixes_ipv6_by_location = value
         end
       end
     end
@@ -90,7 +112,9 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           prefixes_ipv4 == o.prefixes_ipv4 &&
-          prefixes_ipv6 == o.prefixes_ipv6
+          prefixes_ipv4_by_location == o.prefixes_ipv4_by_location &&
+          prefixes_ipv6 == o.prefixes_ipv6 &&
+          prefixes_ipv6_by_location == o.prefixes_ipv6_by_location
     end
 
     # @see the `==` method
@@ -102,7 +126,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [prefixes_ipv4, prefixes_ipv6].hash
+      [prefixes_ipv4, prefixes_ipv4_by_location, prefixes_ipv6, prefixes_ipv6_by_location].hash
     end
 
     # Builds the object from hash
