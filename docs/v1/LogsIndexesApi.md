@@ -210,7 +210,7 @@ end
 api_instance = DatadogAPIClient::V1::LogsIndexesApi.new
 name = 'name_example' # String | Name of the log index.
 opts = {
-  body: DatadogAPIClient::V1::LogsIndex.new # LogsIndex | Object containing the new `LogsIndex`.
+  body: DatadogAPIClient::V1::LogsIndexUpdateRequest.new # LogsIndexUpdateRequest | Object containing the new `LogsIndexUpdateRequest`.
 }
 
 begin
@@ -228,7 +228,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Name of the log index. | 
- **body** | [**LogsIndex**](LogsIndex.md)| Object containing the new &#x60;LogsIndex&#x60;. | [optional] 
+ **body** | [**LogsIndexUpdateRequest**](LogsIndexUpdateRequest.md)| Object containing the new &#x60;LogsIndexUpdateRequest&#x60;. | [optional] 
 
 ### Return type
 

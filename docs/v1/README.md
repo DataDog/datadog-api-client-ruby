@@ -377,6 +377,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::LogsGrokParserType](docs/LogsGrokParserType.md)
  - [DatadogAPIClient::V1::LogsIndex](docs/LogsIndex.md)
  - [DatadogAPIClient::V1::LogsIndexListResponse](docs/LogsIndexListResponse.md)
+ - [DatadogAPIClient::V1::LogsIndexUpdateRequest](docs/LogsIndexUpdateRequest.md)
  - [DatadogAPIClient::V1::LogsIndexesOrder](docs/LogsIndexesOrder.md)
  - [DatadogAPIClient::V1::LogsListRequest](docs/LogsListRequest.md)
  - [DatadogAPIClient::V1::LogsListRequestTime](docs/LogsListRequestTime.md)
