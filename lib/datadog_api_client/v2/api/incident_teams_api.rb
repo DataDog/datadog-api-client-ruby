@@ -253,9 +253,10 @@ module DatadogAPIClient::V2
     # @option opts [String] :include Specifies which types of related objects should be included in the response.
     # @option opts [Integer] :page_size Size for a given page. (default to 10)
     # @option opts [Integer] :page_offset Specific offset to use as the beginning of the returned page. (default to 0)
+    # @option opts [String] :filter A search query that filters teams by name.
     # @return [IncidentTeamsResponse]
-    def get_incident_teams(opts = {})
-      data, _status_code, _headers = get_incident_teams_with_http_info(opts)
+    def list_incident_teams(opts = {})
+      data, _status_code, _headers = list_incident_teams_with_http_info(opts)
       data
     end
 
@@ -265,20 +266,21 @@ module DatadogAPIClient::V2
     # @option opts [String] :include Specifies which types of related objects should be included in the response.
     # @option opts [Integer] :page_size Size for a given page.
     # @option opts [Integer] :page_offset Specific offset to use as the beginning of the returned page.
+    # @option opts [String] :filter A search query that filters teams by name.
     # @return [Array<(IncidentTeamsResponse, Integer, Hash)>] IncidentTeamsResponse data, response status code and response headers
-    def get_incident_teams_with_http_info(opts = {})
+    def list_incident_teams_with_http_info(opts = {})
 
-      if @api_client.config.unstable_operations.has_key?(:get_incident_teams)
-        unstable_enabled = @api_client.config.unstable_operations[:get_incident_teams]
+      if @api_client.config.unstable_operations.has_key?(:list_incident_teams)
+        unstable_enabled = @api_client.config.unstable_operations[:list_incident_teams]
         if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_incident_teams")
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_incident_teams")
         else
-          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_incident_teams"))
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "list_incident_teams"))
         end
       end
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IncidentTeamsApi.get_incident_teams ...'
+        @api_client.config.logger.debug 'Calling API: IncidentTeamsApi.list_incident_teams ...'
       end
       allowable_values = ["users"]
       if @api_client.config.client_side_validation && opts[:'include'] && !allowable_values.include?(opts[:'include'])
@@ -292,6 +294,7 @@ module DatadogAPIClient::V2
       query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
       query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
       query_params[:'page[offset]'] = opts[:'page_offset'] if !opts[:'page_offset'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -311,7 +314,7 @@ module DatadogAPIClient::V2
       auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"IncidentTeamsApi.get_incident_teams",
+        :operation => :"IncidentTeamsApi.list_incident_teams",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -322,7 +325,7 @@ module DatadogAPIClient::V2
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IncidentTeamsApi#get_incident_teams\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: IncidentTeamsApi#list_incident_teams\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

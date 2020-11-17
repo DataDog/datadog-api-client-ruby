@@ -13,33 +13,29 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 require 'date'
 
 module DatadogAPIClient::V1
-  # Object describing a Datadog Log index.
-  class LogsIndex
+  # Object for updating a Datadog Log index.
+  class LogsIndexUpdateRequest
     # The number of log events you can send in this index per day before you are rate-limited.
     attr_accessor :daily_limit
+
+    # If true, sets the `daily_limit` value to null and the index is not limited on a daily basis (any specified `daily_limit` value in the request is ignored). If false or omitted, the index's current `daily_limit` is maintained.
+    attr_accessor :disable_daily_limit
 
     # An array of exclusion objects. The logs are tested against the query of each filter, following the order of the array. Only the first matching active exclusion matters, others (if any) are ignored.
     attr_accessor :exclusion_filters
 
     attr_accessor :filter
 
-    # A boolean stating if the index is rate limited, meaning more logs than the daily limit have been sent. Rate limit is reset every-day at 2pm UTC.
-    attr_accessor :is_rate_limited
-
-    # The name of the index.
-    attr_accessor :name
-
-    # The number of days before logs are deleted from this index. Available values depend on retention plans specified in your organization's contract/subscriptions.
+    # The number of days before logs are deleted from this index. Available values depend on retention plans specified in your organization's contract/subscriptions.  **Note:** Changing the retention for an index adjusts the length of retention for all logs already in this index. It may also affect billing.
     attr_accessor :num_retention_days
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'daily_limit' => :'daily_limit',
+        :'disable_daily_limit' => :'disable_daily_limit',
         :'exclusion_filters' => :'exclusion_filters',
         :'filter' => :'filter',
-        :'is_rate_limited' => :'is_rate_limited',
-        :'name' => :'name',
         :'num_retention_days' => :'num_retention_days'
       }
     end
@@ -48,10 +44,9 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'daily_limit' => :'Integer',
+        :'disable_daily_limit' => :'Boolean',
         :'exclusion_filters' => :'Array<LogsExclusion>',
         :'filter' => :'LogsFilter',
-        :'is_rate_limited' => :'Boolean',
-        :'name' => :'String',
         :'num_retention_days' => :'Integer'
       }
     end
@@ -66,19 +61,23 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::LogsIndex` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::LogsIndexUpdateRequest` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::LogsIndex`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::LogsIndexUpdateRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
       if attributes.key?(:'daily_limit')
         self.daily_limit = attributes[:'daily_limit']
+      end
+
+      if attributes.key?(:'disable_daily_limit')
+        self.disable_daily_limit = attributes[:'disable_daily_limit']
       end
 
       if attributes.key?(:'exclusion_filters')
@@ -89,14 +88,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'filter')
         self.filter = attributes[:'filter']
-      end
-
-      if attributes.key?(:'is_rate_limited')
-        self.is_rate_limited = attributes[:'is_rate_limited']
-      end
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
       end
 
       if attributes.key?(:'num_retention_days')
@@ -128,10 +119,9 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           daily_limit == o.daily_limit &&
+          disable_daily_limit == o.disable_daily_limit &&
           exclusion_filters == o.exclusion_filters &&
           filter == o.filter &&
-          is_rate_limited == o.is_rate_limited &&
-          name == o.name &&
           num_retention_days == o.num_retention_days
     end
 
@@ -144,7 +134,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [daily_limit, exclusion_filters, filter, is_rate_limited, name, num_retention_days].hash
+      [daily_limit, disable_daily_limit, exclusion_filters, filter, num_retention_days].hash
     end
 
     # Builds the object from hash
