@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**created** | **DateTime** | Timestamp of the monitor creation. | [optional] [readonly] 
+**created** | **Time** | Timestamp of the monitor creation. | [optional] [readonly] 
 **creator** | [**Creator**](Creator.md) |  | [optional] 
-**deleted** | **DateTime** | Whether or not the monitor is deleted. (Always &#x60;null&#x60;) | [optional] [readonly] 
+**deleted** | **Time** | Whether or not the monitor is deleted. (Always &#x60;null&#x60;) | [optional] [readonly] 
 **id** | **Integer** | ID of this monitor. | [optional] [readonly] 
 **message** | **String** | A message to include with notifications for this monitor. | [optional] 
-**modified** | **DateTime** | Last timestamp when the monitor was edited. | [optional] [readonly] 
+**modified** | **Time** | Last timestamp when the monitor was edited. | [optional] [readonly] 
 **multi** | **Boolean** | Whether or not the monitor is broken down on different groups. | [optional] [readonly] 
 **name** | **String** | The monitor name. | [optional] 
 **options** | [**MonitorOptions**](MonitorOptions.md) |  | [optional] 

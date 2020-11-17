@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**created_at** | **DateTime** | Creation time of the user. | [optional] 
+**created_at** | **Time** | Creation time of the user. | [optional] 
 **disabled** | **Boolean** | Whether the user is disabled. | [optional] 
 **email** | **String** | Email of the user. | [optional] 
 **handle** | **String** | Handle of the user. | [optional] 

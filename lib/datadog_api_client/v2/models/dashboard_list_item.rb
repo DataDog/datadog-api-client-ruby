@@ -11,6 +11,7 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 =end
 
 require 'date'
+require 'time'
 
 module DatadogAPIClient::V2
   # A dashboard within a list.
@@ -71,13 +72,13 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'author' => :'Creator',
-        :'created' => :'DateTime',
+        :'created' => :'Time',
         :'icon' => :'String',
         :'id' => :'String',
         :'is_favorite' => :'Boolean',
         :'is_read_only' => :'Boolean',
         :'is_shared' => :'Boolean',
-        :'modified' => :'DateTime',
+        :'modified' => :'Time',
         :'popularity' => :'Integer',
         :'title' => :'String',
         :'type' => :'DashboardType',
@@ -259,8 +260,8 @@ module DatadogAPIClient::V2
     # @return [Object] Deserialized data
     def _deserialize(type, value)
       case type.to_sym
-      when :DateTime
-        DateTime.parse(value)
+      when :Time
+        Time.parse(value)
       when :Date
         Date.parse(value)
       when :String
@@ -339,5 +340,6 @@ module DatadogAPIClient::V2
         value
       end
     end
+
   end
 end

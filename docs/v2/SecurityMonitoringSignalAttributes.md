@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **attributes** | **Hash&lt;String, Object&gt;** | A JSON object of attributes in the security signal. | [optional] 
 **message** | **String** | The message in the security signal defined by the rule that generated the signal. | [optional] 
 **tags** | **Array&lt;Object&gt;** | An array of tags associated with the security signal. | [optional] 
-**timestamp** | **DateTime** | The timestamp of the security signal. | [optional] 
+**timestamp** | **Time** | The timestamp of the security signal. | [optional] 
 
 ## Code Sample
 

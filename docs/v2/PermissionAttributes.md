@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**created** | **DateTime** | Creation time of the permission. | [optional] 
+**created** | **Time** | Creation time of the permission. | [optional] 
 **description** | **String** | Description of the permission. | [optional] 
 **display_name** | **String** | Displayed name for the permission. | [optional] 
 **display_type** | **String** | Display type. | [optional] 
