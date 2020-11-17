@@ -11,6 +11,7 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 =end
 
 require 'date'
+require 'time'
 
 module DatadogAPIClient::V1
   # The remapper processor remaps any source attribute(s) or tag to another target attribute or tag. Constraints on the tag/attribute name are explained in the [Tag Best Practice documentation](https://docs.datadoghq.com/logs/guide/log-parsing-best-practice). Some additional constraints are applied as `:` or `,` are not allowed in the target tag/attribute name.
@@ -243,8 +244,8 @@ module DatadogAPIClient::V1
     # @return [Object] Deserialized data
     def _deserialize(type, value)
       case type.to_sym
-      when :DateTime
-        DateTime.parse(value)
+      when :Time
+        Time.parse(value)
       when :Date
         Date.parse(value)
       when :String
@@ -323,5 +324,6 @@ module DatadogAPIClient::V1
         value
       end
     end
+
   end
 end

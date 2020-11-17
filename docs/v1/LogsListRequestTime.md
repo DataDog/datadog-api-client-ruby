@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**from** | **DateTime** | Minimum timestamp for requested logs. | 
+**from** | **Time** | Minimum timestamp for requested logs. | 
 **timezone** | **String** | Timezone can be specified both as an offset (e.g. \&quot;UTC+03:00\&quot;) or a regional zone (e.g. \&quot;Europe/Paris\&quot;). | [optional] 
-**to** | **DateTime** | Maximum timestamp for requested logs. | 
+**to** | **Time** | Maximum timestamp for requested logs. | 
 
 ## Code Sample
 

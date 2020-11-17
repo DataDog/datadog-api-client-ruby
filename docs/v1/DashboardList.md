@@ -5,11 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **author** | [**Creator**](Creator.md) |  | [optional] 
-**created** | **DateTime** | Date of creation of the dashboard list. | [optional] [readonly] 
+**created** | **Time** | Date of creation of the dashboard list. | [optional] [readonly] 
 **dashboard_count** | **Integer** | The number of dashboards in the list. | [optional] [readonly] 
 **id** | **Integer** | The ID of the dashboard list. | [optional] [readonly] 
 **is_favorite** | **Boolean** | Whether or not the list is in the favorites. | [optional] [readonly] 
-**modified** | **DateTime** | Date of last edition of the dashboard list. | [optional] [readonly] 
+**modified** | **Time** | Date of last edition of the dashboard list. | [optional] [readonly] 
 **name** | **String** | The name of the dashboard list. | 
 **type** | **String** | The type of dashboard list. | [optional] [readonly] 
 

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **service** | **String** | The name of the application or service generating the log events. It is used to switch from Logs to APM, so make sure you define the same value when you use both products. | [optional] 
 **status** | **String** | Status of the message associated with your log. | [optional] 
 **tags** | **Array&lt;String&gt;** | Array of tags associated with your log. | [optional] 
-**timestamp** | **DateTime** | Timestamp of your log. | [optional] 
+**timestamp** | **Time** | Timestamp of your log. | [optional] 
 
 ## Code Sample
 
