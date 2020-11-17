@@ -11,6 +11,7 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 =end
 
 require 'date'
+require 'time'
 
 module DatadogAPIClient::V1
   # Response with properties for each aggregated usage type.
@@ -54,8 +55,8 @@ module DatadogAPIClient::V1
       {
         :'account_billable_usage' => :'Integer',
         :'elapsed_usage_hours' => :'Integer',
-        :'first_billable_usage_hour' => :'DateTime',
-        :'last_billable_usage_hour' => :'DateTime',
+        :'first_billable_usage_hour' => :'Time',
+        :'last_billable_usage_hour' => :'Time',
         :'org_billable_usage' => :'Integer',
         :'percentage_in_account' => :'Float',
         :'usage_unit' => :'String'
@@ -186,8 +187,8 @@ module DatadogAPIClient::V1
     # @return [Object] Deserialized data
     def _deserialize(type, value)
       case type.to_sym
-      when :DateTime
-        DateTime.parse(value)
+      when :Time
+        Time.parse(value)
       when :Date
         Date.parse(value)
       when :String
@@ -266,5 +267,6 @@ module DatadogAPIClient::V1
         value
       end
     end
+
   end
 end

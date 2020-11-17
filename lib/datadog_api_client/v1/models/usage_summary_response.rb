@@ -11,6 +11,7 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 =end
 
 require 'date'
+require 'time'
 
 module DatadogAPIClient::V1
   # Response with hourly report of all data billed by Datadog all organizations.
@@ -159,21 +160,21 @@ module DatadogAPIClient::V1
         :'container_avg_sum' => :'Integer',
         :'container_hwm_sum' => :'Integer',
         :'custom_ts_sum' => :'Integer',
-        :'end_date' => :'DateTime',
+        :'end_date' => :'Time',
         :'fargate_tasks_count_avg_sum' => :'Integer',
         :'fargate_tasks_count_hwm_sum' => :'Integer',
         :'gcp_host_top99p_sum' => :'Integer',
         :'indexed_events_count_agg_sum' => :'Integer',
         :'infra_host_top99p_sum' => :'Integer',
         :'ingested_events_bytes_agg_sum' => :'Integer',
-        :'last_updated' => :'DateTime',
+        :'last_updated' => :'Time',
         :'mobile_rum_session_count_agg_sum' => :'Integer',
         :'netflow_indexed_events_count_agg_sum' => :'Integer',
         :'npm_host_top99p_sum' => :'Integer',
         :'profiling_container_agent_count_avg' => :'Integer',
         :'profiling_host_count_top99p_sum' => :'Integer',
         :'rum_session_count_agg_sum' => :'Integer',
-        :'start_date' => :'DateTime',
+        :'start_date' => :'Time',
         :'synthetics_browser_check_calls_count_agg_sum' => :'Integer',
         :'synthetics_check_calls_count_agg_sum' => :'Integer',
         :'trace_search_indexed_events_count_agg_sum' => :'Integer',
@@ -428,8 +429,8 @@ module DatadogAPIClient::V1
     # @return [Object] Deserialized data
     def _deserialize(type, value)
       case type.to_sym
-      when :DateTime
-        DateTime.parse(value)
+      when :Time
+        Time.parse(value)
       when :Date
         Date.parse(value)
       when :String
@@ -508,5 +509,6 @@ module DatadogAPIClient::V1
         value
       end
     end
+
   end
 end

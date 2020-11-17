@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**from** | **DateTime** | The minimum timestamp for requested security signals. | [optional] 
+**from** | **Time** | The minimum timestamp for requested security signals. | [optional] 
 **query** | **String** | Search query for listing security signals. | [optional] 
-**to** | **DateTime** | The maximum timestamp for requested security signals. | [optional] 
+**to** | **Time** | The maximum timestamp for requested security signals. | [optional] 
 
 ## Code Sample
 

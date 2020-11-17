@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 **protocol** | **String** | TLS protocol used for the test. | [optional] 
 **serial_number** | **String** | Serial Number assigned by Symantec to the SSL certificate. | [optional] 
 **subject** | [**SyntheticsSSLCertificateSubject**](SyntheticsSSLCertificateSubject.md) |  | [optional] 
-**valid_from** | **DateTime** | Date from which the SSL certificate is valid. | [optional] 
-**valid_to** | **DateTime** | Date until which the SSL certificate is valid. | [optional] 
+**valid_from** | **Time** | Date from which the SSL certificate is valid. | [optional] 
+**valid_to** | **Time** | Date until which the SSL certificate is valid. | [optional] 
 
 ## Code Sample
 

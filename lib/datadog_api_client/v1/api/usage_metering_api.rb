@@ -100,9 +100,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for ingested spans
     # Get hourly usage for ingested spans.
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
     # @return [UsageIngestedSpansResponse]
     def get_ingested_spans(start_hr, opts = {})
       data, _status_code, _headers = get_ingested_spans_with_http_info(start_hr, opts)
@@ -111,9 +111,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for ingested spans
     # Get hourly usage for ingested spans.
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
     # @return [Array<(UsageIngestedSpansResponse, Integer, Hash)>] UsageIngestedSpansResponse data, response status code and response headers
     def get_ingested_spans_with_http_info(start_hr, opts = {})
 
@@ -402,9 +402,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for tracing without limits
     # Get hourly usage for tracing without limits.  **Note** This endpoint has been renamed to `/api/v1/usage/ingested-spans`.
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
     # @return [UsageTracingWithoutLimitsResponse]
     def get_tracing_without_limits(start_hr, opts = {})
       data, _status_code, _headers = get_tracing_without_limits_with_http_info(start_hr, opts)
@@ -413,9 +413,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for tracing without limits
     # Get hourly usage for tracing without limits.  **Note** This endpoint has been renamed to &#x60;/api/v1/usage/ingested-spans&#x60;.
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
     # @return [Array<(UsageTracingWithoutLimitsResponse, Integer, Hash)>] UsageTracingWithoutLimitsResponse data, response status code and response headers
     def get_tracing_without_limits_with_http_info(start_hr, opts = {})
 
@@ -479,9 +479,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for analyzed logs
     # Get hourly usage for analyzed logs (Security Monitoring).
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
     # @return [UsageAnalyzedLogsResponse]
     def get_usage_analyzed_logs(start_hr, opts = {})
       data, _status_code, _headers = get_usage_analyzed_logs_with_http_info(start_hr, opts)
@@ -490,9 +490,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for analyzed logs
     # Get hourly usage for analyzed logs (Security Monitoring).
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
     # @return [Array<(UsageAnalyzedLogsResponse, Integer, Hash)>] UsageAnalyzedLogsResponse data, response status code and response headers
     def get_usage_analyzed_logs_with_http_info(start_hr, opts = {})
 
@@ -557,7 +557,7 @@ module DatadogAPIClient::V1
     # Get billable usage across your multi-org account
     # Get billable usage across your multi-org account.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage starting this month.
+    # @option opts [Time] :month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage starting this month.
     # @return [UsageBillableSummaryResponse]
     def get_usage_billable_summary(opts = {})
       data, _status_code, _headers = get_usage_billable_summary_with_http_info(opts)
@@ -567,7 +567,7 @@ module DatadogAPIClient::V1
     # Get billable usage across your multi-org account
     # Get billable usage across your multi-org account.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage starting this month.
+    # @option opts [Time] :month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage starting this month.
     # @return [Array<(UsageBillableSummaryResponse, Integer, Hash)>] UsageBillableSummaryResponse data, response status code and response headers
     def get_usage_billable_summary_with_http_info(opts = {})
 
@@ -626,9 +626,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for Fargate
     # Get hourly usage for [Fargate](https://docs.datadoghq.com/integrations/ecs_fargate/).
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [UsageFargateResponse]
     def get_usage_fargate(start_hr, opts = {})
       data, _status_code, _headers = get_usage_fargate_with_http_info(start_hr, opts)
@@ -637,9 +637,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for Fargate
     # Get hourly usage for [Fargate](https://docs.datadoghq.com/integrations/ecs_fargate/).
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageFargateResponse, Integer, Hash)>] UsageFargateResponse data, response status code and response headers
     def get_usage_fargate_with_http_info(start_hr, opts = {})
 
@@ -703,9 +703,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for hosts and containers
     # Get hourly usage for hosts and containers.
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [UsageHostsResponse]
     def get_usage_hosts(start_hr, opts = {})
       data, _status_code, _headers = get_usage_hosts_with_http_info(start_hr, opts)
@@ -714,9 +714,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for hosts and containers
     # Get hourly usage for hosts and containers.
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageHostsResponse, Integer, Hash)>] UsageHostsResponse data, response status code and response headers
     def get_usage_hosts_with_http_info(start_hr, opts = {})
 
@@ -780,9 +780,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for indexed spans
     # Get hourly usage for indexed spans.
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
     # @return [UsageIndexedSpansResponse]
     def get_usage_indexed_spans(start_hr, opts = {})
       data, _status_code, _headers = get_usage_indexed_spans_with_http_info(start_hr, opts)
@@ -791,9 +791,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for indexed spans
     # Get hourly usage for indexed spans.
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
     # @return [Array<(UsageIndexedSpansResponse, Integer, Hash)>] UsageIndexedSpansResponse data, response status code and response headers
     def get_usage_indexed_spans_with_http_info(start_hr, opts = {})
 
@@ -857,9 +857,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for Lambda
     # Get hourly usage for lambda.
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [UsageLambdaResponse]
     def get_usage_lambda(start_hr, opts = {})
       data, _status_code, _headers = get_usage_lambda_with_http_info(start_hr, opts)
@@ -868,9 +868,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for Lambda
     # Get hourly usage for lambda.
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageLambdaResponse, Integer, Hash)>] UsageLambdaResponse data, response status code and response headers
     def get_usage_lambda_with_http_info(start_hr, opts = {})
 
@@ -934,9 +934,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for Logs
     # Get hourly usage for logs.
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [UsageLogsResponse]
     def get_usage_logs(start_hr, opts = {})
       data, _status_code, _headers = get_usage_logs_with_http_info(start_hr, opts)
@@ -945,9 +945,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for Logs
     # Get hourly usage for logs.
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageLogsResponse, Integer, Hash)>] UsageLogsResponse data, response status code and response headers
     def get_usage_logs_with_http_info(start_hr, opts = {})
 
@@ -1011,9 +1011,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for Logs by Index
     # Get hourly usage for logs by index.
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @option opts [Array<String>] :index_name Comma-separated list of log index names.
     # @return [UsageLogsByIndexResponse]
     def get_usage_logs_by_index(start_hr, opts = {})
@@ -1023,9 +1023,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for Logs by Index
     # Get hourly usage for logs by index.
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @option opts [Array<String>] :index_name Comma-separated list of log index names.
     # @return [Array<(UsageLogsByIndexResponse, Integer, Hash)>] UsageLogsByIndexResponse data, response status code and response headers
     def get_usage_logs_by_index_with_http_info(start_hr, opts = {})
@@ -1091,9 +1091,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for Network Flows
     # Get hourly usage for network flows.
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
     # @return [UsageNetworkFlowsResponse]
     def get_usage_network_flows(start_hr, opts = {})
       data, _status_code, _headers = get_usage_network_flows_with_http_info(start_hr, opts)
@@ -1102,9 +1102,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for Network Flows
     # Get hourly usage for network flows.
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
     # @return [Array<(UsageNetworkFlowsResponse, Integer, Hash)>] UsageNetworkFlowsResponse data, response status code and response headers
     def get_usage_network_flows_with_http_info(start_hr, opts = {})
 
@@ -1168,9 +1168,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for Network Hosts
     # Get hourly usage for network hosts.
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [UsageNetworkHostsResponse]
     def get_usage_network_hosts(start_hr, opts = {})
       data, _status_code, _headers = get_usage_network_hosts_with_http_info(start_hr, opts)
@@ -1179,9 +1179,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for Network Hosts
     # Get hourly usage for network hosts.
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageNetworkHostsResponse, Integer, Hash)>] UsageNetworkHostsResponse data, response status code and response headers
     def get_usage_network_hosts_with_http_info(start_hr, opts = {})
 
@@ -1245,9 +1245,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for profiled hosts
     # Get hourly usage for profiled hosts.
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
     # @return [UsageProfilingResponse]
     def get_usage_profiling(start_hr, opts = {})
       data, _status_code, _headers = get_usage_profiling_with_http_info(start_hr, opts)
@@ -1256,9 +1256,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for profiled hosts
     # Get hourly usage for profiled hosts.
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
     # @return [Array<(UsageProfilingResponse, Integer, Hash)>] UsageProfilingResponse data, response status code and response headers
     def get_usage_profiling_with_http_info(start_hr, opts = {})
 
@@ -1322,9 +1322,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for RUM Sessions
     # Get hourly usage for [RUM](https://docs.datadoghq.com/real_user_monitoring/) Sessions.
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @option opts [String] :type RUM type: &#x60;[browser, mobile]&#x60;. Defaults to &#x60;browser&#x60;.
     # @return [UsageRumSessionsResponse]
     def get_usage_rum_sessions(start_hr, opts = {})
@@ -1334,9 +1334,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for RUM Sessions
     # Get hourly usage for [RUM](https://docs.datadoghq.com/real_user_monitoring/) Sessions.
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @option opts [String] :type RUM type: &#x60;[browser, mobile]&#x60;. Defaults to &#x60;browser&#x60;.
     # @return [Array<(UsageRumSessionsResponse, Integer, Hash)>] UsageRumSessionsResponse data, response status code and response headers
     def get_usage_rum_sessions_with_http_info(start_hr, opts = {})
@@ -1402,9 +1402,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for SNMP devices
     # Get hourly usage for SNMP devices.
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
     # @return [UsageSNMPResponse]
     def get_usage_snmp(start_hr, opts = {})
       data, _status_code, _headers = get_usage_snmp_with_http_info(start_hr, opts)
@@ -1413,9 +1413,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for SNMP devices
     # Get hourly usage for SNMP devices.
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
     # @return [Array<(UsageSNMPResponse, Integer, Hash)>] UsageSNMPResponse data, response status code and response headers
     def get_usage_snmp_with_http_info(start_hr, opts = {})
 
@@ -1479,9 +1479,9 @@ module DatadogAPIClient::V1
 
     # Get usage across your multi-org account
     # Get usage across your multi-org account.
-    # @param start_month [DateTime] Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
+    # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
+    # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
     # @option opts [Boolean] :include_org_details Include usage summaries for each sub-org.
     # @return [UsageSummaryResponse]
     def get_usage_summary(start_month, opts = {})
@@ -1491,9 +1491,9 @@ module DatadogAPIClient::V1
 
     # Get usage across your multi-org account
     # Get usage across your multi-org account.
-    # @param start_month [DateTime] Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
+    # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
+    # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
     # @option opts [Boolean] :include_org_details Include usage summaries for each sub-org.
     # @return [Array<(UsageSummaryResponse, Integer, Hash)>] UsageSummaryResponse data, response status code and response headers
     def get_usage_summary_with_http_info(start_month, opts = {})
@@ -1559,9 +1559,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for Synthetics Checks
     # Get hourly usage for [Synthetics checks](https://docs.datadoghq.com/synthetics/).
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [UsageSyntheticsResponse]
     def get_usage_synthetics(start_hr, opts = {})
       data, _status_code, _headers = get_usage_synthetics_with_http_info(start_hr, opts)
@@ -1570,9 +1570,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for Synthetics Checks
     # Get hourly usage for [Synthetics checks](https://docs.datadoghq.com/synthetics/).
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageSyntheticsResponse, Integer, Hash)>] UsageSyntheticsResponse data, response status code and response headers
     def get_usage_synthetics_with_http_info(start_hr, opts = {})
 
@@ -1636,9 +1636,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for Synthetics API Checks
     # Get hourly usage for [synthetics API checks](https://docs.datadoghq.com/synthetics/).
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [UsageSyntheticsAPIResponse]
     def get_usage_synthetics_api(start_hr, opts = {})
       data, _status_code, _headers = get_usage_synthetics_api_with_http_info(start_hr, opts)
@@ -1647,9 +1647,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for Synthetics API Checks
     # Get hourly usage for [synthetics API checks](https://docs.datadoghq.com/synthetics/).
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageSyntheticsAPIResponse, Integer, Hash)>] UsageSyntheticsAPIResponse data, response status code and response headers
     def get_usage_synthetics_api_with_http_info(start_hr, opts = {})
 
@@ -1713,9 +1713,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for Synthetics Browser Checks
     # Get hourly usage for synthetics browser checks.
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [UsageSyntheticsBrowserResponse]
     def get_usage_synthetics_browser(start_hr, opts = {})
       data, _status_code, _headers = get_usage_synthetics_browser_with_http_info(start_hr, opts)
@@ -1724,9 +1724,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for Synthetics Browser Checks
     # Get hourly usage for synthetics browser checks.
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageSyntheticsBrowserResponse, Integer, Hash)>] UsageSyntheticsBrowserResponse data, response status code and response headers
     def get_usage_synthetics_browser_with_http_info(start_hr, opts = {})
 
@@ -1790,9 +1790,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for custom metrics
     # Get hourly usage for [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/).
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [UsageTimeseriesResponse]
     def get_usage_timeseries(start_hr, opts = {})
       data, _status_code, _headers = get_usage_timeseries_with_http_info(start_hr, opts)
@@ -1801,9 +1801,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for custom metrics
     # Get hourly usage for [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/).
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageTimeseriesResponse, Integer, Hash)>] UsageTimeseriesResponse data, response status code and response headers
     def get_usage_timeseries_with_http_info(start_hr, opts = {})
 
@@ -1867,7 +1867,7 @@ module DatadogAPIClient::V1
 
     # Get top 500 custom metrics by hourly average
     # Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average.
-    # @param month [DateTime] Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour.
+    # @param month [Time] Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :names Comma-separated list of metric names.
     # @return [UsageTopAvgMetricsResponse]
@@ -1878,7 +1878,7 @@ module DatadogAPIClient::V1
 
     # Get top 500 custom metrics by hourly average
     # Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average.
-    # @param month [DateTime] Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour.
+    # @param month [Time] Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :names Comma-separated list of metric names.
     # @return [Array<(UsageTopAvgMetricsResponse, Integer, Hash)>] UsageTopAvgMetricsResponse data, response status code and response headers
@@ -1944,9 +1944,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for Trace Search
     # Get hourly usage for trace search.  **Note** This endpoint has been renamed to `/api/v1/usage/indexed-spans`.
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [UsageTraceResponse]
     def get_usage_trace(start_hr, opts = {})
       data, _status_code, _headers = get_usage_trace_with_http_info(start_hr, opts)
@@ -1955,9 +1955,9 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for Trace Search
     # Get hourly usage for trace search.  **Note** This endpoint has been renamed to &#x60;/api/v1/usage/indexed-spans&#x60;.
-    # @param start_hr [DateTime] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
-    # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageTraceResponse, Integer, Hash)>] UsageTraceResponse data, response status code and response headers
     def get_usage_trace_with_http_info(start_hr, opts = {})
 

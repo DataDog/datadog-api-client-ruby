@@ -284,8 +284,8 @@ end
 api_instance = DatadogAPIClient::V2::SecurityMonitoringApi.new
 opts = {
   filter_query: 'security:attack status:high', # String | The search query for security signals.
-  filter_from: DateTime.parse('2019-01-02T09:42:36.320Z'), # DateTime | The minimum timestamp for requested security signals.
-  filter_to: DateTime.parse('2019-01-03T09:42:36.320Z'), # DateTime | The maximum timestamp for requested security signals.
+  filter_from: Time.parse('2019-01-02T09:42:36.320Z'), # Time | The minimum timestamp for requested security signals.
+  filter_to: Time.parse('2019-01-03T09:42:36.320Z'), # Time | The maximum timestamp for requested security signals.
   sort: DatadogAPIClient::V2::SecurityMonitoringSignalsSort.new, # SecurityMonitoringSignalsSort | The order of the security signals in results.
   page_cursor: 'eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==', # String | A list of results using the cursor provided in the previous query.
   page_limit: 10 # Integer | The maximum number of security signals in the response.
@@ -306,8 +306,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **filter_query** | **String**| The search query for security signals. | [optional] 
- **filter_from** | **DateTime**| The minimum timestamp for requested security signals. | [optional] 
- **filter_to** | **DateTime**| The maximum timestamp for requested security signals. | [optional] 
+ **filter_from** | **Time**| The minimum timestamp for requested security signals. | [optional] 
+ **filter_to** | **Time**| The maximum timestamp for requested security signals. | [optional] 
  **sort** | [**SecurityMonitoringSignalsSort**](.md)| The order of the security signals in results. | [optional] 
  **page_cursor** | **String**| A list of results using the cursor provided in the previous query. | [optional] 
  **page_limit** | **Integer**| The maximum number of security signals in the response. | [optional] [default to 10]

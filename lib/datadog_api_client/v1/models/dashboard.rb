@@ -11,6 +11,7 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 =end
 
 require 'date'
+require 'time'
 
 module DatadogAPIClient::V1
   # A dashboard is Datadog’s tool for visually tracking, analyzing, and displaying key performance metrics, which enable you to monitor the health of your infrastructure.
@@ -76,12 +77,12 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'author_handle' => :'String',
-        :'created_at' => :'DateTime',
+        :'created_at' => :'Time',
         :'description' => :'String',
         :'id' => :'String',
         :'is_read_only' => :'Boolean',
         :'layout_type' => :'DashboardLayoutType',
-        :'modified_at' => :'DateTime',
+        :'modified_at' => :'Time',
         :'notify_list' => :'Array<String>',
         :'template_variable_presets' => :'Array<DashboardTemplateVariablePreset>',
         :'template_variables' => :'Array<DashboardTemplateVariables>',
@@ -274,8 +275,8 @@ module DatadogAPIClient::V1
     # @return [Object] Deserialized data
     def _deserialize(type, value)
       case type.to_sym
-      when :DateTime
-        DateTime.parse(value)
+      when :Time
+        Time.parse(value)
       when :Date
         Date.parse(value)
       when :String
@@ -354,5 +355,6 @@ module DatadogAPIClient::V1
         value
       end
     end
+
   end
 end

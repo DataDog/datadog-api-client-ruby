@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**hour** | **DateTime** | The hour for the usage. | [optional] 
+**hour** | **Time** | The hour for the usage. | [optional] 
 **indexed_event_count** | **Integer** | Contains the number of netflow events indexed. | [optional] 
 
 ## Code Sample
