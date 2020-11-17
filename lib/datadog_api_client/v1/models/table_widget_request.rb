@@ -81,7 +81,7 @@ module DatadogAPIClient::V1
         :'apm_stats_query' => :'ApmStatsQueryDefinition',
         :'cell_display_mode' => :'Array<TableWidgetCellDisplayMode>',
         :'conditional_formats' => :'Array<WidgetConditionalFormat>',
-        :'event_query' => :'EventQueryDefinition',
+        :'event_query' => :'LogQueryDefinition',
         :'limit' => :'Integer',
         :'log_query' => :'LogQueryDefinition',
         :'network_query' => :'LogQueryDefinition',
