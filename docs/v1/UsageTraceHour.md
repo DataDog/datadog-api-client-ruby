@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**hour** | **DateTime** | The hour for the usage. | [optional] 
+**hour** | **Time** | The hour for the usage. | [optional] 
 **indexed_events_count** | **Integer** | Contains the number of Indexed Spans indexed. | [optional] 
 
 ## Code Sample

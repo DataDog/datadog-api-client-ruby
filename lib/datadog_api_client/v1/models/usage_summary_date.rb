@@ -11,6 +11,7 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 =end
 
 require 'date'
+require 'time'
 
 module DatadogAPIClient::V1
   # Response with hourly report of all data billed by Datadog all organizations.
@@ -142,7 +143,7 @@ module DatadogAPIClient::V1
         :'container_avg' => :'Integer',
         :'container_hwm' => :'Integer',
         :'custom_ts_avg' => :'Integer',
-        :'date' => :'DateTime',
+        :'date' => :'Time',
         :'fargate_tasks_count_avg' => :'Integer',
         :'fargate_tasks_count_hwm' => :'Integer',
         :'gcp_host_top99p' => :'Integer',
@@ -388,8 +389,8 @@ module DatadogAPIClient::V1
     # @return [Object] Deserialized data
     def _deserialize(type, value)
       case type.to_sym
-      when :DateTime
-        DateTime.parse(value)
+      when :Time
+        Time.parse(value)
       when :Date
         Date.parse(value)
       when :String
@@ -468,5 +469,6 @@ module DatadogAPIClient::V1
         value
       end
     end
+
   end
 end

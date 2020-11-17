@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **container_avg** | **Integer** | Shows the average of all distinct containers over all hours in the current date for all organizations. | [optional] 
 **container_hwm** | **Integer** | Shows the high watermark of all distinct containers over all hours in the current date for all organizations. | [optional] 
 **custom_ts_avg** | **Integer** | Shows the average number of distinct custom metrics over all hours in the current date for all organizations. | [optional] 
-**date** | **DateTime** | The date for the usage. | [optional] 
+**date** | **Time** | The date for the usage. | [optional] 
 **fargate_tasks_count_avg** | **Integer** | Shows the high watermark of all Fargate tasks over all hours in the current date for all organizations. | [optional] 
 **fargate_tasks_count_hwm** | **Integer** | Shows the average of all Fargate tasks over all hours in the current date for all organizations. | [optional] 
 **gcp_host_top99p** | **Integer** | Shows the 99th percentile of all GCP hosts over all hours in the current date for all organizations. | [optional] 

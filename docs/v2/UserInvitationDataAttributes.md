@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**created_at** | **DateTime** | Creation time of the user invitation. | [optional] 
-**expires_at** | **DateTime** | Time of invitation expiration. | [optional] 
+**created_at** | **Time** | Creation time of the user invitation. | [optional] 
+**expires_at** | **Time** | Time of invitation expiration. | [optional] 
 **invite_type** | **String** | Type of invitation. | [optional] 
 **uuid** | **String** | UUID of the user invitation. | [optional] 
 

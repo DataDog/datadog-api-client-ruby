@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**hour** | **DateTime** | The hour for the usage. | [optional] 
+**hour** | **Time** | The hour for the usage. | [optional] 
 **snmp_devices** | **Integer** | Contains the number of SNMP devices. | [optional] 
 
 ## Code Sample

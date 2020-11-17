@@ -166,8 +166,8 @@ module DatadogAPIClient::V2
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter_query Search query following logs syntax.
     # @option opts [String] :filter_index For customers with multiple indexes, the indexes to search Defaults to &#39;*&#39; which means all indexes
-    # @option opts [DateTime] :filter_from Minimum timestamp for requested logs.
-    # @option opts [DateTime] :filter_to Maximum timestamp for requested logs.
+    # @option opts [Time] :filter_from Minimum timestamp for requested logs.
+    # @option opts [Time] :filter_to Maximum timestamp for requested logs.
     # @option opts [LogsSort] :sort Order of logs in results.
     # @option opts [String] :page_cursor List following results with a cursor provided in the previous query.
     # @option opts [Integer] :page_limit Maximum number of logs in the response. (default to 10)
@@ -182,8 +182,8 @@ module DatadogAPIClient::V2
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter_query Search query following logs syntax.
     # @option opts [String] :filter_index For customers with multiple indexes, the indexes to search Defaults to &#39;*&#39; which means all indexes
-    # @option opts [DateTime] :filter_from Minimum timestamp for requested logs.
-    # @option opts [DateTime] :filter_to Maximum timestamp for requested logs.
+    # @option opts [Time] :filter_from Minimum timestamp for requested logs.
+    # @option opts [Time] :filter_to Maximum timestamp for requested logs.
     # @option opts [LogsSort] :sort Order of logs in results.
     # @option opts [String] :page_cursor List following results with a cursor provided in the previous query.
     # @option opts [Integer] :page_limit Maximum number of logs in the response.

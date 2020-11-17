@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**deleted_at** | **DateTime** | Deletion timestamp of the Synthetic test ID. | [optional] 
+**deleted_at** | **Time** | Deletion timestamp of the Synthetic test ID. | [optional] 
 **public_id** | **String** | The Synthetic test ID deleted. | [optional] 
 
 ## Code Sample

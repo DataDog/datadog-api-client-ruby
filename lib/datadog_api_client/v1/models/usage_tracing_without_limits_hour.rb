@@ -11,6 +11,7 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 =end
 
 require 'date'
+require 'time'
 
 module DatadogAPIClient::V1
   # Tracing without limits usage for a given organization for a given hour.
@@ -32,7 +33,7 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'hour' => :'DateTime',
+        :'hour' => :'Time',
         :'ingested_events_bytes' => :'Integer'
       }
     end
@@ -136,8 +137,8 @@ module DatadogAPIClient::V1
     # @return [Object] Deserialized data
     def _deserialize(type, value)
       case type.to_sym
-      when :DateTime
-        DateTime.parse(value)
+      when :Time
+        Time.parse(value)
       when :Date
         Date.parse(value)
       when :String
@@ -216,5 +217,6 @@ module DatadogAPIClient::V1
         value
       end
     end
+
   end
 end

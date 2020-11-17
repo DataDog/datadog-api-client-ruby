@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**created** | **DateTime** | Timestamp of when the incident team was created. | [optional] [readonly] 
-**modified** | **DateTime** | Timestamp of when the incident team was modified. | [optional] [readonly] 
+**created** | **Time** | Timestamp of when the incident team was created. | [optional] [readonly] 
+**modified** | **Time** | Timestamp of when the incident team was modified. | [optional] [readonly] 
 **name** | **String** | Name of the incident team. | [optional] 
 
 ## Code Sample

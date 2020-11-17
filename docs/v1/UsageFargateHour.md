@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**hour** | **DateTime** | The hour for the usage. | [optional] 
+**hour** | **Time** | The hour for the usage. | [optional] 
 **tasks_count** | **Integer** | The number of Fargate tasks run. | [optional] 
 
 ## Code Sample
