@@ -51,7 +51,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'apm_query' => :'LogQueryDefinition',
-        :'event_query' => :'EventQueryDefinition',
+        :'event_query' => :'LogQueryDefinition',
         :'log_query' => :'LogQueryDefinition',
         :'network_query' => :'LogQueryDefinition',
         :'process_query' => :'ProcessQueryDefinition',
