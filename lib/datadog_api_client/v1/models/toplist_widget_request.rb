@@ -59,7 +59,7 @@ module DatadogAPIClient::V1
       {
         :'apm_query' => :'LogQueryDefinition',
         :'conditional_formats' => :'Array<WidgetConditionalFormat>',
-        :'event_query' => :'EventQueryDefinition',
+        :'event_query' => :'LogQueryDefinition',
         :'log_query' => :'LogQueryDefinition',
         :'network_query' => :'LogQueryDefinition',
         :'process_query' => :'ProcessQueryDefinition',

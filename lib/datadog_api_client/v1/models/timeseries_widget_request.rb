@@ -66,7 +66,7 @@ module DatadogAPIClient::V1
       {
         :'apm_query' => :'LogQueryDefinition',
         :'display_type' => :'WidgetDisplayType',
-        :'event_query' => :'EventQueryDefinition',
+        :'event_query' => :'LogQueryDefinition',
         :'log_query' => :'LogQueryDefinition',
         :'metadata' => :'Array<TimeseriesWidgetRequestMetadata>',
         :'network_query' => :'LogQueryDefinition',

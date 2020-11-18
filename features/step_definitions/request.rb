@@ -67,6 +67,27 @@ module APIWorld
     api_instance.delete_role(response[0].data.id)
   end
 
+  def create_incident
+    configuration.unstable_operations[:create_incident] = true
+    api_instance = DatadogAPIClient::V2::IncidentsApi.new api_client
+
+    incident_create_request = DatadogAPIClient::V2::IncidentCreateRequest.new
+    incident_create_request.data = DatadogAPIClient::V2::IncidentCreateData.new
+    incident_create_request.data.type = "incidents"
+    incident_create_request.data.attributes = DatadogAPIClient::V2::IncidentCreateAttributes.new
+    incident_create_request.data.attributes.title = unique
+
+    response = api_instance.create_incident_with_http_info(incident_create_request)
+    @undo << lambda { undo_create_incident(response) }
+    response[0]
+  end
+
+  def undo_create_incident(response)
+    configuration.config.unstable_operations[:delete_incident] = true
+    api_instance = DatadogAPIClient::V2::IncidentsApi.new api_client
+    api_instance.delete_incident(response[0].data.id)
+  end
+
   def create_service
     configuration.unstable_operations[:create_incident_service] = true
     api_instance = DatadogAPIClient::V2::IncidentServicesApi.new api_client

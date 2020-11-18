@@ -73,7 +73,7 @@ module DatadogAPIClient::V1
         :'apm_query' => :'LogQueryDefinition',
         :'change_type' => :'WidgetChangeType',
         :'compare_to' => :'WidgetCompareTo',
-        :'event_query' => :'EventQueryDefinition',
+        :'event_query' => :'LogQueryDefinition',
         :'increase_good' => :'Boolean',
         :'log_query' => :'LogQueryDefinition',
         :'network_query' => :'LogQueryDefinition',
