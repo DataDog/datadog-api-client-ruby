@@ -110,10 +110,6 @@ module DatadogAPIClient::V1
         invalid_properties.push('invalid value for "limit", must be smaller than or equal to 1000.')
       end
 
-      if @query.nil?
-        invalid_properties.push('invalid value for "query", query cannot be nil.')
-      end
-
       if @time.nil?
         invalid_properties.push('invalid value for "time", time cannot be nil.')
       end
@@ -125,7 +121,6 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     def valid?
       return false if !@limit.nil? && @limit > 1000
-      return false if @query.nil?
       return false if @time.nil?
       true
     end
