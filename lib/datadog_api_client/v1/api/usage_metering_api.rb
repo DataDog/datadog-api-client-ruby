@@ -98,6 +98,83 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
+    # Get hourly usage for incident management
+    # Get hourly usage for incident management.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+    # @return [UsageIncidentManagementResponse]
+    def get_incident_management(start_hr, opts = {})
+      data, _status_code, _headers = get_incident_management_with_http_info(start_hr, opts)
+      data
+    end
+
+    # Get hourly usage for incident management
+    # Get hourly usage for incident management.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+    # @return [Array<(UsageIncidentManagementResponse, Integer, Hash)>] UsageIncidentManagementResponse data, response status code and response headers
+    def get_incident_management_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_incident_management)
+        unstable_enabled = @api_client.config.unstable_operations[:get_incident_management]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_incident_management")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_incident_management"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringApi.get_incident_management ...'
+      end
+      # verify the required parameter 'start_hr' is set
+      if @api_client.config.client_side_validation && start_hr.nil?
+        fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringApi.get_incident_management"
+      end
+      # resource path
+      local_var_path = '/api/v1/usage/incident-management'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'start_hr'] = start_hr
+      query_params[:'end_hr'] = opts[:'end_hr'] if !opts[:'end_hr'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UsageIncidentManagementResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"UsageMeteringApi.get_incident_management",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsageMeteringApi#get_incident_management\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get hourly usage for ingested spans
     # Get hourly usage for ingested spans.
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.

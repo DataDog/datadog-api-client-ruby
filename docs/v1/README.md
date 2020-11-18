@@ -211,6 +211,7 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::TagsApi* | [**list_host_tags**](docs/TagsApi.md#list_host_tags) | **GET** /api/v1/tags/hosts | Get Tags
 *DatadogAPIClient::V1::TagsApi* | [**update_host_tags**](docs/TagsApi.md#update_host_tags) | **PUT** /api/v1/tags/hosts/{host_name} | Update host tags
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_daily_custom_reports**](docs/UsageMeteringApi.md#get_daily_custom_reports) | **GET** /api/v1/daily_custom_reports | Get the list of available daily custom reports
+*DatadogAPIClient::V1::UsageMeteringApi* | [**get_incident_management**](docs/UsageMeteringApi.md#get_incident_management) | **GET** /api/v1/usage/incident-management | Get hourly usage for incident management
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_ingested_spans**](docs/UsageMeteringApi.md#get_ingested_spans) | **GET** /api/v1/usage/ingested-spans | Get hourly usage for ingested spans
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_monthly_custom_reports**](docs/UsageMeteringApi.md#get_monthly_custom_reports) | **GET** /api/v1/monthly_custom_reports | Get the list of available monthly custom reports
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_specified_daily_custom_reports**](docs/UsageMeteringApi.md#get_specified_daily_custom_reports) | **GET** /api/v1/daily_custom_reports/{report_id} | Get specified daily custom reports
@@ -577,6 +578,8 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::UsageFargateResponse](docs/UsageFargateResponse.md)
  - [DatadogAPIClient::V1::UsageHostHour](docs/UsageHostHour.md)
  - [DatadogAPIClient::V1::UsageHostsResponse](docs/UsageHostsResponse.md)
+ - [DatadogAPIClient::V1::UsageIncidentManagementHour](docs/UsageIncidentManagementHour.md)
+ - [DatadogAPIClient::V1::UsageIncidentManagementResponse](docs/UsageIncidentManagementResponse.md)
  - [DatadogAPIClient::V1::UsageIndexedSpansHour](docs/UsageIndexedSpansHour.md)
  - [DatadogAPIClient::V1::UsageIndexedSpansResponse](docs/UsageIndexedSpansResponse.md)
  - [DatadogAPIClient::V1::UsageIngestedSpansHour](docs/UsageIngestedSpansHour.md)
