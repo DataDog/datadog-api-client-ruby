@@ -12,12 +12,13 @@ Name | Type | Description | Notes
 **azure_app_service_top99p** | **Integer** | Shows the 99th percentile of all Azure app services over all hours in the current date for all organizations. | [optional] 
 **billable_ingested_bytes_sum** | **Integer** | Shows the sum of all log bytes ingested over all hours in the current date for all organizations. | [optional] 
 **container_avg** | **Integer** | Shows the average of all distinct containers over all hours in the current date for all organizations. | [optional] 
-**container_hwm** | **Integer** | Shows the high watermark of all distinct containers over all hours in the current date for all organizations. | [optional] 
+**container_hwm** | **Integer** | Shows the high-water mark of all distinct containers over all hours in the current date for all organizations. | [optional] 
 **custom_ts_avg** | **Integer** | Shows the average number of distinct custom metrics over all hours in the current date for all organizations. | [optional] 
 **date** | **Time** | The date for the usage. | [optional] 
-**fargate_tasks_count_avg** | **Integer** | Shows the high watermark of all Fargate tasks over all hours in the current date for all organizations. | [optional] 
+**fargate_tasks_count_avg** | **Integer** | Shows the high-watermark of all Fargate tasks over all hours in the current date for all organizations. | [optional] 
 **fargate_tasks_count_hwm** | **Integer** | Shows the average of all Fargate tasks over all hours in the current date for all organizations. | [optional] 
 **gcp_host_top99p** | **Integer** | Shows the 99th percentile of all GCP hosts over all hours in the current date for all organizations. | [optional] 
+**incident_management_monthly_active_users_hwm** | **Integer** | Shows the high-water mark of incident management monthly active users over all hours in the current date for all organizations. | [optional] 
 **indexed_events_count_sum** | **Integer** | Shows the sum of all log events indexed over all hours in the current date for all organizations. | [optional] 
 **infra_host_top99p** | **Integer** | Shows the 99th percentile of all distinct infrastructure hosts over all hours in the current date for all organizations. | [optional] 
 **ingested_events_bytes_sum** | **Integer** | Shows the sum of all log bytes ingested over all hours in the current date for all organizations. | [optional] 
@@ -51,6 +52,7 @@ instance = DatadogAPIClient::V1::UsageSummaryDate.new(agent_host_top99p: null,
                                  fargate_tasks_count_avg: null,
                                  fargate_tasks_count_hwm: null,
                                  gcp_host_top99p: null,
+                                 incident_management_monthly_active_users_hwm: null,
                                  indexed_events_count_sum: null,
                                  infra_host_top99p: null,
                                  ingested_events_bytes_sum: null,

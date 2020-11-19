@@ -14,45 +14,32 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Object to send with the request to retrieve a list of logs from your Organization.
-  class LogsListRequest
-    # The log index on which the request is performed. For multi-index organizations, the default is all live indexes. Historical indexes of rehydrated logs must be specified.
-    attr_accessor :index
+  # The object containing the aggregates.
+  class UsageAttributionAggregatesBody
+    # The aggregate type.
+    attr_accessor :agg_type
 
-    # Number of logs return in the response.
-    attr_accessor :limit
+    # The field.
+    attr_accessor :field
 
-    # The search query - following the log search syntax.
-    attr_accessor :query
-
-    attr_accessor :sort
-
-    # Hash identifier of the first log to return in the list, available in a log `id` attribute. This parameter is used for the pagination feature.  **Note**: This parameter is ignored if the corresponding log is out of the scope of the specified time window.
-    attr_accessor :start_at
-
-    attr_accessor :time
+    # The value for a given field.
+    attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'index' => :'index',
-        :'limit' => :'limit',
-        :'query' => :'query',
-        :'sort' => :'sort',
-        :'start_at' => :'startAt',
-        :'time' => :'time'
+        :'agg_type' => :'agg_type',
+        :'field' => :'field',
+        :'value' => :'value'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'index' => :'String',
-        :'limit' => :'Integer',
-        :'query' => :'String',
-        :'sort' => :'LogsSort',
-        :'start_at' => :'String',
-        :'time' => :'LogsListRequestTime'
+        :'agg_type' => :'String',
+        :'field' => :'String',
+        :'value' => :'Float'
       }
     end
 
@@ -66,39 +53,27 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::LogsListRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::UsageAttributionAggregatesBody` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::LogsListRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::UsageAttributionAggregatesBody`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'index')
-        self.index = attributes[:'index']
+      if attributes.key?(:'agg_type')
+        self.agg_type = attributes[:'agg_type']
       end
 
-      if attributes.key?(:'limit')
-        self.limit = attributes[:'limit']
+      if attributes.key?(:'field')
+        self.field = attributes[:'field']
       end
 
-      if attributes.key?(:'query')
-        self.query = attributes[:'query']
-      end
-
-      if attributes.key?(:'sort')
-        self.sort = attributes[:'sort']
-      end
-
-      if attributes.key?(:'start_at')
-        self.start_at = attributes[:'start_at']
-      end
-
-      if attributes.key?(:'time')
-        self.time = attributes[:'time']
+      if attributes.key?(:'value')
+        self.value = attributes[:'value']
       end
     end
 
@@ -106,33 +81,13 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@limit.nil? && @limit > 1000
-        invalid_properties.push('invalid value for "limit", must be smaller than or equal to 1000.')
-      end
-
-      if @time.nil?
-        invalid_properties.push('invalid value for "time", time cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if !@limit.nil? && @limit > 1000
-      return false if @time.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] limit Value to be assigned
-    def limit=(limit)
-      if !limit.nil? && limit > 1000
-        fail ArgumentError, 'invalid value for "limit", must be smaller than or equal to 1000.'
-      end
-
-      @limit = limit
     end
 
     # Checks equality by comparing each attribute.
@@ -140,12 +95,9 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          index == o.index &&
-          limit == o.limit &&
-          query == o.query &&
-          sort == o.sort &&
-          start_at == o.start_at &&
-          time == o.time
+          agg_type == o.agg_type &&
+          field == o.field &&
+          value == o.value
     end
 
     # @see the `==` method
@@ -157,7 +109,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [index, limit, query, sort, start_at, time].hash
+      [agg_type, field, value].hash
     end
 
     # Builds the object from hash
