@@ -631,6 +631,99 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
+    # Get Usage Attribution
+    # Get Usage Attribution.
+    # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
+    # @param fields [String] The specified field to search results for.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
+    # @option opts [Integer] :org_id Include usage summaries for each sub-org.
+    # @option opts [UsageSortDirection] :sort_direction The direction to sort by: &#x60;[desc, asc]&#x60;. (default to 'desc')
+    # @option opts [UsageAttributionSort] :sort_name The field to sort by. (default to 'custom_timeseries_usage')
+    # @return [UsageAttributionResponse]
+    def get_usage_attribution(start_month, fields, opts = {})
+      data, _status_code, _headers = get_usage_attribution_with_http_info(start_month, fields, opts)
+      data
+    end
+
+    # Get Usage Attribution
+    # Get Usage Attribution.
+    # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
+    # @param fields [String] The specified field to search results for.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
+    # @option opts [Integer] :org_id Include usage summaries for each sub-org.
+    # @option opts [UsageSortDirection] :sort_direction The direction to sort by: &#x60;[desc, asc]&#x60;.
+    # @option opts [UsageAttributionSort] :sort_name The field to sort by.
+    # @return [Array<(UsageAttributionResponse, Integer, Hash)>] UsageAttributionResponse data, response status code and response headers
+    def get_usage_attribution_with_http_info(start_month, fields, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_usage_attribution)
+        unstable_enabled = @api_client.config.unstable_operations[:get_usage_attribution]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_attribution")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_usage_attribution"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringApi.get_usage_attribution ...'
+      end
+      # verify the required parameter 'start_month' is set
+      if @api_client.config.client_side_validation && start_month.nil?
+        fail ArgumentError, "Missing the required parameter 'start_month' when calling UsageMeteringApi.get_usage_attribution"
+      end
+      # verify the required parameter 'fields' is set
+      if @api_client.config.client_side_validation && fields.nil?
+        fail ArgumentError, "Missing the required parameter 'fields' when calling UsageMeteringApi.get_usage_attribution"
+      end
+      # resource path
+      local_var_path = '/api/v1/usage/attribution'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'start_month'] = start_month
+      query_params[:'fields'] = fields
+      query_params[:'end_month'] = opts[:'end_month'] if !opts[:'end_month'].nil?
+      query_params[:'org_id'] = opts[:'org_id'] if !opts[:'org_id'].nil?
+      query_params[:'sort_direction'] = opts[:'sort_direction'] if !opts[:'sort_direction'].nil?
+      query_params[:'sort_name'] = opts[:'sort_name'] if !opts[:'sort_name'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UsageAttributionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"UsageMeteringApi.get_usage_attribution",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsageMeteringApi#get_usage_attribution\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get billable usage across your multi-org account
     # Get billable usage across your multi-org account.
     # @param [Hash] opts the optional parameters
