@@ -218,6 +218,7 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_specified_monthly_custom_reports**](docs/UsageMeteringApi.md#get_specified_monthly_custom_reports) | **GET** /api/v1/monthly_custom_reports/{report_id} | Get specified monthly custom reports
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_tracing_without_limits**](docs/UsageMeteringApi.md#get_tracing_without_limits) | **GET** /api/v1/usage/tracing-without-limits | Get hourly usage for tracing without limits
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_usage_analyzed_logs**](docs/UsageMeteringApi.md#get_usage_analyzed_logs) | **GET** /api/v1/usage/analyzed_logs | Get hourly usage for analyzed logs
+*DatadogAPIClient::V1::UsageMeteringApi* | [**get_usage_attribution**](docs/UsageMeteringApi.md#get_usage_attribution) | **GET** /api/v1/usage/attribution | Get Usage Attribution
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_usage_billable_summary**](docs/UsageMeteringApi.md#get_usage_billable_summary) | **GET** /api/v1/usage/billable-summary | Get billable usage across your multi-org account
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_usage_fargate**](docs/UsageMeteringApi.md#get_usage_fargate) | **GET** /api/v1/usage/fargate | Get hourly usage for Fargate
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_usage_hosts**](docs/UsageMeteringApi.md#get_usage_hosts) | **GET** /api/v1/usage/hosts | Get hourly usage for hosts and containers
@@ -565,6 +566,13 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::ToplistWidgetRequest](docs/ToplistWidgetRequest.md)
  - [DatadogAPIClient::V1::UsageAnalyzedLogsHour](docs/UsageAnalyzedLogsHour.md)
  - [DatadogAPIClient::V1::UsageAnalyzedLogsResponse](docs/UsageAnalyzedLogsResponse.md)
+ - [DatadogAPIClient::V1::UsageAttributionAggregatesBody](docs/UsageAttributionAggregatesBody.md)
+ - [DatadogAPIClient::V1::UsageAttributionBody](docs/UsageAttributionBody.md)
+ - [DatadogAPIClient::V1::UsageAttributionMetadata](docs/UsageAttributionMetadata.md)
+ - [DatadogAPIClient::V1::UsageAttributionPagination](docs/UsageAttributionPagination.md)
+ - [DatadogAPIClient::V1::UsageAttributionResponse](docs/UsageAttributionResponse.md)
+ - [DatadogAPIClient::V1::UsageAttributionSort](docs/UsageAttributionSort.md)
+ - [DatadogAPIClient::V1::UsageAttributionValues](docs/UsageAttributionValues.md)
  - [DatadogAPIClient::V1::UsageBillableSummaryBody](docs/UsageBillableSummaryBody.md)
  - [DatadogAPIClient::V1::UsageBillableSummaryHour](docs/UsageBillableSummaryHour.md)
  - [DatadogAPIClient::V1::UsageBillableSummaryKeys](docs/UsageBillableSummaryKeys.md)
