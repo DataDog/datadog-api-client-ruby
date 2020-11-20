@@ -19,6 +19,9 @@ module DatadogAPIClient::V1
     WARNING = "warning".freeze
     INFO = "info".freeze
     SUCCESS = "success".freeze
+    USER_UPDATE = "user_update".freeze
+    RECOMMENDATION = "recommendation".freeze
+    SNAPSHOT = "snapshot".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
