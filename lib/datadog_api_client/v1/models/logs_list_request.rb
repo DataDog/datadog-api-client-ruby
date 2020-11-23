@@ -11,6 +11,7 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 =end
 
 require 'date'
+require 'time'
 
 module DatadogAPIClient::V1
   # Object to send with the request to retrieve a list of logs from your Organization.
@@ -109,10 +110,6 @@ module DatadogAPIClient::V1
         invalid_properties.push('invalid value for "limit", must be smaller than or equal to 1000.')
       end
 
-      if @query.nil?
-        invalid_properties.push('invalid value for "query", query cannot be nil.')
-      end
-
       if @time.nil?
         invalid_properties.push('invalid value for "time", time cannot be nil.')
       end
@@ -124,7 +121,6 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     def valid?
       return false if !@limit.nil? && @limit > 1000
-      return false if @query.nil?
       return false if @time.nil?
       true
     end
@@ -199,8 +195,8 @@ module DatadogAPIClient::V1
     # @return [Object] Deserialized data
     def _deserialize(type, value)
       case type.to_sym
-      when :DateTime
-        DateTime.parse(value)
+      when :Time
+        Time.parse(value)
       when :Date
         Date.parse(value)
       when :String
@@ -279,5 +275,6 @@ module DatadogAPIClient::V1
         value
       end
     end
+
   end
 end

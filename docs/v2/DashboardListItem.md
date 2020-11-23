@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **author** | [**Creator**](Creator.md) |  | [optional] 
-**created** | **DateTime** | Date of creation of the dashboard. | [optional] [readonly] 
+**created** | **Time** | Date of creation of the dashboard. | [optional] [readonly] 
 **icon** | **String** | URL to the icon of the dashboard. | [optional] [readonly] 
 **id** | **String** | ID of the dashboard. | 
 **is_favorite** | **Boolean** | Whether or not the dashboard is in the favorites. | [optional] [readonly] 
 **is_read_only** | **Boolean** | Whether or not the dashboard is read only. | [optional] [readonly] 
 **is_shared** | **Boolean** | Whether the dashboard is publicly shared or not. | [optional] [readonly] 
-**modified** | **DateTime** | Date of last edition of the dashboard. | [optional] [readonly] 
+**modified** | **Time** | Date of last edition of the dashboard. | [optional] [readonly] 
 **popularity** | **Integer** | Popularity of the dashboard. | [optional] [readonly] 
 **title** | **String** | Title of the dashboard. | [optional] [readonly] 
 **type** | [**DashboardType**](DashboardType.md) |  | 

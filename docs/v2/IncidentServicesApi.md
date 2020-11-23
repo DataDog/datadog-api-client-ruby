@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**create_incident_service**](IncidentServicesApi.md#create_incident_service) | **POST** /api/v2/services | Create a new incident service
 [**delete_incident_service**](IncidentServicesApi.md#delete_incident_service) | **DELETE** /api/v2/services/{service_id} | Delete an existing incident service
 [**get_incident_service**](IncidentServicesApi.md#get_incident_service) | **GET** /api/v2/services/{service_id} | Get details of an incident service
-[**get_incident_services**](IncidentServicesApi.md#get_incident_services) | **GET** /api/v2/services | Get a list of all incident services
+[**list_incident_services**](IncidentServicesApi.md#list_incident_services) | **GET** /api/v2/services | Get a list of all incident services
 [**update_incident_service**](IncidentServicesApi.md#update_incident_service) | **PATCH** /api/v2/services/{service_id} | Update an existing incident service
 
 
@@ -192,9 +192,9 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## get_incident_services
+## list_incident_services
 
-> IncidentServicesResponse get_incident_services(opts)
+> IncidentServicesResponse list_incident_services(opts)
 
 Get a list of all incident services
 
@@ -222,15 +222,16 @@ api_instance = DatadogAPIClient::V2::IncidentServicesApi.new
 opts = {
   include: 'include_example', # String | Specifies which types of related objects should be included in the response.
   page_size: 10, # Integer | Size for a given page.
-  page_offset: 0 # Integer | Specific offset to use as the beginning of the returned page.
+  page_offset: 0, # Integer | Specific offset to use as the beginning of the returned page.
+  filter: 'ExampleServiceName' # String | A search query that filters services by name.
 }
 
 begin
   #Get a list of all incident services
-  result = api_instance.get_incident_services(opts)
+  result = api_instance.list_incident_services(opts)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling IncidentServicesApi->get_incident_services: #{e}"
+  puts "Exception when calling IncidentServicesApi->list_incident_services: #{e}"
 end
 ```
 
@@ -242,6 +243,7 @@ Name | Type | Description  | Notes
  **include** | **String**| Specifies which types of related objects should be included in the response. | [optional] 
  **page_size** | **Integer**| Size for a given page. | [optional] [default to 10]
  **page_offset** | **Integer**| Specific offset to use as the beginning of the returned page. | [optional] [default to 0]
+ **filter** | **String**| A search query that filters services by name. | [optional] 
 
 ### Return type
 

@@ -11,98 +11,102 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 =end
 
 require 'date'
+require 'time'
 
 module DatadogAPIClient::V1
   # Response with hourly report of all data billed by Datadog all organizations.
   class UsageSummaryResponse
-    # Shows the 99th percentile of all agent hosts over all hours in the current month(s) for all organizations.
+    # Shows the 99th percentile of all agent hosts over all hours in the current months for all organizations.
     attr_accessor :agent_host_top99p_sum
 
-    # Shows the 99th percentile of all distinct APM hosts over all hours in the current month(s) for all organizations.
+    # Shows the 99th percentile of all distinct APM hosts over all hours in the current months for all organizations.
     attr_accessor :apm_host_top99p_sum
 
-    # Shows the 99th percentile of all AWS hosts over all hours in the current month(s) for all organizations.
+    # Shows the 99th percentile of all AWS hosts over all hours in the current months for all organizations.
     attr_accessor :aws_host_top99p_sum
 
-    # Shows the average of the number of functions that executed 1 or more times each hour in the current month(s) for all organizations.
+    # Shows the average of the number of functions that executed 1 or more times each hour in the current months for all organizations.
     attr_accessor :aws_lambda_func_count
 
-    # Shows the sum of all AWS Lambda invocations over all hours in the current month(s) for all organizations.
+    # Shows the sum of all AWS Lambda invocations over all hours in the current months for all organizations.
     attr_accessor :aws_lambda_invocations_sum
 
-    # Shows the 99th percentile of all Azure app services over all hours in the current month(s) for all organizations.
+    # Shows the 99th percentile of all Azure app services over all hours in the current months for all organizations.
     attr_accessor :azure_app_service_top99p_sum
 
-    # Shows the 99th percentile of all Azure hosts over all hours in the current month(s) for all organizations.
+    # Shows the 99th percentile of all Azure hosts over all hours in the current months for all organizations.
     attr_accessor :azure_host_top99p_sum
 
-    # Shows the sum of all log bytes ingested over all hours in the current month(s) for all organizations.
+    # Shows the sum of all log bytes ingested over all hours in the current months for all organizations.
     attr_accessor :billable_ingested_bytes_agg_sum
 
-    # Shows the average of all distinct containers over all hours in the current month(s) for all organizations.
+    # Shows the average of all distinct containers over all hours in the current months for all organizations.
     attr_accessor :container_avg_sum
 
-    # Shows the high watermark of all distinct containers over all hours in the current month(s) for all organizations.
+    # Shows the sum of the high-water marks of all distinct containers over all hours in the current months for all organizations.
     attr_accessor :container_hwm_sum
 
-    # Shows the average number of distinct custom metrics over all hours in the current month(s) for all organizations.
+    # Shows the average number of distinct custom metrics over all hours in the current months for all organizations.
     attr_accessor :custom_ts_sum
 
-    # Shows the last date of usage in the current month(s) for all organizations.
+    # Shows the last date of usage in the current months for all organizations.
     attr_accessor :end_date
 
-    # Shows the average of all Fargate tasks over all hours in the current month(s) for all organizations.
+    # Shows the average of all Fargate tasks over all hours in the current months for all organizations.
     attr_accessor :fargate_tasks_count_avg_sum
 
-    # Shows the high watermark of all Fargate tasks over all hours in the current month(s) for all organizations.
+    # Shows the sum of the high-water marks of all Fargate tasks over all hours in the current months for all organizations.
     attr_accessor :fargate_tasks_count_hwm_sum
 
-    # Shows the 99th percentile of all GCP hosts over all hours in the current month(s) for all organizations.
+    # Shows the 99th percentile of all GCP hosts over all hours in the current months for all organizations.
     attr_accessor :gcp_host_top99p_sum
 
-    # Shows the sum of all log events indexed over all hours in the current month(s) for all organizations.
+    # Shows sum of the the high-water marks of incident management monthly active users in the current months for all organizations.
+    attr_accessor :incident_management_monthly_active_users_hwm_sum
+
+    # Shows the sum of all log events indexed over all hours in the current months for all organizations.
     attr_accessor :indexed_events_count_agg_sum
 
-    # Shows the 99th percentile of all distinct infrastructure hosts over all hours in the current month(s) for all organizations.
+    # Shows the 99th percentile of all distinct infrastructure hosts over all hours in the current months for all organizations.
     attr_accessor :infra_host_top99p_sum
 
-    # Shows the sum of all log bytes ingested over all hours in the current month(s) for all organizations.
+    # Shows the sum of all log bytes ingested over all hours in the current months for all organizations.
     attr_accessor :ingested_events_bytes_agg_sum
 
-    # Shows the the most recent hour in the current month(s) for all organizations for which all usages were calculated.
+    # Shows the the most recent hour in the current months for all organizations for which all usages were calculated.
     attr_accessor :last_updated
 
-    # Shows the sum of all mobile RUM Sessions over all hours in the current month(s) for all organizations.
+    # Shows the sum of all mobile RUM Sessions over all hours in the current months for all organizations.
     attr_accessor :mobile_rum_session_count_agg_sum
 
-    # Shows the sum of all Network flows indexed over all hours in the current month(s) for all organizations.
+    # Shows the sum of all Network flows indexed over all hours in the current months for all organizations.
     attr_accessor :netflow_indexed_events_count_agg_sum
 
-    # Shows the 99th percentile of all distinct Networks hosts over all hours in the current month(s) for all organizations.
+    # Shows the 99th percentile of all distinct Networks hosts over all hours in the current months for all organizations.
     attr_accessor :npm_host_top99p_sum
 
-    # Shows the average number of profiled containers over all hours in the current month(s) for all organizations.
+    # Shows the average number of profiled containers over all hours in the current months for all organizations.
     attr_accessor :profiling_container_agent_count_avg
 
-    # Shows the 99th percentile of all profiled hosts over all hours in the current month(s) for all organizations.
+    # Shows the 99th percentile of all profiled hosts over all hours in the current months for all organizations.
     attr_accessor :profiling_host_count_top99p_sum
 
-    # Shows the sum of all browser RUM Sessions over all hours in the current month(s) for all organizations.
+    # Shows the sum of all browser RUM Sessions over all hours in the current months for all organizations.
     attr_accessor :rum_session_count_agg_sum
 
-    # Shows the first date of usage in the current month(s) for all organizations.
+    # Shows the first date of usage in the current months for all organizations.
     attr_accessor :start_date
 
-    # Shows the sum of all Synthetic browser tests over all hours in the current month(s) for all organizations.
+    # Shows the sum of all Synthetic browser tests over all hours in the current months for all organizations.
     attr_accessor :synthetics_browser_check_calls_count_agg_sum
 
-    # Shows the sum of all Synthetic API tests over all hours in the current month(s) for all organizations.
+    # Shows the sum of all Synthetic API tests over all hours in the current months for all organizations.
     attr_accessor :synthetics_check_calls_count_agg_sum
 
-    # Shows the sum of all Indexed Spans indexed over all hours in the current month(s) for all organizations.
+    # Shows the sum of all Indexed Spans indexed over all hours in the current months for all organizations.
     attr_accessor :trace_search_indexed_events_count_agg_sum
 
-    # Shows the sum of all tracing without limits bytes ingested over all hours in the current month(s) for all organizations.
+    # Shows the sum of all tracing without limits bytes ingested over all hours in the current months for all organizations.
     attr_accessor :twol_ingested_events_bytes_agg_sum
 
     # An array of objects regarding hourly usage.
@@ -126,6 +130,7 @@ module DatadogAPIClient::V1
         :'fargate_tasks_count_avg_sum' => :'fargate_tasks_count_avg_sum',
         :'fargate_tasks_count_hwm_sum' => :'fargate_tasks_count_hwm_sum',
         :'gcp_host_top99p_sum' => :'gcp_host_top99p_sum',
+        :'incident_management_monthly_active_users_hwm_sum' => :'incident_management_monthly_active_users_hwm_sum',
         :'indexed_events_count_agg_sum' => :'indexed_events_count_agg_sum',
         :'infra_host_top99p_sum' => :'infra_host_top99p_sum',
         :'ingested_events_bytes_agg_sum' => :'ingested_events_bytes_agg_sum',
@@ -159,21 +164,22 @@ module DatadogAPIClient::V1
         :'container_avg_sum' => :'Integer',
         :'container_hwm_sum' => :'Integer',
         :'custom_ts_sum' => :'Integer',
-        :'end_date' => :'DateTime',
+        :'end_date' => :'Time',
         :'fargate_tasks_count_avg_sum' => :'Integer',
         :'fargate_tasks_count_hwm_sum' => :'Integer',
         :'gcp_host_top99p_sum' => :'Integer',
+        :'incident_management_monthly_active_users_hwm_sum' => :'Integer',
         :'indexed_events_count_agg_sum' => :'Integer',
         :'infra_host_top99p_sum' => :'Integer',
         :'ingested_events_bytes_agg_sum' => :'Integer',
-        :'last_updated' => :'DateTime',
+        :'last_updated' => :'Time',
         :'mobile_rum_session_count_agg_sum' => :'Integer',
         :'netflow_indexed_events_count_agg_sum' => :'Integer',
         :'npm_host_top99p_sum' => :'Integer',
         :'profiling_container_agent_count_avg' => :'Integer',
         :'profiling_host_count_top99p_sum' => :'Integer',
         :'rum_session_count_agg_sum' => :'Integer',
-        :'start_date' => :'DateTime',
+        :'start_date' => :'Time',
         :'synthetics_browser_check_calls_count_agg_sum' => :'Integer',
         :'synthetics_check_calls_count_agg_sum' => :'Integer',
         :'trace_search_indexed_events_count_agg_sum' => :'Integer',
@@ -261,6 +267,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'gcp_host_top99p_sum')
         self.gcp_host_top99p_sum = attributes[:'gcp_host_top99p_sum']
+      end
+
+      if attributes.key?(:'incident_management_monthly_active_users_hwm_sum')
+        self.incident_management_monthly_active_users_hwm_sum = attributes[:'incident_management_monthly_active_users_hwm_sum']
       end
 
       if attributes.key?(:'indexed_events_count_agg_sum')
@@ -363,6 +373,7 @@ module DatadogAPIClient::V1
           fargate_tasks_count_avg_sum == o.fargate_tasks_count_avg_sum &&
           fargate_tasks_count_hwm_sum == o.fargate_tasks_count_hwm_sum &&
           gcp_host_top99p_sum == o.gcp_host_top99p_sum &&
+          incident_management_monthly_active_users_hwm_sum == o.incident_management_monthly_active_users_hwm_sum &&
           indexed_events_count_agg_sum == o.indexed_events_count_agg_sum &&
           infra_host_top99p_sum == o.infra_host_top99p_sum &&
           ingested_events_bytes_agg_sum == o.ingested_events_bytes_agg_sum &&
@@ -390,7 +401,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_host_top99p_sum, apm_host_top99p_sum, aws_host_top99p_sum, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p_sum, azure_host_top99p_sum, billable_ingested_bytes_agg_sum, container_avg_sum, container_hwm_sum, custom_ts_sum, end_date, fargate_tasks_count_avg_sum, fargate_tasks_count_hwm_sum, gcp_host_top99p_sum, indexed_events_count_agg_sum, infra_host_top99p_sum, ingested_events_bytes_agg_sum, last_updated, mobile_rum_session_count_agg_sum, netflow_indexed_events_count_agg_sum, npm_host_top99p_sum, profiling_container_agent_count_avg, profiling_host_count_top99p_sum, rum_session_count_agg_sum, start_date, synthetics_browser_check_calls_count_agg_sum, synthetics_check_calls_count_agg_sum, trace_search_indexed_events_count_agg_sum, twol_ingested_events_bytes_agg_sum, usage].hash
+      [agent_host_top99p_sum, apm_host_top99p_sum, aws_host_top99p_sum, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p_sum, azure_host_top99p_sum, billable_ingested_bytes_agg_sum, container_avg_sum, container_hwm_sum, custom_ts_sum, end_date, fargate_tasks_count_avg_sum, fargate_tasks_count_hwm_sum, gcp_host_top99p_sum, incident_management_monthly_active_users_hwm_sum, indexed_events_count_agg_sum, infra_host_top99p_sum, ingested_events_bytes_agg_sum, last_updated, mobile_rum_session_count_agg_sum, netflow_indexed_events_count_agg_sum, npm_host_top99p_sum, profiling_container_agent_count_avg, profiling_host_count_top99p_sum, rum_session_count_agg_sum, start_date, synthetics_browser_check_calls_count_agg_sum, synthetics_check_calls_count_agg_sum, trace_search_indexed_events_count_agg_sum, twol_ingested_events_bytes_agg_sum, usage].hash
     end
 
     # Builds the object from hash
@@ -428,8 +439,8 @@ module DatadogAPIClient::V1
     # @return [Object] Deserialized data
     def _deserialize(type, value)
       case type.to_sym
-      when :DateTime
-        DateTime.parse(value)
+      when :Time
+        Time.parse(value)
       when :Date
         Date.parse(value)
       when :String
@@ -508,5 +519,6 @@ module DatadogAPIClient::V1
         value
       end
     end
+
   end
 end

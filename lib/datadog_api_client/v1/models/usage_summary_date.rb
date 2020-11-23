@@ -11,6 +11,7 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 =end
 
 require 'date'
+require 'time'
 
 module DatadogAPIClient::V1
   # Response with hourly report of all data billed by Datadog all organizations.
@@ -39,7 +40,7 @@ module DatadogAPIClient::V1
     # Shows the average of all distinct containers over all hours in the current date for all organizations.
     attr_accessor :container_avg
 
-    # Shows the high watermark of all distinct containers over all hours in the current date for all organizations.
+    # Shows the high-water mark of all distinct containers over all hours in the current date for all organizations.
     attr_accessor :container_hwm
 
     # Shows the average number of distinct custom metrics over all hours in the current date for all organizations.
@@ -48,7 +49,7 @@ module DatadogAPIClient::V1
     # The date for the usage.
     attr_accessor :date
 
-    # Shows the high watermark of all Fargate tasks over all hours in the current date for all organizations.
+    # Shows the high-watermark of all Fargate tasks over all hours in the current date for all organizations.
     attr_accessor :fargate_tasks_count_avg
 
     # Shows the average of all Fargate tasks over all hours in the current date for all organizations.
@@ -56,6 +57,9 @@ module DatadogAPIClient::V1
 
     # Shows the 99th percentile of all GCP hosts over all hours in the current date for all organizations.
     attr_accessor :gcp_host_top99p
+
+    # Shows the high-water mark of incident management monthly active users over all hours in the current date for all organizations.
+    attr_accessor :incident_management_monthly_active_users_hwm
 
     # Shows the sum of all log events indexed over all hours in the current date for all organizations.
     attr_accessor :indexed_events_count_sum
@@ -113,6 +117,7 @@ module DatadogAPIClient::V1
         :'fargate_tasks_count_avg' => :'fargate_tasks_count_avg',
         :'fargate_tasks_count_hwm' => :'fargate_tasks_count_hwm',
         :'gcp_host_top99p' => :'gcp_host_top99p',
+        :'incident_management_monthly_active_users_hwm' => :'incident_management_monthly_active_users_hwm',
         :'indexed_events_count_sum' => :'indexed_events_count_sum',
         :'infra_host_top99p' => :'infra_host_top99p',
         :'ingested_events_bytes_sum' => :'ingested_events_bytes_sum',
@@ -142,10 +147,11 @@ module DatadogAPIClient::V1
         :'container_avg' => :'Integer',
         :'container_hwm' => :'Integer',
         :'custom_ts_avg' => :'Integer',
-        :'date' => :'DateTime',
+        :'date' => :'Time',
         :'fargate_tasks_count_avg' => :'Integer',
         :'fargate_tasks_count_hwm' => :'Integer',
         :'gcp_host_top99p' => :'Integer',
+        :'incident_management_monthly_active_users_hwm' => :'Integer',
         :'indexed_events_count_sum' => :'Integer',
         :'infra_host_top99p' => :'Integer',
         :'ingested_events_bytes_sum' => :'Integer',
@@ -239,6 +245,10 @@ module DatadogAPIClient::V1
         self.gcp_host_top99p = attributes[:'gcp_host_top99p']
       end
 
+      if attributes.key?(:'incident_management_monthly_active_users_hwm')
+        self.incident_management_monthly_active_users_hwm = attributes[:'incident_management_monthly_active_users_hwm']
+      end
+
       if attributes.key?(:'indexed_events_count_sum')
         self.indexed_events_count_sum = attributes[:'indexed_events_count_sum']
       end
@@ -326,6 +336,7 @@ module DatadogAPIClient::V1
           fargate_tasks_count_avg == o.fargate_tasks_count_avg &&
           fargate_tasks_count_hwm == o.fargate_tasks_count_hwm &&
           gcp_host_top99p == o.gcp_host_top99p &&
+          incident_management_monthly_active_users_hwm == o.incident_management_monthly_active_users_hwm &&
           indexed_events_count_sum == o.indexed_events_count_sum &&
           infra_host_top99p == o.infra_host_top99p &&
           ingested_events_bytes_sum == o.ingested_events_bytes_sum &&
@@ -350,7 +361,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_host_top99p, apm_host_top99p, aws_host_top99p, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p, billable_ingested_bytes_sum, container_avg, container_hwm, custom_ts_avg, date, fargate_tasks_count_avg, fargate_tasks_count_hwm, gcp_host_top99p, indexed_events_count_sum, infra_host_top99p, ingested_events_bytes_sum, mobile_rum_session_count_sum, netflow_indexed_events_count_sum, npm_host_top99p, orgs, profiling_host_top99p, rum_session_count_sum, synthetics_browser_check_calls_count_sum, synthetics_check_calls_count_sum, trace_search_indexed_events_count_sum, twol_ingested_events_bytes_sum].hash
+      [agent_host_top99p, apm_host_top99p, aws_host_top99p, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p, billable_ingested_bytes_sum, container_avg, container_hwm, custom_ts_avg, date, fargate_tasks_count_avg, fargate_tasks_count_hwm, gcp_host_top99p, incident_management_monthly_active_users_hwm, indexed_events_count_sum, infra_host_top99p, ingested_events_bytes_sum, mobile_rum_session_count_sum, netflow_indexed_events_count_sum, npm_host_top99p, orgs, profiling_host_top99p, rum_session_count_sum, synthetics_browser_check_calls_count_sum, synthetics_check_calls_count_sum, trace_search_indexed_events_count_sum, twol_ingested_events_bytes_sum].hash
     end
 
     # Builds the object from hash
@@ -388,8 +399,8 @@ module DatadogAPIClient::V1
     # @return [Object] Deserialized data
     def _deserialize(type, value)
       case type.to_sym
-      when :DateTime
-        DateTime.parse(value)
+      when :Time
+        Time.parse(value)
       when :Date
         Date.parse(value)
       when :String
@@ -468,5 +479,6 @@ module DatadogAPIClient::V1
         value
       end
     end
+
   end
 end

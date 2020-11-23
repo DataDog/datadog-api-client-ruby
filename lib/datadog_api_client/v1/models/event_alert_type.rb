@@ -11,6 +11,7 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 =end
 
 require 'date'
+require 'time'
 
 module DatadogAPIClient::V1
   class EventAlertType
@@ -18,6 +19,9 @@ module DatadogAPIClient::V1
     WARNING = "warning".freeze
     INFO = "info".freeze
     SUCCESS = "success".freeze
+    USER_UPDATE = "user_update".freeze
+    RECOMMENDATION = "recommendation".freeze
+    SNAPSHOT = "snapshot".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

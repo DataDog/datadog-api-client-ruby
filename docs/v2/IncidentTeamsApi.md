@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**create_incident_team**](IncidentTeamsApi.md#create_incident_team) | **POST** /api/v2/teams | Create a new incident team
 [**delete_incident_team**](IncidentTeamsApi.md#delete_incident_team) | **DELETE** /api/v2/teams/{team_id} | Delete an existing incident team
 [**get_incident_team**](IncidentTeamsApi.md#get_incident_team) | **GET** /api/v2/teams/{team_id} | Get details of an incident team
-[**get_incident_teams**](IncidentTeamsApi.md#get_incident_teams) | **GET** /api/v2/teams | Get a list of all incident teams
+[**list_incident_teams**](IncidentTeamsApi.md#list_incident_teams) | **GET** /api/v2/teams | Get a list of all incident teams
 [**update_incident_team**](IncidentTeamsApi.md#update_incident_team) | **PATCH** /api/v2/teams/{team_id} | Update an existing incident team
 
 
@@ -192,9 +192,9 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## get_incident_teams
+## list_incident_teams
 
-> IncidentTeamsResponse get_incident_teams(opts)
+> IncidentTeamsResponse list_incident_teams(opts)
 
 Get a list of all incident teams
 
@@ -222,15 +222,16 @@ api_instance = DatadogAPIClient::V2::IncidentTeamsApi.new
 opts = {
   include: 'include_example', # String | Specifies which types of related objects should be included in the response.
   page_size: 10, # Integer | Size for a given page.
-  page_offset: 0 # Integer | Specific offset to use as the beginning of the returned page.
+  page_offset: 0, # Integer | Specific offset to use as the beginning of the returned page.
+  filter: 'ExampleTeamName' # String | A search query that filters teams by name.
 }
 
 begin
   #Get a list of all incident teams
-  result = api_instance.get_incident_teams(opts)
+  result = api_instance.list_incident_teams(opts)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling IncidentTeamsApi->get_incident_teams: #{e}"
+  puts "Exception when calling IncidentTeamsApi->list_incident_teams: #{e}"
 end
 ```
 
@@ -242,6 +243,7 @@ Name | Type | Description  | Notes
  **include** | **String**| Specifies which types of related objects should be included in the response. | [optional] 
  **page_size** | **Integer**| Size for a given page. | [optional] [default to 10]
  **page_offset** | **Integer**| Specific offset to use as the beginning of the returned page. | [optional] [default to 0]
+ **filter** | **String**| A search query that filters teams by name. | [optional] 
 
 ### Return type
 

@@ -11,6 +11,7 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 =end
 
 require 'date'
+require 'time'
 
 module DatadogAPIClient::V1
   # Updated scatter plot.
@@ -54,7 +55,7 @@ module DatadogAPIClient::V1
       {
         :'aggregator' => :'WidgetAggregator',
         :'apm_query' => :'LogQueryDefinition',
-        :'event_query' => :'EventQueryDefinition',
+        :'event_query' => :'LogQueryDefinition',
         :'log_query' => :'LogQueryDefinition',
         :'network_query' => :'LogQueryDefinition',
         :'process_query' => :'ProcessQueryDefinition',
@@ -198,8 +199,8 @@ module DatadogAPIClient::V1
     # @return [Object] Deserialized data
     def _deserialize(type, value)
       case type.to_sym
-      when :DateTime
-        DateTime.parse(value)
+      when :Time
+        Time.parse(value)
       when :Date
         Date.parse(value)
       when :String
@@ -278,5 +279,6 @@ module DatadogAPIClient::V1
         value
       end
     end
+
   end
 end

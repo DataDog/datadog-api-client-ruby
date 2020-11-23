@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**hour** | **DateTime** | The hour for the usage. | [optional] 
+**hour** | **Time** | The hour for the usage. | [optional] 
 **ingested_events_bytes** | **Integer** | Contains the total number of bytes ingested during a given hour. | [optional] 
 
 ## Code Sample

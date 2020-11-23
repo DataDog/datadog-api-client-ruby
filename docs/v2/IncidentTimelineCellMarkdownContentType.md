@@ -1,4 +1,4 @@
-# DatadogAPIClient::V2::LogsAggregateBucketValueTimeseries
+# DatadogAPIClient::V2::IncidentTimelineCellMarkdownContentType
 
 ## Properties
 
@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ```ruby
 require 'DatadogAPIClient::V2'
 
-instance = DatadogAPIClient::V2::LogsAggregateBucketValueTimeseries.new()
+instance = DatadogAPIClient::V2::IncidentTimelineCellMarkdownContentType.new()
 ```
 
 

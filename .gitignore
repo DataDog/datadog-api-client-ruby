@@ -3,3 +3,4 @@ Gemfile.lock
 failed.txt
 rerun.txt
 coverage/
+examples/

@@ -11,6 +11,7 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 =end
 
 require 'date'
+require 'time'
 
 module DatadogAPIClient::V1
   # Object describing a Datadog Log index.
@@ -29,7 +30,7 @@ module DatadogAPIClient::V1
     # The name of the index.
     attr_accessor :name
 
-    # The number of days before logs are deleted from this index.
+    # The number of days before logs are deleted from this index. Available values depend on retention plans specified in your organization's contract/subscriptions.
     attr_accessor :num_retention_days
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -182,8 +183,8 @@ module DatadogAPIClient::V1
     # @return [Object] Deserialized data
     def _deserialize(type, value)
       case type.to_sym
-      when :DateTime
-        DateTime.parse(value)
+      when :Time
+        Time.parse(value)
       when :Date
         Date.parse(value)
       when :String
@@ -262,5 +263,6 @@ module DatadogAPIClient::V1
         value
       end
     end
+
   end
 end

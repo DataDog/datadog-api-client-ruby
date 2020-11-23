@@ -97,13 +97,18 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V2::IncidentServicesApi* | [**create_incident_service**](docs/IncidentServicesApi.md#create_incident_service) | **POST** /api/v2/services | Create a new incident service
 *DatadogAPIClient::V2::IncidentServicesApi* | [**delete_incident_service**](docs/IncidentServicesApi.md#delete_incident_service) | **DELETE** /api/v2/services/{service_id} | Delete an existing incident service
 *DatadogAPIClient::V2::IncidentServicesApi* | [**get_incident_service**](docs/IncidentServicesApi.md#get_incident_service) | **GET** /api/v2/services/{service_id} | Get details of an incident service
-*DatadogAPIClient::V2::IncidentServicesApi* | [**get_incident_services**](docs/IncidentServicesApi.md#get_incident_services) | **GET** /api/v2/services | Get a list of all incident services
+*DatadogAPIClient::V2::IncidentServicesApi* | [**list_incident_services**](docs/IncidentServicesApi.md#list_incident_services) | **GET** /api/v2/services | Get a list of all incident services
 *DatadogAPIClient::V2::IncidentServicesApi* | [**update_incident_service**](docs/IncidentServicesApi.md#update_incident_service) | **PATCH** /api/v2/services/{service_id} | Update an existing incident service
 *DatadogAPIClient::V2::IncidentTeamsApi* | [**create_incident_team**](docs/IncidentTeamsApi.md#create_incident_team) | **POST** /api/v2/teams | Create a new incident team
 *DatadogAPIClient::V2::IncidentTeamsApi* | [**delete_incident_team**](docs/IncidentTeamsApi.md#delete_incident_team) | **DELETE** /api/v2/teams/{team_id} | Delete an existing incident team
 *DatadogAPIClient::V2::IncidentTeamsApi* | [**get_incident_team**](docs/IncidentTeamsApi.md#get_incident_team) | **GET** /api/v2/teams/{team_id} | Get details of an incident team
-*DatadogAPIClient::V2::IncidentTeamsApi* | [**get_incident_teams**](docs/IncidentTeamsApi.md#get_incident_teams) | **GET** /api/v2/teams | Get a list of all incident teams
+*DatadogAPIClient::V2::IncidentTeamsApi* | [**list_incident_teams**](docs/IncidentTeamsApi.md#list_incident_teams) | **GET** /api/v2/teams | Get a list of all incident teams
 *DatadogAPIClient::V2::IncidentTeamsApi* | [**update_incident_team**](docs/IncidentTeamsApi.md#update_incident_team) | **PATCH** /api/v2/teams/{team_id} | Update an existing incident team
+*DatadogAPIClient::V2::IncidentsApi* | [**create_incident**](docs/IncidentsApi.md#create_incident) | **POST** /api/v2/incidents | Create an incident
+*DatadogAPIClient::V2::IncidentsApi* | [**delete_incident**](docs/IncidentsApi.md#delete_incident) | **DELETE** /api/v2/incidents/{incident_id} | Delete an existing incident
+*DatadogAPIClient::V2::IncidentsApi* | [**get_incident**](docs/IncidentsApi.md#get_incident) | **GET** /api/v2/incidents/{incident_id} | Get the details of an incident
+*DatadogAPIClient::V2::IncidentsApi* | [**list_incidents**](docs/IncidentsApi.md#list_incidents) | **GET** /api/v2/incidents | Get a list of incidents
+*DatadogAPIClient::V2::IncidentsApi* | [**update_incident**](docs/IncidentsApi.md#update_incident) | **PATCH** /api/v2/incidents/{incident_id} | Update an existing incident
 *DatadogAPIClient::V2::LogsApi* | [**aggregate_logs**](docs/LogsApi.md#aggregate_logs) | **POST** /api/v2/logs/analytics/aggregate | Aggregate events
 *DatadogAPIClient::V2::LogsApi* | [**list_logs**](docs/LogsApi.md#list_logs) | **POST** /api/v2/logs/events/search | Get a list of logs
 *DatadogAPIClient::V2::LogsApi* | [**list_logs_get**](docs/LogsApi.md#list_logs_get) | **GET** /api/v2/logs/events | Get a quick list of logs
@@ -162,6 +167,22 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::DashboardListUpdateItemsRequest](docs/DashboardListUpdateItemsRequest.md)
  - [DatadogAPIClient::V2::DashboardListUpdateItemsResponse](docs/DashboardListUpdateItemsResponse.md)
  - [DatadogAPIClient::V2::DashboardType](docs/DashboardType.md)
+ - [DatadogAPIClient::V2::IncidentCreateAttributes](docs/IncidentCreateAttributes.md)
+ - [DatadogAPIClient::V2::IncidentCreateData](docs/IncidentCreateData.md)
+ - [DatadogAPIClient::V2::IncidentCreateRelationships](docs/IncidentCreateRelationships.md)
+ - [DatadogAPIClient::V2::IncidentCreateRequest](docs/IncidentCreateRequest.md)
+ - [DatadogAPIClient::V2::IncidentFieldAttributes](docs/IncidentFieldAttributes.md)
+ - [DatadogAPIClient::V2::IncidentFieldAttributesMultipleValue](docs/IncidentFieldAttributesMultipleValue.md)
+ - [DatadogAPIClient::V2::IncidentFieldAttributesSingleValue](docs/IncidentFieldAttributesSingleValue.md)
+ - [DatadogAPIClient::V2::IncidentFieldAttributesSingleValueType](docs/IncidentFieldAttributesSingleValueType.md)
+ - [DatadogAPIClient::V2::IncidentFieldAttributesValueType](docs/IncidentFieldAttributesValueType.md)
+ - [DatadogAPIClient::V2::IncidentIntegrationMetadataType](docs/IncidentIntegrationMetadataType.md)
+ - [DatadogAPIClient::V2::IncidentPostmortemType](docs/IncidentPostmortemType.md)
+ - [DatadogAPIClient::V2::IncidentResponse](docs/IncidentResponse.md)
+ - [DatadogAPIClient::V2::IncidentResponseAttributes](docs/IncidentResponseAttributes.md)
+ - [DatadogAPIClient::V2::IncidentResponseData](docs/IncidentResponseData.md)
+ - [DatadogAPIClient::V2::IncidentResponseIncludedItem](docs/IncidentResponseIncludedItem.md)
+ - [DatadogAPIClient::V2::IncidentResponseRelationships](docs/IncidentResponseRelationships.md)
  - [DatadogAPIClient::V2::IncidentServiceCreateAttributes](docs/IncidentServiceCreateAttributes.md)
  - [DatadogAPIClient::V2::IncidentServiceCreateData](docs/IncidentServiceCreateData.md)
  - [DatadogAPIClient::V2::IncidentServiceCreateRequest](docs/IncidentServiceCreateRequest.md)
@@ -190,12 +211,21 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::IncidentTeamUpdateData](docs/IncidentTeamUpdateData.md)
  - [DatadogAPIClient::V2::IncidentTeamUpdateRequest](docs/IncidentTeamUpdateRequest.md)
  - [DatadogAPIClient::V2::IncidentTeamsResponse](docs/IncidentTeamsResponse.md)
+ - [DatadogAPIClient::V2::IncidentTimelineCellCreateAttributes](docs/IncidentTimelineCellCreateAttributes.md)
+ - [DatadogAPIClient::V2::IncidentTimelineCellMarkdownContentType](docs/IncidentTimelineCellMarkdownContentType.md)
+ - [DatadogAPIClient::V2::IncidentTimelineCellMarkdownCreateAttributes](docs/IncidentTimelineCellMarkdownCreateAttributes.md)
+ - [DatadogAPIClient::V2::IncidentTimelineCellMarkdownCreateAttributesContent](docs/IncidentTimelineCellMarkdownCreateAttributesContent.md)
+ - [DatadogAPIClient::V2::IncidentType](docs/IncidentType.md)
+ - [DatadogAPIClient::V2::IncidentUpdateAttributes](docs/IncidentUpdateAttributes.md)
+ - [DatadogAPIClient::V2::IncidentUpdateData](docs/IncidentUpdateData.md)
+ - [DatadogAPIClient::V2::IncidentUpdateRelationships](docs/IncidentUpdateRelationships.md)
+ - [DatadogAPIClient::V2::IncidentUpdateRequest](docs/IncidentUpdateRequest.md)
+ - [DatadogAPIClient::V2::IncidentsResponse](docs/IncidentsResponse.md)
  - [DatadogAPIClient::V2::Log](docs/Log.md)
  - [DatadogAPIClient::V2::LogAttributes](docs/LogAttributes.md)
  - [DatadogAPIClient::V2::LogType](docs/LogType.md)
  - [DatadogAPIClient::V2::LogsAggregateBucket](docs/LogsAggregateBucket.md)
  - [DatadogAPIClient::V2::LogsAggregateBucketValue](docs/LogsAggregateBucketValue.md)
- - [DatadogAPIClient::V2::LogsAggregateBucketValueTimeseries](docs/LogsAggregateBucketValueTimeseries.md)
  - [DatadogAPIClient::V2::LogsAggregateBucketValueTimeseriesPoint](docs/LogsAggregateBucketValueTimeseriesPoint.md)
  - [DatadogAPIClient::V2::LogsAggregateRequest](docs/LogsAggregateRequest.md)
  - [DatadogAPIClient::V2::LogsAggregateRequestPaging](docs/LogsAggregateRequestPaging.md)
@@ -254,6 +284,10 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::PermissionsResponse](docs/PermissionsResponse.md)
  - [DatadogAPIClient::V2::PermissionsType](docs/PermissionsType.md)
  - [DatadogAPIClient::V2::QuerySortOrder](docs/QuerySortOrder.md)
+ - [DatadogAPIClient::V2::RelationshipToIncidentIntegrationMetadataData](docs/RelationshipToIncidentIntegrationMetadataData.md)
+ - [DatadogAPIClient::V2::RelationshipToIncidentIntegrationMetadatas](docs/RelationshipToIncidentIntegrationMetadatas.md)
+ - [DatadogAPIClient::V2::RelationshipToIncidentPostmortem](docs/RelationshipToIncidentPostmortem.md)
+ - [DatadogAPIClient::V2::RelationshipToIncidentPostmortemData](docs/RelationshipToIncidentPostmortemData.md)
  - [DatadogAPIClient::V2::RelationshipToOrganization](docs/RelationshipToOrganization.md)
  - [DatadogAPIClient::V2::RelationshipToOrganizationData](docs/RelationshipToOrganizationData.md)
  - [DatadogAPIClient::V2::RelationshipToOrganizations](docs/RelationshipToOrganizations.md)

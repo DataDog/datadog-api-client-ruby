@@ -11,6 +11,7 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 =end
 
 require 'date'
+require 'time'
 
 module DatadogAPIClient::V2
   # A bucket value, can be either a timeseries or a single value
@@ -36,8 +37,8 @@ module DatadogAPIClient::V2
     # List of class defined in oneOf (OpenAPI v3)
     def self.openapi_one_of
       [
+      :'Array<LogsAggregateBucketValueTimeseriesPoint>',
       :'Float',
-      :'LogsAggregateBucketValueTimeseries',
       :'String'
       ]
     end
@@ -149,8 +150,8 @@ module DatadogAPIClient::V2
     # @return [Object] Deserialized data
     def _deserialize(type, value)
       case type.to_sym
-      when :DateTime
-        DateTime.parse(value)
+      when :Time
+        Time.parse(value)
       when :Date
         Date.parse(value)
       when :String
@@ -229,5 +230,6 @@ module DatadogAPIClient::V2
         value
       end
     end
+
   end
 end

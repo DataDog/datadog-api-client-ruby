@@ -211,12 +211,14 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::TagsApi* | [**list_host_tags**](docs/TagsApi.md#list_host_tags) | **GET** /api/v1/tags/hosts | Get Tags
 *DatadogAPIClient::V1::TagsApi* | [**update_host_tags**](docs/TagsApi.md#update_host_tags) | **PUT** /api/v1/tags/hosts/{host_name} | Update host tags
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_daily_custom_reports**](docs/UsageMeteringApi.md#get_daily_custom_reports) | **GET** /api/v1/daily_custom_reports | Get the list of available daily custom reports
+*DatadogAPIClient::V1::UsageMeteringApi* | [**get_incident_management**](docs/UsageMeteringApi.md#get_incident_management) | **GET** /api/v1/usage/incident-management | Get hourly usage for incident management
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_ingested_spans**](docs/UsageMeteringApi.md#get_ingested_spans) | **GET** /api/v1/usage/ingested-spans | Get hourly usage for ingested spans
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_monthly_custom_reports**](docs/UsageMeteringApi.md#get_monthly_custom_reports) | **GET** /api/v1/monthly_custom_reports | Get the list of available monthly custom reports
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_specified_daily_custom_reports**](docs/UsageMeteringApi.md#get_specified_daily_custom_reports) | **GET** /api/v1/daily_custom_reports/{report_id} | Get specified daily custom reports
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_specified_monthly_custom_reports**](docs/UsageMeteringApi.md#get_specified_monthly_custom_reports) | **GET** /api/v1/monthly_custom_reports/{report_id} | Get specified monthly custom reports
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_tracing_without_limits**](docs/UsageMeteringApi.md#get_tracing_without_limits) | **GET** /api/v1/usage/tracing-without-limits | Get hourly usage for tracing without limits
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_usage_analyzed_logs**](docs/UsageMeteringApi.md#get_usage_analyzed_logs) | **GET** /api/v1/usage/analyzed_logs | Get hourly usage for analyzed logs
+*DatadogAPIClient::V1::UsageMeteringApi* | [**get_usage_attribution**](docs/UsageMeteringApi.md#get_usage_attribution) | **GET** /api/v1/usage/attribution | Get Usage Attribution
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_usage_billable_summary**](docs/UsageMeteringApi.md#get_usage_billable_summary) | **GET** /api/v1/usage/billable-summary | Get billable usage across your multi-org account
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_usage_fargate**](docs/UsageMeteringApi.md#get_usage_fargate) | **GET** /api/v1/usage/fargate | Get hourly usage for Fargate
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_usage_hosts**](docs/UsageMeteringApi.md#get_usage_hosts) | **GET** /api/v1/usage/hosts | Get hourly usage for hosts and containers
@@ -377,6 +379,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::LogsGrokParserType](docs/LogsGrokParserType.md)
  - [DatadogAPIClient::V1::LogsIndex](docs/LogsIndex.md)
  - [DatadogAPIClient::V1::LogsIndexListResponse](docs/LogsIndexListResponse.md)
+ - [DatadogAPIClient::V1::LogsIndexUpdateRequest](docs/LogsIndexUpdateRequest.md)
  - [DatadogAPIClient::V1::LogsIndexesOrder](docs/LogsIndexesOrder.md)
  - [DatadogAPIClient::V1::LogsListRequest](docs/LogsListRequest.md)
  - [DatadogAPIClient::V1::LogsListRequestTime](docs/LogsListRequestTime.md)
@@ -563,6 +566,13 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::ToplistWidgetRequest](docs/ToplistWidgetRequest.md)
  - [DatadogAPIClient::V1::UsageAnalyzedLogsHour](docs/UsageAnalyzedLogsHour.md)
  - [DatadogAPIClient::V1::UsageAnalyzedLogsResponse](docs/UsageAnalyzedLogsResponse.md)
+ - [DatadogAPIClient::V1::UsageAttributionAggregatesBody](docs/UsageAttributionAggregatesBody.md)
+ - [DatadogAPIClient::V1::UsageAttributionBody](docs/UsageAttributionBody.md)
+ - [DatadogAPIClient::V1::UsageAttributionMetadata](docs/UsageAttributionMetadata.md)
+ - [DatadogAPIClient::V1::UsageAttributionPagination](docs/UsageAttributionPagination.md)
+ - [DatadogAPIClient::V1::UsageAttributionResponse](docs/UsageAttributionResponse.md)
+ - [DatadogAPIClient::V1::UsageAttributionSort](docs/UsageAttributionSort.md)
+ - [DatadogAPIClient::V1::UsageAttributionValues](docs/UsageAttributionValues.md)
  - [DatadogAPIClient::V1::UsageBillableSummaryBody](docs/UsageBillableSummaryBody.md)
  - [DatadogAPIClient::V1::UsageBillableSummaryHour](docs/UsageBillableSummaryHour.md)
  - [DatadogAPIClient::V1::UsageBillableSummaryKeys](docs/UsageBillableSummaryKeys.md)
@@ -576,6 +586,8 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::UsageFargateResponse](docs/UsageFargateResponse.md)
  - [DatadogAPIClient::V1::UsageHostHour](docs/UsageHostHour.md)
  - [DatadogAPIClient::V1::UsageHostsResponse](docs/UsageHostsResponse.md)
+ - [DatadogAPIClient::V1::UsageIncidentManagementHour](docs/UsageIncidentManagementHour.md)
+ - [DatadogAPIClient::V1::UsageIncidentManagementResponse](docs/UsageIncidentManagementResponse.md)
  - [DatadogAPIClient::V1::UsageIndexedSpansHour](docs/UsageIndexedSpansHour.md)
  - [DatadogAPIClient::V1::UsageIndexedSpansResponse](docs/UsageIndexedSpansResponse.md)
  - [DatadogAPIClient::V1::UsageIngestedSpansHour](docs/UsageIngestedSpansHour.md)
