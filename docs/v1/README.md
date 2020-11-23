@@ -189,8 +189,10 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::ServiceLevelObjectivesApi* | [**update_slo**](docs/ServiceLevelObjectivesApi.md#update_slo) | **PUT** /api/v1/slo/{slo_id} | Update a SLO
 *DatadogAPIClient::V1::SnapshotsApi* | [**get_graph_snapshot**](docs/SnapshotsApi.md#get_graph_snapshot) | **GET** /api/v1/graph/snapshot | Take graph snapshots
 *DatadogAPIClient::V1::SyntheticsApi* | [**create_global_variable**](docs/SyntheticsApi.md#create_global_variable) | **POST** /api/v1/synthetics/variables | Create a global variable
+*DatadogAPIClient::V1::SyntheticsApi* | [**create_private_location**](docs/SyntheticsApi.md#create_private_location) | **POST** /api/v1/synthetics/private-locations | Create a private location
 *DatadogAPIClient::V1::SyntheticsApi* | [**create_test**](docs/SyntheticsApi.md#create_test) | **POST** /api/v1/synthetics/tests | Create a test
 *DatadogAPIClient::V1::SyntheticsApi* | [**delete_global_variable**](docs/SyntheticsApi.md#delete_global_variable) | **DELETE** /api/v1/synthetics/variables/{variable_id} | Delete a global variable
+*DatadogAPIClient::V1::SyntheticsApi* | [**delete_private_location**](docs/SyntheticsApi.md#delete_private_location) | **DELETE** /api/v1/synthetics/private-locations/{location_id} | Delete a private location
 *DatadogAPIClient::V1::SyntheticsApi* | [**delete_tests**](docs/SyntheticsApi.md#delete_tests) | **POST** /api/v1/synthetics/tests/delete | Delete tests
 *DatadogAPIClient::V1::SyntheticsApi* | [**edit_global_variable**](docs/SyntheticsApi.md#edit_global_variable) | **PUT** /api/v1/synthetics/variables/{variable_id} | Edit a global variable
 *DatadogAPIClient::V1::SyntheticsApi* | [**get_api_test_latest_results**](docs/SyntheticsApi.md#get_api_test_latest_results) | **GET** /api/v1/synthetics/tests/{public_id}/results | Get the test's latest results summaries (API)
@@ -199,10 +201,12 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::SyntheticsApi* | [**get_browser_test_latest_results**](docs/SyntheticsApi.md#get_browser_test_latest_results) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results | Get the test's latest results summaries (browser)
 *DatadogAPIClient::V1::SyntheticsApi* | [**get_browser_test_result**](docs/SyntheticsApi.md#get_browser_test_result) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results/{result_id} | Get a test result (browser)
 *DatadogAPIClient::V1::SyntheticsApi* | [**get_global_variable**](docs/SyntheticsApi.md#get_global_variable) | **GET** /api/v1/synthetics/variables/{variable_id} | Get a global variable
+*DatadogAPIClient::V1::SyntheticsApi* | [**get_private_location**](docs/SyntheticsApi.md#get_private_location) | **GET** /api/v1/synthetics/private-locations/{location_id} | Get a private location
 *DatadogAPIClient::V1::SyntheticsApi* | [**get_test**](docs/SyntheticsApi.md#get_test) | **GET** /api/v1/synthetics/tests/{public_id} | Get a test configuration (API)
 *DatadogAPIClient::V1::SyntheticsApi* | [**list_locations**](docs/SyntheticsApi.md#list_locations) | **GET** /api/v1/synthetics/locations | Get all locations (public and private)
 *DatadogAPIClient::V1::SyntheticsApi* | [**list_tests**](docs/SyntheticsApi.md#list_tests) | **GET** /api/v1/synthetics/tests | Get the list of all tests
 *DatadogAPIClient::V1::SyntheticsApi* | [**trigger_ci_tests**](docs/SyntheticsApi.md#trigger_ci_tests) | **POST** /api/v1/synthetics/tests/trigger/ci | Trigger some Synthetics tests for CI
+*DatadogAPIClient::V1::SyntheticsApi* | [**update_private_location**](docs/SyntheticsApi.md#update_private_location) | **PUT** /api/v1/synthetics/private-locations/{location_id} | Edit a private location
 *DatadogAPIClient::V1::SyntheticsApi* | [**update_test**](docs/SyntheticsApi.md#update_test) | **PUT** /api/v1/synthetics/tests/{public_id} | Edit a test
 *DatadogAPIClient::V1::SyntheticsApi* | [**update_test_pause_status**](docs/SyntheticsApi.md#update_test_pause_status) | **PUT** /api/v1/synthetics/tests/{public_id}/status | Pause or start a test
 *DatadogAPIClient::V1::TagsApi* | [**create_host_tags**](docs/TagsApi.md#create_host_tags) | **POST** /api/v1/tags/hosts/{host_name} | Add tags to a host
@@ -521,6 +525,12 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::SyntheticsLocation](docs/SyntheticsLocation.md)
  - [DatadogAPIClient::V1::SyntheticsLocations](docs/SyntheticsLocations.md)
  - [DatadogAPIClient::V1::SyntheticsPlayingTab](docs/SyntheticsPlayingTab.md)
+ - [DatadogAPIClient::V1::SyntheticsPrivateLocation](docs/SyntheticsPrivateLocation.md)
+ - [DatadogAPIClient::V1::SyntheticsPrivateLocationCreationResponse](docs/SyntheticsPrivateLocationCreationResponse.md)
+ - [DatadogAPIClient::V1::SyntheticsPrivateLocationCreationResponseResultEncryption](docs/SyntheticsPrivateLocationCreationResponseResultEncryption.md)
+ - [DatadogAPIClient::V1::SyntheticsPrivateLocationSecrets](docs/SyntheticsPrivateLocationSecrets.md)
+ - [DatadogAPIClient::V1::SyntheticsPrivateLocationSecretsAuthentication](docs/SyntheticsPrivateLocationSecretsAuthentication.md)
+ - [DatadogAPIClient::V1::SyntheticsPrivateLocationSecretsConfigDecryption](docs/SyntheticsPrivateLocationSecretsConfigDecryption.md)
  - [DatadogAPIClient::V1::SyntheticsResource](docs/SyntheticsResource.md)
  - [DatadogAPIClient::V1::SyntheticsResourceType](docs/SyntheticsResourceType.md)
  - [DatadogAPIClient::V1::SyntheticsSSLCertificate](docs/SyntheticsSSLCertificate.md)

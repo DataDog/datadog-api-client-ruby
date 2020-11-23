@@ -5,8 +5,10 @@ All URIs are relative to *https://api.datadoghq.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_global_variable**](SyntheticsApi.md#create_global_variable) | **POST** /api/v1/synthetics/variables | Create a global variable
+[**create_private_location**](SyntheticsApi.md#create_private_location) | **POST** /api/v1/synthetics/private-locations | Create a private location
 [**create_test**](SyntheticsApi.md#create_test) | **POST** /api/v1/synthetics/tests | Create a test
 [**delete_global_variable**](SyntheticsApi.md#delete_global_variable) | **DELETE** /api/v1/synthetics/variables/{variable_id} | Delete a global variable
+[**delete_private_location**](SyntheticsApi.md#delete_private_location) | **DELETE** /api/v1/synthetics/private-locations/{location_id} | Delete a private location
 [**delete_tests**](SyntheticsApi.md#delete_tests) | **POST** /api/v1/synthetics/tests/delete | Delete tests
 [**edit_global_variable**](SyntheticsApi.md#edit_global_variable) | **PUT** /api/v1/synthetics/variables/{variable_id} | Edit a global variable
 [**get_api_test_latest_results**](SyntheticsApi.md#get_api_test_latest_results) | **GET** /api/v1/synthetics/tests/{public_id}/results | Get the test&#39;s latest results summaries (API)
@@ -15,10 +17,12 @@ Method | HTTP request | Description
 [**get_browser_test_latest_results**](SyntheticsApi.md#get_browser_test_latest_results) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results | Get the test&#39;s latest results summaries (browser)
 [**get_browser_test_result**](SyntheticsApi.md#get_browser_test_result) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results/{result_id} | Get a test result (browser)
 [**get_global_variable**](SyntheticsApi.md#get_global_variable) | **GET** /api/v1/synthetics/variables/{variable_id} | Get a global variable
+[**get_private_location**](SyntheticsApi.md#get_private_location) | **GET** /api/v1/synthetics/private-locations/{location_id} | Get a private location
 [**get_test**](SyntheticsApi.md#get_test) | **GET** /api/v1/synthetics/tests/{public_id} | Get a test configuration (API)
 [**list_locations**](SyntheticsApi.md#list_locations) | **GET** /api/v1/synthetics/locations | Get all locations (public and private)
 [**list_tests**](SyntheticsApi.md#list_tests) | **GET** /api/v1/synthetics/tests | Get the list of all tests
 [**trigger_ci_tests**](SyntheticsApi.md#trigger_ci_tests) | **POST** /api/v1/synthetics/tests/trigger/ci | Trigger some Synthetics tests for CI
+[**update_private_location**](SyntheticsApi.md#update_private_location) | **PUT** /api/v1/synthetics/private-locations/{location_id} | Edit a private location
 [**update_test**](SyntheticsApi.md#update_test) | **PUT** /api/v1/synthetics/tests/{public_id} | Edit a test
 [**update_test_pause_status**](SyntheticsApi.md#update_test_pause_status) | **PUT** /api/v1/synthetics/tests/{public_id}/status | Pause or start a test
 
@@ -72,6 +76,65 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SyntheticsGlobalVariable**](SyntheticsGlobalVariable.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## create_private_location
+
+> SyntheticsPrivateLocationCreationResponse create_private_location(body)
+
+Create a private location
+
+Create a new Synthetics private location.
+
+### Example
+
+```ruby
+# load the gem
+require 'datadog_api_client/v1'
+# setup authorization
+DatadogAPIClient::V1.configure do |config|
+  # Configure API key authorization: apiKeyAuth
+  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+
+  # Configure API key authorization: appKeyAuth
+  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+end
+
+api_instance = DatadogAPIClient::V1::SyntheticsApi.new
+body = DatadogAPIClient::V1::SyntheticsPrivateLocation.new # SyntheticsPrivateLocation | Details of the private location to create.
+
+begin
+  #Create a private location
+  result = api_instance.create_private_location(body)
+  p result
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Exception when calling SyntheticsApi->create_private_location: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**SyntheticsPrivateLocation**](SyntheticsPrivateLocation.md)| Details of the private location to create. | 
+
+### Return type
+
+[**SyntheticsPrivateLocationCreationResponse**](SyntheticsPrivateLocationCreationResponse.md)
 
 ### Authorization
 
@@ -185,6 +248,64 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **variable_id** | **String**| The ID of the global variable. | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## delete_private_location
+
+> delete_private_location(location_id)
+
+Delete a private location
+
+Delete a Synthetics private location.
+
+### Example
+
+```ruby
+# load the gem
+require 'datadog_api_client/v1'
+# setup authorization
+DatadogAPIClient::V1.configure do |config|
+  # Configure API key authorization: apiKeyAuth
+  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+
+  # Configure API key authorization: appKeyAuth
+  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+end
+
+api_instance = DatadogAPIClient::V1::SyntheticsApi.new
+location_id = 'location_id_example' # String | The ID of the private location.
+
+begin
+  #Delete a private location
+  api_instance.delete_private_location(location_id)
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Exception when calling SyntheticsApi->delete_private_location: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **location_id** | **String**| The ID of the private location. | 
 
 ### Return type
 
@@ -694,6 +815,65 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## get_private_location
+
+> SyntheticsPrivateLocation get_private_location(location_id)
+
+Get a private location
+
+Get a Synthetics private location.
+
+### Example
+
+```ruby
+# load the gem
+require 'datadog_api_client/v1'
+# setup authorization
+DatadogAPIClient::V1.configure do |config|
+  # Configure API key authorization: apiKeyAuth
+  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+
+  # Configure API key authorization: appKeyAuth
+  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+end
+
+api_instance = DatadogAPIClient::V1::SyntheticsApi.new
+location_id = 'location_id_example' # String | The ID of the private location.
+
+begin
+  #Get a private location
+  result = api_instance.get_private_location(location_id)
+  p result
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Exception when calling SyntheticsApi->get_private_location: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **location_id** | **String**| The ID of the private location. | 
+
+### Return type
+
+[**SyntheticsPrivateLocation**](SyntheticsPrivateLocation.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## get_test
 
 > SyntheticsTestDetails get_test(public_id)
@@ -869,7 +1049,7 @@ This endpoint does not need any parameter.
 
 Trigger some Synthetics tests for CI
 
-Trigger a set of Synthetics tests for continuous integration
+Trigger a set of Synthetics tests for continuous integration.
 
 ### Example
 
@@ -911,6 +1091,67 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SyntheticsTriggerCITestsResponse**](SyntheticsTriggerCITestsResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## update_private_location
+
+> SyntheticsPrivateLocation update_private_location(location_id, body)
+
+Edit a private location
+
+Edit a Synthetics private location.
+
+### Example
+
+```ruby
+# load the gem
+require 'datadog_api_client/v1'
+# setup authorization
+DatadogAPIClient::V1.configure do |config|
+  # Configure API key authorization: apiKeyAuth
+  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+
+  # Configure API key authorization: appKeyAuth
+  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+end
+
+api_instance = DatadogAPIClient::V1::SyntheticsApi.new
+location_id = 'location_id_example' # String | The ID of the private location.
+body = DatadogAPIClient::V1::SyntheticsPrivateLocation.new # SyntheticsPrivateLocation | Details of the private location to be updated.
+
+begin
+  #Edit a private location
+  result = api_instance.update_private_location(location_id, body)
+  p result
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Exception when calling SyntheticsApi->update_private_location: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **location_id** | **String**| The ID of the private location. | 
+ **body** | [**SyntheticsPrivateLocation**](SyntheticsPrivateLocation.md)| Details of the private location to be updated. | 
+
+### Return type
+
+[**SyntheticsPrivateLocation**](SyntheticsPrivateLocation.md)
 
 ### Authorization
 
