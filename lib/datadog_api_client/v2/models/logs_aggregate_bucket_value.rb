@@ -37,8 +37,8 @@ module DatadogAPIClient::V2
     # List of class defined in oneOf (OpenAPI v3)
     def self.openapi_one_of
       [
+      :'Array<LogsAggregateBucketValueTimeseriesPoint>',
       :'Float',
-      :'LogsAggregateBucketValueTimeseries',
       :'String'
       ]
     end
