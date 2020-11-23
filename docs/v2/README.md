@@ -226,7 +226,6 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::LogType](docs/LogType.md)
  - [DatadogAPIClient::V2::LogsAggregateBucket](docs/LogsAggregateBucket.md)
  - [DatadogAPIClient::V2::LogsAggregateBucketValue](docs/LogsAggregateBucketValue.md)
- - [DatadogAPIClient::V2::LogsAggregateBucketValueTimeseries](docs/LogsAggregateBucketValueTimeseries.md)
  - [DatadogAPIClient::V2::LogsAggregateBucketValueTimeseriesPoint](docs/LogsAggregateBucketValueTimeseriesPoint.md)
  - [DatadogAPIClient::V2::LogsAggregateRequest](docs/LogsAggregateRequest.md)
  - [DatadogAPIClient::V2::LogsAggregateRequestPaging](docs/LogsAggregateRequestPaging.md)
