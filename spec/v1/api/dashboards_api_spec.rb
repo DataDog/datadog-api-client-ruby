@@ -683,18 +683,18 @@ describe 'DashboardsApi' do
       })
       ordered_widget_list.add(timeseries_widget_process_query)
 
-      # Timeseries Widget with log query
-      timeseries_widget_definition_log_query = DatadogAPIClient::V1::TimeseriesWidgetDefinition.new({
+      # Timeseries Widget with event query
+      timeseries_widget_definition_event_query = DatadogAPIClient::V1::TimeseriesWidgetDefinition.new({
         requests: [DatadogAPIClient::V1::TimeseriesWidgetRequest.new({
-          log_query: DatadogAPIClient::V1::LogQueryDefinition.new({
-            index: "main",
+          event_query: DatadogAPIClient::V1::LogQueryDefinition.new({
+            index: "*",
             compute: DatadogAPIClient::V1::LogsQueryCompute.new({
               aggregation: "count",
               facet: "host",
               interval: 10,
             }),
             search: DatadogAPIClient::V1::LogQueryDefinitionSearch.new({
-              query: "Error parsing"
+              query: "source:kubernetes"
             }),
             group_by: [DatadogAPIClient::V1::LogQueryDefinitionGroupBy.new({
               facet: "host",
@@ -704,57 +704,6 @@ describe 'DashboardsApi' do
                 order: DatadogAPIClient::V1::WidgetSort::ASCENDING
               })
             })]
-          }),
-          style: DatadogAPIClient::V1::WidgetRequestStyle.new({
-            palette: "dog_classic",
-            line_type: DatadogAPIClient::V1::WidgetLineType::DASHED,
-            line_width: DatadogAPIClient::V1::WidgetLineWidth::THICK
-          }),
-          metadata: [DatadogAPIClient::V1::TimeseriesWidgetRequestMetadata.new({
-            expression: "avg:system.load.1{*}",
-            alias_name: "Aliased metric"
-          })],
-          display_type: DatadogAPIClient::V1::WidgetDisplayType::LINE
-        })],
-        yaxis: DatadogAPIClient::V1::WidgetAxis.new({
-          scale: "linear",
-          min: "0",
-          max: "100",
-          include_zero: true
-        }),
-        events: [DatadogAPIClient::V1::WidgetEvent.new({
-          q: "Build succeeded"
-        })],
-        markers: [DatadogAPIClient::V1::WidgetMarker.new({
-          value: "y=15",
-          display_type: "error dashed",
-          label: "error threshold",
-          time: DatadogAPIClient::V1::WidgetLiveSpan::PAST_FOUR_HOURS
-        })],
-        title: "Test Timeseries Widget with Log Query",
-        title_align: DatadogAPIClient::V1::WidgetTextAlign::CENTER,
-        title_size: "16",
-        time: DatadogAPIClient::V1::WidgetTime.new({
-          live_span: DatadogAPIClient::V1::WidgetLiveSpan::PAST_FIFTEEN_MINUTES
-        }),
-        custom_links: [DatadogAPIClient::V1::WidgetCustomLink.new({
-          label: "Test Custom Link Label",
-          link: "https://app.datadoghq.com/dashboard/lists"
-        })],
-        show_legend: true,
-        legend_size: "16"
-      })
-      timeseries_widget_log_query = DatadogAPIClient::V1::Widget.new({
-        definition: timeseries_widget_definition_log_query
-      })
-      ordered_widget_list.add(timeseries_widget_log_query)
-
-      # Timeseries Widget with event query
-      timeseries_widget_definition_event_query = DatadogAPIClient::V1::TimeseriesWidgetDefinition.new({
-        requests: [DatadogAPIClient::V1::TimeseriesWidgetRequest.new({
-          event_query: DatadogAPIClient::V1::EventQueryDefinition.new({
-            search: "Build Failure",
-            tags_execution: "build"
           }),
           style: DatadogAPIClient::V1::WidgetRequestStyle.new({
             palette: "dog_classic",
@@ -799,6 +748,79 @@ describe 'DashboardsApi' do
         definition: timeseries_widget_definition_event_query
       })
       ordered_widget_list.add(timeseries_widget_event_query)
+
+      # Timeseries Widget with log query
+      timeseries_widget_definition_log_query = DatadogAPIClient::V1::TimeseriesWidgetDefinition.new({
+        requests: [DatadogAPIClient::V1::TimeseriesWidgetRequest.new({
+          log_query: DatadogAPIClient::V1::LogQueryDefinition.new({
+            index: "main",
+            compute: DatadogAPIClient::V1::LogsQueryCompute.new({
+              aggregation: "count",
+              facet: "host",
+              interval: 10,
+            }),
+            search: DatadogAPIClient::V1::LogQueryDefinitionSearch.new({
+              query: "Error parsing"
+            }),
+            group_by: [DatadogAPIClient::V1::LogQueryDefinitionGroupBy.new({
+              facet: "host",
+              limit: 5,
+              sort: DatadogAPIClient::V1::LogQueryDefinitionSort.new({
+                aggregation: "count",
+                order: DatadogAPIClient::V1::WidgetSort::ASCENDING
+              })
+            })]
+          }),
+          style: DatadogAPIClient::V1::WidgetRequestStyle.new({
+            palette: "dog_classic",
+            line_type: DatadogAPIClient::V1::WidgetLineType::DASHED,
+            line_width: DatadogAPIClient::V1::WidgetLineWidth::THICK
+          }),
+          metadata: [DatadogAPIClient::V1::TimeseriesWidgetRequestMetadata.new({
+            expression: "avg:system.load.1{*}",
+            alias_name: "Aliased metric"
+          })],
+          display_type: DatadogAPIClient::V1::WidgetDisplayType::LINE,
+          on_right_yaxis: true,
+        })],
+        yaxis: DatadogAPIClient::V1::WidgetAxis.new({
+          scale: "linear",
+          min: "0",
+          max: "100",
+          include_zero: true
+        }),
+        right_yaxis: DatadogAPIClient::V1::WidgetAxis.new({
+          scale: "linear",
+          min: "0",
+          max: "100",
+          include_zero: true
+        }),
+        events: [DatadogAPIClient::V1::WidgetEvent.new({
+          q: "Build succeeded"
+        })],
+        markers: [DatadogAPIClient::V1::WidgetMarker.new({
+          value: "y=15",
+          display_type: "error dashed",
+          label: "error threshold",
+          time: DatadogAPIClient::V1::WidgetLiveSpan::PAST_FOUR_HOURS
+        })],
+        title: "Test Timeseries Widget with Log Query",
+        title_align: DatadogAPIClient::V1::WidgetTextAlign::CENTER,
+        title_size: "16",
+        time: DatadogAPIClient::V1::WidgetTime.new({
+          live_span: DatadogAPIClient::V1::WidgetLiveSpan::PAST_FIFTEEN_MINUTES
+        }),
+        custom_links: [DatadogAPIClient::V1::WidgetCustomLink.new({
+          label: "Test Custom Link Label",
+          link: "https://app.datadoghq.com/dashboard/lists"
+        })],
+        show_legend: true,
+        legend_size: "16"
+      })
+      timeseries_widget_log_query = DatadogAPIClient::V1::Widget.new({
+        definition: timeseries_widget_definition_log_query
+      })
+      ordered_widget_list.add(timeseries_widget_log_query)
 
       # Toplist Widget
       toplist_widget_definition = DatadogAPIClient::V1::ToplistWidgetDefinition.new({
