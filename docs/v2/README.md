@@ -122,6 +122,7 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V2::LogsArchivesApi* | [**remove_role_from_archive**](docs/LogsArchivesApi.md#remove_role_from_archive) | **DELETE** /api/v2/logs/config/archives/{archive_id}/readers | Revoke role from an archive
 *DatadogAPIClient::V2::LogsArchivesApi* | [**update_logs_archive**](docs/LogsArchivesApi.md#update_logs_archive) | **PUT** /api/v2/logs/config/archives/{archive_id} | Update an archive
 *DatadogAPIClient::V2::LogsArchivesApi* | [**update_logs_archive_order**](docs/LogsArchivesApi.md#update_logs_archive_order) | **PUT** /api/v2/logs/config/archive-order | Update archive order
+*DatadogAPIClient::V2::ProcessesApi* | [**list_processes**](docs/ProcessesApi.md#list_processes) | **GET** /api/v2/processes | Get all processes
 *DatadogAPIClient::V2::RolesApi* | [**add_permission_to_role**](docs/RolesApi.md#add_permission_to_role) | **POST** /api/v2/roles/{role_id}/permissions | Grant permission to a role
 *DatadogAPIClient::V2::RolesApi* | [**add_user_to_role**](docs/RolesApi.md#add_user_to_role) | **POST** /api/v2/roles/{role_id}/users | Add a user to a role
 *DatadogAPIClient::V2::RolesApi* | [**create_role**](docs/RolesApi.md#create_role) | **POST** /api/v2/roles | Create role
@@ -283,6 +284,12 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::PermissionAttributes](docs/PermissionAttributes.md)
  - [DatadogAPIClient::V2::PermissionsResponse](docs/PermissionsResponse.md)
  - [DatadogAPIClient::V2::PermissionsType](docs/PermissionsType.md)
+ - [DatadogAPIClient::V2::ProcessSummariesMeta](docs/ProcessSummariesMeta.md)
+ - [DatadogAPIClient::V2::ProcessSummariesMetaPage](docs/ProcessSummariesMetaPage.md)
+ - [DatadogAPIClient::V2::ProcessSummariesResponse](docs/ProcessSummariesResponse.md)
+ - [DatadogAPIClient::V2::ProcessSummary](docs/ProcessSummary.md)
+ - [DatadogAPIClient::V2::ProcessSummaryAttributes](docs/ProcessSummaryAttributes.md)
+ - [DatadogAPIClient::V2::ProcessSummaryType](docs/ProcessSummaryType.md)
  - [DatadogAPIClient::V2::QuerySortOrder](docs/QuerySortOrder.md)
  - [DatadogAPIClient::V2::RelationshipToIncidentIntegrationMetadataData](docs/RelationshipToIncidentIntegrationMetadataData.md)
  - [DatadogAPIClient::V2::RelationshipToIncidentIntegrationMetadatas](docs/RelationshipToIncidentIntegrationMetadatas.md)
