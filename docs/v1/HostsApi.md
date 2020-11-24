@@ -2,13 +2,12 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**get_host_totals**](HostsApi.md#get_host_totals) | **GET** /api/v1/hosts/totals | Get the total number of active hosts
-[**list_hosts**](HostsApi.md#list_hosts) | **GET** /api/v1/hosts | Get all hosts for your organization
-[**mute_host**](HostsApi.md#mute_host) | **POST** /api/v1/host/{host_name}/mute | Mute a host
-[**unmute_host**](HostsApi.md#unmute_host) | **POST** /api/v1/host/{host_name}/unmute | Unmute a host
-
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**get_host_totals**](HostsApi.md#get_host_totals) | **GET** /api/v1/hosts/totals | Get the total number of active hosts |
+| [**list_hosts**](HostsApi.md#list_hosts) | **GET** /api/v1/hosts | Get all hosts for your organization |
+| [**mute_host**](HostsApi.md#mute_host) | **POST** /api/v1/host/{host_name}/mute | Mute a host |
+| [**unmute_host**](HostsApi.md#unmute_host) | **POST** /api/v1/host/{host_name}/unmute | Unmute a host |
 
 
 ## get_host_totals
@@ -53,10 +52,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **from** | **Integer**| Number of seconds from which you want to get total number of active hosts. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **from** | **Integer** | Number of seconds from which you want to get total number of active hosts. | [optional] |
 
 ### Return type
 
@@ -121,17 +119,16 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **filter** | **String**| String to filter search results. | [optional] 
- **sort_field** | **String**| Sort hosts by this field. | [optional] 
- **sort_dir** | **String**| Direction of sort. Options include &#x60;asc&#x60; and &#x60;desc&#x60;. | [optional] 
- **start** | **Integer**| Host result to start search from. | [optional] 
- **count** | **Integer**| Number of hosts to return. Max 1000. | [optional] 
- **from** | **Integer**| Number of seconds since UNIX epoch from which you want to search your hosts. | [optional] 
- **include_muted_hosts_data** | **Boolean**| Include information on the muted status of hosts and when the mute expires. | [optional] 
- **include_hosts_metadata** | **Boolean**| Include additional metadata about the hosts (agent_version, machine, platform, processor, etc.). | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | String to filter search results. | [optional] |
+| **sort_field** | **String** | Sort hosts by this field. | [optional] |
+| **sort_dir** | **String** | Direction of sort. Options include &#x60;asc&#x60; and &#x60;desc&#x60;. | [optional] |
+| **start** | **Integer** | Host result to start search from. | [optional] |
+| **count** | **Integer** | Number of hosts to return. Max 1000. | [optional] |
+| **from** | **Integer** | Number of seconds since UNIX epoch from which you want to search your hosts. | [optional] |
+| **include_muted_hosts_data** | **Boolean** | Include information on the muted status of hosts and when the mute expires. | [optional] |
+| **include_hosts_metadata** | **Boolean** | Include additional metadata about the hosts (agent_version, machine, platform, processor, etc.). | [optional] |
 
 ### Return type
 
@@ -190,11 +187,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **host_name** | **String**| Name of the host to mute. | 
- **body** | [**HostMuteSettings**](HostMuteSettings.md)| Mute a host request body. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **host_name** | **String** | Name of the host to mute. |  |
+| **body** | [**HostMuteSettings**](HostMuteSettings.md) | Mute a host request body. | [optional] |
 
 ### Return type
 
@@ -250,10 +246,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **host_name** | **String**| Name of the host to unmute. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **host_name** | **String** | Name of the host to unmute. |  |
 
 ### Return type
 

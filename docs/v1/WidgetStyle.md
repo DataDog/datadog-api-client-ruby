@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**palette** | **String** | Color palette to apply to the widget. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **palette** | **String** | Color palette to apply to the widget. | [optional] |
 
 ## Code Sample
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::WidgetStyle.new(palette: null)
+instance = DatadogAPIClient::V1::WidgetStyle.new(
+  palette: null
+)
 ```
-
 

@@ -1,23 +1,51 @@
 # DatadogAPIClient::V2::UserResponseIncludedItem
 
-## Properties
+## Class instance methods
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**attributes** | [**RoleAttributes**](RoleAttributes.md) |  | [optional] 
-**id** | **String** | ID of the role. | [optional] 
-**type** | [**RolesType**](RolesType.md) |  | [default to &#39;roles&#39;]
-**relationships** | [**RoleResponseRelationships**](RoleResponseRelationships.md) |  | [optional] 
+### `openapi_one_of`
 
-## Code Sample
+Returns the list of classes defined in oneOf.
+
+#### Example
 
 ```ruby
-require 'DatadogAPIClient::V2'
+require 'datadog_api_client/v2'
 
-instance = DatadogAPIClient::V2::UserResponseIncludedItem.new(attributes: null,
-                                 id: null,
-                                 type: null,
-                                 relationships: null)
+DatadogAPIClient::V2::UserResponseIncludedItem.openapi_one_of
+# =>
+# [
+#   :'Organization',
+#   :'Permission',
+#   :'Role'
+# ]
 ```
 
+### build
+
+Find the appropriate object from the `openapi_one_of` list and casts the data into it.
+
+#### Example
+
+```ruby
+require 'datadog_api_client/v2'
+
+DatadogAPIClient::V2::UserResponseIncludedItem.build(data)
+# => #<Organization:0x00007fdd4aab02a0>
+
+DatadogAPIClient::V2::UserResponseIncludedItem.build(data_that_doesnt_match)
+# => nil
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| **data** | **Mixed** | data to be matched against the list of oneOf items |
+
+#### Return type
+
+- `Organization`
+- `Permission`
+- `Role`
+- `nil` (if no type matches)
 

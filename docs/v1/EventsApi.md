@@ -2,11 +2,10 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**get_event**](EventsApi.md#get_event) | **GET** /api/v1/events/{event_id} | Get an event
-[**list_events**](EventsApi.md#list_events) | **GET** /api/v1/events | Query the event stream
-
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**get_event**](EventsApi.md#get_event) | **GET** /api/v1/events/{event_id} | Get an event |
+| [**list_events**](EventsApi.md#list_events) | **GET** /api/v1/events | Query the event stream |
 
 
 ## get_event
@@ -49,10 +48,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **event_id** | **Integer**| The ID of the event. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **event_id** | **Integer** | The ID of the event. |  |
 
 ### Return type
 
@@ -115,15 +113,14 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **start** | **Integer**| POSIX timestamp. | 
- **_end** | **Integer**| POSIX timestamp. | 
- **priority** | [**EventPriority**](.md)| Priority of your events, either &#x60;low&#x60; or &#x60;normal&#x60;. | [optional] 
- **sources** | **String**| A comma separated string of sources. | [optional] 
- **tags** | **String**| A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope. | [optional] 
- **unaggregated** | **Boolean**| Set unaggregated to &#x60;true&#x60; to return all events within the specified [&#x60;start&#x60;,&#x60;end&#x60;] timeframe. Otherwise if an event is aggregated to a parent event with a timestamp outside of the timeframe, it won&#39;t be available in the output. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **start** | **Integer** | POSIX timestamp. |  |
+| **_end** | **Integer** | POSIX timestamp. |  |
+| **priority** | [**EventPriority**](.md) | Priority of your events, either &#x60;low&#x60; or &#x60;normal&#x60;. | [optional] |
+| **sources** | **String** | A comma separated string of sources. | [optional] |
+| **tags** | **String** | A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope. | [optional] |
+| **unaggregated** | **Boolean** | Set unaggregated to &#x60;true&#x60; to return all events within the specified [&#x60;start&#x60;,&#x60;end&#x60;] timeframe. Otherwise if an event is aggregated to a parent event with a timestamp outside of the timeframe, it won&#39;t be available in the output. | [optional] |
 
 ### Return type
 

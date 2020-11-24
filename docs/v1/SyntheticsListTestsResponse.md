@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**tests** | [**Array&lt;SyntheticsTestDetails&gt;**](SyntheticsTestDetails.md) | Array of Synthetic tests configuration. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **tests** | [**Array&lt;SyntheticsTestDetails&gt;**](SyntheticsTestDetails.md) | Array of Synthetic tests configuration. | [optional] |
 
 ## Code Sample
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::SyntheticsListTestsResponse.new(tests: null)
+instance = DatadogAPIClient::V1::SyntheticsListTestsResponse.new(
+  tests: null
+)
 ```
-
 

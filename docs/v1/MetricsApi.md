@@ -2,14 +2,13 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**get_metric_metadata**](MetricsApi.md#get_metric_metadata) | **GET** /api/v1/metrics/{metric_name} | Get metric metadata
-[**list_active_metrics**](MetricsApi.md#list_active_metrics) | **GET** /api/v1/metrics | Get active metrics list
-[**list_metrics**](MetricsApi.md#list_metrics) | **GET** /api/v1/search | Search metrics
-[**query_metrics**](MetricsApi.md#query_metrics) | **GET** /api/v1/query | Query timeseries points
-[**update_metric_metadata**](MetricsApi.md#update_metric_metadata) | **PUT** /api/v1/metrics/{metric_name} | Edit metric metadata
-
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**get_metric_metadata**](MetricsApi.md#get_metric_metadata) | **GET** /api/v1/metrics/{metric_name} | Get metric metadata |
+| [**list_active_metrics**](MetricsApi.md#list_active_metrics) | **GET** /api/v1/metrics | Get active metrics list |
+| [**list_metrics**](MetricsApi.md#list_metrics) | **GET** /api/v1/search | Search metrics |
+| [**query_metrics**](MetricsApi.md#query_metrics) | **GET** /api/v1/query | Query timeseries points |
+| [**update_metric_metadata**](MetricsApi.md#update_metric_metadata) | **PUT** /api/v1/metrics/{metric_name} | Edit metric metadata |
 
 
 ## get_metric_metadata
@@ -52,10 +51,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **metric_name** | **String**| Name of the metric for which to get metadata. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **metric_name** | **String** | Name of the metric for which to get metadata. |  |
 
 ### Return type
 
@@ -114,11 +112,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **from** | **Integer**| Seconds since the Unix epoch. | 
- **host** | **String**| Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **from** | **Integer** | Seconds since the Unix epoch. |  |
+| **host** | **String** | Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag. | [optional] |
 
 ### Return type
 
@@ -174,10 +171,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **q** | **String**| Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60;. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **q** | **String** | Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60;. |  |
 
 ### Return type
 
@@ -235,12 +231,11 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **from** | **Integer**| Start of the queried time period, seconds since the Unix epoch. | 
- **to** | **Integer**| End of the queried time period, seconds since the Unix epoch. | 
- **query** | **String**| Query string. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **from** | **Integer** | Start of the queried time period, seconds since the Unix epoch. |  |
+| **to** | **Integer** | End of the queried time period, seconds since the Unix epoch. |  |
+| **query** | **String** | Query string. |  |
 
 ### Return type
 
@@ -297,11 +292,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **metric_name** | **String**| Name of the metric for which to edit metadata. | 
- **body** | [**MetricMetadata**](MetricMetadata.md)| New metadata. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **metric_name** | **String** | Name of the metric for which to edit metadata. |  |
+| **body** | [**MetricMetadata**](MetricMetadata.md) | New metadata. |  |
 
 ### Return type
 

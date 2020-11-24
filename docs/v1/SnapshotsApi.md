@@ -2,10 +2,9 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**get_graph_snapshot**](SnapshotsApi.md#get_graph_snapshot) | **GET** /api/v1/graph/snapshot | Take graph snapshots
-
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**get_graph_snapshot**](SnapshotsApi.md#get_graph_snapshot) | **GET** /api/v1/graph/snapshot | Take graph snapshots |
 
 
 ## get_graph_snapshot
@@ -55,15 +54,14 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **start** | **Integer**| The POSIX timestamp of the start of the query. | 
- **_end** | **Integer**| The POSIX timestamp of the end of the query. | 
- **metric_query** | **String**| The metric query. | [optional] 
- **event_query** | **String**| A query that adds event bands to the graph. | [optional] 
- **graph_def** | **String**| A JSON document defining the graph. &#x60;graph_def&#x60; can be used instead of &#x60;metric_query&#x60;. The JSON document uses the [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be formatted to a single line then URL encoded. | [optional] 
- **title** | **String**| A title for the graph. If no title is specified, the graph does not have a title. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **start** | **Integer** | The POSIX timestamp of the start of the query. |  |
+| **_end** | **Integer** | The POSIX timestamp of the end of the query. |  |
+| **metric_query** | **String** | The metric query. | [optional] |
+| **event_query** | **String** | A query that adds event bands to the graph. | [optional] |
+| **graph_def** | **String** | A JSON document defining the graph. &#x60;graph_def&#x60; can be used instead of &#x60;metric_query&#x60;. The JSON document uses the [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be formatted to a single line then URL encoded. | [optional] |
+| **title** | **String** | A title for the graph. If no title is specified, the graph does not have a title. | [optional] |
 
 ### Return type
 

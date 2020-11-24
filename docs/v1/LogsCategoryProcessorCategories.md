@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**filter** | [**LogsFilter**](LogsFilter.md) |  | [optional] 
-**name** | **String** | Value to assign to the target attribute. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | [**LogsFilter**](LogsFilter.md) |  | [optional] |
+| **name** | **String** | Value to assign to the target attribute. | [optional] |
 
 ## Code Sample
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::LogsCategoryProcessorCategories.new(filter: null,
-                                 name: null)
+instance = DatadogAPIClient::V1::LogsCategoryProcessorCategories.new(
+  filter: null,
+  name: null
+)
 ```
-
 

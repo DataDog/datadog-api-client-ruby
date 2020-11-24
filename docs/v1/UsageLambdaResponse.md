@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**usage** | [**Array&lt;UsageLambdaHour&gt;**](UsageLambdaHour.md) | Get hourly usage for Lambda. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **usage** | [**Array&lt;UsageLambdaHour&gt;**](UsageLambdaHour.md) | Get hourly usage for Lambda. | [optional] |
 
 ## Code Sample
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::UsageLambdaResponse.new(usage: null)
+instance = DatadogAPIClient::V1::UsageLambdaResponse.new(
+  usage: null
+)
 ```
-
 

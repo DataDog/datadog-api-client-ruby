@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**message** | **String** | Message for the warning. | 
-**type** | [**SyntheticsWarningType**](SyntheticsWarningType.md) |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **message** | **String** | Message for the warning. |  |
+| **type** | [**SyntheticsWarningType**](SyntheticsWarningType.md) |  |  |
 
 ## Code Sample
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::SyntheticsStepDetailWarnings.new(message: null,
-                                 type: null)
+instance = DatadogAPIClient::V1::SyntheticsStepDetailWarnings.new(
+  message: null,
+  type: null
+)
 ```
-
 

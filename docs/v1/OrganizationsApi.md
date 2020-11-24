@@ -2,14 +2,13 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**create_child_org**](OrganizationsApi.md#create_child_org) | **POST** /api/v1/org | Create a child organization
-[**get_org**](OrganizationsApi.md#get_org) | **GET** /api/v1/org/{public_id} | Get organization information
-[**list_orgs**](OrganizationsApi.md#list_orgs) | **GET** /api/v1/org | List your managed organizations
-[**update_org**](OrganizationsApi.md#update_org) | **PUT** /api/v1/org/{public_id} | Update your organization
-[**upload_id_p_for_org**](OrganizationsApi.md#upload_id_p_for_org) | **POST** /api/v1/org/{public_id}/idp_metadata | Upload IdP metadata
-
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**create_child_org**](OrganizationsApi.md#create_child_org) | **POST** /api/v1/org | Create a child organization |
+| [**get_org**](OrganizationsApi.md#get_org) | **GET** /api/v1/org/{public_id} | Get organization information |
+| [**list_orgs**](OrganizationsApi.md#list_orgs) | **GET** /api/v1/org | List your managed organizations |
+| [**update_org**](OrganizationsApi.md#update_org) | **PUT** /api/v1/org/{public_id} | Update your organization |
+| [**upload_id_p_for_org**](OrganizationsApi.md#upload_id_p_for_org) | **POST** /api/v1/org/{public_id}/idp_metadata | Upload IdP metadata |
 
 
 ## create_child_org
@@ -52,10 +51,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**OrganizationCreateBody**](OrganizationCreateBody.md)| Organization object that needs to be created | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**OrganizationCreateBody**](OrganizationCreateBody.md) | Organization object that needs to be created |  |
 
 ### Return type
 
@@ -111,10 +109,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **public_id** | **String**| The &#x60;public_id&#x60; of the organization you are operating within. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **public_id** | **String** | The &#x60;public_id&#x60; of the organization you are operating within. |  |
 
 ### Return type
 
@@ -226,11 +223,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **public_id** | **String**| The &#x60;public_id&#x60; of the organization you are operating within. | 
- **body** | [**Organization**](Organization.md)|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **public_id** | **String** | The &#x60;public_id&#x60; of the organization you are operating within. |  |
+| **body** | [**Organization**](Organization.md) |  |  |
 
 ### Return type
 
@@ -287,11 +283,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **public_id** | **String**| The &#x60;public_id&#x60; of the organization you are operating with | 
- **idp_file** | **File**| The path to the XML metadata file you wish to upload. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **public_id** | **String** | The &#x60;public_id&#x60; of the organization you are operating with |  |
+| **idp_file** | **File** | The path to the XML metadata file you wish to upload. |  |
 
 ### Return type
 

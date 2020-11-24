@@ -2,10 +2,9 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**get_ip_ranges**](IPRangesApi.md#get_ip_ranges) | **GET** / | List IP Ranges
-
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**get_ip_ranges**](IPRangesApi.md#get_ip_ranges) | **GET** / | List IP Ranges |
 
 
 ## get_ip_ranges

@@ -2,15 +2,14 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
 
 ## Code Sample
 
 ```ruby
-require 'DatadogAPIClient::V2'
+require 'datadog_api_client/v2'
 
 instance = DatadogAPIClient::V2::LogsAggregateResponseStatus.new()
 ```
-
 

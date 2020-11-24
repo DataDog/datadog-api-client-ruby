@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**config** | [**SyntheticsTestConfig**](SyntheticsTestConfig.md) |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **config** | [**SyntheticsTestConfig**](SyntheticsTestConfig.md) |  |  |
 
 ## Code Sample
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::SyntheticsBrowserTestResultFullCheck.new(config: null)
+instance = DatadogAPIClient::V1::SyntheticsBrowserTestResultFullCheck.new(
+  config: null
+)
 ```
-
 

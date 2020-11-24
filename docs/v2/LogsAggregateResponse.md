@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**data** | [**LogsAggregateResponseData**](LogsAggregateResponseData.md) |  | [optional] 
-**meta** | [**LogsResponseMetadata**](LogsResponseMetadata.md) |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **data** | [**LogsAggregateResponseData**](LogsAggregateResponseData.md) |  | [optional] |
+| **meta** | [**LogsResponseMetadata**](LogsResponseMetadata.md) |  | [optional] |
 
 ## Code Sample
 
 ```ruby
-require 'DatadogAPIClient::V2'
+require 'datadog_api_client/v2'
 
-instance = DatadogAPIClient::V2::LogsAggregateResponse.new(data: null,
-                                 meta: null)
+instance = DatadogAPIClient::V2::LogsAggregateResponse.new(
+  data: null,
+  meta: null
+)
 ```
-
 

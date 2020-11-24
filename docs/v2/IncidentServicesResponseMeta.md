@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**pagination** | [**IncidentServicesResponseMetaPagination**](IncidentServicesResponseMetaPagination.md) |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **pagination** | [**IncidentServicesResponseMetaPagination**](IncidentServicesResponseMetaPagination.md) |  | [optional] |
 
 ## Code Sample
 
 ```ruby
-require 'DatadogAPIClient::V2'
+require 'datadog_api_client/v2'
 
-instance = DatadogAPIClient::V2::IncidentServicesResponseMeta.new(pagination: null)
+instance = DatadogAPIClient::V2::IncidentServicesResponseMeta.new(
+  pagination: null
+)
 ```
-
 

@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**hour** | **Time** | The hour for the usage. | [optional] 
-**session_count** | **Integer** | Contains the number of RUM Sessions. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **hour** | **Time** | The hour for the usage. | [optional] |
+| **session_count** | **Integer** | Contains the number of RUM Sessions. | [optional] |
 
 ## Code Sample
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::UsageRumSessionsHour.new(hour: null,
-                                 session_count: null)
+instance = DatadogAPIClient::V1::UsageRumSessionsHour.new(
+  hour: null,
+  session_count: null
+)
 ```
-
 

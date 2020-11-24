@@ -2,19 +2,18 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**create_api_key**](KeyManagementApi.md#create_api_key) | **POST** /api/v1/api_key | Create an API key
-[**create_application_key**](KeyManagementApi.md#create_application_key) | **POST** /api/v1/application_key | Create an application key
-[**delete_api_key**](KeyManagementApi.md#delete_api_key) | **DELETE** /api/v1/api_key/{key} | Delete an API key
-[**delete_application_key**](KeyManagementApi.md#delete_application_key) | **DELETE** /api/v1/application_key/{key} | Delete an application key
-[**get_api_key**](KeyManagementApi.md#get_api_key) | **GET** /api/v1/api_key/{key} | Get API key
-[**get_application_key**](KeyManagementApi.md#get_application_key) | **GET** /api/v1/application_key/{key} | Get an application key
-[**list_api_keys**](KeyManagementApi.md#list_api_keys) | **GET** /api/v1/api_key | Get all API keys
-[**list_application_keys**](KeyManagementApi.md#list_application_keys) | **GET** /api/v1/application_key | Get all application keys
-[**update_api_key**](KeyManagementApi.md#update_api_key) | **PUT** /api/v1/api_key/{key} | Edit an API key
-[**update_application_key**](KeyManagementApi.md#update_application_key) | **PUT** /api/v1/application_key/{key} | Edit an application key
-
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**create_api_key**](KeyManagementApi.md#create_api_key) | **POST** /api/v1/api_key | Create an API key |
+| [**create_application_key**](KeyManagementApi.md#create_application_key) | **POST** /api/v1/application_key | Create an application key |
+| [**delete_api_key**](KeyManagementApi.md#delete_api_key) | **DELETE** /api/v1/api_key/{key} | Delete an API key |
+| [**delete_application_key**](KeyManagementApi.md#delete_application_key) | **DELETE** /api/v1/application_key/{key} | Delete an application key |
+| [**get_api_key**](KeyManagementApi.md#get_api_key) | **GET** /api/v1/api_key/{key} | Get API key |
+| [**get_application_key**](KeyManagementApi.md#get_application_key) | **GET** /api/v1/application_key/{key} | Get an application key |
+| [**list_api_keys**](KeyManagementApi.md#list_api_keys) | **GET** /api/v1/api_key | Get all API keys |
+| [**list_application_keys**](KeyManagementApi.md#list_application_keys) | **GET** /api/v1/application_key | Get all application keys |
+| [**update_api_key**](KeyManagementApi.md#update_api_key) | **PUT** /api/v1/api_key/{key} | Edit an API key |
+| [**update_application_key**](KeyManagementApi.md#update_application_key) | **PUT** /api/v1/application_key/{key} | Edit an application key |
 
 
 ## create_api_key
@@ -57,10 +56,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**ApiKey**](ApiKey.md)|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ApiKey**](ApiKey.md) |  |  |
 
 ### Return type
 
@@ -116,10 +114,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**ApplicationKey**](ApplicationKey.md)|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ApplicationKey**](ApplicationKey.md) |  |  |
 
 ### Return type
 
@@ -175,10 +172,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **key** | **String**| The specific API key you are working with. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **key** | **String** | The specific API key you are working with. |  |
 
 ### Return type
 
@@ -234,10 +230,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **key** | **String**| The specific APP key you are working with. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **key** | **String** | The specific APP key you are working with. |  |
 
 ### Return type
 
@@ -293,10 +288,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **key** | **String**| The specific API key you are working with. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **key** | **String** | The specific API key you are working with. |  |
 
 ### Return type
 
@@ -352,10 +346,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **key** | **String**| The specific APP key you are working with. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **key** | **String** | The specific APP key you are working with. |  |
 
 ### Return type
 
@@ -522,11 +515,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **key** | **String**| The specific API key you are working with. | 
- **body** | [**ApiKey**](ApiKey.md)|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **key** | **String** | The specific API key you are working with. |  |
+| **body** | [**ApiKey**](ApiKey.md) |  |  |
 
 ### Return type
 
@@ -583,11 +575,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **key** | **String**| The specific APP key you are working with. | 
- **body** | [**ApplicationKey**](ApplicationKey.md)|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **key** | **String** | The specific APP key you are working with. |  |
+| **body** | [**ApplicationKey**](ApplicationKey.md) |  |  |
 
 ### Return type
 

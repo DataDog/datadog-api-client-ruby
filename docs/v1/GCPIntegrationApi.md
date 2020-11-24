@@ -2,13 +2,12 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**create_gcp_integration**](GCPIntegrationApi.md#create_gcp_integration) | **POST** /api/v1/integration/gcp | Create a GCP integration
-[**delete_gcp_integration**](GCPIntegrationApi.md#delete_gcp_integration) | **DELETE** /api/v1/integration/gcp | Delete a GCP integration
-[**list_gcp_integration**](GCPIntegrationApi.md#list_gcp_integration) | **GET** /api/v1/integration/gcp | List all GCP integrations
-[**update_gcp_integration**](GCPIntegrationApi.md#update_gcp_integration) | **PUT** /api/v1/integration/gcp | Update a GCP integration
-
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**create_gcp_integration**](GCPIntegrationApi.md#create_gcp_integration) | **POST** /api/v1/integration/gcp | Create a GCP integration |
+| [**delete_gcp_integration**](GCPIntegrationApi.md#delete_gcp_integration) | **DELETE** /api/v1/integration/gcp | Delete a GCP integration |
+| [**list_gcp_integration**](GCPIntegrationApi.md#list_gcp_integration) | **GET** /api/v1/integration/gcp | List all GCP integrations |
+| [**update_gcp_integration**](GCPIntegrationApi.md#update_gcp_integration) | **PUT** /api/v1/integration/gcp | Update a GCP integration |
 
 
 ## create_gcp_integration
@@ -51,10 +50,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**GCPAccount**](GCPAccount.md)| Create a Datadog-GCP integration. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GCPAccount**](GCPAccount.md) | Create a Datadog-GCP integration. |  |
 
 ### Return type
 
@@ -110,10 +108,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**GCPAccount**](GCPAccount.md)| Delete a given Datadog-GCP integration. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GCPAccount**](GCPAccount.md) | Delete a given Datadog-GCP integration. |  |
 
 ### Return type
 
@@ -224,10 +221,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**GCPAccount**](GCPAccount.md)| Update a Datadog-GCP integration. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**GCPAccount**](GCPAccount.md) | Update a Datadog-GCP integration. |  |
 
 ### Return type
 

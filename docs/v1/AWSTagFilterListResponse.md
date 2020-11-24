@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**filters** | [**Array&lt;AWSTagFilterListResponseFilters&gt;**](AWSTagFilterListResponseFilters.md) | An array of tag filters. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filters** | [**Array&lt;AWSTagFilterListResponseFilters&gt;**](AWSTagFilterListResponseFilters.md) | An array of tag filters. | [optional] |
 
 ## Code Sample
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::AWSTagFilterListResponse.new(filters: null)
+instance = DatadogAPIClient::V1::AWSTagFilterListResponse.new(
+  filters: null
+)
 ```
-
 

@@ -2,17 +2,16 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**check_can_delete_slo**](ServiceLevelObjectivesApi.md#check_can_delete_slo) | **GET** /api/v1/slo/can_delete | Check if SLOs can be safely deleted
-[**create_slo**](ServiceLevelObjectivesApi.md#create_slo) | **POST** /api/v1/slo | Create a SLO object
-[**delete_slo**](ServiceLevelObjectivesApi.md#delete_slo) | **DELETE** /api/v1/slo/{slo_id} | Delete a SLO
-[**delete_slo_timeframe_in_bulk**](ServiceLevelObjectivesApi.md#delete_slo_timeframe_in_bulk) | **POST** /api/v1/slo/bulk_delete | Bulk Delete SLO Timeframes
-[**get_slo**](ServiceLevelObjectivesApi.md#get_slo) | **GET** /api/v1/slo/{slo_id} | Get a SLO&#39;s details
-[**get_slo_history**](ServiceLevelObjectivesApi.md#get_slo_history) | **GET** /api/v1/slo/{slo_id}/history | Get an SLO&#39;s history
-[**list_sl_os**](ServiceLevelObjectivesApi.md#list_sl_os) | **GET** /api/v1/slo | Search SLOs
-[**update_slo**](ServiceLevelObjectivesApi.md#update_slo) | **PUT** /api/v1/slo/{slo_id} | Update a SLO
-
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**check_can_delete_slo**](ServiceLevelObjectivesApi.md#check_can_delete_slo) | **GET** /api/v1/slo/can_delete | Check if SLOs can be safely deleted |
+| [**create_slo**](ServiceLevelObjectivesApi.md#create_slo) | **POST** /api/v1/slo | Create a SLO object |
+| [**delete_slo**](ServiceLevelObjectivesApi.md#delete_slo) | **DELETE** /api/v1/slo/{slo_id} | Delete a SLO |
+| [**delete_slo_timeframe_in_bulk**](ServiceLevelObjectivesApi.md#delete_slo_timeframe_in_bulk) | **POST** /api/v1/slo/bulk_delete | Bulk Delete SLO Timeframes |
+| [**get_slo**](ServiceLevelObjectivesApi.md#get_slo) | **GET** /api/v1/slo/{slo_id} | Get a SLO&#39;s details |
+| [**get_slo_history**](ServiceLevelObjectivesApi.md#get_slo_history) | **GET** /api/v1/slo/{slo_id}/history | Get an SLO&#39;s history |
+| [**list_sl_os**](ServiceLevelObjectivesApi.md#list_sl_os) | **GET** /api/v1/slo | Search SLOs |
+| [**update_slo**](ServiceLevelObjectivesApi.md#update_slo) | **PUT** /api/v1/slo/{slo_id} | Update a SLO |
 
 
 ## check_can_delete_slo
@@ -55,10 +54,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ids** | **String**| A comma separated list of the IDs of the service level objectives objects. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | **String** | A comma separated list of the IDs of the service level objectives objects. |  |
 
 ### Return type
 
@@ -114,10 +112,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**ServiceLevelObjectiveRequest**](ServiceLevelObjectiveRequest.md)| Service level objective request object. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ServiceLevelObjectiveRequest**](ServiceLevelObjectiveRequest.md) | Service level objective request object. |  |
 
 ### Return type
 
@@ -176,11 +173,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **slo_id** | **String**| The ID of the service level objective. | 
- **force** | **String**| Delete the monitor even if it&#39;s referenced by other resources (e.g. SLO, composite monitor). | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **slo_id** | **String** | The ID of the service level objective. |  |
+| **force** | **String** | Delete the monitor even if it&#39;s referenced by other resources (e.g. SLO, composite monitor). | [optional] |
 
 ### Return type
 
@@ -236,10 +232,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**Hash&lt;String, Array&lt;SLOTimeframe&gt;&gt;**](Array.md)| Delete multiple service level objective objects request body. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**Hash&lt;String, Array&lt;SLOTimeframe&gt;&gt;**](Array.md) | Delete multiple service level objective objects request body. |  |
 
 ### Return type
 
@@ -295,10 +290,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **slo_id** | **String**| The ID of the service level objective object. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **slo_id** | **String** | The ID of the service level objective object. |  |
 
 ### Return type
 
@@ -356,12 +350,11 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **slo_id** | **String**| The ID of the service level objective object. | 
- **from_ts** | **Integer**| The &#x60;from&#x60; timestamp for the query window in epoch seconds. | 
- **to_ts** | **Integer**| The &#x60;to&#x60; timestamp for the query window in epoch seconds. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **slo_id** | **String** | The ID of the service level objective object. |  |
+| **from_ts** | **Integer** | The &#x60;from&#x60; timestamp for the query window in epoch seconds. |  |
+| **to_ts** | **Integer** | The &#x60;to&#x60; timestamp for the query window in epoch seconds. |  |
 
 ### Return type
 
@@ -417,10 +410,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ids** | **String**| A comma separated list of the IDs of the service level objectives objects. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | **String** | A comma separated list of the IDs of the service level objectives objects. |  |
 
 ### Return type
 
@@ -477,11 +469,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **slo_id** | **String**| The ID of the service level objective object. | 
- **body** | [**ServiceLevelObjective**](ServiceLevelObjective.md)| The edited service level objective request object. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **slo_id** | **String** | The ID of the service level objective object. |  |
+| **body** | [**ServiceLevelObjective**](ServiceLevelObjective.md) | The edited service level objective request object. |  |
 
 ### Return type
 

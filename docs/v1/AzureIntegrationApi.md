@@ -2,14 +2,13 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**create_azure_integration**](AzureIntegrationApi.md#create_azure_integration) | **POST** /api/v1/integration/azure | Create an Azure integration
-[**delete_azure_integration**](AzureIntegrationApi.md#delete_azure_integration) | **DELETE** /api/v1/integration/azure | Delete an Azure integration
-[**list_azure_integration**](AzureIntegrationApi.md#list_azure_integration) | **GET** /api/v1/integration/azure | List all Azure integrations
-[**update_azure_host_filters**](AzureIntegrationApi.md#update_azure_host_filters) | **POST** /api/v1/integration/azure/host_filters | Update Azure integration host filters
-[**update_azure_integration**](AzureIntegrationApi.md#update_azure_integration) | **PUT** /api/v1/integration/azure | Update an Azure integration
-
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**create_azure_integration**](AzureIntegrationApi.md#create_azure_integration) | **POST** /api/v1/integration/azure | Create an Azure integration |
+| [**delete_azure_integration**](AzureIntegrationApi.md#delete_azure_integration) | **DELETE** /api/v1/integration/azure | Delete an Azure integration |
+| [**list_azure_integration**](AzureIntegrationApi.md#list_azure_integration) | **GET** /api/v1/integration/azure | List all Azure integrations |
+| [**update_azure_host_filters**](AzureIntegrationApi.md#update_azure_host_filters) | **POST** /api/v1/integration/azure/host_filters | Update Azure integration host filters |
+| [**update_azure_integration**](AzureIntegrationApi.md#update_azure_integration) | **PUT** /api/v1/integration/azure | Update an Azure integration |
 
 
 ## create_azure_integration
@@ -52,10 +51,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**AzureAccount**](AzureAccount.md)| Create a Datadog-Azure integration for your Datadog account request body. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AzureAccount**](AzureAccount.md) | Create a Datadog-Azure integration for your Datadog account request body. |  |
 
 ### Return type
 
@@ -111,10 +109,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**AzureAccount**](AzureAccount.md)| Delete a given Datadog-Azure integration request body. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AzureAccount**](AzureAccount.md) | Delete a given Datadog-Azure integration request body. |  |
 
 ### Return type
 
@@ -225,10 +222,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**AzureAccount**](AzureAccount.md)| Update a Datadog-Azure integration&#39;s host filters request body. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AzureAccount**](AzureAccount.md) | Update a Datadog-Azure integration&#39;s host filters request body. |  |
 
 ### Return type
 
@@ -284,10 +280,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**AzureAccount**](AzureAccount.md)| Update a Datadog-Azure integration request body. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AzureAccount**](AzureAccount.md) | Update a Datadog-Azure integration request body. |  |
 
 ### Return type
 

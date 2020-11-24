@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**enabled** | **Boolean** | Whether or not SAML is enabled for this organization. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **enabled** | **Boolean** | Whether or not SAML is enabled for this organization. | [optional] |
 
 ## Code Sample
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::OrganizationSettingsSaml.new(enabled: false)
+instance = DatadogAPIClient::V1::OrganizationSettingsSaml.new(
+  enabled: false
+)
 ```
-
 

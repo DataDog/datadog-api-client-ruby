@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**usage** | [**Array&lt;UsageTracingWithoutLimitsHour&gt;**](UsageTracingWithoutLimitsHour.md) | Get hourly usage for tracing without limits. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **usage** | [**Array&lt;UsageTracingWithoutLimitsHour&gt;**](UsageTracingWithoutLimitsHour.md) | Get hourly usage for tracing without limits. | [optional] |
 
 ## Code Sample
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::UsageTracingWithoutLimitsResponse.new(usage: null)
+instance = DatadogAPIClient::V1::UsageTracingWithoutLimitsResponse.new(
+  usage: null
+)
 ```
-
 

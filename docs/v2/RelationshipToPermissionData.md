@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**id** | **String** | ID of the permission. | [optional] 
-**type** | [**PermissionsType**](PermissionsType.md) |  | [optional] [default to &#39;permissions&#39;]
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | ID of the permission. | [optional] |
+| **type** | [**PermissionsType**](PermissionsType.md) |  | [optional][default to &#39;permissions&#39;] |
 
 ## Code Sample
 
 ```ruby
-require 'DatadogAPIClient::V2'
+require 'datadog_api_client/v2'
 
-instance = DatadogAPIClient::V2::RelationshipToPermissionData.new(id: null,
-                                 type: null)
+instance = DatadogAPIClient::V2::RelationshipToPermissionData.new(
+  id: null,
+  type: null
+)
 ```
-
 

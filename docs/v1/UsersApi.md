@@ -2,14 +2,13 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**create_user**](UsersApi.md#create_user) | **POST** /api/v1/user | Create a user
-[**disable_user**](UsersApi.md#disable_user) | **DELETE** /api/v1/user/{user_handle} | Disable a user
-[**get_user**](UsersApi.md#get_user) | **GET** /api/v1/user/{user_handle} | Get user details
-[**list_users**](UsersApi.md#list_users) | **GET** /api/v1/user | List all users
-[**update_user**](UsersApi.md#update_user) | **PUT** /api/v1/user/{user_handle} | Update a user
-
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**create_user**](UsersApi.md#create_user) | **POST** /api/v1/user | Create a user |
+| [**disable_user**](UsersApi.md#disable_user) | **DELETE** /api/v1/user/{user_handle} | Disable a user |
+| [**get_user**](UsersApi.md#get_user) | **GET** /api/v1/user/{user_handle} | Get user details |
+| [**list_users**](UsersApi.md#list_users) | **GET** /api/v1/user | List all users |
+| [**update_user**](UsersApi.md#update_user) | **PUT** /api/v1/user/{user_handle} | Update a user |
 
 
 ## create_user
@@ -52,10 +51,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**User**](User.md)| User object that needs to be created. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**User**](User.md) | User object that needs to be created. |  |
 
 ### Return type
 
@@ -111,10 +109,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_handle** | [**String**](.md)| The handle of the user. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **user_handle** | [**String**](.md) | The handle of the user. |  |
 
 ### Return type
 
@@ -170,10 +167,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_handle** | [**String**](.md)| The ID of the user. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **user_handle** | [**String**](.md) | The ID of the user. |  |
 
 ### Return type
 
@@ -285,11 +281,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_handle** | [**String**](.md)| The ID of the user. | 
- **body** | [**User**](User.md)| Description of the update. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **user_handle** | [**String**](.md) | The ID of the user. |  |
+| **body** | [**User**](User.md) | Description of the update. |  |
 
 ### Return type
 

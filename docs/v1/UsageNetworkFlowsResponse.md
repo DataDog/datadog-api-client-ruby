@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**usage** | [**Array&lt;UsageNetworkFlowsHour&gt;**](UsageNetworkFlowsHour.md) | Get hourly usage for Network Flows. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **usage** | [**Array&lt;UsageNetworkFlowsHour&gt;**](UsageNetworkFlowsHour.md) | Get hourly usage for Network Flows. | [optional] |
 
 ## Code Sample
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::UsageNetworkFlowsResponse.new(usage: null)
+instance = DatadogAPIClient::V1::UsageNetworkFlowsResponse.new(
+  usage: null
+)
 ```
-
 
