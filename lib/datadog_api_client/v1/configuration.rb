@@ -172,6 +172,7 @@ module DatadogAPIClient::V1
             get_monthly_custom_reports: false,
             get_specified_daily_custom_reports: false,
             get_specified_monthly_custom_reports: false,
+            get_usage_attribution: false,
       }
 
       yield(self) if block_given?
