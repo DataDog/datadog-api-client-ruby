@@ -2,16 +2,15 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**check_aws_logs_lambda_async**](AWSLogsIntegrationApi.md#check_aws_logs_lambda_async) | **POST** /api/v1/integration/aws/logs/check_async | Check that an AWS Lambda Function exists
-[**check_aws_logs_services_async**](AWSLogsIntegrationApi.md#check_aws_logs_services_async) | **POST** /api/v1/integration/aws/logs/services_async | Check permissions for log services
-[**create_aws_lambda_arn**](AWSLogsIntegrationApi.md#create_aws_lambda_arn) | **POST** /api/v1/integration/aws/logs | Add AWS Log Lambda ARN
-[**delete_aws_lambda_arn**](AWSLogsIntegrationApi.md#delete_aws_lambda_arn) | **DELETE** /api/v1/integration/aws/logs | Delete an AWS Logs integration
-[**enable_aws_log_services**](AWSLogsIntegrationApi.md#enable_aws_log_services) | **POST** /api/v1/integration/aws/logs/services | Enable an AWS Logs integration
-[**list_aws_logs_integrations**](AWSLogsIntegrationApi.md#list_aws_logs_integrations) | **GET** /api/v1/integration/aws/logs | List all AWS Logs integrations
-[**list_aws_logs_services**](AWSLogsIntegrationApi.md#list_aws_logs_services) | **GET** /api/v1/integration/aws/logs/services | Get list of AWS log ready services
-
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**check_aws_logs_lambda_async**](AWSLogsIntegrationApi.md#check_aws_logs_lambda_async) | **POST** /api/v1/integration/aws/logs/check_async | Check that an AWS Lambda Function exists |
+| [**check_aws_logs_services_async**](AWSLogsIntegrationApi.md#check_aws_logs_services_async) | **POST** /api/v1/integration/aws/logs/services_async | Check permissions for log services |
+| [**create_aws_lambda_arn**](AWSLogsIntegrationApi.md#create_aws_lambda_arn) | **POST** /api/v1/integration/aws/logs | Add AWS Log Lambda ARN |
+| [**delete_aws_lambda_arn**](AWSLogsIntegrationApi.md#delete_aws_lambda_arn) | **DELETE** /api/v1/integration/aws/logs | Delete an AWS Logs integration |
+| [**enable_aws_log_services**](AWSLogsIntegrationApi.md#enable_aws_log_services) | **POST** /api/v1/integration/aws/logs/services | Enable an AWS Logs integration |
+| [**list_aws_logs_integrations**](AWSLogsIntegrationApi.md#list_aws_logs_integrations) | **GET** /api/v1/integration/aws/logs | List all AWS Logs integrations |
+| [**list_aws_logs_services**](AWSLogsIntegrationApi.md#list_aws_logs_services) | **GET** /api/v1/integration/aws/logs/services | Get list of AWS log ready services |
 
 
 ## check_aws_logs_lambda_async
@@ -54,10 +53,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**AWSAccountAndLambdaRequest**](AWSAccountAndLambdaRequest.md)| Check AWS Log Lambda Async request body. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AWSAccountAndLambdaRequest**](AWSAccountAndLambdaRequest.md) | Check AWS Log Lambda Async request body. |  |
 
 ### Return type
 
@@ -113,10 +111,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**AWSLogsServicesRequest**](AWSLogsServicesRequest.md)| Check AWS Logs Async Services request body. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AWSLogsServicesRequest**](AWSLogsServicesRequest.md) | Check AWS Logs Async Services request body. |  |
 
 ### Return type
 
@@ -172,10 +169,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**AWSAccountAndLambdaRequest**](AWSAccountAndLambdaRequest.md)| AWS Log Lambda Async request body. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AWSAccountAndLambdaRequest**](AWSAccountAndLambdaRequest.md) | AWS Log Lambda Async request body. |  |
 
 ### Return type
 
@@ -231,10 +227,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**AWSAccountAndLambdaRequest**](AWSAccountAndLambdaRequest.md)| Delete AWS Lambda ARN request body. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AWSAccountAndLambdaRequest**](AWSAccountAndLambdaRequest.md) | Delete AWS Lambda ARN request body. |  |
 
 ### Return type
 
@@ -290,10 +285,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**AWSLogsServicesRequest**](AWSLogsServicesRequest.md)| Enable AWS Log Services request body. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**AWSLogsServicesRequest**](AWSLogsServicesRequest.md) | Enable AWS Log Services request body. |  |
 
 ### Return type
 

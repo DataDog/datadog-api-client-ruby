@@ -2,14 +2,13 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**create_dashboard**](DashboardsApi.md#create_dashboard) | **POST** /api/v1/dashboard | Create a new dashboard
-[**delete_dashboard**](DashboardsApi.md#delete_dashboard) | **DELETE** /api/v1/dashboard/{dashboard_id} | Delete a dashboard
-[**get_dashboard**](DashboardsApi.md#get_dashboard) | **GET** /api/v1/dashboard/{dashboard_id} | Get a dashboard
-[**list_dashboards**](DashboardsApi.md#list_dashboards) | **GET** /api/v1/dashboard | Get all dashboards
-[**update_dashboard**](DashboardsApi.md#update_dashboard) | **PUT** /api/v1/dashboard/{dashboard_id} | Update a dashboard
-
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**create_dashboard**](DashboardsApi.md#create_dashboard) | **POST** /api/v1/dashboard | Create a new dashboard |
+| [**delete_dashboard**](DashboardsApi.md#delete_dashboard) | **DELETE** /api/v1/dashboard/{dashboard_id} | Delete a dashboard |
+| [**get_dashboard**](DashboardsApi.md#get_dashboard) | **GET** /api/v1/dashboard/{dashboard_id} | Get a dashboard |
+| [**list_dashboards**](DashboardsApi.md#list_dashboards) | **GET** /api/v1/dashboard | Get all dashboards |
+| [**update_dashboard**](DashboardsApi.md#update_dashboard) | **PUT** /api/v1/dashboard/{dashboard_id} | Update a dashboard |
 
 
 ## create_dashboard
@@ -52,10 +51,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**Dashboard**](Dashboard.md)| Create a dashboard request body. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**Dashboard**](Dashboard.md) | Create a dashboard request body. |  |
 
 ### Return type
 
@@ -111,10 +109,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **dashboard_id** | **String**| The ID of the dashboard. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **dashboard_id** | **String** | The ID of the dashboard. |  |
 
 ### Return type
 
@@ -170,10 +167,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **dashboard_id** | **String**| The ID of the dashboard. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **dashboard_id** | **String** | The ID of the dashboard. |  |
 
 ### Return type
 
@@ -285,11 +281,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **dashboard_id** | **String**| The ID of the dashboard. | 
- **body** | [**Dashboard**](Dashboard.md)| Update Dashboard request body. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **dashboard_id** | **String** | The ID of the dashboard. |  |
+| **body** | [**Dashboard**](Dashboard.md) | Update Dashboard request body. |  |
 
 ### Return type
 

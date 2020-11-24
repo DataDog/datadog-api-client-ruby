@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**commander** | [**RelationshipToUser**](RelationshipToUser.md) |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **commander** | [**RelationshipToUser**](RelationshipToUser.md) |  |  |
 
 ## Code Sample
 
 ```ruby
-require 'DatadogAPIClient::V2'
+require 'datadog_api_client/v2'
 
-instance = DatadogAPIClient::V2::IncidentCreateRelationships.new(commander: null)
+instance = DatadogAPIClient::V2::IncidentCreateRelationships.new(
+  commander: null
+)
 ```
-
 

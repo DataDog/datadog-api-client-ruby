@@ -2,20 +2,21 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**attributes** | [**IncidentCreateAttributes**](IncidentCreateAttributes.md) |  | 
-**relationships** | [**IncidentCreateRelationships**](IncidentCreateRelationships.md) |  | [optional] 
-**type** | [**IncidentType**](IncidentType.md) |  | [default to &#39;incidents&#39;]
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **attributes** | [**IncidentCreateAttributes**](IncidentCreateAttributes.md) |  |  |
+| **relationships** | [**IncidentCreateRelationships**](IncidentCreateRelationships.md) |  | [optional] |
+| **type** | [**IncidentType**](IncidentType.md) |  | [default to &#39;incidents&#39;] |
 
 ## Code Sample
 
 ```ruby
-require 'DatadogAPIClient::V2'
+require 'datadog_api_client/v2'
 
-instance = DatadogAPIClient::V2::IncidentCreateData.new(attributes: null,
-                                 relationships: null,
-                                 type: null)
+instance = DatadogAPIClient::V2::IncidentCreateData.new(
+  attributes: null,
+  relationships: null,
+  type: null
+)
 ```
-
 

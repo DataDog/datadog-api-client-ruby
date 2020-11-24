@@ -13,7 +13,7 @@ Datadog.configure do |c|
   c.analytics_enabled = true
   c.use :cucumber, {'operation_name': 'test'}
   c.use :ethon, {}
-  c.diagnostics.debug = ENV["DEBUG"].present?
+  c.diagnostics.debug = ENV["DEBUG"].to_s.downcase != "false"
 end
 
 module RecordMode
@@ -30,6 +30,10 @@ module RecordMode
       true
     end
   end
+end
+
+def use_real_time?
+  !(ENV["RECORD"] == nil || ENV["RECORD"] == "false")
 end
 
 VCR.configure do |c|

@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**total_count** | **Integer** | Total page count. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **total_count** | **Integer** | Total page count. | [optional] |
 
 ## Code Sample
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::UsageCustomReportsPage.new(total_count: null)
+instance = DatadogAPIClient::V1::UsageCustomReportsPage.new(
+  total_count: null
+)
 ```
-
 

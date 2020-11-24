@@ -2,13 +2,12 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**create_dashboard_list_items**](DashboardListsApi.md#create_dashboard_list_items) | **POST** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Add Items to a Dashboard List
-[**delete_dashboard_list_items**](DashboardListsApi.md#delete_dashboard_list_items) | **DELETE** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Delete items from a dashboard list
-[**get_dashboard_list_items**](DashboardListsApi.md#get_dashboard_list_items) | **GET** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Get a Dashboard List
-[**update_dashboard_list_items**](DashboardListsApi.md#update_dashboard_list_items) | **PUT** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Update items of a dashboard list
-
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**create_dashboard_list_items**](DashboardListsApi.md#create_dashboard_list_items) | **POST** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Add Items to a Dashboard List |
+| [**delete_dashboard_list_items**](DashboardListsApi.md#delete_dashboard_list_items) | **DELETE** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Delete items from a dashboard list |
+| [**get_dashboard_list_items**](DashboardListsApi.md#get_dashboard_list_items) | **GET** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Get a Dashboard List |
+| [**update_dashboard_list_items**](DashboardListsApi.md#update_dashboard_list_items) | **PUT** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Update items of a dashboard list |
 
 
 ## create_dashboard_list_items
@@ -52,11 +51,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **dashboard_list_id** | **Integer**| ID of the dashboard list to add items to. | 
- **body** | [**DashboardListAddItemsRequest**](DashboardListAddItemsRequest.md)| Dashboards to add to the dashboard list. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **dashboard_list_id** | **Integer** | ID of the dashboard list to add items to. |  |
+| **body** | [**DashboardListAddItemsRequest**](DashboardListAddItemsRequest.md) | Dashboards to add to the dashboard list. |  |
 
 ### Return type
 
@@ -113,11 +111,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **dashboard_list_id** | **Integer**| ID of the dashboard list to delete items from. | 
- **body** | [**DashboardListDeleteItemsRequest**](DashboardListDeleteItemsRequest.md)| Dashboards to delete from the dashboard list. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **dashboard_list_id** | **Integer** | ID of the dashboard list to delete items from. |  |
+| **body** | [**DashboardListDeleteItemsRequest**](DashboardListDeleteItemsRequest.md) | Dashboards to delete from the dashboard list. |  |
 
 ### Return type
 
@@ -173,10 +170,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **dashboard_list_id** | **Integer**| ID of the dashboard list to get items from. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **dashboard_list_id** | **Integer** | ID of the dashboard list to get items from. |  |
 
 ### Return type
 
@@ -233,11 +229,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **dashboard_list_id** | **Integer**| ID of the dashboard list to update items from. | 
- **body** | [**DashboardListUpdateItemsRequest**](DashboardListUpdateItemsRequest.md)| New dashboards of the dashboard list. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **dashboard_list_id** | **Integer** | ID of the dashboard list to update items from. |  |
+| **body** | [**DashboardListUpdateItemsRequest**](DashboardListUpdateItemsRequest.md) | New dashboards of the dashboard list. |  |
 
 ### Return type
 

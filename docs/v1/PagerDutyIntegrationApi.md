@@ -2,13 +2,12 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**create_pager_duty_integration_service**](PagerDutyIntegrationApi.md#create_pager_duty_integration_service) | **POST** /api/v1/integration/pagerduty/configuration/services | Create a new service object
-[**delete_pager_duty_integration_service**](PagerDutyIntegrationApi.md#delete_pager_duty_integration_service) | **DELETE** /api/v1/integration/pagerduty/configuration/services/{service_name} | Delete a single service object
-[**get_pager_duty_integration_service**](PagerDutyIntegrationApi.md#get_pager_duty_integration_service) | **GET** /api/v1/integration/pagerduty/configuration/services/{service_name} | Get a single service object
-[**update_pager_duty_integration_service**](PagerDutyIntegrationApi.md#update_pager_duty_integration_service) | **PUT** /api/v1/integration/pagerduty/configuration/services/{service_name} | Update a single service object
-
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**create_pager_duty_integration_service**](PagerDutyIntegrationApi.md#create_pager_duty_integration_service) | **POST** /api/v1/integration/pagerduty/configuration/services | Create a new service object |
+| [**delete_pager_duty_integration_service**](PagerDutyIntegrationApi.md#delete_pager_duty_integration_service) | **DELETE** /api/v1/integration/pagerduty/configuration/services/{service_name} | Delete a single service object |
+| [**get_pager_duty_integration_service**](PagerDutyIntegrationApi.md#get_pager_duty_integration_service) | **GET** /api/v1/integration/pagerduty/configuration/services/{service_name} | Get a single service object |
+| [**update_pager_duty_integration_service**](PagerDutyIntegrationApi.md#update_pager_duty_integration_service) | **PUT** /api/v1/integration/pagerduty/configuration/services/{service_name} | Update a single service object |
 
 
 ## create_pager_duty_integration_service
@@ -51,10 +50,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**PagerDutyService**](PagerDutyService.md)| Create a new service object request body. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**PagerDutyService**](PagerDutyService.md) | Create a new service object request body. |  |
 
 ### Return type
 
@@ -109,10 +107,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **service_name** | **String**| The service name | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **service_name** | **String** | The service name |  |
 
 ### Return type
 
@@ -168,10 +165,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **service_name** | **String**| The service name. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **service_name** | **String** | The service name. |  |
 
 ### Return type
 
@@ -227,11 +223,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **service_name** | **String**| The service name | 
- **body** | [**PagerDutyServiceKey**](PagerDutyServiceKey.md)| Update an existing service object request body. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **service_name** | **String** | The service name |  |
+| **body** | [**PagerDutyServiceKey**](PagerDutyServiceKey.md) | Update an existing service object request body. |  |
 
 ### Return type
 

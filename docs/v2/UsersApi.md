@@ -2,18 +2,17 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**create_user**](UsersApi.md#create_user) | **POST** /api/v2/users | Create a user
-[**disable_user**](UsersApi.md#disable_user) | **DELETE** /api/v2/users/{user_id} | Disable a user
-[**get_invitation**](UsersApi.md#get_invitation) | **GET** /api/v2/user_invitations/{user_invitation_uuid} | Get a user invitation
-[**get_user**](UsersApi.md#get_user) | **GET** /api/v2/users/{user_id} | Get user details
-[**list_user_organizations**](UsersApi.md#list_user_organizations) | **GET** /api/v2/users/{user_id}/orgs | Get a user organization
-[**list_user_permissions**](UsersApi.md#list_user_permissions) | **GET** /api/v2/users/{user_id}/permissions | Get a user permissions
-[**list_users**](UsersApi.md#list_users) | **GET** /api/v2/users | List all users
-[**send_invitations**](UsersApi.md#send_invitations) | **POST** /api/v2/user_invitations | Send invitation emails
-[**update_user**](UsersApi.md#update_user) | **PATCH** /api/v2/users/{user_id} | Update a user
-
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**create_user**](UsersApi.md#create_user) | **POST** /api/v2/users | Create a user |
+| [**disable_user**](UsersApi.md#disable_user) | **DELETE** /api/v2/users/{user_id} | Disable a user |
+| [**get_invitation**](UsersApi.md#get_invitation) | **GET** /api/v2/user_invitations/{user_invitation_uuid} | Get a user invitation |
+| [**get_user**](UsersApi.md#get_user) | **GET** /api/v2/users/{user_id} | Get user details |
+| [**list_user_organizations**](UsersApi.md#list_user_organizations) | **GET** /api/v2/users/{user_id}/orgs | Get a user organization |
+| [**list_user_permissions**](UsersApi.md#list_user_permissions) | **GET** /api/v2/users/{user_id}/permissions | Get a user permissions |
+| [**list_users**](UsersApi.md#list_users) | **GET** /api/v2/users | List all users |
+| [**send_invitations**](UsersApi.md#send_invitations) | **POST** /api/v2/user_invitations | Send invitation emails |
+| [**update_user**](UsersApi.md#update_user) | **PATCH** /api/v2/users/{user_id} | Update a user |
 
 
 ## create_user
@@ -58,10 +57,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**UserCreateRequest**](UserCreateRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**UserCreateRequest**](UserCreateRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -116,10 +114,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **String**| The ID of the user. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **user_id** | **String** | The ID of the user. |  |
 
 ### Return type
 
@@ -175,10 +172,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_invitation_uuid** | **String**| The UUID of the user invitation. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **user_invitation_uuid** | **String** | The UUID of the user invitation. |  |
 
 ### Return type
 
@@ -234,10 +230,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **String**| The ID of the user. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **user_id** | **String** | The ID of the user. |  |
 
 ### Return type
 
@@ -293,10 +288,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **String**| The ID of the user. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **user_id** | **String** | The ID of the user. |  |
 
 ### Return type
 
@@ -352,10 +346,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **String**| The ID of the user. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **user_id** | **String** | The ID of the user. |  |
 
 ### Return type
 
@@ -418,15 +411,14 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page_size** | **Integer**| Size for a given page. | [optional] [default to 10]
- **page_number** | **Integer**| Specific page number to return. | [optional] [default to 0]
- **sort** | **String**| User attribute to order results by. Sort order is ascending by default. Sort order is descending if the field is prefixed by a negative sign, for example &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;modified_at&#x60;, &#x60;user_count&#x60;. | [optional] [default to &#39;name&#39;]
- **sort_dir** | [**QuerySortOrder**](.md)| Direction of sort. Options: &#x60;asc&#x60;, &#x60;desc&#x60;. | [optional] [default to &#39;desc&#39;]
- **filter** | **String**| Filter all users by the given string. Defaults to no filtering. | [optional] 
- **filter_status** | **String**| Filter on status attribute. Comma separated list, with possible values &#x60;Active&#x60;, &#x60;Pending&#x60;, and &#x60;Disabled&#x60;. Defaults to no filtering. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **page_size** | **Integer** | Size for a given page. | [optional][default to 10] |
+| **page_number** | **Integer** | Specific page number to return. | [optional][default to 0] |
+| **sort** | **String** | User attribute to order results by. Sort order is ascending by default. Sort order is descending if the field is prefixed by a negative sign, for example &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;modified_at&#x60;, &#x60;user_count&#x60;. | [optional][default to &#39;name&#39;] |
+| **sort_dir** | [**QuerySortOrder**](.md) | Direction of sort. Options: &#x60;asc&#x60;, &#x60;desc&#x60;. | [optional][default to &#39;desc&#39;] |
+| **filter** | **String** | Filter all users by the given string. Defaults to no filtering. | [optional] |
+| **filter_status** | **String** | Filter on status attribute. Comma separated list, with possible values &#x60;Active&#x60;, &#x60;Pending&#x60;, and &#x60;Disabled&#x60;. Defaults to no filtering. | [optional] |
 
 ### Return type
 
@@ -484,10 +476,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**UserInvitationsRequest**](UserInvitationsRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**UserInvitationsRequest**](UserInvitationsRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -546,11 +537,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **String**| The ID of the user. | 
- **body** | [**UserUpdateRequest**](UserUpdateRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **user_id** | **String** | The ID of the user. |  |
+| **body** | [**UserUpdateRequest**](UserUpdateRequest.md) |  | [optional] |
 
 ### Return type
 

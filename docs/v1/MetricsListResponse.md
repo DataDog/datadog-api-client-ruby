@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**from** | **String** | Time when the metrics were active, seconds since the Unix epoch. | [optional] 
-**metrics** | **Array&lt;String&gt;** | List of metric names. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **from** | **String** | Time when the metrics were active, seconds since the Unix epoch. | [optional] |
+| **metrics** | **Array&lt;String&gt;** | List of metric names. | [optional] |
 
 ## Code Sample
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::MetricsListResponse.new(from: null,
-                                 metrics: null)
+instance = DatadogAPIClient::V1::MetricsListResponse.new(
+  from: null,
+  metrics: null
+)
 ```
-
 

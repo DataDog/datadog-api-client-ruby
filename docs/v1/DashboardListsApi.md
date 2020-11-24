@@ -2,14 +2,13 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**create_dashboard_list**](DashboardListsApi.md#create_dashboard_list) | **POST** /api/v1/dashboard/lists/manual | Create a dashboard list
-[**delete_dashboard_list**](DashboardListsApi.md#delete_dashboard_list) | **DELETE** /api/v1/dashboard/lists/manual/{list_id} | Delete a dashboard list
-[**get_dashboard_list**](DashboardListsApi.md#get_dashboard_list) | **GET** /api/v1/dashboard/lists/manual/{list_id} | Get a dashboard list
-[**list_dashboard_lists**](DashboardListsApi.md#list_dashboard_lists) | **GET** /api/v1/dashboard/lists/manual | Get all dashboard lists
-[**update_dashboard_list**](DashboardListsApi.md#update_dashboard_list) | **PUT** /api/v1/dashboard/lists/manual/{list_id} | Update a dashboard list
-
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**create_dashboard_list**](DashboardListsApi.md#create_dashboard_list) | **POST** /api/v1/dashboard/lists/manual | Create a dashboard list |
+| [**delete_dashboard_list**](DashboardListsApi.md#delete_dashboard_list) | **DELETE** /api/v1/dashboard/lists/manual/{list_id} | Delete a dashboard list |
+| [**get_dashboard_list**](DashboardListsApi.md#get_dashboard_list) | **GET** /api/v1/dashboard/lists/manual/{list_id} | Get a dashboard list |
+| [**list_dashboard_lists**](DashboardListsApi.md#list_dashboard_lists) | **GET** /api/v1/dashboard/lists/manual | Get all dashboard lists |
+| [**update_dashboard_list**](DashboardListsApi.md#update_dashboard_list) | **PUT** /api/v1/dashboard/lists/manual/{list_id} | Update a dashboard list |
 
 
 ## create_dashboard_list
@@ -52,10 +51,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**DashboardList**](DashboardList.md)| Create a dashboard list request body. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DashboardList**](DashboardList.md) | Create a dashboard list request body. |  |
 
 ### Return type
 
@@ -111,10 +109,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **Integer**| ID of the dashboard list to delete. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **list_id** | **Integer** | ID of the dashboard list to delete. |  |
 
 ### Return type
 
@@ -170,10 +167,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **Integer**| ID of the dashboard list to fetch. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **list_id** | **Integer** | ID of the dashboard list to fetch. |  |
 
 ### Return type
 
@@ -285,11 +281,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **Integer**| ID of the dashboard list to update. | 
- **body** | [**DashboardList**](DashboardList.md)| Update a dashboard list request body. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **list_id** | **Integer** | ID of the dashboard list to update. |  |
+| **body** | [**DashboardList**](DashboardList.md) | Update a dashboard list request body. |  |
 
 ### Return type
 

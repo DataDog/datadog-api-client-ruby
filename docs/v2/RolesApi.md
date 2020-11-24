@@ -2,21 +2,20 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**add_permission_to_role**](RolesApi.md#add_permission_to_role) | **POST** /api/v2/roles/{role_id}/permissions | Grant permission to a role
-[**add_user_to_role**](RolesApi.md#add_user_to_role) | **POST** /api/v2/roles/{role_id}/users | Add a user to a role
-[**create_role**](RolesApi.md#create_role) | **POST** /api/v2/roles | Create role
-[**delete_role**](RolesApi.md#delete_role) | **DELETE** /api/v2/roles/{role_id} | Delete role
-[**get_role**](RolesApi.md#get_role) | **GET** /api/v2/roles/{role_id} | Get a role
-[**list_permissions**](RolesApi.md#list_permissions) | **GET** /api/v2/permissions | List permissions
-[**list_role_permissions**](RolesApi.md#list_role_permissions) | **GET** /api/v2/roles/{role_id}/permissions | List permissions for a role
-[**list_role_users**](RolesApi.md#list_role_users) | **GET** /api/v2/roles/{role_id}/users | Get all users of a role
-[**list_roles**](RolesApi.md#list_roles) | **GET** /api/v2/roles | List roles
-[**remove_permission_from_role**](RolesApi.md#remove_permission_from_role) | **DELETE** /api/v2/roles/{role_id}/permissions | Revoke permission
-[**remove_user_from_role**](RolesApi.md#remove_user_from_role) | **DELETE** /api/v2/roles/{role_id}/users | Remove a user from a role
-[**update_role**](RolesApi.md#update_role) | **PATCH** /api/v2/roles/{role_id} | Update a role
-
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**add_permission_to_role**](RolesApi.md#add_permission_to_role) | **POST** /api/v2/roles/{role_id}/permissions | Grant permission to a role |
+| [**add_user_to_role**](RolesApi.md#add_user_to_role) | **POST** /api/v2/roles/{role_id}/users | Add a user to a role |
+| [**create_role**](RolesApi.md#create_role) | **POST** /api/v2/roles | Create role |
+| [**delete_role**](RolesApi.md#delete_role) | **DELETE** /api/v2/roles/{role_id} | Delete role |
+| [**get_role**](RolesApi.md#get_role) | **GET** /api/v2/roles/{role_id} | Get a role |
+| [**list_permissions**](RolesApi.md#list_permissions) | **GET** /api/v2/permissions | List permissions |
+| [**list_role_permissions**](RolesApi.md#list_role_permissions) | **GET** /api/v2/roles/{role_id}/permissions | List permissions for a role |
+| [**list_role_users**](RolesApi.md#list_role_users) | **GET** /api/v2/roles/{role_id}/users | Get all users of a role |
+| [**list_roles**](RolesApi.md#list_roles) | **GET** /api/v2/roles | List roles |
+| [**remove_permission_from_role**](RolesApi.md#remove_permission_from_role) | **DELETE** /api/v2/roles/{role_id}/permissions | Revoke permission |
+| [**remove_user_from_role**](RolesApi.md#remove_user_from_role) | **DELETE** /api/v2/roles/{role_id}/users | Remove a user from a role |
+| [**update_role**](RolesApi.md#update_role) | **PATCH** /api/v2/roles/{role_id} | Update a role |
 
 
 ## add_permission_to_role
@@ -62,11 +61,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **role_id** | **String**| The ID of the role. | 
- **body** | [**RelationshipToPermission**](RelationshipToPermission.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **role_id** | **String** | The ID of the role. |  |
+| **body** | [**RelationshipToPermission**](RelationshipToPermission.md) |  | [optional] |
 
 ### Return type
 
@@ -125,11 +123,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **role_id** | **String**| The ID of the role. | 
- **body** | [**RelationshipToUser**](RelationshipToUser.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **role_id** | **String** | The ID of the role. |  |
+| **body** | [**RelationshipToUser**](RelationshipToUser.md) |  | [optional] |
 
 ### Return type
 
@@ -187,10 +184,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**RoleCreateRequest**](RoleCreateRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RoleCreateRequest**](RoleCreateRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -245,10 +241,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **role_id** | **String**| The ID of the role. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **role_id** | **String** | The ID of the role. |  |
 
 ### Return type
 
@@ -304,10 +299,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **role_id** | **String**| The ID of the role. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **role_id** | **String** | The ID of the role. |  |
 
 ### Return type
 
@@ -418,10 +412,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **role_id** | **String**| The ID of the role. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **role_id** | **String** | The ID of the role. |  |
 
 ### Return type
 
@@ -483,14 +476,13 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **role_id** | **String**| The ID of the role. | 
- **page_size** | **Integer**| Size for a given page. | [optional] [default to 10]
- **page_number** | **Integer**| Specific page number to return. | [optional] [default to 0]
- **sort** | **String**| User attribute to order results by. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;email&#x60;, &#x60;status&#x60;. | [optional] [default to &#39;name&#39;]
- **filter** | **String**| Filter all users by the given string. Defaults to no filtering. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **role_id** | **String** | The ID of the role. |  |
+| **page_size** | **Integer** | Size for a given page. | [optional][default to 10] |
+| **page_number** | **Integer** | Specific page number to return. | [optional][default to 0] |
+| **sort** | **String** | User attribute to order results by. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;email&#x60;, &#x60;status&#x60;. | [optional][default to &#39;name&#39;] |
+| **filter** | **String** | Filter all users by the given string. Defaults to no filtering. | [optional] |
 
 ### Return type
 
@@ -551,13 +543,12 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page_size** | **Integer**| Size for a given page. | [optional] [default to 10]
- **page_number** | **Integer**| Specific page number to return. | [optional] [default to 0]
- **sort** | [**RolesSort**](.md)| Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: &#x60;sort&#x3D;-name&#x60;. | [optional] [default to &#39;name&#39;]
- **filter** | **String**| Filter all roles by the given string. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **page_size** | **Integer** | Size for a given page. | [optional][default to 10] |
+| **page_number** | **Integer** | Specific page number to return. | [optional][default to 0] |
+| **sort** | [**RolesSort**](.md) | Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: &#x60;sort&#x3D;-name&#x60;. | [optional][default to &#39;name&#39;] |
+| **filter** | **String** | Filter all roles by the given string. | [optional] |
 
 ### Return type
 
@@ -616,11 +607,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **role_id** | **String**| The ID of the role. | 
- **body** | [**RelationshipToPermission**](RelationshipToPermission.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **role_id** | **String** | The ID of the role. |  |
+| **body** | [**RelationshipToPermission**](RelationshipToPermission.md) |  | [optional] |
 
 ### Return type
 
@@ -679,11 +669,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **role_id** | **String**| The ID of the role. | 
- **body** | [**RelationshipToUser**](RelationshipToUser.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **role_id** | **String** | The ID of the role. |  |
+| **body** | [**RelationshipToUser**](RelationshipToUser.md) |  | [optional] |
 
 ### Return type
 
@@ -742,11 +731,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **role_id** | **String**| The ID of the role. | 
- **body** | [**RoleUpdateRequest**](RoleUpdateRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **role_id** | **String** | The ID of the role. |  |
+| **body** | [**RoleUpdateRequest**](RoleUpdateRequest.md) |  | [optional] |
 
 ### Return type
 

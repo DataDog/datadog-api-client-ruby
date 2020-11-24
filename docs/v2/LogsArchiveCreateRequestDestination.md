@@ -1,29 +1,51 @@
 # DatadogAPIClient::V2::LogsArchiveCreateRequestDestination
 
-## Properties
+## Class instance methods
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**container** | **String** | The container where the archive will be stored. | 
-**integration** | [**LogsArchiveIntegrationS3**](LogsArchiveIntegrationS3.md) |  | 
-**path** | **String** | The archive path. | [optional] 
-**region** | **String** | The region where the archive will be stored. | [optional] 
-**storage_account** | **String** | The associated storage account. | 
-**type** | [**LogsArchiveDestinationS3Type**](LogsArchiveDestinationS3Type.md) |  | [default to &#39;s3&#39;]
-**bucket** | **String** | The bucket where the archive will be stored. | 
+### `openapi_one_of`
 
-## Code Sample
+Returns the list of classes defined in oneOf.
+
+#### Example
 
 ```ruby
-require 'DatadogAPIClient::V2'
+require 'datadog_api_client/v2'
 
-instance = DatadogAPIClient::V2::LogsArchiveCreateRequestDestination.new(container: container-name,
-                                 integration: null,
-                                 path: null,
-                                 region: null,
-                                 storage_account: account-name,
-                                 type: null,
-                                 bucket: bucket-name)
+DatadogAPIClient::V2::LogsArchiveCreateRequestDestination.openapi_one_of
+# =>
+# [
+#   :'LogsArchiveDestinationAzure',
+#   :'LogsArchiveDestinationGCS',
+#   :'LogsArchiveDestinationS3'
+# ]
 ```
 
+### build
+
+Find the appropriate object from the `openapi_one_of` list and casts the data into it.
+
+#### Example
+
+```ruby
+require 'datadog_api_client/v2'
+
+DatadogAPIClient::V2::LogsArchiveCreateRequestDestination.build(data)
+# => #<LogsArchiveDestinationAzure:0x00007fdd4aab02a0>
+
+DatadogAPIClient::V2::LogsArchiveCreateRequestDestination.build(data_that_doesnt_match)
+# => nil
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| **data** | **Mixed** | data to be matched against the list of oneOf items |
+
+#### Return type
+
+- `LogsArchiveDestinationAzure`
+- `LogsArchiveDestinationGCS`
+- `LogsArchiveDestinationS3`
+- `nil` (if no type matches)
 

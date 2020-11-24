@@ -2,10 +2,9 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**validate**](AuthenticationApi.md#validate) | **GET** /api/v1/validate | Validate API key
-
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**validate**](AuthenticationApi.md#validate) | **GET** /api/v1/validate | Validate API key |
 
 
 ## validate

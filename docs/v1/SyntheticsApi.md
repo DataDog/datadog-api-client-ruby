@@ -2,30 +2,29 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**create_global_variable**](SyntheticsApi.md#create_global_variable) | **POST** /api/v1/synthetics/variables | Create a global variable
-[**create_private_location**](SyntheticsApi.md#create_private_location) | **POST** /api/v1/synthetics/private-locations | Create a private location
-[**create_test**](SyntheticsApi.md#create_test) | **POST** /api/v1/synthetics/tests | Create a test
-[**delete_global_variable**](SyntheticsApi.md#delete_global_variable) | **DELETE** /api/v1/synthetics/variables/{variable_id} | Delete a global variable
-[**delete_private_location**](SyntheticsApi.md#delete_private_location) | **DELETE** /api/v1/synthetics/private-locations/{location_id} | Delete a private location
-[**delete_tests**](SyntheticsApi.md#delete_tests) | **POST** /api/v1/synthetics/tests/delete | Delete tests
-[**edit_global_variable**](SyntheticsApi.md#edit_global_variable) | **PUT** /api/v1/synthetics/variables/{variable_id} | Edit a global variable
-[**get_api_test_latest_results**](SyntheticsApi.md#get_api_test_latest_results) | **GET** /api/v1/synthetics/tests/{public_id}/results | Get the test&#39;s latest results summaries (API)
-[**get_api_test_result**](SyntheticsApi.md#get_api_test_result) | **GET** /api/v1/synthetics/tests/{public_id}/results/{result_id} | Get a test result (API)
-[**get_browser_test**](SyntheticsApi.md#get_browser_test) | **GET** /api/v1/synthetics/tests/browser/{public_id} | Get a test configuration (browser)
-[**get_browser_test_latest_results**](SyntheticsApi.md#get_browser_test_latest_results) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results | Get the test&#39;s latest results summaries (browser)
-[**get_browser_test_result**](SyntheticsApi.md#get_browser_test_result) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results/{result_id} | Get a test result (browser)
-[**get_global_variable**](SyntheticsApi.md#get_global_variable) | **GET** /api/v1/synthetics/variables/{variable_id} | Get a global variable
-[**get_private_location**](SyntheticsApi.md#get_private_location) | **GET** /api/v1/synthetics/private-locations/{location_id} | Get a private location
-[**get_test**](SyntheticsApi.md#get_test) | **GET** /api/v1/synthetics/tests/{public_id} | Get a test configuration (API)
-[**list_locations**](SyntheticsApi.md#list_locations) | **GET** /api/v1/synthetics/locations | Get all locations (public and private)
-[**list_tests**](SyntheticsApi.md#list_tests) | **GET** /api/v1/synthetics/tests | Get the list of all tests
-[**trigger_ci_tests**](SyntheticsApi.md#trigger_ci_tests) | **POST** /api/v1/synthetics/tests/trigger/ci | Trigger some Synthetics tests for CI
-[**update_private_location**](SyntheticsApi.md#update_private_location) | **PUT** /api/v1/synthetics/private-locations/{location_id} | Edit a private location
-[**update_test**](SyntheticsApi.md#update_test) | **PUT** /api/v1/synthetics/tests/{public_id} | Edit a test
-[**update_test_pause_status**](SyntheticsApi.md#update_test_pause_status) | **PUT** /api/v1/synthetics/tests/{public_id}/status | Pause or start a test
-
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**create_global_variable**](SyntheticsApi.md#create_global_variable) | **POST** /api/v1/synthetics/variables | Create a global variable |
+| [**create_private_location**](SyntheticsApi.md#create_private_location) | **POST** /api/v1/synthetics/private-locations | Create a private location |
+| [**create_test**](SyntheticsApi.md#create_test) | **POST** /api/v1/synthetics/tests | Create a test |
+| [**delete_global_variable**](SyntheticsApi.md#delete_global_variable) | **DELETE** /api/v1/synthetics/variables/{variable_id} | Delete a global variable |
+| [**delete_private_location**](SyntheticsApi.md#delete_private_location) | **DELETE** /api/v1/synthetics/private-locations/{location_id} | Delete a private location |
+| [**delete_tests**](SyntheticsApi.md#delete_tests) | **POST** /api/v1/synthetics/tests/delete | Delete tests |
+| [**edit_global_variable**](SyntheticsApi.md#edit_global_variable) | **PUT** /api/v1/synthetics/variables/{variable_id} | Edit a global variable |
+| [**get_api_test_latest_results**](SyntheticsApi.md#get_api_test_latest_results) | **GET** /api/v1/synthetics/tests/{public_id}/results | Get the test&#39;s latest results summaries (API) |
+| [**get_api_test_result**](SyntheticsApi.md#get_api_test_result) | **GET** /api/v1/synthetics/tests/{public_id}/results/{result_id} | Get a test result (API) |
+| [**get_browser_test**](SyntheticsApi.md#get_browser_test) | **GET** /api/v1/synthetics/tests/browser/{public_id} | Get a test configuration (browser) |
+| [**get_browser_test_latest_results**](SyntheticsApi.md#get_browser_test_latest_results) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results | Get the test&#39;s latest results summaries (browser) |
+| [**get_browser_test_result**](SyntheticsApi.md#get_browser_test_result) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results/{result_id} | Get a test result (browser) |
+| [**get_global_variable**](SyntheticsApi.md#get_global_variable) | **GET** /api/v1/synthetics/variables/{variable_id} | Get a global variable |
+| [**get_private_location**](SyntheticsApi.md#get_private_location) | **GET** /api/v1/synthetics/private-locations/{location_id} | Get a private location |
+| [**get_test**](SyntheticsApi.md#get_test) | **GET** /api/v1/synthetics/tests/{public_id} | Get a test configuration (API) |
+| [**list_locations**](SyntheticsApi.md#list_locations) | **GET** /api/v1/synthetics/locations | Get all locations (public and private) |
+| [**list_tests**](SyntheticsApi.md#list_tests) | **GET** /api/v1/synthetics/tests | Get the list of all tests |
+| [**trigger_ci_tests**](SyntheticsApi.md#trigger_ci_tests) | **POST** /api/v1/synthetics/tests/trigger/ci | Trigger some Synthetics tests for CI |
+| [**update_private_location**](SyntheticsApi.md#update_private_location) | **PUT** /api/v1/synthetics/private-locations/{location_id} | Edit a private location |
+| [**update_test**](SyntheticsApi.md#update_test) | **PUT** /api/v1/synthetics/tests/{public_id} | Edit a test |
+| [**update_test_pause_status**](SyntheticsApi.md#update_test_pause_status) | **PUT** /api/v1/synthetics/tests/{public_id}/status | Pause or start a test |
 
 
 ## create_global_variable
@@ -68,10 +67,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**SyntheticsGlobalVariable**](SyntheticsGlobalVariable.md)| Details of the global variable to create. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**SyntheticsGlobalVariable**](SyntheticsGlobalVariable.md) | Details of the global variable to create. |  |
 
 ### Return type
 
@@ -127,10 +125,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**SyntheticsPrivateLocation**](SyntheticsPrivateLocation.md)| Details of the private location to create. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**SyntheticsPrivateLocation**](SyntheticsPrivateLocation.md) | Details of the private location to create. |  |
 
 ### Return type
 
@@ -186,10 +183,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**SyntheticsTestDetails**](SyntheticsTestDetails.md)| Details of the test to create. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**SyntheticsTestDetails**](SyntheticsTestDetails.md) | Details of the test to create. |  |
 
 ### Return type
 
@@ -244,10 +240,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **variable_id** | **String**| The ID of the global variable. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **variable_id** | **String** | The ID of the global variable. |  |
 
 ### Return type
 
@@ -302,10 +297,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **location_id** | **String**| The ID of the private location. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **location_id** | **String** | The ID of the private location. |  |
 
 ### Return type
 
@@ -361,10 +355,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**SyntheticsDeleteTestsPayload**](SyntheticsDeleteTestsPayload.md)| Public ID list of the Synthetic tests to be deleted. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**SyntheticsDeleteTestsPayload**](SyntheticsDeleteTestsPayload.md) | Public ID list of the Synthetic tests to be deleted. |  |
 
 ### Return type
 
@@ -421,11 +414,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **variable_id** | **String**| The ID of the global variable. | 
- **body** | [**SyntheticsGlobalVariable**](SyntheticsGlobalVariable.md)| Details of the global variable to update. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **variable_id** | **String** | The ID of the global variable. |  |
+| **body** | [**SyntheticsGlobalVariable**](SyntheticsGlobalVariable.md) | Details of the global variable to update. |  |
 
 ### Return type
 
@@ -486,13 +478,12 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **public_id** | **String**| The public ID of the test for which to search results for. | 
- **from_ts** | **Integer**| Timestamp from which to start querying results. | [optional] 
- **to_ts** | **Integer**| Timestamp up to which to query results. | [optional] 
- **probe_dc** | [**Array&lt;String&gt;**](String.md)| Locations for which to query results. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **public_id** | **String** | The public ID of the test for which to search results for. |  |
+| **from_ts** | **Integer** | Timestamp from which to start querying results. | [optional] |
+| **to_ts** | **Integer** | Timestamp up to which to query results. | [optional] |
+| **probe_dc** | [**Array&lt;String&gt;**](String.md) | Locations for which to query results. | [optional] |
 
 ### Return type
 
@@ -549,11 +540,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **public_id** | **String**| The public ID of the API test to which the target result belongs. | 
- **result_id** | **String**| The ID of the result to get. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **public_id** | **String** | The public ID of the API test to which the target result belongs. |  |
+| **result_id** | **String** | The ID of the result to get. |  |
 
 ### Return type
 
@@ -609,10 +599,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **public_id** | **String**| The public ID of the test to get details from. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **public_id** | **String** | The public ID of the test to get details from. |  |
 
 ### Return type
 
@@ -673,13 +662,12 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **public_id** | **String**| The public ID of the browser test for which to search results for. | 
- **from_ts** | **Integer**| Timestamp from which to start querying results. | [optional] 
- **to_ts** | **Integer**| Timestamp up to which to query results. | [optional] 
- **probe_dc** | [**Array&lt;String&gt;**](String.md)| Locations for which to query results. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **public_id** | **String** | The public ID of the browser test for which to search results for. |  |
+| **from_ts** | **Integer** | Timestamp from which to start querying results. | [optional] |
+| **to_ts** | **Integer** | Timestamp up to which to query results. | [optional] |
+| **probe_dc** | [**Array&lt;String&gt;**](String.md) | Locations for which to query results. | [optional] |
 
 ### Return type
 
@@ -736,11 +724,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **public_id** | **String**| The public ID of the browser test to which the target result belongs. | 
- **result_id** | **String**| The ID of the result to get. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **public_id** | **String** | The public ID of the browser test to which the target result belongs. |  |
+| **result_id** | **String** | The ID of the result to get. |  |
 
 ### Return type
 
@@ -796,10 +783,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **variable_id** | **String**| The ID of the global variable. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **variable_id** | **String** | The ID of the global variable. |  |
 
 ### Return type
 
@@ -855,10 +841,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **location_id** | **String**| The ID of the private location. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **location_id** | **String** | The ID of the private location. |  |
 
 ### Return type
 
@@ -914,10 +899,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **public_id** | **String**| The public ID of the test to get details from. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **public_id** | **String** | The public ID of the test to get details from. |  |
 
 ### Return type
 
@@ -1083,10 +1067,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**SyntheticsCITestBody**](SyntheticsCITestBody.md)| Details of the test to trigger. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**SyntheticsCITestBody**](SyntheticsCITestBody.md) | Details of the test to trigger. |  |
 
 ### Return type
 
@@ -1143,11 +1126,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **location_id** | **String**| The ID of the private location. | 
- **body** | [**SyntheticsPrivateLocation**](SyntheticsPrivateLocation.md)| Details of the private location to be updated. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **location_id** | **String** | The ID of the private location. |  |
+| **body** | [**SyntheticsPrivateLocation**](SyntheticsPrivateLocation.md) | Details of the private location to be updated. |  |
 
 ### Return type
 
@@ -1204,11 +1186,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **public_id** | **String**| The public ID of the test to get details from. | 
- **body** | [**SyntheticsTestDetails**](SyntheticsTestDetails.md)| New test details to be saved. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **public_id** | **String** | The public ID of the test to get details from. |  |
+| **body** | [**SyntheticsTestDetails**](SyntheticsTestDetails.md) | New test details to be saved. |  |
 
 ### Return type
 
@@ -1265,11 +1246,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **public_id** | **String**| The public ID of the Synthetic test to update. | 
- **body** | [**SyntheticsUpdateTestPauseStatusPayload**](SyntheticsUpdateTestPauseStatusPayload.md)| Status to set the given Synthetic test to. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **public_id** | **String** | The public ID of the Synthetic test to update. |  |
+| **body** | [**SyntheticsUpdateTestPauseStatusPayload**](SyntheticsUpdateTestPauseStatusPayload.md) | Status to set the given Synthetic test to. |  |
 
 ### Return type
 

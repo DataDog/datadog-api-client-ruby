@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**alias_name** | **String** | Expression alias. | [optional] 
-**expression** | **String** | Expression name. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **alias_name** | **String** | Expression alias. | [optional] |
+| **expression** | **String** | Expression name. |  |
 
 ## Code Sample
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::TimeseriesWidgetRequestMetadata.new(alias_name: null,
-                                 expression: null)
+instance = DatadogAPIClient::V1::TimeseriesWidgetRequestMetadata.new(
+  alias_name: null,
+  expression: null
+)
 ```
-
 

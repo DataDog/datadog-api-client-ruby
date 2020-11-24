@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**name** | **String** | Name of the incident service. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **name** | **String** | Name of the incident service. |  |
 
 ## Code Sample
 
 ```ruby
-require 'DatadogAPIClient::V2'
+require 'datadog_api_client/v2'
 
-instance = DatadogAPIClient::V2::IncidentServiceCreateAttributes.new(name: an example service name)
+instance = DatadogAPIClient::V2::IncidentServiceCreateAttributes.new(
+  name: an example service name
+)
 ```
-
 

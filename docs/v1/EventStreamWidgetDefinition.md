@@ -2,30 +2,31 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**event_size** | [**WidgetEventSize**](WidgetEventSize.md) |  | [optional] 
-**query** | **String** | Query to filter the event stream with. | 
-**tags_execution** | **String** | The execution method for multi-value filters. Can be either and or or. | [optional] 
-**time** | [**WidgetTime**](WidgetTime.md) |  | [optional] 
-**title** | **String** | Title of the widget. | [optional] 
-**title_align** | [**WidgetTextAlign**](WidgetTextAlign.md) |  | [optional] 
-**title_size** | **String** | Size of the title. | [optional] 
-**type** | [**EventStreamWidgetDefinitionType**](EventStreamWidgetDefinitionType.md) |  | [default to &#39;event_stream&#39;]
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **event_size** | [**WidgetEventSize**](WidgetEventSize.md) |  | [optional] |
+| **query** | **String** | Query to filter the event stream with. |  |
+| **tags_execution** | **String** | The execution method for multi-value filters. Can be either and or or. | [optional] |
+| **time** | [**WidgetTime**](WidgetTime.md) |  | [optional] |
+| **title** | **String** | Title of the widget. | [optional] |
+| **title_align** | [**WidgetTextAlign**](WidgetTextAlign.md) |  | [optional] |
+| **title_size** | **String** | Size of the title. | [optional] |
+| **type** | [**EventStreamWidgetDefinitionType**](EventStreamWidgetDefinitionType.md) |  | [default to &#39;event_stream&#39;] |
 
 ## Code Sample
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::EventStreamWidgetDefinition.new(event_size: null,
-                                 query: null,
-                                 tags_execution: null,
-                                 time: null,
-                                 title: null,
-                                 title_align: null,
-                                 title_size: null,
-                                 type: null)
+instance = DatadogAPIClient::V1::EventStreamWidgetDefinition.new(
+  event_size: null,
+  query: null,
+  tags_execution: null,
+  time: null,
+  title: null,
+  title_align: null,
+  title_size: null,
+  type: null
+)
 ```
-
 

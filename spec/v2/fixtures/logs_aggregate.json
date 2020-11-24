@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "status": "done",
+    "request_id": "QklIWG1jN2FTb3VUMjlob1Fjbm9uUXxoZ1l2SHN1R0w0LXdfTzJmanItekRn",
+    "elapsed": 5
+  },
+  "data": {
+    "buckets": [
+      {
+        "computes": {
+          "timeseries": [
+            {
+              "value": 6,
+              "time": "2020-10-12T06:50:00.000Z"
+            }
+          ],
+          "float": 1.2,
+          "string1": "a string",
+          "string2": "1.4"
+        },
+        "by": {}
+      }
+    ]
+  }
+}

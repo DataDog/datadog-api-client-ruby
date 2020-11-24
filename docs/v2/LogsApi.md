@@ -2,12 +2,11 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**aggregate_logs**](LogsApi.md#aggregate_logs) | **POST** /api/v2/logs/analytics/aggregate | Aggregate events
-[**list_logs**](LogsApi.md#list_logs) | **POST** /api/v2/logs/events/search | Get a list of logs
-[**list_logs_get**](LogsApi.md#list_logs_get) | **GET** /api/v2/logs/events | Get a quick list of logs
-
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**aggregate_logs**](LogsApi.md#aggregate_logs) | **POST** /api/v2/logs/analytics/aggregate | Aggregate events |
+| [**list_logs**](LogsApi.md#list_logs) | **POST** /api/v2/logs/events/search | Get a list of logs |
+| [**list_logs_get**](LogsApi.md#list_logs_get) | **GET** /api/v2/logs/events | Get a quick list of logs |
 
 
 ## aggregate_logs
@@ -52,10 +51,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**LogsAggregateRequest**](LogsAggregateRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**LogsAggregateRequest**](LogsAggregateRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -113,10 +111,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**LogsListRequest**](LogsListRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**LogsListRequest**](LogsListRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -180,16 +177,15 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **filter_query** | **String**| Search query following logs syntax. | [optional] 
- **filter_index** | **String**| For customers with multiple indexes, the indexes to search Defaults to &#39;*&#39; which means all indexes | [optional] 
- **filter_from** | **Time**| Minimum timestamp for requested logs. | [optional] 
- **filter_to** | **Time**| Maximum timestamp for requested logs. | [optional] 
- **sort** | [**LogsSort**](.md)| Order of logs in results. | [optional] 
- **page_cursor** | **String**| List following results with a cursor provided in the previous query. | [optional] 
- **page_limit** | **Integer**| Maximum number of logs in the response. | [optional] [default to 10]
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter_query** | **String** | Search query following logs syntax. | [optional] |
+| **filter_index** | **String** | For customers with multiple indexes, the indexes to search Defaults to &#39;*&#39; which means all indexes | [optional] |
+| **filter_from** | **Time** | Minimum timestamp for requested logs. | [optional] |
+| **filter_to** | **Time** | Maximum timestamp for requested logs. | [optional] |
+| **sort** | [**LogsSort**](.md) | Order of logs in results. | [optional] |
+| **page_cursor** | **String** | List following results with a cursor provided in the previous query. | [optional] |
+| **page_limit** | **Integer** | Maximum number of logs in the response. | [optional][default to 10] |
 
 ### Return type
 

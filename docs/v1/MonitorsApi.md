@@ -2,16 +2,15 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**check_can_delete_monitor**](MonitorsApi.md#check_can_delete_monitor) | **GET** /api/v1/monitor/can_delete | Check if a monitor can be deleted
-[**create_monitor**](MonitorsApi.md#create_monitor) | **POST** /api/v1/monitor | Create a monitor
-[**delete_monitor**](MonitorsApi.md#delete_monitor) | **DELETE** /api/v1/monitor/{monitor_id} | Delete a monitor
-[**get_monitor**](MonitorsApi.md#get_monitor) | **GET** /api/v1/monitor/{monitor_id} | Get a monitor&#39;s details
-[**list_monitors**](MonitorsApi.md#list_monitors) | **GET** /api/v1/monitor | Get all monitor details
-[**update_monitor**](MonitorsApi.md#update_monitor) | **PUT** /api/v1/monitor/{monitor_id} | Edit a monitor
-[**validate_monitor**](MonitorsApi.md#validate_monitor) | **POST** /api/v1/monitor/validate | Validate a monitor
-
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**check_can_delete_monitor**](MonitorsApi.md#check_can_delete_monitor) | **GET** /api/v1/monitor/can_delete | Check if a monitor can be deleted |
+| [**create_monitor**](MonitorsApi.md#create_monitor) | **POST** /api/v1/monitor | Create a monitor |
+| [**delete_monitor**](MonitorsApi.md#delete_monitor) | **DELETE** /api/v1/monitor/{monitor_id} | Delete a monitor |
+| [**get_monitor**](MonitorsApi.md#get_monitor) | **GET** /api/v1/monitor/{monitor_id} | Get a monitor&#39;s details |
+| [**list_monitors**](MonitorsApi.md#list_monitors) | **GET** /api/v1/monitor | Get all monitor details |
+| [**update_monitor**](MonitorsApi.md#update_monitor) | **PUT** /api/v1/monitor/{monitor_id} | Edit a monitor |
+| [**validate_monitor**](MonitorsApi.md#validate_monitor) | **POST** /api/v1/monitor/validate | Validate a monitor |
 
 
 ## check_can_delete_monitor
@@ -54,10 +53,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **monitor_ids** | [**Array&lt;Integer&gt;**](Integer.md)| The IDs of the monitor to check. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **monitor_ids** | [**Array&lt;Integer&gt;**](Integer.md) | The IDs of the monitor to check. |  |
 
 ### Return type
 
@@ -113,10 +111,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**Monitor**](Monitor.md)| Create a monitor request body. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**Monitor**](Monitor.md) | Create a monitor request body. |  |
 
 ### Return type
 
@@ -175,11 +172,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **monitor_id** | **Integer**| The ID of the monitor. | 
- **force** | **String**| Delete the monitor even if it&#39;s referenced by other resources (e.g. SLO, composite monitor). | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **monitor_id** | **Integer** | The ID of the monitor. |  |
+| **force** | **String** | Delete the monitor even if it&#39;s referenced by other resources (e.g. SLO, composite monitor). | [optional] |
 
 ### Return type
 
@@ -238,11 +234,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **monitor_id** | **Integer**| The ID of the monitor | 
- **group_states** | **String**| When specified, shows additional information about the group states. Choose one or more from &#x60;all&#x60;, &#x60;alert&#x60;, &#x60;warn&#x60;, and &#x60;no data&#x60;. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **monitor_id** | **Integer** | The ID of the monitor |  |
+| **group_states** | **String** | When specified, shows additional information about the group states. Choose one or more from &#x60;all&#x60;, &#x60;alert&#x60;, &#x60;warn&#x60;, and &#x60;no data&#x60;. | [optional] |
 
 ### Return type
 
@@ -307,17 +302,16 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **group_states** | **String**| When specified, shows additional information about the group states. Choose one or more from &#x60;all&#x60;, &#x60;alert&#x60;, &#x60;warn&#x60;, and &#x60;no data&#x60;. | [optional] 
- **name** | **String**| A string to filter monitors by name. | [optional] 
- **tags** | **String**| A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope. For example, &#x60;host:host0&#x60;. | [optional] 
- **monitor_tags** | **String**| A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended. For example, &#x60;service:my-app&#x60;. | [optional] 
- **with_downtimes** | **Boolean**| If this argument is set to true, then the returned data includes all current downtimes for each monitor. | [optional] 
- **id_offset** | **Integer**| Monitor ID offset. | [optional] 
- **page** | **Integer**| The page to start paginating from. If this argument is not specified, the request returns all monitors without pagination. | [optional] 
- **page_size** | **Integer**| The number of monitors to return per page. If the page argument is not specified, the default behavior returns all monitors without a &#x60;page_size&#x60; limit. However, if page is specified and &#x60;page_size&#x60; is not, the argument defaults to 100. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **group_states** | **String** | When specified, shows additional information about the group states. Choose one or more from &#x60;all&#x60;, &#x60;alert&#x60;, &#x60;warn&#x60;, and &#x60;no data&#x60;. | [optional] |
+| **name** | **String** | A string to filter monitors by name. | [optional] |
+| **tags** | **String** | A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope. For example, &#x60;host:host0&#x60;. | [optional] |
+| **monitor_tags** | **String** | A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended. For example, &#x60;service:my-app&#x60;. | [optional] |
+| **with_downtimes** | **Boolean** | If this argument is set to true, then the returned data includes all current downtimes for each monitor. | [optional] |
+| **id_offset** | **Integer** | Monitor ID offset. | [optional] |
+| **page** | **Integer** | The page to start paginating from. If this argument is not specified, the request returns all monitors without pagination. | [optional] |
+| **page_size** | **Integer** | The number of monitors to return per page. If the page argument is not specified, the default behavior returns all monitors without a &#x60;page_size&#x60; limit. However, if page is specified and &#x60;page_size&#x60; is not, the argument defaults to 100. | [optional] |
 
 ### Return type
 
@@ -374,11 +368,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **monitor_id** | **Integer**| The ID of the monitor. | 
- **body** | [**MonitorUpdateRequest**](MonitorUpdateRequest.md)| Edit a monitor request body. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **monitor_id** | **Integer** | The ID of the monitor. |  |
+| **body** | [**MonitorUpdateRequest**](MonitorUpdateRequest.md) | Edit a monitor request body. |  |
 
 ### Return type
 
@@ -434,10 +427,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**Monitor**](Monitor.md)| Monitor request object | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**Monitor**](Monitor.md) | Monitor request object |  |
 
 ### Return type
 

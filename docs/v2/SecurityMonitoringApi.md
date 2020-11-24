@@ -2,16 +2,15 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**create_security_monitoring_rule**](SecurityMonitoringApi.md#create_security_monitoring_rule) | **POST** /api/v2/security_monitoring/rules | Create a detection rule
-[**delete_security_monitoring_rule**](SecurityMonitoringApi.md#delete_security_monitoring_rule) | **DELETE** /api/v2/security_monitoring/rules/{rule_id} | Delete an existing rule
-[**get_security_monitoring_rule**](SecurityMonitoringApi.md#get_security_monitoring_rule) | **GET** /api/v2/security_monitoring/rules/{rule_id} | Get a rule&#39;s details
-[**list_security_monitoring_rules**](SecurityMonitoringApi.md#list_security_monitoring_rules) | **GET** /api/v2/security_monitoring/rules | List rules
-[**list_security_monitoring_signals**](SecurityMonitoringApi.md#list_security_monitoring_signals) | **GET** /api/v2/security_monitoring/signals | Get a quick list of security signals
-[**search_security_monitoring_signals**](SecurityMonitoringApi.md#search_security_monitoring_signals) | **POST** /api/v2/security_monitoring/signals/search | Get a list of security signals
-[**update_security_monitoring_rule**](SecurityMonitoringApi.md#update_security_monitoring_rule) | **PUT** /api/v2/security_monitoring/rules/{rule_id} | Update an existing rule
-
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**create_security_monitoring_rule**](SecurityMonitoringApi.md#create_security_monitoring_rule) | **POST** /api/v2/security_monitoring/rules | Create a detection rule |
+| [**delete_security_monitoring_rule**](SecurityMonitoringApi.md#delete_security_monitoring_rule) | **DELETE** /api/v2/security_monitoring/rules/{rule_id} | Delete an existing rule |
+| [**get_security_monitoring_rule**](SecurityMonitoringApi.md#get_security_monitoring_rule) | **GET** /api/v2/security_monitoring/rules/{rule_id} | Get a rule&#39;s details |
+| [**list_security_monitoring_rules**](SecurityMonitoringApi.md#list_security_monitoring_rules) | **GET** /api/v2/security_monitoring/rules | List rules |
+| [**list_security_monitoring_signals**](SecurityMonitoringApi.md#list_security_monitoring_signals) | **GET** /api/v2/security_monitoring/signals | Get a quick list of security signals |
+| [**search_security_monitoring_signals**](SecurityMonitoringApi.md#search_security_monitoring_signals) | **POST** /api/v2/security_monitoring/signals/search | Get a list of security signals |
+| [**update_security_monitoring_rule**](SecurityMonitoringApi.md#update_security_monitoring_rule) | **PUT** /api/v2/security_monitoring/rules/{rule_id} | Update an existing rule |
 
 
 ## create_security_monitoring_rule
@@ -56,10 +55,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**SecurityMonitoringRuleCreatePayload**](SecurityMonitoringRuleCreatePayload.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**SecurityMonitoringRuleCreatePayload**](SecurityMonitoringRuleCreatePayload.md) |  | [optional] |
 
 ### Return type
 
@@ -114,10 +112,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **rule_id** | **String**| The ID of the rule. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **rule_id** | **String** | The ID of the rule. |  |
 
 ### Return type
 
@@ -173,10 +170,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **rule_id** | **String**| The ID of the rule. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **rule_id** | **String** | The ID of the rule. |  |
 
 ### Return type
 
@@ -235,11 +231,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page_size** | **Integer**| Size for a given page. | [optional] [default to 10]
- **page_number** | **Integer**| Specific page number to return. | [optional] [default to 0]
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **page_size** | **Integer** | Size for a given page. | [optional][default to 10] |
+| **page_number** | **Integer** | Specific page number to return. | [optional][default to 0] |
 
 ### Return type
 
@@ -302,15 +297,14 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **filter_query** | **String**| The search query for security signals. | [optional] 
- **filter_from** | **Time**| The minimum timestamp for requested security signals. | [optional] 
- **filter_to** | **Time**| The maximum timestamp for requested security signals. | [optional] 
- **sort** | [**SecurityMonitoringSignalsSort**](.md)| The order of the security signals in results. | [optional] 
- **page_cursor** | **String**| A list of results using the cursor provided in the previous query. | [optional] 
- **page_limit** | **Integer**| The maximum number of security signals in the response. | [optional] [default to 10]
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter_query** | **String** | The search query for security signals. | [optional] |
+| **filter_from** | **Time** | The minimum timestamp for requested security signals. | [optional] |
+| **filter_to** | **Time** | The maximum timestamp for requested security signals. | [optional] |
+| **sort** | [**SecurityMonitoringSignalsSort**](.md) | The order of the security signals in results. | [optional] |
+| **page_cursor** | **String** | A list of results using the cursor provided in the previous query. | [optional] |
+| **page_limit** | **Integer** | The maximum number of security signals in the response. | [optional][default to 10] |
 
 ### Return type
 
@@ -368,10 +362,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**SecurityMonitoringSignalListRequest**](SecurityMonitoringSignalListRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**SecurityMonitoringSignalListRequest**](SecurityMonitoringSignalListRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -430,11 +423,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **rule_id** | **String**| The ID of the rule. | 
- **body** | [**SecurityMonitoringRuleUpdatePayload**](SecurityMonitoringRuleUpdatePayload.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **rule_id** | **String** | The ID of the rule. |  |
+| **body** | [**SecurityMonitoringRuleUpdatePayload**](SecurityMonitoringRuleUpdatePayload.md) |  | [optional] |
 
 ### Return type
 

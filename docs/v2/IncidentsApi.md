@@ -2,14 +2,13 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**create_incident**](IncidentsApi.md#create_incident) | **POST** /api/v2/incidents | Create an incident
-[**delete_incident**](IncidentsApi.md#delete_incident) | **DELETE** /api/v2/incidents/{incident_id} | Delete an existing incident
-[**get_incident**](IncidentsApi.md#get_incident) | **GET** /api/v2/incidents/{incident_id} | Get the details of an incident
-[**list_incidents**](IncidentsApi.md#list_incidents) | **GET** /api/v2/incidents | Get a list of incidents
-[**update_incident**](IncidentsApi.md#update_incident) | **PATCH** /api/v2/incidents/{incident_id} | Update an existing incident
-
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**create_incident**](IncidentsApi.md#create_incident) | **POST** /api/v2/incidents | Create an incident |
+| [**delete_incident**](IncidentsApi.md#delete_incident) | **DELETE** /api/v2/incidents/{incident_id} | Delete an existing incident |
+| [**get_incident**](IncidentsApi.md#get_incident) | **GET** /api/v2/incidents/{incident_id} | Get the details of an incident |
+| [**list_incidents**](IncidentsApi.md#list_incidents) | **GET** /api/v2/incidents | Get a list of incidents |
+| [**update_incident**](IncidentsApi.md#update_incident) | **PATCH** /api/v2/incidents/{incident_id} | Update an existing incident |
 
 
 ## create_incident
@@ -52,10 +51,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**IncidentCreateRequest**](IncidentCreateRequest.md)| Incident payload. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**IncidentCreateRequest**](IncidentCreateRequest.md) | Incident payload. |  |
 
 ### Return type
 
@@ -110,10 +108,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **incident_id** | **String**| The UUID the incident. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **incident_id** | **String** | The UUID the incident. |  |
 
 ### Return type
 
@@ -172,11 +169,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **incident_id** | **String**| The UUID the incident. | 
- **include** | [**Array&lt;String&gt;**](String.md)| Specifies which types of related objects should be included in the response. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **incident_id** | **String** | The UUID the incident. |  |
+| **include** | [**Array&lt;String&gt;**](String.md) | Specifies which types of related objects should be included in the response. | [optional] |
 
 ### Return type
 
@@ -236,12 +232,11 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **include** | [**Array&lt;String&gt;**](String.md)| Specifies which types of related objects should be included in the response. | [optional] 
- **page_size** | **Integer**| Size for a given page. | [optional] [default to 10]
- **page_offset** | **Integer**| Specific offset to use as the beginning of the returned page. | [optional] [default to 0]
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **include** | [**Array&lt;String&gt;**](String.md) | Specifies which types of related objects should be included in the response. | [optional] |
+| **page_size** | **Integer** | Size for a given page. | [optional][default to 10] |
+| **page_offset** | **Integer** | Specific offset to use as the beginning of the returned page. | [optional][default to 0] |
 
 ### Return type
 
@@ -298,11 +293,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **incident_id** | **String**| The UUID the incident. | 
- **body** | [**IncidentUpdateRequest**](IncidentUpdateRequest.md)| Incident Payload. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **incident_id** | **String** | The UUID the incident. |  |
+| **body** | [**IncidentUpdateRequest**](IncidentUpdateRequest.md) | Incident Payload. |  |
 
 ### Return type
 

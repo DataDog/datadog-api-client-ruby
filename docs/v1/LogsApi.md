@@ -2,10 +2,9 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**list_logs**](LogsApi.md#list_logs) | **POST** /api/v1/logs-queries/list | Get a list of logs
-
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**list_logs**](LogsApi.md#list_logs) | **POST** /api/v1/logs-queries/list | Get a list of logs |
 
 
 ## list_logs
@@ -48,10 +47,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**LogsListRequest**](LogsListRequest.md)| Logs filter | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**LogsListRequest**](LogsListRequest.md) | Logs filter |  |
 
 ### Return type
 

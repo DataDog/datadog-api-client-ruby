@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**metrics** | **Array&lt;String&gt;** | List of metrics that match the search query. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **metrics** | **Array&lt;String&gt;** | List of metrics that match the search query. | [optional] |
 
 ## Code Sample
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::MetricSearchResponseResults.new(metrics: null)
+instance = DatadogAPIClient::V1::MetricSearchResponseResults.new(
+  metrics: null
+)
 ```
-
 
