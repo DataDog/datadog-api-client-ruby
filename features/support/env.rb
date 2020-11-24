@@ -13,7 +13,7 @@ Datadog.configure do |c|
   c.analytics_enabled = true
   c.use :cucumber, {'operation_name': 'test'}
   c.use :ethon, {}
-  c.diagnostics.debug = (!ENV["DEBUG"].nil? and ENV["DEBUG"] != "false")
+  c.diagnostics.debug = ENV["DEBUG"].to_s.downcase != "false"
 end
 
 module RecordMode
