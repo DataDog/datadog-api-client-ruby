@@ -1,67 +1,6 @@
 ---
 http_interactions:
 - request:
-    method: post
-    uri: https://api.datadoghq.com/api/v2/teams
-    body:
-      encoding: UTF-8
-      string: '{"data":{"attributes":{"name":"ruby-Get-details-of-an-incident-team-returns-OK-response-1603477957"},"type":"teams"}}'
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.6.4; os darwin19.6.0; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 201
-      message: Created
-    headers:
-      Date:
-      - Fri, 23 Oct 2020 18:32:37 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '924'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 30-Oct-2020 18:32:37 GMT;
-        secure; HttpOnly
-      X-Dd-Version:
-      - '35.3248028'
-      X-Ratelimit-Limit:
-      - '12000'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Reset:
-      - '23'
-      X-Ratelimit-Remaining:
-      - '11991'
-      X-Dd-Debug:
-      - EQzhJSeNziVWIN4Gtgvm49DBQgA/xSWPBZSORg2i40a13gmPz8gOAFcYwqtQKjIG
-      Dd-Pool:
-      - dogweb
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-    body:
-      encoding: UTF-8
-      string: '{"included":[{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0","attributes":{"name":null,"handle":"frog@datadoghq.com","created_at":"2019-10-02T08:15:39.795051+00:00","email":"frog@datadoghq.com","icon":"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro","title":null,"verified":true,"disabled":false,"allowed_login_methods":[],"status":"Active"},"relationships":{"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}],"data":{"type":"teams","id":"7f9185c6-966f-586c-9526-23118dc22be4","attributes":{"name":"ruby-Get-details-of-an-incident-team-returns-OK-response-1603477957","created":"2020-10-23T18:32:37.329919+00:00","modified":"2020-10-23T18:32:37.329919+00:00"},"relationships":{"last_modified_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}},"created_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}}}}}'
-  recorded_at: Fri, 23 Oct 2020 18:32:37 GMT
-- request:
     method: get
     uri: https://api.datadoghq.com/api/v2/teams/7f9185c6-966f-586c-9526-23118dc22be4
     body:
@@ -124,4 +63,128 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"type":"teams","id":"7f9185c6-966f-586c-9526-23118dc22be4","attributes":{"name":"ruby-Get-details-of-an-incident-team-returns-OK-response-1603477957","created":"2020-10-23T18:32:37.329919+00:00","modified":"2020-10-23T18:32:37.329919+00:00"},"relationships":{"last_modified_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}},"created_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}}}}}'
   recorded_at: Fri, 23 Oct 2020 18:32:37 GMT
+- request:
+    method: post
+    uri: https://api.datadoghq.com/api/v2/teams
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"ruby-Get_details_of_an_incident_team_returns_OK_response-1606230434"},"type":"teams"}}'
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Tue, 24 Nov 2020 15:07:15 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '948'
+      Connection:
+      - keep-alive
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      Set-Cookie:
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 01-Dec-2020 15:07:14 GMT;
+        secure; HttpOnly
+      X-Dd-Version:
+      - '35.3425088'
+      X-Ratelimit-Limit:
+      - '12000'
+      X-Ratelimit-Period:
+      - '60'
+      X-Ratelimit-Reset:
+      - '46'
+      X-Ratelimit-Remaining:
+      - '11996'
+      X-Dd-Debug:
+      - atVIhZUeGZ/oddBgD+uTNMit/o4lgr7Hd6v/BdM+YQmOiFWaMaIQpsRUBsDDJKBd
+      Dd-Pool:
+      - dogweb
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+    body:
+      encoding: UTF-8
+      string: '{"included":[{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0","attributes":{"name":null,"handle":"frog@datadoghq.com","created_at":"2019-10-02T08:15:39.795051+00:00","email":"frog@datadoghq.com","icon":"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro","title":null,"verified":true,"service_account":false,"disabled":false,"allowed_login_methods":[],"status":"Active"},"relationships":{"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}],"data":{"type":"teams","id":"0b0e0ea9-511f-5457-a1fc-9c5f3177ef60","attributes":{"name":"ruby-Get_details_of_an_incident_team_returns_OK_response-1606230434","created":"2020-11-24T15:07:15.017265+00:00","modified":"2020-11-24T15:07:15.017265+00:00"},"relationships":{"last_modified_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}},"created_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}}}}}'
+  recorded_at: Tue, 24 Nov 2020 15:07:14 GMT
+- request:
+    method: get
+    uri: https://api.datadoghq.com/api/v2/teams/0b0e0ea9-511f-5457-a1fc-9c5f3177ef60
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 24 Nov 2020 15:07:15 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '442'
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      Set-Cookie:
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 01-Dec-2020 15:07:15 GMT;
+        secure; HttpOnly
+      X-Dd-Version:
+      - '35.3425088'
+      X-Ratelimit-Limit:
+      - '12000'
+      X-Ratelimit-Period:
+      - '60'
+      X-Ratelimit-Reset:
+      - '45'
+      X-Ratelimit-Remaining:
+      - '11999'
+      X-Dd-Debug:
+      - LX0aORViMOQWB8T+VX1PN+m0Q/BWIGM8lAfgs+SVlDy/am6DTkPEsJ9PcP8Pvumm
+      Dd-Pool:
+      - dogweb
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"teams","id":"0b0e0ea9-511f-5457-a1fc-9c5f3177ef60","attributes":{"name":"ruby-Get_details_of_an_incident_team_returns_OK_response-1606230434","created":"2020-11-24T15:07:15.017265+00:00","modified":"2020-11-24T15:07:15.017265+00:00"},"relationships":{"last_modified_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}},"created_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}}}}}'
+  recorded_at: Tue, 24 Nov 2020 15:07:14 GMT
 recorded_with: VCR 6.0.0

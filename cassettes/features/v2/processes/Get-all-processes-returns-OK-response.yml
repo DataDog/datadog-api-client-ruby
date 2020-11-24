@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin19; arch x86_64)
+      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -21,11 +21,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 20 Nov 2020 16:17:11 GMT
+      - Tue, 24 Nov 2020 15:07:26 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '986'
+      - '49'
       Connection:
       - keep-alive
       Vary:
@@ -35,20 +35,20 @@ http_interactions:
       Cache-Control:
       - no-cache
       Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 27-Nov-2020 16:17:11 GMT;
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 01-Dec-2020 15:07:26 GMT;
         secure; HttpOnly
       X-Dd-Version:
-      - '35.3406953'
+      - '35.3425209'
       X-Ratelimit-Limit:
       - '100'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '49'
+      - '34'
       X-Ratelimit-Remaining:
       - '99'
       X-Dd-Debug:
-      - Q3iASbmC8CXcQczZ/mmesVF9Hl3S9A+qhV6PH+/be9wZv0jITjuol3WLqcRl7oS5
+      - I0yEH4xFhLuk+yM2GIR/dtCF29+DEBKb58kq6TOpApqsa53yIh0t7lSVmFnrgEx+
       Dd-Pool:
       - dogweb
       Content-Security-Policy:
@@ -61,9 +61,6 @@ http_interactions:
       - max-age=15724800;
     body:
       encoding: UTF-8
-      string: '{"meta":{"page":{"after":"10b46ae67501000015e9040005c91cc83ced48820ca0d9a9de4c81eb","size":2}},"data":[{"type":"process","id":"15e9040014352a53c0f9e7320b7b7413dfcc580e","attributes":{"cmdline":"/opt/datadog-agent/embedded/bin/process-agent
-        --config=/etc/datadog-agent/datadog.yaml --sysprobe-config=/etc/datadog-agent/system-probe.yaml
-        --pid=/opt/datadog-agent/run/process-agent.pid","timestamp":"2020-11-20T16:09:27","start":"2020-11-20T16:08:26","user":"uid:118","pid":1236,"ppid":1,"host":"gardie-frog","tags":["testing:true","host:gardie-frog","user:uid:118","command:process-agent","state_zombie:false"]}},{"type":"process","id":"15e9040005c91cc83ced48820ca0d9a9de4c81eb","attributes":{"cmdline":"process-agent
-        --config=/etc/datadog-agent/datadog.yaml","timestamp":"2020-11-20T16:09:27","start":"2020-11-20T16:09:14","user":"root","pid":5223,"ppid":5212,"host":"gardie-frog","tags":["testing:true","host:gardie-frog","user:uid:118","command:process-agent","state_zombie:false"]}}]}'
-  recorded_at: Fri, 20 Nov 2020 16:17:11 GMT
+      string: '{"meta":{"page":{"after":"","size":0}},"data":[]}'
+  recorded_at: Tue, 24 Nov 2020 15:07:25 GMT
 recorded_with: VCR 6.0.0

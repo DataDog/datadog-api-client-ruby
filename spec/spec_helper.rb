@@ -80,8 +80,8 @@ RSpec.configure do |config|
   end
 
   config.around(:example) do |example|
-    VCR.use_cassette(example.metadata[:file_path].delete_prefix("./").chomp('.rb') + "/" + example.metadata[:full_description].gsub(/[^A-Za-z0-9]+/, '-')[0..100], :record_on_error => false) do |cassette|
-      Timecop.freeze(cassette.originally_recorded_at || Time.now) do
+    VCR.use_cassette(example.metadata[:file_path].delete_prefix("./").chomp('.rb') + "/" + example.metadata[:full_description].gsub(/[^A-Za-z0-9]+/, '_')[0..100], :record_on_error => false) do |cassette|
+      Timecop.freeze(use_real_time? ? Time.now : cassette.originally_recorded_at) do
         example.run
       end
     end
