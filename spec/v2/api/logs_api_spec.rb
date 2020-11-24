@@ -40,8 +40,9 @@ describe 'LogsApi' do
       buckets = res.data.buckets
       expect(buckets.length).to eq(1)
       computes = buckets[0].computes
-      expect(computes["timeseries"]).to be_an_instance_of DatadogAPIClient::V2::LogsAggregateBucketValueTimeseries
-      expect(computes["timeseries"].length()).to eq(1)
+      expect(computes["timeseries"]).to be_an_instance_of Array
+      expect(computes["timeseries"].length).to eq(1)
+      expect(computes["timeseries"][0]).to be_an_instance_of DatadogAPIClient::V2::LogsAggregateBucketValueTimeseriesPoint
       expect(computes["timeseries"][0].time).to eq("2020-10-12T06:50:00.000Z")
       expect(computes["timeseries"][0].value).to eq(6)
       expect(computes["float"]).to eq(1.2)

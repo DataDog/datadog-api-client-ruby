@@ -44,6 +44,18 @@ describe 'SyntheticsApi' do
     end
   end
 
+  # unit tests for create_private_location
+  # Create a private location
+  # Create a new Synthetics private location.
+  # @param body Details of the private location to create.
+  # @param [Hash] opts the optional parameters
+  # @return [SyntheticsPrivateLocationCreationResponse]
+  describe 'create_private_location test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for create_test
   # Create a test
   # Create a Synthetic test.
@@ -63,6 +75,18 @@ describe 'SyntheticsApi' do
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'delete_global_variable test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for delete_private_location
+  # Delete a private location
+  # Delete a Synthetics private location.
+  # @param location_id The ID of the private location.
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'delete_private_location test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -173,6 +197,18 @@ describe 'SyntheticsApi' do
     end
   end
 
+  # unit tests for get_private_location
+  # Get a private location
+  # Get a Synthetics private location.
+  # @param location_id The ID of the private location.
+  # @param [Hash] opts the optional parameters
+  # @return [SyntheticsPrivateLocation]
+  describe 'get_private_location test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_test
   # Get a test configuration (API)
   # Get the detailed configuration associated with a Synthetics test.
@@ -209,11 +245,24 @@ describe 'SyntheticsApi' do
 
   # unit tests for trigger_ci_tests
   # Trigger some Synthetics tests for CI
-  # Trigger a set of Synthetics tests for continuous integration
+  # Trigger a set of Synthetics tests for continuous integration.
   # @param body Details of the test to trigger.
   # @param [Hash] opts the optional parameters
   # @return [SyntheticsTriggerCITestsResponse]
   describe 'trigger_ci_tests test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for update_private_location
+  # Edit a private location
+  # Edit a Synthetics private location.
+  # @param location_id The ID of the private location.
+  # @param body Details of the private location to be updated.
+  # @param [Hash] opts the optional parameters
+  # @return [SyntheticsPrivateLocation]
+  describe 'update_private_location test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

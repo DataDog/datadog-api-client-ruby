@@ -47,6 +47,32 @@ describe 'UsageMeteringApi' do
     end
   end
 
+  # unit tests for get_incident_management
+  # Get hourly usage for incident management
+  # Get hourly usage for incident management.
+  # @param start_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+  # @return [UsageIncidentManagementResponse]
+  describe 'get_incident_management test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_ingested_spans
+  # Get hourly usage for ingested spans
+  # Get hourly usage for ingested spans.
+  # @param start_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+  # @return [UsageIngestedSpansResponse]
+  describe 'get_ingested_spans test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_monthly_custom_reports
   # Get the list of available monthly custom reports
   # Get monthly custom reports.
@@ -88,10 +114,10 @@ describe 'UsageMeteringApi' do
 
   # unit tests for get_tracing_without_limits
   # Get hourly usage for tracing without limits
-  # Get hourly usage for tracing without limits.
+  # Get hourly usage for tracing without limits.  **Note** This endpoint has been renamed to &#x60;/api/v1/usage/ingested-spans&#x60;.
   # @param start_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
   # @param [Hash] opts the optional parameters
-  # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+  # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
   # @return [UsageTracingWithoutLimitsResponse]
   describe 'get_tracing_without_limits test' do
     it 'should work' do
@@ -104,9 +130,26 @@ describe 'UsageMeteringApi' do
   # Get hourly usage for analyzed logs (Security Monitoring).
   # @param start_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
   # @param [Hash] opts the optional parameters
-  # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+  # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
   # @return [UsageAnalyzedLogsResponse]
   describe 'get_usage_analyzed_logs test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_usage_attribution
+  # Get Usage Attribution
+  # Get Usage Attribution.
+  # @param start_month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
+  # @param fields The specified field to search results for.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
+  # @option opts [Integer] :org_id Include usage summaries for each sub-org.
+  # @option opts [UsageSortDirection] :sort_direction The direction to sort by: &#x60;[desc, asc]&#x60;.
+  # @option opts [UsageAttributionSort] :sort_name The field to sort by.
+  # @return [UsageAttributionResponse]
+  describe 'get_usage_attribution test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -116,7 +159,7 @@ describe 'UsageMeteringApi' do
   # Get billable usage across your multi-org account
   # Get billable usage across your multi-org account.
   # @param [Hash] opts the optional parameters
-  # @option opts [DateTime] :month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage starting this month.
+  # @option opts [Time] :month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage starting this month.
   # @return [UsageBillableSummaryResponse]
   describe 'get_usage_billable_summary test' do
     it 'should work' do
@@ -129,7 +172,7 @@ describe 'UsageMeteringApi' do
   # Get hourly usage for [Fargate](https://docs.datadoghq.com/integrations/ecs_fargate/).
   # @param start_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
   # @param [Hash] opts the optional parameters
-  # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+  # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
   # @return [UsageFargateResponse]
   describe 'get_usage_fargate test' do
     it 'should work' do
@@ -142,9 +185,22 @@ describe 'UsageMeteringApi' do
   # Get hourly usage for hosts and containers.
   # @param start_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
   # @param [Hash] opts the optional parameters
-  # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+  # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
   # @return [UsageHostsResponse]
   describe 'get_usage_hosts test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_usage_indexed_spans
+  # Get hourly usage for indexed spans
+  # Get hourly usage for indexed spans.
+  # @param start_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+  # @return [UsageIndexedSpansResponse]
+  describe 'get_usage_indexed_spans test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -155,7 +211,7 @@ describe 'UsageMeteringApi' do
   # Get hourly usage for lambda.
   # @param start_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
   # @param [Hash] opts the optional parameters
-  # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+  # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
   # @return [UsageLambdaResponse]
   describe 'get_usage_lambda test' do
     it 'should work' do
@@ -168,7 +224,7 @@ describe 'UsageMeteringApi' do
   # Get hourly usage for logs.
   # @param start_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
   # @param [Hash] opts the optional parameters
-  # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+  # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
   # @return [UsageLogsResponse]
   describe 'get_usage_logs test' do
     it 'should work' do
@@ -181,7 +237,7 @@ describe 'UsageMeteringApi' do
   # Get hourly usage for logs by index.
   # @param start_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
   # @param [Hash] opts the optional parameters
-  # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+  # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
   # @option opts [Array<String>] :index_name Comma-separated list of log index names.
   # @return [UsageLogsByIndexResponse]
   describe 'get_usage_logs_by_index test' do
@@ -195,7 +251,7 @@ describe 'UsageMeteringApi' do
   # Get hourly usage for network flows.
   # @param start_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
   # @param [Hash] opts the optional parameters
-  # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+  # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
   # @return [UsageNetworkFlowsResponse]
   describe 'get_usage_network_flows test' do
     it 'should work' do
@@ -208,7 +264,7 @@ describe 'UsageMeteringApi' do
   # Get hourly usage for network hosts.
   # @param start_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
   # @param [Hash] opts the optional parameters
-  # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+  # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
   # @return [UsageNetworkHostsResponse]
   describe 'get_usage_network_hosts test' do
     it 'should work' do
@@ -221,7 +277,7 @@ describe 'UsageMeteringApi' do
   # Get hourly usage for profiled hosts.
   # @param start_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
   # @param [Hash] opts the optional parameters
-  # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+  # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
   # @return [UsageProfilingResponse]
   describe 'get_usage_profiling test' do
     it 'should work' do
@@ -234,7 +290,7 @@ describe 'UsageMeteringApi' do
   # Get hourly usage for [RUM](https://docs.datadoghq.com/real_user_monitoring/) Sessions.
   # @param start_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
   # @param [Hash] opts the optional parameters
-  # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+  # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
   # @option opts [String] :type RUM type: &#x60;[browser, mobile]&#x60;. Defaults to &#x60;browser&#x60;.
   # @return [UsageRumSessionsResponse]
   describe 'get_usage_rum_sessions test' do
@@ -248,7 +304,7 @@ describe 'UsageMeteringApi' do
   # Get hourly usage for SNMP devices.
   # @param start_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
   # @param [Hash] opts the optional parameters
-  # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+  # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
   # @return [UsageSNMPResponse]
   describe 'get_usage_snmp test' do
     it 'should work' do
@@ -261,7 +317,7 @@ describe 'UsageMeteringApi' do
   # Get usage across your multi-org account.
   # @param start_month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
   # @param [Hash] opts the optional parameters
-  # @option opts [DateTime] :end_month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
+  # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
   # @option opts [Boolean] :include_org_details Include usage summaries for each sub-org.
   # @return [UsageSummaryResponse]
   describe 'get_usage_summary test' do
@@ -275,7 +331,7 @@ describe 'UsageMeteringApi' do
   # Get hourly usage for [Synthetics checks](https://docs.datadoghq.com/synthetics/).
   # @param start_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
   # @param [Hash] opts the optional parameters
-  # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+  # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
   # @return [UsageSyntheticsResponse]
   describe 'get_usage_synthetics test' do
     it 'should work' do
@@ -288,7 +344,7 @@ describe 'UsageMeteringApi' do
   # Get hourly usage for [synthetics API checks](https://docs.datadoghq.com/synthetics/).
   # @param start_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
   # @param [Hash] opts the optional parameters
-  # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+  # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
   # @return [UsageSyntheticsAPIResponse]
   describe 'get_usage_synthetics_api test' do
     it 'should work' do
@@ -301,7 +357,7 @@ describe 'UsageMeteringApi' do
   # Get hourly usage for synthetics browser checks.
   # @param start_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
   # @param [Hash] opts the optional parameters
-  # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+  # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
   # @return [UsageSyntheticsBrowserResponse]
   describe 'get_usage_synthetics_browser test' do
     it 'should work' do
@@ -314,7 +370,7 @@ describe 'UsageMeteringApi' do
   # Get hourly usage for [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/).
   # @param start_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
   # @param [Hash] opts the optional parameters
-  # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+  # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
   # @return [UsageTimeseriesResponse]
   describe 'get_usage_timeseries test' do
     it 'should work' do
@@ -328,6 +384,7 @@ describe 'UsageMeteringApi' do
   # @param month Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour.
   # @param [Hash] opts the optional parameters
   # @option opts [Array<String>] :names Comma-separated list of metric names.
+  # @option opts [Integer] :limit Maximum number of results to return.
   # @return [UsageTopAvgMetricsResponse]
   describe 'get_usage_top_avg_metrics test' do
     it 'should work' do
@@ -337,10 +394,10 @@ describe 'UsageMeteringApi' do
 
   # unit tests for get_usage_trace
   # Get hourly usage for Trace Search
-  # Get hourly usage for trace search.
+  # Get hourly usage for trace search.  **Note** This endpoint has been renamed to &#x60;/api/v1/usage/indexed-spans&#x60;.
   # @param start_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
   # @param [Hash] opts the optional parameters
-  # @option opts [DateTime] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+  # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
   # @return [UsageTraceResponse]
   describe 'get_usage_trace test' do
     it 'should work' do

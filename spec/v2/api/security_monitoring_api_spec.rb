@@ -86,8 +86,8 @@ describe 'SecurityMonitoringApi' do
   # The list endpoint returns security signals that match a search query. Both this endpoint and the POST endpoint can be used interchangeably when listing security signals.
   # @param [Hash] opts the optional parameters
   # @option opts [String] :filter_query The search query for security signals.
-  # @option opts [DateTime] :filter_from The minimum timestamp for requested security signals.
-  # @option opts [DateTime] :filter_to The maximum timestamp for requested security signals.
+  # @option opts [Time] :filter_from The minimum timestamp for requested security signals.
+  # @option opts [Time] :filter_to The maximum timestamp for requested security signals.
   # @option opts [SecurityMonitoringSignalsSort] :sort The order of the security signals in results.
   # @option opts [String] :page_cursor A list of results using the cursor provided in the previous query.
   # @option opts [Integer] :page_limit The maximum number of security signals in the response.
