@@ -1,5 +1,5 @@
 =begin
-#Datadog API V1 Collection
+#Datadog API V2 Collection
 
 #Collection of all Datadog Public endpoints.
 
@@ -13,31 +13,31 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 require 'date'
 require 'time'
 
-module DatadogAPIClient::V1
-  # Object describing an organization to create.
-  class OrganizationCreateBody
-    attr_accessor :billing
+module DatadogAPIClient::V2
+  # Process summary object.
+  class ProcessSummary
+    attr_accessor :attributes
 
-    # The name of the new child-organization, limited to 32 characters.
-    attr_accessor :name
+    # Process ID.
+    attr_accessor :id
 
-    attr_accessor :subscription
+    attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'billing' => :'billing',
-        :'name' => :'name',
-        :'subscription' => :'subscription'
+        :'attributes' => :'attributes',
+        :'id' => :'id',
+        :'type' => :'type'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'billing' => :'OrganizationBilling',
-        :'name' => :'String',
-        :'subscription' => :'OrganizationSubscription'
+        :'attributes' => :'ProcessSummaryAttributes',
+        :'id' => :'String',
+        :'type' => :'ProcessSummaryType'
       }
     end
 
@@ -51,27 +51,29 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::OrganizationCreateBody` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ProcessSummary` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::OrganizationCreateBody`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::ProcessSummary`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'billing')
-        self.billing = attributes[:'billing']
+      if attributes.key?(:'attributes')
+        self.attributes = attributes[:'attributes']
       end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'subscription')
-        self.subscription = attributes[:'subscription']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      else
+        self.type = 'process'
       end
     end
 
@@ -79,17 +81,12 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @name.nil?
       true
     end
 
@@ -98,9 +95,9 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          billing == o.billing &&
-          name == o.name &&
-          subscription == o.subscription
+          attributes == o.attributes &&
+          id == o.id &&
+          type == o.type
     end
 
     # @see the `==` method
@@ -112,7 +109,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [billing, name, subscription].hash
+      [attributes, id, type].hash
     end
 
     # Builds the object from hash
@@ -181,7 +178,7 @@ module DatadogAPIClient::V1
           end
         end
       else # model
-        DatadogAPIClient::V1.const_get(type).build_from_hash(value)
+        DatadogAPIClient::V2.const_get(type).build_from_hash(value)
       end
     end
 

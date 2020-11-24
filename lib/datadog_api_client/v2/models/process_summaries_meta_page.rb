@@ -1,5 +1,5 @@
 =begin
-#Datadog API V1 Collection
+#Datadog API V2 Collection
 
 #Collection of all Datadog Public endpoints.
 
@@ -13,31 +13,28 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 require 'date'
 require 'time'
 
-module DatadogAPIClient::V1
-  # Object describing an organization to create.
-  class OrganizationCreateBody
-    attr_accessor :billing
+module DatadogAPIClient::V2
+  # Paging attributes.
+  class ProcessSummariesMetaPage
+    # The cursor used to get the next results, if any. To make the next request, use the same parameters with the addition of the `page[cursor]`.
+    attr_accessor :after
 
-    # The name of the new child-organization, limited to 32 characters.
-    attr_accessor :name
-
-    attr_accessor :subscription
+    # Number of results returned.
+    attr_accessor :size
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'billing' => :'billing',
-        :'name' => :'name',
-        :'subscription' => :'subscription'
+        :'after' => :'after',
+        :'size' => :'size'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'billing' => :'OrganizationBilling',
-        :'name' => :'String',
-        :'subscription' => :'OrganizationSubscription'
+        :'after' => :'String',
+        :'size' => :'Integer'
       }
     end
 
@@ -51,27 +48,23 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::OrganizationCreateBody` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ProcessSummariesMetaPage` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::OrganizationCreateBody`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::ProcessSummariesMetaPage`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'billing')
-        self.billing = attributes[:'billing']
+      if attributes.key?(:'after')
+        self.after = attributes[:'after']
       end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'subscription')
-        self.subscription = attributes[:'subscription']
+      if attributes.key?(:'size')
+        self.size = attributes[:'size']
       end
     end
 
@@ -79,8 +72,12 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      if !@size.nil? && @size > 10000
+        invalid_properties.push('invalid value for "size", must be smaller than or equal to 10000.')
+      end
+
+      if !@size.nil? && @size < 0
+        invalid_properties.push('invalid value for "size", must be greater than or equal to 0.')
       end
 
       invalid_properties
@@ -89,8 +86,23 @@ module DatadogAPIClient::V1
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @name.nil?
+      return false if !@size.nil? && @size > 10000
+      return false if !@size.nil? && @size < 0
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] size Value to be assigned
+    def size=(size)
+      if !size.nil? && size > 10000
+        fail ArgumentError, 'invalid value for "size", must be smaller than or equal to 10000.'
+      end
+
+      if !size.nil? && size < 0
+        fail ArgumentError, 'invalid value for "size", must be greater than or equal to 0.'
+      end
+
+      @size = size
     end
 
     # Checks equality by comparing each attribute.
@@ -98,9 +110,8 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          billing == o.billing &&
-          name == o.name &&
-          subscription == o.subscription
+          after == o.after &&
+          size == o.size
     end
 
     # @see the `==` method
@@ -112,7 +123,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [billing, name, subscription].hash
+      [after, size].hash
     end
 
     # Builds the object from hash
@@ -181,7 +192,7 @@ module DatadogAPIClient::V1
           end
         end
       else # model
-        DatadogAPIClient::V1.const_get(type).build_from_hash(value)
+        DatadogAPIClient::V2.const_get(type).build_from_hash(value)
       end
     end
 

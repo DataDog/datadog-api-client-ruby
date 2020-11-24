@@ -1714,7 +1714,8 @@ end
 api_instance = DatadogAPIClient::V1::UsageMeteringApi.new
 month = Time.parse('2013-10-20T19:20:30+01:00') # Time | Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour.
 opts = {
-  names: ['names_example'] # Array<String> | Comma-separated list of metric names.
+  names: ['names_example'], # Array<String> | Comma-separated list of metric names.
+  limit: 500 # Integer | Maximum number of results to return.
 }
 
 begin
@@ -1733,6 +1734,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **month** | **Time**| Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour. | 
  **names** | [**Array&lt;String&gt;**](String.md)| Comma-separated list of metric names. | [optional] 
+ **limit** | **Integer**| Maximum number of results to return. | [optional] [default to 500]
 
 ### Return type
 
