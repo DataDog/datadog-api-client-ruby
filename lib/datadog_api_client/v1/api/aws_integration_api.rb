@@ -94,6 +94,81 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
+    # Set an AWS tag filter
+    # Set an AWS tag filter.
+    # @param body [AWSTagFilterCreateRequest] Set an AWS tag filter using an &#x60;aws_account_identifier&#x60;, &#x60;namespace&#x60;, and filtering string. Namespace options are &#x60;application_elb&#x60;, &#x60;elb&#x60;, &#x60;lambda&#x60;, &#x60;network_elb&#x60;, &#x60;rds&#x60;, &#x60;sqs&#x60;, and &#x60;custom&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def create_aws_tag_filter(body, opts = {})
+      data, _status_code, _headers = create_aws_tag_filter_with_http_info(body, opts)
+      data
+    end
+
+    # Set an AWS tag filter
+    # Set an AWS tag filter.
+    # @param body [AWSTagFilterCreateRequest] Set an AWS tag filter using an &#x60;aws_account_identifier&#x60;, &#x60;namespace&#x60;, and filtering string. Namespace options are &#x60;application_elb&#x60;, &#x60;elb&#x60;, &#x60;lambda&#x60;, &#x60;network_elb&#x60;, &#x60;rds&#x60;, &#x60;sqs&#x60;, and &#x60;custom&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def create_aws_tag_filter_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:create_aws_tag_filter)
+        unstable_enabled = @api_client.config.unstable_operations[:create_aws_tag_filter]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_aws_tag_filter")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "create_aws_tag_filter"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AWSIntegrationApi.create_aws_tag_filter ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling AWSIntegrationApi.create_aws_tag_filter"
+      end
+      # resource path
+      local_var_path = '/api/v1/integration/aws/filtering'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Object'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"AWSIntegrationApi.create_aws_tag_filter",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AWSIntegrationApi#create_aws_tag_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Generate a new external ID
     # Generate a new AWS external ID for a given AWS account ID and role name pair.
     # @param body [AWSAccount] Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://github.com/DataDog/documentation/blob/master/integrations/amazon_web_services/#installation).
@@ -244,6 +319,81 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
+    # Delete a tag filtering entry
+    # Delete a tag filtering entry.
+    # @param body [AWSTagFilterDeleteRequest] Delete a tag filtering entry for a given AWS account and &#x60;dd-aws&#x60; namespace.
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def delete_aws_tag_filter(body, opts = {})
+      data, _status_code, _headers = delete_aws_tag_filter_with_http_info(body, opts)
+      data
+    end
+
+    # Delete a tag filtering entry
+    # Delete a tag filtering entry.
+    # @param body [AWSTagFilterDeleteRequest] Delete a tag filtering entry for a given AWS account and &#x60;dd-aws&#x60; namespace.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def delete_aws_tag_filter_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:delete_aws_tag_filter)
+        unstable_enabled = @api_client.config.unstable_operations[:delete_aws_tag_filter]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_aws_tag_filter")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "delete_aws_tag_filter"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AWSIntegrationApi.delete_aws_tag_filter ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling AWSIntegrationApi.delete_aws_tag_filter"
+      end
+      # resource path
+      local_var_path = '/api/v1/integration/aws/filtering'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Object'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"AWSIntegrationApi.delete_aws_tag_filter",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AWSIntegrationApi#delete_aws_tag_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List namespace rules
     # List all namespace rules for a given Datadog-AWS integration. This endpoint takes no arguments.
     # @param [Hash] opts the optional parameters
@@ -383,6 +533,80 @@ module DatadogAPIClient::V1
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AWSIntegrationApi#list_aws_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get all AWS tag filters
+    # Get all AWS tag filters.
+    # @param account_id [String] Only return AWS filters that matches this &#x60;account_id&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [AWSTagFilterListResponse]
+    def list_aws_tag_filters(account_id, opts = {})
+      data, _status_code, _headers = list_aws_tag_filters_with_http_info(account_id, opts)
+      data
+    end
+
+    # Get all AWS tag filters
+    # Get all AWS tag filters.
+    # @param account_id [String] Only return AWS filters that matches this &#x60;account_id&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(AWSTagFilterListResponse, Integer, Hash)>] AWSTagFilterListResponse data, response status code and response headers
+    def list_aws_tag_filters_with_http_info(account_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_aws_tag_filters)
+        unstable_enabled = @api_client.config.unstable_operations[:list_aws_tag_filters]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_aws_tag_filters")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "list_aws_tag_filters"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AWSIntegrationApi.list_aws_tag_filters ...'
+      end
+      # verify the required parameter 'account_id' is set
+      if @api_client.config.client_side_validation && account_id.nil?
+        fail ArgumentError, "Missing the required parameter 'account_id' when calling AWSIntegrationApi.list_aws_tag_filters"
+      end
+      # resource path
+      local_var_path = '/api/v1/integration/aws/filtering'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'account_id'] = account_id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AWSTagFilterListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"AWSIntegrationApi.list_aws_tag_filters",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AWSIntegrationApi#list_aws_tag_filters\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

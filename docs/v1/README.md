@@ -90,10 +90,13 @@ All URIs are relative to *https://api.datadoghq.com*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DatadogAPIClient::V1::AWSIntegrationApi* | [**create_aws_account**](docs/AWSIntegrationApi.md#create_aws_account) | **POST** /api/v1/integration/aws | Create an AWS integration
+*DatadogAPIClient::V1::AWSIntegrationApi* | [**create_aws_tag_filter**](docs/AWSIntegrationApi.md#create_aws_tag_filter) | **POST** /api/v1/integration/aws/filtering | Set an AWS tag filter
 *DatadogAPIClient::V1::AWSIntegrationApi* | [**create_new_aws_external_id**](docs/AWSIntegrationApi.md#create_new_aws_external_id) | **PUT** /api/v1/integration/aws/generate_new_external_id | Generate a new external ID
 *DatadogAPIClient::V1::AWSIntegrationApi* | [**delete_aws_account**](docs/AWSIntegrationApi.md#delete_aws_account) | **DELETE** /api/v1/integration/aws | Delete an AWS integration
+*DatadogAPIClient::V1::AWSIntegrationApi* | [**delete_aws_tag_filter**](docs/AWSIntegrationApi.md#delete_aws_tag_filter) | **DELETE** /api/v1/integration/aws/filtering | Delete a tag filtering entry
 *DatadogAPIClient::V1::AWSIntegrationApi* | [**list_available_aws_namespaces**](docs/AWSIntegrationApi.md#list_available_aws_namespaces) | **GET** /api/v1/integration/aws/available_namespace_rules | List namespace rules
 *DatadogAPIClient::V1::AWSIntegrationApi* | [**list_aws_accounts**](docs/AWSIntegrationApi.md#list_aws_accounts) | **GET** /api/v1/integration/aws | List all AWS integrations
+*DatadogAPIClient::V1::AWSIntegrationApi* | [**list_aws_tag_filters**](docs/AWSIntegrationApi.md#list_aws_tag_filters) | **GET** /api/v1/integration/aws/filtering | Get all AWS tag filters
 *DatadogAPIClient::V1::AWSIntegrationApi* | [**update_aws_account**](docs/AWSIntegrationApi.md#update_aws_account) | **PUT** /api/v1/integration/aws | Update an AWS integration
 *DatadogAPIClient::V1::AWSLogsIntegrationApi* | [**check_aws_logs_lambda_async**](docs/AWSLogsIntegrationApi.md#check_aws_logs_lambda_async) | **POST** /api/v1/integration/aws/logs/check_async | Check that an AWS Lambda Function exists
 *DatadogAPIClient::V1::AWSLogsIntegrationApi* | [**check_aws_logs_services_async**](docs/AWSLogsIntegrationApi.md#check_aws_logs_services_async) | **POST** /api/v1/integration/aws/logs/services_async | Check permissions for log services
@@ -262,6 +265,11 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::AWSLogsListResponseLambdas](docs/AWSLogsListResponseLambdas.md)
  - [DatadogAPIClient::V1::AWSLogsListServicesResponse](docs/AWSLogsListServicesResponse.md)
  - [DatadogAPIClient::V1::AWSLogsServicesRequest](docs/AWSLogsServicesRequest.md)
+ - [DatadogAPIClient::V1::AWSNamespace](docs/AWSNamespace.md)
+ - [DatadogAPIClient::V1::AWSTagFilterCreateRequest](docs/AWSTagFilterCreateRequest.md)
+ - [DatadogAPIClient::V1::AWSTagFilterDeleteRequest](docs/AWSTagFilterDeleteRequest.md)
+ - [DatadogAPIClient::V1::AWSTagFilterListResponse](docs/AWSTagFilterListResponse.md)
+ - [DatadogAPIClient::V1::AWSTagFilterListResponseFilters](docs/AWSTagFilterListResponseFilters.md)
  - [DatadogAPIClient::V1::AccessRole](docs/AccessRole.md)
  - [DatadogAPIClient::V1::AlertGraphWidgetDefinition](docs/AlertGraphWidgetDefinition.md)
  - [DatadogAPIClient::V1::AlertGraphWidgetDefinitionType](docs/AlertGraphWidgetDefinitionType.md)
