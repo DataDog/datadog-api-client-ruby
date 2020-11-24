@@ -5,10 +5,13 @@ All URIs are relative to *https://api.datadoghq.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_aws_account**](AWSIntegrationApi.md#create_aws_account) | **POST** /api/v1/integration/aws | Create an AWS integration
+[**create_aws_tag_filter**](AWSIntegrationApi.md#create_aws_tag_filter) | **POST** /api/v1/integration/aws/filtering | Set an AWS tag filter
 [**create_new_aws_external_id**](AWSIntegrationApi.md#create_new_aws_external_id) | **PUT** /api/v1/integration/aws/generate_new_external_id | Generate a new external ID
 [**delete_aws_account**](AWSIntegrationApi.md#delete_aws_account) | **DELETE** /api/v1/integration/aws | Delete an AWS integration
+[**delete_aws_tag_filter**](AWSIntegrationApi.md#delete_aws_tag_filter) | **DELETE** /api/v1/integration/aws/filtering | Delete a tag filtering entry
 [**list_available_aws_namespaces**](AWSIntegrationApi.md#list_available_aws_namespaces) | **GET** /api/v1/integration/aws/available_namespace_rules | List namespace rules
 [**list_aws_accounts**](AWSIntegrationApi.md#list_aws_accounts) | **GET** /api/v1/integration/aws | List all AWS integrations
+[**list_aws_tag_filters**](AWSIntegrationApi.md#list_aws_tag_filters) | **GET** /api/v1/integration/aws/filtering | Get all AWS tag filters
 [**update_aws_account**](AWSIntegrationApi.md#update_aws_account) | **PUT** /api/v1/integration/aws | Update an AWS integration
 
 
@@ -61,6 +64,65 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AWSAccountCreateResponse**](AWSAccountCreateResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## create_aws_tag_filter
+
+> Object create_aws_tag_filter(body)
+
+Set an AWS tag filter
+
+Set an AWS tag filter.
+
+### Example
+
+```ruby
+# load the gem
+require 'datadog_api_client/v1'
+# setup authorization
+DatadogAPIClient::V1.configure do |config|
+  # Configure API key authorization: apiKeyAuth
+  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+
+  # Configure API key authorization: appKeyAuth
+  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+end
+
+api_instance = DatadogAPIClient::V1::AWSIntegrationApi.new
+body = DatadogAPIClient::V1::AWSTagFilterCreateRequest.new # AWSTagFilterCreateRequest | Set an AWS tag filter using an `aws_account_identifier`, `namespace`, and filtering string. Namespace options are `application_elb`, `elb`, `lambda`, `network_elb`, `rds`, `sqs`, and `custom`.
+
+begin
+  #Set an AWS tag filter
+  result = api_instance.create_aws_tag_filter(body)
+  p result
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Exception when calling AWSIntegrationApi->create_aws_tag_filter: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AWSTagFilterCreateRequest**](AWSTagFilterCreateRequest.md)| Set an AWS tag filter using an &#x60;aws_account_identifier&#x60;, &#x60;namespace&#x60;, and filtering string. Namespace options are &#x60;application_elb&#x60;, &#x60;elb&#x60;, &#x60;lambda&#x60;, &#x60;network_elb&#x60;, &#x60;rds&#x60;, &#x60;sqs&#x60;, and &#x60;custom&#x60;. | 
+
+### Return type
+
+**Object**
 
 ### Authorization
 
@@ -190,6 +252,65 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## delete_aws_tag_filter
+
+> Object delete_aws_tag_filter(body)
+
+Delete a tag filtering entry
+
+Delete a tag filtering entry.
+
+### Example
+
+```ruby
+# load the gem
+require 'datadog_api_client/v1'
+# setup authorization
+DatadogAPIClient::V1.configure do |config|
+  # Configure API key authorization: apiKeyAuth
+  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+
+  # Configure API key authorization: appKeyAuth
+  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+end
+
+api_instance = DatadogAPIClient::V1::AWSIntegrationApi.new
+body = DatadogAPIClient::V1::AWSTagFilterDeleteRequest.new # AWSTagFilterDeleteRequest | Delete a tag filtering entry for a given AWS account and `dd-aws` namespace.
+
+begin
+  #Delete a tag filtering entry
+  result = api_instance.delete_aws_tag_filter(body)
+  p result
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Exception when calling AWSIntegrationApi->delete_aws_tag_filter: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AWSTagFilterDeleteRequest**](AWSTagFilterDeleteRequest.md)| Delete a tag filtering entry for a given AWS account and &#x60;dd-aws&#x60; namespace. | 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## list_available_aws_namespaces
 
 > Array&lt;String&gt; list_available_aws_namespaces
@@ -299,6 +420,65 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AWSAccountListResponse**](AWSAccountListResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## list_aws_tag_filters
+
+> AWSTagFilterListResponse list_aws_tag_filters(account_id)
+
+Get all AWS tag filters
+
+Get all AWS tag filters.
+
+### Example
+
+```ruby
+# load the gem
+require 'datadog_api_client/v1'
+# setup authorization
+DatadogAPIClient::V1.configure do |config|
+  # Configure API key authorization: apiKeyAuth
+  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+
+  # Configure API key authorization: appKeyAuth
+  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+end
+
+api_instance = DatadogAPIClient::V1::AWSIntegrationApi.new
+account_id = 'account_id_example' # String | Only return AWS filters that matches this `account_id`.
+
+begin
+  #Get all AWS tag filters
+  result = api_instance.list_aws_tag_filters(account_id)
+  p result
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Exception when calling AWSIntegrationApi->list_aws_tag_filters: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_id** | **String**| Only return AWS filters that matches this &#x60;account_id&#x60;. | 
+
+### Return type
+
+[**AWSTagFilterListResponse**](AWSTagFilterListResponse.md)
 
 ### Authorization
 
