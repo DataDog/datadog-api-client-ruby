@@ -1,5 +1,5 @@
 =begin
-#Datadog API V2 Collection
+#Datadog API V1 Collection
 
 #Collection of all Datadog Public endpoints.
 
@@ -13,18 +13,23 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 require 'date'
 require 'time'
 
-module DatadogAPIClient::V2
-  # A bucket value, can be either a timeseries or a single value
-  class LogsAggregateBucketValue
+module DatadogAPIClient::V1
+  # Private key for the private location.
+  class SyntheticsPrivateLocationSecretsConfigDecryption
+    # Private key for the private location.
+    attr_accessor :key
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'key' => :'key'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'key' => :'String'
       }
     end
 
@@ -34,29 +39,24 @@ module DatadogAPIClient::V2
       ])
     end
 
-    # List of class defined in oneOf (OpenAPI v3)
-    def self.openapi_one_of
-      [
-      :'Array<LogsAggregateBucketValueTimeseriesPoint>',
-      :'Float',
-      :'String'
-      ]
-    end
-
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::LogsAggregateBucketValue` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsPrivateLocationSecretsConfigDecryption` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::LogsAggregateBucketValue`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SyntheticsPrivateLocationSecretsConfigDecryption`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'key')
+        self.key = attributes[:'key']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -69,22 +69,6 @@ module DatadogAPIClient::V2
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      _one_of_found = false
-      self.class.openapi_one_of.each do |_class|
-        _one_of = DatadogAPIClient::V2.const_get(_class).build_from_hash(self.to_hash)
-        if _one_of.valid?
-          if _one_of_found
-            return false
-          else
-            _one_of_found = true
-          end
-        end
-      end
-
-      if !_one_of_found
-        return false
-      end
-
       true
     end
 
@@ -92,7 +76,8 @@ module DatadogAPIClient::V2
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
-      self.class == o.class
+      self.class == o.class &&
+          key == o.key
     end
 
     # @see the `==` method
@@ -104,7 +89,7 @@ module DatadogAPIClient::V2
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [].hash
+      [key].hash
     end
 
     # Builds the object from hash
@@ -119,14 +104,6 @@ module DatadogAPIClient::V2
     # @return [Object] Returns the model itself
     def build_from_hash(attributes)
       return nil unless attributes.is_a?(Hash)
-      unless self.class.openapi_one_of.empty?
-        for _class in self.class.openapi_one_of.each do
-          _one_of = DatadogAPIClient::V2.const_get(_class).build_from_hash(attributes) rescue nil
-          if _one_of != nil && _one_of.valid?
-            return _one_of
-          end
-        end
-      end
       self.class.openapi_types.each_pair do |key, type|
         if attributes[self.class.attribute_map[key]].nil? && self.class.openapi_nullable.include?(key)
           self.send("#{key}=", nil)
@@ -181,7 +158,7 @@ module DatadogAPIClient::V2
           end
         end
       else # model
-        DatadogAPIClient::V2.const_get(type).build_from_hash(value)
+        DatadogAPIClient::V1.const_get(type).build_from_hash(value)
       end
     end
 
