@@ -2040,6 +2040,7 @@ module DatadogAPIClient::V1
     # @param month [Time] Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :names Comma-separated list of metric names.
+    # @option opts [Integer] :limit Maximum number of results to return. (default to 500)
     # @return [UsageTopAvgMetricsResponse]
     def get_usage_top_avg_metrics(month, opts = {})
       data, _status_code, _headers = get_usage_top_avg_metrics_with_http_info(month, opts)
@@ -2051,6 +2052,7 @@ module DatadogAPIClient::V1
     # @param month [Time] Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :names Comma-separated list of metric names.
+    # @option opts [Integer] :limit Maximum number of results to return.
     # @return [Array<(UsageTopAvgMetricsResponse, Integer, Hash)>] UsageTopAvgMetricsResponse data, response status code and response headers
     def get_usage_top_avg_metrics_with_http_info(month, opts = {})
 
@@ -2070,6 +2072,14 @@ module DatadogAPIClient::V1
       if @api_client.config.client_side_validation && month.nil?
         fail ArgumentError, "Missing the required parameter 'month' when calling UsageMeteringApi.get_usage_top_avg_metrics"
       end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 5000
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UsageMeteringApi.get_usage_top_avg_metrics, must be smaller than or equal to 5000.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UsageMeteringApi.get_usage_top_avg_metrics, must be greater than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/api/v1/usage/top_avg_metrics'
 
@@ -2077,6 +2087,7 @@ module DatadogAPIClient::V1
       query_params = opts[:query_params] || {}
       query_params[:'month'] = month
       query_params[:'names'] = @api_client.build_collection_param(opts[:'names'], :multi) if !opts[:'names'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
