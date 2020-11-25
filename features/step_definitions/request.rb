@@ -83,7 +83,7 @@ module APIWorld
   end
 
   def undo_create_incident(response)
-    configuration.config.unstable_operations[:delete_incident] = true
+    configuration.unstable_operations[:delete_incident] = true
     api_instance = DatadogAPIClient::V2::IncidentsApi.new api_client
     api_instance.delete_incident(response[0].data.id)
   end
@@ -104,7 +104,7 @@ module APIWorld
   end
 
   def undo_create_incident_service(response)
-    configuration.config.unstable_operations[:delete_incident_service] = true
+    configuration.unstable_operations[:delete_incident_service] = true
     api_instance = DatadogAPIClient::V2::IncidentServicesApi.new api_client
     api_instance.delete_incident_service(response[0].data.id)
   end
