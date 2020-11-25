@@ -243,7 +243,7 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_usage_synthetics_api**](docs/UsageMeteringApi.md#get_usage_synthetics_api) | **GET** /api/v1/usage/synthetics_api | Get hourly usage for Synthetics API Checks
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_usage_synthetics_browser**](docs/UsageMeteringApi.md#get_usage_synthetics_browser) | **GET** /api/v1/usage/synthetics_browser | Get hourly usage for Synthetics Browser Checks
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_usage_timeseries**](docs/UsageMeteringApi.md#get_usage_timeseries) | **GET** /api/v1/usage/timeseries | Get hourly usage for custom metrics
-*DatadogAPIClient::V1::UsageMeteringApi* | [**get_usage_top_avg_metrics**](docs/UsageMeteringApi.md#get_usage_top_avg_metrics) | **GET** /api/v1/usage/top_avg_metrics | Get top 500 custom metrics by hourly average
+*DatadogAPIClient::V1::UsageMeteringApi* | [**get_usage_top_avg_metrics**](docs/UsageMeteringApi.md#get_usage_top_avg_metrics) | **GET** /api/v1/usage/top_avg_metrics | Get top custom metrics by hourly average
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_usage_trace**](docs/UsageMeteringApi.md#get_usage_trace) | **GET** /api/v1/usage/traces | Get hourly usage for Trace Search
 *DatadogAPIClient::V1::UsersApi* | [**create_user**](docs/UsersApi.md#create_user) | **POST** /api/v1/user | Create a user
 *DatadogAPIClient::V1::UsersApi* | [**disable_user**](docs/UsersApi.md#disable_user) | **DELETE** /api/v1/user/{user_handle} | Disable a user

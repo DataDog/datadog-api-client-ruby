@@ -30,7 +30,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**get_usage_synthetics_api**](UsageMeteringApi.md#get_usage_synthetics_api) | **GET** /api/v1/usage/synthetics_api | Get hourly usage for Synthetics API Checks |
 | [**get_usage_synthetics_browser**](UsageMeteringApi.md#get_usage_synthetics_browser) | **GET** /api/v1/usage/synthetics_browser | Get hourly usage for Synthetics Browser Checks |
 | [**get_usage_timeseries**](UsageMeteringApi.md#get_usage_timeseries) | **GET** /api/v1/usage/timeseries | Get hourly usage for custom metrics |
-| [**get_usage_top_avg_metrics**](UsageMeteringApi.md#get_usage_top_avg_metrics) | **GET** /api/v1/usage/top_avg_metrics | Get top 500 custom metrics by hourly average |
+| [**get_usage_top_avg_metrics**](UsageMeteringApi.md#get_usage_top_avg_metrics) | **GET** /api/v1/usage/top_avg_metrics | Get top custom metrics by hourly average |
 | [**get_usage_trace**](UsageMeteringApi.md#get_usage_trace) | **GET** /api/v1/usage/traces | Get hourly usage for Trace Search |
 
 
@@ -1662,7 +1662,7 @@ end
 
 > UsageTopAvgMetricsResponse get_usage_top_avg_metrics(month, opts)
 
-Get top 500 custom metrics by hourly average
+Get top custom metrics by hourly average
 
 Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average.
 
@@ -1688,11 +1688,11 @@ api_instance = DatadogAPIClient::V1::UsageMeteringApi.new
 month = Time.parse('2013-10-20T19:20:30+01:00') # Time | Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour.
 opts = {
   names: ['names_example'], # Array<String> | Comma-separated list of metric names.
-  limit: 500 # Integer | Maximum number of results to return.
+  limit: 500 # Integer | Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified.
 }
 
 begin
-  #Get top 500 custom metrics by hourly average
+  #Get top custom metrics by hourly average
   result = api_instance.get_usage_top_avg_metrics(month, opts)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
@@ -1706,7 +1706,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **month** | **Time** | Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour. |  |
 | **names** | [**Array&lt;String&gt;**](String.md) | Comma-separated list of metric names. | [optional] |
-| **limit** | **Integer** | Maximum number of results to return. | [optional][default to 500] |
+| **limit** | **Integer** | Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified. | [optional][default to 500] |
 
 ### Return type
 

@@ -2035,24 +2035,24 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get top 500 custom metrics by hourly average
+    # Get top custom metrics by hourly average
     # Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average.
     # @param month [Time] Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :names Comma-separated list of metric names.
-    # @option opts [Integer] :limit Maximum number of results to return. (default to 500)
+    # @option opts [Integer] :limit Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified. (default to 500)
     # @return [UsageTopAvgMetricsResponse]
     def get_usage_top_avg_metrics(month, opts = {})
       data, _status_code, _headers = get_usage_top_avg_metrics_with_http_info(month, opts)
       data
     end
 
-    # Get top 500 custom metrics by hourly average
+    # Get top custom metrics by hourly average
     # Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average.
     # @param month [Time] Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :names Comma-separated list of metric names.
-    # @option opts [Integer] :limit Maximum number of results to return.
+    # @option opts [Integer] :limit Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified.
     # @return [Array<(UsageTopAvgMetricsResponse, Integer, Hash)>] UsageTopAvgMetricsResponse data, response status code and response headers
     def get_usage_top_avg_metrics_with_http_info(month, opts = {})
 
