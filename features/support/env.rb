@@ -1,11 +1,17 @@
+# SimpleCov must start at the very top
+# https://github.com/simplecov-ruby/simplecov/blob/master/README.md#getting-started
+require 'simplecov'
+SimpleCov.start do
+  add_filter "/features/"
+  add_filter "/spec"
+end
+
 require 'datadog_api_client'
 require 'ddtrace'
-require 'simplecov'
 require 'time'
 require 'timecop'
 require 'vcr'
 
-SimpleCov.start
 
 Datadog.configure do |c|
   c.service = 'datadog-api-client-ruby'
