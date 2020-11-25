@@ -637,7 +637,6 @@ module DatadogAPIClient::V1
     # @param fields [String] The specified field to search results for.
     # @param [Hash] opts the optional parameters
     # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
-    # @option opts [Integer] :org_id Include usage summaries for each sub-org.
     # @option opts [UsageSortDirection] :sort_direction The direction to sort by: &#x60;[desc, asc]&#x60;. (default to 'desc')
     # @option opts [UsageAttributionSort] :sort_name The field to sort by. (default to 'custom_timeseries_usage')
     # @return [UsageAttributionResponse]
@@ -652,7 +651,6 @@ module DatadogAPIClient::V1
     # @param fields [String] The specified field to search results for.
     # @param [Hash] opts the optional parameters
     # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
-    # @option opts [Integer] :org_id Include usage summaries for each sub-org.
     # @option opts [UsageSortDirection] :sort_direction The direction to sort by: &#x60;[desc, asc]&#x60;.
     # @option opts [UsageAttributionSort] :sort_name The field to sort by.
     # @return [Array<(UsageAttributionResponse, Integer, Hash)>] UsageAttributionResponse data, response status code and response headers
@@ -686,7 +684,6 @@ module DatadogAPIClient::V1
       query_params[:'start_month'] = start_month
       query_params[:'fields'] = fields
       query_params[:'end_month'] = opts[:'end_month'] if !opts[:'end_month'].nil?
-      query_params[:'org_id'] = opts[:'org_id'] if !opts[:'org_id'].nil?
       query_params[:'sort_direction'] = opts[:'sort_direction'] if !opts[:'sort_direction'].nil?
       query_params[:'sort_name'] = opts[:'sort_name'] if !opts[:'sort_name'].nil?
 

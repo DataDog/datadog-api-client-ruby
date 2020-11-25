@@ -561,7 +561,6 @@ start_month = Time.parse('2013-10-20T19:20:30+01:00') # Time | Datetime in ISO-8
 fields = 'fields_example' # String | The specified field to search results for.
 opts = {
   end_month: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage ending this month.
-  org_id: 56, # Integer | Include usage summaries for each sub-org.
   sort_direction: 'desc', # UsageSortDirection | The direction to sort by: `[desc, asc]`.
   sort_name: 'custom_timeseries_usage' # UsageAttributionSort | The field to sort by.
 }
@@ -582,7 +581,6 @@ end
 | **start_month** | **Time** | Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago. |  |
 | **fields** | **String** | The specified field to search results for. |  |
 | **end_month** | **Time** | Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month. | [optional] |
-| **org_id** | **Integer** | Include usage summaries for each sub-org. | [optional] |
 | **sort_direction** | [**UsageSortDirection**](.md) | The direction to sort by: &#x60;[desc, asc]&#x60;. | [optional][default to &#39;desc&#39;] |
 | **sort_name** | [**UsageAttributionSort**](.md) | The field to sort by. | [optional][default to &#39;custom_timeseries_usage&#39;] |
 
