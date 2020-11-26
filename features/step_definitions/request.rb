@@ -1,3 +1,5 @@
+require 'json'
+
 module APIWorld
   def api
     Object.const_get("DatadogAPIClient::V#{@api_version}")
@@ -25,6 +27,34 @@ module APIWorld
     @opts ||= {}
   end
 
+  def undo_operations
+    return @undo_operations if @undo_operations
+    undo_path = File.join(__dir__, '..', "v#{@api_version}", 'undo.json')
+    @undo_operations ||= JSON.parse(File.read(undo_path)).map{
+      |operation_id, settings| [operation_id.snakecase, settings["undo"]]
+    }.to_h
+  end
+
+  def build_undo_for(operation_id, api_instance = nil)
+    raise "missing x-undo for #{operation_id}" unless undo_operations.key? operation_id
+
+    operation = undo_operations[operation_id]
+    raise "update x-undo for #{operation_id}" unless operation["type"]
+
+    return if operation["type"] != "unsafe"
+
+    api_instance ||= @api_instance
+    operation_name = operation["operationId"].underscore
+    method = api_instance.method("#{operation_name}_with_http_info".to_sym)
+
+    lambda do |response|
+      args = operation["parameters"].each{ |p| response.lookup(p["source"]) }
+
+      configuration.unstable_operations[operation_name.snakecase.to_sym] = true
+      lambda { method.call(*args) }
+    end
+  end
+
   def create_user
     api_instance = DatadogAPIClient::V2::UsersApi.new api_client
 
@@ -34,16 +64,12 @@ module APIWorld
     user.data.attributes = DatadogAPIClient::V2::UserCreateAttributes.new
     user.data.attributes.email = "#{unique}@datadoghq.com"
 
+    undo_builder = build_undo_for(__method__.to_s, api_instance)
     response = api_instance.create_user_with_http_info({
       body: user
     })
-    @undo << lambda { undo_create_user(response) }
+    @undo << undo_builder.call(response[0]) if undo_builder
     response[0]
-  end
-
-  def undo_create_user(response)
-    api_instance = DatadogAPIClient::V2::UsersApi.new api_client
-    api_instance.disable_user(response[0].data.id)
   end
 
   def create_role
@@ -55,16 +81,12 @@ module APIWorld
     role.data.attributes = DatadogAPIClient::V2::RoleCreateAttributes.new
     role.data.attributes.name = unique
 
+    undo_builder = build_undo_for(__method__.to_s, api_instance)
     response = api_instance.create_role_with_http_info({
       body: role
     })
-    @undo << lambda { undo_create_role(response) }
+    @undo << undo_builder.call(response[0]) if undo_builder
     response[0]
-  end
-
-  def undo_create_role(response)
-    api_instance = DatadogAPIClient::V2::RolesApi.new api_client
-    api_instance.delete_role(response[0].data.id)
   end
 
   def create_incident
@@ -77,15 +99,10 @@ module APIWorld
     incident_create_request.data.attributes = DatadogAPIClient::V2::IncidentCreateAttributes.new
     incident_create_request.data.attributes.title = unique
 
+    undo_builder = build_undo_for(__method__.to_s, api_instance)
     response = api_instance.create_incident_with_http_info(incident_create_request)
-    @undo << lambda { undo_create_incident(response) }
+    @undo << undo_builder.call(response[0]) if undo_builder
     response[0]
-  end
-
-  def undo_create_incident(response)
-    configuration.unstable_operations[:delete_incident] = true
-    api_instance = DatadogAPIClient::V2::IncidentsApi.new api_client
-    api_instance.delete_incident(response[0].data.id)
   end
 
   def create_service
@@ -98,15 +115,10 @@ module APIWorld
     incident_service_create_request.data.attributes = DatadogAPIClient::V2::IncidentServiceCreateAttributes.new
     incident_service_create_request.data.attributes.name = unique
 
+    undo_builder = build_undo_for("create_incident_service", api_instance)
     response = api_instance.create_incident_service_with_http_info(incident_service_create_request)
-    @undo << lambda { undo_create_incident_service(response) }
+    @undo << undo_builder.call(response[0]) if undo_builder
     response[0]
-  end
-
-  def undo_create_incident_service(response)
-    configuration.unstable_operations[:delete_incident_service] = true
-    api_instance = DatadogAPIClient::V2::IncidentServicesApi.new api_client
-    api_instance.delete_incident_service(response[0].data.id)
   end
 
   def create_team
@@ -119,15 +131,10 @@ module APIWorld
     incident_team_create_request.data.attributes = DatadogAPIClient::V2::IncidentTeamCreateAttributes.new
     incident_team_create_request.data.attributes.name = unique
 
+    undo_builder = build_undo_for("create_incident_team", api_instance)
     response = api_instance.create_incident_team_with_http_info(incident_team_create_request)
-    @undo << lambda { undo_create_incident_team(response) }
+    @undo << undo_builder.call(response[0]) if undo_builder
     response[0]
-  end
-
-  def undo_create_incident_team(response)
-    configuration.unstable_operations[:delete_incident_team] = true
-    api_instance = DatadogAPIClient::V2::IncidentTeamsApi.new api_client
-    api_instance.delete_incident_team(response[0].data.id)
   end
 
   def create_permission
@@ -135,28 +142,6 @@ module APIWorld
 
     response = api_instance.list_permissions
     response.data[0]
-  end
-
-  def skip_undo?(method)
-    method.to_s.start_with?(
-      "undo_add_",
-      "undo_aggregate_logs",
-      "undo_delete_",
-      "undo_disable_",
-      "undo_get_",
-      "undo_list_",
-      "undo_remove_",
-      "undo_send_invitations",
-      "undo_update_",
-    )
-  end
-
-  def missing_method(method, *args, &block)
-    super unless skip_undo? method
-  end
-
-  def respond_to_missing?(method, *)
-    skip_undo?(method) || super
   end
 end
 
@@ -198,10 +183,9 @@ end
 
 When('the request is sent') do
   params = @api_method.parameters.select { |p| p[0] == :req }.map { |p| opts.delete(p[1]) }
-  undo_name = "undo_#{@api_method.name.to_s.chomp('_with_http_info')}".to_sym
-  undo = self.method undo_name  # fail early on missing undo method
+  undo_builder = build_undo_for @api_method.name.to_s.chomp('_with_http_info')  # fail early on missing undo method
   @response = @api_method.call(*params, opts)
-  @undo << lambda { undo.call @response } unless skip_undo? undo_name
+  @undo << undo_builder.call(@response[0]) if undo_builder
 end
 
 Then(/^the response "([^"]+)" is equal to (.*)$/) do |response_path, value|
