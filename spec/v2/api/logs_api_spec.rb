@@ -36,7 +36,7 @@ describe 'LogsApi' do
     it 'deserializes logs aggregate with oneOf properly' do
       stub_request(:post, "https://api.datadoghq.com/api/v2/logs/analytics/aggregate")
         .to_return(body: load_fixture("logs_aggregate.json"), headers: { "Content-Type": "application/json" })
-      res = @api_instance.aggregate_logs
+      res = @api_instance.aggregate_logs({})
       buckets = res.data.buckets
       expect(buckets.length).to eq(1)
       computes = buckets[0].computes
