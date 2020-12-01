@@ -15,7 +15,7 @@ All URIs are relative to *https://api.datadoghq.com*
 
 ## create_security_monitoring_rule
 
-> SecurityMonitoringRuleResponse create_security_monitoring_rule(opts)
+> SecurityMonitoringRuleResponse create_security_monitoring_rule(body)
 
 Create a detection rule
 
@@ -40,13 +40,11 @@ DatadogAPIClient::V2.configure do |config|
 end
 
 api_instance = DatadogAPIClient::V2::SecurityMonitoringApi.new
-opts = {
-  body: DatadogAPIClient::V2::SecurityMonitoringRuleCreatePayload.new # SecurityMonitoringRuleCreatePayload | 
-}
+body = DatadogAPIClient::V2::SecurityMonitoringRuleCreatePayload.new # SecurityMonitoringRuleCreatePayload | 
 
 begin
   #Create a detection rule
-  result = api_instance.create_security_monitoring_rule(opts)
+  result = api_instance.create_security_monitoring_rule(body)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
   puts "Exception when calling SecurityMonitoringApi->create_security_monitoring_rule: #{e}"
@@ -57,7 +55,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**SecurityMonitoringRuleCreatePayload**](SecurityMonitoringRuleCreatePayload.md) |  | [optional] |
+| **body** | [**SecurityMonitoringRuleCreatePayload**](SecurityMonitoringRuleCreatePayload.md) |  |  |
 
 ### Return type
 
@@ -382,7 +380,7 @@ end
 
 ## update_security_monitoring_rule
 
-> SecurityMonitoringRuleResponse update_security_monitoring_rule(rule_id, opts)
+> SecurityMonitoringRuleResponse update_security_monitoring_rule(rule_id, body)
 
 Update an existing rule
 
@@ -408,13 +406,11 @@ end
 
 api_instance = DatadogAPIClient::V2::SecurityMonitoringApi.new
 rule_id = 'rule_id_example' # String | The ID of the rule.
-opts = {
-  body: DatadogAPIClient::V2::SecurityMonitoringRuleUpdatePayload.new # SecurityMonitoringRuleUpdatePayload | 
-}
+body = DatadogAPIClient::V2::SecurityMonitoringRuleUpdatePayload.new # SecurityMonitoringRuleUpdatePayload | 
 
 begin
   #Update an existing rule
-  result = api_instance.update_security_monitoring_rule(rule_id, opts)
+  result = api_instance.update_security_monitoring_rule(rule_id, body)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
   puts "Exception when calling SecurityMonitoringApi->update_security_monitoring_rule: #{e}"
@@ -426,7 +422,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **rule_id** | **String** | The ID of the rule. |  |
-| **body** | [**SecurityMonitoringRuleUpdatePayload**](SecurityMonitoringRuleUpdatePayload.md) |  | [optional] |
+| **body** | [**SecurityMonitoringRuleUpdatePayload**](SecurityMonitoringRuleUpdatePayload.md) |  |  |
 
 ### Return type
 

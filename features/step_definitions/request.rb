@@ -34,9 +34,7 @@ module APIWorld
     user.data.attributes = DatadogAPIClient::V2::UserCreateAttributes.new
     user.data.attributes.email = "#{unique}@datadoghq.com"
 
-    response = api_instance.create_user_with_http_info({
-      body: user
-    })
+    response = api_instance.create_user_with_http_info(user)
     @undo << lambda { undo_create_user(response) }
     response[0]
   end
@@ -55,9 +53,7 @@ module APIWorld
     role.data.attributes = DatadogAPIClient::V2::RoleCreateAttributes.new
     role.data.attributes.name = unique
 
-    response = api_instance.create_role_with_http_info({
-      body: role
-    })
+    response = api_instance.create_role_with_http_info(role)
     @undo << lambda { undo_create_role(response) }
     response[0]
   end

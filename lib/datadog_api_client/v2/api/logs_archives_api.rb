@@ -22,21 +22,21 @@ module DatadogAPIClient::V2
     # Grant role to an archive
     # Adds a read role to an archive. ([Roles API](https://docs.datadoghq.com/api/v2/roles/))
     # @param archive_id [String] The ID of the archive.
+    # @param body [RelationshipToRole] 
     # @param [Hash] opts the optional parameters
-    # @option opts [RelationshipToRole] :body 
     # @return [nil]
-    def add_read_role_to_archive(archive_id, opts = {})
-      add_read_role_to_archive_with_http_info(archive_id, opts)
+    def add_read_role_to_archive(archive_id, body, opts = {})
+      add_read_role_to_archive_with_http_info(archive_id, body, opts)
       nil
     end
 
     # Grant role to an archive
     # Adds a read role to an archive. ([Roles API](https://docs.datadoghq.com/api/v2/roles/))
     # @param archive_id [String] The ID of the archive.
+    # @param body [RelationshipToRole] 
     # @param [Hash] opts the optional parameters
-    # @option opts [RelationshipToRole] :body 
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def add_read_role_to_archive_with_http_info(archive_id, opts = {})
+    def add_read_role_to_archive_with_http_info(archive_id, body, opts = {})
 
       if @api_client.config.unstable_operations.has_key?(:add_read_role_to_archive)
         unstable_enabled = @api_client.config.unstable_operations[:add_read_role_to_archive]
@@ -53,6 +53,10 @@ module DatadogAPIClient::V2
       # verify the required parameter 'archive_id' is set
       if @api_client.config.client_side_validation && archive_id.nil?
         fail ArgumentError, "Missing the required parameter 'archive_id' when calling LogsArchivesApi.add_read_role_to_archive"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling LogsArchivesApi.add_read_role_to_archive"
       end
       # resource path
       local_var_path = '/api/v2/logs/config/archives/{archive_id}/readers'.sub('{' + 'archive_id' + '}', CGI.escape(archive_id.to_s))
@@ -71,7 +75,7 @@ module DatadogAPIClient::V2
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'body'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
       return_type = opts[:debug_return_type]
@@ -527,21 +531,21 @@ module DatadogAPIClient::V2
     # Revoke role from an archive
     # Removes a role from an archive. ([Roles API](https://docs.datadoghq.com/api/v2/roles/))
     # @param archive_id [String] The ID of the archive.
+    # @param body [RelationshipToRole] 
     # @param [Hash] opts the optional parameters
-    # @option opts [RelationshipToRole] :body 
     # @return [nil]
-    def remove_role_from_archive(archive_id, opts = {})
-      remove_role_from_archive_with_http_info(archive_id, opts)
+    def remove_role_from_archive(archive_id, body, opts = {})
+      remove_role_from_archive_with_http_info(archive_id, body, opts)
       nil
     end
 
     # Revoke role from an archive
     # Removes a role from an archive. ([Roles API](https://docs.datadoghq.com/api/v2/roles/))
     # @param archive_id [String] The ID of the archive.
+    # @param body [RelationshipToRole] 
     # @param [Hash] opts the optional parameters
-    # @option opts [RelationshipToRole] :body 
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def remove_role_from_archive_with_http_info(archive_id, opts = {})
+    def remove_role_from_archive_with_http_info(archive_id, body, opts = {})
 
       if @api_client.config.unstable_operations.has_key?(:remove_role_from_archive)
         unstable_enabled = @api_client.config.unstable_operations[:remove_role_from_archive]
@@ -558,6 +562,10 @@ module DatadogAPIClient::V2
       # verify the required parameter 'archive_id' is set
       if @api_client.config.client_side_validation && archive_id.nil?
         fail ArgumentError, "Missing the required parameter 'archive_id' when calling LogsArchivesApi.remove_role_from_archive"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling LogsArchivesApi.remove_role_from_archive"
       end
       # resource path
       local_var_path = '/api/v2/logs/config/archives/{archive_id}/readers'.sub('{' + 'archive_id' + '}', CGI.escape(archive_id.to_s))
@@ -576,7 +584,7 @@ module DatadogAPIClient::V2
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'body'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
       return_type = opts[:debug_return_type]

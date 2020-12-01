@@ -17,7 +17,7 @@ All URIs are relative to *https://api.datadoghq.com*
 
 ## create_user
 
-> UserResponse create_user(opts)
+> UserResponse create_user(body)
 
 Create a user
 
@@ -42,13 +42,11 @@ DatadogAPIClient::V2.configure do |config|
 end
 
 api_instance = DatadogAPIClient::V2::UsersApi.new
-opts = {
-  body: DatadogAPIClient::V2::UserCreateRequest.new # UserCreateRequest | 
-}
+body = DatadogAPIClient::V2::UserCreateRequest.new # UserCreateRequest | 
 
 begin
   #Create a user
-  result = api_instance.create_user(opts)
+  result = api_instance.create_user(body)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
   puts "Exception when calling UsersApi->create_user: #{e}"
@@ -59,7 +57,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**UserCreateRequest**](UserCreateRequest.md) |  | [optional] |
+| **body** | [**UserCreateRequest**](UserCreateRequest.md) |  |  |
 
 ### Return type
 
@@ -436,7 +434,7 @@ end
 
 ## send_invitations
 
-> UserInvitationsResponse send_invitations(opts)
+> UserInvitationsResponse send_invitations(body)
 
 Send invitation emails
 
@@ -461,13 +459,11 @@ DatadogAPIClient::V2.configure do |config|
 end
 
 api_instance = DatadogAPIClient::V2::UsersApi.new
-opts = {
-  body: DatadogAPIClient::V2::UserInvitationsRequest.new # UserInvitationsRequest | 
-}
+body = DatadogAPIClient::V2::UserInvitationsRequest.new # UserInvitationsRequest | 
 
 begin
   #Send invitation emails
-  result = api_instance.send_invitations(opts)
+  result = api_instance.send_invitations(body)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
   puts "Exception when calling UsersApi->send_invitations: #{e}"
@@ -478,7 +474,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**UserInvitationsRequest**](UserInvitationsRequest.md) |  | [optional] |
+| **body** | [**UserInvitationsRequest**](UserInvitationsRequest.md) |  |  |
 
 ### Return type
 
@@ -496,7 +492,7 @@ end
 
 ## update_user
 
-> UserResponse update_user(user_id, opts)
+> UserResponse update_user(user_id, body)
 
 Update a user
 
@@ -522,13 +518,11 @@ end
 
 api_instance = DatadogAPIClient::V2::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user.
-opts = {
-  body: DatadogAPIClient::V2::UserUpdateRequest.new # UserUpdateRequest | 
-}
+body = DatadogAPIClient::V2::UserUpdateRequest.new # UserUpdateRequest | 
 
 begin
   #Update a user
-  result = api_instance.update_user(user_id, opts)
+  result = api_instance.update_user(user_id, body)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
   puts "Exception when calling UsersApi->update_user: #{e}"
@@ -540,7 +534,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **user_id** | **String** | The ID of the user. |  |
-| **body** | [**UserUpdateRequest**](UserUpdateRequest.md) |  | [optional] |
+| **body** | [**UserUpdateRequest**](UserUpdateRequest.md) |  |  |
 
 ### Return type
 

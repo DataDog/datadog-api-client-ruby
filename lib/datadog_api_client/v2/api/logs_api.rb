@@ -21,20 +21,20 @@ module DatadogAPIClient::V2
     end
     # Aggregate events
     # The API endpoint to aggregate events into buckets and compute metrics and timeseries.
+    # @param body [LogsAggregateRequest] 
     # @param [Hash] opts the optional parameters
-    # @option opts [LogsAggregateRequest] :body 
     # @return [LogsAggregateResponse]
-    def aggregate_logs(opts = {})
-      data, _status_code, _headers = aggregate_logs_with_http_info(opts)
+    def aggregate_logs(body, opts = {})
+      data, _status_code, _headers = aggregate_logs_with_http_info(body, opts)
       data
     end
 
     # Aggregate events
     # The API endpoint to aggregate events into buckets and compute metrics and timeseries.
+    # @param body [LogsAggregateRequest] 
     # @param [Hash] opts the optional parameters
-    # @option opts [LogsAggregateRequest] :body 
     # @return [Array<(LogsAggregateResponse, Integer, Hash)>] LogsAggregateResponse data, response status code and response headers
-    def aggregate_logs_with_http_info(opts = {})
+    def aggregate_logs_with_http_info(body, opts = {})
 
       if @api_client.config.unstable_operations.has_key?(:aggregate_logs)
         unstable_enabled = @api_client.config.unstable_operations[:aggregate_logs]
@@ -47,6 +47,10 @@ module DatadogAPIClient::V2
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsApi.aggregate_logs ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling LogsApi.aggregate_logs"
       end
       # resource path
       local_var_path = '/api/v2/logs/analytics/aggregate'
@@ -65,7 +69,7 @@ module DatadogAPIClient::V2
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'body'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
       return_type = opts[:debug_return_type] || 'LogsAggregateResponse'

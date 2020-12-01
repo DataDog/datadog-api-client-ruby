@@ -14,5 +14,5 @@ Given('the "user" has a "user_invitation"') do
   body = DatadogAPIClient::V2::UserInvitationsRequest.new
   body.data = [data]
 
-  fixtures[:user_invitation] = api_instance.send_invitations({ body: body }).data[0]
+  fixtures[:user_invitation] = api_instance.send_invitations(body).data[0]
 end

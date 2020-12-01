@@ -181,7 +181,7 @@ This endpoint does not need any parameter.
 
 ## update_logs_index
 
-> LogsIndex update_logs_index(name, opts)
+> LogsIndex update_logs_index(name, body)
 
 Update an index
 
@@ -207,13 +207,11 @@ end
 
 api_instance = DatadogAPIClient::V1::LogsIndexesApi.new
 name = 'name_example' # String | Name of the log index.
-opts = {
-  body: DatadogAPIClient::V1::LogsIndexUpdateRequest.new # LogsIndexUpdateRequest | Object containing the new `LogsIndexUpdateRequest`.
-}
+body = DatadogAPIClient::V1::LogsIndexUpdateRequest.new # LogsIndexUpdateRequest | Object containing the new `LogsIndexUpdateRequest`.
 
 begin
   #Update an index
-  result = api_instance.update_logs_index(name, opts)
+  result = api_instance.update_logs_index(name, body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
   puts "Exception when calling LogsIndexesApi->update_logs_index: #{e}"
@@ -225,7 +223,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **name** | **String** | Name of the log index. |  |
-| **body** | [**LogsIndexUpdateRequest**](LogsIndexUpdateRequest.md) | Object containing the new &#x60;LogsIndexUpdateRequest&#x60;. | [optional] |
+| **body** | [**LogsIndexUpdateRequest**](LogsIndexUpdateRequest.md) | Object containing the new &#x60;LogsIndexUpdateRequest&#x60;. |  |
 
 ### Return type
 
@@ -243,7 +241,7 @@ end
 
 ## update_logs_index_order
 
-> LogsIndexesOrder update_logs_index_order(opts)
+> LogsIndexesOrder update_logs_index_order(body)
 
 Update indexes order
 
@@ -268,13 +266,11 @@ DatadogAPIClient::V1.configure do |config|
 end
 
 api_instance = DatadogAPIClient::V1::LogsIndexesApi.new
-opts = {
-  body: DatadogAPIClient::V1::LogsIndexesOrder.new # LogsIndexesOrder | Object containing the new ordered list of index names
-}
+body = DatadogAPIClient::V1::LogsIndexesOrder.new # LogsIndexesOrder | Object containing the new ordered list of index names
 
 begin
   #Update indexes order
-  result = api_instance.update_logs_index_order(opts)
+  result = api_instance.update_logs_index_order(body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
   puts "Exception when calling LogsIndexesApi->update_logs_index_order: #{e}"
@@ -285,7 +281,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**LogsIndexesOrder**](LogsIndexesOrder.md) | Object containing the new ordered list of index names | [optional] |
+| **body** | [**LogsIndexesOrder**](LogsIndexesOrder.md) | Object containing the new ordered list of index names |  |
 
 ### Return type
 

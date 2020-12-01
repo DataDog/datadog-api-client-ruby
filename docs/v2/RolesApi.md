@@ -20,7 +20,7 @@ All URIs are relative to *https://api.datadoghq.com*
 
 ## add_permission_to_role
 
-> PermissionsResponse add_permission_to_role(role_id, opts)
+> PermissionsResponse add_permission_to_role(role_id, body)
 
 Grant permission to a role
 
@@ -46,13 +46,11 @@ end
 
 api_instance = DatadogAPIClient::V2::RolesApi.new
 role_id = 'role_id_example' # String | The ID of the role.
-opts = {
-  body: DatadogAPIClient::V2::RelationshipToPermission.new # RelationshipToPermission | 
-}
+body = DatadogAPIClient::V2::RelationshipToPermission.new # RelationshipToPermission | 
 
 begin
   #Grant permission to a role
-  result = api_instance.add_permission_to_role(role_id, opts)
+  result = api_instance.add_permission_to_role(role_id, body)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
   puts "Exception when calling RolesApi->add_permission_to_role: #{e}"
@@ -64,7 +62,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **role_id** | **String** | The ID of the role. |  |
-| **body** | [**RelationshipToPermission**](RelationshipToPermission.md) |  | [optional] |
+| **body** | [**RelationshipToPermission**](RelationshipToPermission.md) |  |  |
 
 ### Return type
 
@@ -82,7 +80,7 @@ end
 
 ## add_user_to_role
 
-> UsersResponse add_user_to_role(role_id, opts)
+> UsersResponse add_user_to_role(role_id, body)
 
 Add a user to a role
 
@@ -108,13 +106,11 @@ end
 
 api_instance = DatadogAPIClient::V2::RolesApi.new
 role_id = 'role_id_example' # String | The ID of the role.
-opts = {
-  body: DatadogAPIClient::V2::RelationshipToUser.new # RelationshipToUser | 
-}
+body = DatadogAPIClient::V2::RelationshipToUser.new # RelationshipToUser | 
 
 begin
   #Add a user to a role
-  result = api_instance.add_user_to_role(role_id, opts)
+  result = api_instance.add_user_to_role(role_id, body)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
   puts "Exception when calling RolesApi->add_user_to_role: #{e}"
@@ -126,7 +122,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **role_id** | **String** | The ID of the role. |  |
-| **body** | [**RelationshipToUser**](RelationshipToUser.md) |  | [optional] |
+| **body** | [**RelationshipToUser**](RelationshipToUser.md) |  |  |
 
 ### Return type
 
@@ -144,7 +140,7 @@ end
 
 ## create_role
 
-> RoleCreateResponse create_role(opts)
+> RoleCreateResponse create_role(body)
 
 Create role
 
@@ -169,13 +165,11 @@ DatadogAPIClient::V2.configure do |config|
 end
 
 api_instance = DatadogAPIClient::V2::RolesApi.new
-opts = {
-  body: DatadogAPIClient::V2::RoleCreateRequest.new # RoleCreateRequest | 
-}
+body = DatadogAPIClient::V2::RoleCreateRequest.new # RoleCreateRequest | 
 
 begin
   #Create role
-  result = api_instance.create_role(opts)
+  result = api_instance.create_role(body)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
   puts "Exception when calling RolesApi->create_role: #{e}"
@@ -186,7 +180,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**RoleCreateRequest**](RoleCreateRequest.md) |  | [optional] |
+| **body** | [**RoleCreateRequest**](RoleCreateRequest.md) |  |  |
 
 ### Return type
 
@@ -566,7 +560,7 @@ end
 
 ## remove_permission_from_role
 
-> PermissionsResponse remove_permission_from_role(role_id, opts)
+> PermissionsResponse remove_permission_from_role(role_id, body)
 
 Revoke permission
 
@@ -592,13 +586,11 @@ end
 
 api_instance = DatadogAPIClient::V2::RolesApi.new
 role_id = 'role_id_example' # String | The ID of the role.
-opts = {
-  body: DatadogAPIClient::V2::RelationshipToPermission.new # RelationshipToPermission | 
-}
+body = DatadogAPIClient::V2::RelationshipToPermission.new # RelationshipToPermission | 
 
 begin
   #Revoke permission
-  result = api_instance.remove_permission_from_role(role_id, opts)
+  result = api_instance.remove_permission_from_role(role_id, body)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
   puts "Exception when calling RolesApi->remove_permission_from_role: #{e}"
@@ -610,7 +602,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **role_id** | **String** | The ID of the role. |  |
-| **body** | [**RelationshipToPermission**](RelationshipToPermission.md) |  | [optional] |
+| **body** | [**RelationshipToPermission**](RelationshipToPermission.md) |  |  |
 
 ### Return type
 
@@ -628,7 +620,7 @@ end
 
 ## remove_user_from_role
 
-> UsersResponse remove_user_from_role(role_id, opts)
+> UsersResponse remove_user_from_role(role_id, body)
 
 Remove a user from a role
 
@@ -654,13 +646,11 @@ end
 
 api_instance = DatadogAPIClient::V2::RolesApi.new
 role_id = 'role_id_example' # String | The ID of the role.
-opts = {
-  body: DatadogAPIClient::V2::RelationshipToUser.new # RelationshipToUser | 
-}
+body = DatadogAPIClient::V2::RelationshipToUser.new # RelationshipToUser | 
 
 begin
   #Remove a user from a role
-  result = api_instance.remove_user_from_role(role_id, opts)
+  result = api_instance.remove_user_from_role(role_id, body)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
   puts "Exception when calling RolesApi->remove_user_from_role: #{e}"
@@ -672,7 +662,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **role_id** | **String** | The ID of the role. |  |
-| **body** | [**RelationshipToUser**](RelationshipToUser.md) |  | [optional] |
+| **body** | [**RelationshipToUser**](RelationshipToUser.md) |  |  |
 
 ### Return type
 
@@ -690,7 +680,7 @@ end
 
 ## update_role
 
-> RoleUpdateResponse update_role(role_id, opts)
+> RoleUpdateResponse update_role(role_id, body)
 
 Update a role
 
@@ -716,13 +706,11 @@ end
 
 api_instance = DatadogAPIClient::V2::RolesApi.new
 role_id = 'role_id_example' # String | The ID of the role.
-opts = {
-  body: DatadogAPIClient::V2::RoleUpdateRequest.new # RoleUpdateRequest | 
-}
+body = DatadogAPIClient::V2::RoleUpdateRequest.new # RoleUpdateRequest | 
 
 begin
   #Update a role
-  result = api_instance.update_role(role_id, opts)
+  result = api_instance.update_role(role_id, body)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
   puts "Exception when calling RolesApi->update_role: #{e}"
@@ -734,7 +722,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **role_id** | **String** | The ID of the role. |  |
-| **body** | [**RoleUpdateRequest**](RoleUpdateRequest.md) |  | [optional] |
+| **body** | [**RoleUpdateRequest**](RoleUpdateRequest.md) |  |  |
 
 ### Return type
 
