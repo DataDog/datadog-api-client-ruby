@@ -18,7 +18,7 @@ All URIs are relative to *https://api.datadoghq.com*
 
 ## add_read_role_to_archive
 
-> add_read_role_to_archive(archive_id, opts)
+> add_read_role_to_archive(archive_id, body)
 
 Grant role to an archive
 
@@ -44,13 +44,11 @@ end
 
 api_instance = DatadogAPIClient::V2::LogsArchivesApi.new
 archive_id = 'archive_id_example' # String | The ID of the archive.
-opts = {
-  body: DatadogAPIClient::V2::RelationshipToRole.new # RelationshipToRole | 
-}
+body = DatadogAPIClient::V2::RelationshipToRole.new # RelationshipToRole | 
 
 begin
   #Grant role to an archive
-  api_instance.add_read_role_to_archive(archive_id, opts)
+  api_instance.add_read_role_to_archive(archive_id, body)
 rescue DatadogAPIClient::V2::ApiError => e
   puts "Exception when calling LogsArchivesApi->add_read_role_to_archive: #{e}"
 end
@@ -61,7 +59,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **archive_id** | **String** | The ID of the archive. |  |
-| **body** | [**RelationshipToRole**](RelationshipToRole.md) |  | [optional] |
+| **body** | [**RelationshipToRole**](RelationshipToRole.md) |  |  |
 
 ### Return type
 
@@ -420,7 +418,7 @@ This endpoint does not need any parameter.
 
 ## remove_role_from_archive
 
-> remove_role_from_archive(archive_id, opts)
+> remove_role_from_archive(archive_id, body)
 
 Revoke role from an archive
 
@@ -446,13 +444,11 @@ end
 
 api_instance = DatadogAPIClient::V2::LogsArchivesApi.new
 archive_id = 'archive_id_example' # String | The ID of the archive.
-opts = {
-  body: DatadogAPIClient::V2::RelationshipToRole.new # RelationshipToRole | 
-}
+body = DatadogAPIClient::V2::RelationshipToRole.new # RelationshipToRole | 
 
 begin
   #Revoke role from an archive
-  api_instance.remove_role_from_archive(archive_id, opts)
+  api_instance.remove_role_from_archive(archive_id, body)
 rescue DatadogAPIClient::V2::ApiError => e
   puts "Exception when calling LogsArchivesApi->remove_role_from_archive: #{e}"
 end
@@ -463,7 +459,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **archive_id** | **String** | The ID of the archive. |  |
-| **body** | [**RelationshipToRole**](RelationshipToRole.md) |  | [optional] |
+| **body** | [**RelationshipToRole**](RelationshipToRole.md) |  |  |
 
 ### Return type
 

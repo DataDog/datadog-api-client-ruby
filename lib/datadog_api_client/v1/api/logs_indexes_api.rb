@@ -229,21 +229,21 @@ module DatadogAPIClient::V1
     # Update an index
     # Update an index as identified by its name. Returns the Index object passed in the request body when the request is successful.  Using the `PUT` method updates your index’s configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
     # @param name [String] Name of the log index.
+    # @param body [LogsIndexUpdateRequest] Object containing the new &#x60;LogsIndexUpdateRequest&#x60;.
     # @param [Hash] opts the optional parameters
-    # @option opts [LogsIndexUpdateRequest] :body Object containing the new &#x60;LogsIndexUpdateRequest&#x60;.
     # @return [LogsIndex]
-    def update_logs_index(name, opts = {})
-      data, _status_code, _headers = update_logs_index_with_http_info(name, opts)
+    def update_logs_index(name, body, opts = {})
+      data, _status_code, _headers = update_logs_index_with_http_info(name, body, opts)
       data
     end
 
     # Update an index
     # Update an index as identified by its name. Returns the Index object passed in the request body when the request is successful.  Using the &#x60;PUT&#x60; method updates your index’s configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
     # @param name [String] Name of the log index.
+    # @param body [LogsIndexUpdateRequest] Object containing the new &#x60;LogsIndexUpdateRequest&#x60;.
     # @param [Hash] opts the optional parameters
-    # @option opts [LogsIndexUpdateRequest] :body Object containing the new &#x60;LogsIndexUpdateRequest&#x60;.
     # @return [Array<(LogsIndex, Integer, Hash)>] LogsIndex data, response status code and response headers
-    def update_logs_index_with_http_info(name, opts = {})
+    def update_logs_index_with_http_info(name, body, opts = {})
 
       if @api_client.config.unstable_operations.has_key?(:update_logs_index)
         unstable_enabled = @api_client.config.unstable_operations[:update_logs_index]
@@ -260,6 +260,10 @@ module DatadogAPIClient::V1
       # verify the required parameter 'name' is set
       if @api_client.config.client_side_validation && name.nil?
         fail ArgumentError, "Missing the required parameter 'name' when calling LogsIndexesApi.update_logs_index"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling LogsIndexesApi.update_logs_index"
       end
       # resource path
       local_var_path = '/api/v1/logs/config/indexes/{name}'.sub('{' + 'name' + '}', CGI.escape(name.to_s))
@@ -278,7 +282,7 @@ module DatadogAPIClient::V1
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'body'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
       return_type = opts[:debug_return_type] || 'LogsIndex'
@@ -305,20 +309,20 @@ module DatadogAPIClient::V1
 
     # Update indexes order
     # This endpoint updates the index order of your organization. It returns the index order object passed in the request body when the request is successful.
+    # @param body [LogsIndexesOrder] Object containing the new ordered list of index names
     # @param [Hash] opts the optional parameters
-    # @option opts [LogsIndexesOrder] :body Object containing the new ordered list of index names
     # @return [LogsIndexesOrder]
-    def update_logs_index_order(opts = {})
-      data, _status_code, _headers = update_logs_index_order_with_http_info(opts)
+    def update_logs_index_order(body, opts = {})
+      data, _status_code, _headers = update_logs_index_order_with_http_info(body, opts)
       data
     end
 
     # Update indexes order
     # This endpoint updates the index order of your organization. It returns the index order object passed in the request body when the request is successful.
+    # @param body [LogsIndexesOrder] Object containing the new ordered list of index names
     # @param [Hash] opts the optional parameters
-    # @option opts [LogsIndexesOrder] :body Object containing the new ordered list of index names
     # @return [Array<(LogsIndexesOrder, Integer, Hash)>] LogsIndexesOrder data, response status code and response headers
-    def update_logs_index_order_with_http_info(opts = {})
+    def update_logs_index_order_with_http_info(body, opts = {})
 
       if @api_client.config.unstable_operations.has_key?(:update_logs_index_order)
         unstable_enabled = @api_client.config.unstable_operations[:update_logs_index_order]
@@ -331,6 +335,10 @@ module DatadogAPIClient::V1
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsIndexesApi.update_logs_index_order ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling LogsIndexesApi.update_logs_index_order"
       end
       # resource path
       local_var_path = '/api/v1/logs/config/index-order'
@@ -349,7 +357,7 @@ module DatadogAPIClient::V1
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'body'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
       return_type = opts[:debug_return_type] || 'LogsIndexesOrder'

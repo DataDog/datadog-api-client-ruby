@@ -9,7 +9,7 @@ Given('the "user" has the "role"') do
   body.data.id = user.data.id
   body.data.type = user.data.type
 
-  api_instance.add_user_to_role(role.data.id, { body: body })
+  api_instance.add_user_to_role(role.data.id, body)
 end
 
 Given('the "permission" is granted to the "role"') do
@@ -23,5 +23,5 @@ Given('the "permission" is granted to the "role"') do
   body.data.id = permission.id
   body.data.type = permission.type
 
-  api_instance.add_permission_to_role(role.data.id, { body: body })
+  api_instance.add_permission_to_role(role.data.id, body)
 end

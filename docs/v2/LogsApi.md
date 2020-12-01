@@ -11,7 +11,7 @@ All URIs are relative to *https://api.datadoghq.com*
 
 ## aggregate_logs
 
-> LogsAggregateResponse aggregate_logs(opts)
+> LogsAggregateResponse aggregate_logs(body)
 
 Aggregate events
 
@@ -36,13 +36,11 @@ DatadogAPIClient::V2.configure do |config|
 end
 
 api_instance = DatadogAPIClient::V2::LogsApi.new
-opts = {
-  body: DatadogAPIClient::V2::LogsAggregateRequest.new # LogsAggregateRequest | 
-}
+body = DatadogAPIClient::V2::LogsAggregateRequest.new # LogsAggregateRequest | 
 
 begin
   #Aggregate events
-  result = api_instance.aggregate_logs(opts)
+  result = api_instance.aggregate_logs(body)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
   puts "Exception when calling LogsApi->aggregate_logs: #{e}"
@@ -53,7 +51,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**LogsAggregateRequest**](LogsAggregateRequest.md) |  | [optional] |
+| **body** | [**LogsAggregateRequest**](LogsAggregateRequest.md) |  |  |
 
 ### Return type
 

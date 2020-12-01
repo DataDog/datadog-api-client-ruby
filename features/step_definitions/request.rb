@@ -65,9 +65,7 @@ module APIWorld
     user.data.attributes.email = "#{unique}@datadoghq.com"
 
     undo_builder = build_undo_for(__method__.to_s, api_instance)
-    response = api_instance.create_user_with_http_info({
-      body: user
-    })
+    response = api_instance.create_user_with_http_info(user)
     @undo << undo_builder.call(response[0]) if undo_builder
     response[0]
   end
@@ -82,9 +80,7 @@ module APIWorld
     role.data.attributes.name = unique
 
     undo_builder = build_undo_for(__method__.to_s, api_instance)
-    response = api_instance.create_role_with_http_info({
-      body: role
-    })
+    response = api_instance.create_role_with_http_info(role)
     @undo << undo_builder.call(response[0]) if undo_builder
     response[0]
   end
