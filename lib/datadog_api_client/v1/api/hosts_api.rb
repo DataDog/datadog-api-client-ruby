@@ -183,21 +183,21 @@ module DatadogAPIClient::V1
     # Mute a host
     # Mute a host.
     # @param host_name [String] Name of the host to mute.
+    # @param body [HostMuteSettings] Mute a host request body.
     # @param [Hash] opts the optional parameters
-    # @option opts [HostMuteSettings] :body Mute a host request body.
     # @return [HostMuteResponse]
-    def mute_host(host_name, opts = {})
-      data, _status_code, _headers = mute_host_with_http_info(host_name, opts)
+    def mute_host(host_name, body, opts = {})
+      data, _status_code, _headers = mute_host_with_http_info(host_name, body, opts)
       data
     end
 
     # Mute a host
     # Mute a host.
     # @param host_name [String] Name of the host to mute.
+    # @param body [HostMuteSettings] Mute a host request body.
     # @param [Hash] opts the optional parameters
-    # @option opts [HostMuteSettings] :body Mute a host request body.
     # @return [Array<(HostMuteResponse, Integer, Hash)>] HostMuteResponse data, response status code and response headers
-    def mute_host_with_http_info(host_name, opts = {})
+    def mute_host_with_http_info(host_name, body, opts = {})
 
       if @api_client.config.unstable_operations.has_key?(:mute_host)
         unstable_enabled = @api_client.config.unstable_operations[:mute_host]
@@ -214,6 +214,10 @@ module DatadogAPIClient::V1
       # verify the required parameter 'host_name' is set
       if @api_client.config.client_side_validation && host_name.nil?
         fail ArgumentError, "Missing the required parameter 'host_name' when calling HostsApi.mute_host"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling HostsApi.mute_host"
       end
       # resource path
       local_var_path = '/api/v1/host/{host_name}/mute'.sub('{' + 'host_name' + '}', CGI.escape(host_name.to_s))
@@ -232,7 +236,7 @@ module DatadogAPIClient::V1
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'body'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
       return_type = opts[:debug_return_type] || 'HostMuteResponse'

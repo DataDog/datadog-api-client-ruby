@@ -146,7 +146,7 @@ end
 
 ## mute_host
 
-> HostMuteResponse mute_host(host_name, opts)
+> HostMuteResponse mute_host(host_name, body)
 
 Mute a host
 
@@ -172,13 +172,11 @@ end
 
 api_instance = DatadogAPIClient::V1::HostsApi.new
 host_name = 'host_name_example' # String | Name of the host to mute.
-opts = {
-  body: DatadogAPIClient::V1::HostMuteSettings.new # HostMuteSettings | Mute a host request body.
-}
+body = DatadogAPIClient::V1::HostMuteSettings.new # HostMuteSettings | Mute a host request body.
 
 begin
   #Mute a host
-  result = api_instance.mute_host(host_name, opts)
+  result = api_instance.mute_host(host_name, body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
   puts "Exception when calling HostsApi->mute_host: #{e}"
@@ -190,7 +188,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **host_name** | **String** | Name of the host to mute. |  |
-| **body** | [**HostMuteSettings**](HostMuteSettings.md) | Mute a host request body. | [optional] |
+| **body** | [**HostMuteSettings**](HostMuteSettings.md) | Mute a host request body. |  |
 
 ### Return type
 

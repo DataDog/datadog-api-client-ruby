@@ -21,20 +21,20 @@ module DatadogAPIClient::V2
     end
     # Create a detection rule
     # Create a detection rule.
+    # @param body [SecurityMonitoringRuleCreatePayload] 
     # @param [Hash] opts the optional parameters
-    # @option opts [SecurityMonitoringRuleCreatePayload] :body 
     # @return [SecurityMonitoringRuleResponse]
-    def create_security_monitoring_rule(opts = {})
-      data, _status_code, _headers = create_security_monitoring_rule_with_http_info(opts)
+    def create_security_monitoring_rule(body, opts = {})
+      data, _status_code, _headers = create_security_monitoring_rule_with_http_info(body, opts)
       data
     end
 
     # Create a detection rule
     # Create a detection rule.
+    # @param body [SecurityMonitoringRuleCreatePayload] 
     # @param [Hash] opts the optional parameters
-    # @option opts [SecurityMonitoringRuleCreatePayload] :body 
     # @return [Array<(SecurityMonitoringRuleResponse, Integer, Hash)>] SecurityMonitoringRuleResponse data, response status code and response headers
-    def create_security_monitoring_rule_with_http_info(opts = {})
+    def create_security_monitoring_rule_with_http_info(body, opts = {})
 
       if @api_client.config.unstable_operations.has_key?(:create_security_monitoring_rule)
         unstable_enabled = @api_client.config.unstable_operations[:create_security_monitoring_rule]
@@ -47,6 +47,10 @@ module DatadogAPIClient::V2
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringApi.create_security_monitoring_rule ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringApi.create_security_monitoring_rule"
       end
       # resource path
       local_var_path = '/api/v2/security_monitoring/rules'
@@ -65,7 +69,7 @@ module DatadogAPIClient::V2
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'body'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
       return_type = opts[:debug_return_type] || 'SecurityMonitoringRuleResponse'
@@ -472,21 +476,21 @@ module DatadogAPIClient::V2
     # Update an existing rule
     # Update an existing rule. When updating `cases`, `queries` or `options`, the whole field must be included. For example, when modifying a query all queries must be included. Default rules can only be updated to be enabled and to change notifications.
     # @param rule_id [String] The ID of the rule.
+    # @param body [SecurityMonitoringRuleUpdatePayload] 
     # @param [Hash] opts the optional parameters
-    # @option opts [SecurityMonitoringRuleUpdatePayload] :body 
     # @return [SecurityMonitoringRuleResponse]
-    def update_security_monitoring_rule(rule_id, opts = {})
-      data, _status_code, _headers = update_security_monitoring_rule_with_http_info(rule_id, opts)
+    def update_security_monitoring_rule(rule_id, body, opts = {})
+      data, _status_code, _headers = update_security_monitoring_rule_with_http_info(rule_id, body, opts)
       data
     end
 
     # Update an existing rule
     # Update an existing rule. When updating &#x60;cases&#x60;, &#x60;queries&#x60; or &#x60;options&#x60;, the whole field must be included. For example, when modifying a query all queries must be included. Default rules can only be updated to be enabled and to change notifications.
     # @param rule_id [String] The ID of the rule.
+    # @param body [SecurityMonitoringRuleUpdatePayload] 
     # @param [Hash] opts the optional parameters
-    # @option opts [SecurityMonitoringRuleUpdatePayload] :body 
     # @return [Array<(SecurityMonitoringRuleResponse, Integer, Hash)>] SecurityMonitoringRuleResponse data, response status code and response headers
-    def update_security_monitoring_rule_with_http_info(rule_id, opts = {})
+    def update_security_monitoring_rule_with_http_info(rule_id, body, opts = {})
 
       if @api_client.config.unstable_operations.has_key?(:update_security_monitoring_rule)
         unstable_enabled = @api_client.config.unstable_operations[:update_security_monitoring_rule]
@@ -503,6 +507,10 @@ module DatadogAPIClient::V2
       # verify the required parameter 'rule_id' is set
       if @api_client.config.client_side_validation && rule_id.nil?
         fail ArgumentError, "Missing the required parameter 'rule_id' when calling SecurityMonitoringApi.update_security_monitoring_rule"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringApi.update_security_monitoring_rule"
       end
       # resource path
       local_var_path = '/api/v2/security_monitoring/rules/{rule_id}'.sub('{' + 'rule_id' + '}', CGI.escape(rule_id.to_s))
@@ -521,7 +529,7 @@ module DatadogAPIClient::V2
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'body'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
       return_type = opts[:debug_return_type] || 'SecurityMonitoringRuleResponse'
