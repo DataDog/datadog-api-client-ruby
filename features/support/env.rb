@@ -6,6 +6,7 @@ SimpleCov.start do
   add_filter "/spec"
 end
 
+require 'cucumber'
 require 'datadog_api_client'
 require 'ddtrace'
 require 'time'
