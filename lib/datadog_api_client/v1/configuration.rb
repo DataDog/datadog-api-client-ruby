@@ -142,7 +142,7 @@ module DatadogAPIClient::V1
 
     def initialize
       @scheme = 'https'
-      @host = 'api.datadoghq.com:-1'
+      @host = 'api.datadoghq.com'
       @base_path = ''
       @server_index = 0
       @server_operation_index = {}
