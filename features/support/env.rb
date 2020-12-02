@@ -53,6 +53,7 @@ VCR.configure do |c|
     # TODO verify we don't store api_key and application_key as query params
   end
 
+  c.ignore_hosts (ENV["DD_AGENT_HOST"] || '127.0.0.1')
   c.ignore_request do |request|
     # Ignore traces
     request.headers.key? :'Datadog-Meta-Tracer-Version'
