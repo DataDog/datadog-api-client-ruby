@@ -44,100 +44,55 @@ module APIWorld
     return if operation["type"] != "unsafe"
 
     api_instance ||= @api_instance
-    operation_name = operation["operationId"].underscore
+    operation_name = operation["operationId"].snakecase
     method = api_instance.method("#{operation_name}_with_http_info".to_sym)
 
     lambda do |response|
-      args = operation["parameters"].each{ |p| response.lookup(p["source"]) }
+      args = operation["parameters"].map{ |p| response.lookup(p["source"]) }
 
-      configuration.unstable_operations[operation_name.snakecase.to_sym] = true
+      api_instance.api_client.config.unstable_operations[operation_name.to_sym] = true
       lambda { method.call(*args) }
     end
   end
 
-  def create_user
-    api_instance = DatadogAPIClient::V2::UsersApi.new api_client
+  def build_given(api_version, operation)
+    api_name = operation["tag"].gsub(/\s/, '')
+    operation_name = operation["operationId"].snakecase
 
-    user = DatadogAPIClient::V2::UserCreateRequest.new
-    user.data = DatadogAPIClient::V2::UserCreateData.new
-    user.data.type = "users"
-    user.data.attributes = DatadogAPIClient::V2::UserCreateAttributes.new
-    user.data.attributes.email = "#{unique}@datadoghq.com"
+    # make sure we have a fresh instance of API client and configuration
+    given_api = Object.const_get("DatadogAPIClient::V#{api_version}")
+    given_configuration = given_api.const_get("Configuration").new
+    given_configuration.api_key['apiKeyAuth'] = ENV["DD_TEST_CLIENT_API_KEY"]
+    given_configuration.api_key['appKeyAuth'] = ENV["DD_TEST_CLIENT_APP_KEY"]
+    given_api_client = given_api.const_get("ApiClient").new given_configuration
+    given_api_instance = api.const_get("#{api_name}Api").new given_api_client
+    method = given_api_instance.method("#{operation_name}_with_http_info".to_sym)
 
-    undo_builder = build_undo_for(__method__.to_s, api_instance)
-    response = api_instance.create_user_with_http_info(user)
-    @undo << undo_builder.call(response[0]) if undo_builder
-    response[0]
-  end
+    # find undo method
+    undo_builder = build_undo_for(operation_name, given_api_instance)
 
-  def create_role
-    api_instance = DatadogAPIClient::V2::RolesApi.new api_client
+    # enable unstable operation
+    given_configuration.unstable_operations[operation_name.to_sym] = true
 
-    role = DatadogAPIClient::V2::RoleCreateRequest.new
-    role.data = DatadogAPIClient::V2::RoleCreateData.new
-    role.data.type = "roles"
-    role.data.attributes = DatadogAPIClient::V2::RoleCreateAttributes.new
-    role.data.attributes.name = unique
+    # perform operation
+    args = operation["parameters"].map do |p|
+      result = JSON.parse(p["value"].templated fixtures) if p.key? "value"
+      result = fixtures.lookup(p["source"]) if p.key? "source"
+      result
+    end if operation["parameters"]
 
-    undo_builder = build_undo_for(__method__.to_s, api_instance)
-    response = api_instance.create_role_with_http_info(role)
-    @undo << undo_builder.call(response[0]) if undo_builder
-    response[0]
-  end
+    result = method.call(*args)[0]
 
-  def create_incident
-    configuration.unstable_operations[:create_incident] = true
-    api_instance = DatadogAPIClient::V2::IncidentsApi.new api_client
+    # register undo method
+    @undo << undo_builder.call(result) if undo_builder
 
-    incident_create_request = DatadogAPIClient::V2::IncidentCreateRequest.new
-    incident_create_request.data = DatadogAPIClient::V2::IncidentCreateData.new
-    incident_create_request.data.type = "incidents"
-    incident_create_request.data.attributes = DatadogAPIClient::V2::IncidentCreateAttributes.new
-    incident_create_request.data.attributes.title = unique
+    # optional re-shaping
+    result = result.lookup(operation['source']) if operation.key? 'source'
 
-    undo_builder = build_undo_for(__method__.to_s, api_instance)
-    response = api_instance.create_incident_with_http_info(incident_create_request)
-    @undo << undo_builder.call(response[0]) if undo_builder
-    response[0]
-  end
+    # store response in fixtures
+    fixtures[operation['key'].to_sym] = result if operation.key? 'key'
 
-  def create_service
-    configuration.unstable_operations[:create_incident_service] = true
-    api_instance = DatadogAPIClient::V2::IncidentServicesApi.new api_client
-
-    incident_service_create_request = DatadogAPIClient::V2::IncidentServiceCreateRequest.new
-    incident_service_create_request.data = DatadogAPIClient::V2::IncidentServiceCreateData.new
-    incident_service_create_request.data.type = "services"
-    incident_service_create_request.data.attributes = DatadogAPIClient::V2::IncidentServiceCreateAttributes.new
-    incident_service_create_request.data.attributes.name = unique
-
-    undo_builder = build_undo_for("create_incident_service", api_instance)
-    response = api_instance.create_incident_service_with_http_info(incident_service_create_request)
-    @undo << undo_builder.call(response[0]) if undo_builder
-    response[0]
-  end
-
-  def create_team
-    configuration.unstable_operations[:create_incident_team] = true
-    api_instance = DatadogAPIClient::V2::IncidentTeamsApi.new api_client
-
-    incident_team_create_request = DatadogAPIClient::V2::IncidentTeamCreateRequest.new
-    incident_team_create_request.data = DatadogAPIClient::V2::IncidentTeamCreateData.new
-    incident_team_create_request.data.type = "teams"
-    incident_team_create_request.data.attributes = DatadogAPIClient::V2::IncidentTeamCreateAttributes.new
-    incident_team_create_request.data.attributes.name = unique
-
-    undo_builder = build_undo_for("create_incident_team", api_instance)
-    response = api_instance.create_incident_team_with_http_info(incident_team_create_request)
-    @undo << undo_builder.call(response[0]) if undo_builder
-    response[0]
-  end
-
-  def create_permission
-    api_instance = DatadogAPIClient::V2::RolesApi.new api_client
-
-    response = api_instance.list_permissions
-    response.data[0]
+    result
   end
 end
 
@@ -204,6 +159,12 @@ Then(/^the response "([^"]+)" has length ([0-9]+)$/) do |response_path, fixture_
   expect((@response[0].lookup response_path).length).to eq fixture_length.to_i
 end
 
-Given('there is a valid {string} in the system') do |name|
-  fixtures[name.to_sym] = self.send("create_#{name}".to_sym)
+Dir.glob(File.join(__dir__, '..', "v*", 'given.json')).each do |f|
+  m = File.expand_path(f).match /features\/v(?<version>\d+)\/.*/
+  version = m[:version]
+  JSON.parse(File.read(f)).map do |settings|
+    Given(settings['step']) do
+      build_given(version, settings)
+    end
+  end
 end
