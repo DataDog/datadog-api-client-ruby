@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.datadoghq.com/api/v2/roles/1c9fa60c-031a-11eb-b513-8b4a6b6b7aa5/users
+    uri: https://api.datadoghq.com/api/v2/roles
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"1cba4390-031a-11eb-b513-275c1826890f","type":"users"}}'
+      string: '{"data":{"attributes":{"name":"ruby-Get_all_users_of_a_role_returns_OK_response-1606991661"},"type":"roles"}}'
     headers:
       User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
+      - datadog-api-client-ruby/0.1.0 (ruby 2.7.1; os darwin19.6.0; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -21,11 +21,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 30 Sep 2020 12:40:25 GMT
+      - Thu, 03 Dec 2020 10:34:21 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '705'
+      - '427'
       Connection:
       - keep-alive
       Vary:
@@ -35,20 +35,20 @@ http_interactions:
       Cache-Control:
       - no-cache
       Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 07-Oct-2020 12:40:25 GMT;
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 10-Dec-2020 10:34:21 GMT;
         secure; HttpOnly
       X-Dd-Version:
-      - '35.3116014'
+      - '35.3468623'
       X-Ratelimit-Limit:
       - '500'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '35'
+      - '39'
       X-Ratelimit-Remaining:
-      - '478'
+      - '486'
       X-Dd-Debug:
-      - Wu8XyxdUJ940l1hlQ/4Scl2Xta78KG1wkfVN63sn1HQ3Sk/ZYNPBQ2v2fbOhjvmn
+      - pv0z9DOVfESVNK6d1tOJ7YfC31qHNEzJNjdRZStq3qVP6piD/gWCa9pwKd90Upzy
       Dd-Pool:
       - dogweb
       Content-Security-Policy:
@@ -61,17 +61,113 @@ http_interactions:
       - max-age=15724800;
     body:
       encoding: UTF-8
-      string: '{"meta":{"page":{"total_count":1}},"data":[{"type":"users","id":"1cba4390-031a-11eb-b513-275c1826890f","attributes":{"name":null,"handle":"ruby-get-all-users-of-a-role-returns-ok-response-1601469624@datadoghq.com","created_at":"2020-09-30T12:40:25.091875+00:00","email":"ruby-get-all-users-of-a-role-returns-ok-response-1601469624@datadoghq.com","icon":"https://secure.gravatar.com/avatar/402b56cd942eb5afcc992c54c76a65fc?s=48&d=retro","title":null,"verified":false,"disabled":false,"allowed_login_methods":[],"status":"Pending"},"relationships":{"roles":{"data":[{"type":"roles","id":"1c9fa60c-031a-11eb-b513-8b4a6b6b7aa5"}]},"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}]}'
-  recorded_at: Wed, 30 Sep 2020 12:40:24 GMT
+      string: '{"data":{"type":"roles","id":"1aef9ba8-3553-11eb-87b3-4f12da61a6ef","attributes":{"name":"ruby-Get_all_users_of_a_role_returns_OK_response-1606991661","created_at":"2020-12-03T10:34:21.538898+00:00","modified_at":"2020-12-03T10:34:21.538898+00:00"},"relationships":{"permissions":{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2"},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304"}]}}}}'
+  recorded_at: Thu, 03 Dec 2020 10:34:21 GMT
 - request:
-    method: get
-    uri: https://api.datadoghq.com/api/v2/roles/1c9fa60c-031a-11eb-b513-8b4a6b6b7aa5/users
+    method: post
+    uri: http://127.0.0.1:8126/v0.4/traces
     body:
-      encoding: US-ASCII
-      string: ''
+      encoding: ASCII-8BIT
+      string: !binary |-
+        kdwAEo2lc3RhcnTPFk0uZo2ZezioZHVyYXRpb27OULdgN6dzcGFuX2lkzyFFtpPE0jXCqXBhcmVudF9pZACodHJhY2VfaWTPMHMNjn15W1ekbmFtZaR0ZXN0p3NlcnZpY2W3ZGF0YWRvZy1hcGktY2xpZW50LXJ1YnmocmVzb3VyY2XZL1JlbW92ZSBhIHVzZXIgZnJvbSBhIHJvbGUgcmV0dXJucyAiT0siIHJlc3BvbnNlpHR5cGWkdGVzdKRtZXRhiKpydW50aW1lLWlk2SRlZDExNTZlYS1lZmNjLTRiODctODJhNS1hM2U3YjQwNjc0MzWudGVzdC5mcmFtZXdvcmuoY3VjdW1iZXKpdGVzdC5uYW1l2S9SZW1vdmUgYSB1c2VyIGZyb20gYSByb2xlIHJldHVybnMgIk9LIiByZXNwb25zZap0ZXN0LnN1aXRluWZlYXR1cmVzL3YyL3JvbGVzLmZlYXR1cmWpdGVzdC50eXBlpHRlc3Spc3Bhbi5raW5kpHRlc3SndmVyc2lvbqVyb2xlc6t0ZXN0LnN0YXR1c6RwYXNzp21ldHJpY3OFrV9kZC5hZ2VudF9wc3LLP/AAAAAAAACqc3lzdGVtLnBpZMtA94dAAAAAAK1fZGQxLnNyLmVhdXNyyz/wAAAAAAAArF9kZC5tZWFzdXJlZMs/8AAAAAAAALVfc2FtcGxpbmdfcHJpb3JpdHlfdjHLP/AAAAAAAACrYWxsb2NhdGlvbnPNZhClZXJyb3IAjaVzdGFydM8WTS5mjaiC4KhkdXJhdGlvbs4AAoxYp3NwYW5faWTPPma4U8Lx79ipcGFyZW50X2lkzyFFtpPE0jXCqHRyYWNlX2lkzzBzDY59eVtXpG5hbWWkc3RlcKdzZXJ2aWNlt2RhdGFkb2ctYXBpLWNsaWVudC1ydWJ5qHJlc291cmNl2SZhIHZhbGlkICJhcGlLZXlBdXRoIiBrZXkgaW4gdGhlIHN5c3RlbaR0eXBlpHN0ZXCkbWV0YYGrdGVzdC5zdGF0dXOkcGFzc6dtZXRyaWNzgKthbGxvY2F0aW9uczulZXJyb3IAjaVzdGFydM8WTS5mjaxHuKhkdXJhdGlvbs3W2KdzcGFuX2lkzyssfRKSLiXfqXBhcmVudF9pZM8hRbaTxNI1wqh0cmFjZV9pZM8wcw2OfXlbV6RuYW1lpHN0ZXCnc2VydmljZbdkYXRhZG9nLWFwaS1jbGllbnQtcnVieahyZXNvdXJjZdkmYSB2YWxpZCAiYXBwS2V5QXV0aCIga2V5IGluIHRoZSBzeXN0ZW2kdHlwZaRzdGVwpG1ldGGBq3Rlc3Quc3RhdHVzpHBhc3OnbWV0cmljc4CrYWxsb2NhdGlvbnMnpWVycm9yAI2lc3RhcnTPFk0uZo2uFKioZHVyYXRpb27OAAFIH6dzcGFuX2lkzzmPuRhnOk59qXBhcmVudF9pZM8hRbaTxNI1wqh0cmFjZV9pZM8wcw2OfXlbV6RuYW1lpHN0ZXCnc2VydmljZbdkYXRhZG9nLWFwaS1jbGllbnQtcnVieahyZXNvdXJjZbphbiBpbnN0YW5jZSBvZiAiUm9sZXMiIEFQSaR0eXBlpHN0ZXCkbWV0YYGrdGVzdC5zdGF0dXOkcGFzc6dtZXRyaWNzgKthbGxvY2F0aW9uczalZXJyb3IAjaVzdGFydM8WTS5mjbBWyKhkdXJhdGlvbs4Niwp/p3NwYW5faWTPEU2mTkN+H8mpcGFyZW50X2lkzyFFtpPE0jXCqHRyYWNlX2lkzzBzDY59eVtXpG5hbWWkc3RlcKdzZXJ2aWNlt2RhdGFkb2ctYXBpLWNsaWVudC1ydWJ5qHJlc291cmNl2SV0aGVyZSBpcyBhIHZhbGlkICJyb2xlIiBpbiB0aGUgc3lzdGVtpHR5cGWkc3RlcKRtZXRhgat0ZXN0LnN0YXR1c6RwYXNzp21ldHJpY3OAq2FsbG9jYXRpb25zzRPQpWVycm9yAI2lc3RhcnTPFk0uZo3gxTioZHVyYXRpb27ODTns4KdzcGFuX2lkzwaU2chAkuL9qXBhcmVudF9pZM8RTaZOQ34fyah0cmFjZV9pZM8wcw2OfXlbV6RuYW1lrWV0aG9uLnJlcXVlc3Snc2VydmljZaVldGhvbqhyZXNvdXJjZaRQT1NUpHR5cGWkaHR0cKRtZXRhhaxwZWVyLnNlcnZpY2WlZXRob26oaHR0cC51cmytL2FwaS92Mi9yb2xlc6todHRwLm1ldGhvZKRQT1NUqG91dC5ob3N0sWFwaS5kYXRhZG9naHEuY29tsGh0dHAuc3RhdHVzX2NvZGWjMjAwp21ldHJpY3OBqG91dC5wb3J0y0B7sAAAAAAAq2FsbG9jYXRpb25zzKylZXJyb3IAjaVzdGFydM8WTS5mmz/1KKhkdXJhdGlvbs4QOgHIp3NwYW5faWTPJraa4/oYgaypcGFyZW50X2lkzyFFtpPE0jXCqHRyYWNlX2lkzzBzDY59eVtXpG5hbWWkc3RlcKdzZXJ2aWNlt2RhdGFkb2ctYXBpLWNsaWVudC1ydWJ5qHJlc291cmNl2SV0aGVyZSBpcyBhIHZhbGlkICJ1c2VyIiBpbiB0aGUgc3lzdGVtpHR5cGWkc3RlcKRtZXRhgat0ZXN0LnN0YXR1c6RwYXNzp21ldHJpY3OAq2FsbG9jYXRpb25zzQp0pWVycm9yAI2lc3RhcnTPFk0uZptjftCoZHVyYXRpb27OEAF5IKdzcGFuX2lkzxgfU19NQ3ULqXBhcmVudF9pZM8mtprj+hiBrKh0cmFjZV9pZM8wcw2OfXlbV6RuYW1lrWV0aG9uLnJlcXVlc3Snc2VydmljZaVldGhvbqhyZXNvdXJjZaRQT1NUpHR5cGWkaHR0cKRtZXRhhaxwZWVyLnNlcnZpY2WlZXRob26oaHR0cC51cmytL2FwaS92Mi91c2Vyc6todHRwLm1ldGhvZKRQT1NUqG91dC5ob3N0sWFwaS5kYXRhZG9naHEuY29tsGh0dHAuc3RhdHVzX2NvZGWjMjAxp21ldHJpY3OBqG91dC5wb3J0y0B7sAAAAAAAq2FsbG9jYXRpb25zzKGlZXJyb3IAjaVzdGFydM8WTS5mq33qqKhkdXJhdGlvbs4PYgi4p3NwYW5faWTPA1zy1/lljTupcGFyZW50X2lkzyFFtpPE0jXCqHRyYWNlX2lkzzBzDY59eVtXpG5hbWWkc3RlcKdzZXJ2aWNlt2RhdGFkb2ctYXBpLWNsaWVudC1ydWJ5qHJlc291cmNluXRoZSAidXNlciIgaGFzIHRoZSAicm9sZSKkdHlwZaRzdGVwpG1ldGGBq3Rlc3Quc3RhdHVzpHBhc3OnbWV0cmljc4CrYWxsb2NhdGlvbnPNE12lZXJyb3IAjaVzdGFydM8WTS5mq8YXOKhkdXJhdGlvbs4O/M6np3NwYW5faWTPMYKM4l/Mo2mpcGFyZW50X2lkzwNc8tf5ZY07qHRyYWNlX2lkzzBzDY59eVtXpG5hbWWtZXRob24ucmVxdWVzdKdzZXJ2aWNlpWV0aG9uqHJlc291cmNlpFBPU1SkdHlwZaRodHRwpG1ldGGFrHBlZXIuc2VydmljZaVldGhvbqhodHRwLnVybNk4L2FwaS92Mi9yb2xlcy8xYTIwMTI1Mi0zNTUzLTExZWItODdiMy02YjU4NWEwODdiZTEvdXNlcnOraHR0cC5tZXRob2SkUE9TVKhvdXQuaG9zdLFhcGkuZGF0YWRvZ2hxLmNvbbBodHRwLnN0YXR1c19jb2RlozIwMKdtZXRyaWNzgahvdXQucG9ydMtAe7AAAAAAAKthbGxvY2F0aW9uc80FaKVlcnJvcgCNpXN0YXJ0zxZNLma68JUwqGR1cmF0aW9uzgADV3inc3Bhbl9pZM8kgvXRVg+RIKlwYXJlbnRfaWTPIUW2k8TSNcKodHJhY2VfaWTPMHMNjn15W1ekbmFtZaRzdGVwp3NlcnZpY2W3ZGF0YWRvZy1hcGktY2xpZW50LXJ1YnmocmVzb3VyY2XZIG5ldyAiUmVtb3ZlVXNlckZyb21Sb2xlIiByZXF1ZXN0pHR5cGWkc3RlcKRtZXRhgat0ZXN0LnN0YXR1c6RwYXNzp21ldHJpY3OAq2FsbG9jYXRpb25zOaVlcnJvcgCNpXN0YXJ0zxZNLma6+PHQqGR1cmF0aW9uzgADQAenc3Bhbl9pZM8xZlOq4y3pLalwYXJlbnRfaWTPIUW2k8TSNcKodHJhY2VfaWTPMHMNjn15W1ekbmFtZaRzdGVwp3NlcnZpY2W3ZGF0YWRvZy1hcGktY2xpZW50LXJ1YnmocmVzb3VyY2XZOHJlcXVlc3QgY29udGFpbnMgInJvbGVfaWQiIHBhcmFtZXRlciBmcm9tICJyb2xlLmRhdGEuaWQipHR5cGWkc3RlcKRtZXRhgat0ZXN0LnN0YXR1c6RwYXNzp21ldHJpY3OAq2FsbG9jYXRpb25zRKVlcnJvcgCNpXN0YXJ0zxZNLma6/5jwqGR1cmF0aW9uzgAB/7inc3Bhbl9pZM8CwG40KsWE7qlwYXJlbnRfaWTPIUW2k8TSNcKodHJhY2VfaWTPMHMNjn15W1ekbmFtZaRzdGVwp3NlcnZpY2W3ZGF0YWRvZy1hcGktY2xpZW50LXJ1YnmocmVzb3VyY2XZSmJvZHkgeyJkYXRhIjogeyJpZCI6ICJ7eyB1c2VyLmRhdGEuaWR9fSIsICJ0eXBlIjogInt7IHVzZXIuZGF0YS50eXBlIH19In19pHR5cGWkc3RlcKRtZXRhgat0ZXN0LnN0YXR1c6RwYXNzp21ldHJpY3OAq2FsbG9jYXRpb25zYaVlcnJvcgCNpXN0YXJ0zxZNLma7BhEwqGR1cmF0aW9uzgsYfA+nc3Bhbl9pZM8yCTsljHE8lqlwYXJlbnRfaWTPIUW2k8TSNcKodHJhY2VfaWTPMHMNjn15W1ekbmFtZaRzdGVwp3NlcnZpY2W3ZGF0YWRvZy1hcGktY2xpZW50LXJ1YnmocmVzb3VyY2WzdGhlIHJlcXVlc3QgaXMgc2VudKR0eXBlpHN0ZXCkbWV0YYGrdGVzdC5zdGF0dXOkcGFzc6dtZXRyaWNzgKthbGxvY2F0aW9uc80MCqVlcnJvcgCNpXN0YXJ0zxZNLma7MB7QqGR1cmF0aW9uzgrcVaCnc3Bhbl9pZM8+yeIt4FdhqKlwYXJlbnRfaWTPMgk7JYxxPJaodHJhY2VfaWTPMHMNjn15W1ekbmFtZa1ldGhvbi5yZXF1ZXN0p3NlcnZpY2WlZXRob26ocmVzb3VyY2WmREVMRVRFpHR5cGWkaHR0cKRtZXRhhaxwZWVyLnNlcnZpY2WlZXRob26oaHR0cC51cmzZOC9hcGkvdjIvcm9sZXMvMWEyMDEyNTItMzU1My0xMWViLTg3YjMtNmI1ODVhMDg3YmUxL3VzZXJzq2h0dHAubWV0aG9kpkRFTEVURahvdXQuaG9zdLFhcGkuZGF0YWRvZ2hxLmNvbbBodHRwLnN0YXR1c19jb2RlozIwMKdtZXRyaWNzgahvdXQucG9ydMtAe7AAAAAAAKthbGxvY2F0aW9uc80B76VlcnJvcgCNpXN0YXJ0zxZNLmbGIeigqGR1cmF0aW9uzgABra+nc3Bhbl9pZM8Hjw4L8SsOMKlwYXJlbnRfaWTPIUW2k8TSNcKodHJhY2VfaWTPMHMNjn15W1ekbmFtZaRzdGVwp3NlcnZpY2W3ZGF0YWRvZy1hcGktY2xpZW50LXJ1YnmocmVzb3VyY2W9dGhlIHJlc3BvbnNlIHN0YXR1cyBpcyAyMDAgT0ukdHlwZaRzdGVwpG1ldGGBq3Rlc3Quc3RhdHVzpHBhc3OnbWV0cmljc4CrYWxsb2NhdGlvbnMxpWVycm9yAI2lc3RhcnTPFk0uZsaOOxioZHVyYXRpb27ODHNoj6dzcGFuX2lkzyRqCiA4jL0qqXBhcmVudF9pZM8hRbaTxNI1wqh0cmFjZV9pZM8wcw2OfXlbV6RuYW1lrWV0aG9uLnJlcXVlc3Snc2VydmljZaVldGhvbqhyZXNvdXJjZaZERUxFVEWkdHlwZaRodHRwpG1ldGGFrHBlZXIuc2VydmljZaVldGhvbqhodHRwLnVybNkyL2FwaS92Mi91c2Vycy8xYTQxZmM3OC0zNTUzLTExZWItODdiMy0xNzVjY2FiYzZiZWSraHR0cC5tZXRob2SmREVMRVRFqG91dC5ob3N0sWFwaS5kYXRhZG9naHEuY29tsGh0dHAuc3RhdHVzX2NvZGWjMjA0p21ldHJpY3OBqG91dC5wb3J0y0B7sAAAAAAAq2FsbG9jYXRpb25zzIelZXJyb3IAjaVzdGFydM8WTS5m01CWmKhkdXJhdGlvbs4K9TTQp3NwYW5faWTPEykvhcIBmMKpcGFyZW50X2lkzyFFtpPE0jXCqHRyYWNlX2lkzzBzDY59eVtXpG5hbWWtZXRob24ucmVxdWVzdKdzZXJ2aWNlpWV0aG9uqHJlc291cmNlpkRFTEVURaR0eXBlpGh0dHCkbWV0YYWscGVlci5zZXJ2aWNlpWV0aG9uqGh0dHAudXJs2TIvYXBpL3YyL3JvbGVzLzFhMjAxMjUyLTM1NTMtMTFlYi04N2IzLTZiNTg1YTA4N2JlMatodHRwLm1ldGhvZKZERUxFVEWob3V0Lmhvc3SxYXBpLmRhdGFkb2docS5jb22waHR0cC5zdGF0dXNfY29kZaMyMDSnbWV0cmljc4Gob3V0LnBvcnTLQHuwAAAAAACrYWxsb2NhdGlvbnPMj6VlcnJvcgA=
+    headers:
+      X-Datadog-Trace-Count:
+      - '1'
+      Content-Type:
+      - application/msgpack
+      Datadog-Meta-Lang:
+      - ruby
+      Datadog-Meta-Lang-Version:
+      - 2.7.1
+      Datadog-Meta-Lang-Interpreter:
+      - ruby-x86_64-darwin19
+      Datadog-Meta-Tracer-Version:
+      - 0.43.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 03 Dec 2020 10:34:21 GMT
+      Content-Length:
+      - '126'
+    body:
+      encoding: UTF-8
+      string: '{"rate_by_service":{"service:,env:":1,"service:datadog-api-client-ruby,env:":1,"service:datadog-api-client-ruby,env:none":1}}
+
+        '
+  recorded_at: Thu, 03 Dec 2020 10:34:21 GMT
+- request:
+    method: post
+    uri: https://api.datadoghq.com/api/v2/users
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"email":"ruby-Get_all_users_of_a_role_returns_OK_response-1606991661@datadoghq.com"},"type":"users"}}'
     headers:
       User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
+      - datadog-api-client-ruby/0.1.0 (ruby 2.7.1; os darwin19.6.0; arch x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Thu, 03 Dec 2020 10:34:21 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '633'
+      Connection:
+      - keep-alive
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      Set-Cookie:
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 10-Dec-2020 10:34:21 GMT;
+        secure; HttpOnly
+      X-Dd-Version:
+      - '35.3468623'
+      X-Dd-Debug:
+      - k/zHOOzqpc4r+ZK5tvPeMjc5yHaZZgqaNAwCywXjTJpLyIGjDeV+DLPBFsNU82W8
+      Dd-Pool:
+      - dogweb
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"users","id":"1b0f9688-3553-11eb-87b3-c72fc86558d4","attributes":{"name":null,"handle":"ruby-get_all_users_of_a_role_returns_ok_response-1606991661@datadoghq.com","created_at":"2020-12-03T10:34:21.748246+00:00","email":"ruby-get_all_users_of_a_role_returns_ok_response-1606991661@datadoghq.com","icon":"https://secure.gravatar.com/avatar/de65f246a98d46d82c131cc659d5c0cc?s=48&d=retro","title":null,"verified":false,"service_account":false,"disabled":false,"allowed_login_methods":[],"status":"Pending"},"relationships":{"roles":{"data":[]},"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}}'
+  recorded_at: Thu, 03 Dec 2020 10:34:21 GMT
+- request:
+    method: post
+    uri: https://api.datadoghq.com/api/v2/roles/1aef9ba8-3553-11eb-87b3-4f12da61a6ef/users
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"1b0f9688-3553-11eb-87b3-c72fc86558d4","type":"users"}}'
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/0.1.0 (ruby 2.7.1; os darwin19.6.0; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -84,11 +180,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 30 Sep 2020 12:40:25 GMT
+      - Thu, 03 Dec 2020 10:34:22 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '8224'
+      - '729'
       Connection:
       - keep-alive
       Vary:
@@ -98,20 +194,83 @@ http_interactions:
       Cache-Control:
       - no-cache
       Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 07-Oct-2020 12:40:25 GMT;
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 10-Dec-2020 10:34:21 GMT;
         secure; HttpOnly
       X-Dd-Version:
-      - '35.3116014'
+      - '35.3468623'
       X-Ratelimit-Limit:
       - '500'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '35'
+      - '39'
       X-Ratelimit-Remaining:
-      - '477'
+      - '485'
       X-Dd-Debug:
-      - hkXZRrnCTh2pkyHJgLo1+B5+sLp+RYzQrqT867R6UzDvqVGo8Av8yUCpaA0POidP
+      - gOE+aFCHWuxgDnurm/juvZNkjdmweNjl464qle0N/zRJcc4Hspd926ElnnqPP95G
+      Dd-Pool:
+      - dogweb
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+    body:
+      encoding: UTF-8
+      string: '{"meta":{"page":{"total_count":1}},"data":[{"type":"users","id":"1b0f9688-3553-11eb-87b3-c72fc86558d4","attributes":{"name":null,"handle":"ruby-get_all_users_of_a_role_returns_ok_response-1606991661@datadoghq.com","created_at":"2020-12-03T10:34:21.748246+00:00","email":"ruby-get_all_users_of_a_role_returns_ok_response-1606991661@datadoghq.com","icon":"https://secure.gravatar.com/avatar/de65f246a98d46d82c131cc659d5c0cc?s=48&d=retro","title":null,"verified":false,"service_account":false,"disabled":false,"allowed_login_methods":[],"status":"Pending"},"relationships":{"roles":{"data":[{"type":"roles","id":"1aef9ba8-3553-11eb-87b3-4f12da61a6ef"}]},"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}]}'
+  recorded_at: Thu, 03 Dec 2020 10:34:21 GMT
+- request:
+    method: get
+    uri: https://api.datadoghq.com/api/v2/roles/1aef9ba8-3553-11eb-87b3-4f12da61a6ef/users
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/0.1.0 (ruby 2.7.1; os darwin19.6.0; arch x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 03 Dec 2020 10:34:22 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '8045'
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      Set-Cookie:
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 10-Dec-2020 10:34:22 GMT;
+        secure; HttpOnly
+      X-Dd-Version:
+      - '35.3468590'
+      X-Ratelimit-Limit:
+      - '500'
+      X-Ratelimit-Period:
+      - '60'
+      X-Ratelimit-Reset:
+      - '38'
+      X-Ratelimit-Remaining:
+      - '484'
+      X-Dd-Debug:
+      - dkPC7h1IhtieQ7hDwGKZ3LdM53Z2+XQ6pWT/sK6/v5L2qKrddV2g+eVtGbkN4F8/
       Dd-Pool:
       - dogweb
       Content-Security-Policy:
@@ -129,9 +288,9 @@ http_interactions:
         components in your Datadog organization that do not have explicitly defined
         permissions. This includes APM, Events, and other non-Account Management functionality.","created":"2018-10-19T15:35:23.756736+00:00","group_name":"General","display_type":"other","restricted":false}},{"type":"permissions","id":"80de1ec0-aa58-11ea-95e2-aff381626d5d","attributes":{"name":"security_monitoring_signals_read","display_name":"Security
         Signals","description":"The ability to view Security signals.","created":"2020-06-09T13:52:48.410398+00:00","group_name":"Security
-        Monitoring","display_type":"read","restricted":false}},{"type":"permissions","id":"b382b982-8535-11ea-93de-2bf1bdf20798","attributes":{"name":"logs_read_archives","display_name":"Logs
-        Archives","description":"The ability to read logs archives location and use
-        it for rehydration.","created":"2020-04-23T07:40:27.966133+00:00","group_name":"Logs","display_type":"read","restricted":false}},{"type":"permissions","id":"4d87d5f8-d8b1-11e9-a77a-eb9c8350d04f","attributes":{"name":"monitors_downtime","display_name":"Monitors
+        Monitoring","display_type":"read","restricted":false}},{"type":"permissions","id":"979df720-aed7-11e9-99c6-a7eb8373165a","attributes":{"name":"logs_generate_metrics","display_name":"Log
+        Generate Metrics","description":"The ability to create custom metrics from
+        logs.","created":"2019-07-25T12:27:39.640758+00:00","group_name":"Logs","display_type":"other","restricted":false}},{"type":"permissions","id":"4d87d5f8-d8b1-11e9-a77a-eb9c8350d04f","attributes":{"name":"monitors_downtime","display_name":"Monitors
         Manage Downtimes","description":"The ability to set downtimes for your organization.
         A user with this permission can suppress alerts from any monitor using a downtime,
         even if they do not have permission to edit those monitors explicitly.","created":"2019-09-16T18:39:23.306702+00:00","group_name":"Monitors","display_type":"other","restricted":false}},{"type":"permissions","id":"5e605652-dd12-11e8-9e53-375565b8970e","attributes":{"name":"logs_read_index_data","display_name":"Logs
@@ -149,432 +308,19 @@ http_interactions:
         Historical View","description":"The capability to rehydrate logs from Archives.","created":"2020-09-16T08:38:44.242076+00:00","group_name":"Logs","display_type":"write","restricted":false}},{"type":"permissions","id":"48ef71ea-d8b1-11e9-a77a-93f408470ad0","attributes":{"name":"monitors_write","display_name":"Monitors","description":"The
         ability to change, mute, and delete individual monitors.","created":"2019-09-16T18:39:15.597109+00:00","group_name":"Monitors","display_type":"write","restricted":false}},{"type":"permissions","id":"d90f6832-d3d8-11e9-a77a-bf8a2607f864","attributes":{"name":"dashboards_public_share","display_name":"Dashboards
         Share","description":"The ability to share dashboards externally.","created":"2019-09-10T14:39:51.967094+00:00","group_name":"Dashboards","display_type":"other","restricted":false}},{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2","attributes":{"name":"dashboards_read","display_name":"Dashboards","description":"The
-        ability to view dashboards.","created":"2019-09-10T14:39:51.955175+00:00","group_name":"Dashboards","display_type":"read","restricted":true}},{"type":"permissions","id":"7314eb20-aa58-11ea-95e2-6fb6e4a451d5","attributes":{"name":"security_monitoring_rules_read","display_name":"Detection
-        Rules","description":"The ability to read Detection rules.","created":"2020-06-09T13:52:25.279909+00:00","group_name":"Security
-        Monitoring","display_type":"read","restricted":false}},{"type":"permissions","id":"62cc036c-dd12-11e8-9e54-db9995643092","attributes":{"name":"logs_modify_indexes","display_name":"Logs
-        Modify Indexes","description":"The ability to read and modify all indexes
-        in your account. This includes the ability to grant the Logs Read Index Data
-        and Logs Write Exclusion Filter permission to other roles, for some or all
-        indexes. This permission also grants global Log Index Read and Log Exclusion
-        Filter Write implicitly.","created":"2018-10-31T13:39:27.148615+00:00","group_name":"Logs","display_type":"other","restricted":false}},{"type":"permissions","id":"811ac4ca-dd12-11e8-9e57-676a7f0beef9","attributes":{"name":"logs_write_pipelines","display_name":"Logs
-        Write Pipelines","description":"The ability to add and change log pipeline
-        configurations, including the ability to grant the Logs Write Processors permission
-        to other roles, for some or all pipelines. This permission also grants global
-        Log Processor Write implicitly.","created":"2018-10-31T13:40:17.996379+00:00","group_name":"Logs","display_type":"other","restricted":false}},{"type":"permissions","id":"7b516476-aa58-11ea-95e2-93718cd56369","attributes":{"name":"security_monitoring_rules_write","display_name":"Detection
-        Rules","description":"The ability to create and edit Detection rules.","created":"2020-06-09T13:52:39.099413+00:00","group_name":"Security
-        Monitoring","display_type":"write","restricted":false}},{"type":"roles","id":"1c9fa60c-031a-11eb-b513-8b4a6b6b7aa5","attributes":{"name":"ruby-Get-all-users-of-a-role-returns-OK-response-1601469624","created_at":"2020-09-30T12:40:24.918243+00:00","modified_at":"2020-09-30T12:40:24.918243+00:00"},"relationships":{"permissions":{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2"},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304"}]}}},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304","attributes":{"name":"monitors_read","display_name":"Monitors","description":"The
-        ability to view monitors.","created":"2019-09-16T18:39:07.744297+00:00","group_name":"Monitors","display_type":"read","restricted":true}},{"type":"permissions","id":"979df720-aed7-11e9-99c6-a7eb8373165a","attributes":{"name":"logs_generate_metrics","display_name":"Log
-        Generate Metrics","description":"The ability to create custom metrics from
-        logs.","created":"2019-07-25T12:27:39.640758+00:00","group_name":"Logs","display_type":"other","restricted":false}}],"meta":{"page":{"total_filtered_count":1,"total_count":1}},"data":[{"type":"users","id":"1cba4390-031a-11eb-b513-275c1826890f","attributes":{"name":null,"handle":"ruby-get-all-users-of-a-role-returns-ok-response-1601469624@datadoghq.com","created_at":"2020-09-30T12:40:25.091875+00:00","email":"ruby-get-all-users-of-a-role-returns-ok-response-1601469624@datadoghq.com","icon":"https://secure.gravatar.com/avatar/402b56cd942eb5afcc992c54c76a65fc?s=48&d=retro","title":null,"verified":false,"disabled":false,"allowed_login_methods":[],"status":"Pending"},"relationships":{"roles":{"data":[{"type":"roles","id":"1c9fa60c-031a-11eb-b513-8b4a6b6b7aa5"}]},"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}]}'
-  recorded_at: Wed, 30 Sep 2020 12:40:24 GMT
-- request:
-    method: post
-    uri: https://api.datadoghq.com/api/v2/roles/7ec112ca-2e63-11eb-855e-eb86a1331b17/users
-    body:
-      encoding: UTF-8
-      string: '{"data":{"id":"7ef8663a-2e63-11eb-855e-9340e222674b","type":"users"}}'
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 24 Nov 2020 14:44:03 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '729'
-      Connection:
-      - keep-alive
-      Vary:
-      - Accept-Encoding
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 01-Dec-2020 14:44:03 GMT;
-        secure; HttpOnly
-      X-Dd-Version:
-      - '35.3424786'
-      X-Ratelimit-Limit:
-      - '500'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Reset:
-      - '57'
-      X-Ratelimit-Remaining:
-      - '490'
-      X-Dd-Debug:
-      - iYSQoeIUH6tZkV8oNBADyUh0i8imvOo9jWWOUgywP9QJ7opgBoT0cWGeCUTl7m+0
-      Dd-Pool:
-      - dogweb
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-    body:
-      encoding: UTF-8
-      string: '{"meta":{"page":{"total_count":1}},"data":[{"type":"users","id":"7ef8663a-2e63-11eb-855e-9340e222674b","attributes":{"name":null,"handle":"ruby-get_all_users_of_a_role_returns_ok_response-1601469624@datadoghq.com","created_at":"2020-11-24T14:44:03.175874+00:00","email":"ruby-get_all_users_of_a_role_returns_ok_response-1601469624@datadoghq.com","icon":"https://secure.gravatar.com/avatar/55dd2b462a5123598bfe8b50011cd4b9?s=48&d=retro","title":null,"verified":false,"service_account":false,"disabled":false,"allowed_login_methods":[],"status":"Pending"},"relationships":{"roles":{"data":[{"type":"roles","id":"7ec112ca-2e63-11eb-855e-eb86a1331b17"}]},"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}]}'
-  recorded_at: Wed, 30 Sep 2020 12:40:24 GMT
-- request:
-    method: get
-    uri: https://api.datadoghq.com/api/v2/roles/7ec112ca-2e63-11eb-855e-eb86a1331b17/users
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 24 Nov 2020 14:44:03 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '1186'
-      Connection:
-      - keep-alive
-      Vary:
-      - Accept-Encoding
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 01-Dec-2020 14:44:03 GMT;
-        secure; HttpOnly
-      X-Dd-Version:
-      - '35.3424786'
-      X-Ratelimit-Limit:
-      - '500'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Reset:
-      - '57'
-      X-Ratelimit-Remaining:
-      - '489'
-      X-Dd-Debug:
-      - PdDr7CGzRKV1JiazIN9M5t58W3VmC092V0tka6KkG4tNQ2dswwjUu1lc7Z0OYqEX
-      Dd-Pool:
-      - dogweb
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-    body:
-      encoding: UTF-8
-      string: '{"included":[{"type":"roles","id":"7ec112ca-2e63-11eb-855e-eb86a1331b17","attributes":{"name":"ruby-Get_all_users_of_a_role_returns_OK_response-1601469624","created_at":"2020-11-24T14:44:02.814536+00:00","modified_at":"2020-11-24T14:44:02.814536+00:00"},"relationships":{"permissions":{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2"},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304"}]}}}],"meta":{"page":{"total_filtered_count":1,"total_count":1}},"data":[{"type":"users","id":"7ef8663a-2e63-11eb-855e-9340e222674b","attributes":{"name":null,"handle":"ruby-get_all_users_of_a_role_returns_ok_response-1601469624@datadoghq.com","created_at":"2020-11-24T14:44:03.175874+00:00","email":"ruby-get_all_users_of_a_role_returns_ok_response-1601469624@datadoghq.com","icon":"https://secure.gravatar.com/avatar/55dd2b462a5123598bfe8b50011cd4b9?s=48&d=retro","title":null,"verified":false,"service_account":false,"disabled":false,"allowed_login_methods":[],"status":"Pending"},"relationships":{"roles":{"data":[{"type":"roles","id":"7ec112ca-2e63-11eb-855e-eb86a1331b17"}]},"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}]}'
-  recorded_at: Wed, 30 Sep 2020 12:40:24 GMT
-- request:
-    method: post
-    uri: https://api.datadoghq.com/api/v2/roles
-    body:
-      encoding: UTF-8
-      string: '{"data":{"attributes":{"name":"ruby-Get_all_users_of_a_role_returns_OK_response-1606230451"},"type":"roles"}}'
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 24 Nov 2020 15:07:31 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '427'
-      Connection:
-      - keep-alive
-      Vary:
-      - Accept-Encoding
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 01-Dec-2020 15:07:31 GMT;
-        secure; HttpOnly
-      X-Dd-Version:
-      - '35.3425088'
-      X-Ratelimit-Limit:
-      - '500'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Reset:
-      - '29'
-      X-Ratelimit-Remaining:
-      - '419'
-      X-Dd-Debug:
-      - 84uqub9zpmlgg8irRO/sOXYuWjXevKJ3PeFDkydS20gUrNiRDeiB84n5Q67dF4oL
-      Dd-Pool:
-      - dogweb
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-    body:
-      encoding: UTF-8
-      string: '{"data":{"type":"roles","id":"c692cc76-2e66-11eb-855e-8b9c601396ef","attributes":{"name":"ruby-Get_all_users_of_a_role_returns_OK_response-1606230451","created_at":"2020-11-24T15:07:31.797464+00:00","modified_at":"2020-11-24T15:07:31.797464+00:00"},"relationships":{"permissions":{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2"},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304"}]}}}}'
-  recorded_at: Tue, 24 Nov 2020 15:07:31 GMT
-- request:
-    method: post
-    uri: https://api.datadoghq.com/api/v2/users
-    body:
-      encoding: UTF-8
-      string: '{"data":{"attributes":{"email":"ruby-Get_all_users_of_a_role_returns_OK_response-1606230451@datadoghq.com"},"type":"users"}}'
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 201
-      message: Created
-    headers:
-      Date:
-      - Tue, 24 Nov 2020 15:07:32 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '633'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 01-Dec-2020 15:07:31 GMT;
-        secure; HttpOnly
-      X-Dd-Version:
-      - '35.3425088'
-      X-Dd-Debug:
-      - 0e2Tq/aa08wSuRoWDdF6eCwF8GPYPPLmf3Lxvgc5OscTNyr8D4p+ksnId5WnGnR4
-      Dd-Pool:
-      - dogweb
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-    body:
-      encoding: UTF-8
-      string: '{"data":{"type":"users","id":"c6afa792-2e66-11eb-855e-174231a19a8b","attributes":{"name":null,"handle":"ruby-get_all_users_of_a_role_returns_ok_response-1606230451@datadoghq.com","created_at":"2020-11-24T15:07:31.985873+00:00","email":"ruby-get_all_users_of_a_role_returns_ok_response-1606230451@datadoghq.com","icon":"https://secure.gravatar.com/avatar/8e41b7a437f49f8c41727afb3ac5a37e?s=48&d=retro","title":null,"verified":false,"service_account":false,"disabled":false,"allowed_login_methods":[],"status":"Pending"},"relationships":{"roles":{"data":[]},"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}}'
-  recorded_at: Tue, 24 Nov 2020 15:07:31 GMT
-- request:
-    method: post
-    uri: https://api.datadoghq.com/api/v2/roles/c692cc76-2e66-11eb-855e-8b9c601396ef/users
-    body:
-      encoding: UTF-8
-      string: '{"data":{"id":"c6afa792-2e66-11eb-855e-174231a19a8b","type":"users"}}'
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 24 Nov 2020 15:07:32 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '729'
-      Connection:
-      - keep-alive
-      Vary:
-      - Accept-Encoding
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 01-Dec-2020 15:07:32 GMT;
-        secure; HttpOnly
-      X-Dd-Version:
-      - '35.3425209'
-      X-Ratelimit-Limit:
-      - '500'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Reset:
-      - '28'
-      X-Ratelimit-Remaining:
-      - '418'
-      X-Dd-Debug:
-      - HvCCHsTxMdYM0gaKHtI2IcmEJsAxsAXyEwSakV4VwU0gJM0DBm5BMD3H6ZYBdo1H
-      Dd-Pool:
-      - dogweb
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-    body:
-      encoding: UTF-8
-      string: '{"meta":{"page":{"total_count":1}},"data":[{"type":"users","id":"c6afa792-2e66-11eb-855e-174231a19a8b","attributes":{"name":null,"handle":"ruby-get_all_users_of_a_role_returns_ok_response-1606230451@datadoghq.com","created_at":"2020-11-24T15:07:31.985873+00:00","email":"ruby-get_all_users_of_a_role_returns_ok_response-1606230451@datadoghq.com","icon":"https://secure.gravatar.com/avatar/8e41b7a437f49f8c41727afb3ac5a37e?s=48&d=retro","title":null,"verified":false,"service_account":false,"disabled":false,"allowed_login_methods":[],"status":"Pending"},"relationships":{"roles":{"data":[{"type":"roles","id":"c692cc76-2e66-11eb-855e-8b9c601396ef"}]},"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}]}'
-  recorded_at: Tue, 24 Nov 2020 15:07:31 GMT
-- request:
-    method: get
-    uri: https://api.datadoghq.com/api/v2/roles/c692cc76-2e66-11eb-855e-8b9c601396ef/users
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 24 Nov 2020 15:07:32 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '8555'
-      Connection:
-      - keep-alive
-      Vary:
-      - Accept-Encoding
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 01-Dec-2020 15:07:32 GMT;
-        secure; HttpOnly
-      X-Dd-Version:
-      - '35.3425088'
-      X-Ratelimit-Limit:
-      - '500'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Reset:
-      - '28'
-      X-Ratelimit-Remaining:
-      - '417'
-      X-Dd-Debug:
-      - TlObKNxJC6mRjORAptBjah7X7IZlZoWDhxDuIhUdNUMmnkpihyb67mpyYPwy4Xl5
-      Dd-Pool:
-      - dogweb
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-    body:
-      encoding: UTF-8
-      string: '{"included":[{"type":"permissions","id":"7314eb20-aa58-11ea-95e2-6fb6e4a451d5","attributes":{"name":"security_monitoring_rules_read","display_name":"Detection
-        Rules","description":"The ability to read Detection rules.","created":"2020-06-09T13:52:25.279909+00:00","group_name":"Security
-        Monitoring","display_type":"read","restricted":false}},{"type":"permissions","id":"984d2f00-d3b4-11e8-a200-bb47109e9987","attributes":{"name":"standard","display_name":"Standard
-        Access","description":"This permission gives you the ability to view and edit
-        components in your Datadog organization that do not have explicitly defined
-        permissions. This includes APM, Events, and other non-Account Management functionality.","created":"2018-10-19T15:35:23.756736+00:00","group_name":"General","display_type":"other","restricted":false}},{"type":"permissions","id":"80de1ec0-aa58-11ea-95e2-aff381626d5d","attributes":{"name":"security_monitoring_signals_read","display_name":"Security
-        Signals","description":"The ability to view Security signals.","created":"2020-06-09T13:52:48.410398+00:00","group_name":"Security
-        Monitoring","display_type":"read","restricted":false}},{"type":"permissions","id":"b382b982-8535-11ea-93de-2bf1bdf20798","attributes":{"name":"logs_read_archives","display_name":"Logs
+        ability to view dashboards.","created":"2019-09-10T14:39:51.955175+00:00","group_name":"Dashboards","display_type":"read","restricted":true}},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304","attributes":{"name":"monitors_read","display_name":"Monitors","description":"The
+        ability to view monitors.","created":"2019-09-16T18:39:07.744297+00:00","group_name":"Monitors","display_type":"read","restricted":true}},{"type":"permissions","id":"b382b982-8535-11ea-93de-2bf1bdf20798","attributes":{"name":"logs_read_archives","display_name":"Logs
         Archives","description":"The ability to read logs archives location and use
-        it for rehydration.","created":"2020-04-23T07:40:27.966133+00:00","group_name":"Logs","display_type":"read","restricted":false}},{"type":"permissions","id":"4d87d5f8-d8b1-11e9-a77a-eb9c8350d04f","attributes":{"name":"monitors_downtime","display_name":"Monitors
-        Manage Downtimes","description":"The ability to set downtimes for your organization.
-        A user with this permission can suppress alerts from any monitor using a downtime,
-        even if they do not have permission to edit those monitors explicitly.","created":"2019-09-16T18:39:23.306702+00:00","group_name":"Monitors","display_type":"other","restricted":false}},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304","attributes":{"name":"monitors_read","display_name":"Monitors","description":"The
-        ability to view monitors.","created":"2019-09-16T18:39:07.744297+00:00","group_name":"Monitors","display_type":"read","restricted":true}},{"type":"permissions","id":"5e605652-dd12-11e8-9e53-375565b8970e","attributes":{"name":"logs_read_index_data","display_name":"Logs
-        Read Index Data","description":"The ability to read all or some log indexes.
-        Can be granted in a limited capacity per index from the Logs interface or
-        APIs. If granted via the Roles interface or API the permission has global
-        scope.","created":"2018-10-31T13:39:19.727450+00:00","group_name":"Logs","display_type":"read","restricted":false}},{"type":"permissions","id":"9ac1d8cc-e707-11ea-aa2d-73d37e989a9d","attributes":{"name":"user_access_invite","display_name":"Invite
-        User","description":"Allows users to invite other users to your organization.","created":"2020-08-25T19:17:23.539701+00:00","group_name":"User
-        Access","display_type":"other","restricted":false}},{"type":"permissions","id":"d90f6831-d3d8-11e9-a77a-4fd230ddbc6a","attributes":{"name":"dashboards_write","display_name":"Dashboards","description":"The
-        ability to create and change dashboards.","created":"2019-09-10T14:39:51.962944+00:00","group_name":"Dashboards","display_type":"write","restricted":false}},{"type":"permissions","id":"1af86ce4-7823-11ea-93dc-d7cad1b1c6cb","attributes":{"name":"logs_read_data","display_name":"Logs
-        Read Data","description":"The ability to read log data. Can be restricted
-        with restriction queries.","created":"2020-04-06T16:24:35.989108+00:00","group_name":"Logs","display_type":"read","restricted":false}},{"type":"permissions","id":"6f66600e-dd12-11e8-9e55-7f30fbb45e73","attributes":{"name":"logs_live_tail","display_name":"Logs
-        Live Tail Access","description":"The ability to view the live tail feed for
-        all log indexes, even if otherwise specifically restricted.","created":"2018-10-31T13:39:48.292879+00:00","group_name":"Logs","display_type":"read","restricted":false}},{"type":"permissions","id":"07c3c146-f7f8-11ea-acf6-0bd62b9ae60e","attributes":{"name":"logs_write_historical_view","display_name":"Logs
-        Historical View","description":"The capability to rehydrate logs from Archives.","created":"2020-09-16T08:38:44.242076+00:00","group_name":"Logs","display_type":"write","restricted":false}},{"type":"permissions","id":"48ef71ea-d8b1-11e9-a77a-93f408470ad0","attributes":{"name":"monitors_write","display_name":"Monitors","description":"The
-        ability to change, mute, and delete individual monitors.","created":"2019-09-16T18:39:15.597109+00:00","group_name":"Monitors","display_type":"write","restricted":false}},{"type":"permissions","id":"d90f6832-d3d8-11e9-a77a-bf8a2607f864","attributes":{"name":"dashboards_public_share","display_name":"Dashboards
-        Share","description":"The ability to share dashboards externally.","created":"2019-09-10T14:39:51.967094+00:00","group_name":"Dashboards","display_type":"other","restricted":false}},{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2","attributes":{"name":"dashboards_read","display_name":"Dashboards","description":"The
-        ability to view dashboards.","created":"2019-09-10T14:39:51.955175+00:00","group_name":"Dashboards","display_type":"read","restricted":true}},{"type":"roles","id":"c692cc76-2e66-11eb-855e-8b9c601396ef","attributes":{"name":"ruby-Get_all_users_of_a_role_returns_OK_response-1606230451","created_at":"2020-11-24T15:07:31.797464+00:00","modified_at":"2020-11-24T15:07:31.797464+00:00"},"relationships":{"permissions":{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2"},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304"}]}}},{"type":"permissions","id":"62cc036c-dd12-11e8-9e54-db9995643092","attributes":{"name":"logs_modify_indexes","display_name":"Logs
+        it for rehydration.","created":"2020-04-23T07:40:27.966133+00:00","group_name":"Logs","display_type":"read","restricted":false}},{"type":"permissions","id":"62cc036c-dd12-11e8-9e54-db9995643092","attributes":{"name":"logs_modify_indexes","display_name":"Logs
         Modify Indexes","description":"The ability to read and modify all indexes
         in your account. This includes the ability to grant the Logs Read Index Data
         and Logs Write Exclusion Filter permission to other roles, for some or all
         indexes. This permission also grants global Log Index Read and Log Exclusion
-        Filter Write implicitly.","created":"2018-10-31T13:39:27.148615+00:00","group_name":"Logs","display_type":"other","restricted":false}},{"type":"permissions","id":"811ac4ca-dd12-11e8-9e57-676a7f0beef9","attributes":{"name":"logs_write_pipelines","display_name":"Logs
-        Write Pipelines","description":"The ability to add and change log pipeline
-        configurations, including the ability to grant the Logs Write Processors permission
-        to other roles, for some or all pipelines. This permission also grants global
-        Log Processor Write implicitly.","created":"2018-10-31T13:40:17.996379+00:00","group_name":"Logs","display_type":"other","restricted":false}},{"type":"permissions","id":"7b516476-aa58-11ea-95e2-93718cd56369","attributes":{"name":"security_monitoring_rules_write","display_name":"Detection
+        Filter Write implicitly.","created":"2018-10-31T13:39:27.148615+00:00","group_name":"Logs","display_type":"other","restricted":false}},{"type":"roles","id":"1aef9ba8-3553-11eb-87b3-4f12da61a6ef","attributes":{"name":"ruby-Get_all_users_of_a_role_returns_OK_response-1606991661","created_at":"2020-12-03T10:34:21.538898+00:00","modified_at":"2020-12-03T10:34:21.538898+00:00"},"relationships":{"permissions":{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2"},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304"}]}}},{"type":"permissions","id":"7b516476-aa58-11ea-95e2-93718cd56369","attributes":{"name":"security_monitoring_rules_write","display_name":"Detection
         Rules","description":"The ability to create and edit Detection rules.","created":"2020-06-09T13:52:39.099413+00:00","group_name":"Security
         Monitoring","display_type":"write","restricted":false}},{"type":"permissions","id":"6ba32d22-0e1a-11eb-ba44-bf9a5aafaa39","attributes":{"name":"logs_write_facets","display_name":"Logs
-        Facets","description":"The capability to create or edit logs facets.","created":"2020-10-14T12:40:20.271908+00:00","group_name":"Logs","display_type":"write","restricted":false}},{"type":"permissions","id":"979df720-aed7-11e9-99c6-a7eb8373165a","attributes":{"name":"logs_generate_metrics","display_name":"Log
-        Generate Metrics","description":"The ability to create custom metrics from
-        logs.","created":"2019-07-25T12:27:39.640758+00:00","group_name":"Logs","display_type":"other","restricted":false}}],"meta":{"page":{"total_filtered_count":1,"total_count":1}},"data":[{"type":"users","id":"c6afa792-2e66-11eb-855e-174231a19a8b","attributes":{"name":null,"handle":"ruby-get_all_users_of_a_role_returns_ok_response-1606230451@datadoghq.com","created_at":"2020-11-24T15:07:31.985873+00:00","email":"ruby-get_all_users_of_a_role_returns_ok_response-1606230451@datadoghq.com","icon":"https://secure.gravatar.com/avatar/8e41b7a437f49f8c41727afb3ac5a37e?s=48&d=retro","title":null,"verified":false,"service_account":false,"disabled":false,"allowed_login_methods":[],"status":"Pending"},"relationships":{"roles":{"data":[{"type":"roles","id":"c692cc76-2e66-11eb-855e-8b9c601396ef"}]},"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}]}'
-  recorded_at: Tue, 24 Nov 2020 15:07:31 GMT
+        Facets","description":"The capability to create or edit logs facets.","created":"2020-10-14T12:40:20.271908+00:00","group_name":"Logs","display_type":"write","restricted":false}},{"type":"permissions","id":"7314eb20-aa58-11ea-95e2-6fb6e4a451d5","attributes":{"name":"security_monitoring_rules_read","display_name":"Detection
+        Rules","description":"The ability to read Detection rules.","created":"2020-06-09T13:52:25.279909+00:00","group_name":"Security
+        Monitoring","display_type":"read","restricted":false}}],"meta":{"page":{"total_filtered_count":1,"total_count":1}},"data":[{"type":"users","id":"1b0f9688-3553-11eb-87b3-c72fc86558d4","attributes":{"name":null,"handle":"ruby-get_all_users_of_a_role_returns_ok_response-1606991661@datadoghq.com","created_at":"2020-12-03T10:34:21.748246+00:00","email":"ruby-get_all_users_of_a_role_returns_ok_response-1606991661@datadoghq.com","icon":"https://secure.gravatar.com/avatar/de65f246a98d46d82c131cc659d5c0cc?s=48&d=retro","title":null,"verified":false,"service_account":false,"disabled":false,"allowed_login_methods":[],"status":"Pending"},"relationships":{"roles":{"data":[{"type":"roles","id":"1aef9ba8-3553-11eb-87b3-4f12da61a6ef"}]},"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}]}'
+  recorded_at: Thu, 03 Dec 2020 10:34:21 GMT
 recorded_with: VCR 6.0.0
