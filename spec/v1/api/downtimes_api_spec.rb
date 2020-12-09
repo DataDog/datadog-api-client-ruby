@@ -45,6 +45,9 @@ describe 'DowntimesApi' do
       })
 
       resp = @api.create_downtime(downtime)
+      @undo << Proc.new {
+        @api.cancel_downtime(resp.id)
+      }
       expect(resp.message).to eq("test message")
       expect(resp._end).to eq(end_time)
       expect(resp.monitor_tags).to eq(["foo:bar"])
