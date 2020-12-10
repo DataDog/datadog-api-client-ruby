@@ -9,7 +9,7 @@
 | **public_id** | **String** | The public ID of the Synthetics test. | [optional] |
 | **result_id** | **String** | ID of the result. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

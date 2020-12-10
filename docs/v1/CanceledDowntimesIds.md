@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **cancelled_ids** | **Array&lt;Integer&gt;** | ID of downtimes that were canceled. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

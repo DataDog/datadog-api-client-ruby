@@ -9,7 +9,7 @@
 | **sources** | **Array&lt;String&gt;** | Array of source attributes. |  |
 | **type** | [**LogsDateRemapperType**](LogsDateRemapperType.md) |  | [default to &#39;date-remapper&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

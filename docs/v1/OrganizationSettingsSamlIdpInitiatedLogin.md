@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **enabled** | **Boolean** | Whether SAML IdP initiated login is enabled, learn more in the [SAML documentation](https://docs.datadoghq.com/account_management/saml/#idp-initiated-login). | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

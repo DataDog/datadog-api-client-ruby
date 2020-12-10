@@ -14,7 +14,7 @@
 | **timeframe** | **String** | Defines the displayed timeframe. | [optional] |
 | **value** | **Float** | Value for the comparator. |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

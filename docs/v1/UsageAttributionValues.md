@@ -23,7 +23,7 @@
 | **snmp_percentage** | **Float** | The percentage of network device usage by tag(s). | [optional] |
 | **snmp_usage** | **Float** | The network device usage by tag(s). | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

@@ -9,7 +9,7 @@
 | **path** | **String** | The archive path. | [optional] |
 | **type** | [**LogsArchiveDestinationS3Type**](LogsArchiveDestinationS3Type.md) |  | [default to &#39;s3&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

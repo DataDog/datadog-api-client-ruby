@@ -13,7 +13,7 @@
 | **sharing** | **String** | Sharing type of the organization. | [optional] |
 | **url** | **String** | URL of the site that this organization exists at. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

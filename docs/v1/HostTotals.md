@@ -7,7 +7,7 @@
 | **total_active** | **Integer** | Total number of active host (UP and ???) reporting to Datadog. | [optional] |
 | **total_up** | **Integer** | Number of host that are UP and reporting to Datadog. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

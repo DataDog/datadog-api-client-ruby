@@ -9,7 +9,7 @@
 | **type** | [**GroupWidgetDefinitionType**](GroupWidgetDefinitionType.md) |  | [default to &#39;group&#39;] |
 | **widgets** | [**Array&lt;Widget&gt;**](Widget.md) | List of widget groups. |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

@@ -17,7 +17,7 @@
 | **type** | [**DashboardType**](DashboardType.md) |  |  |
 | **url** | **String** | URL path to the dashboard. | [optional][readonly] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **tests** | [**Array&lt;SyntheticsCITest&gt;**](SyntheticsCITest.md) | Individual synthetics test. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

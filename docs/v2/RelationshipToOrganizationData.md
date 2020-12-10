@@ -7,7 +7,7 @@
 | **id** | **String** | ID of the organization. |  |
 | **type** | [**OrganizationsType**](OrganizationsType.md) |  | [default to &#39;orgs&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

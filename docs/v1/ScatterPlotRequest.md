@@ -14,7 +14,7 @@
 | **rum_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
 | **security_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

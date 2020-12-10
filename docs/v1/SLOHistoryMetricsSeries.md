@@ -9,7 +9,7 @@
 | **sum** | **Float** | Total sum of the query. |  |
 | **values** | **Array&lt;Float&gt;** | The query values for each metric. |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

@@ -10,7 +10,7 @@
 | **step_count_completed** | **Integer** | Amount of browser test steps completed before failing. | [optional] |
 | **step_count_total** | **Integer** | Total amount of browser test steps. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

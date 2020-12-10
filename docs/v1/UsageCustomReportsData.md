@@ -8,7 +8,7 @@
 | **id** | **String** | The date for specified custom reports. | [optional] |
 | **type** | [**UsageReportsType**](UsageReportsType.md) |  | [optional][default to &#39;reports&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

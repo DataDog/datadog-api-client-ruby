@@ -9,7 +9,7 @@
 | **tags** | **Array&lt;Object&gt;** | An array of tags associated with the security signal. | [optional] |
 | **timestamp** | **Time** | The timestamp of the security signal. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

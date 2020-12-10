@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **locations** | [**Array&lt;SyntheticsLocation&gt;**](SyntheticsLocation.md) | List of Synthetics locations. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

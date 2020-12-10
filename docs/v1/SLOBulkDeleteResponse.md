@@ -7,7 +7,7 @@
 | **data** | [**SLOBulkDeleteResponseData**](SLOBulkDeleteResponseData.md) |  | [optional] |
 | **errors** | [**Array&lt;SLOBulkDeleteResponseErrors&gt;**](SLOBulkDeleteResponseErrors.md) | Array of errors object returned. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

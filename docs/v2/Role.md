@@ -9,7 +9,7 @@
 | **relationships** | [**RoleResponseRelationships**](RoleResponseRelationships.md) |  | [optional] |
 | **type** | [**RolesType**](RolesType.md) |  | [default to &#39;roles&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

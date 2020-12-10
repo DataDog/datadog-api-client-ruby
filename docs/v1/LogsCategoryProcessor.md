@@ -10,7 +10,7 @@
 | **target** | **String** | Name of the target attribute which value is defined by the matching category. |  |
 | **type** | [**LogsCategoryProcessorType**](LogsCategoryProcessorType.md) |  | [default to &#39;category-processor&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'
@@ -19,7 +19,7 @@ instance = DatadogAPIClient::V1::LogsCategoryProcessor.new(
   categories: [],
   is_enabled: null,
   name: null,
-  target: null,
+  target: ,
   type: null
 )
 ```

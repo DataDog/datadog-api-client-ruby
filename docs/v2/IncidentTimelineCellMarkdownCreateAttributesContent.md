@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **content** | **String** | The Markdown content of the cell. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

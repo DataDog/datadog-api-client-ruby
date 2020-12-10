@@ -8,7 +8,7 @@
 | **name** | **String** | Name of an application key. | [optional] |
 | **owner** | **String** | Owner of an application key. | [optional][readonly] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

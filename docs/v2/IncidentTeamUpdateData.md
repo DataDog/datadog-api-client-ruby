@@ -9,7 +9,7 @@
 | **relationships** | [**IncidentTeamRelationships**](IncidentTeamRelationships.md) |  | [optional] |
 | **type** | [**IncidentTeamType**](IncidentTeamType.md) |  | [default to &#39;teams&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

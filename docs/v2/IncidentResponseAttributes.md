@@ -23,7 +23,7 @@
 | **time_to_resolve** | **Integer** | The amount of time in seconds to resolve the incident after it was created. Equals the difference between &#x60;created&#x60; and &#x60;resolved&#x60;. | [optional][readonly] |
 | **title** | **String** | The title of the incident, which summarizes what happened. |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

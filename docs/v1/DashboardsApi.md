@@ -13,16 +13,15 @@ All URIs are relative to *https://api.datadoghq.com*
 
 ## create_dashboard
 
-> Dashboard create_dashboard(body)
+> <Dashboard> create_dashboard(body)
 
 Create a new dashboard
 
 Create a dashboard using the specified options.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -41,11 +40,29 @@ api_instance = DatadogAPIClient::V1::DashboardsApi.new
 body = DatadogAPIClient::V1::Dashboard.new # Dashboard | Create a dashboard request body.
 
 begin
-  #Create a new dashboard
+  # Create a new dashboard
   result = api_instance.create_dashboard(body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling DashboardsApi->create_dashboard: #{e}"
+  puts "Error when calling DashboardsApi->create_dashboard: #{e}"
+end
+```
+
+#### Using the create_dashboard_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Dashboard>, Integer, Hash)> create_dashboard_with_http_info(body)
+
+```ruby
+begin
+  # Create a new dashboard
+  data, status_code, headers = api_instance.create_dashboard_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Dashboard>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling DashboardsApi->create_dashboard_with_http_info: #{e}"
 end
 ```
 
@@ -71,16 +88,15 @@ end
 
 ## delete_dashboard
 
-> DashboardDeleteResponse delete_dashboard(dashboard_id)
+> <DashboardDeleteResponse> delete_dashboard(dashboard_id)
 
 Delete a dashboard
 
 Delete a dashboard using the specified ID.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -99,11 +115,29 @@ api_instance = DatadogAPIClient::V1::DashboardsApi.new
 dashboard_id = 'dashboard_id_example' # String | The ID of the dashboard.
 
 begin
-  #Delete a dashboard
+  # Delete a dashboard
   result = api_instance.delete_dashboard(dashboard_id)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling DashboardsApi->delete_dashboard: #{e}"
+  puts "Error when calling DashboardsApi->delete_dashboard: #{e}"
+end
+```
+
+#### Using the delete_dashboard_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DashboardDeleteResponse>, Integer, Hash)> delete_dashboard_with_http_info(dashboard_id)
+
+```ruby
+begin
+  # Delete a dashboard
+  data, status_code, headers = api_instance.delete_dashboard_with_http_info(dashboard_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DashboardDeleteResponse>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling DashboardsApi->delete_dashboard_with_http_info: #{e}"
 end
 ```
 
@@ -129,16 +163,15 @@ end
 
 ## get_dashboard
 
-> Dashboard get_dashboard(dashboard_id)
+> <Dashboard> get_dashboard(dashboard_id)
 
 Get a dashboard
 
 Get a dashboard using the specified ID.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -157,11 +190,29 @@ api_instance = DatadogAPIClient::V1::DashboardsApi.new
 dashboard_id = 'dashboard_id_example' # String | The ID of the dashboard.
 
 begin
-  #Get a dashboard
+  # Get a dashboard
   result = api_instance.get_dashboard(dashboard_id)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling DashboardsApi->get_dashboard: #{e}"
+  puts "Error when calling DashboardsApi->get_dashboard: #{e}"
+end
+```
+
+#### Using the get_dashboard_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Dashboard>, Integer, Hash)> get_dashboard_with_http_info(dashboard_id)
+
+```ruby
+begin
+  # Get a dashboard
+  data, status_code, headers = api_instance.get_dashboard_with_http_info(dashboard_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Dashboard>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling DashboardsApi->get_dashboard_with_http_info: #{e}"
 end
 ```
 
@@ -187,16 +238,15 @@ end
 
 ## list_dashboards
 
-> DashboardSummary list_dashboards
+> <DashboardSummary> list_dashboards
 
 Get all dashboards
 
 Get all dashboards.  **Note**: This query will only return custom created or cloned dashboards. This query will not return preset dashboards.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -214,11 +264,29 @@ end
 api_instance = DatadogAPIClient::V1::DashboardsApi.new
 
 begin
-  #Get all dashboards
+  # Get all dashboards
   result = api_instance.list_dashboards
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling DashboardsApi->list_dashboards: #{e}"
+  puts "Error when calling DashboardsApi->list_dashboards: #{e}"
+end
+```
+
+#### Using the list_dashboards_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DashboardSummary>, Integer, Hash)> list_dashboards_with_http_info
+
+```ruby
+begin
+  # Get all dashboards
+  data, status_code, headers = api_instance.list_dashboards_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DashboardSummary>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling DashboardsApi->list_dashboards_with_http_info: #{e}"
 end
 ```
 
@@ -242,16 +310,15 @@ This endpoint does not need any parameter.
 
 ## update_dashboard
 
-> Dashboard update_dashboard(dashboard_id, body)
+> <Dashboard> update_dashboard(dashboard_id, body)
 
 Update a dashboard
 
 Update a dashboard using the specified ID.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -271,11 +338,29 @@ dashboard_id = 'dashboard_id_example' # String | The ID of the dashboard.
 body = DatadogAPIClient::V1::Dashboard.new # Dashboard | Update Dashboard request body.
 
 begin
-  #Update a dashboard
+  # Update a dashboard
   result = api_instance.update_dashboard(dashboard_id, body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling DashboardsApi->update_dashboard: #{e}"
+  puts "Error when calling DashboardsApi->update_dashboard: #{e}"
+end
+```
+
+#### Using the update_dashboard_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Dashboard>, Integer, Hash)> update_dashboard_with_http_info(dashboard_id, body)
+
+```ruby
+begin
+  # Update a dashboard
+  data, status_code, headers = api_instance.update_dashboard_with_http_info(dashboard_id, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Dashboard>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling DashboardsApi->update_dashboard_with_http_info: #{e}"
 end
 ```
 

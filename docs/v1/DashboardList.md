@@ -13,7 +13,7 @@
 | **name** | **String** | The name of the dashboard list. |  |
 | **type** | **String** | The type of dashboard list. | [optional][readonly] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

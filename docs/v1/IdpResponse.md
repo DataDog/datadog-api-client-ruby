@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **message** | **String** | Identity provider response. |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

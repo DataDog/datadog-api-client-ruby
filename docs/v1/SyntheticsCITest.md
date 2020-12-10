@@ -19,7 +19,7 @@
 | **start_url** | **String** | Starting URL for the browser test. | [optional] |
 | **variables** | **Hash&lt;String, String&gt;** | Variables to replace in the test. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

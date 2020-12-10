@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **deleted_dashboard_id** | **String** | ID of the deleted dashboard. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

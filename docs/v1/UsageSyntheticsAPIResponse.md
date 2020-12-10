@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **usage** | [**Array&lt;UsageSyntheticsAPIHour&gt;**](UsageSyntheticsAPIHour.md) | Get hourly usage for Synthetics API tests. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

@@ -7,7 +7,7 @@
 | **name** | **String** | The name of the variable. | [optional] |
 | **template_variables** | [**Array&lt;DashboardTemplateVariablePresetValue&gt;**](DashboardTemplateVariablePresetValue.md) | List of variables. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

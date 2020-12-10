@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **enabled** | **Boolean** | Whether or not SAML is enabled for this organization. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

@@ -13,7 +13,7 @@
 | **type** | [**SLOType**](SLOType.md) |  | [optional] |
 | **type_id** | [**SLOTypeNumeric**](SLOTypeNumeric.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

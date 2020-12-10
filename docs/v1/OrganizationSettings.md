@@ -15,7 +15,7 @@
 | **saml_login_url** | **String** | URL for SAML logging. | [optional] |
 | **saml_strict_mode** | [**OrganizationSettingsSamlStrictMode**](OrganizationSettingsSamlStrictMode.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

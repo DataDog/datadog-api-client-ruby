@@ -16,7 +16,7 @@
 | **type** | [**HeatMapWidgetDefinitionType**](HeatMapWidgetDefinitionType.md) |  | [default to &#39;heatmap&#39;] |
 | **yaxis** | [**WidgetAxis**](WidgetAxis.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

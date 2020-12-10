@@ -9,7 +9,7 @@
 | **palette** | **String** | Color palette to apply to the widget. | [optional] |
 | **palette_flip** | **Boolean** | Whether to flip the palette tones. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

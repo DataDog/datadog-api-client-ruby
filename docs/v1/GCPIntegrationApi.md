@@ -18,10 +18,9 @@ Create a GCP integration
 
 Create a Datadog-GCP integration.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -40,11 +39,29 @@ api_instance = DatadogAPIClient::V1::GCPIntegrationApi.new
 body = DatadogAPIClient::V1::GCPAccount.new # GCPAccount | Create a Datadog-GCP integration.
 
 begin
-  #Create a GCP integration
+  # Create a GCP integration
   result = api_instance.create_gcp_integration(body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling GCPIntegrationApi->create_gcp_integration: #{e}"
+  puts "Error when calling GCPIntegrationApi->create_gcp_integration: #{e}"
+end
+```
+
+#### Using the create_gcp_integration_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Object, Integer, Hash)> create_gcp_integration_with_http_info(body)
+
+```ruby
+begin
+  # Create a GCP integration
+  data, status_code, headers = api_instance.create_gcp_integration_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Object
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling GCPIntegrationApi->create_gcp_integration_with_http_info: #{e}"
 end
 ```
 
@@ -76,10 +93,9 @@ Delete a GCP integration
 
 Delete a given Datadog-GCP integration.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -98,11 +114,29 @@ api_instance = DatadogAPIClient::V1::GCPIntegrationApi.new
 body = DatadogAPIClient::V1::GCPAccount.new # GCPAccount | Delete a given Datadog-GCP integration.
 
 begin
-  #Delete a GCP integration
+  # Delete a GCP integration
   result = api_instance.delete_gcp_integration(body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling GCPIntegrationApi->delete_gcp_integration: #{e}"
+  puts "Error when calling GCPIntegrationApi->delete_gcp_integration: #{e}"
+end
+```
+
+#### Using the delete_gcp_integration_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Object, Integer, Hash)> delete_gcp_integration_with_http_info(body)
+
+```ruby
+begin
+  # Delete a GCP integration
+  data, status_code, headers = api_instance.delete_gcp_integration_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Object
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling GCPIntegrationApi->delete_gcp_integration_with_http_info: #{e}"
 end
 ```
 
@@ -128,16 +162,15 @@ end
 
 ## list_gcp_integration
 
-> Array&lt;GCPAccount&gt; list_gcp_integration
+> <Array<GCPAccount>> list_gcp_integration
 
 List all GCP integrations
 
 List all Datadog-GCP integrations configured in your Datadog account.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -155,11 +188,29 @@ end
 api_instance = DatadogAPIClient::V1::GCPIntegrationApi.new
 
 begin
-  #List all GCP integrations
+  # List all GCP integrations
   result = api_instance.list_gcp_integration
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling GCPIntegrationApi->list_gcp_integration: #{e}"
+  puts "Error when calling GCPIntegrationApi->list_gcp_integration: #{e}"
+end
+```
+
+#### Using the list_gcp_integration_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<GCPAccount>>, Integer, Hash)> list_gcp_integration_with_http_info
+
+```ruby
+begin
+  # List all GCP integrations
+  data, status_code, headers = api_instance.list_gcp_integration_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<GCPAccount>>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling GCPIntegrationApi->list_gcp_integration_with_http_info: #{e}"
 end
 ```
 
@@ -189,10 +240,9 @@ Update a GCP integration
 
 Update a Datadog-GCP integrations host_filters and/or auto-mute. Requires a `project_id` and `client_email`, however these fields cannot be updated. If you need to update these fields, delete and use the create (`POST`) endpoint. The unspecified fields will keep their original values.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -211,11 +261,29 @@ api_instance = DatadogAPIClient::V1::GCPIntegrationApi.new
 body = DatadogAPIClient::V1::GCPAccount.new # GCPAccount | Update a Datadog-GCP integration.
 
 begin
-  #Update a GCP integration
+  # Update a GCP integration
   result = api_instance.update_gcp_integration(body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling GCPIntegrationApi->update_gcp_integration: #{e}"
+  puts "Error when calling GCPIntegrationApi->update_gcp_integration: #{e}"
+end
+```
+
+#### Using the update_gcp_integration_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Object, Integer, Hash)> update_gcp_integration_with_http_info(body)
+
+```ruby
+begin
+  # Update a GCP integration
+  data, status_code, headers = api_instance.update_gcp_integration_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Object
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling GCPIntegrationApi->update_gcp_integration_with_http_info: #{e}"
 end
 ```
 

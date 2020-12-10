@@ -7,7 +7,7 @@
 | **cert** | [**SyntheticsTestRequestCertificateItem**](SyntheticsTestRequestCertificateItem.md) |  | [optional] |
 | **key** | [**SyntheticsTestRequestCertificateItem**](SyntheticsTestRequestCertificateItem.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

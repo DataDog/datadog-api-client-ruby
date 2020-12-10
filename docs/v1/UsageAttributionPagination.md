@@ -10,7 +10,7 @@
 | **sort_name** | **String** | Field to sort by. | [optional] |
 | **total_number_of_records** | **Integer** | Total number of records. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

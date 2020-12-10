@@ -9,7 +9,7 @@
 | **sources** | **Array&lt;String&gt;** | Array of source attributes. | [optional] |
 | **type** | [**LogsTraceRemapperType**](LogsTraceRemapperType.md) |  | [default to &#39;trace-id-remapper&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

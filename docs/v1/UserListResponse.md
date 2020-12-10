@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **users** | [**Array&lt;User&gt;**](User.md) | Array of users. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

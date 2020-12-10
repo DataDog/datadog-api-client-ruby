@@ -7,7 +7,7 @@
 | **hour** | **Time** | The hour for the usage. | [optional] |
 | **monthly_active_users** | **Integer** | Contains the total number monthly active users from the start of the given hour&#39;s month until the given hour. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

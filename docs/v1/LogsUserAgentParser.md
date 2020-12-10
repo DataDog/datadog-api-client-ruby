@@ -11,7 +11,7 @@
 | **target** | **String** | Name of the parent attribute that contains all the extracted details from the &#x60;sources&#x60;. | [default to &#39;http.useragent_details&#39;] |
 | **type** | [**LogsUserAgentParserType**](LogsUserAgentParserType.md) |  | [default to &#39;user-agent-parser&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

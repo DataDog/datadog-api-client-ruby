@@ -12,16 +12,15 @@ All URIs are relative to *https://api.datadoghq.com*
 
 ## create_dashboard_list_items
 
-> DashboardListAddItemsResponse create_dashboard_list_items(dashboard_list_id, body)
+> <DashboardListAddItemsResponse> create_dashboard_list_items(dashboard_list_id, body)
 
 Add Items to a Dashboard List
 
 Add dashboards to an existing dashboard list.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -41,11 +40,29 @@ dashboard_list_id = 56 # Integer | ID of the dashboard list to add items to.
 body = DatadogAPIClient::V2::DashboardListAddItemsRequest.new # DashboardListAddItemsRequest | Dashboards to add to the dashboard list.
 
 begin
-  #Add Items to a Dashboard List
+  # Add Items to a Dashboard List
   result = api_instance.create_dashboard_list_items(dashboard_list_id, body)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling DashboardListsApi->create_dashboard_list_items: #{e}"
+  puts "Error when calling DashboardListsApi->create_dashboard_list_items: #{e}"
+end
+```
+
+#### Using the create_dashboard_list_items_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DashboardListAddItemsResponse>, Integer, Hash)> create_dashboard_list_items_with_http_info(dashboard_list_id, body)
+
+```ruby
+begin
+  # Add Items to a Dashboard List
+  data, status_code, headers = api_instance.create_dashboard_list_items_with_http_info(dashboard_list_id, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DashboardListAddItemsResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling DashboardListsApi->create_dashboard_list_items_with_http_info: #{e}"
 end
 ```
 
@@ -72,16 +89,15 @@ end
 
 ## delete_dashboard_list_items
 
-> DashboardListDeleteItemsResponse delete_dashboard_list_items(dashboard_list_id, body)
+> <DashboardListDeleteItemsResponse> delete_dashboard_list_items(dashboard_list_id, body)
 
 Delete items from a dashboard list
 
 Delete dashboards from an existing dashboard list.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -101,11 +117,29 @@ dashboard_list_id = 56 # Integer | ID of the dashboard list to delete items from
 body = DatadogAPIClient::V2::DashboardListDeleteItemsRequest.new # DashboardListDeleteItemsRequest | Dashboards to delete from the dashboard list.
 
 begin
-  #Delete items from a dashboard list
+  # Delete items from a dashboard list
   result = api_instance.delete_dashboard_list_items(dashboard_list_id, body)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling DashboardListsApi->delete_dashboard_list_items: #{e}"
+  puts "Error when calling DashboardListsApi->delete_dashboard_list_items: #{e}"
+end
+```
+
+#### Using the delete_dashboard_list_items_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DashboardListDeleteItemsResponse>, Integer, Hash)> delete_dashboard_list_items_with_http_info(dashboard_list_id, body)
+
+```ruby
+begin
+  # Delete items from a dashboard list
+  data, status_code, headers = api_instance.delete_dashboard_list_items_with_http_info(dashboard_list_id, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DashboardListDeleteItemsResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling DashboardListsApi->delete_dashboard_list_items_with_http_info: #{e}"
 end
 ```
 
@@ -132,16 +166,15 @@ end
 
 ## get_dashboard_list_items
 
-> DashboardListItems get_dashboard_list_items(dashboard_list_id)
+> <DashboardListItems> get_dashboard_list_items(dashboard_list_id)
 
 Get a Dashboard List
 
 Fetch the dashboard list’s dashboard definitions.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -160,11 +193,29 @@ api_instance = DatadogAPIClient::V2::DashboardListsApi.new
 dashboard_list_id = 56 # Integer | ID of the dashboard list to get items from.
 
 begin
-  #Get a Dashboard List
+  # Get a Dashboard List
   result = api_instance.get_dashboard_list_items(dashboard_list_id)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling DashboardListsApi->get_dashboard_list_items: #{e}"
+  puts "Error when calling DashboardListsApi->get_dashboard_list_items: #{e}"
+end
+```
+
+#### Using the get_dashboard_list_items_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DashboardListItems>, Integer, Hash)> get_dashboard_list_items_with_http_info(dashboard_list_id)
+
+```ruby
+begin
+  # Get a Dashboard List
+  data, status_code, headers = api_instance.get_dashboard_list_items_with_http_info(dashboard_list_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DashboardListItems>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling DashboardListsApi->get_dashboard_list_items_with_http_info: #{e}"
 end
 ```
 
@@ -190,16 +241,15 @@ end
 
 ## update_dashboard_list_items
 
-> DashboardListUpdateItemsResponse update_dashboard_list_items(dashboard_list_id, body)
+> <DashboardListUpdateItemsResponse> update_dashboard_list_items(dashboard_list_id, body)
 
 Update items of a dashboard list
 
 Update dashboards of an existing dashboard list.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -219,11 +269,29 @@ dashboard_list_id = 56 # Integer | ID of the dashboard list to update items from
 body = DatadogAPIClient::V2::DashboardListUpdateItemsRequest.new # DashboardListUpdateItemsRequest | New dashboards of the dashboard list.
 
 begin
-  #Update items of a dashboard list
+  # Update items of a dashboard list
   result = api_instance.update_dashboard_list_items(dashboard_list_id, body)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling DashboardListsApi->update_dashboard_list_items: #{e}"
+  puts "Error when calling DashboardListsApi->update_dashboard_list_items: #{e}"
+end
+```
+
+#### Using the update_dashboard_list_items_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DashboardListUpdateItemsResponse>, Integer, Hash)> update_dashboard_list_items_with_http_info(dashboard_list_id, body)
+
+```ruby
+begin
+  # Update items of a dashboard list
+  data, status_code, headers = api_instance.update_dashboard_list_items_with_http_info(dashboard_list_id, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DashboardListUpdateItemsResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling DashboardListsApi->update_dashboard_list_items_with_http_info: #{e}"
 end
 ```
 

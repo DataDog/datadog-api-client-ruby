@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **usage** | [**Array&lt;UsageSyntheticsHour&gt;**](UsageSyntheticsHour.md) | Array with the number of hourly Synthetics test run for a given organization. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

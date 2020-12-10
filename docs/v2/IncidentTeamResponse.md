@@ -7,7 +7,7 @@
 | **data** | [**IncidentTeamResponseData**](IncidentTeamResponseData.md) |  |  |
 | **included** | [**Array&lt;IncidentTeamIncludedItems&gt;**](IncidentTeamIncludedItems.md) | Included objects from relationships. | [optional][readonly] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

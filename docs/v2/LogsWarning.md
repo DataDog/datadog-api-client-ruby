@@ -8,7 +8,7 @@
 | **detail** | **String** | A detailed explanation of this specific warning | [optional] |
 | **title** | **String** | A short human-readable summary of the warning | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

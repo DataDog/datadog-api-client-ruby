@@ -13,13 +13,13 @@
 | **type** | [**AlertValueWidgetDefinitionType**](AlertValueWidgetDefinitionType.md) |  | [default to &#39;alert_value&#39;] |
 | **unit** | **String** | Unit to display with the value. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::AlertValueWidgetDefinition.new(
-  alert_id: null,
+  alert_id: ,
   precision: null,
   text_align: null,
   title: null,

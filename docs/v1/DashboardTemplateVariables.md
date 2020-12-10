@@ -8,7 +8,7 @@
 | **name** | **String** | The name of the variable. |  |
 | **prefix** | **String** | The tag prefix associated with the variable. Only tags with this prefix appear in the variable drop-down. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'
