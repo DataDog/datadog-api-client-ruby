@@ -9,7 +9,7 @@
 | **x** | **Integer** | The position of the widget on the x (horizontal) axis. Should be a non-negative integer. |  |
 | **y** | **Integer** | The position of the widget on the y (vertical) axis. Should be a non-negative integer. |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

@@ -10,7 +10,7 @@
 | **filter** | [**LogsFilter**](LogsFilter.md) |  |  |
 | **num_retention_days** | **Integer** | The number of days before logs are deleted from this index. Available values depend on retention plans specified in your organization&#39;s contract/subscriptions.  **Note:** Changing the retention for an index adjusts the length of retention for all logs already in this index. It may also affect billing. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

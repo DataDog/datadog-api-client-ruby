@@ -9,7 +9,7 @@
 | **prefixes_ipv6** | **Array&lt;String&gt;** | List of IPv6 prefixes. | [optional] |
 | **prefixes_ipv6_by_location** | **Hash&lt;String, Array&lt;String&gt;&gt;** | List of IPv6 prefixes by location. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

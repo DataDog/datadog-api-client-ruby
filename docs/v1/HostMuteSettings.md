@@ -8,7 +8,7 @@
 | **message** | **String** | Message to associate with the muting of this host. | [optional] |
 | **override** | **Boolean** | If true and the host is already muted, replaces existing host mute settings. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

@@ -8,7 +8,7 @@
 | **included** | [**Array&lt;UserResponseIncludedItem&gt;**](UserResponseIncludedItem.md) | Array of objects related to the users. | [optional] |
 | **meta** | [**ResponseMetaAttributes**](ResponseMetaAttributes.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

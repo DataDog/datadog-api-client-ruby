@@ -7,7 +7,7 @@
 | **host_count** | **Integer** | Contains the number of active NPM hosts. | [optional] |
 | **hour** | **Time** | The hour for the usage. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

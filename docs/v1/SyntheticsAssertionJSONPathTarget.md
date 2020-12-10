@@ -9,7 +9,7 @@
 | **target** | [**SyntheticsAssertionJSONPathTargetTarget**](SyntheticsAssertionJSONPathTargetTarget.md) |  | [optional] |
 | **type** | [**SyntheticsAssertionType**](SyntheticsAssertionType.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

@@ -8,7 +8,7 @@
 | **timezone** | **String** | Timezone can be specified both as an offset (e.g. \&quot;UTC+03:00\&quot;) or a regional zone (e.g. \&quot;Europe/Paris\&quot;). | [optional] |
 | **to** | **Time** | Maximum timestamp for requested logs. |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

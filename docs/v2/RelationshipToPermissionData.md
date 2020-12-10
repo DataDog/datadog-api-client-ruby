@@ -7,7 +7,7 @@
 | **id** | **String** | ID of the permission. | [optional] |
 | **type** | [**PermissionsType**](PermissionsType.md) |  | [optional][default to &#39;permissions&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

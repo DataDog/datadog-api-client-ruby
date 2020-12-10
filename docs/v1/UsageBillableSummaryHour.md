@@ -13,7 +13,7 @@
 | **start_date** | **Time** | Shows the first date of usage. | [optional] |
 | **usage** | [**UsageBillableSummaryKeys**](UsageBillableSummaryKeys.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

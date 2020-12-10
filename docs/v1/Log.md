@@ -7,7 +7,7 @@
 | **content** | [**LogContent**](LogContent.md) |  | [optional] |
 | **id** | **String** | Unique ID of the Log. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

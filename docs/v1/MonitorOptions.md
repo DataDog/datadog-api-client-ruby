@@ -26,7 +26,7 @@
 | **thresholds** | [**MonitorThresholds**](MonitorThresholds.md) |  | [optional] |
 | **timeout_h** | **Integer** | The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

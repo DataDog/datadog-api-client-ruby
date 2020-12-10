@@ -18,7 +18,7 @@
 | **tags** | **Array&lt;String&gt;** | Tags for generated signals. | [optional] |
 | **version** | **Integer** | The version of the rule. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

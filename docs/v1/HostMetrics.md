@@ -8,7 +8,7 @@
 | **iowait** | **Float** | The percent of CPU spent waiting on the IO (not reported for all platforms). | [optional] |
 | **load** | **Float** | The system load over the last 15 minutes. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

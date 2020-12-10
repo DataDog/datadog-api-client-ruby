@@ -8,7 +8,7 @@
 | **id** | **String** | Unique ID of the Log. | [optional] |
 | **type** | [**LogType**](LogType.md) |  | [optional][default to &#39;log&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

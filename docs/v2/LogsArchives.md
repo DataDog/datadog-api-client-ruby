@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **data** | [**Array&lt;LogsArchiveDefinition&gt;**](LogsArchiveDefinition.md) | A list of archives. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

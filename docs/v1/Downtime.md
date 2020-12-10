@@ -21,7 +21,7 @@
 | **timezone** | **String** | The timezone in which to display the downtime&#39;s start and end times in Datadog applications. | [optional] |
 | **updater_id** | **Integer** | ID of the last user that updated the downtime. | [optional][readonly] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

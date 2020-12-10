@@ -7,7 +7,7 @@
 | **data** | [**Array&lt;Role&gt;**](Role.md) | Array of returned roles. | [optional] |
 | **meta** | [**ResponseMetaAttributes**](ResponseMetaAttributes.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

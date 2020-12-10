@@ -7,7 +7,7 @@
 | **hour** | **Time** | The hour for the usage. | [optional] |
 | **indexed_event_count** | **Integer** | Contains the number of netflow events indexed. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

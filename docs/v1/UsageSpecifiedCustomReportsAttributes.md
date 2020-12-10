@@ -11,7 +11,7 @@
 | **start_date** | **String** | The starting date of specified custom report. | [optional] |
 | **tags** | **Array&lt;String&gt;** | A list of tags to apply to specified custom reports. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

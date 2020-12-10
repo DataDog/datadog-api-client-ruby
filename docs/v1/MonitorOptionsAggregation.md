@@ -8,7 +8,7 @@
 | **metric** | **String** | Metric name used in the monitor. | [optional] |
 | **type** | **String** | Metric type used in the monitor. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

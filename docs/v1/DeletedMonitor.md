@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **deleted_monitor_id** | **Integer** | ID of the deleted monitor. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

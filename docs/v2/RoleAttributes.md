@@ -9,7 +9,7 @@
 | **name** | **String** | Name of the role. | [optional] |
 | **user_count** | **Integer** | Number of users with that role. | [optional][readonly] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

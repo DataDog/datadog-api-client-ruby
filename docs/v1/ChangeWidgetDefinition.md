@@ -12,7 +12,7 @@
 | **title_size** | **String** | Size of the title. | [optional] |
 | **type** | [**ChangeWidgetDefinitionType**](ChangeWidgetDefinitionType.md) |  | [default to &#39;change&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

@@ -9,7 +9,7 @@
 | **sources** | **Array&lt;String&gt;** | Array of source attributes. |  |
 | **type** | [**LogsMessageRemapperType**](LogsMessageRemapperType.md) |  | [default to &#39;message-remapper&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

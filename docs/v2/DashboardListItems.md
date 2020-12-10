@@ -7,7 +7,7 @@
 | **dashboards** | [**Array&lt;DashboardListItem&gt;**](DashboardListItem.md) | List of dashboards in the dashboard list. |  |
 | **total** | **Integer** | Number of dashboards in the dashboard list. | [optional][readonly] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

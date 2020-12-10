@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **ok** | **Array&lt;Integer&gt;** | An array of of Monitor IDs that can be safely deleted. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

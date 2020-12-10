@@ -11,7 +11,7 @@
 | **name** | **String** | The name of the index. | [optional][readonly] |
 | **num_retention_days** | **Integer** | The number of days before logs are deleted from this index. Available values depend on retention plans specified in your organization&#39;s contract/subscriptions. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

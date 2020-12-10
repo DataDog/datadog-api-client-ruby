@@ -8,7 +8,7 @@
 | **content** | [**IncidentTimelineCellMarkdownCreateAttributesContent**](IncidentTimelineCellMarkdownCreateAttributesContent.md) |  |  |
 | **important** | **Boolean** | A flag indicating whether the timeline cell is important and should be highlighted. | [optional][default to false] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

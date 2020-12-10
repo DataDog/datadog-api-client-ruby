@@ -17,7 +17,7 @@
 | **title** | **String** | The event title. Limited to 100 characters. Use &#x60;msg_title&#x60; with the Datadog Ruby library. | [optional] |
 | **url** | **String** | URL of the event. | [optional][readonly] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

@@ -8,7 +8,7 @@
 | **lambdas** | [**Array&lt;AWSLogsListResponseLambdas&gt;**](AWSLogsListResponseLambdas.md) | List of ARNs configured in your Datadog account. | [optional] |
 | **services** | **Array&lt;String&gt;** | Array of services IDs. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

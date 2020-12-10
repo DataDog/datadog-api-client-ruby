@@ -10,7 +10,7 @@
 | **multi_compute** | [**Array&lt;LogsQueryCompute&gt;**](LogsQueryCompute.md) | This field is mutually exclusive with &#x60;compute&#x60;. | [optional] |
 | **search** | [**LogQueryDefinitionSearch**](LogQueryDefinitionSearch.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

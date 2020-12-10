@@ -17,7 +17,7 @@
 | **tags** | **Array&lt;String&gt;** | Array of tags attached to the test. | [optional] |
 | **type** | [**SyntheticsTestDetailsType**](SyntheticsTestDetailsType.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

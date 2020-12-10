@@ -14,7 +14,7 @@
 | **title** | **String** | Title of the user. | [optional] |
 | **verified** | **Boolean** | Whether the user is verified. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

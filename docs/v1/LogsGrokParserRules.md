@@ -7,7 +7,7 @@
 | **match_rules** | **String** | List of match rules for the grok parser, separated by a new line. |  |
 | **support_rules** | **String** | List of support rules for the grok parser, separated by a new line. | [optional][default to &#39;&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

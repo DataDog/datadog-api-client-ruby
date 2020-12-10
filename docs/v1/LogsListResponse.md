@@ -8,7 +8,7 @@
 | **next_log_id** | **String** | Hash identifier of the next log to return in the list. This parameter is used for the pagination feature. | [optional] |
 | **status** | **String** | Status of the response. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

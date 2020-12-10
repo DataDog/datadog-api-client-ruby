@@ -9,7 +9,7 @@
 | **notifications** | **Array&lt;String&gt;** | Notification targets for each rule case. | [optional] |
 | **status** | [**SecurityMonitoringRuleSeverity**](SecurityMonitoringRuleSeverity.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

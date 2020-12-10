@@ -12,7 +12,7 @@
 | **target** | **String** | Name of the attribute that contains the corresponding value in the mapping list or the &#x60;default_lookup&#x60; if not found in the mapping list. |  |
 | **type** | [**LogsLookupProcessorType**](LogsLookupProcessorType.md) |  | [default to &#39;lookup-processor&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'
@@ -22,8 +22,8 @@ instance = DatadogAPIClient::V1::LogsLookupProcessor.new(
   is_enabled: null,
   lookup_table: [],
   name: null,
-  source: null,
-  target: null,
+  source: ,
+  target: ,
   type: null
 )
 ```

@@ -10,7 +10,7 @@
 | **result_id** | **String** | ID of the browser test result. | [optional] |
 | **status** | [**SyntheticsTestMonitorStatus**](SyntheticsTestMonitorStatus.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

@@ -18,7 +18,7 @@
 | **type** | [**TimeseriesWidgetDefinitionType**](TimeseriesWidgetDefinitionType.md) |  | [default to &#39;timeseries&#39;] |
 | **yaxis** | [**WidgetAxis**](WidgetAxis.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

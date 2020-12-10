@@ -13,7 +13,7 @@
 | **resp_version** | **Integer** | The series response version type. This mimics &#x60;batch_query&#x60; response type. |  |
 | **times** | **Array&lt;Float&gt;** | An array of query timestamps in EPOCH milliseconds |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'
@@ -23,8 +23,8 @@ instance = DatadogAPIClient::V1::SLOHistoryMetrics.new(
   interval: 0,
   message: null,
   numerator: null,
-  query: null,
-  res_type: null,
+  query: ,
+  res_type: ,
   resp_version: 0,
   times: []
 )

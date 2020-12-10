@@ -10,7 +10,7 @@
 | **warning** | **Float** | The warning value for the service level objective. | [optional] |
 | **warning_display** | **String** | A string representation of the warning target (see the description of the &#x60;target_display&#x60; field for details).  Included in service level objective responses if a warning target exists. Ignored in create/update requests. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

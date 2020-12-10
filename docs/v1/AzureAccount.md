@@ -12,7 +12,7 @@
 | **new_tenant_name** | **String** | Your New Azure Active Directory ID. | [optional] |
 | **tenant_name** | **String** | Your Azure Active Directory ID. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

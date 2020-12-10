@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **public_ids** | **Array&lt;String&gt;** | An array of Synthetic test IDs you want to delete. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'
