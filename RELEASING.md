@@ -43,4 +43,4 @@ Install [bundler](https://bundler.io/) and setup your RubyGems credentials:
 1. Checkout the tag created at the previous step.
 1. Release the gem: `gem release`.
 1. Check that the [Ruby Gem is published](https://rubygems.org/gems/datadog_api_client).
-1. Bump the version again to a dev version (e.g. `gem bump -v 1.0.1+dev`), open a PR and merge it to master.
+1. Bump the version again to a dev version (e.g. `gem bump -v 1.0.1.dev`), open a PR and merge it to master.
