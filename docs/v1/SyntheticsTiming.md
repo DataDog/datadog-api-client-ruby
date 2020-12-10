@@ -14,7 +14,7 @@
 | **total** | **Float** | The overall time in millisecond the request took to be processed. | [optional] |
 | **wait** | **Float** | Time spent in millisecond waiting for a response. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

@@ -37,7 +37,7 @@
 | **twol_ingested_events_bytes_agg_sum** | **Integer** | Shows the sum of all tracing without limits bytes ingested over all hours in the current months for all organizations. | [optional] |
 | **usage** | [**Array&lt;UsageSummaryDate&gt;**](UsageSummaryDate.md) | An array of objects regarding hourly usage. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

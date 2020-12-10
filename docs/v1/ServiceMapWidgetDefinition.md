@@ -12,7 +12,7 @@
 | **title_size** | **String** | Size of the title. | [optional] |
 | **type** | [**ServiceMapWidgetDefinitionType**](ServiceMapWidgetDefinitionType.md) |  | [default to &#39;servicemap&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'
@@ -20,7 +20,7 @@ require 'datadog_api_client/v1'
 instance = DatadogAPIClient::V1::ServiceMapWidgetDefinition.new(
   custom_links: null,
   filters: [&quot;*&quot;],
-  service: null,
+  service: ,
   title: null,
   title_align: null,
   title_size: null,

@@ -11,7 +11,7 @@
 | **storage_account** | **String** | The associated storage account. |  |
 | **type** | [**LogsArchiveDestinationAzureType**](LogsArchiveDestinationAzureType.md) |  | [default to &#39;azure&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

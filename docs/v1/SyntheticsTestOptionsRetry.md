@@ -7,7 +7,7 @@
 | **count** | **Integer** | Number of times a test needs to be retried before marking a location as failed. Defaults to 0. | [optional] |
 | **interval** | **Float** | Time interval between retries (in milliseconds). Defaults to 300ms. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

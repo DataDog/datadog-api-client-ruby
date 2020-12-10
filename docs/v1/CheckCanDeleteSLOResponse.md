@@ -7,7 +7,7 @@
 | **data** | [**CheckCanDeleteSLOResponseData**](CheckCanDeleteSLOResponseData.md) |  | [optional] |
 | **errors** | **Hash&lt;String, String&gt;** | A mapping of SLO id to it&#39;s current usages. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

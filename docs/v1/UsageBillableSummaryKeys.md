@@ -23,7 +23,7 @@
 | **synthetics_browser_checks_sum** | [**UsageBillableSummaryBody**](UsageBillableSummaryBody.md) |  | [optional] |
 | **timeseries_average** | [**UsageBillableSummaryBody**](UsageBillableSummaryBody.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

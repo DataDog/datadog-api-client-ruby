@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **accounts** | [**Array&lt;AWSAccount&gt;**](AWSAccount.md) | List of enabled AWS accounts. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

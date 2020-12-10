@@ -7,7 +7,7 @@
 | **metadata** | [**UsageAttributionMetadata**](UsageAttributionMetadata.md) |  | [optional] |
 | **usage** | [**Array&lt;UsageAttributionBody&gt;**](UsageAttributionBody.md) | Get Usage Summary by tag(s). | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

@@ -7,7 +7,7 @@
 | **type** | [**IncidentFieldAttributesSingleValueType**](IncidentFieldAttributesSingleValueType.md) |  | [optional][default to &#39;dropdown&#39;] |
 | **value** | **String** | The single value selected for this field. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

@@ -10,7 +10,7 @@
 | **secrets** | [**SyntheticsPrivateLocationSecrets**](SyntheticsPrivateLocationSecrets.md) |  | [optional] |
 | **tags** | **Array&lt;String&gt;** | Array of tags attached to the private location. |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

@@ -13,14 +13,14 @@
 | **tick_pos** | **String** | Where to position the tick on an edge. | [optional] |
 | **type** | [**NoteWidgetDefinitionType**](NoteWidgetDefinitionType.md) |  | [default to &#39;note&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::NoteWidgetDefinition.new(
   background_color: null,
-  content: null,
+  content: ,
   font_size: null,
   show_tick: null,
   text_align: null,

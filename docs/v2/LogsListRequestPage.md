@@ -7,7 +7,7 @@
 | **cursor** | **String** | List following results with a cursor provided in the previous query. | [optional] |
 | **limit** | **Integer** | Maximum number of logs in the response. | [optional][default to 10] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

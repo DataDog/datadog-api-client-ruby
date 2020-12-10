@@ -8,7 +8,7 @@
 | **id** | **String** | The archive ID. | [optional][readonly] |
 | **type** | **String** | The type of the resource. The value should always be archives. | [readonly][default to &#39;archives&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

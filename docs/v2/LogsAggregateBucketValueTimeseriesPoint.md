@@ -7,7 +7,7 @@
 | **time** | **String** | The time value for this point | [optional] |
 | **value** | **Float** | The value for this point | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

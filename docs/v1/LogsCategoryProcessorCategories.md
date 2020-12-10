@@ -7,7 +7,7 @@
 | **filter** | [**LogsFilter**](LogsFilter.md) |  | [optional] |
 | **name** | **String** | Value to assign to the target attribute. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

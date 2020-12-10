@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **errors** | **Array&lt;String&gt;** | A list of errors. |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

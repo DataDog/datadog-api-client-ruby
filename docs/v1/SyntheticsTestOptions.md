@@ -14,7 +14,7 @@
 | **_retry** | [**SyntheticsTestOptionsRetry**](SyntheticsTestOptionsRetry.md) |  | [optional] |
 | **tick_every** | [**SyntheticsTickInterval**](SyntheticsTickInterval.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

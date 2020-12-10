@@ -13,7 +13,7 @@
 | **type** | [**SyntheticsResourceType**](SyntheticsResourceType.md) |  | [optional] |
 | **url** | **String** | URL of the resource. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

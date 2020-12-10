@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **dashboards** | [**Array&lt;DashboardListItemRequest&gt;**](DashboardListItemRequest.md) | List of dashboards to update the dashboard list to. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **pipeline_ids** | **Array&lt;String&gt;** | Ordered Array of &#x60;&lt;PIPELINE_ID&gt;&#x60; strings, the order of pipeline IDs in the array define the overall Pipelines order for Datadog. |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

@@ -11,7 +11,7 @@
 | **name** | **String** | The name of the monitor. | [optional] |
 | **status** | [**MonitorOverallStates**](MonitorOverallStates.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

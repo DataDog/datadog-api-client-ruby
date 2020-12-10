@@ -11,7 +11,7 @@
 | **warning** | **Float** | The monitor &#x60;WARNING&#x60; threshold. | [optional] |
 | **warning_recovery** | **Float** | The monitor &#x60;WARNING&#x60; recovery threshold. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

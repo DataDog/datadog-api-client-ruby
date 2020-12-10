@@ -9,7 +9,7 @@
 | **org** | [**Organization**](Organization.md) |  | [optional] |
 | **user** | [**User**](User.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

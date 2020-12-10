@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **idp_file** | **File** | The path to the XML metadata file you wish to upload. |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

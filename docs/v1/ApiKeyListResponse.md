@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **api_keys** | [**Array&lt;ApiKey&gt;**](ApiKey.md) | Array of API keys. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

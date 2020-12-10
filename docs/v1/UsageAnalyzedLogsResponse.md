@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **usage** | [**Array&lt;UsageAnalyzedLogsHour&gt;**](UsageAnalyzedLogsHour.md) | Get hourly usage for analyzed logs. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

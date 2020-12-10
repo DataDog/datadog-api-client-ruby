@@ -7,7 +7,7 @@
 | **relationships** | [**UserInvitationRelationships**](UserInvitationRelationships.md) |  |  |
 | **type** | [**UserInvitationsType**](UserInvitationsType.md) |  | [default to &#39;user_invitations&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

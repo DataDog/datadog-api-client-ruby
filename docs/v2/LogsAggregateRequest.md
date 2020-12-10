@@ -10,7 +10,7 @@
 | **options** | [**LogsQueryOptions**](LogsQueryOptions.md) |  | [optional] |
 | **paging** | [**LogsAggregateRequestPaging**](LogsAggregateRequestPaging.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **errors** | **Array&lt;String&gt;** | Array of errors returned by the API. |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

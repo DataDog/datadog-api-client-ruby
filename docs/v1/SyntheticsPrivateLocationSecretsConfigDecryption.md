@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **key** | **String** | Private key for the private location. | [optional][readonly] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

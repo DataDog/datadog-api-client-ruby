@@ -8,7 +8,7 @@
 | **total_matching** | **Integer** | Number of host matching the query. | [optional] |
 | **total_returned** | **Integer** | Number of host returned. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

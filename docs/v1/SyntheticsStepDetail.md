@@ -22,7 +22,7 @@
 | **value** | **Object** | Value for the step. | [optional] |
 | **warnings** | [**Array&lt;SyntheticsStepDetailWarnings&gt;**](SyntheticsStepDetailWarnings.md) | Warning collected that didn&#39;t failed the step. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

@@ -12,7 +12,7 @@
 | **name** | **String** | Name of the permission. | [optional] |
 | **restricted** | **Boolean** | Whether or not the permission is restricted. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

@@ -20,10 +20,9 @@ Cancel a downtime
 
 Cancel a downtime.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -42,10 +41,28 @@ api_instance = DatadogAPIClient::V1::DowntimesApi.new
 downtime_id = 123456 # Integer | ID of the downtime to cancel.
 
 begin
-  #Cancel a downtime
+  # Cancel a downtime
   api_instance.cancel_downtime(downtime_id)
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling DowntimesApi->cancel_downtime: #{e}"
+  puts "Error when calling DowntimesApi->cancel_downtime: #{e}"
+end
+```
+
+#### Using the cancel_downtime_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> cancel_downtime_with_http_info(downtime_id)
+
+```ruby
+begin
+  # Cancel a downtime
+  data, status_code, headers = api_instance.cancel_downtime_with_http_info(downtime_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling DowntimesApi->cancel_downtime_with_http_info: #{e}"
 end
 ```
 
@@ -71,16 +88,15 @@ nil (empty response body)
 
 ## cancel_downtimes_by_scope
 
-> CanceledDowntimesIds cancel_downtimes_by_scope(body)
+> <CanceledDowntimesIds> cancel_downtimes_by_scope(body)
 
 Cancel downtimes by scope
 
 Delete all downtimes that match the scope of `X`.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -99,11 +115,29 @@ api_instance = DatadogAPIClient::V1::DowntimesApi.new
 body = DatadogAPIClient::V1::CancelDowntimesByScopeRequest.new # CancelDowntimesByScopeRequest | Scope to cancel downtimes for.
 
 begin
-  #Cancel downtimes by scope
+  # Cancel downtimes by scope
   result = api_instance.cancel_downtimes_by_scope(body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling DowntimesApi->cancel_downtimes_by_scope: #{e}"
+  puts "Error when calling DowntimesApi->cancel_downtimes_by_scope: #{e}"
+end
+```
+
+#### Using the cancel_downtimes_by_scope_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CanceledDowntimesIds>, Integer, Hash)> cancel_downtimes_by_scope_with_http_info(body)
+
+```ruby
+begin
+  # Cancel downtimes by scope
+  data, status_code, headers = api_instance.cancel_downtimes_by_scope_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CanceledDowntimesIds>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling DowntimesApi->cancel_downtimes_by_scope_with_http_info: #{e}"
 end
 ```
 
@@ -129,16 +163,15 @@ end
 
 ## create_downtime
 
-> Downtime create_downtime(body)
+> <Downtime> create_downtime(body)
 
 Schedule a downtime
 
 Schedule a downtime.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -157,11 +190,29 @@ api_instance = DatadogAPIClient::V1::DowntimesApi.new
 body = DatadogAPIClient::V1::Downtime.new # Downtime | Schedule a downtime request body.
 
 begin
-  #Schedule a downtime
+  # Schedule a downtime
   result = api_instance.create_downtime(body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling DowntimesApi->create_downtime: #{e}"
+  puts "Error when calling DowntimesApi->create_downtime: #{e}"
+end
+```
+
+#### Using the create_downtime_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Downtime>, Integer, Hash)> create_downtime_with_http_info(body)
+
+```ruby
+begin
+  # Schedule a downtime
+  data, status_code, headers = api_instance.create_downtime_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Downtime>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling DowntimesApi->create_downtime_with_http_info: #{e}"
 end
 ```
 
@@ -187,16 +238,15 @@ end
 
 ## get_downtime
 
-> Downtime get_downtime(downtime_id)
+> <Downtime> get_downtime(downtime_id)
 
 Get a downtime
 
 Get downtime detail by `downtime_id`.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -215,11 +265,29 @@ api_instance = DatadogAPIClient::V1::DowntimesApi.new
 downtime_id = 123456 # Integer | ID of the downtime to fetch.
 
 begin
-  #Get a downtime
+  # Get a downtime
   result = api_instance.get_downtime(downtime_id)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling DowntimesApi->get_downtime: #{e}"
+  puts "Error when calling DowntimesApi->get_downtime: #{e}"
+end
+```
+
+#### Using the get_downtime_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Downtime>, Integer, Hash)> get_downtime_with_http_info(downtime_id)
+
+```ruby
+begin
+  # Get a downtime
+  data, status_code, headers = api_instance.get_downtime_with_http_info(downtime_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Downtime>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling DowntimesApi->get_downtime_with_http_info: #{e}"
 end
 ```
 
@@ -245,16 +313,15 @@ end
 
 ## list_downtimes
 
-> Array&lt;Downtime&gt; list_downtimes(opts)
+> <Array<Downtime>> list_downtimes(opts)
 
 Get all downtimes
 
 Get all scheduled downtimes.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -275,11 +342,29 @@ opts = {
 }
 
 begin
-  #Get all downtimes
+  # Get all downtimes
   result = api_instance.list_downtimes(opts)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling DowntimesApi->list_downtimes: #{e}"
+  puts "Error when calling DowntimesApi->list_downtimes: #{e}"
+end
+```
+
+#### Using the list_downtimes_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<Downtime>>, Integer, Hash)> list_downtimes_with_http_info(opts)
+
+```ruby
+begin
+  # Get all downtimes
+  data, status_code, headers = api_instance.list_downtimes_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<Downtime>>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling DowntimesApi->list_downtimes_with_http_info: #{e}"
 end
 ```
 
@@ -305,16 +390,15 @@ end
 
 ## update_downtime
 
-> Downtime update_downtime(downtime_id, body)
+> <Downtime> update_downtime(downtime_id, body)
 
 Update a downtime
 
 Update a single downtime by `downtime_id`.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -334,11 +418,29 @@ downtime_id = 123456 # Integer | ID of the downtime to update.
 body = DatadogAPIClient::V1::Downtime.new # Downtime | Update a downtime request body.
 
 begin
-  #Update a downtime
+  # Update a downtime
   result = api_instance.update_downtime(downtime_id, body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling DowntimesApi->update_downtime: #{e}"
+  puts "Error when calling DowntimesApi->update_downtime: #{e}"
+end
+```
+
+#### Using the update_downtime_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Downtime>, Integer, Hash)> update_downtime_with_http_info(downtime_id, body)
+
+```ruby
+begin
+  # Update a downtime
+  data, status_code, headers = api_instance.update_downtime_with_http_info(downtime_id, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Downtime>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling DowntimesApi->update_downtime_with_http_info: #{e}"
 end
 ```
 

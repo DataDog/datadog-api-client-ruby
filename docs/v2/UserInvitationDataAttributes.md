@@ -9,7 +9,7 @@
 | **invite_type** | **String** | Type of invitation. | [optional] |
 | **uuid** | **String** | UUID of the user invitation. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

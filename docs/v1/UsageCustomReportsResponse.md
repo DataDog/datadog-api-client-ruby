@@ -7,7 +7,7 @@
 | **data** | [**Array&lt;UsageCustomReportsData&gt;**](UsageCustomReportsData.md) | An array of available custom reports. | [optional] |
 | **meta** | [**UsageCustomReportsMeta**](UsageCustomReportsMeta.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

@@ -16,7 +16,7 @@
 | **timeout** | **Float** | Timeout in seconds for the test. | [optional] |
 | **url** | **String** | URL to perform the test with. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

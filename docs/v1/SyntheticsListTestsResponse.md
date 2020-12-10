@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **tests** | [**Array&lt;SyntheticsTestDetails&gt;**](SyntheticsTestDetails.md) | Array of Synthetic tests configuration. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

@@ -7,7 +7,7 @@
 | **hour** | **Time** | The hour for the usage. | [optional] |
 | **snmp_devices** | **Integer** | Contains the number of SNMP devices. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

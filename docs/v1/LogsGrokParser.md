@@ -11,7 +11,7 @@
 | **source** | **String** | Name of the log attribute to parse. | [default to &#39;message&#39;] |
 | **type** | [**LogsGrokParserType**](LogsGrokParserType.md) |  | [default to &#39;grok-parser&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

@@ -13,7 +13,7 @@
 | **role_name** | **String** | Your Datadog role delegation name. | [optional] |
 | **secret_access_key** | **String** | Your AWS secret access key. Only required if your AWS account is a GovCloud or China account. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

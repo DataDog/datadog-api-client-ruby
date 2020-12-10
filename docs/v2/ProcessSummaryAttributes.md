@@ -13,7 +13,7 @@
 | **timestamp** | **String** | Time the process was seen. | [optional] |
 | **user** | **String** | Process owner. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

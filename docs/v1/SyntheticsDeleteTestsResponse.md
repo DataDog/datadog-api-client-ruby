@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **deleted_tests** | [**Array&lt;SyntheticsDeleteTestsResponseDeletedTests&gt;**](SyntheticsDeleteTestsResponseDeletedTests.md) | Array of objects containing a deleted Synthetic test ID with the associated deletion timestamp. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

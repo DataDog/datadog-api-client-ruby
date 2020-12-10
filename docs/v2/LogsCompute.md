@@ -9,7 +9,7 @@
 | **metric** | **String** | The metric to use | [optional] |
 | **type** | [**LogsComputeType**](LogsComputeType.md) |  | [optional][default to &#39;total&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

@@ -10,7 +10,7 @@
 | **query** | **String** | The archive query/filter. Logs matching this query are included in the archive. |  |
 | **rehydration_tags** | **Array&lt;String&gt;** | An array of tags to add to rehydrated logs from an archive. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

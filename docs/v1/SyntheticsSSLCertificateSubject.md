@@ -12,7 +12,7 @@
 | **st** | **String** | State Or Province Name associated with the certificate. | [optional] |
 | **alt_name** | **String** | Subject Alternative Name associated with the certificate. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

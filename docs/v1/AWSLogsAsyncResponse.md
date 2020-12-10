@@ -7,7 +7,7 @@
 | **errors** | [**Array&lt;AWSLogsAsyncResponseErrors&gt;**](AWSLogsAsyncResponseErrors.md) | List of errors. | [optional] |
 | **status** | **String** | Status of the properties. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

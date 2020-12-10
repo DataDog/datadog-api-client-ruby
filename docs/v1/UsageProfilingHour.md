@@ -8,7 +8,7 @@
 | **host_count** | **Integer** | Contains the total number of profiled hosts reporting during a given hour. | [optional] |
 | **hour** | **Time** | The hour for the usage. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

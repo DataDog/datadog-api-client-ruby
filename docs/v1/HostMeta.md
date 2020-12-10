@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **nix_v** | **Array&lt;String&gt;** | Array of Unix versions. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

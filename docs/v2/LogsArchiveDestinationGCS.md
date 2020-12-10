@@ -9,7 +9,7 @@
 | **path** | **String** | The archive path. | [optional] |
 | **type** | [**LogsArchiveDestinationGCSType**](LogsArchiveDestinationGCSType.md) |  | [default to &#39;gcs&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'
