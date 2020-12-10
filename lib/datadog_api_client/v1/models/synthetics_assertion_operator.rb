@@ -24,7 +24,9 @@ module DatadogAPIClient::V1
     IS = "is".freeze
     IS_NOT = "isNot".freeze
     LESS_THAN = "lessThan".freeze
+    LESS_THAN_OR_EQUAL = "lessThanOrEqual".freeze
     MORE_THAN = "moreThan".freeze
+    MORE_THAN_OR_EQUAL = "moreThanOrEqual".freeze
     MATCHES = "matches".freeze
     DOES_NOT_MATCH = "doesNotMatch".freeze
     VALIDATES = "validates".freeze
