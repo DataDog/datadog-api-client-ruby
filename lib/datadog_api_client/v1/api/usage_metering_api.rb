@@ -725,8 +725,8 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get billable usage across your multi-org account
-    # Get billable usage across your multi-org account.
+    # Get billable usage across your account
+    # Get billable usage across your account.
     # @param [Hash] opts the optional parameters
     # @option opts [Time] :month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage starting this month.
     # @return [UsageBillableSummaryResponse]
@@ -735,8 +735,8 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get billable usage across your multi-org account
-    # Get billable usage across your multi-org account.
+    # Get billable usage across your account
+    # Get billable usage across your account.
     # @param [Hash] opts the optional parameters
     # @option opts [Time] :month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage starting this month.
     # @return [Array<(UsageBillableSummaryResponse, Integer, Hash)>] UsageBillableSummaryResponse data, response status code and response headers
@@ -1649,7 +1649,7 @@ module DatadogAPIClient::V1
     end
 
     # Get usage across your multi-org account
-    # Get usage across your multi-org account.
+    # Get usage across your multi-org account. You must have the multi-org feature enabled.
     # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
     # @param [Hash] opts the optional parameters
     # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
@@ -1661,7 +1661,7 @@ module DatadogAPIClient::V1
     end
 
     # Get usage across your multi-org account
-    # Get usage across your multi-org account.
+    # Get usage across your multi-org account. You must have the multi-org feature enabled.
     # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
     # @param [Hash] opts the optional parameters
     # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.

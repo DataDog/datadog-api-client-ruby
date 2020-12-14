@@ -13,7 +13,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**get_tracing_without_limits**](UsageMeteringApi.md#get_tracing_without_limits) | **GET** /api/v1/usage/tracing-without-limits | Get hourly usage for tracing without limits |
 | [**get_usage_analyzed_logs**](UsageMeteringApi.md#get_usage_analyzed_logs) | **GET** /api/v1/usage/analyzed_logs | Get hourly usage for analyzed logs |
 | [**get_usage_attribution**](UsageMeteringApi.md#get_usage_attribution) | **GET** /api/v1/usage/attribution | Get Usage Attribution |
-| [**get_usage_billable_summary**](UsageMeteringApi.md#get_usage_billable_summary) | **GET** /api/v1/usage/billable-summary | Get billable usage across your multi-org account |
+| [**get_usage_billable_summary**](UsageMeteringApi.md#get_usage_billable_summary) | **GET** /api/v1/usage/billable-summary | Get billable usage across your account |
 | [**get_usage_fargate**](UsageMeteringApi.md#get_usage_fargate) | **GET** /api/v1/usage/fargate | Get hourly usage for Fargate |
 | [**get_usage_hosts**](UsageMeteringApi.md#get_usage_hosts) | **GET** /api/v1/usage/hosts | Get hourly usage for hosts and containers |
 | [**get_usage_indexed_spans**](UsageMeteringApi.md#get_usage_indexed_spans) | **GET** /api/v1/usage/indexed-spans | Get hourly usage for indexed spans |
@@ -755,9 +755,9 @@ end
 
 > <UsageBillableSummaryResponse> get_usage_billable_summary(opts)
 
-Get billable usage across your multi-org account
+Get billable usage across your account
 
-Get billable usage across your multi-org account.
+Get billable usage across your account.
 
 ### Examples
 
@@ -782,7 +782,7 @@ opts = {
 }
 
 begin
-  # Get billable usage across your multi-org account
+  # Get billable usage across your account
   result = api_instance.get_usage_billable_summary(opts)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
@@ -798,7 +798,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get billable usage across your multi-org account
+  # Get billable usage across your account
   data, status_code, headers = api_instance.get_usage_billable_summary_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -1707,7 +1707,7 @@ end
 
 Get usage across your multi-org account
 
-Get usage across your multi-org account.
+Get usage across your multi-org account. You must have the multi-org feature enabled.
 
 ### Examples
 
