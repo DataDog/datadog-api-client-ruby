@@ -16,16 +16,15 @@ All URIs are relative to *https://api.datadoghq.com*
 
 ## check_can_delete_slo
 
-> CheckCanDeleteSLOResponse check_can_delete_slo(ids)
+> <CheckCanDeleteSLOResponse> check_can_delete_slo(ids)
 
 Check if SLOs can be safely deleted
 
 Check if a SLO can be safely deleted. For example, assure an SLO can be deleted without disrupting a dashboard.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -44,11 +43,29 @@ api_instance = DatadogAPIClient::V1::ServiceLevelObjectivesApi.new
 ids = 'id1, id2, id3' # String | A comma separated list of the IDs of the service level objectives objects.
 
 begin
-  #Check if SLOs can be safely deleted
+  # Check if SLOs can be safely deleted
   result = api_instance.check_can_delete_slo(ids)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling ServiceLevelObjectivesApi->check_can_delete_slo: #{e}"
+  puts "Error when calling ServiceLevelObjectivesApi->check_can_delete_slo: #{e}"
+end
+```
+
+#### Using the check_can_delete_slo_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CheckCanDeleteSLOResponse>, Integer, Hash)> check_can_delete_slo_with_http_info(ids)
+
+```ruby
+begin
+  # Check if SLOs can be safely deleted
+  data, status_code, headers = api_instance.check_can_delete_slo_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CheckCanDeleteSLOResponse>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling ServiceLevelObjectivesApi->check_can_delete_slo_with_http_info: #{e}"
 end
 ```
 
@@ -74,16 +91,15 @@ end
 
 ## create_slo
 
-> SLOListResponse create_slo(body)
+> <SLOListResponse> create_slo(body)
 
 Create a SLO object
 
 Create a service level objective object.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -102,11 +118,29 @@ api_instance = DatadogAPIClient::V1::ServiceLevelObjectivesApi.new
 body = DatadogAPIClient::V1::ServiceLevelObjectiveRequest.new # ServiceLevelObjectiveRequest | Service level objective request object.
 
 begin
-  #Create a SLO object
+  # Create a SLO object
   result = api_instance.create_slo(body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling ServiceLevelObjectivesApi->create_slo: #{e}"
+  puts "Error when calling ServiceLevelObjectivesApi->create_slo: #{e}"
+end
+```
+
+#### Using the create_slo_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SLOListResponse>, Integer, Hash)> create_slo_with_http_info(body)
+
+```ruby
+begin
+  # Create a SLO object
+  data, status_code, headers = api_instance.create_slo_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SLOListResponse>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling ServiceLevelObjectivesApi->create_slo_with_http_info: #{e}"
 end
 ```
 
@@ -132,16 +166,15 @@ end
 
 ## delete_slo
 
-> SLODeleteResponse delete_slo(slo_id, opts)
+> <SLODeleteResponse> delete_slo(slo_id, opts)
 
 Delete a SLO
 
 Permanently delete the specified service level objective object.  If an SLO is used in a dashboard, the `DELETE /v1/slo/` endpoint returns a 409 conflict error because the SLO is referenced in a dashboard.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -163,11 +196,29 @@ opts = {
 }
 
 begin
-  #Delete a SLO
+  # Delete a SLO
   result = api_instance.delete_slo(slo_id, opts)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling ServiceLevelObjectivesApi->delete_slo: #{e}"
+  puts "Error when calling ServiceLevelObjectivesApi->delete_slo: #{e}"
+end
+```
+
+#### Using the delete_slo_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SLODeleteResponse>, Integer, Hash)> delete_slo_with_http_info(slo_id, opts)
+
+```ruby
+begin
+  # Delete a SLO
+  data, status_code, headers = api_instance.delete_slo_with_http_info(slo_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SLODeleteResponse>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling ServiceLevelObjectivesApi->delete_slo_with_http_info: #{e}"
 end
 ```
 
@@ -194,16 +245,15 @@ end
 
 ## delete_slo_timeframe_in_bulk
 
-> SLOBulkDeleteResponse delete_slo_timeframe_in_bulk(body)
+> <SLOBulkDeleteResponse> delete_slo_timeframe_in_bulk(body)
 
 Bulk Delete SLO Timeframes
 
 Delete (or partially delete) multiple service level objective objects.  This endpoint facilitates deletion of one or more thresholds for one or more service level objective objects. If all thresholds are deleted, the service level objective object is deleted as well.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -222,11 +272,29 @@ api_instance = DatadogAPIClient::V1::ServiceLevelObjectivesApi.new
 body = nil # Hash<String, Array<SLOTimeframe>> | Delete multiple service level objective objects request body.
 
 begin
-  #Bulk Delete SLO Timeframes
+  # Bulk Delete SLO Timeframes
   result = api_instance.delete_slo_timeframe_in_bulk(body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling ServiceLevelObjectivesApi->delete_slo_timeframe_in_bulk: #{e}"
+  puts "Error when calling ServiceLevelObjectivesApi->delete_slo_timeframe_in_bulk: #{e}"
+end
+```
+
+#### Using the delete_slo_timeframe_in_bulk_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SLOBulkDeleteResponse>, Integer, Hash)> delete_slo_timeframe_in_bulk_with_http_info(body)
+
+```ruby
+begin
+  # Bulk Delete SLO Timeframes
+  data, status_code, headers = api_instance.delete_slo_timeframe_in_bulk_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SLOBulkDeleteResponse>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling ServiceLevelObjectivesApi->delete_slo_timeframe_in_bulk_with_http_info: #{e}"
 end
 ```
 
@@ -252,16 +320,15 @@ end
 
 ## get_slo
 
-> SLOResponse get_slo(slo_id)
+> <SLOResponse> get_slo(slo_id)
 
 Get a SLO's details
 
 Get a service level objective object.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -280,11 +347,29 @@ api_instance = DatadogAPIClient::V1::ServiceLevelObjectivesApi.new
 slo_id = 'slo_id_example' # String | The ID of the service level objective object.
 
 begin
-  #Get a SLO's details
+  # Get a SLO's details
   result = api_instance.get_slo(slo_id)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling ServiceLevelObjectivesApi->get_slo: #{e}"
+  puts "Error when calling ServiceLevelObjectivesApi->get_slo: #{e}"
+end
+```
+
+#### Using the get_slo_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SLOResponse>, Integer, Hash)> get_slo_with_http_info(slo_id)
+
+```ruby
+begin
+  # Get a SLO's details
+  data, status_code, headers = api_instance.get_slo_with_http_info(slo_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SLOResponse>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling ServiceLevelObjectivesApi->get_slo_with_http_info: #{e}"
 end
 ```
 
@@ -310,16 +395,15 @@ end
 
 ## get_slo_history
 
-> SLOHistoryResponse get_slo_history(slo_id, from_ts, to_ts)
+> <SLOHistoryResponse> get_slo_history(slo_id, from_ts, to_ts)
 
 Get an SLO's history
 
 Get a specific SLO’s history, regardless of its SLO type.  The detailed history data is structured according to the source data type. For example, metric data is included for event SLOs that use the metric source, and monitor SLO types include the monitor transition history.  **Note:** There are different response formats for event based and time based SLOs. Examples of both are shown.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -340,11 +424,29 @@ from_ts = 56 # Integer | The `from` timestamp for the query window in epoch seco
 to_ts = 56 # Integer | The `to` timestamp for the query window in epoch seconds.
 
 begin
-  #Get an SLO's history
+  # Get an SLO's history
   result = api_instance.get_slo_history(slo_id, from_ts, to_ts)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling ServiceLevelObjectivesApi->get_slo_history: #{e}"
+  puts "Error when calling ServiceLevelObjectivesApi->get_slo_history: #{e}"
+end
+```
+
+#### Using the get_slo_history_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SLOHistoryResponse>, Integer, Hash)> get_slo_history_with_http_info(slo_id, from_ts, to_ts)
+
+```ruby
+begin
+  # Get an SLO's history
+  data, status_code, headers = api_instance.get_slo_history_with_http_info(slo_id, from_ts, to_ts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SLOHistoryResponse>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling ServiceLevelObjectivesApi->get_slo_history_with_http_info: #{e}"
 end
 ```
 
@@ -372,16 +474,15 @@ end
 
 ## list_sl_os
 
-> SLOListResponse list_sl_os(ids)
+> <SLOListResponse> list_sl_os(ids)
 
 Search SLOs
 
 Get multiple service level objective objects by their IDs.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -400,11 +501,29 @@ api_instance = DatadogAPIClient::V1::ServiceLevelObjectivesApi.new
 ids = 'id1, id2, id3' # String | A comma separated list of the IDs of the service level objectives objects.
 
 begin
-  #Search SLOs
+  # Search SLOs
   result = api_instance.list_sl_os(ids)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling ServiceLevelObjectivesApi->list_sl_os: #{e}"
+  puts "Error when calling ServiceLevelObjectivesApi->list_sl_os: #{e}"
+end
+```
+
+#### Using the list_sl_os_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SLOListResponse>, Integer, Hash)> list_sl_os_with_http_info(ids)
+
+```ruby
+begin
+  # Search SLOs
+  data, status_code, headers = api_instance.list_sl_os_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SLOListResponse>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling ServiceLevelObjectivesApi->list_sl_os_with_http_info: #{e}"
 end
 ```
 
@@ -430,16 +549,15 @@ end
 
 ## update_slo
 
-> SLOListResponse update_slo(slo_id, body)
+> <SLOListResponse> update_slo(slo_id, body)
 
 Update a SLO
 
 Update the specified service level objective object.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -459,11 +577,29 @@ slo_id = 'slo_id_example' # String | The ID of the service level objective objec
 body = DatadogAPIClient::V1::ServiceLevelObjective.new # ServiceLevelObjective | The edited service level objective request object.
 
 begin
-  #Update a SLO
+  # Update a SLO
   result = api_instance.update_slo(slo_id, body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling ServiceLevelObjectivesApi->update_slo: #{e}"
+  puts "Error when calling ServiceLevelObjectivesApi->update_slo: #{e}"
+end
+```
+
+#### Using the update_slo_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SLOListResponse>, Integer, Hash)> update_slo_with_http_info(slo_id, body)
+
+```ruby
+begin
+  # Update a SLO
+  data, status_code, headers = api_instance.update_slo_with_http_info(slo_id, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SLOListResponse>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling ServiceLevelObjectivesApi->update_slo_with_http_info: #{e}"
 end
 ```
 

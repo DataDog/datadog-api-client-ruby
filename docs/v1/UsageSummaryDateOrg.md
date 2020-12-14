@@ -33,7 +33,7 @@
 | **trace_search_indexed_events_count_sum** | **Integer** | Shows the sum of all Indexed Spans indexed over all hours in the current date for the given org. | [optional] |
 | **twol_ingested_events_bytes_sum** | **Integer** | Shows the sum of all tracing without limits bytes ingested over all hours in the current date for the given org. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

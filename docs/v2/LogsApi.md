@@ -11,16 +11,15 @@ All URIs are relative to *https://api.datadoghq.com*
 
 ## aggregate_logs
 
-> LogsAggregateResponse aggregate_logs(body)
+> <LogsAggregateResponse> aggregate_logs(body)
 
 Aggregate events
 
 The API endpoint to aggregate events into buckets and compute metrics and timeseries.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -39,11 +38,29 @@ api_instance = DatadogAPIClient::V2::LogsApi.new
 body = DatadogAPIClient::V2::LogsAggregateRequest.new # LogsAggregateRequest | 
 
 begin
-  #Aggregate events
+  # Aggregate events
   result = api_instance.aggregate_logs(body)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling LogsApi->aggregate_logs: #{e}"
+  puts "Error when calling LogsApi->aggregate_logs: #{e}"
+end
+```
+
+#### Using the aggregate_logs_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<LogsAggregateResponse>, Integer, Hash)> aggregate_logs_with_http_info(body)
+
+```ruby
+begin
+  # Aggregate events
+  data, status_code, headers = api_instance.aggregate_logs_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <LogsAggregateResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling LogsApi->aggregate_logs_with_http_info: #{e}"
 end
 ```
 
@@ -69,16 +86,15 @@ end
 
 ## list_logs
 
-> LogsListResponse list_logs(opts)
+> <LogsListResponse> list_logs(opts)
 
 Get a list of logs
 
 List endpoint returns logs that match a log search query. [Results are paginated][1].  Both this endpoint and the GET endpoint can be used interchangeably when listing logs.  **If you are considering archiving logs for your organization, consider use of the Datadog archive capabilities instead of the log list API. See [Datadog Logs Archive documentation][2].**  [1]: /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -99,11 +115,29 @@ opts = {
 }
 
 begin
-  #Get a list of logs
+  # Get a list of logs
   result = api_instance.list_logs(opts)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling LogsApi->list_logs: #{e}"
+  puts "Error when calling LogsApi->list_logs: #{e}"
+end
+```
+
+#### Using the list_logs_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<LogsListResponse>, Integer, Hash)> list_logs_with_http_info(opts)
+
+```ruby
+begin
+  # Get a list of logs
+  data, status_code, headers = api_instance.list_logs_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <LogsListResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling LogsApi->list_logs_with_http_info: #{e}"
 end
 ```
 
@@ -129,16 +163,15 @@ end
 
 ## list_logs_get
 
-> LogsListResponse list_logs_get(opts)
+> <LogsListResponse> list_logs_get(opts)
 
 Get a quick list of logs
 
 List endpoint returns logs that match a log search query. [Results are paginated][1].  Both this endpoint and the POST endpoint can be used interchangeably when listing logs.  **If you are considering archiving logs for your organization, consider use of the Datadog archive capabilities instead of the log list API. See [Datadog Logs Archive documentation][2].**  [1]: /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -165,11 +198,29 @@ opts = {
 }
 
 begin
-  #Get a quick list of logs
+  # Get a quick list of logs
   result = api_instance.list_logs_get(opts)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling LogsApi->list_logs_get: #{e}"
+  puts "Error when calling LogsApi->list_logs_get: #{e}"
+end
+```
+
+#### Using the list_logs_get_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<LogsListResponse>, Integer, Hash)> list_logs_get_with_http_info(opts)
+
+```ruby
+begin
+  # Get a quick list of logs
+  data, status_code, headers = api_instance.list_logs_get_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <LogsListResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling LogsApi->list_logs_get_with_http_info: #{e}"
 end
 ```
 

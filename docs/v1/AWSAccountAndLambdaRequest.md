@@ -7,7 +7,7 @@
 | **account_id** | **String** | Your AWS Account ID without dashes. |  |
 | **lambda_arn** | **String** | ARN of the Datadog Lambda created during the Datadog-Amazon Web services Log collection setup. |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

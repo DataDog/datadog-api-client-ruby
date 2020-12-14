@@ -9,16 +9,15 @@ All URIs are relative to *https://api.datadoghq.com*
 
 ## get_graph_snapshot
 
-> GraphSnapshot get_graph_snapshot(start, _end, opts)
+> <GraphSnapshot> get_graph_snapshot(start, _end, opts)
 
 Take graph snapshots
 
 Take graph snapshots. **Note**: When a snapshot is created, there is some delay before it is available.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -44,11 +43,29 @@ opts = {
 }
 
 begin
-  #Take graph snapshots
+  # Take graph snapshots
   result = api_instance.get_graph_snapshot(start, _end, opts)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling SnapshotsApi->get_graph_snapshot: #{e}"
+  puts "Error when calling SnapshotsApi->get_graph_snapshot: #{e}"
+end
+```
+
+#### Using the get_graph_snapshot_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GraphSnapshot>, Integer, Hash)> get_graph_snapshot_with_http_info(start, _end, opts)
+
+```ruby
+begin
+  # Take graph snapshots
+  data, status_code, headers = api_instance.get_graph_snapshot_with_http_info(start, _end, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GraphSnapshot>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling SnapshotsApi->get_graph_snapshot_with_http_info: #{e}"
 end
 ```
 

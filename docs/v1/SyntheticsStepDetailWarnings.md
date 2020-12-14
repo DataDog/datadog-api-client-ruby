@@ -7,13 +7,13 @@
 | **message** | **String** | Message for the warning. |  |
 | **type** | [**SyntheticsWarningType**](SyntheticsWarningType.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::SyntheticsStepDetailWarnings.new(
-  message: null,
+  message: ,
   type: null
 )
 ```

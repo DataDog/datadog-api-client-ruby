@@ -9,7 +9,7 @@
 | **indexed_events_count** | **Integer** | Contains the number of log events indexed. | [optional] |
 | **ingested_events_bytes** | **Integer** | Contains the number of log bytes ingested. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

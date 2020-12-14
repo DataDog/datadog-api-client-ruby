@@ -7,7 +7,7 @@
 | **attributes** | [**LogsArchiveOrderAttributes**](LogsArchiveOrderAttributes.md) |  |  |
 | **type** | [**LogsArchiveOrderDefinitionType**](LogsArchiveOrderDefinitionType.md) |  | [default to &#39;archive_order&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

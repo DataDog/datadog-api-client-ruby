@@ -8,7 +8,7 @@
 | **facet** | **String** | Facet name. | [optional] |
 | **order** | [**WidgetSort**](WidgetSort.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

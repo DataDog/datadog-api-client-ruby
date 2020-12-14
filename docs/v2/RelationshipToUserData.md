@@ -7,7 +7,7 @@
 | **id** | **String** | A unique identifier that represents the user. |  |
 | **type** | [**UsersType**](UsersType.md) |  | [default to &#39;users&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

@@ -15,7 +15,7 @@
 | **xaxis** | [**WidgetAxis**](WidgetAxis.md) |  | [optional] |
 | **yaxis** | [**WidgetAxis**](WidgetAxis.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

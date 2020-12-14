@@ -7,7 +7,7 @@
 | **created_by** | [**RelationshipToUser**](RelationshipToUser.md) |  | [optional] |
 | **last_modified_by** | [**RelationshipToUser**](RelationshipToUser.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

@@ -17,7 +17,7 @@
 | **valid_from** | **Time** | Date from which the SSL certificate is valid. | [optional] |
 | **valid_to** | **Time** | Date until which the SSL certificate is valid. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

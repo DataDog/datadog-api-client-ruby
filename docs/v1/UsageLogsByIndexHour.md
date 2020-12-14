@@ -10,7 +10,7 @@
 | **index_name** | **String** | The user specified name for this index ID. | [optional] |
 | **retention** | **Integer** | The retention period (in days) for this index ID. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

@@ -9,7 +9,7 @@
 | **hostname** | **String** | The host name. | [optional] |
 | **message** | **String** | Message associated with the mute. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

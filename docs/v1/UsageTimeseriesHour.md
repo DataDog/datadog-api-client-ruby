@@ -9,7 +9,7 @@
 | **num_custom_output_timeseries** | **Integer** | Contains the number of custom metrics that are outputs for aggregations (metric configured is custom). | [optional] |
 | **num_custom_timeseries** | **Integer** | Contains the number of non-aggregation custom metrics. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

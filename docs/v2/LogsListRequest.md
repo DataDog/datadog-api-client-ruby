@@ -9,7 +9,7 @@
 | **page** | [**LogsListRequestPage**](LogsListRequestPage.md) |  | [optional] |
 | **sort** | [**LogsSort**](LogsSort.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

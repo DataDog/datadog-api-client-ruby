@@ -12,13 +12,13 @@
 | **type** | [**AlertGraphWidgetDefinitionType**](AlertGraphWidgetDefinitionType.md) |  | [default to &#39;alert_graph&#39;] |
 | **viz_type** | [**WidgetVizType**](WidgetVizType.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::AlertGraphWidgetDefinition.new(
-  alert_id: null,
+  alert_id: ,
   time: null,
   title: null,
   title_align: null,

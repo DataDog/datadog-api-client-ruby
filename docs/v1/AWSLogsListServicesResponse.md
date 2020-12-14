@@ -7,7 +7,7 @@
 | **id** | **String** | Key value in returned object. | [optional] |
 | **label** | **String** | Name of service available for configuration with Datadog logs. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

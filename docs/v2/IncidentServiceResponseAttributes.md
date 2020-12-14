@@ -8,7 +8,7 @@
 | **modified** | **Time** | Timestamp of when the incident service was modified. | [optional][readonly] |
 | **name** | **String** | Name of the incident service. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

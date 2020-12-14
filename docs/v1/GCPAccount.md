@@ -18,7 +18,7 @@
 | **token_uri** | **String** | Should be &#x60;https://accounts.google.com/o/oauth2/token&#x60;. | [optional] |
 | **type** | **String** | The value for service_account found in your JSON service account key. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

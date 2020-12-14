@@ -7,7 +7,7 @@
 | **total_count** | **Integer** | Total count. | [optional] |
 | **total_filtered_count** | **Integer** | Total count of elements matched by the filter. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

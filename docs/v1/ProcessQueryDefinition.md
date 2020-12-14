@@ -9,7 +9,7 @@
 | **metric** | **String** | Your chosen metric. |  |
 | **search_by** | **String** | Your chosen search term. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'
@@ -17,7 +17,7 @@ require 'datadog_api_client/v1'
 instance = DatadogAPIClient::V1::ProcessQueryDefinition.new(
   filter_by: null,
   limit: null,
-  metric: null,
+  metric: ,
   search_by: null
 )
 ```

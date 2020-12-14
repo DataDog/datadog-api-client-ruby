@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **usage** | [**Array&lt;UsageFargateHour&gt;**](UsageFargateHour.md) | Array with the number of hourly Fargate tasks recorded for a given organization. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

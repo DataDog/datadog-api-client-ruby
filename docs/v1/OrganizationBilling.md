@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **type** | **String** | The type of billing. Only &#x60;parent_billing&#x60; is supported. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

@@ -10,7 +10,7 @@
 | **name** | **String** | The device name. |  |
 | **width** | **Integer** | Screen width of the device. |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'
@@ -19,7 +19,7 @@ instance = DatadogAPIClient::V1::SyntheticsDevice.new(
   height: 0,
   id: null,
   is_mobile: null,
-  name: null,
+  name: ,
   width: 0
 )
 ```

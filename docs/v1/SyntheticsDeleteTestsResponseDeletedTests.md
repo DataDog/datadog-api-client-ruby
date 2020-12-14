@@ -7,7 +7,7 @@
 | **deleted_at** | **Time** | Deletion timestamp of the Synthetic test ID. | [optional] |
 | **public_id** | **String** | The Synthetic test ID deleted. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

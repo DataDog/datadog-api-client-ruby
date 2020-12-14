@@ -7,7 +7,7 @@
 | **data** | [**SLOHistoryResponseData**](SLOHistoryResponseData.md) |  | [optional] |
 | **errors** | [**Array&lt;SLOHistoryResponseError&gt;**](SLOHistoryResponseError.md) | A list of errors while querying the history data for the service level objective. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

@@ -12,7 +12,7 @@
 | **name** | **String** | The name of the user. | [optional] |
 | **verified** | **Boolean** | Whether or not the user logged in Datadog at least once. | [optional][readonly] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

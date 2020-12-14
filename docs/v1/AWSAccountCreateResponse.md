@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **external_id** | **String** | AWS external_id. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

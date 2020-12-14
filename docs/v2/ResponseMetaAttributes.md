@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **page** | [**Pagination**](Pagination.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

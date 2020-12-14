@@ -8,7 +8,7 @@
 | **query** | **String** | Search query for listing security signals. | [optional] |
 | **to** | **Time** | The maximum timestamp for requested security signals. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

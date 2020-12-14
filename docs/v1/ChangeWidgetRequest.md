@@ -19,7 +19,7 @@
 | **security_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
 | **show_present** | **Boolean** | Whether to show the present value. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

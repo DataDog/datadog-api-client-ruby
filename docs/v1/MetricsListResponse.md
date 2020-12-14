@@ -7,7 +7,7 @@
 | **from** | **String** | Time when the metrics were active, seconds since the Unix epoch. | [optional] |
 | **metrics** | **Array&lt;String&gt;** | List of metric names. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

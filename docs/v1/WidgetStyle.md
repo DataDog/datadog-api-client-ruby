@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **palette** | **String** | Color palette to apply to the widget. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

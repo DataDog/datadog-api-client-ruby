@@ -7,7 +7,7 @@
 | **aws_account_identifier** | **String** | The unique identifier of your AWS account. | [optional] |
 | **namespace** | [**AWSNamespace**](AWSNamespace.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

@@ -18,7 +18,7 @@
 | **url** | **String** | The URL of the dashboard. | [optional][readonly] |
 | **widgets** | [**Array&lt;Widget&gt;**](Widget.md) | List of widgets to display on the dashboard. |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'
@@ -34,7 +34,7 @@ instance = DatadogAPIClient::V1::Dashboard.new(
   notify_list: null,
   template_variable_presets: null,
   template_variables: null,
-  title: null,
+  title: ,
   url: /dashboard/123-abc-456/example-dashboard-title,
   widgets: [{&quot;definition&quot;:{&quot;requests&quot;:{&quot;fill&quot;:{&quot;q&quot;:&quot;system.cpu.user&quot;}},&quot;type&quot;:&quot;hostmap&quot;}}]
 )

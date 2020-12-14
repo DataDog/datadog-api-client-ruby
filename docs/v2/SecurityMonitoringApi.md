@@ -15,16 +15,15 @@ All URIs are relative to *https://api.datadoghq.com*
 
 ## create_security_monitoring_rule
 
-> SecurityMonitoringRuleResponse create_security_monitoring_rule(body)
+> <SecurityMonitoringRuleResponse> create_security_monitoring_rule(body)
 
 Create a detection rule
 
 Create a detection rule.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -43,11 +42,29 @@ api_instance = DatadogAPIClient::V2::SecurityMonitoringApi.new
 body = DatadogAPIClient::V2::SecurityMonitoringRuleCreatePayload.new # SecurityMonitoringRuleCreatePayload | 
 
 begin
-  #Create a detection rule
+  # Create a detection rule
   result = api_instance.create_security_monitoring_rule(body)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling SecurityMonitoringApi->create_security_monitoring_rule: #{e}"
+  puts "Error when calling SecurityMonitoringApi->create_security_monitoring_rule: #{e}"
+end
+```
+
+#### Using the create_security_monitoring_rule_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SecurityMonitoringRuleResponse>, Integer, Hash)> create_security_monitoring_rule_with_http_info(body)
+
+```ruby
+begin
+  # Create a detection rule
+  data, status_code, headers = api_instance.create_security_monitoring_rule_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SecurityMonitoringRuleResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling SecurityMonitoringApi->create_security_monitoring_rule_with_http_info: #{e}"
 end
 ```
 
@@ -79,10 +96,9 @@ Delete an existing rule
 
 Delete an existing rule. Default rules cannot be deleted.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -101,10 +117,28 @@ api_instance = DatadogAPIClient::V2::SecurityMonitoringApi.new
 rule_id = 'rule_id_example' # String | The ID of the rule.
 
 begin
-  #Delete an existing rule
+  # Delete an existing rule
   api_instance.delete_security_monitoring_rule(rule_id)
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling SecurityMonitoringApi->delete_security_monitoring_rule: #{e}"
+  puts "Error when calling SecurityMonitoringApi->delete_security_monitoring_rule: #{e}"
+end
+```
+
+#### Using the delete_security_monitoring_rule_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> delete_security_monitoring_rule_with_http_info(rule_id)
+
+```ruby
+begin
+  # Delete an existing rule
+  data, status_code, headers = api_instance.delete_security_monitoring_rule_with_http_info(rule_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling SecurityMonitoringApi->delete_security_monitoring_rule_with_http_info: #{e}"
 end
 ```
 
@@ -130,16 +164,15 @@ nil (empty response body)
 
 ## get_security_monitoring_rule
 
-> SecurityMonitoringRuleResponse get_security_monitoring_rule(rule_id)
+> <SecurityMonitoringRuleResponse> get_security_monitoring_rule(rule_id)
 
 Get a rule's details
 
 Get a rule's details.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -158,11 +191,29 @@ api_instance = DatadogAPIClient::V2::SecurityMonitoringApi.new
 rule_id = 'rule_id_example' # String | The ID of the rule.
 
 begin
-  #Get a rule's details
+  # Get a rule's details
   result = api_instance.get_security_monitoring_rule(rule_id)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling SecurityMonitoringApi->get_security_monitoring_rule: #{e}"
+  puts "Error when calling SecurityMonitoringApi->get_security_monitoring_rule: #{e}"
+end
+```
+
+#### Using the get_security_monitoring_rule_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SecurityMonitoringRuleResponse>, Integer, Hash)> get_security_monitoring_rule_with_http_info(rule_id)
+
+```ruby
+begin
+  # Get a rule's details
+  data, status_code, headers = api_instance.get_security_monitoring_rule_with_http_info(rule_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SecurityMonitoringRuleResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling SecurityMonitoringApi->get_security_monitoring_rule_with_http_info: #{e}"
 end
 ```
 
@@ -188,16 +239,15 @@ end
 
 ## list_security_monitoring_rules
 
-> SecurityMonitoringListRulesResponse list_security_monitoring_rules(opts)
+> <SecurityMonitoringListRulesResponse> list_security_monitoring_rules(opts)
 
 List rules
 
 List rules.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -219,11 +269,29 @@ opts = {
 }
 
 begin
-  #List rules
+  # List rules
   result = api_instance.list_security_monitoring_rules(opts)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling SecurityMonitoringApi->list_security_monitoring_rules: #{e}"
+  puts "Error when calling SecurityMonitoringApi->list_security_monitoring_rules: #{e}"
+end
+```
+
+#### Using the list_security_monitoring_rules_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SecurityMonitoringListRulesResponse>, Integer, Hash)> list_security_monitoring_rules_with_http_info(opts)
+
+```ruby
+begin
+  # List rules
+  data, status_code, headers = api_instance.list_security_monitoring_rules_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SecurityMonitoringListRulesResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling SecurityMonitoringApi->list_security_monitoring_rules_with_http_info: #{e}"
 end
 ```
 
@@ -250,16 +318,15 @@ end
 
 ## list_security_monitoring_signals
 
-> SecurityMonitoringSignalsListResponse list_security_monitoring_signals(opts)
+> <SecurityMonitoringSignalsListResponse> list_security_monitoring_signals(opts)
 
 Get a quick list of security signals
 
 The list endpoint returns security signals that match a search query. Both this endpoint and the POST endpoint can be used interchangeably when listing security signals.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -285,11 +352,29 @@ opts = {
 }
 
 begin
-  #Get a quick list of security signals
+  # Get a quick list of security signals
   result = api_instance.list_security_monitoring_signals(opts)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling SecurityMonitoringApi->list_security_monitoring_signals: #{e}"
+  puts "Error when calling SecurityMonitoringApi->list_security_monitoring_signals: #{e}"
+end
+```
+
+#### Using the list_security_monitoring_signals_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SecurityMonitoringSignalsListResponse>, Integer, Hash)> list_security_monitoring_signals_with_http_info(opts)
+
+```ruby
+begin
+  # Get a quick list of security signals
+  data, status_code, headers = api_instance.list_security_monitoring_signals_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SecurityMonitoringSignalsListResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling SecurityMonitoringApi->list_security_monitoring_signals_with_http_info: #{e}"
 end
 ```
 
@@ -320,16 +405,15 @@ end
 
 ## search_security_monitoring_signals
 
-> SecurityMonitoringSignalsListResponse search_security_monitoring_signals(opts)
+> <SecurityMonitoringSignalsListResponse> search_security_monitoring_signals(opts)
 
 Get a list of security signals
 
 Returns security signals that match a search query. Both this endpoint and the GET endpoint can be used interchangeably for listing security signals.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -350,11 +434,29 @@ opts = {
 }
 
 begin
-  #Get a list of security signals
+  # Get a list of security signals
   result = api_instance.search_security_monitoring_signals(opts)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling SecurityMonitoringApi->search_security_monitoring_signals: #{e}"
+  puts "Error when calling SecurityMonitoringApi->search_security_monitoring_signals: #{e}"
+end
+```
+
+#### Using the search_security_monitoring_signals_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SecurityMonitoringSignalsListResponse>, Integer, Hash)> search_security_monitoring_signals_with_http_info(opts)
+
+```ruby
+begin
+  # Get a list of security signals
+  data, status_code, headers = api_instance.search_security_monitoring_signals_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SecurityMonitoringSignalsListResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling SecurityMonitoringApi->search_security_monitoring_signals_with_http_info: #{e}"
 end
 ```
 
@@ -380,16 +482,15 @@ end
 
 ## update_security_monitoring_rule
 
-> SecurityMonitoringRuleResponse update_security_monitoring_rule(rule_id, body)
+> <SecurityMonitoringRuleResponse> update_security_monitoring_rule(rule_id, body)
 
 Update an existing rule
 
 Update an existing rule. When updating `cases`, `queries` or `options`, the whole field must be included. For example, when modifying a query all queries must be included. Default rules can only be updated to be enabled and to change notifications.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -409,11 +510,29 @@ rule_id = 'rule_id_example' # String | The ID of the rule.
 body = DatadogAPIClient::V2::SecurityMonitoringRuleUpdatePayload.new # SecurityMonitoringRuleUpdatePayload | 
 
 begin
-  #Update an existing rule
+  # Update an existing rule
   result = api_instance.update_security_monitoring_rule(rule_id, body)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling SecurityMonitoringApi->update_security_monitoring_rule: #{e}"
+  puts "Error when calling SecurityMonitoringApi->update_security_monitoring_rule: #{e}"
+end
+```
+
+#### Using the update_security_monitoring_rule_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SecurityMonitoringRuleResponse>, Integer, Hash)> update_security_monitoring_rule_with_http_info(rule_id, body)
+
+```ruby
+begin
+  # Update an existing rule
+  data, status_code, headers = api_instance.update_security_monitoring_rule_with_http_info(rule_id, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SecurityMonitoringRuleResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling SecurityMonitoringApi->update_security_monitoring_rule_with_http_info: #{e}"
 end
 ```
 

@@ -8,7 +8,7 @@
 | **is_enabled** | **Boolean** | Whether or not the exclusion filter is active. | [optional] |
 | **name** | **String** | Name of the index exclusion filter. |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

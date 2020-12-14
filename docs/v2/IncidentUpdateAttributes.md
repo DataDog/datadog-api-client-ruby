@@ -14,7 +14,7 @@
 | **resolved** | **Time** | Timestamp when the incident&#39;s state was set to resolved. | [optional] |
 | **title** | **String** | The title of the incident, which summarizes what happened. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

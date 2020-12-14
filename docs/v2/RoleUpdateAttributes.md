@@ -8,7 +8,7 @@
 | **modified_at** | **Time** | Time of last role modification. | [optional][readonly] |
 | **name** | **String** | Name of the role. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

@@ -11,7 +11,7 @@
 | **sort** | [**LogsAggregateSort**](LogsAggregateSort.md) |  | [optional] |
 | **total** | [**LogsGroupByTotal**](LogsGroupByTotal.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

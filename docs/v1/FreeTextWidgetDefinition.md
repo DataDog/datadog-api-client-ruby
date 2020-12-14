@@ -10,7 +10,7 @@
 | **text_align** | [**WidgetTextAlign**](WidgetTextAlign.md) |  | [optional] |
 | **type** | [**FreeTextWidgetDefinitionType**](FreeTextWidgetDefinitionType.md) |  | [default to &#39;free_text&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'
@@ -18,7 +18,7 @@ require 'datadog_api_client/v1'
 instance = DatadogAPIClient::V1::FreeTextWidgetDefinition.new(
   color: null,
   font_size: null,
-  text: null,
+  text: ,
   text_align: null,
   type: null
 )

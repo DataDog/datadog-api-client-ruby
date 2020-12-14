@@ -9,16 +9,15 @@ All URIs are relative to *https://api.datadoghq.com*
 
 ## list_processes
 
-> ProcessSummariesResponse list_processes(opts)
+> <ProcessSummariesResponse> list_processes(opts)
 
 Get all processes
 
 Get all processes for your organization.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -44,11 +43,29 @@ opts = {
 }
 
 begin
-  #Get all processes
+  # Get all processes
   result = api_instance.list_processes(opts)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling ProcessesApi->list_processes: #{e}"
+  puts "Error when calling ProcessesApi->list_processes: #{e}"
+end
+```
+
+#### Using the list_processes_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ProcessSummariesResponse>, Integer, Hash)> list_processes_with_http_info(opts)
+
+```ruby
+begin
+  # Get all processes
+  data, status_code, headers = api_instance.list_processes_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ProcessSummariesResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling ProcessesApi->list_processes_with_http_info: #{e}"
 end
 ```
 

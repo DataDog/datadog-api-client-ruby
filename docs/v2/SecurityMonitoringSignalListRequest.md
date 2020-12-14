@@ -8,7 +8,7 @@
 | **page** | [**SecurityMonitoringSignalListRequestPage**](SecurityMonitoringSignalListRequestPage.md) |  | [optional] |
 | **sort** | [**SecurityMonitoringSignalsSort**](SecurityMonitoringSignalsSort.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

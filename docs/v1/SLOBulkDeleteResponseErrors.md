@@ -8,14 +8,14 @@
 | **message** | **String** | The error message. |  |
 | **timeframe** | [**SLOErrorTimeframe**](SLOErrorTimeframe.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::SLOBulkDeleteResponseErrors.new(
-  id: null,
-  message: null,
+  id: ,
+  message: ,
   timeframe: null
 )
 ```

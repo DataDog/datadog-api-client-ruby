@@ -10,7 +10,7 @@
 | **notification_handles** | **Array&lt;String&gt;** | Notification handles that will be notified of the incident at creation. | [optional] |
 | **title** | **String** | The title of the incident, which summarizes what happened. |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

@@ -16,7 +16,7 @@
 | **title_size** | **String** | Size of the title. | [optional] |
 | **type** | [**QueryValueWidgetDefinitionType**](QueryValueWidgetDefinitionType.md) |  | [default to &#39;query_value&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

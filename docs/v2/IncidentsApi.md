@@ -13,16 +13,15 @@ All URIs are relative to *https://api.datadoghq.com*
 
 ## create_incident
 
-> IncidentResponse create_incident(body)
+> <IncidentResponse> create_incident(body)
 
 Create an incident
 
 Create an incident.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -41,11 +40,29 @@ api_instance = DatadogAPIClient::V2::IncidentsApi.new
 body = DatadogAPIClient::V2::IncidentCreateRequest.new # IncidentCreateRequest | Incident payload.
 
 begin
-  #Create an incident
+  # Create an incident
   result = api_instance.create_incident(body)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling IncidentsApi->create_incident: #{e}"
+  puts "Error when calling IncidentsApi->create_incident: #{e}"
+end
+```
+
+#### Using the create_incident_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<IncidentResponse>, Integer, Hash)> create_incident_with_http_info(body)
+
+```ruby
+begin
+  # Create an incident
+  data, status_code, headers = api_instance.create_incident_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <IncidentResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling IncidentsApi->create_incident_with_http_info: #{e}"
 end
 ```
 
@@ -77,10 +94,9 @@ Delete an existing incident
 
 Deletes an existing incident from the users organization.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -99,10 +115,28 @@ api_instance = DatadogAPIClient::V2::IncidentsApi.new
 incident_id = 'incident_id_example' # String | The UUID the incident.
 
 begin
-  #Delete an existing incident
+  # Delete an existing incident
   api_instance.delete_incident(incident_id)
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling IncidentsApi->delete_incident: #{e}"
+  puts "Error when calling IncidentsApi->delete_incident: #{e}"
+end
+```
+
+#### Using the delete_incident_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> delete_incident_with_http_info(incident_id)
+
+```ruby
+begin
+  # Delete an existing incident
+  data, status_code, headers = api_instance.delete_incident_with_http_info(incident_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling IncidentsApi->delete_incident_with_http_info: #{e}"
 end
 ```
 
@@ -128,16 +162,15 @@ nil (empty response body)
 
 ## get_incident
 
-> IncidentResponse get_incident(incident_id, opts)
+> <IncidentResponse> get_incident(incident_id, opts)
 
 Get the details of an incident
 
 Get the details of an incident by `incident_id`.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -159,11 +192,29 @@ opts = {
 }
 
 begin
-  #Get the details of an incident
+  # Get the details of an incident
   result = api_instance.get_incident(incident_id, opts)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling IncidentsApi->get_incident: #{e}"
+  puts "Error when calling IncidentsApi->get_incident: #{e}"
+end
+```
+
+#### Using the get_incident_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<IncidentResponse>, Integer, Hash)> get_incident_with_http_info(incident_id, opts)
+
+```ruby
+begin
+  # Get the details of an incident
+  data, status_code, headers = api_instance.get_incident_with_http_info(incident_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <IncidentResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling IncidentsApi->get_incident_with_http_info: #{e}"
 end
 ```
 
@@ -190,16 +241,15 @@ end
 
 ## list_incidents
 
-> IncidentsResponse list_incidents(opts)
+> <IncidentsResponse> list_incidents(opts)
 
 Get a list of incidents
 
 Get all incidents for the user's organization.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -222,11 +272,29 @@ opts = {
 }
 
 begin
-  #Get a list of incidents
+  # Get a list of incidents
   result = api_instance.list_incidents(opts)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling IncidentsApi->list_incidents: #{e}"
+  puts "Error when calling IncidentsApi->list_incidents: #{e}"
+end
+```
+
+#### Using the list_incidents_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<IncidentsResponse>, Integer, Hash)> list_incidents_with_http_info(opts)
+
+```ruby
+begin
+  # Get a list of incidents
+  data, status_code, headers = api_instance.list_incidents_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <IncidentsResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling IncidentsApi->list_incidents_with_http_info: #{e}"
 end
 ```
 
@@ -254,16 +322,15 @@ end
 
 ## update_incident
 
-> IncidentResponse update_incident(incident_id, body)
+> <IncidentResponse> update_incident(incident_id, body)
 
 Update an existing incident
 
 Updates an incident. Provide only the attributes that should be updated as this request is a partial update.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -283,11 +350,29 @@ incident_id = 'incident_id_example' # String | The UUID the incident.
 body = DatadogAPIClient::V2::IncidentUpdateRequest.new # IncidentUpdateRequest | Incident Payload.
 
 begin
-  #Update an existing incident
+  # Update an existing incident
   result = api_instance.update_incident(incident_id, body)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling IncidentsApi->update_incident: #{e}"
+  puts "Error when calling IncidentsApi->update_incident: #{e}"
+end
+```
+
+#### Using the update_incident_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<IncidentResponse>, Integer, Hash)> update_incident_with_http_info(incident_id, body)
+
+```ruby
+begin
+  # Update an existing incident
+  data, status_code, headers = api_instance.update_incident_with_http_info(incident_id, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <IncidentResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling IncidentsApi->update_incident_with_http_info: #{e}"
 end
 ```
 

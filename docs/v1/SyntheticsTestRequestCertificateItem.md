@@ -8,7 +8,7 @@
 | **filename** | **String** | File name for the certificate or key. | [optional] |
 | **updated_at** | **String** | Date of update of the certificate or key, ISO format. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

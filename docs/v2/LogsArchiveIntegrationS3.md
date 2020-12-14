@@ -7,7 +7,7 @@
 | **account_id** | **String** | The account ID for the integration. |  |
 | **role_name** | **String** | The path of the integration. |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

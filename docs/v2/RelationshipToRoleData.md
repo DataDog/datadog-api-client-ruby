@@ -7,7 +7,7 @@
 | **id** | **String** | ID of the role. | [optional] |
 | **type** | [**RolesType**](RolesType.md) |  | [optional][default to &#39;roles&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

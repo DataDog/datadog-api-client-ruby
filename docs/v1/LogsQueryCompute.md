@@ -8,7 +8,7 @@
 | **facet** | **String** | Facet name. | [optional] |
 | **interval** | **Integer** | Define a time interval in seconds. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

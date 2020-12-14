@@ -11,7 +11,7 @@
 | **scope** | **String** | Query scope. | [optional] |
 | **unit** | **String** | Query units (if available). | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'
