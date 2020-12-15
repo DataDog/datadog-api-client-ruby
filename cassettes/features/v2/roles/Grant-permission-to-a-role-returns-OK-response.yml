@@ -2,151 +2,13 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.datadoghq.com/api/v2/roles/1bcb6f40-031a-11eb-b513-e31f6e2c45a2/permissions
-    body:
-      encoding: UTF-8
-      string: '{"data":{"id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","type":"permissions"}}'
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Wed, 30 Sep 2020 12:40:23 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '1134'
-      Connection:
-      - keep-alive
-      Vary:
-      - Accept-Encoding
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 07-Oct-2020 12:40:23 GMT;
-        secure; HttpOnly
-      X-Dd-Version:
-      - '35.3116014'
-      X-Ratelimit-Limit:
-      - '500'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Reset:
-      - '37'
-      X-Ratelimit-Remaining:
-      - '483'
-      X-Dd-Debug:
-      - XhN3sROXhRtxvw2F+uRtJTWMwUQRYhDKBCNr1DfCqtzQgh490ZXtNSOhIx1TzG8K
-      Dd-Pool:
-      - dogweb
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-    body:
-      encoding: UTF-8
-      string: '{"data":[{"type":"permissions","id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","attributes":{"name":"admin","display_name":"Privileged
-        Access","description":"This permission gives you the ability to view and edit
-        everything in your Datadog organization that does not have an explicitly defined
-        permission. This includes billing and usage, user, key, and organization management.
-        This permission is inclusive of all Standard access permissions.","created":"2018-10-19T15:35:23.734317+00:00","group_name":"General","display_type":"other","restricted":false}},{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2","attributes":{"name":"dashboards_read","display_name":"Dashboards","description":"The
-        ability to view dashboards.","created":"2019-09-10T14:39:51.955175+00:00","group_name":"Dashboards","display_type":"read","restricted":true}},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304","attributes":{"name":"monitors_read","display_name":"Monitors","description":"The
-        ability to view monitors.","created":"2019-09-16T18:39:07.744297+00:00","group_name":"Monitors","display_type":"read","restricted":true}}]}'
-  recorded_at: Wed, 30 Sep 2020 12:40:23 GMT
-- request:
-    method: post
-    uri: https://api.datadoghq.com/api/v2/roles/7dd4d1a8-2e63-11eb-855e-7b247c6f2dc6/permissions
-    body:
-      encoding: UTF-8
-      string: '{"data":{"id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","type":"permissions"}}'
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 24 Nov 2020 14:44:01 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '1134'
-      Connection:
-      - keep-alive
-      Vary:
-      - Accept-Encoding
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 01-Dec-2020 14:44:01 GMT;
-        secure; HttpOnly
-      X-Dd-Version:
-      - '35.3424786'
-      X-Ratelimit-Limit:
-      - '500'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Reset:
-      - '59'
-      X-Ratelimit-Remaining:
-      - '495'
-      X-Dd-Debug:
-      - NVdxML/FOEgLJzsz37XLTVVLcoGTHoJzcuGu2ZwX+JAXQfJkO87pOpfJK6E0a8TN
-      Dd-Pool:
-      - dogweb
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-    body:
-      encoding: UTF-8
-      string: '{"data":[{"type":"permissions","id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","attributes":{"name":"admin","display_name":"Privileged
-        Access","description":"This permission gives you the ability to view and edit
-        everything in your Datadog organization that does not have an explicitly defined
-        permission. This includes billing and usage, user, key, and organization management.
-        This permission is inclusive of all Standard access permissions.","created":"2018-10-19T15:35:23.734317+00:00","group_name":"General","display_type":"other","restricted":false}},{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2","attributes":{"name":"dashboards_read","display_name":"Dashboards","description":"The
-        ability to view dashboards.","created":"2019-09-10T14:39:51.955175+00:00","group_name":"Dashboards","display_type":"read","restricted":true}},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304","attributes":{"name":"monitors_read","display_name":"Monitors","description":"The
-        ability to view monitors.","created":"2019-09-16T18:39:07.744297+00:00","group_name":"Monitors","display_type":"read","restricted":true}}]}'
-  recorded_at: Wed, 30 Sep 2020 12:40:23 GMT
-- request:
-    method: post
     uri: https://api.datadoghq.com/api/v2/roles
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"name":"ruby-Grant_permission_to_a_role_returns_OK_response-1606230450"},"type":"roles"}}'
+      string: '{"data":{"attributes":{"name":"ruby-Grant_permission_to_a_role_returns_OK_response-1606991659"},"type":"roles"}}'
     headers:
       User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
+      - datadog-api-client-ruby/0.1.0 (ruby 2.7.1; os darwin19.6.0; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -159,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 24 Nov 2020 15:07:30 GMT
+      - Thu, 03 Dec 2020 10:34:19 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -173,20 +35,20 @@ http_interactions:
       Cache-Control:
       - no-cache
       Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 01-Dec-2020 15:07:30 GMT;
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 10-Dec-2020 10:34:19 GMT;
         secure; HttpOnly
       X-Dd-Version:
-      - '35.3425209'
+      - '35.3468623'
       X-Ratelimit-Limit:
       - '500'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '30'
+      - '41'
       X-Ratelimit-Remaining:
-      - '424'
+      - '493'
       X-Dd-Debug:
-      - AqBVHmyy+L9zrCUEAQ2Jd2pwskksgC+7nOsWqbNjcjcM+9M/ChipUo2OR6Q8oPwE
+      - 44pXRUqPlKJksqlF9t12wqxQzE9aBJ9ruTPYPBADYqfMpbefZ37/kVt2KhgjSVU2
       Dd-Pool:
       - dogweb
       Content-Security-Policy:
@@ -199,8 +61,8 @@ http_interactions:
       - max-age=15724800;
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"roles","id":"c5c6fb3c-2e66-11eb-855e-07514d7a914a","attributes":{"name":"ruby-Grant_permission_to_a_role_returns_OK_response-1606230450","created_at":"2020-11-24T15:07:30.461263+00:00","modified_at":"2020-11-24T15:07:30.461263+00:00"},"relationships":{"permissions":{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2"},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304"}]}}}}'
-  recorded_at: Tue, 24 Nov 2020 15:07:30 GMT
+      string: '{"data":{"type":"roles","id":"199ded04-3553-11eb-87b3-f7559b50b15c","attributes":{"name":"ruby-Grant_permission_to_a_role_returns_OK_response-1606991659","created_at":"2020-12-03T10:34:19.326132+00:00","modified_at":"2020-12-03T10:34:19.326132+00:00"},"relationships":{"permissions":{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2"},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304"}]}}}}'
+  recorded_at: Thu, 03 Dec 2020 10:34:19 GMT
 - request:
     method: get
     uri: https://api.datadoghq.com/api/v2/permissions
@@ -209,7 +71,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
+      - datadog-api-client-ruby/0.1.0 (ruby 2.7.1; os darwin19.6.0; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -222,11 +84,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 24 Nov 2020 15:07:30 GMT
+      - Thu, 03 Dec 2020 10:34:19 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '9999'
+      - '9993'
       Connection:
       - keep-alive
       Vary:
@@ -236,12 +98,12 @@ http_interactions:
       Cache-Control:
       - no-cache
       Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 01-Dec-2020 15:07:30 GMT;
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 10-Dec-2020 10:34:19 GMT;
         secure; HttpOnly
       X-Dd-Version:
-      - '35.3425088'
+      - '35.3468623'
       X-Dd-Debug:
-      - o+DMvNLOJQfXAHeLjo7w9XOcTGCirWOThygGIHqmoMaQl6AzYuGlAbNkOlAzbCRq
+      - zMJDTIeaITirZf9FedmyCj+4WXuqmfQREjdA1T11xGKF1XQWYK1Ifc+omhARu60w
       Dd-Pool:
       - dogweb
       Content-Security-Policy:
@@ -257,7 +119,7 @@ http_interactions:
       string: '{"data":[{"type":"permissions","id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","attributes":{"name":"admin","display_name":"Privileged
         Access","description":"This permission gives you the ability to view and edit
         everything in your Datadog organization that does not have an explicitly defined
-        permission. This includes billing and usage, user, key, and organization management.
+        permission. This includes billing and usage, key, and organization management.
         This permission is inclusive of all Standard access permissions.","created":"2018-10-19T15:35:23.734317+00:00","group_name":"General","display_type":"other","restricted":false}},{"type":"permissions","id":"984d2f00-d3b4-11e8-a200-bb47109e9987","attributes":{"name":"standard","display_name":"Standard
         Access","description":"This permission gives you the ability to view and edit
         components in your Datadog organization that do not have explicitly defined
@@ -315,16 +177,59 @@ http_interactions:
         Access","display_type":"other","restricted":false}},{"type":"permissions","id":"07c3c146-f7f8-11ea-acf6-0bd62b9ae60e","attributes":{"name":"logs_write_historical_view","display_name":"Logs
         Historical View","description":"The capability to rehydrate logs from Archives.","created":"2020-09-16T08:38:44.242076+00:00","group_name":"Logs","display_type":"write","restricted":false}},{"type":"permissions","id":"6ba32d22-0e1a-11eb-ba44-bf9a5aafaa39","attributes":{"name":"logs_write_facets","display_name":"Logs
         Facets","description":"The capability to create or edit logs facets.","created":"2020-10-14T12:40:20.271908+00:00","group_name":"Logs","display_type":"write","restricted":false}}]}'
-  recorded_at: Tue, 24 Nov 2020 15:07:30 GMT
+  recorded_at: Thu, 03 Dec 2020 10:34:19 GMT
 - request:
     method: post
-    uri: https://api.datadoghq.com/api/v2/roles/c5c6fb3c-2e66-11eb-855e-07514d7a914a/permissions
+    uri: http://127.0.0.1:8126/v0.4/traces
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        kdwAEI2lc3RhcnTPFk0uZiCSjACoZHVyYXRpb27OO+RCl6dzcGFuX2lkzzJyXqLqCzUsqXBhcmVudF9pZACodHJhY2VfaWTPL5uyNWtdwG6kbmFtZaR0ZXN0p3NlcnZpY2W3ZGF0YWRvZy1hcGktY2xpZW50LXJ1YnmocmVzb3VyY2XZMUxpc3QgcGVybWlzc2lvbnMgZm9yIGEgcm9sZSByZXR1cm5zICJPSyIgcmVzcG9uc2WkdHlwZaR0ZXN0pG1ldGGIqnJ1bnRpbWUtaWTZJGVkMTE1NmVhLWVmY2MtNGI4Ny04MmE1LWEzZTdiNDA2NzQzNa50ZXN0LmZyYW1ld29ya6hjdWN1bWJlcql0ZXN0Lm5hbWXZMUxpc3QgcGVybWlzc2lvbnMgZm9yIGEgcm9sZSByZXR1cm5zICJPSyIgcmVzcG9uc2WqdGVzdC5zdWl0ZblmZWF0dXJlcy92Mi9yb2xlcy5mZWF0dXJlqXRlc3QudHlwZaR0ZXN0qXNwYW4ua2luZKR0ZXN0p3ZlcnNpb26lcm9sZXOrdGVzdC5zdGF0dXOkcGFzc6dtZXRyaWNzha1fZGQuYWdlbnRfcHNyyz/wAAAAAAAAqnN5c3RlbS5waWTLQPeHQAAAAACtX2RkMS5zci5lYXVzcss/8AAAAAAAAKxfZGQubWVhc3VyZWTLP/AAAAAAAAC1X3NhbXBsaW5nX3ByaW9yaXR5X3Yxyz/wAAAAAAAAq2FsbG9jYXRpb25zzWrWpWVycm9yAI2lc3RhcnTPFk0uZiChvqCoZHVyYXRpb27OAAJJ76dzcGFuX2lkzxcqUyu9dOQIqXBhcmVudF9pZM8ycl6i6gs1LKh0cmFjZV9pZM8vm7I1a13AbqRuYW1lpHN0ZXCnc2VydmljZbdkYXRhZG9nLWFwaS1jbGllbnQtcnVieahyZXNvdXJjZdkmYSB2YWxpZCAiYXBpS2V5QXV0aCIga2V5IGluIHRoZSBzeXN0ZW2kdHlwZaRzdGVwpG1ldGGBq3Rlc3Quc3RhdHVzpHBhc3OnbWV0cmljc4CrYWxsb2NhdGlvbnM7pWVycm9yAI2lc3RhcnTPFk0uZiClXGioZHVyYXRpb27OAAEVV6dzcGFuX2lkzy+M+5NfFb55qXBhcmVudF9pZM8ycl6i6gs1LKh0cmFjZV9pZM8vm7I1a13AbqRuYW1lpHN0ZXCnc2VydmljZbdkYXRhZG9nLWFwaS1jbGllbnQtcnVieahyZXNvdXJjZdkmYSB2YWxpZCAiYXBwS2V5QXV0aCIga2V5IGluIHRoZSBzeXN0ZW2kdHlwZaRzdGVwpG1ldGGBq3Rlc3Quc3RhdHVzpHBhc3OnbWV0cmljc4CrYWxsb2NhdGlvbnMnpWVycm9yAI2lc3RhcnTPFk0uZiCnktCoZHVyYXRpb27OAAGGoKdzcGFuX2lkzxdnbmzQ6airqXBhcmVudF9pZM8ycl6i6gs1LKh0cmFjZV9pZM8vm7I1a13AbqRuYW1lpHN0ZXCnc2VydmljZbdkYXRhZG9nLWFwaS1jbGllbnQtcnVieahyZXNvdXJjZbphbiBpbnN0YW5jZSBvZiAiUm9sZXMiIEFQSaR0eXBlpHN0ZXCkbWV0YYGrdGVzdC5zdGF0dXOkcGFzc6dtZXRyaWNzgKthbGxvY2F0aW9uczalZXJyb3IAjaVzdGFydM8WTS5mIKraqKhkdXJhdGlvbs4RnSPXp3NwYW5faWTPHKhGIw5IRdCpcGFyZW50X2lkzzJyXqLqCzUsqHRyYWNlX2lkzy+bsjVrXcBupG5hbWWkc3RlcKdzZXJ2aWNlt2RhdGFkb2ctYXBpLWNsaWVudC1ydWJ5qHJlc291cmNl2SV0aGVyZSBpcyBhIHZhbGlkICJyb2xlIiBpbiB0aGUgc3lzdGVtpHR5cGWkc3RlcKRtZXRhgat0ZXN0LnN0YXR1c6RwYXNzp21ldHJpY3OAq2FsbG9jYXRpb25zzRPNpWVycm9yAI2lc3RhcnTPFk0uZiDcaiioZHVyYXRpb27OEUcsB6dzcGFuX2lkzxGjLps5zYgjqXBhcmVudF9pZM8cqEYjDkhF0Kh0cmFjZV9pZM8vm7I1a13AbqRuYW1lrWV0aG9uLnJlcXVlc3Snc2VydmljZaVldGhvbqhyZXNvdXJjZaRQT1NUpHR5cGWkaHR0cKRtZXRhhaxwZWVyLnNlcnZpY2WlZXRob26oaHR0cC51cmytL2FwaS92Mi9yb2xlc6todHRwLm1ldGhvZKRQT1NUqG91dC5ob3N0sWFwaS5kYXRhZG9naHEuY29tsGh0dHAuc3RhdHVzX2NvZGWjMjAwp21ldHJpY3OBqG91dC5wb3J0y0B7sAAAAAAAq2FsbG9jYXRpb25zzKulZXJyb3IAjaVzdGFydM8WTS5mMkzsOKhkdXJhdGlvbs4Iik9Pp3NwYW5faWTPJKRx8zyWo5mpcGFyZW50X2lkzzJyXqLqCzUsqHRyYWNlX2lkzy+bsjVrXcBupG5hbWWkc3RlcKdzZXJ2aWNlt2RhdGFkb2ctYXBpLWNsaWVudC1ydWJ5qHJlc291cmNl2St0aGVyZSBpcyBhIHZhbGlkICJwZXJtaXNzaW9uIiBpbiB0aGUgc3lzdGVtpHR5cGWkc3RlcKRtZXRhgat0ZXN0LnN0YXR1c6RwYXNzp21ldHJpY3OAq2FsbG9jYXRpb25zzRlDpWVycm9yAI2lc3RhcnTPFk0uZjJ0aZioZHVyYXRpb27OCBJn/6dzcGFuX2lkzz/uYfE094CfqXBhcmVudF9pZM8kpHHzPJajmah0cmFjZV9pZM8vm7I1a13AbqRuYW1lrWV0aG9uLnJlcXVlc3Snc2VydmljZaVldGhvbqhyZXNvdXJjZaNHRVSkdHlwZaRodHRwpG1ldGGFrHBlZXIuc2VydmljZaVldGhvbqhodHRwLnVybLMvYXBpL3YyL3Blcm1pc3Npb25zq2h0dHAubWV0aG9ko0dFVKhvdXQuaG9zdLFhcGkuZGF0YWRvZ2hxLmNvbbBodHRwLnN0YXR1c19jb2RlozIwMKdtZXRyaWNzgahvdXQucG9ydMtAe7AAAAAAAKthbGxvY2F0aW9uc8yjpWVycm9yAI2lc3RhcnTPFk0uZjrajxioZHVyYXRpb27ODT1EWKdzcGFuX2lkzw7yR7D6Wl8dqXBhcmVudF9pZM8ycl6i6gs1LKh0cmFjZV9pZM8vm7I1a13AbqRuYW1lpHN0ZXCnc2VydmljZbdkYXRhZG9nLWFwaS1jbGllbnQtcnVieahyZXNvdXJjZdkpdGhlICJwZXJtaXNzaW9uIiBpcyBncmFudGVkIHRvIHRoZSAicm9sZSKkdHlwZaRzdGVwpG1ldGGBq3Rlc3Quc3RhdHVzpHBhc3OnbWV0cmljc4CrYWxsb2NhdGlvbnPNFhSlZXJyb3IAjaVzdGFydM8WTS5mOwfNIKhkdXJhdGlvbs4NAj73p3NwYW5faWTPLIIiBvdyxN+pcGFyZW50X2lkzw7yR7D6Wl8dqHRyYWNlX2lkzy+bsjVrXcBupG5hbWWtZXRob24ucmVxdWVzdKdzZXJ2aWNlpWV0aG9uqHJlc291cmNlpFBPU1SkdHlwZaRodHRwpG1ldGGFrHBlZXIuc2VydmljZaVldGhvbqhodHRwLnVybNk+L2FwaS92Mi9yb2xlcy8xOTEyYjlhYS0zNTUzLTExZWItODdiMy0xZjUwMjQ5YjU0MDUvcGVybWlzc2lvbnOraHR0cC5tZXRob2SkUE9TVKhvdXQuaG9zdLFhcGkuZGF0YWRvZ2hxLmNvbbBodHRwLnN0YXR1c19jb2RlozIwMKdtZXRyaWNzgahvdXQucG9ydMtAe7AAAAAAAKthbGxvY2F0aW9uc80HxaVlcnJvcgCNpXN0YXJ0zxZNLmZIGiUwqGR1cmF0aW9uzgABIQ+nc3Bhbl9pZM8K+aIbDgJOaqlwYXJlbnRfaWTPMnJeouoLNSyodHJhY2VfaWTPL5uyNWtdwG6kbmFtZaRzdGVwp3NlcnZpY2W3ZGF0YWRvZy1hcGktY2xpZW50LXJ1YnmocmVzb3VyY2XZIW5ldyAiTGlzdFJvbGVQZXJtaXNzaW9ucyIgcmVxdWVzdKR0eXBlpHN0ZXCkbWV0YYGrdGVzdC5zdGF0dXOkcGFzc6dtZXRyaWNzgKthbGxvY2F0aW9uczelZXJyb3IAjaVzdGFydM8WTS5mSB0HeKhkdXJhdGlvbs3S76dzcGFuX2lkzy2XpudGiJ8UqXBhcmVudF9pZM8ycl6i6gs1LKh0cmFjZV9pZM8vm7I1a13AbqRuYW1lpHN0ZXCnc2VydmljZbdkYXRhZG9nLWFwaS1jbGllbnQtcnVieahyZXNvdXJjZdk4cmVxdWVzdCBjb250YWlucyAicm9sZV9pZCIgcGFyYW1ldGVyIGZyb20gInJvbGUuZGF0YS5pZCKkdHlwZaRzdGVwpG1ldGGBq3Rlc3Quc3RhdHVzpHBhc3OnbWV0cmljc4CrYWxsb2NhdGlvbnNDpWVycm9yAI2lc3RhcnTPFk0uZkggATCoZHVyYXRpb27OCZ+rOKdzcGFuX2lkzyNEIyLx5un1qXBhcmVudF9pZM8ycl6i6gs1LKh0cmFjZV9pZM8vm7I1a13AbqRuYW1lpHN0ZXCnc2VydmljZbdkYXRhZG9nLWFwaS1jbGllbnQtcnVieahyZXNvdXJjZbN0aGUgcmVxdWVzdCBpcyBzZW50pHR5cGWkc3RlcKRtZXRhgat0ZXN0LnN0YXR1c6RwYXNzp21ldHJpY3OAq2FsbG9jYXRpb25zzQvhpWVycm9yAI2lc3RhcnTPFk0uZkgzAHioZHVyYXRpb27OCXRF2KdzcGFuX2lkzxpA+3qNSQU9qXBhcmVudF9pZM8jRCMi8ebp9ah0cmFjZV9pZM8vm7I1a13AbqRuYW1lrWV0aG9uLnJlcXVlc3Snc2VydmljZaVldGhvbqhyZXNvdXJjZaNHRVSkdHlwZaRodHRwpG1ldGGFrHBlZXIuc2VydmljZaVldGhvbqhodHRwLnVybNk+L2FwaS92Mi9yb2xlcy8xOTEyYjlhYS0zNTUzLTExZWItODdiMy0xZjUwMjQ5YjU0MDUvcGVybWlzc2lvbnOraHR0cC5tZXRob2SjR0VUqG91dC5ob3N0sWFwaS5kYXRhZG9naHEuY29tsGh0dHAuc3RhdHVzX2NvZGWjMjAwp21ldHJpY3OBqG91dC5wb3J0y0B7sAAAAAAAq2FsbG9jYXRpb25zzKulZXJyb3IAjaVzdGFydM8WTS5mUcOvwKhkdXJhdGlvbs4AAeB4p3NwYW5faWTPDAKB7EajdAapcGFyZW50X2lkzzJyXqLqCzUsqHRyYWNlX2lkzy+bsjVrXcBupG5hbWWkc3RlcKdzZXJ2aWNlt2RhdGFkb2ctYXBpLWNsaWVudC1ydWJ5qHJlc291cmNlvXRoZSByZXNwb25zZSBzdGF0dXMgaXMgMjAwIE9LpHR5cGWkc3RlcKRtZXRhgat0ZXN0LnN0YXR1c6RwYXNzp21ldHJpY3OAq2FsbG9jYXRpb25zMaVlcnJvcgCNpXN0YXJ0zxZNLmZSNldQqGR1cmF0aW9uzgotnxCnc3Bhbl9pZM8ced6tJD9h86lwYXJlbnRfaWTPMnJeouoLNSyodHJhY2VfaWTPL5uyNWtdwG6kbmFtZa1ldGhvbi5yZXF1ZXN0p3NlcnZpY2WlZXRob26ocmVzb3VyY2WmREVMRVRFpHR5cGWkaHR0cKRtZXRhhaxwZWVyLnNlcnZpY2WlZXRob26oaHR0cC51cmzZMi9hcGkvdjIvcm9sZXMvMTkxMmI5YWEtMzU1My0xMWViLTg3YjMtMWY1MDI0OWI1NDA1q2h0dHAubWV0aG9kpkRFTEVURahvdXQuaG9zdLFhcGkuZGF0YWRvZ2hxLmNvbbBodHRwLnN0YXR1c19jb2RlozIwNKdtZXRyaWNzgahvdXQucG9ydMtAe7AAAAAAAKthbGxvY2F0aW9uc8yPpWVycm9yAA==
+    headers:
+      X-Datadog-Trace-Count:
+      - '1'
+      Content-Type:
+      - application/msgpack
+      Datadog-Meta-Lang:
+      - ruby
+      Datadog-Meta-Lang-Version:
+      - 2.7.1
+      Datadog-Meta-Lang-Interpreter:
+      - ruby-x86_64-darwin19
+      Datadog-Meta-Tracer-Version:
+      - 0.43.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 03 Dec 2020 10:34:19 GMT
+      Content-Length:
+      - '126'
+    body:
+      encoding: UTF-8
+      string: '{"rate_by_service":{"service:,env:":1,"service:datadog-api-client-ruby,env:":1,"service:datadog-api-client-ruby,env:none":1}}
+
+        '
+  recorded_at: Thu, 03 Dec 2020 10:34:19 GMT
+- request:
+    method: post
+    uri: https://api.datadoghq.com/api/v2/roles/199ded04-3553-11eb-87b3-f7559b50b15c/permissions
     body:
       encoding: UTF-8
       string: '{"data":{"id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","type":"permissions"}}'
     headers:
       User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
+      - datadog-api-client-ruby/0.1.0 (ruby 2.7.1; os darwin19.6.0; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -337,11 +242,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 24 Nov 2020 15:07:30 GMT
+      - Thu, 03 Dec 2020 10:34:19 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '1134'
+      - '1128'
       Connection:
       - keep-alive
       Vary:
@@ -351,20 +256,20 @@ http_interactions:
       Cache-Control:
       - no-cache
       Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 01-Dec-2020 15:07:30 GMT;
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 10-Dec-2020 10:34:19 GMT;
         secure; HttpOnly
       X-Dd-Version:
-      - '35.3425088'
+      - '35.3468590'
       X-Ratelimit-Limit:
       - '500'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '30'
+      - '41'
       X-Ratelimit-Remaining:
-      - '423'
+      - '492'
       X-Dd-Debug:
-      - VFEd9WEYHg4A4gkQ37Kh8VC+38V/yfH2X0MUdUVsECnCE1FSV9c52Sqrn7OQ0Mvj
+      - T0M8IUSL6bs+R5gmxnIS28KoD5lx0N0IU04TSlNtiD3lkhl9dUsMKLoAlE6epfmg
       Dd-Pool:
       - dogweb
       Content-Security-Policy:
@@ -380,9 +285,9 @@ http_interactions:
       string: '{"data":[{"type":"permissions","id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","attributes":{"name":"admin","display_name":"Privileged
         Access","description":"This permission gives you the ability to view and edit
         everything in your Datadog organization that does not have an explicitly defined
-        permission. This includes billing and usage, user, key, and organization management.
+        permission. This includes billing and usage, key, and organization management.
         This permission is inclusive of all Standard access permissions.","created":"2018-10-19T15:35:23.734317+00:00","group_name":"General","display_type":"other","restricted":false}},{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2","attributes":{"name":"dashboards_read","display_name":"Dashboards","description":"The
         ability to view dashboards.","created":"2019-09-10T14:39:51.955175+00:00","group_name":"Dashboards","display_type":"read","restricted":true}},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304","attributes":{"name":"monitors_read","display_name":"Monitors","description":"The
         ability to view monitors.","created":"2019-09-16T18:39:07.744297+00:00","group_name":"Monitors","display_type":"read","restricted":true}}]}'
-  recorded_at: Tue, 24 Nov 2020 15:07:30 GMT
+  recorded_at: Thu, 03 Dec 2020 10:34:19 GMT
 recorded_with: VCR 6.0.0

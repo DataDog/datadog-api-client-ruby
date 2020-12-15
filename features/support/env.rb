@@ -44,6 +44,7 @@ def use_real_time?
 end
 
 VCR.configure do |c|
+  c.allow_http_connections_when_no_cassette = true
   RecordMode.send(ENV["RECORD"] || "false", c)
   c.cassette_library_dir = "cassettes"
   c.hook_into :webmock
