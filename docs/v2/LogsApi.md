@@ -76,7 +76,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -153,7 +153,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -232,7 +232,7 @@ end
 | **filter_index** | **String** | For customers with multiple indexes, the indexes to search Defaults to &#39;*&#39; which means all indexes | [optional] |
 | **filter_from** | **Time** | Minimum timestamp for requested logs. | [optional] |
 | **filter_to** | **Time** | Maximum timestamp for requested logs. | [optional] |
-| **sort** | [**LogsSort**](.md) | Order of logs in results. | [optional] |
+| **sort** | **LogsSort** | Order of logs in results. | [optional] |
 | **page_cursor** | **String** | List following results with a cursor provided in the previous query. | [optional] |
 | **page_limit** | **Integer** | Maximum number of logs in the response. | [optional][default to 10] |
 
@@ -242,7 +242,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
