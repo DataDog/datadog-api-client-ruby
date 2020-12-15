@@ -1,319 +1,14 @@
 ---
 http_interactions:
 - request:
-    method: delete
-    uri: https://api.datadoghq.com/api/v2/roles/19994206-031a-11eb-b513-9fff24647d7d
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 204
-      message: No Content
-    headers:
-      Date:
-      - Wed, 30 Sep 2020 12:40:20 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '0'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 07-Oct-2020 12:40:20 GMT;
-        secure; HttpOnly
-      X-Dd-Version:
-      - '35.3116014'
-      X-Ratelimit-Limit:
-      - '500'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Reset:
-      - '40'
-      X-Ratelimit-Remaining:
-      - '495'
-      X-Dd-Debug:
-      - qKfjlUOd47rTL8Zfe+ult0NC1XrJJZn5FzZo3l0g8EiEJqsLoAxULWUGtB1CS4r/
-      Dd-Pool:
-      - dogweb
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-    body:
-      encoding: UTF-8
-      string: ''
-  recorded_at: Wed, 30 Sep 2020 12:40:19 GMT
-- request:
-    method: delete
-    uri: https://api.datadoghq.com/api/v2/roles/a1329004-2e5e-11eb-855e-cb220107f72d
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 204
-      message: No Content
-    headers:
-      Date:
-      - Tue, 24 Nov 2020 14:09:13 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '0'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 01-Dec-2020 14:09:13 GMT;
-        secure; HttpOnly
-      X-Dd-Version:
-      - '35.3424554'
-      X-Ratelimit-Limit:
-      - '500'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Reset:
-      - '47'
-      X-Ratelimit-Remaining:
-      - '496'
-      X-Dd-Debug:
-      - 4/n0qOsNbcCLs0O62LExTPssq0SdRyX2Rk0dgQQIozMoViHF7e4pyB0ZeXOioNEA
-      Dd-Pool:
-      - dogweb
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-    body:
-      encoding: UTF-8
-      string: ''
-  recorded_at: Wed, 30 Sep 2020 12:40:19 GMT
-- request:
-    method: delete
-    uri: https://api.datadoghq.com/api/v2/roles/bc024f0a-2e5e-11eb-855e-b3a62538bcfd
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 204
-      message: No Content
-    headers:
-      Date:
-      - Tue, 24 Nov 2020 14:09:58 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '0'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 01-Dec-2020 14:09:58 GMT;
-        secure; HttpOnly
-      X-Dd-Version:
-      - '35.3424665'
-      X-Ratelimit-Limit:
-      - '500'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Reset:
-      - '2'
-      X-Ratelimit-Remaining:
-      - '484'
-      X-Dd-Debug:
-      - 5H2EXEXOPQC4s7BfWBFjlM6rKywFNh1Cf33eK1xYuPFdBfR+3y2m7Dyr75gZ4kw1
-      Dd-Pool:
-      - dogweb
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-    body:
-      encoding: UTF-8
-      string: ''
-  recorded_at: Wed, 30 Sep 2020 12:40:19 GMT
-- request:
-    method: delete
-    uri: https://api.datadoghq.com/api/v2/roles/ec81b3a2-2e61-11eb-855e-531732aa22fa
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 204
-      message: No Content
-    headers:
-      Date:
-      - Tue, 24 Nov 2020 14:32:48 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '0'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 01-Dec-2020 14:32:48 GMT;
-        secure; HttpOnly
-      X-Dd-Version:
-      - '35.3424786'
-      X-Ratelimit-Limit:
-      - '500'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Reset:
-      - '12'
-      X-Ratelimit-Remaining:
-      - '496'
-      X-Dd-Debug:
-      - NAgpeopdgW9X30OuB191/muuvQIfRBmU7ohOgihh9xKnn0bCG7Kguc4bGAIB6OKr
-      Dd-Pool:
-      - dogweb
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-    body:
-      encoding: UTF-8
-      string: ''
-  recorded_at: Wed, 30 Sep 2020 12:40:19 GMT
-- request:
-    method: delete
-    uri: https://api.datadoghq.com/api/v2/roles/7bb93bb6-2e63-11eb-855e-078cf12fa978
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 204
-      message: No Content
-    headers:
-      Date:
-      - Tue, 24 Nov 2020 14:43:57 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '0'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 01-Dec-2020 14:43:57 GMT;
-        secure; HttpOnly
-      X-Dd-Version:
-      - '35.3424786'
-      X-Ratelimit-Limit:
-      - '500'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Reset:
-      - '3'
-      X-Ratelimit-Remaining:
-      - '495'
-      X-Dd-Debug:
-      - oY1U+Bw1sQyS4cySYbM3yP2PHmEdjLzb50z+L43vQMCCtEGfcc06BRHI9VdccfS3
-      Dd-Pool:
-      - dogweb
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-    body:
-      encoding: UTF-8
-      string: ''
-  recorded_at: Wed, 30 Sep 2020 12:40:19 GMT
-- request:
     method: post
     uri: https://api.datadoghq.com/api/v2/roles
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"name":"ruby-Delete_role_returns_OK_response-1606230447"},"type":"roles"}}'
+      string: '{"data":{"attributes":{"name":"ruby-Delete_role_returns_OK_response-1606991629"},"type":"roles"}}'
     headers:
       User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
+      - datadog-api-client-ruby/0.1.0 (ruby 2.7.1; os darwin19.6.0; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -326,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 24 Nov 2020 15:07:27 GMT
+      - Thu, 03 Dec 2020 10:33:49 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -340,20 +35,20 @@ http_interactions:
       Cache-Control:
       - no-cache
       Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 01-Dec-2020 15:07:27 GMT;
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 10-Dec-2020 10:33:49 GMT;
         secure; HttpOnly
       X-Dd-Version:
-      - '35.3425088'
+      - '35.3468623'
       X-Ratelimit-Limit:
       - '500'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '33'
+      - '11'
       X-Ratelimit-Remaining:
-      - '442'
+      - '494'
       X-Dd-Debug:
-      - O3O7xE5uwHtX7J0LqZ8TwbNGWo9Sdsox9lgU7fr/GZp13UzdkbKQZW76fPVpoSDj
+      - 6IhQMEQHjYL1ZYwBd1xPnaqhoM5GIKrVP4vKHrLdyvV0W9ZbpSld8lY0ehD40SZe
       Dd-Pool:
       - dogweb
       Content-Security-Policy:
@@ -366,17 +61,17 @@ http_interactions:
       - max-age=15724800;
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"roles","id":"c3ea9f26-2e66-11eb-855e-ef17f65a9486","attributes":{"name":"ruby-Delete_role_returns_OK_response-1606230447","created_at":"2020-11-24T15:07:27.339788+00:00","modified_at":"2020-11-24T15:07:27.339788+00:00"},"relationships":{"permissions":{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2"},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304"}]}}}}'
-  recorded_at: Tue, 24 Nov 2020 15:07:27 GMT
+      string: '{"data":{"type":"roles","id":"07c2a002-3553-11eb-87b3-fbc1305cac0f","attributes":{"name":"ruby-Delete_role_returns_OK_response-1606991629","created_at":"2020-12-03T10:33:49.367737+00:00","modified_at":"2020-12-03T10:33:49.367737+00:00"},"relationships":{"permissions":{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2"},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304"}]}}}}'
+  recorded_at: Thu, 03 Dec 2020 10:33:49 GMT
 - request:
     method: delete
-    uri: https://api.datadoghq.com/api/v2/roles/c3ea9f26-2e66-11eb-855e-ef17f65a9486
+    uri: https://api.datadoghq.com/api/v2/roles/07c2a002-3553-11eb-87b3-fbc1305cac0f
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
+      - datadog-api-client-ruby/0.1.0 (ruby 2.7.1; os darwin19.6.0; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -389,7 +84,7 @@ http_interactions:
       message: No Content
     headers:
       Date:
-      - Tue, 24 Nov 2020 15:07:27 GMT
+      - Thu, 03 Dec 2020 10:33:49 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -401,20 +96,20 @@ http_interactions:
       Cache-Control:
       - no-cache
       Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 01-Dec-2020 15:07:27 GMT;
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 10-Dec-2020 10:33:49 GMT;
         secure; HttpOnly
       X-Dd-Version:
-      - '35.3425209'
+      - '35.3468623'
       X-Ratelimit-Limit:
       - '500'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '33'
+      - '11'
       X-Ratelimit-Remaining:
-      - '439'
+      - '493'
       X-Dd-Debug:
-      - NVN1vUIP943yBv5BrKvNkq9LhGENimQCGx913v3GQzIJuXIMEzcrTlr1CpALPFWv
+      - qQXsO+f4B3HCvLT+wx7LVBDCKoA9+mEzcYYTapfT4+npOWtAMz9R4B+8HSWkVhsm
       Dd-Pool:
       - dogweb
       Content-Security-Policy:
@@ -428,5 +123,5 @@ http_interactions:
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Tue, 24 Nov 2020 15:07:27 GMT
+  recorded_at: Thu, 03 Dec 2020 10:33:49 GMT
 recorded_with: VCR 6.0.0
