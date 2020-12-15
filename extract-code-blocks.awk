@@ -42,6 +42,10 @@ function camel(value) {
     operation_id = camel($2);
 }
 /^```ruby/ {
+    if (operation_id == "") {
+        # Filter out with_http_info examples
+        next;
+    }
     if (in_code_block == 0) {
         in_code_block = 1;
         if (out_file) {
@@ -58,6 +62,7 @@ function camel(value) {
 }
 /^```/ {
     in_code_block = 0;
+    operation_id = "";
 }
 
 in_code_block {
