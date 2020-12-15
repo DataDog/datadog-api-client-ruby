@@ -78,7 +78,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -152,7 +152,7 @@ nil (empty response body)
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -223,7 +223,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **incident_id** | **String** | The UUID the incident. |  |
-| **include** | [**Array&lt;String&gt;**](String.md) | Specifies which types of related objects should be included in the response. | [optional] |
+| **include** | **Array&lt;String&gt;** | Specifies which types of related objects should be included in the response. | [optional] |
 
 ### Return type
 
@@ -231,7 +231,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -302,7 +302,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **include** | [**Array&lt;String&gt;**](String.md) | Specifies which types of related objects should be included in the response. | [optional] |
+| **include** | **Array&lt;String&gt;** | Specifies which types of related objects should be included in the response. | [optional] |
 | **page_size** | **Integer** | Size for a given page. | [optional][default to 10] |
 | **page_offset** | **Integer** | Specific offset to use as the beginning of the returned page. | [optional][default to 0] |
 
@@ -312,7 +312,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -389,7 +389,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
