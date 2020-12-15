@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **after** | **String** | The returned paging point to use to get the next results | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

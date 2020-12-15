@@ -7,7 +7,7 @@
 | **domains** | **Array&lt;String&gt;** | List of domains where the SAML automated user creation is enabled. | [optional] |
 | **enabled** | **Boolean** | Whether or not the automated user creation based on SAML domain is enabled. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

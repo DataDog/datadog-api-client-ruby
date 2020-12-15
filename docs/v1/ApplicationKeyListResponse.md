@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **application_keys** | [**Array&lt;ApplicationKey&gt;**](ApplicationKey.md) | Array of application keys. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

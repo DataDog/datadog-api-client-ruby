@@ -18,7 +18,7 @@
 | **title_size** | **String** | Size of the title. | [optional] |
 | **type** | [**MonitorSummaryWidgetDefinitionType**](MonitorSummaryWidgetDefinitionType.md) |  | [default to &#39;manage_status&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'
@@ -28,7 +28,7 @@ instance = DatadogAPIClient::V1::MonitorSummaryWidgetDefinition.new(
   count: null,
   display_format: null,
   hide_zero_counts: null,
-  query: null,
+  query: ,
   show_last_triggered: null,
   sort: null,
   start: null,

@@ -7,7 +7,7 @@
 | **data** | [**User**](User.md) |  | [optional] |
 | **included** | [**Array&lt;UserResponseIncludedItem&gt;**](UserResponseIncludedItem.md) | Array of objects related to the user. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

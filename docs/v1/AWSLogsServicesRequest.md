@@ -7,7 +7,7 @@
 | **account_id** | **String** | Your AWS Account ID without dashes. |  |
 | **services** | **Array&lt;String&gt;** | Array of services IDs set to enable automatic log collection. Discover the list of available services with the get list of AWS log ready services API endpoint. |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

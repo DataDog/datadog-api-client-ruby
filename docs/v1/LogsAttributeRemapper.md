@@ -15,7 +15,7 @@
 | **target_type** | **String** | Defines if the final attribute or tag name is from log &#x60;attribute&#x60; or &#x60;tag&#x60;. | [optional][default to &#39;attribute&#39;] |
 | **type** | [**LogsAttributeRemapperType**](LogsAttributeRemapperType.md) |  | [default to &#39;attribute-remapper&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

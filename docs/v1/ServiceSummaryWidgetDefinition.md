@@ -21,15 +21,15 @@
 | **title_size** | **String** | Size of the title. | [optional] |
 | **type** | [**ServiceSummaryWidgetDefinitionType**](ServiceSummaryWidgetDefinitionType.md) |  | [default to &#39;trace_service&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::ServiceSummaryWidgetDefinition.new(
   display_format: null,
-  env: null,
-  service: null,
+  env: ,
+  service: ,
   show_breakdown: null,
   show_distribution: null,
   show_errors: null,
@@ -37,7 +37,7 @@ instance = DatadogAPIClient::V1::ServiceSummaryWidgetDefinition.new(
   show_latency: null,
   show_resource_list: null,
   size_format: null,
-  span_name: null,
+  span_name: ,
   time: null,
   title: null,
   title_align: null,

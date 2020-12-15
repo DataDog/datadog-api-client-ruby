@@ -8,7 +8,7 @@
 | **links** | [**SecurityMonitoringSignalsListResponseLinks**](SecurityMonitoringSignalsListResponseLinks.md) |  | [optional] |
 | **meta** | [**SecurityMonitoringSignalsListResponseMeta**](SecurityMonitoringSignalsListResponseMeta.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

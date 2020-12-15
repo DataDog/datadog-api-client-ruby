@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **message** | **String** | Information pertaining to a user disabled for a given organization. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

@@ -12,7 +12,7 @@
 | **span_precision** | **Float** | The amount of decimal places the SLI value is accurate to for the given from &#x60;&amp;&amp;&#x60; to timestamp. | [optional] |
 | **uptime** | **Float** | Deprecated. Use &#x60;sli_value&#x60; instead. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

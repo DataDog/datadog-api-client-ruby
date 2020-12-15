@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **error** | **String** | Human readable error. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

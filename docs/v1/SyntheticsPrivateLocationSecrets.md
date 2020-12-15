@@ -7,7 +7,7 @@
 | **authentication** | [**SyntheticsPrivateLocationSecretsAuthentication**](SyntheticsPrivateLocationSecretsAuthentication.md) |  | [optional] |
 | **config_decryption** | [**SyntheticsPrivateLocationSecretsConfigDecryption**](SyntheticsPrivateLocationSecretsConfigDecryption.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

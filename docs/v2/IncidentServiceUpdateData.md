@@ -9,7 +9,7 @@
 | **relationships** | [**IncidentServiceRelationships**](IncidentServiceRelationships.md) |  | [optional] |
 | **type** | [**IncidentServiceType**](IncidentServiceType.md) |  | [default to &#39;services&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

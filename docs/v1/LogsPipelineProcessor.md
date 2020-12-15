@@ -10,7 +10,7 @@
 | **processors** | [**Array&lt;LogsProcessor&gt;**](LogsProcessor.md) | Ordered list of processors in this pipeline. | [optional] |
 | **type** | [**LogsPipelineProcessorType**](LogsPipelineProcessorType.md) |  | [default to &#39;pipeline&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

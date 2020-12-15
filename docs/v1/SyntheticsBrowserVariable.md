@@ -10,7 +10,7 @@
 | **pattern** | **String** | Pattern of the variable. | [optional] |
 | **type** | [**SyntheticsBrowserVariableType**](SyntheticsBrowserVariableType.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'
@@ -18,7 +18,7 @@ require 'datadog_api_client/v1'
 instance = DatadogAPIClient::V1::SyntheticsBrowserVariable.new(
   example: null,
   id: null,
-  name: null,
+  name: ,
   pattern: null,
   type: null
 )

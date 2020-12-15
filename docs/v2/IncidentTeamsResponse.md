@@ -8,7 +8,7 @@
 | **included** | [**Array&lt;IncidentTeamIncludedItems&gt;**](IncidentTeamIncludedItems.md) | Included related resources which the user requested. | [optional][readonly] |
 | **meta** | [**IncidentServicesResponseMeta**](IncidentServicesResponseMeta.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

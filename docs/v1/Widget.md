@@ -8,7 +8,7 @@
 | **id** | **Integer** | ID of the widget. | [optional] |
 | **layout** | [**WidgetLayout**](WidgetLayout.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

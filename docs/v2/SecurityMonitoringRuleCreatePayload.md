@@ -12,7 +12,7 @@
 | **queries** | [**Array&lt;SecurityMonitoringRuleQueryCreate&gt;**](SecurityMonitoringRuleQueryCreate.md) | Queries for selecting logs which are part of the rule. |  |
 | **tags** | **Array&lt;String&gt;** | Tags for generated signals. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'
@@ -20,8 +20,8 @@ require 'datadog_api_client/v2'
 instance = DatadogAPIClient::V2::SecurityMonitoringRuleCreatePayload.new(
   cases: [],
   is_enabled: true,
-  message: null,
-  name: null,
+  message: ,
+  name: ,
   options: null,
   queries: [],
   tags: [&quot;env:prod&quot;,&quot;team:security&quot;]

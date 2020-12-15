@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **timings** | [**SyntheticsTiming**](SyntheticsTiming.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

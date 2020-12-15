@@ -7,7 +7,7 @@
 | **hour** | **Time** | The hour for the usage. | [optional] |
 | **indexed_events_count** | **Integer** | Contains the number of spans indexed. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

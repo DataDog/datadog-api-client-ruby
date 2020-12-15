@@ -17,16 +17,15 @@ All URIs are relative to *https://api.datadoghq.com*
 
 ## create_aws_account
 
-> AWSAccountCreateResponse create_aws_account(body)
+> <AWSAccountCreateResponse> create_aws_account(body)
 
 Create an AWS integration
 
 Create a Datadog-Amazon Web Services integration. Using the `POST` method updates your integration configuration by adding your new configuration to the existing one in your Datadog organization. A unique AWS Account ID for role based authentication.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -45,11 +44,29 @@ api_instance = DatadogAPIClient::V1::AWSIntegrationApi.new
 body = DatadogAPIClient::V1::AWSAccount.new # AWSAccount | AWS Request Object
 
 begin
-  #Create an AWS integration
+  # Create an AWS integration
   result = api_instance.create_aws_account(body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling AWSIntegrationApi->create_aws_account: #{e}"
+  puts "Error when calling AWSIntegrationApi->create_aws_account: #{e}"
+end
+```
+
+#### Using the create_aws_account_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AWSAccountCreateResponse>, Integer, Hash)> create_aws_account_with_http_info(body)
+
+```ruby
+begin
+  # Create an AWS integration
+  data, status_code, headers = api_instance.create_aws_account_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AWSAccountCreateResponse>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling AWSIntegrationApi->create_aws_account_with_http_info: #{e}"
 end
 ```
 
@@ -65,7 +82,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -81,10 +98,9 @@ Set an AWS tag filter
 
 Set an AWS tag filter.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -103,11 +119,29 @@ api_instance = DatadogAPIClient::V1::AWSIntegrationApi.new
 body = DatadogAPIClient::V1::AWSTagFilterCreateRequest.new # AWSTagFilterCreateRequest | Set an AWS tag filter using an `aws_account_identifier`, `namespace`, and filtering string. Namespace options are `application_elb`, `elb`, `lambda`, `network_elb`, `rds`, `sqs`, and `custom`.
 
 begin
-  #Set an AWS tag filter
+  # Set an AWS tag filter
   result = api_instance.create_aws_tag_filter(body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling AWSIntegrationApi->create_aws_tag_filter: #{e}"
+  puts "Error when calling AWSIntegrationApi->create_aws_tag_filter: #{e}"
+end
+```
+
+#### Using the create_aws_tag_filter_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Object, Integer, Hash)> create_aws_tag_filter_with_http_info(body)
+
+```ruby
+begin
+  # Set an AWS tag filter
+  data, status_code, headers = api_instance.create_aws_tag_filter_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Object
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling AWSIntegrationApi->create_aws_tag_filter_with_http_info: #{e}"
 end
 ```
 
@@ -123,7 +157,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -133,16 +167,15 @@ end
 
 ## create_new_aws_external_id
 
-> AWSAccountCreateResponse create_new_aws_external_id(body)
+> <AWSAccountCreateResponse> create_new_aws_external_id(body)
 
 Generate a new external ID
 
 Generate a new AWS external ID for a given AWS account ID and role name pair.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -161,11 +194,29 @@ api_instance = DatadogAPIClient::V1::AWSIntegrationApi.new
 body = DatadogAPIClient::V1::AWSAccount.new # AWSAccount | Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://github.com/DataDog/documentation/blob/master/integrations/amazon_web_services/#installation).
 
 begin
-  #Generate a new external ID
+  # Generate a new external ID
   result = api_instance.create_new_aws_external_id(body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling AWSIntegrationApi->create_new_aws_external_id: #{e}"
+  puts "Error when calling AWSIntegrationApi->create_new_aws_external_id: #{e}"
+end
+```
+
+#### Using the create_new_aws_external_id_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AWSAccountCreateResponse>, Integer, Hash)> create_new_aws_external_id_with_http_info(body)
+
+```ruby
+begin
+  # Generate a new external ID
+  data, status_code, headers = api_instance.create_new_aws_external_id_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AWSAccountCreateResponse>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling AWSIntegrationApi->create_new_aws_external_id_with_http_info: #{e}"
 end
 ```
 
@@ -181,7 +232,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -197,10 +248,9 @@ Delete an AWS integration
 
 Delete a Datadog-AWS integration matching the specified `account_id` and `role_name parameters`.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -219,11 +269,29 @@ api_instance = DatadogAPIClient::V1::AWSIntegrationApi.new
 body = DatadogAPIClient::V1::AWSAccount.new # AWSAccount | AWS request object
 
 begin
-  #Delete an AWS integration
+  # Delete an AWS integration
   result = api_instance.delete_aws_account(body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling AWSIntegrationApi->delete_aws_account: #{e}"
+  puts "Error when calling AWSIntegrationApi->delete_aws_account: #{e}"
+end
+```
+
+#### Using the delete_aws_account_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Object, Integer, Hash)> delete_aws_account_with_http_info(body)
+
+```ruby
+begin
+  # Delete an AWS integration
+  data, status_code, headers = api_instance.delete_aws_account_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Object
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling AWSIntegrationApi->delete_aws_account_with_http_info: #{e}"
 end
 ```
 
@@ -239,7 +307,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -255,10 +323,9 @@ Delete a tag filtering entry
 
 Delete a tag filtering entry.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -277,11 +344,29 @@ api_instance = DatadogAPIClient::V1::AWSIntegrationApi.new
 body = DatadogAPIClient::V1::AWSTagFilterDeleteRequest.new # AWSTagFilterDeleteRequest | Delete a tag filtering entry for a given AWS account and `dd-aws` namespace.
 
 begin
-  #Delete a tag filtering entry
+  # Delete a tag filtering entry
   result = api_instance.delete_aws_tag_filter(body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling AWSIntegrationApi->delete_aws_tag_filter: #{e}"
+  puts "Error when calling AWSIntegrationApi->delete_aws_tag_filter: #{e}"
+end
+```
+
+#### Using the delete_aws_tag_filter_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Object, Integer, Hash)> delete_aws_tag_filter_with_http_info(body)
+
+```ruby
+begin
+  # Delete a tag filtering entry
+  data, status_code, headers = api_instance.delete_aws_tag_filter_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Object
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling AWSIntegrationApi->delete_aws_tag_filter_with_http_info: #{e}"
 end
 ```
 
@@ -297,7 +382,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -313,10 +398,9 @@ List namespace rules
 
 List all namespace rules for a given Datadog-AWS integration. This endpoint takes no arguments.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -334,11 +418,29 @@ end
 api_instance = DatadogAPIClient::V1::AWSIntegrationApi.new
 
 begin
-  #List namespace rules
+  # List namespace rules
   result = api_instance.list_available_aws_namespaces
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling AWSIntegrationApi->list_available_aws_namespaces: #{e}"
+  puts "Error when calling AWSIntegrationApi->list_available_aws_namespaces: #{e}"
+end
+```
+
+#### Using the list_available_aws_namespaces_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Array&lt;String&gt;, Integer, Hash)> list_available_aws_namespaces_with_http_info
+
+```ruby
+begin
+  # List namespace rules
+  data, status_code, headers = api_instance.list_available_aws_namespaces_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Array&lt;String&gt;
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling AWSIntegrationApi->list_available_aws_namespaces_with_http_info: #{e}"
 end
 ```
 
@@ -352,7 +454,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -362,16 +464,15 @@ This endpoint does not need any parameter.
 
 ## list_aws_accounts
 
-> AWSAccountListResponse list_aws_accounts(opts)
+> <AWSAccountListResponse> list_aws_accounts(opts)
 
 List all AWS integrations
 
 List all Datadog-AWS integrations available in your Datadog organization.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -394,11 +495,29 @@ opts = {
 }
 
 begin
-  #List all AWS integrations
+  # List all AWS integrations
   result = api_instance.list_aws_accounts(opts)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling AWSIntegrationApi->list_aws_accounts: #{e}"
+  puts "Error when calling AWSIntegrationApi->list_aws_accounts: #{e}"
+end
+```
+
+#### Using the list_aws_accounts_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AWSAccountListResponse>, Integer, Hash)> list_aws_accounts_with_http_info(opts)
+
+```ruby
+begin
+  # List all AWS integrations
+  data, status_code, headers = api_instance.list_aws_accounts_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AWSAccountListResponse>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling AWSIntegrationApi->list_aws_accounts_with_http_info: #{e}"
 end
 ```
 
@@ -416,7 +535,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -426,16 +545,15 @@ end
 
 ## list_aws_tag_filters
 
-> AWSTagFilterListResponse list_aws_tag_filters(account_id)
+> <AWSTagFilterListResponse> list_aws_tag_filters(account_id)
 
 Get all AWS tag filters
 
 Get all AWS tag filters.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -454,11 +572,29 @@ api_instance = DatadogAPIClient::V1::AWSIntegrationApi.new
 account_id = 'account_id_example' # String | Only return AWS filters that matches this `account_id`.
 
 begin
-  #Get all AWS tag filters
+  # Get all AWS tag filters
   result = api_instance.list_aws_tag_filters(account_id)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling AWSIntegrationApi->list_aws_tag_filters: #{e}"
+  puts "Error when calling AWSIntegrationApi->list_aws_tag_filters: #{e}"
+end
+```
+
+#### Using the list_aws_tag_filters_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AWSTagFilterListResponse>, Integer, Hash)> list_aws_tag_filters_with_http_info(account_id)
+
+```ruby
+begin
+  # Get all AWS tag filters
+  data, status_code, headers = api_instance.list_aws_tag_filters_with_http_info(account_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AWSTagFilterListResponse>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling AWSIntegrationApi->list_aws_tag_filters_with_http_info: #{e}"
 end
 ```
 
@@ -474,7 +610,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -490,10 +626,9 @@ Update an AWS integration
 
 Update a Datadog-Amazon Web Services integration.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -517,11 +652,29 @@ opts = {
 }
 
 begin
-  #Update an AWS integration
+  # Update an AWS integration
   result = api_instance.update_aws_account(body, opts)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling AWSIntegrationApi->update_aws_account: #{e}"
+  puts "Error when calling AWSIntegrationApi->update_aws_account: #{e}"
+end
+```
+
+#### Using the update_aws_account_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Object, Integer, Hash)> update_aws_account_with_http_info(body, opts)
+
+```ruby
+begin
+  # Update an AWS integration
+  data, status_code, headers = api_instance.update_aws_account_with_http_info(body, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Object
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling AWSIntegrationApi->update_aws_account_with_http_info: #{e}"
 end
 ```
 
@@ -540,7 +693,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 

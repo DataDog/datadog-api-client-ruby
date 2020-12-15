@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **api_key** | [**ApiKey**](ApiKey.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

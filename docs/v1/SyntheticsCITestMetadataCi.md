@@ -7,7 +7,7 @@
 | **pipeline** | **String** | Name of the pipeline. | [optional] |
 | **provider** | **String** | Name of the CI provider. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

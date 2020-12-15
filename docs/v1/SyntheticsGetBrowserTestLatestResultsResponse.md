@@ -7,7 +7,7 @@
 | **last_timestamp_fetched** | **Integer** | Timestamp of the latest browser test run. | [optional] |
 | **results** | [**Array&lt;SyntheticsBrowserTestResultShort&gt;**](SyntheticsBrowserTestResultShort.md) | Result of the latest browser test run. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

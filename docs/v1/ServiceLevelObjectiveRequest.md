@@ -17,7 +17,7 @@
 | **thresholds** | [**Array&lt;SLOThreshold&gt;**](SLOThreshold.md) | The thresholds (timeframes and associated targets) for this service level objective object. |  |
 | **type** | [**SLOType**](SLOType.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'
@@ -30,7 +30,7 @@ instance = DatadogAPIClient::V1::ServiceLevelObjectiveRequest.new(
   id: null,
   modified_at: null,
   monitor_ids: null,
-  name: null,
+  name: ,
   query: null,
   tags: [&quot;env:prod&quot;,&quot;app:core&quot;],
   thresholds: [],

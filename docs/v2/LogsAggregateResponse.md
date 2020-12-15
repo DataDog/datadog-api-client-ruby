@@ -7,7 +7,7 @@
 | **data** | [**LogsAggregateResponseData**](LogsAggregateResponseData.md) |  | [optional] |
 | **meta** | [**LogsResponseMetadata**](LogsResponseMetadata.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

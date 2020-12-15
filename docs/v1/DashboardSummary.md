@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **dashboards** | [**Array&lt;DashboardSummaryDashboards&gt;**](DashboardSummaryDashboards.md) | List of dashboard definitions. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

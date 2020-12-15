@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **type** | **String** | The subscription type. Types available are &#x60;trial&#x60;, &#x60;free&#x60;, and &#x60;pro&#x60;. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

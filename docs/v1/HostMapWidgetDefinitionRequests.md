@@ -7,7 +7,7 @@
 | **fill** | [**HostMapRequest**](HostMapRequest.md) |  | [optional] |
 | **size** | [**HostMapRequest**](HostMapRequest.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

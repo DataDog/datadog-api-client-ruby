@@ -10,7 +10,7 @@
 | **last_modified_by_user** | [**RelationshipToUser**](RelationshipToUser.md) |  | [optional] |
 | **postmortem** | [**RelationshipToIncidentPostmortem**](RelationshipToIncidentPostmortem.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

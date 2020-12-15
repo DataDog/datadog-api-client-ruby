@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **metrics** | **Array&lt;String&gt;** | List of metrics that match the search query. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

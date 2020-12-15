@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **_next** | **String** | Link for the next set of results. Note that the request can also be made using the POST endpoint. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

@@ -7,7 +7,7 @@
 | **client_email** | **String** | A client email. |  |
 | **project_id** | **String** | A project ID. |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

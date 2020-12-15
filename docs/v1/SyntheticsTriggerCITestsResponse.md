@@ -8,7 +8,7 @@
 | **results** | [**Array&lt;SyntheticsTriggerCITestsResponseResults&gt;**](SyntheticsTriggerCITestsResponseResults.md) | Information about the tests runs. | [optional] |
 | **triggered_check_ids** | **Array&lt;String&gt;** | The public IDs of the Synthetics test triggered. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

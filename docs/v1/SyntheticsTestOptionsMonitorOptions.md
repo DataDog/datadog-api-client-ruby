@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **renotify_interval** | **Integer** | Time interval before renotifying if the test is still failing (in minutes). | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

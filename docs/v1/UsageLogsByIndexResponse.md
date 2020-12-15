@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **usage** | [**Array&lt;UsageLogsByIndexHour&gt;**](UsageLogsByIndexHour.md) | An array of objects regarding hourly usage of logs by index response. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

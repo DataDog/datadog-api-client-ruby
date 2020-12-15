@@ -13,16 +13,15 @@ All URIs are relative to *https://api.datadoghq.com*
 
 ## create_incident_service
 
-> IncidentServiceResponse create_incident_service(body)
+> <IncidentServiceResponse> create_incident_service(body)
 
 Create a new incident service
 
 Creates a new incident service.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -41,11 +40,29 @@ api_instance = DatadogAPIClient::V2::IncidentServicesApi.new
 body = DatadogAPIClient::V2::IncidentServiceCreateRequest.new # IncidentServiceCreateRequest | Incident Service Payload.
 
 begin
-  #Create a new incident service
+  # Create a new incident service
   result = api_instance.create_incident_service(body)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling IncidentServicesApi->create_incident_service: #{e}"
+  puts "Error when calling IncidentServicesApi->create_incident_service: #{e}"
+end
+```
+
+#### Using the create_incident_service_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<IncidentServiceResponse>, Integer, Hash)> create_incident_service_with_http_info(body)
+
+```ruby
+begin
+  # Create a new incident service
+  data, status_code, headers = api_instance.create_incident_service_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <IncidentServiceResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling IncidentServicesApi->create_incident_service_with_http_info: #{e}"
 end
 ```
 
@@ -61,7 +78,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -77,10 +94,9 @@ Delete an existing incident service
 
 Deletes an existing incident service.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -99,10 +115,28 @@ api_instance = DatadogAPIClient::V2::IncidentServicesApi.new
 service_id = 'service_id_example' # String | The ID of the incident service.
 
 begin
-  #Delete an existing incident service
+  # Delete an existing incident service
   api_instance.delete_incident_service(service_id)
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling IncidentServicesApi->delete_incident_service: #{e}"
+  puts "Error when calling IncidentServicesApi->delete_incident_service: #{e}"
+end
+```
+
+#### Using the delete_incident_service_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> delete_incident_service_with_http_info(service_id)
+
+```ruby
+begin
+  # Delete an existing incident service
+  data, status_code, headers = api_instance.delete_incident_service_with_http_info(service_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling IncidentServicesApi->delete_incident_service_with_http_info: #{e}"
 end
 ```
 
@@ -118,7 +152,7 @@ nil (empty response body)
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -128,16 +162,15 @@ nil (empty response body)
 
 ## get_incident_service
 
-> IncidentServiceResponse get_incident_service(service_id, opts)
+> <IncidentServiceResponse> get_incident_service(service_id, opts)
 
 Get details of an incident service
 
 Get details of an incident service. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident services.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -159,11 +192,29 @@ opts = {
 }
 
 begin
-  #Get details of an incident service
+  # Get details of an incident service
   result = api_instance.get_incident_service(service_id, opts)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling IncidentServicesApi->get_incident_service: #{e}"
+  puts "Error when calling IncidentServicesApi->get_incident_service: #{e}"
+end
+```
+
+#### Using the get_incident_service_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<IncidentServiceResponse>, Integer, Hash)> get_incident_service_with_http_info(service_id, opts)
+
+```ruby
+begin
+  # Get details of an incident service
+  data, status_code, headers = api_instance.get_incident_service_with_http_info(service_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <IncidentServiceResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling IncidentServicesApi->get_incident_service_with_http_info: #{e}"
 end
 ```
 
@@ -180,7 +231,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -190,16 +241,15 @@ end
 
 ## list_incident_services
 
-> IncidentServicesResponse list_incident_services(opts)
+> <IncidentServicesResponse> list_incident_services(opts)
 
 Get a list of all incident services
 
 Get all incident services uploaded for the requesting user's organization. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident services.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -223,11 +273,29 @@ opts = {
 }
 
 begin
-  #Get a list of all incident services
+  # Get a list of all incident services
   result = api_instance.list_incident_services(opts)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling IncidentServicesApi->list_incident_services: #{e}"
+  puts "Error when calling IncidentServicesApi->list_incident_services: #{e}"
+end
+```
+
+#### Using the list_incident_services_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<IncidentServicesResponse>, Integer, Hash)> list_incident_services_with_http_info(opts)
+
+```ruby
+begin
+  # Get a list of all incident services
+  data, status_code, headers = api_instance.list_incident_services_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <IncidentServicesResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling IncidentServicesApi->list_incident_services_with_http_info: #{e}"
 end
 ```
 
@@ -246,7 +314,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -256,16 +324,15 @@ end
 
 ## update_incident_service
 
-> IncidentServiceResponse update_incident_service(service_id, body)
+> <IncidentServiceResponse> update_incident_service(service_id, body)
 
 Update an existing incident service
 
 Updates an existing incident service. Only provide the attributes which should be updated as this request is a partial update.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -285,11 +352,29 @@ service_id = 'service_id_example' # String | The ID of the incident service.
 body = DatadogAPIClient::V2::IncidentServiceUpdateRequest.new # IncidentServiceUpdateRequest | Incident Service Payload.
 
 begin
-  #Update an existing incident service
+  # Update an existing incident service
   result = api_instance.update_incident_service(service_id, body)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling IncidentServicesApi->update_incident_service: #{e}"
+  puts "Error when calling IncidentServicesApi->update_incident_service: #{e}"
+end
+```
+
+#### Using the update_incident_service_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<IncidentServiceResponse>, Integer, Hash)> update_incident_service_with_http_info(service_id, body)
+
+```ruby
+begin
+  # Update an existing incident service
+  data, status_code, headers = api_instance.update_incident_service_with_http_info(service_id, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <IncidentServiceResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling IncidentServicesApi->update_incident_service_with_http_info: #{e}"
 end
 ```
 
@@ -306,7 +391,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 

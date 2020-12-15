@@ -13,16 +13,15 @@ All URIs are relative to *https://api.datadoghq.com*
 
 ## get_logs_index
 
-> LogsIndex get_logs_index(name)
+> <LogsIndex> get_logs_index(name)
 
 Get an index
 
 Get one log index from your organization. This endpoint takes no JSON arguments.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -41,11 +40,29 @@ api_instance = DatadogAPIClient::V1::LogsIndexesApi.new
 name = 'name_example' # String | Name of the log index.
 
 begin
-  #Get an index
+  # Get an index
   result = api_instance.get_logs_index(name)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling LogsIndexesApi->get_logs_index: #{e}"
+  puts "Error when calling LogsIndexesApi->get_logs_index: #{e}"
+end
+```
+
+#### Using the get_logs_index_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<LogsIndex>, Integer, Hash)> get_logs_index_with_http_info(name)
+
+```ruby
+begin
+  # Get an index
+  data, status_code, headers = api_instance.get_logs_index_with_http_info(name)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <LogsIndex>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling LogsIndexesApi->get_logs_index_with_http_info: #{e}"
 end
 ```
 
@@ -61,7 +78,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -71,16 +88,15 @@ end
 
 ## get_logs_index_order
 
-> LogsIndexesOrder get_logs_index_order
+> <LogsIndexesOrder> get_logs_index_order
 
 Get indexes order
 
 Get the current order of your log indexes. This endpoint takes no JSON arguments.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -98,11 +114,29 @@ end
 api_instance = DatadogAPIClient::V1::LogsIndexesApi.new
 
 begin
-  #Get indexes order
+  # Get indexes order
   result = api_instance.get_logs_index_order
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling LogsIndexesApi->get_logs_index_order: #{e}"
+  puts "Error when calling LogsIndexesApi->get_logs_index_order: #{e}"
+end
+```
+
+#### Using the get_logs_index_order_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<LogsIndexesOrder>, Integer, Hash)> get_logs_index_order_with_http_info
+
+```ruby
+begin
+  # Get indexes order
+  data, status_code, headers = api_instance.get_logs_index_order_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <LogsIndexesOrder>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling LogsIndexesApi->get_logs_index_order_with_http_info: #{e}"
 end
 ```
 
@@ -116,7 +150,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -126,16 +160,15 @@ This endpoint does not need any parameter.
 
 ## list_log_indexes
 
-> LogsIndexListResponse list_log_indexes
+> <LogsIndexListResponse> list_log_indexes
 
 Get all indexes
 
 The Index object describes the configuration of a log index. This endpoint returns an array of the `LogIndex` objects of your organization.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -153,11 +186,29 @@ end
 api_instance = DatadogAPIClient::V1::LogsIndexesApi.new
 
 begin
-  #Get all indexes
+  # Get all indexes
   result = api_instance.list_log_indexes
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling LogsIndexesApi->list_log_indexes: #{e}"
+  puts "Error when calling LogsIndexesApi->list_log_indexes: #{e}"
+end
+```
+
+#### Using the list_log_indexes_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<LogsIndexListResponse>, Integer, Hash)> list_log_indexes_with_http_info
+
+```ruby
+begin
+  # Get all indexes
+  data, status_code, headers = api_instance.list_log_indexes_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <LogsIndexListResponse>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling LogsIndexesApi->list_log_indexes_with_http_info: #{e}"
 end
 ```
 
@@ -171,7 +222,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -181,16 +232,15 @@ This endpoint does not need any parameter.
 
 ## update_logs_index
 
-> LogsIndex update_logs_index(name, body)
+> <LogsIndex> update_logs_index(name, body)
 
 Update an index
 
 Update an index as identified by its name. Returns the Index object passed in the request body when the request is successful.  Using the `PUT` method updates your index’s configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -210,11 +260,29 @@ name = 'name_example' # String | Name of the log index.
 body = DatadogAPIClient::V1::LogsIndexUpdateRequest.new # LogsIndexUpdateRequest | Object containing the new `LogsIndexUpdateRequest`.
 
 begin
-  #Update an index
+  # Update an index
   result = api_instance.update_logs_index(name, body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling LogsIndexesApi->update_logs_index: #{e}"
+  puts "Error when calling LogsIndexesApi->update_logs_index: #{e}"
+end
+```
+
+#### Using the update_logs_index_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<LogsIndex>, Integer, Hash)> update_logs_index_with_http_info(name, body)
+
+```ruby
+begin
+  # Update an index
+  data, status_code, headers = api_instance.update_logs_index_with_http_info(name, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <LogsIndex>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling LogsIndexesApi->update_logs_index_with_http_info: #{e}"
 end
 ```
 
@@ -231,7 +299,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -241,16 +309,15 @@ end
 
 ## update_logs_index_order
 
-> LogsIndexesOrder update_logs_index_order(body)
+> <LogsIndexesOrder> update_logs_index_order(body)
 
 Update indexes order
 
 This endpoint updates the index order of your organization. It returns the index order object passed in the request body when the request is successful.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -269,11 +336,29 @@ api_instance = DatadogAPIClient::V1::LogsIndexesApi.new
 body = DatadogAPIClient::V1::LogsIndexesOrder.new # LogsIndexesOrder | Object containing the new ordered list of index names
 
 begin
-  #Update indexes order
+  # Update indexes order
   result = api_instance.update_logs_index_order(body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling LogsIndexesApi->update_logs_index_order: #{e}"
+  puts "Error when calling LogsIndexesApi->update_logs_index_order: #{e}"
+end
+```
+
+#### Using the update_logs_index_order_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<LogsIndexesOrder>, Integer, Hash)> update_logs_index_order_with_http_info(body)
+
+```ruby
+begin
+  # Update indexes order
+  data, status_code, headers = api_instance.update_logs_index_order_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <LogsIndexesOrder>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling LogsIndexesApi->update_logs_index_order_with_http_info: #{e}"
 end
 ```
 
@@ -289,7 +374,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 

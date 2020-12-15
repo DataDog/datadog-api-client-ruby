@@ -11,7 +11,7 @@
 | **template** | **String** | A formula with one or more attributes and raw text. |  |
 | **type** | [**LogsStringBuilderProcessorType**](LogsStringBuilderProcessorType.md) |  | [default to &#39;string-builder-processor&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'
@@ -20,8 +20,8 @@ instance = DatadogAPIClient::V1::LogsStringBuilderProcessor.new(
   is_enabled: null,
   is_replace_missing: null,
   name: null,
-  target: null,
-  template: null,
+  target: ,
+  template: ,
   type: null
 )
 ```

@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **usage** | [**Array&lt;UsageLambdaHour&gt;**](UsageLambdaHour.md) | Get hourly usage for Lambda. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

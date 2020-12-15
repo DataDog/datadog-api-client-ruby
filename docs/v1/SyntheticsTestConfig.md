@@ -8,7 +8,7 @@
 | **request** | [**SyntheticsTestRequest**](SyntheticsTestRequest.md) |  |  |
 | **variables** | [**Array&lt;SyntheticsBrowserVariable&gt;**](SyntheticsBrowserVariable.md) | Array of variables used for the test. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

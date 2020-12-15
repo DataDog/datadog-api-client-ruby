@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **filters** | [**Array&lt;AWSTagFilterListResponseFilters&gt;**](AWSTagFilterListResponseFilters.md) | An array of tag filters. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

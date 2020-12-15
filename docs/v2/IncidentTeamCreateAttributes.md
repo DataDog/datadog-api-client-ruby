@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **name** | **String** | Name of the incident team. |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

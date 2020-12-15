@@ -6,13 +6,13 @@
 | ---- | ---- | ----------- | ----- |
 | **service_key** | **String** | Your service key in PagerDuty. |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::PagerDutyServiceKey.new(
-  service_key: null
+  service_key: 
 )
 ```
 

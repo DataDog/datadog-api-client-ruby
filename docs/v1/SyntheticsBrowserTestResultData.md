@@ -16,7 +16,7 @@
 | **thumbnails_bucket_key** | **Boolean** | Whether or not a thumbnail is associated with the browser test. | [optional] |
 | **time_to_interactive** | **Float** | Time in second to wait before the browser test starts after reaching the start URL. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

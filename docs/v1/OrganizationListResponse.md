@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **orgs** | [**Array&lt;Organization&gt;**](Organization.md) | Array of organization objects. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

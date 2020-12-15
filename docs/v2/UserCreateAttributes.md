@@ -8,7 +8,7 @@
 | **name** | **String** | The name of the user. | [optional] |
 | **title** | **String** | The title of the user. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

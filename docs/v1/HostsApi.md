@@ -12,16 +12,15 @@ All URIs are relative to *https://api.datadoghq.com*
 
 ## get_host_totals
 
-> HostTotals get_host_totals(opts)
+> <HostTotals> get_host_totals(opts)
 
 Get the total number of active hosts
 
 This endpoint returns the total number of active and up hosts in your Datadog account. Active means the host has reported in the past hour, and up means it has reported in the past two hours.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -42,11 +41,29 @@ opts = {
 }
 
 begin
-  #Get the total number of active hosts
+  # Get the total number of active hosts
   result = api_instance.get_host_totals(opts)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling HostsApi->get_host_totals: #{e}"
+  puts "Error when calling HostsApi->get_host_totals: #{e}"
+end
+```
+
+#### Using the get_host_totals_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HostTotals>, Integer, Hash)> get_host_totals_with_http_info(opts)
+
+```ruby
+begin
+  # Get the total number of active hosts
+  data, status_code, headers = api_instance.get_host_totals_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HostTotals>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling HostsApi->get_host_totals_with_http_info: #{e}"
 end
 ```
 
@@ -62,7 +79,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -72,16 +89,15 @@ end
 
 ## list_hosts
 
-> HostListResponse list_hosts(opts)
+> <HostListResponse> list_hosts(opts)
 
 Get all hosts for your organization
 
 This endpoint allows searching for hosts by name, alias, or tag. Hosts live within the past 3 hours are included by default. Retention is 7 days. Results are paginated with a max of 1000 results at a time.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -109,11 +125,29 @@ opts = {
 }
 
 begin
-  #Get all hosts for your organization
+  # Get all hosts for your organization
   result = api_instance.list_hosts(opts)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling HostsApi->list_hosts: #{e}"
+  puts "Error when calling HostsApi->list_hosts: #{e}"
+end
+```
+
+#### Using the list_hosts_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HostListResponse>, Integer, Hash)> list_hosts_with_http_info(opts)
+
+```ruby
+begin
+  # Get all hosts for your organization
+  data, status_code, headers = api_instance.list_hosts_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HostListResponse>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling HostsApi->list_hosts_with_http_info: #{e}"
 end
 ```
 
@@ -136,7 +170,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -146,16 +180,15 @@ end
 
 ## mute_host
 
-> HostMuteResponse mute_host(host_name, body)
+> <HostMuteResponse> mute_host(host_name, body)
 
 Mute a host
 
 Mute a host.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -175,11 +208,29 @@ host_name = 'host_name_example' # String | Name of the host to mute.
 body = DatadogAPIClient::V1::HostMuteSettings.new # HostMuteSettings | Mute a host request body.
 
 begin
-  #Mute a host
+  # Mute a host
   result = api_instance.mute_host(host_name, body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling HostsApi->mute_host: #{e}"
+  puts "Error when calling HostsApi->mute_host: #{e}"
+end
+```
+
+#### Using the mute_host_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HostMuteResponse>, Integer, Hash)> mute_host_with_http_info(host_name, body)
+
+```ruby
+begin
+  # Mute a host
+  data, status_code, headers = api_instance.mute_host_with_http_info(host_name, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HostMuteResponse>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling HostsApi->mute_host_with_http_info: #{e}"
 end
 ```
 
@@ -196,7 +247,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -206,16 +257,15 @@ end
 
 ## unmute_host
 
-> HostMuteResponse unmute_host(host_name)
+> <HostMuteResponse> unmute_host(host_name)
 
 Unmute a host
 
 Unmutes a host. This endpoint takes no JSON arguments.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -234,11 +284,29 @@ api_instance = DatadogAPIClient::V1::HostsApi.new
 host_name = 'host_name_example' # String | Name of the host to unmute.
 
 begin
-  #Unmute a host
+  # Unmute a host
   result = api_instance.unmute_host(host_name)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling HostsApi->unmute_host: #{e}"
+  puts "Error when calling HostsApi->unmute_host: #{e}"
+end
+```
+
+#### Using the unmute_host_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HostMuteResponse>, Integer, Hash)> unmute_host_with_http_info(host_name)
+
+```ruby
+begin
+  # Unmute a host
+  data, status_code, headers = api_instance.unmute_host_with_http_info(host_name)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HostMuteResponse>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling HostsApi->unmute_host_with_http_info: #{e}"
 end
 ```
 
@@ -254,7 +322,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 

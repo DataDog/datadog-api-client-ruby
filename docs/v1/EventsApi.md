@@ -10,16 +10,15 @@ All URIs are relative to *https://api.datadoghq.com*
 
 ## get_event
 
-> EventResponse get_event(event_id)
+> <EventResponse> get_event(event_id)
 
 Get an event
 
 This endpoint allows you to query for event details.  **Note**: If the event you’re querying contains markdown formatting of any kind, you may see characters such as `%`,`\\`,`n` in your output.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -38,11 +37,29 @@ api_instance = DatadogAPIClient::V1::EventsApi.new
 event_id = 56 # Integer | The ID of the event.
 
 begin
-  #Get an event
+  # Get an event
   result = api_instance.get_event(event_id)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling EventsApi->get_event: #{e}"
+  puts "Error when calling EventsApi->get_event: #{e}"
+end
+```
+
+#### Using the get_event_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<EventResponse>, Integer, Hash)> get_event_with_http_info(event_id)
+
+```ruby
+begin
+  # Get an event
+  data, status_code, headers = api_instance.get_event_with_http_info(event_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <EventResponse>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling EventsApi->get_event_with_http_info: #{e}"
 end
 ```
 
@@ -58,7 +75,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -68,16 +85,15 @@ end
 
 ## list_events
 
-> EventListResponse list_events(start, _end, opts)
+> <EventListResponse> list_events(start, _end, opts)
 
 Query the event stream
 
 The event stream can be queried and filtered by time, priority, sources and tags.  **Notes**: - If the event you’re querying contains markdown formatting of any kind, you may see characters such as `%`,`\\`,`n` in your output.  - This endpoint returns a maximum of `1000` most recent results. To return additional results, identify the last timestamp of the last result and set that as the `end` query time to paginate the results.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -103,11 +119,29 @@ opts = {
 }
 
 begin
-  #Query the event stream
+  # Query the event stream
   result = api_instance.list_events(start, _end, opts)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling EventsApi->list_events: #{e}"
+  puts "Error when calling EventsApi->list_events: #{e}"
+end
+```
+
+#### Using the list_events_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<EventListResponse>, Integer, Hash)> list_events_with_http_info(start, _end, opts)
+
+```ruby
+begin
+  # Query the event stream
+  data, status_code, headers = api_instance.list_events_with_http_info(start, _end, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <EventListResponse>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling EventsApi->list_events_with_http_info: #{e}"
 end
 ```
 
@@ -117,7 +151,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **start** | **Integer** | POSIX timestamp. |  |
 | **_end** | **Integer** | POSIX timestamp. |  |
-| **priority** | [**EventPriority**](.md) | Priority of your events, either &#x60;low&#x60; or &#x60;normal&#x60;. | [optional] |
+| **priority** | **EventPriority** | Priority of your events, either &#x60;low&#x60; or &#x60;normal&#x60;. | [optional] |
 | **sources** | **String** | A comma separated string of sources. | [optional] |
 | **tags** | **String** | A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope. | [optional] |
 | **unaggregated** | **Boolean** | Set unaggregated to &#x60;true&#x60; to return all events within the specified [&#x60;start&#x60;,&#x60;end&#x60;] timeframe. Otherwise if an event is aggregated to a parent event with a timestamp outside of the timeframe, it won&#39;t be available in the output. | [optional] |
@@ -128,7 +162,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 

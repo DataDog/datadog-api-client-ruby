@@ -80,7 +80,14 @@ RSpec.configure do |config|
   end
 
   config.around(:example) do |example|
-    VCR.use_cassette(example.metadata[:file_path].delete_prefix("./").chomp('.rb') + "/" + example.metadata[:full_description].gsub(/[^A-Za-z0-9]+/, '_')[0..100], :record_on_error => false) do |cassette|
+    name = example.metadata[:file_path].delete_prefix("./").chomp('.rb') + "/" + example.metadata[:full_description].gsub(/[^A-Za-z0-9]+/, '_')[0..100]
+    VCR.use_cassette(name, :record_on_error => false) do |cassette|
+      if ENV["RECORD"] == "true"
+        # Delete old cassette when recording, so that old interactions are cleaned out
+        # Otherwise it causes issues with the time freezing, as the old interactions recorded_at value never changes,
+        # so cassette.originally_recorded_at never changes. Also cassette files grow forever.
+        File.delete(cassette.file) if File.exist?(cassette.file)
+      end
       Timecop.freeze(use_real_time? ? Time.now : cassette.originally_recorded_at) do
         example.run
       end
@@ -103,8 +110,8 @@ RSpec.configure do |config|
 
   config.example_status_persistence_file_path = 'failed.txt'
 
-# The settings below are suggested to provide a good initial experience
-# with RSpec, but feel free to customize to your heart's content.
+  # The settings below are suggested to provide a good initial experience
+  # with RSpec, but feel free to customize to your heart's content.
 =begin
   # These two settings work together to allow you to limit a spec run
   # to individual examples or groups you care about by tagging them with

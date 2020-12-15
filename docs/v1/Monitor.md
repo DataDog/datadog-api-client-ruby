@@ -20,7 +20,7 @@
 | **tags** | **Array&lt;String&gt;** | Tags associated to your monitor. | [optional] |
 | **type** | [**MonitorType**](MonitorType.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

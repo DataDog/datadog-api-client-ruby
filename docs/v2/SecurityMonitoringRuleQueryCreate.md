@@ -11,7 +11,7 @@
 | **name** | **String** | Name of the query. | [optional] |
 | **query** | **String** | Query to run on logs. |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

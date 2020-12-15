@@ -11,7 +11,7 @@
 | **ou** | **String** | Organizational Unit that issued the certificate. | [optional] |
 | **st** | **String** | State Or Province Name that issued the certificate. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

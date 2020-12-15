@@ -7,7 +7,7 @@
 | **hour** | **Time** | The hour for the usage. | [optional] |
 | **session_count** | **Integer** | Contains the number of RUM Sessions. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

@@ -12,7 +12,7 @@
 | **processors** | [**Array&lt;LogsProcessor&gt;**](LogsProcessor.md) | Ordered list of processors in this pipeline. | [optional] |
 | **type** | **String** | Type of pipeline. | [optional][readonly] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'
@@ -22,7 +22,7 @@ instance = DatadogAPIClient::V1::LogsPipeline.new(
   id: null,
   is_enabled: null,
   is_read_only: null,
-  name: null,
+  name: ,
   processors: null,
   type: pipeline
 )

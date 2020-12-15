@@ -15,16 +15,15 @@ All URIs are relative to *https://api.datadoghq.com*
 
 ## create_logs_pipeline
 
-> LogsPipeline create_logs_pipeline(body)
+> <LogsPipeline> create_logs_pipeline(body)
 
 Create a pipeline
 
 Create a pipeline in your organization.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -43,11 +42,29 @@ api_instance = DatadogAPIClient::V1::LogsPipelinesApi.new
 body = DatadogAPIClient::V1::LogsPipeline.new # LogsPipeline | Definition of the new pipeline.
 
 begin
-  #Create a pipeline
+  # Create a pipeline
   result = api_instance.create_logs_pipeline(body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling LogsPipelinesApi->create_logs_pipeline: #{e}"
+  puts "Error when calling LogsPipelinesApi->create_logs_pipeline: #{e}"
+end
+```
+
+#### Using the create_logs_pipeline_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<LogsPipeline>, Integer, Hash)> create_logs_pipeline_with_http_info(body)
+
+```ruby
+begin
+  # Create a pipeline
+  data, status_code, headers = api_instance.create_logs_pipeline_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <LogsPipeline>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling LogsPipelinesApi->create_logs_pipeline_with_http_info: #{e}"
 end
 ```
 
@@ -63,7 +80,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -79,10 +96,9 @@ Delete a pipeline
 
 Delete a given pipeline from your organization. This endpoint takes no JSON arguments.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -101,10 +117,28 @@ api_instance = DatadogAPIClient::V1::LogsPipelinesApi.new
 pipeline_id = 'pipeline_id_example' # String | ID of the pipeline to delete.
 
 begin
-  #Delete a pipeline
+  # Delete a pipeline
   api_instance.delete_logs_pipeline(pipeline_id)
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling LogsPipelinesApi->delete_logs_pipeline: #{e}"
+  puts "Error when calling LogsPipelinesApi->delete_logs_pipeline: #{e}"
+end
+```
+
+#### Using the delete_logs_pipeline_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> delete_logs_pipeline_with_http_info(pipeline_id)
+
+```ruby
+begin
+  # Delete a pipeline
+  data, status_code, headers = api_instance.delete_logs_pipeline_with_http_info(pipeline_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling LogsPipelinesApi->delete_logs_pipeline_with_http_info: #{e}"
 end
 ```
 
@@ -120,7 +154,7 @@ nil (empty response body)
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -130,16 +164,15 @@ nil (empty response body)
 
 ## get_logs_pipeline
 
-> LogsPipeline get_logs_pipeline(pipeline_id)
+> <LogsPipeline> get_logs_pipeline(pipeline_id)
 
 Get a pipeline
 
 Get a specific pipeline from your organization. This endpoint takes no JSON arguments.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -158,11 +191,29 @@ api_instance = DatadogAPIClient::V1::LogsPipelinesApi.new
 pipeline_id = 'pipeline_id_example' # String | ID of the pipeline to get.
 
 begin
-  #Get a pipeline
+  # Get a pipeline
   result = api_instance.get_logs_pipeline(pipeline_id)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling LogsPipelinesApi->get_logs_pipeline: #{e}"
+  puts "Error when calling LogsPipelinesApi->get_logs_pipeline: #{e}"
+end
+```
+
+#### Using the get_logs_pipeline_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<LogsPipeline>, Integer, Hash)> get_logs_pipeline_with_http_info(pipeline_id)
+
+```ruby
+begin
+  # Get a pipeline
+  data, status_code, headers = api_instance.get_logs_pipeline_with_http_info(pipeline_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <LogsPipeline>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling LogsPipelinesApi->get_logs_pipeline_with_http_info: #{e}"
 end
 ```
 
@@ -178,7 +229,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -188,16 +239,15 @@ end
 
 ## get_logs_pipeline_order
 
-> LogsPipelinesOrder get_logs_pipeline_order
+> <LogsPipelinesOrder> get_logs_pipeline_order
 
 Get pipeline order
 
 Get the current order of your pipelines. This endpoint takes no JSON arguments.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -215,11 +265,29 @@ end
 api_instance = DatadogAPIClient::V1::LogsPipelinesApi.new
 
 begin
-  #Get pipeline order
+  # Get pipeline order
   result = api_instance.get_logs_pipeline_order
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling LogsPipelinesApi->get_logs_pipeline_order: #{e}"
+  puts "Error when calling LogsPipelinesApi->get_logs_pipeline_order: #{e}"
+end
+```
+
+#### Using the get_logs_pipeline_order_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<LogsPipelinesOrder>, Integer, Hash)> get_logs_pipeline_order_with_http_info
+
+```ruby
+begin
+  # Get pipeline order
+  data, status_code, headers = api_instance.get_logs_pipeline_order_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <LogsPipelinesOrder>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling LogsPipelinesApi->get_logs_pipeline_order_with_http_info: #{e}"
 end
 ```
 
@@ -233,7 +301,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -243,16 +311,15 @@ This endpoint does not need any parameter.
 
 ## list_logs_pipelines
 
-> Array&lt;LogsPipeline&gt; list_logs_pipelines
+> <Array<LogsPipeline>> list_logs_pipelines
 
 Get all pipelines
 
 Get all pipelines from your organization. This endpoint takes no JSON arguments.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -270,11 +337,29 @@ end
 api_instance = DatadogAPIClient::V1::LogsPipelinesApi.new
 
 begin
-  #Get all pipelines
+  # Get all pipelines
   result = api_instance.list_logs_pipelines
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling LogsPipelinesApi->list_logs_pipelines: #{e}"
+  puts "Error when calling LogsPipelinesApi->list_logs_pipelines: #{e}"
+end
+```
+
+#### Using the list_logs_pipelines_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<LogsPipeline>>, Integer, Hash)> list_logs_pipelines_with_http_info
+
+```ruby
+begin
+  # Get all pipelines
+  data, status_code, headers = api_instance.list_logs_pipelines_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<LogsPipeline>>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling LogsPipelinesApi->list_logs_pipelines_with_http_info: #{e}"
 end
 ```
 
@@ -288,7 +373,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -298,16 +383,15 @@ This endpoint does not need any parameter.
 
 ## update_logs_pipeline
 
-> LogsPipeline update_logs_pipeline(pipeline_id, body)
+> <LogsPipeline> update_logs_pipeline(pipeline_id, body)
 
 Update a pipeline
 
 Update a given pipeline configuration to change it’s processors or their order.  **Note**: Using this method updates your pipeline configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -327,11 +411,29 @@ pipeline_id = 'pipeline_id_example' # String | ID of the pipeline to delete.
 body = DatadogAPIClient::V1::LogsPipeline.new # LogsPipeline | New definition of the pipeline.
 
 begin
-  #Update a pipeline
+  # Update a pipeline
   result = api_instance.update_logs_pipeline(pipeline_id, body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling LogsPipelinesApi->update_logs_pipeline: #{e}"
+  puts "Error when calling LogsPipelinesApi->update_logs_pipeline: #{e}"
+end
+```
+
+#### Using the update_logs_pipeline_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<LogsPipeline>, Integer, Hash)> update_logs_pipeline_with_http_info(pipeline_id, body)
+
+```ruby
+begin
+  # Update a pipeline
+  data, status_code, headers = api_instance.update_logs_pipeline_with_http_info(pipeline_id, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <LogsPipeline>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling LogsPipelinesApi->update_logs_pipeline_with_http_info: #{e}"
 end
 ```
 
@@ -348,7 +450,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -358,16 +460,15 @@ end
 
 ## update_logs_pipeline_order
 
-> LogsPipelinesOrder update_logs_pipeline_order(body)
+> <LogsPipelinesOrder> update_logs_pipeline_order(body)
 
 Update pipeline order
 
 Update the order of your pipelines. Since logs are processed sequentially, reordering a pipeline may change the structure and content of the data processed by other pipelines and their processors.  **Note**: Using the `PUT` method updates your pipeline order by replacing your current order with the new one sent to your Datadog organization.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -386,11 +487,29 @@ api_instance = DatadogAPIClient::V1::LogsPipelinesApi.new
 body = DatadogAPIClient::V1::LogsPipelinesOrder.new # LogsPipelinesOrder | Object containing the new ordered list of pipeline IDs.
 
 begin
-  #Update pipeline order
+  # Update pipeline order
   result = api_instance.update_logs_pipeline_order(body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling LogsPipelinesApi->update_logs_pipeline_order: #{e}"
+  puts "Error when calling LogsPipelinesApi->update_logs_pipeline_order: #{e}"
+end
+```
+
+#### Using the update_logs_pipeline_order_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<LogsPipelinesOrder>, Integer, Hash)> update_logs_pipeline_order_with_http_info(body)
+
+```ruby
+begin
+  # Update pipeline order
+  data, status_code, headers = api_instance.update_logs_pipeline_order_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <LogsPipelinesOrder>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling LogsPipelinesApi->update_logs_pipeline_order_with_http_info: #{e}"
 end
 ```
 
@@ -406,7 +525,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
