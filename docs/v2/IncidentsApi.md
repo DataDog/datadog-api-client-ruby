@@ -22,22 +22,23 @@ Create an incident.
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V2::IncidentsApi.new
-body = DatadogAPIClient::V2::IncidentCreateRequest.new # IncidentCreateRequest | Incident payload.
+body = DatadogAPIClient::V2::IncidentCreateRequest.new({data: DatadogAPIClient::V2::IncidentCreateData.new({attributes: DatadogAPIClient::V2::IncidentCreateAttributes.new({customer_impacted: false, title: 'A test incident title'}), type: DatadogAPIClient::V2::IncidentType::INCIDENTS})}) # IncidentCreateRequest | Incident payload.
 
 begin
   # Create an incident
@@ -97,18 +98,19 @@ Deletes an existing incident from the users organization.
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V2::IncidentsApi.new
@@ -171,24 +173,25 @@ Get the details of an incident by `incident_id`.
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V2::IncidentsApi.new
 incident_id = 'incident_id_example' # String | The UUID the incident.
 opts = {
-  include: ['include_example'] # Array<String> | Specifies which types of related objects should be included in the response.
+  include: ['users'] # Array<String> | Specifies which types of related objects should be included in the response.
 }
 
 begin
@@ -250,25 +253,26 @@ Get all incidents for the user's organization.
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V2::IncidentsApi.new
 opts = {
-  include: ['include_example'], # Array<String> | Specifies which types of related objects should be included in the response.
-  page_size: 10, # Integer | Size for a given page.
-  page_offset: 0 # Integer | Specific offset to use as the beginning of the returned page.
+  include: ['users'], # Array<String> | Specifies which types of related objects should be included in the response.
+  page_size: 789, # Integer | Size for a given page.
+  page_offset: 789 # Integer | Specific offset to use as the beginning of the returned page.
 }
 
 begin
@@ -331,23 +335,24 @@ Updates an incident. Provide only the attributes that should be updated as this 
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V2::IncidentsApi.new
 incident_id = 'incident_id_example' # String | The UUID the incident.
-body = DatadogAPIClient::V2::IncidentUpdateRequest.new # IncidentUpdateRequest | Incident Payload.
+body = DatadogAPIClient::V2::IncidentUpdateRequest.new({data: DatadogAPIClient::V2::IncidentUpdateData.new({id: '00000000-0000-0000-0000-000000000000', type: DatadogAPIClient::V2::IncidentType::INCIDENTS})}) # IncidentUpdateRequest | Incident Payload.
 
 begin
   # Update an existing incident

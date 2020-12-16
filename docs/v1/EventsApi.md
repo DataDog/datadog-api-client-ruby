@@ -19,22 +19,23 @@ This endpoint allows you to query for event details.  **Note**: If the event you
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::EventsApi.new
-event_id = 56 # Integer | The ID of the event.
+event_id = 789 # Integer | The ID of the event.
 
 begin
   # Get an event
@@ -94,25 +95,26 @@ The event stream can be queried and filtered by time, priority, sources and tags
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::EventsApi.new
-start = 56 # Integer | POSIX timestamp.
-_end = 56 # Integer | POSIX timestamp.
+start = 789 # Integer | POSIX timestamp.
+_end = 789 # Integer | POSIX timestamp.
 opts = {
-  priority: DatadogAPIClient::V1::EventPriority.new, # EventPriority | Priority of your events, either `low` or `normal`.
+  priority: DatadogAPIClient::V1::EventPriority::NORMAL, # EventPriority | Priority of your events, either `low` or `normal`.
   sources: 'sources_example', # String | A comma separated string of sources.
   tags: 'host:host0', # String | A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope.
   unaggregated: true # Boolean | Set unaggregated to `true` to return all events within the specified [`start`,`end`] timeframe. Otherwise if an event is aggregated to a parent event with a timestamp outside of the timeframe, it won't be available in the output.

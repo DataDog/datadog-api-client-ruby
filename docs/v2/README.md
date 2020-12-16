@@ -71,7 +71,7 @@ DatadogAPIClient::V2.configure do |config|
 end
 
 api_instance = DatadogAPIClient::V2::DashboardListsApi.new
-dashboard_list_id = 56 # Integer | ID of the dashboard list to add items to.
+dashboard_list_id = 789 # Integer | ID of the dashboard list to add items to.
 body = DatadogAPIClient::V2::DashboardListAddItemsRequest.new # DashboardListAddItemsRequest | Dashboards to add to the dashboard list.
 
 begin

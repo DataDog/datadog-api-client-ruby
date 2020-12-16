@@ -22,22 +22,23 @@ Creates a new incident team.
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V2::IncidentTeamsApi.new
-body = DatadogAPIClient::V2::IncidentTeamCreateRequest.new # IncidentTeamCreateRequest | Incident Team Payload.
+body = DatadogAPIClient::V2::IncidentTeamCreateRequest.new({data: DatadogAPIClient::V2::IncidentTeamCreateData.new({type: DatadogAPIClient::V2::IncidentTeamType::TEAMS})}) # IncidentTeamCreateRequest | Incident Team Payload.
 
 begin
   # Create a new incident team
@@ -97,18 +98,19 @@ Deletes an existing incident team.
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V2::IncidentTeamsApi.new
@@ -171,24 +173,25 @@ Get details of an incident team. If the `include[users]` query parameter is prov
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V2::IncidentTeamsApi.new
 team_id = 'team_id_example' # String | The ID of the incident team.
 opts = {
-  include: 'include_example' # String | Specifies which types of related objects should be included in the response.
+  include: 'users' # String | Specifies which types of related objects should be included in the response.
 }
 
 begin
@@ -250,25 +253,26 @@ Get all incident teams for the requesting user's organization. If the `include[u
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V2::IncidentTeamsApi.new
 opts = {
-  include: 'include_example', # String | Specifies which types of related objects should be included in the response.
-  page_size: 10, # Integer | Size for a given page.
-  page_offset: 0, # Integer | Specific offset to use as the beginning of the returned page.
+  include: 'users', # String | Specifies which types of related objects should be included in the response.
+  page_size: 789, # Integer | Size for a given page.
+  page_offset: 789, # Integer | Specific offset to use as the beginning of the returned page.
   filter: 'ExampleTeamName' # String | A search query that filters teams by name.
 }
 
@@ -333,23 +337,24 @@ Updates an existing incident team. Only provide the attributes which should be u
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V2::IncidentTeamsApi.new
 team_id = 'team_id_example' # String | The ID of the incident team.
-body = DatadogAPIClient::V2::IncidentTeamUpdateRequest.new # IncidentTeamUpdateRequest | Incident Team Payload.
+body = DatadogAPIClient::V2::IncidentTeamUpdateRequest.new({data: DatadogAPIClient::V2::IncidentTeamUpdateData.new({id: '00000000-0000-0000-0000-000000000000', type: DatadogAPIClient::V2::IncidentTeamType::TEAMS})}) # IncidentTeamUpdateRequest | Incident Team Payload.
 
 begin
   # Update an existing incident team

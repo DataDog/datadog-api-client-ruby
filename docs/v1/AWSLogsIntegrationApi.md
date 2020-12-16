@@ -24,22 +24,23 @@ Test if permissions are present to add a log-forwarding triggers for the given s
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::AWSLogsIntegrationApi.new
-body = DatadogAPIClient::V1::AWSAccountAndLambdaRequest.new # AWSAccountAndLambdaRequest | Check AWS Log Lambda Async request body.
+body = DatadogAPIClient::V1::AWSAccountAndLambdaRequest.new({account_id: '1234567', lambda_arn: 'arn:aws:lambda:us-east-1:1234567:function:LogsCollectionAPITest'}) # AWSAccountAndLambdaRequest | Check AWS Log Lambda Async request body.
 
 begin
   # Check that an AWS Lambda Function exists
@@ -99,22 +100,23 @@ Test if permissions are present to add log-forwarding triggers for the given ser
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::AWSLogsIntegrationApi.new
-body = DatadogAPIClient::V1::AWSLogsServicesRequest.new # AWSLogsServicesRequest | Check AWS Logs Async Services request body.
+body = DatadogAPIClient::V1::AWSLogsServicesRequest.new({account_id: '1234567', services: ['services_example']}) # AWSLogsServicesRequest | Check AWS Logs Async Services request body.
 
 begin
   # Check permissions for log services
@@ -174,22 +176,23 @@ Attach the Lambda ARN of the Lambda created for the Datadog-AWS log collection t
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::AWSLogsIntegrationApi.new
-body = DatadogAPIClient::V1::AWSAccountAndLambdaRequest.new # AWSAccountAndLambdaRequest | AWS Log Lambda Async request body.
+body = DatadogAPIClient::V1::AWSAccountAndLambdaRequest.new({account_id: '1234567', lambda_arn: 'arn:aws:lambda:us-east-1:1234567:function:LogsCollectionAPITest'}) # AWSAccountAndLambdaRequest | AWS Log Lambda Async request body.
 
 begin
   # Add AWS Log Lambda ARN
@@ -249,22 +252,23 @@ Delete a Datadog-AWS logs configuration by removing the specific Lambda ARN asso
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::AWSLogsIntegrationApi.new
-body = DatadogAPIClient::V1::AWSAccountAndLambdaRequest.new # AWSAccountAndLambdaRequest | Delete AWS Lambda ARN request body.
+body = DatadogAPIClient::V1::AWSAccountAndLambdaRequest.new({account_id: '1234567', lambda_arn: 'arn:aws:lambda:us-east-1:1234567:function:LogsCollectionAPITest'}) # AWSAccountAndLambdaRequest | Delete AWS Lambda ARN request body.
 
 begin
   # Delete an AWS Logs integration
@@ -324,22 +328,23 @@ Enable automatic log collection for a list of services. This should be run after
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::AWSLogsIntegrationApi.new
-body = DatadogAPIClient::V1::AWSLogsServicesRequest.new # AWSLogsServicesRequest | Enable AWS Log Services request body.
+body = DatadogAPIClient::V1::AWSLogsServicesRequest.new({account_id: '1234567', services: ['services_example']}) # AWSLogsServicesRequest | Enable AWS Log Services request body.
 
 begin
   # Enable an AWS Logs integration
@@ -399,18 +404,19 @@ List all Datadog-AWS Logs integrations configured in your Datadog account.
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::AWSLogsIntegrationApi.new
@@ -471,18 +477,19 @@ Get the list of current AWS services that Datadog offers automatic log collectio
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::AWSLogsIntegrationApi.new
