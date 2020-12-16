@@ -7,7 +7,7 @@
 | **id** | **String** | Fingerprint for the encryption key. | [optional] |
 | **key** | **String** | Public key for result encryption. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

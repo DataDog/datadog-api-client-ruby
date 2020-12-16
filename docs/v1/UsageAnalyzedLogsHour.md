@@ -7,7 +7,7 @@
 | **analyzed_logs** | **Integer** | Contains the number of analyzed logs. | [optional] |
 | **hour** | **Time** | The hour for the usage. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

@@ -8,7 +8,7 @@
 | **id** | **String** | Process ID. | [optional] |
 | **type** | [**ProcessSummaryType**](ProcessSummaryType.md) |  | [optional][default to &#39;process&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

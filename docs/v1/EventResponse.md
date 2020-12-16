@@ -7,7 +7,7 @@
 | **event** | [**Event**](Event.md) |  | [optional] |
 | **status** | **String** | A status. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

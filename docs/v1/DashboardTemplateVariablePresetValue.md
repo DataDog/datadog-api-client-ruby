@@ -7,7 +7,7 @@
 | **name** | **String** | The name of the variable. | [optional] |
 | **value** | **String** | The value of the template variable within the saved view. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

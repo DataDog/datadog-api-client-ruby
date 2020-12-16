@@ -19,7 +19,7 @@
 | **tags_by_source** | **Hash&lt;String, Array&lt;String&gt;&gt;** | List of tags for each source (AWS, Datadog Agent, Chef..). | [optional] |
 | **up** | **Boolean** | Displays UP when the expected metrics are received and displays &#x60;???&#x60; if no metrics are received. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

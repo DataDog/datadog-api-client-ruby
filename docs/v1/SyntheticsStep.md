@@ -10,7 +10,7 @@
 | **timeout** | **Float** | The time before declaring a step failed. | [optional] |
 | **type** | [**SyntheticsStepType**](SyntheticsStepType.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

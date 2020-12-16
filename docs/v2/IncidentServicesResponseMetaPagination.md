@@ -8,7 +8,7 @@
 | **offset** | **Integer** | The index of the first element in the results. | [optional] |
 | **size** | **Integer** | Maximum size of pages to return. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

@@ -7,7 +7,7 @@
 | **recovery_window** | **String** | Describes how long an anomalous metric must be normal before the alert recovers. | [optional] |
 | **trigger_window** | **String** | Describes how long a metric must be anomalous before an alert triggers. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

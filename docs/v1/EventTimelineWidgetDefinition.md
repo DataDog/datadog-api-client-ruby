@@ -12,13 +12,13 @@
 | **title_size** | **String** | Size of the title. | [optional] |
 | **type** | [**EventTimelineWidgetDefinitionType**](EventTimelineWidgetDefinitionType.md) |  | [default to &#39;event_timeline&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::EventTimelineWidgetDefinition.new(
-  query: null,
+  query: ,
   tags_execution: null,
   time: null,
   title: null,

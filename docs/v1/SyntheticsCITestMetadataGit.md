@@ -7,7 +7,7 @@
 | **branch** | **String** | Branch name. | [optional] |
 | **commit_sha** | **String** | Commit SHA. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

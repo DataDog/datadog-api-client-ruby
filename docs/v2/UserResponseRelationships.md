@@ -9,7 +9,7 @@
 | **other_users** | [**RelationshipToUsers**](RelationshipToUsers.md) |  | [optional] |
 | **roles** | [**RelationshipToRoles**](RelationshipToRoles.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

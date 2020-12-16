@@ -9,7 +9,7 @@
 | **time** | **String** | Timestamp for the widget. | [optional] |
 | **value** | **String** | Value to apply. Can be a single value y &#x3D; 15 or a range of values 0 &lt; y &lt; 10. |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

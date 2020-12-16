@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **pagination** | [**IncidentServicesResponseMetaPagination**](IncidentServicesResponseMetaPagination.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

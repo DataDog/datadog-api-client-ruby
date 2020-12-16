@@ -13,16 +13,15 @@ All URIs are relative to *https://api.datadoghq.com*
 
 ## create_incident_team
 
-> IncidentTeamResponse create_incident_team(body)
+> <IncidentTeamResponse> create_incident_team(body)
 
 Create a new incident team
 
 Creates a new incident team.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -41,11 +40,29 @@ api_instance = DatadogAPIClient::V2::IncidentTeamsApi.new
 body = DatadogAPIClient::V2::IncidentTeamCreateRequest.new # IncidentTeamCreateRequest | Incident Team Payload.
 
 begin
-  #Create a new incident team
+  # Create a new incident team
   result = api_instance.create_incident_team(body)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling IncidentTeamsApi->create_incident_team: #{e}"
+  puts "Error when calling IncidentTeamsApi->create_incident_team: #{e}"
+end
+```
+
+#### Using the create_incident_team_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<IncidentTeamResponse>, Integer, Hash)> create_incident_team_with_http_info(body)
+
+```ruby
+begin
+  # Create a new incident team
+  data, status_code, headers = api_instance.create_incident_team_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <IncidentTeamResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling IncidentTeamsApi->create_incident_team_with_http_info: #{e}"
 end
 ```
 
@@ -61,7 +78,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -77,10 +94,9 @@ Delete an existing incident team
 
 Deletes an existing incident team.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -99,10 +115,28 @@ api_instance = DatadogAPIClient::V2::IncidentTeamsApi.new
 team_id = 'team_id_example' # String | The ID of the incident team.
 
 begin
-  #Delete an existing incident team
+  # Delete an existing incident team
   api_instance.delete_incident_team(team_id)
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling IncidentTeamsApi->delete_incident_team: #{e}"
+  puts "Error when calling IncidentTeamsApi->delete_incident_team: #{e}"
+end
+```
+
+#### Using the delete_incident_team_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> delete_incident_team_with_http_info(team_id)
+
+```ruby
+begin
+  # Delete an existing incident team
+  data, status_code, headers = api_instance.delete_incident_team_with_http_info(team_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling IncidentTeamsApi->delete_incident_team_with_http_info: #{e}"
 end
 ```
 
@@ -118,7 +152,7 @@ nil (empty response body)
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -128,16 +162,15 @@ nil (empty response body)
 
 ## get_incident_team
 
-> IncidentTeamResponse get_incident_team(team_id, opts)
+> <IncidentTeamResponse> get_incident_team(team_id, opts)
 
 Get details of an incident team
 
 Get details of an incident team. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident teams.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -159,11 +192,29 @@ opts = {
 }
 
 begin
-  #Get details of an incident team
+  # Get details of an incident team
   result = api_instance.get_incident_team(team_id, opts)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling IncidentTeamsApi->get_incident_team: #{e}"
+  puts "Error when calling IncidentTeamsApi->get_incident_team: #{e}"
+end
+```
+
+#### Using the get_incident_team_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<IncidentTeamResponse>, Integer, Hash)> get_incident_team_with_http_info(team_id, opts)
+
+```ruby
+begin
+  # Get details of an incident team
+  data, status_code, headers = api_instance.get_incident_team_with_http_info(team_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <IncidentTeamResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling IncidentTeamsApi->get_incident_team_with_http_info: #{e}"
 end
 ```
 
@@ -180,7 +231,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -190,16 +241,15 @@ end
 
 ## list_incident_teams
 
-> IncidentTeamsResponse list_incident_teams(opts)
+> <IncidentTeamsResponse> list_incident_teams(opts)
 
 Get a list of all incident teams
 
 Get all incident teams for the requesting user's organization. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident teams.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -223,11 +273,29 @@ opts = {
 }
 
 begin
-  #Get a list of all incident teams
+  # Get a list of all incident teams
   result = api_instance.list_incident_teams(opts)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling IncidentTeamsApi->list_incident_teams: #{e}"
+  puts "Error when calling IncidentTeamsApi->list_incident_teams: #{e}"
+end
+```
+
+#### Using the list_incident_teams_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<IncidentTeamsResponse>, Integer, Hash)> list_incident_teams_with_http_info(opts)
+
+```ruby
+begin
+  # Get a list of all incident teams
+  data, status_code, headers = api_instance.list_incident_teams_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <IncidentTeamsResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling IncidentTeamsApi->list_incident_teams_with_http_info: #{e}"
 end
 ```
 
@@ -246,7 +314,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -256,16 +324,15 @@ end
 
 ## update_incident_team
 
-> IncidentTeamResponse update_incident_team(team_id, body)
+> <IncidentTeamResponse> update_incident_team(team_id, body)
 
 Update an existing incident team
 
 Updates an existing incident team. Only provide the attributes which should be updated as this request is a partial update.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -285,11 +352,29 @@ team_id = 'team_id_example' # String | The ID of the incident team.
 body = DatadogAPIClient::V2::IncidentTeamUpdateRequest.new # IncidentTeamUpdateRequest | Incident Team Payload.
 
 begin
-  #Update an existing incident team
+  # Update an existing incident team
   result = api_instance.update_incident_team(team_id, body)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling IncidentTeamsApi->update_incident_team: #{e}"
+  puts "Error when calling IncidentTeamsApi->update_incident_team: #{e}"
+end
+```
+
+#### Using the update_incident_team_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<IncidentTeamResponse>, Integer, Hash)> update_incident_team_with_http_info(team_id, body)
+
+```ruby
+begin
+  # Update an existing incident team
+  data, status_code, headers = api_instance.update_incident_team_with_http_info(team_id, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <IncidentTeamResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling IncidentTeamsApi->update_incident_team_with_http_info: #{e}"
 end
 ```
 
@@ -306,7 +391,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 

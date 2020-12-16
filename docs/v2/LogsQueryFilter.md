@@ -9,7 +9,7 @@
 | **query** | **String** | The search query - following the log search syntax. | [optional][default to &#39;*&#39;] |
 | **to** | **String** | The maximum time for the requested logs, supports date math and regular timestamps | [optional][default to &#39;now&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

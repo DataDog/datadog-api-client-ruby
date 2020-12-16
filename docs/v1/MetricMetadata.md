@@ -12,7 +12,7 @@
 | **type** | **String** | Metric type such as &#x60;gauge&#x60; or &#x60;rate&#x60;. | [optional] |
 | **unit** | **String** | Primary unit of the metric such as &#x60;byte&#x60; or &#x60;operation&#x60;. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

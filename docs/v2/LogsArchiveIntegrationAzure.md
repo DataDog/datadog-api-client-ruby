@@ -7,7 +7,7 @@
 | **client_id** | **String** | A client ID. |  |
 | **tenant_id** | **String** | A tenant ID. |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

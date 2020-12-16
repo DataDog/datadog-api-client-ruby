@@ -18,7 +18,7 @@
 | **title_size** | **String** | Size of the title. | [optional] |
 | **type** | [**LogStreamWidgetDefinitionType**](LogStreamWidgetDefinitionType.md) |  | [default to &#39;log_stream&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

@@ -7,7 +7,7 @@
 | **code** | **String** | Code properties | [optional] |
 | **message** | **String** | Message content. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

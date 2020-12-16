@@ -10,7 +10,7 @@
 | **scale_factor** | **Float** | Factor for scaling between units of the same family. | [optional][readonly] |
 | **short_name** | **String** | Abbreviation of the unit. | [optional][readonly] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

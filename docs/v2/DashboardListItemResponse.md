@@ -7,7 +7,7 @@
 | **id** | **String** | ID of the dashboard. | [readonly] |
 | **type** | [**DashboardType**](DashboardType.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

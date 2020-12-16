@@ -15,13 +15,13 @@
 | **title_size** | **String** | Size of the title. | [optional] |
 | **type** | [**CheckStatusWidgetDefinitionType**](CheckStatusWidgetDefinitionType.md) |  | [default to &#39;check_status&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::CheckStatusWidgetDefinition.new(
-  check: null,
+  check: ,
   group: null,
   group_by: null,
   grouping: null,

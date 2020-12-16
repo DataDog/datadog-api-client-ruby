@@ -8,7 +8,7 @@
 | **operator** | **String** | The specific operator to use on the path. | [optional] |
 | **target_value** | **Object** | The path target value to compare to. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

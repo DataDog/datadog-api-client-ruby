@@ -8,7 +8,7 @@
 | **max** | **Float** | The maximum value for the measure used in the histogram (values greater than this one are filtered out) |  |
 | **min** | **Float** | The minimum value for the measure used in the histogram (values smaller than this one are filtered out) |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

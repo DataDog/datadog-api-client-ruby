@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **data** | [**Array&lt;RelationshipToPermissionData&gt;**](RelationshipToPermissionData.md) | Relationships to permission objects. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

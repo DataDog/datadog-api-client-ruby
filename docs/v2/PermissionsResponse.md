@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **data** | [**Array&lt;Permission&gt;**](Permission.md) | Array of permissions. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

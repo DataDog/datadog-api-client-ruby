@@ -9,7 +9,7 @@
 | **metric_category** | [**UsageMetricCategory**](UsageMetricCategory.md) |  | [optional] |
 | **metric_name** | **String** | Contains the custom metric name. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

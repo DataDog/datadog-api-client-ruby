@@ -10,7 +10,7 @@
 | **target** | **String** | Name of the parent attribute that contains all the extracted details from the &#x60;sources&#x60;. | [default to &#39;network.client.geoip&#39;] |
 | **type** | [**LogsGeoIPParserType**](LogsGeoIPParserType.md) |  | [default to &#39;geo-ip-parser&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

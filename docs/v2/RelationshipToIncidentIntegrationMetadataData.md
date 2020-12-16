@@ -7,7 +7,7 @@
 | **id** | **String** | A unique identifier that represents the integration metadata. |  |
 | **type** | [**IncidentIntegrationMetadataType**](IncidentIntegrationMetadataType.md) |  | [default to &#39;incident_integration_metadata&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

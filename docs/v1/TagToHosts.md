@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **tags** | **Hash&lt;String, Array&lt;String&gt;&gt;** | A list of tags to apply to the host. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

@@ -12,7 +12,7 @@
 | **tags** | **Array&lt;String&gt;** | Array of tags associated with your log. | [optional] |
 | **timestamp** | **Time** | Timestamp of your log. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

@@ -10,7 +10,7 @@
 | **status** | [**LogsAggregateResponseStatus**](LogsAggregateResponseStatus.md) |  | [optional] |
 | **warnings** | [**Array&lt;LogsWarning&gt;**](LogsWarning.md) | A list of warnings (non fatal errors) encountered, partial results might be returned if warnings are present in the response. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

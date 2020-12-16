@@ -8,7 +8,7 @@
 | **private_location** | [**SyntheticsPrivateLocation**](SyntheticsPrivateLocation.md) |  | [optional] |
 | **result_encryption** | [**SyntheticsPrivateLocationCreationResponseResultEncryption**](SyntheticsPrivateLocationCreationResponseResultEncryption.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

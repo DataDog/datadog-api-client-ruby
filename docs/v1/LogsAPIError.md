@@ -8,7 +8,7 @@
 | **details** | [**Array&lt;LogsAPIError&gt;**](LogsAPIError.md) | Additional error details | [optional] |
 | **message** | **String** | Error message | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

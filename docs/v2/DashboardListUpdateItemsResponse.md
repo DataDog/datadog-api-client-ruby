@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **dashboards** | [**Array&lt;DashboardListItemResponse&gt;**](DashboardListItemResponse.md) | List of dashboards in the dashboard list. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

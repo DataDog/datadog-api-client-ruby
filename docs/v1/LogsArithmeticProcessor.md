@@ -11,17 +11,17 @@
 | **target** | **String** | Name of the attribute that contains the result of the arithmetic operation. |  |
 | **type** | [**LogsArithmeticProcessorType**](LogsArithmeticProcessorType.md) |  | [default to &#39;arithmetic-processor&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::LogsArithmeticProcessor.new(
-  expression: null,
+  expression: ,
   is_enabled: null,
   is_replace_missing: null,
   name: null,
-  target: null,
+  target: ,
   type: null
 )
 ```

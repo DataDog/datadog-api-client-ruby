@@ -15,7 +15,7 @@
 | **response_size** | **Integer** | Global size in byte of the API test response. | [optional] |
 | **timings** | [**SyntheticsTiming**](SyntheticsTiming.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

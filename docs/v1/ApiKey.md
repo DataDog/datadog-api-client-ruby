@@ -9,7 +9,7 @@
 | **key** | **String** | API key. | [optional][readonly] |
 | **name** | **String** | Name of your API key. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

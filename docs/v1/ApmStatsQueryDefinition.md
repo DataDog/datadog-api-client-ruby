@@ -12,7 +12,7 @@
 | **row_type** | [**ApmStatsQueryRowType**](ApmStatsQueryRowType.md) |  |  |
 | **service** | **String** | Service name. |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

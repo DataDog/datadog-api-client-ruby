@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **valid** | **Boolean** | Return &#x60;true&#x60; if the authentication response is valid. | [optional][readonly] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

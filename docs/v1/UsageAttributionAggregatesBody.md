@@ -8,7 +8,7 @@
 | **field** | **String** | The field. | [optional] |
 | **value** | **Float** | The value for a given field. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

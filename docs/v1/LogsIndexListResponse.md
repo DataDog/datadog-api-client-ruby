@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **indexes** | [**Array&lt;LogsIndex&gt;**](LogsIndex.md) | Array of Log index configurations. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

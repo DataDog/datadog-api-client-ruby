@@ -11,7 +11,7 @@
 | **rehydration_tags** | **Array&lt;String&gt;** | An array of tags to add to rehydrated logs from an archive. | [optional] |
 | **state** | [**LogsArchiveState**](LogsArchiveState.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

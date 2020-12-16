@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **data** | [**Array&lt;RelationshipToIncidentIntegrationMetadataData&gt;**](RelationshipToIncidentIntegrationMetadataData.md) | The integration metadata relationship array |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

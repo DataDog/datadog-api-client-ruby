@@ -8,7 +8,7 @@
 | **limit** | **Integer** | Maximum number of items in the group. | [optional] |
 | **sort** | [**LogQueryDefinitionSort**](LogQueryDefinitionSort.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

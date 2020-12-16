@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **usage** | [**Array&lt;UsageProfilingHour&gt;**](UsageProfilingHour.md) | Get hourly usage for profiled hosts. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

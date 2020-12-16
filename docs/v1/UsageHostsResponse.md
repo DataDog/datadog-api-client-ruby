@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **usage** | [**Array&lt;UsageHostHour&gt;**](UsageHostHour.md) | An array of objects related to host usage. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

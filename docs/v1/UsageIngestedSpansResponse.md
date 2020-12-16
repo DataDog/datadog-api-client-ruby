@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **usage** | [**Array&lt;UsageIngestedSpansHour&gt;**](UsageIngestedSpansHour.md) | Get hourly usage for ingested spans. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

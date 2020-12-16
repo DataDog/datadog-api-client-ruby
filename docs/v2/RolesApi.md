@@ -20,16 +20,15 @@ All URIs are relative to *https://api.datadoghq.com*
 
 ## add_permission_to_role
 
-> PermissionsResponse add_permission_to_role(role_id, body)
+> <PermissionsResponse> add_permission_to_role(role_id, body)
 
 Grant permission to a role
 
 Adds a permission to a role.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -49,11 +48,29 @@ role_id = 'role_id_example' # String | The ID of the role.
 body = DatadogAPIClient::V2::RelationshipToPermission.new # RelationshipToPermission | 
 
 begin
-  #Grant permission to a role
+  # Grant permission to a role
   result = api_instance.add_permission_to_role(role_id, body)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling RolesApi->add_permission_to_role: #{e}"
+  puts "Error when calling RolesApi->add_permission_to_role: #{e}"
+end
+```
+
+#### Using the add_permission_to_role_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PermissionsResponse>, Integer, Hash)> add_permission_to_role_with_http_info(role_id, body)
+
+```ruby
+begin
+  # Grant permission to a role
+  data, status_code, headers = api_instance.add_permission_to_role_with_http_info(role_id, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PermissionsResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling RolesApi->add_permission_to_role_with_http_info: #{e}"
 end
 ```
 
@@ -70,7 +87,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -80,16 +97,15 @@ end
 
 ## add_user_to_role
 
-> UsersResponse add_user_to_role(role_id, body)
+> <UsersResponse> add_user_to_role(role_id, body)
 
 Add a user to a role
 
 Adds a user to a role.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -109,11 +125,29 @@ role_id = 'role_id_example' # String | The ID of the role.
 body = DatadogAPIClient::V2::RelationshipToUser.new # RelationshipToUser | 
 
 begin
-  #Add a user to a role
+  # Add a user to a role
   result = api_instance.add_user_to_role(role_id, body)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling RolesApi->add_user_to_role: #{e}"
+  puts "Error when calling RolesApi->add_user_to_role: #{e}"
+end
+```
+
+#### Using the add_user_to_role_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<UsersResponse>, Integer, Hash)> add_user_to_role_with_http_info(role_id, body)
+
+```ruby
+begin
+  # Add a user to a role
+  data, status_code, headers = api_instance.add_user_to_role_with_http_info(role_id, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <UsersResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling RolesApi->add_user_to_role_with_http_info: #{e}"
 end
 ```
 
@@ -130,7 +164,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -140,16 +174,15 @@ end
 
 ## create_role
 
-> RoleCreateResponse create_role(body)
+> <RoleCreateResponse> create_role(body)
 
 Create role
 
 Create a new role for your organization.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -168,11 +201,29 @@ api_instance = DatadogAPIClient::V2::RolesApi.new
 body = DatadogAPIClient::V2::RoleCreateRequest.new # RoleCreateRequest | 
 
 begin
-  #Create role
+  # Create role
   result = api_instance.create_role(body)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling RolesApi->create_role: #{e}"
+  puts "Error when calling RolesApi->create_role: #{e}"
+end
+```
+
+#### Using the create_role_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RoleCreateResponse>, Integer, Hash)> create_role_with_http_info(body)
+
+```ruby
+begin
+  # Create role
+  data, status_code, headers = api_instance.create_role_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RoleCreateResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling RolesApi->create_role_with_http_info: #{e}"
 end
 ```
 
@@ -188,7 +239,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -204,10 +255,9 @@ Delete role
 
 Disables a role.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -226,10 +276,28 @@ api_instance = DatadogAPIClient::V2::RolesApi.new
 role_id = 'role_id_example' # String | The ID of the role.
 
 begin
-  #Delete role
+  # Delete role
   api_instance.delete_role(role_id)
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling RolesApi->delete_role: #{e}"
+  puts "Error when calling RolesApi->delete_role: #{e}"
+end
+```
+
+#### Using the delete_role_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> delete_role_with_http_info(role_id)
+
+```ruby
+begin
+  # Delete role
+  data, status_code, headers = api_instance.delete_role_with_http_info(role_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling RolesApi->delete_role_with_http_info: #{e}"
 end
 ```
 
@@ -245,7 +313,7 @@ nil (empty response body)
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -255,16 +323,15 @@ nil (empty response body)
 
 ## get_role
 
-> RoleResponse get_role(role_id)
+> <RoleResponse> get_role(role_id)
 
 Get a role
 
 Get a role in the organization specified by the role’s `role_id`.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -283,11 +350,29 @@ api_instance = DatadogAPIClient::V2::RolesApi.new
 role_id = 'role_id_example' # String | The ID of the role.
 
 begin
-  #Get a role
+  # Get a role
   result = api_instance.get_role(role_id)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling RolesApi->get_role: #{e}"
+  puts "Error when calling RolesApi->get_role: #{e}"
+end
+```
+
+#### Using the get_role_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RoleResponse>, Integer, Hash)> get_role_with_http_info(role_id)
+
+```ruby
+begin
+  # Get a role
+  data, status_code, headers = api_instance.get_role_with_http_info(role_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RoleResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling RolesApi->get_role_with_http_info: #{e}"
 end
 ```
 
@@ -303,7 +388,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -313,16 +398,15 @@ end
 
 ## list_permissions
 
-> PermissionsResponse list_permissions
+> <PermissionsResponse> list_permissions
 
 List permissions
 
 Returns a list of all permissions, including name, description, and ID.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -340,11 +424,29 @@ end
 api_instance = DatadogAPIClient::V2::RolesApi.new
 
 begin
-  #List permissions
+  # List permissions
   result = api_instance.list_permissions
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling RolesApi->list_permissions: #{e}"
+  puts "Error when calling RolesApi->list_permissions: #{e}"
+end
+```
+
+#### Using the list_permissions_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PermissionsResponse>, Integer, Hash)> list_permissions_with_http_info
+
+```ruby
+begin
+  # List permissions
+  data, status_code, headers = api_instance.list_permissions_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PermissionsResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling RolesApi->list_permissions_with_http_info: #{e}"
 end
 ```
 
@@ -358,7 +460,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -368,16 +470,15 @@ This endpoint does not need any parameter.
 
 ## list_role_permissions
 
-> PermissionsResponse list_role_permissions(role_id)
+> <PermissionsResponse> list_role_permissions(role_id)
 
 List permissions for a role
 
 Returns a list of all permissions for a single role.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -396,11 +497,29 @@ api_instance = DatadogAPIClient::V2::RolesApi.new
 role_id = 'role_id_example' # String | The ID of the role.
 
 begin
-  #List permissions for a role
+  # List permissions for a role
   result = api_instance.list_role_permissions(role_id)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling RolesApi->list_role_permissions: #{e}"
+  puts "Error when calling RolesApi->list_role_permissions: #{e}"
+end
+```
+
+#### Using the list_role_permissions_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PermissionsResponse>, Integer, Hash)> list_role_permissions_with_http_info(role_id)
+
+```ruby
+begin
+  # List permissions for a role
+  data, status_code, headers = api_instance.list_role_permissions_with_http_info(role_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PermissionsResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling RolesApi->list_role_permissions_with_http_info: #{e}"
 end
 ```
 
@@ -416,7 +535,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -426,16 +545,15 @@ end
 
 ## list_role_users
 
-> UsersResponse list_role_users(role_id, opts)
+> <UsersResponse> list_role_users(role_id, opts)
 
 Get all users of a role
 
 Gets all users of a role.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -460,11 +578,29 @@ opts = {
 }
 
 begin
-  #Get all users of a role
+  # Get all users of a role
   result = api_instance.list_role_users(role_id, opts)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling RolesApi->list_role_users: #{e}"
+  puts "Error when calling RolesApi->list_role_users: #{e}"
+end
+```
+
+#### Using the list_role_users_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<UsersResponse>, Integer, Hash)> list_role_users_with_http_info(role_id, opts)
+
+```ruby
+begin
+  # Get all users of a role
+  data, status_code, headers = api_instance.list_role_users_with_http_info(role_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <UsersResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling RolesApi->list_role_users_with_http_info: #{e}"
 end
 ```
 
@@ -484,7 +620,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -494,16 +630,15 @@ end
 
 ## list_roles
 
-> RolesResponse list_roles(opts)
+> <RolesResponse> list_roles(opts)
 
 List roles
 
 Returns all roles, including their names and IDs.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -527,11 +662,29 @@ opts = {
 }
 
 begin
-  #List roles
+  # List roles
   result = api_instance.list_roles(opts)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling RolesApi->list_roles: #{e}"
+  puts "Error when calling RolesApi->list_roles: #{e}"
+end
+```
+
+#### Using the list_roles_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RolesResponse>, Integer, Hash)> list_roles_with_http_info(opts)
+
+```ruby
+begin
+  # List roles
+  data, status_code, headers = api_instance.list_roles_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RolesResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling RolesApi->list_roles_with_http_info: #{e}"
 end
 ```
 
@@ -541,7 +694,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **page_size** | **Integer** | Size for a given page. | [optional][default to 10] |
 | **page_number** | **Integer** | Specific page number to return. | [optional][default to 0] |
-| **sort** | [**RolesSort**](.md) | Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: &#x60;sort&#x3D;-name&#x60;. | [optional][default to &#39;name&#39;] |
+| **sort** | **RolesSort** | Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: &#x60;sort&#x3D;-name&#x60;. | [optional][default to &#39;name&#39;] |
 | **filter** | **String** | Filter all roles by the given string. | [optional] |
 
 ### Return type
@@ -550,7 +703,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -560,16 +713,15 @@ end
 
 ## remove_permission_from_role
 
-> PermissionsResponse remove_permission_from_role(role_id, body)
+> <PermissionsResponse> remove_permission_from_role(role_id, body)
 
 Revoke permission
 
 Removes a permission from a role.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -589,11 +741,29 @@ role_id = 'role_id_example' # String | The ID of the role.
 body = DatadogAPIClient::V2::RelationshipToPermission.new # RelationshipToPermission | 
 
 begin
-  #Revoke permission
+  # Revoke permission
   result = api_instance.remove_permission_from_role(role_id, body)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling RolesApi->remove_permission_from_role: #{e}"
+  puts "Error when calling RolesApi->remove_permission_from_role: #{e}"
+end
+```
+
+#### Using the remove_permission_from_role_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PermissionsResponse>, Integer, Hash)> remove_permission_from_role_with_http_info(role_id, body)
+
+```ruby
+begin
+  # Revoke permission
+  data, status_code, headers = api_instance.remove_permission_from_role_with_http_info(role_id, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PermissionsResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling RolesApi->remove_permission_from_role_with_http_info: #{e}"
 end
 ```
 
@@ -610,7 +780,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -620,16 +790,15 @@ end
 
 ## remove_user_from_role
 
-> UsersResponse remove_user_from_role(role_id, body)
+> <UsersResponse> remove_user_from_role(role_id, body)
 
 Remove a user from a role
 
 Removes a user from a role.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -649,11 +818,29 @@ role_id = 'role_id_example' # String | The ID of the role.
 body = DatadogAPIClient::V2::RelationshipToUser.new # RelationshipToUser | 
 
 begin
-  #Remove a user from a role
+  # Remove a user from a role
   result = api_instance.remove_user_from_role(role_id, body)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling RolesApi->remove_user_from_role: #{e}"
+  puts "Error when calling RolesApi->remove_user_from_role: #{e}"
+end
+```
+
+#### Using the remove_user_from_role_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<UsersResponse>, Integer, Hash)> remove_user_from_role_with_http_info(role_id, body)
+
+```ruby
+begin
+  # Remove a user from a role
+  data, status_code, headers = api_instance.remove_user_from_role_with_http_info(role_id, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <UsersResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling RolesApi->remove_user_from_role_with_http_info: #{e}"
 end
 ```
 
@@ -670,7 +857,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -680,16 +867,15 @@ end
 
 ## update_role
 
-> RoleUpdateResponse update_role(role_id, body)
+> <RoleUpdateResponse> update_role(role_id, body)
 
 Update a role
 
 Edit a role. Can only be used with application keys belonging to administrators.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
@@ -709,11 +895,29 @@ role_id = 'role_id_example' # String | The ID of the role.
 body = DatadogAPIClient::V2::RoleUpdateRequest.new # RoleUpdateRequest | 
 
 begin
-  #Update a role
+  # Update a role
   result = api_instance.update_role(role_id, body)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
-  puts "Exception when calling RolesApi->update_role: #{e}"
+  puts "Error when calling RolesApi->update_role: #{e}"
+end
+```
+
+#### Using the update_role_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RoleUpdateResponse>, Integer, Hash)> update_role_with_http_info(role_id, body)
+
+```ruby
+begin
+  # Update a role
+  data, status_code, headers = api_instance.update_role_with_http_info(role_id, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RoleUpdateResponse>
+rescue DatadogAPIClient::V2::ApiError => e
+  puts "Error when calling RolesApi->update_role_with_http_info: #{e}"
 end
 ```
 
@@ -730,7 +934,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 

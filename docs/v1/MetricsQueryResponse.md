@@ -14,7 +14,7 @@
 | **status** | **String** | Status of the query. | [optional][readonly] |
 | **to_date** | **Integer** | End of requested time window, milliseconds since Unix epoch. | [optional][readonly] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

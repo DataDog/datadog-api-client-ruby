@@ -10,7 +10,7 @@
 | **tags** | **Array&lt;String&gt;** | Tags of the global variable. |  |
 | **value** | [**SyntheticsGlobalVariableValue**](SyntheticsGlobalVariableValue.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

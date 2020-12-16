@@ -8,7 +8,7 @@
 | **hour** | **Time** | The hour for the usage. | [optional] |
 | **invocations_sum** | **Integer** | Contains the sum of invocations of all functions. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

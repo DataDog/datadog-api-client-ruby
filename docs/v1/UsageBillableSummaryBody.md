@@ -12,7 +12,7 @@
 | **percentage_in_account** | **Float** | The percentage of account usage the org represents. | [optional] |
 | **usage_unit** | **String** | Units pertaining to the usage. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

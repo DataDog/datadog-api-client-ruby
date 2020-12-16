@@ -7,7 +7,7 @@
 | **id** | **Float** | Unique identifier of the location. | [optional] |
 | **name** | **String** | Name of the location. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

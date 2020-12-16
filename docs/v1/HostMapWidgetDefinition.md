@@ -18,7 +18,7 @@
 | **title_size** | **String** | Size of the title. | [optional] |
 | **type** | [**HostMapWidgetDefinitionType**](HostMapWidgetDefinitionType.md) |  | [default to &#39;hostmap&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

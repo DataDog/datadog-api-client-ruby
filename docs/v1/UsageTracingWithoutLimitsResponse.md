@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **usage** | [**Array&lt;UsageTracingWithoutLimitsHour&gt;**](UsageTracingWithoutLimitsHour.md) | Get hourly usage for tracing without limits. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

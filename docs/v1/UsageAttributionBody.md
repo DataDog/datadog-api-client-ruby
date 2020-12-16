@@ -10,7 +10,7 @@
 | **updated_at** | **String** | Shows the the most recent hour in the current months for all organizations for which all usages were calculated. | [optional] |
 | **values** | [**UsageAttributionValues**](UsageAttributionValues.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

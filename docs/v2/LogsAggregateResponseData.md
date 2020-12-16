@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **buckets** | [**Array&lt;LogsAggregateBucket&gt;**](LogsAggregateBucket.md) | The list of matching buckets, one item per bucket | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

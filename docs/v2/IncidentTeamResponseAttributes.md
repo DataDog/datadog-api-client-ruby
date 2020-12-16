@@ -8,7 +8,7 @@
 | **modified** | **Time** | Timestamp of when the incident team was modified. | [optional][readonly] |
 | **name** | **String** | Name of the incident team. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

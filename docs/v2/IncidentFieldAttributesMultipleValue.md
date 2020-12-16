@@ -7,7 +7,7 @@
 | **type** | [**IncidentFieldAttributesValueType**](IncidentFieldAttributesValueType.md) |  | [optional][default to &#39;multiselect&#39;] |
 | **value** | **Array&lt;String&gt;** | The multiple values selected for this field. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

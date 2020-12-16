@@ -29,16 +29,15 @@ All URIs are relative to *https://api.datadoghq.com*
 
 ## create_global_variable
 
-> SyntheticsGlobalVariable create_global_variable(body)
+> <SyntheticsGlobalVariable> create_global_variable(body)
 
 Create a global variable
 
 Create a Synthetics global variable.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -57,11 +56,29 @@ api_instance = DatadogAPIClient::V1::SyntheticsApi.new
 body = DatadogAPIClient::V1::SyntheticsGlobalVariable.new # SyntheticsGlobalVariable | Details of the global variable to create.
 
 begin
-  #Create a global variable
+  # Create a global variable
   result = api_instance.create_global_variable(body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling SyntheticsApi->create_global_variable: #{e}"
+  puts "Error when calling SyntheticsApi->create_global_variable: #{e}"
+end
+```
+
+#### Using the create_global_variable_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SyntheticsGlobalVariable>, Integer, Hash)> create_global_variable_with_http_info(body)
+
+```ruby
+begin
+  # Create a global variable
+  data, status_code, headers = api_instance.create_global_variable_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SyntheticsGlobalVariable>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling SyntheticsApi->create_global_variable_with_http_info: #{e}"
 end
 ```
 
@@ -77,7 +94,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -87,16 +104,15 @@ end
 
 ## create_private_location
 
-> SyntheticsPrivateLocationCreationResponse create_private_location(body)
+> <SyntheticsPrivateLocationCreationResponse> create_private_location(body)
 
 Create a private location
 
 Create a new Synthetics private location.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -115,11 +131,29 @@ api_instance = DatadogAPIClient::V1::SyntheticsApi.new
 body = DatadogAPIClient::V1::SyntheticsPrivateLocation.new # SyntheticsPrivateLocation | Details of the private location to create.
 
 begin
-  #Create a private location
+  # Create a private location
   result = api_instance.create_private_location(body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling SyntheticsApi->create_private_location: #{e}"
+  puts "Error when calling SyntheticsApi->create_private_location: #{e}"
+end
+```
+
+#### Using the create_private_location_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SyntheticsPrivateLocationCreationResponse>, Integer, Hash)> create_private_location_with_http_info(body)
+
+```ruby
+begin
+  # Create a private location
+  data, status_code, headers = api_instance.create_private_location_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SyntheticsPrivateLocationCreationResponse>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling SyntheticsApi->create_private_location_with_http_info: #{e}"
 end
 ```
 
@@ -135,7 +169,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -145,16 +179,15 @@ end
 
 ## create_test
 
-> SyntheticsTestDetails create_test(body)
+> <SyntheticsTestDetails> create_test(body)
 
 Create a test
 
 Create a Synthetic test.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -173,11 +206,29 @@ api_instance = DatadogAPIClient::V1::SyntheticsApi.new
 body = DatadogAPIClient::V1::SyntheticsTestDetails.new # SyntheticsTestDetails | Details of the test to create.
 
 begin
-  #Create a test
+  # Create a test
   result = api_instance.create_test(body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling SyntheticsApi->create_test: #{e}"
+  puts "Error when calling SyntheticsApi->create_test: #{e}"
+end
+```
+
+#### Using the create_test_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SyntheticsTestDetails>, Integer, Hash)> create_test_with_http_info(body)
+
+```ruby
+begin
+  # Create a test
+  data, status_code, headers = api_instance.create_test_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SyntheticsTestDetails>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling SyntheticsApi->create_test_with_http_info: #{e}"
 end
 ```
 
@@ -193,7 +244,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -209,10 +260,9 @@ Delete a global variable
 
 Delete a Synthetics global variable.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -231,10 +281,28 @@ api_instance = DatadogAPIClient::V1::SyntheticsApi.new
 variable_id = 'variable_id_example' # String | The ID of the global variable.
 
 begin
-  #Delete a global variable
+  # Delete a global variable
   api_instance.delete_global_variable(variable_id)
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling SyntheticsApi->delete_global_variable: #{e}"
+  puts "Error when calling SyntheticsApi->delete_global_variable: #{e}"
+end
+```
+
+#### Using the delete_global_variable_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> delete_global_variable_with_http_info(variable_id)
+
+```ruby
+begin
+  # Delete a global variable
+  data, status_code, headers = api_instance.delete_global_variable_with_http_info(variable_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling SyntheticsApi->delete_global_variable_with_http_info: #{e}"
 end
 ```
 
@@ -250,7 +318,7 @@ nil (empty response body)
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -266,10 +334,9 @@ Delete a private location
 
 Delete a Synthetics private location.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -288,10 +355,28 @@ api_instance = DatadogAPIClient::V1::SyntheticsApi.new
 location_id = 'location_id_example' # String | The ID of the private location.
 
 begin
-  #Delete a private location
+  # Delete a private location
   api_instance.delete_private_location(location_id)
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling SyntheticsApi->delete_private_location: #{e}"
+  puts "Error when calling SyntheticsApi->delete_private_location: #{e}"
+end
+```
+
+#### Using the delete_private_location_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> delete_private_location_with_http_info(location_id)
+
+```ruby
+begin
+  # Delete a private location
+  data, status_code, headers = api_instance.delete_private_location_with_http_info(location_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling SyntheticsApi->delete_private_location_with_http_info: #{e}"
 end
 ```
 
@@ -307,7 +392,7 @@ nil (empty response body)
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -317,16 +402,15 @@ nil (empty response body)
 
 ## delete_tests
 
-> SyntheticsDeleteTestsResponse delete_tests(body)
+> <SyntheticsDeleteTestsResponse> delete_tests(body)
 
 Delete tests
 
 Delete multiple Synthetic tests by ID.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -345,11 +429,29 @@ api_instance = DatadogAPIClient::V1::SyntheticsApi.new
 body = DatadogAPIClient::V1::SyntheticsDeleteTestsPayload.new # SyntheticsDeleteTestsPayload | Public ID list of the Synthetic tests to be deleted.
 
 begin
-  #Delete tests
+  # Delete tests
   result = api_instance.delete_tests(body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling SyntheticsApi->delete_tests: #{e}"
+  puts "Error when calling SyntheticsApi->delete_tests: #{e}"
+end
+```
+
+#### Using the delete_tests_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SyntheticsDeleteTestsResponse>, Integer, Hash)> delete_tests_with_http_info(body)
+
+```ruby
+begin
+  # Delete tests
+  data, status_code, headers = api_instance.delete_tests_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SyntheticsDeleteTestsResponse>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling SyntheticsApi->delete_tests_with_http_info: #{e}"
 end
 ```
 
@@ -365,7 +467,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -375,16 +477,15 @@ end
 
 ## edit_global_variable
 
-> SyntheticsGlobalVariable edit_global_variable(variable_id, body)
+> <SyntheticsGlobalVariable> edit_global_variable(variable_id, body)
 
 Edit a global variable
 
 Edit a Synthetics global variable.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -404,11 +505,29 @@ variable_id = 'variable_id_example' # String | The ID of the global variable.
 body = DatadogAPIClient::V1::SyntheticsGlobalVariable.new # SyntheticsGlobalVariable | Details of the global variable to update.
 
 begin
-  #Edit a global variable
+  # Edit a global variable
   result = api_instance.edit_global_variable(variable_id, body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling SyntheticsApi->edit_global_variable: #{e}"
+  puts "Error when calling SyntheticsApi->edit_global_variable: #{e}"
+end
+```
+
+#### Using the edit_global_variable_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SyntheticsGlobalVariable>, Integer, Hash)> edit_global_variable_with_http_info(variable_id, body)
+
+```ruby
+begin
+  # Edit a global variable
+  data, status_code, headers = api_instance.edit_global_variable_with_http_info(variable_id, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SyntheticsGlobalVariable>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling SyntheticsApi->edit_global_variable_with_http_info: #{e}"
 end
 ```
 
@@ -425,7 +544,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -435,16 +554,15 @@ end
 
 ## get_api_test_latest_results
 
-> SyntheticsGetAPITestLatestResultsResponse get_api_test_latest_results(public_id, opts)
+> <SyntheticsGetAPITestLatestResultsResponse> get_api_test_latest_results(public_id, opts)
 
 Get the test's latest results summaries (API)
 
 Get the last 50 test results summaries for a given Synthetics API test.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -468,11 +586,29 @@ opts = {
 }
 
 begin
-  #Get the test's latest results summaries (API)
+  # Get the test's latest results summaries (API)
   result = api_instance.get_api_test_latest_results(public_id, opts)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling SyntheticsApi->get_api_test_latest_results: #{e}"
+  puts "Error when calling SyntheticsApi->get_api_test_latest_results: #{e}"
+end
+```
+
+#### Using the get_api_test_latest_results_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SyntheticsGetAPITestLatestResultsResponse>, Integer, Hash)> get_api_test_latest_results_with_http_info(public_id, opts)
+
+```ruby
+begin
+  # Get the test's latest results summaries (API)
+  data, status_code, headers = api_instance.get_api_test_latest_results_with_http_info(public_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SyntheticsGetAPITestLatestResultsResponse>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling SyntheticsApi->get_api_test_latest_results_with_http_info: #{e}"
 end
 ```
 
@@ -483,7 +619,7 @@ end
 | **public_id** | **String** | The public ID of the test for which to search results for. |  |
 | **from_ts** | **Integer** | Timestamp from which to start querying results. | [optional] |
 | **to_ts** | **Integer** | Timestamp up to which to query results. | [optional] |
-| **probe_dc** | [**Array&lt;String&gt;**](String.md) | Locations for which to query results. | [optional] |
+| **probe_dc** | **Array&lt;String&gt;** | Locations for which to query results. | [optional] |
 
 ### Return type
 
@@ -491,7 +627,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -501,16 +637,15 @@ end
 
 ## get_api_test_result
 
-> SyntheticsAPITestResultFull get_api_test_result(public_id, result_id)
+> <SyntheticsAPITestResultFull> get_api_test_result(public_id, result_id)
 
 Get a test result (API)
 
 Get a specific full result from a given (API) Synthetic test.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -530,11 +665,29 @@ public_id = 'public_id_example' # String | The public ID of the API test to whic
 result_id = 'result_id_example' # String | The ID of the result to get.
 
 begin
-  #Get a test result (API)
+  # Get a test result (API)
   result = api_instance.get_api_test_result(public_id, result_id)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling SyntheticsApi->get_api_test_result: #{e}"
+  puts "Error when calling SyntheticsApi->get_api_test_result: #{e}"
+end
+```
+
+#### Using the get_api_test_result_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SyntheticsAPITestResultFull>, Integer, Hash)> get_api_test_result_with_http_info(public_id, result_id)
+
+```ruby
+begin
+  # Get a test result (API)
+  data, status_code, headers = api_instance.get_api_test_result_with_http_info(public_id, result_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SyntheticsAPITestResultFull>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling SyntheticsApi->get_api_test_result_with_http_info: #{e}"
 end
 ```
 
@@ -551,7 +704,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -561,16 +714,15 @@ end
 
 ## get_browser_test
 
-> SyntheticsTestDetails get_browser_test(public_id)
+> <SyntheticsTestDetails> get_browser_test(public_id)
 
 Get a test configuration (browser)
 
 Get the detailed configuration (including steps) associated with a Synthetic browser test.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -589,11 +741,29 @@ api_instance = DatadogAPIClient::V1::SyntheticsApi.new
 public_id = 'public_id_example' # String | The public ID of the test to get details from.
 
 begin
-  #Get a test configuration (browser)
+  # Get a test configuration (browser)
   result = api_instance.get_browser_test(public_id)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling SyntheticsApi->get_browser_test: #{e}"
+  puts "Error when calling SyntheticsApi->get_browser_test: #{e}"
+end
+```
+
+#### Using the get_browser_test_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SyntheticsTestDetails>, Integer, Hash)> get_browser_test_with_http_info(public_id)
+
+```ruby
+begin
+  # Get a test configuration (browser)
+  data, status_code, headers = api_instance.get_browser_test_with_http_info(public_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SyntheticsTestDetails>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling SyntheticsApi->get_browser_test_with_http_info: #{e}"
 end
 ```
 
@@ -609,7 +779,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -619,16 +789,15 @@ end
 
 ## get_browser_test_latest_results
 
-> SyntheticsGetBrowserTestLatestResultsResponse get_browser_test_latest_results(public_id, opts)
+> <SyntheticsGetBrowserTestLatestResultsResponse> get_browser_test_latest_results(public_id, opts)
 
 Get the test's latest results summaries (browser)
 
 Get the last 50 test results summaries for a given Synthetics Browser test.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -652,11 +821,29 @@ opts = {
 }
 
 begin
-  #Get the test's latest results summaries (browser)
+  # Get the test's latest results summaries (browser)
   result = api_instance.get_browser_test_latest_results(public_id, opts)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling SyntheticsApi->get_browser_test_latest_results: #{e}"
+  puts "Error when calling SyntheticsApi->get_browser_test_latest_results: #{e}"
+end
+```
+
+#### Using the get_browser_test_latest_results_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SyntheticsGetBrowserTestLatestResultsResponse>, Integer, Hash)> get_browser_test_latest_results_with_http_info(public_id, opts)
+
+```ruby
+begin
+  # Get the test's latest results summaries (browser)
+  data, status_code, headers = api_instance.get_browser_test_latest_results_with_http_info(public_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SyntheticsGetBrowserTestLatestResultsResponse>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling SyntheticsApi->get_browser_test_latest_results_with_http_info: #{e}"
 end
 ```
 
@@ -667,7 +854,7 @@ end
 | **public_id** | **String** | The public ID of the browser test for which to search results for. |  |
 | **from_ts** | **Integer** | Timestamp from which to start querying results. | [optional] |
 | **to_ts** | **Integer** | Timestamp up to which to query results. | [optional] |
-| **probe_dc** | [**Array&lt;String&gt;**](String.md) | Locations for which to query results. | [optional] |
+| **probe_dc** | **Array&lt;String&gt;** | Locations for which to query results. | [optional] |
 
 ### Return type
 
@@ -675,7 +862,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -685,16 +872,15 @@ end
 
 ## get_browser_test_result
 
-> SyntheticsBrowserTestResultFull get_browser_test_result(public_id, result_id)
+> <SyntheticsBrowserTestResultFull> get_browser_test_result(public_id, result_id)
 
 Get a test result (browser)
 
 Get a specific full result from a given (browser) Synthetic test.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -714,11 +900,29 @@ public_id = 'public_id_example' # String | The public ID of the browser test to 
 result_id = 'result_id_example' # String | The ID of the result to get.
 
 begin
-  #Get a test result (browser)
+  # Get a test result (browser)
   result = api_instance.get_browser_test_result(public_id, result_id)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling SyntheticsApi->get_browser_test_result: #{e}"
+  puts "Error when calling SyntheticsApi->get_browser_test_result: #{e}"
+end
+```
+
+#### Using the get_browser_test_result_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SyntheticsBrowserTestResultFull>, Integer, Hash)> get_browser_test_result_with_http_info(public_id, result_id)
+
+```ruby
+begin
+  # Get a test result (browser)
+  data, status_code, headers = api_instance.get_browser_test_result_with_http_info(public_id, result_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SyntheticsBrowserTestResultFull>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling SyntheticsApi->get_browser_test_result_with_http_info: #{e}"
 end
 ```
 
@@ -735,7 +939,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -745,16 +949,15 @@ end
 
 ## get_global_variable
 
-> SyntheticsGlobalVariable get_global_variable(variable_id)
+> <SyntheticsGlobalVariable> get_global_variable(variable_id)
 
 Get a global variable
 
 Get the detailed configuration of a global variable.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -773,11 +976,29 @@ api_instance = DatadogAPIClient::V1::SyntheticsApi.new
 variable_id = 'variable_id_example' # String | The ID of the global variable.
 
 begin
-  #Get a global variable
+  # Get a global variable
   result = api_instance.get_global_variable(variable_id)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling SyntheticsApi->get_global_variable: #{e}"
+  puts "Error when calling SyntheticsApi->get_global_variable: #{e}"
+end
+```
+
+#### Using the get_global_variable_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SyntheticsGlobalVariable>, Integer, Hash)> get_global_variable_with_http_info(variable_id)
+
+```ruby
+begin
+  # Get a global variable
+  data, status_code, headers = api_instance.get_global_variable_with_http_info(variable_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SyntheticsGlobalVariable>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling SyntheticsApi->get_global_variable_with_http_info: #{e}"
 end
 ```
 
@@ -793,7 +1014,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -803,16 +1024,15 @@ end
 
 ## get_private_location
 
-> SyntheticsPrivateLocation get_private_location(location_id)
+> <SyntheticsPrivateLocation> get_private_location(location_id)
 
 Get a private location
 
 Get a Synthetics private location.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -831,11 +1051,29 @@ api_instance = DatadogAPIClient::V1::SyntheticsApi.new
 location_id = 'location_id_example' # String | The ID of the private location.
 
 begin
-  #Get a private location
+  # Get a private location
   result = api_instance.get_private_location(location_id)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling SyntheticsApi->get_private_location: #{e}"
+  puts "Error when calling SyntheticsApi->get_private_location: #{e}"
+end
+```
+
+#### Using the get_private_location_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SyntheticsPrivateLocation>, Integer, Hash)> get_private_location_with_http_info(location_id)
+
+```ruby
+begin
+  # Get a private location
+  data, status_code, headers = api_instance.get_private_location_with_http_info(location_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SyntheticsPrivateLocation>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling SyntheticsApi->get_private_location_with_http_info: #{e}"
 end
 ```
 
@@ -851,7 +1089,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -861,16 +1099,15 @@ end
 
 ## get_test
 
-> SyntheticsTestDetails get_test(public_id)
+> <SyntheticsTestDetails> get_test(public_id)
 
 Get a test configuration (API)
 
 Get the detailed configuration associated with a Synthetics test.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -889,11 +1126,29 @@ api_instance = DatadogAPIClient::V1::SyntheticsApi.new
 public_id = 'public_id_example' # String | The public ID of the test to get details from.
 
 begin
-  #Get a test configuration (API)
+  # Get a test configuration (API)
   result = api_instance.get_test(public_id)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling SyntheticsApi->get_test: #{e}"
+  puts "Error when calling SyntheticsApi->get_test: #{e}"
+end
+```
+
+#### Using the get_test_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SyntheticsTestDetails>, Integer, Hash)> get_test_with_http_info(public_id)
+
+```ruby
+begin
+  # Get a test configuration (API)
+  data, status_code, headers = api_instance.get_test_with_http_info(public_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SyntheticsTestDetails>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling SyntheticsApi->get_test_with_http_info: #{e}"
 end
 ```
 
@@ -909,7 +1164,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -919,16 +1174,15 @@ end
 
 ## list_locations
 
-> SyntheticsLocations list_locations
+> <SyntheticsLocations> list_locations
 
 Get all locations (public and private)
 
 Get the list of public and private locations available for Synthetic tests. No arguments required.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -946,11 +1200,29 @@ end
 api_instance = DatadogAPIClient::V1::SyntheticsApi.new
 
 begin
-  #Get all locations (public and private)
+  # Get all locations (public and private)
   result = api_instance.list_locations
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling SyntheticsApi->list_locations: #{e}"
+  puts "Error when calling SyntheticsApi->list_locations: #{e}"
+end
+```
+
+#### Using the list_locations_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SyntheticsLocations>, Integer, Hash)> list_locations_with_http_info
+
+```ruby
+begin
+  # Get all locations (public and private)
+  data, status_code, headers = api_instance.list_locations_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SyntheticsLocations>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling SyntheticsApi->list_locations_with_http_info: #{e}"
 end
 ```
 
@@ -964,7 +1236,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -974,16 +1246,15 @@ This endpoint does not need any parameter.
 
 ## list_tests
 
-> SyntheticsListTestsResponse list_tests
+> <SyntheticsListTestsResponse> list_tests
 
 Get the list of all tests
 
 Get the list of all Synthetic tests.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -1001,11 +1272,29 @@ end
 api_instance = DatadogAPIClient::V1::SyntheticsApi.new
 
 begin
-  #Get the list of all tests
+  # Get the list of all tests
   result = api_instance.list_tests
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling SyntheticsApi->list_tests: #{e}"
+  puts "Error when calling SyntheticsApi->list_tests: #{e}"
+end
+```
+
+#### Using the list_tests_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SyntheticsListTestsResponse>, Integer, Hash)> list_tests_with_http_info
+
+```ruby
+begin
+  # Get the list of all tests
+  data, status_code, headers = api_instance.list_tests_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SyntheticsListTestsResponse>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling SyntheticsApi->list_tests_with_http_info: #{e}"
 end
 ```
 
@@ -1019,7 +1308,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -1029,16 +1318,15 @@ This endpoint does not need any parameter.
 
 ## trigger_ci_tests
 
-> SyntheticsTriggerCITestsResponse trigger_ci_tests(body)
+> <SyntheticsTriggerCITestsResponse> trigger_ci_tests(body)
 
 Trigger some Synthetics tests for CI
 
 Trigger a set of Synthetics tests for continuous integration.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -1057,11 +1345,29 @@ api_instance = DatadogAPIClient::V1::SyntheticsApi.new
 body = DatadogAPIClient::V1::SyntheticsCITestBody.new # SyntheticsCITestBody | Details of the test to trigger.
 
 begin
-  #Trigger some Synthetics tests for CI
+  # Trigger some Synthetics tests for CI
   result = api_instance.trigger_ci_tests(body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling SyntheticsApi->trigger_ci_tests: #{e}"
+  puts "Error when calling SyntheticsApi->trigger_ci_tests: #{e}"
+end
+```
+
+#### Using the trigger_ci_tests_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SyntheticsTriggerCITestsResponse>, Integer, Hash)> trigger_ci_tests_with_http_info(body)
+
+```ruby
+begin
+  # Trigger some Synthetics tests for CI
+  data, status_code, headers = api_instance.trigger_ci_tests_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SyntheticsTriggerCITestsResponse>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling SyntheticsApi->trigger_ci_tests_with_http_info: #{e}"
 end
 ```
 
@@ -1077,7 +1383,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -1087,16 +1393,15 @@ end
 
 ## update_private_location
 
-> SyntheticsPrivateLocation update_private_location(location_id, body)
+> <SyntheticsPrivateLocation> update_private_location(location_id, body)
 
 Edit a private location
 
 Edit a Synthetics private location.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -1116,11 +1421,29 @@ location_id = 'location_id_example' # String | The ID of the private location.
 body = DatadogAPIClient::V1::SyntheticsPrivateLocation.new # SyntheticsPrivateLocation | Details of the private location to be updated.
 
 begin
-  #Edit a private location
+  # Edit a private location
   result = api_instance.update_private_location(location_id, body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling SyntheticsApi->update_private_location: #{e}"
+  puts "Error when calling SyntheticsApi->update_private_location: #{e}"
+end
+```
+
+#### Using the update_private_location_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SyntheticsPrivateLocation>, Integer, Hash)> update_private_location_with_http_info(location_id, body)
+
+```ruby
+begin
+  # Edit a private location
+  data, status_code, headers = api_instance.update_private_location_with_http_info(location_id, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SyntheticsPrivateLocation>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling SyntheticsApi->update_private_location_with_http_info: #{e}"
 end
 ```
 
@@ -1137,7 +1460,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -1147,16 +1470,15 @@ end
 
 ## update_test
 
-> SyntheticsTestDetails update_test(public_id, body)
+> <SyntheticsTestDetails> update_test(public_id, body)
 
 Edit a test
 
 Edit the configuration of a Synthetic test.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -1176,11 +1498,29 @@ public_id = 'public_id_example' # String | The public ID of the test to get deta
 body = DatadogAPIClient::V1::SyntheticsTestDetails.new # SyntheticsTestDetails | New test details to be saved.
 
 begin
-  #Edit a test
+  # Edit a test
   result = api_instance.update_test(public_id, body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling SyntheticsApi->update_test: #{e}"
+  puts "Error when calling SyntheticsApi->update_test: #{e}"
+end
+```
+
+#### Using the update_test_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SyntheticsTestDetails>, Integer, Hash)> update_test_with_http_info(public_id, body)
+
+```ruby
+begin
+  # Edit a test
+  data, status_code, headers = api_instance.update_test_with_http_info(public_id, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SyntheticsTestDetails>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling SyntheticsApi->update_test_with_http_info: #{e}"
 end
 ```
 
@@ -1197,7 +1537,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -1213,10 +1553,9 @@ Pause or start a test
 
 Pause or start a Synthetics test by changing the status.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
@@ -1236,11 +1575,29 @@ public_id = 'public_id_example' # String | The public ID of the Synthetic test t
 body = DatadogAPIClient::V1::SyntheticsUpdateTestPauseStatusPayload.new # SyntheticsUpdateTestPauseStatusPayload | Status to set the given Synthetic test to.
 
 begin
-  #Pause or start a test
+  # Pause or start a test
   result = api_instance.update_test_pause_status(public_id, body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling SyntheticsApi->update_test_pause_status: #{e}"
+  puts "Error when calling SyntheticsApi->update_test_pause_status: #{e}"
+end
+```
+
+#### Using the update_test_pause_status_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Boolean, Integer, Hash)> update_test_pause_status_with_http_info(public_id, body)
+
+```ruby
+begin
+  # Pause or start a test
+  data, status_code, headers = api_instance.update_test_pause_status_with_http_info(public_id, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Boolean
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling SyntheticsApi->update_test_pause_status_with_http_info: #{e}"
 end
 ```
 
@@ -1257,7 +1614,7 @@ end
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 

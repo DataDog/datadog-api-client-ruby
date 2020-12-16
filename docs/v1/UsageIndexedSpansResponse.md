@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **usage** | [**Array&lt;UsageIndexedSpansHour&gt;**](UsageIndexedSpansHour.md) | Array with the number of hourly traces indexed for a given organization. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

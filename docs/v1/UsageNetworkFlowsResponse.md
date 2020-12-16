@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **usage** | [**Array&lt;UsageNetworkFlowsHour&gt;**](UsageNetworkFlowsHour.md) | Get hourly usage for Network Flows. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

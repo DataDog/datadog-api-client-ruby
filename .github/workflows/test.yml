@@ -43,9 +43,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby ${{ matrix.ruby-version }}
-      uses: actions/setup-ruby@v1
+      uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby-version }}
+        bundler-cache: true
     - name: Test
       run: ./run-tests.sh
       shell: bash

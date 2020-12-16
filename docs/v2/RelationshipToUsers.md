@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **data** | [**Array&lt;RelationshipToUserData&gt;**](RelationshipToUserData.md) | Relationships to user objects. |  |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

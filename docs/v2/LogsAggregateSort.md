@@ -9,7 +9,7 @@
 | **order** | [**LogsSortOrder**](LogsSortOrder.md) |  | [optional] |
 | **type** | [**LogsAggregateSortType**](LogsAggregateSortType.md) |  | [optional][default to &#39;alphabetical&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v2'

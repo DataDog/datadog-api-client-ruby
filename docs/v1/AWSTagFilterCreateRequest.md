@@ -8,7 +8,7 @@
 | **namespace** | [**AWSNamespace**](AWSNamespace.md) |  | [optional] |
 | **tag_filter_str** | **String** | The tag filter string. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'

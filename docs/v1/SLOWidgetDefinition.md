@@ -14,7 +14,7 @@
 | **view_mode** | [**WidgetViewMode**](WidgetViewMode.md) |  | [optional] |
 | **view_type** | **String** | Type of view displayed by the widget. | [default to &#39;detail&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
 require 'datadog_api_client/v1'
