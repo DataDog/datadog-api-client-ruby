@@ -26,22 +26,23 @@ Create a user for your organization.
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V2::UsersApi.new
-body = DatadogAPIClient::V2::UserCreateRequest.new # UserCreateRequest | 
+body = DatadogAPIClient::V2::UserCreateRequest.new({data: DatadogAPIClient::V2::UserCreateData.new({attributes: DatadogAPIClient::V2::UserCreateAttributes.new({email: 'joe.doe@example.com'}), type: DatadogAPIClient::V2::UsersType::USERS})}) # UserCreateRequest | 
 
 begin
   # Create a user
@@ -101,18 +102,19 @@ Disable a user. Can only be used with an application key belonging to an adminis
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V2::UsersApi.new
@@ -175,18 +177,19 @@ Returns a single user invitation by its UUID.
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V2::UsersApi.new
@@ -250,18 +253,19 @@ Get a user in the organization specified by the user’s `user_id`.
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V2::UsersApi.new
@@ -325,18 +329,19 @@ Get a user organization. Returns the user information and all organizations join
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V2::UsersApi.new
@@ -400,18 +405,19 @@ Get a user permission set. Returns a list of the user’s permissions granted by
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V2::UsersApi.new
@@ -475,26 +481,27 @@ Get the list of all users in the organization. This list includes all users even
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V2::UsersApi.new
 opts = {
-  page_size: 10, # Integer | Size for a given page.
-  page_number: 0, # Integer | Specific page number to return.
-  sort: 'name', # String | User attribute to order results by. Sort order is ascending by default. Sort order is descending if the field is prefixed by a negative sign, for example `sort=-name`. Options: `name`, `modified_at`, `user_count`.
-  sort_dir: 'desc', # QuerySortOrder | Direction of sort. Options: `asc`, `desc`.
+  page_size: 789, # Integer | Size for a given page.
+  page_number: 789, # Integer | Specific page number to return.
+  sort: 'sort_example', # String | User attribute to order results by. Sort order is ascending by default. Sort order is descending if the field is prefixed by a negative sign, for example `sort=-name`. Options: `name`, `modified_at`, `user_count`.
+  sort_dir: DatadogAPIClient::V2::QuerySortOrder::ASC, # QuerySortOrder | Direction of sort. Options: `asc`, `desc`.
   filter: 'filter_example', # String | Filter all users by the given string. Defaults to no filtering.
   filter_status: 'filter_status_example' # String | Filter on status attribute. Comma separated list, with possible values `Active`, `Pending`, and `Disabled`. Defaults to no filtering.
 }
@@ -562,22 +569,23 @@ Sends emails to one or more users inviting them to join the organization.
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V2::UsersApi.new
-body = DatadogAPIClient::V2::UserInvitationsRequest.new # UserInvitationsRequest | 
+body = DatadogAPIClient::V2::UserInvitationsRequest.new({data: [DatadogAPIClient::V2::UserInvitationData.new({relationships: DatadogAPIClient::V2::UserInvitationRelationships.new({user: DatadogAPIClient::V2::RelationshipToUser.new({data: DatadogAPIClient::V2::RelationshipToUserData.new({id: '00000000-0000-0000-0000-000000000000', type: DatadogAPIClient::V2::UsersType::USERS})})}), type: DatadogAPIClient::V2::UserInvitationsType::USER_INVITATIONS})]}) # UserInvitationsRequest | 
 
 begin
   # Send invitation emails
@@ -637,23 +645,24 @@ Edit a user. Can only be used with an application key belonging to an administra
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V2::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user.
-body = DatadogAPIClient::V2::UserUpdateRequest.new # UserUpdateRequest | 
+body = DatadogAPIClient::V2::UserUpdateRequest.new({data: DatadogAPIClient::V2::UserUpdateData.new({attributes: DatadogAPIClient::V2::UserUpdateAttributes.new, id: '00000000-0000-0000-0000-000000000000', type: DatadogAPIClient::V2::UsersType::USERS})}) # UserUpdateRequest | 
 
 begin
   # Update a user

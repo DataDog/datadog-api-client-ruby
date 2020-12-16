@@ -22,18 +22,19 @@ Get metadata about a specific metric.
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::MetricsApi.new
@@ -97,22 +98,23 @@ Get the list of actively reporting metrics from a given time until now.
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::MetricsApi.new
-from = 56 # Integer | Seconds since the Unix epoch.
+from = 789 # Integer | Seconds since the Unix epoch.
 opts = {
   host: 'host_example' # String | Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag.
 }
@@ -176,18 +178,19 @@ Search for metrics from the last 24 hours in Datadog.
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::MetricsApi.new
@@ -251,23 +254,24 @@ Query timeseries points.
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::MetricsApi.new
-from = 56 # Integer | Start of the queried time period, seconds since the Unix epoch.
-to = 56 # Integer | End of the queried time period, seconds since the Unix epoch.
+from = 789 # Integer | Start of the queried time period, seconds since the Unix epoch.
+to = 789 # Integer | End of the queried time period, seconds since the Unix epoch.
 query = 'query_example' # String | Query string.
 
 begin
@@ -330,18 +334,19 @@ Edit metadata of a specific metric. Find out more about [supported types](https:
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::MetricsApi.new

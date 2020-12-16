@@ -21,22 +21,23 @@ Create a new service object in the PagerDuty integration.
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::PagerDutyIntegrationApi.new
-body = DatadogAPIClient::V1::PagerDutyService.new # PagerDutyService | Create a new service object request body.
+body = DatadogAPIClient::V1::PagerDutyService.new({service_key: 'service_key_example', service_name: 'service_name_example'}) # PagerDutyService | Create a new service object request body.
 
 begin
   # Create a new service object
@@ -96,18 +97,19 @@ Delete a single service object in the Datadog-PagerDuty integration.
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::PagerDutyIntegrationApi.new
@@ -170,18 +172,19 @@ Get service name in the Datadog-PagerDuty integration.
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::PagerDutyIntegrationApi.new
@@ -245,23 +248,24 @@ Update a single service object in the Datadog-PagerDuty integration.
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::PagerDutyIntegrationApi.new
 service_name = 'service_name_example' # String | The service name
-body = DatadogAPIClient::V1::PagerDutyServiceKey.new # PagerDutyServiceKey | Update an existing service object request body.
+body = DatadogAPIClient::V1::PagerDutyServiceKey.new({service_key: 'service_key_example'}) # PagerDutyServiceKey | Update an existing service object request body.
 
 begin
   # Update a single service object

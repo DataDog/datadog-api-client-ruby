@@ -22,22 +22,23 @@ Create a child organization.  This endpoint requires the [multi-organization acc
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::OrganizationsApi.new
-body = DatadogAPIClient::V1::OrganizationCreateBody.new # OrganizationCreateBody | Organization object that needs to be created
+body = DatadogAPIClient::V1::OrganizationCreateBody.new({name: 'New child org'}) # OrganizationCreateBody | Organization object that needs to be created
 
 begin
   # Create a child organization
@@ -97,18 +98,19 @@ Get organization information.
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::OrganizationsApi.new
@@ -172,18 +174,19 @@ List your managed organizations.
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::OrganizationsApi.new
@@ -244,18 +247,19 @@ Update your organization.
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::OrganizationsApi.new
@@ -321,23 +325,24 @@ There are a couple of options for updating the Identity Provider (IdP) metadata 
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::OrganizationsApi.new
 public_id = 'abc123' # String | The `public_id` of the organization you are operating with
-idp_file = File.new('/path/to/file') # File | The path to the XML metadata file you wish to upload.
+idp_file = File.new('/path/to/some/file') # File | The path to the XML metadata file you wish to upload.
 
 begin
   # Upload IdP metadata
