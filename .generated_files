@@ -1,4 +1,4 @@
 docs/v[1-9][0-9]*/
 lib/datadog_api_client/v[1-9][0-9]*/
 lib/datadog_api_client/v[1-9].*
-spec/v[1-9][0-9]*/model/
+spec/v[1-9][0-9]*/models/
