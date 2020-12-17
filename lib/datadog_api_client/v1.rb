@@ -15,9 +15,9 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 =end
 
 # Common files
+require 'datadog_api_client/version'
 require 'datadog_api_client/v1/api_client'
 require 'datadog_api_client/v1/api_error'
-require 'datadog_api_client/v1/version'
 require 'datadog_api_client/v1/configuration'
 
 # Models
