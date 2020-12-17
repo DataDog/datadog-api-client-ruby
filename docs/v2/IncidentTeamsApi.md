@@ -35,6 +35,8 @@ DatadogAPIClient::V2.configure do |config|
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   # config.api_key_prefix['appKeyAuth'] = 'Bearer'
+
+  config.unstable_operations[:create_incident_team] = true
 end
 
 api_instance = DatadogAPIClient::V2::IncidentTeamsApi.new
@@ -111,6 +113,8 @@ DatadogAPIClient::V2.configure do |config|
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   # config.api_key_prefix['appKeyAuth'] = 'Bearer'
+
+  config.unstable_operations[:delete_incident_team] = true
 end
 
 api_instance = DatadogAPIClient::V2::IncidentTeamsApi.new
@@ -186,6 +190,8 @@ DatadogAPIClient::V2.configure do |config|
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   # config.api_key_prefix['appKeyAuth'] = 'Bearer'
+
+  config.unstable_operations[:get_incident_team] = true
 end
 
 api_instance = DatadogAPIClient::V2::IncidentTeamsApi.new
@@ -266,6 +272,8 @@ DatadogAPIClient::V2.configure do |config|
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   # config.api_key_prefix['appKeyAuth'] = 'Bearer'
+
+  config.unstable_operations[:list_incident_teams] = true
 end
 
 api_instance = DatadogAPIClient::V2::IncidentTeamsApi.new
@@ -350,6 +358,8 @@ DatadogAPIClient::V2.configure do |config|
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   # config.api_key_prefix['appKeyAuth'] = 'Bearer'
+
+  config.unstable_operations[:update_incident_team] = true
 end
 
 api_instance = DatadogAPIClient::V2::IncidentTeamsApi.new
