@@ -109,6 +109,11 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V2::IncidentsApi* | [**get_incident**](IncidentsApi.md#get_incident) | **GET** /api/v2/incidents/{incident_id} | Get the details of an incident
 *DatadogAPIClient::V2::IncidentsApi* | [**list_incidents**](IncidentsApi.md#list_incidents) | **GET** /api/v2/incidents | Get a list of incidents
 *DatadogAPIClient::V2::IncidentsApi* | [**update_incident**](IncidentsApi.md#update_incident) | **PATCH** /api/v2/incidents/{incident_id} | Update an existing incident
+*DatadogAPIClient::V2::KeyManagementApi* | [**create_api_key**](KeyManagementApi.md#create_api_key) | **POST** /api/v2/api_keys | Create an API key
+*DatadogAPIClient::V2::KeyManagementApi* | [**delete_api_key**](KeyManagementApi.md#delete_api_key) | **DELETE** /api/v2/api_keys/{api_key_id} | Delete an API key
+*DatadogAPIClient::V2::KeyManagementApi* | [**get_api_key**](KeyManagementApi.md#get_api_key) | **GET** /api/v2/api_keys/{api_key_id} | Get API key
+*DatadogAPIClient::V2::KeyManagementApi* | [**list_api_keys**](KeyManagementApi.md#list_api_keys) | **GET** /api/v2/api_keys | Get all API keys
+*DatadogAPIClient::V2::KeyManagementApi* | [**update_api_key**](KeyManagementApi.md#update_api_key) | **PATCH** /api/v2/api_keys/{api_key_id} | Edit an API key
 *DatadogAPIClient::V2::LogsApi* | [**aggregate_logs**](LogsApi.md#aggregate_logs) | **POST** /api/v2/logs/analytics/aggregate | Aggregate events
 *DatadogAPIClient::V2::LogsApi* | [**list_logs**](LogsApi.md#list_logs) | **POST** /api/v2/logs/events/search | Get a list of logs
 *DatadogAPIClient::V2::LogsApi* | [**list_logs_get**](LogsApi.md#list_logs_get) | **GET** /api/v2/logs/events | Get a quick list of logs
@@ -156,6 +161,17 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [DatadogAPIClient::V2::APIErrorResponse](APIErrorResponse.md)
+ - [DatadogAPIClient::V2::APIKeyCreateAttributes](APIKeyCreateAttributes.md)
+ - [DatadogAPIClient::V2::APIKeyCreateData](APIKeyCreateData.md)
+ - [DatadogAPIClient::V2::APIKeyCreateRequest](APIKeyCreateRequest.md)
+ - [DatadogAPIClient::V2::APIKeyRelationships](APIKeyRelationships.md)
+ - [DatadogAPIClient::V2::APIKeyResponse](APIKeyResponse.md)
+ - [DatadogAPIClient::V2::APIKeyResponseIncludedItem](APIKeyResponseIncludedItem.md)
+ - [DatadogAPIClient::V2::APIKeyUpdateAttributes](APIKeyUpdateAttributes.md)
+ - [DatadogAPIClient::V2::APIKeyUpdateData](APIKeyUpdateData.md)
+ - [DatadogAPIClient::V2::APIKeyUpdateRequest](APIKeyUpdateRequest.md)
+ - [DatadogAPIClient::V2::APIKeysResponse](APIKeysResponse.md)
+ - [DatadogAPIClient::V2::APIKeysType](APIKeysType.md)
  - [DatadogAPIClient::V2::Creator](Creator.md)
  - [DatadogAPIClient::V2::DashboardListAddItemsRequest](DashboardListAddItemsRequest.md)
  - [DatadogAPIClient::V2::DashboardListAddItemsResponse](DashboardListAddItemsResponse.md)
@@ -168,6 +184,8 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::DashboardListUpdateItemsRequest](DashboardListUpdateItemsRequest.md)
  - [DatadogAPIClient::V2::DashboardListUpdateItemsResponse](DashboardListUpdateItemsResponse.md)
  - [DatadogAPIClient::V2::DashboardType](DashboardType.md)
+ - [DatadogAPIClient::V2::FullAPIKey](FullAPIKey.md)
+ - [DatadogAPIClient::V2::FullAPIKeyAttributes](FullAPIKeyAttributes.md)
  - [DatadogAPIClient::V2::IncidentCreateAttributes](IncidentCreateAttributes.md)
  - [DatadogAPIClient::V2::IncidentCreateData](IncidentCreateData.md)
  - [DatadogAPIClient::V2::IncidentCreateRelationships](IncidentCreateRelationships.md)
@@ -280,6 +298,8 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::OrganizationAttributes](OrganizationAttributes.md)
  - [DatadogAPIClient::V2::OrganizationsType](OrganizationsType.md)
  - [DatadogAPIClient::V2::Pagination](Pagination.md)
+ - [DatadogAPIClient::V2::PartialAPIKey](PartialAPIKey.md)
+ - [DatadogAPIClient::V2::PartialAPIKeyAttributes](PartialAPIKeyAttributes.md)
  - [DatadogAPIClient::V2::Permission](Permission.md)
  - [DatadogAPIClient::V2::PermissionAttributes](PermissionAttributes.md)
  - [DatadogAPIClient::V2::PermissionsResponse](PermissionsResponse.md)
