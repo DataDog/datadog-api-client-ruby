@@ -10,7 +10,6 @@
 | **duration** | **Float** | Total duration in millisecond of the test. | [optional] |
 | **error** | **String** | Error returned by the test. | [optional] |
 | **playing_tab** | [**SyntheticsPlayingTab**](SyntheticsPlayingTab.md) |  | [optional] |
-| **resources** | [**Array&lt;SyntheticsResource&gt;**](SyntheticsResource.md) | Array of resources collected by the test. | [optional] |
 | **screenshot_bucket_key** | **Boolean** | Whether or not screenshots where collected by the test. | [optional] |
 | **skipped** | **Boolean** | Whether or not to skip this step. | [optional] |
 | **snapshot_bucket_key** | **Boolean** | Whether or not snapshots where collected by the test. | [optional] |
@@ -34,7 +33,6 @@ instance = DatadogAPIClient::V1::SyntheticsStepDetail.new(
   duration: null,
   error: null,
   playing_tab: null,
-  resources: null,
   screenshot_bucket_key: null,
   skipped: null,
   snapshot_bucket_key: null,

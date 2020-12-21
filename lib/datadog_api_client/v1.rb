@@ -306,8 +306,6 @@ require 'datadog_api_client/v1/models/synthetics_private_location_creation_respo
 require 'datadog_api_client/v1/models/synthetics_private_location_secrets'
 require 'datadog_api_client/v1/models/synthetics_private_location_secrets_authentication'
 require 'datadog_api_client/v1/models/synthetics_private_location_secrets_config_decryption'
-require 'datadog_api_client/v1/models/synthetics_resource'
-require 'datadog_api_client/v1/models/synthetics_resource_type'
 require 'datadog_api_client/v1/models/synthetics_ssl_certificate'
 require 'datadog_api_client/v1/models/synthetics_ssl_certificate_issuer'
 require 'datadog_api_client/v1/models/synthetics_ssl_certificate_subject'
