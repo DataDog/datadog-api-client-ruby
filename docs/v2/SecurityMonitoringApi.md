@@ -24,22 +24,23 @@ Create a detection rule.
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V2::SecurityMonitoringApi.new
-body = DatadogAPIClient::V2::SecurityMonitoringRuleCreatePayload.new # SecurityMonitoringRuleCreatePayload | 
+body = DatadogAPIClient::V2::SecurityMonitoringRuleCreatePayload.new({cases: [DatadogAPIClient::V2::SecurityMonitoringRuleCaseCreate.new({status: DatadogAPIClient::V2::SecurityMonitoringRuleSeverity::INFO})], is_enabled: true, message: 'message_example', name: 'name_example', options: DatadogAPIClient::V2::SecurityMonitoringRuleOptions.new, queries: [DatadogAPIClient::V2::SecurityMonitoringRuleQueryCreate.new({query: 'a < 3'})]}) # SecurityMonitoringRuleCreatePayload | 
 
 begin
   # Create a detection rule
@@ -99,18 +100,19 @@ Delete an existing rule. Default rules cannot be deleted.
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V2::SecurityMonitoringApi.new
@@ -173,18 +175,19 @@ Get a rule's details.
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V2::SecurityMonitoringApi.new
@@ -248,24 +251,25 @@ List rules.
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V2::SecurityMonitoringApi.new
 opts = {
-  page_size: 10, # Integer | Size for a given page.
-  page_number: 0 # Integer | Specific page number to return.
+  page_size: 789, # Integer | Size for a given page.
+  page_number: 789 # Integer | Specific page number to return.
 }
 
 begin
@@ -327,18 +331,21 @@ The list endpoint returns security signals that match a search query. Both this 
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
+
+  config.unstable_operations[:list_security_monitoring_signals] = true
 end
 
 api_instance = DatadogAPIClient::V2::SecurityMonitoringApi.new
@@ -346,9 +353,9 @@ opts = {
   filter_query: 'security:attack status:high', # String | The search query for security signals.
   filter_from: Time.parse('2019-01-02T09:42:36.320Z'), # Time | The minimum timestamp for requested security signals.
   filter_to: Time.parse('2019-01-03T09:42:36.320Z'), # Time | The maximum timestamp for requested security signals.
-  sort: DatadogAPIClient::V2::SecurityMonitoringSignalsSort.new, # SecurityMonitoringSignalsSort | The order of the security signals in results.
+  sort: DatadogAPIClient::V2::SecurityMonitoringSignalsSort::TIMESTAMP_ASCENDING, # SecurityMonitoringSignalsSort | The order of the security signals in results.
   page_cursor: 'eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==', # String | A list of results using the cursor provided in the previous query.
-  page_limit: 10 # Integer | The maximum number of security signals in the response.
+  page_limit: 25 # Integer | The maximum number of security signals in the response.
 }
 
 begin
@@ -414,18 +421,21 @@ Returns security signals that match a search query. Both this endpoint and the G
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
+
+  config.unstable_operations[:search_security_monitoring_signals] = true
 end
 
 api_instance = DatadogAPIClient::V2::SecurityMonitoringApi.new
@@ -491,18 +501,19 @@ Update an existing rule. When updating `cases`, `queries` or `options`, the whol
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V2::SecurityMonitoringApi.new

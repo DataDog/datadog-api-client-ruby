@@ -22,18 +22,21 @@ Get one log index from your organization. This endpoint takes no JSON arguments.
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
+
+  config.unstable_operations[:get_logs_index] = true
 end
 
 api_instance = DatadogAPIClient::V1::LogsIndexesApi.new
@@ -97,18 +100,21 @@ Get the current order of your log indexes. This endpoint takes no JSON arguments
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
+
+  config.unstable_operations[:get_logs_index_order] = true
 end
 
 api_instance = DatadogAPIClient::V1::LogsIndexesApi.new
@@ -169,18 +175,21 @@ The Index object describes the configuration of a log index. This endpoint retur
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
+
+  config.unstable_operations[:list_log_indexes] = true
 end
 
 api_instance = DatadogAPIClient::V1::LogsIndexesApi.new
@@ -241,23 +250,26 @@ Update an index as identified by its name. Returns the Index object passed in th
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
+
+  config.unstable_operations[:update_logs_index] = true
 end
 
 api_instance = DatadogAPIClient::V1::LogsIndexesApi.new
 name = 'name_example' # String | Name of the log index.
-body = DatadogAPIClient::V1::LogsIndexUpdateRequest.new # LogsIndexUpdateRequest | Object containing the new `LogsIndexUpdateRequest`.
+body = DatadogAPIClient::V1::LogsIndexUpdateRequest.new({filter: DatadogAPIClient::V1::LogsFilter.new}) # LogsIndexUpdateRequest | Object containing the new `LogsIndexUpdateRequest`.
 
 begin
   # Update an index
@@ -318,22 +330,25 @@ This endpoint updates the index order of your organization. It returns the index
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
+
+  config.unstable_operations[:update_logs_index_order] = true
 end
 
 api_instance = DatadogAPIClient::V1::LogsIndexesApi.new
-body = DatadogAPIClient::V1::LogsIndexesOrder.new # LogsIndexesOrder | Object containing the new ordered list of index names
+body = DatadogAPIClient::V1::LogsIndexesOrder.new({index_names: ['index_names_example']}) # LogsIndexesOrder | Object containing the new ordered list of index names
 
 begin
   # Update indexes order

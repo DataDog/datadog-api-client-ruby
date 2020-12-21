@@ -1,5 +1,5 @@
 =begin
-#Datadog API V1 Collection
+#Datadog API V2 Collection
 
 #Collection of all Datadog Public endpoints.
 
@@ -17,15 +17,9 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 require 'date'
 require 'time'
 
-module DatadogAPIClient::V1
-  class SyntheticsResourceType
-    DOCUMENT = "document".freeze
-    STYLESHEET = "stylesheet".freeze
-    FETCH = "fetch".freeze
-    IMAGE = "image".freeze
-    SCRIPT = "script".freeze
-    XHR = "xhr".freeze
-    OTHER = "other".freeze
+module DatadogAPIClient::V2
+  class APIKeysType
+    API_KEYS = "api_keys".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
@@ -38,8 +32,8 @@ module DatadogAPIClient::V1
     # @param [String] The enum value in the form of the string
     # @return [String] The enum value
     def build_from_hash(value)
-      constantValues = SyntheticsResourceType.constants.select { |c| SyntheticsResourceType::const_get(c) == value }
-      raise "Invalid ENUM value #{value} for class #SyntheticsResourceType" if constantValues.empty?
+      constantValues = APIKeysType.constants.select { |c| APIKeysType::const_get(c) == value }
+      raise "Invalid ENUM value #{value} for class #APIKeysType" if constantValues.empty?
       value
     end
   end

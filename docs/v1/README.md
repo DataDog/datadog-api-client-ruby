@@ -539,8 +539,6 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::SyntheticsPrivateLocationSecrets](SyntheticsPrivateLocationSecrets.md)
  - [DatadogAPIClient::V1::SyntheticsPrivateLocationSecretsAuthentication](SyntheticsPrivateLocationSecretsAuthentication.md)
  - [DatadogAPIClient::V1::SyntheticsPrivateLocationSecretsConfigDecryption](SyntheticsPrivateLocationSecretsConfigDecryption.md)
- - [DatadogAPIClient::V1::SyntheticsResource](SyntheticsResource.md)
- - [DatadogAPIClient::V1::SyntheticsResourceType](SyntheticsResourceType.md)
  - [DatadogAPIClient::V1::SyntheticsSSLCertificate](SyntheticsSSLCertificate.md)
  - [DatadogAPIClient::V1::SyntheticsSSLCertificateIssuer](SyntheticsSSLCertificateIssuer.md)
  - [DatadogAPIClient::V1::SyntheticsSSLCertificateSubject](SyntheticsSSLCertificateSubject.md)

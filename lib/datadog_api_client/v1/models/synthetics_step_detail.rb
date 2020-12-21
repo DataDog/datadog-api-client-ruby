@@ -36,9 +36,6 @@ module DatadogAPIClient::V1
 
     attr_accessor :playing_tab
 
-    # Array of resources collected by the test.
-    attr_accessor :resources
-
     # Whether or not screenshots where collected by the test.
     attr_accessor :screenshot_bucket_key
 
@@ -77,7 +74,6 @@ module DatadogAPIClient::V1
         :'duration' => :'duration',
         :'error' => :'error',
         :'playing_tab' => :'playingTab',
-        :'resources' => :'resources',
         :'screenshot_bucket_key' => :'screenshotBucketKey',
         :'skipped' => :'skipped',
         :'snapshot_bucket_key' => :'snapshotBucketKey',
@@ -105,7 +101,6 @@ module DatadogAPIClient::V1
         :'duration' => :'Float',
         :'error' => :'String',
         :'playing_tab' => :'SyntheticsPlayingTab',
-        :'resources' => :'Array<SyntheticsResource>',
         :'screenshot_bucket_key' => :'Boolean',
         :'skipped' => :'Boolean',
         :'snapshot_bucket_key' => :'Boolean',
@@ -164,12 +159,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'playing_tab')
         self.playing_tab = attributes[:'playing_tab']
-      end
-
-      if attributes.key?(:'resources')
-        if (value = attributes[:'resources']).is_a?(Array)
-          self.resources = value
-        end
       end
 
       if attributes.key?(:'screenshot_bucket_key')
@@ -241,7 +230,6 @@ module DatadogAPIClient::V1
           duration == o.duration &&
           error == o.error &&
           playing_tab == o.playing_tab &&
-          resources == o.resources &&
           screenshot_bucket_key == o.screenshot_bucket_key &&
           skipped == o.skipped &&
           snapshot_bucket_key == o.snapshot_bucket_key &&
@@ -263,7 +251,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [browser_errors, check_type, description, duration, error, playing_tab, resources, screenshot_bucket_key, skipped, snapshot_bucket_key, step_id, sub_test_step_details, time_to_interactive, type, url, value, warnings].hash
+      [browser_errors, check_type, description, duration, error, playing_tab, screenshot_bucket_key, skipped, snapshot_bucket_key, step_id, sub_test_step_details, time_to_interactive, type, url, value, warnings].hash
     end
 
     # Builds the object from hash

@@ -22,22 +22,25 @@ Creates a new incident service.
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
+
+  config.unstable_operations[:create_incident_service] = true
 end
 
 api_instance = DatadogAPIClient::V2::IncidentServicesApi.new
-body = DatadogAPIClient::V2::IncidentServiceCreateRequest.new # IncidentServiceCreateRequest | Incident Service Payload.
+body = DatadogAPIClient::V2::IncidentServiceCreateRequest.new({data: DatadogAPIClient::V2::IncidentServiceCreateData.new({type: DatadogAPIClient::V2::IncidentServiceType::SERVICES})}) # IncidentServiceCreateRequest | Incident Service Payload.
 
 begin
   # Create a new incident service
@@ -97,18 +100,21 @@ Deletes an existing incident service.
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
+
+  config.unstable_operations[:delete_incident_service] = true
 end
 
 api_instance = DatadogAPIClient::V2::IncidentServicesApi.new
@@ -171,24 +177,27 @@ Get details of an incident service. If the `include[users]` query parameter is p
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
+
+  config.unstable_operations[:get_incident_service] = true
 end
 
 api_instance = DatadogAPIClient::V2::IncidentServicesApi.new
 service_id = 'service_id_example' # String | The ID of the incident service.
 opts = {
-  include: 'include_example' # String | Specifies which types of related objects should be included in the response.
+  include: 'users' # String | Specifies which types of related objects should be included in the response.
 }
 
 begin
@@ -250,25 +259,28 @@ Get all incident services uploaded for the requesting user's organization. If th
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
+
+  config.unstable_operations[:list_incident_services] = true
 end
 
 api_instance = DatadogAPIClient::V2::IncidentServicesApi.new
 opts = {
-  include: 'include_example', # String | Specifies which types of related objects should be included in the response.
-  page_size: 10, # Integer | Size for a given page.
-  page_offset: 0, # Integer | Specific offset to use as the beginning of the returned page.
+  include: 'users', # String | Specifies which types of related objects should be included in the response.
+  page_size: 789, # Integer | Size for a given page.
+  page_offset: 789, # Integer | Specific offset to use as the beginning of the returned page.
   filter: 'ExampleServiceName' # String | A search query that filters services by name.
 }
 
@@ -333,23 +345,26 @@ Updates an existing incident service. Only provide the attributes which should b
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v2'
 # setup authorization
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
+
+  config.unstable_operations[:update_incident_service] = true
 end
 
 api_instance = DatadogAPIClient::V2::IncidentServicesApi.new
 service_id = 'service_id_example' # String | The ID of the incident service.
-body = DatadogAPIClient::V2::IncidentServiceUpdateRequest.new # IncidentServiceUpdateRequest | Incident Service Payload.
+body = DatadogAPIClient::V2::IncidentServiceUpdateRequest.new({data: DatadogAPIClient::V2::IncidentServiceUpdateData.new({id: '00000000-0000-0000-0000-000000000000', type: DatadogAPIClient::V2::IncidentServiceType::SERVICES})}) # IncidentServiceUpdateRequest | Incident Service Payload.
 
 begin
   # Update an existing incident service

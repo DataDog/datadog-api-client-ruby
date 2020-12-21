@@ -15,9 +15,9 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 =end
 
 # Common files
+require 'datadog_api_client/version'
 require 'datadog_api_client/v1/api_client'
 require 'datadog_api_client/v1/api_error'
-require 'datadog_api_client/v1/version'
 require 'datadog_api_client/v1/configuration'
 
 # Models
@@ -306,8 +306,6 @@ require 'datadog_api_client/v1/models/synthetics_private_location_creation_respo
 require 'datadog_api_client/v1/models/synthetics_private_location_secrets'
 require 'datadog_api_client/v1/models/synthetics_private_location_secrets_authentication'
 require 'datadog_api_client/v1/models/synthetics_private_location_secrets_config_decryption'
-require 'datadog_api_client/v1/models/synthetics_resource'
-require 'datadog_api_client/v1/models/synthetics_resource_type'
 require 'datadog_api_client/v1/models/synthetics_ssl_certificate'
 require 'datadog_api_client/v1/models/synthetics_ssl_certificate_issuer'
 require 'datadog_api_client/v1/models/synthetics_ssl_certificate_subject'

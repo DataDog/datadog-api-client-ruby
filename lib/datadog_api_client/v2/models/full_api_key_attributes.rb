@@ -1,5 +1,5 @@
 =begin
-#Datadog API V1 Collection
+#Datadog API V2 Collection
 
 #Collection of all Datadog Public endpoints.
 
@@ -17,43 +17,32 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 require 'date'
 require 'time'
 
-module DatadogAPIClient::V1
-  # Object describing a resource which is the combination of requests (fetch, XHR) and Assets (HTML, CSS, JS, images).
-  class SyntheticsResource
-    # Number of time the resource was collected.
-    attr_accessor :duration
+module DatadogAPIClient::V2
+  # Attributes of a full API key.
+  class FullAPIKeyAttributes
+    # Creation date of the API key.
+    attr_accessor :created_at
 
-    # HTTP method associated to the resource.
-    attr_accessor :method
+    # The API key.
+    attr_accessor :key
 
-    # Size of the resource in bytes.
-    attr_accessor :size
+    # The last four characters of the API key.
+    attr_accessor :last4
 
-    # Status Code of the resource.
-    attr_accessor :status
+    # Date the API key was last modified.
+    attr_accessor :modified_at
 
-    # Timestamp of the resource collection.
-    attr_accessor :timestamp
-
-    # Trace ID associated with the resource if any.
-    attr_accessor :trace_id
-
-    attr_accessor :type
-
-    # URL of the resource.
-    attr_accessor :url
+    # Name of the API key.
+    attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'duration' => :'duration',
-        :'method' => :'method',
-        :'size' => :'size',
-        :'status' => :'status',
-        :'timestamp' => :'timestamp',
-        :'trace_id' => :'traceId',
-        :'type' => :'type',
-        :'url' => :'url'
+        :'created_at' => :'created_at',
+        :'key' => :'key',
+        :'last4' => :'last4',
+        :'modified_at' => :'modified_at',
+        :'name' => :'name'
       }
     end
 
@@ -65,14 +54,11 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'duration' => :'Float',
-        :'method' => :'String',
-        :'size' => :'Integer',
-        :'status' => :'Integer',
-        :'timestamp' => :'Float',
-        :'trace_id' => :'String',
-        :'type' => :'SyntheticsResourceType',
-        :'url' => :'String'
+        :'created_at' => :'String',
+        :'key' => :'String',
+        :'last4' => :'String',
+        :'modified_at' => :'String',
+        :'name' => :'String'
       }
     end
 
@@ -86,47 +72,35 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsResource` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::FullAPIKeyAttributes` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SyntheticsResource`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::FullAPIKeyAttributes`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'duration')
-        self.duration = attributes[:'duration']
+      if attributes.key?(:'created_at')
+        self.created_at = attributes[:'created_at']
       end
 
-      if attributes.key?(:'method')
-        self.method = attributes[:'method']
+      if attributes.key?(:'key')
+        self.key = attributes[:'key']
       end
 
-      if attributes.key?(:'size')
-        self.size = attributes[:'size']
+      if attributes.key?(:'last4')
+        self.last4 = attributes[:'last4']
       end
 
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
+      if attributes.key?(:'modified_at')
+        self.modified_at = attributes[:'modified_at']
       end
 
-      if attributes.key?(:'timestamp')
-        self.timestamp = attributes[:'timestamp']
-      end
-
-      if attributes.key?(:'trace_id')
-        self.trace_id = attributes[:'trace_id']
-      end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
-      end
-
-      if attributes.key?(:'url')
-        self.url = attributes[:'url']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
     end
 
@@ -134,13 +108,37 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@last4.nil? && @last4.to_s.length > 4
+        invalid_properties.push('invalid value for "last4", the character length must be smaller than or equal to 4.')
+      end
+
+      if !@last4.nil? && @last4.to_s.length < 4
+        invalid_properties.push('invalid value for "last4", the character length must be great than or equal to 4.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@last4.nil? && @last4.to_s.length > 4
+      return false if !@last4.nil? && @last4.to_s.length < 4
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] last4 Value to be assigned
+    def last4=(last4)
+      if !last4.nil? && last4.to_s.length > 4
+        fail ArgumentError, 'invalid value for "last4", the character length must be smaller than or equal to 4.'
+      end
+
+      if !last4.nil? && last4.to_s.length < 4
+        fail ArgumentError, 'invalid value for "last4", the character length must be great than or equal to 4.'
+      end
+
+      @last4 = last4
     end
 
     # Checks equality by comparing each attribute.
@@ -148,14 +146,11 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          duration == o.duration &&
-          method == o.method &&
-          size == o.size &&
-          status == o.status &&
-          timestamp == o.timestamp &&
-          trace_id == o.trace_id &&
-          type == o.type &&
-          url == o.url
+          created_at == o.created_at &&
+          key == o.key &&
+          last4 == o.last4 &&
+          modified_at == o.modified_at &&
+          name == o.name
     end
 
     # @see the `==` method
@@ -167,7 +162,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [duration, method, size, status, timestamp, trace_id, type, url].hash
+      [created_at, key, last4, modified_at, name].hash
     end
 
     # Builds the object from hash
@@ -237,7 +232,7 @@ module DatadogAPIClient::V1
         end
       else # model
         # models (e.g. Pet) or oneOf
-        klass = DatadogAPIClient::V1.const_get(type)
+        klass = DatadogAPIClient::V2.const_get(type)
         klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end
     end

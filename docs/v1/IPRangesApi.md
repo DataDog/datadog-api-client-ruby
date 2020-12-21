@@ -18,6 +18,7 @@ Get information about Datadog IP ranges.
 ### Examples
 
 ```ruby
+require 'time'
 require 'datadog_api_client/v1'
 
 api_instance = DatadogAPIClient::V1::IPRangesApi.new
