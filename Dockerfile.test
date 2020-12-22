@@ -3,10 +3,6 @@ FROM ruby:2.7
 WORKDIR /datadog-api-client-ruby
 
 COPY . .
-# COPY Gemfile datadog_api_client.gemspec ./
-RUN bundle install && \
-    gem build datadog_api_client.gemspec -o datadog_api_client.gem && \
-    gem install ./datadog_api_client.gem
-
+RUN bundle install
 
 CMD ["/datadog-api-client-ruby/run-tests.sh"]

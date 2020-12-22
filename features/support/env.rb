@@ -6,6 +6,12 @@ SimpleCov.start do
   add_filter "/spec"
 end
 
+if ENV['CI'] == 'true'
+  require 'codecov'
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+end
+
+require 'cucumber'
 require 'datadog_api_client'
 require 'ddtrace'
 require 'time'
@@ -53,13 +59,9 @@ VCR.configure do |c|
     # TODO verify we don't store api_key and application_key as query params
   end
 
+  c.ignore_hosts (ENV["DD_AGENT_HOST"] || '127.0.0.1')
   c.ignore_request do |request|
     # Ignore traces
     request.headers.key? :'Datadog-Meta-Tracer-Version'
   end
-end
-
-if ENV['CI'] == 'true'
-  require 'codecov'
-  SimpleCov.formatter = SimpleCov::Formatter::Codecov
 end
