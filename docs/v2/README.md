@@ -127,6 +127,11 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V2::LogsArchivesApi* | [**remove_role_from_archive**](LogsArchivesApi.md#remove_role_from_archive) | **DELETE** /api/v2/logs/config/archives/{archive_id}/readers | Revoke role from an archive
 *DatadogAPIClient::V2::LogsArchivesApi* | [**update_logs_archive**](LogsArchivesApi.md#update_logs_archive) | **PUT** /api/v2/logs/config/archives/{archive_id} | Update an archive
 *DatadogAPIClient::V2::LogsArchivesApi* | [**update_logs_archive_order**](LogsArchivesApi.md#update_logs_archive_order) | **PUT** /api/v2/logs/config/archive-order | Update archive order
+*DatadogAPIClient::V2::LogsMetricsApi* | [**create_logs_metric**](LogsMetricsApi.md#create_logs_metric) | **POST** /api/v2/logs/config/metrics | Create a log-based metric
+*DatadogAPIClient::V2::LogsMetricsApi* | [**delete_logs_metric**](LogsMetricsApi.md#delete_logs_metric) | **DELETE** /api/v2/logs/config/metrics/{metric_id} | Delete a log-based metric
+*DatadogAPIClient::V2::LogsMetricsApi* | [**get_logs_metric**](LogsMetricsApi.md#get_logs_metric) | **GET** /api/v2/logs/config/metrics/{metric_id} | Get a log-based metric
+*DatadogAPIClient::V2::LogsMetricsApi* | [**list_logs_metrics**](LogsMetricsApi.md#list_logs_metrics) | **GET** /api/v2/logs/config/metrics | Get all log-based metrics
+*DatadogAPIClient::V2::LogsMetricsApi* | [**update_logs_metric**](LogsMetricsApi.md#update_logs_metric) | **PATCH** /api/v2/logs/config/metrics/{metric_id} | Update a log-based metric
 *DatadogAPIClient::V2::ProcessesApi* | [**list_processes**](ProcessesApi.md#list_processes) | **GET** /api/v2/processes | Get all processes
 *DatadogAPIClient::V2::RolesApi* | [**add_permission_to_role**](RolesApi.md#add_permission_to_role) | **POST** /api/v2/roles/{role_id}/permissions | Grant permission to a role
 *DatadogAPIClient::V2::RolesApi* | [**add_user_to_role**](RolesApi.md#add_user_to_role) | **POST** /api/v2/roles/{role_id}/users | Add a user to a role
@@ -287,6 +292,25 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::LogsListRequestPage](LogsListRequestPage.md)
  - [DatadogAPIClient::V2::LogsListResponse](LogsListResponse.md)
  - [DatadogAPIClient::V2::LogsListResponseLinks](LogsListResponseLinks.md)
+ - [DatadogAPIClient::V2::LogsMetricCompute](LogsMetricCompute.md)
+ - [DatadogAPIClient::V2::LogsMetricComputeAggregationType](LogsMetricComputeAggregationType.md)
+ - [DatadogAPIClient::V2::LogsMetricCreateAttributes](LogsMetricCreateAttributes.md)
+ - [DatadogAPIClient::V2::LogsMetricCreateData](LogsMetricCreateData.md)
+ - [DatadogAPIClient::V2::LogsMetricCreateRequest](LogsMetricCreateRequest.md)
+ - [DatadogAPIClient::V2::LogsMetricFilter](LogsMetricFilter.md)
+ - [DatadogAPIClient::V2::LogsMetricGroupBy](LogsMetricGroupBy.md)
+ - [DatadogAPIClient::V2::LogsMetricResponse](LogsMetricResponse.md)
+ - [DatadogAPIClient::V2::LogsMetricResponseAttributes](LogsMetricResponseAttributes.md)
+ - [DatadogAPIClient::V2::LogsMetricResponseCompute](LogsMetricResponseCompute.md)
+ - [DatadogAPIClient::V2::LogsMetricResponseComputeAggregationType](LogsMetricResponseComputeAggregationType.md)
+ - [DatadogAPIClient::V2::LogsMetricResponseData](LogsMetricResponseData.md)
+ - [DatadogAPIClient::V2::LogsMetricResponseFilter](LogsMetricResponseFilter.md)
+ - [DatadogAPIClient::V2::LogsMetricResponseGroupBy](LogsMetricResponseGroupBy.md)
+ - [DatadogAPIClient::V2::LogsMetricType](LogsMetricType.md)
+ - [DatadogAPIClient::V2::LogsMetricUpdateAttributes](LogsMetricUpdateAttributes.md)
+ - [DatadogAPIClient::V2::LogsMetricUpdateData](LogsMetricUpdateData.md)
+ - [DatadogAPIClient::V2::LogsMetricUpdateRequest](LogsMetricUpdateRequest.md)
+ - [DatadogAPIClient::V2::LogsMetricsResponse](LogsMetricsResponse.md)
  - [DatadogAPIClient::V2::LogsQueryFilter](LogsQueryFilter.md)
  - [DatadogAPIClient::V2::LogsQueryOptions](LogsQueryOptions.md)
  - [DatadogAPIClient::V2::LogsResponseMetadata](LogsResponseMetadata.md)
