@@ -5,3 +5,4 @@ rerun.txt
 coverage/
 examples/
 datadog_api_client-*.gem
+vendor/
