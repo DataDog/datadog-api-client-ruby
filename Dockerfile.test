@@ -3,7 +3,7 @@ FROM ruby:2.7
 WORKDIR /tmp/spec-repo/generated/datadog-api-client-ruby
 
 COPY . .
-RUN bundle config set path "~/.rvm/gems/datadog-api-client-ruby/" && \
+RUN bundle config set system 'true' && \
     bundle install
 
 CMD ["/tmp/spec-repo/generated/datadog-api-client-ruby/run-tests.sh"]
