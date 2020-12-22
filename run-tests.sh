@@ -6,7 +6,6 @@ trap finish EXIT
 
 RERUN_RESULT=0
 
-bundle install
 bundle exec rspec
 RSPEC_RESULT=$?
 if [ "$RERECORD_FAILED_TESTS" == "true" -a "$RSPEC_RESULT" -ne 0 ]; then
