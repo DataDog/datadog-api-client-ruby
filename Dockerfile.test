@@ -3,6 +3,7 @@ FROM ruby:2.7
 WORKDIR /datadog-api-client-ruby
 
 COPY . .
-RUN bundle install
+RUN bundle config set path "~/.rvm/gems/datadog-api-client-ruby/" && \
+    bundle install
 
 CMD ["/datadog-api-client-ruby/run-tests.sh"]
