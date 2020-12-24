@@ -18,7 +18,7 @@ require 'datadog_api_client/v1'
 instance = DatadogAPIClient::V1::SyntheticsBrowserVariable.new(
   example: null,
   id: null,
-  name: ,
+  name: VARIABLE_NAME,
   pattern: null,
   type: null
 )
