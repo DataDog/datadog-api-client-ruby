@@ -18,26 +18,26 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Configuration object for a Synthetic test.
-  class SyntheticsTestConfig
-    # Array of assertions used for the test.
-    attr_accessor :assertions
+  # Object defining a variable that can be used in your test configuration.
+  class SyntheticsConfigVariable
+    # Example for the variable.
+    attr_accessor :example
 
-    # API tests only - array of variables used for the test.
-    attr_accessor :config_variables
+    # Name of the variable.
+    attr_accessor :name
 
-    attr_accessor :request
+    # Pattern of the variable.
+    attr_accessor :pattern
 
-    # Browser tests only - array of variables used for the test steps.
-    attr_accessor :variables
+    attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'assertions' => :'assertions',
-        :'config_variables' => :'configVariables',
-        :'request' => :'request',
-        :'variables' => :'variables'
+        :'example' => :'example',
+        :'name' => :'name',
+        :'pattern' => :'pattern',
+        :'type' => :'type'
       }
     end
 
@@ -49,10 +49,10 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'assertions' => :'Array<SyntheticsAssertion>',
-        :'config_variables' => :'Array<SyntheticsConfigVariable>',
-        :'request' => :'SyntheticsTestRequest',
-        :'variables' => :'Array<SyntheticsBrowserVariable>'
+        :'example' => :'String',
+        :'name' => :'String',
+        :'pattern' => :'String',
+        :'type' => :'SyntheticsConfigVariableType'
       }
     end
 
@@ -66,37 +66,31 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsTestConfig` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsConfigVariable` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SyntheticsTestConfig`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SyntheticsConfigVariable`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'assertions')
-        if (value = attributes[:'assertions']).is_a?(Array)
-          self.assertions = value
-        end
+      if attributes.key?(:'example')
+        self.example = attributes[:'example']
       end
 
-      if attributes.key?(:'config_variables')
-        if (value = attributes[:'config_variables']).is_a?(Array)
-          self.config_variables = value
-        end
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'request')
-        self.request = attributes[:'request']
+      if attributes.key?(:'pattern')
+        self.pattern = attributes[:'pattern']
       end
 
-      if attributes.key?(:'variables')
-        if (value = attributes[:'variables']).is_a?(Array)
-          self.variables = value
-        end
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -104,12 +98,16 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @assertions.nil?
-        invalid_properties.push('invalid value for "assertions", assertions cannot be nil.')
+      if @example.nil?
+        invalid_properties.push('invalid value for "example", example cannot be nil.')
       end
 
-      if @request.nil?
-        invalid_properties.push('invalid value for "request", request cannot be nil.')
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
+      if @type.nil?
+        invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
 
       invalid_properties
@@ -118,8 +116,9 @@ module DatadogAPIClient::V1
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @assertions.nil?
-      return false if @request.nil?
+      return false if @example.nil?
+      return false if @name.nil?
+      return false if @type.nil?
       true
     end
 
@@ -128,10 +127,10 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          assertions == o.assertions &&
-          config_variables == o.config_variables &&
-          request == o.request &&
-          variables == o.variables
+          example == o.example &&
+          name == o.name &&
+          pattern == o.pattern &&
+          type == o.type
     end
 
     # @see the `==` method
@@ -143,7 +142,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [assertions, config_variables, request, variables].hash
+      [example, name, pattern, type].hash
     end
 
     # Builds the object from hash
