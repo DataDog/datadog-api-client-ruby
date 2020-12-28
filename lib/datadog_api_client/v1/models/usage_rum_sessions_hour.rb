@@ -26,11 +26,19 @@ module DatadogAPIClient::V1
     # Contains the number of RUM Sessions.
     attr_accessor :session_count
 
+    # Contains the number of mobile RUM Sessions on Android (data available beginning December 1, 2020).
+    attr_accessor :session_count_android
+
+    # Contains the number of mobile RUM Sessions on iOS (data available beginning December 1, 2020).
+    attr_accessor :session_count_ios
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'hour' => :'hour',
-        :'session_count' => :'session_count'
+        :'session_count' => :'session_count',
+        :'session_count_android' => :'session_count_android',
+        :'session_count_ios' => :'session_count_ios'
       }
     end
 
@@ -43,7 +51,9 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'hour' => :'Time',
-        :'session_count' => :'Integer'
+        :'session_count' => :'Integer',
+        :'session_count_android' => :'Integer',
+        :'session_count_ios' => :'Integer'
       }
     end
 
@@ -75,6 +85,14 @@ module DatadogAPIClient::V1
       if attributes.key?(:'session_count')
         self.session_count = attributes[:'session_count']
       end
+
+      if attributes.key?(:'session_count_android')
+        self.session_count_android = attributes[:'session_count_android']
+      end
+
+      if attributes.key?(:'session_count_ios')
+        self.session_count_ios = attributes[:'session_count_ios']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -96,7 +114,9 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           hour == o.hour &&
-          session_count == o.session_count
+          session_count == o.session_count &&
+          session_count_android == o.session_count_android &&
+          session_count_ios == o.session_count_ios
     end
 
     # @see the `==` method
@@ -108,7 +128,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [hour, session_count].hash
+      [hour, session_count, session_count_android, session_count_ios].hash
     end
 
     # Builds the object from hash
