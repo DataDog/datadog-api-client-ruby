@@ -21,6 +21,8 @@
 | **indexed_events_count_sum** | **Integer** | Shows the sum of all log events indexed over all hours in the current date for the given org. | [optional] |
 | **infra_host_top99p** | **Integer** | Shows the 99th percentile of all distinct infrastructure hosts over all hours in the current date for the given org. | [optional] |
 | **ingested_events_bytes_sum** | **Integer** | Shows the sum of all log bytes ingested over all hours in the current date for the given org. | [optional] |
+| **mobile_rum_session_count_android_sum** | **Integer** | Shows the sum of all mobile RUM Sessions on Android over all hours in the current date for the given org. | [optional] |
+| **mobile_rum_session_count_ios_sum** | **Integer** | Shows the sum of all mobile RUM Sessions on iOS over all hours in the current date for the given org. | [optional] |
 | **mobile_rum_session_count_sum** | **Integer** | Shows the sum of all mobile RUM Sessions over all hours in the current date for the given org. | [optional] |
 | **name** | **String** | The organization name. | [optional] |
 | **netflow_indexed_events_count_sum** | **Integer** | Shows the sum of all Network flows indexed over all hours in the current date for the given org. | [optional] |
@@ -28,6 +30,7 @@
 | **profiling_host_top99p** | **Integer** | Shows the 99th percentile of all profiled hosts over all hours in the current date for the given org. | [optional] |
 | **public_id** | **String** | The organization public id. | [optional] |
 | **rum_session_count_sum** | **Integer** | Shows the sum of all browser RUM Sessions over all hours in the current date for the given org. | [optional] |
+| **rum_total_session_count_sum** | **Integer** | Shows the sum of RUM Sessions (browser and mobile) over all hours in the current date for the given org. | [optional] |
 | **synthetics_browser_check_calls_count_sum** | **Integer** | Shows the sum of all Synthetic browser tests over all hours in the current date for the given org. | [optional] |
 | **synthetics_check_calls_count_sum** | **Integer** | Shows the sum of all Synthetic API tests over all hours in the current date for the given org. | [optional] |
 | **trace_search_indexed_events_count_sum** | **Integer** | Shows the sum of all Indexed Spans indexed over all hours in the current date for the given org. | [optional] |
@@ -56,6 +59,8 @@ instance = DatadogAPIClient::V1::UsageSummaryDateOrg.new(
   indexed_events_count_sum: null,
   infra_host_top99p: null,
   ingested_events_bytes_sum: null,
+  mobile_rum_session_count_android_sum: null,
+  mobile_rum_session_count_ios_sum: null,
   mobile_rum_session_count_sum: null,
   name: null,
   netflow_indexed_events_count_sum: null,
@@ -63,6 +68,7 @@ instance = DatadogAPIClient::V1::UsageSummaryDateOrg.new(
   profiling_host_top99p: null,
   public_id: null,
   rum_session_count_sum: null,
+  rum_total_session_count_sum: null,
   synthetics_browser_check_calls_count_sum: null,
   synthetics_check_calls_count_sum: null,
   trace_search_indexed_events_count_sum: null,

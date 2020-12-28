@@ -25,11 +25,14 @@
 | **ingested_events_bytes_agg_sum** | **Integer** | Shows the sum of all log bytes ingested over all hours in the current months for all organizations. | [optional] |
 | **last_updated** | **Time** | Shows the the most recent hour in the current months for all organizations for which all usages were calculated. | [optional] |
 | **mobile_rum_session_count_agg_sum** | **Integer** | Shows the sum of all mobile RUM Sessions over all hours in the current months for all organizations. | [optional] |
+| **mobile_rum_session_count_android_agg_sum** | **Integer** | Shows the sum of all mobile RUM Sessions on Android over all hours in the current months for all organizations. | [optional] |
+| **mobile_rum_session_count_ios_agg_sum** | **Integer** | Shows the sum of all mobile RUM Sessions on iOS over all hours in the current months for all organizations. | [optional] |
 | **netflow_indexed_events_count_agg_sum** | **Integer** | Shows the sum of all Network flows indexed over all hours in the current months for all organizations. | [optional] |
 | **npm_host_top99p_sum** | **Integer** | Shows the 99th percentile of all distinct Networks hosts over all hours in the current months for all organizations. | [optional] |
 | **profiling_container_agent_count_avg** | **Integer** | Shows the average number of profiled containers over all hours in the current months for all organizations. | [optional] |
 | **profiling_host_count_top99p_sum** | **Integer** | Shows the 99th percentile of all profiled hosts over all hours in the current months for all organizations. | [optional] |
 | **rum_session_count_agg_sum** | **Integer** | Shows the sum of all browser RUM Sessions over all hours in the current months for all organizations. | [optional] |
+| **rum_total_session_count_agg_sum** | **Integer** | Shows the sum of RUM Sessions (browser and mobile) over all hours in the current months for all organizations. | [optional] |
 | **start_date** | **Time** | Shows the first date of usage in the current months for all organizations. | [optional] |
 | **synthetics_browser_check_calls_count_agg_sum** | **Integer** | Shows the sum of all Synthetic browser tests over all hours in the current months for all organizations. | [optional] |
 | **synthetics_check_calls_count_agg_sum** | **Integer** | Shows the sum of all Synthetic API tests over all hours in the current months for all organizations. | [optional] |
@@ -64,11 +67,14 @@ instance = DatadogAPIClient::V1::UsageSummaryResponse.new(
   ingested_events_bytes_agg_sum: null,
   last_updated: null,
   mobile_rum_session_count_agg_sum: null,
+  mobile_rum_session_count_android_agg_sum: null,
+  mobile_rum_session_count_ios_agg_sum: null,
   netflow_indexed_events_count_agg_sum: null,
   npm_host_top99p_sum: null,
   profiling_container_agent_count_avg: null,
   profiling_host_count_top99p_sum: null,
   rum_session_count_agg_sum: null,
+  rum_total_session_count_agg_sum: null,
   start_date: null,
   synthetics_browser_check_calls_count_agg_sum: null,
   synthetics_check_calls_count_agg_sum: null,
