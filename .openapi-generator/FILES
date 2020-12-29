@@ -217,6 +217,8 @@ docs/RolesResponse.md
 docs/RolesSort.md
 docs/RolesType.md
 docs/SecurityMonitoringApi.md
+docs/SecurityMonitoringFilter.md
+docs/SecurityMonitoringFilterAction.md
 docs/SecurityMonitoringListRulesResponse.md
 docs/SecurityMonitoringRuleCase.md
 docs/SecurityMonitoringRuleCaseCreate.md
@@ -487,6 +489,8 @@ lib/datadog_api_client/v2/models/role_update_response_data.rb
 lib/datadog_api_client/v2/models/roles_response.rb
 lib/datadog_api_client/v2/models/roles_sort.rb
 lib/datadog_api_client/v2/models/roles_type.rb
+lib/datadog_api_client/v2/models/security_monitoring_filter.rb
+lib/datadog_api_client/v2/models/security_monitoring_filter_action.rb
 lib/datadog_api_client/v2/models/security_monitoring_list_rules_response.rb
 lib/datadog_api_client/v2/models/security_monitoring_rule_case.rb
 lib/datadog_api_client/v2/models/security_monitoring_rule_case_create.rb
@@ -754,6 +758,8 @@ spec/models/role_update_response_spec.rb
 spec/models/roles_response_spec.rb
 spec/models/roles_sort_spec.rb
 spec/models/roles_type_spec.rb
+spec/models/security_monitoring_filter_action_spec.rb
+spec/models/security_monitoring_filter_spec.rb
 spec/models/security_monitoring_list_rules_response_spec.rb
 spec/models/security_monitoring_rule_case_create_spec.rb
 spec/models/security_monitoring_rule_case_spec.rb
