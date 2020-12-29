@@ -18,42 +18,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Update an existing rule.
-  class SecurityMonitoringRuleUpdatePayload
-    # Cases for generating signals.
-    attr_accessor :cases
+  # The rule's suppression filter.
+  class SecurityMonitoringFilter
+    attr_accessor :action
 
-    # Additional queries to filter matched events before they are processed.
-    attr_accessor :filters
-
-    # Whether the rule is enabled.
-    attr_accessor :is_enabled
-
-    # Message for generated signals.
-    attr_accessor :message
-
-    # Name of the rule.
-    attr_accessor :name
-
-    attr_accessor :options
-
-    # Queries for selecting logs which are part of the rule.
-    attr_accessor :queries
-
-    # Tags for generated signals.
-    attr_accessor :tags
+    # Query for selecting logs to apply the filtering action.
+    attr_accessor :query
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'cases' => :'cases',
-        :'filters' => :'filters',
-        :'is_enabled' => :'isEnabled',
-        :'message' => :'message',
-        :'name' => :'name',
-        :'options' => :'options',
-        :'queries' => :'queries',
-        :'tags' => :'tags'
+        :'action' => :'action',
+        :'query' => :'query'
       }
     end
 
@@ -65,14 +41,8 @@ module DatadogAPIClient::V2
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'cases' => :'Array<SecurityMonitoringRuleCase>',
-        :'filters' => :'Array<SecurityMonitoringFilter>',
-        :'is_enabled' => :'Boolean',
-        :'message' => :'String',
-        :'name' => :'String',
-        :'options' => :'SecurityMonitoringRuleOptions',
-        :'queries' => :'Array<SecurityMonitoringRuleQuery>',
-        :'tags' => :'Array<String>'
+        :'action' => :'SecurityMonitoringFilterAction',
+        :'query' => :'String'
       }
     end
 
@@ -86,55 +56,23 @@ module DatadogAPIClient::V2
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringRuleUpdatePayload` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringFilter` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::SecurityMonitoringRuleUpdatePayload`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::SecurityMonitoringFilter`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'cases')
-        if (value = attributes[:'cases']).is_a?(Array)
-          self.cases = value
-        end
+      if attributes.key?(:'action')
+        self.action = attributes[:'action']
       end
 
-      if attributes.key?(:'filters')
-        if (value = attributes[:'filters']).is_a?(Array)
-          self.filters = value
-        end
-      end
-
-      if attributes.key?(:'is_enabled')
-        self.is_enabled = attributes[:'is_enabled']
-      end
-
-      if attributes.key?(:'message')
-        self.message = attributes[:'message']
-      end
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'options')
-        self.options = attributes[:'options']
-      end
-
-      if attributes.key?(:'queries')
-        if (value = attributes[:'queries']).is_a?(Array)
-          self.queries = value
-        end
-      end
-
-      if attributes.key?(:'tags')
-        if (value = attributes[:'tags']).is_a?(Array)
-          self.tags = value
-        end
+      if attributes.key?(:'query')
+        self.query = attributes[:'query']
       end
     end
 
@@ -156,14 +94,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          cases == o.cases &&
-          filters == o.filters &&
-          is_enabled == o.is_enabled &&
-          message == o.message &&
-          name == o.name &&
-          options == o.options &&
-          queries == o.queries &&
-          tags == o.tags
+          action == o.action &&
+          query == o.query
     end
 
     # @see the `==` method
@@ -175,7 +107,7 @@ module DatadogAPIClient::V2
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cases, filters, is_enabled, message, name, options, queries, tags].hash
+      [action, query].hash
     end
 
     # Builds the object from hash

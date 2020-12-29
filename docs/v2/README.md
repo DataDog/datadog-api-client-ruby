@@ -370,6 +370,8 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::RolesResponse](RolesResponse.md)
  - [DatadogAPIClient::V2::RolesSort](RolesSort.md)
  - [DatadogAPIClient::V2::RolesType](RolesType.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringFilter](SecurityMonitoringFilter.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringFilterAction](SecurityMonitoringFilterAction.md)
  - [DatadogAPIClient::V2::SecurityMonitoringListRulesResponse](SecurityMonitoringListRulesResponse.md)
  - [DatadogAPIClient::V2::SecurityMonitoringRuleCase](SecurityMonitoringRuleCase.md)
  - [DatadogAPIClient::V2::SecurityMonitoringRuleCaseCreate](SecurityMonitoringRuleCaseCreate.md)
