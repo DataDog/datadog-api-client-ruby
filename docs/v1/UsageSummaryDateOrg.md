@@ -5,10 +5,12 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **agent_host_top99p** | **Integer** | Shows the 99th percentile of all agent hosts over all hours in the current date for the given org. | [optional] |
+| **apm_azure_app_service_host_top99p** | **Integer** | Shows the 99th percentile of all Azure app services using APM over all hours in the current date for the given org. | [optional] |
 | **apm_host_top99p** | **Integer** | Shows the 99th percentile of all distinct APM hosts over all hours in the current date for the given org. | [optional] |
 | **aws_host_top99p** | **Integer** | Shows the 99th percentile of all AWS hosts over all hours in the current date for the given org. | [optional] |
 | **aws_lambda_func_count** | **Integer** | Shows the sum of all AWS Lambda invocations over all hours in the current date for the given org. | [optional] |
 | **aws_lambda_invocations_sum** | **Integer** | Shows the sum of all AWS Lambda invocations over all hours in the current date for the given org. | [optional] |
+| **azure_app_service_top99p** | **Integer** | Shows the 99th percentile of all Azure app services over all hours in the current date for the given org. | [optional] |
 | **billable_ingested_bytes_sum** | **Integer** | Shows the sum of all log bytes ingested over all hours in the current date for the given org. | [optional] |
 | **container_avg** | **Integer** | Shows the average of all distinct containers over all hours in the current date for the given org. | [optional] |
 | **container_hwm** | **Integer** | Shows the high-water mark of all distinct containers over all hours in the current date for the given org. | [optional] |
@@ -43,10 +45,12 @@ require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::UsageSummaryDateOrg.new(
   agent_host_top99p: null,
+  apm_azure_app_service_host_top99p: null,
   apm_host_top99p: null,
   aws_host_top99p: null,
   aws_lambda_func_count: null,
   aws_lambda_invocations_sum: null,
+  azure_app_service_top99p: null,
   billable_ingested_bytes_sum: null,
   container_avg: null,
   container_hwm: null,

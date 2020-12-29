@@ -23,6 +23,9 @@ module DatadogAPIClient::V1
     # Shows the 99th percentile of all agent hosts over all hours in the current months for all organizations.
     attr_accessor :agent_host_top99p_sum
 
+    # Shows the 99th percentile of all Azure app services using APM over all hours in the current months all organizations.
+    attr_accessor :apm_azure_app_service_host_top99p_sum
+
     # Shows the 99th percentile of all distinct APM hosts over all hours in the current months for all organizations.
     attr_accessor :apm_host_top99p_sum
 
@@ -129,6 +132,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'agent_host_top99p_sum' => :'agent_host_top99p_sum',
+        :'apm_azure_app_service_host_top99p_sum' => :'apm_azure_app_service_host_top99p_sum',
         :'apm_host_top99p_sum' => :'apm_host_top99p_sum',
         :'aws_host_top99p_sum' => :'aws_host_top99p_sum',
         :'aws_lambda_func_count' => :'aws_lambda_func_count',
@@ -175,6 +179,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'agent_host_top99p_sum' => :'Integer',
+        :'apm_azure_app_service_host_top99p_sum' => :'Integer',
         :'apm_host_top99p_sum' => :'Integer',
         :'aws_host_top99p_sum' => :'Integer',
         :'aws_lambda_func_count' => :'Integer',
@@ -235,6 +240,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'agent_host_top99p_sum')
         self.agent_host_top99p_sum = attributes[:'agent_host_top99p_sum']
+      end
+
+      if attributes.key?(:'apm_azure_app_service_host_top99p_sum')
+        self.apm_azure_app_service_host_top99p_sum = attributes[:'apm_azure_app_service_host_top99p_sum']
       end
 
       if attributes.key?(:'apm_host_top99p_sum')
@@ -395,6 +404,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           agent_host_top99p_sum == o.agent_host_top99p_sum &&
+          apm_azure_app_service_host_top99p_sum == o.apm_azure_app_service_host_top99p_sum &&
           apm_host_top99p_sum == o.apm_host_top99p_sum &&
           aws_host_top99p_sum == o.aws_host_top99p_sum &&
           aws_lambda_func_count == o.aws_lambda_func_count &&
@@ -440,7 +450,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_host_top99p_sum, apm_host_top99p_sum, aws_host_top99p_sum, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p_sum, azure_host_top99p_sum, billable_ingested_bytes_agg_sum, container_avg_sum, container_hwm_sum, custom_ts_sum, end_date, fargate_tasks_count_avg_sum, fargate_tasks_count_hwm_sum, gcp_host_top99p_sum, incident_management_monthly_active_users_hwm_sum, indexed_events_count_agg_sum, infra_host_top99p_sum, ingested_events_bytes_agg_sum, last_updated, mobile_rum_session_count_agg_sum, mobile_rum_session_count_android_agg_sum, mobile_rum_session_count_ios_agg_sum, netflow_indexed_events_count_agg_sum, npm_host_top99p_sum, profiling_container_agent_count_avg, profiling_host_count_top99p_sum, rum_session_count_agg_sum, rum_total_session_count_agg_sum, start_date, synthetics_browser_check_calls_count_agg_sum, synthetics_check_calls_count_agg_sum, trace_search_indexed_events_count_agg_sum, twol_ingested_events_bytes_agg_sum, usage].hash
+      [agent_host_top99p_sum, apm_azure_app_service_host_top99p_sum, apm_host_top99p_sum, aws_host_top99p_sum, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p_sum, azure_host_top99p_sum, billable_ingested_bytes_agg_sum, container_avg_sum, container_hwm_sum, custom_ts_sum, end_date, fargate_tasks_count_avg_sum, fargate_tasks_count_hwm_sum, gcp_host_top99p_sum, incident_management_monthly_active_users_hwm_sum, indexed_events_count_agg_sum, infra_host_top99p_sum, ingested_events_bytes_agg_sum, last_updated, mobile_rum_session_count_agg_sum, mobile_rum_session_count_android_agg_sum, mobile_rum_session_count_ios_agg_sum, netflow_indexed_events_count_agg_sum, npm_host_top99p_sum, profiling_container_agent_count_avg, profiling_host_count_top99p_sum, rum_session_count_agg_sum, rum_total_session_count_agg_sum, start_date, synthetics_browser_check_calls_count_agg_sum, synthetics_check_calls_count_agg_sum, trace_search_indexed_events_count_agg_sum, twol_ingested_events_bytes_agg_sum, usage].hash
     end
 
     # Builds the object from hash
