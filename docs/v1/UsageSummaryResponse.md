@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **agent_host_top99p_sum** | **Integer** | Shows the 99th percentile of all agent hosts over all hours in the current months for all organizations. | [optional] |
+| **apm_azure_app_service_host_top99p_sum** | **Integer** | Shows the 99th percentile of all Azure app services using APM over all hours in the current months all organizations. | [optional] |
 | **apm_host_top99p_sum** | **Integer** | Shows the 99th percentile of all distinct APM hosts over all hours in the current months for all organizations. | [optional] |
 | **aws_host_top99p_sum** | **Integer** | Shows the 99th percentile of all AWS hosts over all hours in the current months for all organizations. | [optional] |
 | **aws_lambda_func_count** | **Integer** | Shows the average of the number of functions that executed 1 or more times each hour in the current months for all organizations. | [optional] |
@@ -47,6 +48,7 @@ require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::UsageSummaryResponse.new(
   agent_host_top99p_sum: null,
+  apm_azure_app_service_host_top99p_sum: null,
   apm_host_top99p_sum: null,
   aws_host_top99p_sum: null,
   aws_lambda_func_count: null,
