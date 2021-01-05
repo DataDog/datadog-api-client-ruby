@@ -98,6 +98,81 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create an application key for current user
+    # Create an application key for current user
+    # @param body [ApplicationKeyCreateRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [ApplicationKeyResponse]
+    def create_current_user_application_key(body, opts = {})
+      data, _status_code, _headers = create_current_user_application_key_with_http_info(body, opts)
+      data
+    end
+
+    # Create an application key for current user
+    # Create an application key for current user
+    # @param body [ApplicationKeyCreateRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
+    def create_current_user_application_key_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:create_current_user_application_key)
+        unstable_enabled = @api_client.config.unstable_operations[:create_current_user_application_key]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_current_user_application_key")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "create_current_user_application_key"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KeyManagementApi.create_current_user_application_key ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling KeyManagementApi.create_current_user_application_key"
+      end
+      # resource path
+      local_var_path = '/api/v2/current_user/application_keys'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApplicationKeyResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"KeyManagementApi.create_current_user_application_key",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KeyManagementApi#create_current_user_application_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete an API key
     # Delete an API key.
     # @param api_key_id [String] The ID of the API key.
@@ -167,6 +242,152 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: KeyManagementApi#delete_api_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete an application key
+    # Delete an application key
+    # @param app_key_id [String] The ID of the application key.
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def delete_application_key(app_key_id, opts = {})
+      delete_application_key_with_http_info(app_key_id, opts)
+      nil
+    end
+
+    # Delete an application key
+    # Delete an application key
+    # @param app_key_id [String] The ID of the application key.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_application_key_with_http_info(app_key_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:delete_application_key)
+        unstable_enabled = @api_client.config.unstable_operations[:delete_application_key]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_application_key")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "delete_application_key"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KeyManagementApi.delete_application_key ...'
+      end
+      # verify the required parameter 'app_key_id' is set
+      if @api_client.config.client_side_validation && app_key_id.nil?
+        fail ArgumentError, "Missing the required parameter 'app_key_id' when calling KeyManagementApi.delete_application_key"
+      end
+      # resource path
+      local_var_path = '/api/v2/application_keys/{app_key_id}'.sub('{' + 'app_key_id' + '}', CGI.escape(app_key_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"KeyManagementApi.delete_application_key",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KeyManagementApi#delete_application_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete an application key owned by current user
+    # Delete an application key owned by current user
+    # @param app_key_id [String] The ID of the application key.
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def delete_current_user_application_key(app_key_id, opts = {})
+      delete_current_user_application_key_with_http_info(app_key_id, opts)
+      nil
+    end
+
+    # Delete an application key owned by current user
+    # Delete an application key owned by current user
+    # @param app_key_id [String] The ID of the application key.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_current_user_application_key_with_http_info(app_key_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:delete_current_user_application_key)
+        unstable_enabled = @api_client.config.unstable_operations[:delete_current_user_application_key]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_current_user_application_key")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "delete_current_user_application_key"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KeyManagementApi.delete_current_user_application_key ...'
+      end
+      # verify the required parameter 'app_key_id' is set
+      if @api_client.config.client_side_validation && app_key_id.nil?
+        fail ArgumentError, "Missing the required parameter 'app_key_id' when calling KeyManagementApi.delete_current_user_application_key"
+      end
+      # resource path
+      local_var_path = '/api/v2/current_user/application_keys/{app_key_id}'.sub('{' + 'app_key_id' + '}', CGI.escape(app_key_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"KeyManagementApi.delete_current_user_application_key",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KeyManagementApi#delete_current_user_application_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -243,6 +464,79 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: KeyManagementApi#get_api_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get one application key owned by current user
+    # Get an application key owned by current user
+    # @param app_key_id [String] The ID of the application key.
+    # @param [Hash] opts the optional parameters
+    # @return [ApplicationKeyResponse]
+    def get_current_user_application_key(app_key_id, opts = {})
+      data, _status_code, _headers = get_current_user_application_key_with_http_info(app_key_id, opts)
+      data
+    end
+
+    # Get one application key owned by current user
+    # Get an application key owned by current user
+    # @param app_key_id [String] The ID of the application key.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
+    def get_current_user_application_key_with_http_info(app_key_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_current_user_application_key)
+        unstable_enabled = @api_client.config.unstable_operations[:get_current_user_application_key]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_current_user_application_key")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_current_user_application_key"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KeyManagementApi.get_current_user_application_key ...'
+      end
+      # verify the required parameter 'app_key_id' is set
+      if @api_client.config.client_side_validation && app_key_id.nil?
+        fail ArgumentError, "Missing the required parameter 'app_key_id' when calling KeyManagementApi.get_current_user_application_key"
+      end
+      # resource path
+      local_var_path = '/api/v2/current_user/application_keys/{app_key_id}'.sub('{' + 'app_key_id' + '}', CGI.escape(app_key_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApplicationKeyResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"KeyManagementApi.get_current_user_application_key",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KeyManagementApi#get_current_user_application_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -345,6 +639,184 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get all application keys
+    # List all application keys available for your org
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page_size Size for a given page. (default to 10)
+    # @option opts [Integer] :page_number Specific page number to return. (default to 0)
+    # @option opts [String] :sort Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. (default to 'name')
+    # @option opts [String] :filter Filter application keys by the specified string.
+    # @option opts [String] :filter_created_at_start Only include application keys created on or after the specified date.
+    # @option opts [String] :filter_created_at_end Only include application keys created on or before the specified date.
+    # @return [ListApplicationKeysResponse]
+    def list_application_keys(opts = {})
+      data, _status_code, _headers = list_application_keys_with_http_info(opts)
+      data
+    end
+
+    # Get all application keys
+    # List all application keys available for your org
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page_size Size for a given page.
+    # @option opts [Integer] :page_number Specific page number to return.
+    # @option opts [String] :sort Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
+    # @option opts [String] :filter Filter application keys by the specified string.
+    # @option opts [String] :filter_created_at_start Only include application keys created on or after the specified date.
+    # @option opts [String] :filter_created_at_end Only include application keys created on or before the specified date.
+    # @return [Array<(ListApplicationKeysResponse, Integer, Hash)>] ListApplicationKeysResponse data, response status code and response headers
+    def list_application_keys_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_application_keys)
+        unstable_enabled = @api_client.config.unstable_operations[:list_application_keys]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_application_keys")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "list_application_keys"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KeyManagementApi.list_application_keys ...'
+      end
+      allowable_values = ["created_at", "-created_at", "last4", "-last4", "name", "-name"]
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/api/v2/application_keys'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'filter[created_at][start]'] = opts[:'filter_created_at_start'] if !opts[:'filter_created_at_start'].nil?
+      query_params[:'filter[created_at][end]'] = opts[:'filter_created_at_end'] if !opts[:'filter_created_at_end'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListApplicationKeysResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"KeyManagementApi.list_application_keys",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KeyManagementApi#list_application_keys\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get all application keys owned by current user
+    # List all application keys available for current user
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page_size Size for a given page. (default to 10)
+    # @option opts [Integer] :page_number Specific page number to return. (default to 0)
+    # @option opts [String] :sort Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. (default to 'name')
+    # @option opts [String] :filter Filter application keys by the specified string.
+    # @option opts [String] :filter_created_at_start Only include application keys created on or after the specified date.
+    # @option opts [String] :filter_created_at_end Only include application keys created on or before the specified date.
+    # @return [ListApplicationKeysResponse]
+    def list_current_user_application_keys(opts = {})
+      data, _status_code, _headers = list_current_user_application_keys_with_http_info(opts)
+      data
+    end
+
+    # Get all application keys owned by current user
+    # List all application keys available for current user
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page_size Size for a given page.
+    # @option opts [Integer] :page_number Specific page number to return.
+    # @option opts [String] :sort Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
+    # @option opts [String] :filter Filter application keys by the specified string.
+    # @option opts [String] :filter_created_at_start Only include application keys created on or after the specified date.
+    # @option opts [String] :filter_created_at_end Only include application keys created on or before the specified date.
+    # @return [Array<(ListApplicationKeysResponse, Integer, Hash)>] ListApplicationKeysResponse data, response status code and response headers
+    def list_current_user_application_keys_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_current_user_application_keys)
+        unstable_enabled = @api_client.config.unstable_operations[:list_current_user_application_keys]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_current_user_application_keys")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "list_current_user_application_keys"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KeyManagementApi.list_current_user_application_keys ...'
+      end
+      allowable_values = ["created_at", "-created_at", "last4", "-last4", "name", "-name"]
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/api/v2/current_user/application_keys'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'filter[created_at][start]'] = opts[:'filter_created_at_start'] if !opts[:'filter_created_at_start'].nil?
+      query_params[:'filter[created_at][end]'] = opts[:'filter_created_at_end'] if !opts[:'filter_created_at_end'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListApplicationKeysResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"KeyManagementApi.list_current_user_application_keys",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KeyManagementApi#list_current_user_application_keys\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Edit an API key
     # Update an API key.
     # @param api_key_id [String] The ID of the API key.
@@ -422,6 +894,168 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: KeyManagementApi#update_api_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Edit an application key
+    # Edit an application key
+    # @param app_key_id [String] The ID of the application key.
+    # @param body [ApplicationKeyUpdateRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [ApplicationKeyResponse]
+    def update_application_key(app_key_id, body, opts = {})
+      data, _status_code, _headers = update_application_key_with_http_info(app_key_id, body, opts)
+      data
+    end
+
+    # Edit an application key
+    # Edit an application key
+    # @param app_key_id [String] The ID of the application key.
+    # @param body [ApplicationKeyUpdateRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
+    def update_application_key_with_http_info(app_key_id, body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:update_application_key)
+        unstable_enabled = @api_client.config.unstable_operations[:update_application_key]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_application_key")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "update_application_key"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KeyManagementApi.update_application_key ...'
+      end
+      # verify the required parameter 'app_key_id' is set
+      if @api_client.config.client_side_validation && app_key_id.nil?
+        fail ArgumentError, "Missing the required parameter 'app_key_id' when calling KeyManagementApi.update_application_key"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling KeyManagementApi.update_application_key"
+      end
+      # resource path
+      local_var_path = '/api/v2/application_keys/{app_key_id}'.sub('{' + 'app_key_id' + '}', CGI.escape(app_key_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApplicationKeyResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"KeyManagementApi.update_application_key",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KeyManagementApi#update_application_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Edit an application key owned by current user
+    # Edit an application key owned by current user
+    # @param app_key_id [String] The ID of the application key.
+    # @param body [ApplicationKeyUpdateRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [ApplicationKeyResponse]
+    def update_current_user_application_key(app_key_id, body, opts = {})
+      data, _status_code, _headers = update_current_user_application_key_with_http_info(app_key_id, body, opts)
+      data
+    end
+
+    # Edit an application key owned by current user
+    # Edit an application key owned by current user
+    # @param app_key_id [String] The ID of the application key.
+    # @param body [ApplicationKeyUpdateRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
+    def update_current_user_application_key_with_http_info(app_key_id, body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:update_current_user_application_key)
+        unstable_enabled = @api_client.config.unstable_operations[:update_current_user_application_key]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_current_user_application_key")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "update_current_user_application_key"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KeyManagementApi.update_current_user_application_key ...'
+      end
+      # verify the required parameter 'app_key_id' is set
+      if @api_client.config.client_side_validation && app_key_id.nil?
+        fail ArgumentError, "Missing the required parameter 'app_key_id' when calling KeyManagementApi.update_current_user_application_key"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling KeyManagementApi.update_current_user_application_key"
+      end
+      # resource path
+      local_var_path = '/api/v2/current_user/application_keys/{app_key_id}'.sub('{' + 'app_key_id' + '}', CGI.escape(app_key_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApplicationKeyResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"KeyManagementApi.update_current_user_application_key",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KeyManagementApi#update_current_user_application_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
