@@ -488,6 +488,7 @@ components:
       description: An object related to an application key.
       oneOf:
       - $ref: '#/components/schemas/User'
+      - $ref: '#/components/schemas/Role'
       type: object
     ApplicationKeyUpdateAttributes:
       description: Attributes used to update an application Key.

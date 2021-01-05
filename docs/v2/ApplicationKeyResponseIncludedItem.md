@@ -14,6 +14,7 @@ require 'datadog_api_client/v2'
 DatadogAPIClient::V2::ApplicationKeyResponseIncludedItem.openapi_one_of
 # =>
 # [
+#   :'Role',
 #   :'User'
 # ]
 ```
@@ -28,7 +29,7 @@ Find the appropriate object from the `openapi_one_of` list and casts the data in
 require 'datadog_api_client/v2'
 
 DatadogAPIClient::V2::ApplicationKeyResponseIncludedItem.build(data)
-# => #<User:0x00007fdd4aab02a0>
+# => #<Role:0x00007fdd4aab02a0>
 
 DatadogAPIClient::V2::ApplicationKeyResponseIncludedItem.build(data_that_doesnt_match)
 # => nil
@@ -42,6 +43,7 @@ DatadogAPIClient::V2::ApplicationKeyResponseIncludedItem.build(data_that_doesnt_
 
 #### Return type
 
+- `Role`
 - `User`
 - `nil` (if no type matches)
 
