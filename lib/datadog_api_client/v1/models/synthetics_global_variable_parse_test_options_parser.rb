@@ -18,36 +18,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Synthetics global variable.
-  class SyntheticsGlobalVariable
-    # Description of the global variable.
-    attr_accessor :description
+  # Details of the parser to use for the global variable.
+  class SyntheticsGlobalVariableParseTestOptionsParser
+    attr_accessor :type
 
-    # Unique identifier of the global variable.
-    attr_accessor :id
-
-    # Name of the global variable.
-    attr_accessor :name
-
-    attr_accessor :parse_test_options
-
-    # A Synthetic test ID to use as a test to generate the variable value.
-    attr_accessor :parse_test_public_id
-
-    # Tags of the global variable.
-    attr_accessor :tags
-
+    # Regex or JSON path used for the parser. Not used with type `raw`.
     attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'description' => :'description',
-        :'id' => :'id',
-        :'name' => :'name',
-        :'parse_test_options' => :'parse_test_options',
-        :'parse_test_public_id' => :'parse_test_public_id',
-        :'tags' => :'tags',
+        :'type' => :'type',
         :'value' => :'value'
       }
     end
@@ -60,13 +41,8 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'description' => :'String',
-        :'id' => :'String',
-        :'name' => :'String',
-        :'parse_test_options' => :'SyntheticsGlobalVariableParseTestOptions',
-        :'parse_test_public_id' => :'String',
-        :'tags' => :'Array<String>',
-        :'value' => :'SyntheticsGlobalVariableValue'
+        :'type' => :'SyntheticsGlobalVariableParserType',
+        :'value' => :'String'
       }
     end
 
@@ -80,41 +56,19 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsGlobalVariable` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsGlobalVariableParseTestOptionsParser` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SyntheticsGlobalVariable`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SyntheticsGlobalVariableParseTestOptionsParser`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'description')
-        self.description = attributes[:'description']
-      end
-
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'parse_test_options')
-        self.parse_test_options = attributes[:'parse_test_options']
-      end
-
-      if attributes.key?(:'parse_test_public_id')
-        self.parse_test_public_id = attributes[:'parse_test_public_id']
-      end
-
-      if attributes.key?(:'tags')
-        if (value = attributes[:'tags']).is_a?(Array)
-          self.tags = value
-        end
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
 
       if attributes.key?(:'value')
@@ -126,20 +80,8 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @description.nil?
-        invalid_properties.push('invalid value for "description", description cannot be nil.')
-      end
-
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @tags.nil?
-        invalid_properties.push('invalid value for "tags", tags cannot be nil.')
-      end
-
-      if @value.nil?
-        invalid_properties.push('invalid value for "value", value cannot be nil.')
+      if @type.nil?
+        invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
 
       invalid_properties
@@ -148,10 +90,7 @@ module DatadogAPIClient::V1
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @description.nil?
-      return false if @name.nil?
-      return false if @tags.nil?
-      return false if @value.nil?
+      return false if @type.nil?
       true
     end
 
@@ -160,12 +99,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          description == o.description &&
-          id == o.id &&
-          name == o.name &&
-          parse_test_options == o.parse_test_options &&
-          parse_test_public_id == o.parse_test_public_id &&
-          tags == o.tags &&
+          type == o.type &&
           value == o.value
     end
 
@@ -178,7 +112,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [description, id, name, parse_test_options, parse_test_public_id, tags, value].hash
+      [type, value].hash
     end
 
     # Builds the object from hash
