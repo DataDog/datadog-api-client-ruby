@@ -62,12 +62,12 @@ DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V2::DashboardListsApi.new
@@ -184,6 +184,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::APIKeyUpdateData](APIKeyUpdateData.md)
  - [DatadogAPIClient::V2::APIKeyUpdateRequest](APIKeyUpdateRequest.md)
  - [DatadogAPIClient::V2::APIKeysResponse](APIKeysResponse.md)
+ - [DatadogAPIClient::V2::APIKeysSort](APIKeysSort.md)
  - [DatadogAPIClient::V2::APIKeysType](APIKeysType.md)
  - [DatadogAPIClient::V2::ApplicationKeyCreateAttributes](ApplicationKeyCreateAttributes.md)
  - [DatadogAPIClient::V2::ApplicationKeyCreateData](ApplicationKeyCreateData.md)
@@ -194,6 +195,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::ApplicationKeyUpdateAttributes](ApplicationKeyUpdateAttributes.md)
  - [DatadogAPIClient::V2::ApplicationKeyUpdateData](ApplicationKeyUpdateData.md)
  - [DatadogAPIClient::V2::ApplicationKeyUpdateRequest](ApplicationKeyUpdateRequest.md)
+ - [DatadogAPIClient::V2::ApplicationKeysSort](ApplicationKeysSort.md)
  - [DatadogAPIClient::V2::ApplicationKeysType](ApplicationKeysType.md)
  - [DatadogAPIClient::V2::Creator](Creator.md)
  - [DatadogAPIClient::V2::DashboardListAddItemsRequest](DashboardListAddItemsRequest.md)
