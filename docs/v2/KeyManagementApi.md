@@ -582,7 +582,7 @@ api_instance = DatadogAPIClient::V2::KeyManagementApi.new
 opts = {
   page_size: 789, # Integer | Size for a given page.
   page_number: 789, # Integer | Specific page number to return.
-  sort: 'created_at', # String | API key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
+  sort: DatadogAPIClient::V2::APIKeysSort::CREATED_AT_ASCENDING, # APIKeysSort | API key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
   filter: 'filter_example', # String | Filter API keys by the specified string.
   filter_created_at_start: '2020-11-24T18:46:21+00:00', # String | Only include API keys created on or after the specified date.
   filter_created_at_end: '2020-11-24T18:46:21+00:00', # String | Only include API keys created on or before the specified date.
@@ -624,7 +624,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **page_size** | **Integer** | Size for a given page. | [optional][default to 10] |
 | **page_number** | **Integer** | Specific page number to return. | [optional][default to 0] |
-| **sort** | **String** | API key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. | [optional][default to &#39;name&#39;] |
+| **sort** | **APIKeysSort** | API key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. | [optional][default to &#39;name&#39;] |
 | **filter** | **String** | Filter API keys by the specified string. | [optional] |
 | **filter_created_at_start** | **String** | Only include API keys created on or after the specified date. | [optional] |
 | **filter_created_at_end** | **String** | Only include API keys created on or before the specified date. | [optional] |
@@ -676,7 +676,7 @@ api_instance = DatadogAPIClient::V2::KeyManagementApi.new
 opts = {
   page_size: 789, # Integer | Size for a given page.
   page_number: 789, # Integer | Specific page number to return.
-  sort: 'created_at', # String | Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
+  sort: DatadogAPIClient::V2::ApplicationKeysSort::CREATED_AT_ASCENDING, # ApplicationKeysSort | Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
   filter: 'filter_example', # String | Filter application keys by the specified string.
   filter_created_at_start: '2020-11-24T18:46:21+00:00', # String | Only include application keys created on or after the specified date.
   filter_created_at_end: '2020-11-24T18:46:21+00:00' # String | Only include application keys created on or before the specified date.
@@ -715,7 +715,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **page_size** | **Integer** | Size for a given page. | [optional][default to 10] |
 | **page_number** | **Integer** | Specific page number to return. | [optional][default to 0] |
-| **sort** | **String** | Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. | [optional][default to &#39;name&#39;] |
+| **sort** | **ApplicationKeysSort** | Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. | [optional][default to &#39;name&#39;] |
 | **filter** | **String** | Filter application keys by the specified string. | [optional] |
 | **filter_created_at_start** | **String** | Only include application keys created on or after the specified date. | [optional] |
 | **filter_created_at_end** | **String** | Only include application keys created on or before the specified date. | [optional] |
@@ -764,7 +764,7 @@ api_instance = DatadogAPIClient::V2::KeyManagementApi.new
 opts = {
   page_size: 789, # Integer | Size for a given page.
   page_number: 789, # Integer | Specific page number to return.
-  sort: 'created_at', # String | Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
+  sort: DatadogAPIClient::V2::ApplicationKeysSort::CREATED_AT_ASCENDING, # ApplicationKeysSort | Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
   filter: 'filter_example', # String | Filter application keys by the specified string.
   filter_created_at_start: '2020-11-24T18:46:21+00:00', # String | Only include application keys created on or after the specified date.
   filter_created_at_end: '2020-11-24T18:46:21+00:00' # String | Only include application keys created on or before the specified date.
@@ -803,7 +803,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **page_size** | **Integer** | Size for a given page. | [optional][default to 10] |
 | **page_number** | **Integer** | Specific page number to return. | [optional][default to 0] |
-| **sort** | **String** | Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. | [optional][default to &#39;name&#39;] |
+| **sort** | **ApplicationKeysSort** | Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. | [optional][default to &#39;name&#39;] |
 | **filter** | **String** | Filter application keys by the specified string. | [optional] |
 | **filter_created_at_start** | **String** | Only include application keys created on or after the specified date. | [optional] |
 | **filter_created_at_end** | **String** | Only include application keys created on or before the specified date. | [optional] |
