@@ -20,7 +20,7 @@ if [ "$RERECORD_FAILED_TESTS" == "true" -a "$CUCUMBER_RESULT" -ne 0 ]; then
     CUCUMBER_RESULT=$?
 fi
 
-# Always run integratin-only scenarios
+# Always run integration-only scenarios
 set -e
 if [ "$RECORD" != "none" ]; then
     RECORD=none bundle exec cucumber -t '@integration-only' -f pretty
