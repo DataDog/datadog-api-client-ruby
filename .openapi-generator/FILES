@@ -12,6 +12,7 @@ docs/APIKeyUpdateAttributes.md
 docs/APIKeyUpdateData.md
 docs/APIKeyUpdateRequest.md
 docs/APIKeysResponse.md
+docs/APIKeysSort.md
 docs/APIKeysType.md
 docs/ApplicationKeyCreateAttributes.md
 docs/ApplicationKeyCreateData.md
@@ -22,6 +23,7 @@ docs/ApplicationKeyResponseIncludedItem.md
 docs/ApplicationKeyUpdateAttributes.md
 docs/ApplicationKeyUpdateData.md
 docs/ApplicationKeyUpdateRequest.md
+docs/ApplicationKeysSort.md
 docs/ApplicationKeysType.md
 docs/Creator.md
 docs/DashboardListAddItemsRequest.md
@@ -310,6 +312,7 @@ lib/datadog_api_client/v2/models/api_key_update_attributes.rb
 lib/datadog_api_client/v2/models/api_key_update_data.rb
 lib/datadog_api_client/v2/models/api_key_update_request.rb
 lib/datadog_api_client/v2/models/api_keys_response.rb
+lib/datadog_api_client/v2/models/api_keys_sort.rb
 lib/datadog_api_client/v2/models/api_keys_type.rb
 lib/datadog_api_client/v2/models/application_key_create_attributes.rb
 lib/datadog_api_client/v2/models/application_key_create_data.rb
@@ -320,6 +323,7 @@ lib/datadog_api_client/v2/models/application_key_response_included_item.rb
 lib/datadog_api_client/v2/models/application_key_update_attributes.rb
 lib/datadog_api_client/v2/models/application_key_update_data.rb
 lib/datadog_api_client/v2/models/application_key_update_request.rb
+lib/datadog_api_client/v2/models/application_keys_sort.rb
 lib/datadog_api_client/v2/models/application_keys_type.rb
 lib/datadog_api_client/v2/models/creator.rb
 lib/datadog_api_client/v2/models/dashboard_list_add_items_request.rb
@@ -594,6 +598,7 @@ spec/models/api_key_update_attributes_spec.rb
 spec/models/api_key_update_data_spec.rb
 spec/models/api_key_update_request_spec.rb
 spec/models/api_keys_response_spec.rb
+spec/models/api_keys_sort_spec.rb
 spec/models/api_keys_type_spec.rb
 spec/models/application_key_create_attributes_spec.rb
 spec/models/application_key_create_data_spec.rb
@@ -604,6 +609,7 @@ spec/models/application_key_response_spec.rb
 spec/models/application_key_update_attributes_spec.rb
 spec/models/application_key_update_data_spec.rb
 spec/models/application_key_update_request_spec.rb
+spec/models/application_keys_sort_spec.rb
 spec/models/application_keys_type_spec.rb
 spec/models/creator_spec.rb
 spec/models/dashboard_list_add_items_request_spec.rb
