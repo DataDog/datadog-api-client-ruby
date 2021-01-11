@@ -13,6 +13,10 @@ module APIWorld
     @api_client ||= api.const_get("ApiClient").new configuration
   end
 
+  def api_error
+    api.const_get("ApiError")
+  end
+
   def unique
     now = Time.now
     scenario_name = @scenario.name.gsub(/[^A-Za-z0-9]+/, '_')[0..100]
@@ -138,7 +142,7 @@ When('the request is sent') do
 
   begin
     @response = @api_method.call(*params, opts)
-  rescue Exception => e
+  rescue api_error => e
     # If we have an exception, make a stub response object to use for assertions
     # Instead of finding the response class of the method, we use the fact that all
     # responses returned have the `1` element set to the response code
