@@ -19,6 +19,9 @@ require 'time'
 module DatadogAPIClient::V1
   # Parser options to use for retrieving a Synthetics global variable from a Synthetics Test. Used in conjunction with `parse_test_public_id`.
   class SyntheticsGlobalVariableParseTestOptions
+    # When type is `http_header`, name of the header to use to extract the value.
+    attr_accessor :field
+
     attr_accessor :parser
 
     attr_accessor :type
@@ -26,6 +29,7 @@ module DatadogAPIClient::V1
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'field' => :'field',
         :'parser' => :'parser',
         :'type' => :'type'
       }
@@ -39,6 +43,7 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'field' => :'String',
         :'parser' => :'SyntheticsGlobalVariableParseTestOptionsParser',
         :'type' => :'SyntheticsGlobalVariableParseTestOptionsType'
       }
@@ -64,6 +69,10 @@ module DatadogAPIClient::V1
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'field')
+        self.field = attributes[:'field']
+      end
 
       if attributes.key?(:'parser')
         self.parser = attributes[:'parser']
@@ -102,6 +111,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          field == o.field &&
           parser == o.parser &&
           type == o.type
     end
@@ -115,7 +125,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [parser, type].hash
+      [field, parser, type].hash
     end
 
     # Builds the object from hash
