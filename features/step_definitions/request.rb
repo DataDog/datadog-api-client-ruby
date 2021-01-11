@@ -135,7 +135,16 @@ end
 When('the request is sent') do
   params = @api_method.parameters.select { |p| p[0] == :req }.map { |p| opts.delete(p[1]) }
   undo_builder = build_undo_for @api_method.name.to_s.chomp('_with_http_info')  # fail early on missing undo method
-  @response = @api_method.call(*params, opts)
+
+  begin
+    @response = @api_method.call(*params, opts)
+  rescue Exception => e
+    # If we have an exception, make a stub response object to use for assertions
+    # Instead of finding the response class of the method, we use the fact that all
+    # responses returned have the `1` element set to the response code
+    @response = [nil, e.code, nil]
+  end
+
   @undo << undo_builder.call(@response[0]) if undo_builder
 end
 
