@@ -71,6 +71,7 @@ require 'datadog_api_client/v2/models/incident_field_attributes_single_value_typ
 require 'datadog_api_client/v2/models/incident_field_attributes_value_type'
 require 'datadog_api_client/v2/models/incident_integration_metadata_type'
 require 'datadog_api_client/v2/models/incident_postmortem_type'
+require 'datadog_api_client/v2/models/incident_related_object'
 require 'datadog_api_client/v2/models/incident_response'
 require 'datadog_api_client/v2/models/incident_response_attributes'
 require 'datadog_api_client/v2/models/incident_response_data'

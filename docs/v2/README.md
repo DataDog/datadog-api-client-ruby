@@ -224,6 +224,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::IncidentFieldAttributesValueType](IncidentFieldAttributesValueType.md)
  - [DatadogAPIClient::V2::IncidentIntegrationMetadataType](IncidentIntegrationMetadataType.md)
  - [DatadogAPIClient::V2::IncidentPostmortemType](IncidentPostmortemType.md)
+ - [DatadogAPIClient::V2::IncidentRelatedObject](IncidentRelatedObject.md)
  - [DatadogAPIClient::V2::IncidentResponse](IncidentResponse.md)
  - [DatadogAPIClient::V2::IncidentResponseAttributes](IncidentResponseAttributes.md)
  - [DatadogAPIClient::V2::IncidentResponseData](IncidentResponseData.md)

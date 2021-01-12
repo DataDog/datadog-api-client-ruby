@@ -197,7 +197,7 @@ end
 api_instance = DatadogAPIClient::V2::IncidentServicesApi.new
 service_id = 'service_id_example' # String | The ID of the incident service.
 opts = {
-  include: 'users' # String | Specifies which types of related objects should be included in the response.
+  include: DatadogAPIClient::V2::IncidentRelatedObject::USERS # IncidentRelatedObject | Specifies which types of related objects should be included in the response.
 }
 
 begin
@@ -232,7 +232,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **service_id** | **String** | The ID of the incident service. |  |
-| **include** | **String** | Specifies which types of related objects should be included in the response. | [optional] |
+| **include** | **IncidentRelatedObject** | Specifies which types of related objects should be included in the response. | [optional] |
 
 ### Return type
 
@@ -278,7 +278,7 @@ end
 
 api_instance = DatadogAPIClient::V2::IncidentServicesApi.new
 opts = {
-  include: 'users', # String | Specifies which types of related objects should be included in the response.
+  include: DatadogAPIClient::V2::IncidentRelatedObject::USERS, # IncidentRelatedObject | Specifies which types of related objects should be included in the response.
   page_size: 789, # Integer | Size for a given page.
   page_offset: 789, # Integer | Specific offset to use as the beginning of the returned page.
   filter: 'ExampleServiceName' # String | A search query that filters services by name.
@@ -315,7 +315,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **include** | **String** | Specifies which types of related objects should be included in the response. | [optional] |
+| **include** | **IncidentRelatedObject** | Specifies which types of related objects should be included in the response. | [optional] |
 | **page_size** | **Integer** | Size for a given page. | [optional][default to 10] |
 | **page_offset** | **Integer** | Specific offset to use as the beginning of the returned page. | [optional][default to 0] |
 | **filter** | **String** | A search query that filters services by name. | [optional] |
