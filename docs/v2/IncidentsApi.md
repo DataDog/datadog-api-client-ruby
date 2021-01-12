@@ -197,7 +197,7 @@ end
 api_instance = DatadogAPIClient::V2::IncidentsApi.new
 incident_id = 'incident_id_example' # String | The UUID the incident.
 opts = {
-  include: ['users'] # Array<String> | Specifies which types of related objects should be included in the response.
+  include: [DatadogAPIClient::V2::IncidentRelatedObject::USERS] # Array<IncidentRelatedObject> | Specifies which types of related objects should be included in the response.
 }
 
 begin
@@ -232,7 +232,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **incident_id** | **String** | The UUID the incident. |  |
-| **include** | **Array&lt;String&gt;** | Specifies which types of related objects should be included in the response. | [optional] |
+| **include** | **Array&lt;IncidentRelatedObject&gt;** | Specifies which types of related objects should be included in the response. | [optional] |
 
 ### Return type
 
@@ -278,7 +278,7 @@ end
 
 api_instance = DatadogAPIClient::V2::IncidentsApi.new
 opts = {
-  include: ['users'], # Array<String> | Specifies which types of related objects should be included in the response.
+  include: [DatadogAPIClient::V2::IncidentRelatedObject::USERS], # Array<IncidentRelatedObject> | Specifies which types of related objects should be included in the response.
   page_size: 789, # Integer | Size for a given page.
   page_offset: 789 # Integer | Specific offset to use as the beginning of the returned page.
 }
@@ -314,7 +314,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **include** | **Array&lt;String&gt;** | Specifies which types of related objects should be included in the response. | [optional] |
+| **include** | **Array&lt;IncidentRelatedObject&gt;** | Specifies which types of related objects should be included in the response. | [optional] |
 | **page_size** | **Integer** | Size for a given page. | [optional][default to 10] |
 | **page_offset** | **Integer** | Specific offset to use as the beginning of the returned page. | [optional][default to 0] |
 

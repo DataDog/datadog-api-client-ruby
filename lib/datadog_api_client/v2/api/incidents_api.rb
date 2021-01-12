@@ -174,7 +174,7 @@ module DatadogAPIClient::V2
     # Get the details of an incident by `incident_id`.
     # @param incident_id [String] The UUID the incident.
     # @param [Hash] opts the optional parameters
-    # @option opts [Array<String>] :include Specifies which types of related objects should be included in the response.
+    # @option opts [Array<IncidentRelatedObject>] :include Specifies which types of related objects should be included in the response.
     # @return [IncidentResponse]
     def get_incident(incident_id, opts = {})
       data, _status_code, _headers = get_incident_with_http_info(incident_id, opts)
@@ -185,7 +185,7 @@ module DatadogAPIClient::V2
     # Get the details of an incident by &#x60;incident_id&#x60;.
     # @param incident_id [String] The UUID the incident.
     # @param [Hash] opts the optional parameters
-    # @option opts [Array<String>] :include Specifies which types of related objects should be included in the response.
+    # @option opts [Array<IncidentRelatedObject>] :include Specifies which types of related objects should be included in the response.
     # @return [Array<(IncidentResponse, Integer, Hash)>] IncidentResponse data, response status code and response headers
     def get_incident_with_http_info(incident_id, opts = {})
 
@@ -204,10 +204,6 @@ module DatadogAPIClient::V2
       # verify the required parameter 'incident_id' is set
       if @api_client.config.client_side_validation && incident_id.nil?
         fail ArgumentError, "Missing the required parameter 'incident_id' when calling IncidentsApi.get_incident"
-      end
-      allowable_values = ["users"]
-      if @api_client.config.client_side_validation && opts[:'include'] && !opts[:'include'].all? { |item| allowable_values.include?(item) }
-        fail ArgumentError, "invalid value for \"include\", must include one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/api/v2/incidents/{incident_id}'.sub('{' + 'incident_id' + '}', CGI.escape(incident_id.to_s))
@@ -253,7 +249,7 @@ module DatadogAPIClient::V2
     # Get a list of incidents
     # Get all incidents for the user's organization.
     # @param [Hash] opts the optional parameters
-    # @option opts [Array<String>] :include Specifies which types of related objects should be included in the response.
+    # @option opts [Array<IncidentRelatedObject>] :include Specifies which types of related objects should be included in the response.
     # @option opts [Integer] :page_size Size for a given page. (default to 10)
     # @option opts [Integer] :page_offset Specific offset to use as the beginning of the returned page. (default to 0)
     # @return [IncidentsResponse]
@@ -265,7 +261,7 @@ module DatadogAPIClient::V2
     # Get a list of incidents
     # Get all incidents for the user&#39;s organization.
     # @param [Hash] opts the optional parameters
-    # @option opts [Array<String>] :include Specifies which types of related objects should be included in the response.
+    # @option opts [Array<IncidentRelatedObject>] :include Specifies which types of related objects should be included in the response.
     # @option opts [Integer] :page_size Size for a given page.
     # @option opts [Integer] :page_offset Specific offset to use as the beginning of the returned page.
     # @return [Array<(IncidentsResponse, Integer, Hash)>] IncidentsResponse data, response status code and response headers
@@ -282,10 +278,6 @@ module DatadogAPIClient::V2
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: IncidentsApi.list_incidents ...'
-      end
-      allowable_values = ["users"]
-      if @api_client.config.client_side_validation && opts[:'include'] && !opts[:'include'].all? { |item| allowable_values.include?(item) }
-        fail ArgumentError, "invalid value for \"include\", must include one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/api/v2/incidents'
