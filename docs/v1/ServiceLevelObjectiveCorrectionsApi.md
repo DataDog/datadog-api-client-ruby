@@ -35,6 +35,8 @@ DatadogAPIClient::V1.configure do |config|
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   # config.api_key_prefix['appKeyAuth'] = 'Bearer'
+
+  config.unstable_operations[:create_slo_correction] = true
 end
 
 api_instance = DatadogAPIClient::V1::ServiceLevelObjectiveCorrectionsApi.new
@@ -111,6 +113,8 @@ DatadogAPIClient::V1.configure do |config|
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   # config.api_key_prefix['appKeyAuth'] = 'Bearer'
+
+  config.unstable_operations[:delete_slo_correction] = true
 end
 
 api_instance = DatadogAPIClient::V1::ServiceLevelObjectiveCorrectionsApi.new
@@ -186,6 +190,8 @@ DatadogAPIClient::V1.configure do |config|
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   # config.api_key_prefix['appKeyAuth'] = 'Bearer'
+
+  config.unstable_operations[:get_slo_correction] = true
 end
 
 api_instance = DatadogAPIClient::V1::ServiceLevelObjectiveCorrectionsApi.new
@@ -262,6 +268,8 @@ DatadogAPIClient::V1.configure do |config|
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   # config.api_key_prefix['appKeyAuth'] = 'Bearer'
+
+  config.unstable_operations[:list_slo_correction] = true
 end
 
 api_instance = DatadogAPIClient::V1::ServiceLevelObjectiveCorrectionsApi.new
@@ -335,6 +343,8 @@ DatadogAPIClient::V1.configure do |config|
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   # config.api_key_prefix['appKeyAuth'] = 'Bearer'
+
+  config.unstable_operations[:update_slo_correction] = true
 end
 
 api_instance = DatadogAPIClient::V1::ServiceLevelObjectiveCorrectionsApi.new
