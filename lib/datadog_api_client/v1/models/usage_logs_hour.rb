@@ -31,13 +31,29 @@ module DatadogAPIClient::V1
     # Contains the number of log bytes ingested.
     attr_accessor :ingested_events_bytes
 
+    # Contains the number of live log events indexed (data available as of December 1, 2020).
+    attr_accessor :logs_live_indexed_count
+
+    # Contains the number of live log bytes ingested (data available as of December 1, 2020).
+    attr_accessor :logs_live_ingested_bytes
+
+    # Contains the number of rehydrated log events indexed (data available as of December 1, 2020).
+    attr_accessor :logs_rehydrated_indexed_count
+
+    # Contains the number of rehydrated log bytes ingested (data available as of December 1, 2020).
+    attr_accessor :logs_rehydrated_ingested_bytes
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'billable_ingested_bytes' => :'billable_ingested_bytes',
         :'hour' => :'hour',
         :'indexed_events_count' => :'indexed_events_count',
-        :'ingested_events_bytes' => :'ingested_events_bytes'
+        :'ingested_events_bytes' => :'ingested_events_bytes',
+        :'logs_live_indexed_count' => :'logs_live_indexed_count',
+        :'logs_live_ingested_bytes' => :'logs_live_ingested_bytes',
+        :'logs_rehydrated_indexed_count' => :'logs_rehydrated_indexed_count',
+        :'logs_rehydrated_ingested_bytes' => :'logs_rehydrated_ingested_bytes'
       }
     end
 
@@ -52,7 +68,11 @@ module DatadogAPIClient::V1
         :'billable_ingested_bytes' => :'Integer',
         :'hour' => :'Time',
         :'indexed_events_count' => :'Integer',
-        :'ingested_events_bytes' => :'Integer'
+        :'ingested_events_bytes' => :'Integer',
+        :'logs_live_indexed_count' => :'Integer',
+        :'logs_live_ingested_bytes' => :'Integer',
+        :'logs_rehydrated_indexed_count' => :'Integer',
+        :'logs_rehydrated_ingested_bytes' => :'Integer'
       }
     end
 
@@ -92,6 +112,22 @@ module DatadogAPIClient::V1
       if attributes.key?(:'ingested_events_bytes')
         self.ingested_events_bytes = attributes[:'ingested_events_bytes']
       end
+
+      if attributes.key?(:'logs_live_indexed_count')
+        self.logs_live_indexed_count = attributes[:'logs_live_indexed_count']
+      end
+
+      if attributes.key?(:'logs_live_ingested_bytes')
+        self.logs_live_ingested_bytes = attributes[:'logs_live_ingested_bytes']
+      end
+
+      if attributes.key?(:'logs_rehydrated_indexed_count')
+        self.logs_rehydrated_indexed_count = attributes[:'logs_rehydrated_indexed_count']
+      end
+
+      if attributes.key?(:'logs_rehydrated_ingested_bytes')
+        self.logs_rehydrated_ingested_bytes = attributes[:'logs_rehydrated_ingested_bytes']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -115,7 +151,11 @@ module DatadogAPIClient::V1
           billable_ingested_bytes == o.billable_ingested_bytes &&
           hour == o.hour &&
           indexed_events_count == o.indexed_events_count &&
-          ingested_events_bytes == o.ingested_events_bytes
+          ingested_events_bytes == o.ingested_events_bytes &&
+          logs_live_indexed_count == o.logs_live_indexed_count &&
+          logs_live_ingested_bytes == o.logs_live_ingested_bytes &&
+          logs_rehydrated_indexed_count == o.logs_rehydrated_indexed_count &&
+          logs_rehydrated_ingested_bytes == o.logs_rehydrated_ingested_bytes
     end
 
     # @see the `==` method
@@ -127,7 +167,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [billable_ingested_bytes, hour, indexed_events_count, ingested_events_bytes].hash
+      [billable_ingested_bytes, hour, indexed_events_count, ingested_events_bytes, logs_live_indexed_count, logs_live_ingested_bytes, logs_rehydrated_indexed_count, logs_rehydrated_ingested_bytes].hash
     end
 
     # Builds the object from hash
