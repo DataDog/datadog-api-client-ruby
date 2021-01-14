@@ -49,7 +49,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'device' => :'SyntheticsDeviceID',
-        :'location' => :'Float',
+        :'location' => :'Integer',
         :'public_id' => :'String',
         :'result_id' => :'String'
       }

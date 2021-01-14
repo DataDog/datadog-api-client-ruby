@@ -41,7 +41,7 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'Float',
+        :'id' => :'Integer',
         :'name' => :'String'
       }
     end

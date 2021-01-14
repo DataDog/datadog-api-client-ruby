@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **device** | [**SyntheticsDeviceID**](SyntheticsDeviceID.md) |  | [optional] |
-| **location** | **Float** | The location ID of the test run. | [optional] |
+| **location** | **Integer** | The location ID of the test run. | [optional] |
 | **public_id** | **String** | The public ID of the Synthetics test. | [optional] |
 | **result_id** | **String** | ID of the result. | [optional] |
 
