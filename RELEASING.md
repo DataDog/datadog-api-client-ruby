@@ -32,8 +32,8 @@ Install [bundler](https://bundler.io/) and setup your RubyGems credentials:
 
 ### Update Changelog
 #### Commands
-- See changes ready for release by running `ddev release show changes .` at the root of this project. Add any missing labels to PRs if needed.
-- Run `ddev release changelog . <NEW_VERSION>` to update the `CHANGELOG.md` file at the root of this repository
+- See changes ready for release by running `ddev release show changes . --tag-prefix v --since <CURRENT_VERSION>` at the root of this project. Add any missing labels to PRs if needed.
+- Run `ddev release changelog . <NEW_VERSION> <CURRENT_VERSION> --no-semver` to update the `CHANGELOG.md` file at the root of this repository
 - Commit the changes to the repository in a release branch. Do not merge yet.
 
 ### Release
