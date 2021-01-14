@@ -7,7 +7,7 @@
 | **allow_failure** | **Boolean** | A boolean set to allow this step to fail. | [optional] |
 | **name** | **String** | The name of the step. | [optional] |
 | **params** | **Object** | The parameters of the step. | [optional] |
-| **timeout** | **Float** | The time before declaring a step failed. | [optional] |
+| **timeout** | **Integer** | The time before declaring a step failed. | [optional] |
 | **type** | [**SyntheticsStepType**](SyntheticsStepType.md) |  | [optional] |
 
 ## Example

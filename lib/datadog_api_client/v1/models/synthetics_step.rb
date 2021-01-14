@@ -55,7 +55,7 @@ module DatadogAPIClient::V1
         :'allow_failure' => :'Boolean',
         :'name' => :'String',
         :'params' => :'Object',
-        :'timeout' => :'Float',
+        :'timeout' => :'Integer',
         :'type' => :'SyntheticsStepType'
       }
     end
