@@ -121,6 +121,10 @@ module DatadogAPIClient::V1
         invalid_properties.push('invalid value for "filter", filter cannot be nil.')
       end
 
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -128,6 +132,7 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     def valid?
       return false if @filter.nil?
+      return false if @name.nil?
       true
     end
 
