@@ -4,11 +4,90 @@ All URIs are relative to *https://api.datadoghq.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**create_logs_index**](LogsIndexesApi.md#create_logs_index) | **POST** /api/v1/logs/config/indexes | Create an index |
 | [**get_logs_index**](LogsIndexesApi.md#get_logs_index) | **GET** /api/v1/logs/config/indexes/{name} | Get an index |
 | [**get_logs_index_order**](LogsIndexesApi.md#get_logs_index_order) | **GET** /api/v1/logs/config/index-order | Get indexes order |
 | [**list_log_indexes**](LogsIndexesApi.md#list_log_indexes) | **GET** /api/v1/logs/config/indexes | Get all indexes |
 | [**update_logs_index**](LogsIndexesApi.md#update_logs_index) | **PUT** /api/v1/logs/config/indexes/{name} | Update an index |
 | [**update_logs_index_order**](LogsIndexesApi.md#update_logs_index_order) | **PUT** /api/v1/logs/config/index-order | Update indexes order |
+
+
+## create_logs_index
+
+> <LogsIndex> create_logs_index(body)
+
+Create an index
+
+Creates a new index. Returns the Index object passed in the request body when the request is successful.
+
+### Examples
+
+```ruby
+require 'time'
+require 'datadog_api_client/v1'
+# setup authorization
+DatadogAPIClient::V1.configure do |config|
+  # Configure API key authorization: apiKeyAuth
+  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
+
+  # Configure API key authorization: appKeyAuth
+  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
+
+  config.unstable_operations[:create_logs_index] = true
+end
+
+api_instance = DatadogAPIClient::V1::LogsIndexesApi.new
+body = DatadogAPIClient::V1::LogsIndex.new({filter: DatadogAPIClient::V1::LogsFilter.new, name: 'main'}) # LogsIndex | Object containing the new index.
+
+begin
+  # Create an index
+  result = api_instance.create_logs_index(body)
+  p result
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling LogsIndexesApi->create_logs_index: #{e}"
+end
+```
+
+#### Using the create_logs_index_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<LogsIndex>, Integer, Hash)> create_logs_index_with_http_info(body)
+
+```ruby
+begin
+  # Create an index
+  data, status_code, headers = api_instance.create_logs_index_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <LogsIndex>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling LogsIndexesApi->create_logs_index_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**LogsIndex**](LogsIndex.md) | Object containing the new index. |  |
+
+### Return type
+
+[**LogsIndex**](LogsIndex.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
 ## get_logs_index
