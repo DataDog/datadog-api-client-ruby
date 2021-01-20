@@ -14,7 +14,7 @@ require 'datadog_api_client/v2'
 
 instance = DatadogAPIClient::V2::LogsMetricResponseCompute.new(
   aggregation_type: null,
-  path: null
+  path: @duration
 )
 ```
 
