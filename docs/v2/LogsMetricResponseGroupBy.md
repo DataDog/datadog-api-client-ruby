@@ -13,8 +13,8 @@
 require 'datadog_api_client/v2'
 
 instance = DatadogAPIClient::V2::LogsMetricResponseGroupBy.new(
-  path: null,
-  tag_name: null
+  path: @http.status_code,
+  tag_name: status_code
 )
 ```
 
