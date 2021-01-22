@@ -35,7 +35,7 @@ module DatadogAPIClient::V1
     # Starting time of the correction in epoch seconds
     attr_accessor :start
 
-    # Timezone of the timestamps provided
+    # The timezone to display in the UI for the correction times (defaults to \"UTC\")
     attr_accessor :timezone
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -33,7 +33,7 @@ module DatadogAPIClient::V1
     # Starting time of the correction in epoch seconds
     attr_accessor :start
 
-    # Timezone of the timestamps provided
+    # The timezone to display in the UI for the correction times (defaults to \"UTC\")
     attr_accessor :timezone
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -131,10 +131,6 @@ module DatadogAPIClient::V1
         invalid_properties.push('invalid value for "start", start cannot be nil.')
       end
 
-      if @timezone.nil?
-        invalid_properties.push('invalid value for "timezone", timezone cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -145,7 +141,6 @@ module DatadogAPIClient::V1
       return false if @_end.nil?
       return false if @slo_id.nil?
       return false if @start.nil?
-      return false if @timezone.nil?
       true
     end
 
