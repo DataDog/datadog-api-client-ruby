@@ -1,23 +1,49 @@
 # DatadogAPIClient::V1::SyntheticsAssertion
 
-## Properties
+## Class instance methods
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**operator** | [**SyntheticsAssertionJSONPathOperator**](SyntheticsAssertionJSONPathOperator.md) |  | 
-**property** | **String** | The associated assertion property. | [optional] 
-**target** | [**SyntheticsAssertionJSONPathTargetTarget**](SyntheticsAssertionJSONPathTargetTarget.md) |  | [optional] 
-**type** | [**SyntheticsAssertionType**](SyntheticsAssertionType.md) |  | 
+### `openapi_one_of`
 
-## Code Sample
+Returns the list of classes defined in oneOf.
+
+#### Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::SyntheticsAssertion.new(operator: null,
-                                 property: null,
-                                 target: null,
-                                 type: null)
+DatadogAPIClient::V1::SyntheticsAssertion.openapi_one_of
+# =>
+# [
+#   :'SyntheticsAssertionJSONPathTarget',
+#   :'SyntheticsAssertionTarget'
+# ]
 ```
 
+### build
+
+Find the appropriate object from the `openapi_one_of` list and casts the data into it.
+
+#### Example
+
+```ruby
+require 'datadog_api_client/v1'
+
+DatadogAPIClient::V1::SyntheticsAssertion.build(data)
+# => #<SyntheticsAssertionJSONPathTarget:0x00007fdd4aab02a0>
+
+DatadogAPIClient::V1::SyntheticsAssertion.build(data_that_doesnt_match)
+# => nil
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| **data** | **Mixed** | data to be matched against the list of oneOf items |
+
+#### Return type
+
+- `SyntheticsAssertionJSONPathTarget`
+- `SyntheticsAssertionTarget`
+- `nil` (if no type matches)
 

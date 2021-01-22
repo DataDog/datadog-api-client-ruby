@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**data** | [**IncidentTeamResponseData**](IncidentTeamResponseData.md) |  | 
-**included** | [**Array&lt;IncidentTeamIncludedItems&gt;**](IncidentTeamIncludedItems.md) | Included objects from relationships. | [optional] [readonly] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **data** | [**IncidentTeamResponseData**](IncidentTeamResponseData.md) |  |  |
+| **included** | [**Array&lt;IncidentTeamIncludedItems&gt;**](IncidentTeamIncludedItems.md) | Included objects from relationships. | [optional][readonly] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V2'
+require 'datadog_api_client/v2'
 
-instance = DatadogAPIClient::V2::IncidentTeamResponse.new(data: null,
-                                 included: null)
+instance = DatadogAPIClient::V2::IncidentTeamResponse.new(
+  data: null,
+  included: null
+)
 ```
-
 

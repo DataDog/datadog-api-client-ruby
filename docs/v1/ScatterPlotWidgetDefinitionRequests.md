@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**x** | [**ScatterPlotRequest**](ScatterPlotRequest.md) |  | 
-**y** | [**ScatterPlotRequest**](ScatterPlotRequest.md) |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **x** | [**ScatterPlotRequest**](ScatterPlotRequest.md) |  |  |
+| **y** | [**ScatterPlotRequest**](ScatterPlotRequest.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::ScatterPlotWidgetDefinitionRequests.new(x: null,
-                                 y: null)
+instance = DatadogAPIClient::V1::ScatterPlotWidgetDefinitionRequests.new(
+  x: null,
+  y: null
+)
 ```
-
 

@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**usage** | [**Array&lt;UsageSNMPHour&gt;**](UsageSNMPHour.md) | Get hourly usage for SNMP devices. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **usage** | [**Array&lt;UsageSNMPHour&gt;**](UsageSNMPHour.md) | Get hourly usage for SNMP devices. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::UsageSNMPResponse.new(usage: null)
+instance = DatadogAPIClient::V1::UsageSNMPResponse.new(
+  usage: null
+)
 ```
-
 

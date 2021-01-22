@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**groups** | [**Hash&lt;String, MonitorStateGroup&gt;**](MonitorStateGroup.md) | Dictionary where the keys are groups (comma separated lists of tags) and the values are the list of groups your monitor is broken down on. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **groups** | [**Hash&lt;String, MonitorStateGroup&gt;**](MonitorStateGroup.md) | Dictionary where the keys are groups (comma separated lists of tags) and the values are the list of groups your monitor is broken down on. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::MonitorState.new(groups: null)
+instance = DatadogAPIClient::V1::MonitorState.new(
+  groups: null
+)
 ```
-
 

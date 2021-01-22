@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**data** | [**Array&lt;RelationshipToPermissionData&gt;**](RelationshipToPermissionData.md) | Relationships to permission objects. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **data** | [**Array&lt;RelationshipToPermissionData&gt;**](RelationshipToPermissionData.md) | Relationships to permission objects. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V2'
+require 'datadog_api_client/v2'
 
-instance = DatadogAPIClient::V2::RelationshipToPermissions.new(data: null)
+instance = DatadogAPIClient::V2::RelationshipToPermissions.new(
+  data: null
+)
 ```
-
 

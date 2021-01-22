@@ -1,3 +1,5 @@
+require 'json'
+
 module APIWorld
   def api
     Object.const_get("DatadogAPIClient::V#{@api_version}")
@@ -11,9 +13,13 @@ module APIWorld
     @api_client ||= api.const_get("ApiClient").new configuration
   end
 
+  def api_error
+    api.const_get("ApiError")
+  end
+
   def unique
     now = Time.now
-    scenario_name = @scenario.name.gsub(/[^A-Za-z0-9]+/, '-')[0..100]
+    scenario_name = @scenario.name.gsub(/[^A-Za-z0-9]+/, '_')[0..100]
     @unique ||= "ruby-#{scenario_name}-#{now.to_i}"
   end
 
@@ -25,138 +31,72 @@ module APIWorld
     @opts ||= {}
   end
 
-  def create_user
-    api_instance = DatadogAPIClient::V2::UsersApi.new api_client
-
-    user = DatadogAPIClient::V2::UserCreateRequest.new
-    user.data = DatadogAPIClient::V2::UserCreateData.new
-    user.data.type = "users"
-    user.data.attributes = DatadogAPIClient::V2::UserCreateAttributes.new
-    user.data.attributes.email = "#{unique}@datadoghq.com"
-
-    response = api_instance.create_user_with_http_info({
-      body: user
-    })
-    @undo << lambda { undo_create_user(response) }
-    response[0]
+  def undo_operations
+    return @undo_operations if @undo_operations
+    undo_path = File.join(__dir__, '..', "v#{@api_version}", 'undo.json')
+    @undo_operations ||= JSON.parse(File.read(undo_path)).map{
+      |operation_id, settings| [operation_id.snakecase, settings["undo"]]
+    }.to_h
   end
 
-  def undo_create_user(response)
-    api_instance = DatadogAPIClient::V2::UsersApi.new api_client
-    api_instance.disable_user(response[0].data.id)
+  def build_undo_for(operation_id, api_instance = nil)
+    raise "missing x-undo for #{operation_id}" unless undo_operations.key? operation_id
+
+    operation = undo_operations[operation_id]
+    raise "update x-undo for #{operation_id}" unless operation["type"]
+
+    return if operation["type"] != "unsafe"
+
+    api_instance ||= @api_instance
+    operation_name = operation["operationId"].snakecase
+    method = api_instance.method("#{operation_name}_with_http_info".to_sym)
+
+    lambda do |response|
+      args = operation["parameters"].map{ |p| response.lookup(p["source"]) }
+
+      api_instance.api_client.config.unstable_operations[operation_name.to_sym] = true
+      lambda { method.call(*args) }
+    end
   end
 
-  def create_role
-    api_instance = DatadogAPIClient::V2::RolesApi.new api_client
+  def build_given(api_version, operation)
+    api_name = operation["tag"].gsub(/\s/, '')
+    operation_name = operation["operationId"].snakecase
 
-    role = DatadogAPIClient::V2::RoleCreateRequest.new
-    role.data = DatadogAPIClient::V2::RoleCreateData.new
-    role.data.type = "roles"
-    role.data.attributes = DatadogAPIClient::V2::RoleCreateAttributes.new
-    role.data.attributes.name = unique
+    # make sure we have a fresh instance of API client and configuration
+    given_api = Object.const_get("DatadogAPIClient::V#{api_version}")
+    given_configuration = given_api.const_get("Configuration").new
+    given_configuration.api_key['apiKeyAuth'] = ENV["DD_TEST_CLIENT_API_KEY"]
+    given_configuration.api_key['appKeyAuth'] = ENV["DD_TEST_CLIENT_APP_KEY"]
+    given_api_client = given_api.const_get("ApiClient").new given_configuration
+    given_api_instance = api.const_get("#{api_name}Api").new given_api_client
+    method = given_api_instance.method("#{operation_name}_with_http_info".to_sym)
 
-    response = api_instance.create_role_with_http_info({
-      body: role
-    })
-    @undo << lambda { undo_create_role(response) }
-    response[0]
-  end
+    # find undo method
+    undo_builder = build_undo_for(operation_name, given_api_instance)
 
-  def undo_create_role(response)
-    api_instance = DatadogAPIClient::V2::RolesApi.new api_client
-    api_instance.delete_role(response[0].data.id)
-  end
+    # enable unstable operation
+    given_configuration.unstable_operations[operation_name.to_sym] = true
 
-  def create_incident
-    configuration.unstable_operations[:create_incident] = true
-    api_instance = DatadogAPIClient::V2::IncidentsApi.new api_client
+    # perform operation
+    args = operation["parameters"].map do |p|
+      result = JSON.parse(p["value"].templated fixtures) if p.key? "value"
+      result = fixtures.lookup(p["source"]) if p.key? "source"
+      result
+    end if operation["parameters"]
 
-    incident_create_request = DatadogAPIClient::V2::IncidentCreateRequest.new
-    incident_create_request.data = DatadogAPIClient::V2::IncidentCreateData.new
-    incident_create_request.data.type = "incidents"
-    incident_create_request.data.attributes = DatadogAPIClient::V2::IncidentCreateAttributes.new
-    incident_create_request.data.attributes.title = unique
+    result = method.call(*args)[0]
 
-    response = api_instance.create_incident_with_http_info(incident_create_request)
-    @undo << lambda { undo_create_incident(response) }
-    response[0]
-  end
+    # register undo method
+    @undo << undo_builder.call(result) if undo_builder
 
-  def undo_create_incident(response)
-    configuration.config.unstable_operations[:delete_incident] = true
-    api_instance = DatadogAPIClient::V2::IncidentsApi.new api_client
-    api_instance.delete_incident(response[0].data.id)
-  end
+    # optional re-shaping
+    result = result.lookup(operation['source']) if operation.key? 'source'
 
-  def create_service
-    configuration.unstable_operations[:create_incident_service] = true
-    api_instance = DatadogAPIClient::V2::IncidentServicesApi.new api_client
+    # store response in fixtures
+    fixtures[operation['key'].to_sym] = result if operation.key? 'key'
 
-    incident_service_create_request = DatadogAPIClient::V2::IncidentServiceCreateRequest.new
-    incident_service_create_request.data = DatadogAPIClient::V2::IncidentServiceCreateData.new
-    incident_service_create_request.data.type = "services"
-    incident_service_create_request.data.attributes = DatadogAPIClient::V2::IncidentServiceCreateAttributes.new
-    incident_service_create_request.data.attributes.name = unique
-
-    response = api_instance.create_incident_service_with_http_info(incident_service_create_request)
-    @undo << lambda { undo_create_incident_service(response) }
-    response[0]
-  end
-
-  def undo_create_incident_service(response)
-    configuration.config.unstable_operations[:delete_incident_service] = true
-    api_instance = DatadogAPIClient::V2::IncidentServicesApi.new api_client
-    api_instance.delete_incident_service(response[0].data.id)
-  end
-
-  def create_team
-    configuration.unstable_operations[:create_incident_team] = true
-    api_instance = DatadogAPIClient::V2::IncidentTeamsApi.new api_client
-
-    incident_team_create_request = DatadogAPIClient::V2::IncidentTeamCreateRequest.new
-    incident_team_create_request.data = DatadogAPIClient::V2::IncidentTeamCreateData.new
-    incident_team_create_request.data.type = "teams"
-    incident_team_create_request.data.attributes = DatadogAPIClient::V2::IncidentTeamCreateAttributes.new
-    incident_team_create_request.data.attributes.name = unique
-
-    response = api_instance.create_incident_team_with_http_info(incident_team_create_request)
-    @undo << lambda { undo_create_incident_team(response) }
-    response[0]
-  end
-
-  def undo_create_incident_team(response)
-    configuration.unstable_operations[:delete_incident_team] = true
-    api_instance = DatadogAPIClient::V2::IncidentTeamsApi.new api_client
-    api_instance.delete_incident_team(response[0].data.id)
-  end
-
-  def create_permission
-    api_instance = DatadogAPIClient::V2::RolesApi.new api_client
-
-    response = api_instance.list_permissions
-    response.data[0]
-  end
-
-  def skip_undo?(method)
-    method.to_s.start_with?(
-      "undo_add_",
-      "undo_aggregate_logs",
-      "undo_delete_",
-      "undo_disable_",
-      "undo_get_",
-      "undo_list_",
-      "undo_remove_",
-      "undo_send_invitations",
-      "undo_update_",
-    )
-  end
-
-  def missing_method(method, *args, &block)
-    super unless skip_undo? method
-  end
-
-  def respond_to_missing?(method, *)
-    skip_undo?(method) || super
+    result
   end
 end
 
@@ -198,10 +138,18 @@ end
 
 When('the request is sent') do
   params = @api_method.parameters.select { |p| p[0] == :req }.map { |p| opts.delete(p[1]) }
-  undo_name = "undo_#{@api_method.name.to_s.chomp('_with_http_info')}".to_sym
-  undo = self.method undo_name  # fail early on missing undo method
-  @response = @api_method.call(*params, opts)
-  @undo << lambda { undo.call @response } unless skip_undo? undo_name
+  undo_builder = build_undo_for @api_method.name.to_s.chomp('_with_http_info')  # fail early on missing undo method
+
+  begin
+    @response = @api_method.call(*params, opts)
+  rescue api_error => e
+    # If we have an exception, make a stub response object to use for assertions
+    # Instead of finding the response class of the method, we use the fact that all
+    # responses returned have the `1` element set to the response code
+    @response = [nil, e.code, nil]
+  end
+
+  @undo << undo_builder.call(@response[0]) if undo_builder
 end
 
 Then(/^the response "([^"]+)" is equal to (.*)$/) do |response_path, value|
@@ -224,6 +172,12 @@ Then(/^the response "([^"]+)" has length ([0-9]+)$/) do |response_path, fixture_
   expect((@response[0].lookup response_path).length).to eq fixture_length.to_i
 end
 
-Given('there is a valid {string} in the system') do |name|
-  fixtures[name.to_sym] = self.send("create_#{name}".to_sym)
+Dir.glob(File.join(__dir__, '..', "v*", 'given.json')).each do |f|
+  m = File.expand_path(f).match /features\/v(?<version>\d+)\/.*/
+  version = m[:version]
+  JSON.parse(File.read(f)).map do |settings|
+    Given(settings['step']) do
+      build_given(version, settings)
+    end
+  end
 end

@@ -2,20 +2,21 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**facet** | **String** | Facet name. | 
-**limit** | **Integer** | Maximum number of items in the group. | [optional] 
-**sort** | [**LogQueryDefinitionSort**](LogQueryDefinitionSort.md) |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **facet** | **String** | Facet name. |  |
+| **limit** | **Integer** | Maximum number of items in the group. | [optional] |
+| **sort** | [**LogQueryDefinitionSort**](LogQueryDefinitionSort.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::LogQueryDefinitionGroupBy.new(facet: resource_name,
-                                 limit: 50,
-                                 sort: null)
+instance = DatadogAPIClient::V1::LogQueryDefinitionGroupBy.new(
+  facet: resource_name,
+  limit: 50,
+  sort: null
+)
 ```
-
 

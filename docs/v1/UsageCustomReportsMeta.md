@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**page** | [**UsageCustomReportsPage**](UsageCustomReportsPage.md) |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **page** | [**UsageCustomReportsPage**](UsageCustomReportsPage.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::UsageCustomReportsMeta.new(page: null)
+instance = DatadogAPIClient::V1::UsageCustomReportsMeta.new(
+  page: null
+)
 ```
-
 

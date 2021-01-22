@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**buckets** | [**Array&lt;LogsAggregateBucket&gt;**](LogsAggregateBucket.md) | The list of matching buckets, one item per bucket | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **buckets** | [**Array&lt;LogsAggregateBucket&gt;**](LogsAggregateBucket.md) | The list of matching buckets, one item per bucket | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V2'
+require 'datadog_api_client/v2'
 
-instance = DatadogAPIClient::V2::LogsAggregateResponseData.new(buckets: null)
+instance = DatadogAPIClient::V2::LogsAggregateResponseData.new(
+  buckets: null
+)
 ```
-
 

@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**data** | [**Array&lt;RelationshipToUserData&gt;**](RelationshipToUserData.md) | Relationships to user objects. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **data** | [**Array&lt;RelationshipToUserData&gt;**](RelationshipToUserData.md) | Relationships to user objects. |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V2'
+require 'datadog_api_client/v2'
 
-instance = DatadogAPIClient::V2::RelationshipToUsers.new(data: [])
+instance = DatadogAPIClient::V2::RelationshipToUsers.new(
+  data: []
+)
 ```
-
 

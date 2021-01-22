@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**valid** | **Boolean** | Return &#x60;true&#x60; if the authentication response is valid. | [optional] [readonly] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **valid** | **Boolean** | Return &#x60;true&#x60; if the authentication response is valid. | [optional][readonly] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::AuthenticationValidationResponse.new(valid: true)
+instance = DatadogAPIClient::V1::AuthenticationValidationResponse.new(
+  valid: true
+)
 ```
-
 

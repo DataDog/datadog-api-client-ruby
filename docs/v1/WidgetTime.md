@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**live_span** | [**WidgetLiveSpan**](WidgetLiveSpan.md) |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **live_span** | [**WidgetLiveSpan**](WidgetLiveSpan.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::WidgetTime.new(live_span: null)
+instance = DatadogAPIClient::V1::WidgetTime.new(
+  live_span: null
+)
 ```
-
 

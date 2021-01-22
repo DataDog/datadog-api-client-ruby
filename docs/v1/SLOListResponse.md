@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**data** | [**Array&lt;ServiceLevelObjective&gt;**](ServiceLevelObjective.md) | An array of service level objective objects. | [optional] 
-**errors** | **Array&lt;String&gt;** | An array of error messages. Each endpoint documents how/whether this field is used. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **data** | [**Array&lt;ServiceLevelObjective&gt;**](ServiceLevelObjective.md) | An array of service level objective objects. | [optional] |
+| **errors** | **Array&lt;String&gt;** | An array of error messages. Each endpoint documents how/whether this field is used. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::SLOListResponse.new(data: null,
-                                 errors: null)
+instance = DatadogAPIClient::V1::SLOListResponse.new(
+  data: null,
+  errors: null
+)
 ```
-
 

@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**orgs** | [**Array&lt;Organization&gt;**](Organization.md) | Array of organization objects. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **orgs** | [**Array&lt;Organization&gt;**](Organization.md) | Array of organization objects. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::OrganizationListResponse.new(orgs: null)
+instance = DatadogAPIClient::V1::OrganizationListResponse.new(
+  orgs: null
+)
 ```
-
 

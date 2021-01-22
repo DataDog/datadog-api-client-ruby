@@ -2,40 +2,35 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**create_host_tags**](TagsApi.md#create_host_tags) | **POST** /api/v1/tags/hosts/{host_name} | Add tags to a host
-[**delete_host_tags**](TagsApi.md#delete_host_tags) | **DELETE** /api/v1/tags/hosts/{host_name} | Remove host tags
-[**get_host_tags**](TagsApi.md#get_host_tags) | **GET** /api/v1/tags/hosts/{host_name} | Get host tags
-[**list_host_tags**](TagsApi.md#list_host_tags) | **GET** /api/v1/tags/hosts | Get Tags
-[**update_host_tags**](TagsApi.md#update_host_tags) | **PUT** /api/v1/tags/hosts/{host_name} | Update host tags
-
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**create_host_tags**](TagsApi.md#create_host_tags) | **POST** /api/v1/tags/hosts/{host_name} | Add tags to a host |
+| [**delete_host_tags**](TagsApi.md#delete_host_tags) | **DELETE** /api/v1/tags/hosts/{host_name} | Remove host tags |
+| [**get_host_tags**](TagsApi.md#get_host_tags) | **GET** /api/v1/tags/hosts/{host_name} | Get host tags |
+| [**list_host_tags**](TagsApi.md#list_host_tags) | **GET** /api/v1/tags/hosts | Get Tags |
+| [**update_host_tags**](TagsApi.md#update_host_tags) | **PUT** /api/v1/tags/hosts/{host_name} | Update host tags |
 
 
 ## create_host_tags
 
-> HostTags create_host_tags(host_name, body, opts)
+> <HostTags> create_host_tags(host_name, body, opts)
 
 Add tags to a host
 
 This endpoint allows you to add new tags to a host, optionally specifying where these tags come from.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::TagsApi.new
@@ -46,22 +41,39 @@ opts = {
 }
 
 begin
-  #Add tags to a host
+  # Add tags to a host
   result = api_instance.create_host_tags(host_name, body, opts)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling TagsApi->create_host_tags: #{e}"
+  puts "Error when calling TagsApi->create_host_tags: #{e}"
+end
+```
+
+#### Using the create_host_tags_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HostTags>, Integer, Hash)> create_host_tags_with_http_info(host_name, body, opts)
+
+```ruby
+begin
+  # Add tags to a host
+  data, status_code, headers = api_instance.create_host_tags_with_http_info(host_name, body, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HostTags>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling TagsApi->create_host_tags_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **host_name** | **String**| This endpoint allows you to add new tags to a host, optionally specifying where the tags came from. | 
- **body** | [**HostTags**](HostTags.md)| Update host tags request body. | 
- **source** | **String**| The source of the tags. [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value). | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **host_name** | **String** | This endpoint allows you to add new tags to a host, optionally specifying where the tags came from. |  |
+| **body** | [**HostTags**](HostTags.md) | Update host tags request body. |  |
+| **source** | **String** | The source of the tags. [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value). | [optional] |
 
 ### Return type
 
@@ -69,7 +81,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -85,22 +97,18 @@ Remove host tags
 
 This endpoint allows you to remove all user-assigned tags for a single host.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::TagsApi.new
@@ -110,20 +118,37 @@ opts = {
 }
 
 begin
-  #Remove host tags
+  # Remove host tags
   api_instance.delete_host_tags(host_name, opts)
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling TagsApi->delete_host_tags: #{e}"
+  puts "Error when calling TagsApi->delete_host_tags: #{e}"
+end
+```
+
+#### Using the delete_host_tags_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> delete_host_tags_with_http_info(host_name, opts)
+
+```ruby
+begin
+  # Remove host tags
+  data, status_code, headers = api_instance.delete_host_tags_with_http_info(host_name, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling TagsApi->delete_host_tags_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **host_name** | **String**| This endpoint allows you to remove all user-assigned tags for a single host. | 
- **source** | **String**| The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value). | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **host_name** | **String** | This endpoint allows you to remove all user-assigned tags for a single host. |  |
+| **source** | **String** | The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value). | [optional] |
 
 ### Return type
 
@@ -131,7 +156,7 @@ nil (empty response body)
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -141,28 +166,24 @@ nil (empty response body)
 
 ## get_host_tags
 
-> HostTags get_host_tags(host_name, opts)
+> <HostTags> get_host_tags(host_name, opts)
 
 Get host tags
 
 Return the list of tags that apply to a given host.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::TagsApi.new
@@ -172,21 +193,38 @@ opts = {
 }
 
 begin
-  #Get host tags
+  # Get host tags
   result = api_instance.get_host_tags(host_name, opts)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling TagsApi->get_host_tags: #{e}"
+  puts "Error when calling TagsApi->get_host_tags: #{e}"
+end
+```
+
+#### Using the get_host_tags_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HostTags>, Integer, Hash)> get_host_tags_with_http_info(host_name, opts)
+
+```ruby
+begin
+  # Get host tags
+  data, status_code, headers = api_instance.get_host_tags_with_http_info(host_name, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HostTags>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling TagsApi->get_host_tags_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **host_name** | **String**| When specified, filters list of tags to those tags with the specified source. | 
- **source** | **String**| Source to filter. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **host_name** | **String** | When specified, filters list of tags to those tags with the specified source. |  |
+| **source** | **String** | Source to filter. | [optional] |
 
 ### Return type
 
@@ -194,7 +232,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -204,28 +242,24 @@ Name | Type | Description  | Notes
 
 ## list_host_tags
 
-> TagToHosts list_host_tags(opts)
+> <TagToHosts> list_host_tags(opts)
 
 Get Tags
 
 Return a mapping of tags to hosts for your whole infrastructure.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::TagsApi.new
@@ -234,20 +268,37 @@ opts = {
 }
 
 begin
-  #Get Tags
+  # Get Tags
   result = api_instance.list_host_tags(opts)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling TagsApi->list_host_tags: #{e}"
+  puts "Error when calling TagsApi->list_host_tags: #{e}"
+end
+```
+
+#### Using the list_host_tags_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TagToHosts>, Integer, Hash)> list_host_tags_with_http_info(opts)
+
+```ruby
+begin
+  # Get Tags
+  data, status_code, headers = api_instance.list_host_tags_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TagToHosts>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling TagsApi->list_host_tags_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **source** | **String**| When specified, filters host list to those tags with the specified source. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **source** | **String** | When specified, filters host list to those tags with the specified source. | [optional] |
 
 ### Return type
 
@@ -255,7 +306,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -265,28 +316,24 @@ Name | Type | Description  | Notes
 
 ## update_host_tags
 
-> HostTags update_host_tags(host_name, body, opts)
+> <HostTags> update_host_tags(host_name, body, opts)
 
 Update host tags
 
 This endpoint allows you to update/replace all tags in an integration source with those supplied in the request.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::TagsApi.new
@@ -297,22 +344,39 @@ opts = {
 }
 
 begin
-  #Update host tags
+  # Update host tags
   result = api_instance.update_host_tags(host_name, body, opts)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling TagsApi->update_host_tags: #{e}"
+  puts "Error when calling TagsApi->update_host_tags: #{e}"
+end
+```
+
+#### Using the update_host_tags_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HostTags>, Integer, Hash)> update_host_tags_with_http_info(host_name, body, opts)
+
+```ruby
+begin
+  # Update host tags
+  data, status_code, headers = api_instance.update_host_tags_with_http_info(host_name, body, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HostTags>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling TagsApi->update_host_tags_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **host_name** | **String**| This endpoint allows you to update/replace all in an integration source with those supplied in the request. | 
- **body** | [**HostTags**](HostTags.md)| Add tags to host | 
- **source** | **String**| The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value) | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **host_name** | **String** | This endpoint allows you to update/replace all in an integration source with those supplied in the request. |  |
+| **body** | [**HostTags**](HostTags.md) | Add tags to host |  |
+| **source** | **String** | The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value) | [optional] |
 
 ### Return type
 
@@ -320,7 +384,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 

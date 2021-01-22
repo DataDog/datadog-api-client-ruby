@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**accounts** | [**Array&lt;AWSAccount&gt;**](AWSAccount.md) | List of enabled AWS accounts. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **accounts** | [**Array&lt;AWSAccount&gt;**](AWSAccount.md) | List of enabled AWS accounts. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::AWSAccountListResponse.new(accounts: null)
+instance = DatadogAPIClient::V1::AWSAccountListResponse.new(
+  accounts: null
+)
 ```
-
 

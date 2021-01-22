@@ -2,60 +2,72 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**create_child_org**](OrganizationsApi.md#create_child_org) | **POST** /api/v1/org | Create a child organization
-[**get_org**](OrganizationsApi.md#get_org) | **GET** /api/v1/org/{public_id} | Get organization information
-[**list_orgs**](OrganizationsApi.md#list_orgs) | **GET** /api/v1/org | List your managed organizations
-[**update_org**](OrganizationsApi.md#update_org) | **PUT** /api/v1/org/{public_id} | Update your organization
-[**upload_id_p_for_org**](OrganizationsApi.md#upload_id_p_for_org) | **POST** /api/v1/org/{public_id}/idp_metadata | Upload IdP metadata
-
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**create_child_org**](OrganizationsApi.md#create_child_org) | **POST** /api/v1/org | Create a child organization |
+| [**get_org**](OrganizationsApi.md#get_org) | **GET** /api/v1/org/{public_id} | Get organization information |
+| [**list_orgs**](OrganizationsApi.md#list_orgs) | **GET** /api/v1/org | List your managed organizations |
+| [**update_org**](OrganizationsApi.md#update_org) | **PUT** /api/v1/org/{public_id} | Update your organization |
+| [**upload_id_p_for_org**](OrganizationsApi.md#upload_id_p_for_org) | **POST** /api/v1/org/{public_id}/idp_metadata | Upload IdP metadata |
 
 
 ## create_child_org
 
-> OrganizationCreateResponse create_child_org(body)
+> <OrganizationCreateResponse> create_child_org(body)
 
 Create a child organization
 
 Create a child organization.  This endpoint requires the [multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/) feature and must be enabled by [contacting support](https://docs.datadoghq.com/help/).  Once a new child organization is created, you can interact with it by using the `org.public_id`, `pi_key.key`, and `application_key.hash` provided in the response.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::OrganizationsApi.new
-body = DatadogAPIClient::V1::OrganizationCreateBody.new # OrganizationCreateBody | Organization object that needs to be created
+body = DatadogAPIClient::V1::OrganizationCreateBody.new({name: 'New child org'}) # OrganizationCreateBody | Organization object that needs to be created
 
 begin
-  #Create a child organization
+  # Create a child organization
   result = api_instance.create_child_org(body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling OrganizationsApi->create_child_org: #{e}"
+  puts "Error when calling OrganizationsApi->create_child_org: #{e}"
+end
+```
+
+#### Using the create_child_org_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<OrganizationCreateResponse>, Integer, Hash)> create_child_org_with_http_info(body)
+
+```ruby
+begin
+  # Create a child organization
+  data, status_code, headers = api_instance.create_child_org_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <OrganizationCreateResponse>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling OrganizationsApi->create_child_org_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**OrganizationCreateBody**](OrganizationCreateBody.md)| Organization object that needs to be created | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**OrganizationCreateBody**](OrganizationCreateBody.md) | Organization object that needs to be created |  |
 
 ### Return type
 
@@ -63,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -73,48 +85,61 @@ Name | Type | Description  | Notes
 
 ## get_org
 
-> OrganizationResponse get_org(public_id)
+> <OrganizationResponse> get_org(public_id)
 
 Get organization information
 
 Get organization information.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::OrganizationsApi.new
 public_id = 'abc123' # String | The `public_id` of the organization you are operating within.
 
 begin
-  #Get organization information
+  # Get organization information
   result = api_instance.get_org(public_id)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling OrganizationsApi->get_org: #{e}"
+  puts "Error when calling OrganizationsApi->get_org: #{e}"
+end
+```
+
+#### Using the get_org_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<OrganizationResponse>, Integer, Hash)> get_org_with_http_info(public_id)
+
+```ruby
+begin
+  # Get organization information
+  data, status_code, headers = api_instance.get_org_with_http_info(public_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <OrganizationResponse>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling OrganizationsApi->get_org_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **public_id** | **String**| The &#x60;public_id&#x60; of the organization you are operating within. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **public_id** | **String** | The &#x60;public_id&#x60; of the organization you are operating within. |  |
 
 ### Return type
 
@@ -122,7 +147,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -132,38 +157,52 @@ Name | Type | Description  | Notes
 
 ## list_orgs
 
-> OrganizationListResponse list_orgs
+> <OrganizationListResponse> list_orgs
 
 List your managed organizations
 
 List your managed organizations.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::OrganizationsApi.new
 
 begin
-  #List your managed organizations
+  # List your managed organizations
   result = api_instance.list_orgs
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling OrganizationsApi->list_orgs: #{e}"
+  puts "Error when calling OrganizationsApi->list_orgs: #{e}"
+end
+```
+
+#### Using the list_orgs_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<OrganizationListResponse>, Integer, Hash)> list_orgs_with_http_info
+
+```ruby
+begin
+  # List your managed organizations
+  data, status_code, headers = api_instance.list_orgs_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <OrganizationListResponse>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling OrganizationsApi->list_orgs_with_http_info: #{e}"
 end
 ```
 
@@ -177,7 +216,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -187,28 +226,24 @@ This endpoint does not need any parameter.
 
 ## update_org
 
-> OrganizationResponse update_org(public_id, body)
+> <OrganizationResponse> update_org(public_id, body)
 
 Update your organization
 
 Update your organization.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::OrganizationsApi.new
@@ -216,21 +251,38 @@ public_id = 'abc123' # String | The `public_id` of the organization you are oper
 body = DatadogAPIClient::V1::Organization.new # Organization | 
 
 begin
-  #Update your organization
+  # Update your organization
   result = api_instance.update_org(public_id, body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling OrganizationsApi->update_org: #{e}"
+  puts "Error when calling OrganizationsApi->update_org: #{e}"
+end
+```
+
+#### Using the update_org_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<OrganizationResponse>, Integer, Hash)> update_org_with_http_info(public_id, body)
+
+```ruby
+begin
+  # Update your organization
+  data, status_code, headers = api_instance.update_org_with_http_info(public_id, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <OrganizationResponse>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling OrganizationsApi->update_org_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **public_id** | **String**| The &#x60;public_id&#x60; of the organization you are operating within. | 
- **body** | [**Organization**](Organization.md)|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **public_id** | **String** | The &#x60;public_id&#x60; of the organization you are operating within. |  |
+| **body** | [**Organization**](Organization.md) |  |  |
 
 ### Return type
 
@@ -238,7 +290,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -248,50 +300,63 @@ Name | Type | Description  | Notes
 
 ## upload_id_p_for_org
 
-> IdpResponse upload_id_p_for_org(public_id, idp_file)
+> <IdpResponse> upload_id_p_for_org(public_id, idp_file)
 
 Upload IdP metadata
 
 There are a couple of options for updating the Identity Provider (IdP) metadata from your SAML IdP.  * **Multipart Form-Data**: Post the IdP metadata file using a form post.  * **XML Body:** Post the IdP metadata file as the body of the request.
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
+require 'time'
 require 'datadog_api_client/v1'
 # setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::OrganizationsApi.new
 public_id = 'abc123' # String | The `public_id` of the organization you are operating with
-idp_file = File.new('/path/to/file') # File | The path to the XML metadata file you wish to upload.
+idp_file = File.new('/path/to/some/file') # File | The path to the XML metadata file you wish to upload.
 
 begin
-  #Upload IdP metadata
+  # Upload IdP metadata
   result = api_instance.upload_id_p_for_org(public_id, idp_file)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Exception when calling OrganizationsApi->upload_id_p_for_org: #{e}"
+  puts "Error when calling OrganizationsApi->upload_id_p_for_org: #{e}"
+end
+```
+
+#### Using the upload_id_p_for_org_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<IdpResponse>, Integer, Hash)> upload_id_p_for_org_with_http_info(public_id, idp_file)
+
+```ruby
+begin
+  # Upload IdP metadata
+  data, status_code, headers = api_instance.upload_id_p_for_org_with_http_info(public_id, idp_file)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <IdpResponse>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling OrganizationsApi->upload_id_p_for_org_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **public_id** | **String**| The &#x60;public_id&#x60; of the organization you are operating with | 
- **idp_file** | **File**| The path to the XML metadata file you wish to upload. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **public_id** | **String** | The &#x60;public_id&#x60; of the organization you are operating with |  |
+| **idp_file** | **File** | The path to the XML metadata file you wish to upload. |  |
 
 ### Return type
 
@@ -299,7 +364,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 

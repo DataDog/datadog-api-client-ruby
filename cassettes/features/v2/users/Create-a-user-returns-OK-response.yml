@@ -2,13 +2,56 @@
 http_interactions:
 - request:
     method: post
+    uri: http://127.0.0.1:8126/v0.4/traces
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        kZ6NpXN0YXJ0zxZNLmfzbyYAqGR1cmF0aW9uzwAAAAFX9uLIp3NwYW5faWTPCCu3AA9CxoapcGFyZW50X2lkAKh0cmFjZV9pZM8TklwwTe9qGaRuYW1lpHRlc3Snc2VydmljZbdkYXRhZG9nLWFwaS1jbGllbnQtcnVieahyZXNvdXJjZdkkTGlzdCBhbGwgdXNlcnMgcmV0dXJucyAiT0siIHJlc3BvbnNlpHR5cGWkdGVzdKRtZXRhiKpydW50aW1lLWlk2SRlZDExNTZlYS1lZmNjLTRiODctODJhNS1hM2U3YjQwNjc0MzWudGVzdC5mcmFtZXdvcmuoY3VjdW1iZXKpdGVzdC5uYW1l2SRMaXN0IGFsbCB1c2VycyByZXR1cm5zICJPSyIgcmVzcG9uc2WqdGVzdC5zdWl0ZblmZWF0dXJlcy92Mi91c2Vycy5mZWF0dXJlqXRlc3QudHlwZaR0ZXN0qXNwYW4ua2luZKR0ZXN0p3ZlcnNpb26ldXNlcnOrdGVzdC5zdGF0dXOkcGFzc6dtZXRyaWNzha1fZGQuYWdlbnRfcHNyyz/wAAAAAAAAqnN5c3RlbS5waWTLQPeHQAAAAACtX2RkMS5zci5lYXVzcss/8AAAAAAAAKxfZGQubWVhc3VyZWTLP/AAAAAAAAC1X3NhbXBsaW5nX3ByaW9yaXR5X3Yxyz/wAAAAAAAAq2FsbG9jYXRpb25zzT6tpWVycm9yAI2lc3RhcnTPFk0uZ/N+ukioZHVyYXRpb27OAAHwGKdzcGFuX2lkzyN8CGq4KJHDqXBhcmVudF9pZM8IK7cAD0LGhqh0cmFjZV9pZM8TklwwTe9qGaRuYW1lpHN0ZXCnc2VydmljZbdkYXRhZG9nLWFwaS1jbGllbnQtcnVieahyZXNvdXJjZdkmYSB2YWxpZCAiYXBpS2V5QXV0aCIga2V5IGluIHRoZSBzeXN0ZW2kdHlwZaRzdGVwpG1ldGGBq3Rlc3Quc3RhdHVzpHBhc3OnbWV0cmljc4CrYWxsb2NhdGlvbnM7pWVycm9yAI2lc3RhcnTPFk0uZ/OB1yioZHVyYXRpb27OAAE0mKdzcGFuX2lkzzsNWZdgyFUGqXBhcmVudF9pZM8IK7cAD0LGhqh0cmFjZV9pZM8TklwwTe9qGaRuYW1lpHN0ZXCnc2VydmljZbdkYXRhZG9nLWFwaS1jbGllbnQtcnVieahyZXNvdXJjZdkmYSB2YWxpZCAiYXBwS2V5QXV0aCIga2V5IGluIHRoZSBzeXN0ZW2kdHlwZaRzdGVwpG1ldGGBq3Rlc3Quc3RhdHVzpHBhc3OnbWV0cmljc4CrYWxsb2NhdGlvbnMnpWVycm9yAI2lc3RhcnTPFk0uZ/OD7lCoZHVyYXRpb27OAAEwr6dzcGFuX2lkzzwoiyIV8qvSqXBhcmVudF9pZM8IK7cAD0LGhqh0cmFjZV9pZM8TklwwTe9qGaRuYW1lpHN0ZXCnc2VydmljZbdkYXRhZG9nLWFwaS1jbGllbnQtcnVieahyZXNvdXJjZbphbiBpbnN0YW5jZSBvZiAiVXNlcnMiIEFQSaR0eXBlpHN0ZXCkbWV0YYGrdGVzdC5zdGF0dXOkcGFzc6dtZXRyaWNzgKthbGxvY2F0aW9uczalZXJyb3IAjaVzdGFydM8WTS5n84Xx8KhkdXJhdGlvbs4QK7Wgp3NwYW5faWTPJXuFpKCNpeOpcGFyZW50X2lkzwgrtwAPQsaGqHRyYWNlX2lkzxOSXDBN72oZpG5hbWWkc3RlcKdzZXJ2aWNlt2RhdGFkb2ctYXBpLWNsaWVudC1ydWJ5qHJlc291cmNl2SV0aGVyZSBpcyBhIHZhbGlkICJ1c2VyIiBpbiB0aGUgc3lzdGVtpHR5cGWkc3RlcKRtZXRhgat0ZXN0LnN0YXR1c6RwYXNzp21ldHJpY3OAq2FsbG9jYXRpb25zzRLqpWVycm9yAI2lc3RhcnTPFk0uZ/O6UDCoZHVyYXRpb27OD9Xwl6dzcGFuX2lkzycUmxH93fl2qXBhcmVudF9pZM8le4WkoI2l46h0cmFjZV9pZM8TklwwTe9qGaRuYW1lrWV0aG9uLnJlcXVlc3Snc2VydmljZaVldGhvbqhyZXNvdXJjZaRQT1NUpHR5cGWkaHR0cKRtZXRhhaxwZWVyLnNlcnZpY2WlZXRob26oaHR0cC51cmytL2FwaS92Mi91c2Vyc6todHRwLm1ldGhvZKRQT1NUqG91dC5ob3N0sWFwaS5kYXRhZG9naHEuY29tsGh0dHAuc3RhdHVzX2NvZGWjMjAxp21ldHJpY3OBqG91dC5wb3J0y0B7sAAAAAAAq2FsbG9jYXRpb25zzKGlZXJyb3IAjaVzdGFydM8WTS5oA7YcMKhkdXJhdGlvbs4AAkIfp3NwYW5faWTPNspKozl+O9ipcGFyZW50X2lkzwgrtwAPQsaGqHRyYWNlX2lkzxOSXDBN72oZpG5hbWWkc3RlcKdzZXJ2aWNlt2RhdGFkb2ctYXBpLWNsaWVudC1ydWJ5qHJlc291cmNlt25ldyAiTGlzdFVzZXJzIiByZXF1ZXN0pHR5cGWkc3RlcKRtZXRhgat0ZXN0LnN0YXR1c6RwYXNzp21ldHJpY3OAq2FsbG9jYXRpb25zNaVlcnJvcgCNpXN0YXJ0zxZNLmgDu3NgqGR1cmF0aW9uzgAB9ACnc3Bhbl9pZM8soZXS25ihe6lwYXJlbnRfaWTPCCu3AA9CxoaodHJhY2VfaWTPE5JcME3vahmkbmFtZaRzdGVwp3NlcnZpY2W3ZGF0YWRvZy1hcGktY2xpZW50LXJ1YnmocmVzb3VyY2XZRXJlcXVlc3QgY29udGFpbnMgImZpbHRlciIgcGFyYW1ldGVyIGZyb20gInVzZXIuZGF0YS5hdHRyaWJ1dGVzLmVtYWlsIqR0eXBlpHN0ZXCkbWV0YYGrdGVzdC5zdGF0dXOkcGFzc6dtZXRyaWNzgKthbGxvY2F0aW9uc0ilZXJyb3IAjaVzdGFydM8WTS5oA8DKkKhkdXJhdGlvbs8AAAABLWIRaKdzcGFuX2lkzy8uKCsD+xZVqXBhcmVudF9pZM8IK7cAD0LGhqh0cmFjZV9pZM8TklwwTe9qGaRuYW1lpHN0ZXCnc2VydmljZbdkYXRhZG9nLWFwaS1jbGllbnQtcnVieahyZXNvdXJjZbN0aGUgcmVxdWVzdCBpcyBzZW50pHR5cGWkc3RlcKRtZXRhgat0ZXN0LnN0YXR1c6RwYXNzp21ldHJpY3OAq2FsbG9jYXRpb25zzRRspWVycm9yAI2lc3RhcnTPFk0uaAPys+ioZHVyYXRpb27PAAAAAS0W15inc3Bhbl9pZM812vQM/1LG4KlwYXJlbnRfaWTPLy4oKwP7FlWodHJhY2VfaWTPE5JcME3vahmkbmFtZa1ldGhvbi5yZXF1ZXN0p3NlcnZpY2WlZXRob26ocmVzb3VyY2WjR0VUpHR5cGWkaHR0cKRtZXRhhaxwZWVyLnNlcnZpY2WlZXRob26oaHR0cC51cmytL2FwaS92Mi91c2Vyc6todHRwLm1ldGhvZKNHRVSob3V0Lmhvc3SxYXBpLmRhdGFkb2docS5jb22waHR0cC5zdGF0dXNfY29kZaMyMDCnbWV0cmljc4Gob3V0LnBvcnTLQHuwAAAAAACrYWxsb2NhdGlvbnPNB8ilZXJyb3IAjaVzdGFydM8WTS5pMSZiUKhkdXJhdGlvbs4AAfAYp3NwYW5faWTPCzzihf38ctqpcGFyZW50X2lkzwgrtwAPQsaGqHRyYWNlX2lkzxOSXDBN72oZpG5hbWWkc3RlcKdzZXJ2aWNlt2RhdGFkb2ctYXBpLWNsaWVudC1ydWJ5qHJlc291cmNlvXRoZSByZXNwb25zZSBzdGF0dXMgaXMgMjAwIE9LpHR5cGWkc3RlcKRtZXRhgat0ZXN0LnN0YXR1c6RwYXNzp21ldHJpY3OAq2FsbG9jYXRpb25zMaVlcnJvcgCNpXN0YXJ0zxZNLmkxKx1AqGR1cmF0aW9uzgABa0inc3Bhbl9pZM8RMSrjLFIWuqlwYXJlbnRfaWTPCCu3AA9CxoaodHJhY2VfaWTPE5JcME3vahmkbmFtZaRzdGVwp3NlcnZpY2W3ZGF0YWRvZy1hcGktY2xpZW50LXJ1YnmocmVzb3VyY2XZO3RoZSByZXNwb25zZSAibWV0YS5wYWdlLnRvdGFsX2ZpbHRlcmVkX2NvdW50IiBpcyBlcXVhbCB0byAxpHR5cGWkc3RlcKRtZXRhgat0ZXN0LnN0YXR1c6RwYXNzp21ldHJpY3OAq2FsbG9jYXRpb25zSaVlcnJvcgCNpXN0YXJ0zxZNLmkxLzgIqGR1cmF0aW9uzgABioinc3Bhbl9pZM8f59OVPCiugqlwYXJlbnRfaWTPCCu3AA9CxoaodHJhY2VfaWTPE5JcME3vahmkbmFtZaRzdGVwp3NlcnZpY2W3ZGF0YWRvZy1hcGktY2xpZW50LXJ1YnmocmVzb3VyY2XZWnRoZSByZXNwb25zZSAiZGF0YVswXS5hdHRyaWJ1dGVzLmVtYWlsIiBoYXMgdGhlIHNhbWUgdmFsdWUgYXMgInVzZXIuZGF0YS5hdHRyaWJ1dGVzLmVtYWlsIqR0eXBlpHN0ZXCkbWV0YYGrdGVzdC5zdGF0dXOkcGFzc6dtZXRyaWNzgKthbGxvY2F0aW9uc1qlZXJyb3IAjaVzdGFydM8WTS5pMZH1YKhkdXJhdGlvbs4ZuwFvp3NwYW5faWTPA5svaJYzzKOpcGFyZW50X2lkzwgrtwAPQsaGqHRyYWNlX2lkzxOSXDBN72oZpG5hbWWtZXRob24ucmVxdWVzdKdzZXJ2aWNlpWV0aG9uqHJlc291cmNlpkRFTEVURaR0eXBlpGh0dHCkbWV0YYWscGVlci5zZXJ2aWNlpWV0aG9uqGh0dHAudXJs2TIvYXBpL3YyL3VzZXJzLzFkYjFmZjY2LTM1NTMtMTFlYi04N2IzLWYzMTBmNDAzZGFkYatodHRwLm1ldGhvZKZERUxFVEWob3V0Lmhvc3SxYXBpLmRhdGFkb2docS5jb22waHR0cC5zdGF0dXNfY29kZaMyMDSnbWV0cmljc4Gob3V0LnBvcnTLQHuwAAAAAACrYWxsb2NhdGlvbnPMh6VlcnJvcgA=
+    headers:
+      X-Datadog-Trace-Count:
+      - '1'
+      Content-Type:
+      - application/msgpack
+      Datadog-Meta-Lang:
+      - ruby
+      Datadog-Meta-Lang-Version:
+      - 2.7.1
+      Datadog-Meta-Lang-Interpreter:
+      - ruby-x86_64-darwin19
+      Datadog-Meta-Tracer-Version:
+      - 0.43.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 03 Dec 2020 10:34:31 GMT
+      Content-Length:
+      - '126'
+    body:
+      encoding: UTF-8
+      string: '{"rate_by_service":{"service:,env:":1,"service:datadog-api-client-ruby,env:":1,"service:datadog-api-client-ruby,env:none":1}}
+
+        '
+  recorded_at: Thu, 03 Dec 2020 10:34:31 GMT
+- request:
+    method: post
     uri: https://api.datadoghq.com/api/v2/users
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"users","attributes":{"name":"Datadog API Client Python","email":"ruby-Create-a-user-returns-OK-response-1601469646@datadoghq.com"}}}'
+      string: '{"data":{"type":"users","attributes":{"name":"Datadog API Client Python","email":"ruby-Create_a_user_returns_OK_response-1606991671@datadoghq.com"}}}'
     headers:
       User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.6.3; os darwin18.7.0; arch x86_64)
+      - datadog-api-client-ruby/0.1.0 (ruby 2.7.1; os darwin19.6.0; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -21,11 +64,11 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Wed, 30 Sep 2020 12:40:46 GMT
+      - Thu, 03 Dec 2020 10:34:32 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '612'
+      - '636'
       Connection:
       - keep-alive
       Pragma:
@@ -33,12 +76,12 @@ http_interactions:
       Cache-Control:
       - no-cache
       Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 07-Oct-2020 12:40:46 GMT;
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 10-Dec-2020 10:34:31 GMT;
         secure; HttpOnly
       X-Dd-Version:
-      - '35.3116014'
+      - '35.3468623'
       X-Dd-Debug:
-      - "/waQ67o9EXsAiQILmFHWOTHDJ6E+x7ROC0G8iNmC+2lV58E3PSGYbXj1H62A/c+u"
+      - 0e2Tq/aa08wSuRoWDdF6eCwF8GPYPPLmf3Lxvgc5OscTNyr8D4p+ksnId5WnGnR4
       Dd-Pool:
       - dogweb
       Content-Security-Policy:
@@ -51,7 +94,7 @@ http_interactions:
       - max-age=15724800;
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"users","id":"295593de-031a-11eb-b513-3fe77adf483a","attributes":{"name":"Datadog
-        API Client Python","handle":"ruby-create-a-user-returns-ok-response-1601469646@datadoghq.com","created_at":"2020-09-30T12:40:46.240051+00:00","email":"ruby-create-a-user-returns-ok-response-1601469646@datadoghq.com","icon":"https://secure.gravatar.com/avatar/9935b1cce6604467999f469ab6b57667?s=48&d=retro","title":null,"verified":false,"disabled":false,"allowed_login_methods":[],"status":"Pending"},"relationships":{"roles":{"data":[]},"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}}'
-  recorded_at: Wed, 30 Sep 2020 12:40:46 GMT
+      string: '{"data":{"type":"users","id":"2122674e-3553-11eb-87b3-2391fb637f6c","attributes":{"name":"Datadog
+        API Client Python","handle":"ruby-create_a_user_returns_ok_response-1606991671@datadoghq.com","created_at":"2020-12-03T10:34:31.937771+00:00","email":"ruby-create_a_user_returns_ok_response-1606991671@datadoghq.com","icon":"https://secure.gravatar.com/avatar/c67332e2ffa9a8c9e85f015db1c6f293?s=48&d=retro","title":null,"verified":false,"service_account":false,"disabled":false,"allowed_login_methods":[],"status":"Pending"},"relationships":{"roles":{"data":[]},"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}}'
+  recorded_at: Thu, 03 Dec 2020 10:34:31 GMT
 recorded_with: VCR 6.0.0

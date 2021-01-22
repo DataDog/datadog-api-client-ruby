@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**usage** | [**Array&lt;UsageProfilingHour&gt;**](UsageProfilingHour.md) | Get hourly usage for profiled hosts. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **usage** | [**Array&lt;UsageProfilingHour&gt;**](UsageProfilingHour.md) | Get hourly usage for profiled hosts. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::UsageProfilingResponse.new(usage: null)
+instance = DatadogAPIClient::V1::UsageProfilingResponse.new(
+  usage: null
+)
 ```
-
 

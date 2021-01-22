@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**dashboards** | [**Array&lt;DashboardSummaryDashboards&gt;**](DashboardSummaryDashboards.md) | List of dashboard definitions. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **dashboards** | [**Array&lt;DashboardSummaryDashboards&gt;**](DashboardSummaryDashboards.md) | List of dashboard definitions. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::DashboardSummary.new(dashboards: null)
+instance = DatadogAPIClient::V1::DashboardSummary.new(
+  dashboards: null
+)
 ```
-
 

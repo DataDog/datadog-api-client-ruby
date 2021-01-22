@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**dashboards** | [**Array&lt;DashboardListItemRequest&gt;**](DashboardListItemRequest.md) | List of dashboards to update the dashboard list to. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **dashboards** | [**Array&lt;DashboardListItemRequest&gt;**](DashboardListItemRequest.md) | List of dashboards to update the dashboard list to. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V2'
+require 'datadog_api_client/v2'
 
-instance = DatadogAPIClient::V2::DashboardListUpdateItemsRequest.new(dashboards: null)
+instance = DatadogAPIClient::V2::DashboardListUpdateItemsRequest.new(
+  dashboards: null
+)
 ```
-
 

@@ -2,20 +2,21 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**created** | **Time** | Timestamp of when the incident service was created. | [optional] [readonly] 
-**modified** | **Time** | Timestamp of when the incident service was modified. | [optional] [readonly] 
-**name** | **String** | Name of the incident service. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **created** | **Time** | Timestamp of when the incident service was created. | [optional][readonly] |
+| **modified** | **Time** | Timestamp of when the incident service was modified. | [optional][readonly] |
+| **name** | **String** | Name of the incident service. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V2'
+require 'datadog_api_client/v2'
 
-instance = DatadogAPIClient::V2::IncidentServiceResponseAttributes.new(created: null,
-                                 modified: null,
-                                 name: service name)
+instance = DatadogAPIClient::V2::IncidentServiceResponseAttributes.new(
+  created: null,
+  modified: null,
+  name: service name
+)
 ```
-
 

@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**errors** | **Array&lt;String&gt;** | A list of errors. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **errors** | **Array&lt;String&gt;** | A list of errors. |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V2'
+require 'datadog_api_client/v2'
 
-instance = DatadogAPIClient::V2::APIErrorResponse.new(errors: null)
+instance = DatadogAPIClient::V2::APIErrorResponse.new(
+  errors: null
+)
 ```
-
 

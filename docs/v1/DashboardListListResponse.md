@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**dashboard_lists** | [**Array&lt;DashboardList&gt;**](DashboardList.md) | List of all your dashboard lists. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **dashboard_lists** | [**Array&lt;DashboardList&gt;**](DashboardList.md) | List of all your dashboard lists. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::DashboardListListResponse.new(dashboard_lists: null)
+instance = DatadogAPIClient::V1::DashboardListListResponse.new(
+  dashboard_lists: null
+)
 ```
-
 

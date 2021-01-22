@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**hour** | **Time** | The hour for the usage. | [optional] 
-**snmp_devices** | **Integer** | Contains the number of SNMP devices. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **hour** | **Time** | The hour for the usage. | [optional] |
+| **snmp_devices** | **Integer** | Contains the number of SNMP devices. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::UsageSNMPHour.new(hour: null,
-                                 snmp_devices: null)
+instance = DatadogAPIClient::V1::UsageSNMPHour.new(
+  hour: null,
+  snmp_devices: null
+)
 ```
-
 

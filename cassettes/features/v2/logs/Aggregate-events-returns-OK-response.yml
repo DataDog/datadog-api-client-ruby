@@ -5,10 +5,10 @@ http_interactions:
     uri: https://api.datadoghq.com/api/v2/logs/analytics/aggregate
     body:
       encoding: UTF-8
-      string: '{"compute":[{"aggregation":"count","interval":"300","metric":"test.aggregation.ruby-Aggregate-events-returns-OK-response-1601473676","type":"timeseries"}],"filter":{"from":"1600348573","indexes":["main"],"query":"datadog-agent","to":"1600348600"}}'
+      string: '{"compute":[{"aggregation":"count","interval":"300","metric":"test.aggregation.ruby-Aggregate_events_returns_OK_response-1606991627","type":"timeseries"}],"filter":{"from":"1600348573","indexes":["main"],"query":"datadog-agent","to":"1600348600"}}'
     headers:
       User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.7.1; os darwin19.4.0; arch x86_64)
+      - datadog-api-client-ruby/0.1.0 (ruby 2.7.1; os darwin19.6.0; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 30 Sep 2020 13:47:57 GMT
+      - Thu, 03 Dec 2020 10:33:47 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -35,20 +35,20 @@ http_interactions:
       Cache-Control:
       - no-cache
       Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 07-Oct-2020 13:47:57 GMT;
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 10-Dec-2020 10:33:47 GMT;
         secure; HttpOnly
       X-Dd-Version:
-      - '35.3116128'
+      - '35.3468590'
       X-Ratelimit-Limit:
       - '5'
       X-Ratelimit-Period:
       - '30'
       X-Ratelimit-Reset:
-      - '3'
+      - '13'
       X-Ratelimit-Remaining:
       - '4'
       X-Dd-Debug:
-      - jIHwMGAozg7YLLMxg68/xcSQvrFCUULkLnRH70ENUITWzZ3Z86IAFBgHj9JuCUXt
+      - NVdxML/FOEgLJzsz37XLTVVLcoGTHoJzcuGu2ZwX+JAXQfJkO87pOpfJK6E0a8TN
       Dd-Pool:
       - dogweb
       Content-Security-Policy:
@@ -61,6 +61,6 @@ http_interactions:
       - max-age=15724800;
     body:
       encoding: UTF-8
-      string: '{"meta":{"status":"done","request_id":"aGptRFd1WGVTb1dzWUV3a1NPelFmUXxSX2lidGR4bGNXRXo3M3gtczRmVndn","elapsed":0},"data":{"buckets":[]}}'
-  recorded_at: Wed, 30 Sep 2020 13:47:56 GMT
+      string: '{"meta":{"status":"done","request_id":"elNJTGdQSGJUMXV3dnJvXzlUVVF1QXxUaDdhc3NnU1RPSGRFVlNQelJaWFFR","elapsed":0},"data":{"buckets":[]}}'
+  recorded_at: Thu, 03 Dec 2020 10:33:47 GMT
 recorded_with: VCR 6.0.0

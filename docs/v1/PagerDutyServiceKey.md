@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**service_key** | **String** | Your service key in PagerDuty. | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **service_key** | **String** | Your service key in PagerDuty. |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::PagerDutyServiceKey.new(service_key: null)
+instance = DatadogAPIClient::V1::PagerDutyServiceKey.new(
+  service_key: 
+)
 ```
-
 

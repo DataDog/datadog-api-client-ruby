@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**id** | **Float** | Unique identifier of the location. | [optional] 
-**name** | **String** | Name of the location. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** | Unique identifier of the location. | [optional] |
+| **name** | **String** | Name of the location. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::SyntheticsTriggerCITestsResponseLocations.new(id: null,
-                                 name: null)
+instance = DatadogAPIClient::V1::SyntheticsTriggerCITestsResponseLocations.new(
+  id: null,
+  name: null
+)
 ```
-
 

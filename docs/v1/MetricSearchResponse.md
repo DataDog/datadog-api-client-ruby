@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**results** | [**MetricSearchResponseResults**](MetricSearchResponseResults.md) |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **results** | [**MetricSearchResponseResults**](MetricSearchResponseResults.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::MetricSearchResponse.new(results: null)
+instance = DatadogAPIClient::V1::MetricSearchResponse.new(
+  results: null
+)
 ```
-
 

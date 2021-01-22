@@ -102,7 +102,7 @@ Layout/SpaceInsideBlockBraces:
 
 # Use `{ a: 1 }` not `{a:1}`.
 Layout/SpaceInsideHashLiteralBraces:
-  Enabled: true
+  Enabled: false
 
 Layout/SpaceInsideParens:
   Enabled: true

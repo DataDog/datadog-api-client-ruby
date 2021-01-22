@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**error** | **String** | Human readable error. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **error** | **String** | Human readable error. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::SLOHistoryResponseError.new(error: null)
+instance = DatadogAPIClient::V1::SLOHistoryResponseError.new(
+  error: null
+)
 ```
-
 

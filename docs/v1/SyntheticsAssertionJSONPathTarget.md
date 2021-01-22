@@ -2,22 +2,23 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**operator** | [**SyntheticsAssertionJSONPathOperator**](SyntheticsAssertionJSONPathOperator.md) |  | 
-**property** | **String** | The associated assertion property. | [optional] 
-**target** | [**SyntheticsAssertionJSONPathTargetTarget**](SyntheticsAssertionJSONPathTargetTarget.md) |  | [optional] 
-**type** | [**SyntheticsAssertionType**](SyntheticsAssertionType.md) |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **operator** | [**SyntheticsAssertionJSONPathOperator**](SyntheticsAssertionJSONPathOperator.md) |  |  |
+| **property** | **String** | The associated assertion property. | [optional] |
+| **target** | [**SyntheticsAssertionJSONPathTargetTarget**](SyntheticsAssertionJSONPathTargetTarget.md) |  | [optional] |
+| **type** | [**SyntheticsAssertionType**](SyntheticsAssertionType.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::SyntheticsAssertionJSONPathTarget.new(operator: null,
-                                 property: null,
-                                 target: null,
-                                 type: null)
+instance = DatadogAPIClient::V1::SyntheticsAssertionJSONPathTarget.new(
+  operator: null,
+  property: null,
+  target: null,
+  type: null
+)
 ```
-
 

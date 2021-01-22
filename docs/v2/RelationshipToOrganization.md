@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**data** | [**RelationshipToOrganizationData**](RelationshipToOrganizationData.md) |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **data** | [**RelationshipToOrganizationData**](RelationshipToOrganizationData.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V2'
+require 'datadog_api_client/v2'
 
-instance = DatadogAPIClient::V2::RelationshipToOrganization.new(data: null)
+instance = DatadogAPIClient::V2::RelationshipToOrganization.new(
+  data: null
+)
 ```
-
 

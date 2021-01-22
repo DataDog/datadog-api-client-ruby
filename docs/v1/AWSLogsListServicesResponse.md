@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**id** | **String** | Key value in returned object. | [optional] 
-**label** | **String** | Name of service available for configuration with Datadog logs. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | Key value in returned object. | [optional] |
+| **label** | **String** | Name of service available for configuration with Datadog logs. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::AWSLogsListServicesResponse.new(id: s3,
-                                 label: S3 Access Logs)
+instance = DatadogAPIClient::V1::AWSLogsListServicesResponse.new(
+  id: s3,
+  label: S3 Access Logs
+)
 ```
-
 

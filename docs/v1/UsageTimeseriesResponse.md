@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**usage** | [**Array&lt;UsageTimeseriesHour&gt;**](UsageTimeseriesHour.md) | An array of objects regarding hourly usage of timeseries. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **usage** | [**Array&lt;UsageTimeseriesHour&gt;**](UsageTimeseriesHour.md) | An array of objects regarding hourly usage of timeseries. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::UsageTimeseriesResponse.new(usage: null)
+instance = DatadogAPIClient::V1::UsageTimeseriesResponse.new(
+  usage: null
+)
 ```
-
 

@@ -2,20 +2,21 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**code** | **String** | Code identifying the error | [optional] 
-**details** | [**Array&lt;LogsAPIError&gt;**](LogsAPIError.md) | Additional error details | [optional] 
-**message** | **String** | Error message | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **code** | **String** | Code identifying the error | [optional] |
+| **details** | [**Array&lt;LogsAPIError&gt;**](LogsAPIError.md) | Additional error details | [optional] |
+| **message** | **String** | Error message | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::LogsAPIError.new(code: null,
-                                 details: null,
-                                 message: null)
+instance = DatadogAPIClient::V1::LogsAPIError.new(
+  code: null,
+  details: null,
+  message: null
+)
 ```
-
 

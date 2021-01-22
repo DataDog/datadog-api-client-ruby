@@ -46,6 +46,7 @@ jobs:
   services:
     datadog-agent: datadog-agent
   steps:
+    - script: bundle install
     - script: ./run-tests.sh
       displayName: Run integration tests
       env:
@@ -58,9 +59,4 @@ jobs:
         DD_TEST_CLIENT_APP_KEY: $(datadogAPPKey)
         DD_TRACE_ANALYTICS_ENABLED: "true"
         RECORD: "none"
-    - script: |
-        bash <(curl -s https://codecov.io/bash) -F integration -v
-
-      displayName: Upload to codecov.io
-      env:
         CODECOV_TOKEN: $(codecovToken)

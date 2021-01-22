@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**deleted_dashboard_id** | **String** | ID of the deleted dashboard. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **deleted_dashboard_id** | **String** | ID of the deleted dashboard. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::DashboardDeleteResponse.new(deleted_dashboard_id: null)
+instance = DatadogAPIClient::V1::DashboardDeleteResponse.new(
+  deleted_dashboard_id: null
+)
 ```
-
 

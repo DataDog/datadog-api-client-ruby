@@ -37,9 +37,9 @@ Finally add this to the Gemfile:
 
 ### Install from Git
 
-If the Ruby gem is hosted at a git repository: https://github.com/GIT_USER_ID/GIT_REPO_ID, then add the following in the Gemfile:
+If the Ruby gem is hosted at a git repository: https://github.com/DataDog/datadog-api-client-ruby, then add the following in the Gemfile:
 
-    gem 'datadog_api_client/v2', :git => 'https://github.com/GIT_USER_ID/GIT_REPO_ID.git'
+    gem 'datadog_api_client/v2', :git => 'https://github.com/DataDog/datadog-api-client-ruby.git'
 
 ### Include the Ruby code directly
 
@@ -61,17 +61,13 @@ require 'datadog_api_client/v2'
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V2::DashboardListsApi.new
-dashboard_list_id = 56 # Integer | ID of the dashboard list to add items to.
+dashboard_list_id = 789 # Integer | ID of the dashboard list to add items to.
 body = DatadogAPIClient::V2::DashboardListAddItemsRequest.new # DashboardListAddItemsRequest | Dashboards to add to the dashboard list.
 
 begin
@@ -90,283 +86,361 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DatadogAPIClient::V2::DashboardListsApi* | [**create_dashboard_list_items**](docs/DashboardListsApi.md#create_dashboard_list_items) | **POST** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Add Items to a Dashboard List
-*DatadogAPIClient::V2::DashboardListsApi* | [**delete_dashboard_list_items**](docs/DashboardListsApi.md#delete_dashboard_list_items) | **DELETE** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Delete items from a dashboard list
-*DatadogAPIClient::V2::DashboardListsApi* | [**get_dashboard_list_items**](docs/DashboardListsApi.md#get_dashboard_list_items) | **GET** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Get a Dashboard List
-*DatadogAPIClient::V2::DashboardListsApi* | [**update_dashboard_list_items**](docs/DashboardListsApi.md#update_dashboard_list_items) | **PUT** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Update items of a dashboard list
-*DatadogAPIClient::V2::IncidentServicesApi* | [**create_incident_service**](docs/IncidentServicesApi.md#create_incident_service) | **POST** /api/v2/services | Create a new incident service
-*DatadogAPIClient::V2::IncidentServicesApi* | [**delete_incident_service**](docs/IncidentServicesApi.md#delete_incident_service) | **DELETE** /api/v2/services/{service_id} | Delete an existing incident service
-*DatadogAPIClient::V2::IncidentServicesApi* | [**get_incident_service**](docs/IncidentServicesApi.md#get_incident_service) | **GET** /api/v2/services/{service_id} | Get details of an incident service
-*DatadogAPIClient::V2::IncidentServicesApi* | [**list_incident_services**](docs/IncidentServicesApi.md#list_incident_services) | **GET** /api/v2/services | Get a list of all incident services
-*DatadogAPIClient::V2::IncidentServicesApi* | [**update_incident_service**](docs/IncidentServicesApi.md#update_incident_service) | **PATCH** /api/v2/services/{service_id} | Update an existing incident service
-*DatadogAPIClient::V2::IncidentTeamsApi* | [**create_incident_team**](docs/IncidentTeamsApi.md#create_incident_team) | **POST** /api/v2/teams | Create a new incident team
-*DatadogAPIClient::V2::IncidentTeamsApi* | [**delete_incident_team**](docs/IncidentTeamsApi.md#delete_incident_team) | **DELETE** /api/v2/teams/{team_id} | Delete an existing incident team
-*DatadogAPIClient::V2::IncidentTeamsApi* | [**get_incident_team**](docs/IncidentTeamsApi.md#get_incident_team) | **GET** /api/v2/teams/{team_id} | Get details of an incident team
-*DatadogAPIClient::V2::IncidentTeamsApi* | [**list_incident_teams**](docs/IncidentTeamsApi.md#list_incident_teams) | **GET** /api/v2/teams | Get a list of all incident teams
-*DatadogAPIClient::V2::IncidentTeamsApi* | [**update_incident_team**](docs/IncidentTeamsApi.md#update_incident_team) | **PATCH** /api/v2/teams/{team_id} | Update an existing incident team
-*DatadogAPIClient::V2::IncidentsApi* | [**create_incident**](docs/IncidentsApi.md#create_incident) | **POST** /api/v2/incidents | Create an incident
-*DatadogAPIClient::V2::IncidentsApi* | [**delete_incident**](docs/IncidentsApi.md#delete_incident) | **DELETE** /api/v2/incidents/{incident_id} | Delete an existing incident
-*DatadogAPIClient::V2::IncidentsApi* | [**get_incident**](docs/IncidentsApi.md#get_incident) | **GET** /api/v2/incidents/{incident_id} | Get the details of an incident
-*DatadogAPIClient::V2::IncidentsApi* | [**list_incidents**](docs/IncidentsApi.md#list_incidents) | **GET** /api/v2/incidents | Get a list of incidents
-*DatadogAPIClient::V2::IncidentsApi* | [**update_incident**](docs/IncidentsApi.md#update_incident) | **PATCH** /api/v2/incidents/{incident_id} | Update an existing incident
-*DatadogAPIClient::V2::LogsApi* | [**aggregate_logs**](docs/LogsApi.md#aggregate_logs) | **POST** /api/v2/logs/analytics/aggregate | Aggregate events
-*DatadogAPIClient::V2::LogsApi* | [**list_logs**](docs/LogsApi.md#list_logs) | **POST** /api/v2/logs/events/search | Get a list of logs
-*DatadogAPIClient::V2::LogsApi* | [**list_logs_get**](docs/LogsApi.md#list_logs_get) | **GET** /api/v2/logs/events | Get a quick list of logs
-*DatadogAPIClient::V2::LogsArchivesApi* | [**add_read_role_to_archive**](docs/LogsArchivesApi.md#add_read_role_to_archive) | **POST** /api/v2/logs/config/archives/{archive_id}/readers | Grant role to an archive
-*DatadogAPIClient::V2::LogsArchivesApi* | [**create_logs_archive**](docs/LogsArchivesApi.md#create_logs_archive) | **POST** /api/v2/logs/config/archives | Create an archive
-*DatadogAPIClient::V2::LogsArchivesApi* | [**delete_logs_archive**](docs/LogsArchivesApi.md#delete_logs_archive) | **DELETE** /api/v2/logs/config/archives/{archive_id} | Delete an archive
-*DatadogAPIClient::V2::LogsArchivesApi* | [**get_logs_archive**](docs/LogsArchivesApi.md#get_logs_archive) | **GET** /api/v2/logs/config/archives/{archive_id} | Get an archive
-*DatadogAPIClient::V2::LogsArchivesApi* | [**get_logs_archive_order**](docs/LogsArchivesApi.md#get_logs_archive_order) | **GET** /api/v2/logs/config/archive-order | Get archive order
-*DatadogAPIClient::V2::LogsArchivesApi* | [**list_archive_read_roles**](docs/LogsArchivesApi.md#list_archive_read_roles) | **GET** /api/v2/logs/config/archives/{archive_id}/readers | List read roles for an archive
-*DatadogAPIClient::V2::LogsArchivesApi* | [**list_logs_archives**](docs/LogsArchivesApi.md#list_logs_archives) | **GET** /api/v2/logs/config/archives | Get all archives
-*DatadogAPIClient::V2::LogsArchivesApi* | [**remove_role_from_archive**](docs/LogsArchivesApi.md#remove_role_from_archive) | **DELETE** /api/v2/logs/config/archives/{archive_id}/readers | Revoke role from an archive
-*DatadogAPIClient::V2::LogsArchivesApi* | [**update_logs_archive**](docs/LogsArchivesApi.md#update_logs_archive) | **PUT** /api/v2/logs/config/archives/{archive_id} | Update an archive
-*DatadogAPIClient::V2::LogsArchivesApi* | [**update_logs_archive_order**](docs/LogsArchivesApi.md#update_logs_archive_order) | **PUT** /api/v2/logs/config/archive-order | Update archive order
-*DatadogAPIClient::V2::RolesApi* | [**add_permission_to_role**](docs/RolesApi.md#add_permission_to_role) | **POST** /api/v2/roles/{role_id}/permissions | Grant permission to a role
-*DatadogAPIClient::V2::RolesApi* | [**add_user_to_role**](docs/RolesApi.md#add_user_to_role) | **POST** /api/v2/roles/{role_id}/users | Add a user to a role
-*DatadogAPIClient::V2::RolesApi* | [**create_role**](docs/RolesApi.md#create_role) | **POST** /api/v2/roles | Create role
-*DatadogAPIClient::V2::RolesApi* | [**delete_role**](docs/RolesApi.md#delete_role) | **DELETE** /api/v2/roles/{role_id} | Delete role
-*DatadogAPIClient::V2::RolesApi* | [**get_role**](docs/RolesApi.md#get_role) | **GET** /api/v2/roles/{role_id} | Get a role
-*DatadogAPIClient::V2::RolesApi* | [**list_permissions**](docs/RolesApi.md#list_permissions) | **GET** /api/v2/permissions | List permissions
-*DatadogAPIClient::V2::RolesApi* | [**list_role_permissions**](docs/RolesApi.md#list_role_permissions) | **GET** /api/v2/roles/{role_id}/permissions | List permissions for a role
-*DatadogAPIClient::V2::RolesApi* | [**list_role_users**](docs/RolesApi.md#list_role_users) | **GET** /api/v2/roles/{role_id}/users | Get all users of a role
-*DatadogAPIClient::V2::RolesApi* | [**list_roles**](docs/RolesApi.md#list_roles) | **GET** /api/v2/roles | List roles
-*DatadogAPIClient::V2::RolesApi* | [**remove_permission_from_role**](docs/RolesApi.md#remove_permission_from_role) | **DELETE** /api/v2/roles/{role_id}/permissions | Revoke permission
-*DatadogAPIClient::V2::RolesApi* | [**remove_user_from_role**](docs/RolesApi.md#remove_user_from_role) | **DELETE** /api/v2/roles/{role_id}/users | Remove a user from a role
-*DatadogAPIClient::V2::RolesApi* | [**update_role**](docs/RolesApi.md#update_role) | **PATCH** /api/v2/roles/{role_id} | Update a role
-*DatadogAPIClient::V2::SecurityMonitoringApi* | [**create_security_monitoring_rule**](docs/SecurityMonitoringApi.md#create_security_monitoring_rule) | **POST** /api/v2/security_monitoring/rules | Create a detection rule
-*DatadogAPIClient::V2::SecurityMonitoringApi* | [**delete_security_monitoring_rule**](docs/SecurityMonitoringApi.md#delete_security_monitoring_rule) | **DELETE** /api/v2/security_monitoring/rules/{rule_id} | Delete an existing rule
-*DatadogAPIClient::V2::SecurityMonitoringApi* | [**get_security_monitoring_rule**](docs/SecurityMonitoringApi.md#get_security_monitoring_rule) | **GET** /api/v2/security_monitoring/rules/{rule_id} | Get a rule's details
-*DatadogAPIClient::V2::SecurityMonitoringApi* | [**list_security_monitoring_rules**](docs/SecurityMonitoringApi.md#list_security_monitoring_rules) | **GET** /api/v2/security_monitoring/rules | List rules
-*DatadogAPIClient::V2::SecurityMonitoringApi* | [**list_security_monitoring_signals**](docs/SecurityMonitoringApi.md#list_security_monitoring_signals) | **GET** /api/v2/security_monitoring/signals | Get a quick list of security signals
-*DatadogAPIClient::V2::SecurityMonitoringApi* | [**search_security_monitoring_signals**](docs/SecurityMonitoringApi.md#search_security_monitoring_signals) | **POST** /api/v2/security_monitoring/signals/search | Get a list of security signals
-*DatadogAPIClient::V2::SecurityMonitoringApi* | [**update_security_monitoring_rule**](docs/SecurityMonitoringApi.md#update_security_monitoring_rule) | **PUT** /api/v2/security_monitoring/rules/{rule_id} | Update an existing rule
-*DatadogAPIClient::V2::UsersApi* | [**create_user**](docs/UsersApi.md#create_user) | **POST** /api/v2/users | Create a user
-*DatadogAPIClient::V2::UsersApi* | [**disable_user**](docs/UsersApi.md#disable_user) | **DELETE** /api/v2/users/{user_id} | Disable a user
-*DatadogAPIClient::V2::UsersApi* | [**get_invitation**](docs/UsersApi.md#get_invitation) | **GET** /api/v2/user_invitations/{user_invitation_uuid} | Get a user invitation
-*DatadogAPIClient::V2::UsersApi* | [**get_user**](docs/UsersApi.md#get_user) | **GET** /api/v2/users/{user_id} | Get user details
-*DatadogAPIClient::V2::UsersApi* | [**list_user_organizations**](docs/UsersApi.md#list_user_organizations) | **GET** /api/v2/users/{user_id}/orgs | Get a user organization
-*DatadogAPIClient::V2::UsersApi* | [**list_user_permissions**](docs/UsersApi.md#list_user_permissions) | **GET** /api/v2/users/{user_id}/permissions | Get a user permissions
-*DatadogAPIClient::V2::UsersApi* | [**list_users**](docs/UsersApi.md#list_users) | **GET** /api/v2/users | List all users
-*DatadogAPIClient::V2::UsersApi* | [**send_invitations**](docs/UsersApi.md#send_invitations) | **POST** /api/v2/user_invitations | Send invitation emails
-*DatadogAPIClient::V2::UsersApi* | [**update_user**](docs/UsersApi.md#update_user) | **PATCH** /api/v2/users/{user_id} | Update a user
+*DatadogAPIClient::V2::DashboardListsApi* | [**create_dashboard_list_items**](DashboardListsApi.md#create_dashboard_list_items) | **POST** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Add Items to a Dashboard List
+*DatadogAPIClient::V2::DashboardListsApi* | [**delete_dashboard_list_items**](DashboardListsApi.md#delete_dashboard_list_items) | **DELETE** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Delete items from a dashboard list
+*DatadogAPIClient::V2::DashboardListsApi* | [**get_dashboard_list_items**](DashboardListsApi.md#get_dashboard_list_items) | **GET** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Get a Dashboard List
+*DatadogAPIClient::V2::DashboardListsApi* | [**update_dashboard_list_items**](DashboardListsApi.md#update_dashboard_list_items) | **PUT** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Update items of a dashboard list
+*DatadogAPIClient::V2::IncidentServicesApi* | [**create_incident_service**](IncidentServicesApi.md#create_incident_service) | **POST** /api/v2/services | Create a new incident service
+*DatadogAPIClient::V2::IncidentServicesApi* | [**delete_incident_service**](IncidentServicesApi.md#delete_incident_service) | **DELETE** /api/v2/services/{service_id} | Delete an existing incident service
+*DatadogAPIClient::V2::IncidentServicesApi* | [**get_incident_service**](IncidentServicesApi.md#get_incident_service) | **GET** /api/v2/services/{service_id} | Get details of an incident service
+*DatadogAPIClient::V2::IncidentServicesApi* | [**list_incident_services**](IncidentServicesApi.md#list_incident_services) | **GET** /api/v2/services | Get a list of all incident services
+*DatadogAPIClient::V2::IncidentServicesApi* | [**update_incident_service**](IncidentServicesApi.md#update_incident_service) | **PATCH** /api/v2/services/{service_id} | Update an existing incident service
+*DatadogAPIClient::V2::IncidentTeamsApi* | [**create_incident_team**](IncidentTeamsApi.md#create_incident_team) | **POST** /api/v2/teams | Create a new incident team
+*DatadogAPIClient::V2::IncidentTeamsApi* | [**delete_incident_team**](IncidentTeamsApi.md#delete_incident_team) | **DELETE** /api/v2/teams/{team_id} | Delete an existing incident team
+*DatadogAPIClient::V2::IncidentTeamsApi* | [**get_incident_team**](IncidentTeamsApi.md#get_incident_team) | **GET** /api/v2/teams/{team_id} | Get details of an incident team
+*DatadogAPIClient::V2::IncidentTeamsApi* | [**list_incident_teams**](IncidentTeamsApi.md#list_incident_teams) | **GET** /api/v2/teams | Get a list of all incident teams
+*DatadogAPIClient::V2::IncidentTeamsApi* | [**update_incident_team**](IncidentTeamsApi.md#update_incident_team) | **PATCH** /api/v2/teams/{team_id} | Update an existing incident team
+*DatadogAPIClient::V2::IncidentsApi* | [**create_incident**](IncidentsApi.md#create_incident) | **POST** /api/v2/incidents | Create an incident
+*DatadogAPIClient::V2::IncidentsApi* | [**delete_incident**](IncidentsApi.md#delete_incident) | **DELETE** /api/v2/incidents/{incident_id} | Delete an existing incident
+*DatadogAPIClient::V2::IncidentsApi* | [**get_incident**](IncidentsApi.md#get_incident) | **GET** /api/v2/incidents/{incident_id} | Get the details of an incident
+*DatadogAPIClient::V2::IncidentsApi* | [**list_incidents**](IncidentsApi.md#list_incidents) | **GET** /api/v2/incidents | Get a list of incidents
+*DatadogAPIClient::V2::IncidentsApi* | [**update_incident**](IncidentsApi.md#update_incident) | **PATCH** /api/v2/incidents/{incident_id} | Update an existing incident
+*DatadogAPIClient::V2::KeyManagementApi* | [**create_api_key**](KeyManagementApi.md#create_api_key) | **POST** /api/v2/api_keys | Create an API key
+*DatadogAPIClient::V2::KeyManagementApi* | [**create_current_user_application_key**](KeyManagementApi.md#create_current_user_application_key) | **POST** /api/v2/current_user/application_keys | Create an application key for current user
+*DatadogAPIClient::V2::KeyManagementApi* | [**delete_api_key**](KeyManagementApi.md#delete_api_key) | **DELETE** /api/v2/api_keys/{api_key_id} | Delete an API key
+*DatadogAPIClient::V2::KeyManagementApi* | [**delete_application_key**](KeyManagementApi.md#delete_application_key) | **DELETE** /api/v2/application_keys/{app_key_id} | Delete an application key
+*DatadogAPIClient::V2::KeyManagementApi* | [**delete_current_user_application_key**](KeyManagementApi.md#delete_current_user_application_key) | **DELETE** /api/v2/current_user/application_keys/{app_key_id} | Delete an application key owned by current user
+*DatadogAPIClient::V2::KeyManagementApi* | [**get_api_key**](KeyManagementApi.md#get_api_key) | **GET** /api/v2/api_keys/{api_key_id} | Get API key
+*DatadogAPIClient::V2::KeyManagementApi* | [**get_current_user_application_key**](KeyManagementApi.md#get_current_user_application_key) | **GET** /api/v2/current_user/application_keys/{app_key_id} | Get one application key owned by current user
+*DatadogAPIClient::V2::KeyManagementApi* | [**list_api_keys**](KeyManagementApi.md#list_api_keys) | **GET** /api/v2/api_keys | Get all API keys
+*DatadogAPIClient::V2::KeyManagementApi* | [**list_application_keys**](KeyManagementApi.md#list_application_keys) | **GET** /api/v2/application_keys | Get all application keys
+*DatadogAPIClient::V2::KeyManagementApi* | [**list_current_user_application_keys**](KeyManagementApi.md#list_current_user_application_keys) | **GET** /api/v2/current_user/application_keys | Get all application keys owned by current user
+*DatadogAPIClient::V2::KeyManagementApi* | [**update_api_key**](KeyManagementApi.md#update_api_key) | **PATCH** /api/v2/api_keys/{api_key_id} | Edit an API key
+*DatadogAPIClient::V2::KeyManagementApi* | [**update_application_key**](KeyManagementApi.md#update_application_key) | **PATCH** /api/v2/application_keys/{app_key_id} | Edit an application key
+*DatadogAPIClient::V2::KeyManagementApi* | [**update_current_user_application_key**](KeyManagementApi.md#update_current_user_application_key) | **PATCH** /api/v2/current_user/application_keys/{app_key_id} | Edit an application key owned by current user
+*DatadogAPIClient::V2::LogsApi* | [**aggregate_logs**](LogsApi.md#aggregate_logs) | **POST** /api/v2/logs/analytics/aggregate | Aggregate events
+*DatadogAPIClient::V2::LogsApi* | [**list_logs**](LogsApi.md#list_logs) | **POST** /api/v2/logs/events/search | Get a list of logs
+*DatadogAPIClient::V2::LogsApi* | [**list_logs_get**](LogsApi.md#list_logs_get) | **GET** /api/v2/logs/events | Get a quick list of logs
+*DatadogAPIClient::V2::LogsArchivesApi* | [**add_read_role_to_archive**](LogsArchivesApi.md#add_read_role_to_archive) | **POST** /api/v2/logs/config/archives/{archive_id}/readers | Grant role to an archive
+*DatadogAPIClient::V2::LogsArchivesApi* | [**create_logs_archive**](LogsArchivesApi.md#create_logs_archive) | **POST** /api/v2/logs/config/archives | Create an archive
+*DatadogAPIClient::V2::LogsArchivesApi* | [**delete_logs_archive**](LogsArchivesApi.md#delete_logs_archive) | **DELETE** /api/v2/logs/config/archives/{archive_id} | Delete an archive
+*DatadogAPIClient::V2::LogsArchivesApi* | [**get_logs_archive**](LogsArchivesApi.md#get_logs_archive) | **GET** /api/v2/logs/config/archives/{archive_id} | Get an archive
+*DatadogAPIClient::V2::LogsArchivesApi* | [**get_logs_archive_order**](LogsArchivesApi.md#get_logs_archive_order) | **GET** /api/v2/logs/config/archive-order | Get archive order
+*DatadogAPIClient::V2::LogsArchivesApi* | [**list_archive_read_roles**](LogsArchivesApi.md#list_archive_read_roles) | **GET** /api/v2/logs/config/archives/{archive_id}/readers | List read roles for an archive
+*DatadogAPIClient::V2::LogsArchivesApi* | [**list_logs_archives**](LogsArchivesApi.md#list_logs_archives) | **GET** /api/v2/logs/config/archives | Get all archives
+*DatadogAPIClient::V2::LogsArchivesApi* | [**remove_role_from_archive**](LogsArchivesApi.md#remove_role_from_archive) | **DELETE** /api/v2/logs/config/archives/{archive_id}/readers | Revoke role from an archive
+*DatadogAPIClient::V2::LogsArchivesApi* | [**update_logs_archive**](LogsArchivesApi.md#update_logs_archive) | **PUT** /api/v2/logs/config/archives/{archive_id} | Update an archive
+*DatadogAPIClient::V2::LogsArchivesApi* | [**update_logs_archive_order**](LogsArchivesApi.md#update_logs_archive_order) | **PUT** /api/v2/logs/config/archive-order | Update archive order
+*DatadogAPIClient::V2::LogsMetricsApi* | [**create_logs_metric**](LogsMetricsApi.md#create_logs_metric) | **POST** /api/v2/logs/config/metrics | Create a log-based metric
+*DatadogAPIClient::V2::LogsMetricsApi* | [**delete_logs_metric**](LogsMetricsApi.md#delete_logs_metric) | **DELETE** /api/v2/logs/config/metrics/{metric_id} | Delete a log-based metric
+*DatadogAPIClient::V2::LogsMetricsApi* | [**get_logs_metric**](LogsMetricsApi.md#get_logs_metric) | **GET** /api/v2/logs/config/metrics/{metric_id} | Get a log-based metric
+*DatadogAPIClient::V2::LogsMetricsApi* | [**list_logs_metrics**](LogsMetricsApi.md#list_logs_metrics) | **GET** /api/v2/logs/config/metrics | Get all log-based metrics
+*DatadogAPIClient::V2::LogsMetricsApi* | [**update_logs_metric**](LogsMetricsApi.md#update_logs_metric) | **PATCH** /api/v2/logs/config/metrics/{metric_id} | Update a log-based metric
+*DatadogAPIClient::V2::ProcessesApi* | [**list_processes**](ProcessesApi.md#list_processes) | **GET** /api/v2/processes | Get all processes
+*DatadogAPIClient::V2::RolesApi* | [**add_permission_to_role**](RolesApi.md#add_permission_to_role) | **POST** /api/v2/roles/{role_id}/permissions | Grant permission to a role
+*DatadogAPIClient::V2::RolesApi* | [**add_user_to_role**](RolesApi.md#add_user_to_role) | **POST** /api/v2/roles/{role_id}/users | Add a user to a role
+*DatadogAPIClient::V2::RolesApi* | [**create_role**](RolesApi.md#create_role) | **POST** /api/v2/roles | Create role
+*DatadogAPIClient::V2::RolesApi* | [**delete_role**](RolesApi.md#delete_role) | **DELETE** /api/v2/roles/{role_id} | Delete role
+*DatadogAPIClient::V2::RolesApi* | [**get_role**](RolesApi.md#get_role) | **GET** /api/v2/roles/{role_id} | Get a role
+*DatadogAPIClient::V2::RolesApi* | [**list_permissions**](RolesApi.md#list_permissions) | **GET** /api/v2/permissions | List permissions
+*DatadogAPIClient::V2::RolesApi* | [**list_role_permissions**](RolesApi.md#list_role_permissions) | **GET** /api/v2/roles/{role_id}/permissions | List permissions for a role
+*DatadogAPIClient::V2::RolesApi* | [**list_role_users**](RolesApi.md#list_role_users) | **GET** /api/v2/roles/{role_id}/users | Get all users of a role
+*DatadogAPIClient::V2::RolesApi* | [**list_roles**](RolesApi.md#list_roles) | **GET** /api/v2/roles | List roles
+*DatadogAPIClient::V2::RolesApi* | [**remove_permission_from_role**](RolesApi.md#remove_permission_from_role) | **DELETE** /api/v2/roles/{role_id}/permissions | Revoke permission
+*DatadogAPIClient::V2::RolesApi* | [**remove_user_from_role**](RolesApi.md#remove_user_from_role) | **DELETE** /api/v2/roles/{role_id}/users | Remove a user from a role
+*DatadogAPIClient::V2::RolesApi* | [**update_role**](RolesApi.md#update_role) | **PATCH** /api/v2/roles/{role_id} | Update a role
+*DatadogAPIClient::V2::SecurityMonitoringApi* | [**create_security_monitoring_rule**](SecurityMonitoringApi.md#create_security_monitoring_rule) | **POST** /api/v2/security_monitoring/rules | Create a detection rule
+*DatadogAPIClient::V2::SecurityMonitoringApi* | [**delete_security_monitoring_rule**](SecurityMonitoringApi.md#delete_security_monitoring_rule) | **DELETE** /api/v2/security_monitoring/rules/{rule_id} | Delete an existing rule
+*DatadogAPIClient::V2::SecurityMonitoringApi* | [**get_security_monitoring_rule**](SecurityMonitoringApi.md#get_security_monitoring_rule) | **GET** /api/v2/security_monitoring/rules/{rule_id} | Get a rule's details
+*DatadogAPIClient::V2::SecurityMonitoringApi* | [**list_security_monitoring_rules**](SecurityMonitoringApi.md#list_security_monitoring_rules) | **GET** /api/v2/security_monitoring/rules | List rules
+*DatadogAPIClient::V2::SecurityMonitoringApi* | [**list_security_monitoring_signals**](SecurityMonitoringApi.md#list_security_monitoring_signals) | **GET** /api/v2/security_monitoring/signals | Get a quick list of security signals
+*DatadogAPIClient::V2::SecurityMonitoringApi* | [**search_security_monitoring_signals**](SecurityMonitoringApi.md#search_security_monitoring_signals) | **POST** /api/v2/security_monitoring/signals/search | Get a list of security signals
+*DatadogAPIClient::V2::SecurityMonitoringApi* | [**update_security_monitoring_rule**](SecurityMonitoringApi.md#update_security_monitoring_rule) | **PUT** /api/v2/security_monitoring/rules/{rule_id} | Update an existing rule
+*DatadogAPIClient::V2::UsersApi* | [**create_user**](UsersApi.md#create_user) | **POST** /api/v2/users | Create a user
+*DatadogAPIClient::V2::UsersApi* | [**disable_user**](UsersApi.md#disable_user) | **DELETE** /api/v2/users/{user_id} | Disable a user
+*DatadogAPIClient::V2::UsersApi* | [**get_invitation**](UsersApi.md#get_invitation) | **GET** /api/v2/user_invitations/{user_invitation_uuid} | Get a user invitation
+*DatadogAPIClient::V2::UsersApi* | [**get_user**](UsersApi.md#get_user) | **GET** /api/v2/users/{user_id} | Get user details
+*DatadogAPIClient::V2::UsersApi* | [**list_user_organizations**](UsersApi.md#list_user_organizations) | **GET** /api/v2/users/{user_id}/orgs | Get a user organization
+*DatadogAPIClient::V2::UsersApi* | [**list_user_permissions**](UsersApi.md#list_user_permissions) | **GET** /api/v2/users/{user_id}/permissions | Get a user permissions
+*DatadogAPIClient::V2::UsersApi* | [**list_users**](UsersApi.md#list_users) | **GET** /api/v2/users | List all users
+*DatadogAPIClient::V2::UsersApi* | [**send_invitations**](UsersApi.md#send_invitations) | **POST** /api/v2/user_invitations | Send invitation emails
+*DatadogAPIClient::V2::UsersApi* | [**update_user**](UsersApi.md#update_user) | **PATCH** /api/v2/users/{user_id} | Update a user
 
 
 ## Documentation for Models
 
- - [DatadogAPIClient::V2::APIErrorResponse](docs/APIErrorResponse.md)
- - [DatadogAPIClient::V2::Creator](docs/Creator.md)
- - [DatadogAPIClient::V2::DashboardListAddItemsRequest](docs/DashboardListAddItemsRequest.md)
- - [DatadogAPIClient::V2::DashboardListAddItemsResponse](docs/DashboardListAddItemsResponse.md)
- - [DatadogAPIClient::V2::DashboardListDeleteItemsRequest](docs/DashboardListDeleteItemsRequest.md)
- - [DatadogAPIClient::V2::DashboardListDeleteItemsResponse](docs/DashboardListDeleteItemsResponse.md)
- - [DatadogAPIClient::V2::DashboardListItem](docs/DashboardListItem.md)
- - [DatadogAPIClient::V2::DashboardListItemRequest](docs/DashboardListItemRequest.md)
- - [DatadogAPIClient::V2::DashboardListItemResponse](docs/DashboardListItemResponse.md)
- - [DatadogAPIClient::V2::DashboardListItems](docs/DashboardListItems.md)
- - [DatadogAPIClient::V2::DashboardListUpdateItemsRequest](docs/DashboardListUpdateItemsRequest.md)
- - [DatadogAPIClient::V2::DashboardListUpdateItemsResponse](docs/DashboardListUpdateItemsResponse.md)
- - [DatadogAPIClient::V2::DashboardType](docs/DashboardType.md)
- - [DatadogAPIClient::V2::IncidentCreateAttributes](docs/IncidentCreateAttributes.md)
- - [DatadogAPIClient::V2::IncidentCreateData](docs/IncidentCreateData.md)
- - [DatadogAPIClient::V2::IncidentCreateRelationships](docs/IncidentCreateRelationships.md)
- - [DatadogAPIClient::V2::IncidentCreateRequest](docs/IncidentCreateRequest.md)
- - [DatadogAPIClient::V2::IncidentFieldAttributes](docs/IncidentFieldAttributes.md)
- - [DatadogAPIClient::V2::IncidentFieldAttributesMultipleValue](docs/IncidentFieldAttributesMultipleValue.md)
- - [DatadogAPIClient::V2::IncidentFieldAttributesSingleValue](docs/IncidentFieldAttributesSingleValue.md)
- - [DatadogAPIClient::V2::IncidentFieldAttributesSingleValueType](docs/IncidentFieldAttributesSingleValueType.md)
- - [DatadogAPIClient::V2::IncidentFieldAttributesValueType](docs/IncidentFieldAttributesValueType.md)
- - [DatadogAPIClient::V2::IncidentIntegrationMetadataType](docs/IncidentIntegrationMetadataType.md)
- - [DatadogAPIClient::V2::IncidentPostmortemType](docs/IncidentPostmortemType.md)
- - [DatadogAPIClient::V2::IncidentResponse](docs/IncidentResponse.md)
- - [DatadogAPIClient::V2::IncidentResponseAttributes](docs/IncidentResponseAttributes.md)
- - [DatadogAPIClient::V2::IncidentResponseData](docs/IncidentResponseData.md)
- - [DatadogAPIClient::V2::IncidentResponseIncludedItem](docs/IncidentResponseIncludedItem.md)
- - [DatadogAPIClient::V2::IncidentResponseRelationships](docs/IncidentResponseRelationships.md)
- - [DatadogAPIClient::V2::IncidentServiceCreateAttributes](docs/IncidentServiceCreateAttributes.md)
- - [DatadogAPIClient::V2::IncidentServiceCreateData](docs/IncidentServiceCreateData.md)
- - [DatadogAPIClient::V2::IncidentServiceCreateRequest](docs/IncidentServiceCreateRequest.md)
- - [DatadogAPIClient::V2::IncidentServiceIncludedItems](docs/IncidentServiceIncludedItems.md)
- - [DatadogAPIClient::V2::IncidentServiceRelationships](docs/IncidentServiceRelationships.md)
- - [DatadogAPIClient::V2::IncidentServiceResponse](docs/IncidentServiceResponse.md)
- - [DatadogAPIClient::V2::IncidentServiceResponseAttributes](docs/IncidentServiceResponseAttributes.md)
- - [DatadogAPIClient::V2::IncidentServiceResponseData](docs/IncidentServiceResponseData.md)
- - [DatadogAPIClient::V2::IncidentServiceType](docs/IncidentServiceType.md)
- - [DatadogAPIClient::V2::IncidentServiceUpdateAttributes](docs/IncidentServiceUpdateAttributes.md)
- - [DatadogAPIClient::V2::IncidentServiceUpdateData](docs/IncidentServiceUpdateData.md)
- - [DatadogAPIClient::V2::IncidentServiceUpdateRequest](docs/IncidentServiceUpdateRequest.md)
- - [DatadogAPIClient::V2::IncidentServicesResponse](docs/IncidentServicesResponse.md)
- - [DatadogAPIClient::V2::IncidentServicesResponseMeta](docs/IncidentServicesResponseMeta.md)
- - [DatadogAPIClient::V2::IncidentServicesResponseMetaPagination](docs/IncidentServicesResponseMetaPagination.md)
- - [DatadogAPIClient::V2::IncidentTeamCreateAttributes](docs/IncidentTeamCreateAttributes.md)
- - [DatadogAPIClient::V2::IncidentTeamCreateData](docs/IncidentTeamCreateData.md)
- - [DatadogAPIClient::V2::IncidentTeamCreateRequest](docs/IncidentTeamCreateRequest.md)
- - [DatadogAPIClient::V2::IncidentTeamIncludedItems](docs/IncidentTeamIncludedItems.md)
- - [DatadogAPIClient::V2::IncidentTeamRelationships](docs/IncidentTeamRelationships.md)
- - [DatadogAPIClient::V2::IncidentTeamResponse](docs/IncidentTeamResponse.md)
- - [DatadogAPIClient::V2::IncidentTeamResponseAttributes](docs/IncidentTeamResponseAttributes.md)
- - [DatadogAPIClient::V2::IncidentTeamResponseData](docs/IncidentTeamResponseData.md)
- - [DatadogAPIClient::V2::IncidentTeamType](docs/IncidentTeamType.md)
- - [DatadogAPIClient::V2::IncidentTeamUpdateAttributes](docs/IncidentTeamUpdateAttributes.md)
- - [DatadogAPIClient::V2::IncidentTeamUpdateData](docs/IncidentTeamUpdateData.md)
- - [DatadogAPIClient::V2::IncidentTeamUpdateRequest](docs/IncidentTeamUpdateRequest.md)
- - [DatadogAPIClient::V2::IncidentTeamsResponse](docs/IncidentTeamsResponse.md)
- - [DatadogAPIClient::V2::IncidentTimelineCellCreateAttributes](docs/IncidentTimelineCellCreateAttributes.md)
- - [DatadogAPIClient::V2::IncidentTimelineCellMarkdownContentType](docs/IncidentTimelineCellMarkdownContentType.md)
- - [DatadogAPIClient::V2::IncidentTimelineCellMarkdownCreateAttributes](docs/IncidentTimelineCellMarkdownCreateAttributes.md)
- - [DatadogAPIClient::V2::IncidentTimelineCellMarkdownCreateAttributesContent](docs/IncidentTimelineCellMarkdownCreateAttributesContent.md)
- - [DatadogAPIClient::V2::IncidentType](docs/IncidentType.md)
- - [DatadogAPIClient::V2::IncidentUpdateAttributes](docs/IncidentUpdateAttributes.md)
- - [DatadogAPIClient::V2::IncidentUpdateData](docs/IncidentUpdateData.md)
- - [DatadogAPIClient::V2::IncidentUpdateRelationships](docs/IncidentUpdateRelationships.md)
- - [DatadogAPIClient::V2::IncidentUpdateRequest](docs/IncidentUpdateRequest.md)
- - [DatadogAPIClient::V2::IncidentsResponse](docs/IncidentsResponse.md)
- - [DatadogAPIClient::V2::Log](docs/Log.md)
- - [DatadogAPIClient::V2::LogAttributes](docs/LogAttributes.md)
- - [DatadogAPIClient::V2::LogType](docs/LogType.md)
- - [DatadogAPIClient::V2::LogsAggregateBucket](docs/LogsAggregateBucket.md)
- - [DatadogAPIClient::V2::LogsAggregateBucketValue](docs/LogsAggregateBucketValue.md)
- - [DatadogAPIClient::V2::LogsAggregateBucketValueTimeseries](docs/LogsAggregateBucketValueTimeseries.md)
- - [DatadogAPIClient::V2::LogsAggregateBucketValueTimeseriesPoint](docs/LogsAggregateBucketValueTimeseriesPoint.md)
- - [DatadogAPIClient::V2::LogsAggregateRequest](docs/LogsAggregateRequest.md)
- - [DatadogAPIClient::V2::LogsAggregateRequestPaging](docs/LogsAggregateRequestPaging.md)
- - [DatadogAPIClient::V2::LogsAggregateResponse](docs/LogsAggregateResponse.md)
- - [DatadogAPIClient::V2::LogsAggregateResponseData](docs/LogsAggregateResponseData.md)
- - [DatadogAPIClient::V2::LogsAggregateResponseStatus](docs/LogsAggregateResponseStatus.md)
- - [DatadogAPIClient::V2::LogsAggregateSort](docs/LogsAggregateSort.md)
- - [DatadogAPIClient::V2::LogsAggregateSortType](docs/LogsAggregateSortType.md)
- - [DatadogAPIClient::V2::LogsAggregationFunction](docs/LogsAggregationFunction.md)
- - [DatadogAPIClient::V2::LogsArchive](docs/LogsArchive.md)
- - [DatadogAPIClient::V2::LogsArchiveAttributes](docs/LogsArchiveAttributes.md)
- - [DatadogAPIClient::V2::LogsArchiveCreateRequest](docs/LogsArchiveCreateRequest.md)
- - [DatadogAPIClient::V2::LogsArchiveCreateRequestAttributes](docs/LogsArchiveCreateRequestAttributes.md)
- - [DatadogAPIClient::V2::LogsArchiveCreateRequestDefinition](docs/LogsArchiveCreateRequestDefinition.md)
- - [DatadogAPIClient::V2::LogsArchiveCreateRequestDestination](docs/LogsArchiveCreateRequestDestination.md)
- - [DatadogAPIClient::V2::LogsArchiveDefinition](docs/LogsArchiveDefinition.md)
- - [DatadogAPIClient::V2::LogsArchiveDestination](docs/LogsArchiveDestination.md)
- - [DatadogAPIClient::V2::LogsArchiveDestinationAzure](docs/LogsArchiveDestinationAzure.md)
- - [DatadogAPIClient::V2::LogsArchiveDestinationAzureType](docs/LogsArchiveDestinationAzureType.md)
- - [DatadogAPIClient::V2::LogsArchiveDestinationGCS](docs/LogsArchiveDestinationGCS.md)
- - [DatadogAPIClient::V2::LogsArchiveDestinationGCSType](docs/LogsArchiveDestinationGCSType.md)
- - [DatadogAPIClient::V2::LogsArchiveDestinationS3](docs/LogsArchiveDestinationS3.md)
- - [DatadogAPIClient::V2::LogsArchiveDestinationS3Type](docs/LogsArchiveDestinationS3Type.md)
- - [DatadogAPIClient::V2::LogsArchiveIntegrationAzure](docs/LogsArchiveIntegrationAzure.md)
- - [DatadogAPIClient::V2::LogsArchiveIntegrationGCS](docs/LogsArchiveIntegrationGCS.md)
- - [DatadogAPIClient::V2::LogsArchiveIntegrationS3](docs/LogsArchiveIntegrationS3.md)
- - [DatadogAPIClient::V2::LogsArchiveOrder](docs/LogsArchiveOrder.md)
- - [DatadogAPIClient::V2::LogsArchiveOrderAttributes](docs/LogsArchiveOrderAttributes.md)
- - [DatadogAPIClient::V2::LogsArchiveOrderDefinition](docs/LogsArchiveOrderDefinition.md)
- - [DatadogAPIClient::V2::LogsArchiveOrderDefinitionType](docs/LogsArchiveOrderDefinitionType.md)
- - [DatadogAPIClient::V2::LogsArchiveState](docs/LogsArchiveState.md)
- - [DatadogAPIClient::V2::LogsArchives](docs/LogsArchives.md)
- - [DatadogAPIClient::V2::LogsCompute](docs/LogsCompute.md)
- - [DatadogAPIClient::V2::LogsComputeType](docs/LogsComputeType.md)
- - [DatadogAPIClient::V2::LogsGroupBy](docs/LogsGroupBy.md)
- - [DatadogAPIClient::V2::LogsGroupByHistogram](docs/LogsGroupByHistogram.md)
- - [DatadogAPIClient::V2::LogsGroupByMissing](docs/LogsGroupByMissing.md)
- - [DatadogAPIClient::V2::LogsGroupByTotal](docs/LogsGroupByTotal.md)
- - [DatadogAPIClient::V2::LogsListRequest](docs/LogsListRequest.md)
- - [DatadogAPIClient::V2::LogsListRequestPage](docs/LogsListRequestPage.md)
- - [DatadogAPIClient::V2::LogsListResponse](docs/LogsListResponse.md)
- - [DatadogAPIClient::V2::LogsListResponseLinks](docs/LogsListResponseLinks.md)
- - [DatadogAPIClient::V2::LogsQueryFilter](docs/LogsQueryFilter.md)
- - [DatadogAPIClient::V2::LogsQueryOptions](docs/LogsQueryOptions.md)
- - [DatadogAPIClient::V2::LogsResponseMetadata](docs/LogsResponseMetadata.md)
- - [DatadogAPIClient::V2::LogsResponseMetadataPage](docs/LogsResponseMetadataPage.md)
- - [DatadogAPIClient::V2::LogsSort](docs/LogsSort.md)
- - [DatadogAPIClient::V2::LogsSortOrder](docs/LogsSortOrder.md)
- - [DatadogAPIClient::V2::LogsWarning](docs/LogsWarning.md)
- - [DatadogAPIClient::V2::Organization](docs/Organization.md)
- - [DatadogAPIClient::V2::OrganizationAttributes](docs/OrganizationAttributes.md)
- - [DatadogAPIClient::V2::OrganizationsType](docs/OrganizationsType.md)
- - [DatadogAPIClient::V2::Pagination](docs/Pagination.md)
- - [DatadogAPIClient::V2::Permission](docs/Permission.md)
- - [DatadogAPIClient::V2::PermissionAttributes](docs/PermissionAttributes.md)
- - [DatadogAPIClient::V2::PermissionsResponse](docs/PermissionsResponse.md)
- - [DatadogAPIClient::V2::PermissionsType](docs/PermissionsType.md)
- - [DatadogAPIClient::V2::QuerySortOrder](docs/QuerySortOrder.md)
- - [DatadogAPIClient::V2::RelationshipToIncidentIntegrationMetadataData](docs/RelationshipToIncidentIntegrationMetadataData.md)
- - [DatadogAPIClient::V2::RelationshipToIncidentIntegrationMetadatas](docs/RelationshipToIncidentIntegrationMetadatas.md)
- - [DatadogAPIClient::V2::RelationshipToIncidentPostmortem](docs/RelationshipToIncidentPostmortem.md)
- - [DatadogAPIClient::V2::RelationshipToIncidentPostmortemData](docs/RelationshipToIncidentPostmortemData.md)
- - [DatadogAPIClient::V2::RelationshipToOrganization](docs/RelationshipToOrganization.md)
- - [DatadogAPIClient::V2::RelationshipToOrganizationData](docs/RelationshipToOrganizationData.md)
- - [DatadogAPIClient::V2::RelationshipToOrganizations](docs/RelationshipToOrganizations.md)
- - [DatadogAPIClient::V2::RelationshipToPermission](docs/RelationshipToPermission.md)
- - [DatadogAPIClient::V2::RelationshipToPermissionData](docs/RelationshipToPermissionData.md)
- - [DatadogAPIClient::V2::RelationshipToPermissions](docs/RelationshipToPermissions.md)
- - [DatadogAPIClient::V2::RelationshipToRole](docs/RelationshipToRole.md)
- - [DatadogAPIClient::V2::RelationshipToRoleData](docs/RelationshipToRoleData.md)
- - [DatadogAPIClient::V2::RelationshipToRoles](docs/RelationshipToRoles.md)
- - [DatadogAPIClient::V2::RelationshipToUser](docs/RelationshipToUser.md)
- - [DatadogAPIClient::V2::RelationshipToUserData](docs/RelationshipToUserData.md)
- - [DatadogAPIClient::V2::RelationshipToUsers](docs/RelationshipToUsers.md)
- - [DatadogAPIClient::V2::ResponseMetaAttributes](docs/ResponseMetaAttributes.md)
- - [DatadogAPIClient::V2::Role](docs/Role.md)
- - [DatadogAPIClient::V2::RoleAttributes](docs/RoleAttributes.md)
- - [DatadogAPIClient::V2::RoleCreateAttributes](docs/RoleCreateAttributes.md)
- - [DatadogAPIClient::V2::RoleCreateData](docs/RoleCreateData.md)
- - [DatadogAPIClient::V2::RoleCreateRequest](docs/RoleCreateRequest.md)
- - [DatadogAPIClient::V2::RoleCreateResponse](docs/RoleCreateResponse.md)
- - [DatadogAPIClient::V2::RoleCreateResponseData](docs/RoleCreateResponseData.md)
- - [DatadogAPIClient::V2::RoleRelationships](docs/RoleRelationships.md)
- - [DatadogAPIClient::V2::RoleResponse](docs/RoleResponse.md)
- - [DatadogAPIClient::V2::RoleResponseRelationships](docs/RoleResponseRelationships.md)
- - [DatadogAPIClient::V2::RoleUpdateAttributes](docs/RoleUpdateAttributes.md)
- - [DatadogAPIClient::V2::RoleUpdateData](docs/RoleUpdateData.md)
- - [DatadogAPIClient::V2::RoleUpdateRequest](docs/RoleUpdateRequest.md)
- - [DatadogAPIClient::V2::RoleUpdateResponse](docs/RoleUpdateResponse.md)
- - [DatadogAPIClient::V2::RoleUpdateResponseData](docs/RoleUpdateResponseData.md)
- - [DatadogAPIClient::V2::RolesResponse](docs/RolesResponse.md)
- - [DatadogAPIClient::V2::RolesSort](docs/RolesSort.md)
- - [DatadogAPIClient::V2::RolesType](docs/RolesType.md)
- - [DatadogAPIClient::V2::SecurityMonitoringListRulesResponse](docs/SecurityMonitoringListRulesResponse.md)
- - [DatadogAPIClient::V2::SecurityMonitoringRuleCase](docs/SecurityMonitoringRuleCase.md)
- - [DatadogAPIClient::V2::SecurityMonitoringRuleCaseCreate](docs/SecurityMonitoringRuleCaseCreate.md)
- - [DatadogAPIClient::V2::SecurityMonitoringRuleCreatePayload](docs/SecurityMonitoringRuleCreatePayload.md)
- - [DatadogAPIClient::V2::SecurityMonitoringRuleEvaluationWindow](docs/SecurityMonitoringRuleEvaluationWindow.md)
- - [DatadogAPIClient::V2::SecurityMonitoringRuleKeepAlive](docs/SecurityMonitoringRuleKeepAlive.md)
- - [DatadogAPIClient::V2::SecurityMonitoringRuleMaxSignalDuration](docs/SecurityMonitoringRuleMaxSignalDuration.md)
- - [DatadogAPIClient::V2::SecurityMonitoringRuleOptions](docs/SecurityMonitoringRuleOptions.md)
- - [DatadogAPIClient::V2::SecurityMonitoringRuleQuery](docs/SecurityMonitoringRuleQuery.md)
- - [DatadogAPIClient::V2::SecurityMonitoringRuleQueryAggregation](docs/SecurityMonitoringRuleQueryAggregation.md)
- - [DatadogAPIClient::V2::SecurityMonitoringRuleQueryCreate](docs/SecurityMonitoringRuleQueryCreate.md)
- - [DatadogAPIClient::V2::SecurityMonitoringRuleResponse](docs/SecurityMonitoringRuleResponse.md)
- - [DatadogAPIClient::V2::SecurityMonitoringRuleSeverity](docs/SecurityMonitoringRuleSeverity.md)
- - [DatadogAPIClient::V2::SecurityMonitoringRuleUpdatePayload](docs/SecurityMonitoringRuleUpdatePayload.md)
- - [DatadogAPIClient::V2::SecurityMonitoringSignal](docs/SecurityMonitoringSignal.md)
- - [DatadogAPIClient::V2::SecurityMonitoringSignalAttributes](docs/SecurityMonitoringSignalAttributes.md)
- - [DatadogAPIClient::V2::SecurityMonitoringSignalListRequest](docs/SecurityMonitoringSignalListRequest.md)
- - [DatadogAPIClient::V2::SecurityMonitoringSignalListRequestFilter](docs/SecurityMonitoringSignalListRequestFilter.md)
- - [DatadogAPIClient::V2::SecurityMonitoringSignalListRequestPage](docs/SecurityMonitoringSignalListRequestPage.md)
- - [DatadogAPIClient::V2::SecurityMonitoringSignalType](docs/SecurityMonitoringSignalType.md)
- - [DatadogAPIClient::V2::SecurityMonitoringSignalsListResponse](docs/SecurityMonitoringSignalsListResponse.md)
- - [DatadogAPIClient::V2::SecurityMonitoringSignalsListResponseLinks](docs/SecurityMonitoringSignalsListResponseLinks.md)
- - [DatadogAPIClient::V2::SecurityMonitoringSignalsListResponseMeta](docs/SecurityMonitoringSignalsListResponseMeta.md)
- - [DatadogAPIClient::V2::SecurityMonitoringSignalsListResponseMetaPage](docs/SecurityMonitoringSignalsListResponseMetaPage.md)
- - [DatadogAPIClient::V2::SecurityMonitoringSignalsSort](docs/SecurityMonitoringSignalsSort.md)
- - [DatadogAPIClient::V2::User](docs/User.md)
- - [DatadogAPIClient::V2::UserAttributes](docs/UserAttributes.md)
- - [DatadogAPIClient::V2::UserCreateAttributes](docs/UserCreateAttributes.md)
- - [DatadogAPIClient::V2::UserCreateData](docs/UserCreateData.md)
- - [DatadogAPIClient::V2::UserCreateRequest](docs/UserCreateRequest.md)
- - [DatadogAPIClient::V2::UserInvitationData](docs/UserInvitationData.md)
- - [DatadogAPIClient::V2::UserInvitationDataAttributes](docs/UserInvitationDataAttributes.md)
- - [DatadogAPIClient::V2::UserInvitationRelationships](docs/UserInvitationRelationships.md)
- - [DatadogAPIClient::V2::UserInvitationResponse](docs/UserInvitationResponse.md)
- - [DatadogAPIClient::V2::UserInvitationResponseData](docs/UserInvitationResponseData.md)
- - [DatadogAPIClient::V2::UserInvitationsRequest](docs/UserInvitationsRequest.md)
- - [DatadogAPIClient::V2::UserInvitationsResponse](docs/UserInvitationsResponse.md)
- - [DatadogAPIClient::V2::UserInvitationsType](docs/UserInvitationsType.md)
- - [DatadogAPIClient::V2::UserRelationships](docs/UserRelationships.md)
- - [DatadogAPIClient::V2::UserResponse](docs/UserResponse.md)
- - [DatadogAPIClient::V2::UserResponseIncludedItem](docs/UserResponseIncludedItem.md)
- - [DatadogAPIClient::V2::UserResponseRelationships](docs/UserResponseRelationships.md)
- - [DatadogAPIClient::V2::UserUpdateAttributes](docs/UserUpdateAttributes.md)
- - [DatadogAPIClient::V2::UserUpdateData](docs/UserUpdateData.md)
- - [DatadogAPIClient::V2::UserUpdateRequest](docs/UserUpdateRequest.md)
- - [DatadogAPIClient::V2::UsersResponse](docs/UsersResponse.md)
- - [DatadogAPIClient::V2::UsersType](docs/UsersType.md)
+ - [DatadogAPIClient::V2::APIErrorResponse](APIErrorResponse.md)
+ - [DatadogAPIClient::V2::APIKeyCreateAttributes](APIKeyCreateAttributes.md)
+ - [DatadogAPIClient::V2::APIKeyCreateData](APIKeyCreateData.md)
+ - [DatadogAPIClient::V2::APIKeyCreateRequest](APIKeyCreateRequest.md)
+ - [DatadogAPIClient::V2::APIKeyRelationships](APIKeyRelationships.md)
+ - [DatadogAPIClient::V2::APIKeyResponse](APIKeyResponse.md)
+ - [DatadogAPIClient::V2::APIKeyResponseIncludedItem](APIKeyResponseIncludedItem.md)
+ - [DatadogAPIClient::V2::APIKeyUpdateAttributes](APIKeyUpdateAttributes.md)
+ - [DatadogAPIClient::V2::APIKeyUpdateData](APIKeyUpdateData.md)
+ - [DatadogAPIClient::V2::APIKeyUpdateRequest](APIKeyUpdateRequest.md)
+ - [DatadogAPIClient::V2::APIKeysResponse](APIKeysResponse.md)
+ - [DatadogAPIClient::V2::APIKeysSort](APIKeysSort.md)
+ - [DatadogAPIClient::V2::APIKeysType](APIKeysType.md)
+ - [DatadogAPIClient::V2::ApplicationKeyCreateAttributes](ApplicationKeyCreateAttributes.md)
+ - [DatadogAPIClient::V2::ApplicationKeyCreateData](ApplicationKeyCreateData.md)
+ - [DatadogAPIClient::V2::ApplicationKeyCreateRequest](ApplicationKeyCreateRequest.md)
+ - [DatadogAPIClient::V2::ApplicationKeyRelationships](ApplicationKeyRelationships.md)
+ - [DatadogAPIClient::V2::ApplicationKeyResponse](ApplicationKeyResponse.md)
+ - [DatadogAPIClient::V2::ApplicationKeyResponseIncludedItem](ApplicationKeyResponseIncludedItem.md)
+ - [DatadogAPIClient::V2::ApplicationKeyUpdateAttributes](ApplicationKeyUpdateAttributes.md)
+ - [DatadogAPIClient::V2::ApplicationKeyUpdateData](ApplicationKeyUpdateData.md)
+ - [DatadogAPIClient::V2::ApplicationKeyUpdateRequest](ApplicationKeyUpdateRequest.md)
+ - [DatadogAPIClient::V2::ApplicationKeysSort](ApplicationKeysSort.md)
+ - [DatadogAPIClient::V2::ApplicationKeysType](ApplicationKeysType.md)
+ - [DatadogAPIClient::V2::Creator](Creator.md)
+ - [DatadogAPIClient::V2::DashboardListAddItemsRequest](DashboardListAddItemsRequest.md)
+ - [DatadogAPIClient::V2::DashboardListAddItemsResponse](DashboardListAddItemsResponse.md)
+ - [DatadogAPIClient::V2::DashboardListDeleteItemsRequest](DashboardListDeleteItemsRequest.md)
+ - [DatadogAPIClient::V2::DashboardListDeleteItemsResponse](DashboardListDeleteItemsResponse.md)
+ - [DatadogAPIClient::V2::DashboardListItem](DashboardListItem.md)
+ - [DatadogAPIClient::V2::DashboardListItemRequest](DashboardListItemRequest.md)
+ - [DatadogAPIClient::V2::DashboardListItemResponse](DashboardListItemResponse.md)
+ - [DatadogAPIClient::V2::DashboardListItems](DashboardListItems.md)
+ - [DatadogAPIClient::V2::DashboardListUpdateItemsRequest](DashboardListUpdateItemsRequest.md)
+ - [DatadogAPIClient::V2::DashboardListUpdateItemsResponse](DashboardListUpdateItemsResponse.md)
+ - [DatadogAPIClient::V2::DashboardType](DashboardType.md)
+ - [DatadogAPIClient::V2::FullAPIKey](FullAPIKey.md)
+ - [DatadogAPIClient::V2::FullAPIKeyAttributes](FullAPIKeyAttributes.md)
+ - [DatadogAPIClient::V2::FullApplicationKey](FullApplicationKey.md)
+ - [DatadogAPIClient::V2::FullApplicationKeyAttributes](FullApplicationKeyAttributes.md)
+ - [DatadogAPIClient::V2::IncidentCreateAttributes](IncidentCreateAttributes.md)
+ - [DatadogAPIClient::V2::IncidentCreateData](IncidentCreateData.md)
+ - [DatadogAPIClient::V2::IncidentCreateRelationships](IncidentCreateRelationships.md)
+ - [DatadogAPIClient::V2::IncidentCreateRequest](IncidentCreateRequest.md)
+ - [DatadogAPIClient::V2::IncidentFieldAttributes](IncidentFieldAttributes.md)
+ - [DatadogAPIClient::V2::IncidentFieldAttributesMultipleValue](IncidentFieldAttributesMultipleValue.md)
+ - [DatadogAPIClient::V2::IncidentFieldAttributesSingleValue](IncidentFieldAttributesSingleValue.md)
+ - [DatadogAPIClient::V2::IncidentFieldAttributesSingleValueType](IncidentFieldAttributesSingleValueType.md)
+ - [DatadogAPIClient::V2::IncidentFieldAttributesValueType](IncidentFieldAttributesValueType.md)
+ - [DatadogAPIClient::V2::IncidentIntegrationMetadataType](IncidentIntegrationMetadataType.md)
+ - [DatadogAPIClient::V2::IncidentPostmortemType](IncidentPostmortemType.md)
+ - [DatadogAPIClient::V2::IncidentRelatedObject](IncidentRelatedObject.md)
+ - [DatadogAPIClient::V2::IncidentResponse](IncidentResponse.md)
+ - [DatadogAPIClient::V2::IncidentResponseAttributes](IncidentResponseAttributes.md)
+ - [DatadogAPIClient::V2::IncidentResponseData](IncidentResponseData.md)
+ - [DatadogAPIClient::V2::IncidentResponseIncludedItem](IncidentResponseIncludedItem.md)
+ - [DatadogAPIClient::V2::IncidentResponseRelationships](IncidentResponseRelationships.md)
+ - [DatadogAPIClient::V2::IncidentServiceCreateAttributes](IncidentServiceCreateAttributes.md)
+ - [DatadogAPIClient::V2::IncidentServiceCreateData](IncidentServiceCreateData.md)
+ - [DatadogAPIClient::V2::IncidentServiceCreateRequest](IncidentServiceCreateRequest.md)
+ - [DatadogAPIClient::V2::IncidentServiceIncludedItems](IncidentServiceIncludedItems.md)
+ - [DatadogAPIClient::V2::IncidentServiceRelationships](IncidentServiceRelationships.md)
+ - [DatadogAPIClient::V2::IncidentServiceResponse](IncidentServiceResponse.md)
+ - [DatadogAPIClient::V2::IncidentServiceResponseAttributes](IncidentServiceResponseAttributes.md)
+ - [DatadogAPIClient::V2::IncidentServiceResponseData](IncidentServiceResponseData.md)
+ - [DatadogAPIClient::V2::IncidentServiceType](IncidentServiceType.md)
+ - [DatadogAPIClient::V2::IncidentServiceUpdateAttributes](IncidentServiceUpdateAttributes.md)
+ - [DatadogAPIClient::V2::IncidentServiceUpdateData](IncidentServiceUpdateData.md)
+ - [DatadogAPIClient::V2::IncidentServiceUpdateRequest](IncidentServiceUpdateRequest.md)
+ - [DatadogAPIClient::V2::IncidentServicesResponse](IncidentServicesResponse.md)
+ - [DatadogAPIClient::V2::IncidentServicesResponseMeta](IncidentServicesResponseMeta.md)
+ - [DatadogAPIClient::V2::IncidentServicesResponseMetaPagination](IncidentServicesResponseMetaPagination.md)
+ - [DatadogAPIClient::V2::IncidentTeamCreateAttributes](IncidentTeamCreateAttributes.md)
+ - [DatadogAPIClient::V2::IncidentTeamCreateData](IncidentTeamCreateData.md)
+ - [DatadogAPIClient::V2::IncidentTeamCreateRequest](IncidentTeamCreateRequest.md)
+ - [DatadogAPIClient::V2::IncidentTeamIncludedItems](IncidentTeamIncludedItems.md)
+ - [DatadogAPIClient::V2::IncidentTeamRelationships](IncidentTeamRelationships.md)
+ - [DatadogAPIClient::V2::IncidentTeamResponse](IncidentTeamResponse.md)
+ - [DatadogAPIClient::V2::IncidentTeamResponseAttributes](IncidentTeamResponseAttributes.md)
+ - [DatadogAPIClient::V2::IncidentTeamResponseData](IncidentTeamResponseData.md)
+ - [DatadogAPIClient::V2::IncidentTeamType](IncidentTeamType.md)
+ - [DatadogAPIClient::V2::IncidentTeamUpdateAttributes](IncidentTeamUpdateAttributes.md)
+ - [DatadogAPIClient::V2::IncidentTeamUpdateData](IncidentTeamUpdateData.md)
+ - [DatadogAPIClient::V2::IncidentTeamUpdateRequest](IncidentTeamUpdateRequest.md)
+ - [DatadogAPIClient::V2::IncidentTeamsResponse](IncidentTeamsResponse.md)
+ - [DatadogAPIClient::V2::IncidentTimelineCellCreateAttributes](IncidentTimelineCellCreateAttributes.md)
+ - [DatadogAPIClient::V2::IncidentTimelineCellMarkdownContentType](IncidentTimelineCellMarkdownContentType.md)
+ - [DatadogAPIClient::V2::IncidentTimelineCellMarkdownCreateAttributes](IncidentTimelineCellMarkdownCreateAttributes.md)
+ - [DatadogAPIClient::V2::IncidentTimelineCellMarkdownCreateAttributesContent](IncidentTimelineCellMarkdownCreateAttributesContent.md)
+ - [DatadogAPIClient::V2::IncidentType](IncidentType.md)
+ - [DatadogAPIClient::V2::IncidentUpdateAttributes](IncidentUpdateAttributes.md)
+ - [DatadogAPIClient::V2::IncidentUpdateData](IncidentUpdateData.md)
+ - [DatadogAPIClient::V2::IncidentUpdateRelationships](IncidentUpdateRelationships.md)
+ - [DatadogAPIClient::V2::IncidentUpdateRequest](IncidentUpdateRequest.md)
+ - [DatadogAPIClient::V2::IncidentsResponse](IncidentsResponse.md)
+ - [DatadogAPIClient::V2::ListApplicationKeysResponse](ListApplicationKeysResponse.md)
+ - [DatadogAPIClient::V2::Log](Log.md)
+ - [DatadogAPIClient::V2::LogAttributes](LogAttributes.md)
+ - [DatadogAPIClient::V2::LogType](LogType.md)
+ - [DatadogAPIClient::V2::LogsAggregateBucket](LogsAggregateBucket.md)
+ - [DatadogAPIClient::V2::LogsAggregateBucketValue](LogsAggregateBucketValue.md)
+ - [DatadogAPIClient::V2::LogsAggregateBucketValueTimeseriesPoint](LogsAggregateBucketValueTimeseriesPoint.md)
+ - [DatadogAPIClient::V2::LogsAggregateRequest](LogsAggregateRequest.md)
+ - [DatadogAPIClient::V2::LogsAggregateRequestPaging](LogsAggregateRequestPaging.md)
+ - [DatadogAPIClient::V2::LogsAggregateResponse](LogsAggregateResponse.md)
+ - [DatadogAPIClient::V2::LogsAggregateResponseData](LogsAggregateResponseData.md)
+ - [DatadogAPIClient::V2::LogsAggregateResponseStatus](LogsAggregateResponseStatus.md)
+ - [DatadogAPIClient::V2::LogsAggregateSort](LogsAggregateSort.md)
+ - [DatadogAPIClient::V2::LogsAggregateSortType](LogsAggregateSortType.md)
+ - [DatadogAPIClient::V2::LogsAggregationFunction](LogsAggregationFunction.md)
+ - [DatadogAPIClient::V2::LogsArchive](LogsArchive.md)
+ - [DatadogAPIClient::V2::LogsArchiveAttributes](LogsArchiveAttributes.md)
+ - [DatadogAPIClient::V2::LogsArchiveCreateRequest](LogsArchiveCreateRequest.md)
+ - [DatadogAPIClient::V2::LogsArchiveCreateRequestAttributes](LogsArchiveCreateRequestAttributes.md)
+ - [DatadogAPIClient::V2::LogsArchiveCreateRequestDefinition](LogsArchiveCreateRequestDefinition.md)
+ - [DatadogAPIClient::V2::LogsArchiveCreateRequestDestination](LogsArchiveCreateRequestDestination.md)
+ - [DatadogAPIClient::V2::LogsArchiveDefinition](LogsArchiveDefinition.md)
+ - [DatadogAPIClient::V2::LogsArchiveDestination](LogsArchiveDestination.md)
+ - [DatadogAPIClient::V2::LogsArchiveDestinationAzure](LogsArchiveDestinationAzure.md)
+ - [DatadogAPIClient::V2::LogsArchiveDestinationAzureType](LogsArchiveDestinationAzureType.md)
+ - [DatadogAPIClient::V2::LogsArchiveDestinationGCS](LogsArchiveDestinationGCS.md)
+ - [DatadogAPIClient::V2::LogsArchiveDestinationGCSType](LogsArchiveDestinationGCSType.md)
+ - [DatadogAPIClient::V2::LogsArchiveDestinationS3](LogsArchiveDestinationS3.md)
+ - [DatadogAPIClient::V2::LogsArchiveDestinationS3Type](LogsArchiveDestinationS3Type.md)
+ - [DatadogAPIClient::V2::LogsArchiveIntegrationAzure](LogsArchiveIntegrationAzure.md)
+ - [DatadogAPIClient::V2::LogsArchiveIntegrationGCS](LogsArchiveIntegrationGCS.md)
+ - [DatadogAPIClient::V2::LogsArchiveIntegrationS3](LogsArchiveIntegrationS3.md)
+ - [DatadogAPIClient::V2::LogsArchiveOrder](LogsArchiveOrder.md)
+ - [DatadogAPIClient::V2::LogsArchiveOrderAttributes](LogsArchiveOrderAttributes.md)
+ - [DatadogAPIClient::V2::LogsArchiveOrderDefinition](LogsArchiveOrderDefinition.md)
+ - [DatadogAPIClient::V2::LogsArchiveOrderDefinitionType](LogsArchiveOrderDefinitionType.md)
+ - [DatadogAPIClient::V2::LogsArchiveState](LogsArchiveState.md)
+ - [DatadogAPIClient::V2::LogsArchives](LogsArchives.md)
+ - [DatadogAPIClient::V2::LogsCompute](LogsCompute.md)
+ - [DatadogAPIClient::V2::LogsComputeType](LogsComputeType.md)
+ - [DatadogAPIClient::V2::LogsGroupBy](LogsGroupBy.md)
+ - [DatadogAPIClient::V2::LogsGroupByHistogram](LogsGroupByHistogram.md)
+ - [DatadogAPIClient::V2::LogsGroupByMissing](LogsGroupByMissing.md)
+ - [DatadogAPIClient::V2::LogsGroupByTotal](LogsGroupByTotal.md)
+ - [DatadogAPIClient::V2::LogsListRequest](LogsListRequest.md)
+ - [DatadogAPIClient::V2::LogsListRequestPage](LogsListRequestPage.md)
+ - [DatadogAPIClient::V2::LogsListResponse](LogsListResponse.md)
+ - [DatadogAPIClient::V2::LogsListResponseLinks](LogsListResponseLinks.md)
+ - [DatadogAPIClient::V2::LogsMetricCompute](LogsMetricCompute.md)
+ - [DatadogAPIClient::V2::LogsMetricComputeAggregationType](LogsMetricComputeAggregationType.md)
+ - [DatadogAPIClient::V2::LogsMetricCreateAttributes](LogsMetricCreateAttributes.md)
+ - [DatadogAPIClient::V2::LogsMetricCreateData](LogsMetricCreateData.md)
+ - [DatadogAPIClient::V2::LogsMetricCreateRequest](LogsMetricCreateRequest.md)
+ - [DatadogAPIClient::V2::LogsMetricFilter](LogsMetricFilter.md)
+ - [DatadogAPIClient::V2::LogsMetricGroupBy](LogsMetricGroupBy.md)
+ - [DatadogAPIClient::V2::LogsMetricResponse](LogsMetricResponse.md)
+ - [DatadogAPIClient::V2::LogsMetricResponseAttributes](LogsMetricResponseAttributes.md)
+ - [DatadogAPIClient::V2::LogsMetricResponseCompute](LogsMetricResponseCompute.md)
+ - [DatadogAPIClient::V2::LogsMetricResponseComputeAggregationType](LogsMetricResponseComputeAggregationType.md)
+ - [DatadogAPIClient::V2::LogsMetricResponseData](LogsMetricResponseData.md)
+ - [DatadogAPIClient::V2::LogsMetricResponseFilter](LogsMetricResponseFilter.md)
+ - [DatadogAPIClient::V2::LogsMetricResponseGroupBy](LogsMetricResponseGroupBy.md)
+ - [DatadogAPIClient::V2::LogsMetricType](LogsMetricType.md)
+ - [DatadogAPIClient::V2::LogsMetricUpdateAttributes](LogsMetricUpdateAttributes.md)
+ - [DatadogAPIClient::V2::LogsMetricUpdateData](LogsMetricUpdateData.md)
+ - [DatadogAPIClient::V2::LogsMetricUpdateRequest](LogsMetricUpdateRequest.md)
+ - [DatadogAPIClient::V2::LogsMetricsResponse](LogsMetricsResponse.md)
+ - [DatadogAPIClient::V2::LogsQueryFilter](LogsQueryFilter.md)
+ - [DatadogAPIClient::V2::LogsQueryOptions](LogsQueryOptions.md)
+ - [DatadogAPIClient::V2::LogsResponseMetadata](LogsResponseMetadata.md)
+ - [DatadogAPIClient::V2::LogsResponseMetadataPage](LogsResponseMetadataPage.md)
+ - [DatadogAPIClient::V2::LogsSort](LogsSort.md)
+ - [DatadogAPIClient::V2::LogsSortOrder](LogsSortOrder.md)
+ - [DatadogAPIClient::V2::LogsWarning](LogsWarning.md)
+ - [DatadogAPIClient::V2::Organization](Organization.md)
+ - [DatadogAPIClient::V2::OrganizationAttributes](OrganizationAttributes.md)
+ - [DatadogAPIClient::V2::OrganizationsType](OrganizationsType.md)
+ - [DatadogAPIClient::V2::Pagination](Pagination.md)
+ - [DatadogAPIClient::V2::PartialAPIKey](PartialAPIKey.md)
+ - [DatadogAPIClient::V2::PartialAPIKeyAttributes](PartialAPIKeyAttributes.md)
+ - [DatadogAPIClient::V2::PartialApplicationKey](PartialApplicationKey.md)
+ - [DatadogAPIClient::V2::PartialApplicationKeyAttributes](PartialApplicationKeyAttributes.md)
+ - [DatadogAPIClient::V2::Permission](Permission.md)
+ - [DatadogAPIClient::V2::PermissionAttributes](PermissionAttributes.md)
+ - [DatadogAPIClient::V2::PermissionsResponse](PermissionsResponse.md)
+ - [DatadogAPIClient::V2::PermissionsType](PermissionsType.md)
+ - [DatadogAPIClient::V2::ProcessSummariesMeta](ProcessSummariesMeta.md)
+ - [DatadogAPIClient::V2::ProcessSummariesMetaPage](ProcessSummariesMetaPage.md)
+ - [DatadogAPIClient::V2::ProcessSummariesResponse](ProcessSummariesResponse.md)
+ - [DatadogAPIClient::V2::ProcessSummary](ProcessSummary.md)
+ - [DatadogAPIClient::V2::ProcessSummaryAttributes](ProcessSummaryAttributes.md)
+ - [DatadogAPIClient::V2::ProcessSummaryType](ProcessSummaryType.md)
+ - [DatadogAPIClient::V2::QuerySortOrder](QuerySortOrder.md)
+ - [DatadogAPIClient::V2::RelationshipToIncidentIntegrationMetadataData](RelationshipToIncidentIntegrationMetadataData.md)
+ - [DatadogAPIClient::V2::RelationshipToIncidentIntegrationMetadatas](RelationshipToIncidentIntegrationMetadatas.md)
+ - [DatadogAPIClient::V2::RelationshipToIncidentPostmortem](RelationshipToIncidentPostmortem.md)
+ - [DatadogAPIClient::V2::RelationshipToIncidentPostmortemData](RelationshipToIncidentPostmortemData.md)
+ - [DatadogAPIClient::V2::RelationshipToOrganization](RelationshipToOrganization.md)
+ - [DatadogAPIClient::V2::RelationshipToOrganizationData](RelationshipToOrganizationData.md)
+ - [DatadogAPIClient::V2::RelationshipToOrganizations](RelationshipToOrganizations.md)
+ - [DatadogAPIClient::V2::RelationshipToPermission](RelationshipToPermission.md)
+ - [DatadogAPIClient::V2::RelationshipToPermissionData](RelationshipToPermissionData.md)
+ - [DatadogAPIClient::V2::RelationshipToPermissions](RelationshipToPermissions.md)
+ - [DatadogAPIClient::V2::RelationshipToRole](RelationshipToRole.md)
+ - [DatadogAPIClient::V2::RelationshipToRoleData](RelationshipToRoleData.md)
+ - [DatadogAPIClient::V2::RelationshipToRoles](RelationshipToRoles.md)
+ - [DatadogAPIClient::V2::RelationshipToUser](RelationshipToUser.md)
+ - [DatadogAPIClient::V2::RelationshipToUserData](RelationshipToUserData.md)
+ - [DatadogAPIClient::V2::RelationshipToUsers](RelationshipToUsers.md)
+ - [DatadogAPIClient::V2::ResponseMetaAttributes](ResponseMetaAttributes.md)
+ - [DatadogAPIClient::V2::Role](Role.md)
+ - [DatadogAPIClient::V2::RoleAttributes](RoleAttributes.md)
+ - [DatadogAPIClient::V2::RoleCreateAttributes](RoleCreateAttributes.md)
+ - [DatadogAPIClient::V2::RoleCreateData](RoleCreateData.md)
+ - [DatadogAPIClient::V2::RoleCreateRequest](RoleCreateRequest.md)
+ - [DatadogAPIClient::V2::RoleCreateResponse](RoleCreateResponse.md)
+ - [DatadogAPIClient::V2::RoleCreateResponseData](RoleCreateResponseData.md)
+ - [DatadogAPIClient::V2::RoleRelationships](RoleRelationships.md)
+ - [DatadogAPIClient::V2::RoleResponse](RoleResponse.md)
+ - [DatadogAPIClient::V2::RoleResponseRelationships](RoleResponseRelationships.md)
+ - [DatadogAPIClient::V2::RoleUpdateAttributes](RoleUpdateAttributes.md)
+ - [DatadogAPIClient::V2::RoleUpdateData](RoleUpdateData.md)
+ - [DatadogAPIClient::V2::RoleUpdateRequest](RoleUpdateRequest.md)
+ - [DatadogAPIClient::V2::RoleUpdateResponse](RoleUpdateResponse.md)
+ - [DatadogAPIClient::V2::RoleUpdateResponseData](RoleUpdateResponseData.md)
+ - [DatadogAPIClient::V2::RolesResponse](RolesResponse.md)
+ - [DatadogAPIClient::V2::RolesSort](RolesSort.md)
+ - [DatadogAPIClient::V2::RolesType](RolesType.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringFilter](SecurityMonitoringFilter.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringFilterAction](SecurityMonitoringFilterAction.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringListRulesResponse](SecurityMonitoringListRulesResponse.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringRuleCase](SecurityMonitoringRuleCase.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringRuleCaseCreate](SecurityMonitoringRuleCaseCreate.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringRuleCreatePayload](SecurityMonitoringRuleCreatePayload.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringRuleEvaluationWindow](SecurityMonitoringRuleEvaluationWindow.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringRuleKeepAlive](SecurityMonitoringRuleKeepAlive.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringRuleMaxSignalDuration](SecurityMonitoringRuleMaxSignalDuration.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringRuleOptions](SecurityMonitoringRuleOptions.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringRuleQuery](SecurityMonitoringRuleQuery.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringRuleQueryAggregation](SecurityMonitoringRuleQueryAggregation.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringRuleQueryCreate](SecurityMonitoringRuleQueryCreate.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringRuleResponse](SecurityMonitoringRuleResponse.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringRuleSeverity](SecurityMonitoringRuleSeverity.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringRuleUpdatePayload](SecurityMonitoringRuleUpdatePayload.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringSignal](SecurityMonitoringSignal.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringSignalAttributes](SecurityMonitoringSignalAttributes.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringSignalListRequest](SecurityMonitoringSignalListRequest.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringSignalListRequestFilter](SecurityMonitoringSignalListRequestFilter.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringSignalListRequestPage](SecurityMonitoringSignalListRequestPage.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringSignalType](SecurityMonitoringSignalType.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringSignalsListResponse](SecurityMonitoringSignalsListResponse.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringSignalsListResponseLinks](SecurityMonitoringSignalsListResponseLinks.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringSignalsListResponseMeta](SecurityMonitoringSignalsListResponseMeta.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringSignalsListResponseMetaPage](SecurityMonitoringSignalsListResponseMetaPage.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringSignalsSort](SecurityMonitoringSignalsSort.md)
+ - [DatadogAPIClient::V2::User](User.md)
+ - [DatadogAPIClient::V2::UserAttributes](UserAttributes.md)
+ - [DatadogAPIClient::V2::UserCreateAttributes](UserCreateAttributes.md)
+ - [DatadogAPIClient::V2::UserCreateData](UserCreateData.md)
+ - [DatadogAPIClient::V2::UserCreateRequest](UserCreateRequest.md)
+ - [DatadogAPIClient::V2::UserInvitationData](UserInvitationData.md)
+ - [DatadogAPIClient::V2::UserInvitationDataAttributes](UserInvitationDataAttributes.md)
+ - [DatadogAPIClient::V2::UserInvitationRelationships](UserInvitationRelationships.md)
+ - [DatadogAPIClient::V2::UserInvitationResponse](UserInvitationResponse.md)
+ - [DatadogAPIClient::V2::UserInvitationResponseData](UserInvitationResponseData.md)
+ - [DatadogAPIClient::V2::UserInvitationsRequest](UserInvitationsRequest.md)
+ - [DatadogAPIClient::V2::UserInvitationsResponse](UserInvitationsResponse.md)
+ - [DatadogAPIClient::V2::UserInvitationsType](UserInvitationsType.md)
+ - [DatadogAPIClient::V2::UserRelationships](UserRelationships.md)
+ - [DatadogAPIClient::V2::UserResponse](UserResponse.md)
+ - [DatadogAPIClient::V2::UserResponseIncludedItem](UserResponseIncludedItem.md)
+ - [DatadogAPIClient::V2::UserResponseRelationships](UserResponseRelationships.md)
+ - [DatadogAPIClient::V2::UserUpdateAttributes](UserUpdateAttributes.md)
+ - [DatadogAPIClient::V2::UserUpdateData](UserUpdateData.md)
+ - [DatadogAPIClient::V2::UserUpdateRequest](UserUpdateRequest.md)
+ - [DatadogAPIClient::V2::UsersResponse](UsersResponse.md)
+ - [DatadogAPIClient::V2::UsersType](UsersType.md)
 
 
 ## Documentation for Authorization

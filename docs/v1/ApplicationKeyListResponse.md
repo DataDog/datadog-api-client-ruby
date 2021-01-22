@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**application_keys** | [**Array&lt;ApplicationKey&gt;**](ApplicationKey.md) | Array of application keys. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **application_keys** | [**Array&lt;ApplicationKey&gt;**](ApplicationKey.md) | Array of application keys. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::ApplicationKeyListResponse.new(application_keys: null)
+instance = DatadogAPIClient::V1::ApplicationKeyListResponse.new(
+  application_keys: null
+)
 ```
-
 

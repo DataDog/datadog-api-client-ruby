@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**page** | [**Pagination**](Pagination.md) |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **page** | [**Pagination**](Pagination.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V2'
+require 'datadog_api_client/v2'
 
-instance = DatadogAPIClient::V2::ResponseMetaAttributes.new(page: null)
+instance = DatadogAPIClient::V2::ResponseMetaAttributes.new(
+  page: null
+)
 ```
-
 

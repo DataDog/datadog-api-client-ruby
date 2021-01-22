@@ -2,20 +2,21 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**aggregation** | **String** | The aggregation method. | 
-**facet** | **String** | Facet name. | [optional] 
-**order** | [**WidgetSort**](WidgetSort.md) |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **aggregation** | **String** | The aggregation method. |  |
+| **facet** | **String** | Facet name. | [optional] |
+| **order** | [**WidgetSort**](WidgetSort.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::LogQueryDefinitionSort.new(aggregation: avg,
-                                 facet: @string_query.interval,
-                                 order: null)
+instance = DatadogAPIClient::V1::LogQueryDefinitionSort.new(
+  aggregation: avg,
+  facet: @string_query.interval,
+  order: null
+)
 ```
-
 

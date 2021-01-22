@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**usage** | [**Array&lt;UsageSyntheticsAPIHour&gt;**](UsageSyntheticsAPIHour.md) | Get hourly usage for Synthetics API tests. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **usage** | [**Array&lt;UsageSyntheticsAPIHour&gt;**](UsageSyntheticsAPIHour.md) | Get hourly usage for Synthetics API tests. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::UsageSyntheticsAPIResponse.new(usage: null)
+instance = DatadogAPIClient::V1::UsageSyntheticsAPIResponse.new(
+  usage: null
+)
 ```
-
 

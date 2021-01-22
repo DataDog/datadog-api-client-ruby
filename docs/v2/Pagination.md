@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**total_count** | **Integer** | Total count. | [optional] 
-**total_filtered_count** | **Integer** | Total count of elements matched by the filter. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **total_count** | **Integer** | Total count. | [optional] |
+| **total_filtered_count** | **Integer** | Total count of elements matched by the filter. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V2'
+require 'datadog_api_client/v2'
 
-instance = DatadogAPIClient::V2::Pagination.new(total_count: null,
-                                 total_filtered_count: null)
+instance = DatadogAPIClient::V2::Pagination.new(
+  total_count: null,
+  total_filtered_count: null
+)
 ```
-
 

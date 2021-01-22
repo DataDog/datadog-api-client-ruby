@@ -1,16 +1,51 @@
 # DatadogAPIClient::V2::LogsGroupByTotal
 
-## Properties
+## Class instance methods
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+### `openapi_one_of`
 
-## Code Sample
+Returns the list of classes defined in oneOf.
+
+#### Example
 
 ```ruby
-require 'DatadogAPIClient::V2'
+require 'datadog_api_client/v2'
 
-instance = DatadogAPIClient::V2::LogsGroupByTotal.new()
+DatadogAPIClient::V2::LogsGroupByTotal.openapi_one_of
+# =>
+# [
+#   :'Boolean',
+#   :'Float',
+#   :'String'
+# ]
 ```
 
+### build
+
+Find the appropriate object from the `openapi_one_of` list and casts the data into it.
+
+#### Example
+
+```ruby
+require 'datadog_api_client/v2'
+
+DatadogAPIClient::V2::LogsGroupByTotal.build(data)
+# => #<Boolean:0x00007fdd4aab02a0>
+
+DatadogAPIClient::V2::LogsGroupByTotal.build(data_that_doesnt_match)
+# => nil
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| **data** | **Mixed** | data to be matched against the list of oneOf items |
+
+#### Return type
+
+- `Boolean`
+- `Float`
+- `String`
+- `nil` (if no type matches)
 

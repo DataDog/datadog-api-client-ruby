@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**deleted_monitor_id** | **Integer** | ID of the deleted monitor. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **deleted_monitor_id** | **Integer** | ID of the deleted monitor. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::DeletedMonitor.new(deleted_monitor_id: null)
+instance = DatadogAPIClient::V1::DeletedMonitor.new(
+  deleted_monitor_id: null
+)
 ```
-
 

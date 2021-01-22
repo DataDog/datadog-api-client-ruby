@@ -2,20 +2,21 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**agg_type** | **String** | The aggregate type. | [optional] 
-**field** | **String** | The field. | [optional] 
-**value** | **Float** | The value for a given field. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **agg_type** | **String** | The aggregate type. | [optional] |
+| **field** | **String** | The field. | [optional] |
+| **value** | **Float** | The value for a given field. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::UsageAttributionAggregatesBody.new(agg_type: sum,
-                                 field: custom_timeseries_usage,
-                                 value: null)
+instance = DatadogAPIClient::V1::UsageAttributionAggregatesBody.new(
+  agg_type: sum,
+  field: custom_timeseries_usage,
+  value: null
+)
 ```
-
 

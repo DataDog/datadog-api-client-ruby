@@ -2,20 +2,21 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**aggregation** | **String** | The aggregation method. | 
-**facet** | **String** | Facet name. | [optional] 
-**interval** | **Integer** | Define a time interval in seconds. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **aggregation** | **String** | The aggregation method. |  |
+| **facet** | **String** | Facet name. | [optional] |
+| **interval** | **Integer** | Define a time interval in seconds. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::LogsQueryCompute.new(aggregation: avg,
-                                 facet: @duration,
-                                 interval: 5000)
+instance = DatadogAPIClient::V1::LogsQueryCompute.new(
+  aggregation: avg,
+  facet: @duration,
+  interval: 5000
+)
 ```
-
 

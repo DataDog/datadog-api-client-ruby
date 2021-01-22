@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**errors** | [**Array&lt;AWSLogsAsyncResponseErrors&gt;**](AWSLogsAsyncResponseErrors.md) | List of errors. | [optional] 
-**status** | **String** | Status of the properties. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **errors** | [**Array&lt;AWSLogsAsyncResponseErrors&gt;**](AWSLogsAsyncResponseErrors.md) | List of errors. | [optional] |
+| **status** | **String** | Status of the properties. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::AWSLogsAsyncResponse.new(errors: null,
-                                 status: created)
+instance = DatadogAPIClient::V1::AWSLogsAsyncResponse.new(
+  errors: null,
+  status: created
+)
 ```
-
 

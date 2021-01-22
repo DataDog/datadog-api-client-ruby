@@ -2,30 +2,31 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**author** | [**Creator**](Creator.md) |  | [optional] 
-**created** | **Time** | Date of creation of the dashboard list. | [optional] [readonly] 
-**dashboard_count** | **Integer** | The number of dashboards in the list. | [optional] [readonly] 
-**id** | **Integer** | The ID of the dashboard list. | [optional] [readonly] 
-**is_favorite** | **Boolean** | Whether or not the list is in the favorites. | [optional] [readonly] 
-**modified** | **Time** | Date of last edition of the dashboard list. | [optional] [readonly] 
-**name** | **String** | The name of the dashboard list. | 
-**type** | **String** | The type of dashboard list. | [optional] [readonly] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **author** | [**Creator**](Creator.md) |  | [optional] |
+| **created** | **Time** | Date of creation of the dashboard list. | [optional][readonly] |
+| **dashboard_count** | **Integer** | The number of dashboards in the list. | [optional][readonly] |
+| **id** | **Integer** | The ID of the dashboard list. | [optional][readonly] |
+| **is_favorite** | **Boolean** | Whether or not the list is in the favorites. | [optional][readonly] |
+| **modified** | **Time** | Date of last edition of the dashboard list. | [optional][readonly] |
+| **name** | **String** | The name of the dashboard list. |  |
+| **type** | **String** | The type of dashboard list. | [optional][readonly] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::DashboardList.new(author: null,
-                                 created: null,
-                                 dashboard_count: null,
-                                 id: null,
-                                 is_favorite: null,
-                                 modified: null,
-                                 name: My Dashboard,
-                                 type: manual_dashboard_list)
+instance = DatadogAPIClient::V1::DashboardList.new(
+  author: null,
+  created: null,
+  dashboard_count: null,
+  id: null,
+  is_favorite: null,
+  modified: null,
+  name: My Dashboard,
+  type: manual_dashboard_list
+)
 ```
-
 

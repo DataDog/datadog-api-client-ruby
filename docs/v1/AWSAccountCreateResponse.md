@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**external_id** | **String** | AWS external_id. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **external_id** | **String** | AWS external_id. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::AWSAccountCreateResponse.new(external_id: null)
+instance = DatadogAPIClient::V1::AWSAccountCreateResponse.new(
+  external_id: null
+)
 ```
-
 

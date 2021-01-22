@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**usage** | [**Array&lt;UsageBillableSummaryHour&gt;**](UsageBillableSummaryHour.md) | An array of objects regarding usage of billable summary. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **usage** | [**Array&lt;UsageBillableSummaryHour&gt;**](UsageBillableSummaryHour.md) | An array of objects regarding usage of billable summary. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::UsageBillableSummaryResponse.new(usage: null)
+instance = DatadogAPIClient::V1::UsageBillableSummaryResponse.new(
+  usage: null
+)
 ```
-
 

@@ -1,3 +1,7 @@
+Before('@integration-only') do |scenario|
+  skip_this_scenario('integration only') unless ENV["RECORD"] == "none"
+end
+
 Around do |scenario, block|
   current_span = Datadog.configuration[:cucumber][:tracer].active_span
   unless current_span.nil?
@@ -32,7 +36,7 @@ end
 
 Around do |scenario, block|
   VCR.use_cassette(scenario.location.file.chomp('.feature') + "/" + scenario.name.gsub(/[^A-Za-z0-9]+/, '-')[0..100], :record_on_error => false) do |cassette|
-    Timecop.freeze(cassette.originally_recorded_at || Time.now) do
+    Timecop.freeze(use_real_time? ? Time.now : cassette.originally_recorded_at) do
       block.call
     end
   end

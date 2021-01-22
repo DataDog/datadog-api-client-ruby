@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gemspec
 
 group :development, :test do
-  gem 'codecov'
+  gem 'codecov', '!= 0.2.14'
   gem 'cucumber'
   # gem 'ddtrace'
   gem 'ddtrace', git: 'https://github.com/datadog/dd-trace-rb', branch: 'jirikuncar/cucumber-timecop'

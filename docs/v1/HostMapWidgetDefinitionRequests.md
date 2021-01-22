@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**fill** | [**HostMapRequest**](HostMapRequest.md) |  | [optional] 
-**size** | [**HostMapRequest**](HostMapRequest.md) |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **fill** | [**HostMapRequest**](HostMapRequest.md) |  | [optional] |
+| **size** | [**HostMapRequest**](HostMapRequest.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::HostMapWidgetDefinitionRequests.new(fill: null,
-                                 size: null)
+instance = DatadogAPIClient::V1::HostMapWidgetDefinitionRequests.new(
+  fill: null,
+  size: null
+)
 ```
-
 

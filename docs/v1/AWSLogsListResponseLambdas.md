@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**arn** | **String** | Available ARN IDs. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **arn** | **String** | Available ARN IDs. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::AWSLogsListResponseLambdas.new(arn: null)
+instance = DatadogAPIClient::V1::AWSLogsListResponseLambdas.new(
+  arn: null
+)
 ```
-
 

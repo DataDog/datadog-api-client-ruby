@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**time** | **String** | The time value for this point | [optional] 
-**value** | **Float** | The value for this point | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **time** | **String** | The time value for this point | [optional] |
+| **value** | **Float** | The value for this point | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V2'
+require 'datadog_api_client/v2'
 
-instance = DatadogAPIClient::V2::LogsAggregateBucketValueTimeseriesPoint.new(time: 2020-06-08T11:55:00Z,
-                                 value: 19)
+instance = DatadogAPIClient::V2::LogsAggregateBucketValueTimeseriesPoint.new(
+  time: 2020-06-08T11:55:00Z,
+  value: 19
+)
 ```
-
 

@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**indexes** | [**Array&lt;LogsIndex&gt;**](LogsIndex.md) | Array of Log index configurations. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **indexes** | [**Array&lt;LogsIndex&gt;**](LogsIndex.md) | Array of Log index configurations. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::LogsIndexListResponse.new(indexes: null)
+instance = DatadogAPIClient::V1::LogsIndexListResponse.new(
+  indexes: null
+)
 ```
-
 

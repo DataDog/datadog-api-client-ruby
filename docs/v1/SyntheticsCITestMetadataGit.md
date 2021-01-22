@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**branch** | **String** | Branch name. | [optional] 
-**commit_sha** | **String** | Commit SHA. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **branch** | **String** | Branch name. | [optional] |
+| **commit_sha** | **String** | Commit SHA. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::SyntheticsCITestMetadataGit.new(branch: null,
-                                 commit_sha: null)
+instance = DatadogAPIClient::V1::SyntheticsCITestMetadataGit.new(
+  branch: null,
+  commit_sha: null
+)
 ```
-
 

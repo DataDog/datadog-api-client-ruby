@@ -2,24 +2,25 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**check_time** | **Float** | Last time the API test was performed. | [optional] 
-**probe_dc** | **String** | Location from which the API test was performed. | [optional] 
-**result** | [**SyntheticsAPITestResultShortResult**](SyntheticsAPITestResultShortResult.md) |  | [optional] 
-**result_id** | **String** | ID of the API test result. | [optional] 
-**status** | [**SyntheticsTestMonitorStatus**](SyntheticsTestMonitorStatus.md) |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **check_time** | **Float** | Last time the API test was performed. | [optional] |
+| **probe_dc** | **String** | Location from which the API test was performed. | [optional] |
+| **result** | [**SyntheticsAPITestResultShortResult**](SyntheticsAPITestResultShortResult.md) |  | [optional] |
+| **result_id** | **String** | ID of the API test result. | [optional] |
+| **status** | [**SyntheticsTestMonitorStatus**](SyntheticsTestMonitorStatus.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::SyntheticsAPITestResultShort.new(check_time: null,
-                                 probe_dc: null,
-                                 result: null,
-                                 result_id: null,
-                                 status: null)
+instance = DatadogAPIClient::V1::SyntheticsAPITestResultShort.new(
+  check_time: null,
+  probe_dc: null,
+  result: null,
+  result_id: null,
+  status: null
+)
 ```
-
 

@@ -1,5 +1,8 @@
 .bundle
 Gemfile.lock
+failed.txt
 rerun.txt
 coverage/
 examples/
+datadog_api_client-*.gem
+vendor/

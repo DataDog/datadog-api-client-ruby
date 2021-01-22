@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**api_keys** | [**Array&lt;ApiKey&gt;**](ApiKey.md) | Array of API keys. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **api_keys** | [**Array&lt;ApiKey&gt;**](ApiKey.md) | Array of API keys. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'DatadogAPIClient::V1'
+require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::ApiKeyListResponse.new(api_keys: null)
+instance = DatadogAPIClient::V1::ApiKeyListResponse.new(
+  api_keys: null
+)
 ```
-
 
