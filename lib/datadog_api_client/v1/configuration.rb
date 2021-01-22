@@ -283,7 +283,8 @@ module DatadogAPIClient::V1
                 default_value: "datadoghq.com",
                 enum_values: [
                   "datadoghq.com",
-                  "datadoghq.eu"
+                  "datadoghq.eu",
+                  "ddog-gov.com"
                 ]
               },
             subdomain: {
@@ -420,7 +421,8 @@ module DatadogAPIClient::V1
                 default_value: "datadoghq.com",
                 enum_values: [
                   "datadoghq.com",
-                  "datadoghq.eu"
+                  "datadoghq.eu",
+                  "ddog-gov.com"
                 ]
               },
             subdomain: {
