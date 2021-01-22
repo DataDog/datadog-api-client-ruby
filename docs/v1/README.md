@@ -61,13 +61,9 @@ require 'datadog_api_client/v1'
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::AWSIntegrationApi.new
@@ -149,6 +145,7 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::KeyManagementApi* | [**update_api_key**](KeyManagementApi.md#update_api_key) | **PUT** /api/v1/api_key/{key} | Edit an API key
 *DatadogAPIClient::V1::KeyManagementApi* | [**update_application_key**](KeyManagementApi.md#update_application_key) | **PUT** /api/v1/application_key/{key} | Edit an application key
 *DatadogAPIClient::V1::LogsApi* | [**list_logs**](LogsApi.md#list_logs) | **POST** /api/v1/logs-queries/list | Get a list of logs
+*DatadogAPIClient::V1::LogsIndexesApi* | [**create_logs_index**](LogsIndexesApi.md#create_logs_index) | **POST** /api/v1/logs/config/indexes | Create an index
 *DatadogAPIClient::V1::LogsIndexesApi* | [**get_logs_index**](LogsIndexesApi.md#get_logs_index) | **GET** /api/v1/logs/config/indexes/{name} | Get an index
 *DatadogAPIClient::V1::LogsIndexesApi* | [**get_logs_index_order**](LogsIndexesApi.md#get_logs_index_order) | **GET** /api/v1/logs/config/index-order | Get indexes order
 *DatadogAPIClient::V1::LogsIndexesApi* | [**list_log_indexes**](LogsIndexesApi.md#list_log_indexes) | **GET** /api/v1/logs/config/indexes | Get all indexes
@@ -182,13 +179,18 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::PagerDutyIntegrationApi* | [**delete_pager_duty_integration_service**](PagerDutyIntegrationApi.md#delete_pager_duty_integration_service) | **DELETE** /api/v1/integration/pagerduty/configuration/services/{service_name} | Delete a single service object
 *DatadogAPIClient::V1::PagerDutyIntegrationApi* | [**get_pager_duty_integration_service**](PagerDutyIntegrationApi.md#get_pager_duty_integration_service) | **GET** /api/v1/integration/pagerduty/configuration/services/{service_name} | Get a single service object
 *DatadogAPIClient::V1::PagerDutyIntegrationApi* | [**update_pager_duty_integration_service**](PagerDutyIntegrationApi.md#update_pager_duty_integration_service) | **PUT** /api/v1/integration/pagerduty/configuration/services/{service_name} | Update a single service object
+*DatadogAPIClient::V1::ServiceLevelObjectiveCorrectionsApi* | [**create_slo_correction**](ServiceLevelObjectiveCorrectionsApi.md#create_slo_correction) | **POST** /api/v1/slo/correction | Create an SLO correction
+*DatadogAPIClient::V1::ServiceLevelObjectiveCorrectionsApi* | [**delete_slo_correction**](ServiceLevelObjectiveCorrectionsApi.md#delete_slo_correction) | **DELETE** /api/v1/slo/correction/{slo_correction_id} | Delete an SLO Correction
+*DatadogAPIClient::V1::ServiceLevelObjectiveCorrectionsApi* | [**get_slo_correction**](ServiceLevelObjectiveCorrectionsApi.md#get_slo_correction) | **GET** /api/v1/slo/correction/{slo_correction_id} | Get an SLO correction for an SLO
+*DatadogAPIClient::V1::ServiceLevelObjectiveCorrectionsApi* | [**list_slo_correction**](ServiceLevelObjectiveCorrectionsApi.md#list_slo_correction) | **GET** /api/v1/slo/correction | Get all SLO corrections
+*DatadogAPIClient::V1::ServiceLevelObjectiveCorrectionsApi* | [**update_slo_correction**](ServiceLevelObjectiveCorrectionsApi.md#update_slo_correction) | **PATCH** /api/v1/slo/correction/{slo_correction_id} | Update an SLO Correction
 *DatadogAPIClient::V1::ServiceLevelObjectivesApi* | [**check_can_delete_slo**](ServiceLevelObjectivesApi.md#check_can_delete_slo) | **GET** /api/v1/slo/can_delete | Check if SLOs can be safely deleted
 *DatadogAPIClient::V1::ServiceLevelObjectivesApi* | [**create_slo**](ServiceLevelObjectivesApi.md#create_slo) | **POST** /api/v1/slo | Create a SLO object
 *DatadogAPIClient::V1::ServiceLevelObjectivesApi* | [**delete_slo**](ServiceLevelObjectivesApi.md#delete_slo) | **DELETE** /api/v1/slo/{slo_id} | Delete a SLO
 *DatadogAPIClient::V1::ServiceLevelObjectivesApi* | [**delete_slo_timeframe_in_bulk**](ServiceLevelObjectivesApi.md#delete_slo_timeframe_in_bulk) | **POST** /api/v1/slo/bulk_delete | Bulk Delete SLO Timeframes
 *DatadogAPIClient::V1::ServiceLevelObjectivesApi* | [**get_slo**](ServiceLevelObjectivesApi.md#get_slo) | **GET** /api/v1/slo/{slo_id} | Get a SLO's details
 *DatadogAPIClient::V1::ServiceLevelObjectivesApi* | [**get_slo_history**](ServiceLevelObjectivesApi.md#get_slo_history) | **GET** /api/v1/slo/{slo_id}/history | Get an SLO's history
-*DatadogAPIClient::V1::ServiceLevelObjectivesApi* | [**list_sl_os**](ServiceLevelObjectivesApi.md#list_sl_os) | **GET** /api/v1/slo | Search SLOs
+*DatadogAPIClient::V1::ServiceLevelObjectivesApi* | [**list_slos**](ServiceLevelObjectivesApi.md#list_slos) | **GET** /api/v1/slo | Search SLOs
 *DatadogAPIClient::V1::ServiceLevelObjectivesApi* | [**update_slo**](ServiceLevelObjectivesApi.md#update_slo) | **PUT** /api/v1/slo/{slo_id} | Update a SLO
 *DatadogAPIClient::V1::SnapshotsApi* | [**get_graph_snapshot**](SnapshotsApi.md#get_graph_snapshot) | **GET** /api/v1/graph/snapshot | Take graph snapshots
 *DatadogAPIClient::V1::SyntheticsApi* | [**create_global_variable**](SyntheticsApi.md#create_global_variable) | **POST** /api/v1/synthetics/variables | Create a global variable
@@ -463,6 +465,18 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::SLOBulkDeleteResponse](SLOBulkDeleteResponse.md)
  - [DatadogAPIClient::V1::SLOBulkDeleteResponseData](SLOBulkDeleteResponseData.md)
  - [DatadogAPIClient::V1::SLOBulkDeleteResponseErrors](SLOBulkDeleteResponseErrors.md)
+ - [DatadogAPIClient::V1::SLOCorrectionCategory](SLOCorrectionCategory.md)
+ - [DatadogAPIClient::V1::SLOCorrectionCreateRequest](SLOCorrectionCreateRequest.md)
+ - [DatadogAPIClient::V1::SLOCorrectionCreateRequestAttributes](SLOCorrectionCreateRequestAttributes.md)
+ - [DatadogAPIClient::V1::SLOCorrectionCreateRequestData](SLOCorrectionCreateRequestData.md)
+ - [DatadogAPIClient::V1::SLOCorrectionListResponse](SLOCorrectionListResponse.md)
+ - [DatadogAPIClient::V1::SLOCorrectionListResponseData](SLOCorrectionListResponseData.md)
+ - [DatadogAPIClient::V1::SLOCorrectionResponse](SLOCorrectionResponse.md)
+ - [DatadogAPIClient::V1::SLOCorrectionResponseAttributes](SLOCorrectionResponseAttributes.md)
+ - [DatadogAPIClient::V1::SLOCorrectionResponseData](SLOCorrectionResponseData.md)
+ - [DatadogAPIClient::V1::SLOCorrectionUpdateRequest](SLOCorrectionUpdateRequest.md)
+ - [DatadogAPIClient::V1::SLOCorrectionUpdateRequestAttributes](SLOCorrectionUpdateRequestAttributes.md)
+ - [DatadogAPIClient::V1::SLOCorrectionUpdateRequestData](SLOCorrectionUpdateRequestData.md)
  - [DatadogAPIClient::V1::SLODeleteResponse](SLODeleteResponse.md)
  - [DatadogAPIClient::V1::SLOErrorTimeframe](SLOErrorTimeframe.md)
  - [DatadogAPIClient::V1::SLOHistoryMetrics](SLOHistoryMetrics.md)
@@ -519,6 +533,8 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::SyntheticsCITestMetadataCi](SyntheticsCITestMetadataCi.md)
  - [DatadogAPIClient::V1::SyntheticsCITestMetadataGit](SyntheticsCITestMetadataGit.md)
  - [DatadogAPIClient::V1::SyntheticsCheckType](SyntheticsCheckType.md)
+ - [DatadogAPIClient::V1::SyntheticsConfigVariable](SyntheticsConfigVariable.md)
+ - [DatadogAPIClient::V1::SyntheticsConfigVariableType](SyntheticsConfigVariableType.md)
  - [DatadogAPIClient::V1::SyntheticsDeleteTestsPayload](SyntheticsDeleteTestsPayload.md)
  - [DatadogAPIClient::V1::SyntheticsDeleteTestsResponse](SyntheticsDeleteTestsResponse.md)
  - [DatadogAPIClient::V1::SyntheticsDeleteTestsResponseDeletedTests](SyntheticsDeleteTestsResponseDeletedTests.md)
@@ -528,6 +544,10 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::SyntheticsGetAPITestLatestResultsResponse](SyntheticsGetAPITestLatestResultsResponse.md)
  - [DatadogAPIClient::V1::SyntheticsGetBrowserTestLatestResultsResponse](SyntheticsGetBrowserTestLatestResultsResponse.md)
  - [DatadogAPIClient::V1::SyntheticsGlobalVariable](SyntheticsGlobalVariable.md)
+ - [DatadogAPIClient::V1::SyntheticsGlobalVariableParseTestOptions](SyntheticsGlobalVariableParseTestOptions.md)
+ - [DatadogAPIClient::V1::SyntheticsGlobalVariableParseTestOptionsParser](SyntheticsGlobalVariableParseTestOptionsParser.md)
+ - [DatadogAPIClient::V1::SyntheticsGlobalVariableParseTestOptionsType](SyntheticsGlobalVariableParseTestOptionsType.md)
+ - [DatadogAPIClient::V1::SyntheticsGlobalVariableParserType](SyntheticsGlobalVariableParserType.md)
  - [DatadogAPIClient::V1::SyntheticsGlobalVariableValue](SyntheticsGlobalVariableValue.md)
  - [DatadogAPIClient::V1::SyntheticsListTestsResponse](SyntheticsListTestsResponse.md)
  - [DatadogAPIClient::V1::SyntheticsLocation](SyntheticsLocation.md)

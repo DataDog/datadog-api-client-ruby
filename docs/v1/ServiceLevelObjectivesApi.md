@@ -10,7 +10,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**delete_slo_timeframe_in_bulk**](ServiceLevelObjectivesApi.md#delete_slo_timeframe_in_bulk) | **POST** /api/v1/slo/bulk_delete | Bulk Delete SLO Timeframes |
 | [**get_slo**](ServiceLevelObjectivesApi.md#get_slo) | **GET** /api/v1/slo/{slo_id} | Get a SLO&#39;s details |
 | [**get_slo_history**](ServiceLevelObjectivesApi.md#get_slo_history) | **GET** /api/v1/slo/{slo_id}/history | Get an SLO&#39;s history |
-| [**list_sl_os**](ServiceLevelObjectivesApi.md#list_sl_os) | **GET** /api/v1/slo | Search SLOs |
+| [**list_slos**](ServiceLevelObjectivesApi.md#list_slos) | **GET** /api/v1/slo | Search SLOs |
 | [**update_slo**](ServiceLevelObjectivesApi.md#update_slo) | **PUT** /api/v1/slo/{slo_id} | Update a SLO |
 
 
@@ -31,13 +31,9 @@ require 'datadog_api_client/v1'
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::ServiceLevelObjectivesApi.new
@@ -107,13 +103,9 @@ require 'datadog_api_client/v1'
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::ServiceLevelObjectivesApi.new
@@ -183,13 +175,9 @@ require 'datadog_api_client/v1'
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::ServiceLevelObjectivesApi.new
@@ -263,13 +251,9 @@ require 'datadog_api_client/v1'
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::ServiceLevelObjectivesApi.new
@@ -339,13 +323,9 @@ require 'datadog_api_client/v1'
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::ServiceLevelObjectivesApi.new
@@ -415,13 +395,9 @@ require 'datadog_api_client/v1'
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 
   config.unstable_operations[:get_slo_history] = true
 end
@@ -480,9 +456,9 @@ end
 - **Accept**: application/json
 
 
-## list_sl_os
+## list_slos
 
-> <SLOListResponse> list_sl_os(ids)
+> <SLOListResponse> list_slos(ids)
 
 Search SLOs
 
@@ -497,13 +473,9 @@ require 'datadog_api_client/v1'
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::ServiceLevelObjectivesApi.new
@@ -511,28 +483,28 @@ ids = 'id1, id2, id3' # String | A comma separated list of the IDs of the servic
 
 begin
   # Search SLOs
-  result = api_instance.list_sl_os(ids)
+  result = api_instance.list_slos(ids)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Error when calling ServiceLevelObjectivesApi->list_sl_os: #{e}"
+  puts "Error when calling ServiceLevelObjectivesApi->list_slos: #{e}"
 end
 ```
 
-#### Using the list_sl_os_with_http_info variant
+#### Using the list_slos_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<SLOListResponse>, Integer, Hash)> list_sl_os_with_http_info(ids)
+> <Array(<SLOListResponse>, Integer, Hash)> list_slos_with_http_info(ids)
 
 ```ruby
 begin
   # Search SLOs
-  data, status_code, headers = api_instance.list_sl_os_with_http_info(ids)
+  data, status_code, headers = api_instance.list_slos_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SLOListResponse>
 rescue DatadogAPIClient::V1::ApiError => e
-  puts "Error when calling ServiceLevelObjectivesApi->list_sl_os_with_http_info: #{e}"
+  puts "Error when calling ServiceLevelObjectivesApi->list_slos_with_http_info: #{e}"
 end
 ```
 
@@ -573,13 +545,9 @@ require 'datadog_api_client/v1'
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V1::ServiceLevelObjectivesApi.new

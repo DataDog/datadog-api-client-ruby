@@ -12,7 +12,7 @@
 require 'datadog_api_client/v2'
 
 instance = DatadogAPIClient::V2::LogsMetricResponseFilter.new(
-  query: null
+  query: service:web* AND @http.status_code:[200 TO 299]
 )
 ```
 

@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **agent_host_top99p_sum** | **Integer** | Shows the 99th percentile of all agent hosts over all hours in the current months for all organizations. | [optional] |
+| **apm_azure_app_service_host_top99p_sum** | **Integer** | Shows the 99th percentile of all Azure app services using APM over all hours in the current months all organizations. | [optional] |
 | **apm_host_top99p_sum** | **Integer** | Shows the 99th percentile of all distinct APM hosts over all hours in the current months for all organizations. | [optional] |
 | **aws_host_top99p_sum** | **Integer** | Shows the 99th percentile of all AWS hosts over all hours in the current months for all organizations. | [optional] |
 | **aws_lambda_func_count** | **Integer** | Shows the average of the number of functions that executed 1 or more times each hour in the current months for all organizations. | [optional] |
@@ -24,12 +25,19 @@
 | **infra_host_top99p_sum** | **Integer** | Shows the 99th percentile of all distinct infrastructure hosts over all hours in the current months for all organizations. | [optional] |
 | **ingested_events_bytes_agg_sum** | **Integer** | Shows the sum of all log bytes ingested over all hours in the current months for all organizations. | [optional] |
 | **last_updated** | **Time** | Shows the the most recent hour in the current months for all organizations for which all usages were calculated. | [optional] |
+| **live_indexed_events_agg_sum** | **Integer** | Shows the sum of all live logs indexed over all hours in the current months for all organizations (data available as of December 1, 2020). | [optional] |
+| **live_ingested_bytes_agg_sum** | **Integer** | Shows the sum of all live logs bytes ingested over all hours in the current months for all organizations (data available as of December 1, 2020). | [optional] |
 | **mobile_rum_session_count_agg_sum** | **Integer** | Shows the sum of all mobile RUM Sessions over all hours in the current months for all organizations. | [optional] |
+| **mobile_rum_session_count_android_agg_sum** | **Integer** | Shows the sum of all mobile RUM Sessions on Android over all hours in the current months for all organizations. | [optional] |
+| **mobile_rum_session_count_ios_agg_sum** | **Integer** | Shows the sum of all mobile RUM Sessions on iOS over all hours in the current months for all organizations. | [optional] |
 | **netflow_indexed_events_count_agg_sum** | **Integer** | Shows the sum of all Network flows indexed over all hours in the current months for all organizations. | [optional] |
 | **npm_host_top99p_sum** | **Integer** | Shows the 99th percentile of all distinct Networks hosts over all hours in the current months for all organizations. | [optional] |
 | **profiling_container_agent_count_avg** | **Integer** | Shows the average number of profiled containers over all hours in the current months for all organizations. | [optional] |
 | **profiling_host_count_top99p_sum** | **Integer** | Shows the 99th percentile of all profiled hosts over all hours in the current months for all organizations. | [optional] |
+| **rehydrated_indexed_events_agg_sum** | **Integer** | Shows the sum of all rehydrated logs indexed over all hours in the current months for all organizations (data available as of December 1, 2020). | [optional] |
+| **rehydrated_ingested_bytes_agg_sum** | **Integer** | Shows the sum of all rehydrated logs bytes ingested over all hours in the current months for all organizations (data available as of December 1, 2020). | [optional] |
 | **rum_session_count_agg_sum** | **Integer** | Shows the sum of all browser RUM Sessions over all hours in the current months for all organizations. | [optional] |
+| **rum_total_session_count_agg_sum** | **Integer** | Shows the sum of RUM Sessions (browser and mobile) over all hours in the current months for all organizations. | [optional] |
 | **start_date** | **Time** | Shows the first date of usage in the current months for all organizations. | [optional] |
 | **synthetics_browser_check_calls_count_agg_sum** | **Integer** | Shows the sum of all Synthetic browser tests over all hours in the current months for all organizations. | [optional] |
 | **synthetics_check_calls_count_agg_sum** | **Integer** | Shows the sum of all Synthetic API tests over all hours in the current months for all organizations. | [optional] |
@@ -44,6 +52,7 @@ require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::UsageSummaryResponse.new(
   agent_host_top99p_sum: null,
+  apm_azure_app_service_host_top99p_sum: null,
   apm_host_top99p_sum: null,
   aws_host_top99p_sum: null,
   aws_lambda_func_count: null,
@@ -63,12 +72,19 @@ instance = DatadogAPIClient::V1::UsageSummaryResponse.new(
   infra_host_top99p_sum: null,
   ingested_events_bytes_agg_sum: null,
   last_updated: null,
+  live_indexed_events_agg_sum: null,
+  live_ingested_bytes_agg_sum: null,
   mobile_rum_session_count_agg_sum: null,
+  mobile_rum_session_count_android_agg_sum: null,
+  mobile_rum_session_count_ios_agg_sum: null,
   netflow_indexed_events_count_agg_sum: null,
   npm_host_top99p_sum: null,
   profiling_container_agent_count_avg: null,
   profiling_host_count_top99p_sum: null,
+  rehydrated_indexed_events_agg_sum: null,
+  rehydrated_ingested_bytes_agg_sum: null,
   rum_session_count_agg_sum: null,
+  rum_total_session_count_agg_sum: null,
   start_date: null,
   synthetics_browser_check_calls_count_agg_sum: null,
   synthetics_check_calls_count_agg_sum: null,

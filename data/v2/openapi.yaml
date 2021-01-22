@@ -69,17 +69,51 @@ components:
       name: sort
       required: false
       schema:
-        default: name
-        enum:
-        - created_at
-        - -created_at
-        - last4
-        - -last4
-        - modified_at
-        - -modified_at
-        - name
-        - -name
+        $ref: '#/components/schemas/APIKeysSort'
+    ApplicationKeyFilterCreatedAtEndParameter:
+      description: Only include application keys created on or before the specified
+        date.
+      in: query
+      name: filter[created_at][end]
+      required: false
+      schema:
+        example: '2020-11-24T18:46:21+00:00'
         type: string
+    ApplicationKeyFilterCreatedAtStartParameter:
+      description: Only include application keys created on or after the specified
+        date.
+      in: query
+      name: filter[created_at][start]
+      required: false
+      schema:
+        example: '2020-11-24T18:46:21+00:00'
+        type: string
+    ApplicationKeyFilterParameter:
+      description: Filter application keys by the specified string.
+      in: query
+      name: filter
+      required: false
+      schema:
+        type: string
+    ApplicationKeyId:
+      description: The ID of the application key.
+      in: path
+      name: app_key_id
+      required: true
+      schema:
+        type: string
+    ApplicationKeysSortParameter:
+      description: 'Application key attribute used to sort results. Sort order is
+        ascending
+
+        by default. In order to specify a descending sort, prefix the
+
+        attribute with a minus sign.'
+      in: query
+      name: sort
+      required: false
+      schema:
+        $ref: '#/components/schemas/ApplicationKeysSort'
     ArchiveID:
       description: The ID of the archive.
       in: path
@@ -103,9 +137,7 @@ components:
       required: false
       schema:
         items:
-          enum:
-          - users
-          type: string
+          $ref: '#/components/schemas/IncidentRelatedObject'
         type: array
     IncidentServiceIDPathParameter:
       description: The ID of the incident service.
@@ -121,9 +153,7 @@ components:
       name: include
       required: false
       schema:
-        enum:
-        - users
-        type: string
+        $ref: '#/components/schemas/IncidentRelatedObject'
     IncidentServiceSearchQueryParameter:
       description: A search query that filters services by name.
       in: query
@@ -146,9 +176,7 @@ components:
       name: include
       required: false
       schema:
-        enum:
-        - users
-        type: string
+        $ref: '#/components/schemas/IncidentRelatedObject'
     IncidentTeamSearchQueryParameter:
       description: A search query that filters teams by name.
       in: query
@@ -377,6 +405,28 @@ components:
             $ref: '#/components/schemas/APIKeyResponseIncludedItem'
           type: array
       type: object
+    APIKeysSort:
+      default: name
+      description: Sorting options
+      enum:
+      - created_at
+      - -created_at
+      - last4
+      - -last4
+      - modified_at
+      - -modified_at
+      - name
+      - -name
+      type: string
+      x-enum-varnames:
+      - CREATED_AT_ASCENDING
+      - CREATED_AT_DESCENDING
+      - LAST4_ASCENDING
+      - LAST4_DESCENDING
+      - MODIFIED_AT_ASCENDING
+      - MODIFIED_AT_DESCENDING
+      - NAME_ASCENDING
+      - NAME_DESCENDING
     APIKeysType:
       default: api_keys
       description: API Keys resource type.
@@ -386,6 +436,119 @@ components:
       type: string
       x-enum-varnames:
       - API_KEYS
+    ApplicationKeyCreateAttributes:
+      description: Attributes used to create an application Key.
+      properties:
+        name:
+          description: Name of the application key.
+          example: Application Key for submitting metrics
+          type: string
+      required:
+      - name
+      type: object
+    ApplicationKeyCreateData:
+      description: Object used to create an application key.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/ApplicationKeyCreateAttributes'
+        type:
+          $ref: '#/components/schemas/ApplicationKeysType'
+      required:
+      - attributes
+      - type
+      type: object
+    ApplicationKeyCreateRequest:
+      description: Request used to create an application key.
+      properties:
+        data:
+          $ref: '#/components/schemas/ApplicationKeyCreateData'
+      required:
+      - data
+      type: object
+    ApplicationKeyRelationships:
+      description: Resources related to the application key.
+      properties:
+        created_by:
+          $ref: '#/components/schemas/RelationshipToUser'
+      type: object
+    ApplicationKeyResponse:
+      description: Response for retrieving an application key.
+      properties:
+        data:
+          $ref: '#/components/schemas/FullApplicationKey'
+        included:
+          description: Array of objects related to the application key.
+          items:
+            $ref: '#/components/schemas/ApplicationKeyResponseIncludedItem'
+          type: array
+      type: object
+    ApplicationKeyResponseIncludedItem:
+      description: An object related to an application key.
+      oneOf:
+      - $ref: '#/components/schemas/User'
+      - $ref: '#/components/schemas/Role'
+      type: object
+    ApplicationKeyUpdateAttributes:
+      description: Attributes used to update an application Key.
+      properties:
+        name:
+          description: Name of the application key.
+          example: Application Key for submitting metrics
+          type: string
+      required:
+      - name
+      type: object
+    ApplicationKeyUpdateData:
+      description: Object used to update an application key.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/ApplicationKeyUpdateAttributes'
+        id:
+          description: ID of the application key.
+          example: 00112233-4455-6677-8899-aabbccddeeff
+          type: string
+        type:
+          $ref: '#/components/schemas/ApplicationKeysType'
+      required:
+      - attributes
+      - id
+      - type
+      type: object
+    ApplicationKeyUpdateRequest:
+      description: Request used to update an application key.
+      properties:
+        data:
+          $ref: '#/components/schemas/ApplicationKeyUpdateData'
+      required:
+      - data
+      type: object
+    ApplicationKeysSort:
+      default: name
+      description: Sorting options
+      enum:
+      - created_at
+      - -created_at
+      - last4
+      - -last4
+      - name
+      - -name
+      type: string
+      x-enum-varnames:
+      - CREATED_AT_ASCENDING
+      - CREATED_AT_DESCENDING
+      - LAST4_ASCENDING
+      - LAST4_DESCENDING
+      - NAME_ASCENDING
+      - NAME_DESCENDING
+    ApplicationKeysType:
+      default: application_keys
+      description: Application Keys resource type.
+      enum:
+      - application_keys
+      example: application_keys
+      type: string
+      x-enum-varnames:
+      - APPLICATION_KEYS
     Creator:
       description: Creator of the object.
       properties:
@@ -609,6 +772,43 @@ components:
           example: API Key for submitting metrics
           type: string
       type: object
+    FullApplicationKey:
+      description: Datadog application key.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/FullApplicationKeyAttributes'
+        id:
+          description: ID of the application key.
+          type: string
+        relationships:
+          $ref: '#/components/schemas/ApplicationKeyRelationships'
+        type:
+          $ref: '#/components/schemas/ApplicationKeysType'
+      type: object
+    FullApplicationKeyAttributes:
+      description: Attributes of a full application key.
+      properties:
+        created_at:
+          description: Creation date of the application key.
+          example: '2020-11-23T10:00:00.000Z'
+          readOnly: true
+          type: string
+        key:
+          description: The application key.
+          readOnly: true
+          type: string
+        last4:
+          description: The last four characters of the application key.
+          example: abcd
+          maxLength: 4
+          minLength: 4
+          readOnly: true
+          type: string
+        name:
+          description: Name of the application key.
+          example: Application Key for submitting metrics
+          type: string
+      type: object
     IncidentCreateAttributes:
       description: The incident's attributes for a create request.
       properties:
@@ -757,6 +957,13 @@ components:
       type: string
       x-enum-varnames:
       - INCIDENT_POSTMORTEMS
+    IncidentRelatedObject:
+      description: Object related to an incident.
+      enum:
+      - users
+      type: string
+      x-enum-varnames:
+      - USERS
     IncidentResponse:
       description: Response with an incident.
       properties:
@@ -1012,7 +1219,7 @@ components:
       type: object
     IncidentServiceType:
       default: services
-      description: Incident Service resource type.
+      description: Incident service resource type.
       enum:
       - services
       example: services
@@ -1552,6 +1759,20 @@ components:
           type: object
       required:
       - data
+      type: object
+    ListApplicationKeysResponse:
+      description: Response for a list of application keys.
+      properties:
+        data:
+          description: Array of application keys.
+          items:
+            $ref: '#/components/schemas/PartialApplicationKey'
+          type: array
+        included:
+          description: Array of objects related to the application key.
+          items:
+            $ref: '#/components/schemas/ApplicationKeyResponseIncludedItem'
+          type: array
       type: object
     Log:
       description: Object description of a log after being processed and stored by
@@ -2200,6 +2421,7 @@ components:
         limit:
           default: 10
           description: The maximum buckets to return for this group by
+          format: int64
           type: integer
         missing:
           $ref: '#/components/schemas/LogsGroupByMissing'
@@ -2308,6 +2530,7 @@ components:
       enum:
       - count
       - distribution
+      example: distribution
       type: string
       x-enum-varnames:
       - COUNT
@@ -2406,6 +2629,7 @@ components:
         path:
           description: The path to the value the log-based metric will aggregate on
             (only used if the aggregation type is a "distribution").
+          example: '@duration'
           type: string
       type: object
     LogsMetricResponseComputeAggregationType:
@@ -2413,6 +2637,7 @@ components:
       enum:
       - count
       - distribution
+      example: distribution
       type: string
       x-enum-varnames:
       - COUNT
@@ -2433,6 +2658,7 @@ components:
       properties:
         query:
           description: The search query - following the log search syntax.
+          example: service:web* AND @http.status_code:[200 TO 299]
           type: string
       type: object
     LogsMetricResponseGroupBy:
@@ -2441,10 +2667,12 @@ components:
         path:
           description: The path to the value the log-based metric will be aggregated
             over.
+          example: '@http.status_code'
           type: string
         tag_name:
           description: Eventual name of the tag that gets created. By default, the
             path attribute is used as the tag name.
+          example: status_code
           type: string
       type: object
     LogsMetricType:
@@ -2536,6 +2764,7 @@ components:
       properties:
         timeOffset:
           description: The time offset (in seconds) to apply to the query.
+          format: int64
           type: integer
         timezone:
           default: UTC
@@ -2550,6 +2779,7 @@ components:
         elapsed:
           description: The time elapsed in milliseconds
           example: 132
+          format: int64
           type: integer
         page:
           description: Paging attributes.
@@ -2714,6 +2944,39 @@ components:
         name:
           description: Name of the API key.
           example: API Key for submitting metrics
+          type: string
+      type: object
+    PartialApplicationKey:
+      description: Partial Datadog application key.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/PartialApplicationKeyAttributes'
+        id:
+          description: ID of the application key.
+          type: string
+        relationships:
+          $ref: '#/components/schemas/ApplicationKeyRelationships'
+        type:
+          $ref: '#/components/schemas/ApplicationKeysType'
+      type: object
+    PartialApplicationKeyAttributes:
+      description: Attributes of a partial application key.
+      properties:
+        created_at:
+          description: Creation date of the application key.
+          example: '2020-11-23T10:00:00.000Z'
+          readOnly: true
+          type: string
+        last4:
+          description: The last four characters of the application key.
+          example: abcd
+          maxLength: 4
+          minLength: 4
+          readOnly: true
+          type: string
+        name:
+          description: Name of the application key.
+          example: Application Key for submitting metrics
           type: string
       type: object
     Permission:
@@ -3269,6 +3532,24 @@ components:
       type: string
       x-enum-varnames:
       - ROLES
+    SecurityMonitoringFilter:
+      description: The rule's suppression filter.
+      properties:
+        action:
+          $ref: '#/components/schemas/SecurityMonitoringFilterAction'
+        query:
+          description: Query for selecting logs to apply the filtering action.
+          type: string
+      type: object
+    SecurityMonitoringFilterAction:
+      description: The type of filtering action.
+      enum:
+      - require
+      - suppress
+      type: string
+      x-enum-varnames:
+      - REQUIRE
+      - SUPPRESS
     SecurityMonitoringListRulesResponse:
       description: List of rules.
       properties:
@@ -3332,6 +3613,12 @@ components:
           example: []
           items:
             $ref: '#/components/schemas/SecurityMonitoringRuleCaseCreate'
+          type: array
+        filters:
+          description: Additional queries to filter matched events before they are
+            processed.
+          items:
+            $ref: '#/components/schemas/SecurityMonitoringFilter'
           type: array
         isEnabled:
           description: Whether the rule is enabled.
@@ -3554,6 +3841,12 @@ components:
           description: User ID of the user who created the rule.
           format: int64
           type: integer
+        filters:
+          description: Additional queries to filter matched events before they are
+            processed.
+          items:
+            $ref: '#/components/schemas/SecurityMonitoringFilter'
+          type: array
         id:
           description: The ID of the rule.
           type: string
@@ -3611,6 +3904,12 @@ components:
           description: Cases for generating signals.
           items:
             $ref: '#/components/schemas/SecurityMonitoringRuleCase'
+          type: array
+        filters:
+          description: Additional queries to filter matched events before they are
+            processed.
+          items:
+            $ref: '#/components/schemas/SecurityMonitoringFilter'
           type: array
         isEnabled:
           description: Whether the rule is enabled.
@@ -4241,6 +4540,299 @@ paths:
                 $ref: '#/components/schemas/APIErrorResponse'
           description: Not Found
       summary: Edit an API key
+      tags:
+      - Key Management
+      x-codegen-request-body-name: body
+      x-undo:
+        type: idempotent
+  /api/v2/application_keys:
+    get:
+      description: List all application keys available for your org
+      operationId: ListApplicationKeys
+      parameters:
+      - $ref: '#/components/parameters/PageSize'
+      - $ref: '#/components/parameters/PageNumber'
+      - $ref: '#/components/parameters/ApplicationKeysSortParameter'
+      - $ref: '#/components/parameters/ApplicationKeyFilterParameter'
+      - $ref: '#/components/parameters/ApplicationKeyFilterCreatedAtStartParameter'
+      - $ref: '#/components/parameters/ApplicationKeyFilterCreatedAtEndParameter'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListApplicationKeysResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Bad Request
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Not Found
+      summary: Get all application keys
+      tags:
+      - Key Management
+      x-undo:
+        type: safe
+  /api/v2/application_keys/{app_key_id}:
+    delete:
+      description: Delete an application key
+      operationId: DeleteApplicationKey
+      parameters:
+      - $ref: '#/components/parameters/ApplicationKeyId'
+      responses:
+        '204':
+          description: No Content
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Not Found
+      summary: Delete an application key
+      tags:
+      - Key Management
+      x-codegen-request-body-name: body
+      x-undo:
+        type: idempotent
+    patch:
+      description: Edit an application key
+      operationId: UpdateApplicationKey
+      parameters:
+      - $ref: '#/components/parameters/ApplicationKeyId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplicationKeyUpdateRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationKeyResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Bad Request
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Not Found
+      summary: Edit an application key
+      tags:
+      - Key Management
+      x-codegen-request-body-name: body
+      x-undo:
+        type: idempotent
+  /api/v2/current_user/application_keys:
+    get:
+      description: List all application keys available for current user
+      operationId: ListCurrentUserApplicationKeys
+      parameters:
+      - $ref: '#/components/parameters/PageSize'
+      - $ref: '#/components/parameters/PageNumber'
+      - $ref: '#/components/parameters/ApplicationKeysSortParameter'
+      - $ref: '#/components/parameters/ApplicationKeyFilterParameter'
+      - $ref: '#/components/parameters/ApplicationKeyFilterCreatedAtStartParameter'
+      - $ref: '#/components/parameters/ApplicationKeyFilterCreatedAtEndParameter'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListApplicationKeysResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Bad Request
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Not Found
+      summary: Get all application keys owned by current user
+      tags:
+      - Key Management
+      x-undo:
+        type: safe
+    post:
+      description: Create an application key for current user
+      operationId: CreateCurrentUserApplicationKey
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplicationKeyCreateRequest'
+        required: true
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationKeyResponse'
+          description: Created
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Bad Request
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Forbidden
+      summary: Create an application key for current user
+      tags:
+      - Key Management
+      x-codegen-request-body-name: body
+      x-given:
+        application_key:
+          parameters:
+          - name: body
+            value: "{\n  \"data\": {\n    \"attributes\": {\n      \"name\": \"{{\
+              \ unique }}\"\n    },\n    \"type\": \"application_keys\"\n  }\n}"
+          step: there is a valid "application_key" in the system
+      x-undo:
+        operationId: DeleteCurrentUserApplicationKey
+        parameters:
+        - name: app_key_id
+          source: data.id
+        type: unsafe
+  /api/v2/current_user/application_keys/{app_key_id}:
+    delete:
+      description: Delete an application key owned by current user
+      operationId: DeleteCurrentUserApplicationKey
+      parameters:
+      - $ref: '#/components/parameters/ApplicationKeyId'
+      responses:
+        '204':
+          description: No Content
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Not Found
+      summary: Delete an application key owned by current user
+      tags:
+      - Key Management
+      x-undo:
+        type: idempotent
+    get:
+      description: Get an application key owned by current user
+      operationId: GetCurrentUserApplicationKey
+      parameters:
+      - $ref: '#/components/parameters/ApplicationKeyId'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationKeyResponse'
+          description: OK
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Not Found
+      summary: Get one application key owned by current user
+      tags:
+      - Key Management
+      x-undo:
+        type: safe
+    patch:
+      description: Edit an application key owned by current user
+      operationId: UpdateCurrentUserApplicationKey
+      parameters:
+      - $ref: '#/components/parameters/ApplicationKeyId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplicationKeyUpdateRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationKeyResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Bad Request
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Not Found
+      summary: Edit an application key owned by current user
       tags:
       - Key Management
       x-codegen-request-body-name: body
@@ -6838,6 +7430,7 @@ servers:
       enum:
       - datadoghq.com
       - datadoghq.eu
+      - ddog-gov.com
     subdomain:
       default: api
       description: The subdomain where the API is deployed.
@@ -6850,14 +7443,11 @@ servers:
       default: https
       description: The protocol for accessing the API.
 tags:
-- description: 'Interact with your dashboard lists through the API to make it easier
-    to
+- description: 'Interact with your dashboard lists through the API to
 
     organize, find, and share all of your dashboards with your team and
 
-    organization. Note that you can add API v1 Dashboards to Dashboard Lists
-
-    that you create with API v2.'
+    organization.'
   name: Dashboard Lists
 - description: Create, update, delete, and retrieve services which can be associated
     with incidents.
@@ -6879,10 +7469,42 @@ tags:
     description: Find out more at
     url: https://docs.datadoghq.com/account_management/api-app-keys/
   name: Key Management
-- description: 'Search your logs in the Datadog platform over HTTP.
+- description: 'Search your logs and send them to your Datadog platform over HTTP.
+    Limits per HTTP request are:
 
 
-    [See API version 1](/api/v1/logs/) for sending logs.'
+    - Maximum content size per payload (uncompressed): 5MB
+
+    - Maximum size for a single log: 1MB
+
+    - Maximum array size if sending multiple logs in an array: 1000 entries
+
+
+    Any log exceeding 1MB is accepted and truncated by Datadog:
+
+    - For a single log request, the API truncates the log at 1MB and returns a 2xx.
+
+    - For a multi-logs request, the API processes all logs, truncates only logs larger
+    than 1MB, and returns a 2xx.
+
+
+    Datadog recommends sending your logs compressed.
+
+    Add the `Content-Encoding: gzip` header to the request when sending compressed
+    logs.
+
+
+    The status codes answered by the HTTP API are:
+
+    - 200: OK
+
+    - 400: Bad request (likely an issue in the payload formatting)
+
+    - 403: Permission issue (likely using an invalid API Key)
+
+    - 413: Payload too large (batch is above 5MB uncompressed)
+
+    - 5xx: Internal error, request should be retried after some time'
   name: Logs
 - description: 'Archives forward all the logs ingested to a cloud storage system.
 

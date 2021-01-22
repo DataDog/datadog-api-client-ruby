@@ -28,13 +28,9 @@ require 'datadog_api_client/v2'
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 
   config.unstable_operations[:create_incident_service] = true
 end
@@ -106,13 +102,9 @@ require 'datadog_api_client/v2'
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 
   config.unstable_operations[:delete_incident_service] = true
 end
@@ -183,13 +175,9 @@ require 'datadog_api_client/v2'
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 
   config.unstable_operations[:get_incident_service] = true
 end
@@ -197,7 +185,7 @@ end
 api_instance = DatadogAPIClient::V2::IncidentServicesApi.new
 service_id = 'service_id_example' # String | The ID of the incident service.
 opts = {
-  include: 'users' # String | Specifies which types of related objects should be included in the response.
+  include: DatadogAPIClient::V2::IncidentRelatedObject::USERS # IncidentRelatedObject | Specifies which types of related objects should be included in the response.
 }
 
 begin
@@ -232,7 +220,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **service_id** | **String** | The ID of the incident service. |  |
-| **include** | **String** | Specifies which types of related objects should be included in the response. | [optional] |
+| **include** | **IncidentRelatedObject** | Specifies which types of related objects should be included in the response. | [optional] |
 
 ### Return type
 
@@ -265,20 +253,16 @@ require 'datadog_api_client/v2'
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 
   config.unstable_operations[:list_incident_services] = true
 end
 
 api_instance = DatadogAPIClient::V2::IncidentServicesApi.new
 opts = {
-  include: 'users', # String | Specifies which types of related objects should be included in the response.
+  include: DatadogAPIClient::V2::IncidentRelatedObject::USERS, # IncidentRelatedObject | Specifies which types of related objects should be included in the response.
   page_size: 789, # Integer | Size for a given page.
   page_offset: 789, # Integer | Specific offset to use as the beginning of the returned page.
   filter: 'ExampleServiceName' # String | A search query that filters services by name.
@@ -315,7 +299,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **include** | **String** | Specifies which types of related objects should be included in the response. | [optional] |
+| **include** | **IncidentRelatedObject** | Specifies which types of related objects should be included in the response. | [optional] |
 | **page_size** | **Integer** | Size for a given page. | [optional][default to 10] |
 | **page_offset** | **Integer** | Specific offset to use as the beginning of the returned page. | [optional][default to 0] |
 | **filter** | **String** | A search query that filters services by name. | [optional] |
@@ -351,13 +335,9 @@ require 'datadog_api_client/v2'
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['appKeyAuth'] = 'Bearer'
 
   config.unstable_operations[:update_incident_service] = true
 end
