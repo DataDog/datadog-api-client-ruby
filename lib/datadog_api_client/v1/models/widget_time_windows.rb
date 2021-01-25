@@ -25,6 +25,7 @@ module DatadogAPIClient::V1
     PREVIOUS_WEEK = "previous_week".freeze
     MONTH_TO_DATE = "month_to_date".freeze
     PREVIOUS_MONTH = "previous_month".freeze
+    GLOBAL_TIME = "global_time".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
