@@ -15,7 +15,6 @@ require 'ddtrace'
 require 'webmock/rspec'
 
 Datadog.configure do |c|
-  c.service = 'datadog-api-client-ruby'
   c.analytics_enabled = true
   c.use :ethon, {}
   c.use :rspec, {}
