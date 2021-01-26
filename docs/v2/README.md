@@ -61,13 +61,9 @@ require 'datadog_api_client/v2'
 DatadogAPIClient::V2.configure do |config|
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['appKeyAuth'] = 'Bearer'
 end
 
 api_instance = DatadogAPIClient::V2::DashboardListsApi.new
@@ -110,10 +106,18 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V2::IncidentsApi* | [**list_incidents**](IncidentsApi.md#list_incidents) | **GET** /api/v2/incidents | Get a list of incidents
 *DatadogAPIClient::V2::IncidentsApi* | [**update_incident**](IncidentsApi.md#update_incident) | **PATCH** /api/v2/incidents/{incident_id} | Update an existing incident
 *DatadogAPIClient::V2::KeyManagementApi* | [**create_api_key**](KeyManagementApi.md#create_api_key) | **POST** /api/v2/api_keys | Create an API key
+*DatadogAPIClient::V2::KeyManagementApi* | [**create_current_user_application_key**](KeyManagementApi.md#create_current_user_application_key) | **POST** /api/v2/current_user/application_keys | Create an application key for current user
 *DatadogAPIClient::V2::KeyManagementApi* | [**delete_api_key**](KeyManagementApi.md#delete_api_key) | **DELETE** /api/v2/api_keys/{api_key_id} | Delete an API key
+*DatadogAPIClient::V2::KeyManagementApi* | [**delete_application_key**](KeyManagementApi.md#delete_application_key) | **DELETE** /api/v2/application_keys/{app_key_id} | Delete an application key
+*DatadogAPIClient::V2::KeyManagementApi* | [**delete_current_user_application_key**](KeyManagementApi.md#delete_current_user_application_key) | **DELETE** /api/v2/current_user/application_keys/{app_key_id} | Delete an application key owned by current user
 *DatadogAPIClient::V2::KeyManagementApi* | [**get_api_key**](KeyManagementApi.md#get_api_key) | **GET** /api/v2/api_keys/{api_key_id} | Get API key
+*DatadogAPIClient::V2::KeyManagementApi* | [**get_current_user_application_key**](KeyManagementApi.md#get_current_user_application_key) | **GET** /api/v2/current_user/application_keys/{app_key_id} | Get one application key owned by current user
 *DatadogAPIClient::V2::KeyManagementApi* | [**list_api_keys**](KeyManagementApi.md#list_api_keys) | **GET** /api/v2/api_keys | Get all API keys
+*DatadogAPIClient::V2::KeyManagementApi* | [**list_application_keys**](KeyManagementApi.md#list_application_keys) | **GET** /api/v2/application_keys | Get all application keys
+*DatadogAPIClient::V2::KeyManagementApi* | [**list_current_user_application_keys**](KeyManagementApi.md#list_current_user_application_keys) | **GET** /api/v2/current_user/application_keys | Get all application keys owned by current user
 *DatadogAPIClient::V2::KeyManagementApi* | [**update_api_key**](KeyManagementApi.md#update_api_key) | **PATCH** /api/v2/api_keys/{api_key_id} | Edit an API key
+*DatadogAPIClient::V2::KeyManagementApi* | [**update_application_key**](KeyManagementApi.md#update_application_key) | **PATCH** /api/v2/application_keys/{app_key_id} | Edit an application key
+*DatadogAPIClient::V2::KeyManagementApi* | [**update_current_user_application_key**](KeyManagementApi.md#update_current_user_application_key) | **PATCH** /api/v2/current_user/application_keys/{app_key_id} | Edit an application key owned by current user
 *DatadogAPIClient::V2::LogsApi* | [**aggregate_logs**](LogsApi.md#aggregate_logs) | **POST** /api/v2/logs/analytics/aggregate | Aggregate events
 *DatadogAPIClient::V2::LogsApi* | [**list_logs**](LogsApi.md#list_logs) | **POST** /api/v2/logs/events/search | Get a list of logs
 *DatadogAPIClient::V2::LogsApi* | [**list_logs_get**](LogsApi.md#list_logs_get) | **GET** /api/v2/logs/events | Get a quick list of logs
@@ -127,6 +131,11 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V2::LogsArchivesApi* | [**remove_role_from_archive**](LogsArchivesApi.md#remove_role_from_archive) | **DELETE** /api/v2/logs/config/archives/{archive_id}/readers | Revoke role from an archive
 *DatadogAPIClient::V2::LogsArchivesApi* | [**update_logs_archive**](LogsArchivesApi.md#update_logs_archive) | **PUT** /api/v2/logs/config/archives/{archive_id} | Update an archive
 *DatadogAPIClient::V2::LogsArchivesApi* | [**update_logs_archive_order**](LogsArchivesApi.md#update_logs_archive_order) | **PUT** /api/v2/logs/config/archive-order | Update archive order
+*DatadogAPIClient::V2::LogsMetricsApi* | [**create_logs_metric**](LogsMetricsApi.md#create_logs_metric) | **POST** /api/v2/logs/config/metrics | Create a log-based metric
+*DatadogAPIClient::V2::LogsMetricsApi* | [**delete_logs_metric**](LogsMetricsApi.md#delete_logs_metric) | **DELETE** /api/v2/logs/config/metrics/{metric_id} | Delete a log-based metric
+*DatadogAPIClient::V2::LogsMetricsApi* | [**get_logs_metric**](LogsMetricsApi.md#get_logs_metric) | **GET** /api/v2/logs/config/metrics/{metric_id} | Get a log-based metric
+*DatadogAPIClient::V2::LogsMetricsApi* | [**list_logs_metrics**](LogsMetricsApi.md#list_logs_metrics) | **GET** /api/v2/logs/config/metrics | Get all log-based metrics
+*DatadogAPIClient::V2::LogsMetricsApi* | [**update_logs_metric**](LogsMetricsApi.md#update_logs_metric) | **PATCH** /api/v2/logs/config/metrics/{metric_id} | Update a log-based metric
 *DatadogAPIClient::V2::ProcessesApi* | [**list_processes**](ProcessesApi.md#list_processes) | **GET** /api/v2/processes | Get all processes
 *DatadogAPIClient::V2::RolesApi* | [**add_permission_to_role**](RolesApi.md#add_permission_to_role) | **POST** /api/v2/roles/{role_id}/permissions | Grant permission to a role
 *DatadogAPIClient::V2::RolesApi* | [**add_user_to_role**](RolesApi.md#add_user_to_role) | **POST** /api/v2/roles/{role_id}/users | Add a user to a role
@@ -171,7 +180,19 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::APIKeyUpdateData](APIKeyUpdateData.md)
  - [DatadogAPIClient::V2::APIKeyUpdateRequest](APIKeyUpdateRequest.md)
  - [DatadogAPIClient::V2::APIKeysResponse](APIKeysResponse.md)
+ - [DatadogAPIClient::V2::APIKeysSort](APIKeysSort.md)
  - [DatadogAPIClient::V2::APIKeysType](APIKeysType.md)
+ - [DatadogAPIClient::V2::ApplicationKeyCreateAttributes](ApplicationKeyCreateAttributes.md)
+ - [DatadogAPIClient::V2::ApplicationKeyCreateData](ApplicationKeyCreateData.md)
+ - [DatadogAPIClient::V2::ApplicationKeyCreateRequest](ApplicationKeyCreateRequest.md)
+ - [DatadogAPIClient::V2::ApplicationKeyRelationships](ApplicationKeyRelationships.md)
+ - [DatadogAPIClient::V2::ApplicationKeyResponse](ApplicationKeyResponse.md)
+ - [DatadogAPIClient::V2::ApplicationKeyResponseIncludedItem](ApplicationKeyResponseIncludedItem.md)
+ - [DatadogAPIClient::V2::ApplicationKeyUpdateAttributes](ApplicationKeyUpdateAttributes.md)
+ - [DatadogAPIClient::V2::ApplicationKeyUpdateData](ApplicationKeyUpdateData.md)
+ - [DatadogAPIClient::V2::ApplicationKeyUpdateRequest](ApplicationKeyUpdateRequest.md)
+ - [DatadogAPIClient::V2::ApplicationKeysSort](ApplicationKeysSort.md)
+ - [DatadogAPIClient::V2::ApplicationKeysType](ApplicationKeysType.md)
  - [DatadogAPIClient::V2::Creator](Creator.md)
  - [DatadogAPIClient::V2::DashboardListAddItemsRequest](DashboardListAddItemsRequest.md)
  - [DatadogAPIClient::V2::DashboardListAddItemsResponse](DashboardListAddItemsResponse.md)
@@ -186,6 +207,8 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::DashboardType](DashboardType.md)
  - [DatadogAPIClient::V2::FullAPIKey](FullAPIKey.md)
  - [DatadogAPIClient::V2::FullAPIKeyAttributes](FullAPIKeyAttributes.md)
+ - [DatadogAPIClient::V2::FullApplicationKey](FullApplicationKey.md)
+ - [DatadogAPIClient::V2::FullApplicationKeyAttributes](FullApplicationKeyAttributes.md)
  - [DatadogAPIClient::V2::IncidentCreateAttributes](IncidentCreateAttributes.md)
  - [DatadogAPIClient::V2::IncidentCreateData](IncidentCreateData.md)
  - [DatadogAPIClient::V2::IncidentCreateRelationships](IncidentCreateRelationships.md)
@@ -197,6 +220,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::IncidentFieldAttributesValueType](IncidentFieldAttributesValueType.md)
  - [DatadogAPIClient::V2::IncidentIntegrationMetadataType](IncidentIntegrationMetadataType.md)
  - [DatadogAPIClient::V2::IncidentPostmortemType](IncidentPostmortemType.md)
+ - [DatadogAPIClient::V2::IncidentRelatedObject](IncidentRelatedObject.md)
  - [DatadogAPIClient::V2::IncidentResponse](IncidentResponse.md)
  - [DatadogAPIClient::V2::IncidentResponseAttributes](IncidentResponseAttributes.md)
  - [DatadogAPIClient::V2::IncidentResponseData](IncidentResponseData.md)
@@ -240,6 +264,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::IncidentUpdateRelationships](IncidentUpdateRelationships.md)
  - [DatadogAPIClient::V2::IncidentUpdateRequest](IncidentUpdateRequest.md)
  - [DatadogAPIClient::V2::IncidentsResponse](IncidentsResponse.md)
+ - [DatadogAPIClient::V2::ListApplicationKeysResponse](ListApplicationKeysResponse.md)
  - [DatadogAPIClient::V2::Log](Log.md)
  - [DatadogAPIClient::V2::LogAttributes](LogAttributes.md)
  - [DatadogAPIClient::V2::LogType](LogType.md)
@@ -287,6 +312,25 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::LogsListRequestPage](LogsListRequestPage.md)
  - [DatadogAPIClient::V2::LogsListResponse](LogsListResponse.md)
  - [DatadogAPIClient::V2::LogsListResponseLinks](LogsListResponseLinks.md)
+ - [DatadogAPIClient::V2::LogsMetricCompute](LogsMetricCompute.md)
+ - [DatadogAPIClient::V2::LogsMetricComputeAggregationType](LogsMetricComputeAggregationType.md)
+ - [DatadogAPIClient::V2::LogsMetricCreateAttributes](LogsMetricCreateAttributes.md)
+ - [DatadogAPIClient::V2::LogsMetricCreateData](LogsMetricCreateData.md)
+ - [DatadogAPIClient::V2::LogsMetricCreateRequest](LogsMetricCreateRequest.md)
+ - [DatadogAPIClient::V2::LogsMetricFilter](LogsMetricFilter.md)
+ - [DatadogAPIClient::V2::LogsMetricGroupBy](LogsMetricGroupBy.md)
+ - [DatadogAPIClient::V2::LogsMetricResponse](LogsMetricResponse.md)
+ - [DatadogAPIClient::V2::LogsMetricResponseAttributes](LogsMetricResponseAttributes.md)
+ - [DatadogAPIClient::V2::LogsMetricResponseCompute](LogsMetricResponseCompute.md)
+ - [DatadogAPIClient::V2::LogsMetricResponseComputeAggregationType](LogsMetricResponseComputeAggregationType.md)
+ - [DatadogAPIClient::V2::LogsMetricResponseData](LogsMetricResponseData.md)
+ - [DatadogAPIClient::V2::LogsMetricResponseFilter](LogsMetricResponseFilter.md)
+ - [DatadogAPIClient::V2::LogsMetricResponseGroupBy](LogsMetricResponseGroupBy.md)
+ - [DatadogAPIClient::V2::LogsMetricType](LogsMetricType.md)
+ - [DatadogAPIClient::V2::LogsMetricUpdateAttributes](LogsMetricUpdateAttributes.md)
+ - [DatadogAPIClient::V2::LogsMetricUpdateData](LogsMetricUpdateData.md)
+ - [DatadogAPIClient::V2::LogsMetricUpdateRequest](LogsMetricUpdateRequest.md)
+ - [DatadogAPIClient::V2::LogsMetricsResponse](LogsMetricsResponse.md)
  - [DatadogAPIClient::V2::LogsQueryFilter](LogsQueryFilter.md)
  - [DatadogAPIClient::V2::LogsQueryOptions](LogsQueryOptions.md)
  - [DatadogAPIClient::V2::LogsResponseMetadata](LogsResponseMetadata.md)
@@ -300,6 +344,8 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::Pagination](Pagination.md)
  - [DatadogAPIClient::V2::PartialAPIKey](PartialAPIKey.md)
  - [DatadogAPIClient::V2::PartialAPIKeyAttributes](PartialAPIKeyAttributes.md)
+ - [DatadogAPIClient::V2::PartialApplicationKey](PartialApplicationKey.md)
+ - [DatadogAPIClient::V2::PartialApplicationKeyAttributes](PartialApplicationKeyAttributes.md)
  - [DatadogAPIClient::V2::Permission](Permission.md)
  - [DatadogAPIClient::V2::PermissionAttributes](PermissionAttributes.md)
  - [DatadogAPIClient::V2::PermissionsResponse](PermissionsResponse.md)
@@ -346,6 +392,8 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::RolesResponse](RolesResponse.md)
  - [DatadogAPIClient::V2::RolesSort](RolesSort.md)
  - [DatadogAPIClient::V2::RolesType](RolesType.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringFilter](SecurityMonitoringFilter.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringFilterAction](SecurityMonitoringFilterAction.md)
  - [DatadogAPIClient::V2::SecurityMonitoringListRulesResponse](SecurityMonitoringListRulesResponse.md)
  - [DatadogAPIClient::V2::SecurityMonitoringRuleCase](SecurityMonitoringRuleCase.md)
  - [DatadogAPIClient::V2::SecurityMonitoringRuleCaseCreate](SecurityMonitoringRuleCaseCreate.md)

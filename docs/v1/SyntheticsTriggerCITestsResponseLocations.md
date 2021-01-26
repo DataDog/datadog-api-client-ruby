@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Float** | Unique identifier of the location. | [optional] |
+| **id** | **Integer** | Unique identifier of the location. | [optional] |
 | **name** | **String** | Name of the location. | [optional] |
 
 ## Example

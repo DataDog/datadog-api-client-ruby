@@ -1,0 +1,135 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.datadoghq.com/api/v2/logs/config/metrics
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"ruby-Get_a_log_based_metric_returns_OK_response-1608596225","attributes":{"filter":{"query":"source:ruby-Get_a_log_based_metric_returns_OK_response-1608596225"},"compute":{"aggregation_type":"count"}},"type":"logs_metrics"}}'
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/1.0.0.beta.2.dev (ruby 2.7.1; os darwin19.6.0; arch
+        x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Dec 2020 00:17:06 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '253'
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      Set-Cookie:
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 29-Dec-2020 00:17:05 GMT;
+        secure; HttpOnly
+      X-Dd-Version:
+      - '35.3583277'
+      X-Ratelimit-Limit:
+      - '100'
+      X-Ratelimit-Period:
+      - '3600'
+      X-Ratelimit-Reset:
+      - '2575'
+      X-Ratelimit-Remaining:
+      - '78'
+      Content-Disposition:
+      - inline
+      X-Dd-Debug:
+      - 4/n0qOsNbcCLs0O62LExTPssq0SdRyX2Rk0dgQQIozMoViHF7e4pyB0ZeXOioNEA
+      Dd-Pool:
+      - dogweb
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"ruby_Get_a_log_based_metric_returns_OK_response_1608596225","attributes":{"filter":{"query":"source:ruby-Get_a_log_based_metric_returns_OK_response-1608596225"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"}}'
+  recorded_at: Tue, 22 Dec 2020 00:17:05 GMT
+- request:
+    method: get
+    uri: https://api.datadoghq.com/api/v2/logs/config/metrics/ruby_Get_a_log_based_metric_returns_OK_response_1608596225
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/1.0.0.beta.2.dev (ruby 2.7.1; os darwin19.6.0; arch
+        x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Dec 2020 00:17:06 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '253'
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      Set-Cookie:
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 29-Dec-2020 00:17:06 GMT;
+        secure; HttpOnly
+      X-Dd-Version:
+      - '35.3583277'
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Period:
+      - '3600'
+      X-Ratelimit-Reset:
+      - '2574'
+      X-Ratelimit-Remaining:
+      - '4981'
+      Content-Disposition:
+      - inline
+      X-Dd-Debug:
+      - laGkCMnt9yzADERvt5/nU5tJ2BKmoQx1BUE4x31rlC7mriAyKM9Zk5E+JikpAz3V
+      Dd-Pool:
+      - dogweb
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"ruby_Get_a_log_based_metric_returns_OK_response_1608596225","attributes":{"filter":{"query":"source:ruby-Get_a_log_based_metric_returns_OK_response-1608596225"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"}}'
+  recorded_at: Tue, 22 Dec 2020 00:17:05 GMT
+recorded_with: VCR 6.0.0
