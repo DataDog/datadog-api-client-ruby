@@ -10,7 +10,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**delete_slo_timeframe_in_bulk**](ServiceLevelObjectivesApi.md#delete_slo_timeframe_in_bulk) | **POST** /api/v1/slo/bulk_delete | Bulk Delete SLO Timeframes |
 | [**get_slo**](ServiceLevelObjectivesApi.md#get_slo) | **GET** /api/v1/slo/{slo_id} | Get a SLO&#39;s details |
 | [**get_slo_history**](ServiceLevelObjectivesApi.md#get_slo_history) | **GET** /api/v1/slo/{slo_id}/history | Get an SLO&#39;s history |
-| [**list_slos**](ServiceLevelObjectivesApi.md#list_slos) | **GET** /api/v1/slo | Search SLOs |
+| [**list_slos**](ServiceLevelObjectivesApi.md#list_slos) | **GET** /api/v1/slo | Get all SLOs |
 | [**update_slo**](ServiceLevelObjectivesApi.md#update_slo) | **PUT** /api/v1/slo/{slo_id} | Update a SLO |
 
 
@@ -458,11 +458,11 @@ end
 
 ## list_slos
 
-> <SLOListResponse> list_slos(ids)
+> <SLOListResponse> list_slos(opts)
 
-Search SLOs
+Get all SLOs
 
-Get multiple service level objective objects by their IDs.
+Get a list of service level objective objects for your organization.
 
 ### Examples
 
@@ -479,11 +479,16 @@ DatadogAPIClient::V1.configure do |config|
 end
 
 api_instance = DatadogAPIClient::V1::ServiceLevelObjectivesApi.new
-ids = 'id1, id2, id3' # String | A comma separated list of the IDs of the service level objectives objects.
+opts = {
+  ids: 'id1, id2, id3', # String | A comma separated list of the IDs of the service level objectives objects.
+  query: 'monitor', # String | The query string to filter results based on SLO names.
+  tags_query: 'env:prod', # String | The query string to filter results based on SLO tags.
+  metrics_query: 'aws.elb.request_count' # String | The query string to filter results based on SLO numerator and denominator.
+}
 
 begin
-  # Search SLOs
-  result = api_instance.list_slos(ids)
+  # Get all SLOs
+  result = api_instance.list_slos(opts)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
   puts "Error when calling ServiceLevelObjectivesApi->list_slos: #{e}"
@@ -494,12 +499,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<SLOListResponse>, Integer, Hash)> list_slos_with_http_info(ids)
+> <Array(<SLOListResponse>, Integer, Hash)> list_slos_with_http_info(opts)
 
 ```ruby
 begin
-  # Search SLOs
-  data, status_code, headers = api_instance.list_slos_with_http_info(ids)
+  # Get all SLOs
+  data, status_code, headers = api_instance.list_slos_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SLOListResponse>
@@ -512,7 +517,10 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **ids** | **String** | A comma separated list of the IDs of the service level objectives objects. |  |
+| **ids** | **String** | A comma separated list of the IDs of the service level objectives objects. | [optional] |
+| **query** | **String** | The query string to filter results based on SLO names. | [optional] |
+| **tags_query** | **String** | The query string to filter results based on SLO tags. | [optional] |
+| **metrics_query** | **String** | The query string to filter results based on SLO numerator and denominator. | [optional] |
 
 ### Return type
 

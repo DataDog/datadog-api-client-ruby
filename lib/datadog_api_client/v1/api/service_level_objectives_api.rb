@@ -482,22 +482,28 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Search SLOs
-    # Get multiple service level objective objects by their IDs.
-    # @param ids [String] A comma separated list of the IDs of the service level objectives objects.
+    # Get all SLOs
+    # Get a list of service level objective objects for your organization.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :ids A comma separated list of the IDs of the service level objectives objects.
+    # @option opts [String] :query The query string to filter results based on SLO names.
+    # @option opts [String] :tags_query The query string to filter results based on SLO tags.
+    # @option opts [String] :metrics_query The query string to filter results based on SLO numerator and denominator.
     # @return [SLOListResponse]
-    def list_slos(ids, opts = {})
-      data, _status_code, _headers = list_slos_with_http_info(ids, opts)
+    def list_slos(opts = {})
+      data, _status_code, _headers = list_slos_with_http_info(opts)
       data
     end
 
-    # Search SLOs
-    # Get multiple service level objective objects by their IDs.
-    # @param ids [String] A comma separated list of the IDs of the service level objectives objects.
+    # Get all SLOs
+    # Get a list of service level objective objects for your organization.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :ids A comma separated list of the IDs of the service level objectives objects.
+    # @option opts [String] :query The query string to filter results based on SLO names.
+    # @option opts [String] :tags_query The query string to filter results based on SLO tags.
+    # @option opts [String] :metrics_query The query string to filter results based on SLO numerator and denominator.
     # @return [Array<(SLOListResponse, Integer, Hash)>] SLOListResponse data, response status code and response headers
-    def list_slos_with_http_info(ids, opts = {})
+    def list_slos_with_http_info(opts = {})
 
       if @api_client.config.unstable_operations.has_key?(:list_slos)
         unstable_enabled = @api_client.config.unstable_operations[:list_slos]
@@ -511,16 +517,15 @@ module DatadogAPIClient::V1
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceLevelObjectivesApi.list_slos ...'
       end
-      # verify the required parameter 'ids' is set
-      if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling ServiceLevelObjectivesApi.list_slos"
-      end
       # resource path
       local_var_path = '/api/v1/slo'
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'ids'] = ids
+      query_params[:'ids'] = opts[:'ids'] if !opts[:'ids'].nil?
+      query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
+      query_params[:'tags_query'] = opts[:'tags_query'] if !opts[:'tags_query'].nil?
+      query_params[:'metrics_query'] = opts[:'metrics_query'] if !opts[:'metrics_query'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
