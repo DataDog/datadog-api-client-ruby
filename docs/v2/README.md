@@ -272,7 +272,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::LogsAggregateBucketValue](LogsAggregateBucketValue.md)
  - [DatadogAPIClient::V2::LogsAggregateBucketValueTimeseriesPoint](LogsAggregateBucketValueTimeseriesPoint.md)
  - [DatadogAPIClient::V2::LogsAggregateRequest](LogsAggregateRequest.md)
- - [DatadogAPIClient::V2::LogsAggregateRequestPaging](LogsAggregateRequestPaging.md)
+ - [DatadogAPIClient::V2::LogsAggregateRequestPage](LogsAggregateRequestPage.md)
  - [DatadogAPIClient::V2::LogsAggregateResponse](LogsAggregateResponse.md)
  - [DatadogAPIClient::V2::LogsAggregateResponseData](LogsAggregateResponseData.md)
  - [DatadogAPIClient::V2::LogsAggregateResponseStatus](LogsAggregateResponseStatus.md)
