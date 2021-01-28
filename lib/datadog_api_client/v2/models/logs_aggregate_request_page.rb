@@ -18,14 +18,14 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Paging settings
-  class LogsAggregateRequestPaging
+  class LogsAggregateRequestPage
     # The returned paging point to use to get the next results
-    attr_accessor :after
+    attr_accessor :cursor
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'after' => :'after'
+        :'cursor' => :'cursor'
       }
     end
 
@@ -37,7 +37,7 @@ module DatadogAPIClient::V2
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'after' => :'String'
+        :'cursor' => :'String'
       }
     end
 
@@ -51,19 +51,19 @@ module DatadogAPIClient::V2
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::LogsAggregateRequestPaging` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::LogsAggregateRequestPage` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::LogsAggregateRequestPaging`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::LogsAggregateRequestPage`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'after')
-        self.after = attributes[:'after']
+      if attributes.key?(:'cursor')
+        self.cursor = attributes[:'cursor']
       end
     end
 
@@ -85,7 +85,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          after == o.after
+          cursor == o.cursor
     end
 
     # @see the `==` method
@@ -97,7 +97,7 @@ module DatadogAPIClient::V2
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [after].hash
+      [cursor].hash
     end
 
     # Builds the object from hash

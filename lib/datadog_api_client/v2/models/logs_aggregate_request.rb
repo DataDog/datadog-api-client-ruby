@@ -29,7 +29,7 @@ module DatadogAPIClient::V2
 
     attr_accessor :options
 
-    attr_accessor :paging
+    attr_accessor :page
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
         :'filter' => :'filter',
         :'group_by' => :'group_by',
         :'options' => :'options',
-        :'paging' => :'paging'
+        :'page' => :'page'
       }
     end
 
@@ -54,7 +54,7 @@ module DatadogAPIClient::V2
         :'filter' => :'LogsQueryFilter',
         :'group_by' => :'Array<LogsGroupBy>',
         :'options' => :'LogsQueryOptions',
-        :'paging' => :'LogsAggregateRequestPaging'
+        :'page' => :'LogsAggregateRequestPage'
       }
     end
 
@@ -99,8 +99,8 @@ module DatadogAPIClient::V2
         self.options = attributes[:'options']
       end
 
-      if attributes.key?(:'paging')
-        self.paging = attributes[:'paging']
+      if attributes.key?(:'page')
+        self.page = attributes[:'page']
       end
     end
 
@@ -126,7 +126,7 @@ module DatadogAPIClient::V2
           filter == o.filter &&
           group_by == o.group_by &&
           options == o.options &&
-          paging == o.paging
+          page == o.page
     end
 
     # @see the `==` method
@@ -138,7 +138,7 @@ module DatadogAPIClient::V2
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [compute, filter, group_by, options, paging].hash
+      [compute, filter, group_by, options, page].hash
     end
 
     # Builds the object from hash
