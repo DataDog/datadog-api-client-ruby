@@ -8,7 +8,7 @@
 | **filter** | [**LogsQueryFilter**](LogsQueryFilter.md) |  | [optional] |
 | **group_by** | [**Array&lt;LogsGroupBy&gt;**](LogsGroupBy.md) | The rules for the group by | [optional] |
 | **options** | [**LogsQueryOptions**](LogsQueryOptions.md) |  | [optional] |
-| **page** | [**LogsAggregateRequestPage**](LogsAggregateRequestPage.md) |  | [optional] |
+| **paging** | [**LogsAggregateRequestPaging**](LogsAggregateRequestPaging.md) |  | [optional] |
 
 ## Example
 
@@ -20,7 +20,7 @@ instance = DatadogAPIClient::V2::LogsAggregateRequest.new(
   filter: null,
   group_by: null,
   options: null,
-  page: null
+  paging: null
 )
 ```
 
