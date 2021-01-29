@@ -79,6 +79,12 @@ module DatadogAPIClient::V1
     # Shows the sum of all log bytes ingested over all hours in the current months for all organizations.
     attr_accessor :ingested_events_bytes_agg_sum
 
+    # Shows the sum of all IoT devices over all hours in the current months for all organizations.
+    attr_accessor :iot_device_agg_sum
+
+    # Shows the 99th percentile of all IoT devices over all hours in the current months of all organizations.
+    attr_accessor :iot_device_top99p_sum
+
     # Shows the the most recent hour in the current months for all organizations for which all usages were calculated.
     attr_accessor :last_updated
 
@@ -162,6 +168,8 @@ module DatadogAPIClient::V1
         :'indexed_events_count_agg_sum' => :'indexed_events_count_agg_sum',
         :'infra_host_top99p_sum' => :'infra_host_top99p_sum',
         :'ingested_events_bytes_agg_sum' => :'ingested_events_bytes_agg_sum',
+        :'iot_device_agg_sum' => :'iot_device_agg_sum',
+        :'iot_device_top99p_sum' => :'iot_device_top99p_sum',
         :'last_updated' => :'last_updated',
         :'live_indexed_events_agg_sum' => :'live_indexed_events_agg_sum',
         :'live_ingested_bytes_agg_sum' => :'live_ingested_bytes_agg_sum',
@@ -213,6 +221,8 @@ module DatadogAPIClient::V1
         :'indexed_events_count_agg_sum' => :'Integer',
         :'infra_host_top99p_sum' => :'Integer',
         :'ingested_events_bytes_agg_sum' => :'Integer',
+        :'iot_device_agg_sum' => :'Integer',
+        :'iot_device_top99p_sum' => :'Integer',
         :'last_updated' => :'Time',
         :'live_indexed_events_agg_sum' => :'Integer',
         :'live_ingested_bytes_agg_sum' => :'Integer',
@@ -337,6 +347,14 @@ module DatadogAPIClient::V1
         self.ingested_events_bytes_agg_sum = attributes[:'ingested_events_bytes_agg_sum']
       end
 
+      if attributes.key?(:'iot_device_agg_sum')
+        self.iot_device_agg_sum = attributes[:'iot_device_agg_sum']
+      end
+
+      if attributes.key?(:'iot_device_top99p_sum')
+        self.iot_device_top99p_sum = attributes[:'iot_device_top99p_sum']
+      end
+
       if attributes.key?(:'last_updated')
         self.last_updated = attributes[:'last_updated']
       end
@@ -458,6 +476,8 @@ module DatadogAPIClient::V1
           indexed_events_count_agg_sum == o.indexed_events_count_agg_sum &&
           infra_host_top99p_sum == o.infra_host_top99p_sum &&
           ingested_events_bytes_agg_sum == o.ingested_events_bytes_agg_sum &&
+          iot_device_agg_sum == o.iot_device_agg_sum &&
+          iot_device_top99p_sum == o.iot_device_top99p_sum &&
           last_updated == o.last_updated &&
           live_indexed_events_agg_sum == o.live_indexed_events_agg_sum &&
           live_ingested_bytes_agg_sum == o.live_ingested_bytes_agg_sum &&
@@ -489,7 +509,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_host_top99p_sum, apm_azure_app_service_host_top99p_sum, apm_host_top99p_sum, aws_host_top99p_sum, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p_sum, azure_host_top99p_sum, billable_ingested_bytes_agg_sum, container_avg_sum, container_hwm_sum, custom_ts_sum, end_date, fargate_tasks_count_avg_sum, fargate_tasks_count_hwm_sum, gcp_host_top99p_sum, incident_management_monthly_active_users_hwm_sum, indexed_events_count_agg_sum, infra_host_top99p_sum, ingested_events_bytes_agg_sum, last_updated, live_indexed_events_agg_sum, live_ingested_bytes_agg_sum, mobile_rum_session_count_agg_sum, mobile_rum_session_count_android_agg_sum, mobile_rum_session_count_ios_agg_sum, netflow_indexed_events_count_agg_sum, npm_host_top99p_sum, profiling_container_agent_count_avg, profiling_host_count_top99p_sum, rehydrated_indexed_events_agg_sum, rehydrated_ingested_bytes_agg_sum, rum_session_count_agg_sum, rum_total_session_count_agg_sum, start_date, synthetics_browser_check_calls_count_agg_sum, synthetics_check_calls_count_agg_sum, trace_search_indexed_events_count_agg_sum, twol_ingested_events_bytes_agg_sum, usage].hash
+      [agent_host_top99p_sum, apm_azure_app_service_host_top99p_sum, apm_host_top99p_sum, aws_host_top99p_sum, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p_sum, azure_host_top99p_sum, billable_ingested_bytes_agg_sum, container_avg_sum, container_hwm_sum, custom_ts_sum, end_date, fargate_tasks_count_avg_sum, fargate_tasks_count_hwm_sum, gcp_host_top99p_sum, incident_management_monthly_active_users_hwm_sum, indexed_events_count_agg_sum, infra_host_top99p_sum, ingested_events_bytes_agg_sum, iot_device_agg_sum, iot_device_top99p_sum, last_updated, live_indexed_events_agg_sum, live_ingested_bytes_agg_sum, mobile_rum_session_count_agg_sum, mobile_rum_session_count_android_agg_sum, mobile_rum_session_count_ios_agg_sum, netflow_indexed_events_count_agg_sum, npm_host_top99p_sum, profiling_container_agent_count_avg, profiling_host_count_top99p_sum, rehydrated_indexed_events_agg_sum, rehydrated_ingested_bytes_agg_sum, rum_session_count_agg_sum, rum_total_session_count_agg_sum, start_date, synthetics_browser_check_calls_count_agg_sum, synthetics_check_calls_count_agg_sum, trace_search_indexed_events_count_agg_sum, twol_ingested_events_bytes_agg_sum, usage].hash
     end
 
     # Builds the object from hash

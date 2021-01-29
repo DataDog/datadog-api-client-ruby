@@ -23,6 +23,8 @@
 | **indexed_events_count_sum** | **Integer** | Shows the sum of all log events indexed over all hours in the current date for all organizations. | [optional] |
 | **infra_host_top99p** | **Integer** | Shows the 99th percentile of all distinct infrastructure hosts over all hours in the current date for all organizations. | [optional] |
 | **ingested_events_bytes_sum** | **Integer** | Shows the sum of all log bytes ingested over all hours in the current date for all organizations. | [optional] |
+| **iot_device_agg_sum** | **Integer** | Shows the sum of all IoT devices over all hours in the current date for all organizations. | [optional] |
+| **iot_device_top99p_sum** | **Integer** | Shows the 99th percentile of all IoT devices over all hours in the current date all organizations. | [optional] |
 | **mobile_rum_session_count_android_sum** | **Integer** | Shows the sum of all mobile RUM Sessions on Android over all hours in the current date for all organizations. | [optional] |
 | **mobile_rum_session_count_ios_sum** | **Integer** | Shows the sum of all mobile RUM Sessions on iOS over all hours in the current date for all organizations. | [optional] |
 | **mobile_rum_session_count_sum** | **Integer** | Shows the sum of all mobile RUM Sessions over all hours in the current date for all organizations | [optional] |
@@ -62,6 +64,8 @@ instance = DatadogAPIClient::V1::UsageSummaryDate.new(
   indexed_events_count_sum: null,
   infra_host_top99p: null,
   ingested_events_bytes_sum: null,
+  iot_device_agg_sum: null,
+  iot_device_top99p_sum: null,
   mobile_rum_session_count_android_sum: null,
   mobile_rum_session_count_ios_sum: null,
   mobile_rum_session_count_sum: null,
