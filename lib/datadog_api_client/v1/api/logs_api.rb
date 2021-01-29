@@ -22,7 +22,7 @@ module DatadogAPIClient::V1
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Get a list of logs
+    # Search logs
     # List endpoint returns logs that match a log search query. [Results are paginated][1].  **If you are considering archiving logs for your organization, consider use of the Datadog archive capabilities instead of the log list API. See [Datadog Logs Archive documentation][2].**  [1]: /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
     # @param body [LogsListRequest] Logs filter
     # @param [Hash] opts the optional parameters
@@ -32,7 +32,7 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get a list of logs
+    # Search logs
     # List endpoint returns logs that match a log search query. [Results are paginated][1].  **If you are considering archiving logs for your organization, consider use of the Datadog archive capabilities instead of the log list API. See [Datadog Logs Archive documentation][2].**  [1]: /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
     # @param body [LogsListRequest] Logs filter
     # @param [Hash] opts the optional parameters
