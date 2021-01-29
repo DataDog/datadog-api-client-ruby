@@ -63,9 +63,6 @@ module DatadogAPIClient::V1
     # A Boolean indicating whether this monitor needs a full window of data before it’s evaluated. We highly recommend you set this to `false` for sparse metrics, otherwise some evaluations are skipped. Default is false.
     attr_accessor :require_full_window
 
-    # A list of role identifiers that can be pulled from the Roles API. Cannot be used with `locked`.
-    attr_accessor :restricted_roles
-
     # Information about the downtime applied to the monitor.
     attr_accessor :silenced
 
@@ -97,7 +94,6 @@ module DatadogAPIClient::V1
         :'notify_no_data' => :'notify_no_data',
         :'renotify_interval' => :'renotify_interval',
         :'require_full_window' => :'require_full_window',
-        :'restricted_roles' => :'restricted_roles',
         :'silenced' => :'silenced',
         :'synthetics_check_id' => :'synthetics_check_id',
         :'threshold_windows' => :'threshold_windows',
@@ -129,7 +125,6 @@ module DatadogAPIClient::V1
         :'notify_no_data' => :'Boolean',
         :'renotify_interval' => :'Integer',
         :'require_full_window' => :'Boolean',
-        :'restricted_roles' => :'Array<String>',
         :'silenced' => :'Hash<String, Integer>',
         :'synthetics_check_id' => :'String',
         :'threshold_windows' => :'MonitorThresholdWindowOptions',
@@ -243,12 +238,6 @@ module DatadogAPIClient::V1
         self.require_full_window = attributes[:'require_full_window']
       end
 
-      if attributes.key?(:'restricted_roles')
-        if (value = attributes[:'restricted_roles']).is_a?(Array)
-          self.restricted_roles = value
-        end
-      end
-
       if attributes.key?(:'silenced')
         if (value = attributes[:'silenced']).is_a?(Hash)
           self.silenced = value
@@ -329,7 +318,6 @@ module DatadogAPIClient::V1
           notify_no_data == o.notify_no_data &&
           renotify_interval == o.renotify_interval &&
           require_full_window == o.require_full_window &&
-          restricted_roles == o.restricted_roles &&
           silenced == o.silenced &&
           synthetics_check_id == o.synthetics_check_id &&
           threshold_windows == o.threshold_windows &&
@@ -346,7 +334,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aggregation, device_ids, enable_logs_sample, escalation_message, evaluation_delay, include_tags, locked, min_failure_duration, min_location_failed, new_host_delay, no_data_timeframe, notify_audit, notify_no_data, renotify_interval, require_full_window, restricted_roles, silenced, synthetics_check_id, threshold_windows, thresholds, timeout_h].hash
+      [aggregation, device_ids, enable_logs_sample, escalation_message, evaluation_delay, include_tags, locked, min_failure_duration, min_location_failed, new_host_delay, no_data_timeframe, notify_audit, notify_no_data, renotify_interval, require_full_window, silenced, synthetics_check_id, threshold_windows, thresholds, timeout_h].hash
     end
 
     # Builds the object from hash
