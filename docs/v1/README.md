@@ -232,6 +232,7 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_usage_fargate**](UsageMeteringApi.md#get_usage_fargate) | **GET** /api/v1/usage/fargate | Get hourly usage for Fargate
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_usage_hosts**](UsageMeteringApi.md#get_usage_hosts) | **GET** /api/v1/usage/hosts | Get hourly usage for hosts and containers
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_usage_indexed_spans**](UsageMeteringApi.md#get_usage_indexed_spans) | **GET** /api/v1/usage/indexed-spans | Get hourly usage for indexed spans
+*DatadogAPIClient::V1::UsageMeteringApi* | [**get_usage_internet_of_things**](UsageMeteringApi.md#get_usage_internet_of_things) | **GET** /api/v1/usage/iot | Get hourly usage for IoT
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_usage_lambda**](UsageMeteringApi.md#get_usage_lambda) | **GET** /api/v1/usage/aws_lambda | Get hourly usage for Lambda
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_usage_logs**](UsageMeteringApi.md#get_usage_logs) | **GET** /api/v1/usage/logs | Get hourly usage for Logs
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_usage_logs_by_index**](UsageMeteringApi.md#get_usage_logs_by_index) | **GET** /api/v1/usage/logs_by_index | Get hourly usage for Logs by Index
@@ -644,6 +645,8 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::UsageIndexedSpansResponse](UsageIndexedSpansResponse.md)
  - [DatadogAPIClient::V1::UsageIngestedSpansHour](UsageIngestedSpansHour.md)
  - [DatadogAPIClient::V1::UsageIngestedSpansResponse](UsageIngestedSpansResponse.md)
+ - [DatadogAPIClient::V1::UsageIoTHour](UsageIoTHour.md)
+ - [DatadogAPIClient::V1::UsageIoTResponse](UsageIoTResponse.md)
  - [DatadogAPIClient::V1::UsageLambdaHour](UsageLambdaHour.md)
  - [DatadogAPIClient::V1::UsageLambdaResponse](UsageLambdaResponse.md)
  - [DatadogAPIClient::V1::UsageLogsByIndexHour](UsageLogsByIndexHour.md)
