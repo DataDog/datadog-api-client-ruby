@@ -19,7 +19,6 @@
 | **notify_no_data** | **Boolean** | A Boolean indicating whether this monitor notifies when data stops reporting. | [optional][default to false] |
 | **renotify_interval** | **Integer** | The number of minutes after the last notification before a monitor re-notifies on the current status. It only re-notifies if it’s not resolved. | [optional] |
 | **require_full_window** | **Boolean** | A Boolean indicating whether this monitor needs a full window of data before it’s evaluated. We highly recommend you set this to &#x60;false&#x60; for sparse metrics, otherwise some evaluations are skipped. Default is false. | [optional] |
-| **restricted_roles** | **Array&lt;String&gt;** | A list of role identifiers that can be pulled from the Roles API. Cannot be used with &#x60;locked&#x60;. | [optional] |
 | **silenced** | **Hash&lt;String, Integer&gt;** | Information about the downtime applied to the monitor. | [optional] |
 | **synthetics_check_id** | **String** | ID of the corresponding Synthetic check. | [optional] |
 | **threshold_windows** | [**MonitorThresholdWindowOptions**](MonitorThresholdWindowOptions.md) |  | [optional] |
@@ -47,7 +46,6 @@ instance = DatadogAPIClient::V1::MonitorOptions.new(
   notify_no_data: null,
   renotify_interval: null,
   require_full_window: null,
-  restricted_roles: null,
   silenced: null,
   synthetics_check_id: null,
   threshold_windows: null,
