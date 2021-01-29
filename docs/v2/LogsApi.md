@@ -5,8 +5,8 @@ All URIs are relative to *https://api.datadoghq.com*
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**aggregate_logs**](LogsApi.md#aggregate_logs) | **POST** /api/v2/logs/analytics/aggregate | Aggregate events |
-| [**list_logs**](LogsApi.md#list_logs) | **POST** /api/v2/logs/events/search | Get a list of logs |
-| [**list_logs_get**](LogsApi.md#list_logs_get) | **GET** /api/v2/logs/events | Get a quick list of logs |
+| [**list_logs**](LogsApi.md#list_logs) | **POST** /api/v2/logs/events/search | Search logs |
+| [**list_logs_get**](LogsApi.md#list_logs_get) | **GET** /api/v2/logs/events | Get a list of logs |
 
 
 ## aggregate_logs
@@ -85,9 +85,9 @@ end
 
 > <LogsListResponse> list_logs(opts)
 
-Get a list of logs
+Search logs
 
-List endpoint returns logs that match a log search query. [Results are paginated][1].  Both this endpoint and the GET endpoint can be used interchangeably when listing logs.  **If you are considering archiving logs for your organization, consider use of the Datadog archive capabilities instead of the log list API. See [Datadog Logs Archive documentation][2].**  [1]: /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
+List endpoint returns logs that match a log search query. [Results are paginated][1].  Use this endpoint to build complex logs filtering and search.  **If you are considering archiving logs for your organization, consider use of the Datadog archive capabilities instead of the log list API. See [Datadog Logs Archive documentation][2].**  [1]: /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
 
 ### Examples
 
@@ -111,7 +111,7 @@ opts = {
 }
 
 begin
-  # Get a list of logs
+  # Search logs
   result = api_instance.list_logs(opts)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
@@ -127,7 +127,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get a list of logs
+  # Search logs
   data, status_code, headers = api_instance.list_logs_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -161,9 +161,9 @@ end
 
 > <LogsListResponse> list_logs_get(opts)
 
-Get a quick list of logs
+Get a list of logs
 
-List endpoint returns logs that match a log search query. [Results are paginated][1].  Both this endpoint and the POST endpoint can be used interchangeably when listing logs.  **If you are considering archiving logs for your organization, consider use of the Datadog archive capabilities instead of the log list API. See [Datadog Logs Archive documentation][2].**  [1]: /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
+List endpoint returns logs that match a log search query. [Results are paginated][1].  Use this endpoint to see your latest logs.  **If you are considering archiving logs for your organization, consider use of the Datadog archive capabilities instead of the log list API. See [Datadog Logs Archive documentation][2].**  [1]: /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
 
 ### Examples
 
@@ -193,7 +193,7 @@ opts = {
 }
 
 begin
-  # Get a quick list of logs
+  # Get a list of logs
   result = api_instance.list_logs_get(opts)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
@@ -209,7 +209,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get a quick list of logs
+  # Get a list of logs
   data, status_code, headers = api_instance.list_logs_get_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
