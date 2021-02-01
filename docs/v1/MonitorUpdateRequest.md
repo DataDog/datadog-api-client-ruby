@@ -16,6 +16,7 @@
 | **overall_state** | [**MonitorOverallStates**](MonitorOverallStates.md) |  | [optional] |
 | **priority** | **Integer** | Integer from 1 (high) to 5 (low) indicating alert severity. | [optional] |
 | **query** | **String** | The monitor query. | [optional] |
+| **restricted_roles** | **Array&lt;String&gt;** | A list of role identifiers that can be pulled from the Roles API. Cannot be used with &#x60;locked&#x60; option. | [optional] |
 | **state** | [**MonitorState**](MonitorState.md) |  | [optional] |
 | **tags** | **Array&lt;String&gt;** | Tags associated to your monitor. | [optional] |
 | **type** | [**MonitorType**](MonitorType.md) |  | [optional] |
@@ -38,6 +39,7 @@ instance = DatadogAPIClient::V1::MonitorUpdateRequest.new(
   overall_state: null,
   priority: null,
   query: null,
+  restricted_roles: null,
   state: null,
   tags: null,
   type: null
