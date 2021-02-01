@@ -14,7 +14,7 @@
 require 'datadog_api_client/v2'
 
 instance = DatadogAPIClient::V2::UserCreateAttributes.new(
-  email: joe.doe@example.com,
+  email: jane.doe@example.com,
   name: null,
   title: null
 )
