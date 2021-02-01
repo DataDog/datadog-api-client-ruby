@@ -52,6 +52,9 @@ module DatadogAPIClient::V1
     # The monitor query.
     attr_accessor :query
 
+    # A list of role identifiers that can be pulled from the Roles API. Cannot be used with `locked` option.
+    attr_accessor :restricted_roles
+
     attr_accessor :state
 
     # Tags associated to your monitor.
@@ -74,6 +77,7 @@ module DatadogAPIClient::V1
         :'overall_state' => :'overall_state',
         :'priority' => :'priority',
         :'query' => :'query',
+        :'restricted_roles' => :'restricted_roles',
         :'state' => :'state',
         :'tags' => :'tags',
         :'type' => :'type'
@@ -100,6 +104,7 @@ module DatadogAPIClient::V1
         :'overall_state' => :'MonitorOverallStates',
         :'priority' => :'Integer',
         :'query' => :'String',
+        :'restricted_roles' => :'Array<String>',
         :'state' => :'MonitorState',
         :'tags' => :'Array<String>',
         :'type' => :'MonitorType'
@@ -176,6 +181,12 @@ module DatadogAPIClient::V1
         self.query = attributes[:'query']
       end
 
+      if attributes.key?(:'restricted_roles')
+        if (value = attributes[:'restricted_roles']).is_a?(Array)
+          self.restricted_roles = value
+        end
+      end
+
       if attributes.key?(:'state')
         self.state = attributes[:'state']
       end
@@ -245,6 +256,7 @@ module DatadogAPIClient::V1
           overall_state == o.overall_state &&
           priority == o.priority &&
           query == o.query &&
+          restricted_roles == o.restricted_roles &&
           state == o.state &&
           tags == o.tags &&
           type == o.type
@@ -259,7 +271,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created, creator, deleted, id, message, modified, multi, name, options, overall_state, priority, query, state, tags, type].hash
+      [created, creator, deleted, id, message, modified, multi, name, options, overall_state, priority, query, restricted_roles, state, tags, type].hash
     end
 
     # Builds the object from hash
