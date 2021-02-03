@@ -23,6 +23,7 @@ module DatadogAPIClient::V1
 
     attr_accessor :data_source
 
+    # Group by options.
     attr_accessor :group_by
 
     # An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
@@ -55,7 +56,7 @@ module DatadogAPIClient::V1
       {
         :'compute' => :'TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute',
         :'data_source' => :'FormulaAndFunctionEventsDataSource',
-        :'group_by' => :'TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBy',
+        :'group_by' => :'Array<TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBy>',
         :'indexes' => :'Array<String>',
         :'name' => :'String',
         :'search' => :'TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch'
@@ -92,7 +93,9 @@ module DatadogAPIClient::V1
       end
 
       if attributes.key?(:'group_by')
-        self.group_by = attributes[:'group_by']
+        if (value = attributes[:'group_by']).is_a?(Array)
+          self.group_by = value
+        end
       end
 
       if attributes.key?(:'indexes')

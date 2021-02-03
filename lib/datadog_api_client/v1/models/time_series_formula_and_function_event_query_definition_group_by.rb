@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Group by options.
+  # List of objects used to group by.
   class TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBy
     # Event facet.
     attr_accessor :facet
@@ -46,7 +46,7 @@ module DatadogAPIClient::V1
       {
         :'facet' => :'String',
         :'limit' => :'Integer',
-        :'sort' => :'TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBySort'
+        :'sort' => :'TimeSeriesFormulaAndFunctionEventQueryDefinitionSort'
       }
     end
 
