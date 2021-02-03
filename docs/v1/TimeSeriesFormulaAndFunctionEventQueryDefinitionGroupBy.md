@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **facet** | **String** | Event facet. |  |
 | **limit** | **Integer** | Number of groups to return. | [optional] |
-| **sort** | [**TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBySort**](TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBySort.md) |  | [optional] |
+| **sort** | [**TimeSeriesFormulaAndFunctionEventQueryDefinitionSort**](TimeSeriesFormulaAndFunctionEventQueryDefinitionSort.md) |  | [optional] |
 
 ## Example
 
