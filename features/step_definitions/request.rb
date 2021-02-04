@@ -24,7 +24,16 @@ module APIWorld
   end
 
   def fixtures
-    @fixtures ||= { "unique": unique, "unique_lower": unique.downcase }
+    @fixtures ||= {
+      "unique": unique,
+      "unique_lower": unique.downcase,
+      "now_ts": Time.now.to_i,
+      "now_iso": Time.now.iso8601,
+      "hour_later_ts": (Time.now + 3600).to_i,
+      "hour_later_iso": (Time.now + 3600).iso8601,
+      "hour_ago_ts": (Time.now - 3600).to_i,
+      "hour_ago_iso": (Time.now - 3600).iso8601,
+    }
   end
 
   def opts
