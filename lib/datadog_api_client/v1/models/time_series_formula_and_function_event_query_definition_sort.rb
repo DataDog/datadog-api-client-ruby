@@ -17,35 +17,24 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Query metadata.
-  class SLOHistoryMetricsSeriesMetadata
-    # Query aggregator function.
-    attr_accessor :aggr
+  # Options for sorting group by results.
+  class TimeSeriesFormulaAndFunctionEventQueryDefinitionSort
+    attr_accessor :aggregation
 
-    # Query expression.
-    attr_accessor :expression
-
-    # Query metric used.
+    # Metric used for sorting group by results.
     attr_accessor :metric
 
-    # Query index from original combined query.
-    attr_accessor :query_index
+    attr_accessor :order
 
-    # Query scope.
-    attr_accessor :scope
-
-    # An array of metric units that contains up to two unit objects. For example, bytes represents one unit object and bytes per second represents two unit objects. If a metric query only has one unit object, the second array element is null.
-    attr_accessor :unit
+    attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'aggr' => :'aggr',
-        :'expression' => :'expression',
+        :'aggregation' => :'aggregation',
         :'metric' => :'metric',
-        :'query_index' => :'query_index',
-        :'scope' => :'scope',
-        :'unit' => :'unit'
+        :'order' => :'order',
+        :'type' => :'type'
       }
     end
 
@@ -57,19 +46,16 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'aggr' => :'String',
-        :'expression' => :'String',
+        :'aggregation' => :'FormulaAndFunctionEventAggregation',
         :'metric' => :'String',
-        :'query_index' => :'Integer',
-        :'scope' => :'String',
-        :'unit' => :'Array<SLOHistoryMetricsSeriesMetadataUnit>'
+        :'order' => :'QuerySortOrder',
+        :'type' => :'FormulaAndFunctionEventsSortType'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'unit'
       ])
     end
 
@@ -77,41 +63,33 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SLOHistoryMetricsSeriesMetadata` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::TimeSeriesFormulaAndFunctionEventQueryDefinitionSort` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SLOHistoryMetricsSeriesMetadata`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::TimeSeriesFormulaAndFunctionEventQueryDefinitionSort`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'aggr')
-        self.aggr = attributes[:'aggr']
-      end
-
-      if attributes.key?(:'expression')
-        self.expression = attributes[:'expression']
+      if attributes.key?(:'aggregation')
+        self.aggregation = attributes[:'aggregation']
       end
 
       if attributes.key?(:'metric')
         self.metric = attributes[:'metric']
       end
 
-      if attributes.key?(:'query_index')
-        self.query_index = attributes[:'query_index']
+      if attributes.key?(:'order')
+        self.order = attributes[:'order']
+      else
+        self.order = 'desc'
       end
 
-      if attributes.key?(:'scope')
-        self.scope = attributes[:'scope']
-      end
-
-      if attributes.key?(:'unit')
-        if (value = attributes[:'unit']).is_a?(Array)
-          self.unit = value
-        end
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -119,12 +97,17 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @aggregation.nil?
+        invalid_properties.push('invalid value for "aggregation", aggregation cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @aggregation.nil?
       true
     end
 
@@ -133,12 +116,10 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          aggr == o.aggr &&
-          expression == o.expression &&
+          aggregation == o.aggregation &&
           metric == o.metric &&
-          query_index == o.query_index &&
-          scope == o.scope &&
-          unit == o.unit
+          order == o.order &&
+          type == o.type
     end
 
     # @see the `==` method
@@ -150,7 +131,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aggr, expression, metric, query_index, scope, unit].hash
+      [aggregation, metric, order, type].hash
     end
 
     # Builds the object from hash

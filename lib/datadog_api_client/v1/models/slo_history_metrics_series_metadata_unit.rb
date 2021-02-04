@@ -17,24 +17,35 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Options for sorting group by results.
-  class TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBySort
-    attr_accessor :aggregation
+  # An Object of metric units.
+  class SLOHistoryMetricsSeriesMetadataUnit
+    # The family of metric unit, for example `bytes` is the family for `kibibyte`, `byte`, and `bit` units.
+    attr_accessor :family
 
-    # Metric used for sorting group by results.
-    attr_accessor :metric
+    # The ID of the metric unit.
+    attr_accessor :id
 
-    attr_accessor :order
+    # The unit of the metric, for instance `byte`.
+    attr_accessor :name
 
-    attr_accessor :type
+    # The plural Unit of metric, for instance `bytes`.
+    attr_accessor :plural
+
+    # The scale factor of metric unit, for instance `1.0`.
+    attr_accessor :scale_factor
+
+    # A shorter and abbreviated version of the metric unit, for instance `B`.
+    attr_accessor :short_name
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'aggregation' => :'aggregation',
-        :'metric' => :'metric',
-        :'order' => :'order',
-        :'type' => :'type'
+        :'family' => :'family',
+        :'id' => :'id',
+        :'name' => :'name',
+        :'plural' => :'plural',
+        :'scale_factor' => :'scale_factor',
+        :'short_name' => :'short_name'
       }
     end
 
@@ -46,16 +57,20 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'aggregation' => :'FormulaAndFunctionEventAggregation',
-        :'metric' => :'String',
-        :'order' => :'QuerySortOrder',
-        :'type' => :'FormulaAndFunctionEventsSortType'
+        :'family' => :'String',
+        :'id' => :'Integer',
+        :'name' => :'String',
+        :'plural' => :'String',
+        :'scale_factor' => :'Float',
+        :'short_name' => :'String'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'plural',
+        :'short_name'
       ])
     end
 
@@ -63,33 +78,39 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBySort` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SLOHistoryMetricsSeriesMetadataUnit` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBySort`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SLOHistoryMetricsSeriesMetadataUnit`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'aggregation')
-        self.aggregation = attributes[:'aggregation']
+      if attributes.key?(:'family')
+        self.family = attributes[:'family']
       end
 
-      if attributes.key?(:'metric')
-        self.metric = attributes[:'metric']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'order')
-        self.order = attributes[:'order']
-      else
-        self.order = 'desc'
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'plural')
+        self.plural = attributes[:'plural']
+      end
+
+      if attributes.key?(:'scale_factor')
+        self.scale_factor = attributes[:'scale_factor']
+      end
+
+      if attributes.key?(:'short_name')
+        self.short_name = attributes[:'short_name']
       end
     end
 
@@ -97,17 +118,12 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @aggregation.nil?
-        invalid_properties.push('invalid value for "aggregation", aggregation cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @aggregation.nil?
       true
     end
 
@@ -116,10 +132,12 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          aggregation == o.aggregation &&
-          metric == o.metric &&
-          order == o.order &&
-          type == o.type
+          family == o.family &&
+          id == o.id &&
+          name == o.name &&
+          plural == o.plural &&
+          scale_factor == o.scale_factor &&
+          short_name == o.short_name
     end
 
     # @see the `==` method
@@ -131,7 +149,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aggregation, metric, order, type].hash
+      [family, id, name, plural, scale_factor, short_name].hash
     end
 
     # Builds the object from hash
