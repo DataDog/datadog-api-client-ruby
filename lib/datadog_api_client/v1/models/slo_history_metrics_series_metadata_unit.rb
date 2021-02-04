@@ -17,35 +17,35 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Query metadata.
-  class SLOHistoryMetricsSeriesMetadata
-    # Query aggregator function.
-    attr_accessor :aggr
+  # An Object of metric units.
+  class SLOHistoryMetricsSeriesMetadataUnit
+    # The family of metric unit, for example `bytes` is the family for `kibibyte`, `byte`, and `bit` units.
+    attr_accessor :family
 
-    # Query expression.
-    attr_accessor :expression
+    # The ID of the metric unit.
+    attr_accessor :id
 
-    # Query metric used.
-    attr_accessor :metric
+    # The unit of the metric, for instance `byte`.
+    attr_accessor :name
 
-    # Query index from original combined query.
-    attr_accessor :query_index
+    # The plural Unit of metric, for instance `bytes`.
+    attr_accessor :plural
 
-    # Query scope.
-    attr_accessor :scope
+    # The scale factor of metric unit, for instance `1.0`.
+    attr_accessor :scale_factor
 
-    # An array of metric units that contains up to two unit objects. For example, bytes represents one unit object and bytes per second represents two unit objects. If a metric query only has one unit object, the second array element is null.
-    attr_accessor :unit
+    # A shorter and abbreviated version of the metric unit, for instance `B`.
+    attr_accessor :short_name
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'aggr' => :'aggr',
-        :'expression' => :'expression',
-        :'metric' => :'metric',
-        :'query_index' => :'query_index',
-        :'scope' => :'scope',
-        :'unit' => :'unit'
+        :'family' => :'family',
+        :'id' => :'id',
+        :'name' => :'name',
+        :'plural' => :'plural',
+        :'scale_factor' => :'scale_factor',
+        :'short_name' => :'short_name'
       }
     end
 
@@ -57,19 +57,20 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'aggr' => :'String',
-        :'expression' => :'String',
-        :'metric' => :'String',
-        :'query_index' => :'Integer',
-        :'scope' => :'String',
-        :'unit' => :'Array<SLOHistoryMetricsSeriesMetadataUnit>'
+        :'family' => :'String',
+        :'id' => :'Integer',
+        :'name' => :'String',
+        :'plural' => :'String',
+        :'scale_factor' => :'Float',
+        :'short_name' => :'String'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'unit'
+        :'plural',
+        :'short_name'
       ])
     end
 
@@ -77,41 +78,39 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SLOHistoryMetricsSeriesMetadata` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SLOHistoryMetricsSeriesMetadataUnit` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SLOHistoryMetricsSeriesMetadata`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SLOHistoryMetricsSeriesMetadataUnit`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'aggr')
-        self.aggr = attributes[:'aggr']
+      if attributes.key?(:'family')
+        self.family = attributes[:'family']
       end
 
-      if attributes.key?(:'expression')
-        self.expression = attributes[:'expression']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'metric')
-        self.metric = attributes[:'metric']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'query_index')
-        self.query_index = attributes[:'query_index']
+      if attributes.key?(:'plural')
+        self.plural = attributes[:'plural']
       end
 
-      if attributes.key?(:'scope')
-        self.scope = attributes[:'scope']
+      if attributes.key?(:'scale_factor')
+        self.scale_factor = attributes[:'scale_factor']
       end
 
-      if attributes.key?(:'unit')
-        if (value = attributes[:'unit']).is_a?(Array)
-          self.unit = value
-        end
+      if attributes.key?(:'short_name')
+        self.short_name = attributes[:'short_name']
       end
     end
 
@@ -133,12 +132,12 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          aggr == o.aggr &&
-          expression == o.expression &&
-          metric == o.metric &&
-          query_index == o.query_index &&
-          scope == o.scope &&
-          unit == o.unit
+          family == o.family &&
+          id == o.id &&
+          name == o.name &&
+          plural == o.plural &&
+          scale_factor == o.scale_factor &&
+          short_name == o.short_name
     end
 
     # @see the `==` method
@@ -150,7 +149,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aggr, expression, metric, query_index, scope, unit].hash
+      [family, id, name, plural, scale_factor, short_name].hash
     end
 
     # Builds the object from hash
