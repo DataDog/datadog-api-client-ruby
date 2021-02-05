@@ -482,7 +482,7 @@ api_instance = DatadogAPIClient::V1::ServiceLevelObjectivesApi.new
 opts = {
   ids: 'id1, id2, id3', # String | A comma separated list of the IDs of the service level objectives objects.
   query: 'monitor', # String | The query string to filter results based on SLO names.
-  tags_query: 'env:prod', # String | The query string to filter results based on SLO tags.
+  tags_query: 'env:prod', # String | The query string to filter results based on a single SLO tag.
   metrics_query: 'aws.elb.request_count' # String | The query string to filter results based on SLO numerator and denominator.
 }
 
@@ -519,7 +519,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **ids** | **String** | A comma separated list of the IDs of the service level objectives objects. | [optional] |
 | **query** | **String** | The query string to filter results based on SLO names. | [optional] |
-| **tags_query** | **String** | The query string to filter results based on SLO tags. | [optional] |
+| **tags_query** | **String** | The query string to filter results based on a single SLO tag. | [optional] |
 | **metrics_query** | **String** | The query string to filter results based on SLO numerator and denominator. | [optional] |
 
 ### Return type
