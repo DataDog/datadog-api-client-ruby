@@ -26,15 +26,12 @@ module DatadogAPIClient::V1
 
     attr_accessor :order
 
-    attr_accessor :type
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'aggregation' => :'aggregation',
         :'metric' => :'metric',
-        :'order' => :'order',
-        :'type' => :'type'
+        :'order' => :'order'
       }
     end
 
@@ -48,8 +45,7 @@ module DatadogAPIClient::V1
       {
         :'aggregation' => :'FormulaAndFunctionEventAggregation',
         :'metric' => :'String',
-        :'order' => :'QuerySortOrder',
-        :'type' => :'FormulaAndFunctionEventsSortType'
+        :'order' => :'QuerySortOrder'
       }
     end
 
@@ -87,10 +83,6 @@ module DatadogAPIClient::V1
       else
         self.order = 'desc'
       end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -118,8 +110,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           aggregation == o.aggregation &&
           metric == o.metric &&
-          order == o.order &&
-          type == o.type
+          order == o.order
     end
 
     # @see the `==` method
@@ -131,7 +122,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aggregation, metric, order, type].hash
+      [aggregation, metric, order].hash
     end
 
     # Builds the object from hash
