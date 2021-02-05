@@ -487,7 +487,7 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @option opts [String] :ids A comma separated list of the IDs of the service level objectives objects.
     # @option opts [String] :query The query string to filter results based on SLO names.
-    # @option opts [String] :tags_query The query string to filter results based on SLO tags.
+    # @option opts [String] :tags_query The query string to filter results based on a single SLO tag.
     # @option opts [String] :metrics_query The query string to filter results based on SLO numerator and denominator.
     # @return [SLOListResponse]
     def list_slos(opts = {})
@@ -500,7 +500,7 @@ module DatadogAPIClient::V1
     # @param [Hash] opts the optional parameters
     # @option opts [String] :ids A comma separated list of the IDs of the service level objectives objects.
     # @option opts [String] :query The query string to filter results based on SLO names.
-    # @option opts [String] :tags_query The query string to filter results based on SLO tags.
+    # @option opts [String] :tags_query The query string to filter results based on a single SLO tag.
     # @option opts [String] :metrics_query The query string to filter results based on SLO numerator and denominator.
     # @return [Array<(SLOListResponse, Integer, Hash)>] SLOListResponse data, response status code and response headers
     def list_slos_with_http_info(opts = {})
