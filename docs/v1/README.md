@@ -330,7 +330,6 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::EventTimelineWidgetDefinitionType](EventTimelineWidgetDefinitionType.md)
  - [DatadogAPIClient::V1::FormulaAndFunctionEventAggregation](FormulaAndFunctionEventAggregation.md)
  - [DatadogAPIClient::V1::FormulaAndFunctionEventsDataSource](FormulaAndFunctionEventsDataSource.md)
- - [DatadogAPIClient::V1::FormulaAndFunctionEventsSortType](FormulaAndFunctionEventsSortType.md)
  - [DatadogAPIClient::V1::FormulaAndFunctionMetricAggregation](FormulaAndFunctionMetricAggregation.md)
  - [DatadogAPIClient::V1::FormulaAndFunctionMetricDataSource](FormulaAndFunctionMetricDataSource.md)
  - [DatadogAPIClient::V1::FormulaAndFunctionProcessQueryDataSource](FormulaAndFunctionProcessQueryDataSource.md)
