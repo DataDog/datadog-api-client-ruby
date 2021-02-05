@@ -20,14 +20,14 @@ module DatadogAPIClient::V1
   # The objects used to delete an AWS tag filter entry.
   class AWSTagFilterDeleteRequest
     # The unique identifier of your AWS account.
-    attr_accessor :aws_account_identifier
+    attr_accessor :account_id
 
     attr_accessor :namespace
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'aws_account_identifier' => :'aws_account_identifier',
+        :'account_id' => :'account_id',
         :'namespace' => :'namespace'
       }
     end
@@ -40,7 +40,7 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'aws_account_identifier' => :'String',
+        :'account_id' => :'String',
         :'namespace' => :'AWSNamespace'
       }
     end
@@ -66,8 +66,8 @@ module DatadogAPIClient::V1
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'aws_account_identifier')
-        self.aws_account_identifier = attributes[:'aws_account_identifier']
+      if attributes.key?(:'account_id')
+        self.account_id = attributes[:'account_id']
       end
 
       if attributes.key?(:'namespace')
@@ -93,7 +93,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          aws_account_identifier == o.aws_account_identifier &&
+          account_id == o.account_id &&
           namespace == o.namespace
     end
 
@@ -106,7 +106,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aws_account_identifier, namespace].hash
+      [account_id, namespace].hash
     end
 
     # Builds the object from hash
