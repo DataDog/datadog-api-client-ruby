@@ -32,8 +32,6 @@ DatadogAPIClient::V1.configure do |config|
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-
-  config.unstable_operations[:create_logs_index] = true
 end
 
 api_instance = DatadogAPIClient::V1::LogsIndexesApi.new
@@ -106,8 +104,6 @@ DatadogAPIClient::V1.configure do |config|
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-
-  config.unstable_operations[:get_logs_index] = true
 end
 
 api_instance = DatadogAPIClient::V1::LogsIndexesApi.new
@@ -180,8 +176,6 @@ DatadogAPIClient::V1.configure do |config|
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-
-  config.unstable_operations[:get_logs_index_order] = true
 end
 
 api_instance = DatadogAPIClient::V1::LogsIndexesApi.new
@@ -251,8 +245,6 @@ DatadogAPIClient::V1.configure do |config|
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-
-  config.unstable_operations[:list_log_indexes] = true
 end
 
 api_instance = DatadogAPIClient::V1::LogsIndexesApi.new
@@ -322,8 +314,6 @@ DatadogAPIClient::V1.configure do |config|
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-
-  config.unstable_operations[:update_logs_index] = true
 end
 
 api_instance = DatadogAPIClient::V1::LogsIndexesApi.new
@@ -398,8 +388,6 @@ DatadogAPIClient::V1.configure do |config|
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-
-  config.unstable_operations[:update_logs_index_order] = true
 end
 
 api_instance = DatadogAPIClient::V1::LogsIndexesApi.new

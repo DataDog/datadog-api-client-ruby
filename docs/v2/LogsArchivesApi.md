@@ -36,8 +36,6 @@ DatadogAPIClient::V2.configure do |config|
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-
-  config.unstable_operations[:add_read_role_to_archive] = true
 end
 
 api_instance = DatadogAPIClient::V2::LogsArchivesApi.new
@@ -395,8 +393,6 @@ DatadogAPIClient::V2.configure do |config|
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-
-  config.unstable_operations[:list_archive_read_roles] = true
 end
 
 api_instance = DatadogAPIClient::V2::LogsArchivesApi.new
@@ -538,8 +534,6 @@ DatadogAPIClient::V2.configure do |config|
 
   # Configure API key authorization: appKeyAuth
   config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-
-  config.unstable_operations[:remove_role_from_archive] = true
 end
 
 api_instance = DatadogAPIClient::V2::LogsArchivesApi.new
