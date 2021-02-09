@@ -165,12 +165,6 @@ module DatadogAPIClient::V1
       @force_ending_format = false
       @logger = defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
       @unstable_operations = {
-            create_logs_index: false,
-            get_logs_index: false,
-            get_logs_index_order: false,
-            list_log_indexes: false,
-            update_logs_index: false,
-            update_logs_index_order: false,
             create_slo_correction: false,
             delete_slo_correction: false,
             get_slo_correction: false,

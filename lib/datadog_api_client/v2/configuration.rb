@@ -180,11 +180,6 @@ module DatadogAPIClient::V2
             get_incident: false,
             list_incidents: false,
             update_incident: false,
-            list_logs: false,
-            list_logs_get: false,
-            add_read_role_to_archive: false,
-            list_archive_read_roles: false,
-            remove_role_from_archive: false,
             list_security_monitoring_signals: false,
             search_security_monitoring_signals: false,
       }
