@@ -29,8 +29,12 @@ Creates an API key with a given name.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -101,8 +105,12 @@ Create an application key with a given name.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -173,8 +181,12 @@ Delete a given API key.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -245,8 +257,12 @@ Delete a given application key.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -317,8 +333,12 @@ Get a given API key.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -389,8 +409,12 @@ Get a given application key.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -461,8 +485,12 @@ Get all API keys available for your account.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -530,8 +558,12 @@ Get all application keys available for your Datadog account.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -599,8 +631,12 @@ Edit an API key name.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -673,8 +709,12 @@ Edit an application key name.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 

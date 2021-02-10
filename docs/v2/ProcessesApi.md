@@ -20,8 +20,12 @@ Get all processes for your organization.
 ```ruby
 require 'time'
 require 'datadog_api_client/v2'
-# setup authorization
+
 DatadogAPIClient::V2.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 

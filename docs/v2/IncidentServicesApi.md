@@ -24,8 +24,12 @@ Creates a new incident service.
 ```ruby
 require 'time'
 require 'datadog_api_client/v2'
-# setup authorization
+
 DatadogAPIClient::V2.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -98,8 +102,12 @@ Deletes an existing incident service.
 ```ruby
 require 'time'
 require 'datadog_api_client/v2'
-# setup authorization
+
 DatadogAPIClient::V2.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -171,8 +179,12 @@ Get details of an incident service. If the `include[users]` query parameter is p
 ```ruby
 require 'time'
 require 'datadog_api_client/v2'
-# setup authorization
+
 DatadogAPIClient::V2.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -249,8 +261,12 @@ Get all incident services uploaded for the requesting user's organization. If th
 ```ruby
 require 'time'
 require 'datadog_api_client/v2'
-# setup authorization
+
 DatadogAPIClient::V2.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -331,8 +347,12 @@ Updates an existing incident service. Only provide the attributes which should b
 ```ruby
 require 'time'
 require 'datadog_api_client/v2'
-# setup authorization
+
 DatadogAPIClient::V2.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 

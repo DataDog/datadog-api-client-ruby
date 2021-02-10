@@ -24,8 +24,12 @@ Create a child organization.  This endpoint requires the [multi-organization acc
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -96,8 +100,12 @@ Get organization information.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -168,8 +176,12 @@ List your managed organizations.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -237,8 +249,12 @@ Update your organization.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -311,8 +327,12 @@ There are a couple of options for updating the Identity Provider (IdP) metadata 
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 

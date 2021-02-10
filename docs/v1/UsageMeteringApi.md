@@ -48,8 +48,12 @@ Get daily custom reports.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -130,8 +134,12 @@ Get hourly usage for incident management.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -206,8 +214,12 @@ Get hourly usage for ingested spans.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -282,8 +294,12 @@ Get monthly custom reports.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -364,8 +380,12 @@ Get specified daily custom reports.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -438,8 +458,12 @@ Get specified monthly custom reports.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -512,8 +536,12 @@ Get hourly usage for tracing without limits.  **Note** This endpoint has been re
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -588,8 +616,12 @@ Get hourly usage for analyzed logs (Security Monitoring).
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -664,8 +696,12 @@ Get Usage Attribution.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -748,8 +784,12 @@ Get billable usage across your account.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -822,8 +862,12 @@ Get hourly usage for [Fargate](https://docs.datadoghq.com/integrations/ecs_farga
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -898,8 +942,12 @@ Get hourly usage for hosts and containers.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -974,8 +1022,12 @@ Get hourly usage for indexed spans.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -1050,8 +1102,12 @@ Get hourly usage for IoT.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -1126,8 +1182,12 @@ Get hourly usage for lambda.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -1202,8 +1262,12 @@ Get hourly usage for logs.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -1278,8 +1342,12 @@ Get hourly usage for logs by index.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -1356,8 +1424,12 @@ Get hourly usage for network flows.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -1432,8 +1504,12 @@ Get hourly usage for network hosts.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -1508,8 +1584,12 @@ Get hourly usage for profiled hosts.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -1584,8 +1664,12 @@ Get hourly usage for [RUM](https://docs.datadoghq.com/real_user_monitoring/) Ses
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -1662,8 +1746,12 @@ Get hourly usage for SNMP devices.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -1738,8 +1826,12 @@ Get usage across your multi-org account. You must have the multi-org feature ena
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -1816,8 +1908,12 @@ Get hourly usage for [Synthetics checks](https://docs.datadoghq.com/synthetics/)
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -1892,8 +1988,12 @@ Get hourly usage for [synthetics API checks](https://docs.datadoghq.com/syntheti
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -1968,8 +2068,12 @@ Get hourly usage for synthetics browser checks.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -2044,8 +2148,12 @@ Get hourly usage for [custom metrics](https://docs.datadoghq.com/developers/metr
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -2120,8 +2228,12 @@ Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_me
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -2198,8 +2310,12 @@ Get hourly usage for trace search.  **Note** This endpoint has been renamed to `
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 

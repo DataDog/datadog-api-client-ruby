@@ -40,8 +40,12 @@ Create a Synthetics global variable.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -112,8 +116,12 @@ Create a new Synthetics private location.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -184,8 +192,12 @@ Create a Synthetic test.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -256,8 +268,12 @@ Delete a Synthetics global variable.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -327,8 +343,12 @@ Delete a Synthetics private location.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -398,8 +418,12 @@ Delete multiple Synthetic tests by ID.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -470,8 +494,12 @@ Edit a Synthetics global variable.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -544,8 +572,12 @@ Get the last 50 test results summaries for a given Synthetics API test.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -624,8 +656,12 @@ Get a specific full result from a given (API) Synthetic test.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -698,8 +734,12 @@ Get the detailed configuration (including steps) associated with a Synthetic bro
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -770,8 +810,12 @@ Get the last 50 test results summaries for a given Synthetics Browser test.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -850,8 +894,12 @@ Get a specific full result from a given (browser) Synthetic test.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -924,8 +972,12 @@ Get the detailed configuration of a global variable.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -996,8 +1048,12 @@ Get a Synthetics private location.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -1068,8 +1124,12 @@ Get the detailed configuration associated with a Synthetics test.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -1140,8 +1200,12 @@ Get the list of public and private locations available for Synthetic tests. No a
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -1209,8 +1273,12 @@ Get the list of all Synthetic tests.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -1278,8 +1346,12 @@ Trigger a set of Synthetics tests for continuous integration.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -1350,8 +1422,12 @@ Edit a Synthetics private location.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -1424,8 +1500,12 @@ Edit the configuration of a Synthetic test.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -1498,8 +1578,12 @@ Pause or start a Synthetics test by changing the status.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 

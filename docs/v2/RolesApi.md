@@ -31,8 +31,12 @@ Adds a permission to a role.
 ```ruby
 require 'time'
 require 'datadog_api_client/v2'
-# setup authorization
+
 DatadogAPIClient::V2.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -105,8 +109,12 @@ Adds a user to a role.
 ```ruby
 require 'time'
 require 'datadog_api_client/v2'
-# setup authorization
+
 DatadogAPIClient::V2.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -179,8 +187,12 @@ Create a new role for your organization.
 ```ruby
 require 'time'
 require 'datadog_api_client/v2'
-# setup authorization
+
 DatadogAPIClient::V2.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -251,8 +263,12 @@ Disables a role.
 ```ruby
 require 'time'
 require 'datadog_api_client/v2'
-# setup authorization
+
 DatadogAPIClient::V2.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -322,8 +338,12 @@ Get a role in the organization specified by the role’s `role_id`.
 ```ruby
 require 'time'
 require 'datadog_api_client/v2'
-# setup authorization
+
 DatadogAPIClient::V2.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -394,8 +414,12 @@ Returns a list of all permissions, including name, description, and ID.
 ```ruby
 require 'time'
 require 'datadog_api_client/v2'
-# setup authorization
+
 DatadogAPIClient::V2.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -463,8 +487,12 @@ Returns a list of all permissions for a single role.
 ```ruby
 require 'time'
 require 'datadog_api_client/v2'
-# setup authorization
+
 DatadogAPIClient::V2.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -535,8 +563,12 @@ Gets all users of a role.
 ```ruby
 require 'time'
 require 'datadog_api_client/v2'
-# setup authorization
+
 DatadogAPIClient::V2.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -617,8 +649,12 @@ Returns all roles, including their names and IDs.
 ```ruby
 require 'time'
 require 'datadog_api_client/v2'
-# setup authorization
+
 DatadogAPIClient::V2.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -697,8 +733,12 @@ Removes a permission from a role.
 ```ruby
 require 'time'
 require 'datadog_api_client/v2'
-# setup authorization
+
 DatadogAPIClient::V2.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -771,8 +811,12 @@ Removes a user from a role.
 ```ruby
 require 'time'
 require 'datadog_api_client/v2'
-# setup authorization
+
 DatadogAPIClient::V2.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -845,8 +889,12 @@ Edit a role. Can only be used with application keys belonging to administrators.
 ```ruby
 require 'time'
 require 'datadog_api_client/v2'
-# setup authorization
+
 DatadogAPIClient::V2.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 

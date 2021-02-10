@@ -28,8 +28,12 @@ Create a user for your organization.
 ```ruby
 require 'time'
 require 'datadog_api_client/v2'
-# setup authorization
+
 DatadogAPIClient::V2.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -100,8 +104,12 @@ Disable a user. Can only be used with an application key belonging to an adminis
 ```ruby
 require 'time'
 require 'datadog_api_client/v2'
-# setup authorization
+
 DatadogAPIClient::V2.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -171,8 +179,12 @@ Returns a single user invitation by its UUID.
 ```ruby
 require 'time'
 require 'datadog_api_client/v2'
-# setup authorization
+
 DatadogAPIClient::V2.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -243,8 +255,12 @@ Get a user in the organization specified by the user’s `user_id`.
 ```ruby
 require 'time'
 require 'datadog_api_client/v2'
-# setup authorization
+
 DatadogAPIClient::V2.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -315,8 +331,12 @@ Get a user organization. Returns the user information and all organizations join
 ```ruby
 require 'time'
 require 'datadog_api_client/v2'
-# setup authorization
+
 DatadogAPIClient::V2.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -387,8 +407,12 @@ Get a user permission set. Returns a list of the user’s permissions granted by
 ```ruby
 require 'time'
 require 'datadog_api_client/v2'
-# setup authorization
+
 DatadogAPIClient::V2.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -459,8 +483,12 @@ Get the list of all users in the organization. This list includes all users even
 ```ruby
 require 'time'
 require 'datadog_api_client/v2'
-# setup authorization
+
 DatadogAPIClient::V2.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -543,8 +571,12 @@ Sends emails to one or more users inviting them to join the organization.
 ```ruby
 require 'time'
 require 'datadog_api_client/v2'
-# setup authorization
+
 DatadogAPIClient::V2.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -615,8 +647,12 @@ Edit a user. Can only be used with an application key belonging to an administra
 ```ruby
 require 'time'
 require 'datadog_api_client/v2'
-# setup authorization
+
 DatadogAPIClient::V2.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 

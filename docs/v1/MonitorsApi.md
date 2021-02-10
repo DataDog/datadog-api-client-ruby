@@ -26,8 +26,12 @@ Check if the given monitors can be deleted.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -98,8 +102,12 @@ Create a monitor using the specified options.  #### Monitor Types  The type of m
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -170,8 +178,12 @@ Delete the specified monitor
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -246,8 +258,12 @@ Get details about the specified monitor from your organization.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -322,8 +338,12 @@ Get details about the specified monitor from your organization.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -410,8 +430,12 @@ Edit the specified monitor.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
@@ -484,8 +508,12 @@ Validate the monitor provided in the request.
 ```ruby
 require 'time'
 require 'datadog_api_client/v1'
-# setup authorization
+
 DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
   # Configure API key authorization: apiKeyAuth
   config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
 
