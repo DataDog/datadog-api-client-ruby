@@ -184,7 +184,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get a Dashboard List
+    # Get items of a Dashboard List
     # Fetch the dashboard list’s dashboard definitions.
     # @param dashboard_list_id [Integer] ID of the dashboard list to get items from.
     # @param [Hash] opts the optional parameters
@@ -194,7 +194,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get a Dashboard List
+    # Get items of a Dashboard List
     # Fetch the dashboard list’s dashboard definitions.
     # @param dashboard_list_id [Integer] ID of the dashboard list to get items from.
     # @param [Hash] opts the optional parameters

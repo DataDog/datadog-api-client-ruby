@@ -6,7 +6,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | ------ | ------------ | ----------- |
 | [**create_dashboard_list_items**](DashboardListsApi.md#create_dashboard_list_items) | **POST** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Add Items to a Dashboard List |
 | [**delete_dashboard_list_items**](DashboardListsApi.md#delete_dashboard_list_items) | **DELETE** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Delete items from a dashboard list |
-| [**get_dashboard_list_items**](DashboardListsApi.md#get_dashboard_list_items) | **GET** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Get a Dashboard List |
+| [**get_dashboard_list_items**](DashboardListsApi.md#get_dashboard_list_items) | **GET** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Get items of a Dashboard List |
 | [**update_dashboard_list_items**](DashboardListsApi.md#update_dashboard_list_items) | **PUT** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Update items of a dashboard list |
 
 
@@ -170,7 +170,7 @@ end
 
 > <DashboardListItems> get_dashboard_list_items(dashboard_list_id)
 
-Get a Dashboard List
+Get items of a Dashboard List
 
 Fetch the dashboard list’s dashboard definitions.
 
@@ -196,7 +196,7 @@ api_instance = DatadogAPIClient::V2::DashboardListsApi.new
 dashboard_list_id = 789 # Integer | ID of the dashboard list to get items from.
 
 begin
-  # Get a Dashboard List
+  # Get items of a Dashboard List
   result = api_instance.get_dashboard_list_items(dashboard_list_id)
   p result
 rescue DatadogAPIClient::V2::ApiError => e
@@ -212,7 +212,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get a Dashboard List
+  # Get items of a Dashboard List
   data, status_code, headers = api_instance.get_dashboard_list_items_with_http_info(dashboard_list_id)
   p status_code # => 2xx
   p headers # => { ... }
