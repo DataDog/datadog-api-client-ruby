@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   class FormulaAndFunctionEventsDataSource
     LOGS = "logs".freeze
-    ANALYZED_SPANS = "analyzed_spans".freeze
+    SPANS = "spans".freeze
     NETWORK = "network".freeze
     RUM = "rum".freeze
     SECURITY_SIGNALS = "security_signals".freeze
