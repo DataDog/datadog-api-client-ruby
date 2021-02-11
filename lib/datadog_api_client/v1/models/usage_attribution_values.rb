@@ -55,10 +55,22 @@ module DatadogAPIClient::V1
     # The infrastructure host usage by tag(s).
     attr_accessor :infra_host_usage
 
-    # The percentage of lambda function usage by tag(s).
+    # The percentage of Lambda function usage by tag(s).
+    attr_accessor :lambda_functions_percentage
+
+    # The Lambda function usage by tag(s).
+    attr_accessor :lambda_functions_usage
+
+    # The percentage of Lambda invocation usage by tag(s).
+    attr_accessor :lambda_invocations_percentage
+
+    # The Lambda invocation usage by tag(s).
+    attr_accessor :lambda_invocations_usage
+
+    # The percentage of Lambda function usage by tag(s).  **Note** this field is deprecated. Use lambda_functions_percentage instead.
     attr_accessor :lambda_percentage
 
-    # The lambda function usage by tag(s).
+    # The Lambda function usage by tag(s).  **Note** this field is deprecated. Use lambda_functions_usage instead.
     attr_accessor :lambda_usage
 
     # The percentage of network host usage by tag(s).
@@ -88,6 +100,10 @@ module DatadogAPIClient::V1
         :'custom_timeseries_usage' => :'custom_timeseries_usage',
         :'infra_host_percentage' => :'infra_host_percentage',
         :'infra_host_usage' => :'infra_host_usage',
+        :'lambda_functions_percentage' => :'lambda_functions_percentage',
+        :'lambda_functions_usage' => :'lambda_functions_usage',
+        :'lambda_invocations_percentage' => :'lambda_invocations_percentage',
+        :'lambda_invocations_usage' => :'lambda_invocations_usage',
         :'lambda_percentage' => :'lambda_percentage',
         :'lambda_usage' => :'lambda_usage',
         :'npm_host_percentage' => :'npm_host_percentage',
@@ -117,6 +133,10 @@ module DatadogAPIClient::V1
         :'custom_timeseries_usage' => :'Float',
         :'infra_host_percentage' => :'Float',
         :'infra_host_usage' => :'Float',
+        :'lambda_functions_percentage' => :'Float',
+        :'lambda_functions_usage' => :'Float',
+        :'lambda_invocations_percentage' => :'Float',
+        :'lambda_invocations_usage' => :'Float',
         :'lambda_percentage' => :'Float',
         :'lambda_usage' => :'Float',
         :'npm_host_percentage' => :'Float',
@@ -195,6 +215,22 @@ module DatadogAPIClient::V1
         self.infra_host_usage = attributes[:'infra_host_usage']
       end
 
+      if attributes.key?(:'lambda_functions_percentage')
+        self.lambda_functions_percentage = attributes[:'lambda_functions_percentage']
+      end
+
+      if attributes.key?(:'lambda_functions_usage')
+        self.lambda_functions_usage = attributes[:'lambda_functions_usage']
+      end
+
+      if attributes.key?(:'lambda_invocations_percentage')
+        self.lambda_invocations_percentage = attributes[:'lambda_invocations_percentage']
+      end
+
+      if attributes.key?(:'lambda_invocations_usage')
+        self.lambda_invocations_usage = attributes[:'lambda_invocations_usage']
+      end
+
       if attributes.key?(:'lambda_percentage')
         self.lambda_percentage = attributes[:'lambda_percentage']
       end
@@ -250,6 +286,10 @@ module DatadogAPIClient::V1
           custom_timeseries_usage == o.custom_timeseries_usage &&
           infra_host_percentage == o.infra_host_percentage &&
           infra_host_usage == o.infra_host_usage &&
+          lambda_functions_percentage == o.lambda_functions_percentage &&
+          lambda_functions_usage == o.lambda_functions_usage &&
+          lambda_invocations_percentage == o.lambda_invocations_percentage &&
+          lambda_invocations_usage == o.lambda_invocations_usage &&
           lambda_percentage == o.lambda_percentage &&
           lambda_usage == o.lambda_usage &&
           npm_host_percentage == o.npm_host_percentage &&
@@ -267,7 +307,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [api_percentage, api_usage, apm_host_percentage, apm_host_usage, browser_percentage, browser_usage, container_percentage, container_usage, custom_timeseries_percentage, custom_timeseries_usage, infra_host_percentage, infra_host_usage, lambda_percentage, lambda_usage, npm_host_percentage, npm_host_usage, snmp_percentage, snmp_usage].hash
+      [api_percentage, api_usage, apm_host_percentage, apm_host_usage, browser_percentage, browser_usage, container_percentage, container_usage, custom_timeseries_percentage, custom_timeseries_usage, infra_host_percentage, infra_host_usage, lambda_functions_percentage, lambda_functions_usage, lambda_invocations_percentage, lambda_invocations_usage, lambda_percentage, lambda_usage, npm_host_percentage, npm_host_usage, snmp_percentage, snmp_usage].hash
     end
 
     # Builds the object from hash

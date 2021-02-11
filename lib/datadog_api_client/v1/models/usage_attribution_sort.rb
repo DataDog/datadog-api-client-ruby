@@ -20,13 +20,11 @@ module DatadogAPIClient::V1
   class UsageAttributionSort
     API_PERCENTAGE = "api_percentage".freeze
     SNMP_USAGE = "snmp_usage".freeze
-    LAMBDA_PERCENTAGE = "lambda_percentage".freeze
     APM_HOST_USAGE = "apm_host_usage".freeze
     API_USAGE = "api_usage".freeze
     CONTAINER_USAGE = "container_usage".freeze
     CUSTOM_TIMESERIES_PERCENTAGE = "custom_timeseries_percentage".freeze
     CONTAINER_PERCENTAGE = "container_percentage".freeze
-    LAMBDA_USAGE = "lambda_usage".freeze
     APM_HOST_PERCENTAGE = "apm_host_percentage".freeze
     NPM_HOST_PERCENTAGE = "npm_host_percentage".freeze
     BROWSER_PERCENTAGE = "browser_percentage".freeze
@@ -36,6 +34,12 @@ module DatadogAPIClient::V1
     NPM_HOST_USAGE = "npm_host_usage".freeze
     INFRA_HOST_USAGE = "infra_host_usage".freeze
     CUSTOM_TIMESERIES_USAGE = "custom_timeseries_usage".freeze
+    LAMBDA_FUNCTIONS_USAGE = "lambda_functions_usage".freeze
+    LAMBDA_FUNCTIONS_PERCENTAGE = "lambda_functions_percentage".freeze
+    LAMBDA_INVOCATIONS_USAGE = "lambda_invocations_usage".freeze
+    LAMBDA_INVOCATIONS_PERCENTAGE = "lambda_invocations_percentage".freeze
+    LAMBDA_USAGE = "lambda_usage".freeze
+    LAMBDA_PERCENTAGE = "lambda_percentage".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

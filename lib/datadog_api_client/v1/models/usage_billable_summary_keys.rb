@@ -47,6 +47,8 @@ module DatadogAPIClient::V1
 
     attr_accessor :rum_sum
 
+    attr_accessor :serverless_invocation_sum
+
     attr_accessor :siem_sum
 
     attr_accessor :synthetics_api_tests_sum
@@ -72,6 +74,7 @@ module DatadogAPIClient::V1
         :'npm_flow_sum' => :'npm_flow_sum',
         :'npm_host_top99p' => :'npm_host_top99p',
         :'rum_sum' => :'rum_sum',
+        :'serverless_invocation_sum' => :'serverless_invocation_sum',
         :'siem_sum' => :'siem_sum',
         :'synthetics_api_tests_sum' => :'synthetics_api_tests_sum',
         :'synthetics_browser_checks_sum' => :'synthetics_browser_checks_sum',
@@ -101,6 +104,7 @@ module DatadogAPIClient::V1
         :'npm_flow_sum' => :'UsageBillableSummaryBody',
         :'npm_host_top99p' => :'UsageBillableSummaryBody',
         :'rum_sum' => :'UsageBillableSummaryBody',
+        :'serverless_invocation_sum' => :'UsageBillableSummaryBody',
         :'siem_sum' => :'UsageBillableSummaryBody',
         :'synthetics_api_tests_sum' => :'UsageBillableSummaryBody',
         :'synthetics_browser_checks_sum' => :'UsageBillableSummaryBody',
@@ -185,6 +189,10 @@ module DatadogAPIClient::V1
         self.rum_sum = attributes[:'rum_sum']
       end
 
+      if attributes.key?(:'serverless_invocation_sum')
+        self.serverless_invocation_sum = attributes[:'serverless_invocation_sum']
+      end
+
       if attributes.key?(:'siem_sum')
         self.siem_sum = attributes[:'siem_sum']
       end
@@ -234,6 +242,7 @@ module DatadogAPIClient::V1
           npm_flow_sum == o.npm_flow_sum &&
           npm_host_top99p == o.npm_host_top99p &&
           rum_sum == o.rum_sum &&
+          serverless_invocation_sum == o.serverless_invocation_sum &&
           siem_sum == o.siem_sum &&
           synthetics_api_tests_sum == o.synthetics_api_tests_sum &&
           synthetics_browser_checks_sum == o.synthetics_browser_checks_sum &&
@@ -249,7 +258,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [apm_host_sum, apm_host_top99p, apm_trace_search_sum, fargate_container_average, infra_container_sum, infra_host_sum, infra_host_top99p, iot_top99p, lambda_function_average, logs_indexed_sum, logs_ingested_sum, npm_flow_sum, npm_host_top99p, rum_sum, siem_sum, synthetics_api_tests_sum, synthetics_browser_checks_sum, timeseries_average].hash
+      [apm_host_sum, apm_host_top99p, apm_trace_search_sum, fargate_container_average, infra_container_sum, infra_host_sum, infra_host_top99p, iot_top99p, lambda_function_average, logs_indexed_sum, logs_ingested_sum, npm_flow_sum, npm_host_top99p, rum_sum, serverless_invocation_sum, siem_sum, synthetics_api_tests_sum, synthetics_browser_checks_sum, timeseries_average].hash
     end
 
     # Builds the object from hash
