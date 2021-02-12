@@ -180,6 +180,11 @@ module DatadogAPIClient::V2
             get_incident: false,
             list_incidents: false,
             update_incident: false,
+            create_tag_configuration: false,
+            delete_tag_configuration: false,
+            list_tag_configuration_by_name: false,
+            list_tag_configurations: false,
+            update_tag_configuration: false,
             list_security_monitoring_signals: false,
             search_security_monitoring_signals: false,
       }

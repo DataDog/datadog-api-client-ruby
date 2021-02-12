@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.datadoghq.com/api/v2/metrics/rubyCreateaTagConfigurationreturnsCreatedresponse1613037330/tags
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"manage_tags","id":"rubyCreateaTagConfigurationreturnsCreatedresponse1613037330","attributes":{"tags":["app","datacenter"],"metric_type":"distribution"}}}'
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.7.1; os darwin19.6.0; arch
+        x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Thu, 11 Feb 2021 09:55:30 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '294'
+      Connection:
+      - keep-alive
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      Set-Cookie:
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 18-Feb-2021 09:55:30 GMT;
+        secure; HttpOnly
+      X-Dd-Version:
+      - '35.3888455'
+      X-Ratelimit-Limit:
+      - '50'
+      X-Ratelimit-Period:
+      - '60'
+      X-Ratelimit-Reset:
+      - '30'
+      X-Ratelimit-Remaining:
+      - '49'
+      X-Dd-Debug:
+      - l4HFlaRP3QwYSqoGKhzbYfv7zgkK63HIRR7YkyVYZspq0lGjjTBwoK8V/alf+XYt
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"manage_tags","id":"rubyCreateaTagConfigurationreturnsCreatedresponse1613037330","attributes":{"tags":["datacenter","app"],"include_percentiles":false,"created_at":"2021-02-11T09:55:30.607637+00:00","updated_at":"2021-02-11T09:55:30.607637+00:00","metric_type":"distribution"}}}'
+  recorded_at: Thu, 11 Feb 2021 09:55:30 GMT
+recorded_with: VCR 6.0.0

@@ -1,0 +1,125 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.datadoghq.com/api/v2/metrics/rubyListTagConfigurationbyNamereturnsSuccessresponse1613037331/tags
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"tags":["app","datacenter","rubyListTagConfigurationbyNamereturnsSuccessresponse1613037331"],"metric_type":"distribution"},"type":"manage_tags","id":"rubyListTagConfigurationbyNamereturnsSuccessresponse1613037331"}}'
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.7.1; os darwin19.6.0; arch
+        x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Thu, 11 Feb 2021 09:55:31 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '362'
+      Connection:
+      - keep-alive
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      Set-Cookie:
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 18-Feb-2021 09:55:31 GMT;
+        secure; HttpOnly
+      X-Dd-Version:
+      - '35.3888455'
+      X-Ratelimit-Limit:
+      - '50'
+      X-Ratelimit-Period:
+      - '60'
+      X-Ratelimit-Reset:
+      - '29'
+      X-Ratelimit-Remaining:
+      - '44'
+      X-Dd-Debug:
+      - F5gm0Rce1/Abr9/0Fw8HAqWfiz0FdiH8er/AXnN6lOn3L6KyGgbsLCwgPlob1No8
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"manage_tags","id":"rubyListTagConfigurationbyNamereturnsSuccessresponse1613037331","attributes":{"tags":["datacenter","app","rubyListTagConfigurationbyNamereturnsSuccessresponse1613037331"],"include_percentiles":false,"created_at":"2021-02-11T09:55:31.439257+00:00","updated_at":"2021-02-11T09:55:31.439257+00:00","metric_type":"distribution"}}}'
+  recorded_at: Thu, 11 Feb 2021 09:55:31 GMT
+- request:
+    method: get
+    uri: https://api.datadoghq.com/api/v2/metrics/rubyListTagConfigurationbyNamereturnsSuccessresponse1613037331/tags
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.7.1; os darwin19.6.0; arch
+        x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 11 Feb 2021 09:55:31 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '362'
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      Set-Cookie:
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 18-Feb-2021 09:55:31 GMT;
+        secure; HttpOnly
+      X-Dd-Version:
+      - '35.3888455'
+      X-Ratelimit-Limit:
+      - '50'
+      X-Ratelimit-Period:
+      - '60'
+      X-Ratelimit-Reset:
+      - '29'
+      X-Ratelimit-Remaining:
+      - '43'
+      X-Dd-Debug:
+      - dCmL/3rURV6BPeaqeP3Rxigq41m5CAb17XjrRE42uZ01zpr07HVhbL5/3TWMkvgu
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"manage_tags","id":"rubyListTagConfigurationbyNamereturnsSuccessresponse1613037331","attributes":{"tags":["datacenter","app","rubyListTagConfigurationbyNamereturnsSuccessresponse1613037331"],"include_percentiles":false,"created_at":"2021-02-11T09:55:31.439257+00:00","updated_at":"2021-02-11T09:55:31.439257+00:00","metric_type":"distribution"}}}'
+  recorded_at: Thu, 11 Feb 2021 09:55:31 GMT
+recorded_with: VCR 6.0.0

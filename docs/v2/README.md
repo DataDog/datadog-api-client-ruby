@@ -136,6 +136,11 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V2::LogsMetricsApi* | [**get_logs_metric**](LogsMetricsApi.md#get_logs_metric) | **GET** /api/v2/logs/config/metrics/{metric_id} | Get a log-based metric
 *DatadogAPIClient::V2::LogsMetricsApi* | [**list_logs_metrics**](LogsMetricsApi.md#list_logs_metrics) | **GET** /api/v2/logs/config/metrics | Get all log-based metrics
 *DatadogAPIClient::V2::LogsMetricsApi* | [**update_logs_metric**](LogsMetricsApi.md#update_logs_metric) | **PATCH** /api/v2/logs/config/metrics/{metric_id} | Update a log-based metric
+*DatadogAPIClient::V2::MetricsApi* | [**create_tag_configuration**](MetricsApi.md#create_tag_configuration) | **POST** /api/v2/metrics/{metric_name}/tags | Create a Tag Configuration
+*DatadogAPIClient::V2::MetricsApi* | [**delete_tag_configuration**](MetricsApi.md#delete_tag_configuration) | **DELETE** /api/v2/metrics/{metric_name}/tags | Delete a Tag Configuration
+*DatadogAPIClient::V2::MetricsApi* | [**list_tag_configuration_by_name**](MetricsApi.md#list_tag_configuration_by_name) | **GET** /api/v2/metrics/{metric_name}/tags | List Tag Configuration by Name
+*DatadogAPIClient::V2::MetricsApi* | [**list_tag_configurations**](MetricsApi.md#list_tag_configurations) | **GET** /api/v2/metrics | List Tag Configurations
+*DatadogAPIClient::V2::MetricsApi* | [**update_tag_configuration**](MetricsApi.md#update_tag_configuration) | **PATCH** /api/v2/metrics/{metric_name}/tags | Update a Tag Configuration
 *DatadogAPIClient::V2::ProcessesApi* | [**list_processes**](ProcessesApi.md#list_processes) | **GET** /api/v2/processes | Get all processes
 *DatadogAPIClient::V2::RolesApi* | [**add_permission_to_role**](RolesApi.md#add_permission_to_role) | **POST** /api/v2/roles/{role_id}/permissions | Grant permission to a role
 *DatadogAPIClient::V2::RolesApi* | [**add_user_to_role**](RolesApi.md#add_user_to_role) | **POST** /api/v2/roles/{role_id}/users | Add a user to a role
@@ -338,6 +343,21 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::LogsSort](LogsSort.md)
  - [DatadogAPIClient::V2::LogsSortOrder](LogsSortOrder.md)
  - [DatadogAPIClient::V2::LogsWarning](LogsWarning.md)
+ - [DatadogAPIClient::V2::Metric](Metric.md)
+ - [DatadogAPIClient::V2::MetricTagConfiguration](MetricTagConfiguration.md)
+ - [DatadogAPIClient::V2::MetricTagConfigurationAttributes](MetricTagConfigurationAttributes.md)
+ - [DatadogAPIClient::V2::MetricTagConfigurationCreateAttributes](MetricTagConfigurationCreateAttributes.md)
+ - [DatadogAPIClient::V2::MetricTagConfigurationCreateData](MetricTagConfigurationCreateData.md)
+ - [DatadogAPIClient::V2::MetricTagConfigurationCreateRequest](MetricTagConfigurationCreateRequest.md)
+ - [DatadogAPIClient::V2::MetricTagConfigurationMetricTypes](MetricTagConfigurationMetricTypes.md)
+ - [DatadogAPIClient::V2::MetricTagConfigurationResponse](MetricTagConfigurationResponse.md)
+ - [DatadogAPIClient::V2::MetricTagConfigurationType](MetricTagConfigurationType.md)
+ - [DatadogAPIClient::V2::MetricTagConfigurationUpdateAttributes](MetricTagConfigurationUpdateAttributes.md)
+ - [DatadogAPIClient::V2::MetricTagConfigurationUpdateData](MetricTagConfigurationUpdateData.md)
+ - [DatadogAPIClient::V2::MetricTagConfigurationUpdateRequest](MetricTagConfigurationUpdateRequest.md)
+ - [DatadogAPIClient::V2::MetricType](MetricType.md)
+ - [DatadogAPIClient::V2::MetricsAndMetricTagConfigurations](MetricsAndMetricTagConfigurations.md)
+ - [DatadogAPIClient::V2::MetricsAndMetricTagConfigurationsResponse](MetricsAndMetricTagConfigurationsResponse.md)
  - [DatadogAPIClient::V2::Organization](Organization.md)
  - [DatadogAPIClient::V2::OrganizationAttributes](OrganizationAttributes.md)
  - [DatadogAPIClient::V2::OrganizationsType](OrganizationsType.md)
