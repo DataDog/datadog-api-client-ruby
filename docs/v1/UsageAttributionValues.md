@@ -16,8 +16,12 @@
 | **custom_timeseries_usage** | **Float** | The custom metrics usage by tag(s). | [optional] |
 | **infra_host_percentage** | **Float** | The percentage of infrastructure host usage by tag(s). | [optional] |
 | **infra_host_usage** | **Float** | The infrastructure host usage by tag(s). | [optional] |
-| **lambda_percentage** | **Float** | The percentage of lambda function usage by tag(s). | [optional] |
-| **lambda_usage** | **Float** | The lambda function usage by tag(s). | [optional] |
+| **lambda_functions_percentage** | **Float** | The percentage of Lambda function usage by tag(s). | [optional] |
+| **lambda_functions_usage** | **Float** | The Lambda function usage by tag(s). | [optional] |
+| **lambda_invocations_percentage** | **Float** | The percentage of Lambda invocation usage by tag(s). | [optional] |
+| **lambda_invocations_usage** | **Float** | The Lambda invocation usage by tag(s). | [optional] |
+| **lambda_percentage** | **Float** | The percentage of Lambda function usage by tag(s).  **Note** this field is deprecated. Use lambda_functions_percentage instead. | [optional] |
+| **lambda_usage** | **Float** | The Lambda function usage by tag(s).  **Note** this field is deprecated. Use lambda_functions_usage instead. | [optional] |
 | **npm_host_percentage** | **Float** | The percentage of network host usage by tag(s). | [optional] |
 | **npm_host_usage** | **Float** | The network host usage by tag(s). | [optional] |
 | **snmp_percentage** | **Float** | The percentage of network device usage by tag(s). | [optional] |
@@ -41,6 +45,10 @@ instance = DatadogAPIClient::V1::UsageAttributionValues.new(
   custom_timeseries_usage: null,
   infra_host_percentage: null,
   infra_host_usage: null,
+  lambda_functions_percentage: null,
+  lambda_functions_usage: null,
+  lambda_invocations_percentage: null,
+  lambda_invocations_usage: null,
   lambda_percentage: null,
   lambda_usage: null,
   npm_host_percentage: null,

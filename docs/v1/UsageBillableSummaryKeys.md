@@ -18,6 +18,7 @@
 | **npm_flow_sum** | [**UsageBillableSummaryBody**](UsageBillableSummaryBody.md) |  | [optional] |
 | **npm_host_top99p** | [**UsageBillableSummaryBody**](UsageBillableSummaryBody.md) |  | [optional] |
 | **rum_sum** | [**UsageBillableSummaryBody**](UsageBillableSummaryBody.md) |  | [optional] |
+| **serverless_invocation_sum** | [**UsageBillableSummaryBody**](UsageBillableSummaryBody.md) |  | [optional] |
 | **siem_sum** | [**UsageBillableSummaryBody**](UsageBillableSummaryBody.md) |  | [optional] |
 | **synthetics_api_tests_sum** | [**UsageBillableSummaryBody**](UsageBillableSummaryBody.md) |  | [optional] |
 | **synthetics_browser_checks_sum** | [**UsageBillableSummaryBody**](UsageBillableSummaryBody.md) |  | [optional] |
@@ -43,6 +44,7 @@ instance = DatadogAPIClient::V1::UsageBillableSummaryKeys.new(
   npm_flow_sum: null,
   npm_host_top99p: null,
   rum_sum: null,
+  serverless_invocation_sum: null,
   siem_sum: null,
   synthetics_api_tests_sum: null,
   synthetics_browser_checks_sum: null,
