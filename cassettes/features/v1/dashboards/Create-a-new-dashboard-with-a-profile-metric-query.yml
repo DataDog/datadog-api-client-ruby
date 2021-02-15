@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.datadoghq.com/api/v1/dashboard
+    body:
+      encoding: UTF-8
+      string: '{"layout_type":"ordered","title":"ruby-Create_a_new_dashboard_with_a_profile_metric_query-1613390817
+        with Profile Metrics Query","widgets":[{"definition":{"type":"timeseries","requests":[{"profile_metrics_query":{"compute":{"aggregation":"sum","facet":"@prof_core_cpu_cores"},"search":{"query":"runtime:jvm"},"group_by":[{"facet":"service","limit":10,"sort":{"aggregation":"sum","order":"desc","facet":"@prof_core_cpu_cores"}}]}}]}}]}'
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.7.1; os darwin19.6.0; arch
+        x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 15 Feb 2021 12:06:57 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '824'
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      Set-Cookie:
+      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 22-Feb-2021 12:06:57 GMT;
+        secure; HttpOnly
+      X-Dd-Version:
+      - '35.3909333'
+      X-Dd-Debug:
+      - gYZcaADwbKcv7Hm19HJx6WsLoKuOijDWAt2viPeCfWqUgyKY+9e1xZdmMJeXV3YV
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: '{"notify_list":null,"description":null,"author_name":null,"template_variables":null,"is_read_only":false,"id":"mn6-863-t48","title":"ruby-Create_a_new_dashboard_with_a_profile_metric_query-1613390817
+        with Profile Metrics Query","url":"/dashboard/mn6-863-t48/ruby-createanewdashboardwithaprofilemetricquery-1613390817-with-profile-metrics","created_at":"2021-02-15T12:06:57.768895+00:00","modified_at":"2021-02-15T12:06:57.768895+00:00","author_handle":"frog@datadoghq.com","widgets":[{"definition":{"requests":[{"profile_metrics_query":{"search":{"query":"runtime:jvm"},"group_by":[{"facet":"service","sort":{"facet":"@prof_core_cpu_cores","aggregation":"sum","order":"desc"},"limit":10}],"compute":{"facet":"@prof_core_cpu_cores","aggregation":"sum"}}}],"type":"timeseries"},"id":1003400151249981}],"layout_type":"ordered"}'
+  recorded_at: Mon, 15 Feb 2021 12:06:57 GMT
+recorded_with: VCR 6.0.0
