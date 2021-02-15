@@ -40,6 +40,8 @@ module DatadogAPIClient::V1
 
     attr_accessor :process_query
 
+    attr_accessor :profile_metrics_query
+
     # Widget query.
     attr_accessor :q
 
@@ -66,6 +68,7 @@ module DatadogAPIClient::V1
         :'network_query' => :'network_query',
         :'on_right_yaxis' => :'on_right_yaxis',
         :'process_query' => :'process_query',
+        :'profile_metrics_query' => :'profile_metrics_query',
         :'q' => :'q',
         :'queries' => :'queries',
         :'response_format' => :'response_format',
@@ -92,6 +95,7 @@ module DatadogAPIClient::V1
         :'network_query' => :'LogQueryDefinition',
         :'on_right_yaxis' => :'Boolean',
         :'process_query' => :'ProcessQueryDefinition',
+        :'profile_metrics_query' => :'LogQueryDefinition',
         :'q' => :'String',
         :'queries' => :'Array<FormulaAndFunctionQueryDefinition>',
         :'response_format' => :'FormulaAndFunctionResponseFormat',
@@ -162,6 +166,10 @@ module DatadogAPIClient::V1
         self.process_query = attributes[:'process_query']
       end
 
+      if attributes.key?(:'profile_metrics_query')
+        self.profile_metrics_query = attributes[:'profile_metrics_query']
+      end
+
       if attributes.key?(:'q')
         self.q = attributes[:'q']
       end
@@ -216,6 +224,7 @@ module DatadogAPIClient::V1
           network_query == o.network_query &&
           on_right_yaxis == o.on_right_yaxis &&
           process_query == o.process_query &&
+          profile_metrics_query == o.profile_metrics_query &&
           q == o.q &&
           queries == o.queries &&
           response_format == o.response_format &&
@@ -233,7 +242,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [apm_query, display_type, event_query, formulas, log_query, metadata, network_query, on_right_yaxis, process_query, q, queries, response_format, rum_query, security_query, style].hash
+      [apm_query, display_type, event_query, formulas, log_query, metadata, network_query, on_right_yaxis, process_query, profile_metrics_query, q, queries, response_format, rum_query, security_query, style].hash
     end
 
     # Builds the object from hash
