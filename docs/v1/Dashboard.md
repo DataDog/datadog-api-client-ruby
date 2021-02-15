@@ -13,7 +13,7 @@
 | **modified_at** | **Time** | Modification date of the dashboard. | [optional][readonly] |
 | **notify_list** | **Array&lt;String&gt;** | List of handles of users to notify when changes are made to this dashboard. | [optional] |
 | **template_variable_presets** | [**Array&lt;DashboardTemplateVariablePreset&gt;**](DashboardTemplateVariablePreset.md) | Array of template variables saved views. | [optional] |
-| **template_variables** | [**Array&lt;DashboardTemplateVariables&gt;**](DashboardTemplateVariables.md) | List of template variables for this dashboard. | [optional] |
+| **template_variables** | [**Array&lt;DashboardTemplateVariable&gt;**](DashboardTemplateVariable.md) | List of template variables for this dashboard. | [optional] |
 | **title** | **String** | Title of the dashboard. |  |
 | **url** | **String** | The URL of the dashboard. | [optional][readonly] |
 | **widgets** | [**Array&lt;Widget&gt;**](Widget.md) | List of widgets to display on the dashboard. |  |

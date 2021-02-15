@@ -45,8 +45,8 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'locations' => :'Array<SyntheticsTriggerCITestsResponseLocations>',
-        :'results' => :'Array<SyntheticsTriggerCITestsResponseResults>',
+        :'locations' => :'Array<SyntheticsTriggerCITestLocation>',
+        :'results' => :'Array<SyntheticsTriggerCITestRunResult>',
         :'triggered_check_ids' => :'Array<String>'
       }
     end

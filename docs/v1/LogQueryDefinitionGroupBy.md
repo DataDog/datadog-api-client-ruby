@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **facet** | **String** | Facet name. |  |
 | **limit** | **Integer** | Maximum number of items in the group. | [optional] |
-| **sort** | [**LogQueryDefinitionSort**](LogQueryDefinitionSort.md) |  | [optional] |
+| **sort** | [**LogQueryDefinitionGroupBySort**](LogQueryDefinitionGroupBySort.md) |  | [optional] |
 
 ## Example
 

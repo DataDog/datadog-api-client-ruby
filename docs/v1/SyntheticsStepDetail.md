@@ -19,7 +19,7 @@
 | **type** | [**SyntheticsStepType**](SyntheticsStepType.md) |  | [optional] |
 | **url** | **String** | URL to perform the step against. | [optional] |
 | **value** | **Object** | Value for the step. | [optional] |
-| **warnings** | [**Array&lt;SyntheticsStepDetailWarnings&gt;**](SyntheticsStepDetailWarnings.md) | Warning collected that didn&#39;t failed the step. | [optional] |
+| **warnings** | [**Array&lt;SyntheticsStepDetailWarning&gt;**](SyntheticsStepDetailWarning.md) | Warning collected that didn&#39;t failed the step. | [optional] |
 
 ## Example
 

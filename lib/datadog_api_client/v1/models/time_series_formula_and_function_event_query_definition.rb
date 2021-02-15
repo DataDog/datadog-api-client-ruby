@@ -56,7 +56,7 @@ module DatadogAPIClient::V1
       {
         :'compute' => :'TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute',
         :'data_source' => :'FormulaAndFunctionEventsDataSource',
-        :'group_by' => :'Array<TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBy>',
+        :'group_by' => :'Array<TimeSeriesFormulaAndFunctionEventQueryGroupBy>',
         :'indexes' => :'Array<String>',
         :'name' => :'String',
         :'search' => :'TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch'

@@ -41,7 +41,7 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'errors' => :'Array<AWSLogsAsyncResponseErrors>',
+        :'errors' => :'Array<AWSLogsAsyncError>',
         :'status' => :'String'
       }
     end

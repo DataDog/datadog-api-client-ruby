@@ -88,7 +88,7 @@ module DatadogAPIClient::V1
         :'event_query' => :'LogQueryDefinition',
         :'formulas' => :'Array<WidgetFormula>',
         :'log_query' => :'LogQueryDefinition',
-        :'metadata' => :'Array<TimeseriesWidgetRequestMetadata>',
+        :'metadata' => :'Array<TimeseriesWidgetExpressionAlias>',
         :'network_query' => :'LogQueryDefinition',
         :'on_right_yaxis' => :'Boolean',
         :'process_query' => :'ProcessQueryDefinition',

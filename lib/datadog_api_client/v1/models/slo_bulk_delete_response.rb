@@ -41,7 +41,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'data' => :'SLOBulkDeleteResponseData',
-        :'errors' => :'Array<SLOBulkDeleteResponseErrors>'
+        :'errors' => :'Array<SLOBulkDeleteError>'
       }
     end
 

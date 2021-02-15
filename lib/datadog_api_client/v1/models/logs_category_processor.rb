@@ -52,7 +52,7 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'categories' => :'Array<LogsCategoryProcessorCategories>',
+        :'categories' => :'Array<LogsCategoryProcessorCategory>',
         :'is_enabled' => :'Boolean',
         :'name' => :'String',
         :'target' => :'String',

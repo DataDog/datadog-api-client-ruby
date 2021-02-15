@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **deleted_tests** | [**Array&lt;SyntheticsDeleteTestsResponseDeletedTests&gt;**](SyntheticsDeleteTestsResponseDeletedTests.md) | Array of objects containing a deleted Synthetic test ID with the associated deletion timestamp. | [optional] |
+| **deleted_tests** | [**Array&lt;SyntheticsDeletedTest&gt;**](SyntheticsDeletedTest.md) | Array of objects containing a deleted Synthetic test ID with the associated deletion timestamp. | [optional] |
 
 ## Example
 

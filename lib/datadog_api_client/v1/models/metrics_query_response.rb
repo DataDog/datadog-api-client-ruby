@@ -75,7 +75,7 @@ module DatadogAPIClient::V1
         :'message' => :'String',
         :'query' => :'String',
         :'res_type' => :'String',
-        :'series' => :'Array<MetricsQueryResponseSeries>',
+        :'series' => :'Array<MetricsQueryMetadata>',
         :'status' => :'String',
         :'to_date' => :'Integer'
       }
