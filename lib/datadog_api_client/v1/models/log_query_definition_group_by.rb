@@ -46,7 +46,7 @@ module DatadogAPIClient::V1
       {
         :'facet' => :'String',
         :'limit' => :'Integer',
-        :'sort' => :'LogQueryDefinitionSort'
+        :'sort' => :'LogQueryDefinitionGroupBySort'
       }
     end
 

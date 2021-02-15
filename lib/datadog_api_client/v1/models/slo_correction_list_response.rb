@@ -37,7 +37,7 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'data' => :'Array<SLOCorrectionListResponseData>'
+        :'data' => :'Array<SLOCorrection>'
       }
     end
 

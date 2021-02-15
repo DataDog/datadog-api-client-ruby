@@ -37,7 +37,7 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'dashboards' => :'Array<DashboardSummaryDashboards>'
+        :'dashboards' => :'Array<DashboardSummaryDefinition>'
       }
     end
 

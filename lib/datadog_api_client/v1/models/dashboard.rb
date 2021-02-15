@@ -93,7 +93,7 @@ module DatadogAPIClient::V1
         :'modified_at' => :'Time',
         :'notify_list' => :'Array<String>',
         :'template_variable_presets' => :'Array<DashboardTemplateVariablePreset>',
-        :'template_variables' => :'Array<DashboardTemplateVariables>',
+        :'template_variables' => :'Array<DashboardTemplateVariable>',
         :'title' => :'String',
         :'url' => :'String',
         :'widgets' => :'Array<Widget>'

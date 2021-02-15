@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filters** | [**Array&lt;AWSTagFilterListResponseFilters&gt;**](AWSTagFilterListResponseFilters.md) | An array of tag filters. | [optional] |
+| **filters** | [**Array&lt;AWSTagFilter&gt;**](AWSTagFilter.md) | An array of tag filters. | [optional] |
 
 ## Example
 

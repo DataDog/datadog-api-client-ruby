@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **data** | [**SLOCorrectionUpdateRequestData**](SLOCorrectionUpdateRequestData.md) |  | [optional] |
+| **data** | [**SLOCorrectionUpdateData**](SLOCorrectionUpdateData.md) |  | [optional] |
 
 ## Example
 

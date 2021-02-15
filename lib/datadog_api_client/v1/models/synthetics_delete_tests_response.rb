@@ -37,7 +37,7 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'deleted_tests' => :'Array<SyntheticsDeleteTestsResponseDeletedTests>'
+        :'deleted_tests' => :'Array<SyntheticsDeletedTest>'
       }
     end
 

@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **data** | [**Array&lt;SLOCorrectionListResponseData&gt;**](SLOCorrectionListResponseData.md) | The list of of SLO corrections objects | [optional] |
+| **data** | [**Array&lt;SLOCorrection&gt;**](SLOCorrection.md) | The list of of SLO corrections objects | [optional] |
 
 ## Example
 

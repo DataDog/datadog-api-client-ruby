@@ -109,7 +109,7 @@ module DatadogAPIClient::V1
         :'type' => :'SyntheticsStepType',
         :'url' => :'String',
         :'value' => :'Object',
-        :'warnings' => :'Array<SyntheticsStepDetailWarnings>'
+        :'warnings' => :'Array<SyntheticsStepDetailWarning>'
       }
     end
 

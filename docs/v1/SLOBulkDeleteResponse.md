@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **data** | [**SLOBulkDeleteResponseData**](SLOBulkDeleteResponseData.md) |  | [optional] |
-| **errors** | [**Array&lt;SLOBulkDeleteResponseErrors&gt;**](SLOBulkDeleteResponseErrors.md) | Array of errors object returned. | [optional] |
+| **errors** | [**Array&lt;SLOBulkDeleteError&gt;**](SLOBulkDeleteError.md) | Array of errors object returned. | [optional] |
 
 ## Example
 

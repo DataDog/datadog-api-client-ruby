@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **errors** | [**Array&lt;AWSLogsAsyncResponseErrors&gt;**](AWSLogsAsyncResponseErrors.md) | List of errors. | [optional] |
+| **errors** | [**Array&lt;AWSLogsAsyncError&gt;**](AWSLogsAsyncError.md) | List of errors. | [optional] |
 | **status** | **String** | Status of the properties. | [optional] |
 
 ## Example

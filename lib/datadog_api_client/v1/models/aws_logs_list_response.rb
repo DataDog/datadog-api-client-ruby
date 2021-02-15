@@ -46,7 +46,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'account_id' => :'String',
-        :'lambdas' => :'Array<AWSLogsListResponseLambdas>',
+        :'lambdas' => :'Array<AWSLogsLambda>',
         :'services' => :'Array<String>'
       }
     end
