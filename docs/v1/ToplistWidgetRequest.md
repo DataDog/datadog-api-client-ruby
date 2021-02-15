@@ -10,6 +10,7 @@
 | **log_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
 | **network_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
 | **process_query** | [**ProcessQueryDefinition**](ProcessQueryDefinition.md) |  | [optional] |
+| **profile_metrics_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
 | **q** | **String** | Widget query. | [optional] |
 | **rum_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
 | **security_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
@@ -27,6 +28,7 @@ instance = DatadogAPIClient::V1::ToplistWidgetRequest.new(
   log_query: null,
   network_query: null,
   process_query: null,
+  profile_metrics_query: null,
   q: null,
   rum_query: null,
   security_query: null,

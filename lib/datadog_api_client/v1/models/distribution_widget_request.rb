@@ -29,6 +29,8 @@ module DatadogAPIClient::V1
 
     attr_accessor :process_query
 
+    attr_accessor :profile_metrics_query
+
     # Widget query.
     attr_accessor :q
 
@@ -46,6 +48,7 @@ module DatadogAPIClient::V1
         :'log_query' => :'log_query',
         :'network_query' => :'network_query',
         :'process_query' => :'process_query',
+        :'profile_metrics_query' => :'profile_metrics_query',
         :'q' => :'q',
         :'rum_query' => :'rum_query',
         :'security_query' => :'security_query',
@@ -66,6 +69,7 @@ module DatadogAPIClient::V1
         :'log_query' => :'LogQueryDefinition',
         :'network_query' => :'LogQueryDefinition',
         :'process_query' => :'ProcessQueryDefinition',
+        :'profile_metrics_query' => :'LogQueryDefinition',
         :'q' => :'String',
         :'rum_query' => :'LogQueryDefinition',
         :'security_query' => :'LogQueryDefinition',
@@ -114,6 +118,10 @@ module DatadogAPIClient::V1
         self.process_query = attributes[:'process_query']
       end
 
+      if attributes.key?(:'profile_metrics_query')
+        self.profile_metrics_query = attributes[:'profile_metrics_query']
+      end
+
       if attributes.key?(:'q')
         self.q = attributes[:'q']
       end
@@ -154,6 +162,7 @@ module DatadogAPIClient::V1
           log_query == o.log_query &&
           network_query == o.network_query &&
           process_query == o.process_query &&
+          profile_metrics_query == o.profile_metrics_query &&
           q == o.q &&
           rum_query == o.rum_query &&
           security_query == o.security_query &&
@@ -169,7 +178,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [apm_query, event_query, log_query, network_query, process_query, q, rum_query, security_query, style].hash
+      [apm_query, event_query, log_query, network_query, process_query, profile_metrics_query, q, rum_query, security_query, style].hash
     end
 
     # Builds the object from hash

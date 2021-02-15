@@ -40,6 +40,8 @@ module DatadogAPIClient::V1
 
     attr_accessor :process_query
 
+    attr_accessor :profile_metrics_query
+
     # Query definition.
     attr_accessor :q
 
@@ -63,6 +65,7 @@ module DatadogAPIClient::V1
         :'order_by' => :'order_by',
         :'order_dir' => :'order_dir',
         :'process_query' => :'process_query',
+        :'profile_metrics_query' => :'profile_metrics_query',
         :'q' => :'q',
         :'rum_query' => :'rum_query',
         :'security_query' => :'security_query',
@@ -88,6 +91,7 @@ module DatadogAPIClient::V1
         :'order_by' => :'WidgetOrderBy',
         :'order_dir' => :'WidgetSort',
         :'process_query' => :'ProcessQueryDefinition',
+        :'profile_metrics_query' => :'LogQueryDefinition',
         :'q' => :'String',
         :'rum_query' => :'LogQueryDefinition',
         :'security_query' => :'LogQueryDefinition',
@@ -156,6 +160,10 @@ module DatadogAPIClient::V1
         self.process_query = attributes[:'process_query']
       end
 
+      if attributes.key?(:'profile_metrics_query')
+        self.profile_metrics_query = attributes[:'profile_metrics_query']
+      end
+
       if attributes.key?(:'q')
         self.q = attributes[:'q']
       end
@@ -201,6 +209,7 @@ module DatadogAPIClient::V1
           order_by == o.order_by &&
           order_dir == o.order_dir &&
           process_query == o.process_query &&
+          profile_metrics_query == o.profile_metrics_query &&
           q == o.q &&
           rum_query == o.rum_query &&
           security_query == o.security_query &&
@@ -216,7 +225,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [apm_query, change_type, compare_to, event_query, increase_good, log_query, network_query, order_by, order_dir, process_query, q, rum_query, security_query, show_present].hash
+      [apm_query, change_type, compare_to, event_query, increase_good, log_query, network_query, order_by, order_dir, process_query, profile_metrics_query, q, rum_query, security_query, show_present].hash
     end
 
     # Builds the object from hash
