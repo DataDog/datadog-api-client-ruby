@@ -26,6 +26,8 @@ module DatadogAPIClient::V1
     PROPERTY = "property".freeze
     RECORD_EVERY = "recordEvery".freeze
     RECORD_SOME = "recordSome".freeze
+    TLS_VERSION = "tlsVersion".freeze
+    MIN_TLS_VERSION = "minTlsVersion".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
