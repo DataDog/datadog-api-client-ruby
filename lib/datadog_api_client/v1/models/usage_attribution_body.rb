@@ -22,6 +22,9 @@ module DatadogAPIClient::V1
     # Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM].
     attr_accessor :month
 
+    # The name of the organization.
+    attr_accessor :org_name
+
     # The organization public ID.
     attr_accessor :public_id
 
@@ -37,6 +40,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'month' => :'month',
+        :'org_name' => :'org_name',
         :'public_id' => :'public_id',
         :'tags' => :'tags',
         :'updated_at' => :'updated_at',
@@ -53,6 +57,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'month' => :'Time',
+        :'org_name' => :'String',
         :'public_id' => :'String',
         :'tags' => :'Hash<String, Array<String>>',
         :'updated_at' => :'String',
@@ -83,6 +88,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'month')
         self.month = attributes[:'month']
+      end
+
+      if attributes.key?(:'org_name')
+        self.org_name = attributes[:'org_name']
       end
 
       if attributes.key?(:'public_id')
@@ -123,6 +132,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           month == o.month &&
+          org_name == o.org_name &&
           public_id == o.public_id &&
           tags == o.tags &&
           updated_at == o.updated_at &&
@@ -138,7 +148,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [month, public_id, tags, updated_at, values].hash
+      [month, org_name, public_id, tags, updated_at, values].hash
     end
 
     # Builds the object from hash
