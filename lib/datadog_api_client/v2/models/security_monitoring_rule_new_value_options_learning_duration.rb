@@ -17,12 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  class SecurityMonitoringRuleQueryAggregation
-    COUNT = "count".freeze
-    CARDINALITY = "cardinality".freeze
-    SUM = "sum".freeze
-    MAX = "max".freeze
-    NEW_VALUE = "new_value".freeze
+  class SecurityMonitoringRuleNewValueOptionsLearningDuration
+    ZERO_DAYS = 0.freeze
+    ONE_DAY = 1.freeze
+    SEVEN_DAYS = 7.freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
@@ -35,8 +33,8 @@ module DatadogAPIClient::V2
     # @param [String] The enum value in the form of the string
     # @return [String] The enum value
     def build_from_hash(value)
-      constantValues = SecurityMonitoringRuleQueryAggregation.constants.select { |c| SecurityMonitoringRuleQueryAggregation::const_get(c) == value }
-      raise "Invalid ENUM value #{value} for class #SecurityMonitoringRuleQueryAggregation" if constantValues.empty?
+      constantValues = SecurityMonitoringRuleNewValueOptionsLearningDuration.constants.select { |c| SecurityMonitoringRuleNewValueOptionsLearningDuration::const_get(c) == value }
+      raise "Invalid ENUM value #{value} for class #SecurityMonitoringRuleNewValueOptionsLearningDuration" if constantValues.empty?
       value
     end
   end

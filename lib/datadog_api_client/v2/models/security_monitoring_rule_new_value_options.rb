@@ -17,26 +17,17 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Options on rules.
-  class SecurityMonitoringRuleOptions
-    attr_accessor :detection_method
+  # Options on new value rules.
+  class SecurityMonitoringRuleNewValueOptions
+    attr_accessor :forget_after
 
-    attr_accessor :evaluation_window
-
-    attr_accessor :keep_alive
-
-    attr_accessor :max_signal_duration
-
-    attr_accessor :new_value_options
+    attr_accessor :learning_duration
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'detection_method' => :'detectionMethod',
-        :'evaluation_window' => :'evaluationWindow',
-        :'keep_alive' => :'keepAlive',
-        :'max_signal_duration' => :'maxSignalDuration',
-        :'new_value_options' => :'newValueOptions'
+        :'forget_after' => :'forgetAfter',
+        :'learning_duration' => :'learningDuration'
       }
     end
 
@@ -48,11 +39,8 @@ module DatadogAPIClient::V2
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'detection_method' => :'SecurityMonitoringRuleDetectionMethod',
-        :'evaluation_window' => :'SecurityMonitoringRuleEvaluationWindow',
-        :'keep_alive' => :'SecurityMonitoringRuleKeepAlive',
-        :'max_signal_duration' => :'SecurityMonitoringRuleMaxSignalDuration',
-        :'new_value_options' => :'SecurityMonitoringRuleNewValueOptions'
+        :'forget_after' => :'SecurityMonitoringRuleNewValueOptionsForgetAfter',
+        :'learning_duration' => :'SecurityMonitoringRuleNewValueOptionsLearningDuration'
       }
     end
 
@@ -66,35 +54,23 @@ module DatadogAPIClient::V2
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringRuleOptions` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringRuleNewValueOptions` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::SecurityMonitoringRuleOptions`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::SecurityMonitoringRuleNewValueOptions`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'detection_method')
-        self.detection_method = attributes[:'detection_method']
+      if attributes.key?(:'forget_after')
+        self.forget_after = attributes[:'forget_after']
       end
 
-      if attributes.key?(:'evaluation_window')
-        self.evaluation_window = attributes[:'evaluation_window']
-      end
-
-      if attributes.key?(:'keep_alive')
-        self.keep_alive = attributes[:'keep_alive']
-      end
-
-      if attributes.key?(:'max_signal_duration')
-        self.max_signal_duration = attributes[:'max_signal_duration']
-      end
-
-      if attributes.key?(:'new_value_options')
-        self.new_value_options = attributes[:'new_value_options']
+      if attributes.key?(:'learning_duration')
+        self.learning_duration = attributes[:'learning_duration']
       end
     end
 
@@ -116,11 +92,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          detection_method == o.detection_method &&
-          evaluation_window == o.evaluation_window &&
-          keep_alive == o.keep_alive &&
-          max_signal_duration == o.max_signal_duration &&
-          new_value_options == o.new_value_options
+          forget_after == o.forget_after &&
+          learning_duration == o.learning_duration
     end
 
     # @see the `==` method
@@ -132,7 +105,7 @@ module DatadogAPIClient::V2
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [detection_method, evaluation_window, keep_alive, max_signal_duration, new_value_options].hash
+      [forget_after, learning_duration].hash
     end
 
     # Builds the object from hash
