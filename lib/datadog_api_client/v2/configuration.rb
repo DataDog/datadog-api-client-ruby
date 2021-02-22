@@ -274,6 +274,7 @@ module DatadogAPIClient::V2
                 default_value: "datadoghq.com",
                 enum_values: [
                   "datadoghq.com",
+                  "us3.datadoghq.com",
                   "datadoghq.eu",
                   "ddog-gov.com"
                 ]
