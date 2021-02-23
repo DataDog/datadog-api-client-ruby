@@ -192,6 +192,11 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::ServiceLevelObjectivesApi* | [**get_slo_history**](ServiceLevelObjectivesApi.md#get_slo_history) | **GET** /api/v1/slo/{slo_id}/history | Get an SLO's history
 *DatadogAPIClient::V1::ServiceLevelObjectivesApi* | [**list_slos**](ServiceLevelObjectivesApi.md#list_slos) | **GET** /api/v1/slo | Get all SLOs
 *DatadogAPIClient::V1::ServiceLevelObjectivesApi* | [**update_slo**](ServiceLevelObjectivesApi.md#update_slo) | **PUT** /api/v1/slo/{slo_id} | Update a SLO
+*DatadogAPIClient::V1::SlackIntegrationApi* | [**create_slack_integration_channel**](SlackIntegrationApi.md#create_slack_integration_channel) | **POST** /api/v1/integration/slack/configuration/accounts/{account_name}/channels | Create a Slack integration channel
+*DatadogAPIClient::V1::SlackIntegrationApi* | [**get_slack_integration_channel**](SlackIntegrationApi.md#get_slack_integration_channel) | **GET** /api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name} | Get a Slack integration channel
+*DatadogAPIClient::V1::SlackIntegrationApi* | [**get_slack_integration_channels**](SlackIntegrationApi.md#get_slack_integration_channels) | **GET** /api/v1/integration/slack/configuration/accounts/{account_name}/channels | Get all channels in a Slack integration
+*DatadogAPIClient::V1::SlackIntegrationApi* | [**remove_slack_integration_channel**](SlackIntegrationApi.md#remove_slack_integration_channel) | **DELETE** /api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name} | Remove a Slack integration channel
+*DatadogAPIClient::V1::SlackIntegrationApi* | [**update_slack_integration_channel**](SlackIntegrationApi.md#update_slack_integration_channel) | **PATCH** /api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name} | Update a Slack integration channel
 *DatadogAPIClient::V1::SnapshotsApi* | [**get_graph_snapshot**](SnapshotsApi.md#get_graph_snapshot) | **GET** /api/v1/graph/snapshot | Take graph snapshots
 *DatadogAPIClient::V1::SyntheticsApi* | [**create_global_variable**](SyntheticsApi.md#create_global_variable) | **POST** /api/v1/synthetics/variables | Create a global variable
 *DatadogAPIClient::V1::SyntheticsApi* | [**create_private_location**](SyntheticsApi.md#create_private_location) | **POST** /api/v1/synthetics/private-locations | Create a private location
@@ -520,6 +525,8 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::ServiceMapWidgetDefinitionType](ServiceMapWidgetDefinitionType.md)
  - [DatadogAPIClient::V1::ServiceSummaryWidgetDefinition](ServiceSummaryWidgetDefinition.md)
  - [DatadogAPIClient::V1::ServiceSummaryWidgetDefinitionType](ServiceSummaryWidgetDefinitionType.md)
+ - [DatadogAPIClient::V1::SlackIntegrationChannel](SlackIntegrationChannel.md)
+ - [DatadogAPIClient::V1::SlackIntegrationChannelDisplay](SlackIntegrationChannelDisplay.md)
  - [DatadogAPIClient::V1::SyntheticsAPITestResultData](SyntheticsAPITestResultData.md)
  - [DatadogAPIClient::V1::SyntheticsAPITestResultFull](SyntheticsAPITestResultFull.md)
  - [DatadogAPIClient::V1::SyntheticsAPITestResultFullCheck](SyntheticsAPITestResultFullCheck.md)
