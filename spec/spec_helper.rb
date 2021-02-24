@@ -15,9 +15,6 @@ require 'ddtrace'
 require 'webmock/rspec'
 
 Datadog.configure do |c|
-  c.analytics_enabled = true
-  c.use :ethon, {}
-  c.use :rspec, {}
   c.diagnostics.debug = (!ENV["DEBUG"].nil? and ENV["DEBUG"] != false)
 end
 
