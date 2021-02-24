@@ -1,4 +1,4 @@
-# DatadogAPIClient::V1::TimeSeriesFormulaAndFunctionMetricQueryDefinition
+# DatadogAPIClient::V1::FormulaAndFunctionMetricQueryDefinition
 
 ## Properties
 
@@ -14,7 +14,7 @@
 ```ruby
 require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::TimeSeriesFormulaAndFunctionMetricQueryDefinition.new(
+instance = DatadogAPIClient::V1::FormulaAndFunctionMetricQueryDefinition.new(
   aggregator: null,
   data_source: null,
   name: my_query,

@@ -1,4 +1,4 @@
-# DatadogAPIClient::V1::TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute
+# DatadogAPIClient::V1::FormulaAndFunctionEventQueryDefinitionCompute
 
 ## Properties
 
@@ -13,7 +13,7 @@
 ```ruby
 require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute.new(
+instance = DatadogAPIClient::V1::FormulaAndFunctionEventQueryDefinitionCompute.new(
   aggregation: null,
   interval: 60000,
   metric: @duration

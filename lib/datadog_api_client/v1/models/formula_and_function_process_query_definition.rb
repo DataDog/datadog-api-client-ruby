@@ -17,22 +17,44 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Compute options.
-  class TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute
-    attr_accessor :aggregation
+  # Process query using formulas and functions.
+  class FormulaAndFunctionProcessQueryDefinition
+    attr_accessor :aggregator
 
-    # A time interval in milliseconds.
-    attr_accessor :interval
+    attr_accessor :data_source
 
-    # Measurable attribute to compute.
+    # Whether to normalize the CPU percentages.
+    attr_accessor :is_normalized_cpu
+
+    # Number of hits to return.
+    attr_accessor :limit
+
+    # Process metric name.
     attr_accessor :metric
+
+    # Name of query for use in formulas.
+    attr_accessor :name
+
+    attr_accessor :sort
+
+    # An array of tags to filter by.
+    attr_accessor :tag_filters
+
+    # Text to use as filter.
+    attr_accessor :text_filter
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'aggregation' => :'aggregation',
-        :'interval' => :'interval',
-        :'metric' => :'metric'
+        :'aggregator' => :'aggregator',
+        :'data_source' => :'data_source',
+        :'is_normalized_cpu' => :'is_normalized_cpu',
+        :'limit' => :'limit',
+        :'metric' => :'metric',
+        :'name' => :'name',
+        :'sort' => :'sort',
+        :'tag_filters' => :'tag_filters',
+        :'text_filter' => :'text_filter'
       }
     end
 
@@ -44,9 +66,15 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'aggregation' => :'FormulaAndFunctionEventAggregation',
-        :'interval' => :'Integer',
-        :'metric' => :'String'
+        :'aggregator' => :'FormulaAndFunctionMetricAggregation',
+        :'data_source' => :'FormulaAndFunctionProcessQueryDataSource',
+        :'is_normalized_cpu' => :'Boolean',
+        :'limit' => :'Integer',
+        :'metric' => :'String',
+        :'name' => :'String',
+        :'sort' => :'QuerySortOrder',
+        :'tag_filters' => :'Array<String>',
+        :'text_filter' => :'String'
       }
     end
 
@@ -60,27 +88,55 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::FormulaAndFunctionProcessQueryDefinition` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::FormulaAndFunctionProcessQueryDefinition`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'aggregation')
-        self.aggregation = attributes[:'aggregation']
+      if attributes.key?(:'aggregator')
+        self.aggregator = attributes[:'aggregator']
       end
 
-      if attributes.key?(:'interval')
-        self.interval = attributes[:'interval']
+      if attributes.key?(:'data_source')
+        self.data_source = attributes[:'data_source']
+      end
+
+      if attributes.key?(:'is_normalized_cpu')
+        self.is_normalized_cpu = attributes[:'is_normalized_cpu']
+      end
+
+      if attributes.key?(:'limit')
+        self.limit = attributes[:'limit']
       end
 
       if attributes.key?(:'metric')
         self.metric = attributes[:'metric']
+      end
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'sort')
+        self.sort = attributes[:'sort']
+      else
+        self.sort = 'desc'
+      end
+
+      if attributes.key?(:'tag_filters')
+        if (value = attributes[:'tag_filters']).is_a?(Array)
+          self.tag_filters = value
+        end
+      end
+
+      if attributes.key?(:'text_filter')
+        self.text_filter = attributes[:'text_filter']
       end
     end
 
@@ -88,8 +144,12 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @aggregation.nil?
-        invalid_properties.push('invalid value for "aggregation", aggregation cannot be nil.')
+      if @data_source.nil?
+        invalid_properties.push('invalid value for "data_source", data_source cannot be nil.')
+      end
+
+      if @metric.nil?
+        invalid_properties.push('invalid value for "metric", metric cannot be nil.')
       end
 
       invalid_properties
@@ -98,7 +158,8 @@ module DatadogAPIClient::V1
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @aggregation.nil?
+      return false if @data_source.nil?
+      return false if @metric.nil?
       true
     end
 
@@ -107,9 +168,15 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          aggregation == o.aggregation &&
-          interval == o.interval &&
-          metric == o.metric
+          aggregator == o.aggregator &&
+          data_source == o.data_source &&
+          is_normalized_cpu == o.is_normalized_cpu &&
+          limit == o.limit &&
+          metric == o.metric &&
+          name == o.name &&
+          sort == o.sort &&
+          tag_filters == o.tag_filters &&
+          text_filter == o.text_filter
     end
 
     # @see the `==` method
@@ -121,7 +188,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aggregation, interval, metric].hash
+      [aggregator, data_source, is_normalized_cpu, limit, metric, name, sort, tag_filters, text_filter].hash
     end
 
     # Builds the object from hash

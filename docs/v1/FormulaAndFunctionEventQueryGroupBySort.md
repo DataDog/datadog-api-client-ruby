@@ -1,4 +1,4 @@
-# DatadogAPIClient::V1::TimeSeriesFormulaAndFunctionEventQueryGroupBySort
+# DatadogAPIClient::V1::FormulaAndFunctionEventQueryGroupBySort
 
 ## Properties
 
@@ -13,7 +13,7 @@
 ```ruby
 require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::TimeSeriesFormulaAndFunctionEventQueryGroupBySort.new(
+instance = DatadogAPIClient::V1::FormulaAndFunctionEventQueryGroupBySort.new(
   aggregation: null,
   metric: null,
   order: null

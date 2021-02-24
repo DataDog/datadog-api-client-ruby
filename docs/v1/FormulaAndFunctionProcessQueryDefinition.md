@@ -1,4 +1,4 @@
-# DatadogAPIClient::V1::TimeSeriesFormulaAndFunctionProcessQueryDefinition
+# DatadogAPIClient::V1::FormulaAndFunctionProcessQueryDefinition
 
 ## Properties
 
@@ -19,7 +19,7 @@
 ```ruby
 require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::TimeSeriesFormulaAndFunctionProcessQueryDefinition.new(
+instance = DatadogAPIClient::V1::FormulaAndFunctionProcessQueryDefinition.new(
   aggregator: null,
   data_source: null,
   is_normalized_cpu: null,

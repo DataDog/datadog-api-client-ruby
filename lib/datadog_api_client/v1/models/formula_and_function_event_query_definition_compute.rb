@@ -17,22 +17,22 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # List of objects used to group by.
-  class TimeSeriesFormulaAndFunctionEventQueryGroupBy
-    # Event facet.
-    attr_accessor :facet
+  # Compute options.
+  class FormulaAndFunctionEventQueryDefinitionCompute
+    attr_accessor :aggregation
 
-    # Number of groups to return.
-    attr_accessor :limit
+    # A time interval in milliseconds.
+    attr_accessor :interval
 
-    attr_accessor :sort
+    # Measurable attribute to compute.
+    attr_accessor :metric
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'facet' => :'facet',
-        :'limit' => :'limit',
-        :'sort' => :'sort'
+        :'aggregation' => :'aggregation',
+        :'interval' => :'interval',
+        :'metric' => :'metric'
       }
     end
 
@@ -44,9 +44,9 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'facet' => :'String',
-        :'limit' => :'Integer',
-        :'sort' => :'TimeSeriesFormulaAndFunctionEventQueryGroupBySort'
+        :'aggregation' => :'FormulaAndFunctionEventAggregation',
+        :'interval' => :'Integer',
+        :'metric' => :'String'
       }
     end
 
@@ -60,27 +60,27 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::TimeSeriesFormulaAndFunctionEventQueryGroupBy` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::FormulaAndFunctionEventQueryDefinitionCompute` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::TimeSeriesFormulaAndFunctionEventQueryGroupBy`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::FormulaAndFunctionEventQueryDefinitionCompute`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'facet')
-        self.facet = attributes[:'facet']
+      if attributes.key?(:'aggregation')
+        self.aggregation = attributes[:'aggregation']
       end
 
-      if attributes.key?(:'limit')
-        self.limit = attributes[:'limit']
+      if attributes.key?(:'interval')
+        self.interval = attributes[:'interval']
       end
 
-      if attributes.key?(:'sort')
-        self.sort = attributes[:'sort']
+      if attributes.key?(:'metric')
+        self.metric = attributes[:'metric']
       end
     end
 
@@ -88,8 +88,8 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @facet.nil?
-        invalid_properties.push('invalid value for "facet", facet cannot be nil.')
+      if @aggregation.nil?
+        invalid_properties.push('invalid value for "aggregation", aggregation cannot be nil.')
       end
 
       invalid_properties
@@ -98,7 +98,7 @@ module DatadogAPIClient::V1
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @facet.nil?
+      return false if @aggregation.nil?
       true
     end
 
@@ -107,9 +107,9 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          facet == o.facet &&
-          limit == o.limit &&
-          sort == o.sort
+          aggregation == o.aggregation &&
+          interval == o.interval &&
+          metric == o.metric
     end
 
     # @see the `==` method
@@ -121,7 +121,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [facet, limit, sort].hash
+      [aggregation, interval, metric].hash
     end
 
     # Builds the object from hash
