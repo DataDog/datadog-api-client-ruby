@@ -20,7 +20,7 @@ require 'vcr'
 
 
 Datadog.configure do |c|
-  c.time_provider = :realtime_with_timecop
+  c.time_now_provider = -> { Timecop.now_without_mock_time }
   c.analytics_enabled = true
   c.use :cucumber, {'operation_name': 'test'}
   c.use :ethon, {}
