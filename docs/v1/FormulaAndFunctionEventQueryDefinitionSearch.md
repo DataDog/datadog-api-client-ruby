@@ -1,4 +1,4 @@
-# DatadogAPIClient::V1::TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch
+# DatadogAPIClient::V1::FormulaAndFunctionEventQueryDefinitionSearch
 
 ## Properties
 
@@ -11,7 +11,7 @@
 ```ruby
 require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch.new(
+instance = DatadogAPIClient::V1::FormulaAndFunctionEventQueryDefinitionSearch.new(
   query: service:query
 )
 ```

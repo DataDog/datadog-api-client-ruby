@@ -23,9 +23,9 @@ module DatadogAPIClient::V1
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'TimeSeriesFormulaAndFunctionEventQueryDefinition',
-          :'TimeSeriesFormulaAndFunctionMetricQueryDefinition',
-          :'TimeSeriesFormulaAndFunctionProcessQueryDefinition'
+          :'FormulaAndFunctionEventQueryDefinition',
+          :'FormulaAndFunctionMetricQueryDefinition',
+          :'FormulaAndFunctionProcessQueryDefinition'
         ]
       end
 

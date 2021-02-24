@@ -17,21 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Options for sorting group by results.
-  class TimeSeriesFormulaAndFunctionEventQueryGroupBySort
-    attr_accessor :aggregation
-
-    # Metric used for sorting group by results.
-    attr_accessor :metric
-
-    attr_accessor :order
+  # Search options.
+  class FormulaAndFunctionEventQueryDefinitionSearch
+    # Events search string.
+    attr_accessor :query
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'aggregation' => :'aggregation',
-        :'metric' => :'metric',
-        :'order' => :'order'
+        :'query' => :'query'
       }
     end
 
@@ -43,9 +37,7 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'aggregation' => :'FormulaAndFunctionEventAggregation',
-        :'metric' => :'String',
-        :'order' => :'QuerySortOrder'
+        :'query' => :'String'
       }
     end
 
@@ -59,29 +51,19 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::TimeSeriesFormulaAndFunctionEventQueryGroupBySort` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::FormulaAndFunctionEventQueryDefinitionSearch` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::TimeSeriesFormulaAndFunctionEventQueryGroupBySort`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::FormulaAndFunctionEventQueryDefinitionSearch`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'aggregation')
-        self.aggregation = attributes[:'aggregation']
-      end
-
-      if attributes.key?(:'metric')
-        self.metric = attributes[:'metric']
-      end
-
-      if attributes.key?(:'order')
-        self.order = attributes[:'order']
-      else
-        self.order = 'desc'
+      if attributes.key?(:'query')
+        self.query = attributes[:'query']
       end
     end
 
@@ -89,8 +71,8 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @aggregation.nil?
-        invalid_properties.push('invalid value for "aggregation", aggregation cannot be nil.')
+      if @query.nil?
+        invalid_properties.push('invalid value for "query", query cannot be nil.')
       end
 
       invalid_properties
@@ -99,7 +81,7 @@ module DatadogAPIClient::V1
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @aggregation.nil?
+      return false if @query.nil?
       true
     end
 
@@ -108,9 +90,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          aggregation == o.aggregation &&
-          metric == o.metric &&
-          order == o.order
+          query == o.query
     end
 
     # @see the `==` method
@@ -122,7 +102,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aggregation, metric, order].hash
+      [query].hash
     end
 
     # Builds the object from hash

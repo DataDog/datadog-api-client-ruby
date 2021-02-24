@@ -1,22 +1,22 @@
-# DatadogAPIClient::V1::TimeSeriesFormulaAndFunctionEventQueryDefinition
+# DatadogAPIClient::V1::FormulaAndFunctionEventQueryDefinition
 
 ## Properties
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **compute** | [**TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute**](TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute.md) |  |  |
+| **compute** | [**FormulaAndFunctionEventQueryDefinitionCompute**](FormulaAndFunctionEventQueryDefinitionCompute.md) |  |  |
 | **data_source** | [**FormulaAndFunctionEventsDataSource**](FormulaAndFunctionEventsDataSource.md) |  |  |
-| **group_by** | [**Array&lt;TimeSeriesFormulaAndFunctionEventQueryGroupBy&gt;**](TimeSeriesFormulaAndFunctionEventQueryGroupBy.md) | Group by options. | [optional] |
+| **group_by** | [**Array&lt;FormulaAndFunctionEventQueryGroupBy&gt;**](FormulaAndFunctionEventQueryGroupBy.md) | Group by options. | [optional] |
 | **indexes** | **Array&lt;String&gt;** | An array of index names to query in the stream. Omit or use &#x60;[]&#x60; to query all indexes at once. | [optional] |
 | **name** | **String** | Name of the query for use in formulas. | [optional] |
-| **search** | [**TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch**](TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch.md) |  | [optional] |
+| **search** | [**FormulaAndFunctionEventQueryDefinitionSearch**](FormulaAndFunctionEventQueryDefinitionSearch.md) |  | [optional] |
 
 ## Example
 
 ```ruby
 require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::TimeSeriesFormulaAndFunctionEventQueryDefinition.new(
+instance = DatadogAPIClient::V1::FormulaAndFunctionEventQueryDefinition.new(
   compute: null,
   data_source: null,
   group_by: null,

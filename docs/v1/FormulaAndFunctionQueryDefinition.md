@@ -14,9 +14,9 @@ require 'datadog_api_client/v1'
 DatadogAPIClient::V1::FormulaAndFunctionQueryDefinition.openapi_one_of
 # =>
 # [
-#   :'TimeSeriesFormulaAndFunctionEventQueryDefinition',
-#   :'TimeSeriesFormulaAndFunctionMetricQueryDefinition',
-#   :'TimeSeriesFormulaAndFunctionProcessQueryDefinition'
+#   :'FormulaAndFunctionEventQueryDefinition',
+#   :'FormulaAndFunctionMetricQueryDefinition',
+#   :'FormulaAndFunctionProcessQueryDefinition'
 # ]
 ```
 
@@ -30,7 +30,7 @@ Find the appropriate object from the `openapi_one_of` list and casts the data in
 require 'datadog_api_client/v1'
 
 DatadogAPIClient::V1::FormulaAndFunctionQueryDefinition.build(data)
-# => #<TimeSeriesFormulaAndFunctionEventQueryDefinition:0x00007fdd4aab02a0>
+# => #<FormulaAndFunctionEventQueryDefinition:0x00007fdd4aab02a0>
 
 DatadogAPIClient::V1::FormulaAndFunctionQueryDefinition.build(data_that_doesnt_match)
 # => nil
@@ -44,8 +44,8 @@ DatadogAPIClient::V1::FormulaAndFunctionQueryDefinition.build(data_that_doesnt_m
 
 #### Return type
 
-- `TimeSeriesFormulaAndFunctionEventQueryDefinition`
-- `TimeSeriesFormulaAndFunctionMetricQueryDefinition`
-- `TimeSeriesFormulaAndFunctionProcessQueryDefinition`
+- `FormulaAndFunctionEventQueryDefinition`
+- `FormulaAndFunctionMetricQueryDefinition`
+- `FormulaAndFunctionProcessQueryDefinition`
 - `nil` (if no type matches)
 

@@ -17,32 +17,22 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # A timeseries formula and functions events query.
-  class TimeSeriesFormulaAndFunctionEventQueryDefinition
-    attr_accessor :compute
+  # List of objects used to group by.
+  class FormulaAndFunctionEventQueryGroupBy
+    # Event facet.
+    attr_accessor :facet
 
-    attr_accessor :data_source
+    # Number of groups to return.
+    attr_accessor :limit
 
-    # Group by options.
-    attr_accessor :group_by
-
-    # An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
-    attr_accessor :indexes
-
-    # Name of the query for use in formulas.
-    attr_accessor :name
-
-    attr_accessor :search
+    attr_accessor :sort
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'compute' => :'compute',
-        :'data_source' => :'data_source',
-        :'group_by' => :'group_by',
-        :'indexes' => :'indexes',
-        :'name' => :'name',
-        :'search' => :'search'
+        :'facet' => :'facet',
+        :'limit' => :'limit',
+        :'sort' => :'sort'
       }
     end
 
@@ -54,12 +44,9 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'compute' => :'TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute',
-        :'data_source' => :'FormulaAndFunctionEventsDataSource',
-        :'group_by' => :'Array<TimeSeriesFormulaAndFunctionEventQueryGroupBy>',
-        :'indexes' => :'Array<String>',
-        :'name' => :'String',
-        :'search' => :'TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch'
+        :'facet' => :'String',
+        :'limit' => :'Integer',
+        :'sort' => :'FormulaAndFunctionEventQueryGroupBySort'
       }
     end
 
@@ -73,43 +60,27 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::TimeSeriesFormulaAndFunctionEventQueryDefinition` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::FormulaAndFunctionEventQueryGroupBy` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::TimeSeriesFormulaAndFunctionEventQueryDefinition`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::FormulaAndFunctionEventQueryGroupBy`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'compute')
-        self.compute = attributes[:'compute']
+      if attributes.key?(:'facet')
+        self.facet = attributes[:'facet']
       end
 
-      if attributes.key?(:'data_source')
-        self.data_source = attributes[:'data_source']
+      if attributes.key?(:'limit')
+        self.limit = attributes[:'limit']
       end
 
-      if attributes.key?(:'group_by')
-        if (value = attributes[:'group_by']).is_a?(Array)
-          self.group_by = value
-        end
-      end
-
-      if attributes.key?(:'indexes')
-        if (value = attributes[:'indexes']).is_a?(Array)
-          self.indexes = value
-        end
-      end
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'search')
-        self.search = attributes[:'search']
+      if attributes.key?(:'sort')
+        self.sort = attributes[:'sort']
       end
     end
 
@@ -117,12 +88,8 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @compute.nil?
-        invalid_properties.push('invalid value for "compute", compute cannot be nil.')
-      end
-
-      if @data_source.nil?
-        invalid_properties.push('invalid value for "data_source", data_source cannot be nil.')
+      if @facet.nil?
+        invalid_properties.push('invalid value for "facet", facet cannot be nil.')
       end
 
       invalid_properties
@@ -131,8 +98,7 @@ module DatadogAPIClient::V1
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @compute.nil?
-      return false if @data_source.nil?
+      return false if @facet.nil?
       true
     end
 
@@ -141,12 +107,9 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          compute == o.compute &&
-          data_source == o.data_source &&
-          group_by == o.group_by &&
-          indexes == o.indexes &&
-          name == o.name &&
-          search == o.search
+          facet == o.facet &&
+          limit == o.limit &&
+          sort == o.sort
     end
 
     # @see the `==` method
@@ -158,7 +121,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [compute, data_source, group_by, indexes, name, search].hash
+      [facet, limit, sort].hash
     end
 
     # Builds the object from hash
