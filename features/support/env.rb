@@ -22,7 +22,6 @@ require 'vcr'
 Datadog.configure do |c|
   c.time_now_provider = -> { Time.now_without_mock_time }
   c.use :cucumber, {'operation_name': 'test'}
-  c.diagnostics.debug = ENV["DEBUG"].to_s.downcase == "true"
 end
 
 module RecordMode
