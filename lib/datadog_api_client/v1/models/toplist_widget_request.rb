@@ -26,6 +26,9 @@ module DatadogAPIClient::V1
 
     attr_accessor :event_query
 
+    # List of formulas that operate on queries. **This feature is currently in beta.**
+    attr_accessor :formulas
+
     attr_accessor :log_query
 
     attr_accessor :network_query
@@ -36,6 +39,11 @@ module DatadogAPIClient::V1
 
     # Widget query.
     attr_accessor :q
+
+    # List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
+    attr_accessor :queries
+
+    attr_accessor :response_format
 
     attr_accessor :rum_query
 
@@ -49,11 +57,14 @@ module DatadogAPIClient::V1
         :'apm_query' => :'apm_query',
         :'conditional_formats' => :'conditional_formats',
         :'event_query' => :'event_query',
+        :'formulas' => :'formulas',
         :'log_query' => :'log_query',
         :'network_query' => :'network_query',
         :'process_query' => :'process_query',
         :'profile_metrics_query' => :'profile_metrics_query',
         :'q' => :'q',
+        :'queries' => :'queries',
+        :'response_format' => :'response_format',
         :'rum_query' => :'rum_query',
         :'security_query' => :'security_query',
         :'style' => :'style'
@@ -71,11 +82,14 @@ module DatadogAPIClient::V1
         :'apm_query' => :'LogQueryDefinition',
         :'conditional_formats' => :'Array<WidgetConditionalFormat>',
         :'event_query' => :'LogQueryDefinition',
+        :'formulas' => :'Array<WidgetFormula>',
         :'log_query' => :'LogQueryDefinition',
         :'network_query' => :'LogQueryDefinition',
         :'process_query' => :'ProcessQueryDefinition',
         :'profile_metrics_query' => :'LogQueryDefinition',
         :'q' => :'String',
+        :'queries' => :'Array<FormulaAndFunctionQueryDefinition>',
+        :'response_format' => :'FormulaAndFunctionResponseFormat',
         :'rum_query' => :'LogQueryDefinition',
         :'security_query' => :'LogQueryDefinition',
         :'style' => :'WidgetRequestStyle'
@@ -117,6 +131,12 @@ module DatadogAPIClient::V1
         self.event_query = attributes[:'event_query']
       end
 
+      if attributes.key?(:'formulas')
+        if (value = attributes[:'formulas']).is_a?(Array)
+          self.formulas = value
+        end
+      end
+
       if attributes.key?(:'log_query')
         self.log_query = attributes[:'log_query']
       end
@@ -135,6 +155,16 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'q')
         self.q = attributes[:'q']
+      end
+
+      if attributes.key?(:'queries')
+        if (value = attributes[:'queries']).is_a?(Array)
+          self.queries = value
+        end
+      end
+
+      if attributes.key?(:'response_format')
+        self.response_format = attributes[:'response_format']
       end
 
       if attributes.key?(:'rum_query')
@@ -171,11 +201,14 @@ module DatadogAPIClient::V1
           apm_query == o.apm_query &&
           conditional_formats == o.conditional_formats &&
           event_query == o.event_query &&
+          formulas == o.formulas &&
           log_query == o.log_query &&
           network_query == o.network_query &&
           process_query == o.process_query &&
           profile_metrics_query == o.profile_metrics_query &&
           q == o.q &&
+          queries == o.queries &&
+          response_format == o.response_format &&
           rum_query == o.rum_query &&
           security_query == o.security_query &&
           style == o.style
@@ -190,7 +223,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [apm_query, conditional_formats, event_query, log_query, network_query, process_query, profile_metrics_query, q, rum_query, security_query, style].hash
+      [apm_query, conditional_formats, event_query, formulas, log_query, network_query, process_query, profile_metrics_query, q, queries, response_format, rum_query, security_query, style].hash
     end
 
     # Builds the object from hash
