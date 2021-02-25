@@ -19,7 +19,7 @@ Take graph snapshots. **Note**: When a snapshot is created, there is some delay 
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v1'
+require 'datadog_api_client'
 
 DatadogAPIClient::V1.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com

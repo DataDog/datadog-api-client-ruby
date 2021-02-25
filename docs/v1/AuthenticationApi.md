@@ -19,7 +19,7 @@ Check if the API key (not the APP key) is valid. If invalid, a 403 is returned.
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v1'
+require 'datadog_api_client'
 
 DatadogAPIClient::V1.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
