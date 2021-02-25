@@ -28,7 +28,7 @@ Adds a read role to an archive. ([Roles API](https://docs.datadoghq.com/api/v2/r
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v2'
+require 'datadog_api_client'
 
 DatadogAPIClient::V2.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -105,7 +105,7 @@ Create an archive in your organization.
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v2'
+require 'datadog_api_client'
 
 DatadogAPIClient::V2.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -181,7 +181,7 @@ Delete a given archive from your organization.
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v2'
+require 'datadog_api_client'
 
 DatadogAPIClient::V2.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -256,7 +256,7 @@ Get a specific archive from your organization.
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v2'
+require 'datadog_api_client'
 
 DatadogAPIClient::V2.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -332,7 +332,7 @@ Get the current order of your archives. This endpoint takes no JSON arguments.
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v2'
+require 'datadog_api_client'
 
 DatadogAPIClient::V2.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -405,7 +405,7 @@ Returns all read roles a given archive is restricted to.
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v2'
+require 'datadog_api_client'
 
 DatadogAPIClient::V2.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -481,7 +481,7 @@ Get the list of configured logs archives with their definitions.
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v2'
+require 'datadog_api_client'
 
 DatadogAPIClient::V2.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -554,7 +554,7 @@ Removes a role from an archive. ([Roles API](https://docs.datadoghq.com/api/v2/r
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v2'
+require 'datadog_api_client'
 
 DatadogAPIClient::V2.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -631,7 +631,7 @@ Update a given archive configuration.  **Note**: Using this method updates your 
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v2'
+require 'datadog_api_client'
 
 DatadogAPIClient::V2.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -709,7 +709,7 @@ Update the order of your archives. Since logs are processed sequentially, reorde
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v2'
+require 'datadog_api_client'
 
 DatadogAPIClient::V2.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
