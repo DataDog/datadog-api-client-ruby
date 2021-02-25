@@ -8,7 +8,7 @@ group :development, :test do
   gem 'codecov', '!= 0.2.14'
   gem 'cucumber'
   # gem 'ddtrace'
-  gem 'ddtrace', git: 'https://github.com/datadog/dd-trace-rb', branch: 'adrian.lopezcalvo/rspec-rework-tests-as-separate-traces'
+  gem 'ddtrace', require: 'ddtrace/auto_instrument', git: 'https://github.com/datadog/dd-trace-rb', branch: 'adrian.lopezcalvo/rspec-rework-tests-as-separate-traces'
   gem 'rake', '~> 13.0.1'
   gem 'pry-byebug'
   gem 'vcr'
