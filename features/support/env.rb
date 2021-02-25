@@ -22,6 +22,7 @@ require 'vcr'
 Datadog.configure do |c|
   c.time_now_provider = -> { Time.now_without_mock_time }
   c.use :cucumber, {'operation_name': 'test'}
+  c.use :rspec
 end
 
 module RecordMode
