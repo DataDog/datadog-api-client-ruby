@@ -11,7 +11,13 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 =end
 
 require_relative '../features/support/env.rb'
+require 'ddtrace'
 require 'webmock/rspec'
+
+Datadog.configure do |c|
+  c.use :ethon, {}
+  c.use :rspec, {}
+end
 
 
 module Helpers
