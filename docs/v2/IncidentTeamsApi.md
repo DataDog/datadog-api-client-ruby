@@ -23,7 +23,7 @@ Creates a new incident team.
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v2'
+require 'datadog_api_client'
 
 DatadogAPIClient::V2.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -101,7 +101,7 @@ Deletes an existing incident team.
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v2'
+require 'datadog_api_client'
 
 DatadogAPIClient::V2.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -178,7 +178,7 @@ Get details of an incident team. If the `include[users]` query parameter is prov
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v2'
+require 'datadog_api_client'
 
 DatadogAPIClient::V2.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -260,7 +260,7 @@ Get all incident teams for the requesting user's organization. If the `include[u
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v2'
+require 'datadog_api_client'
 
 DatadogAPIClient::V2.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -346,7 +346,7 @@ Updates an existing incident team. Only provide the attributes which should be u
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v2'
+require 'datadog_api_client'
 
 DatadogAPIClient::V2.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com

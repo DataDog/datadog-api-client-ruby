@@ -26,7 +26,7 @@ Check if a SLO can be safely deleted. For example, assure an SLO can be deleted 
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v1'
+require 'datadog_api_client'
 
 DatadogAPIClient::V1.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -102,7 +102,7 @@ Create a service level objective object.
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v1'
+require 'datadog_api_client'
 
 DatadogAPIClient::V1.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -178,7 +178,7 @@ Permanently delete the specified service level objective object.  If an SLO is u
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v1'
+require 'datadog_api_client'
 
 DatadogAPIClient::V1.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -258,7 +258,7 @@ Delete (or partially delete) multiple service level objective objects.  This end
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v1'
+require 'datadog_api_client'
 
 DatadogAPIClient::V1.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -334,7 +334,7 @@ Get a service level objective object.
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v1'
+require 'datadog_api_client'
 
 DatadogAPIClient::V1.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -410,7 +410,7 @@ Get a specific SLO’s history, regardless of its SLO type.  The detailed histor
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v1'
+require 'datadog_api_client'
 
 DatadogAPIClient::V1.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -492,7 +492,7 @@ Get a list of service level objective objects for your organization.
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v1'
+require 'datadog_api_client'
 
 DatadogAPIClient::V1.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -576,7 +576,7 @@ Update the specified service level objective object.
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v1'
+require 'datadog_api_client'
 
 DatadogAPIClient::V1.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com

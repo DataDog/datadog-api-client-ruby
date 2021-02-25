@@ -24,7 +24,7 @@ Creates a new index. Returns the Index object passed in the request body when th
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v1'
+require 'datadog_api_client'
 
 DatadogAPIClient::V1.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -100,7 +100,7 @@ Get one log index from your organization. This endpoint takes no JSON arguments.
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v1'
+require 'datadog_api_client'
 
 DatadogAPIClient::V1.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -176,7 +176,7 @@ Get the current order of your log indexes. This endpoint takes no JSON arguments
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v1'
+require 'datadog_api_client'
 
 DatadogAPIClient::V1.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -249,7 +249,7 @@ The Index object describes the configuration of a log index. This endpoint retur
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v1'
+require 'datadog_api_client'
 
 DatadogAPIClient::V1.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -322,7 +322,7 @@ Update an index as identified by its name. Returns the Index object passed in th
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v1'
+require 'datadog_api_client'
 
 DatadogAPIClient::V1.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -400,7 +400,7 @@ This endpoint updates the index order of your organization. It returns the index
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v1'
+require 'datadog_api_client'
 
 DatadogAPIClient::V1.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com

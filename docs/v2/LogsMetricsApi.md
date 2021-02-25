@@ -23,7 +23,7 @@ Create a metric based on your ingested logs in your organization. Returns the lo
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v2'
+require 'datadog_api_client'
 
 DatadogAPIClient::V2.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -99,7 +99,7 @@ Delete a specific log-based metric from your organization.
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v2'
+require 'datadog_api_client'
 
 DatadogAPIClient::V2.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -174,7 +174,7 @@ Get a specific log-based metric from your organization.
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v2'
+require 'datadog_api_client'
 
 DatadogAPIClient::V2.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -250,7 +250,7 @@ Get the list of configured log-based metrics with their definitions.
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v2'
+require 'datadog_api_client'
 
 DatadogAPIClient::V2.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -323,7 +323,7 @@ Update a specific log-based metric from your organization. Returns the log-based
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v2'
+require 'datadog_api_client'
 
 DatadogAPIClient::V2.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com

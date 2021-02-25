@@ -23,7 +23,7 @@ Create a child organization.  This endpoint requires the [multi-organization acc
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v1'
+require 'datadog_api_client'
 
 DatadogAPIClient::V1.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -99,7 +99,7 @@ Get organization information.
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v1'
+require 'datadog_api_client'
 
 DatadogAPIClient::V1.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -175,7 +175,7 @@ List your managed organizations.
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v1'
+require 'datadog_api_client'
 
 DatadogAPIClient::V1.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -248,7 +248,7 @@ Update your organization.
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v1'
+require 'datadog_api_client'
 
 DatadogAPIClient::V1.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -326,7 +326,7 @@ There are a couple of options for updating the Identity Provider (IdP) metadata 
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v1'
+require 'datadog_api_client'
 
 DatadogAPIClient::V1.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com

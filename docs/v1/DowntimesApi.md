@@ -24,7 +24,7 @@ Cancel a downtime.
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v1'
+require 'datadog_api_client'
 
 DatadogAPIClient::V1.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -99,7 +99,7 @@ Delete all downtimes that match the scope of `X`.
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v1'
+require 'datadog_api_client'
 
 DatadogAPIClient::V1.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -175,7 +175,7 @@ Schedule a downtime.
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v1'
+require 'datadog_api_client'
 
 DatadogAPIClient::V1.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -251,7 +251,7 @@ Get downtime detail by `downtime_id`.
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v1'
+require 'datadog_api_client'
 
 DatadogAPIClient::V1.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -327,7 +327,7 @@ Get all scheduled downtimes.
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v1'
+require 'datadog_api_client'
 
 DatadogAPIClient::V1.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -405,7 +405,7 @@ Update a single downtime by `downtime_id`.
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v1'
+require 'datadog_api_client'
 
 DatadogAPIClient::V1.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com

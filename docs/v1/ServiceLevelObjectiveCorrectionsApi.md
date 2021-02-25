@@ -23,7 +23,7 @@ Create an SLO Correction
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v1'
+require 'datadog_api_client'
 
 DatadogAPIClient::V1.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -101,7 +101,7 @@ Permanently delete the specified SLO Correction object
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v1'
+require 'datadog_api_client'
 
 DatadogAPIClient::V1.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -178,7 +178,7 @@ Get an SLO Correction
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v1'
+require 'datadog_api_client'
 
 DatadogAPIClient::V1.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -256,7 +256,7 @@ Get all Service Level Objective Corrections
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v1'
+require 'datadog_api_client'
 
 DatadogAPIClient::V1.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -331,7 +331,7 @@ Update the specified SLO correction object object
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v1'
+require 'datadog_api_client'
 
 DatadogAPIClient::V1.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com

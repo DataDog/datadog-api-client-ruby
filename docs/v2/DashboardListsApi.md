@@ -22,7 +22,7 @@ Add dashboards to an existing dashboard list.
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v2'
+require 'datadog_api_client'
 
 DatadogAPIClient::V2.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -100,7 +100,7 @@ Delete dashboards from an existing dashboard list.
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v2'
+require 'datadog_api_client'
 
 DatadogAPIClient::V2.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -178,7 +178,7 @@ Fetch the dashboard list’s dashboard definitions.
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v2'
+require 'datadog_api_client'
 
 DatadogAPIClient::V2.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
@@ -254,7 +254,7 @@ Update dashboards of an existing dashboard list.
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v2'
+require 'datadog_api_client'
 
 DatadogAPIClient::V2.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com

@@ -19,7 +19,7 @@ Get all processes for your organization.
 
 ```ruby
 require 'time'
-require 'datadog_api_client/v2'
+require 'datadog_api_client'
 
 DatadogAPIClient::V2.configure do |config|
   # Defining the site is optional and defaults to datadoghq.com
