@@ -11,7 +11,14 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 =end
 
 require_relative '../features/support/env.rb'
+require 'ddtrace'
 require 'webmock/rspec'
+
+Datadog.configure do |c|
+  c.tracer(writer_options: { buffer_size: 5000, flush_interval: 0.1 })
+  c.use :ethon, {}
+  c.use :rspec, {}
+end
 
 
 module Helpers
@@ -97,6 +104,10 @@ RSpec.configure do |config|
     @configuration.api_key["appKeyAuth"] = ENV["DD_TEST_CLIENT_APP_KEY"]
     @configuration.debugging = (!ENV["DEBUG"].nil? and ENV["DEBUG"] != false)
     @api_client = api.const_get("ApiClient").new @configuration
+  end
+
+  config.after(:suite) do
+    Datadog.tracer.shutdown!
   end
 
   config.example_status_persistence_file_path = 'failed.txt'
