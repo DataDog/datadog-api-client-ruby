@@ -107,7 +107,7 @@ RSpec.configure do |config|
   end
 
   config.after(:suite) do
-    Datadog.tracer.shutdown!
+    Datadog.tracer.writer.worker.callback_traces
   end
 
   config.example_status_persistence_file_path = 'failed.txt'
