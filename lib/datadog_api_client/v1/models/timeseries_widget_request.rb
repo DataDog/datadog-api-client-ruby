@@ -25,7 +25,7 @@ module DatadogAPIClient::V1
 
     attr_accessor :event_query
 
-    # List of formulas that operate on queries. This feature is currently in beta.
+    # List of formulas that operate on queries. **This feature is currently in beta.**
     attr_accessor :formulas
 
     attr_accessor :log_query
@@ -45,7 +45,7 @@ module DatadogAPIClient::V1
     # Widget query.
     attr_accessor :q
 
-    # List of queries that can be returned directly or used in formulas. This feature is currently in beta.
+    # List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
     attr_accessor :queries
 
     attr_accessor :response_format
