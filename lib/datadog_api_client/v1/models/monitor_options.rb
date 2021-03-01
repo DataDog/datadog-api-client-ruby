@@ -33,6 +33,9 @@ module DatadogAPIClient::V1
     # Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the value is set to `300` (5min), the timeframe is set to `last_5m` and the time is 7:00, the monitor evaluates data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor always has data during evaluation.
     attr_accessor :evaluation_delay
 
+    # Whether the log alert monitor triggers a single alert or multiple alerts when any group breaches a threshold.
+    attr_accessor :groupby_simple_monitor
+
     # A Boolean indicating whether notifications from this monitor automatically inserts its triggering tags into the title.  **Examples** - If `True`, `[Triggered on {host:h1}] Monitor Title` - If `False`, `[Triggered] Monitor Title`
     attr_accessor :include_tags
 
@@ -84,6 +87,7 @@ module DatadogAPIClient::V1
         :'enable_logs_sample' => :'enable_logs_sample',
         :'escalation_message' => :'escalation_message',
         :'evaluation_delay' => :'evaluation_delay',
+        :'groupby_simple_monitor' => :'groupby_simple_monitor',
         :'include_tags' => :'include_tags',
         :'locked' => :'locked',
         :'min_failure_duration' => :'min_failure_duration',
@@ -115,6 +119,7 @@ module DatadogAPIClient::V1
         :'enable_logs_sample' => :'Boolean',
         :'escalation_message' => :'String',
         :'evaluation_delay' => :'Integer',
+        :'groupby_simple_monitor' => :'Boolean',
         :'include_tags' => :'Boolean',
         :'locked' => :'Boolean',
         :'min_failure_duration' => :'Integer',
@@ -184,6 +189,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'evaluation_delay')
         self.evaluation_delay = attributes[:'evaluation_delay']
+      end
+
+      if attributes.key?(:'groupby_simple_monitor')
+        self.groupby_simple_monitor = attributes[:'groupby_simple_monitor']
       end
 
       if attributes.key?(:'include_tags')
@@ -308,6 +317,7 @@ module DatadogAPIClient::V1
           enable_logs_sample == o.enable_logs_sample &&
           escalation_message == o.escalation_message &&
           evaluation_delay == o.evaluation_delay &&
+          groupby_simple_monitor == o.groupby_simple_monitor &&
           include_tags == o.include_tags &&
           locked == o.locked &&
           min_failure_duration == o.min_failure_duration &&
@@ -334,7 +344,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aggregation, device_ids, enable_logs_sample, escalation_message, evaluation_delay, include_tags, locked, min_failure_duration, min_location_failed, new_host_delay, no_data_timeframe, notify_audit, notify_no_data, renotify_interval, require_full_window, silenced, synthetics_check_id, threshold_windows, thresholds, timeout_h].hash
+      [aggregation, device_ids, enable_logs_sample, escalation_message, evaluation_delay, groupby_simple_monitor, include_tags, locked, min_failure_duration, min_location_failed, new_host_delay, no_data_timeframe, notify_audit, notify_no_data, renotify_interval, require_full_window, silenced, synthetics_check_id, threshold_windows, thresholds, timeout_h].hash
     end
 
     # Builds the object from hash
