@@ -7,7 +7,7 @@
 | **apm_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
 | **display_type** | [**WidgetDisplayType**](WidgetDisplayType.md) |  | [optional] |
 | **event_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
-| **formulas** | [**Array&lt;WidgetFormula&gt;**](WidgetFormula.md) | List of formulas that operate on queries. This feature is currently in beta. | [optional] |
+| **formulas** | [**Array&lt;WidgetFormula&gt;**](WidgetFormula.md) | List of formulas that operate on queries. **This feature is currently in beta.** | [optional] |
 | **log_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
 | **metadata** | [**Array&lt;TimeseriesWidgetExpressionAlias&gt;**](TimeseriesWidgetExpressionAlias.md) | Used to define expression aliases. | [optional] |
 | **network_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
@@ -15,7 +15,7 @@
 | **process_query** | [**ProcessQueryDefinition**](ProcessQueryDefinition.md) |  | [optional] |
 | **profile_metrics_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
 | **q** | **String** | Widget query. | [optional] |
-| **queries** | [**Array&lt;FormulaAndFunctionQueryDefinition&gt;**](FormulaAndFunctionQueryDefinition.md) | List of queries that can be returned directly or used in formulas. This feature is currently in beta. | [optional] |
+| **queries** | [**Array&lt;FormulaAndFunctionQueryDefinition&gt;**](FormulaAndFunctionQueryDefinition.md) | List of queries that can be returned directly or used in formulas. **This feature is currently in beta.** | [optional] |
 | **response_format** | [**FormulaAndFunctionResponseFormat**](FormulaAndFunctionResponseFormat.md) |  | [optional] |
 | **rum_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
 | **security_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |

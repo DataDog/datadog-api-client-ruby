@@ -9,6 +9,7 @@
 | **enable_logs_sample** | **Boolean** | Whether or not to send a log sample when the log monitor triggers. | [optional] |
 | **escalation_message** | **String** | A message to include with a re-notification. Supports the &#x60;@username&#x60; notification we allow elsewhere. Not applicable if &#x60;renotify_interval&#x60; is &#x60;None&#x60;. | [optional][default to &#39;none&#39;] |
 | **evaluation_delay** | **Integer** | Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the value is set to &#x60;300&#x60; (5min), the timeframe is set to &#x60;last_5m&#x60; and the time is 7:00, the monitor evaluates data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor always has data during evaluation. | [optional] |
+| **groupby_simple_monitor** | **Boolean** | Whether the log alert monitor triggers a single alert or multiple alerts when any group breaches a threshold. | [optional] |
 | **include_tags** | **Boolean** | A Boolean indicating whether notifications from this monitor automatically inserts its triggering tags into the title.  **Examples** - If &#x60;True&#x60;, &#x60;[Triggered on {host:h1}] Monitor Title&#x60; - If &#x60;False&#x60;, &#x60;[Triggered] Monitor Title&#x60; | [optional][default to true] |
 | **locked** | **Boolean** | Whether or not the monitor is locked (only editable by creator and admins). | [optional] |
 | **min_failure_duration** | **Integer** | How long the test should be in failure before alerting (integer, number of seconds, max 7200). | [optional][default to 0] |
@@ -36,6 +37,7 @@ instance = DatadogAPIClient::V1::MonitorOptions.new(
   enable_logs_sample: null,
   escalation_message: null,
   evaluation_delay: null,
+  groupby_simple_monitor: null,
   include_tags: null,
   locked: null,
   min_failure_duration: null,
