@@ -172,6 +172,156 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
+    # Create an API test
+    # Create a Synthetic API test.
+    # @param body [SyntheticsAPITest] Details of the test to create.
+    # @param [Hash] opts the optional parameters
+    # @return [SyntheticsAPITest]
+    def create_synthetics_api_test(body, opts = {})
+      data, _status_code, _headers = create_synthetics_api_test_with_http_info(body, opts)
+      data
+    end
+
+    # Create an API test
+    # Create a Synthetic API test.
+    # @param body [SyntheticsAPITest] Details of the test to create.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(SyntheticsAPITest, Integer, Hash)>] SyntheticsAPITest data, response status code and response headers
+    def create_synthetics_api_test_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:create_synthetics_api_test)
+        unstable_enabled = @api_client.config.unstable_operations[:create_synthetics_api_test]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_synthetics_api_test")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "create_synthetics_api_test"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsApi.create_synthetics_api_test ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SyntheticsApi.create_synthetics_api_test"
+      end
+      # resource path
+      local_var_path = '/api/v1/synthetics/tests/api'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsAPITest'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"SyntheticsApi.create_synthetics_api_test",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsApi#create_synthetics_api_test\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create a browser test
+    # Create a Synthetic browser test.
+    # @param body [SyntheticsBrowserTest] Details of the test to create.
+    # @param [Hash] opts the optional parameters
+    # @return [SyntheticsBrowserTest]
+    def create_synthetics_browser_test(body, opts = {})
+      data, _status_code, _headers = create_synthetics_browser_test_with_http_info(body, opts)
+      data
+    end
+
+    # Create a browser test
+    # Create a Synthetic browser test.
+    # @param body [SyntheticsBrowserTest] Details of the test to create.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(SyntheticsBrowserTest, Integer, Hash)>] SyntheticsBrowserTest data, response status code and response headers
+    def create_synthetics_browser_test_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:create_synthetics_browser_test)
+        unstable_enabled = @api_client.config.unstable_operations[:create_synthetics_browser_test]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_synthetics_browser_test")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "create_synthetics_browser_test"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsApi.create_synthetics_browser_test ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SyntheticsApi.create_synthetics_browser_test"
+      end
+      # resource path
+      local_var_path = '/api/v1/synthetics/tests/browser'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsBrowserTest'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"SyntheticsApi.create_synthetics_browser_test",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsApi#create_synthetics_browser_test\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a test
     # Create a Synthetic test.
     # @param body [SyntheticsTestDetails] Details of the test to create.
@@ -1368,6 +1518,168 @@ module DatadogAPIClient::V1
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SyntheticsApi#trigger_ci_tests\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Edit an API test
+    # Edit the configuration of a Synthetic API test.
+    # @param public_id [String] The public ID of the test to get details from.
+    # @param body [SyntheticsAPITest] New test details to be saved.
+    # @param [Hash] opts the optional parameters
+    # @return [SyntheticsAPITest]
+    def update_api_test(public_id, body, opts = {})
+      data, _status_code, _headers = update_api_test_with_http_info(public_id, body, opts)
+      data
+    end
+
+    # Edit an API test
+    # Edit the configuration of a Synthetic API test.
+    # @param public_id [String] The public ID of the test to get details from.
+    # @param body [SyntheticsAPITest] New test details to be saved.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(SyntheticsAPITest, Integer, Hash)>] SyntheticsAPITest data, response status code and response headers
+    def update_api_test_with_http_info(public_id, body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:update_api_test)
+        unstable_enabled = @api_client.config.unstable_operations[:update_api_test]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_api_test")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "update_api_test"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsApi.update_api_test ...'
+      end
+      # verify the required parameter 'public_id' is set
+      if @api_client.config.client_side_validation && public_id.nil?
+        fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsApi.update_api_test"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SyntheticsApi.update_api_test"
+      end
+      # resource path
+      local_var_path = '/api/v1/synthetics/tests/api/{public_id}'.sub('{' + 'public_id' + '}', CGI.escape(public_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsAPITest'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"SyntheticsApi.update_api_test",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsApi#update_api_test\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Edit a browser test
+    # Edit the configuration of a Synthetic browser test.
+    # @param public_id [String] The public ID of the test to get details from.
+    # @param body [SyntheticsBrowserTest] New test details to be saved.
+    # @param [Hash] opts the optional parameters
+    # @return [SyntheticsBrowserTest]
+    def update_browser_test(public_id, body, opts = {})
+      data, _status_code, _headers = update_browser_test_with_http_info(public_id, body, opts)
+      data
+    end
+
+    # Edit a browser test
+    # Edit the configuration of a Synthetic browser test.
+    # @param public_id [String] The public ID of the test to get details from.
+    # @param body [SyntheticsBrowserTest] New test details to be saved.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(SyntheticsBrowserTest, Integer, Hash)>] SyntheticsBrowserTest data, response status code and response headers
+    def update_browser_test_with_http_info(public_id, body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:update_browser_test)
+        unstable_enabled = @api_client.config.unstable_operations[:update_browser_test]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_browser_test")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "update_browser_test"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsApi.update_browser_test ...'
+      end
+      # verify the required parameter 'public_id' is set
+      if @api_client.config.client_side_validation && public_id.nil?
+        fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsApi.update_browser_test"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SyntheticsApi.update_browser_test"
+      end
+      # resource path
+      local_var_path = '/api/v1/synthetics/tests/browser/{public_id}'.sub('{' + 'public_id' + '}', CGI.escape(public_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsBrowserTest'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"SyntheticsApi.update_browser_test",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsApi#update_browser_test\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

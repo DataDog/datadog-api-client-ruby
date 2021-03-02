@@ -6,6 +6,8 @@ All URIs are relative to *https://api.datadoghq.com*
 | ------ | ------------ | ----------- |
 | [**create_global_variable**](SyntheticsApi.md#create_global_variable) | **POST** /api/v1/synthetics/variables | Create a global variable |
 | [**create_private_location**](SyntheticsApi.md#create_private_location) | **POST** /api/v1/synthetics/private-locations | Create a private location |
+| [**create_synthetics_api_test**](SyntheticsApi.md#create_synthetics_api_test) | **POST** /api/v1/synthetics/tests/api | Create an API test |
+| [**create_synthetics_browser_test**](SyntheticsApi.md#create_synthetics_browser_test) | **POST** /api/v1/synthetics/tests/browser | Create a browser test |
 | [**create_test**](SyntheticsApi.md#create_test) | **POST** /api/v1/synthetics/tests | Create a test |
 | [**delete_global_variable**](SyntheticsApi.md#delete_global_variable) | **DELETE** /api/v1/synthetics/variables/{variable_id} | Delete a global variable |
 | [**delete_private_location**](SyntheticsApi.md#delete_private_location) | **DELETE** /api/v1/synthetics/private-locations/{location_id} | Delete a private location |
@@ -22,6 +24,8 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**list_locations**](SyntheticsApi.md#list_locations) | **GET** /api/v1/synthetics/locations | Get all locations (public and private) |
 | [**list_tests**](SyntheticsApi.md#list_tests) | **GET** /api/v1/synthetics/tests | Get the list of all tests |
 | [**trigger_ci_tests**](SyntheticsApi.md#trigger_ci_tests) | **POST** /api/v1/synthetics/tests/trigger/ci | Trigger some Synthetics tests for CI |
+| [**update_api_test**](SyntheticsApi.md#update_api_test) | **PUT** /api/v1/synthetics/tests/api/{public_id} | Edit an API test |
+| [**update_browser_test**](SyntheticsApi.md#update_browser_test) | **PUT** /api/v1/synthetics/tests/browser/{public_id} | Edit a browser test |
 | [**update_private_location**](SyntheticsApi.md#update_private_location) | **PUT** /api/v1/synthetics/private-locations/{location_id} | Edit a private location |
 | [**update_test**](SyntheticsApi.md#update_test) | **PUT** /api/v1/synthetics/tests/{public_id} | Edit a test |
 | [**update_test_pause_status**](SyntheticsApi.md#update_test_pause_status) | **PUT** /api/v1/synthetics/tests/{public_id}/status | Pause or start a test |
@@ -168,6 +172,158 @@ end
 ### Return type
 
 [**SyntheticsPrivateLocationCreationResponse**](SyntheticsPrivateLocationCreationResponse.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## create_synthetics_api_test
+
+> <SyntheticsAPITest> create_synthetics_api_test(body)
+
+Create an API test
+
+Create a Synthetic API test.
+
+### Examples
+
+```ruby
+require 'time'
+require 'datadog_api_client'
+
+DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
+  # Configure API key authorization: apiKeyAuth
+  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
+
+  # Configure API key authorization: appKeyAuth
+  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
+end
+
+api_instance = DatadogAPIClient::V1::SyntheticsApi.new
+body = DatadogAPIClient::V1::SyntheticsAPITest.new # SyntheticsAPITest | Details of the test to create.
+
+begin
+  # Create an API test
+  result = api_instance.create_synthetics_api_test(body)
+  p result
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling SyntheticsApi->create_synthetics_api_test: #{e}"
+end
+```
+
+#### Using the create_synthetics_api_test_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SyntheticsAPITest>, Integer, Hash)> create_synthetics_api_test_with_http_info(body)
+
+```ruby
+begin
+  # Create an API test
+  data, status_code, headers = api_instance.create_synthetics_api_test_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SyntheticsAPITest>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling SyntheticsApi->create_synthetics_api_test_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**SyntheticsAPITest**](SyntheticsAPITest.md) | Details of the test to create. |  |
+
+### Return type
+
+[**SyntheticsAPITest**](SyntheticsAPITest.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## create_synthetics_browser_test
+
+> <SyntheticsBrowserTest> create_synthetics_browser_test(body)
+
+Create a browser test
+
+Create a Synthetic browser test.
+
+### Examples
+
+```ruby
+require 'time'
+require 'datadog_api_client'
+
+DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
+  # Configure API key authorization: apiKeyAuth
+  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
+
+  # Configure API key authorization: appKeyAuth
+  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
+end
+
+api_instance = DatadogAPIClient::V1::SyntheticsApi.new
+body = DatadogAPIClient::V1::SyntheticsBrowserTest.new # SyntheticsBrowserTest | Details of the test to create.
+
+begin
+  # Create a browser test
+  result = api_instance.create_synthetics_browser_test(body)
+  p result
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling SyntheticsApi->create_synthetics_browser_test: #{e}"
+end
+```
+
+#### Using the create_synthetics_browser_test_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SyntheticsBrowserTest>, Integer, Hash)> create_synthetics_browser_test_with_http_info(body)
+
+```ruby
+begin
+  # Create a browser test
+  data, status_code, headers = api_instance.create_synthetics_browser_test_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SyntheticsBrowserTest>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling SyntheticsApi->create_synthetics_browser_test_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**SyntheticsBrowserTest**](SyntheticsBrowserTest.md) | Details of the test to create. |  |
+
+### Return type
+
+[**SyntheticsBrowserTest**](SyntheticsBrowserTest.md)
 
 ### Authorization
 
@@ -1398,6 +1554,162 @@ end
 ### Return type
 
 [**SyntheticsTriggerCITestsResponse**](SyntheticsTriggerCITestsResponse.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## update_api_test
+
+> <SyntheticsAPITest> update_api_test(public_id, body)
+
+Edit an API test
+
+Edit the configuration of a Synthetic API test.
+
+### Examples
+
+```ruby
+require 'time'
+require 'datadog_api_client'
+
+DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
+  # Configure API key authorization: apiKeyAuth
+  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
+
+  # Configure API key authorization: appKeyAuth
+  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
+end
+
+api_instance = DatadogAPIClient::V1::SyntheticsApi.new
+public_id = 'public_id_example' # String | The public ID of the test to get details from.
+body = DatadogAPIClient::V1::SyntheticsAPITest.new # SyntheticsAPITest | New test details to be saved.
+
+begin
+  # Edit an API test
+  result = api_instance.update_api_test(public_id, body)
+  p result
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling SyntheticsApi->update_api_test: #{e}"
+end
+```
+
+#### Using the update_api_test_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SyntheticsAPITest>, Integer, Hash)> update_api_test_with_http_info(public_id, body)
+
+```ruby
+begin
+  # Edit an API test
+  data, status_code, headers = api_instance.update_api_test_with_http_info(public_id, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SyntheticsAPITest>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling SyntheticsApi->update_api_test_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **public_id** | **String** | The public ID of the test to get details from. |  |
+| **body** | [**SyntheticsAPITest**](SyntheticsAPITest.md) | New test details to be saved. |  |
+
+### Return type
+
+[**SyntheticsAPITest**](SyntheticsAPITest.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## update_browser_test
+
+> <SyntheticsBrowserTest> update_browser_test(public_id, body)
+
+Edit a browser test
+
+Edit the configuration of a Synthetic browser test.
+
+### Examples
+
+```ruby
+require 'time'
+require 'datadog_api_client'
+
+DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
+  # Configure API key authorization: apiKeyAuth
+  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
+
+  # Configure API key authorization: appKeyAuth
+  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
+end
+
+api_instance = DatadogAPIClient::V1::SyntheticsApi.new
+public_id = 'public_id_example' # String | The public ID of the test to get details from.
+body = DatadogAPIClient::V1::SyntheticsBrowserTest.new # SyntheticsBrowserTest | New test details to be saved.
+
+begin
+  # Edit a browser test
+  result = api_instance.update_browser_test(public_id, body)
+  p result
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling SyntheticsApi->update_browser_test: #{e}"
+end
+```
+
+#### Using the update_browser_test_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SyntheticsBrowserTest>, Integer, Hash)> update_browser_test_with_http_info(public_id, body)
+
+```ruby
+begin
+  # Edit a browser test
+  data, status_code, headers = api_instance.update_browser_test_with_http_info(public_id, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SyntheticsBrowserTest>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling SyntheticsApi->update_browser_test_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **public_id** | **String** | The public ID of the test to get details from. |  |
+| **body** | [**SyntheticsBrowserTest**](SyntheticsBrowserTest.md) | New test details to be saved. |  |
+
+### Return type
+
+[**SyntheticsBrowserTest**](SyntheticsBrowserTest.md)
 
 ### Authorization
 
