@@ -200,6 +200,8 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::SnapshotsApi* | [**get_graph_snapshot**](SnapshotsApi.md#get_graph_snapshot) | **GET** /api/v1/graph/snapshot | Take graph snapshots
 *DatadogAPIClient::V1::SyntheticsApi* | [**create_global_variable**](SyntheticsApi.md#create_global_variable) | **POST** /api/v1/synthetics/variables | Create a global variable
 *DatadogAPIClient::V1::SyntheticsApi* | [**create_private_location**](SyntheticsApi.md#create_private_location) | **POST** /api/v1/synthetics/private-locations | Create a private location
+*DatadogAPIClient::V1::SyntheticsApi* | [**create_synthetics_api_test**](SyntheticsApi.md#create_synthetics_api_test) | **POST** /api/v1/synthetics/tests/api | Create an API test
+*DatadogAPIClient::V1::SyntheticsApi* | [**create_synthetics_browser_test**](SyntheticsApi.md#create_synthetics_browser_test) | **POST** /api/v1/synthetics/tests/browser | Create a browser test
 *DatadogAPIClient::V1::SyntheticsApi* | [**create_test**](SyntheticsApi.md#create_test) | **POST** /api/v1/synthetics/tests | Create a test
 *DatadogAPIClient::V1::SyntheticsApi* | [**delete_global_variable**](SyntheticsApi.md#delete_global_variable) | **DELETE** /api/v1/synthetics/variables/{variable_id} | Delete a global variable
 *DatadogAPIClient::V1::SyntheticsApi* | [**delete_private_location**](SyntheticsApi.md#delete_private_location) | **DELETE** /api/v1/synthetics/private-locations/{location_id} | Delete a private location
@@ -216,6 +218,8 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::SyntheticsApi* | [**list_locations**](SyntheticsApi.md#list_locations) | **GET** /api/v1/synthetics/locations | Get all locations (public and private)
 *DatadogAPIClient::V1::SyntheticsApi* | [**list_tests**](SyntheticsApi.md#list_tests) | **GET** /api/v1/synthetics/tests | Get the list of all tests
 *DatadogAPIClient::V1::SyntheticsApi* | [**trigger_ci_tests**](SyntheticsApi.md#trigger_ci_tests) | **POST** /api/v1/synthetics/tests/trigger/ci | Trigger some Synthetics tests for CI
+*DatadogAPIClient::V1::SyntheticsApi* | [**update_api_test**](SyntheticsApi.md#update_api_test) | **PUT** /api/v1/synthetics/tests/api/{public_id} | Edit an API test
+*DatadogAPIClient::V1::SyntheticsApi* | [**update_browser_test**](SyntheticsApi.md#update_browser_test) | **PUT** /api/v1/synthetics/tests/browser/{public_id} | Edit a browser test
 *DatadogAPIClient::V1::SyntheticsApi* | [**update_private_location**](SyntheticsApi.md#update_private_location) | **PUT** /api/v1/synthetics/private-locations/{location_id} | Edit a private location
 *DatadogAPIClient::V1::SyntheticsApi* | [**update_test**](SyntheticsApi.md#update_test) | **PUT** /api/v1/synthetics/tests/{public_id} | Edit a test
 *DatadogAPIClient::V1::SyntheticsApi* | [**update_test_pause_status**](SyntheticsApi.md#update_test_pause_status) | **PUT** /api/v1/synthetics/tests/{public_id}/status | Pause or start a test
@@ -534,11 +538,14 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::ServiceSummaryWidgetDefinitionType](ServiceSummaryWidgetDefinitionType.md)
  - [DatadogAPIClient::V1::SlackIntegrationChannel](SlackIntegrationChannel.md)
  - [DatadogAPIClient::V1::SlackIntegrationChannelDisplay](SlackIntegrationChannelDisplay.md)
+ - [DatadogAPIClient::V1::SyntheticsAPITest](SyntheticsAPITest.md)
+ - [DatadogAPIClient::V1::SyntheticsAPITestConfig](SyntheticsAPITestConfig.md)
  - [DatadogAPIClient::V1::SyntheticsAPITestResultData](SyntheticsAPITestResultData.md)
  - [DatadogAPIClient::V1::SyntheticsAPITestResultFull](SyntheticsAPITestResultFull.md)
  - [DatadogAPIClient::V1::SyntheticsAPITestResultFullCheck](SyntheticsAPITestResultFullCheck.md)
  - [DatadogAPIClient::V1::SyntheticsAPITestResultShort](SyntheticsAPITestResultShort.md)
  - [DatadogAPIClient::V1::SyntheticsAPITestResultShortResult](SyntheticsAPITestResultShortResult.md)
+ - [DatadogAPIClient::V1::SyntheticsAPITestType](SyntheticsAPITestType.md)
  - [DatadogAPIClient::V1::SyntheticsAssertion](SyntheticsAssertion.md)
  - [DatadogAPIClient::V1::SyntheticsAssertionJSONPathOperator](SyntheticsAssertionJSONPathOperator.md)
  - [DatadogAPIClient::V1::SyntheticsAssertionJSONPathTarget](SyntheticsAssertionJSONPathTarget.md)
@@ -549,11 +556,14 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::SyntheticsBasicAuth](SyntheticsBasicAuth.md)
  - [DatadogAPIClient::V1::SyntheticsBrowserError](SyntheticsBrowserError.md)
  - [DatadogAPIClient::V1::SyntheticsBrowserErrorType](SyntheticsBrowserErrorType.md)
+ - [DatadogAPIClient::V1::SyntheticsBrowserTest](SyntheticsBrowserTest.md)
+ - [DatadogAPIClient::V1::SyntheticsBrowserTestConfig](SyntheticsBrowserTestConfig.md)
  - [DatadogAPIClient::V1::SyntheticsBrowserTestResultData](SyntheticsBrowserTestResultData.md)
  - [DatadogAPIClient::V1::SyntheticsBrowserTestResultFull](SyntheticsBrowserTestResultFull.md)
  - [DatadogAPIClient::V1::SyntheticsBrowserTestResultFullCheck](SyntheticsBrowserTestResultFullCheck.md)
  - [DatadogAPIClient::V1::SyntheticsBrowserTestResultShort](SyntheticsBrowserTestResultShort.md)
  - [DatadogAPIClient::V1::SyntheticsBrowserTestResultShortResult](SyntheticsBrowserTestResultShortResult.md)
+ - [DatadogAPIClient::V1::SyntheticsBrowserTestType](SyntheticsBrowserTestType.md)
  - [DatadogAPIClient::V1::SyntheticsBrowserVariable](SyntheticsBrowserVariable.md)
  - [DatadogAPIClient::V1::SyntheticsBrowserVariableType](SyntheticsBrowserVariableType.md)
  - [DatadogAPIClient::V1::SyntheticsCITest](SyntheticsCITest.md)
