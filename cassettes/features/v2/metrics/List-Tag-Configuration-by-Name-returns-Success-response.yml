@@ -2,14 +2,13 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.datadoghq.com/api/v2/metrics/rubyListTagConfigurationbyNamereturnsSuccessresponse1613037331/tags
+    uri: https://api.datadoghq.com/api/v2/metrics/rubyListtagconfigurationbynamereturnsSuccessresponse1614797835/tags
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"tags":["app","datacenter","rubyListTagConfigurationbyNamereturnsSuccessresponse1613037331"],"metric_type":"distribution"},"type":"manage_tags","id":"rubyListTagConfigurationbyNamereturnsSuccessresponse1613037331"}}'
+      string: '{"data":{"attributes":{"tags":["app","datacenter","rubyListtagconfigurationbynamereturnsSuccessresponse1614797835"],"metric_type":"distribution"},"type":"manage_tags","id":"rubyListtagconfigurationbynamereturnsSuccessresponse1614797835"}}'
     headers:
       User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.7.1; os darwin19.6.0; arch
-        x86_64)
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.7.2; os linux-gnu; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -22,7 +21,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Thu, 11 Feb 2021 09:55:31 GMT
+      - Wed, 03 Mar 2021 18:57:15 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -33,21 +32,18 @@ http_interactions:
       - no-cache
       Cache-Control:
       - no-cache
-      Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 18-Feb-2021 09:55:31 GMT;
-        secure; HttpOnly
       X-Dd-Version:
-      - '35.3888455'
+      - '35.4022232'
       X-Ratelimit-Limit:
       - '50'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '29'
+      - '45'
       X-Ratelimit-Remaining:
-      - '44'
+      - '42'
       X-Dd-Debug:
-      - F5gm0Rce1/Abr9/0Fw8HAqWfiz0FdiH8er/AXnN6lOn3L6KyGgbsLCwgPlob1No8
+      - 5gfwVh/5HZ+AnGd/Di93w3NEWC6KMHT9KzmHEiRJmNdOjBtAsbOcgVFyqEChw71h
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -58,18 +54,17 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"manage_tags","id":"rubyListTagConfigurationbyNamereturnsSuccessresponse1613037331","attributes":{"tags":["datacenter","app","rubyListTagConfigurationbyNamereturnsSuccessresponse1613037331"],"include_percentiles":false,"created_at":"2021-02-11T09:55:31.439257+00:00","updated_at":"2021-02-11T09:55:31.439257+00:00","metric_type":"distribution"}}}'
-  recorded_at: Thu, 11 Feb 2021 09:55:31 GMT
+      string: '{"data":{"type":"manage_tags","id":"rubyListtagconfigurationbynamereturnsSuccessresponse1614797835","attributes":{"tags":["datacenter","app","rubyListtagconfigurationbynamereturnsSuccessresponse1614797835"],"include_percentiles":false,"created_at":"2021-03-03T18:57:15.700363+00:00","updated_at":"2021-03-03T18:57:15.700363+00:00","metric_type":"distribution"}}}'
+  recorded_at: Wed, 03 Mar 2021 18:57:15 GMT
 - request:
     method: get
-    uri: https://api.datadoghq.com/api/v2/metrics/rubyListTagConfigurationbyNamereturnsSuccessresponse1613037331/tags
+    uri: https://api.datadoghq.com/api/v2/metrics/rubyListtagconfigurationbynamereturnsSuccessresponse1614797835/tags
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.7.1; os darwin19.6.0; arch
-        x86_64)
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.7.2; os linux-gnu; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -82,7 +77,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 11 Feb 2021 09:55:31 GMT
+      - Wed, 03 Mar 2021 18:57:15 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -95,21 +90,18 @@ http_interactions:
       - no-cache
       Cache-Control:
       - no-cache
-      Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 18-Feb-2021 09:55:31 GMT;
-        secure; HttpOnly
       X-Dd-Version:
-      - '35.3888455'
+      - '35.4022232'
       X-Ratelimit-Limit:
       - '50'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '29'
+      - '45'
       X-Ratelimit-Remaining:
-      - '43'
+      - '41'
       X-Dd-Debug:
-      - dCmL/3rURV6BPeaqeP3Rxigq41m5CAb17XjrRE42uZ01zpr07HVhbL5/3TWMkvgu
+      - PhosSd3Ch1B6B0DXI71steKUi7XhPDttnPiIP1NdXTw0VJNWpoUnYyBmODS5ne3q
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -120,6 +112,6 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"manage_tags","id":"rubyListTagConfigurationbyNamereturnsSuccessresponse1613037331","attributes":{"tags":["datacenter","app","rubyListTagConfigurationbyNamereturnsSuccessresponse1613037331"],"include_percentiles":false,"created_at":"2021-02-11T09:55:31.439257+00:00","updated_at":"2021-02-11T09:55:31.439257+00:00","metric_type":"distribution"}}}'
-  recorded_at: Thu, 11 Feb 2021 09:55:31 GMT
+      string: '{"data":{"type":"manage_tags","id":"rubyListtagconfigurationbynamereturnsSuccessresponse1614797835","attributes":{"tags":["datacenter","app","rubyListtagconfigurationbynamereturnsSuccessresponse1614797835"],"include_percentiles":false,"created_at":"2021-03-03T18:57:15.700363+00:00","updated_at":"2021-03-03T18:57:15.700363+00:00","metric_type":"distribution"}}}'
+  recorded_at: Wed, 03 Mar 2021 18:57:15 GMT
 recorded_with: VCR 6.0.0
