@@ -2,14 +2,13 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.datadoghq.com/api/v2/metrics/rubyDeleteaTagConfigurationreturnsNoContentresponse1613037330/tags
+    uri: https://api.datadoghq.com/api/v2/metrics/rubyDeleteatagconfigurationreturnsNoContentresponse1614797835/tags
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"tags":["app","datacenter","rubyDeleteaTagConfigurationreturnsNoContentresponse1613037330"],"metric_type":"distribution"},"type":"manage_tags","id":"rubyDeleteaTagConfigurationreturnsNoContentresponse1613037330"}}'
+      string: '{"data":{"attributes":{"tags":["app","datacenter","rubyDeleteatagconfigurationreturnsNoContentresponse1614797835"],"metric_type":"distribution"},"type":"manage_tags","id":"rubyDeleteatagconfigurationreturnsNoContentresponse1614797835"}}'
     headers:
       User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.7.1; os darwin19.6.0; arch
-        x86_64)
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.7.2; os linux-gnu; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -22,7 +21,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Thu, 11 Feb 2021 09:55:30 GMT
+      - Wed, 03 Mar 2021 18:57:15 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -33,21 +32,18 @@ http_interactions:
       - no-cache
       Cache-Control:
       - no-cache
-      Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 18-Feb-2021 09:55:30 GMT;
-        secure; HttpOnly
       X-Dd-Version:
-      - '35.3888455'
+      - '35.4022232'
       X-Ratelimit-Limit:
       - '50'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '30'
+      - '45'
       X-Ratelimit-Remaining:
       - '47'
       X-Dd-Debug:
-      - JpIJLwIH2nFlZOC+u71rq7aAOL43MLZN3MUsL+gpYHdZz5QLUOG8Jysf8kVK6tPU
+      - tpRCH6w417YjBovRJ8VmtuXmNONVYiRp2c8d2AxjPdGBn8PCtgG4vAztrx3qUZAN
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -58,18 +54,17 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"manage_tags","id":"rubyDeleteaTagConfigurationreturnsNoContentresponse1613037330","attributes":{"tags":["datacenter","app","rubyDeleteaTagConfigurationreturnsNoContentresponse1613037330"],"include_percentiles":false,"created_at":"2021-02-11T09:55:30.933171+00:00","updated_at":"2021-02-11T09:55:30.933171+00:00","metric_type":"distribution"}}}'
-  recorded_at: Thu, 11 Feb 2021 09:55:30 GMT
+      string: '{"data":{"type":"manage_tags","id":"rubyDeleteatagconfigurationreturnsNoContentresponse1614797835","attributes":{"tags":["datacenter","app","rubyDeleteatagconfigurationreturnsNoContentresponse1614797835"],"include_percentiles":false,"created_at":"2021-03-03T18:57:15.108934+00:00","updated_at":"2021-03-03T18:57:15.108934+00:00","metric_type":"distribution"}}}'
+  recorded_at: Wed, 03 Mar 2021 18:57:15 GMT
 - request:
     method: delete
-    uri: https://api.datadoghq.com/api/v2/metrics/rubyDeleteaTagConfigurationreturnsNoContentresponse1613037330/tags
+    uri: https://api.datadoghq.com/api/v2/metrics/rubyDeleteatagconfigurationreturnsNoContentresponse1614797835/tags
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.7.1; os darwin19.6.0; arch
-        x86_64)
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.7.2; os linux-gnu; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -82,7 +77,7 @@ http_interactions:
       message: No Content
     headers:
       Date:
-      - Thu, 11 Feb 2021 09:55:31 GMT
+      - Wed, 03 Mar 2021 18:57:15 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -93,17 +88,14 @@ http_interactions:
       - no-cache
       Cache-Control:
       - no-cache
-      Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 18-Feb-2021 09:55:31 GMT;
-        secure; HttpOnly
       X-Dd-Version:
-      - '35.3888455'
+      - '35.4022232'
       X-Ratelimit-Limit:
       - '50'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '29'
+      - '45'
       X-Ratelimit-Remaining:
       - '46'
       X-Dd-Debug:
@@ -119,5 +111,5 @@ http_interactions:
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Thu, 11 Feb 2021 09:55:30 GMT
+  recorded_at: Wed, 03 Mar 2021 18:57:15 GMT
 recorded_with: VCR 6.0.0
