@@ -17,76 +17,23 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Object describing a step for a Synthetic test.
-  class SyntheticsStepDetail
-    # Array of errors collected for a browser test.
-    attr_accessor :browser_errors
+  # Core Web Vitals attached to a browser test step.
+  class SyntheticsCoreWebVitals
+    # Cumulative Layout Shift.
+    attr_accessor :cls
 
-    attr_accessor :check_type
+    # Largest Contentful Paint in milliseconds.
+    attr_accessor :lcp
 
-    # Description of the test.
-    attr_accessor :description
-
-    # Total duration in millisecond of the test.
-    attr_accessor :duration
-
-    # Error returned by the test.
-    attr_accessor :error
-
-    attr_accessor :playing_tab
-
-    # Whether or not screenshots where collected by the test.
-    attr_accessor :screenshot_bucket_key
-
-    # Whether or not to skip this step.
-    attr_accessor :skipped
-
-    # Whether or not snapshots where collected by the test.
-    attr_accessor :snapshot_bucket_key
-
-    # The step ID.
-    attr_accessor :step_id
-
-    # If this steps include a sub-test. [Subtests documentation](https://docs.datadoghq.com/synthetics/browser_tests/advanced_options/#subtests).
-    attr_accessor :sub_test_step_details
-
-    # Time before starting the step.
-    attr_accessor :time_to_interactive
-
-    attr_accessor :type
-
-    # URL to perform the step against.
+    # URL attached to the metrics.
     attr_accessor :url
-
-    # Value for the step.
-    attr_accessor :value
-
-    # Array of Core Web Vitals metrics for the step.
-    attr_accessor :vitals_metrics
-
-    # Warning collected that didn't failed the step.
-    attr_accessor :warnings
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'browser_errors' => :'browserErrors',
-        :'check_type' => :'checkType',
-        :'description' => :'description',
-        :'duration' => :'duration',
-        :'error' => :'error',
-        :'playing_tab' => :'playingTab',
-        :'screenshot_bucket_key' => :'screenshotBucketKey',
-        :'skipped' => :'skipped',
-        :'snapshot_bucket_key' => :'snapshotBucketKey',
-        :'step_id' => :'stepId',
-        :'sub_test_step_details' => :'subTestStepDetails',
-        :'time_to_interactive' => :'timeToInteractive',
-        :'type' => :'type',
-        :'url' => :'url',
-        :'value' => :'value',
-        :'vitals_metrics' => :'vitalsMetrics',
-        :'warnings' => :'warnings'
+        :'cls' => :'cls',
+        :'lcp' => :'lcp',
+        :'url' => :'url'
       }
     end
 
@@ -98,23 +45,9 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'browser_errors' => :'Array<SyntheticsBrowserError>',
-        :'check_type' => :'SyntheticsCheckType',
-        :'description' => :'String',
-        :'duration' => :'Float',
-        :'error' => :'String',
-        :'playing_tab' => :'SyntheticsPlayingTab',
-        :'screenshot_bucket_key' => :'Boolean',
-        :'skipped' => :'Boolean',
-        :'snapshot_bucket_key' => :'Boolean',
-        :'step_id' => :'Integer',
-        :'sub_test_step_details' => :'Array<SyntheticsStepDetail>',
-        :'time_to_interactive' => :'Float',
-        :'type' => :'SyntheticsStepType',
-        :'url' => :'String',
-        :'value' => :'Object',
-        :'vitals_metrics' => :'Array<SyntheticsCoreWebVitals>',
-        :'warnings' => :'Array<SyntheticsStepDetailWarning>'
+        :'cls' => :'Integer',
+        :'lcp' => :'Integer',
+        :'url' => :'String'
       }
     end
 
@@ -128,91 +61,27 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsStepDetail` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsCoreWebVitals` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SyntheticsStepDetail`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SyntheticsCoreWebVitals`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'browser_errors')
-        if (value = attributes[:'browser_errors']).is_a?(Array)
-          self.browser_errors = value
-        end
+      if attributes.key?(:'cls')
+        self.cls = attributes[:'cls']
       end
 
-      if attributes.key?(:'check_type')
-        self.check_type = attributes[:'check_type']
-      end
-
-      if attributes.key?(:'description')
-        self.description = attributes[:'description']
-      end
-
-      if attributes.key?(:'duration')
-        self.duration = attributes[:'duration']
-      end
-
-      if attributes.key?(:'error')
-        self.error = attributes[:'error']
-      end
-
-      if attributes.key?(:'playing_tab')
-        self.playing_tab = attributes[:'playing_tab']
-      end
-
-      if attributes.key?(:'screenshot_bucket_key')
-        self.screenshot_bucket_key = attributes[:'screenshot_bucket_key']
-      end
-
-      if attributes.key?(:'skipped')
-        self.skipped = attributes[:'skipped']
-      end
-
-      if attributes.key?(:'snapshot_bucket_key')
-        self.snapshot_bucket_key = attributes[:'snapshot_bucket_key']
-      end
-
-      if attributes.key?(:'step_id')
-        self.step_id = attributes[:'step_id']
-      end
-
-      if attributes.key?(:'sub_test_step_details')
-        if (value = attributes[:'sub_test_step_details']).is_a?(Array)
-          self.sub_test_step_details = value
-        end
-      end
-
-      if attributes.key?(:'time_to_interactive')
-        self.time_to_interactive = attributes[:'time_to_interactive']
-      end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'lcp')
+        self.lcp = attributes[:'lcp']
       end
 
       if attributes.key?(:'url')
         self.url = attributes[:'url']
-      end
-
-      if attributes.key?(:'value')
-        self.value = attributes[:'value']
-      end
-
-      if attributes.key?(:'vitals_metrics')
-        if (value = attributes[:'vitals_metrics']).is_a?(Array)
-          self.vitals_metrics = value
-        end
-      end
-
-      if attributes.key?(:'warnings')
-        if (value = attributes[:'warnings']).is_a?(Array)
-          self.warnings = value
-        end
       end
     end
 
@@ -234,23 +103,9 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          browser_errors == o.browser_errors &&
-          check_type == o.check_type &&
-          description == o.description &&
-          duration == o.duration &&
-          error == o.error &&
-          playing_tab == o.playing_tab &&
-          screenshot_bucket_key == o.screenshot_bucket_key &&
-          skipped == o.skipped &&
-          snapshot_bucket_key == o.snapshot_bucket_key &&
-          step_id == o.step_id &&
-          sub_test_step_details == o.sub_test_step_details &&
-          time_to_interactive == o.time_to_interactive &&
-          type == o.type &&
-          url == o.url &&
-          value == o.value &&
-          vitals_metrics == o.vitals_metrics &&
-          warnings == o.warnings
+          cls == o.cls &&
+          lcp == o.lcp &&
+          url == o.url
     end
 
     # @see the `==` method
@@ -262,7 +117,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [browser_errors, check_type, description, duration, error, playing_tab, screenshot_bucket_key, skipped, snapshot_bucket_key, step_id, sub_test_step_details, time_to_interactive, type, url, value, vitals_metrics, warnings].hash
+      [cls, lcp, url].hash
     end
 
     # Builds the object from hash
