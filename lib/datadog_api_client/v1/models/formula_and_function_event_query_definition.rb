@@ -125,6 +125,10 @@ module DatadogAPIClient::V1
         invalid_properties.push('invalid value for "data_source", data_source cannot be nil.')
       end
 
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -133,6 +137,7 @@ module DatadogAPIClient::V1
     def valid?
       return false if @compute.nil?
       return false if @data_source.nil?
+      return false if @name.nil?
       true
     end
 

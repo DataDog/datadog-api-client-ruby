@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **aggregator** | [**FormulaAndFunctionMetricAggregation**](FormulaAndFunctionMetricAggregation.md) |  | [optional] |
 | **data_source** | [**FormulaAndFunctionMetricDataSource**](FormulaAndFunctionMetricDataSource.md) |  |  |
-| **name** | **String** | Name of the query for use in formulas. | [optional] |
+| **name** | **String** | Name of the query for use in formulas. |  |
 | **query** | **String** | Metrics query definition. |  |
 
 ## Example
