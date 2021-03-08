@@ -165,13 +165,37 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@unit.nil? && @unit.length > 2
+        invalid_properties.push('invalid value for "unit", number of items must be less than or equal to 2.')
+      end
+
+      if !@unit.nil? && @unit.length < 2
+        invalid_properties.push('invalid value for "unit", number of items must be greater than or equal to 2.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@unit.nil? && @unit.length > 2
+      return false if !@unit.nil? && @unit.length < 2
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] unit Value to be assigned
+    def unit=(unit)
+      if !unit.nil? && unit.length > 2
+        fail ArgumentError, 'invalid value for "unit", number of items must be less than or equal to 2.'
+      end
+
+      if !unit.nil? && unit.length < 2
+        fail ArgumentError, 'invalid value for "unit", number of items must be greater than or equal to 2.'
+      end
+
+      @unit = unit
     end
 
     # Checks equality by comparing each attribute.

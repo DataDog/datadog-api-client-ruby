@@ -139,6 +139,14 @@ module DatadogAPIClient::V1
         invalid_properties.push('invalid value for "requests", requests cannot be nil.')
       end
 
+      if @requests.length > 1
+        invalid_properties.push('invalid value for "requests", number of items must be less than or equal to 1.')
+      end
+
+      if @requests.length < 1
+        invalid_properties.push('invalid value for "requests", number of items must be greater than or equal to 1.')
+      end
+
       if @type.nil?
         invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
@@ -150,8 +158,28 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     def valid?
       return false if @requests.nil?
+      return false if @requests.length > 1
+      return false if @requests.length < 1
       return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] requests Value to be assigned
+    def requests=(requests)
+      if requests.nil?
+        fail ArgumentError, 'requests cannot be nil'
+      end
+
+      if requests.length > 1
+        fail ArgumentError, 'invalid value for "requests", number of items must be less than or equal to 1.'
+      end
+
+      if requests.length < 1
+        fail ArgumentError, 'invalid value for "requests", number of items must be greater than or equal to 1.'
+      end
+
+      @requests = requests
     end
 
     # Checks equality by comparing each attribute.
