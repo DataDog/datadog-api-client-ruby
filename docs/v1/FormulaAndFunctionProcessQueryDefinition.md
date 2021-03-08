@@ -9,7 +9,7 @@
 | **is_normalized_cpu** | **Boolean** | Whether to normalize the CPU percentages. | [optional] |
 | **limit** | **Integer** | Number of hits to return. | [optional] |
 | **metric** | **String** | Process metric name. |  |
-| **name** | **String** | Name of query for use in formulas. | [optional] |
+| **name** | **String** | Name of query for use in formulas. |  |
 | **sort** | [**QuerySortOrder**](QuerySortOrder.md) |  | [optional][default to &#39;desc&#39;] |
 | **tag_filters** | **Array&lt;String&gt;** | An array of tags to filter by. | [optional] |
 | **text_filter** | **String** | Text to use as filter. | [optional] |
@@ -25,7 +25,7 @@ instance = DatadogAPIClient::V1::FormulaAndFunctionProcessQueryDefinition.new(
   is_normalized_cpu: null,
   limit: null,
   metric: avg:system.cpu.user{*},
-  name: null,
+  name: query_errors,
   sort: null,
   tag_filters: null,
   text_filter: null
