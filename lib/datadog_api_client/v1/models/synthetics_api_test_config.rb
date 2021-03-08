@@ -27,12 +27,16 @@ module DatadogAPIClient::V1
 
     attr_accessor :request
 
+    # When the test subtype is `multi`, the steps of the test.
+    attr_accessor :steps
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'assertions' => :'assertions',
         :'config_variables' => :'configVariables',
-        :'request' => :'request'
+        :'request' => :'request',
+        :'steps' => :'steps'
       }
     end
 
@@ -46,7 +50,8 @@ module DatadogAPIClient::V1
       {
         :'assertions' => :'Array<SyntheticsAssertion>',
         :'config_variables' => :'Array<SyntheticsConfigVariable>',
-        :'request' => :'SyntheticsTestRequest'
+        :'request' => :'SyntheticsTestRequest',
+        :'steps' => :'Array<SyntheticsAPIStep>'
       }
     end
 
@@ -86,6 +91,12 @@ module DatadogAPIClient::V1
       if attributes.key?(:'request')
         self.request = attributes[:'request']
       end
+
+      if attributes.key?(:'steps')
+        if (value = attributes[:'steps']).is_a?(Array)
+          self.steps = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -96,10 +107,6 @@ module DatadogAPIClient::V1
         invalid_properties.push('invalid value for "assertions", assertions cannot be nil.')
       end
 
-      if @request.nil?
-        invalid_properties.push('invalid value for "request", request cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -107,7 +114,6 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     def valid?
       return false if @assertions.nil?
-      return false if @request.nil?
       true
     end
 
@@ -118,7 +124,8 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           assertions == o.assertions &&
           config_variables == o.config_variables &&
-          request == o.request
+          request == o.request &&
+          steps == o.steps
     end
 
     # @see the `==` method
@@ -130,7 +137,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [assertions, config_variables, request].hash
+      [assertions, config_variables, request, steps].hash
     end
 
     # Builds the object from hash
