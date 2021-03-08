@@ -133,6 +133,10 @@ module DatadogAPIClient::V1
         invalid_properties.push('invalid value for "filters", filters cannot be nil.')
       end
 
+      if @filters.length < 1
+        invalid_properties.push('invalid value for "filters", number of items must be greater than or equal to 1.')
+      end
+
       if @service.nil?
         invalid_properties.push('invalid value for "service", service cannot be nil.')
       end
@@ -148,9 +152,24 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     def valid?
       return false if @filters.nil?
+      return false if @filters.length < 1
       return false if @service.nil?
       return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] filters Value to be assigned
+    def filters=(filters)
+      if filters.nil?
+        fail ArgumentError, 'filters cannot be nil'
+      end
+
+      if filters.length < 1
+        fail ArgumentError, 'invalid value for "filters", number of items must be greater than or equal to 1.'
+      end
+
+      @filters = filters
     end
 
     # Checks equality by comparing each attribute.
