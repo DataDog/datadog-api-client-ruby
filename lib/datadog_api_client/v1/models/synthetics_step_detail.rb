@@ -61,6 +61,9 @@ module DatadogAPIClient::V1
     # Value for the step.
     attr_accessor :value
 
+    # Array of Core Web Vitals metrics for the step.
+    attr_accessor :vitals_metrics
+
     # Warning collected that didn't failed the step.
     attr_accessor :warnings
 
@@ -82,6 +85,7 @@ module DatadogAPIClient::V1
         :'type' => :'type',
         :'url' => :'url',
         :'value' => :'value',
+        :'vitals_metrics' => :'vitalsMetrics',
         :'warnings' => :'warnings'
       }
     end
@@ -109,6 +113,7 @@ module DatadogAPIClient::V1
         :'type' => :'SyntheticsStepType',
         :'url' => :'String',
         :'value' => :'Object',
+        :'vitals_metrics' => :'Array<SyntheticsCoreWebVitals>',
         :'warnings' => :'Array<SyntheticsStepDetailWarning>'
       }
     end
@@ -198,6 +203,12 @@ module DatadogAPIClient::V1
         self.value = attributes[:'value']
       end
 
+      if attributes.key?(:'vitals_metrics')
+        if (value = attributes[:'vitals_metrics']).is_a?(Array)
+          self.vitals_metrics = value
+        end
+      end
+
       if attributes.key?(:'warnings')
         if (value = attributes[:'warnings']).is_a?(Array)
           self.warnings = value
@@ -238,6 +249,7 @@ module DatadogAPIClient::V1
           type == o.type &&
           url == o.url &&
           value == o.value &&
+          vitals_metrics == o.vitals_metrics &&
           warnings == o.warnings
     end
 
@@ -250,7 +262,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [browser_errors, check_type, description, duration, error, playing_tab, screenshot_bucket_key, skipped, snapshot_bucket_key, step_id, sub_test_step_details, time_to_interactive, type, url, value, warnings].hash
+      [browser_errors, check_type, description, duration, error, playing_tab, screenshot_bucket_key, skipped, snapshot_bucket_key, step_id, sub_test_step_details, time_to_interactive, type, url, value, vitals_metrics, warnings].hash
     end
 
     # Builds the object from hash

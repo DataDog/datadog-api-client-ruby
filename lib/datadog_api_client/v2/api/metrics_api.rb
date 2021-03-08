@@ -22,7 +22,7 @@ module DatadogAPIClient::V2
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Create a Tag Configuration
+    # Create a tag configuration
     # Create and define a list of queryable tag keys for a count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any distribution metric. Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
     # @param metric_name [String] The name of the metric.
     # @param body [MetricTagConfigurationCreateRequest] 
@@ -33,7 +33,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Create a Tag Configuration
+    # Create a tag configuration
     # Create and define a list of queryable tag keys for a count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any distribution metric. Can only be used with application keys of users with the &#x60;Manage Tags for Metrics&#x60; permission.
     # @param metric_name [String] The name of the metric.
     # @param body [MetricTagConfigurationCreateRequest] 
@@ -103,7 +103,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete a Tag Configuration
+    # Delete a tag configuration
     # Deletes a metric's tag configuration. Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
     # @param metric_name [String] The name of the metric.
     # @param [Hash] opts the optional parameters
@@ -113,7 +113,7 @@ module DatadogAPIClient::V2
       nil
     end
 
-    # Delete a Tag Configuration
+    # Delete a tag configuration
     # Deletes a metric&#39;s tag configuration. Can only be used with application keys from users with the &#x60;Manage Tags for Metrics&#x60; permission.
     # @param metric_name [String] The name of the metric.
     # @param [Hash] opts the optional parameters
@@ -176,7 +176,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List Tag Configuration by Name
+    # List tag configuration by name
     # Returns the tag configuration for the given metric name.
     # @param metric_name [String] The name of the metric.
     # @param [Hash] opts the optional parameters
@@ -186,7 +186,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # List Tag Configuration by Name
+    # List tag configuration by name
     # Returns the tag configuration for the given metric name.
     # @param metric_name [String] The name of the metric.
     # @param [Hash] opts the optional parameters
@@ -249,7 +249,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List Tag Configurations
+    # List tag configurations
     # Returns all configured count/gauge/rate/distribution metric names (with additional filters if specified).
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :filter_configured Filter metrics that have configured tags.
@@ -262,7 +262,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # List Tag Configurations
+    # List tag configurations
     # Returns all configured count/gauge/rate/distribution metric names (with additional filters if specified).
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :filter_configured Filter metrics that have configured tags.
@@ -328,7 +328,153 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Update a Tag Configuration
+    # List tags by metric name
+    # View indexed tag key-value pairs for a given metric name.
+    # @param metric_name [String] The name of the metric.
+    # @param [Hash] opts the optional parameters
+    # @return [MetricAllTagsResponse]
+    def list_tags_by_metric_name(metric_name, opts = {})
+      data, _status_code, _headers = list_tags_by_metric_name_with_http_info(metric_name, opts)
+      data
+    end
+
+    # List tags by metric name
+    # View indexed tag key-value pairs for a given metric name.
+    # @param metric_name [String] The name of the metric.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(MetricAllTagsResponse, Integer, Hash)>] MetricAllTagsResponse data, response status code and response headers
+    def list_tags_by_metric_name_with_http_info(metric_name, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_tags_by_metric_name)
+        unstable_enabled = @api_client.config.unstable_operations[:list_tags_by_metric_name]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_tags_by_metric_name")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "list_tags_by_metric_name"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MetricsApi.list_tags_by_metric_name ...'
+      end
+      # verify the required parameter 'metric_name' is set
+      if @api_client.config.client_side_validation && metric_name.nil?
+        fail ArgumentError, "Missing the required parameter 'metric_name' when calling MetricsApi.list_tags_by_metric_name"
+      end
+      # resource path
+      local_var_path = '/api/v2/metrics/{metric_name}/all-tags'.sub('{' + 'metric_name' + '}', CGI.escape(metric_name.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MetricAllTagsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"MetricsApi.list_tags_by_metric_name",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MetricsApi#list_tags_by_metric_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List distinct metric volumes by metric name
+    # View distinct metrics volumes for the given metric name.  Custom distribution metrics will return both ingested and indexed custom metric volumes. For Metrics without Limits beta customers, all metrics will return both ingested/indexed volumes. Custom metrics generated in-app from other products will return `null` for ingested volumes.
+    # @param metric_name [String] The name of the metric.
+    # @param [Hash] opts the optional parameters
+    # @return [MetricVolumesResponse]
+    def list_volumes_by_metric_name(metric_name, opts = {})
+      data, _status_code, _headers = list_volumes_by_metric_name_with_http_info(metric_name, opts)
+      data
+    end
+
+    # List distinct metric volumes by metric name
+    # View distinct metrics volumes for the given metric name.  Custom distribution metrics will return both ingested and indexed custom metric volumes. For Metrics without Limits beta customers, all metrics will return both ingested/indexed volumes. Custom metrics generated in-app from other products will return &#x60;null&#x60; for ingested volumes.
+    # @param metric_name [String] The name of the metric.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(MetricVolumesResponse, Integer, Hash)>] MetricVolumesResponse data, response status code and response headers
+    def list_volumes_by_metric_name_with_http_info(metric_name, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_volumes_by_metric_name)
+        unstable_enabled = @api_client.config.unstable_operations[:list_volumes_by_metric_name]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_volumes_by_metric_name")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "list_volumes_by_metric_name"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MetricsApi.list_volumes_by_metric_name ...'
+      end
+      # verify the required parameter 'metric_name' is set
+      if @api_client.config.client_side_validation && metric_name.nil?
+        fail ArgumentError, "Missing the required parameter 'metric_name' when calling MetricsApi.list_volumes_by_metric_name"
+      end
+      # resource path
+      local_var_path = '/api/v2/metrics/{metric_name}/volumes'.sub('{' + 'metric_name' + '}', CGI.escape(metric_name.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MetricVolumesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"MetricsApi.list_volumes_by_metric_name",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MetricsApi#list_volumes_by_metric_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a tag configuration
     # Update the tag configuration of a metric or percentile aggregations of a distribution metric. Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
     # @param metric_name [String] The name of the metric.
     # @param body [MetricTagConfigurationUpdateRequest] 
@@ -339,7 +485,7 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Update a Tag Configuration
+    # Update a tag configuration
     # Update the tag configuration of a metric or percentile aggregations of a distribution metric. Can only be used with application keys from users with the &#x60;Manage Tags for Metrics&#x60; permission.
     # @param metric_name [String] The name of the metric.
     # @param body [MetricTagConfigurationUpdateRequest] 

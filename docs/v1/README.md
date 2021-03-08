@@ -574,6 +574,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::SyntheticsCheckType](SyntheticsCheckType.md)
  - [DatadogAPIClient::V1::SyntheticsConfigVariable](SyntheticsConfigVariable.md)
  - [DatadogAPIClient::V1::SyntheticsConfigVariableType](SyntheticsConfigVariableType.md)
+ - [DatadogAPIClient::V1::SyntheticsCoreWebVitals](SyntheticsCoreWebVitals.md)
  - [DatadogAPIClient::V1::SyntheticsDeleteTestsPayload](SyntheticsDeleteTestsPayload.md)
  - [DatadogAPIClient::V1::SyntheticsDeleteTestsResponse](SyntheticsDeleteTestsResponse.md)
  - [DatadogAPIClient::V1::SyntheticsDeletedTest](SyntheticsDeletedTest.md)
