@@ -184,13 +184,28 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@conditional_formats.nil? && @conditional_formats.length < 1
+        invalid_properties.push('invalid value for "conditional_formats", number of items must be greater than or equal to 1.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@conditional_formats.nil? && @conditional_formats.length < 1
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] conditional_formats Value to be assigned
+    def conditional_formats=(conditional_formats)
+      if !conditional_formats.nil? && conditional_formats.length < 1
+        fail ArgumentError, 'invalid value for "conditional_formats", number of items must be greater than or equal to 1.'
+      end
+
+      @conditional_formats = conditional_formats
     end
 
     # Checks equality by comparing each attribute.
