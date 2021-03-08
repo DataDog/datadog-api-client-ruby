@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
       @api_client = api_client
     end
     # Check if SLOs can be safely deleted
-    # Check if a SLO can be safely deleted. For example, assure an SLO can be deleted without disrupting a dashboard.
+    # Check if an SLO can be safely deleted. For example, assure an SLO can be deleted without disrupting a dashboard.
     # @param ids [String] A comma separated list of the IDs of the service level objectives objects.
     # @param [Hash] opts the optional parameters
     # @return [CheckCanDeleteSLOResponse]
@@ -33,7 +33,7 @@ module DatadogAPIClient::V1
     end
 
     # Check if SLOs can be safely deleted
-    # Check if a SLO can be safely deleted. For example, assure an SLO can be deleted without disrupting a dashboard.
+    # Check if an SLO can be safely deleted. For example, assure an SLO can be deleted without disrupting a dashboard.
     # @param ids [String] A comma separated list of the IDs of the service level objectives objects.
     # @param [Hash] opts the optional parameters
     # @return [Array<(CheckCanDeleteSLOResponse, Integer, Hash)>] CheckCanDeleteSLOResponse data, response status code and response headers
@@ -96,7 +96,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Create a SLO object
+    # Create an SLO object
     # Create a service level objective object.
     # @param body [ServiceLevelObjectiveRequest] Service level objective request object.
     # @param [Hash] opts the optional parameters
@@ -106,7 +106,7 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Create a SLO object
+    # Create an SLO object
     # Create a service level objective object.
     # @param body [ServiceLevelObjectiveRequest] Service level objective request object.
     # @param [Hash] opts the optional parameters
@@ -171,7 +171,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Delete a SLO
+    # Delete an SLO
     # Permanently delete the specified service level objective object.  If an SLO is used in a dashboard, the `DELETE /v1/slo/` endpoint returns a 409 conflict error because the SLO is referenced in a dashboard.
     # @param slo_id [String] The ID of the service level objective.
     # @param [Hash] opts the optional parameters
@@ -182,7 +182,7 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Delete a SLO
+    # Delete an SLO
     # Permanently delete the specified service level objective object.  If an SLO is used in a dashboard, the &#x60;DELETE /v1/slo/&#x60; endpoint returns a 409 conflict error because the SLO is referenced in a dashboard.
     # @param slo_id [String] The ID of the service level objective.
     # @param [Hash] opts the optional parameters
@@ -322,7 +322,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get a SLO's details
+    # Get an SLO's details
     # Get a service level objective object.
     # @param slo_id [String] The ID of the service level objective object.
     # @param [Hash] opts the optional parameters
@@ -332,7 +332,7 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get a SLO&#39;s details
+    # Get an SLO&#39;s details
     # Get a service level objective object.
     # @param slo_id [String] The ID of the service level objective object.
     # @param [Hash] opts the optional parameters
@@ -561,7 +561,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Update a SLO
+    # Update an SLO
     # Update the specified service level objective object.
     # @param slo_id [String] The ID of the service level objective object.
     # @param body [ServiceLevelObjective] The edited service level objective request object.
@@ -572,7 +572,7 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Update a SLO
+    # Update an SLO
     # Update the specified service level objective object.
     # @param slo_id [String] The ID of the service level objective object.
     # @param body [ServiceLevelObjective] The edited service level objective request object.
