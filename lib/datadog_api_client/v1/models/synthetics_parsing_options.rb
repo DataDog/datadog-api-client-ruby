@@ -17,18 +17,25 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Details of the parser to use for the global variable.
-  class SyntheticsGlobalVariableParseTestOptionsParser
-    attr_accessor :type
+  # Parsing options for variables to extract.
+  class SyntheticsParsingOptions
+    # When type is `http_header`, name of the header to use to extract the value.
+    attr_accessor :field
 
-    # Regex or JSON path used for the parser. Not used with type `raw`.
-    attr_accessor :value
+    # Name of the variable to extract.
+    attr_accessor :name
+
+    attr_accessor :parser
+
+    attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'type' => :'type',
-        :'value' => :'value'
+        :'field' => :'field',
+        :'name' => :'name',
+        :'parser' => :'parser',
+        :'type' => :'type'
       }
     end
 
@@ -40,8 +47,10 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'type' => :'SyntheticsGlobalVariableParserType',
-        :'value' => :'String'
+        :'field' => :'String',
+        :'name' => :'String',
+        :'parser' => :'SyntheticsVariableParser',
+        :'type' => :'SyntheticsGlobalVariableParseTestOptionsType'
       }
     end
 
@@ -55,23 +64,31 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsGlobalVariableParseTestOptionsParser` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsParsingOptions` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SyntheticsGlobalVariableParseTestOptionsParser`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SyntheticsParsingOptions`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'field')
+        self.field = attributes[:'field']
       end
 
-      if attributes.key?(:'value')
-        self.value = attributes[:'value']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'parser')
+        self.parser = attributes[:'parser']
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -79,17 +96,12 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @type.nil?
-        invalid_properties.push('invalid value for "type", type cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @type.nil?
       true
     end
 
@@ -98,8 +110,10 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          type == o.type &&
-          value == o.value
+          field == o.field &&
+          name == o.name &&
+          parser == o.parser &&
+          type == o.type
     end
 
     # @see the `==` method
@@ -111,7 +125,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, value].hash
+      [field, name, parser, type].hash
     end
 
     # Builds the object from hash

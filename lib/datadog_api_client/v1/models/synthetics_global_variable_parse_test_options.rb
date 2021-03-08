@@ -44,7 +44,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'field' => :'String',
-        :'parser' => :'SyntheticsGlobalVariableParseTestOptionsParser',
+        :'parser' => :'SyntheticsVariableParser',
         :'type' => :'SyntheticsGlobalVariableParseTestOptionsType'
       }
     end

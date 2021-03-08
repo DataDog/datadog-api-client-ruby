@@ -17,44 +17,29 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Process query using formulas and functions.
-  class FormulaAndFunctionProcessQueryDefinition
-    attr_accessor :aggregator
+  # The steps used in a Synthetics multistep API test.
+  class SyntheticsAPIStep
+    # Array of assertions used for the test.
+    attr_accessor :assertions
 
-    attr_accessor :data_source
+    # Array of values to parse and save as variables from the response.
+    attr_accessor :extracted_values
 
-    # Whether to normalize the CPU percentages.
-    attr_accessor :is_normalized_cpu
-
-    # Number of hits to return.
-    attr_accessor :limit
-
-    # Process metric name.
-    attr_accessor :metric
-
-    # Name of query for use in formulas.
+    # The name of the step.
     attr_accessor :name
 
-    attr_accessor :sort
+    attr_accessor :request
 
-    # An array of tags to filter by.
-    attr_accessor :tag_filters
-
-    # Text to use as filter.
-    attr_accessor :text_filter
+    attr_accessor :subtype
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'aggregator' => :'aggregator',
-        :'data_source' => :'data_source',
-        :'is_normalized_cpu' => :'is_normalized_cpu',
-        :'limit' => :'limit',
-        :'metric' => :'metric',
+        :'assertions' => :'assertions',
+        :'extracted_values' => :'extractedValues',
         :'name' => :'name',
-        :'sort' => :'sort',
-        :'tag_filters' => :'tag_filters',
-        :'text_filter' => :'text_filter'
+        :'request' => :'request',
+        :'subtype' => :'subtype'
       }
     end
 
@@ -66,15 +51,11 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'aggregator' => :'FormulaAndFunctionMetricAggregation',
-        :'data_source' => :'FormulaAndFunctionProcessQueryDataSource',
-        :'is_normalized_cpu' => :'Boolean',
-        :'limit' => :'Integer',
-        :'metric' => :'String',
+        :'assertions' => :'Array<SyntheticsAssertion>',
+        :'extracted_values' => :'Array<SyntheticsParsingOptions>',
         :'name' => :'String',
-        :'sort' => :'QuerySortOrder',
-        :'tag_filters' => :'Array<String>',
-        :'text_filter' => :'String'
+        :'request' => :'SyntheticsTestRequest',
+        :'subtype' => :'SyntheticsAPIStepSubtype'
       }
     end
 
@@ -88,55 +69,39 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::FormulaAndFunctionProcessQueryDefinition` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsAPIStep` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::FormulaAndFunctionProcessQueryDefinition`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SyntheticsAPIStep`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'aggregator')
-        self.aggregator = attributes[:'aggregator']
+      if attributes.key?(:'assertions')
+        if (value = attributes[:'assertions']).is_a?(Array)
+          self.assertions = value
+        end
       end
 
-      if attributes.key?(:'data_source')
-        self.data_source = attributes[:'data_source']
-      end
-
-      if attributes.key?(:'is_normalized_cpu')
-        self.is_normalized_cpu = attributes[:'is_normalized_cpu']
-      end
-
-      if attributes.key?(:'limit')
-        self.limit = attributes[:'limit']
-      end
-
-      if attributes.key?(:'metric')
-        self.metric = attributes[:'metric']
+      if attributes.key?(:'extracted_values')
+        if (value = attributes[:'extracted_values']).is_a?(Array)
+          self.extracted_values = value
+        end
       end
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'sort')
-        self.sort = attributes[:'sort']
-      else
-        self.sort = 'desc'
+      if attributes.key?(:'request')
+        self.request = attributes[:'request']
       end
 
-      if attributes.key?(:'tag_filters')
-        if (value = attributes[:'tag_filters']).is_a?(Array)
-          self.tag_filters = value
-        end
-      end
-
-      if attributes.key?(:'text_filter')
-        self.text_filter = attributes[:'text_filter']
+      if attributes.key?(:'subtype')
+        self.subtype = attributes[:'subtype']
       end
     end
 
@@ -144,27 +109,12 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @data_source.nil?
-        invalid_properties.push('invalid value for "data_source", data_source cannot be nil.')
-      end
-
-      if @metric.nil?
-        invalid_properties.push('invalid value for "metric", metric cannot be nil.')
-      end
-
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @data_source.nil?
-      return false if @metric.nil?
-      return false if @name.nil?
       true
     end
 
@@ -173,15 +123,11 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          aggregator == o.aggregator &&
-          data_source == o.data_source &&
-          is_normalized_cpu == o.is_normalized_cpu &&
-          limit == o.limit &&
-          metric == o.metric &&
+          assertions == o.assertions &&
+          extracted_values == o.extracted_values &&
           name == o.name &&
-          sort == o.sort &&
-          tag_filters == o.tag_filters &&
-          text_filter == o.text_filter
+          request == o.request &&
+          subtype == o.subtype
     end
 
     # @see the `==` method
@@ -193,7 +139,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aggregator, data_source, is_normalized_cpu, limit, metric, name, sort, tag_filters, text_filter].hash
+      [assertions, extracted_values, name, request, subtype].hash
     end
 
     # Builds the object from hash

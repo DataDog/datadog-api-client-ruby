@@ -1,4 +1,4 @@
-# DatadogAPIClient::V1::SyntheticsGlobalVariableParseTestOptionsParser
+# DatadogAPIClient::V1::SyntheticsVariableParser
 
 ## Properties
 
@@ -12,7 +12,7 @@
 ```ruby
 require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::SyntheticsGlobalVariableParseTestOptionsParser.new(
+instance = DatadogAPIClient::V1::SyntheticsVariableParser.new(
   type: null,
   value: null
 )
