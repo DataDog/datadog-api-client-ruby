@@ -17,12 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  class SyntheticsTestDetailsSubType
+  class SyntheticsAPIStepSubtype
     HTTP = "http".freeze
-    SSL = "ssl".freeze
-    TCP = "tcp".freeze
-    DNS = "dns".freeze
-    MULTI = "multi".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
@@ -35,8 +31,8 @@ module DatadogAPIClient::V1
     # @param [String] The enum value in the form of the string
     # @return [String] The enum value
     def build_from_hash(value)
-      constantValues = SyntheticsTestDetailsSubType.constants.select { |c| SyntheticsTestDetailsSubType::const_get(c) == value }
-      raise "Invalid ENUM value #{value} for class #SyntheticsTestDetailsSubType" if constantValues.empty?
+      constantValues = SyntheticsAPIStepSubtype.constants.select { |c| SyntheticsAPIStepSubtype::const_get(c) == value }
+      raise "Invalid ENUM value #{value} for class #SyntheticsAPIStepSubtype" if constantValues.empty?
       value
     end
   end
