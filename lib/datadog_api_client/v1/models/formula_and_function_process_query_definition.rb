@@ -152,6 +152,10 @@ module DatadogAPIClient::V1
         invalid_properties.push('invalid value for "metric", metric cannot be nil.')
       end
 
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -160,6 +164,7 @@ module DatadogAPIClient::V1
     def valid?
       return false if @data_source.nil?
       return false if @metric.nil?
+      return false if @name.nil?
       true
     end
 

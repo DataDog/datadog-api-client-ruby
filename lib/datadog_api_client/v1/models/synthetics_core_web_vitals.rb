@@ -17,36 +17,23 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Create, edit, and manage organizations.
-  class Organization
-    attr_accessor :billing
+  # Core Web Vitals attached to a browser test step.
+  class SyntheticsCoreWebVitals
+    # Cumulative Layout Shift.
+    attr_accessor :cls
 
-    # Date of the organization creation.
-    attr_accessor :created
+    # Largest Contentful Paint in milliseconds.
+    attr_accessor :lcp
 
-    # Description of the organization.
-    attr_accessor :description
-
-    # The name of the new child-organization, limited to 32 characters.
-    attr_accessor :name
-
-    # The `public_id` of the organization you are operating within.
-    attr_accessor :public_id
-
-    attr_accessor :settings
-
-    attr_accessor :subscription
+    # URL attached to the metrics.
+    attr_accessor :url
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'billing' => :'billing',
-        :'created' => :'created',
-        :'description' => :'description',
-        :'name' => :'name',
-        :'public_id' => :'public_id',
-        :'settings' => :'settings',
-        :'subscription' => :'subscription'
+        :'cls' => :'cls',
+        :'lcp' => :'lcp',
+        :'url' => :'url'
       }
     end
 
@@ -58,13 +45,9 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'billing' => :'OrganizationBilling',
-        :'created' => :'String',
-        :'description' => :'String',
-        :'name' => :'String',
-        :'public_id' => :'String',
-        :'settings' => :'OrganizationSettings',
-        :'subscription' => :'OrganizationSubscription'
+        :'cls' => :'Integer',
+        :'lcp' => :'Integer',
+        :'url' => :'String'
       }
     end
 
@@ -78,43 +61,27 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::Organization` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsCoreWebVitals` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::Organization`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SyntheticsCoreWebVitals`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'billing')
-        self.billing = attributes[:'billing']
+      if attributes.key?(:'cls')
+        self.cls = attributes[:'cls']
       end
 
-      if attributes.key?(:'created')
-        self.created = attributes[:'created']
+      if attributes.key?(:'lcp')
+        self.lcp = attributes[:'lcp']
       end
 
-      if attributes.key?(:'description')
-        self.description = attributes[:'description']
-      end
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'public_id')
-        self.public_id = attributes[:'public_id']
-      end
-
-      if attributes.key?(:'settings')
-        self.settings = attributes[:'settings']
-      end
-
-      if attributes.key?(:'subscription')
-        self.subscription = attributes[:'subscription']
+      if attributes.key?(:'url')
+        self.url = attributes[:'url']
       end
     end
 
@@ -131,24 +98,14 @@ module DatadogAPIClient::V1
       true
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      @name = name
-    end
-
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          billing == o.billing &&
-          created == o.created &&
-          description == o.description &&
-          name == o.name &&
-          public_id == o.public_id &&
-          settings == o.settings &&
-          subscription == o.subscription
+          cls == o.cls &&
+          lcp == o.lcp &&
+          url == o.url
     end
 
     # @see the `==` method
@@ -160,7 +117,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [billing, created, description, name, public_id, settings, subscription].hash
+      [cls, lcp, url].hash
     end
 
     # Builds the object from hash
