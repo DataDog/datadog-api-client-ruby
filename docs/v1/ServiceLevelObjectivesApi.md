@@ -5,13 +5,13 @@ All URIs are relative to *https://api.datadoghq.com*
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**check_can_delete_slo**](ServiceLevelObjectivesApi.md#check_can_delete_slo) | **GET** /api/v1/slo/can_delete | Check if SLOs can be safely deleted |
-| [**create_slo**](ServiceLevelObjectivesApi.md#create_slo) | **POST** /api/v1/slo | Create a SLO object |
-| [**delete_slo**](ServiceLevelObjectivesApi.md#delete_slo) | **DELETE** /api/v1/slo/{slo_id} | Delete a SLO |
+| [**create_slo**](ServiceLevelObjectivesApi.md#create_slo) | **POST** /api/v1/slo | Create an SLO object |
+| [**delete_slo**](ServiceLevelObjectivesApi.md#delete_slo) | **DELETE** /api/v1/slo/{slo_id} | Delete an SLO |
 | [**delete_slo_timeframe_in_bulk**](ServiceLevelObjectivesApi.md#delete_slo_timeframe_in_bulk) | **POST** /api/v1/slo/bulk_delete | Bulk Delete SLO Timeframes |
-| [**get_slo**](ServiceLevelObjectivesApi.md#get_slo) | **GET** /api/v1/slo/{slo_id} | Get a SLO&#39;s details |
+| [**get_slo**](ServiceLevelObjectivesApi.md#get_slo) | **GET** /api/v1/slo/{slo_id} | Get an SLO&#39;s details |
 | [**get_slo_history**](ServiceLevelObjectivesApi.md#get_slo_history) | **GET** /api/v1/slo/{slo_id}/history | Get an SLO&#39;s history |
 | [**list_slos**](ServiceLevelObjectivesApi.md#list_slos) | **GET** /api/v1/slo | Get all SLOs |
-| [**update_slo**](ServiceLevelObjectivesApi.md#update_slo) | **PUT** /api/v1/slo/{slo_id} | Update a SLO |
+| [**update_slo**](ServiceLevelObjectivesApi.md#update_slo) | **PUT** /api/v1/slo/{slo_id} | Update an SLO |
 
 
 ## check_can_delete_slo
@@ -20,7 +20,7 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Check if SLOs can be safely deleted
 
-Check if a SLO can be safely deleted. For example, assure an SLO can be deleted without disrupting a dashboard.
+Check if an SLO can be safely deleted. For example, assure an SLO can be deleted without disrupting a dashboard.
 
 ### Examples
 
@@ -94,7 +94,7 @@ end
 
 > <SLOListResponse> create_slo(body)
 
-Create a SLO object
+Create an SLO object
 
 Create a service level objective object.
 
@@ -120,7 +120,7 @@ api_instance = DatadogAPIClient::V1::ServiceLevelObjectivesApi.new
 body = DatadogAPIClient::V1::ServiceLevelObjectiveRequest.new({name: 'name_example', thresholds: [DatadogAPIClient::V1::SLOThreshold.new({target: 0.0, timeframe: DatadogAPIClient::V1::SLOTimeframe::SEVEN_DAYS})], type: DatadogAPIClient::V1::SLOType::METRIC}) # ServiceLevelObjectiveRequest | Service level objective request object.
 
 begin
-  # Create a SLO object
+  # Create an SLO object
   result = api_instance.create_slo(body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
@@ -136,7 +136,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Create a SLO object
+  # Create an SLO object
   data, status_code, headers = api_instance.create_slo_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
@@ -170,7 +170,7 @@ end
 
 > <SLODeleteResponse> delete_slo(slo_id, opts)
 
-Delete a SLO
+Delete an SLO
 
 Permanently delete the specified service level objective object.  If an SLO is used in a dashboard, the `DELETE /v1/slo/` endpoint returns a 409 conflict error because the SLO is referenced in a dashboard.
 
@@ -199,7 +199,7 @@ opts = {
 }
 
 begin
-  # Delete a SLO
+  # Delete an SLO
   result = api_instance.delete_slo(slo_id, opts)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
@@ -215,7 +215,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Delete a SLO
+  # Delete an SLO
   data, status_code, headers = api_instance.delete_slo_with_http_info(slo_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -326,7 +326,7 @@ end
 
 > <SLOResponse> get_slo(slo_id)
 
-Get a SLO's details
+Get an SLO's details
 
 Get a service level objective object.
 
@@ -352,7 +352,7 @@ api_instance = DatadogAPIClient::V1::ServiceLevelObjectivesApi.new
 slo_id = 'slo_id_example' # String | The ID of the service level objective object.
 
 begin
-  # Get a SLO's details
+  # Get an SLO's details
   result = api_instance.get_slo(slo_id)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
@@ -368,7 +368,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get a SLO's details
+  # Get an SLO's details
   data, status_code, headers = api_instance.get_slo_with_http_info(slo_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -568,7 +568,7 @@ end
 
 > <SLOListResponse> update_slo(slo_id, body)
 
-Update a SLO
+Update an SLO
 
 Update the specified service level objective object.
 
@@ -595,7 +595,7 @@ slo_id = 'slo_id_example' # String | The ID of the service level objective objec
 body = DatadogAPIClient::V1::ServiceLevelObjective.new({name: 'name_example', thresholds: [DatadogAPIClient::V1::SLOThreshold.new({target: 0.0, timeframe: DatadogAPIClient::V1::SLOTimeframe::SEVEN_DAYS})], type: DatadogAPIClient::V1::SLOType::METRIC}) # ServiceLevelObjective | The edited service level objective request object.
 
 begin
-  # Update a SLO
+  # Update an SLO
   result = api_instance.update_slo(slo_id, body)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
@@ -611,7 +611,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Update a SLO
+  # Update an SLO
   data, status_code, headers = api_instance.update_slo_with_http_info(slo_id, body)
   p status_code # => 2xx
   p headers # => { ... }
