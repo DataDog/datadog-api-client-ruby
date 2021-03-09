@@ -13,3 +13,13 @@ repos:
     entry: Unstage generated files with 'git reset --' command
     files: '^features/v[1-9][0-9]*/.*.feature$'
     verbose: true
+  - id: licensed
+    name: Licensed
+    language: ruby
+    language_version: system
+    additional_dependencies:
+      - licensed
+    entry: .licenses/check.sh
+    pass_filenames: false
+    files: "^(.*.gemspec|Gemfile|.licensed.yml)$"
+    verbose: true
