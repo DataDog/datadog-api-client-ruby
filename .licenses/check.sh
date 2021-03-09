@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 bundle install
-bundle exec licensed cache
-bundle exec licensed list
-bundle exec licensed status
-bundle exec licensed notice
+licensed cache
+licensed list
+licensed status
+licensed notice
 mv .licenses/NOTICE ./
