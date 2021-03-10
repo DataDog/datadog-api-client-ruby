@@ -23,3 +23,13 @@ repos:
     pass_filenames: false
     files: "^(.*.gemspec|Gemfile|.licensed.yml)$"
     verbose: true
+  - id: license-3rdparty
+    name: LICENSE-3rdparty
+    language: python
+    language_version: '3'
+    additional_dependencies:
+      - pyyaml
+    entry: .licenses/licenses.py
+    pass_filenames: false
+    files: "^(.*.gemspec|Gemfile|.licensed.yml|.licenses/.*.dep.yml)$"
+    verbose: true
