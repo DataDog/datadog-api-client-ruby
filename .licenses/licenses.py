@@ -23,7 +23,7 @@ with (pathlib.Path(__file__).parent.parent / "LICENSE-3rdparty.csv").open(
     writer = csv.DictWriter(output, fieldnames=fieldnames)
     writer.writeheader()
 
-    for dep in pathlib.Path(__file__).parent.rglob("*.dep.yml"):
+    for dep in sorted(pathlib.Path(__file__).parent.rglob("*.dep.yml")):
         with dep.open() as fp:
             info = yaml.safe_load(fp)
             writer.writerow(
