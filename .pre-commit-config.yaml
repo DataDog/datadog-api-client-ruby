@@ -21,7 +21,7 @@ repos:
       - licensed
     entry: .licenses/check.sh
     pass_filenames: false
-    files: "^(.*.gemspec|Gemfile|.licensed.yml)$"
+    files: "^(.*.gemspec|Gemfile|.licensed.yml|.licenses/.*)$"
     verbose: true
   - id: license-3rdparty
     name: LICENSE-3rdparty
