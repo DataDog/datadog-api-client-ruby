@@ -1,0 +1,13 @@
+allowed:
+  - mit
+  - apache-2.0
+
+sources:
+  bundler:
+    without:
+      - development
+      - test
+
+reviewed:
+  bundler:
+    - ffi
