@@ -22,7 +22,14 @@ module DatadogAPIClient::V1
     # The `from` timestamp in epoch seconds.
     attr_accessor :from_ts
 
+    # For `metric` based SLOs where the query includes a group-by clause, this represents the list of grouping parameters.  This is not included in responses for `monitor` based SLOs.
+    attr_accessor :group_by
+
+    # For grouped SLOs, this represents SLI data for specific groups.  This is not included in the responses for `metric` based SLOs.
     attr_accessor :groups
+
+    # For multi-monitor SLOs, this represents SLI data for specific monitors.  This is not included in the responses for `metric` based SLOs.
+    attr_accessor :monitors
 
     attr_accessor :overall
 
@@ -42,7 +49,9 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'from_ts' => :'from_ts',
+        :'group_by' => :'group_by',
         :'groups' => :'groups',
+        :'monitors' => :'monitors',
         :'overall' => :'overall',
         :'series' => :'series',
         :'thresholds' => :'thresholds',
@@ -61,7 +70,9 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'from_ts' => :'Integer',
-        :'groups' => :'SLOHistorySLIData',
+        :'group_by' => :'Array<String>',
+        :'groups' => :'Array<SLOHistorySLIData>',
+        :'monitors' => :'Array<SLOHistorySLIData>',
         :'overall' => :'SLOHistorySLIData',
         :'series' => :'SLOHistoryMetrics',
         :'thresholds' => :'Hash<String, SLOThreshold>',
@@ -96,8 +107,22 @@ module DatadogAPIClient::V1
         self.from_ts = attributes[:'from_ts']
       end
 
+      if attributes.key?(:'group_by')
+        if (value = attributes[:'group_by']).is_a?(Array)
+          self.group_by = value
+        end
+      end
+
       if attributes.key?(:'groups')
-        self.groups = attributes[:'groups']
+        if (value = attributes[:'groups']).is_a?(Array)
+          self.groups = value
+        end
+      end
+
+      if attributes.key?(:'monitors')
+        if (value = attributes[:'monitors']).is_a?(Array)
+          self.monitors = value
+        end
       end
 
       if attributes.key?(:'overall')
@@ -146,7 +171,9 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           from_ts == o.from_ts &&
+          group_by == o.group_by &&
           groups == o.groups &&
+          monitors == o.monitors &&
           overall == o.overall &&
           series == o.series &&
           thresholds == o.thresholds &&
@@ -164,7 +191,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [from_ts, groups, overall, series, thresholds, to_ts, type, type_id].hash
+      [from_ts, group_by, groups, monitors, overall, series, thresholds, to_ts, type, type_id].hash
     end
 
     # Builds the object from hash
