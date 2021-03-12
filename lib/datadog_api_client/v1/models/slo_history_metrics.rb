@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # A `metric` based SLO history response.
+  # A `metric` based SLO history response.  This is not included in responses for `monitor` based SLOs.
   class SLOHistoryMetrics
     attr_accessor :denominator
 
