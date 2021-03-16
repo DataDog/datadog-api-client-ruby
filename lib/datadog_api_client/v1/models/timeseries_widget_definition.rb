@@ -25,6 +25,11 @@ module DatadogAPIClient::V1
     # List of widget events.
     attr_accessor :events
 
+    # Columns displayed in the legend.
+    attr_accessor :legend_columns
+
+    attr_accessor :legend_layout
+
     # Available legend sizes for a widget. Should be one of \"0\", \"2\", \"4\", \"8\", \"16\", or \"auto\".
     attr_accessor :legend_size
 
@@ -53,11 +58,35 @@ module DatadogAPIClient::V1
 
     attr_accessor :yaxis
 
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'custom_links' => :'custom_links',
         :'events' => :'events',
+        :'legend_columns' => :'legend_columns',
+        :'legend_layout' => :'legend_layout',
         :'legend_size' => :'legend_size',
         :'markers' => :'markers',
         :'requests' => :'requests',
@@ -82,6 +111,8 @@ module DatadogAPIClient::V1
       {
         :'custom_links' => :'Array<WidgetCustomLink>',
         :'events' => :'Array<WidgetEvent>',
+        :'legend_columns' => :'Array<String>',
+        :'legend_layout' => :'TimeseriesWidgetLegendLayout',
         :'legend_size' => :'String',
         :'markers' => :'Array<WidgetMarker>',
         :'requests' => :'Array<TimeseriesWidgetRequest>',
@@ -127,6 +158,16 @@ module DatadogAPIClient::V1
         if (value = attributes[:'events']).is_a?(Array)
           self.events = value
         end
+      end
+
+      if attributes.key?(:'legend_columns')
+        if (value = attributes[:'legend_columns']).is_a?(Array)
+          self.legend_columns = value
+        end
+      end
+
+      if attributes.key?(:'legend_layout')
+        self.legend_layout = attributes[:'legend_layout']
       end
 
       if attributes.key?(:'legend_size')
@@ -229,6 +270,8 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           custom_links == o.custom_links &&
           events == o.events &&
+          legend_columns == o.legend_columns &&
+          legend_layout == o.legend_layout &&
           legend_size == o.legend_size &&
           markers == o.markers &&
           requests == o.requests &&
@@ -251,7 +294,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [custom_links, events, legend_size, markers, requests, right_yaxis, show_legend, time, title, title_align, title_size, type, yaxis].hash
+      [custom_links, events, legend_columns, legend_layout, legend_size, markers, requests, right_yaxis, show_legend, time, title, title_align, title_size, type, yaxis].hash
     end
 
     # Builds the object from hash
