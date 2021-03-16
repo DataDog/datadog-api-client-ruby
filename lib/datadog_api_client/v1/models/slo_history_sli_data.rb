@@ -17,18 +17,33 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # An object that holds an SLI value and its associated data. It can represent an SLO's overall SLI value or the SLI value for a specific monitor (in multi-monitor SLOs) or group (in grouped SLOs). The uptime history is included for monitor SLOs.
+  # An object that holds an SLI value and its associated data. It can represent an SLO's overall SLI value. This can also represent the SLI value for a specific monitor in multi-monitor SLOs, or a group in grouped SLOs.
   class SLOHistorySLIData
+    # A mapping of threshold `timeframe` to the remaining error budget.
+    attr_accessor :error_budget_remaining
+
+    # A list of errors while querying the history data for the service level objective.
+    attr_accessor :errors
+
+    # For groups in a grouped SLO, this is the group name.
+    attr_accessor :group
+
     # For `monitor` based SLOs, this includes the aggregated history uptime time series.
     attr_accessor :history
 
-    # For groups in a grouped SLO this is the group name. For monitors in a multi-monitor SLO this is the monitor name.
+    # For `monitor` based SLOs, this is the last modified timestamp in epoch seconds of the monitor.
+    attr_accessor :monitor_modified
+
+    # For `monitor` based SLOs, this describes the type of monitor.
+    attr_accessor :monitor_type
+
+    # For groups in a grouped SLO, this is the group name. For monitors in a multi-monitor SLO, this is the monitor name.
     attr_accessor :name
 
     # A mapping of threshold `timeframe` to number of accurate decimals, regardless of the from && to timestamp.
     attr_accessor :precision
 
-    # For `monitor` based SLOs when `true` this indicates that a replay is in progress to give an accurate uptime calculation.
+    # For `monitor` based SLOs, when `true` this indicates that a replay is in progress to give an accurate uptime calculation.
     attr_accessor :preview
 
     # The current SLI value of the SLO over the history window.
@@ -37,13 +52,18 @@ module DatadogAPIClient::V1
     # The amount of decimal places the SLI value is accurate to for the given from `&&` to timestamp.
     attr_accessor :span_precision
 
-    # Deprecated. Use `sli_value` instead.
+    # Use `sli_value` instead.
     attr_accessor :uptime
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'error_budget_remaining' => :'error_budget_remaining',
+        :'errors' => :'errors',
+        :'group' => :'group',
         :'history' => :'history',
+        :'monitor_modified' => :'monitor_modified',
+        :'monitor_type' => :'monitor_type',
         :'name' => :'name',
         :'precision' => :'precision',
         :'preview' => :'preview',
@@ -61,7 +81,12 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'error_budget_remaining' => :'Hash<String, Float>',
+        :'errors' => :'Array<SLOHistoryResponseError>',
+        :'group' => :'String',
         :'history' => :'Array<Array<Float>>',
+        :'monitor_modified' => :'Integer',
+        :'monitor_type' => :'String',
         :'name' => :'String',
         :'precision' => :'Hash<String, Float>',
         :'preview' => :'Boolean',
@@ -92,10 +117,34 @@ module DatadogAPIClient::V1
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'error_budget_remaining')
+        if (value = attributes[:'error_budget_remaining']).is_a?(Hash)
+          self.error_budget_remaining = value
+        end
+      end
+
+      if attributes.key?(:'errors')
+        if (value = attributes[:'errors']).is_a?(Array)
+          self.errors = value
+        end
+      end
+
+      if attributes.key?(:'group')
+        self.group = attributes[:'group']
+      end
+
       if attributes.key?(:'history')
         if (value = attributes[:'history']).is_a?(Array)
           self.history = value
         end
+      end
+
+      if attributes.key?(:'monitor_modified')
+        self.monitor_modified = attributes[:'monitor_modified']
+      end
+
+      if attributes.key?(:'monitor_type')
+        self.monitor_type = attributes[:'monitor_type']
       end
 
       if attributes.key?(:'name')
@@ -143,7 +192,12 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          error_budget_remaining == o.error_budget_remaining &&
+          errors == o.errors &&
+          group == o.group &&
           history == o.history &&
+          monitor_modified == o.monitor_modified &&
+          monitor_type == o.monitor_type &&
           name == o.name &&
           precision == o.precision &&
           preview == o.preview &&
@@ -161,7 +215,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [history, name, precision, preview, sli_value, span_precision, uptime].hash
+      [error_budget_remaining, errors, group, history, monitor_modified, monitor_type, name, precision, preview, sli_value, span_precision, uptime].hash
     end
 
     # Builds the object from hash
