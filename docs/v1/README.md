@@ -639,6 +639,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::TimeseriesWidgetDefinition](TimeseriesWidgetDefinition.md)
  - [DatadogAPIClient::V1::TimeseriesWidgetDefinitionType](TimeseriesWidgetDefinitionType.md)
  - [DatadogAPIClient::V1::TimeseriesWidgetExpressionAlias](TimeseriesWidgetExpressionAlias.md)
+ - [DatadogAPIClient::V1::TimeseriesWidgetLegendLayout](TimeseriesWidgetLegendLayout.md)
  - [DatadogAPIClient::V1::TimeseriesWidgetRequest](TimeseriesWidgetRequest.md)
  - [DatadogAPIClient::V1::ToplistWidgetDefinition](ToplistWidgetDefinition.md)
  - [DatadogAPIClient::V1::ToplistWidgetDefinitionType](ToplistWidgetDefinitionType.md)
