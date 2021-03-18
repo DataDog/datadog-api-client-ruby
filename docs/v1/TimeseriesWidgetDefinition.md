@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **custom_links** | [**Array&lt;WidgetCustomLink&gt;**](WidgetCustomLink.md) | List of custom links. | [optional] |
 | **events** | [**Array&lt;WidgetEvent&gt;**](WidgetEvent.md) | List of widget events. | [optional] |
-| **legend_columns** | **Array&lt;String&gt;** | Columns displayed in the legend. | [optional] |
+| **legend_columns** | [**Array&lt;TimeseriesWidgetLegendColumn&gt;**](TimeseriesWidgetLegendColumn.md) | Columns displayed in the legend. | [optional] |
 | **legend_layout** | [**TimeseriesWidgetLegendLayout**](TimeseriesWidgetLegendLayout.md) |  | [optional] |
 | **legend_size** | **String** | Available legend sizes for a widget. Should be one of \&quot;0\&quot;, \&quot;2\&quot;, \&quot;4\&quot;, \&quot;8\&quot;, \&quot;16\&quot;, or \&quot;auto\&quot;. | [optional] |
 | **markers** | [**Array&lt;WidgetMarker&gt;**](WidgetMarker.md) | List of markers. | [optional] |
