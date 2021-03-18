@@ -58,28 +58,6 @@ module DatadogAPIClient::V1
 
     attr_accessor :yaxis
 
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -111,7 +89,7 @@ module DatadogAPIClient::V1
       {
         :'custom_links' => :'Array<WidgetCustomLink>',
         :'events' => :'Array<WidgetEvent>',
-        :'legend_columns' => :'Array<String>',
+        :'legend_columns' => :'Array<TimeseriesWidgetLegendColumn>',
         :'legend_layout' => :'TimeseriesWidgetLegendLayout',
         :'legend_size' => :'String',
         :'markers' => :'Array<WidgetMarker>',
