@@ -16,11 +16,11 @@
 require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::SLOThreshold.new(
-  target: 0.0,
+  target: 99.9,
   target_display: 99.9,
   timeframe: null,
-  warning: null,
-  warning_display: null
+  warning: 90.0,
+  warning_display: 90.0
 )
 ```
 

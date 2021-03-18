@@ -21,7 +21,7 @@ require 'datadog_api_client/v1'
 instance = DatadogAPIClient::V1::SLOHistoryMetrics.new(
   denominator: null,
   interval: 0,
-  message: null,
+  message: ,
   numerator: null,
   query: ,
   res_type: ,
