@@ -117,7 +117,7 @@ DatadogAPIClient::V1.configure do |config|
 end
 
 api_instance = DatadogAPIClient::V1::ServiceLevelObjectivesApi.new
-body = DatadogAPIClient::V1::ServiceLevelObjectiveRequest.new({name: 'name_example', thresholds: [DatadogAPIClient::V1::SLOThreshold.new({target: 0.0, timeframe: DatadogAPIClient::V1::SLOTimeframe::SEVEN_DAYS})], type: DatadogAPIClient::V1::SLOType::METRIC}) # ServiceLevelObjectiveRequest | Service level objective request object.
+body = DatadogAPIClient::V1::ServiceLevelObjectiveRequest.new({name: 'name_example', thresholds: [DatadogAPIClient::V1::SLOThreshold.new({target: 99.9, timeframe: DatadogAPIClient::V1::SLOTimeframe::SEVEN_DAYS})], type: DatadogAPIClient::V1::SLOType::METRIC}) # ServiceLevelObjectiveRequest | Service level objective request object.
 
 begin
   # Create an SLO object
@@ -592,7 +592,7 @@ end
 
 api_instance = DatadogAPIClient::V1::ServiceLevelObjectivesApi.new
 slo_id = 'slo_id_example' # String | The ID of the service level objective object.
-body = DatadogAPIClient::V1::ServiceLevelObjective.new({name: 'name_example', thresholds: [DatadogAPIClient::V1::SLOThreshold.new({target: 0.0, timeframe: DatadogAPIClient::V1::SLOTimeframe::SEVEN_DAYS})], type: DatadogAPIClient::V1::SLOType::METRIC}) # ServiceLevelObjective | The edited service level objective request object.
+body = DatadogAPIClient::V1::ServiceLevelObjective.new({name: 'name_example', thresholds: [DatadogAPIClient::V1::SLOThreshold.new({target: 99.9, timeframe: DatadogAPIClient::V1::SLOTimeframe::SEVEN_DAYS})], type: DatadogAPIClient::V1::SLOType::METRIC}) # ServiceLevelObjective | The edited service level objective request object.
 
 begin
   # Update an SLO

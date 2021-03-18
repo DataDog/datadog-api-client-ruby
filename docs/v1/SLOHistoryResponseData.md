@@ -21,14 +21,14 @@
 require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::SLOHistoryResponseData.new(
-  from_ts: null,
-  group_by: null,
-  groups: null,
-  monitors: null,
+  from_ts: 1615323990,
+  group_by: [],
+  groups: [],
+  monitors: [],
   overall: null,
   series: null,
-  thresholds: null,
-  to_ts: null,
+  thresholds: {},
+  to_ts: 1615928790,
   type: null,
   type_id: null
 )
