@@ -23,18 +23,18 @@
 require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::SLOHistorySLIData.new(
-  error_budget_remaining: null,
-  errors: null,
-  group: null,
+  error_budget_remaining: {&quot;7d&quot;:100.0},
+  errors: [],
+  group: name,
   history: null,
-  monitor_modified: null,
-  monitor_type: null,
-  name: null,
-  precision: null,
-  preview: null,
+  monitor_modified: 1615867200,
+  monitor_type: string,
+  name: string,
+  precision: {&quot;30d&quot;:1,&quot;7d&quot;:2},
+  preview: true,
   sli_value: 99.99,
-  span_precision: null,
-  uptime: null
+  span_precision: 2,
+  uptime: 99.99
 )
 ```
 
