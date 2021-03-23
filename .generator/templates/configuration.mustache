@@ -83,6 +83,9 @@ module {{moduleName}}
     # @return [true, false]
     attr_accessor :client_side_validation
 
+    # Keep track of the unstable operations, and if they have been enabled
+    attr_accessor :unstable_operations
+
 {{^isFaraday}}
 {{> configuration_tls_typhoeus_partial}}
 {{/isFaraday}}
@@ -130,6 +133,19 @@ module {{moduleName}}
       @inject_format = false
       @force_ending_format = false
       @logger = defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
+      @unstable_operations = {
+        {{#apiInfo}}
+        {{#apis}}
+        {{#operations}}
+        {{#operation}}
+        {{#vendorExtensions.x-unstable}}
+            {{operationId}}: false,
+        {{/vendorExtensions.x-unstable}}
+        {{/operation}}
+        {{/operations}}
+        {{/apis}}
+        {{/apiInfo}}
+      }
 
       yield(self) if block_given?
     end

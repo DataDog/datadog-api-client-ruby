@@ -39,6 +39,16 @@ module {{moduleName}}
 {{#allParams}}{{^required}}    # @option opts [{{{dataType}}}] :{{paramName}} {{description}}
 {{/required}}{{/allParams}}    # @return [Array<({{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}nil{{/returnType}}, Integer, Hash)>] {{#returnType}}{{{returnType}}} data{{/returnType}}{{^returnType}}nil{{/returnType}}, response status code and response headers
     def {{operationId}}_with_http_info({{#allParams}}{{#required}}{{paramName}}, {{/required}}{{/allParams}}opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:{{operationId}})
+        unstable_enabled = @api_client.config.unstable_operations[:{{operationId}}]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "{{operationId}}")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "{{operationId}}"))
+        end
+      end
+
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: {{classname}}.{{operationId}} ...'
       end
