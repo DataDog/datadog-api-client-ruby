@@ -2217,11 +2217,11 @@ end
 
 ## get_usage_top_avg_metrics
 
-> <UsageTopAvgMetricsResponse> get_usage_top_avg_metrics(month, opts)
+> <UsageTopAvgMetricsResponse> get_usage_top_avg_metrics(opts)
 
 Get top custom metrics by hourly average
 
-Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average.
+Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use the month parameter to get a month-to-date data resolution or use the day parameter to get a daily resolution. One of the two is required, and only one of the two is allowed.
 
 ### Examples
 
@@ -2242,15 +2242,16 @@ DatadogAPIClient::V1.configure do |config|
 end
 
 api_instance = DatadogAPIClient::V1::UsageMeteringApi.new
-month = Time.parse('2013-10-20T19:20:30+01:00') # Time | Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour.
 opts = {
+  month: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour. (Either month or day should be specified, but not both)
+  day: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD] for usage beginning at this hour. (Either month or day should be specified, but not both)
   names: ['inner_example'], # Array<String> | Comma-separated list of metric names.
   limit: 56 # Integer | Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified.
 }
 
 begin
   # Get top custom metrics by hourly average
-  result = api_instance.get_usage_top_avg_metrics(month, opts)
+  result = api_instance.get_usage_top_avg_metrics(opts)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
   puts "Error when calling UsageMeteringApi->get_usage_top_avg_metrics: #{e}"
@@ -2261,12 +2262,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<UsageTopAvgMetricsResponse>, Integer, Hash)> get_usage_top_avg_metrics_with_http_info(month, opts)
+> <Array(<UsageTopAvgMetricsResponse>, Integer, Hash)> get_usage_top_avg_metrics_with_http_info(opts)
 
 ```ruby
 begin
   # Get top custom metrics by hourly average
-  data, status_code, headers = api_instance.get_usage_top_avg_metrics_with_http_info(month, opts)
+  data, status_code, headers = api_instance.get_usage_top_avg_metrics_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <UsageTopAvgMetricsResponse>
@@ -2279,7 +2280,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **month** | **Time** | Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour. |  |
+| **month** | **Time** | Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour. (Either month or day should be specified, but not both) | [optional] |
+| **day** | **Time** | Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD] for usage beginning at this hour. (Either month or day should be specified, but not both) | [optional] |
 | **names** | **Array&lt;String&gt;** | Comma-separated list of metric names. | [optional] |
 | **limit** | **Integer** | Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified. | [optional][default to 500] |
 

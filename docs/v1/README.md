@@ -712,6 +712,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::UsageTimeseriesHour](UsageTimeseriesHour.md)
  - [DatadogAPIClient::V1::UsageTimeseriesResponse](UsageTimeseriesResponse.md)
  - [DatadogAPIClient::V1::UsageTopAvgMetricsHour](UsageTopAvgMetricsHour.md)
+ - [DatadogAPIClient::V1::UsageTopAvgMetricsMetadata](UsageTopAvgMetricsMetadata.md)
  - [DatadogAPIClient::V1::UsageTopAvgMetricsResponse](UsageTopAvgMetricsResponse.md)
  - [DatadogAPIClient::V1::UsageTraceHour](UsageTraceHour.md)
  - [DatadogAPIClient::V1::UsageTraceResponse](UsageTraceResponse.md)
