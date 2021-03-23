@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **config** | [**SyntheticsBrowserTestConfig**](SyntheticsBrowserTestConfig.md) |  | [optional] |
 | **locations** | **Array&lt;String&gt;** | Array of locations used to run the test. | [optional] |
-| **message** | **String** | Notification message associated with the test. | [optional] |
+| **message** | **String** | Notification message associated with the test. Message can either be text or an empty string. |  |
 | **monitor_id** | **Integer** | The associated monitor ID. | [optional] |
 | **name** | **String** | Name of the test. | [optional] |
 | **options** | [**SyntheticsTestOptions**](SyntheticsTestOptions.md) |  | [optional] |
@@ -24,7 +24,7 @@ require 'datadog_api_client/v1'
 instance = DatadogAPIClient::V1::SyntheticsBrowserTest.new(
   config: null,
   locations: null,
-  message: null,
+  message: ,
   monitor_id: null,
   name: null,
   options: null,
