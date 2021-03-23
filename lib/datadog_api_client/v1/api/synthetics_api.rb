@@ -699,6 +699,79 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
+    # Get an API test
+    # Get the detailed configuration associated with a Synthetic API test.
+    # @param public_id [String] The public ID of the test to get details from.
+    # @param [Hash] opts the optional parameters
+    # @return [SyntheticsAPITest]
+    def get_api_test(public_id, opts = {})
+      data, _status_code, _headers = get_api_test_with_http_info(public_id, opts)
+      data
+    end
+
+    # Get an API test
+    # Get the detailed configuration associated with a Synthetic API test.
+    # @param public_id [String] The public ID of the test to get details from.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(SyntheticsAPITest, Integer, Hash)>] SyntheticsAPITest data, response status code and response headers
+    def get_api_test_with_http_info(public_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_api_test)
+        unstable_enabled = @api_client.config.unstable_operations[:get_api_test]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_api_test")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_api_test"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsApi.get_api_test ...'
+      end
+      # verify the required parameter 'public_id' is set
+      if @api_client.config.client_side_validation && public_id.nil?
+        fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsApi.get_api_test"
+      end
+      # resource path
+      local_var_path = '/api/v1/synthetics/tests/api/{public_id}'.sub('{' + 'public_id' + '}', CGI.escape(public_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsAPITest'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"SyntheticsApi.get_api_test",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsApi#get_api_test\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get the test's latest results summaries (API)
     # Get the last 50 test results summaries for a given Synthetics API test.
     # @param public_id [String] The public ID of the test for which to search results for.
