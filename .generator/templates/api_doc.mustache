@@ -27,10 +27,14 @@ All URIs are relative to *{{basePath}}*
 
 ```ruby
 require 'time'
-require '{{{gemName}}}'
+require '{{{gemNameInExamples}}}'
+
+{{{moduleName}}}.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
 {{#hasAuthMethods}}
-# setup authorization
-{{{moduleName}}}.configure do |config|{{#authMethods}}{{#isBasic}}{{#isBasicBasic}}
+
+  # setup authorization{{#authMethods}}{{#isBasic}}{{#isBasicBasic}}
   # Configure HTTP basic authorization: {{{name}}}
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'{{/isBasicBasic}}{{#isBasicBearer}}
@@ -40,10 +44,9 @@ require '{{{gemName}}}'
   config.api_key['{{{name}}}'] = ENV["{{{vendorExtensions.x-env-name}}}"]{{/isApiKey}}{{#isOAuth}}
   # Configure OAuth2 access token for authorization: {{{name}}}
   config.access_token = 'YOUR ACCESS TOKEN'{{/isOAuth}}
-{{/authMethods}}{{#vendorExtensions.x-unstable}}
+{{/authMethods}}{{/hasAuthMethods}}{{#vendorExtensions.x-unstable}}
   config.unstable_operations[:{{{operationId}}}] = true
 {{/vendorExtensions.x-unstable}}end
-{{/hasAuthMethods}}
 
 api_instance = {{{moduleName}}}::{{{classname}}}.new
 {{#requiredParams}}
