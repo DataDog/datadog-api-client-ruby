@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   class FormulaAndFunctionEventAggregation
     COUNT = "count".freeze
     CARDINALITY = "cardinality".freeze
+    MEDIAN = "median".freeze
     PC75 = "pc75".freeze
     PC90 = "pc90".freeze
     PC95 = "pc95".freeze
