@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **global_time_target** | **String** | Defined global time target. | [optional] |
 | **show_error_budget** | **Boolean** | Defined error budget. | [optional] |
 | **slo_id** | **String** | ID of the SLO displayed. | [optional] |
 | **time_windows** | [**Array&lt;WidgetTimeWindows&gt;**](WidgetTimeWindows.md) | Times being monitored. | [optional] |
@@ -20,6 +21,7 @@
 require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::SLOWidgetDefinition.new(
+  global_time_target: null,
   show_error_budget: null,
   slo_id: null,
   time_windows: null,
