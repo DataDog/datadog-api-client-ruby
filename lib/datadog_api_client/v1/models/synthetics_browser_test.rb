@@ -24,7 +24,7 @@ module DatadogAPIClient::V1
     # Array of locations used to run the test.
     attr_accessor :locations
 
-    # Notification message associated with the test.
+    # Notification message associated with the test. Message can either be text or an empty string.
     attr_accessor :message
 
     # The associated monitor ID.
@@ -165,12 +165,17 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @message.nil?
+        invalid_properties.push('invalid value for "message", message cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @message.nil?
       true
     end
 

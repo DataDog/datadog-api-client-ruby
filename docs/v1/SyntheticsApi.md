@@ -286,7 +286,7 @@ DatadogAPIClient::V1.configure do |config|
 end
 
 api_instance = DatadogAPIClient::V1::SyntheticsApi.new
-body = DatadogAPIClient::V1::SyntheticsBrowserTest.new # SyntheticsBrowserTest | Details of the test to create.
+body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({message: 'message_example'}) # SyntheticsBrowserTest | Details of the test to create.
 
 begin
   # Create a browser test
@@ -1671,7 +1671,7 @@ end
 
 api_instance = DatadogAPIClient::V1::SyntheticsApi.new
 public_id = 'public_id_example' # String | The public ID of the test to get details from.
-body = DatadogAPIClient::V1::SyntheticsBrowserTest.new # SyntheticsBrowserTest | New test details to be saved.
+body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({message: 'message_example'}) # SyntheticsBrowserTest | New test details to be saved.
 
 begin
   # Edit a browser test
