@@ -2113,25 +2113,27 @@ module DatadogAPIClient::V1
     end
 
     # Get top custom metrics by hourly average
-    # Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average.
-    # @param month [Time] Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour.
+    # Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use the month parameter to get a month-to-date data resolution or use the day parameter to get a daily resolution. One of the two is required, and only one of the two is allowed.
     # @param [Hash] opts the optional parameters
+    # @option opts [Time] :month Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour. (Either month or day should be specified, but not both)
+    # @option opts [Time] :day Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD] for usage beginning at this hour. (Either month or day should be specified, but not both)
     # @option opts [Array<String>] :names Comma-separated list of metric names.
     # @option opts [Integer] :limit Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified. (default to 500)
     # @return [UsageTopAvgMetricsResponse]
-    def get_usage_top_avg_metrics(month, opts = {})
-      data, _status_code, _headers = get_usage_top_avg_metrics_with_http_info(month, opts)
+    def get_usage_top_avg_metrics(opts = {})
+      data, _status_code, _headers = get_usage_top_avg_metrics_with_http_info(opts)
       data
     end
 
     # Get top custom metrics by hourly average
-    # Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average.
-    # @param month [Time] Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour.
+    # Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use the month parameter to get a month-to-date data resolution or use the day parameter to get a daily resolution. One of the two is required, and only one of the two is allowed.
     # @param [Hash] opts the optional parameters
+    # @option opts [Time] :month Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour. (Either month or day should be specified, but not both)
+    # @option opts [Time] :day Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD] for usage beginning at this hour. (Either month or day should be specified, but not both)
     # @option opts [Array<String>] :names Comma-separated list of metric names.
     # @option opts [Integer] :limit Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified.
     # @return [Array<(UsageTopAvgMetricsResponse, Integer, Hash)>] UsageTopAvgMetricsResponse data, response status code and response headers
-    def get_usage_top_avg_metrics_with_http_info(month, opts = {})
+    def get_usage_top_avg_metrics_with_http_info(opts = {})
 
       if @api_client.config.unstable_operations.has_key?(:get_usage_top_avg_metrics)
         unstable_enabled = @api_client.config.unstable_operations[:get_usage_top_avg_metrics]
@@ -2144,10 +2146,6 @@ module DatadogAPIClient::V1
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringApi.get_usage_top_avg_metrics ...'
-      end
-      # verify the required parameter 'month' is set
-      if @api_client.config.client_side_validation && month.nil?
-        fail ArgumentError, "Missing the required parameter 'month' when calling UsageMeteringApi.get_usage_top_avg_metrics"
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 5000
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UsageMeteringApi.get_usage_top_avg_metrics, must be smaller than or equal to 5000.'
@@ -2162,7 +2160,8 @@ module DatadogAPIClient::V1
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'month'] = month
+      query_params[:'month'] = opts[:'month'] if !opts[:'month'].nil?
+      query_params[:'day'] = opts[:'day'] if !opts[:'day'].nil?
       query_params[:'names'] = @api_client.build_collection_param(opts[:'names'], :multi) if !opts[:'names'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
 

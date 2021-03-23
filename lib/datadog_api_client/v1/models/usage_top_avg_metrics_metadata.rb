@@ -17,18 +17,22 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Response containing the number of hourly recorded custom metrics for a given organization.
-  class UsageTopAvgMetricsResponse
-    attr_accessor :metadata
+  # The object containing document metadata.
+  class UsageTopAvgMetricsMetadata
+    # The day value from the user request that contains the returned usage data. (If day was used the request)
+    attr_accessor :day
 
-    # Number of hourly recorded custom metrics for a given organization.
-    attr_accessor :usage
+    # The month value from the user request that contains the returned usage data. (If month was used the request)
+    attr_accessor :month
+
+    attr_accessor :pagination
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'metadata' => :'metadata',
-        :'usage' => :'usage'
+        :'day' => :'day',
+        :'month' => :'month',
+        :'pagination' => :'pagination'
       }
     end
 
@@ -40,14 +44,17 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'metadata' => :'UsageTopAvgMetricsMetadata',
-        :'usage' => :'Array<UsageTopAvgMetricsHour>'
+        :'day' => :'Object',
+        :'month' => :'Object',
+        :'pagination' => :'UsageAttributionPagination'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'day',
+        :'month',
       ])
     end
 
@@ -55,25 +62,27 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::UsageTopAvgMetricsResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::UsageTopAvgMetricsMetadata` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::UsageTopAvgMetricsResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::UsageTopAvgMetricsMetadata`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'metadata')
-        self.metadata = attributes[:'metadata']
+      if attributes.key?(:'day')
+        self.day = attributes[:'day']
       end
 
-      if attributes.key?(:'usage')
-        if (value = attributes[:'usage']).is_a?(Array)
-          self.usage = value
-        end
+      if attributes.key?(:'month')
+        self.month = attributes[:'month']
+      end
+
+      if attributes.key?(:'pagination')
+        self.pagination = attributes[:'pagination']
       end
     end
 
@@ -95,8 +104,9 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          metadata == o.metadata &&
-          usage == o.usage
+          day == o.day &&
+          month == o.month &&
+          pagination == o.pagination
     end
 
     # @see the `==` method
@@ -108,7 +118,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [metadata, usage].hash
+      [day, month, pagination].hash
     end
 
     # Builds the object from hash
