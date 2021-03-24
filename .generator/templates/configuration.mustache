@@ -146,9 +146,14 @@ module {{moduleName}}
         {{/apis}}
         {{/apiInfo}}
       }
-      @server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-      @api_key['apiKeyAuth'] = ENV["DD_API_KEY"] if ENV.key? 'DD_API_KEY'
-      @api_key['appKeyAuth'] = ENV["DD_APP_KEY"] if ENV.key? 'DD_APP_KEY'
+      @server_variables['site'] = ENV['DD_SITE'] if ENV.key? 'DD_SITE'
+      {{#authMethods}}
+      {{#isApiKey}}
+      {{#isKeyInHeader}}
+      @api_key['{{name}}'] = ENV['{{vendorExtensions.x-env-name}}'] if ENV.key? '{{vendorExtensions.x-env-name}}'
+      {{/isKeyInHeader}}
+      {{/isApiKey}}
+      {{/authMethods}}
 
       yield(self) if block_given?
     end
