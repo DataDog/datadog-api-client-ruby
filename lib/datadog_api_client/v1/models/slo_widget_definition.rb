@@ -19,6 +19,9 @@ require 'time'
 module DatadogAPIClient::V1
   # Use the SLO and uptime widget to track your SLOs (Service Level Objectives) and uptime on screenboards and timeboards.
   class SLOWidgetDefinition
+    # Defined global time target.
+    attr_accessor :global_time_target
+
     # Defined error budget.
     attr_accessor :show_error_budget
 
@@ -46,6 +49,7 @@ module DatadogAPIClient::V1
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'global_time_target' => :'global_time_target',
         :'show_error_budget' => :'show_error_budget',
         :'slo_id' => :'slo_id',
         :'time_windows' => :'time_windows',
@@ -66,6 +70,7 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'global_time_target' => :'String',
         :'show_error_budget' => :'Boolean',
         :'slo_id' => :'String',
         :'time_windows' => :'Array<WidgetTimeWindows>',
@@ -98,6 +103,10 @@ module DatadogAPIClient::V1
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'global_time_target')
+        self.global_time_target = attributes[:'global_time_target']
+      end
 
       if attributes.key?(:'show_error_budget')
         self.show_error_budget = attributes[:'show_error_budget']
@@ -170,6 +179,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          global_time_target == o.global_time_target &&
           show_error_budget == o.show_error_budget &&
           slo_id == o.slo_id &&
           time_windows == o.time_windows &&
@@ -190,7 +200,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [show_error_budget, slo_id, time_windows, title, title_align, title_size, type, view_mode, view_type].hash
+      [global_time_target, show_error_budget, slo_id, time_windows, title, title_align, title_size, type, view_mode, view_type].hash
     end
 
     # Builds the object from hash

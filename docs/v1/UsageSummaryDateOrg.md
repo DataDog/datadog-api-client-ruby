@@ -18,6 +18,7 @@
 | **fargate_tasks_count_avg** | **Integer** | The average task count for Fargate. | [optional] |
 | **fargate_tasks_count_hwm** | **Integer** | Shows the high-water mark of all Fargate tasks over all hours in the current date for the given org. | [optional] |
 | **gcp_host_top99p** | **Integer** | Shows the 99th percentile of all GCP hosts over all hours in the current date for the given org. | [optional] |
+| **heroku_host_top99p** | **Integer** | Shows the 99th percentile of all Heroku dynos over all hours in the current date for the given org. | [optional] |
 | **id** | **String** | The organization id. | [optional] |
 | **incident_management_monthly_active_users_hwm** | **Integer** | Shows the high-water mark of incident management monthly active users over all hours in the current date for the given org. | [optional] |
 | **indexed_events_count_sum** | **Integer** | Shows the sum of all log events indexed over all hours in the current date for the given org. | [optional] |
@@ -31,6 +32,7 @@
 | **name** | **String** | The organization name. | [optional] |
 | **netflow_indexed_events_count_sum** | **Integer** | Shows the sum of all Network flows indexed over all hours in the current date for the given org. | [optional] |
 | **npm_host_top99p** | **Integer** | Shows the 99th percentile of all distinct Networks hosts over all hours in the current date for the given org. | [optional] |
+| **opentelemetry_host_top99p** | **Integer** | Shows the 99th percentile of all hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for the given org. | [optional] |
 | **profiling_host_top99p** | **Integer** | Shows the 99th percentile of all profiled hosts over all hours in the current date for the given org. | [optional] |
 | **public_id** | **String** | The organization public id. | [optional] |
 | **rum_session_count_sum** | **Integer** | Shows the sum of all browser RUM Sessions over all hours in the current date for the given org. | [optional] |
@@ -60,6 +62,7 @@ instance = DatadogAPIClient::V1::UsageSummaryDateOrg.new(
   fargate_tasks_count_avg: null,
   fargate_tasks_count_hwm: null,
   gcp_host_top99p: null,
+  heroku_host_top99p: null,
   id: null,
   incident_management_monthly_active_users_hwm: null,
   indexed_events_count_sum: null,
@@ -73,6 +76,7 @@ instance = DatadogAPIClient::V1::UsageSummaryDateOrg.new(
   name: null,
   netflow_indexed_events_count_sum: null,
   npm_host_top99p: null,
+  opentelemetry_host_top99p: null,
   profiling_host_top99p: null,
   public_id: null,
   rum_session_count_sum: null,

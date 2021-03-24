@@ -207,6 +207,7 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::SyntheticsApi* | [**delete_private_location**](SyntheticsApi.md#delete_private_location) | **DELETE** /api/v1/synthetics/private-locations/{location_id} | Delete a private location
 *DatadogAPIClient::V1::SyntheticsApi* | [**delete_tests**](SyntheticsApi.md#delete_tests) | **POST** /api/v1/synthetics/tests/delete | Delete tests
 *DatadogAPIClient::V1::SyntheticsApi* | [**edit_global_variable**](SyntheticsApi.md#edit_global_variable) | **PUT** /api/v1/synthetics/variables/{variable_id} | Edit a global variable
+*DatadogAPIClient::V1::SyntheticsApi* | [**get_api_test**](SyntheticsApi.md#get_api_test) | **GET** /api/v1/synthetics/tests/api/{public_id} | Get an API test
 *DatadogAPIClient::V1::SyntheticsApi* | [**get_api_test_latest_results**](SyntheticsApi.md#get_api_test_latest_results) | **GET** /api/v1/synthetics/tests/{public_id}/results | Get the test's latest results summaries (API)
 *DatadogAPIClient::V1::SyntheticsApi* | [**get_api_test_result**](SyntheticsApi.md#get_api_test_result) | **GET** /api/v1/synthetics/tests/{public_id}/results/{result_id} | Get a test result (API)
 *DatadogAPIClient::V1::SyntheticsApi* | [**get_browser_test**](SyntheticsApi.md#get_browser_test) | **GET** /api/v1/synthetics/tests/browser/{public_id} | Get a test configuration (browser)
@@ -712,6 +713,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::UsageTimeseriesHour](UsageTimeseriesHour.md)
  - [DatadogAPIClient::V1::UsageTimeseriesResponse](UsageTimeseriesResponse.md)
  - [DatadogAPIClient::V1::UsageTopAvgMetricsHour](UsageTopAvgMetricsHour.md)
+ - [DatadogAPIClient::V1::UsageTopAvgMetricsMetadata](UsageTopAvgMetricsMetadata.md)
  - [DatadogAPIClient::V1::UsageTopAvgMetricsResponse](UsageTopAvgMetricsResponse.md)
  - [DatadogAPIClient::V1::UsageTraceHour](UsageTraceHour.md)
  - [DatadogAPIClient::V1::UsageTraceResponse](UsageTraceResponse.md)

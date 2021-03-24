@@ -282,6 +282,7 @@ docs/SecurityMonitoringRuleQueryCreate.md
 docs/SecurityMonitoringRuleResponse.md
 docs/SecurityMonitoringRuleSeverity.md
 docs/SecurityMonitoringRuleUpdatePayload.md
+docs/SecurityMonitoringRuntimeAgentRule.md
 docs/SecurityMonitoringSignal.md
 docs/SecurityMonitoringSignalAttributes.md
 docs/SecurityMonitoringSignalListRequest.md
@@ -603,6 +604,7 @@ lib/datadog_api_client/v2/models/security_monitoring_rule_query_create.rb
 lib/datadog_api_client/v2/models/security_monitoring_rule_response.rb
 lib/datadog_api_client/v2/models/security_monitoring_rule_severity.rb
 lib/datadog_api_client/v2/models/security_monitoring_rule_update_payload.rb
+lib/datadog_api_client/v2/models/security_monitoring_runtime_agent_rule.rb
 lib/datadog_api_client/v2/models/security_monitoring_signal.rb
 lib/datadog_api_client/v2/models/security_monitoring_signal_attributes.rb
 lib/datadog_api_client/v2/models/security_monitoring_signal_list_request.rb
@@ -921,6 +923,7 @@ spec/models/security_monitoring_rule_query_spec.rb
 spec/models/security_monitoring_rule_response_spec.rb
 spec/models/security_monitoring_rule_severity_spec.rb
 spec/models/security_monitoring_rule_update_payload_spec.rb
+spec/models/security_monitoring_runtime_agent_rule_spec.rb
 spec/models/security_monitoring_signal_attributes_spec.rb
 spec/models/security_monitoring_signal_list_request_filter_spec.rb
 spec/models/security_monitoring_signal_list_request_page_spec.rb

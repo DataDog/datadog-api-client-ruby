@@ -19,6 +19,7 @@
 | **fargate_tasks_count_avg** | **Integer** | Shows the high-watermark of all Fargate tasks over all hours in the current date for all organizations. | [optional] |
 | **fargate_tasks_count_hwm** | **Integer** | Shows the average of all Fargate tasks over all hours in the current date for all organizations. | [optional] |
 | **gcp_host_top99p** | **Integer** | Shows the 99th percentile of all GCP hosts over all hours in the current date for all organizations. | [optional] |
+| **heroku_host_top99p_sum** | **Integer** | Shows the 99th percentile of all Heroku dynos over all hours in the current date for all organizations. | [optional] |
 | **incident_management_monthly_active_users_hwm** | **Integer** | Shows the high-water mark of incident management monthly active users over all hours in the current date for all organizations. | [optional] |
 | **indexed_events_count_sum** | **Integer** | Shows the sum of all log events indexed over all hours in the current date for all organizations. | [optional] |
 | **infra_host_top99p** | **Integer** | Shows the 99th percentile of all distinct infrastructure hosts over all hours in the current date for all organizations. | [optional] |
@@ -30,6 +31,7 @@
 | **mobile_rum_session_count_sum** | **Integer** | Shows the sum of all mobile RUM Sessions over all hours in the current date for all organizations | [optional] |
 | **netflow_indexed_events_count_sum** | **Integer** | Shows the sum of all Network flows indexed over all hours in the current date for all organizations. | [optional] |
 | **npm_host_top99p** | **Integer** | Shows the 99th percentile of all distinct Networks hosts over all hours in the current date for all organizations. | [optional] |
+| **opentelemetry_host_top99p_sum** | **Integer** | Shows the 99th percentile of all hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for all organizations. | [optional] |
 | **orgs** | [**Array&lt;UsageSummaryDateOrg&gt;**](UsageSummaryDateOrg.md) | Organizations associated with a user. | [optional] |
 | **profiling_host_top99p** | **Integer** | Shows the 99th percentile of all profiled hosts over all hours in the current date for all organizations. | [optional] |
 | **rum_session_count_sum** | **Integer** | Shows the sum of all browser RUM Sessions over all hours in the current date for all organizations | [optional] |
@@ -60,6 +62,7 @@ instance = DatadogAPIClient::V1::UsageSummaryDate.new(
   fargate_tasks_count_avg: null,
   fargate_tasks_count_hwm: null,
   gcp_host_top99p: null,
+  heroku_host_top99p_sum: null,
   incident_management_monthly_active_users_hwm: null,
   indexed_events_count_sum: null,
   infra_host_top99p: null,
@@ -71,6 +74,7 @@ instance = DatadogAPIClient::V1::UsageSummaryDate.new(
   mobile_rum_session_count_sum: null,
   netflow_indexed_events_count_sum: null,
   npm_host_top99p: null,
+  opentelemetry_host_top99p_sum: null,
   orgs: null,
   profiling_host_top99p: null,
   rum_session_count_sum: null,
