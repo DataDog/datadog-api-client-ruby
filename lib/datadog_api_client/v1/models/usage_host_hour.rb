@@ -43,6 +43,9 @@ module DatadogAPIClient::V1
     # Contains the total number of hosts that reported via the Google Cloud integration (and were NOT running the Datadog Agent).
     attr_accessor :gcp_host_count
 
+    # Contains the total number of Heroku dynos reported by the Datadog Agent.
+    attr_accessor :heroku_host_count
+
     # Contains the total number of billable infrastructure hosts reporting during a given hour. This is the sum of `agent_host_count`, `aws_host_count`, and `gcp_host_count`.
     attr_accessor :host_count
 
@@ -51,6 +54,9 @@ module DatadogAPIClient::V1
 
     # Contains the total number of hosts that reported via the Azure App Services integration (and were NOT running the Datadog Agent).
     attr_accessor :infra_azure_app_service
+
+    # Contains the total number of hosts reported by Datadog exporter for the OpenTelemetry Collector.
+    attr_accessor :opentelemetry_host_count
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -63,9 +69,11 @@ module DatadogAPIClient::V1
         :'azure_host_count' => :'azure_host_count',
         :'container_count' => :'container_count',
         :'gcp_host_count' => :'gcp_host_count',
+        :'heroku_host_count' => :'heroku_host_count',
         :'host_count' => :'host_count',
         :'hour' => :'hour',
-        :'infra_azure_app_service' => :'infra_azure_app_service'
+        :'infra_azure_app_service' => :'infra_azure_app_service',
+        :'opentelemetry_host_count' => :'opentelemetry_host_count'
       }
     end
 
@@ -85,9 +93,11 @@ module DatadogAPIClient::V1
         :'azure_host_count' => :'Integer',
         :'container_count' => :'Integer',
         :'gcp_host_count' => :'Integer',
+        :'heroku_host_count' => :'Integer',
         :'host_count' => :'Integer',
         :'hour' => :'Time',
-        :'infra_azure_app_service' => :'Integer'
+        :'infra_azure_app_service' => :'Integer',
+        :'opentelemetry_host_count' => :'Integer'
       }
     end
 
@@ -144,6 +154,10 @@ module DatadogAPIClient::V1
         self.gcp_host_count = attributes[:'gcp_host_count']
       end
 
+      if attributes.key?(:'heroku_host_count')
+        self.heroku_host_count = attributes[:'heroku_host_count']
+      end
+
       if attributes.key?(:'host_count')
         self.host_count = attributes[:'host_count']
       end
@@ -154,6 +168,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'infra_azure_app_service')
         self.infra_azure_app_service = attributes[:'infra_azure_app_service']
+      end
+
+      if attributes.key?(:'opentelemetry_host_count')
+        self.opentelemetry_host_count = attributes[:'opentelemetry_host_count']
       end
     end
 
@@ -183,9 +201,11 @@ module DatadogAPIClient::V1
           azure_host_count == o.azure_host_count &&
           container_count == o.container_count &&
           gcp_host_count == o.gcp_host_count &&
+          heroku_host_count == o.heroku_host_count &&
           host_count == o.host_count &&
           hour == o.hour &&
-          infra_azure_app_service == o.infra_azure_app_service
+          infra_azure_app_service == o.infra_azure_app_service &&
+          opentelemetry_host_count == o.opentelemetry_host_count
     end
 
     # @see the `==` method
@@ -197,7 +217,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_host_count, alibaba_host_count, apm_azure_app_service_host_count, apm_host_count, aws_host_count, azure_host_count, container_count, gcp_host_count, host_count, hour, infra_azure_app_service].hash
+      [agent_host_count, alibaba_host_count, apm_azure_app_service_host_count, apm_host_count, aws_host_count, azure_host_count, container_count, gcp_host_count, heroku_host_count, host_count, hour, infra_azure_app_service, opentelemetry_host_count].hash
     end
 
     # Builds the object from hash

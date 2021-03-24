@@ -19,6 +19,8 @@ require 'time'
 module DatadogAPIClient::V2
   # Query for matching rule.
   class SecurityMonitoringRuleQuery
+    attr_accessor :agent_rule
+
     attr_accessor :aggregation
 
     # Field for which the cardinality is measured. Sent as an array.
@@ -39,6 +41,7 @@ module DatadogAPIClient::V2
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'agent_rule' => :'agentRule',
         :'aggregation' => :'aggregation',
         :'distinct_fields' => :'distinctFields',
         :'group_by_fields' => :'groupByFields',
@@ -56,6 +59,7 @@ module DatadogAPIClient::V2
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'agent_rule' => :'SecurityMonitoringRuntimeAgentRule',
         :'aggregation' => :'SecurityMonitoringRuleQueryAggregation',
         :'distinct_fields' => :'Array<String>',
         :'group_by_fields' => :'Array<String>',
@@ -85,6 +89,10 @@ module DatadogAPIClient::V2
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'agent_rule')
+        self.agent_rule = attributes[:'agent_rule']
+      end
 
       if attributes.key?(:'aggregation')
         self.aggregation = attributes[:'aggregation']
@@ -133,6 +141,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          agent_rule == o.agent_rule &&
           aggregation == o.aggregation &&
           distinct_fields == o.distinct_fields &&
           group_by_fields == o.group_by_fields &&
@@ -150,7 +159,7 @@ module DatadogAPIClient::V2
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aggregation, distinct_fields, group_by_fields, metric, name, query].hash
+      [agent_rule, aggregation, distinct_fields, group_by_fields, metric, name, query].hash
     end
 
     # Builds the object from hash
