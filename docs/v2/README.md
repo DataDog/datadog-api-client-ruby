@@ -445,6 +445,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::SecurityMonitoringRuleResponse](SecurityMonitoringRuleResponse.md)
  - [DatadogAPIClient::V2::SecurityMonitoringRuleSeverity](SecurityMonitoringRuleSeverity.md)
  - [DatadogAPIClient::V2::SecurityMonitoringRuleUpdatePayload](SecurityMonitoringRuleUpdatePayload.md)
+ - [DatadogAPIClient::V2::SecurityMonitoringRuntimeAgentRule](SecurityMonitoringRuntimeAgentRule.md)
  - [DatadogAPIClient::V2::SecurityMonitoringSignal](SecurityMonitoringSignal.md)
  - [DatadogAPIClient::V2::SecurityMonitoringSignalAttributes](SecurityMonitoringSignalAttributes.md)
  - [DatadogAPIClient::V2::SecurityMonitoringSignalListRequest](SecurityMonitoringSignalListRequest.md)
