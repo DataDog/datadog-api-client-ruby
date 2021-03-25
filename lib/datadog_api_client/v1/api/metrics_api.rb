@@ -100,6 +100,7 @@ module DatadogAPIClient::V1
     # @param from [Integer] Seconds since the Unix epoch.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :host Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag.
+    # @option opts [String] :tag_filter Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
     # @return [MetricsListResponse]
     def list_active_metrics(from, opts = {})
       data, _status_code, _headers = list_active_metrics_with_http_info(from, opts)
@@ -111,6 +112,7 @@ module DatadogAPIClient::V1
     # @param from [Integer] Seconds since the Unix epoch.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :host Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag.
+    # @option opts [String] :tag_filter Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
     # @return [Array<(MetricsListResponse, Integer, Hash)>] MetricsListResponse data, response status code and response headers
     def list_active_metrics_with_http_info(from, opts = {})
 
@@ -137,6 +139,7 @@ module DatadogAPIClient::V1
       query_params = opts[:query_params] || {}
       query_params[:'from'] = from
       query_params[:'host'] = opts[:'host'] if !opts[:'host'].nil?
+      query_params[:'tag_filter'] = opts[:'tag_filter'] if !opts[:'tag_filter'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
