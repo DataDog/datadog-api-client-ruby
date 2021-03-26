@@ -13,6 +13,8 @@
 | **azure_app_service_top99p_sum** | **Integer** | Shows the 99th percentile of all Azure app services over all hours in the current months for all organizations. | [optional] |
 | **azure_host_top99p_sum** | **Integer** | Shows the 99th percentile of all Azure hosts over all hours in the current months for all organizations. | [optional] |
 | **billable_ingested_bytes_agg_sum** | **Integer** | Shows the sum of all log bytes ingested over all hours in the current months for all organizations. | [optional] |
+| **compliance_container_agg_sum** | **Object** | Shows the sum of all compliance containers over all hours in the current months for all organizations. | [optional] |
+| **compliance_host_agg_sum** | **Integer** | Shows the sum of all compliance hosts over all hours in the current months for all organizations. | [optional] |
 | **container_avg_sum** | **Integer** | Shows the average of all distinct containers over all hours in the current months for all organizations. | [optional] |
 | **container_hwm_sum** | **Integer** | Shows the sum of the high-water marks of all distinct containers over all hours in the current months for all organizations. | [optional] |
 | **custom_ts_sum** | **Integer** | Shows the average number of distinct custom metrics over all hours in the current months for all organizations. | [optional] |
@@ -64,6 +66,8 @@ instance = DatadogAPIClient::V1::UsageSummaryResponse.new(
   azure_app_service_top99p_sum: null,
   azure_host_top99p_sum: null,
   billable_ingested_bytes_agg_sum: null,
+  compliance_container_agg_sum: null,
+  compliance_host_agg_sum: null,
   container_avg_sum: null,
   container_hwm_sum: null,
   custom_ts_sum: null,
