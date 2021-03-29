@@ -160,7 +160,10 @@ When('the request is sent') do
     @response = [nil, e.code, nil]
   end
 
-  @undo << undo_builder.call(@response[0]) if undo_builder
+  if @response[1].between?(200, 299)  then
+    @undo << undo_builder.call(@response[0]) if undo_builder
+  end
+  
 end
 
 Then(/^the response "([^"]+)" is equal to (.*)$/) do |response_path, value|
