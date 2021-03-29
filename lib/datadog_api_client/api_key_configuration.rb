@@ -1,8 +1,8 @@
 require 'datadog_api_client/v1'
 require 'datadog_api_client/v2'
 
-# Extend the automatically-generated client configuration classes with a user-friendly authentication configuration,
-# hiding the original #api_key method
+# Extend the automatically-generated client configuration classes with a user-friendly
+# authentication configuration, hiding the original #api_key method.
 
 module DatadogAPIClient::V1
   class Configuration
