@@ -9,11 +9,11 @@ module DatadogAPIClient::V1
     private :api_key # Make original getter private
 
     def api_key=(api_key)
-      self.api_key['apiKeyAuth'] = api_key
+      @api_key['apiKeyAuth'] = api_key
     end
 
     def application_key=(app_key)
-      self.api_key['appKeyAuth'] = app_key
+      @api_key['appKeyAuth'] = app_key
     end
   end
 end
@@ -23,11 +23,11 @@ module DatadogAPIClient::V2
     private :api_key # Make original getter private
 
     def api_key=(api_key)
-      self.api_key['apiKeyAuth'] = api_key
+      @api_key['apiKeyAuth'] = api_key
     end
 
     def application_key=(app_key)
-      self.api_key['appKeyAuth'] = app_key
+      @api_key['appKeyAuth'] = app_key
     end
   end
 end
