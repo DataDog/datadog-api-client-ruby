@@ -29,6 +29,9 @@ module DatadogAPIClient::V1
     GREATER_EQUALS = "greaterEquals".freeze
     LOWER_EQUALS = "lowerEquals".freeze
     MATCH_REGEX = "matchRegex".freeze
+    BETWEEN = "between".freeze
+    IS_EMPTY = "isEmpty".freeze
+    NOT_IS_EMPTY = "notIsEmpty".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

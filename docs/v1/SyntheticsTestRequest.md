@@ -11,6 +11,7 @@
 | **headers** | **Hash&lt;String, String&gt;** | Headers to include when performing the test. | [optional] |
 | **host** | **String** | Host name to perform the test with. | [optional] |
 | **method** | [**HTTPMethod**](HTTPMethod.md) |  | [optional] |
+| **no_saving_response_body** | **Boolean** | Determines whether or not to save the response body. | [optional] |
 | **port** | **Integer** | Port to use when performing the test. | [optional] |
 | **query** | **Object** | Query to use for the test. | [optional] |
 | **timeout** | **Float** | Timeout in seconds for the test. | [optional] |
@@ -29,6 +30,7 @@ instance = DatadogAPIClient::V1::SyntheticsTestRequest.new(
   headers: null,
   host: null,
   method: null,
+  no_saving_response_body: null,
   port: null,
   query: null,
   timeout: null,
