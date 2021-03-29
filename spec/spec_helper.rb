@@ -99,11 +99,11 @@ RSpec.configure do |config|
     m = example.metadata[:file_path].match /spec\/v(?<version>\d+)\/.*/
     @api_version = m[:version]
     api = Object.const_get("DatadogAPIClient::V#{@api_version}")
-    @configuration = api.const_get("Configuration").new
-    @configuration.api_key["apiKeyAuth"] = ENV["DD_TEST_CLIENT_API_KEY"]
-    @configuration.api_key["appKeyAuth"] = ENV["DD_TEST_CLIENT_APP_KEY"]
-    @configuration.debugging = (!ENV["DEBUG"].nil? and ENV["DEBUG"] != false)
-    @api_client = api.const_get("ApiClient").new @configuration
+    @configuration = api::Configuration.new
+    @configuration.api_key = ENV["DD_TEST_CLIENT_API_KEY"]
+    @configuration.application_key = ENV["DD_TEST_CLIENT_APP_KEY"]
+    @configuration.debugging = (!ENV["DEBUG"].nil? and ENV["DEBUG"] != "false")
+    @api_client = api::ApiClient.new @configuration
   end
 
   config.after(:suite) do

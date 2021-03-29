@@ -28,6 +28,9 @@ module DatadogAPIClient::V1
     # For browser test, array with the different device IDs used to run the test.
     attr_accessor :device_ids
 
+    # Whether or not to disable CORS mechanism.
+    attr_accessor :disable_cors
+
     # For API HTTP test, whether or not the test should follow redirects.
     attr_accessor :follow_redirects
 
@@ -39,6 +42,9 @@ module DatadogAPIClient::V1
 
     attr_accessor :monitor_options
 
+    # Prevents saving screenshots of the steps.
+    attr_accessor :no_screenshot
+
     attr_accessor :_retry
 
     attr_accessor :tick_every
@@ -49,10 +55,12 @@ module DatadogAPIClient::V1
         :'accept_self_signed' => :'accept_self_signed',
         :'allow_insecure' => :'allow_insecure',
         :'device_ids' => :'device_ids',
+        :'disable_cors' => :'disableCors',
         :'follow_redirects' => :'follow_redirects',
         :'min_failure_duration' => :'min_failure_duration',
         :'min_location_failed' => :'min_location_failed',
         :'monitor_options' => :'monitor_options',
+        :'no_screenshot' => :'noScreenshot',
         :'_retry' => :'retry',
         :'tick_every' => :'tick_every'
       }
@@ -69,10 +77,12 @@ module DatadogAPIClient::V1
         :'accept_self_signed' => :'Boolean',
         :'allow_insecure' => :'Boolean',
         :'device_ids' => :'Array<SyntheticsDeviceID>',
+        :'disable_cors' => :'Boolean',
         :'follow_redirects' => :'Boolean',
         :'min_failure_duration' => :'Integer',
         :'min_location_failed' => :'Integer',
         :'monitor_options' => :'SyntheticsTestOptionsMonitorOptions',
+        :'no_screenshot' => :'Boolean',
         :'_retry' => :'SyntheticsTestOptionsRetry',
         :'tick_every' => :'SyntheticsTickInterval'
       }
@@ -113,6 +123,10 @@ module DatadogAPIClient::V1
         end
       end
 
+      if attributes.key?(:'disable_cors')
+        self.disable_cors = attributes[:'disable_cors']
+      end
+
       if attributes.key?(:'follow_redirects')
         self.follow_redirects = attributes[:'follow_redirects']
       end
@@ -127,6 +141,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'monitor_options')
         self.monitor_options = attributes[:'monitor_options']
+      end
+
+      if attributes.key?(:'no_screenshot')
+        self.no_screenshot = attributes[:'no_screenshot']
       end
 
       if attributes.key?(:'_retry')
@@ -159,10 +177,12 @@ module DatadogAPIClient::V1
           accept_self_signed == o.accept_self_signed &&
           allow_insecure == o.allow_insecure &&
           device_ids == o.device_ids &&
+          disable_cors == o.disable_cors &&
           follow_redirects == o.follow_redirects &&
           min_failure_duration == o.min_failure_duration &&
           min_location_failed == o.min_location_failed &&
           monitor_options == o.monitor_options &&
+          no_screenshot == o.no_screenshot &&
           _retry == o._retry &&
           tick_every == o.tick_every
     end
@@ -176,7 +196,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [accept_self_signed, allow_insecure, device_ids, follow_redirects, min_failure_duration, min_location_failed, monitor_options, _retry, tick_every].hash
+      [accept_self_signed, allow_insecure, device_ids, disable_cors, follow_redirects, min_failure_duration, min_location_failed, monitor_options, no_screenshot, _retry, tick_every].hash
     end
 
     # Builds the object from hash
