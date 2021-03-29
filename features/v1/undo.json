@@ -834,6 +834,12 @@
       "type": "unsafe"
     }
   },
+  "GetAPITest": {
+    "tag": "Synthetics",
+    "undo": {
+      "type": "safe"
+    }
+  },
   "UpdateAPITest": {
     "tag": "Synthetics",
     "undo": {
@@ -1005,6 +1011,12 @@
     }
   },
   "GetUsageBillableSummary": {
+    "tag": "Usage Metering",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "GetUsageComplianceMonitoring": {
     "tag": "Usage Metering",
     "undo": {
       "type": "safe"

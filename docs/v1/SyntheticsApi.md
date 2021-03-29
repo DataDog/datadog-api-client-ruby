@@ -13,6 +13,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**delete_private_location**](SyntheticsApi.md#delete_private_location) | **DELETE** /api/v1/synthetics/private-locations/{location_id} | Delete a private location |
 | [**delete_tests**](SyntheticsApi.md#delete_tests) | **POST** /api/v1/synthetics/tests/delete | Delete tests |
 | [**edit_global_variable**](SyntheticsApi.md#edit_global_variable) | **PUT** /api/v1/synthetics/variables/{variable_id} | Edit a global variable |
+| [**get_api_test**](SyntheticsApi.md#get_api_test) | **GET** /api/v1/synthetics/tests/api/{public_id} | Get an API test |
 | [**get_api_test_latest_results**](SyntheticsApi.md#get_api_test_latest_results) | **GET** /api/v1/synthetics/tests/{public_id}/results | Get the test&#39;s latest results summaries (API) |
 | [**get_api_test_result**](SyntheticsApi.md#get_api_test_result) | **GET** /api/v1/synthetics/tests/{public_id}/results/{result_id} | Get a test result (API) |
 | [**get_browser_test**](SyntheticsApi.md#get_browser_test) | **GET** /api/v1/synthetics/tests/browser/{public_id} | Get a test configuration (browser) |
@@ -286,7 +287,7 @@ DatadogAPIClient::V1.configure do |config|
 end
 
 api_instance = DatadogAPIClient::V1::SyntheticsApi.new
-body = DatadogAPIClient::V1::SyntheticsBrowserTest.new # SyntheticsBrowserTest | Details of the test to create.
+body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({message: 'message_example'}) # SyntheticsBrowserTest | Details of the test to create.
 
 begin
   # Create a browser test
@@ -712,6 +713,82 @@ end
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## get_api_test
+
+> <SyntheticsAPITest> get_api_test(public_id)
+
+Get an API test
+
+Get the detailed configuration associated with a Synthetic API test.
+
+### Examples
+
+```ruby
+require 'time'
+require 'datadog_api_client'
+
+DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
+  # Configure API key authorization: apiKeyAuth
+  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
+
+  # Configure API key authorization: appKeyAuth
+  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
+end
+
+api_instance = DatadogAPIClient::V1::SyntheticsApi.new
+public_id = 'public_id_example' # String | The public ID of the test to get details from.
+
+begin
+  # Get an API test
+  result = api_instance.get_api_test(public_id)
+  p result
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling SyntheticsApi->get_api_test: #{e}"
+end
+```
+
+#### Using the get_api_test_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SyntheticsAPITest>, Integer, Hash)> get_api_test_with_http_info(public_id)
+
+```ruby
+begin
+  # Get an API test
+  data, status_code, headers = api_instance.get_api_test_with_http_info(public_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SyntheticsAPITest>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling SyntheticsApi->get_api_test_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **public_id** | **String** | The public ID of the test to get details from. |  |
+
+### Return type
+
+[**SyntheticsAPITest**](SyntheticsAPITest.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
@@ -1671,7 +1748,7 @@ end
 
 api_instance = DatadogAPIClient::V1::SyntheticsApi.new
 public_id = 'public_id_example' # String | The public ID of the test to get details from.
-body = DatadogAPIClient::V1::SyntheticsBrowserTest.new # SyntheticsBrowserTest | New test details to be saved.
+body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({message: 'message_example'}) # SyntheticsBrowserTest | New test details to be saved.
 
 begin
   # Edit a browser test

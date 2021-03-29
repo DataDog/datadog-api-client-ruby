@@ -794,6 +794,83 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
+    # Get hourly usage for Compliance Monitoring
+    # Get hourly usage for Compliance Monitoring.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+    # @return [UsageComplianceResponse]
+    def get_usage_compliance_monitoring(start_hr, opts = {})
+      data, _status_code, _headers = get_usage_compliance_monitoring_with_http_info(start_hr, opts)
+      data
+    end
+
+    # Get hourly usage for Compliance Monitoring
+    # Get hourly usage for Compliance Monitoring.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+    # @return [Array<(UsageComplianceResponse, Integer, Hash)>] UsageComplianceResponse data, response status code and response headers
+    def get_usage_compliance_monitoring_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_usage_compliance_monitoring)
+        unstable_enabled = @api_client.config.unstable_operations[:get_usage_compliance_monitoring]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_compliance_monitoring")
+        else
+          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "get_usage_compliance_monitoring"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringApi.get_usage_compliance_monitoring ...'
+      end
+      # verify the required parameter 'start_hr' is set
+      if @api_client.config.client_side_validation && start_hr.nil?
+        fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringApi.get_usage_compliance_monitoring"
+      end
+      # resource path
+      local_var_path = '/api/v1/usage/compliance-monitoring'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'start_hr'] = start_hr
+      query_params[:'end_hr'] = opts[:'end_hr'] if !opts[:'end_hr'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UsageComplianceResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apiKeyAuth', 'appKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"UsageMeteringApi.get_usage_compliance_monitoring",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsageMeteringApi#get_usage_compliance_monitoring\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get hourly usage for Fargate
     # Get hourly usage for [Fargate](https://docs.datadoghq.com/integrations/ecs_fargate/).
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
@@ -2113,25 +2190,27 @@ module DatadogAPIClient::V1
     end
 
     # Get top custom metrics by hourly average
-    # Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average.
-    # @param month [Time] Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour.
+    # Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use the month parameter to get a month-to-date data resolution or use the day parameter to get a daily resolution. One of the two is required, and only one of the two is allowed.
     # @param [Hash] opts the optional parameters
+    # @option opts [Time] :month Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour. (Either month or day should be specified, but not both)
+    # @option opts [Time] :day Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD] for usage beginning at this hour. (Either month or day should be specified, but not both)
     # @option opts [Array<String>] :names Comma-separated list of metric names.
     # @option opts [Integer] :limit Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified. (default to 500)
     # @return [UsageTopAvgMetricsResponse]
-    def get_usage_top_avg_metrics(month, opts = {})
-      data, _status_code, _headers = get_usage_top_avg_metrics_with_http_info(month, opts)
+    def get_usage_top_avg_metrics(opts = {})
+      data, _status_code, _headers = get_usage_top_avg_metrics_with_http_info(opts)
       data
     end
 
     # Get top custom metrics by hourly average
-    # Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average.
-    # @param month [Time] Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour.
+    # Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use the month parameter to get a month-to-date data resolution or use the day parameter to get a daily resolution. One of the two is required, and only one of the two is allowed.
     # @param [Hash] opts the optional parameters
+    # @option opts [Time] :month Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour. (Either month or day should be specified, but not both)
+    # @option opts [Time] :day Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD] for usage beginning at this hour. (Either month or day should be specified, but not both)
     # @option opts [Array<String>] :names Comma-separated list of metric names.
     # @option opts [Integer] :limit Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified.
     # @return [Array<(UsageTopAvgMetricsResponse, Integer, Hash)>] UsageTopAvgMetricsResponse data, response status code and response headers
-    def get_usage_top_avg_metrics_with_http_info(month, opts = {})
+    def get_usage_top_avg_metrics_with_http_info(opts = {})
 
       if @api_client.config.unstable_operations.has_key?(:get_usage_top_avg_metrics)
         unstable_enabled = @api_client.config.unstable_operations[:get_usage_top_avg_metrics]
@@ -2144,10 +2223,6 @@ module DatadogAPIClient::V1
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringApi.get_usage_top_avg_metrics ...'
-      end
-      # verify the required parameter 'month' is set
-      if @api_client.config.client_side_validation && month.nil?
-        fail ArgumentError, "Missing the required parameter 'month' when calling UsageMeteringApi.get_usage_top_avg_metrics"
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 5000
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UsageMeteringApi.get_usage_top_avg_metrics, must be smaller than or equal to 5000.'
@@ -2162,7 +2237,8 @@ module DatadogAPIClient::V1
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'month'] = month
+      query_params[:'month'] = opts[:'month'] if !opts[:'month'].nil?
+      query_params[:'day'] = opts[:'day'] if !opts[:'day'].nil?
       query_params[:'names'] = @api_client.build_collection_param(opts[:'names'], :multi) if !opts[:'names'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
 

@@ -19,12 +19,15 @@ require 'time'
 module DatadogAPIClient::V1
   # Response containing the number of hourly recorded custom metrics for a given organization.
   class UsageTopAvgMetricsResponse
+    attr_accessor :metadata
+
     # Number of hourly recorded custom metrics for a given organization.
     attr_accessor :usage
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'metadata' => :'metadata',
         :'usage' => :'usage'
       }
     end
@@ -37,6 +40,7 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'metadata' => :'UsageTopAvgMetricsMetadata',
         :'usage' => :'Array<UsageTopAvgMetricsHour>'
       }
     end
@@ -61,6 +65,10 @@ module DatadogAPIClient::V1
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'metadata')
+        self.metadata = attributes[:'metadata']
+      end
 
       if attributes.key?(:'usage')
         if (value = attributes[:'usage']).is_a?(Array)
@@ -87,6 +95,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          metadata == o.metadata &&
           usage == o.usage
     end
 
@@ -99,7 +108,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [usage].hash
+      [metadata, usage].hash
     end
 
     # Builds the object from hash

@@ -14,6 +14,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**get_usage_analyzed_logs**](UsageMeteringApi.md#get_usage_analyzed_logs) | **GET** /api/v1/usage/analyzed_logs | Get hourly usage for analyzed logs |
 | [**get_usage_attribution**](UsageMeteringApi.md#get_usage_attribution) | **GET** /api/v1/usage/attribution | Get Usage Attribution |
 | [**get_usage_billable_summary**](UsageMeteringApi.md#get_usage_billable_summary) | **GET** /api/v1/usage/billable-summary | Get billable usage across your account |
+| [**get_usage_compliance_monitoring**](UsageMeteringApi.md#get_usage_compliance_monitoring) | **GET** /api/v1/usage/compliance-monitoring | Get hourly usage for Compliance Monitoring |
 | [**get_usage_fargate**](UsageMeteringApi.md#get_usage_fargate) | **GET** /api/v1/usage/fargate | Get hourly usage for Fargate |
 | [**get_usage_hosts**](UsageMeteringApi.md#get_usage_hosts) | **GET** /api/v1/usage/hosts | Get hourly usage for hosts and containers |
 | [**get_usage_indexed_spans**](UsageMeteringApi.md#get_usage_indexed_spans) | **GET** /api/v1/usage/indexed-spans | Get hourly usage for indexed spans |
@@ -838,6 +839,86 @@ end
 ### Return type
 
 [**UsageBillableSummaryResponse**](UsageBillableSummaryResponse.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json;datetime-format=rfc3339
+
+
+## get_usage_compliance_monitoring
+
+> <UsageComplianceResponse> get_usage_compliance_monitoring(start_hr, opts)
+
+Get hourly usage for Compliance Monitoring
+
+Get hourly usage for Compliance Monitoring.
+
+### Examples
+
+```ruby
+require 'time'
+require 'datadog_api_client'
+
+DatadogAPIClient::V1.configure do |config|
+  # Defining the site is optional and defaults to datadoghq.com
+  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
+
+  # setup authorization
+  # Configure API key authorization: apiKeyAuth
+  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
+
+  # Configure API key authorization: appKeyAuth
+  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
+end
+
+api_instance = DatadogAPIClient::V1::UsageMeteringApi.new
+start_hr = Time.parse('2013-10-20T19:20:30+01:00') # Time | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
+opts = {
+  end_hr: Time.parse('2013-10-20T19:20:30+01:00') # Time | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
+}
+
+begin
+  # Get hourly usage for Compliance Monitoring
+  result = api_instance.get_usage_compliance_monitoring(start_hr, opts)
+  p result
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling UsageMeteringApi->get_usage_compliance_monitoring: #{e}"
+end
+```
+
+#### Using the get_usage_compliance_monitoring_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<UsageComplianceResponse>, Integer, Hash)> get_usage_compliance_monitoring_with_http_info(start_hr, opts)
+
+```ruby
+begin
+  # Get hourly usage for Compliance Monitoring
+  data, status_code, headers = api_instance.get_usage_compliance_monitoring_with_http_info(start_hr, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <UsageComplianceResponse>
+rescue DatadogAPIClient::V1::ApiError => e
+  puts "Error when calling UsageMeteringApi->get_usage_compliance_monitoring_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |  |
+| **end_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+
+### Return type
+
+[**UsageComplianceResponse**](UsageComplianceResponse.md)
 
 ### Authorization
 
@@ -2217,11 +2298,11 @@ end
 
 ## get_usage_top_avg_metrics
 
-> <UsageTopAvgMetricsResponse> get_usage_top_avg_metrics(month, opts)
+> <UsageTopAvgMetricsResponse> get_usage_top_avg_metrics(opts)
 
 Get top custom metrics by hourly average
 
-Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average.
+Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use the month parameter to get a month-to-date data resolution or use the day parameter to get a daily resolution. One of the two is required, and only one of the two is allowed.
 
 ### Examples
 
@@ -2242,15 +2323,16 @@ DatadogAPIClient::V1.configure do |config|
 end
 
 api_instance = DatadogAPIClient::V1::UsageMeteringApi.new
-month = Time.parse('2013-10-20T19:20:30+01:00') # Time | Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour.
 opts = {
+  month: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour. (Either month or day should be specified, but not both)
+  day: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD] for usage beginning at this hour. (Either month or day should be specified, but not both)
   names: ['inner_example'], # Array<String> | Comma-separated list of metric names.
   limit: 56 # Integer | Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified.
 }
 
 begin
   # Get top custom metrics by hourly average
-  result = api_instance.get_usage_top_avg_metrics(month, opts)
+  result = api_instance.get_usage_top_avg_metrics(opts)
   p result
 rescue DatadogAPIClient::V1::ApiError => e
   puts "Error when calling UsageMeteringApi->get_usage_top_avg_metrics: #{e}"
@@ -2261,12 +2343,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<UsageTopAvgMetricsResponse>, Integer, Hash)> get_usage_top_avg_metrics_with_http_info(month, opts)
+> <Array(<UsageTopAvgMetricsResponse>, Integer, Hash)> get_usage_top_avg_metrics_with_http_info(opts)
 
 ```ruby
 begin
   # Get top custom metrics by hourly average
-  data, status_code, headers = api_instance.get_usage_top_avg_metrics_with_http_info(month, opts)
+  data, status_code, headers = api_instance.get_usage_top_avg_metrics_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <UsageTopAvgMetricsResponse>
@@ -2279,7 +2361,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **month** | **Time** | Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour. |  |
+| **month** | **Time** | Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour. (Either month or day should be specified, but not both) | [optional] |
+| **day** | **Time** | Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD] for usage beginning at this hour. (Either month or day should be specified, but not both) | [optional] |
 | **names** | **Array&lt;String&gt;** | Comma-separated list of metric names. | [optional] |
 | **limit** | **Integer** | Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified. | [optional][default to 500] |
 

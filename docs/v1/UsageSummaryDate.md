@@ -12,6 +12,8 @@
 | **aws_lambda_invocations_sum** | **Integer** | Shows the sum of all AWS Lambda invocations over all hours in the current date for all organizations. | [optional] |
 | **azure_app_service_top99p** | **Integer** | Shows the 99th percentile of all Azure app services over all hours in the current date for all organizations. | [optional] |
 | **billable_ingested_bytes_sum** | **Integer** | Shows the sum of all log bytes ingested over all hours in the current date for all organizations. | [optional] |
+| **compliance_container_count_sum** | **Object** | Shows the sum of compliance containers over all hours in the current date for all organizations. | [optional] |
+| **compliance_host_count_sum** | **Integer** | Shows the sum of compliance hosts over all hours in the current date for all organizations. | [optional] |
 | **container_avg** | **Integer** | Shows the average of all distinct containers over all hours in the current date for all organizations. | [optional] |
 | **container_hwm** | **Integer** | Shows the high-water mark of all distinct containers over all hours in the current date for all organizations. | [optional] |
 | **custom_ts_avg** | **Integer** | Shows the average number of distinct custom metrics over all hours in the current date for all organizations. | [optional] |
@@ -19,6 +21,7 @@
 | **fargate_tasks_count_avg** | **Integer** | Shows the high-watermark of all Fargate tasks over all hours in the current date for all organizations. | [optional] |
 | **fargate_tasks_count_hwm** | **Integer** | Shows the average of all Fargate tasks over all hours in the current date for all organizations. | [optional] |
 | **gcp_host_top99p** | **Integer** | Shows the 99th percentile of all GCP hosts over all hours in the current date for all organizations. | [optional] |
+| **heroku_host_top99p_sum** | **Integer** | Shows the 99th percentile of all Heroku dynos over all hours in the current date for all organizations. | [optional] |
 | **incident_management_monthly_active_users_hwm** | **Integer** | Shows the high-water mark of incident management monthly active users over all hours in the current date for all organizations. | [optional] |
 | **indexed_events_count_sum** | **Integer** | Shows the sum of all log events indexed over all hours in the current date for all organizations. | [optional] |
 | **infra_host_top99p** | **Integer** | Shows the 99th percentile of all distinct infrastructure hosts over all hours in the current date for all organizations. | [optional] |
@@ -30,6 +33,7 @@
 | **mobile_rum_session_count_sum** | **Integer** | Shows the sum of all mobile RUM Sessions over all hours in the current date for all organizations | [optional] |
 | **netflow_indexed_events_count_sum** | **Integer** | Shows the sum of all Network flows indexed over all hours in the current date for all organizations. | [optional] |
 | **npm_host_top99p** | **Integer** | Shows the 99th percentile of all distinct Networks hosts over all hours in the current date for all organizations. | [optional] |
+| **opentelemetry_host_top99p_sum** | **Integer** | Shows the 99th percentile of all hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for all organizations. | [optional] |
 | **orgs** | [**Array&lt;UsageSummaryDateOrg&gt;**](UsageSummaryDateOrg.md) | Organizations associated with a user. | [optional] |
 | **profiling_host_top99p** | **Integer** | Shows the 99th percentile of all profiled hosts over all hours in the current date for all organizations. | [optional] |
 | **rum_session_count_sum** | **Integer** | Shows the sum of all browser RUM Sessions over all hours in the current date for all organizations | [optional] |
@@ -53,6 +57,8 @@ instance = DatadogAPIClient::V1::UsageSummaryDate.new(
   aws_lambda_invocations_sum: null,
   azure_app_service_top99p: null,
   billable_ingested_bytes_sum: null,
+  compliance_container_count_sum: null,
+  compliance_host_count_sum: null,
   container_avg: null,
   container_hwm: null,
   custom_ts_avg: null,
@@ -60,6 +66,7 @@ instance = DatadogAPIClient::V1::UsageSummaryDate.new(
   fargate_tasks_count_avg: null,
   fargate_tasks_count_hwm: null,
   gcp_host_top99p: null,
+  heroku_host_top99p_sum: null,
   incident_management_monthly_active_users_hwm: null,
   indexed_events_count_sum: null,
   infra_host_top99p: null,
@@ -71,6 +78,7 @@ instance = DatadogAPIClient::V1::UsageSummaryDate.new(
   mobile_rum_session_count_sum: null,
   netflow_indexed_events_count_sum: null,
   npm_host_top99p: null,
+  opentelemetry_host_top99p_sum: null,
   orgs: null,
   profiling_host_top99p: null,
   rum_session_count_sum: null,

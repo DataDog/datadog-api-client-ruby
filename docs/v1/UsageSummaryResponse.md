@@ -13,6 +13,8 @@
 | **azure_app_service_top99p_sum** | **Integer** | Shows the 99th percentile of all Azure app services over all hours in the current months for all organizations. | [optional] |
 | **azure_host_top99p_sum** | **Integer** | Shows the 99th percentile of all Azure hosts over all hours in the current months for all organizations. | [optional] |
 | **billable_ingested_bytes_agg_sum** | **Integer** | Shows the sum of all log bytes ingested over all hours in the current months for all organizations. | [optional] |
+| **compliance_container_agg_sum** | **Object** | Shows the sum of all compliance containers over all hours in the current months for all organizations. | [optional] |
+| **compliance_host_agg_sum** | **Integer** | Shows the sum of all compliance hosts over all hours in the current months for all organizations. | [optional] |
 | **container_avg_sum** | **Integer** | Shows the average of all distinct containers over all hours in the current months for all organizations. | [optional] |
 | **container_hwm_sum** | **Integer** | Shows the sum of the high-water marks of all distinct containers over all hours in the current months for all organizations. | [optional] |
 | **custom_ts_sum** | **Integer** | Shows the average number of distinct custom metrics over all hours in the current months for all organizations. | [optional] |
@@ -20,6 +22,7 @@
 | **fargate_tasks_count_avg_sum** | **Integer** | Shows the average of all Fargate tasks over all hours in the current months for all organizations. | [optional] |
 | **fargate_tasks_count_hwm_sum** | **Integer** | Shows the sum of the high-water marks of all Fargate tasks over all hours in the current months for all organizations. | [optional] |
 | **gcp_host_top99p_sum** | **Integer** | Shows the 99th percentile of all GCP hosts over all hours in the current months for all organizations. | [optional] |
+| **heroku_host_top99p_sum** | **Integer** | Shows the 99th percentile of all Heroku dynos over all hours in the current months for all organizations. | [optional] |
 | **incident_management_monthly_active_users_hwm_sum** | **Integer** | Shows sum of the the high-water marks of incident management monthly active users in the current months for all organizations. | [optional] |
 | **indexed_events_count_agg_sum** | **Integer** | Shows the sum of all log events indexed over all hours in the current months for all organizations. | [optional] |
 | **infra_host_top99p_sum** | **Integer** | Shows the 99th percentile of all distinct infrastructure hosts over all hours in the current months for all organizations. | [optional] |
@@ -34,6 +37,7 @@
 | **mobile_rum_session_count_ios_agg_sum** | **Integer** | Shows the sum of all mobile RUM Sessions on iOS over all hours in the current months for all organizations. | [optional] |
 | **netflow_indexed_events_count_agg_sum** | **Integer** | Shows the sum of all Network flows indexed over all hours in the current months for all organizations. | [optional] |
 | **npm_host_top99p_sum** | **Integer** | Shows the 99th percentile of all distinct Networks hosts over all hours in the current months for all organizations. | [optional] |
+| **opentelemetry_host_top99p_sum** | **Integer** | Shows the 99th percentile of all hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current months for all organizations. | [optional] |
 | **profiling_container_agent_count_avg** | **Integer** | Shows the average number of profiled containers over all hours in the current months for all organizations. | [optional] |
 | **profiling_host_count_top99p_sum** | **Integer** | Shows the 99th percentile of all profiled hosts over all hours in the current months for all organizations. | [optional] |
 | **rehydrated_indexed_events_agg_sum** | **Integer** | Shows the sum of all rehydrated logs indexed over all hours in the current months for all organizations (data available as of December 1, 2020). | [optional] |
@@ -62,6 +66,8 @@ instance = DatadogAPIClient::V1::UsageSummaryResponse.new(
   azure_app_service_top99p_sum: null,
   azure_host_top99p_sum: null,
   billable_ingested_bytes_agg_sum: null,
+  compliance_container_agg_sum: null,
+  compliance_host_agg_sum: null,
   container_avg_sum: null,
   container_hwm_sum: null,
   custom_ts_sum: null,
@@ -69,6 +75,7 @@ instance = DatadogAPIClient::V1::UsageSummaryResponse.new(
   fargate_tasks_count_avg_sum: null,
   fargate_tasks_count_hwm_sum: null,
   gcp_host_top99p_sum: null,
+  heroku_host_top99p_sum: null,
   incident_management_monthly_active_users_hwm_sum: null,
   indexed_events_count_agg_sum: null,
   infra_host_top99p_sum: null,
@@ -83,6 +90,7 @@ instance = DatadogAPIClient::V1::UsageSummaryResponse.new(
   mobile_rum_session_count_ios_agg_sum: null,
   netflow_indexed_events_count_agg_sum: null,
   npm_host_top99p_sum: null,
+  opentelemetry_host_top99p_sum: null,
   profiling_container_agent_count_avg: null,
   profiling_host_count_top99p_sum: null,
   rehydrated_indexed_events_agg_sum: null,

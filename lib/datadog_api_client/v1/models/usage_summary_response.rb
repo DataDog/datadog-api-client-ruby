@@ -46,6 +46,12 @@ module DatadogAPIClient::V1
     # Shows the sum of all log bytes ingested over all hours in the current months for all organizations.
     attr_accessor :billable_ingested_bytes_agg_sum
 
+    # Shows the sum of all compliance containers over all hours in the current months for all organizations.
+    attr_accessor :compliance_container_agg_sum
+
+    # Shows the sum of all compliance hosts over all hours in the current months for all organizations.
+    attr_accessor :compliance_host_agg_sum
+
     # Shows the average of all distinct containers over all hours in the current months for all organizations.
     attr_accessor :container_avg_sum
 
@@ -66,6 +72,9 @@ module DatadogAPIClient::V1
 
     # Shows the 99th percentile of all GCP hosts over all hours in the current months for all organizations.
     attr_accessor :gcp_host_top99p_sum
+
+    # Shows the 99th percentile of all Heroku dynos over all hours in the current months for all organizations.
+    attr_accessor :heroku_host_top99p_sum
 
     # Shows sum of the the high-water marks of incident management monthly active users in the current months for all organizations.
     attr_accessor :incident_management_monthly_active_users_hwm_sum
@@ -108,6 +117,9 @@ module DatadogAPIClient::V1
 
     # Shows the 99th percentile of all distinct Networks hosts over all hours in the current months for all organizations.
     attr_accessor :npm_host_top99p_sum
+
+    # Shows the 99th percentile of all hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current months for all organizations.
+    attr_accessor :opentelemetry_host_top99p_sum
 
     # Shows the average number of profiled containers over all hours in the current months for all organizations.
     attr_accessor :profiling_container_agent_count_avg
@@ -157,6 +169,8 @@ module DatadogAPIClient::V1
         :'azure_app_service_top99p_sum' => :'azure_app_service_top99p_sum',
         :'azure_host_top99p_sum' => :'azure_host_top99p_sum',
         :'billable_ingested_bytes_agg_sum' => :'billable_ingested_bytes_agg_sum',
+        :'compliance_container_agg_sum' => :'compliance_container_agg_sum',
+        :'compliance_host_agg_sum' => :'compliance_host_agg_sum',
         :'container_avg_sum' => :'container_avg_sum',
         :'container_hwm_sum' => :'container_hwm_sum',
         :'custom_ts_sum' => :'custom_ts_sum',
@@ -164,6 +178,7 @@ module DatadogAPIClient::V1
         :'fargate_tasks_count_avg_sum' => :'fargate_tasks_count_avg_sum',
         :'fargate_tasks_count_hwm_sum' => :'fargate_tasks_count_hwm_sum',
         :'gcp_host_top99p_sum' => :'gcp_host_top99p_sum',
+        :'heroku_host_top99p_sum' => :'heroku_host_top99p_sum',
         :'incident_management_monthly_active_users_hwm_sum' => :'incident_management_monthly_active_users_hwm_sum',
         :'indexed_events_count_agg_sum' => :'indexed_events_count_agg_sum',
         :'infra_host_top99p_sum' => :'infra_host_top99p_sum',
@@ -178,6 +193,7 @@ module DatadogAPIClient::V1
         :'mobile_rum_session_count_ios_agg_sum' => :'mobile_rum_session_count_ios_agg_sum',
         :'netflow_indexed_events_count_agg_sum' => :'netflow_indexed_events_count_agg_sum',
         :'npm_host_top99p_sum' => :'npm_host_top99p_sum',
+        :'opentelemetry_host_top99p_sum' => :'opentelemetry_host_top99p_sum',
         :'profiling_container_agent_count_avg' => :'profiling_container_agent_count_avg',
         :'profiling_host_count_top99p_sum' => :'profiling_host_count_top99p_sum',
         :'rehydrated_indexed_events_agg_sum' => :'rehydrated_indexed_events_agg_sum',
@@ -210,6 +226,8 @@ module DatadogAPIClient::V1
         :'azure_app_service_top99p_sum' => :'Integer',
         :'azure_host_top99p_sum' => :'Integer',
         :'billable_ingested_bytes_agg_sum' => :'Integer',
+        :'compliance_container_agg_sum' => :'Object',
+        :'compliance_host_agg_sum' => :'Integer',
         :'container_avg_sum' => :'Integer',
         :'container_hwm_sum' => :'Integer',
         :'custom_ts_sum' => :'Integer',
@@ -217,6 +235,7 @@ module DatadogAPIClient::V1
         :'fargate_tasks_count_avg_sum' => :'Integer',
         :'fargate_tasks_count_hwm_sum' => :'Integer',
         :'gcp_host_top99p_sum' => :'Integer',
+        :'heroku_host_top99p_sum' => :'Integer',
         :'incident_management_monthly_active_users_hwm_sum' => :'Integer',
         :'indexed_events_count_agg_sum' => :'Integer',
         :'infra_host_top99p_sum' => :'Integer',
@@ -231,6 +250,7 @@ module DatadogAPIClient::V1
         :'mobile_rum_session_count_ios_agg_sum' => :'Integer',
         :'netflow_indexed_events_count_agg_sum' => :'Integer',
         :'npm_host_top99p_sum' => :'Integer',
+        :'opentelemetry_host_top99p_sum' => :'Integer',
         :'profiling_container_agent_count_avg' => :'Integer',
         :'profiling_host_count_top99p_sum' => :'Integer',
         :'rehydrated_indexed_events_agg_sum' => :'Integer',
@@ -249,6 +269,7 @@ module DatadogAPIClient::V1
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'compliance_container_agg_sum',
       ])
     end
 
@@ -303,6 +324,14 @@ module DatadogAPIClient::V1
         self.billable_ingested_bytes_agg_sum = attributes[:'billable_ingested_bytes_agg_sum']
       end
 
+      if attributes.key?(:'compliance_container_agg_sum')
+        self.compliance_container_agg_sum = attributes[:'compliance_container_agg_sum']
+      end
+
+      if attributes.key?(:'compliance_host_agg_sum')
+        self.compliance_host_agg_sum = attributes[:'compliance_host_agg_sum']
+      end
+
       if attributes.key?(:'container_avg_sum')
         self.container_avg_sum = attributes[:'container_avg_sum']
       end
@@ -329,6 +358,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'gcp_host_top99p_sum')
         self.gcp_host_top99p_sum = attributes[:'gcp_host_top99p_sum']
+      end
+
+      if attributes.key?(:'heroku_host_top99p_sum')
+        self.heroku_host_top99p_sum = attributes[:'heroku_host_top99p_sum']
       end
 
       if attributes.key?(:'incident_management_monthly_active_users_hwm_sum')
@@ -385,6 +418,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'npm_host_top99p_sum')
         self.npm_host_top99p_sum = attributes[:'npm_host_top99p_sum']
+      end
+
+      if attributes.key?(:'opentelemetry_host_top99p_sum')
+        self.opentelemetry_host_top99p_sum = attributes[:'opentelemetry_host_top99p_sum']
       end
 
       if attributes.key?(:'profiling_container_agent_count_avg')
@@ -465,6 +502,8 @@ module DatadogAPIClient::V1
           azure_app_service_top99p_sum == o.azure_app_service_top99p_sum &&
           azure_host_top99p_sum == o.azure_host_top99p_sum &&
           billable_ingested_bytes_agg_sum == o.billable_ingested_bytes_agg_sum &&
+          compliance_container_agg_sum == o.compliance_container_agg_sum &&
+          compliance_host_agg_sum == o.compliance_host_agg_sum &&
           container_avg_sum == o.container_avg_sum &&
           container_hwm_sum == o.container_hwm_sum &&
           custom_ts_sum == o.custom_ts_sum &&
@@ -472,6 +511,7 @@ module DatadogAPIClient::V1
           fargate_tasks_count_avg_sum == o.fargate_tasks_count_avg_sum &&
           fargate_tasks_count_hwm_sum == o.fargate_tasks_count_hwm_sum &&
           gcp_host_top99p_sum == o.gcp_host_top99p_sum &&
+          heroku_host_top99p_sum == o.heroku_host_top99p_sum &&
           incident_management_monthly_active_users_hwm_sum == o.incident_management_monthly_active_users_hwm_sum &&
           indexed_events_count_agg_sum == o.indexed_events_count_agg_sum &&
           infra_host_top99p_sum == o.infra_host_top99p_sum &&
@@ -486,6 +526,7 @@ module DatadogAPIClient::V1
           mobile_rum_session_count_ios_agg_sum == o.mobile_rum_session_count_ios_agg_sum &&
           netflow_indexed_events_count_agg_sum == o.netflow_indexed_events_count_agg_sum &&
           npm_host_top99p_sum == o.npm_host_top99p_sum &&
+          opentelemetry_host_top99p_sum == o.opentelemetry_host_top99p_sum &&
           profiling_container_agent_count_avg == o.profiling_container_agent_count_avg &&
           profiling_host_count_top99p_sum == o.profiling_host_count_top99p_sum &&
           rehydrated_indexed_events_agg_sum == o.rehydrated_indexed_events_agg_sum &&
@@ -509,7 +550,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_host_top99p_sum, apm_azure_app_service_host_top99p_sum, apm_host_top99p_sum, aws_host_top99p_sum, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p_sum, azure_host_top99p_sum, billable_ingested_bytes_agg_sum, container_avg_sum, container_hwm_sum, custom_ts_sum, end_date, fargate_tasks_count_avg_sum, fargate_tasks_count_hwm_sum, gcp_host_top99p_sum, incident_management_monthly_active_users_hwm_sum, indexed_events_count_agg_sum, infra_host_top99p_sum, ingested_events_bytes_agg_sum, iot_device_agg_sum, iot_device_top99p_sum, last_updated, live_indexed_events_agg_sum, live_ingested_bytes_agg_sum, mobile_rum_session_count_agg_sum, mobile_rum_session_count_android_agg_sum, mobile_rum_session_count_ios_agg_sum, netflow_indexed_events_count_agg_sum, npm_host_top99p_sum, profiling_container_agent_count_avg, profiling_host_count_top99p_sum, rehydrated_indexed_events_agg_sum, rehydrated_ingested_bytes_agg_sum, rum_session_count_agg_sum, rum_total_session_count_agg_sum, start_date, synthetics_browser_check_calls_count_agg_sum, synthetics_check_calls_count_agg_sum, trace_search_indexed_events_count_agg_sum, twol_ingested_events_bytes_agg_sum, usage].hash
+      [agent_host_top99p_sum, apm_azure_app_service_host_top99p_sum, apm_host_top99p_sum, aws_host_top99p_sum, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p_sum, azure_host_top99p_sum, billable_ingested_bytes_agg_sum, compliance_container_agg_sum, compliance_host_agg_sum, container_avg_sum, container_hwm_sum, custom_ts_sum, end_date, fargate_tasks_count_avg_sum, fargate_tasks_count_hwm_sum, gcp_host_top99p_sum, heroku_host_top99p_sum, incident_management_monthly_active_users_hwm_sum, indexed_events_count_agg_sum, infra_host_top99p_sum, ingested_events_bytes_agg_sum, iot_device_agg_sum, iot_device_top99p_sum, last_updated, live_indexed_events_agg_sum, live_ingested_bytes_agg_sum, mobile_rum_session_count_agg_sum, mobile_rum_session_count_android_agg_sum, mobile_rum_session_count_ios_agg_sum, netflow_indexed_events_count_agg_sum, npm_host_top99p_sum, opentelemetry_host_top99p_sum, profiling_container_agent_count_avg, profiling_host_count_top99p_sum, rehydrated_indexed_events_agg_sum, rehydrated_ingested_bytes_agg_sum, rum_session_count_agg_sum, rum_total_session_count_agg_sum, start_date, synthetics_browser_check_calls_count_agg_sum, synthetics_check_calls_count_agg_sum, trace_search_indexed_events_count_agg_sum, twol_ingested_events_bytes_agg_sum, usage].hash
     end
 
     # Builds the object from hash

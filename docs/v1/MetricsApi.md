@@ -116,7 +116,8 @@ end
 api_instance = DatadogAPIClient::V1::MetricsApi.new
 from = 789 # Integer | Seconds since the Unix epoch.
 opts = {
-  host: 'host_example' # String | Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag.
+  host: 'host_example', # String | Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag.
+  tag_filter: 'env IN (staging,test) AND service:web' # String | Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
 }
 
 begin
@@ -152,6 +153,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **from** | **Integer** | Seconds since the Unix epoch. |  |
 | **host** | **String** | Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag. | [optional] |
+| **tag_filter** | **String** | Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters. | [optional] |
 
 ### Return type
 

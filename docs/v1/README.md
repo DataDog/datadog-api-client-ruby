@@ -207,6 +207,7 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::SyntheticsApi* | [**delete_private_location**](SyntheticsApi.md#delete_private_location) | **DELETE** /api/v1/synthetics/private-locations/{location_id} | Delete a private location
 *DatadogAPIClient::V1::SyntheticsApi* | [**delete_tests**](SyntheticsApi.md#delete_tests) | **POST** /api/v1/synthetics/tests/delete | Delete tests
 *DatadogAPIClient::V1::SyntheticsApi* | [**edit_global_variable**](SyntheticsApi.md#edit_global_variable) | **PUT** /api/v1/synthetics/variables/{variable_id} | Edit a global variable
+*DatadogAPIClient::V1::SyntheticsApi* | [**get_api_test**](SyntheticsApi.md#get_api_test) | **GET** /api/v1/synthetics/tests/api/{public_id} | Get an API test
 *DatadogAPIClient::V1::SyntheticsApi* | [**get_api_test_latest_results**](SyntheticsApi.md#get_api_test_latest_results) | **GET** /api/v1/synthetics/tests/{public_id}/results | Get the test's latest results summaries (API)
 *DatadogAPIClient::V1::SyntheticsApi* | [**get_api_test_result**](SyntheticsApi.md#get_api_test_result) | **GET** /api/v1/synthetics/tests/{public_id}/results/{result_id} | Get a test result (API)
 *DatadogAPIClient::V1::SyntheticsApi* | [**get_browser_test**](SyntheticsApi.md#get_browser_test) | **GET** /api/v1/synthetics/tests/browser/{public_id} | Get a test configuration (browser)
@@ -238,6 +239,7 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_usage_analyzed_logs**](UsageMeteringApi.md#get_usage_analyzed_logs) | **GET** /api/v1/usage/analyzed_logs | Get hourly usage for analyzed logs
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_usage_attribution**](UsageMeteringApi.md#get_usage_attribution) | **GET** /api/v1/usage/attribution | Get Usage Attribution
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_usage_billable_summary**](UsageMeteringApi.md#get_usage_billable_summary) | **GET** /api/v1/usage/billable-summary | Get billable usage across your account
+*DatadogAPIClient::V1::UsageMeteringApi* | [**get_usage_compliance_monitoring**](UsageMeteringApi.md#get_usage_compliance_monitoring) | **GET** /api/v1/usage/compliance-monitoring | Get hourly usage for Compliance Monitoring
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_usage_fargate**](UsageMeteringApi.md#get_usage_fargate) | **GET** /api/v1/usage/fargate | Get hourly usage for Fargate
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_usage_hosts**](UsageMeteringApi.md#get_usage_hosts) | **GET** /api/v1/usage/hosts | Get hourly usage for hosts and containers
 *DatadogAPIClient::V1::UsageMeteringApi* | [**get_usage_indexed_spans**](UsageMeteringApi.md#get_usage_indexed_spans) | **GET** /api/v1/usage/indexed-spans | Get hourly usage for indexed spans
@@ -658,6 +660,8 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::UsageBillableSummaryHour](UsageBillableSummaryHour.md)
  - [DatadogAPIClient::V1::UsageBillableSummaryKeys](UsageBillableSummaryKeys.md)
  - [DatadogAPIClient::V1::UsageBillableSummaryResponse](UsageBillableSummaryResponse.md)
+ - [DatadogAPIClient::V1::UsageComplianceHour](UsageComplianceHour.md)
+ - [DatadogAPIClient::V1::UsageComplianceResponse](UsageComplianceResponse.md)
  - [DatadogAPIClient::V1::UsageCustomReportsAttributes](UsageCustomReportsAttributes.md)
  - [DatadogAPIClient::V1::UsageCustomReportsData](UsageCustomReportsData.md)
  - [DatadogAPIClient::V1::UsageCustomReportsMeta](UsageCustomReportsMeta.md)
@@ -712,6 +716,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::UsageTimeseriesHour](UsageTimeseriesHour.md)
  - [DatadogAPIClient::V1::UsageTimeseriesResponse](UsageTimeseriesResponse.md)
  - [DatadogAPIClient::V1::UsageTopAvgMetricsHour](UsageTopAvgMetricsHour.md)
+ - [DatadogAPIClient::V1::UsageTopAvgMetricsMetadata](UsageTopAvgMetricsMetadata.md)
  - [DatadogAPIClient::V1::UsageTopAvgMetricsResponse](UsageTopAvgMetricsResponse.md)
  - [DatadogAPIClient::V1::UsageTraceHour](UsageTraceHour.md)
  - [DatadogAPIClient::V1::UsageTraceResponse](UsageTraceResponse.md)

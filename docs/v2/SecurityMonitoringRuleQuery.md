@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **agent_rule** | [**SecurityMonitoringRuntimeAgentRule**](SecurityMonitoringRuntimeAgentRule.md) |  | [optional] |
 | **aggregation** | [**SecurityMonitoringRuleQueryAggregation**](SecurityMonitoringRuleQueryAggregation.md) |  | [optional] |
 | **distinct_fields** | **Array&lt;String&gt;** | Field for which the cardinality is measured. Sent as an array. | [optional] |
 | **group_by_fields** | **Array&lt;String&gt;** | Fields to group by. | [optional] |
@@ -17,6 +18,7 @@
 require 'datadog_api_client/v2'
 
 instance = DatadogAPIClient::V2::SecurityMonitoringRuleQuery.new(
+  agent_rule: null,
   aggregation: null,
   distinct_fields: null,
   group_by_fields: null,
