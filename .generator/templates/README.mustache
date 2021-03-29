@@ -13,8 +13,7 @@ Please follow the [installation](#installation) procedure and then run the follo
 ```ruby
 # Load the gem
 require '{{{gemName}}}'
-{{#apiInfo}}{{#apis}}{{#-first}}{{#operations}}{{#operation}}{{#-first}}{{#hasAuthMethods}}
-
+{{#apiInfo}}{{#apis}}{{#-first}}{{#operations}}{{#operation}}{{#-first}}
 api_instance = {{{moduleName}}}::{{{classname}}}.new
 {{#requiredParams}}
 {{{paramName}}} = {{{vendorExtensions.x-ruby-example}}} # {{{dataType}}} | {{{description}}}
