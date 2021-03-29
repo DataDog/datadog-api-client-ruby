@@ -256,6 +256,8 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_tags_configured Filter tag configurations by configured tags.
     # @option opts [MetricTagConfigurationMetricTypes] :filter_metric_type Filter tag configurations by metric type. (default to 'gauge')
     # @option opts [Boolean] :filter_include_percentiles Filter distributions with additional percentile aggregations enabled or disabled.
+    # @option opts [String] :filter_tags Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
+    # @option opts [Integer] :window_seconds The number of seconds of look back (from now) to apply to a filter[tag] query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days).
     # @return [MetricsAndMetricTagConfigurationsResponse]
     def list_tag_configurations(opts = {})
       data, _status_code, _headers = list_tag_configurations_with_http_info(opts)
@@ -269,6 +271,8 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_tags_configured Filter tag configurations by configured tags.
     # @option opts [MetricTagConfigurationMetricTypes] :filter_metric_type Filter tag configurations by metric type.
     # @option opts [Boolean] :filter_include_percentiles Filter distributions with additional percentile aggregations enabled or disabled.
+    # @option opts [String] :filter_tags Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
+    # @option opts [Integer] :window_seconds The number of seconds of look back (from now) to apply to a filter[tag] query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days).
     # @return [Array<(MetricsAndMetricTagConfigurationsResponse, Integer, Hash)>] MetricsAndMetricTagConfigurationsResponse data, response status code and response headers
     def list_tag_configurations_with_http_info(opts = {})
 
@@ -293,6 +297,8 @@ module DatadogAPIClient::V2
       query_params[:'filter[tags_configured]'] = opts[:'filter_tags_configured'] if !opts[:'filter_tags_configured'].nil?
       query_params[:'filter[metric_type]'] = opts[:'filter_metric_type'] if !opts[:'filter_metric_type'].nil?
       query_params[:'filter[include_percentiles]'] = opts[:'filter_include_percentiles'] if !opts[:'filter_include_percentiles'].nil?
+      query_params[:'filter[tags]'] = opts[:'filter_tags'] if !opts[:'filter_tags'].nil?
+      query_params[:'window[seconds]'] = opts[:'window_seconds'] if !opts[:'window_seconds'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

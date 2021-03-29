@@ -281,7 +281,9 @@ opts = {
   filter_configured: true, # Boolean | Filter metrics that have configured tags.
   filter_tags_configured: 'app', # String | Filter tag configurations by configured tags.
   filter_metric_type: DatadogAPIClient::V2::MetricTagConfigurationMetricTypes::GAUGE, # MetricTagConfigurationMetricTypes | Filter tag configurations by metric type.
-  filter_include_percentiles: true # Boolean | Filter distributions with additional percentile aggregations enabled or disabled.
+  filter_include_percentiles: true, # Boolean | Filter distributions with additional percentile aggregations enabled or disabled.
+  filter_tags: 'env IN (staging,test) AND service:web', # String | Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
+  window_seconds: 3600 # Integer | The number of seconds of look back (from now) to apply to a filter[tag] query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days).
 }
 
 begin
@@ -319,6 +321,8 @@ end
 | **filter_tags_configured** | **String** | Filter tag configurations by configured tags. | [optional] |
 | **filter_metric_type** | **MetricTagConfigurationMetricTypes** | Filter tag configurations by metric type. | [optional][default to &#39;gauge&#39;] |
 | **filter_include_percentiles** | **Boolean** | Filter distributions with additional percentile aggregations enabled or disabled. | [optional] |
+| **filter_tags** | **String** | Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters. | [optional] |
+| **window_seconds** | **Integer** | The number of seconds of look back (from now) to apply to a filter[tag] query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days). | [optional] |
 
 ### Return type
 

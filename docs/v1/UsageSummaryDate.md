@@ -12,6 +12,8 @@
 | **aws_lambda_invocations_sum** | **Integer** | Shows the sum of all AWS Lambda invocations over all hours in the current date for all organizations. | [optional] |
 | **azure_app_service_top99p** | **Integer** | Shows the 99th percentile of all Azure app services over all hours in the current date for all organizations. | [optional] |
 | **billable_ingested_bytes_sum** | **Integer** | Shows the sum of all log bytes ingested over all hours in the current date for all organizations. | [optional] |
+| **compliance_container_count_sum** | **Object** | Shows the sum of compliance containers over all hours in the current date for all organizations. | [optional] |
+| **compliance_host_count_sum** | **Integer** | Shows the sum of compliance hosts over all hours in the current date for all organizations. | [optional] |
 | **container_avg** | **Integer** | Shows the average of all distinct containers over all hours in the current date for all organizations. | [optional] |
 | **container_hwm** | **Integer** | Shows the high-water mark of all distinct containers over all hours in the current date for all organizations. | [optional] |
 | **custom_ts_avg** | **Integer** | Shows the average number of distinct custom metrics over all hours in the current date for all organizations. | [optional] |
@@ -55,6 +57,8 @@ instance = DatadogAPIClient::V1::UsageSummaryDate.new(
   aws_lambda_invocations_sum: null,
   azure_app_service_top99p: null,
   billable_ingested_bytes_sum: null,
+  compliance_container_count_sum: null,
+  compliance_host_count_sum: null,
   container_avg: null,
   container_hwm: null,
   custom_ts_avg: null,
