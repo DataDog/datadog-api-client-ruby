@@ -76,10 +76,10 @@ module APIWorld
 
     # make sure we have a fresh instance of API client and configuration
     given_api = Object.const_get("DatadogAPIClient::V#{api_version}")
-    given_configuration = given_api.const_get("Configuration").new
-    given_configuration.api_key['apiKeyAuth'] = ENV["DD_TEST_CLIENT_API_KEY"]
-    given_configuration.api_key['appKeyAuth'] = ENV["DD_TEST_CLIENT_APP_KEY"]
-    given_api_client = given_api.const_get("ApiClient").new given_configuration
+    given_configuration = given_api::Configuration.new
+    given_configuration.api_key = ENV["DD_TEST_CLIENT_API_KEY"]
+    given_configuration.app_key = ENV["DD_TEST_CLIENT_APP_KEY"]
+    given_api_client = given_api::ApiClient.new given_configuration
     given_api_instance = api.const_get("#{api_name}Api").new given_api_client
     method = given_api_instance.method("#{operation_name}_with_http_info".to_sym)
 
@@ -115,11 +115,11 @@ World(APIWorld)
 
 
 Given('a valid "apiKeyAuth" key in the system') do
-  configuration.api_key['apiKeyAuth'] = ENV["DD_TEST_CLIENT_API_KEY"]
+  configuration.api_key = ENV["DD_TEST_CLIENT_API_KEY"]
 end
 
 Given('a valid "appKeyAuth" key in the system') do
-  configuration.api_key['appKeyAuth'] = ENV["DD_TEST_CLIENT_APP_KEY"]
+  configuration.app_key = ENV["DD_TEST_CLIENT_APP_KEY"]
 end
 
 Given(/^an instance of "([^"]+)" API$/) do |api_name|
