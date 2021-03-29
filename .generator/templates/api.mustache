@@ -45,7 +45,7 @@ module {{moduleName}}
         if unstable_enabled
           @api_client.config.logger.warn format("Using unstable operation '%s'", "{{operationId}}")
         else
-          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "{{operationId}}"))
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "{{operationId}}"))
         end
       end
 

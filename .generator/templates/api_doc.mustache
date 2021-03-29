@@ -53,7 +53,7 @@ begin
   {{#returnType}}
   p result
   {{/returnType}}
-rescue {{{moduleName}}}::ApiError => e
+rescue {{{moduleName}}}::APIError => e
   puts "Error when calling {{classname}}->{{{operationId}}}: #{e}"
 end
 ```
@@ -71,7 +71,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => {{#returnType}}{{#returnTypeIsPrimitive}}{{returnType}}{{/returnTypeIsPrimitive}}{{^returnTypeIsPrimitive}}<{{{returnType}}}>{{/returnTypeIsPrimitive}}{{/returnType}}{{^returnType}}nil{{/returnType}}
-rescue {{{moduleName}}}::ApiError => e
+rescue {{{moduleName}}}::APIError => e
   puts "Error when calling {{classname}}->{{{operationId}}}_with_http_info: #{e}"
 end
 ```
