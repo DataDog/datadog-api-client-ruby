@@ -78,7 +78,7 @@ module APIWorld
     given_api = Object.const_get("DatadogAPIClient::V#{api_version}")
     given_configuration = given_api::Configuration.new
     given_configuration.api_key = ENV["DD_TEST_CLIENT_API_KEY"]
-    given_configuration.app_key = ENV["DD_TEST_CLIENT_APP_KEY"]
+    given_configuration.application_key = ENV["DD_TEST_CLIENT_APP_KEY"]
     given_api_client = given_api::ApiClient.new given_configuration
     given_api_instance = api.const_get("#{api_name}Api").new given_api_client
     method = given_api_instance.method("#{operation_name}_with_http_info".to_sym)
@@ -119,7 +119,7 @@ Given('a valid "apiKeyAuth" key in the system') do
 end
 
 Given('a valid "appKeyAuth" key in the system') do
-  configuration.app_key = ENV["DD_TEST_CLIENT_APP_KEY"]
+  configuration.application_key = ENV["DD_TEST_CLIENT_APP_KEY"]
 end
 
 Given(/^an instance of "([^"]+)" API$/) do |api_name|

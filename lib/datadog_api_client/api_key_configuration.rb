@@ -12,7 +12,7 @@ module DatadogAPIClient::V1
       self.api_key['apiKeyAuth'] = api_key
     end
 
-    def app_key=(app_key)
+    def application_key=(app_key)
       self.api_key['appKeyAuth'] = app_key
     end
   end
@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
       self.api_key['apiKeyAuth'] = api_key
     end
 
-    def app_key=(app_key)
+    def application_key=(app_key)
       self.api_key['appKeyAuth'] = app_key
     end
   end

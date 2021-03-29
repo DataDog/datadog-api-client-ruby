@@ -101,7 +101,7 @@ RSpec.configure do |config|
     api = Object.const_get("DatadogAPIClient::V#{@api_version}")
     @configuration = api::Configuration.new
     @configuration.api_key = ENV["DD_TEST_CLIENT_API_KEY"]
-    @configuration.app_key = ENV["DD_TEST_CLIENT_APP_KEY"]
+    @configuration.application_key = ENV["DD_TEST_CLIENT_APP_KEY"]
     @configuration.debugging = (!ENV["DEBUG"].nil? and ENV["DEBUG"] != "false")
     @api_client = api::ApiClient.new @configuration
   end
