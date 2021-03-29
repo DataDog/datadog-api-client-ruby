@@ -37,6 +37,9 @@ module DatadogAPIClient::V1
 
     attr_accessor :method
 
+    # Determines whether or not to save the response body.
+    attr_accessor :no_saving_response_body
+
     # Port to use when performing the test.
     attr_accessor :port
 
@@ -59,6 +62,7 @@ module DatadogAPIClient::V1
         :'headers' => :'headers',
         :'host' => :'host',
         :'method' => :'method',
+        :'no_saving_response_body' => :'noSavingResponseBody',
         :'port' => :'port',
         :'query' => :'query',
         :'timeout' => :'timeout',
@@ -81,6 +85,7 @@ module DatadogAPIClient::V1
         :'headers' => :'Hash<String, String>',
         :'host' => :'String',
         :'method' => :'HTTPMethod',
+        :'no_saving_response_body' => :'Boolean',
         :'port' => :'Integer',
         :'query' => :'Object',
         :'timeout' => :'Float',
@@ -139,6 +144,10 @@ module DatadogAPIClient::V1
         self.method = attributes[:'method']
       end
 
+      if attributes.key?(:'no_saving_response_body')
+        self.no_saving_response_body = attributes[:'no_saving_response_body']
+      end
+
       if attributes.key?(:'port')
         self.port = attributes[:'port']
       end
@@ -181,6 +190,7 @@ module DatadogAPIClient::V1
           headers == o.headers &&
           host == o.host &&
           method == o.method &&
+          no_saving_response_body == o.no_saving_response_body &&
           port == o.port &&
           query == o.query &&
           timeout == o.timeout &&
@@ -196,7 +206,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [basic_auth, body, certificate, dns_server, headers, host, method, port, query, timeout, url].hash
+      [basic_auth, body, certificate, dns_server, headers, host, method, no_saving_response_body, port, query, timeout, url].hash
     end
 
     # Builds the object from hash

@@ -19,11 +19,15 @@ require 'time'
 module DatadogAPIClient::V1
   # Result of the last API test run.
   class SyntheticsAPITestResultShortResult
+    # Describes if the test run has passed or failed.
+    attr_accessor :passed
+
     attr_accessor :timings
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'passed' => :'passed',
         :'timings' => :'timings'
       }
     end
@@ -36,6 +40,7 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'passed' => :'Boolean',
         :'timings' => :'SyntheticsTiming'
       }
     end
@@ -61,6 +66,10 @@ module DatadogAPIClient::V1
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'passed')
+        self.passed = attributes[:'passed']
+      end
+
       if attributes.key?(:'timings')
         self.timings = attributes[:'timings']
       end
@@ -84,6 +93,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          passed == o.passed &&
           timings == o.timings
     end
 
@@ -96,7 +106,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [timings].hash
+      [passed, timings].hash
     end
 
     # Builds the object from hash
