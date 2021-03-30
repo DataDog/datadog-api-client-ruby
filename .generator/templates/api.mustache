@@ -192,7 +192,7 @@ module {{moduleName}}
       auth_names = opts[:debug_auth_names] || [{{#authMethods}}'{{name}}'{{^-last}}, {{/-last}}{{/authMethods}}]
 
       new_options = opts.merge(
-        :operation => :"{{classname}}.{{operationId}}",
+        :operation => :{{operationId}},
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
