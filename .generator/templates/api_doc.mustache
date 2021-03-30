@@ -29,25 +29,12 @@ All URIs are relative to *{{basePath}}*
 require 'time'
 require '{{{gemNameInExamples}}}'
 
+{{#vendorExtensions.x-unstable}}
 {{{moduleName}}}.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-{{#hasAuthMethods}}
-
-  # setup authorization{{#authMethods}}{{#isBasic}}{{#isBasicBasic}}
-  # Configure HTTP basic authorization: {{{name}}}
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'{{/isBasicBasic}}{{#isBasicBearer}}
-  # Configure Bearer authorization{{#bearerFormat}} ({{{.}}}){{/bearerFormat}}: {{{name}}}
-  config.access_token = 'YOUR_BEARER_TOKEN'{{/isBasicBearer}}{{/isBasic}}{{#isApiKey}}
-  # Configure API key authorization: {{{name}}}
-  config.api_key['{{{name}}}'] = ENV["{{{vendorExtensions.x-env-name}}}"]{{/isApiKey}}{{#isOAuth}}
-  # Configure OAuth2 access token for authorization: {{{name}}}
-  config.access_token = 'YOUR ACCESS TOKEN'{{/isOAuth}}
-{{/authMethods}}{{/hasAuthMethods}}{{#vendorExtensions.x-unstable}}
   config.unstable_operations[:{{{operationId}}}] = true
-{{/vendorExtensions.x-unstable}}end
+end
 
+{{/vendorExtensions.x-unstable}}
 api_instance = {{{moduleName}}}::{{{classname}}}.new
 {{#requiredParams}}
 {{{paramName}}} = {{{vendorExtensions.x-ruby-example}}} # {{{dataType}}} | {{{description}}}

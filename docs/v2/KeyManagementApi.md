@@ -33,18 +33,6 @@ Create an API key.
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V2::KeyManagementApi.new
 body = DatadogAPIClient::V2::APIKeyCreateRequest.new({data: DatadogAPIClient::V2::APIKeyCreateData.new({attributes: DatadogAPIClient::V2::APIKeyCreateAttributes.new({name: 'API Key for submitting metrics'}), type: DatadogAPIClient::V2::APIKeysType::API_KEYS})}) # APIKeyCreateRequest | 
 
@@ -108,18 +96,6 @@ Create an application key for current user
 ```ruby
 require 'time'
 require 'datadog_api_client'
-
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
 
 api_instance = DatadogAPIClient::V2::KeyManagementApi.new
 body = DatadogAPIClient::V2::ApplicationKeyCreateRequest.new({data: DatadogAPIClient::V2::ApplicationKeyCreateData.new({attributes: DatadogAPIClient::V2::ApplicationKeyCreateAttributes.new({name: 'Application Key for submitting metrics'}), type: DatadogAPIClient::V2::ApplicationKeysType::APPLICATION_KEYS})}) # ApplicationKeyCreateRequest | 
@@ -185,18 +161,6 @@ Delete an API key.
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V2::KeyManagementApi.new
 api_key_id = 'api_key_id_example' # String | The ID of the API key.
 
@@ -259,18 +223,6 @@ Delete an application key
 ```ruby
 require 'time'
 require 'datadog_api_client'
-
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
 
 api_instance = DatadogAPIClient::V2::KeyManagementApi.new
 app_key_id = 'app_key_id_example' # String | The ID of the application key.
@@ -335,18 +287,6 @@ Delete an application key owned by current user
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V2::KeyManagementApi.new
 app_key_id = 'app_key_id_example' # String | The ID of the application key.
 
@@ -409,18 +349,6 @@ Get an API key.
 ```ruby
 require 'time'
 require 'datadog_api_client'
-
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
 
 api_instance = DatadogAPIClient::V2::KeyManagementApi.new
 api_key_id = 'api_key_id_example' # String | The ID of the API key.
@@ -490,18 +418,6 @@ Get an application key owned by current user
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V2::KeyManagementApi.new
 app_key_id = 'app_key_id_example' # String | The ID of the application key.
 
@@ -565,18 +481,6 @@ List all API keys available for your account.
 ```ruby
 require 'time'
 require 'datadog_api_client'
-
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
 
 api_instance = DatadogAPIClient::V2::KeyManagementApi.new
 opts = {
@@ -660,18 +564,6 @@ List all application keys available for your org
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V2::KeyManagementApi.new
 opts = {
   page_size: 789, # Integer | Size for a given page.
@@ -747,18 +639,6 @@ List all application keys available for current user
 ```ruby
 require 'time'
 require 'datadog_api_client'
-
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
 
 api_instance = DatadogAPIClient::V2::KeyManagementApi.new
 opts = {
@@ -836,18 +716,6 @@ Update an API key.
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V2::KeyManagementApi.new
 api_key_id = 'api_key_id_example' # String | The ID of the API key.
 body = DatadogAPIClient::V2::APIKeyUpdateRequest.new({data: DatadogAPIClient::V2::APIKeyUpdateData.new({attributes: DatadogAPIClient::V2::APIKeyUpdateAttributes.new({name: 'API Key for submitting metrics'}), id: '00112233-4455-6677-8899-aabbccddeeff', type: DatadogAPIClient::V2::APIKeysType::API_KEYS})}) # APIKeyUpdateRequest | 
@@ -914,18 +782,6 @@ Edit an application key
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V2::KeyManagementApi.new
 app_key_id = 'app_key_id_example' # String | The ID of the application key.
 body = DatadogAPIClient::V2::ApplicationKeyUpdateRequest.new({data: DatadogAPIClient::V2::ApplicationKeyUpdateData.new({attributes: DatadogAPIClient::V2::ApplicationKeyUpdateAttributes.new({name: 'Application Key for submitting metrics'}), id: '00112233-4455-6677-8899-aabbccddeeff', type: DatadogAPIClient::V2::ApplicationKeysType::APPLICATION_KEYS})}) # ApplicationKeyUpdateRequest | 
@@ -991,18 +847,6 @@ Edit an application key owned by current user
 ```ruby
 require 'time'
 require 'datadog_api_client'
-
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
 
 api_instance = DatadogAPIClient::V2::KeyManagementApi.new
 app_key_id = 'app_key_id_example' # String | The ID of the application key.
