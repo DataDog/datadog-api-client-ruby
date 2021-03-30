@@ -103,7 +103,7 @@ RSpec.configure do |config|
     @configuration.api_key = ENV["DD_TEST_CLIENT_API_KEY"]
     @configuration.application_key = ENV["DD_TEST_CLIENT_APP_KEY"]
     @configuration.debugging = (!ENV["DEBUG"].nil? and ENV["DEBUG"] != "false")
-    @api_client = api::ApiClient.new @configuration
+    @api_client = api::APIClient.new @configuration
   end
 
   config.after(:suite) do
