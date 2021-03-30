@@ -30,18 +30,6 @@ Adds a read role to an archive. ([Roles API](https://docs.datadoghq.com/api/v2/r
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V2::LogsArchivesApi.new
 archive_id = 'archive_id_example' # String | The ID of the archive.
 body = DatadogAPIClient::V2::RelationshipToRole.new # RelationshipToRole | 
@@ -107,18 +95,6 @@ Create an archive in your organization.
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V2::LogsArchivesApi.new
 body = DatadogAPIClient::V2::LogsArchiveCreateRequest.new # LogsArchiveCreateRequest | The definition of the new archive.
 
@@ -183,18 +159,6 @@ Delete a given archive from your organization.
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V2::LogsArchivesApi.new
 archive_id = 'archive_id_example' # String | The ID of the archive.
 
@@ -257,18 +221,6 @@ Get a specific archive from your organization.
 ```ruby
 require 'time'
 require 'datadog_api_client'
-
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
 
 api_instance = DatadogAPIClient::V2::LogsArchivesApi.new
 archive_id = 'archive_id_example' # String | The ID of the archive.
@@ -334,18 +286,6 @@ Get the current order of your archives. This endpoint takes no JSON arguments.
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V2::LogsArchivesApi.new
 
 begin
@@ -406,18 +346,6 @@ Returns all read roles a given archive is restricted to.
 ```ruby
 require 'time'
 require 'datadog_api_client'
-
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
 
 api_instance = DatadogAPIClient::V2::LogsArchivesApi.new
 archive_id = 'archive_id_example' # String | The ID of the archive.
@@ -483,18 +411,6 @@ Get the list of configured logs archives with their definitions.
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V2::LogsArchivesApi.new
 
 begin
@@ -555,18 +471,6 @@ Removes a role from an archive. ([Roles API](https://docs.datadoghq.com/api/v2/r
 ```ruby
 require 'time'
 require 'datadog_api_client'
-
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
 
 api_instance = DatadogAPIClient::V2::LogsArchivesApi.new
 archive_id = 'archive_id_example' # String | The ID of the archive.
@@ -633,18 +537,6 @@ Update a given archive configuration.  **Note**: Using this method updates your 
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V2::LogsArchivesApi.new
 archive_id = 'archive_id_example' # String | The ID of the archive.
 body = DatadogAPIClient::V2::LogsArchiveCreateRequest.new # LogsArchiveCreateRequest | New definition of the archive.
@@ -710,18 +602,6 @@ Update the order of your archives. Since logs are processed sequentially, reorde
 ```ruby
 require 'time'
 require 'datadog_api_client'
-
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
 
 api_instance = DatadogAPIClient::V2::LogsArchivesApi.new
 body = DatadogAPIClient::V2::LogsArchiveOrder.new # LogsArchiveOrder | An object containing the new ordered list of archive IDs.

@@ -60,10 +60,10 @@ require 'datadog_api_client/v1'
 # Setup authorization
 DatadogAPIClient::V1.configure do |config|
   # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
+  config.api_key['apiKeyAuth'] = ENV["DD_API_KEY"]
 
   # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
+  config.api_key['appKeyAuth'] = ENV["DD_APP_KEY"]
 end
 
 api_instance = DatadogAPIClient::V1::AWSIntegrationApi.new
