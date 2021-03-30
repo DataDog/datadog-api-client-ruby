@@ -25,18 +25,6 @@ Add a channel to your Datadog-Slack integration.
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V1.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V1::SlackIntegrationApi.new
 account_name = 'account_name_example' # String | Your Slack account name.
 body = DatadogAPIClient::V1::SlackIntegrationChannel.new # SlackIntegrationChannel | Payload describing Slack channel to be created
@@ -102,18 +90,6 @@ Get a channel configured for your Datadog-Slack integration.
 ```ruby
 require 'time'
 require 'datadog_api_client'
-
-DatadogAPIClient::V1.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
 
 api_instance = DatadogAPIClient::V1::SlackIntegrationApi.new
 account_name = 'account_name_example' # String | Your Slack account name.
@@ -181,18 +157,6 @@ Get a list of all channels configured for your Datadog-Slack integration.
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V1.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V1::SlackIntegrationApi.new
 account_name = 'account_name_example' # String | Your Slack account name.
 
@@ -256,18 +220,6 @@ Remove a channel from your Datadog-Slack integration.
 ```ruby
 require 'time'
 require 'datadog_api_client'
-
-DatadogAPIClient::V1.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
 
 api_instance = DatadogAPIClient::V1::SlackIntegrationApi.new
 account_name = 'account_name_example' # String | Your Slack account name.
@@ -333,18 +285,6 @@ Update a channel used in your Datadog-Slack integration.
 ```ruby
 require 'time'
 require 'datadog_api_client'
-
-DatadogAPIClient::V1.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
 
 api_instance = DatadogAPIClient::V1::SlackIntegrationApi.new
 account_name = 'account_name_example' # String | Your Slack account name.

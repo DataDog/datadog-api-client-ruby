@@ -25,18 +25,6 @@ Get metadata about a specific metric.
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V1.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V1::MetricsApi.new
 metric_name = 'metric_name_example' # String | Name of the metric for which to get metadata.
 
@@ -100,18 +88,6 @@ Get the list of actively reporting metrics from a given time until now.
 ```ruby
 require 'time'
 require 'datadog_api_client'
-
-DatadogAPIClient::V1.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
 
 api_instance = DatadogAPIClient::V1::MetricsApi.new
 from = 789 # Integer | Seconds since the Unix epoch.
@@ -183,18 +159,6 @@ Search for metrics from the last 24 hours in Datadog.
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V1.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V1::MetricsApi.new
 q = 'q_example' # String | Query string to search metrics upon. Must be prefixed with `metrics:`.
 
@@ -258,18 +222,6 @@ Query timeseries points.
 ```ruby
 require 'time'
 require 'datadog_api_client'
-
-DatadogAPIClient::V1.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
 
 api_instance = DatadogAPIClient::V1::MetricsApi.new
 from = 789 # Integer | Start of the queried time period, seconds since the Unix epoch.
@@ -338,18 +290,6 @@ Edit metadata of a specific metric. Find out more about [supported types](https:
 ```ruby
 require 'time'
 require 'datadog_api_client'
-
-DatadogAPIClient::V1.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
 
 api_instance = DatadogAPIClient::V1::MetricsApi.new
 metric_name = 'metric_name_example' # String | Name of the metric for which to edit metadata.

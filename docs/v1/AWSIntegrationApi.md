@@ -29,18 +29,6 @@ Create a Datadog-Amazon Web Services integration. Using the `POST` method update
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V1.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V1::AWSIntegrationApi.new
 body = DatadogAPIClient::V1::AWSAccount.new # AWSAccount | AWS Request Object
 
@@ -104,18 +92,6 @@ Set an AWS tag filter.
 ```ruby
 require 'time'
 require 'datadog_api_client'
-
-DatadogAPIClient::V1.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
 
 api_instance = DatadogAPIClient::V1::AWSIntegrationApi.new
 body = DatadogAPIClient::V1::AWSTagFilterCreateRequest.new # AWSTagFilterCreateRequest | Set an AWS tag filter using an `aws_account_identifier`, `namespace`, and filtering string. Namespace options are `application_elb`, `elb`, `lambda`, `network_elb`, `rds`, `sqs`, and `custom`.
@@ -181,18 +157,6 @@ Generate a new AWS external ID for a given AWS account ID and role name pair.
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V1.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V1::AWSIntegrationApi.new
 body = DatadogAPIClient::V1::AWSAccount.new # AWSAccount | Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://github.com/DataDog/documentation/blob/master/integrations/amazon_web_services/#installation).
 
@@ -256,18 +220,6 @@ Delete a Datadog-AWS integration matching the specified `account_id` and `role_n
 ```ruby
 require 'time'
 require 'datadog_api_client'
-
-DatadogAPIClient::V1.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
 
 api_instance = DatadogAPIClient::V1::AWSIntegrationApi.new
 body = DatadogAPIClient::V1::AWSAccount.new # AWSAccount | AWS request object
@@ -333,18 +285,6 @@ Delete a tag filtering entry.
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V1.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V1::AWSIntegrationApi.new
 body = DatadogAPIClient::V1::AWSTagFilterDeleteRequest.new # AWSTagFilterDeleteRequest | Delete a tag filtering entry for a given AWS account and `dd-aws` namespace.
 
@@ -409,18 +349,6 @@ List all namespace rules for a given Datadog-AWS integration. This endpoint take
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V1.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V1::AWSIntegrationApi.new
 
 begin
@@ -481,18 +409,6 @@ List all Datadog-AWS integrations available in your Datadog organization.
 ```ruby
 require 'time'
 require 'datadog_api_client'
-
-DatadogAPIClient::V1.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
 
 api_instance = DatadogAPIClient::V1::AWSIntegrationApi.new
 opts = {
@@ -564,18 +480,6 @@ Get all AWS tag filters.
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V1.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V1::AWSIntegrationApi.new
 account_id = 'account_id_example' # String | Only return AWS filters that matches this `account_id`.
 
@@ -639,18 +543,6 @@ Update a Datadog-Amazon Web Services integration.
 ```ruby
 require 'time'
 require 'datadog_api_client'
-
-DatadogAPIClient::V1.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
 
 api_instance = DatadogAPIClient::V1::AWSIntegrationApi.new
 body = DatadogAPIClient::V1::AWSAccount.new # AWSAccount | AWS request object

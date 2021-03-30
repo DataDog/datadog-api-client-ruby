@@ -21,18 +21,6 @@ List endpoint returns logs that match a log search query. [Results are paginated
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V1.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V1::LogsApi.new
 body = DatadogAPIClient::V1::LogsListRequest.new({time: DatadogAPIClient::V1::LogsListRequestTime.new({from: Time.parse('2020-02-02T02:02:02Z'), to: Time.parse('2020-02-02T20:20:20Z')})}) # LogsListRequest | Logs filter
 

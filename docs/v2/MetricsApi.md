@@ -28,16 +28,6 @@ require 'time'
 require 'datadog_api_client'
 
 DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-
   config.unstable_operations[:create_tag_configuration] = true
 end
 
@@ -108,16 +98,6 @@ require 'time'
 require 'datadog_api_client'
 
 DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-
   config.unstable_operations[:delete_tag_configuration] = true
 end
 
@@ -185,16 +165,6 @@ require 'time'
 require 'datadog_api_client'
 
 DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-
   config.unstable_operations[:list_tag_configuration_by_name] = true
 end
 
@@ -263,16 +233,6 @@ require 'time'
 require 'datadog_api_client'
 
 DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-
   config.unstable_operations[:list_tag_configurations] = true
 end
 
@@ -353,16 +313,6 @@ require 'time'
 require 'datadog_api_client'
 
 DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-
   config.unstable_operations[:list_tags_by_metric_name] = true
 end
 
@@ -431,16 +381,6 @@ require 'time'
 require 'datadog_api_client'
 
 DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-
   config.unstable_operations[:list_volumes_by_metric_name] = true
 end
 
@@ -509,16 +449,6 @@ require 'time'
 require 'datadog_api_client'
 
 DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-
   config.unstable_operations[:update_tag_configuration] = true
 end
 

@@ -32,18 +32,6 @@ Adds a permission to a role.
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V2::RolesApi.new
 role_id = 'role_id_example' # String | The ID of the role.
 body = DatadogAPIClient::V2::RelationshipToPermission.new # RelationshipToPermission | 
@@ -109,18 +97,6 @@ Adds a user to a role.
 ```ruby
 require 'time'
 require 'datadog_api_client'
-
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
 
 api_instance = DatadogAPIClient::V2::RolesApi.new
 role_id = 'role_id_example' # String | The ID of the role.
@@ -188,18 +164,6 @@ Create a new role for your organization.
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V2::RolesApi.new
 body = DatadogAPIClient::V2::RoleCreateRequest.new({data: DatadogAPIClient::V2::RoleCreateData.new({attributes: DatadogAPIClient::V2::RoleCreateAttributes.new({name: 'developers'})})}) # RoleCreateRequest | 
 
@@ -264,18 +228,6 @@ Disables a role.
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V2::RolesApi.new
 role_id = 'role_id_example' # String | The ID of the role.
 
@@ -338,18 +290,6 @@ Get a role in the organization specified by the role’s `role_id`.
 ```ruby
 require 'time'
 require 'datadog_api_client'
-
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
 
 api_instance = DatadogAPIClient::V2::RolesApi.new
 role_id = 'role_id_example' # String | The ID of the role.
@@ -415,18 +355,6 @@ Returns a list of all permissions, including name, description, and ID.
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V2::RolesApi.new
 
 begin
@@ -487,18 +415,6 @@ Returns a list of all permissions for a single role.
 ```ruby
 require 'time'
 require 'datadog_api_client'
-
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
 
 api_instance = DatadogAPIClient::V2::RolesApi.new
 role_id = 'role_id_example' # String | The ID of the role.
@@ -563,18 +479,6 @@ Gets all users of a role.
 ```ruby
 require 'time'
 require 'datadog_api_client'
-
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
 
 api_instance = DatadogAPIClient::V2::RolesApi.new
 role_id = 'role_id_example' # String | The ID of the role.
@@ -650,18 +554,6 @@ Returns all roles, including their names and IDs.
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V2::RolesApi.new
 opts = {
   page_size: 789, # Integer | Size for a given page.
@@ -734,18 +626,6 @@ Removes a permission from a role.
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V2::RolesApi.new
 role_id = 'role_id_example' # String | The ID of the role.
 body = DatadogAPIClient::V2::RelationshipToPermission.new # RelationshipToPermission | 
@@ -812,18 +692,6 @@ Removes a user from a role.
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V2::RolesApi.new
 role_id = 'role_id_example' # String | The ID of the role.
 body = DatadogAPIClient::V2::RelationshipToUser.new({data: DatadogAPIClient::V2::RelationshipToUserData.new({id: '00000000-0000-0000-0000-000000000000', type: DatadogAPIClient::V2::UsersType::USERS})}) # RelationshipToUser | 
@@ -889,18 +757,6 @@ Edit a role. Can only be used with application keys belonging to administrators.
 ```ruby
 require 'time'
 require 'datadog_api_client'
-
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
 
 api_instance = DatadogAPIClient::V2::RolesApi.new
 role_id = 'role_id_example' # String | The ID of the role.

@@ -25,18 +25,6 @@ Create a metric based on your ingested logs in your organization. Returns the lo
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V2::LogsMetricsApi.new
 body = DatadogAPIClient::V2::LogsMetricCreateRequest.new({data: DatadogAPIClient::V2::LogsMetricCreateData.new({attributes: DatadogAPIClient::V2::LogsMetricCreateAttributes.new({compute: DatadogAPIClient::V2::LogsMetricCompute.new({aggregation_type: DatadogAPIClient::V2::LogsMetricComputeAggregationType::COUNT})}), id: 'logs.page.load.count', type: DatadogAPIClient::V2::LogsMetricType::LOGS_METRICS})}) # LogsMetricCreateRequest | The definition of the new log-based metric.
 
@@ -101,18 +89,6 @@ Delete a specific log-based metric from your organization.
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V2::LogsMetricsApi.new
 metric_id = 'metric_id_example' # String | The name of the log-based metric.
 
@@ -175,18 +151,6 @@ Get a specific log-based metric from your organization.
 ```ruby
 require 'time'
 require 'datadog_api_client'
-
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
 
 api_instance = DatadogAPIClient::V2::LogsMetricsApi.new
 metric_id = 'metric_id_example' # String | The name of the log-based metric.
@@ -252,18 +216,6 @@ Get the list of configured log-based metrics with their definitions.
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V2::LogsMetricsApi.new
 
 begin
@@ -324,18 +276,6 @@ Update a specific log-based metric from your organization. Returns the log-based
 ```ruby
 require 'time'
 require 'datadog_api_client'
-
-DatadogAPIClient::V2.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
 
 api_instance = DatadogAPIClient::V2::LogsMetricsApi.new
 metric_id = 'metric_id_example' # String | The name of the log-based metric.

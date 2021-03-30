@@ -21,11 +21,6 @@ Get information about Datadog IP ranges.
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V1.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-end
-
 api_instance = DatadogAPIClient::V1::IPRangesApi.new
 
 begin
