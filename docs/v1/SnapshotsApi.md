@@ -21,18 +21,6 @@ Take graph snapshots. **Note**: When a snapshot is created, there is some delay 
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V1.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V1::SnapshotsApi.new
 start = 789 # Integer | The POSIX timestamp of the start of the query.
 _end = 789 # Integer | The POSIX timestamp of the end of the query.

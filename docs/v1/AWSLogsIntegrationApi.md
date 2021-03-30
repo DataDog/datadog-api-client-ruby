@@ -27,18 +27,6 @@ Test if permissions are present to add a log-forwarding triggers for the given s
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V1.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V1::AWSLogsIntegrationApi.new
 body = DatadogAPIClient::V1::AWSAccountAndLambdaRequest.new({account_id: '1234567', lambda_arn: 'arn:aws:lambda:us-east-1:1234567:function:LogsCollectionAPITest'}) # AWSAccountAndLambdaRequest | Check AWS Log Lambda Async request body.
 
@@ -102,18 +90,6 @@ Test if permissions are present to add log-forwarding triggers for the given ser
 ```ruby
 require 'time'
 require 'datadog_api_client'
-
-DatadogAPIClient::V1.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
 
 api_instance = DatadogAPIClient::V1::AWSLogsIntegrationApi.new
 body = DatadogAPIClient::V1::AWSLogsServicesRequest.new({account_id: '1234567', services: ['services_example']}) # AWSLogsServicesRequest | Check AWS Logs Async Services request body.
@@ -179,18 +155,6 @@ Attach the Lambda ARN of the Lambda created for the Datadog-AWS log collection t
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V1.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V1::AWSLogsIntegrationApi.new
 body = DatadogAPIClient::V1::AWSAccountAndLambdaRequest.new({account_id: '1234567', lambda_arn: 'arn:aws:lambda:us-east-1:1234567:function:LogsCollectionAPITest'}) # AWSAccountAndLambdaRequest | AWS Log Lambda Async request body.
 
@@ -254,18 +218,6 @@ Delete a Datadog-AWS logs configuration by removing the specific Lambda ARN asso
 ```ruby
 require 'time'
 require 'datadog_api_client'
-
-DatadogAPIClient::V1.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
 
 api_instance = DatadogAPIClient::V1::AWSLogsIntegrationApi.new
 body = DatadogAPIClient::V1::AWSAccountAndLambdaRequest.new({account_id: '1234567', lambda_arn: 'arn:aws:lambda:us-east-1:1234567:function:LogsCollectionAPITest'}) # AWSAccountAndLambdaRequest | Delete AWS Lambda ARN request body.
@@ -331,18 +283,6 @@ Enable automatic log collection for a list of services. This should be run after
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V1.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V1::AWSLogsIntegrationApi.new
 body = DatadogAPIClient::V1::AWSLogsServicesRequest.new({account_id: '1234567', services: ['services_example']}) # AWSLogsServicesRequest | Enable AWS Log Services request body.
 
@@ -407,18 +347,6 @@ List all Datadog-AWS Logs integrations configured in your Datadog account.
 require 'time'
 require 'datadog_api_client'
 
-DatadogAPIClient::V1.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
-
 api_instance = DatadogAPIClient::V1::AWSLogsIntegrationApi.new
 
 begin
@@ -479,18 +407,6 @@ Get the list of current AWS services that Datadog offers automatic log collectio
 ```ruby
 require 'time'
 require 'datadog_api_client'
-
-DatadogAPIClient::V1.configure do |config|
-  # Defining the site is optional and defaults to datadoghq.com
-  config.server_variables['site'] = ENV["DD_SITE"] if ENV.key? 'DD_SITE'
-
-  # setup authorization
-  # Configure API key authorization: apiKeyAuth
-  config.api_key['apiKeyAuth'] = ENV["DD_CLIENT_API_KEY"]
-
-  # Configure API key authorization: appKeyAuth
-  config.api_key['appKeyAuth'] = ENV["DD_CLIENT_APP_KEY"]
-end
 
 api_instance = DatadogAPIClient::V1::AWSLogsIntegrationApi.new
 

@@ -177,6 +177,9 @@ module DatadogAPIClient::V1
             get_specified_monthly_custom_reports: false,
             get_usage_attribution: false,
       }
+      @server_variables['site'] = ENV['DD_SITE'] if ENV.key? 'DD_SITE'
+      @api_key['apiKeyAuth'] = ENV['DD_API_KEY'] if ENV.key? 'DD_API_KEY'
+      @api_key['appKeyAuth'] = ENV['DD_APP_KEY'] if ENV.key? 'DD_APP_KEY'
 
       yield(self) if block_given?
     end
