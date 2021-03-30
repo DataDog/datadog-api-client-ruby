@@ -31,8 +31,9 @@ require '{{{gemNameInExamples}}}'
 
 {{{moduleName}}}.configure do |config|
   config.unstable_operations[:{{{operationId}}}] = true
-end{{/vendorExtensions.x-unstable}}
+end
 
+{{/vendorExtensions.x-unstable}}
 api_instance = {{{moduleName}}}::{{{classname}}}.new
 {{#requiredParams}}
 {{{paramName}}} = {{{vendorExtensions.x-ruby-example}}} # {{{dataType}}} | {{{description}}}
