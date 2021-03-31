@@ -109,7 +109,7 @@ RSpec.configure do |config|
         c.server_variables['site'] = ENV['DD_TEST_SITE']
       end
     end
-    @api_client = api::ApiClient.new @configuration
+    @api_client = api::APIClient.new @configuration
   end
 
   config.after(:suite) do
