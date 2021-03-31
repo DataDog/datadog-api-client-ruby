@@ -26,10 +26,9 @@ All URIs are relative to *{{basePath}}*
 ### Examples
 
 ```ruby
-require 'time'
 require '{{{gemNameInExamples}}}'
-
 {{#vendorExtensions.x-unstable}}
+
 {{{moduleName}}}.configure do |config|
   config.unstable_operations[:{{{operationId}}}] = true
 end
@@ -55,7 +54,7 @@ begin
   {{#returnType}}
   p result
   {{/returnType}}
-rescue {{{moduleName}}}::ApiError => e
+rescue {{{moduleName}}}::APIError => e
   puts "Error when calling {{classname}}->{{{operationId}}}: #{e}"
 end
 ```
@@ -73,7 +72,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => {{#returnType}}{{#returnTypeIsPrimitive}}{{returnType}}{{/returnTypeIsPrimitive}}{{^returnTypeIsPrimitive}}<{{{returnType}}}>{{/returnTypeIsPrimitive}}{{/returnType}}{{^returnType}}nil{{/returnType}}
-rescue {{{moduleName}}}::ApiError => e
+rescue {{{moduleName}}}::APIError => e
   puts "Error when calling {{classname}}->{{{operationId}}}_with_http_info: #{e}"
 end
 ```

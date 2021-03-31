@@ -190,7 +190,7 @@ module DatadogAPIClient::V2
             list_security_monitoring_signals: false,
             search_security_monitoring_signals: false,
       }
-      @server_variables['site'] = ENV['DD_SITE'] if ENV.key? 'DD_SITE'
+      @server_variables[:site] = ENV['DD_SITE'] if ENV.key? 'DD_SITE'
       @api_key['apiKeyAuth'] = ENV['DD_API_KEY'] if ENV.key? 'DD_API_KEY'
       @api_key['appKeyAuth'] = ENV['DD_APP_KEY'] if ENV.key? 'DD_APP_KEY'
 
@@ -250,14 +250,14 @@ module DatadogAPIClient::V2
     # Returns Auth Settings hash for api client.
     def auth_settings
       {
-        'apiKeyAuth' =>
+        apiKeyAuth:
           {
             type: 'api_key',
             in: 'header',
             key: 'DD-API-KEY',
             value: api_key_with_prefix('apiKeyAuth')
           },
-        'appKeyAuth' =>
+        appKeyAuth:
           {
             type: 'api_key',
             in: 'header',
@@ -274,7 +274,7 @@ module DatadogAPIClient::V2
           url: "https://{subdomain}.{site}",
           description: "No description provided",
           variables: {
-            'site' => {
+            site: {
                 description: "The regional site for our customers.",
                 default_value: "datadoghq.com",
                 enum_values: [
@@ -284,7 +284,7 @@ module DatadogAPIClient::V2
                   "ddog-gov.com"
                 ]
               },
-            'subdomain' => {
+            subdomain: {
                 description: "The subdomain where the API is deployed.",
                 default_value: "api",
               }
@@ -294,11 +294,11 @@ module DatadogAPIClient::V2
           url: "{protocol}://{name}",
           description: "No description provided",
           variables: {
-            'name' => {
+            name: {
                 description: "Full site DNS name.",
                 default_value: "api.datadoghq.com",
               },
-            'protocol' => {
+            protocol: {
                 description: "The protocol for accessing the API.",
                 default_value: "https",
               }

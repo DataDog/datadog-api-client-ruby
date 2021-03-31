@@ -146,7 +146,7 @@ module {{moduleName}}
         {{/apis}}
         {{/apiInfo}}
       }
-      @server_variables['site'] = ENV['DD_SITE'] if ENV.key? 'DD_SITE'
+      @server_variables[:site] = ENV['DD_SITE'] if ENV.key? 'DD_SITE'
       {{#authMethods}}
       {{#isApiKey}}
       {{#isKeyInHeader}}
@@ -213,7 +213,7 @@ module {{moduleName}}
       {
 {{#authMethods}}
 {{#isApiKey}}
-        '{{name}}' =>
+        {{name}}:
           {
             type: 'api_key',
             in: {{#isKeyInHeader}}'header'{{/isKeyInHeader}}{{#isKeyInQuery}}'query'{{/isKeyInQuery}},
@@ -223,7 +223,7 @@ module {{moduleName}}
 {{/isApiKey}}
 {{#isBasic}}
 {{#isBasicBasic}}
-        '{{name}}' =>
+        {{name}}:
           {
             type: 'basic',
             in: 'header',
@@ -232,7 +232,7 @@ module {{moduleName}}
           },
 {{/isBasicBasic}}
 {{#isBasicBearer}}
-        '{{name}}' =>
+        {{name}}:
           {
             type: 'bearer',
             in: 'header',
@@ -245,7 +245,7 @@ module {{moduleName}}
 {{/isBasicBearer}}
 {{/isBasic}}
 {{#isOAuth}}
-        '{{name}}' =>
+        {{name}}:
           {
             type: 'oauth2',
             in: 'header',
@@ -268,7 +268,7 @@ module {{moduleName}}
           {{#-first}}
           variables: {
           {{/-first}}
-            '{{{name}}}' => {
+            {{{name}}}: {
                 description: "{{{description}}}{{^description}}No description provided{{/description}}",
                 default_value: "{{{defaultValue}}}",
                 {{#enumValues}}
@@ -298,7 +298,7 @@ module {{moduleName}}
         {{#operation}}
         {{#servers}}
         {{#-first}}
-        "{{{classname}}}.{{{nickname}}}": [
+        {{{nickname}}}: [
         {{/-first}}
           {
           url: "{{{url}}}",
@@ -307,7 +307,7 @@ module {{moduleName}}
           {{#-first}}
           variables: {
           {{/-first}}
-            '{{{name}}}' => {
+            {{{name}}}: {
                 description: "{{{description}}}{{^description}}No description provided{{/description}}",
                 default_value: "{{{defaultValue}}}",
                 {{#enumValues}}
