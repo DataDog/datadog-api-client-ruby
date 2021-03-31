@@ -74,13 +74,13 @@ Please follow the [installation](#installation) instruction and execute the foll
 ```ruby
 require 'datadog_api_client'
 
-api_instance = DatadogAPIClient::V1::IPRangesApi.new
+api_instance = DatadogAPIClient::V1::IPRangesAPI.new
 
 begin
   result = api_instance.get_ip_ranges
   p result
-rescue DatadogAPIClient::V1::ApiError => e
-  puts "Error when calling IPRangesApi->get_ip_ranges: #{e}"
+rescue DatadogAPIClient::V1::APIError => e
+  puts "Error when calling IPRangesAPI->get_ip_ranges: #{e}"
 end
 ```
 
