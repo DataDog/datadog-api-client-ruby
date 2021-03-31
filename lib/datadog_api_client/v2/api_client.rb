@@ -21,7 +21,7 @@ require 'time'
 require 'typhoeus'
 
 module DatadogAPIClient::V2
-  class ApiClient
+  class APIClient
     # The Configuration object holding settings to be used in the API client.
     attr_accessor :config
 
@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # @return [Hash]
     attr_accessor :default_headers
 
-    # Initializes the ApiClient
+    # Initializes the APIClient
     # @option config [Configuration] Configuration for initializing the object, default to Configuration.default
     def initialize(config = Configuration.default)
       @config = config
@@ -42,7 +42,7 @@ module DatadogAPIClient::V2
     end
 
     def self.default
-      @@default ||= ApiClient.new
+      @@default ||= APIClient.new
     end
 
     # Call an API with given options.
@@ -59,13 +59,13 @@ module DatadogAPIClient::V2
 
       unless response.success?
         if response.timed_out?
-          fail ApiError.new('Connection timed out')
+          fail APIError.new('Connection timed out')
         elsif response.code == 0
           # Errors from libcurl will be made visible here
-          fail ApiError.new(:code => 0,
+          fail APIError.new(:code => 0,
                             :message => response.return_message)
         else
-          fail ApiError.new(:code => response.code,
+          fail APIError.new(:code => response.code,
                             :response_headers => response.headers,
                             :response_body => response.body),
                response.status_message
