@@ -34,6 +34,9 @@ module DatadogAPIClient::V2
     # URL of the user's icon.
     attr_accessor :icon
 
+    # Time that the user was last modified.
+    attr_accessor :modified_at
+
     # Name of the user.
     attr_accessor :name
 
@@ -54,6 +57,7 @@ module DatadogAPIClient::V2
         :'email' => :'email',
         :'handle' => :'handle',
         :'icon' => :'icon',
+        :'modified_at' => :'modified_at',
         :'name' => :'name',
         :'status' => :'status',
         :'title' => :'title',
@@ -74,6 +78,7 @@ module DatadogAPIClient::V2
         :'email' => :'String',
         :'handle' => :'String',
         :'icon' => :'String',
+        :'modified_at' => :'Time',
         :'name' => :'String',
         :'status' => :'String',
         :'title' => :'String',
@@ -122,6 +127,10 @@ module DatadogAPIClient::V2
         self.icon = attributes[:'icon']
       end
 
+      if attributes.key?(:'modified_at')
+        self.modified_at = attributes[:'modified_at']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -162,6 +171,7 @@ module DatadogAPIClient::V2
           email == o.email &&
           handle == o.handle &&
           icon == o.icon &&
+          modified_at == o.modified_at &&
           name == o.name &&
           status == o.status &&
           title == o.title &&
@@ -177,7 +187,7 @@ module DatadogAPIClient::V2
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_at, disabled, email, handle, icon, name, status, title, verified].hash
+      [created_at, disabled, email, handle, icon, modified_at, name, status, title, verified].hash
     end
 
     # Builds the object from hash
