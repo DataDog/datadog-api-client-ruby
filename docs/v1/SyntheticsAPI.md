@@ -788,7 +788,7 @@ end
 
 ## get_browser_test
 
-> <SyntheticsTestDetails> get_browser_test(public_id)
+> <SyntheticsBrowserTest> get_browser_test(public_id)
 
 Get a test configuration (browser)
 
@@ -814,7 +814,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<SyntheticsTestDetails>, Integer, Hash)> get_browser_test_with_http_info(public_id)
+> <Array(<SyntheticsBrowserTest>, Integer, Hash)> get_browser_test_with_http_info(public_id)
 
 ```ruby
 begin
@@ -822,7 +822,7 @@ begin
   data, status_code, headers = api_instance.get_browser_test_with_http_info(public_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <SyntheticsTestDetails>
+  p data # => <SyntheticsBrowserTest>
 rescue DatadogAPIClient::V1::APIError => e
   puts "Error when calling SyntheticsAPI->get_browser_test_with_http_info: #{e}"
 end
@@ -836,7 +836,7 @@ end
 
 ### Return type
 
-[**SyntheticsTestDetails**](SyntheticsTestDetails.md)
+[**SyntheticsBrowserTest**](SyntheticsBrowserTest.md)
 
 ### Authorization
 

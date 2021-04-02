@@ -937,7 +937,7 @@ module DatadogAPIClient::V1
     # Get the detailed configuration (including steps) associated with a Synthetic browser test.
     # @param public_id [String] The public ID of the test to get details from.
     # @param [Hash] opts the optional parameters
-    # @return [SyntheticsTestDetails]
+    # @return [SyntheticsBrowserTest]
     def get_browser_test(public_id, opts = {})
       data, _status_code, _headers = get_browser_test_with_http_info(public_id, opts)
       data
@@ -947,7 +947,7 @@ module DatadogAPIClient::V1
     # Get the detailed configuration (including steps) associated with a Synthetic browser test.
     # @param public_id [String] The public ID of the test to get details from.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(SyntheticsTestDetails, Integer, Hash)>] SyntheticsTestDetails data, response status code and response headers
+    # @return [Array<(SyntheticsBrowserTest, Integer, Hash)>] SyntheticsBrowserTest data, response status code and response headers
     def get_browser_test_with_http_info(public_id, opts = {})
 
       if @api_client.config.unstable_operations.has_key?(:get_browser_test)
@@ -984,7 +984,7 @@ module DatadogAPIClient::V1
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'SyntheticsTestDetails'
+      return_type = opts[:debug_return_type] || 'SyntheticsBrowserTest'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
