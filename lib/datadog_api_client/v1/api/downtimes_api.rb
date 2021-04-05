@@ -388,6 +388,79 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
+    # Get all downtimes for a monitor
+    # Get all downtimes for the specified monitor
+    # @param monitor_id [Integer] The id of the monitor
+    # @param [Hash] opts the optional parameters
+    # @return [Array<Downtime>]
+    def list_monitor_downtimes(monitor_id, opts = {})
+      data, _status_code, _headers = list_monitor_downtimes_with_http_info(monitor_id, opts)
+      data
+    end
+
+    # Get all downtimes for a monitor
+    # Get all downtimes for the specified monitor
+    # @param monitor_id [Integer] The id of the monitor
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Array<Downtime>, Integer, Hash)>] Array<Downtime> data, response status code and response headers
+    def list_monitor_downtimes_with_http_info(monitor_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_monitor_downtimes)
+        unstable_enabled = @api_client.config.unstable_operations[:list_monitor_downtimes]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_monitor_downtimes")
+        else
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_monitor_downtimes"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DowntimesAPI.list_monitor_downtimes ...'
+      end
+      # verify the required parameter 'monitor_id' is set
+      if @api_client.config.client_side_validation && monitor_id.nil?
+        fail ArgumentError, "Missing the required parameter 'monitor_id' when calling DowntimesAPI.list_monitor_downtimes"
+      end
+      # resource path
+      local_var_path = '/api/v1/monitor/{monitor_id}/downtimes'.sub('{' + 'monitor_id' + '}', CGI.escape(monitor_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Array<Downtime>'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_monitor_downtimes,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DowntimesAPI#list_monitor_downtimes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update a downtime
     # Update a single downtime by `downtime_id`.
     # @param downtime_id [Integer] ID of the downtime to update.
