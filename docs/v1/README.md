@@ -68,6 +68,7 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::DowntimesAPI* | [**create_downtime**](DowntimesAPI.md#create_downtime) | **POST** /api/v1/downtime | Schedule a downtime
 *DatadogAPIClient::V1::DowntimesAPI* | [**get_downtime**](DowntimesAPI.md#get_downtime) | **GET** /api/v1/downtime/{downtime_id} | Get a downtime
 *DatadogAPIClient::V1::DowntimesAPI* | [**list_downtimes**](DowntimesAPI.md#list_downtimes) | **GET** /api/v1/downtime | Get all downtimes
+*DatadogAPIClient::V1::DowntimesAPI* | [**list_monitor_downtimes**](DowntimesAPI.md#list_monitor_downtimes) | **GET** /api/v1/monitor/{monitor_id}/downtimes | Get all downtimes for a monitor
 *DatadogAPIClient::V1::DowntimesAPI* | [**update_downtime**](DowntimesAPI.md#update_downtime) | **PUT** /api/v1/downtime/{downtime_id} | Update a downtime
 *DatadogAPIClient::V1::EventsAPI* | [**get_event**](EventsAPI.md#get_event) | **GET** /api/v1/events/{event_id} | Get an event
 *DatadogAPIClient::V1::EventsAPI* | [**list_events**](EventsAPI.md#list_events) | **GET** /api/v1/events | Query the event stream
