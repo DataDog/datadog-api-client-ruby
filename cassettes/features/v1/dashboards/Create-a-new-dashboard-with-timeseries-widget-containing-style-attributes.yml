@@ -1,0 +1,57 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.datadoghq.com/api/v1/dashboard
+    body:
+      encoding: UTF-8
+      string: '{"layout_type":"ordered","title":"ruby-Create_a_new_dashboard_with_timeseries_widget_containing_style_attributes-1617190394
+        with timeseries widget","widgets":[{"definition":{"type":"timeseries","requests":[{"q":"sum:trace.test.errors{env:prod,service:datadog-api-spec}
+        by {resource_name}.as_count()","on_right_yaxis":false,"style":{"palette":"warm","line_type":"solid","line_width":"normal"},"display_type":"bars"}]}}]}'
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.7.2; os linux-gnu; arch x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 31 Mar 2021 11:33:15 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '836'
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Dd-Version:
+      - '35.4208004'
+      X-Dd-Debug:
+      - LcgNasIYBRkNppmD6mCKE9J6iv0eEjosuuHR5V5zw2fWbR54i39C8dhdK8zDq/40
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: '{"notify_list":null,"description":null,"author_name":"CI Account","template_variables":null,"is_read_only":false,"id":"8ca-ra5-jes","title":"ruby-Create_a_new_dashboard_with_timeseries_widget_containing_style_attributes-1617190394
+        with timeseries widget","url":"/dashboard/8ca-ra5-jes/ruby-createanewdashboardwithtimeserieswidgetcontainingstyleattributes-1617190394","created_at":"2021-03-31T11:33:15.116161+00:00","modified_at":"2021-03-31T11:33:15.116161+00:00","author_handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","widgets":[{"definition":{"requests":[{"q":"sum:trace.test.errors{env:prod,service:datadog-api-spec}
+        by {resource_name}.as_count()","on_right_yaxis":false,"style":{"line_width":"normal","palette":"warm","line_type":"solid"},"display_type":"bars"}],"type":"timeseries"},"id":5618437047804370}],"layout_type":"ordered"}'
+  recorded_at: Wed, 31 Mar 2021 11:33:14 GMT
+recorded_with: VCR 6.0.0

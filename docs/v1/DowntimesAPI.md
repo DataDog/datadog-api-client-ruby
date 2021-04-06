@@ -9,6 +9,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**create_downtime**](DowntimesAPI.md#create_downtime) | **POST** /api/v1/downtime | Schedule a downtime |
 | [**get_downtime**](DowntimesAPI.md#get_downtime) | **GET** /api/v1/downtime/{downtime_id} | Get a downtime |
 | [**list_downtimes**](DowntimesAPI.md#list_downtimes) | **GET** /api/v1/downtime | Get all downtimes |
+| [**list_monitor_downtimes**](DowntimesAPI.md#list_monitor_downtimes) | **GET** /api/v1/monitor/{monitor_id}/downtimes | Get all downtimes for a monitor |
 | [**update_downtime**](DowntimesAPI.md#update_downtime) | **PUT** /api/v1/downtime/{downtime_id} | Update a downtime |
 
 
@@ -308,6 +309,68 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **current_only** | **Boolean** | Only return downtimes that are active when the request is made. | [optional] |
+
+### Return type
+
+[**Array&lt;Downtime&gt;**](Downtime.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## list_monitor_downtimes
+
+> <Array<Downtime>> list_monitor_downtimes(monitor_id)
+
+Get all downtimes for a monitor
+
+Get all downtimes for the specified monitor
+
+### Examples
+
+```ruby
+require 'datadog_api_client'
+api_instance = DatadogAPIClient::V1::DowntimesAPI.new
+monitor_id = 789 # Integer | The id of the monitor
+
+begin
+  # Get all downtimes for a monitor
+  result = api_instance.list_monitor_downtimes(monitor_id)
+  p result
+rescue DatadogAPIClient::V1::APIError => e
+  puts "Error when calling DowntimesAPI->list_monitor_downtimes: #{e}"
+end
+```
+
+#### Using the list_monitor_downtimes_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<Downtime>>, Integer, Hash)> list_monitor_downtimes_with_http_info(monitor_id)
+
+```ruby
+begin
+  # Get all downtimes for a monitor
+  data, status_code, headers = api_instance.list_monitor_downtimes_with_http_info(monitor_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<Downtime>>
+rescue DatadogAPIClient::V1::APIError => e
+  puts "Error when calling DowntimesAPI->list_monitor_downtimes_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **monitor_id** | **Integer** | The id of the monitor |  |
 
 ### Return type
 

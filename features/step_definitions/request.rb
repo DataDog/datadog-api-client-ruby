@@ -174,7 +174,7 @@ When('the request is sent') do
 end
 
 Then(/^the response "([^"]+)" is equal to (.*)$/) do |response_path, value|
-  expect(@response[0].lookup response_path).to eq JSON.parse(value.templated fixtures)
+  expect(@response[0].to_body.lookup response_path).to eq JSON.parse(value.templated(fixtures), :symbolize_names => true)
 end
 
 Then(/^the response status is (\d+) (.*)$/) do |status, msg|
