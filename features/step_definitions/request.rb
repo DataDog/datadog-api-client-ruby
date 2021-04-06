@@ -6,15 +6,25 @@ module APIWorld
   end
 
   def configuration
-    @configuration ||= api.const_get("Configuration").new
+    @configuration ||= from_env(api::Configuration.new)
+  end
+
+  def from_env(configuration)
+    configuration.configure do |c|
+      if ENV.key? 'DD_TEST_SITE' then
+        c.server_index = 2
+        c.server_variables[:site] = ENV['DD_TEST_SITE']
+      end
+    end
+    configuration
   end
 
   def api_client
-    @api_client ||= api.const_get("ApiClient").new configuration
+    @api_client ||= api::APIClient.new configuration
   end
 
   def api_error
-    api.const_get("ApiError")
+    api::APIError
   end
 
   def unique
@@ -76,11 +86,13 @@ module APIWorld
 
     # make sure we have a fresh instance of API client and configuration
     given_api = Object.const_get("DatadogAPIClient::V#{api_version}")
-    given_configuration = given_api::Configuration.new
+    given_configuration = from_env(given_api::Configuration.new)
     given_configuration.api_key = ENV["DD_TEST_CLIENT_API_KEY"]
     given_configuration.application_key = ENV["DD_TEST_CLIENT_APP_KEY"]
-    given_api_client = given_api::ApiClient.new given_configuration
-    given_api_instance = api.const_get("#{api_name}Api").new given_api_client
+    Kernel.puts given_configuration.inspect
+    Kernel.puts given_configuration.base_url
+    given_api_client = given_api::APIClient.new given_configuration
+    given_api_instance = api.const_get("#{api_name}API").new given_api_client
     method = given_api_instance.method("#{operation_name}_with_http_info".to_sym)
 
     # find undo method
@@ -124,7 +136,7 @@ end
 
 Given(/^an instance of "([^"]+)" API$/) do |api_name|
   configuration.debugging = ENV["DEBUG"].present?
-  @api_instance = api.const_get("#{api_name}Api").new api_client
+  @api_instance = api.const_get("#{api_name}API").new api_client
 end
 
 Given('operation {string} enabled') do |name|
@@ -167,7 +179,7 @@ When('the request is sent') do
 end
 
 Then(/^the response "([^"]+)" is equal to (.*)$/) do |response_path, value|
-  expect(@response[0].lookup response_path).to eq JSON.parse(value.templated fixtures)
+  expect(@response[0].to_body.lookup response_path).to eq JSON.parse(value.templated(fixtures), :symbolize_names => true)
 end
 
 Then(/^the response status is (\d+) (.*)$/) do |status, msg|

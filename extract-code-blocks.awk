@@ -35,7 +35,7 @@ function camel(value) {
     return head;
 }
 
-/^# DatadogAPIClient::V[0-9]*::(.+)Api/ {
+/^# DatadogAPIClient::V[0-9]*::(.+)API/ {
     tag = slug(substr($2, 23, length($2)-25));
 }
 /^## (.+)/ {

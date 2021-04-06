@@ -177,7 +177,7 @@ module DatadogAPIClient::V1
             get_specified_monthly_custom_reports: false,
             get_usage_attribution: false,
       }
-      @server_variables['site'] = ENV['DD_SITE'] if ENV.key? 'DD_SITE'
+      @server_variables[:site] = ENV['DD_SITE'] if ENV.key? 'DD_SITE'
       @api_key['apiKeyAuth'] = ENV['DD_API_KEY'] if ENV.key? 'DD_API_KEY'
       @api_key['appKeyAuth'] = ENV['DD_APP_KEY'] if ENV.key? 'DD_APP_KEY'
 
@@ -237,28 +237,28 @@ module DatadogAPIClient::V1
     # Returns Auth Settings hash for api client.
     def auth_settings
       {
-        'apiKeyAuth' =>
+        apiKeyAuth:
           {
             type: 'api_key',
             in: 'header',
             key: 'DD-API-KEY',
             value: api_key_with_prefix('apiKeyAuth')
           },
-        'apiKeyAuthQuery' =>
+        apiKeyAuthQuery:
           {
             type: 'api_key',
             in: 'query',
             key: 'api_key',
             value: api_key_with_prefix('apiKeyAuthQuery', 'apiKeyAuth')
           },
-        'appKeyAuth' =>
+        appKeyAuth:
           {
             type: 'api_key',
             in: 'header',
             key: 'DD-APPLICATION-KEY',
             value: api_key_with_prefix('appKeyAuth')
           },
-        'appKeyAuthQuery' =>
+        appKeyAuthQuery:
           {
             type: 'api_key',
             in: 'query',
@@ -275,7 +275,7 @@ module DatadogAPIClient::V1
           url: "https://{subdomain}.{site}",
           description: "No description provided",
           variables: {
-            'site' => {
+            site: {
                 description: "The regional site for a Datadog customer.",
                 default_value: "datadoghq.com",
                 enum_values: [
@@ -285,7 +285,7 @@ module DatadogAPIClient::V1
                   "ddog-gov.com"
                 ]
               },
-            'subdomain' => {
+            subdomain: {
                 description: "The subdomain where the API is deployed.",
                 default_value: "api",
               }
@@ -295,13 +295,27 @@ module DatadogAPIClient::V1
           url: "{protocol}://{name}",
           description: "No description provided",
           variables: {
-            'name' => {
+            name: {
                 description: "Full site DNS name.",
                 default_value: "api.datadoghq.com",
               },
-            'protocol' => {
+            protocol: {
                 description: "The protocol for accessing the API.",
                 default_value: "https",
+              }
+            }
+        },
+        {
+          url: "https://{subdomain}.{site}",
+          description: "No description provided",
+          variables: {
+            site: {
+                description: "Any Datadog deployment.",
+                default_value: "datadoghq.com",
+              },
+            subdomain: {
+                description: "The subdomain where the API is deployed.",
+                default_value: "api",
               }
             }
         }
@@ -310,19 +324,19 @@ module DatadogAPIClient::V1
 
     def operation_server_settings
       {
-        "AWSIntegrationApi.create_aws_tag_filter": [
+        create_aws_tag_filter: [
           {
           url: "https://{subdomain}.{site}",
           description: "No description provided",
           variables: {
-            'site' => {
+            site: {
                 description: "The regional site for our customers.",
                 default_value: "datadoghq.com",
                 enum_values: [
                   "datadoghq.com"
                 ]
               },
-            'subdomain' => {
+            subdomain: {
                 description: "The subdomain where the API is deployed.",
                 default_value: "api",
               }
@@ -332,30 +346,44 @@ module DatadogAPIClient::V1
           url: "{protocol}://{name}",
           description: "No description provided",
           variables: {
-            'name' => {
+            name: {
                 description: "Full site DNS name.",
                 default_value: "api.datadoghq.com",
               },
-            'protocol' => {
+            protocol: {
                 description: "The protocol for accessing the API.",
                 default_value: "https",
               }
             }
-          }
-        ],
-        "AWSIntegrationApi.delete_aws_tag_filter": [
+          },
           {
           url: "https://{subdomain}.{site}",
           description: "No description provided",
           variables: {
-            'site' => {
+            site: {
+                description: "Any Datadog deployment.",
+                default_value: "datadoghq.com",
+              },
+            subdomain: {
+                description: "The subdomain where the API is deployed.",
+                default_value: "api",
+              }
+            }
+          }
+        ],
+        delete_aws_tag_filter: [
+          {
+          url: "https://{subdomain}.{site}",
+          description: "No description provided",
+          variables: {
+            site: {
                 description: "The regional site for our customers.",
                 default_value: "datadoghq.com",
                 enum_values: [
                   "datadoghq.com"
                 ]
               },
-            'subdomain' => {
+            subdomain: {
                 description: "The subdomain where the API is deployed.",
                 default_value: "api",
               }
@@ -365,30 +393,44 @@ module DatadogAPIClient::V1
           url: "{protocol}://{name}",
           description: "No description provided",
           variables: {
-            'name' => {
+            name: {
                 description: "Full site DNS name.",
                 default_value: "api.datadoghq.com",
               },
-            'protocol' => {
+            protocol: {
                 description: "The protocol for accessing the API.",
                 default_value: "https",
               }
             }
-          }
-        ],
-        "AWSIntegrationApi.list_aws_tag_filters": [
+          },
           {
           url: "https://{subdomain}.{site}",
           description: "No description provided",
           variables: {
-            'site' => {
+            site: {
+                description: "Any Datadog deployment.",
+                default_value: "datadoghq.com",
+              },
+            subdomain: {
+                description: "The subdomain where the API is deployed.",
+                default_value: "api",
+              }
+            }
+          }
+        ],
+        list_aws_tag_filters: [
+          {
+          url: "https://{subdomain}.{site}",
+          description: "No description provided",
+          variables: {
+            site: {
                 description: "The regional site for our customers.",
                 default_value: "datadoghq.com",
                 enum_values: [
                   "datadoghq.com"
                 ]
               },
-            'subdomain' => {
+            subdomain: {
                 description: "The subdomain where the API is deployed.",
                 default_value: "api",
               }
@@ -398,23 +440,37 @@ module DatadogAPIClient::V1
           url: "{protocol}://{name}",
           description: "No description provided",
           variables: {
-            'name' => {
+            name: {
                 description: "Full site DNS name.",
                 default_value: "api.datadoghq.com",
               },
-            'protocol' => {
+            protocol: {
                 description: "The protocol for accessing the API.",
                 default_value: "https",
               }
             }
-          }
-        ],
-        "IPRangesApi.get_ip_ranges": [
+          },
           {
           url: "https://{subdomain}.{site}",
           description: "No description provided",
           variables: {
-            'site' => {
+            site: {
+                description: "Any Datadog deployment.",
+                default_value: "datadoghq.com",
+              },
+            subdomain: {
+                description: "The subdomain where the API is deployed.",
+                default_value: "api",
+              }
+            }
+          }
+        ],
+        get_ip_ranges: [
+          {
+          url: "https://{subdomain}.{site}",
+          description: "No description provided",
+          variables: {
+            site: {
                 description: "The regional site for our customers.",
                 default_value: "datadoghq.com",
                 enum_values: [
@@ -424,7 +480,7 @@ module DatadogAPIClient::V1
                   "ddog-gov.com"
                 ]
               },
-            'subdomain' => {
+            subdomain: {
                 description: "The subdomain where the API is deployed.",
                 default_value: "ip-ranges",
               }
@@ -434,13 +490,23 @@ module DatadogAPIClient::V1
           url: "{protocol}://{name}",
           description: "No description provided",
           variables: {
-            'name' => {
+            name: {
                 description: "Full site DNS name.",
                 default_value: "ip-ranges.datadoghq.com",
               },
-            'protocol' => {
+            protocol: {
                 description: "The protocol for accessing the API.",
                 default_value: "https",
+              }
+            }
+          },
+          {
+          url: "https://{subdomain}.datadoghq.com",
+          description: "No description provided",
+          variables: {
+            subdomain: {
+                description: "The subdomain where the API is deployed.",
+                default_value: "ip-ranges",
               }
             }
           }

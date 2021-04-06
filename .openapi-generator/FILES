@@ -36,7 +36,7 @@ docs/DashboardListItemResponse.md
 docs/DashboardListItems.md
 docs/DashboardListUpdateItemsRequest.md
 docs/DashboardListUpdateItemsResponse.md
-docs/DashboardListsApi.md
+docs/DashboardListsAPI.md
 docs/DashboardType.md
 docs/FullAPIKey.md
 docs/FullAPIKeyAttributes.md
@@ -71,7 +71,7 @@ docs/IncidentServiceType.md
 docs/IncidentServiceUpdateAttributes.md
 docs/IncidentServiceUpdateData.md
 docs/IncidentServiceUpdateRequest.md
-docs/IncidentServicesApi.md
+docs/IncidentServicesAPI.md
 docs/IncidentServicesResponse.md
 docs/IncidentServicesResponseMeta.md
 docs/IncidentServicesResponseMetaPagination.md
@@ -87,7 +87,7 @@ docs/IncidentTeamType.md
 docs/IncidentTeamUpdateAttributes.md
 docs/IncidentTeamUpdateData.md
 docs/IncidentTeamUpdateRequest.md
-docs/IncidentTeamsApi.md
+docs/IncidentTeamsAPI.md
 docs/IncidentTeamsResponse.md
 docs/IncidentTimelineCellCreateAttributes.md
 docs/IncidentTimelineCellMarkdownContentType.md
@@ -98,13 +98,14 @@ docs/IncidentUpdateAttributes.md
 docs/IncidentUpdateData.md
 docs/IncidentUpdateRelationships.md
 docs/IncidentUpdateRequest.md
-docs/IncidentsApi.md
+docs/IncidentsAPI.md
 docs/IncidentsResponse.md
-docs/KeyManagementApi.md
+docs/KeyManagementAPI.md
 docs/ListApplicationKeysResponse.md
 docs/Log.md
 docs/LogAttributes.md
 docs/LogType.md
+docs/LogsAPI.md
 docs/LogsAggregateBucket.md
 docs/LogsAggregateBucketValue.md
 docs/LogsAggregateBucketValueTimeseriesPoint.md
@@ -116,7 +117,6 @@ docs/LogsAggregateResponseStatus.md
 docs/LogsAggregateSort.md
 docs/LogsAggregateSortType.md
 docs/LogsAggregationFunction.md
-docs/LogsApi.md
 docs/LogsArchive.md
 docs/LogsArchiveAttributes.md
 docs/LogsArchiveCreateRequest.md
@@ -140,7 +140,7 @@ docs/LogsArchiveOrderDefinition.md
 docs/LogsArchiveOrderDefinitionType.md
 docs/LogsArchiveState.md
 docs/LogsArchives.md
-docs/LogsArchivesApi.md
+docs/LogsArchivesAPI.md
 docs/LogsCompute.md
 docs/LogsComputeType.md
 docs/LogsGroupBy.md
@@ -169,7 +169,7 @@ docs/LogsMetricType.md
 docs/LogsMetricUpdateAttributes.md
 docs/LogsMetricUpdateData.md
 docs/LogsMetricUpdateRequest.md
-docs/LogsMetricsApi.md
+docs/LogsMetricsAPI.md
 docs/LogsMetricsResponse.md
 docs/LogsQueryFilter.md
 docs/LogsQueryOptions.md
@@ -202,9 +202,9 @@ docs/MetricTagConfigurationUpdateRequest.md
 docs/MetricType.md
 docs/MetricVolumes.md
 docs/MetricVolumesResponse.md
+docs/MetricsAPI.md
 docs/MetricsAndMetricTagConfigurations.md
 docs/MetricsAndMetricTagConfigurationsResponse.md
-docs/MetricsApi.md
 docs/Organization.md
 docs/OrganizationAttributes.md
 docs/OrganizationsType.md
@@ -223,7 +223,7 @@ docs/ProcessSummariesResponse.md
 docs/ProcessSummary.md
 docs/ProcessSummaryAttributes.md
 docs/ProcessSummaryType.md
-docs/ProcessesApi.md
+docs/ProcessesAPI.md
 docs/QuerySortOrder.md
 docs/RelationshipToIncidentIntegrationMetadataData.md
 docs/RelationshipToIncidentIntegrationMetadatas.md
@@ -257,11 +257,11 @@ docs/RoleUpdateData.md
 docs/RoleUpdateRequest.md
 docs/RoleUpdateResponse.md
 docs/RoleUpdateResponseData.md
-docs/RolesApi.md
+docs/RolesAPI.md
 docs/RolesResponse.md
 docs/RolesSort.md
 docs/RolesType.md
-docs/SecurityMonitoringApi.md
+docs/SecurityMonitoringAPI.md
 docs/SecurityMonitoringFilter.md
 docs/SecurityMonitoringFilterAction.md
 docs/SecurityMonitoringListRulesResponse.md
@@ -314,7 +314,7 @@ docs/UserResponseRelationships.md
 docs/UserUpdateAttributes.md
 docs/UserUpdateData.md
 docs/UserUpdateRequest.md
-docs/UsersApi.md
+docs/UsersAPI.md
 docs/UsersResponse.md
 docs/UsersType.md
 lib/datadog_api_client/v2.rb
