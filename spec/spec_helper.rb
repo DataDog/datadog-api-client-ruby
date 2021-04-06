@@ -103,6 +103,12 @@ RSpec.configure do |config|
     @configuration.api_key = ENV["DD_TEST_CLIENT_API_KEY"]
     @configuration.application_key = ENV["DD_TEST_CLIENT_APP_KEY"]
     @configuration.debugging = (!ENV["DEBUG"].nil? and ENV["DEBUG"] != "false")
+    @configuration.configure do |c|
+      if ENV.key? 'DD_TEST_SITE' then
+        c.server_index = 2
+        c.server_variables[:site] = ENV['DD_TEST_SITE']
+      end
+    end
     @api_client = api::APIClient.new @configuration
   end
 

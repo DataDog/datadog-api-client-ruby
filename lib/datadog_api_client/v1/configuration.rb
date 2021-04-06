@@ -304,6 +304,20 @@ module DatadogAPIClient::V1
                 default_value: "https",
               }
             }
+        },
+        {
+          url: "https://{subdomain}.{site}",
+          description: "No description provided",
+          variables: {
+            site: {
+                description: "Any Datadog deployment.",
+                default_value: "datadoghq.com",
+              },
+            subdomain: {
+                description: "The subdomain where the API is deployed.",
+                default_value: "api",
+              }
+            }
         }
       ]
     end
@@ -341,6 +355,20 @@ module DatadogAPIClient::V1
                 default_value: "https",
               }
             }
+          },
+          {
+          url: "https://{subdomain}.{site}",
+          description: "No description provided",
+          variables: {
+            site: {
+                description: "Any Datadog deployment.",
+                default_value: "datadoghq.com",
+              },
+            subdomain: {
+                description: "The subdomain where the API is deployed.",
+                default_value: "api",
+              }
+            }
           }
         ],
         delete_aws_tag_filter: [
@@ -374,6 +402,20 @@ module DatadogAPIClient::V1
                 default_value: "https",
               }
             }
+          },
+          {
+          url: "https://{subdomain}.{site}",
+          description: "No description provided",
+          variables: {
+            site: {
+                description: "Any Datadog deployment.",
+                default_value: "datadoghq.com",
+              },
+            subdomain: {
+                description: "The subdomain where the API is deployed.",
+                default_value: "api",
+              }
+            }
           }
         ],
         list_aws_tag_filters: [
@@ -405,6 +447,20 @@ module DatadogAPIClient::V1
             protocol: {
                 description: "The protocol for accessing the API.",
                 default_value: "https",
+              }
+            }
+          },
+          {
+          url: "https://{subdomain}.{site}",
+          description: "No description provided",
+          variables: {
+            site: {
+                description: "Any Datadog deployment.",
+                default_value: "datadoghq.com",
+              },
+            subdomain: {
+                description: "The subdomain where the API is deployed.",
+                default_value: "api",
               }
             }
           }
@@ -441,6 +497,16 @@ module DatadogAPIClient::V1
             protocol: {
                 description: "The protocol for accessing the API.",
                 default_value: "https",
+              }
+            }
+          },
+          {
+          url: "https://{subdomain}.datadoghq.com",
+          description: "No description provided",
+          variables: {
+            subdomain: {
+                description: "The subdomain where the API is deployed.",
+                default_value: "ip-ranges",
               }
             }
           }
