@@ -106,7 +106,7 @@ RSpec.configure do |config|
     @configuration.configure do |c|
       if ENV.key? 'DD_TEST_SITE' then
         c.server_index = 2
-        c.server_variables['site'] = ENV['DD_TEST_SITE']
+        c.server_variables[:site] = ENV['DD_TEST_SITE']
       end
     end
     @api_client = api::APIClient.new @configuration

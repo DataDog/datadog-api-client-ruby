@@ -13,7 +13,7 @@ module APIWorld
     configuration.configure do |c|
       if ENV.key? 'DD_TEST_SITE' then
         c.server_index = 2
-        c.server_variables['site'] = ENV['DD_TEST_SITE']
+        c.server_variables[:site] = ENV['DD_TEST_SITE']
       end
     end
     configuration
@@ -89,6 +89,8 @@ module APIWorld
     given_configuration = from_env(given_api::Configuration.new)
     given_configuration.api_key = ENV["DD_TEST_CLIENT_API_KEY"]
     given_configuration.application_key = ENV["DD_TEST_CLIENT_APP_KEY"]
+    Kernel.puts given_configuration.inspect
+    Kernel.puts given_configuration.base_url
     given_api_client = given_api::APIClient.new given_configuration
     given_api_instance = api.const_get("#{api_name}API").new given_api_client
     method = given_api_instance.method("#{operation_name}_with_http_info".to_sym)
