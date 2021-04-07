@@ -15,7 +15,7 @@ require 'faraday'
 {{/isFaraday}}
 
 module {{moduleName}}
-  class ApiClient
+  class APIClient
     # The Configuration object holding settings to be used in the API client.
     attr_accessor :config
 
@@ -24,7 +24,7 @@ module {{moduleName}}
     # @return [Hash]
     attr_accessor :default_headers
 
-    # Initializes the ApiClient
+    # Initializes the APIClient
     # @option config [Configuration] Configuration for initializing the object, default to Configuration.default
     def initialize(config = Configuration.default)
       @config = config
@@ -36,7 +36,7 @@ module {{moduleName}}
     end
 
     def self.default
-      @@default ||= ApiClient.new
+      @@default ||= APIClient.new
     end
 
 {{^isFaraday}}

@@ -9,7 +9,7 @@ module {{moduleName}}
   class {{classname}}
     attr_accessor :api_client
 
-    def initialize(api_client = ApiClient.default)
+    def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
 {{#operation}}
@@ -45,7 +45,7 @@ module {{moduleName}}
         if unstable_enabled
           @api_client.config.logger.warn format("Using unstable operation '%s'", "{{operationId}}")
         else
-          raise ApiError.new(message: format("Unstable operation '%s' is disabled", "{{operationId}}"))
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "{{operationId}}"))
         end
       end
 
@@ -189,10 +189,10 @@ module {{moduleName}}
       return_type = opts[:debug_return_type]{{#returnType}} || '{{{returnType}}}'{{/returnType}}
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [{{#authMethods}}'{{name}}'{{^-last}}, {{/-last}}{{/authMethods}}]
+      auth_names = opts[:debug_auth_names] || [{{#authMethods}}:{{name}}{{^-last}}, {{/-last}}{{/authMethods}}]
 
       new_options = opts.merge(
-        :operation => :"{{classname}}.{{operationId}}",
+        :operation => :{{operationId}},
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
