@@ -39,6 +39,7 @@ module APIWorld
       "unique": u,
       "unique_lower": u.downcase,
       "unique_alnum": u.gsub(/[^A-Za-z0-9]+/, ''),
+      "unique_lower_alnum": u.gsub(/[^a-z0-9]+/, ''),
       "now_ts": Time.now.to_i,
       "now_iso": Time.now.iso8601,
       "hour_later_ts": (Time.now + 3600).to_i,
