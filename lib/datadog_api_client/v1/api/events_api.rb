@@ -22,6 +22,81 @@ module DatadogAPIClient::V1
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+    # Post an event
+    # This endpoint allows you to post events to the stream. Tag them, set priority and event aggregate them with other events.
+    # @param body [EventCreateRequest] Event request object
+    # @param [Hash] opts the optional parameters
+    # @return [EventCreateResponse]
+    def create_event(body, opts = {})
+      data, _status_code, _headers = create_event_with_http_info(body, opts)
+      data
+    end
+
+    # Post an event
+    # This endpoint allows you to post events to the stream. Tag them, set priority and event aggregate them with other events.
+    # @param body [EventCreateRequest] Event request object
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(EventCreateResponse, Integer, Hash)>] EventCreateResponse data, response status code and response headers
+    def create_event_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:create_event)
+        unstable_enabled = @api_client.config.unstable_operations[:create_event]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_event")
+        else
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_event"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EventsAPI.create_event ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling EventsAPI.create_event"
+      end
+      # resource path
+      local_var_path = '/api/v1/events'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'EventCreateResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_event,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EventsAPI#create_event\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get an event
     # This endpoint allows you to query for event details.  **Note**: If the event you’re querying contains markdown formatting of any kind, you may see characters such as `%`,`\\`,`n` in your output.
     # @param event_id [Integer] The ID of the event.
