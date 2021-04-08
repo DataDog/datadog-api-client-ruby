@@ -8,6 +8,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**list_active_metrics**](MetricsAPI.md#list_active_metrics) | **GET** /api/v1/metrics | Get active metrics list |
 | [**list_metrics**](MetricsAPI.md#list_metrics) | **GET** /api/v1/search | Search metrics |
 | [**query_metrics**](MetricsAPI.md#query_metrics) | **GET** /api/v1/query | Query timeseries points |
+| [**submit_metrics**](MetricsAPI.md#submit_metrics) | **POST** /api/v1/series | Submit metrics |
 | [**update_metric_metadata**](MetricsAPI.md#update_metric_metadata) | **PUT** /api/v1/metrics/{metric_name} | Edit metric metadata |
 
 
@@ -266,6 +267,68 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## submit_metrics
+
+> <IntakePayloadAccepted> submit_metrics(body)
+
+Submit metrics
+
+The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards. The maximum payload size is 3.2 megabytes (3200000). Compressed payloads must have a decompressed size of up to 62 megabytes (62914560).  If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect  - 64 bits for the timestamp - 32 bits for the value - 20 bytes for the metric names - 50 bytes for the timeseries - The full payload is approximately ~ 100 bytes. However, with the DogStatsD API, compression is applied, which reduces the payload size.
+
+### Examples
+
+```ruby
+require 'datadog_api_client'
+api_instance = DatadogAPIClient::V1::MetricsAPI.new
+body = DatadogAPIClient::V1::MetricsPayload.new({series: [DatadogAPIClient::V1::Series.new({metric: 'system.load.1', points: [[3.56]]})]}) # MetricsPayload | 
+
+begin
+  # Submit metrics
+  result = api_instance.submit_metrics(body)
+  p result
+rescue DatadogAPIClient::V1::APIError => e
+  puts "Error when calling MetricsAPI->submit_metrics: #{e}"
+end
+```
+
+#### Using the submit_metrics_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<IntakePayloadAccepted>, Integer, Hash)> submit_metrics_with_http_info(body)
+
+```ruby
+begin
+  # Submit metrics
+  data, status_code, headers = api_instance.submit_metrics_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <IntakePayloadAccepted>
+rescue DatadogAPIClient::V1::APIError => e
+  puts "Error when calling MetricsAPI->submit_metrics_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**MetricsPayload**](MetricsPayload.md) |  |  |
+
+### Return type
+
+[**IntakePayloadAccepted**](IntakePayloadAccepted.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

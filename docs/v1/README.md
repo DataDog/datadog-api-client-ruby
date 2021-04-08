@@ -70,6 +70,7 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::DowntimesAPI* | [**list_downtimes**](DowntimesAPI.md#list_downtimes) | **GET** /api/v1/downtime | Get all downtimes
 *DatadogAPIClient::V1::DowntimesAPI* | [**list_monitor_downtimes**](DowntimesAPI.md#list_monitor_downtimes) | **GET** /api/v1/monitor/{monitor_id}/downtimes | Get all downtimes for a monitor
 *DatadogAPIClient::V1::DowntimesAPI* | [**update_downtime**](DowntimesAPI.md#update_downtime) | **PUT** /api/v1/downtime/{downtime_id} | Update a downtime
+*DatadogAPIClient::V1::EventsAPI* | [**create_event**](EventsAPI.md#create_event) | **POST** /api/v1/events | Post an event
 *DatadogAPIClient::V1::EventsAPI* | [**get_event**](EventsAPI.md#get_event) | **GET** /api/v1/events/{event_id} | Get an event
 *DatadogAPIClient::V1::EventsAPI* | [**list_events**](EventsAPI.md#list_events) | **GET** /api/v1/events | Query the event stream
 *DatadogAPIClient::V1::GCPIntegrationAPI* | [**create_gcp_integration**](GCPIntegrationAPI.md#create_gcp_integration) | **POST** /api/v1/integration/gcp | Create a GCP integration
@@ -92,6 +93,7 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::KeyManagementAPI* | [**update_api_key**](KeyManagementAPI.md#update_api_key) | **PUT** /api/v1/api_key/{key} | Edit an API key
 *DatadogAPIClient::V1::KeyManagementAPI* | [**update_application_key**](KeyManagementAPI.md#update_application_key) | **PUT** /api/v1/application_key/{key} | Edit an application key
 *DatadogAPIClient::V1::LogsAPI* | [**list_logs**](LogsAPI.md#list_logs) | **POST** /api/v1/logs-queries/list | Search logs
+*DatadogAPIClient::V1::LogsAPI* | [**submit_log**](LogsAPI.md#submit_log) | **POST** /v1/input | Send logs
 *DatadogAPIClient::V1::LogsIndexesAPI* | [**create_logs_index**](LogsIndexesAPI.md#create_logs_index) | **POST** /api/v1/logs/config/indexes | Create an index
 *DatadogAPIClient::V1::LogsIndexesAPI* | [**get_logs_index**](LogsIndexesAPI.md#get_logs_index) | **GET** /api/v1/logs/config/indexes/{name} | Get an index
 *DatadogAPIClient::V1::LogsIndexesAPI* | [**get_logs_index_order**](LogsIndexesAPI.md#get_logs_index_order) | **GET** /api/v1/logs/config/index-order | Get indexes order
@@ -109,6 +111,7 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::MetricsAPI* | [**list_active_metrics**](MetricsAPI.md#list_active_metrics) | **GET** /api/v1/metrics | Get active metrics list
 *DatadogAPIClient::V1::MetricsAPI* | [**list_metrics**](MetricsAPI.md#list_metrics) | **GET** /api/v1/search | Search metrics
 *DatadogAPIClient::V1::MetricsAPI* | [**query_metrics**](MetricsAPI.md#query_metrics) | **GET** /api/v1/query | Query timeseries points
+*DatadogAPIClient::V1::MetricsAPI* | [**submit_metrics**](MetricsAPI.md#submit_metrics) | **POST** /api/v1/series | Submit metrics
 *DatadogAPIClient::V1::MetricsAPI* | [**update_metric_metadata**](MetricsAPI.md#update_metric_metadata) | **PUT** /api/v1/metrics/{metric_name} | Edit metric metadata
 *DatadogAPIClient::V1::MonitorsAPI* | [**check_can_delete_monitor**](MonitorsAPI.md#check_can_delete_monitor) | **GET** /api/v1/monitor/can_delete | Check if a monitor can be deleted
 *DatadogAPIClient::V1::MonitorsAPI* | [**create_monitor**](MonitorsAPI.md#create_monitor) | **POST** /api/v1/monitor | Create a monitor
@@ -126,6 +129,7 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::PagerDutyIntegrationAPI* | [**delete_pager_duty_integration_service**](PagerDutyIntegrationAPI.md#delete_pager_duty_integration_service) | **DELETE** /api/v1/integration/pagerduty/configuration/services/{service_name} | Delete a single service object
 *DatadogAPIClient::V1::PagerDutyIntegrationAPI* | [**get_pager_duty_integration_service**](PagerDutyIntegrationAPI.md#get_pager_duty_integration_service) | **GET** /api/v1/integration/pagerduty/configuration/services/{service_name} | Get a single service object
 *DatadogAPIClient::V1::PagerDutyIntegrationAPI* | [**update_pager_duty_integration_service**](PagerDutyIntegrationAPI.md#update_pager_duty_integration_service) | **PUT** /api/v1/integration/pagerduty/configuration/services/{service_name} | Update a single service object
+*DatadogAPIClient::V1::ServiceChecksAPI* | [**submit_service_check**](ServiceChecksAPI.md#submit_service_check) | **POST** /api/v1/check_run | Submit a Service Check
 *DatadogAPIClient::V1::ServiceLevelObjectiveCorrectionsAPI* | [**create_slo_correction**](ServiceLevelObjectiveCorrectionsAPI.md#create_slo_correction) | **POST** /api/v1/slo/correction | Create an SLO correction
 *DatadogAPIClient::V1::ServiceLevelObjectiveCorrectionsAPI* | [**delete_slo_correction**](ServiceLevelObjectiveCorrectionsAPI.md#delete_slo_correction) | **DELETE** /api/v1/slo/correction/{slo_correction_id} | Delete an SLO Correction
 *DatadogAPIClient::V1::ServiceLevelObjectiveCorrectionsAPI* | [**get_slo_correction**](ServiceLevelObjectiveCorrectionsAPI.md#get_slo_correction) | **GET** /api/v1/slo/correction/{slo_correction_id} | Get an SLO correction for an SLO
@@ -258,6 +262,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::CheckCanDeleteSLOResponseData](CheckCanDeleteSLOResponseData.md)
  - [DatadogAPIClient::V1::CheckStatusWidgetDefinition](CheckStatusWidgetDefinition.md)
  - [DatadogAPIClient::V1::CheckStatusWidgetDefinitionType](CheckStatusWidgetDefinitionType.md)
+ - [DatadogAPIClient::V1::ContentEncoding](ContentEncoding.md)
  - [DatadogAPIClient::V1::Creator](Creator.md)
  - [DatadogAPIClient::V1::Dashboard](Dashboard.md)
  - [DatadogAPIClient::V1::DashboardDeleteResponse](DashboardDeleteResponse.md)
@@ -278,6 +283,8 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::DowntimeRecurrence](DowntimeRecurrence.md)
  - [DatadogAPIClient::V1::Event](Event.md)
  - [DatadogAPIClient::V1::EventAlertType](EventAlertType.md)
+ - [DatadogAPIClient::V1::EventCreateRequest](EventCreateRequest.md)
+ - [DatadogAPIClient::V1::EventCreateResponse](EventCreateResponse.md)
  - [DatadogAPIClient::V1::EventListResponse](EventListResponse.md)
  - [DatadogAPIClient::V1::EventPriority](EventPriority.md)
  - [DatadogAPIClient::V1::EventQueryDefinition](EventQueryDefinition.md)
@@ -311,6 +318,8 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::GraphSnapshot](GraphSnapshot.md)
  - [DatadogAPIClient::V1::GroupWidgetDefinition](GroupWidgetDefinition.md)
  - [DatadogAPIClient::V1::GroupWidgetDefinitionType](GroupWidgetDefinitionType.md)
+ - [DatadogAPIClient::V1::HTTPLogError](HTTPLogError.md)
+ - [DatadogAPIClient::V1::HTTPLogItem](HTTPLogItem.md)
  - [DatadogAPIClient::V1::HTTPMethod](HTTPMethod.md)
  - [DatadogAPIClient::V1::HeatMapWidgetDefinition](HeatMapWidgetDefinition.md)
  - [DatadogAPIClient::V1::HeatMapWidgetDefinitionType](HeatMapWidgetDefinitionType.md)
@@ -342,6 +351,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::IdpResponse](IdpResponse.md)
  - [DatadogAPIClient::V1::ImageWidgetDefinition](ImageWidgetDefinition.md)
  - [DatadogAPIClient::V1::ImageWidgetDefinitionType](ImageWidgetDefinitionType.md)
+ - [DatadogAPIClient::V1::IntakePayloadAccepted](IntakePayloadAccepted.md)
  - [DatadogAPIClient::V1::Log](Log.md)
  - [DatadogAPIClient::V1::LogContent](LogContent.md)
  - [DatadogAPIClient::V1::LogQueryDefinition](LogQueryDefinition.md)
@@ -403,6 +413,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::MetricSearchResponse](MetricSearchResponse.md)
  - [DatadogAPIClient::V1::MetricSearchResponseResults](MetricSearchResponseResults.md)
  - [DatadogAPIClient::V1::MetricsListResponse](MetricsListResponse.md)
+ - [DatadogAPIClient::V1::MetricsPayload](MetricsPayload.md)
  - [DatadogAPIClient::V1::MetricsQueryMetadata](MetricsQueryMetadata.md)
  - [DatadogAPIClient::V1::MetricsQueryResponse](MetricsQueryResponse.md)
  - [DatadogAPIClient::V1::MetricsQueryUnit](MetricsQueryUnit.md)
@@ -478,6 +489,9 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::ScatterPlotWidgetDefinition](ScatterPlotWidgetDefinition.md)
  - [DatadogAPIClient::V1::ScatterPlotWidgetDefinitionRequests](ScatterPlotWidgetDefinitionRequests.md)
  - [DatadogAPIClient::V1::ScatterPlotWidgetDefinitionType](ScatterPlotWidgetDefinitionType.md)
+ - [DatadogAPIClient::V1::Series](Series.md)
+ - [DatadogAPIClient::V1::ServiceCheck](ServiceCheck.md)
+ - [DatadogAPIClient::V1::ServiceCheckStatus](ServiceCheckStatus.md)
  - [DatadogAPIClient::V1::ServiceLevelObjective](ServiceLevelObjective.md)
  - [DatadogAPIClient::V1::ServiceLevelObjectiveQuery](ServiceLevelObjectiveQuery.md)
  - [DatadogAPIClient::V1::ServiceLevelObjectiveRequest](ServiceLevelObjectiveRequest.md)
