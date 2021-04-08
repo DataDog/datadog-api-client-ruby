@@ -13,8 +13,8 @@
 require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::ServiceLevelObjectiveQuery.new(
-  denominator: ,
-  numerator: 
+  denominator: sum:my.custom.metric{*}.as_count(),
+  numerator: sum:my.custom.metric{type:good}.as_count()
 )
 ```
 

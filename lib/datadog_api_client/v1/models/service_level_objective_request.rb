@@ -19,22 +19,11 @@ require 'time'
 module DatadogAPIClient::V1
   # A service level objective object includes a service level indicator, thresholds for one or more timeframes, and metadata (`name`, `description`, `tags`, etc.).
   class ServiceLevelObjectiveRequest
-    # Creation timestamp (UNIX time in seconds)  Always included in service level objective responses.
-    attr_accessor :created_at
-
-    attr_accessor :creator
-
     # A user-defined description of the service level objective.  Always included in service level objective responses (but may be `null`). Optional in create/update requests.
     attr_accessor :description
 
     # A list of (up to 20) monitor groups that narrow the scope of a monitor service level objective.  Included in service level objective responses if it is not empty. Optional in create/update requests for monitor service level objectives, but may only be used when then length of the `monitor_ids` field is one.
     attr_accessor :groups
-
-    # A unique identifier for the service level objective object.  Always included in service level objective responses.
-    attr_accessor :id
-
-    # Modification timestamp (UNIX time in seconds)  Always included in service level objective responses.
-    attr_accessor :modified_at
 
     # A list of monitor ids that defines the scope of a monitor service level objective. **Required if type is `monitor`**.
     attr_accessor :monitor_ids
@@ -55,12 +44,8 @@ module DatadogAPIClient::V1
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'created_at' => :'created_at',
-        :'creator' => :'creator',
         :'description' => :'description',
         :'groups' => :'groups',
-        :'id' => :'id',
-        :'modified_at' => :'modified_at',
         :'monitor_ids' => :'monitor_ids',
         :'name' => :'name',
         :'query' => :'query',
@@ -78,12 +63,8 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'created_at' => :'Integer',
-        :'creator' => :'Creator',
         :'description' => :'String',
         :'groups' => :'Array<String>',
-        :'id' => :'String',
-        :'modified_at' => :'Integer',
         :'monitor_ids' => :'Array<Integer>',
         :'name' => :'String',
         :'query' => :'ServiceLevelObjectiveQuery',
@@ -115,14 +96,6 @@ module DatadogAPIClient::V1
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'created_at')
-        self.created_at = attributes[:'created_at']
-      end
-
-      if attributes.key?(:'creator')
-        self.creator = attributes[:'creator']
-      end
-
       if attributes.key?(:'description')
         self.description = attributes[:'description']
       end
@@ -131,14 +104,6 @@ module DatadogAPIClient::V1
         if (value = attributes[:'groups']).is_a?(Array)
           self.groups = value
         end
-      end
-
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'modified_at')
-        self.modified_at = attributes[:'modified_at']
       end
 
       if attributes.key?(:'monitor_ids')
@@ -205,12 +170,8 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          created_at == o.created_at &&
-          creator == o.creator &&
           description == o.description &&
           groups == o.groups &&
-          id == o.id &&
-          modified_at == o.modified_at &&
           monitor_ids == o.monitor_ids &&
           name == o.name &&
           query == o.query &&
@@ -228,7 +189,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_at, creator, description, groups, id, modified_at, monitor_ids, name, query, tags, thresholds, type].hash
+      [description, groups, monitor_ids, name, query, tags, thresholds, type].hash
     end
 
     # Builds the object from hash
