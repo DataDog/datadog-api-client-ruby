@@ -89,7 +89,7 @@ Create a service level objective object.
 ```ruby
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::ServiceLevelObjectivesAPI.new
-body = DatadogAPIClient::V1::ServiceLevelObjectiveRequest.new({name: 'name_example', thresholds: [DatadogAPIClient::V1::SLOThreshold.new({target: 99.9, timeframe: DatadogAPIClient::V1::SLOTimeframe::SEVEN_DAYS})], type: DatadogAPIClient::V1::SLOType::METRIC}) # ServiceLevelObjectiveRequest | Service level objective request object.
+body = DatadogAPIClient::V1::ServiceLevelObjectiveRequest.new({name: 'Custom Metric SLO', thresholds: [DatadogAPIClient::V1::SLOThreshold.new({target: 99.9, timeframe: DatadogAPIClient::V1::SLOTimeframe::SEVEN_DAYS})], type: DatadogAPIClient::V1::SLOType::METRIC}) # ServiceLevelObjectiveRequest | Service level objective request object.
 
 begin
   # Create an SLO object
@@ -483,7 +483,7 @@ Update the specified service level objective object.
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::ServiceLevelObjectivesAPI.new
 slo_id = 'slo_id_example' # String | The ID of the service level objective object.
-body = DatadogAPIClient::V1::ServiceLevelObjective.new({name: 'name_example', thresholds: [DatadogAPIClient::V1::SLOThreshold.new({target: 99.9, timeframe: DatadogAPIClient::V1::SLOTimeframe::SEVEN_DAYS})], type: DatadogAPIClient::V1::SLOType::METRIC}) # ServiceLevelObjective | The edited service level objective request object.
+body = DatadogAPIClient::V1::ServiceLevelObjective.new({name: 'Custom Metric SLO', thresholds: [DatadogAPIClient::V1::SLOThreshold.new({target: 99.9, timeframe: DatadogAPIClient::V1::SLOTimeframe::SEVEN_DAYS})], type: DatadogAPIClient::V1::SLOType::METRIC}) # ServiceLevelObjective | The edited service level objective request object.
 
 begin
   # Update an SLO
