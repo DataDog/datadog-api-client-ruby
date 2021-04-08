@@ -32,10 +32,10 @@ instance = DatadogAPIClient::V1::ServiceLevelObjective.new(
   modified_at: null,
   monitor_ids: null,
   monitor_tags: null,
-  name: ,
+  name: Custom Metric SLO,
   query: null,
   tags: [&quot;env:prod&quot;,&quot;app:core&quot;],
-  thresholds: [],
+  thresholds: [{&quot;target&quot;:95,&quot;timeframe&quot;:&quot;7d&quot;},{&quot;target&quot;:95,&quot;timeframe&quot;:&quot;30d&quot;,&quot;warning&quot;:97}],
   type: null
 )
 ```
