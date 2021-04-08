@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.datadoghq.com/api/v1/events
+    body:
+      encoding: UTF-8
+      string: '{"title":"Testing event","text":"A text message.","tags":["test:rubyPostaneventreturnsOKresponse1614854024"]}'
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.7.2; os linux-gnu; arch x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 202
+      message: Accepted
+    headers:
+      Date:
+      - Thu, 04 Mar 2021 10:33:44 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '308'
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: '{"status":"ok","event":{"id":5881943591200976676,"title":"Testing event","text":"A
+        text message.","date_happened":1614854024,"handle":null,"priority":null,"related_event_id":null,"tags":["test:rubyPostaneventreturnsOKresponse1614854024"],"url":"https://app.datadoghq.com/event/event?id=5881943591200976676"}}'
+  recorded_at: Thu, 04 Mar 2021 10:33:44 GMT
+recorded_with: VCR 6.0.0

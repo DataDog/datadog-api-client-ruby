@@ -4,8 +4,71 @@ All URIs are relative to *https://api.datadoghq.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**create_event**](EventsAPI.md#create_event) | **POST** /api/v1/events | Post an event |
 | [**get_event**](EventsAPI.md#get_event) | **GET** /api/v1/events/{event_id} | Get an event |
 | [**list_events**](EventsAPI.md#list_events) | **GET** /api/v1/events | Query the event stream |
+
+
+## create_event
+
+> <EventCreateResponse> create_event(body)
+
+Post an event
+
+This endpoint allows you to post events to the stream. Tag them, set priority and event aggregate them with other events.
+
+### Examples
+
+```ruby
+require 'datadog_api_client'
+api_instance = DatadogAPIClient::V1::EventsAPI.new
+body = DatadogAPIClient::V1::EventCreateRequest.new({text: 'Oh boy!', title: 'Did you hear the news today?'}) # EventCreateRequest | Event request object
+
+begin
+  # Post an event
+  result = api_instance.create_event(body)
+  p result
+rescue DatadogAPIClient::V1::APIError => e
+  puts "Error when calling EventsAPI->create_event: #{e}"
+end
+```
+
+#### Using the create_event_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<EventCreateResponse>, Integer, Hash)> create_event_with_http_info(body)
+
+```ruby
+begin
+  # Post an event
+  data, status_code, headers = api_instance.create_event_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <EventCreateResponse>
+rescue DatadogAPIClient::V1::APIError => e
+  puts "Error when calling EventsAPI->create_event_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**EventCreateRequest**](EventCreateRequest.md) | Event request object |  |
+
+### Return type
+
+[**EventCreateResponse**](EventCreateResponse.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
 ## get_event

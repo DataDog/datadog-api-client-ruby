@@ -337,6 +337,81 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
+    # Submit metrics
+    # The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards. The maximum payload size is 3.2 megabytes (3200000). Compressed payloads must have a decompressed size of up to 62 megabytes (62914560).  If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect  - 64 bits for the timestamp - 32 bits for the value - 20 bytes for the metric names - 50 bytes for the timeseries - The full payload is approximately ~ 100 bytes. However, with the DogStatsD API, compression is applied, which reduces the payload size.
+    # @param body [MetricsPayload] 
+    # @param [Hash] opts the optional parameters
+    # @return [IntakePayloadAccepted]
+    def submit_metrics(body, opts = {})
+      data, _status_code, _headers = submit_metrics_with_http_info(body, opts)
+      data
+    end
+
+    # Submit metrics
+    # The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards. The maximum payload size is 3.2 megabytes (3200000). Compressed payloads must have a decompressed size of up to 62 megabytes (62914560).  If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect  - 64 bits for the timestamp - 32 bits for the value - 20 bytes for the metric names - 50 bytes for the timeseries - The full payload is approximately ~ 100 bytes. However, with the DogStatsD API, compression is applied, which reduces the payload size.
+    # @param body [MetricsPayload] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(IntakePayloadAccepted, Integer, Hash)>] IntakePayloadAccepted data, response status code and response headers
+    def submit_metrics_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:submit_metrics)
+        unstable_enabled = @api_client.config.unstable_operations[:submit_metrics]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "submit_metrics")
+        else
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "submit_metrics"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MetricsAPI.submit_metrics ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling MetricsAPI.submit_metrics"
+      end
+      # resource path
+      local_var_path = '/api/v1/series'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'IntakePayloadAccepted'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :submit_metrics,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MetricsAPI#submit_metrics\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Edit metric metadata
     # Edit metadata of a specific metric. Find out more about [supported types](https://docs.datadoghq.com/developers/metrics).
     # @param metric_name [String] Name of the metric for which to edit metadata.
