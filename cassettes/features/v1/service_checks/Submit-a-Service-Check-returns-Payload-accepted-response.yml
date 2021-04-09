@@ -5,10 +5,10 @@ http_interactions:
     uri: https://api.datadoghq.com/api/v1/check_run
     body:
       encoding: UTF-8
-      string: '[{"check":"app.ok","host_name":"host","status":0,"tags":["test:rubySubmitaServiceCheckreturnsPayloadacceptedresponse1614854024"]}]'
+      string: '[{"check":"app.ok","host_name":"host","status":0,"tags":["test:TestSubmitaServiceCheckreturnsPayloadacceptedresponse1617968722"]}]'
     headers:
       User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.7.2; os linux-gnu; arch x86_64)
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -21,7 +21,7 @@ http_interactions:
       message: Accepted
     headers:
       Date:
-      - Thu, 04 Mar 2021 10:33:44 GMT
+      - Fri, 09 Apr 2021 11:45:22 GMT
       Content-Type:
       - text/json
       Content-Length:
@@ -39,5 +39,5 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"status": "ok"}'
-  recorded_at: Thu, 04 Mar 2021 10:33:44 GMT
+  recorded_at: Fri, 09 Apr 2021 11:45:22 GMT
 recorded_with: VCR 6.0.0

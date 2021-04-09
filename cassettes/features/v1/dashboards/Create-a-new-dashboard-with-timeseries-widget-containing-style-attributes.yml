@@ -5,12 +5,12 @@ http_interactions:
     uri: https://api.datadoghq.com/api/v1/dashboard
     body:
       encoding: UTF-8
-      string: '{"layout_type":"ordered","title":"ruby-Create_a_new_dashboard_with_timeseries_widget_containing_style_attributes-1617190394
+      string: '{"layout_type":"ordered","title":"Test-Create_a_new_dashboard_with_timeseries_widget_containing_style_attributes-1617968720
         with timeseries widget","widgets":[{"definition":{"type":"timeseries","requests":[{"q":"sum:trace.test.errors{env:prod,service:datadog-api-spec}
         by {resource_name}.as_count()","on_right_yaxis":false,"style":{"palette":"warm","line_type":"solid","line_width":"normal"},"display_type":"bars"}]}}]}'
     headers:
       User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.7.2; os linux-gnu; arch x86_64)
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -23,11 +23,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 31 Mar 2021 11:33:15 GMT
+      - Fri, 09 Apr 2021 11:45:20 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '836'
+      - '809'
       Connection:
       - keep-alive
       Vary:
@@ -37,9 +37,9 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dd-Version:
-      - '35.4208004'
+      - '35.4275259'
       X-Dd-Debug:
-      - LcgNasIYBRkNppmD6mCKE9J6iv0eEjosuuHR5V5zw2fWbR54i39C8dhdK8zDq/40
+      - vdJ3/nHEY1ioXQ6pQrBVvsQK1s4yyc+wufBMPSoXql71qZVuP/xMdtNo6DafhOAk
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -50,8 +50,8 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"notify_list":null,"description":null,"author_name":"CI Account","template_variables":null,"is_read_only":false,"id":"8ca-ra5-jes","title":"ruby-Create_a_new_dashboard_with_timeseries_widget_containing_style_attributes-1617190394
-        with timeseries widget","url":"/dashboard/8ca-ra5-jes/ruby-createanewdashboardwithtimeserieswidgetcontainingstyleattributes-1617190394","created_at":"2021-03-31T11:33:15.116161+00:00","modified_at":"2021-03-31T11:33:15.116161+00:00","author_handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","widgets":[{"definition":{"requests":[{"q":"sum:trace.test.errors{env:prod,service:datadog-api-spec}
-        by {resource_name}.as_count()","on_right_yaxis":false,"style":{"line_width":"normal","palette":"warm","line_type":"solid"},"display_type":"bars"}],"type":"timeseries"},"id":5618437047804370}],"layout_type":"ordered"}'
-  recorded_at: Wed, 31 Mar 2021 11:33:14 GMT
+      string: '{"notify_list":null,"description":null,"author_name":null,"template_variables":null,"is_read_only":false,"id":"hkk-7bc-cde","title":"Test-Create_a_new_dashboard_with_timeseries_widget_containing_style_attributes-1617968720
+        with timeseries widget","url":"/dashboard/hkk-7bc-cde/test-createanewdashboardwithtimeserieswidgetcontainingstyleattributes-1617968720","created_at":"2021-04-09T11:45:20.582260+00:00","modified_at":"2021-04-09T11:45:20.582260+00:00","author_handle":"frog@datadoghq.com","widgets":[{"definition":{"requests":[{"q":"sum:trace.test.errors{env:prod,service:datadog-api-spec}
+        by {resource_name}.as_count()","on_right_yaxis":false,"style":{"line_width":"normal","palette":"warm","line_type":"solid"},"display_type":"bars"}],"type":"timeseries"},"id":101266531088404}],"layout_type":"ordered"}'
+  recorded_at: Fri, 09 Apr 2021 11:45:20 GMT
 recorded_with: VCR 6.0.0
