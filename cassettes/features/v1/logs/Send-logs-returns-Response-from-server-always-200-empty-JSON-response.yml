@@ -5,7 +5,7 @@ http_interactions:
     uri: https://http-intake.logs.datadoghq.com/v1/input
     body:
       encoding: UTF-8
-      string: '[{"message":"Test-Send_logs_returns_Response_from_server_always_200_empty_JSON_response-1617968721","tags":"host:TestSendlogsreturnsResponsefromserveralways200emptyJSONresponse1617968721"}]'
+      string: '[{"message":"Test-Send_logs_returns_Response_from_server_always_200_empty_JSON_response-1617971004","tags":"host:TestSendlogsreturnsResponsefromserveralways200emptyJSONresponse1617971004"}]'
     headers:
       User-Agent:
       - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
@@ -21,7 +21,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Fri, 09 Apr 2021 11:45:21 GMT
+      - Fri, 09 Apr 2021 12:23:25 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -29,5 +29,5 @@ http_interactions:
     body:
       encoding: UTF-8
       string: "{}"
-  recorded_at: Fri, 09 Apr 2021 11:45:21 GMT
+  recorded_at: Fri, 09 Apr 2021 12:23:24 GMT
 recorded_with: VCR 6.0.0

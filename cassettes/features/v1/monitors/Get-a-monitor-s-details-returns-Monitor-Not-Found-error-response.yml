@@ -21,7 +21,7 @@ http_interactions:
       message: Not Found
     headers:
       Date:
-      - Fri, 09 Apr 2021 11:45:22 GMT
+      - Fri, 09 Apr 2021 12:23:25 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -39,11 +39,11 @@ http_interactions:
       X-Ratelimit-Period:
       - '10'
       X-Ratelimit-Reset:
-      - '8'
+      - '5'
       X-Ratelimit-Remaining:
       - '2999'
       X-Dd-Version:
-      - '35.4275259'
+      - '35.4275715'
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -55,5 +55,5 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"errors": ["Monitor not found"]}'
-  recorded_at: Fri, 09 Apr 2021 11:45:21 GMT
+  recorded_at: Fri, 09 Apr 2021 12:23:25 GMT
 recorded_with: VCR 6.0.0

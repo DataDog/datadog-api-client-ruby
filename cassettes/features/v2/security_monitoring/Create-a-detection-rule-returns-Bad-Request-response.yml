@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.datadoghq.com/api/v1/series
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/rules
     body:
       encoding: UTF-8
-      string: '{"series":[{"metric":"system.load.1","points":[[1600348600,1.1]],"tags":["test:TestSubmitmetricsreturnsPayloadacceptedresponse1617971005"]}]}'
+      string: "{}"
     headers:
       User-Agent:
       - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
@@ -17,17 +17,23 @@ http_interactions:
       - ''
   response:
     status:
-      code: 202
-      message: Accepted
+      code: 400
+      message: Bad Request
     headers:
       Date:
-      - Fri, 09 Apr 2021 12:23:25 GMT
+      - Fri, 09 Apr 2021 12:23:59 GMT
       Content-Type:
-      - text/json
+      - application/json
       Content-Length:
-      - '16'
+      - '67'
       Connection:
       - keep-alive
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Dd-Version:
+      - '35.4275715'
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -38,6 +44,6 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"status": "ok"}'
-  recorded_at: Fri, 09 Apr 2021 12:23:25 GMT
+      string: '{"errors":["Invalid rule configuration","Options cannot be empty"]}'
+  recorded_at: Fri, 09 Apr 2021 12:23:59 GMT
 recorded_with: VCR 6.0.0

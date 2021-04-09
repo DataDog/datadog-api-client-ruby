@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.datadoghq.com/api/v2/users
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"users","attributes":{"name":"Datadog API Client Python","email":"Test-Create_a_user_returns_OK_response-1617968755@datadoghq.com"}}}'
+      string: '{"data":{"type":"users","attributes":{"name":"Datadog API Client Python","email":"Test-Create_a_user_returns_OK_response-1617971040@datadoghq.com"}}}'
     headers:
       User-Agent:
       - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
@@ -21,7 +21,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Fri, 09 Apr 2021 11:45:55 GMT
+      - Fri, 09 Apr 2021 12:24:00 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -33,9 +33,9 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dd-Version:
-      - '35.4275259'
+      - '35.4275715'
       X-Dd-Debug:
-      - mNzaoDhdDKO7t4QSrAe5X7pHd0bJND187D+vRbwoluXouE2m1UaQQX0RGCvRpLVE
+      - twvpGlmuom5y6A0pjGtXzTf554cmwJgTcCZ71fK4H/RDi+v5ehBK0zQiRcTJQG5C
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -46,7 +46,7 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"users","id":"24a9aa8c-9929-11eb-9ceb-da7ad0900002","attributes":{"name":"Datadog
-        API Client Python","handle":"test-create_a_user_returns_ok_response-1617968755@datadoghq.com","created_at":"2021-04-09T11:45:55.272194+00:00","modified_at":"2021-04-09T11:45:55.291356+00:00","email":"test-create_a_user_returns_ok_response-1617968755@datadoghq.com","icon":"https://secure.gravatar.com/avatar/20e5bd4cab2e195fb3f63bef3963b8d5?s=48&d=retro","title":null,"verified":false,"service_account":false,"disabled":false,"allowed_login_methods":[],"status":"Pending"},"relationships":{"roles":{"data":[]},"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}}'
-  recorded_at: Fri, 09 Apr 2021 11:45:55 GMT
+      string: '{"data":{"type":"users","id":"76f884e8-992e-11eb-9ceb-da7ad0900002","attributes":{"name":"Datadog
+        API Client Python","handle":"test-create_a_user_returns_ok_response-1617971040@datadoghq.com","created_at":"2021-04-09T12:24:00.845310+00:00","modified_at":"2021-04-09T12:24:00.861294+00:00","email":"test-create_a_user_returns_ok_response-1617971040@datadoghq.com","icon":"https://secure.gravatar.com/avatar/dfa2143277e479c451a368c907f421cc?s=48&d=retro","title":null,"verified":false,"service_account":false,"disabled":false,"allowed_login_methods":[],"status":"Pending"},"relationships":{"roles":{"data":[]},"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}}'
+  recorded_at: Fri, 09 Apr 2021 12:24:00 GMT
 recorded_with: VCR 6.0.0

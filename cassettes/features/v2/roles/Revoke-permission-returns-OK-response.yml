@@ -2,141 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.datadoghq.com/api/v2/roles/08e7de8e-3553-11eb-87b3-3f2b3dbf6bfb/permissions
-    body:
-      encoding: UTF-8
-      string: '{"data":{"id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","type":"permissions"}}'
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.7.1; os darwin19.6.0; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Thu, 03 Dec 2020 10:33:51 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '1128'
-      Connection:
-      - keep-alive
-      Vary:
-      - Accept-Encoding
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 10-Dec-2020 10:33:51 GMT;
-        secure; HttpOnly
-      X-Dd-Version:
-      - '35.3468623'
-      X-Ratelimit-Limit:
-      - '500'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Reset:
-      - '9'
-      X-Ratelimit-Remaining:
-      - '484'
-      X-Dd-Debug:
-      - Myj8sd1pziB4C84B4b1rasxwLMPNwfWkbCDNeub0Oa5WtqdY+QrYDSF2rhC1Qab8
-      Dd-Pool:
-      - dogweb
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-    body:
-      encoding: UTF-8
-      string: '{"data":[{"type":"permissions","id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","attributes":{"name":"admin","display_name":"Privileged
-        Access","description":"This permission gives you the ability to view and edit
-        everything in your Datadog organization that does not have an explicitly defined
-        permission. This includes billing and usage, key, and organization management.
-        This permission is inclusive of all Standard access permissions.","created":"2018-10-19T15:35:23.734317+00:00","group_name":"General","display_type":"other","restricted":false}},{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2","attributes":{"name":"dashboards_read","display_name":"Dashboards","description":"The
-        ability to view dashboards.","created":"2019-09-10T14:39:51.955175+00:00","group_name":"Dashboards","display_type":"read","restricted":true}},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304","attributes":{"name":"monitors_read","display_name":"Monitors","description":"The
-        ability to view monitors.","created":"2019-09-16T18:39:07.744297+00:00","group_name":"Monitors","display_type":"read","restricted":true}}]}'
-  recorded_at: Thu, 03 Dec 2020 10:33:51 GMT
-- request:
-    method: delete
-    uri: https://api.datadoghq.com/api/v2/roles/08e7de8e-3553-11eb-87b3-3f2b3dbf6bfb/permissions
-    body:
-      encoding: UTF-8
-      string: '{"data":{"id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","type":"permissions"}}'
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.7.1; os darwin19.6.0; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Thu, 03 Dec 2020 10:34:17 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '590'
-      Connection:
-      - keep-alive
-      Vary:
-      - Accept-Encoding
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 10-Dec-2020 10:34:17 GMT;
-        secure; HttpOnly
-      X-Dd-Version:
-      - '35.3468590'
-      X-Ratelimit-Limit:
-      - '500'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Reset:
-      - '43'
-      X-Ratelimit-Remaining:
-      - '499'
-      X-Dd-Debug:
-      - JNmeA3l0ccOXtA8wh8DpQGSmyIQ4z3r0Sqn1W1sQHkMGKxYzMqf/DJpF1RAS+Dpy
-      Dd-Pool:
-      - dogweb
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-    body:
-      encoding: UTF-8
-      string: '{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2","attributes":{"name":"dashboards_read","display_name":"Dashboards","description":"The
-        ability to view dashboards.","created":"2019-09-10T14:39:51.955175+00:00","group_name":"Dashboards","display_type":"read","restricted":true}},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304","attributes":{"name":"monitors_read","display_name":"Monitors","description":"The
-        ability to view monitors.","created":"2019-09-16T18:39:07.744297+00:00","group_name":"Monitors","display_type":"read","restricted":true}}]}'
-  recorded_at: Thu, 03 Dec 2020 10:33:51 GMT
-- request:
-    method: post
-    uri: https://api.datadoghq.com/api/v2/roles/cfa2f814-9909-11eb-9ce8-da7ad0900002/permissions
+    uri: https://api.datadoghq.com/api/v2/roles/ac224613-992a-11eb-9ceb-da7ad0900002/permissions
     body:
       encoding: UTF-8
       string: '{"data":{"id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","type":"permissions"}}'
@@ -155,389 +21,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 09 Apr 2021 08:01:38 GMT
+      - Fri, 09 Apr 2021 11:56:53 GMT
       Content-Type:
       - application/json
       Content-Length:
       - '1426'
-      Connection:
-      - keep-alive
-      Vary:
-      - Accept-Encoding
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Dd-Version:
-      - '35.4273965'
-      X-Ratelimit-Limit:
-      - '500'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Reset:
-      - '22'
-      X-Ratelimit-Remaining:
-      - '458'
-      X-Dd-Debug:
-      - SY1h8ScsWq+kYmtbh63ltMLFAZsQjqfrgvdfAoRX+9TzT1sgMBRYaFRwfWWRRe9a
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: UTF-8
-      string: '{"data":[{"type":"permissions","id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","attributes":{"name":"admin","display_name":"Privileged
-        Access","description":"This permission gives you the ability to view and edit
-        everything in your Datadog organization that does not have an explicitly defined
-        permission. This includes organization settings and SAML management. This
-        permission is inclusive of all Standard access permissions.","created":"2018-10-19T15:35:23.734317+00:00","group_name":"General","display_type":"other","restricted":false}},{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2","attributes":{"name":"dashboards_read","display_name":"Dashboards","description":"The
-        ability to view dashboards.","created":"2019-09-10T14:39:51.955175+00:00","group_name":"Dashboards","display_type":"read","restricted":true}},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304","attributes":{"name":"monitors_read","display_name":"Monitors","description":"The
-        ability to view monitors.","created":"2019-09-16T18:39:07.744297+00:00","group_name":"Monitors","display_type":"read","restricted":true}},{"type":"permissions","id":"417ba636-2dce-11eb-84c0-6bce5b0d9de0","attributes":{"name":"apm_read","display_name":"APM
-        Read Access","description":"The ability to read and query APM and Trace Analytics.","created":"2020-11-23T20:55:45.006110+00:00","group_name":"APM","display_type":"read","restricted":true}}]}'
-  recorded_at: Fri, 09 Apr 2021 08:01:38 GMT
-- request:
-    method: delete
-    uri: https://api.datadoghq.com/api/v2/roles/cfa2f814-9909-11eb-9ce8-da7ad0900002/permissions
-    body:
-      encoding: UTF-8
-      string: '{"data":{"id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","type":"permissions"}}'
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Fri, 09 Apr 2021 08:01:38 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '898'
-      Connection:
-      - keep-alive
-      Vary:
-      - Accept-Encoding
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Dd-Version:
-      - '35.4273965'
-      X-Ratelimit-Limit:
-      - '500'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Reset:
-      - '22'
-      X-Ratelimit-Remaining:
-      - '457'
-      X-Dd-Debug:
-      - nLnnBNvlCFDECRnZvzDb0z4sAO35G+IMidcAs8vrCKyjvsKWE8Yd9S3n6OjZ1qRN
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: UTF-8
-      string: '{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2","attributes":{"name":"dashboards_read","display_name":"Dashboards","description":"The
-        ability to view dashboards.","created":"2019-09-10T14:39:51.955175+00:00","group_name":"Dashboards","display_type":"read","restricted":true}},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304","attributes":{"name":"monitors_read","display_name":"Monitors","description":"The
-        ability to view monitors.","created":"2019-09-16T18:39:07.744297+00:00","group_name":"Monitors","display_type":"read","restricted":true}},{"type":"permissions","id":"417ba636-2dce-11eb-84c0-6bce5b0d9de0","attributes":{"name":"apm_read","display_name":"APM
-        Read Access","description":"The ability to read and query APM and Trace Analytics.","created":"2020-11-23T20:55:45.006110+00:00","group_name":"APM","display_type":"read","restricted":true}}]}'
-  recorded_at: Fri, 09 Apr 2021 08:01:38 GMT
-- request:
-    method: post
-    uri: https://api.datadoghq.com/api/v2/roles/f5cf6728-990b-11eb-9ce8-da7ad0900002/permissions
-    body:
-      encoding: UTF-8
-      string: '{"data":{"id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","type":"permissions"}}'
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Fri, 09 Apr 2021 08:17:01 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '1426'
-      Connection:
-      - keep-alive
-      Vary:
-      - Accept-Encoding
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Dd-Version:
-      - '35.4274158'
-      X-Ratelimit-Limit:
-      - '500'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Reset:
-      - '59'
-      X-Ratelimit-Remaining:
-      - '495'
-      X-Dd-Debug:
-      - Wjq53IVIwnB4SiR238oOYgHFMq/ZYP0LQ/Dv8C2fFLBwTje/dWJHu6pI6vIOK1zG
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: UTF-8
-      string: '{"data":[{"type":"permissions","id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","attributes":{"name":"admin","display_name":"Privileged
-        Access","description":"This permission gives you the ability to view and edit
-        everything in your Datadog organization that does not have an explicitly defined
-        permission. This includes organization settings and SAML management. This
-        permission is inclusive of all Standard access permissions.","created":"2018-10-19T15:35:23.734317+00:00","group_name":"General","display_type":"other","restricted":false}},{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2","attributes":{"name":"dashboards_read","display_name":"Dashboards","description":"The
-        ability to view dashboards.","created":"2019-09-10T14:39:51.955175+00:00","group_name":"Dashboards","display_type":"read","restricted":true}},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304","attributes":{"name":"monitors_read","display_name":"Monitors","description":"The
-        ability to view monitors.","created":"2019-09-16T18:39:07.744297+00:00","group_name":"Monitors","display_type":"read","restricted":true}},{"type":"permissions","id":"417ba636-2dce-11eb-84c0-6bce5b0d9de0","attributes":{"name":"apm_read","display_name":"APM
-        Read Access","description":"The ability to read and query APM and Trace Analytics.","created":"2020-11-23T20:55:45.006110+00:00","group_name":"APM","display_type":"read","restricted":true}}]}'
-  recorded_at: Fri, 09 Apr 2021 08:17:01 GMT
-- request:
-    method: delete
-    uri: https://api.datadoghq.com/api/v2/roles/f5cf6728-990b-11eb-9ce8-da7ad0900002/permissions
-    body:
-      encoding: UTF-8
-      string: '{"data":{"id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","type":"permissions"}}'
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Fri, 09 Apr 2021 08:17:01 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '898'
-      Connection:
-      - keep-alive
-      Vary:
-      - Accept-Encoding
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Dd-Version:
-      - '35.4274158'
-      X-Ratelimit-Limit:
-      - '500'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Reset:
-      - '59'
-      X-Ratelimit-Remaining:
-      - '494'
-      X-Dd-Debug:
-      - gYZcaADwbKcv7Hm19HJx6WsLoKuOijDWAt2viPeCfWqUgyKY+9e1xZdmMJeXV3YV
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: UTF-8
-      string: '{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2","attributes":{"name":"dashboards_read","display_name":"Dashboards","description":"The
-        ability to view dashboards.","created":"2019-09-10T14:39:51.955175+00:00","group_name":"Dashboards","display_type":"read","restricted":true}},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304","attributes":{"name":"monitors_read","display_name":"Monitors","description":"The
-        ability to view monitors.","created":"2019-09-16T18:39:07.744297+00:00","group_name":"Monitors","display_type":"read","restricted":true}},{"type":"permissions","id":"417ba636-2dce-11eb-84c0-6bce5b0d9de0","attributes":{"name":"apm_read","display_name":"APM
-        Read Access","description":"The ability to read and query APM and Trace Analytics.","created":"2020-11-23T20:55:45.006110+00:00","group_name":"APM","display_type":"read","restricted":true}}]}'
-  recorded_at: Fri, 09 Apr 2021 08:17:01 GMT
-- request:
-    method: post
-    uri: https://api.datadoghq.com/api/v2/roles/6a42d422-990d-11eb-9ce8-da7ad0900002/permissions
-    body:
-      encoding: UTF-8
-      string: '{"data":{"id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","type":"permissions"}}'
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Fri, 09 Apr 2021 08:27:26 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '1426'
-      Connection:
-      - keep-alive
-      Vary:
-      - Accept-Encoding
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Dd-Version:
-      - '35.4274158'
-      X-Ratelimit-Limit:
-      - '500'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Reset:
-      - '34'
-      X-Ratelimit-Remaining:
-      - '469'
-      X-Dd-Debug:
-      - HbtaOKlJ6OCrx9tMXO6ivMTrEM+g0c93HDp08trmOmgdHozC5J+vn10F0H4WPjCU
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: UTF-8
-      string: '{"data":[{"type":"permissions","id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","attributes":{"name":"admin","display_name":"Privileged
-        Access","description":"This permission gives you the ability to view and edit
-        everything in your Datadog organization that does not have an explicitly defined
-        permission. This includes organization settings and SAML management. This
-        permission is inclusive of all Standard access permissions.","created":"2018-10-19T15:35:23.734317+00:00","group_name":"General","display_type":"other","restricted":false}},{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2","attributes":{"name":"dashboards_read","display_name":"Dashboards","description":"The
-        ability to view dashboards.","created":"2019-09-10T14:39:51.955175+00:00","group_name":"Dashboards","display_type":"read","restricted":true}},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304","attributes":{"name":"monitors_read","display_name":"Monitors","description":"The
-        ability to view monitors.","created":"2019-09-16T18:39:07.744297+00:00","group_name":"Monitors","display_type":"read","restricted":true}},{"type":"permissions","id":"417ba636-2dce-11eb-84c0-6bce5b0d9de0","attributes":{"name":"apm_read","display_name":"APM
-        Read Access","description":"The ability to read and query APM and Trace Analytics.","created":"2020-11-23T20:55:45.006110+00:00","group_name":"APM","display_type":"read","restricted":true}}]}'
-  recorded_at: Fri, 09 Apr 2021 08:27:26 GMT
-- request:
-    method: delete
-    uri: https://api.datadoghq.com/api/v2/roles/6a42d422-990d-11eb-9ce8-da7ad0900002/permissions
-    body:
-      encoding: UTF-8
-      string: '{"data":{"id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","type":"permissions"}}'
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Fri, 09 Apr 2021 08:27:26 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '898'
-      Connection:
-      - keep-alive
-      Vary:
-      - Accept-Encoding
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Dd-Version:
-      - '35.4274158'
-      X-Ratelimit-Limit:
-      - '500'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Reset:
-      - '34'
-      X-Ratelimit-Remaining:
-      - '468'
-      X-Dd-Debug:
-      - SY1h8ScsWq+kYmtbh63ltMLFAZsQjqfrgvdfAoRX+9TzT1sgMBRYaFRwfWWRRe9a
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: UTF-8
-      string: '{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2","attributes":{"name":"dashboards_read","display_name":"Dashboards","description":"The
-        ability to view dashboards.","created":"2019-09-10T14:39:51.955175+00:00","group_name":"Dashboards","display_type":"read","restricted":true}},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304","attributes":{"name":"monitors_read","display_name":"Monitors","description":"The
-        ability to view monitors.","created":"2019-09-16T18:39:07.744297+00:00","group_name":"Monitors","display_type":"read","restricted":true}},{"type":"permissions","id":"417ba636-2dce-11eb-84c0-6bce5b0d9de0","attributes":{"name":"apm_read","display_name":"APM
-        Read Access","description":"The ability to read and query APM and Trace Analytics.","created":"2020-11-23T20:55:45.006110+00:00","group_name":"APM","display_type":"read","restricted":true}}]}'
-  recorded_at: Fri, 09 Apr 2021 08:27:26 GMT
-- request:
-    method: post
-    uri: https://api.datadoghq.com/api/v2/roles
-    body:
-      encoding: UTF-8
-      string: '{"data":{"attributes":{"name":"Test-Revoke_permission_returns_OK_response-1617968753"},"type":"roles"}}'
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Fri, 09 Apr 2021 11:45:53 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '488'
       Connection:
       - keep-alive
       Vary:
@@ -555,9 +43,9 @@ http_interactions:
       X-Ratelimit-Reset:
       - '7'
       X-Ratelimit-Remaining:
-      - '419'
+      - '469'
       X-Dd-Debug:
-      - L3ULR3HwCWYmEqCWGz2Yob3chcH4pjowBacBXkncP7o+/uPqKt9yGEYf/g1AJPzQ
+      - nLnnBNvlCFDECRnZvzDb0z4sAO35G+IMidcAs8vrCKyjvsKWE8Yd9S3n6OjZ1qRN
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -568,8 +56,134 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"roles","id":"23e17b3e-9929-11eb-9ceb-da7ad0900002","attributes":{"name":"Test-Revoke_permission_returns_OK_response-1617968753","created_at":"2021-04-09T11:45:53.960361+00:00","modified_at":"2021-04-09T11:45:53.960361+00:00"},"relationships":{"permissions":{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2"},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304"},{"type":"permissions","id":"417ba636-2dce-11eb-84c0-6bce5b0d9de0"}]}}}}'
-  recorded_at: Fri, 09 Apr 2021 11:45:53 GMT
+      string: '{"data":[{"type":"permissions","id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","attributes":{"name":"admin","display_name":"Privileged
+        Access","description":"This permission gives you the ability to view and edit
+        everything in your Datadog organization that does not have an explicitly defined
+        permission. This includes organization settings and SAML management. This
+        permission is inclusive of all Standard access permissions.","created":"2018-10-19T15:35:23.734317+00:00","group_name":"General","display_type":"other","restricted":false}},{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2","attributes":{"name":"dashboards_read","display_name":"Dashboards","description":"The
+        ability to view dashboards.","created":"2019-09-10T14:39:51.955175+00:00","group_name":"Dashboards","display_type":"read","restricted":true}},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304","attributes":{"name":"monitors_read","display_name":"Monitors","description":"The
+        ability to view monitors.","created":"2019-09-16T18:39:07.744297+00:00","group_name":"Monitors","display_type":"read","restricted":true}},{"type":"permissions","id":"417ba636-2dce-11eb-84c0-6bce5b0d9de0","attributes":{"name":"apm_read","display_name":"APM
+        Read Access","description":"The ability to read and query APM and Trace Analytics.","created":"2020-11-23T20:55:45.006110+00:00","group_name":"APM","display_type":"read","restricted":true}}]}'
+  recorded_at: Fri, 09 Apr 2021 11:56:52 GMT
+- request:
+    method: delete
+    uri: https://api.datadoghq.com/api/v2/roles/ac224613-992a-11eb-9ceb-da7ad0900002/permissions
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","type":"permissions"}}'
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 09 Apr 2021 11:56:53 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '898'
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Dd-Version:
+      - '35.4275259'
+      X-Ratelimit-Limit:
+      - '500'
+      X-Ratelimit-Period:
+      - '60'
+      X-Ratelimit-Reset:
+      - '7'
+      X-Ratelimit-Remaining:
+      - '468'
+      X-Dd-Debug:
+      - fIO2C4qGDheGHy4YbS+r3a3CXbh4cbRo7roILOimQyiHGjQdOat0cIpWCkupM1uX
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2","attributes":{"name":"dashboards_read","display_name":"Dashboards","description":"The
+        ability to view dashboards.","created":"2019-09-10T14:39:51.955175+00:00","group_name":"Dashboards","display_type":"read","restricted":true}},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304","attributes":{"name":"monitors_read","display_name":"Monitors","description":"The
+        ability to view monitors.","created":"2019-09-16T18:39:07.744297+00:00","group_name":"Monitors","display_type":"read","restricted":true}},{"type":"permissions","id":"417ba636-2dce-11eb-84c0-6bce5b0d9de0","attributes":{"name":"apm_read","display_name":"APM
+        Read Access","description":"The ability to read and query APM and Trace Analytics.","created":"2020-11-23T20:55:45.006110+00:00","group_name":"APM","display_type":"read","restricted":true}}]}'
+  recorded_at: Fri, 09 Apr 2021 11:56:52 GMT
+- request:
+    method: post
+    uri: https://api.datadoghq.com/api/v2/roles
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"Test-Revoke_permission_returns_OK_response-1617971038"},"type":"roles"}}'
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 09 Apr 2021 12:23:58 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '488'
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Dd-Version:
+      - '35.4275715'
+      X-Ratelimit-Limit:
+      - '500'
+      X-Ratelimit-Period:
+      - '60'
+      X-Ratelimit-Reset:
+      - '2'
+      X-Ratelimit-Remaining:
+      - '470'
+      X-Dd-Debug:
+      - mNzaoDhdDKO7t4QSrAe5X7pHd0bJND187D+vRbwoluXouE2m1UaQQX0RGCvRpLVE
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"roles","id":"759e73c8-992e-11eb-9ceb-da7ad0900002","attributes":{"name":"Test-Revoke_permission_returns_OK_response-1617971038","created_at":"2021-04-09T12:23:58.578534+00:00","modified_at":"2021-04-09T12:23:58.578534+00:00"},"relationships":{"permissions":{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2"},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304"},{"type":"permissions","id":"417ba636-2dce-11eb-84c0-6bce5b0d9de0"}]}}}}'
+  recorded_at: Fri, 09 Apr 2021 12:23:58 GMT
 - request:
     method: get
     uri: https://api.datadoghq.com/api/v2/permissions
@@ -591,7 +205,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 09 Apr 2021 11:45:54 GMT
+      - Fri, 09 Apr 2021 12:23:58 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -605,9 +219,9 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dd-Version:
-      - '35.4275259'
+      - '35.4275715'
       X-Dd-Debug:
-      - fIO2C4qGDheGHy4YbS+r3a3CXbh4cbRo7roILOimQyiHGjQdOat0cIpWCkupM1uX
+      - JpIJLwIH2nFlZOC+u71rq7aAOL43MLZN3MUsL+gpYHdZz5QLUOG8Jysf8kVK6tPU
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -760,10 +374,10 @@ http_interactions:
         Management","display_type":"read","restricted":false}},{"type":"permissions","id":"bf0dcf7d-90af-11eb-9b82-da7ad0900002","attributes":{"name":"data_scanner_write","display_name":"Data
         Scanner","description":"Edit data scanner configuration.","created":"2021-03-29T16:56:46.398584+00:00","group_name":"Access
         Management","display_type":"write","restricted":false}}]}'
-  recorded_at: Fri, 09 Apr 2021 11:45:53 GMT
+  recorded_at: Fri, 09 Apr 2021 12:23:58 GMT
 - request:
     method: post
-    uri: https://api.datadoghq.com/api/v2/roles/23e17b3e-9929-11eb-9ceb-da7ad0900002/permissions
+    uri: https://api.datadoghq.com/api/v2/roles/759e73c8-992e-11eb-9ceb-da7ad0900002/permissions
     body:
       encoding: UTF-8
       string: '{"data":{"id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","type":"permissions"}}'
@@ -782,7 +396,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 09 Apr 2021 11:45:54 GMT
+      - Fri, 09 Apr 2021 12:23:58 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -796,15 +410,15 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dd-Version:
-      - '35.4275259'
+      - '35.4275715'
       X-Ratelimit-Limit:
       - '500'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '6'
+      - '2'
       X-Ratelimit-Remaining:
-      - '417'
+      - '469'
       X-Dd-Debug:
       - twvpGlmuom5y6A0pjGtXzTf554cmwJgTcCZ71fK4H/RDi+v5ehBK0zQiRcTJQG5C
       X-Content-Type-Options:
@@ -825,10 +439,10 @@ http_interactions:
         ability to view dashboards.","created":"2019-09-10T14:39:51.955175+00:00","group_name":"Dashboards","display_type":"read","restricted":true}},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304","attributes":{"name":"monitors_read","display_name":"Monitors","description":"The
         ability to view monitors.","created":"2019-09-16T18:39:07.744297+00:00","group_name":"Monitors","display_type":"read","restricted":true}},{"type":"permissions","id":"417ba636-2dce-11eb-84c0-6bce5b0d9de0","attributes":{"name":"apm_read","display_name":"APM
         Read Access","description":"The ability to read and query APM and Trace Analytics.","created":"2020-11-23T20:55:45.006110+00:00","group_name":"APM","display_type":"read","restricted":true}}]}'
-  recorded_at: Fri, 09 Apr 2021 11:45:53 GMT
+  recorded_at: Fri, 09 Apr 2021 12:23:58 GMT
 - request:
     method: delete
-    uri: https://api.datadoghq.com/api/v2/roles/23e17b3e-9929-11eb-9ceb-da7ad0900002/permissions
+    uri: https://api.datadoghq.com/api/v2/roles/759e73c8-992e-11eb-9ceb-da7ad0900002/permissions
     body:
       encoding: UTF-8
       string: '{"data":{"id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","type":"permissions"}}'
@@ -847,7 +461,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 09 Apr 2021 11:45:54 GMT
+      - Fri, 09 Apr 2021 12:23:59 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -861,17 +475,17 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dd-Version:
-      - '35.4275259'
+      - '35.4275715'
       X-Ratelimit-Limit:
       - '500'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '6'
+      - '1'
       X-Ratelimit-Remaining:
-      - '416'
+      - '468'
       X-Dd-Debug:
-      - tpRCH6w417YjBovRJ8VmtuXmNONVYiRp2c8d2AxjPdGBn8PCtgG4vAztrx3qUZAN
+      - twvpGlmuom5y6A0pjGtXzTf554cmwJgTcCZ71fK4H/RDi+v5ehBK0zQiRcTJQG5C
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -886,5 +500,5 @@ http_interactions:
         ability to view dashboards.","created":"2019-09-10T14:39:51.955175+00:00","group_name":"Dashboards","display_type":"read","restricted":true}},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304","attributes":{"name":"monitors_read","display_name":"Monitors","description":"The
         ability to view monitors.","created":"2019-09-16T18:39:07.744297+00:00","group_name":"Monitors","display_type":"read","restricted":true}},{"type":"permissions","id":"417ba636-2dce-11eb-84c0-6bce5b0d9de0","attributes":{"name":"apm_read","display_name":"APM
         Read Access","description":"The ability to read and query APM and Trace Analytics.","created":"2020-11-23T20:55:45.006110+00:00","group_name":"APM","display_type":"read","restricted":true}}]}'
-  recorded_at: Fri, 09 Apr 2021 11:45:53 GMT
+  recorded_at: Fri, 09 Apr 2021 12:23:58 GMT
 recorded_with: VCR 6.0.0

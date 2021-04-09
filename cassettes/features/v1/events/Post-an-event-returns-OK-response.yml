@@ -5,8 +5,8 @@ http_interactions:
     uri: https://api.datadoghq.com/api/v1/events
     body:
       encoding: UTF-8
-      string: '{"title":"Test-Post_an_event_returns_OK_response-1617968720","text":"A
-        text message.","tags":["test:TestPostaneventreturnsOKresponse1617968720"]}'
+      string: '{"title":"Test-Post_an_event_returns_OK_response-1617971004","text":"A
+        text message.","tags":["test:TestPostaneventreturnsOKresponse1617971004"]}'
     headers:
       User-Agent:
       - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
@@ -22,7 +22,7 @@ http_interactions:
       message: Accepted
     headers:
       Date:
-      - Fri, 09 Apr 2021 11:45:20 GMT
+      - Fri, 09 Apr 2021 12:23:24 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -39,7 +39,7 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"status":"ok","event":{"id":5934199528035716471,"title":"Test-Post_an_event_returns_OK_response-1617968720","text":"A
-        text message.","date_happened":1617968720,"handle":null,"priority":null,"related_event_id":null,"tags":["test:TestPostaneventreturnsOKresponse1617968720"],"url":"https://app.datadoghq.com/event/event?id=5934199528035716471"}}'
-  recorded_at: Fri, 09 Apr 2021 11:45:20 GMT
+      string: '{"status":"ok","event":{"id":5934237833884326613,"title":"Test-Post_an_event_returns_OK_response-1617971004","text":"A
+        text message.","date_happened":1617971004,"handle":null,"priority":null,"related_event_id":null,"tags":["test:TestPostaneventreturnsOKresponse1617971004"],"url":"https://app.datadoghq.com/event/event?id=5934237833884326613"}}'
+  recorded_at: Fri, 09 Apr 2021 12:23:24 GMT
 recorded_with: VCR 6.0.0

@@ -1,249 +1,11 @@
 ---
 http_interactions:
 - request:
-    method: delete
-    uri: https://api.datadoghq.com/api/v2/logs/config/metrics/ruby_Delete_a_log_based_metric_returns_OK_response_1608596223
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.2.dev (ruby 2.7.1; os darwin19.6.0; arch
-        x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 22 Dec 2020 00:17:04 GMT
-      Content-Type:
-      - application/json;charset=utf-8
-      Content-Length:
-      - '2'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 29-Dec-2020 00:17:04 GMT;
-        secure; HttpOnly
-      X-Dd-Version:
-      - '35.3583277'
-      X-Ratelimit-Limit:
-      - '5000'
-      X-Ratelimit-Period:
-      - '3600'
-      X-Ratelimit-Reset:
-      - '2576'
-      X-Ratelimit-Remaining:
-      - '4983'
-      Content-Disposition:
-      - inline
-      X-Dd-Debug:
-      - H6YNJZe2hxg7AD4MytxnK6WTGV3v238t6qy6wX4rqFlv+Cb0Gp+GU8J41gMZvmVb
-      Dd-Pool:
-      - dogweb
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-    body:
-      encoding: UTF-8
-      string: "{}"
-  recorded_at: Tue, 22 Dec 2020 00:17:03 GMT
-- request:
-    method: delete
-    uri: https://api.datadoghq.com/api/v2/logs/config/metrics/Test_Delete_a_log_based_metric_returns_OK_response_1617955278.339
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Fri, 09 Apr 2021 08:01:18 GMT
-      Content-Type:
-      - application/json;charset=utf-8
-      Content-Length:
-      - '2'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Dd-Version:
-      - '35.4273965'
-      X-Ratelimit-Limit:
-      - '5000'
-      X-Ratelimit-Period:
-      - '3600'
-      X-Ratelimit-Reset:
-      - '3522'
-      X-Ratelimit-Remaining:
-      - '4993'
-      Content-Disposition:
-      - inline
-      X-Dd-Debug:
-      - nLnnBNvlCFDECRnZvzDb0z4sAO35G+IMidcAs8vrCKyjvsKWE8Yd9S3n6OjZ1qRN
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: UTF-8
-      string: "{}"
-  recorded_at: Fri, 09 Apr 2021 08:01:18 GMT
-- request:
-    method: delete
-    uri: https://api.datadoghq.com/api/v2/logs/config/metrics/Test_Delete_a_log_based_metric_returns_OK_response_1617956195.866
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Fri, 09 Apr 2021 08:16:36 GMT
-      Content-Type:
-      - application/json;charset=utf-8
-      Content-Length:
-      - '2'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Dd-Version:
-      - '35.4274158'
-      X-Ratelimit-Limit:
-      - '5000'
-      X-Ratelimit-Period:
-      - '3600'
-      X-Ratelimit-Reset:
-      - '2604'
-      X-Ratelimit-Remaining:
-      - '4970'
-      Content-Disposition:
-      - inline
-      X-Dd-Debug:
-      - SY1h8ScsWq+kYmtbh63ltMLFAZsQjqfrgvdfAoRX+9TzT1sgMBRYaFRwfWWRRe9a
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: UTF-8
-      string: "{}"
-  recorded_at: Fri, 09 Apr 2021 08:16:35 GMT
-- request:
-    method: delete
-    uri: https://api.datadoghq.com/api/v2/logs/config/metrics/Test_Delete_a_log_based_metric_returns_OK_response_1617956825
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Fri, 09 Apr 2021 08:27:06 GMT
-      Content-Type:
-      - application/json;charset=utf-8
-      Content-Length:
-      - '2'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Dd-Version:
-      - '35.4274158'
-      X-Ratelimit-Limit:
-      - '100'
-      X-Ratelimit-Period:
-      - '3600'
-      X-Ratelimit-Reset:
-      - '1974'
-      X-Ratelimit-Remaining:
-      - '97'
-      Content-Disposition:
-      - inline
-      X-Dd-Debug:
-      - twvpGlmuom5y6A0pjGtXzTf554cmwJgTcCZ71fK4H/RDi+v5ehBK0zQiRcTJQG5C
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: UTF-8
-      string: "{}"
-  recorded_at: Fri, 09 Apr 2021 08:27:05 GMT
-- request:
     method: post
     uri: https://api.datadoghq.com/api/v2/logs/config/metrics
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"Test-Delete_a_log_based_metric_returns_OK_response-1617968733","attributes":{"filter":{"query":"source:Test-Delete_a_log_based_metric_returns_OK_response-1617968733"},"compute":{"aggregation_type":"count"}},"type":"logs_metrics"}}'
+      string: '{"data":{"id":"Test-Delete_a_log_based_metric_returns_OK_response-1617971017","attributes":{"filter":{"query":"source:Test-Delete_a_log_based_metric_returns_OK_response-1617971017"},"compute":{"aggregation_type":"count"}},"type":"logs_metrics"}}'
     headers:
       User-Agent:
       - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
@@ -259,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 09 Apr 2021 11:45:33 GMT
+      - Fri, 09 Apr 2021 12:23:37 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
@@ -273,15 +35,73 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dd-Version:
-      - '35.4275259'
+      - '35.4275715'
       X-Ratelimit-Limit:
       - '100'
       X-Ratelimit-Period:
       - '3600'
       X-Ratelimit-Reset:
-      - '867'
+      - '2183'
       X-Ratelimit-Remaining:
-      - '49'
+      - '81'
+      Content-Disposition:
+      - inline
+      X-Dd-Debug:
+      - fIO2C4qGDheGHy4YbS+r3a3CXbh4cbRo7roILOimQyiHGjQdOat0cIpWCkupM1uX
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"Test_Delete_a_log_based_metric_returns_OK_response_1617971017","attributes":{"filter":{"query":"source:Test-Delete_a_log_based_metric_returns_OK_response-1617971017"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"}}'
+  recorded_at: Fri, 09 Apr 2021 12:23:37 GMT
+- request:
+    method: delete
+    uri: https://api.datadoghq.com/api/v2/logs/config/metrics/Test_Delete_a_log_based_metric_returns_OK_response_1617971017
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 09 Apr 2021 12:23:38 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '2'
+      Connection:
+      - keep-alive
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Dd-Version:
+      - '35.4275715'
+      X-Ratelimit-Limit:
+      - '100'
+      X-Ratelimit-Period:
+      - '3600'
+      X-Ratelimit-Reset:
+      - '2182'
+      X-Ratelimit-Remaining:
+      - '80'
       Content-Disposition:
       - inline
       X-Dd-Debug:
@@ -296,64 +116,6 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"Test_Delete_a_log_based_metric_returns_OK_response_1617968733","attributes":{"filter":{"query":"source:Test-Delete_a_log_based_metric_returns_OK_response-1617968733"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"}}'
-  recorded_at: Fri, 09 Apr 2021 11:45:33 GMT
-- request:
-    method: delete
-    uri: https://api.datadoghq.com/api/v2/logs/config/metrics/Test_Delete_a_log_based_metric_returns_OK_response_1617968733
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Fri, 09 Apr 2021 11:45:33 GMT
-      Content-Type:
-      - application/json;charset=utf-8
-      Content-Length:
-      - '2'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Dd-Version:
-      - '35.4275259'
-      X-Ratelimit-Limit:
-      - '100'
-      X-Ratelimit-Period:
-      - '3600'
-      X-Ratelimit-Reset:
-      - '867'
-      X-Ratelimit-Remaining:
-      - '48'
-      Content-Disposition:
-      - inline
-      X-Dd-Debug:
-      - dPySkcOzIZtKyMKDAAzuysY3gNGGj6RtYogGuSb76E8mPvoqzREyRp6lPYm91hQU
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: UTF-8
       string: "{}"
-  recorded_at: Fri, 09 Apr 2021 11:45:33 GMT
+  recorded_at: Fri, 09 Apr 2021 12:23:37 GMT
 recorded_with: VCR 6.0.0

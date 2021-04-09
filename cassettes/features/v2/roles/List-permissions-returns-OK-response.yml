@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 09 Apr 2021 11:45:51 GMT
+      - Fri, 09 Apr 2021 12:23:56 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -35,9 +35,9 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dd-Version:
-      - '35.4275259'
+      - '35.4275715'
       X-Dd-Debug:
-      - LcgNasIYBRkNppmD6mCKE9J6iv0eEjosuuHR5V5zw2fWbR54i39C8dhdK8zDq/40
+      - HbtaOKlJ6OCrx9tMXO6ivMTrEM+g0c93HDp08trmOmgdHozC5J+vn10F0H4WPjCU
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -190,5 +190,5 @@ http_interactions:
         Management","display_type":"read","restricted":false}},{"type":"permissions","id":"bf0dcf7d-90af-11eb-9b82-da7ad0900002","attributes":{"name":"data_scanner_write","display_name":"Data
         Scanner","description":"Edit data scanner configuration.","created":"2021-03-29T16:56:46.398584+00:00","group_name":"Access
         Management","display_type":"write","restricted":false}}]}'
-  recorded_at: Fri, 09 Apr 2021 11:45:51 GMT
+  recorded_at: Fri, 09 Apr 2021 12:23:56 GMT
 recorded_with: VCR 6.0.0

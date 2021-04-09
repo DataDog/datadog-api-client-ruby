@@ -1,11 +1,11 @@
 ---
 http_interactions:
 - request:
-    method: post
-    uri: https://api.datadoghq.com/api/v1/series
+    method: delete
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/rules/ThisRuleIdProbablyDoesntExist
     body:
-      encoding: UTF-8
-      string: '{"series":[{"metric":"system.load.1","points":[[1600348600,1.1]],"tags":["test:TestSubmitmetricsreturnsPayloadacceptedresponse1617971005"]}]}'
+      encoding: US-ASCII
+      string: ''
     headers:
       User-Agent:
       - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
@@ -17,17 +17,25 @@ http_interactions:
       - ''
   response:
     status:
-      code: 202
-      message: Accepted
+      code: 404
+      message: Not Found
     headers:
       Date:
-      - Fri, 09 Apr 2021 12:23:25 GMT
+      - Fri, 09 Apr 2021 12:24:00 GMT
       Content-Type:
-      - text/json
+      - application/json
       Content-Length:
-      - '16'
+      - '112'
       Connection:
       - keep-alive
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Dd-Version:
+      - '35.4275715'
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -38,6 +46,7 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"status": "ok"}'
-  recorded_at: Fri, 09 Apr 2021 12:23:25 GMT
+      string: '{"message": "The resource could not be found.<br /><br />\n\n\n", "code":
+        "404 Not Found", "title": "Not Found"}'
+  recorded_at: Fri, 09 Apr 2021 12:24:00 GMT
 recorded_with: VCR 6.0.0

@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.datadoghq.com/api/v1/dashboard
     body:
       encoding: UTF-8
-      string: '{"layout_type":"ordered","title":"Test-Create_a_new_dashboard_with_timeseries_widget_containing_style_attributes-1617968720
+      string: '{"layout_type":"ordered","title":"Test-Create_a_new_dashboard_with_timeseries_widget_containing_style_attributes-1617971003
         with timeseries widget","widgets":[{"definition":{"type":"timeseries","requests":[{"q":"sum:trace.test.errors{env:prod,service:datadog-api-spec}
         by {resource_name}.as_count()","on_right_yaxis":false,"style":{"palette":"warm","line_type":"solid","line_width":"normal"},"display_type":"bars"}]}}]}'
     headers:
@@ -23,11 +23,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 09 Apr 2021 11:45:20 GMT
+      - Fri, 09 Apr 2021 12:23:23 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '809'
+      - '810'
       Connection:
       - keep-alive
       Vary:
@@ -37,9 +37,9 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dd-Version:
-      - '35.4275259'
+      - '35.4275715'
       X-Dd-Debug:
-      - vdJ3/nHEY1ioXQ6pQrBVvsQK1s4yyc+wufBMPSoXql71qZVuP/xMdtNo6DafhOAk
+      - 25u1gDlL724DHllbjFT4BhOLorBTilh+aah2uWAUEjFC/+rjczJdiyWrV/HwLwe/
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -50,8 +50,8 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"notify_list":null,"description":null,"author_name":null,"template_variables":null,"is_read_only":false,"id":"hkk-7bc-cde","title":"Test-Create_a_new_dashboard_with_timeseries_widget_containing_style_attributes-1617968720
-        with timeseries widget","url":"/dashboard/hkk-7bc-cde/test-createanewdashboardwithtimeserieswidgetcontainingstyleattributes-1617968720","created_at":"2021-04-09T11:45:20.582260+00:00","modified_at":"2021-04-09T11:45:20.582260+00:00","author_handle":"frog@datadoghq.com","widgets":[{"definition":{"requests":[{"q":"sum:trace.test.errors{env:prod,service:datadog-api-spec}
-        by {resource_name}.as_count()","on_right_yaxis":false,"style":{"line_width":"normal","palette":"warm","line_type":"solid"},"display_type":"bars"}],"type":"timeseries"},"id":101266531088404}],"layout_type":"ordered"}'
-  recorded_at: Fri, 09 Apr 2021 11:45:20 GMT
+      string: '{"notify_list":null,"description":null,"author_name":null,"template_variables":null,"is_read_only":false,"id":"tj8-uwc-fsh","title":"Test-Create_a_new_dashboard_with_timeseries_widget_containing_style_attributes-1617971003
+        with timeseries widget","url":"/dashboard/tj8-uwc-fsh/test-createanewdashboardwithtimeserieswidgetcontainingstyleattributes-1617971003","created_at":"2021-04-09T12:23:23.781193+00:00","modified_at":"2021-04-09T12:23:23.781193+00:00","author_handle":"frog@datadoghq.com","widgets":[{"definition":{"requests":[{"q":"sum:trace.test.errors{env:prod,service:datadog-api-spec}
+        by {resource_name}.as_count()","on_right_yaxis":false,"style":{"line_width":"normal","palette":"warm","line_type":"solid"},"display_type":"bars"}],"type":"timeseries"},"id":3018485204302346}],"layout_type":"ordered"}'
+  recorded_at: Fri, 09 Apr 2021 12:23:23 GMT
 recorded_with: VCR 6.0.0

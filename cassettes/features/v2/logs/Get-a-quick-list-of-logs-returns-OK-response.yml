@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 09 Apr 2021 11:45:32 GMT
+      - Fri, 09 Apr 2021 12:23:36 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -33,17 +33,17 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dd-Version:
-      - '35.4275259'
+      - '35.4275715'
       X-Ratelimit-Limit:
       - '300'
       X-Ratelimit-Period:
       - '3600'
       X-Ratelimit-Reset:
-      - '868'
+      - '2184'
       X-Ratelimit-Remaining:
-      - '288'
+      - '266'
       X-Dd-Debug:
-      - PhosSd3Ch1B6B0DXI71steKUi7XhPDttnPiIP1NdXTw0VJNWpoUnYyBmODS5ne3q
+      - 2328yjLSqI4XmR1pVqrPRR/SFcQsbafjEpPmZx7/3PfxUK1nJQQsX+wrMelyVyj+
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -55,5 +55,5 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"data":[]}'
-  recorded_at: Fri, 09 Apr 2021 11:45:32 GMT
+  recorded_at: Fri, 09 Apr 2021 12:23:36 GMT
 recorded_with: VCR 6.0.0

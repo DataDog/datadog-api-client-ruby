@@ -2,124 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.datadoghq.com/api/v2/metrics/rubyListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1614797835/tags
+    uri: https://api.datadoghq.com/api/v2/metrics/TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617969398/tags
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"tags":["app","datacenter","rubyListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1614797835"],"metric_type":"distribution"},"type":"manage_tags","id":"rubyListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1614797835"}}'
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.7.2; os linux-gnu; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 201
-      message: Created
-    headers:
-      Date:
-      - Wed, 03 Mar 2021 18:57:15 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '384'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Dd-Version:
-      - '35.4022232'
-      X-Ratelimit-Limit:
-      - '50'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Reset:
-      - '45'
-      X-Ratelimit-Remaining:
-      - '44'
-      X-Dd-Debug:
-      - mNzaoDhdDKO7t4QSrAe5X7pHd0bJND187D+vRbwoluXouE2m1UaQQX0RGCvRpLVE
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: UTF-8
-      string: '{"data":{"type":"manage_tags","id":"rubyListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1614797835","attributes":{"tags":["datacenter","app","rubyListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1614797835"],"include_percentiles":false,"created_at":"2021-03-03T18:57:15.398180+00:00","updated_at":"2021-03-03T18:57:15.398180+00:00","metric_type":"distribution"}}}'
-  recorded_at: Wed, 03 Mar 2021 18:57:15 GMT
-- request:
-    method: get
-    uri: https://api.datadoghq.com/api/v2/metrics/rubyListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1614797835/volumes
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.7.2; os linux-gnu; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Wed, 03 Mar 2021 18:57:15 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '169'
-      Connection:
-      - keep-alive
-      Vary:
-      - Accept-Encoding
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Dd-Version:
-      - '35.4022232'
-      X-Ratelimit-Limit:
-      - '600'
-      X-Ratelimit-Period:
-      - '3600'
-      X-Ratelimit-Reset:
-      - '165'
-      X-Ratelimit-Remaining:
-      - '599'
-      X-Dd-Debug:
-      - gYZcaADwbKcv7Hm19HJx6WsLoKuOijDWAt2viPeCfWqUgyKY+9e1xZdmMJeXV3YV
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: UTF-8
-      string: '{"data":{"type":"metric_volumes","id":"rubyListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1614797835","attributes":{"indexed_volume":0,"ingested_volume":0}}}'
-  recorded_at: Wed, 03 Mar 2021 18:57:15 GMT
-- request:
-    method: post
-    uri: https://api.datadoghq.com/api/v2/metrics/TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617955281794/tags
-    body:
-      encoding: UTF-8
-      string: '{"data":{"attributes":{"tags":["app","datacenter","TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617955281794"],"metric_type":"distribution"},"type":"manage_tags","id":"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617955281794"}}'
+      string: '{"data":{"attributes":{"tags":["app","datacenter","TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617969398"],"metric_type":"distribution"},"type":"manage_tags","id":"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617969398"}}'
     headers:
       User-Agent:
       - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
@@ -135,349 +21,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Fri, 09 Apr 2021 08:01:21 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '390'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Dd-Version:
-      - '35.4273965'
-      X-Ratelimit-Limit:
-      - '50'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Reset:
-      - '39'
-      X-Ratelimit-Remaining:
-      - '44'
-      X-Dd-Debug:
-      - LcgNasIYBRkNppmD6mCKE9J6iv0eEjosuuHR5V5zw2fWbR54i39C8dhdK8zDq/40
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: UTF-8
-      string: '{"data":{"type":"manage_tags","id":"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617955281794","attributes":{"tags":["TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617955281794","app","datacenter"],"include_percentiles":false,"created_at":"2021-04-09T08:01:21.911621+00:00","updated_at":"2021-04-09T08:01:21.911621+00:00","metric_type":"distribution"}}}'
-  recorded_at: Fri, 09 Apr 2021 08:01:21 GMT
-- request:
-    method: get
-    uri: https://api.datadoghq.com/api/v2/metrics/TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617955281794/volumes
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Fri, 09 Apr 2021 08:01:22 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '172'
-      Connection:
-      - keep-alive
-      Vary:
-      - Accept-Encoding
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Dd-Version:
-      - '35.4273965'
-      X-Ratelimit-Limit:
-      - '600'
-      X-Ratelimit-Period:
-      - '3600'
-      X-Ratelimit-Reset:
-      - '3518'
-      X-Ratelimit-Remaining:
-      - '597'
-      X-Dd-Debug:
-      - 2328yjLSqI4XmR1pVqrPRR/SFcQsbafjEpPmZx7/3PfxUK1nJQQsX+wrMelyVyj+
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: UTF-8
-      string: '{"data":{"type":"metric_volumes","id":"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617955281794","attributes":{"indexed_volume":0,"ingested_volume":0}}}'
-  recorded_at: Fri, 09 Apr 2021 08:01:21 GMT
-- request:
-    method: post
-    uri: https://api.datadoghq.com/api/v2/metrics/TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617956199504/tags
-    body:
-      encoding: UTF-8
-      string: '{"data":{"attributes":{"tags":["app","datacenter","TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617956199504"],"metric_type":"distribution"},"type":"manage_tags","id":"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617956199504"}}'
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 201
-      message: Created
-    headers:
-      Date:
-      - Fri, 09 Apr 2021 08:16:39 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '390'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Dd-Version:
-      - '35.4274158'
-      X-Ratelimit-Limit:
-      - '50'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Reset:
-      - '21'
-      X-Ratelimit-Remaining:
-      - '44'
-      X-Dd-Debug:
-      - Wjq53IVIwnB4SiR238oOYgHFMq/ZYP0LQ/Dv8C2fFLBwTje/dWJHu6pI6vIOK1zG
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: UTF-8
-      string: '{"data":{"type":"manage_tags","id":"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617956199504","attributes":{"tags":["datacenter","app","TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617956199504"],"include_percentiles":false,"created_at":"2021-04-09T08:16:39.598905+00:00","updated_at":"2021-04-09T08:16:39.598905+00:00","metric_type":"distribution"}}}'
-  recorded_at: Fri, 09 Apr 2021 08:16:39 GMT
-- request:
-    method: get
-    uri: https://api.datadoghq.com/api/v2/metrics/TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617956199504/volumes
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Fri, 09 Apr 2021 08:16:39 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '172'
-      Connection:
-      - keep-alive
-      Vary:
-      - Accept-Encoding
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Dd-Version:
-      - '35.4274158'
-      X-Ratelimit-Limit:
-      - '600'
-      X-Ratelimit-Period:
-      - '3600'
-      X-Ratelimit-Reset:
-      - '2601'
-      X-Ratelimit-Remaining:
-      - '593'
-      X-Dd-Debug:
-      - nLnnBNvlCFDECRnZvzDb0z4sAO35G+IMidcAs8vrCKyjvsKWE8Yd9S3n6OjZ1qRN
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: UTF-8
-      string: '{"data":{"type":"metric_volumes","id":"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617956199504","attributes":{"indexed_volume":0,"ingested_volume":0}}}'
-  recorded_at: Fri, 09 Apr 2021 08:16:39 GMT
-- request:
-    method: post
-    uri: https://api.datadoghq.com/api/v2/metrics/TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617956829/tags
-    body:
-      encoding: UTF-8
-      string: '{"data":{"attributes":{"tags":["app","datacenter","TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617956829"],"metric_type":"distribution"},"type":"manage_tags","id":"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617956829"}}'
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 201
-      message: Created
-    headers:
-      Date:
-      - Fri, 09 Apr 2021 08:27:09 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '384'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Dd-Version:
-      - '35.4274158'
-      X-Ratelimit-Limit:
-      - '50'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Reset:
-      - '51'
-      X-Ratelimit-Remaining:
-      - '44'
-      X-Dd-Debug:
-      - HbtaOKlJ6OCrx9tMXO6ivMTrEM+g0c93HDp08trmOmgdHozC5J+vn10F0H4WPjCU
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: UTF-8
-      string: '{"data":{"type":"manage_tags","id":"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617956829","attributes":{"tags":["datacenter","app","TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617956829"],"include_percentiles":false,"created_at":"2021-04-09T08:27:09.818675+00:00","updated_at":"2021-04-09T08:27:09.818675+00:00","metric_type":"distribution"}}}'
-  recorded_at: Fri, 09 Apr 2021 08:27:09 GMT
-- request:
-    method: get
-    uri: https://api.datadoghq.com/api/v2/metrics/TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617956829/volumes
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Fri, 09 Apr 2021 08:27:10 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '169'
-      Connection:
-      - keep-alive
-      Vary:
-      - Accept-Encoding
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Dd-Version:
-      - '35.4274158'
-      X-Ratelimit-Limit:
-      - '600'
-      X-Ratelimit-Period:
-      - '3600'
-      X-Ratelimit-Reset:
-      - '1971'
-      X-Ratelimit-Remaining:
-      - '591'
-      X-Dd-Debug:
-      - bgHykj7A9bfZx0Y5ZO3swhhp5tGUSNJHqFWR868+qg087CYrDOd5hQslC+noiEtH
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: UTF-8
-      string: '{"data":{"type":"metric_volumes","id":"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617956829","attributes":{"indexed_volume":0,"ingested_volume":0}}}'
-  recorded_at: Fri, 09 Apr 2021 08:27:09 GMT
-- request:
-    method: post
-    uri: https://api.datadoghq.com/api/v2/metrics/TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617968737/tags
-    body:
-      encoding: UTF-8
-      string: '{"data":{"attributes":{"tags":["app","datacenter","TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617968737"],"metric_type":"distribution"},"type":"manage_tags","id":"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617968737"}}'
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 201
-      message: Created
-    headers:
-      Date:
-      - Fri, 09 Apr 2021 11:45:38 GMT
+      - Fri, 09 Apr 2021 11:56:38 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -499,7 +43,7 @@ http_interactions:
       X-Ratelimit-Remaining:
       - '44'
       X-Dd-Debug:
-      - twvpGlmuom5y6A0pjGtXzTf554cmwJgTcCZ71fK4H/RDi+v5ehBK0zQiRcTJQG5C
+      - "/L+SFFO+m1pPY+hRCpk5325fvfrNl0KmiquUNJolBN/5hu3HIwflqjZSbJ6NxDFG"
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -510,11 +54,11 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"manage_tags","id":"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617968737","attributes":{"tags":["TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617968737","datacenter","app"],"include_percentiles":false,"created_at":"2021-04-09T11:45:38.051305+00:00","updated_at":"2021-04-09T11:45:38.051305+00:00","metric_type":"distribution"}}}'
-  recorded_at: Fri, 09 Apr 2021 11:45:37 GMT
+      string: '{"data":{"type":"manage_tags","id":"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617969398","attributes":{"tags":["datacenter","app","TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617969398"],"include_percentiles":false,"created_at":"2021-04-09T11:56:38.299016+00:00","updated_at":"2021-04-09T11:56:38.299016+00:00","metric_type":"distribution"}}}'
+  recorded_at: Fri, 09 Apr 2021 11:56:38 GMT
 - request:
     method: get
-    uri: https://api.datadoghq.com/api/v2/metrics/TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617968737/volumes
+    uri: https://api.datadoghq.com/api/v2/metrics/TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617969398/volumes
     body:
       encoding: US-ASCII
       string: ''
@@ -533,7 +77,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 09 Apr 2021 11:45:38 GMT
+      - Fri, 09 Apr 2021 11:56:38 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -553,11 +97,11 @@ http_interactions:
       X-Ratelimit-Period:
       - '3600'
       X-Ratelimit-Reset:
-      - '862'
+      - '202'
       X-Ratelimit-Remaining:
-      - '590'
+      - '577'
       X-Dd-Debug:
-      - bgHykj7A9bfZx0Y5ZO3swhhp5tGUSNJHqFWR868+qg087CYrDOd5hQslC+noiEtH
+      - S1wfaMZOKGT/IoMw6fqAwAwGWo2vQ44sjF3YzuETnQfxZO2T5eJbs0aX3UKb9Dwu
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -568,6 +112,120 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"metric_volumes","id":"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617968737","attributes":{"indexed_volume":0,"ingested_volume":0}}}'
-  recorded_at: Fri, 09 Apr 2021 11:45:37 GMT
+      string: '{"data":{"type":"metric_volumes","id":"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617969398","attributes":{"indexed_volume":0,"ingested_volume":0}}}'
+  recorded_at: Fri, 09 Apr 2021 11:56:38 GMT
+- request:
+    method: post
+    uri: https://api.datadoghq.com/api/v2/metrics/TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617971021/tags
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"tags":["app","datacenter","TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617971021"],"metric_type":"distribution"},"type":"manage_tags","id":"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617971021"}}'
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Fri, 09 Apr 2021 12:23:41 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '384'
+      Connection:
+      - keep-alive
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Dd-Version:
+      - '35.4275715'
+      X-Ratelimit-Limit:
+      - '50'
+      X-Ratelimit-Period:
+      - '60'
+      X-Ratelimit-Reset:
+      - '19'
+      X-Ratelimit-Remaining:
+      - '44'
+      X-Dd-Debug:
+      - l4HFlaRP3QwYSqoGKhzbYfv7zgkK63HIRR7YkyVYZspq0lGjjTBwoK8V/alf+XYt
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"manage_tags","id":"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617971021","attributes":{"tags":["datacenter","app","TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617971021"],"include_percentiles":false,"created_at":"2021-04-09T12:23:41.250646+00:00","updated_at":"2021-04-09T12:23:41.250646+00:00","metric_type":"distribution"}}}'
+  recorded_at: Fri, 09 Apr 2021 12:23:41 GMT
+- request:
+    method: get
+    uri: https://api.datadoghq.com/api/v2/metrics/TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617971021/volumes
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 09 Apr 2021 12:23:41 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '169'
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Dd-Version:
+      - '35.4275715'
+      X-Ratelimit-Limit:
+      - '600'
+      X-Ratelimit-Period:
+      - '3600'
+      X-Ratelimit-Reset:
+      - '2179'
+      X-Ratelimit-Remaining:
+      - '597'
+      X-Dd-Debug:
+      - LcgNasIYBRkNppmD6mCKE9J6iv0eEjosuuHR5V5zw2fWbR54i39C8dhdK8zDq/40
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"metric_volumes","id":"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1617971021","attributes":{"indexed_volume":0,"ingested_volume":0}}}'
+  recorded_at: Fri, 09 Apr 2021 12:23:41 GMT
 recorded_with: VCR 6.0.0

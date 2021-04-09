@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.datadoghq.com/api/v1/dashboard
     body:
       encoding: UTF-8
-      string: '{"layout_type":"ordered","title":"Test-Create_a_new_dashboard_with_a_profile_metric_query-1617968719
+      string: '{"layout_type":"ordered","title":"Test-Create_a_new_dashboard_with_a_profile_metric_query-1617971002
         with Profile Metrics Query","widgets":[{"definition":{"type":"timeseries","requests":[{"profile_metrics_query":{"compute":{"aggregation":"sum","facet":"@prof_core_cpu_cores"},"search":{"query":"runtime:jvm"},"group_by":[{"facet":"service","limit":10,"sort":{"aggregation":"sum","order":"desc","facet":"@prof_core_cpu_cores"}}]}}]}}]}'
     headers:
       User-Agent:
@@ -22,7 +22,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 09 Apr 2021 11:45:20 GMT
+      - Fri, 09 Apr 2021 12:23:23 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -36,9 +36,9 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dd-Version:
-      - '35.4275259'
+      - '35.4275715'
       X-Dd-Debug:
-      - SY1h8ScsWq+kYmtbh63ltMLFAZsQjqfrgvdfAoRX+9TzT1sgMBRYaFRwfWWRRe9a
+      - Um4CoU685QqAscnxhS5BD+goWu2yX1Jd4zCfGzSsEvPPIm1qURZaF8dlLl/OEY4I
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -49,7 +49,7 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"notify_list":null,"description":null,"author_name":null,"template_variables":null,"is_read_only":false,"id":"un4-7pe-trk","title":"Test-Create_a_new_dashboard_with_a_profile_metric_query-1617968719
-        with Profile Metrics Query","url":"/dashboard/un4-7pe-trk/test-createanewdashboardwithaprofilemetricquery-1617968719-with-profile-metrics","created_at":"2021-04-09T11:45:20.186555+00:00","modified_at":"2021-04-09T11:45:20.186555+00:00","author_handle":"frog@datadoghq.com","widgets":[{"definition":{"requests":[{"profile_metrics_query":{"search":{"query":"runtime:jvm"},"group_by":[{"facet":"service","sort":{"facet":"@prof_core_cpu_cores","aggregation":"sum","order":"desc"},"limit":10}],"compute":{"facet":"@prof_core_cpu_cores","aggregation":"sum"}}}],"type":"timeseries"},"id":5938951492089912}],"layout_type":"ordered"}'
-  recorded_at: Fri, 09 Apr 2021 11:45:19 GMT
+      string: '{"notify_list":null,"description":null,"author_name":null,"template_variables":null,"is_read_only":false,"id":"c7s-rkr-fje","title":"Test-Create_a_new_dashboard_with_a_profile_metric_query-1617971002
+        with Profile Metrics Query","url":"/dashboard/c7s-rkr-fje/test-createanewdashboardwithaprofilemetricquery-1617971002-with-profile-metrics","created_at":"2021-04-09T12:23:23.340310+00:00","modified_at":"2021-04-09T12:23:23.340310+00:00","author_handle":"frog@datadoghq.com","widgets":[{"definition":{"requests":[{"profile_metrics_query":{"search":{"query":"runtime:jvm"},"group_by":[{"facet":"service","sort":{"facet":"@prof_core_cpu_cores","aggregation":"sum","order":"desc"},"limit":10}],"compute":{"facet":"@prof_core_cpu_cores","aggregation":"sum"}}}],"type":"timeseries"},"id":3634957402040726}],"layout_type":"ordered"}'
+  recorded_at: Fri, 09 Apr 2021 12:23:22 GMT
 recorded_with: VCR 6.0.0
