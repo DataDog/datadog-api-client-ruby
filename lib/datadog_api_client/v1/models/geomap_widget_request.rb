@@ -19,19 +19,33 @@ require 'time'
 module DatadogAPIClient::V1
   # An updated geomap widget.
   class GeomapWidgetRequest
+    # List of formulas that operate on queries. **This feature is currently in beta.**
+    attr_accessor :formulas
+
     attr_accessor :log_query
 
     # The widget metrics query.
     attr_accessor :q
 
+    # List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
+    attr_accessor :queries
+
+    attr_accessor :response_format
+
     attr_accessor :rum_query
+
+    attr_accessor :security_query
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'formulas' => :'formulas',
         :'log_query' => :'log_query',
         :'q' => :'q',
-        :'rum_query' => :'rum_query'
+        :'queries' => :'queries',
+        :'response_format' => :'response_format',
+        :'rum_query' => :'rum_query',
+        :'security_query' => :'security_query'
       }
     end
 
@@ -43,9 +57,13 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'formulas' => :'Array<WidgetFormula>',
         :'log_query' => :'LogQueryDefinition',
         :'q' => :'String',
-        :'rum_query' => :'LogQueryDefinition'
+        :'queries' => :'Array<FormulaAndFunctionQueryDefinition>',
+        :'response_format' => :'FormulaAndFunctionResponseFormat',
+        :'rum_query' => :'LogQueryDefinition',
+        :'security_query' => :'LogQueryDefinition'
       }
     end
 
@@ -70,6 +88,12 @@ module DatadogAPIClient::V1
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'formulas')
+        if (value = attributes[:'formulas']).is_a?(Array)
+          self.formulas = value
+        end
+      end
+
       if attributes.key?(:'log_query')
         self.log_query = attributes[:'log_query']
       end
@@ -78,8 +102,22 @@ module DatadogAPIClient::V1
         self.q = attributes[:'q']
       end
 
+      if attributes.key?(:'queries')
+        if (value = attributes[:'queries']).is_a?(Array)
+          self.queries = value
+        end
+      end
+
+      if attributes.key?(:'response_format')
+        self.response_format = attributes[:'response_format']
+      end
+
       if attributes.key?(:'rum_query')
         self.rum_query = attributes[:'rum_query']
+      end
+
+      if attributes.key?(:'security_query')
+        self.security_query = attributes[:'security_query']
       end
     end
 
@@ -101,9 +139,13 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          formulas == o.formulas &&
           log_query == o.log_query &&
           q == o.q &&
-          rum_query == o.rum_query
+          queries == o.queries &&
+          response_format == o.response_format &&
+          rum_query == o.rum_query &&
+          security_query == o.security_query
     end
 
     # @see the `==` method
@@ -115,7 +157,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [log_query, q, rum_query].hash
+      [formulas, log_query, q, queries, response_format, rum_query, security_query].hash
     end
 
     # Builds the object from hash
