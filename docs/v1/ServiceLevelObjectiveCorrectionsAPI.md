@@ -5,10 +5,10 @@ All URIs are relative to *https://api.datadoghq.com*
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**create_slo_correction**](ServiceLevelObjectiveCorrectionsAPI.md#create_slo_correction) | **POST** /api/v1/slo/correction | Create an SLO correction |
-| [**delete_slo_correction**](ServiceLevelObjectiveCorrectionsAPI.md#delete_slo_correction) | **DELETE** /api/v1/slo/correction/{slo_correction_id} | Delete an SLO Correction |
+| [**delete_slo_correction**](ServiceLevelObjectiveCorrectionsAPI.md#delete_slo_correction) | **DELETE** /api/v1/slo/correction/{slo_correction_id} | Delete an SLO correction |
 | [**get_slo_correction**](ServiceLevelObjectiveCorrectionsAPI.md#get_slo_correction) | **GET** /api/v1/slo/correction/{slo_correction_id} | Get an SLO correction for an SLO |
 | [**list_slo_correction**](ServiceLevelObjectiveCorrectionsAPI.md#list_slo_correction) | **GET** /api/v1/slo/correction | Get all SLO corrections |
-| [**update_slo_correction**](ServiceLevelObjectiveCorrectionsAPI.md#update_slo_correction) | **PATCH** /api/v1/slo/correction/{slo_correction_id} | Update an SLO Correction |
+| [**update_slo_correction**](ServiceLevelObjectiveCorrectionsAPI.md#update_slo_correction) | **PATCH** /api/v1/slo/correction/{slo_correction_id} | Update an SLO correction |
 
 
 ## create_slo_correction
@@ -82,9 +82,9 @@ end
 
 > delete_slo_correction(slo_correction_id)
 
-Delete an SLO Correction
+Delete an SLO correction
 
-Permanently delete the specified SLO Correction object
+Permanently delete the specified SLO correction object
 
 ### Examples
 
@@ -99,7 +99,7 @@ api_instance = DatadogAPIClient::V1::ServiceLevelObjectiveCorrectionsAPI.new
 slo_correction_id = 'slo_correction_id_example' # String | The ID of the SLO correction object
 
 begin
-  # Delete an SLO Correction
+  # Delete an SLO correction
   api_instance.delete_slo_correction(slo_correction_id)
 rescue DatadogAPIClient::V1::APIError => e
   puts "Error when calling ServiceLevelObjectiveCorrectionsAPI->delete_slo_correction: #{e}"
@@ -114,7 +114,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # Delete an SLO Correction
+  # Delete an SLO correction
   data, status_code, headers = api_instance.delete_slo_correction_with_http_info(slo_correction_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -150,7 +150,7 @@ nil (empty response body)
 
 Get an SLO correction for an SLO
 
-Get an SLO Correction
+Get an SLO correction
 
 ### Examples
 
@@ -217,7 +217,7 @@ end
 
 Get all SLO corrections
 
-Get all Service Level Objective Corrections
+Get all Service Level Objective corrections
 
 ### Examples
 
@@ -279,7 +279,7 @@ This endpoint does not need any parameter.
 
 > <SLOCorrectionResponse> update_slo_correction(slo_correction_id, body)
 
-Update an SLO Correction
+Update an SLO correction
 
 Update the specified SLO correction object object
 
@@ -297,7 +297,7 @@ slo_correction_id = 'slo_correction_id_example' # String | The ID of the SLO cor
 body = DatadogAPIClient::V1::SLOCorrectionUpdateRequest.new # SLOCorrectionUpdateRequest | The edited SLO correction object.
 
 begin
-  # Update an SLO Correction
+  # Update an SLO correction
   result = api_instance.update_slo_correction(slo_correction_id, body)
   p result
 rescue DatadogAPIClient::V1::APIError => e
@@ -313,7 +313,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Update an SLO Correction
+  # Update an SLO correction
   data, status_code, headers = api_instance.update_slo_correction_with_http_info(slo_correction_id, body)
   p status_code # => 2xx
   p headers # => { ... }
