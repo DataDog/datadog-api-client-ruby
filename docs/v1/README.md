@@ -270,6 +270,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::DashboardList](DashboardList.md)
  - [DatadogAPIClient::V1::DashboardListDeleteResponse](DashboardListDeleteResponse.md)
  - [DatadogAPIClient::V1::DashboardListListResponse](DashboardListListResponse.md)
+ - [DatadogAPIClient::V1::DashboardReflowType](DashboardReflowType.md)
  - [DatadogAPIClient::V1::DashboardSummary](DashboardSummary.md)
  - [DatadogAPIClient::V1::DashboardSummaryDefinition](DashboardSummaryDefinition.md)
  - [DatadogAPIClient::V1::DashboardTemplateVariable](DashboardTemplateVariable.md)

@@ -12,6 +12,7 @@
 | **layout_type** | [**DashboardLayoutType**](DashboardLayoutType.md) |  |  |
 | **modified_at** | **Time** | Modification date of the dashboard. | [optional][readonly] |
 | **notify_list** | **Array&lt;String&gt;** | List of handles of users to notify when changes are made to this dashboard. | [optional] |
+| **reflow_type** | [**DashboardReflowType**](DashboardReflowType.md) |  | [optional] |
 | **template_variable_presets** | [**Array&lt;DashboardTemplateVariablePreset&gt;**](DashboardTemplateVariablePreset.md) | Array of template variables saved views. | [optional] |
 | **template_variables** | [**Array&lt;DashboardTemplateVariable&gt;**](DashboardTemplateVariable.md) | List of template variables for this dashboard. | [optional] |
 | **title** | **String** | Title of the dashboard. |  |
@@ -32,6 +33,7 @@ instance = DatadogAPIClient::V1::Dashboard.new(
   layout_type: null,
   modified_at: null,
   notify_list: null,
+  reflow_type: null,
   template_variable_presets: null,
   template_variables: null,
   title: ,
