@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: delete
-    uri: https://api.datadoghq.com/api/v1/slo/rubyeleteanreturnsotfoundresponse1617969072
+    uri: https://api.datadoghq.com/api/v1/slo/testdeleteansloreturnsnotfoundresponse1618243628
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.7.3; os linux; arch x86_64)
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -21,11 +21,11 @@ http_interactions:
       message: Not Found
     headers:
       Date:
-      - Fri, 09 Apr 2021 11:51:12 GMT
+      - Mon, 12 Apr 2021 16:07:08 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '84'
+      - '89'
       Connection:
       - keep-alive
       Vary:
@@ -39,11 +39,11 @@ http_interactions:
       X-Ratelimit-Period:
       - '10'
       X-Ratelimit-Reset:
-      - '8'
+      - '2'
       X-Ratelimit-Remaining:
-      - '2998'
+      - '2999'
       X-Dd-Version:
-      - '35.4275259'
+      - '35.4290818'
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -54,7 +54,7 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"errors": ["SLO not found: rubyeleteanreturnsotfoundresponse1617969072
+      string: '{"errors": ["SLO not found: testdeleteansloreturnsnotfoundresponse1618243628
         not found"]}'
-  recorded_at: Fri, 09 Apr 2021 11:51:12 GMT
+  recorded_at: Mon, 12 Apr 2021 16:07:08 GMT
 recorded_with: VCR 6.0.0
