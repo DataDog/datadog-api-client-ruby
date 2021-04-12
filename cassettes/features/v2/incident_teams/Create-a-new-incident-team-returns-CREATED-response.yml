@@ -5,10 +5,10 @@ http_interactions:
     uri: https://api.datadoghq.com/api/v2/teams
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"teams","attributes":{"name":"ruby-Create_a_new_incident_team_returns_CREATED_response-1606991617"}}}'
+      string: '{"data":{"type":"teams","attributes":{"name":"Test-Create_a_new_incident_team_returns_CREATED_response-1617971009"}}}'
     headers:
       User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.7.1; os darwin19.6.0; arch x86_64)
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -21,44 +21,39 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Thu, 03 Dec 2020 10:33:38 GMT
+      - Fri, 09 Apr 2021 12:23:29 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '948'
+      - '997'
       Connection:
       - keep-alive
       Pragma:
       - no-cache
       Cache-Control:
       - no-cache
-      Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 10-Dec-2020 10:33:38 GMT;
-        secure; HttpOnly
       X-Dd-Version:
-      - '35.3468623'
+      - '35.4275715'
       X-Ratelimit-Limit:
-      - '12000'
+      - '100'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '22'
+      - '31'
       X-Ratelimit-Remaining:
-      - '11998'
+      - '99'
       X-Dd-Debug:
-      - i3kq+QX78RffjnNgnM5zmiWzGMsFnhM4liQTSNUgnpglr14R7eRaqNxK/q9SML9W
-      Dd-Pool:
-      - dogweb
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
+      - vdJ3/nHEY1ioXQ6pQrBVvsQK1s4yyc+wufBMPSoXql71qZVuP/xMdtNo6DafhOAk
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
       - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"included":[{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0","attributes":{"name":null,"handle":"frog@datadoghq.com","created_at":"2019-10-02T08:15:39.795051+00:00","email":"frog@datadoghq.com","icon":"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro","title":null,"verified":true,"service_account":false,"disabled":false,"allowed_login_methods":[],"status":"Active"},"relationships":{"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}],"data":{"type":"teams","id":"a4e5ec66-83ab-5bf9-bc6f-64b690217786","attributes":{"name":"ruby-Create_a_new_incident_team_returns_CREATED_response-1606991617","created":"2020-12-03T10:33:38.091641+00:00","modified":"2020-12-03T10:33:38.091641+00:00"},"relationships":{"last_modified_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}},"created_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}}}}}'
-  recorded_at: Thu, 03 Dec 2020 10:33:37 GMT
+      string: '{"included":[{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0","attributes":{"name":null,"handle":"frog@datadoghq.com","created_at":"2019-10-02T08:15:39.795051+00:00","modified_at":"2020-06-15T12:33:12.884459+00:00","email":"frog@datadoghq.com","icon":"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro","title":null,"verified":true,"service_account":false,"disabled":false,"allowed_login_methods":[],"status":"Active"},"relationships":{"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}],"data":{"type":"teams","id":"baaba74d-f745-591f-b9b4-4e54f3cb2f9b","attributes":{"name":"Test-Create_a_new_incident_team_returns_CREATED_response-1617971009","created":"2021-04-09T12:23:29.094047+00:00","modified":"2021-04-09T12:23:29.094047+00:00"},"relationships":{"last_modified_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}},"created_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}}}}}'
+  recorded_at: Fri, 09 Apr 2021 12:23:29 GMT
 recorded_with: VCR 6.0.0

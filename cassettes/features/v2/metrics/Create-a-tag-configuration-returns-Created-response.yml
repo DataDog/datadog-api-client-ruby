@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.datadoghq.com/api/v2/metrics/rubyCreateatagconfigurationreturnsCreatedresponse1614797834/tags
+    uri: https://api.datadoghq.com/api/v2/metrics/TestCreateatagconfigurationreturnsCreatedresponse1617969397/tags
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"manage_tags","id":"rubyCreateatagconfigurationreturnsCreatedresponse1614797834","attributes":{"tags":["app","datacenter"],"metric_type":"distribution"}}}'
+      string: '{"data":{"type":"manage_tags","id":"TestCreateatagconfigurationreturnsCreatedresponse1617969397","attributes":{"tags":["app","datacenter"],"metric_type":"distribution"}}}'
     headers:
       User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.7.2; os linux-gnu; arch x86_64)
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -21,7 +21,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Wed, 03 Mar 2021 18:57:14 GMT
+      - Fri, 09 Apr 2021 11:56:37 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -33,13 +33,69 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dd-Version:
-      - '35.4022232'
+      - '35.4275259'
       X-Ratelimit-Limit:
       - '50'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '46'
+      - '23'
+      X-Ratelimit-Remaining:
+      - '49'
+      X-Dd-Debug:
+      - l8RQo2maZqJf6GFThBbKNE6dvthz6njusVtau3dPXJWL2RLFoN81H+BLPB/1xgs1
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"manage_tags","id":"TestCreateatagconfigurationreturnsCreatedresponse1617969397","attributes":{"tags":["datacenter","app"],"include_percentiles":false,"created_at":"2021-04-09T11:56:37.528679+00:00","updated_at":"2021-04-09T11:56:37.528679+00:00","metric_type":"distribution"}}}'
+  recorded_at: Fri, 09 Apr 2021 11:56:37 GMT
+- request:
+    method: post
+    uri: https://api.datadoghq.com/api/v2/metrics/TestCreateatagconfigurationreturnsCreatedresponse1617971020/tags
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"manage_tags","id":"TestCreateatagconfigurationreturnsCreatedresponse1617971020","attributes":{"tags":["app","datacenter"],"metric_type":"distribution"}}}'
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Fri, 09 Apr 2021 12:23:40 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '294'
+      Connection:
+      - keep-alive
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Dd-Version:
+      - '35.4275715'
+      X-Ratelimit-Limit:
+      - '50'
+      X-Ratelimit-Period:
+      - '60'
+      X-Ratelimit-Reset:
+      - '20'
       X-Ratelimit-Remaining:
       - '49'
       X-Dd-Debug:
@@ -54,6 +110,6 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"manage_tags","id":"rubyCreateatagconfigurationreturnsCreatedresponse1614797834","attributes":{"tags":["datacenter","app"],"include_percentiles":false,"created_at":"2021-03-03T18:57:14.936299+00:00","updated_at":"2021-03-03T18:57:14.936299+00:00","metric_type":"distribution"}}}'
-  recorded_at: Wed, 03 Mar 2021 18:57:14 GMT
+      string: '{"data":{"type":"manage_tags","id":"TestCreateatagconfigurationreturnsCreatedresponse1617971020","attributes":{"tags":["datacenter","app"],"include_percentiles":false,"created_at":"2021-04-09T12:23:40.389931+00:00","updated_at":"2021-04-09T12:23:40.389931+00:00","metric_type":"distribution"}}}'
+  recorded_at: Fri, 09 Apr 2021 12:23:40 GMT
 recorded_with: VCR 6.0.0

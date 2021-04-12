@@ -5,11 +5,10 @@ http_interactions:
     uri: https://api.datadoghq.com/api/v2/logs/config/metrics
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"ruby-Get_all_log_based_metrics_returns_OK_response-1608596221","attributes":{"filter":{"query":"source:ruby-Get_all_log_based_metrics_returns_OK_response-1608596221"},"compute":{"aggregation_type":"count"}},"type":"logs_metrics"}}'
+      string: '{"data":{"id":"Test-Get_all_log_based_metrics_returns_OK_response-1617971018","attributes":{"filter":{"query":"source:Test-Get_all_log_based_metrics_returns_OK_response-1617971018"},"compute":{"aggregation_type":"count"}},"type":"logs_metrics"}}'
     headers:
       User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.2.dev (ruby 2.7.1; os darwin19.6.0; arch
-        x86_64)
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -22,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Dec 2020 00:17:02 GMT
+      - Fri, 09 Apr 2021 12:23:39 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
@@ -35,37 +34,32 @@ http_interactions:
       - no-cache
       Cache-Control:
       - no-cache
-      Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 29-Dec-2020 00:17:02 GMT;
-        secure; HttpOnly
       X-Dd-Version:
-      - '35.3583277'
+      - '35.4275715'
       X-Ratelimit-Limit:
       - '100'
       X-Ratelimit-Period:
       - '3600'
       X-Ratelimit-Reset:
-      - '2578'
+      - '2181'
       X-Ratelimit-Remaining:
-      - '81'
+      - '76'
       Content-Disposition:
       - inline
       X-Dd-Debug:
-      - KdWc5RppKH51u1oZ6tf2ghJTVEevh006eS91RDKZLGoax50FN2VjMvek2ayUmkXw
-      Dd-Pool:
-      - dogweb
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
+      - HbtaOKlJ6OCrx9tMXO6ivMTrEM+g0c93HDp08trmOmgdHozC5J+vn10F0H4WPjCU
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
       - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"ruby_Get_all_log_based_metrics_returns_OK_response_1608596221","attributes":{"filter":{"query":"source:ruby-Get_all_log_based_metrics_returns_OK_response-1608596221"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"}}'
-  recorded_at: Tue, 22 Dec 2020 00:17:01 GMT
+      string: '{"data":{"id":"Test_Get_all_log_based_metrics_returns_OK_response_1617971018","attributes":{"filter":{"query":"source:Test-Get_all_log_based_metrics_returns_OK_response-1617971018"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"}}'
+  recorded_at: Fri, 09 Apr 2021 12:23:38 GMT
 - request:
     method: get
     uri: https://api.datadoghq.com/api/v2/logs/config/metrics
@@ -74,8 +68,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.2.dev (ruby 2.7.1; os darwin19.6.0; arch
-        x86_64)
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -88,11 +81,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Dec 2020 00:17:02 GMT
+      - Fri, 09 Apr 2021 12:23:39 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
-      - '477'
+      - '8188'
       Connection:
       - keep-alive
       Vary:
@@ -101,35 +94,30 @@ http_interactions:
       - no-cache
       Cache-Control:
       - no-cache
-      Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 29-Dec-2020 00:17:02 GMT;
-        secure; HttpOnly
       X-Dd-Version:
-      - '35.3583277'
+      - '35.4275715'
       X-Ratelimit-Limit:
       - '5000'
       X-Ratelimit-Period:
       - '3600'
       X-Ratelimit-Reset:
-      - '2578'
+      - '2181'
       X-Ratelimit-Remaining:
-      - '4986'
+      - '4987'
       Content-Disposition:
       - inline
       X-Dd-Debug:
-      - o+DMvNLOJQfXAHeLjo7w9XOcTGCirWOThygGIHqmoMaQl6AzYuGlAbNkOlAzbCRq
-      Dd-Pool:
-      - dogweb
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
+      - gYZcaADwbKcv7Hm19HJx6WsLoKuOijDWAt2viPeCfWqUgyKY+9e1xZdmMJeXV3YV
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
       - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"data":[{"id":"datadog_api_client_python_test_create_a_logbased_metric_returns_ok_response_1607014407.161855","attributes":{"filter":{"query":"*"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"},{"id":"ruby_Get_all_log_based_metrics_returns_OK_response_1608596221","attributes":{"filter":{"query":"source:ruby-Get_all_log_based_metrics_returns_OK_response-1608596221"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"}]}'
-  recorded_at: Tue, 22 Dec 2020 00:17:01 GMT
+      string: '{"data":[{"id":"datadog_api_client_python_test_create_a_logbased_metric_returns_ok_response_1607014407.161855","attributes":{"filter":{"query":"*"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"},{"id":"go_Feature_Logs_Metrics_Scenario_Get_all_log_based_metrics_returns_OK_response_37807_1608735831","attributes":{"filter":{"query":"source:go-Feature_Logs_Metrics-Scenario_Get_all_log_based_metrics_returns__OK__response-37807-1608735831"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"},{"id":"mlb.to.delete.5","attributes":{"filter":{"query":"service:test"},"group_by":[{"path":"@status","tag_name":"status"}],"compute":{"aggregation_type":"distribution","path":"@duration"}},"type":"logs_metrics"},{"id":"mlb.to.delete.7","attributes":{"filter":{"query":"service:test"},"group_by":[{"path":"@status","tag_name":"status"}],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"},{"id":"tf_TestAccDatadogLogsMetric_import_local_1612175492","attributes":{"filter":{"query":"service:test"},"group_by":[{"path":"@my.status","tag_name":"status"},{"path":"service","tag_name":"service"}],"compute":{"aggregation_type":"distribution","path":"@duration"}},"type":"logs_metrics"},{"id":"Typescript_Create_a_log_based_metric_returns_OK_response_1613674902.961","attributes":{"filter":{"query":"*"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"},{"id":"Typescript_Get_a_log_based_metric_returns_OK_response_1613674904.843","attributes":{"filter":{"query":"source:Typescript-Get_a_log_based_metric_returns_OK_response-1613674904.843"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"},{"id":"Typescript_Get_all_log_based_metrics_returns_OK_response_1613674905.893","attributes":{"filter":{"query":"source:Typescript-Get_all_log_based_metrics_returns_OK_response-1613674905.893"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"},{"id":"Typescript_Update_a_log_based_metric_returns_OK_response_1613674907.023","attributes":{"filter":{"query":"source:Typescript-Update_a_log_based_metric_returns_OK_response-1613674907.023-updated"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"},{"id":"Typescript_Create_a_log_based_metric_returns_OK_response_1613675381.562","attributes":{"filter":{"query":"*"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"},{"id":"Typescript_Get_a_log_based_metric_returns_OK_response_1613675383.575","attributes":{"filter":{"query":"source:Typescript-Get_a_log_based_metric_returns_OK_response-1613675383.575"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"},{"id":"Typescript_Get_all_log_based_metrics_returns_OK_response_1613675384.642","attributes":{"filter":{"query":"source:Typescript-Get_all_log_based_metrics_returns_OK_response-1613675384.642"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"},{"id":"Typescript_Update_a_log_based_metric_returns_OK_response_1613675386.161","attributes":{"filter":{"query":"source:Typescript-Update_a_log_based_metric_returns_OK_response-1613675386.161-updated"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"},{"id":"Typescript_Create_a_log_based_metric_returns_OK_response_1614072176.745","attributes":{"filter":{"query":"*"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"},{"id":"Typescript_Delete_a_log_based_metric_returns_OK_response_1614072181.786","attributes":{"filter":{"query":"source:Typescript-Delete_a_log_based_metric_returns_OK_response-1614072181.786"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"},{"id":"Typescript_Get_all_log_based_metrics_returns_OK_response_1614072193.929","attributes":{"filter":{"query":"source:Typescript-Get_all_log_based_metrics_returns_OK_response-1614072193.929"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"},{"id":"Typescript_Get_all_log_based_metrics_returns_OK_response_1614073795.81","attributes":{"filter":{"query":"source:Typescript-Get_all_log_based_metrics_returns_OK_response-1614073795.81"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"},{"id":"ruby_Update_a_log_based_metric_returns_OK_response_1614194424","attributes":{"filter":{"query":"source:ruby-Update_a_log_based_metric_returns_OK_response-1614194424-updated"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"},{"id":"datadog_api_client_python_test_create_a_logbased_metric_returns_ok_response_1608595661.620162","attributes":{"filter":{"query":"*"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"},{"id":"datadog_api_client_python_test_delete_a_logbased_metric_returns_ok_response_1608595670.983057","attributes":{"filter":{"query":"source:datadog-api-client-python-test_delete_a_logbased_metric_returns_ok_response-1608595670.983057"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"},{"id":"datadog_api_client_python_test_get_a_logbased_metric_returns_ok_response_1608595669.067374","attributes":{"filter":{"query":"source:datadog-api-client-python-test_get_a_logbased_metric_returns_ok_response-1608595669.067374"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"},{"id":"datadog_api_client_python_test_get_all_logbased_metrics_returns_ok_response_1608595675.324394","attributes":{"filter":{"query":"source:datadog-api-client-python-test_get_all_logbased_metrics_returns_ok_response-1608595675.324394"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"},{"id":"Typescript_Create_a_log_based_metric_returns_OK_response_1614896593.355","attributes":{"filter":{"query":"*"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"},{"id":"datadog_api_client_python_test_update_a_logbased_metric_returns_ok_response_1608595673.013269","attributes":{"filter":{"query":"source:datadog-api-client-python-test_update_a_logbased_metric_returns_ok_response-1608595673.013269"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"},{"id":"Typescript_Create_a_log_based_metric_returns_OK_response_1616149774.73","attributes":{"filter":{"query":"*"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"},{"id":"go_Feature_Logs_Metrics_Scenario_Get_all_log_based_metrics_returns_OK_response_54239_1616717117","attributes":{"filter":{"query":"source:go-Feature_Logs_Metrics-Scenario_Get_all_log_based_metrics_returns__OK__response-54239-1616717117"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"},{"id":"datadog_api_client_python_test_create_a_logbased_metric_returns_ok_response_1617014547.984513","attributes":{"filter":{"query":"*"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"},{"id":"datadog_api_client_python_test_create_a_logbased_metric_returns_ok_response_1617189622.037749","attributes":{"filter":{"query":"*"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"},{"id":"datadog_api_client_python_test_create_a_logbased_metric_returns_ok_response_1617190464.536072","attributes":{"filter":{"query":"*"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"},{"id":"Typescript_Get_all_log_based_metrics_returns_OK_response_1617197330.21","attributes":{"filter":{"query":"source:Typescript-Get_all_log_based_metrics_returns_OK_response-1617197330.21"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"},{"id":"go_Feature_Logs_Metrics_Scenario_Get_all_log_based_metrics_returns_OK_response_57310_1617968823","attributes":{"filter":{"query":"source:go-Feature_Logs_Metrics-Scenario_Get_all_log_based_metrics_returns__OK__response-57310-1617968823"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"},{"id":"Test_Get_all_log_based_metrics_returns_OK_response_1617971018","attributes":{"filter":{"query":"source:Test-Get_all_log_based_metrics_returns_OK_response-1617971018"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"}]}'
+  recorded_at: Fri, 09 Apr 2021 12:23:38 GMT
 recorded_with: VCR 6.0.0

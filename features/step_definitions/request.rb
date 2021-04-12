@@ -30,16 +30,18 @@ module APIWorld
   def unique
     now = Time.now
     scenario_name = @scenario.name.gsub(/[^A-Za-z0-9]+/, '_')[0..100]
-    @unique ||= "ruby-#{scenario_name}-#{now.to_i}"
+    prefix = ENV["RECORD"] == "none" ? "Test-Ruby" : "Test"
+    @unique ||= "#{prefix}-#{scenario_name}-#{now.to_i}"
   end
 
   def fixtures
     u = unique
+    alnum = u.gsub(/[^A-Za-z0-9]+/, '')
     @fixtures ||= {
       "unique": u,
       "unique_lower": u.downcase,
-      "unique_alnum": u.gsub(/[^A-Za-z0-9]+/, ''),
-      "unique_lower_alnum": u.gsub(/[^a-z0-9]+/, ''),
+      "unique_alnum": alnum,
+      "unique_lower_alnum": alnum.downcase,
       "now_ts": Time.now.to_i,
       "now_iso": Time.now.iso8601,
       "hour_later_ts": (Time.now + 3600).to_i,

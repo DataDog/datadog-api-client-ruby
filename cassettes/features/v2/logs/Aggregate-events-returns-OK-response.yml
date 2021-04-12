@@ -5,10 +5,10 @@ http_interactions:
     uri: https://api.datadoghq.com/api/v2/logs/analytics/aggregate
     body:
       encoding: UTF-8
-      string: '{"compute":[{"aggregation":"count","interval":"300","metric":"test.aggregation.ruby-Aggregate_events_returns_OK_response-1606991627","type":"timeseries"}],"filter":{"from":"1600348573","indexes":["main"],"query":"datadog-agent","to":"1600348600"}}'
+      string: '{"compute":[{"aggregation":"count","interval":"300","metric":"test.aggregation.Test-Aggregate_events_returns_OK_response-1617971016","type":"timeseries"}],"filter":{"from":"1600348573","indexes":["main"],"query":"datadog-agent","to":"1600348600"}}'
     headers:
       User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.7.1; os darwin19.6.0; arch x86_64)
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -21,11 +21,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 03 Dec 2020 10:33:47 GMT
+      - Fri, 09 Apr 2021 12:23:36 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '136'
+      - '176'
       Connection:
       - keep-alive
       Vary:
@@ -34,33 +34,28 @@ http_interactions:
       - no-cache
       Cache-Control:
       - no-cache
-      Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 10-Dec-2020 10:33:47 GMT;
-        secure; HttpOnly
       X-Dd-Version:
-      - '35.3468590'
+      - '35.4275715'
       X-Ratelimit-Limit:
-      - '5'
+      - '300'
       X-Ratelimit-Period:
-      - '30'
+      - '300'
       X-Ratelimit-Reset:
-      - '13'
+      - '84'
       X-Ratelimit-Remaining:
-      - '4'
+      - '299'
       X-Dd-Debug:
-      - NVdxML/FOEgLJzsz37XLTVVLcoGTHoJzcuGu2ZwX+JAXQfJkO87pOpfJK6E0a8TN
-      Dd-Pool:
-      - dogweb
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
+      - LcgNasIYBRkNppmD6mCKE9J6iv0eEjosuuHR5V5zw2fWbR54i39C8dhdK8zDq/40
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
       - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"meta":{"status":"done","request_id":"elNJTGdQSGJUMXV3dnJvXzlUVVF1QXxUaDdhc3NnU1RPSGRFVlNQelJaWFFR","elapsed":0},"data":{"buckets":[]}}'
-  recorded_at: Thu, 03 Dec 2020 10:33:47 GMT
+      string: '{"meta":{"status":"done","request_id":"pddv1ChZDa08xSjdMMVRHeW02S3FHdm1aQ3RBIi0KHXqxiFp9QaehD_NFcjZq61fIcoqmmcjV4OZHhwaTEgzqVJUv2scVOGN-iA4","elapsed":0},"data":{"buckets":[]}}'
+  recorded_at: Fri, 09 Apr 2021 12:23:36 GMT
 recorded_with: VCR 6.0.0

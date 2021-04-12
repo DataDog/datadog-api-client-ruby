@@ -5,10 +5,10 @@ http_interactions:
     uri: https://api.datadoghq.com/api/v2/roles
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"roles","attributes":{"name":"ruby-Create_role_returns_OK_response-1606991628"}}}'
+      string: '{"data":{"type":"roles","attributes":{"name":"Test-Create_role_returns_OK_response-1617971031"}}}'
     headers:
       User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.7.1; os darwin19.6.0; arch x86_64)
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -21,11 +21,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 03 Dec 2020 10:33:49 GMT
+      - Fri, 09 Apr 2021 12:23:51 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '415'
+      - '482'
       Connection:
       - keep-alive
       Vary:
@@ -34,33 +34,28 @@ http_interactions:
       - no-cache
       Cache-Control:
       - no-cache
-      Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 10-Dec-2020 10:33:48 GMT;
-        secure; HttpOnly
       X-Dd-Version:
-      - '35.3468623'
+      - '35.4275715'
       X-Ratelimit-Limit:
       - '500'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '12'
+      - '9'
       X-Ratelimit-Remaining:
       - '496'
       X-Dd-Debug:
-      - bCBSaf0t3cWhIJuGOGz9PtbBY7MrMPu1HpZVAposegdxNlFMe/qHi/UbtNAIVmzS
-      Dd-Pool:
-      - dogweb
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
+      - dPySkcOzIZtKyMKDAAzuysY3gNGGj6RtYogGuSb76E8mPvoqzREyRp6lPYm91hQU
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
       - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"roles","id":"0788986c-3553-11eb-87b3-8fe734f86b9d","attributes":{"name":"ruby-Create_role_returns_OK_response-1606991628","created_at":"2020-12-03T10:33:48.987313+00:00","modified_at":"2020-12-03T10:33:48.987313+00:00"},"relationships":{"permissions":{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2"},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304"}]}}}}'
-  recorded_at: Thu, 03 Dec 2020 10:33:48 GMT
+      string: '{"data":{"type":"roles","id":"719872ce-992e-11eb-9ceb-da7ad0900002","attributes":{"name":"Test-Create_role_returns_OK_response-1617971031","created_at":"2021-04-09T12:23:51.828496+00:00","modified_at":"2021-04-09T12:23:51.828496+00:00"},"relationships":{"permissions":{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2"},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304"},{"type":"permissions","id":"417ba636-2dce-11eb-84c0-6bce5b0d9de0"}]}}}}'
+  recorded_at: Fri, 09 Apr 2021 12:23:51 GMT
 recorded_with: VCR 6.0.0

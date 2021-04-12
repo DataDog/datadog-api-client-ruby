@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.datadoghq.com/api/v2/roles
+    uri: https://api.datadoghq.com/api/v2/roles/ab4871e4-992a-11eb-9ceb-da7ad0900002/permissions
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"name":"ruby-List_permissions_for_a_role_returns_OK_response-1606991658"},"type":"roles"}}'
+      string: '{"data":{"id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","type":"permissions"}}'
     headers:
       User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.7.1; os darwin19.6.0; arch x86_64)
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -21,11 +21,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 03 Dec 2020 10:34:18 GMT
+      - Fri, 09 Apr 2021 11:56:50 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '431'
+      - '1426'
       Connection:
       - keep-alive
       Vary:
@@ -34,35 +34,160 @@ http_interactions:
       - no-cache
       Cache-Control:
       - no-cache
-      Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 10-Dec-2020 10:34:18 GMT;
-        secure; HttpOnly
       X-Dd-Version:
-      - '35.3468623'
+      - '35.4275259'
       X-Ratelimit-Limit:
       - '500'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '42'
+      - '10'
       X-Ratelimit-Remaining:
-      - '497'
+      - '480'
       X-Dd-Debug:
-      - yh6YON+7jbeDMg7CO+AYyoesqWeq0Iw5xzcOjFKKupoYHnh4eyLWds2GSgfB/+lP
-      Dd-Pool:
-      - dogweb
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
+      - 25u1gDlL724DHllbjFT4BhOLorBTilh+aah2uWAUEjFC/+rjczJdiyWrV/HwLwe/
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
       - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"roles","id":"1912b9aa-3553-11eb-87b3-1f50249b5405","attributes":{"name":"ruby-List_permissions_for_a_role_returns_OK_response-1606991658","created_at":"2020-12-03T10:34:18.412916+00:00","modified_at":"2020-12-03T10:34:18.412916+00:00"},"relationships":{"permissions":{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2"},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304"}]}}}}'
-  recorded_at: Thu, 03 Dec 2020 10:34:18 GMT
+      string: '{"data":[{"type":"permissions","id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","attributes":{"name":"admin","display_name":"Privileged
+        Access","description":"This permission gives you the ability to view and edit
+        everything in your Datadog organization that does not have an explicitly defined
+        permission. This includes organization settings and SAML management. This
+        permission is inclusive of all Standard access permissions.","created":"2018-10-19T15:35:23.734317+00:00","group_name":"General","display_type":"other","restricted":false}},{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2","attributes":{"name":"dashboards_read","display_name":"Dashboards","description":"The
+        ability to view dashboards.","created":"2019-09-10T14:39:51.955175+00:00","group_name":"Dashboards","display_type":"read","restricted":true}},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304","attributes":{"name":"monitors_read","display_name":"Monitors","description":"The
+        ability to view monitors.","created":"2019-09-16T18:39:07.744297+00:00","group_name":"Monitors","display_type":"read","restricted":true}},{"type":"permissions","id":"417ba636-2dce-11eb-84c0-6bce5b0d9de0","attributes":{"name":"apm_read","display_name":"APM
+        Read Access","description":"The ability to read and query APM and Trace Analytics.","created":"2020-11-23T20:55:45.006110+00:00","group_name":"APM","display_type":"read","restricted":true}}]}'
+  recorded_at: Fri, 09 Apr 2021 11:56:50 GMT
+- request:
+    method: get
+    uri: https://api.datadoghq.com/api/v2/roles/ab4871e4-992a-11eb-9ceb-da7ad0900002/permissions
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 09 Apr 2021 11:56:51 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1426'
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Dd-Version:
+      - '35.4275259'
+      X-Ratelimit-Limit:
+      - '500'
+      X-Ratelimit-Period:
+      - '60'
+      X-Ratelimit-Reset:
+      - '9'
+      X-Ratelimit-Remaining:
+      - '479'
+      X-Dd-Debug:
+      - l4HFlaRP3QwYSqoGKhzbYfv7zgkK63HIRR7YkyVYZspq0lGjjTBwoK8V/alf+XYt
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"type":"permissions","id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","attributes":{"name":"admin","display_name":"Privileged
+        Access","description":"This permission gives you the ability to view and edit
+        everything in your Datadog organization that does not have an explicitly defined
+        permission. This includes organization settings and SAML management. This
+        permission is inclusive of all Standard access permissions.","created":"2018-10-19T15:35:23.734317+00:00","group_name":"General","display_type":"other","restricted":false}},{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2","attributes":{"name":"dashboards_read","display_name":"Dashboards","description":"The
+        ability to view dashboards.","created":"2019-09-10T14:39:51.955175+00:00","group_name":"Dashboards","display_type":"read","restricted":true}},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304","attributes":{"name":"monitors_read","display_name":"Monitors","description":"The
+        ability to view monitors.","created":"2019-09-16T18:39:07.744297+00:00","group_name":"Monitors","display_type":"read","restricted":true}},{"type":"permissions","id":"417ba636-2dce-11eb-84c0-6bce5b0d9de0","attributes":{"name":"apm_read","display_name":"APM
+        Read Access","description":"The ability to read and query APM and Trace Analytics.","created":"2020-11-23T20:55:45.006110+00:00","group_name":"APM","display_type":"read","restricted":true}}]}'
+  recorded_at: Fri, 09 Apr 2021 11:56:50 GMT
+- request:
+    method: post
+    uri: https://api.datadoghq.com/api/v2/roles
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"Test-List_permissions_for_a_role_returns_OK_response-1617971035"},"type":"roles"}}'
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 09 Apr 2021 12:23:55 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '498'
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Dd-Version:
+      - '35.4275715'
+      X-Ratelimit-Limit:
+      - '500'
+      X-Ratelimit-Period:
+      - '60'
+      X-Ratelimit-Reset:
+      - '5'
+      X-Ratelimit-Remaining:
+      - '481'
+      X-Dd-Debug:
+      - 2328yjLSqI4XmR1pVqrPRR/SFcQsbafjEpPmZx7/3PfxUK1nJQQsX+wrMelyVyj+
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"roles","id":"73fa9cfe-992e-11eb-9ceb-da7ad0900002","attributes":{"name":"Test-List_permissions_for_a_role_returns_OK_response-1617971035","created_at":"2021-04-09T12:23:55.827157+00:00","modified_at":"2021-04-09T12:23:55.827157+00:00"},"relationships":{"permissions":{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2"},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304"},{"type":"permissions","id":"417ba636-2dce-11eb-84c0-6bce5b0d9de0"}]}}}}'
+  recorded_at: Fri, 09 Apr 2021 12:23:55 GMT
 - request:
     method: get
     uri: https://api.datadoghq.com/api/v2/permissions
@@ -71,7 +196,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.7.1; os darwin19.6.0; arch x86_64)
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -84,11 +209,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 03 Dec 2020 10:34:18 GMT
+      - Fri, 09 Apr 2021 12:23:55 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '9993'
+      - '21271'
       Connection:
       - keep-alive
       Vary:
@@ -97,33 +222,29 @@ http_interactions:
       - no-cache
       Cache-Control:
       - no-cache
-      Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 10-Dec-2020 10:34:18 GMT;
-        secure; HttpOnly
       X-Dd-Version:
-      - '35.3468590'
+      - '35.4275715'
       X-Dd-Debug:
-      - VfsOYTBPajdIURjGpWdSf1qbyO21kEmlCNna/tfODfKKzbp6OFbIz8G+Qerctd6m
-      Dd-Pool:
-      - dogweb
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
+      - nLnnBNvlCFDECRnZvzDb0z4sAO35G+IMidcAs8vrCKyjvsKWE8Yd9S3n6OjZ1qRN
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
       - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
     body:
       encoding: UTF-8
       string: '{"data":[{"type":"permissions","id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","attributes":{"name":"admin","display_name":"Privileged
         Access","description":"This permission gives you the ability to view and edit
         everything in your Datadog organization that does not have an explicitly defined
-        permission. This includes billing and usage, key, and organization management.
-        This permission is inclusive of all Standard access permissions.","created":"2018-10-19T15:35:23.734317+00:00","group_name":"General","display_type":"other","restricted":false}},{"type":"permissions","id":"984d2f00-d3b4-11e8-a200-bb47109e9987","attributes":{"name":"standard","display_name":"Standard
+        permission. This includes organization settings and SAML management. This
+        permission is inclusive of all Standard access permissions.","created":"2018-10-19T15:35:23.734317+00:00","group_name":"General","display_type":"other","restricted":false}},{"type":"permissions","id":"984d2f00-d3b4-11e8-a200-bb47109e9987","attributes":{"name":"standard","display_name":"Standard
         Access","description":"This permission gives you the ability to view and edit
         components in your Datadog organization that do not have explicitly defined
-        permissions. This includes APM, Events, and other non-Account Management functionality.","created":"2018-10-19T15:35:23.756736+00:00","group_name":"General","display_type":"other","restricted":false}},{"type":"permissions","id":"5e605652-dd12-11e8-9e53-375565b8970e","attributes":{"name":"logs_read_index_data","display_name":"Logs
+        permissions. This includes Notebooks, Events, and other non-Account Management
+        functionality.","created":"2018-10-19T15:35:23.756736+00:00","group_name":"General","display_type":"other","restricted":false}},{"type":"permissions","id":"5e605652-dd12-11e8-9e53-375565b8970e","attributes":{"name":"logs_read_index_data","display_name":"Logs
         Read Index Data","description":"The ability to read all or some log indexes.
         Can be granted in a limited capacity per index from the Logs interface or
         APIs. If granted via the Roles interface or API the permission has global
@@ -170,66 +291,103 @@ http_interactions:
         Monitoring","display_type":"write","restricted":false}},{"type":"permissions","id":"80de1ec0-aa58-11ea-95e2-aff381626d5d","attributes":{"name":"security_monitoring_signals_read","display_name":"Security
         Signals","description":"The ability to view Security signals.","created":"2020-06-09T13:52:48.410398+00:00","group_name":"Security
         Monitoring","display_type":"read","restricted":false}},{"type":"permissions","id":"9ac1d8cc-e707-11ea-aa2d-73d37e989a9d","attributes":{"name":"user_access_invite","display_name":"Invite
-        User","description":"Allows users to invite other users to your organization.","created":"2020-08-25T19:17:23.539701+00:00","group_name":"User
-        Access","display_type":"other","restricted":false}},{"type":"permissions","id":"9de604d8-e707-11ea-aa2d-93f1a783b3a3","attributes":{"name":"user_access_manage","display_name":"Access
+        User","description":"Allows users to invite other users to your organization.","created":"2020-08-25T19:17:23.539701+00:00","group_name":"Access
+        Management","display_type":"other","restricted":false}},{"type":"permissions","id":"9de604d8-e707-11ea-aa2d-93f1a783b3a3","attributes":{"name":"user_access_manage","display_name":"Access
         Management","description":"Grants the permission to disable users, manage
-        user roles and SAML-to-role mappings.","created":"2020-08-25T19:17:28.810412+00:00","group_name":"User
-        Access","display_type":"other","restricted":false}},{"type":"permissions","id":"07c3c146-f7f8-11ea-acf6-0bd62b9ae60e","attributes":{"name":"logs_write_historical_view","display_name":"Logs
-        Historical View","description":"The capability to rehydrate logs from Archives.","created":"2020-09-16T08:38:44.242076+00:00","group_name":"Logs","display_type":"write","restricted":false}},{"type":"permissions","id":"6ba32d22-0e1a-11eb-ba44-bf9a5aafaa39","attributes":{"name":"logs_write_facets","display_name":"Logs
-        Facets","description":"The capability to create or edit logs facets.","created":"2020-10-14T12:40:20.271908+00:00","group_name":"Logs","display_type":"write","restricted":false}}]}'
-  recorded_at: Thu, 03 Dec 2020 10:34:18 GMT
+        user roles and SAML-to-role mappings.","created":"2020-08-25T19:17:28.810412+00:00","group_name":"Access
+        Management","display_type":"other","restricted":false}},{"type":"permissions","id":"46a301da-ec5c-11ea-aa9f-73bedeab67ee","attributes":{"name":"user_app_keys","display_name":"User
+        Application Keys","description":"The ability to view and manage Application
+        Keys owned by the user.","created":"2020-09-01T14:06:05.444705+00:00","group_name":"API
+        and Application Keys","display_type":"other","restricted":false}},{"type":"permissions","id":"46a301db-ec5c-11ea-aa9f-2fe72193d60e","attributes":{"name":"org_app_keys_read","display_name":"Organization
+        Application Keys","description":"The ability to view Application Keys owned
+        by all users in the organization.","created":"2020-09-01T14:06:05.444705+00:00","group_name":"API
+        and Application Keys","display_type":"read","restricted":false}},{"type":"permissions","id":"46a301dc-ec5c-11ea-aa9f-13b33f8f46ea","attributes":{"name":"org_app_keys_write","display_name":"Organization
+        Application Keys","description":"The ability to manage Application Keys owned
+        by all users in the organization.","created":"2020-09-01T14:06:05.444705+00:00","group_name":"API
+        and Application Keys","display_type":"write","restricted":false}},{"type":"permissions","id":"46a301dd-ec5c-11ea-aa9f-97edfb345bc9","attributes":{"name":"synthetics_private_location_read","display_name":"Private
+        Locations","description":"The ability to view the list of private locations
+        available.","created":"2020-09-01T14:06:05.444705+00:00","group_name":"Synthetic
+        Monitoring","display_type":"read","restricted":false}},{"type":"permissions","id":"46a301de-ec5c-11ea-aa9f-a73252c24806","attributes":{"name":"synthetics_private_location_write","display_name":"Private
+        Locations","description":"The ability to create and delete private locations
+        as well as seeing the associated installation guidelines.","created":"2020-09-01T14:06:05.444705+00:00","group_name":"Synthetic
+        Monitoring","display_type":"write","restricted":false}},{"type":"permissions","id":"46a301df-ec5c-11ea-aa9f-970a9ae645e5","attributes":{"name":"billing_read","display_name":"Billing","description":"The
+        ability to view your organization''s subscription and payment method but not
+        make edits.","created":"2020-09-01T14:06:05.444705+00:00","group_name":"Billing
+        and Usage","display_type":"read","restricted":false}},{"type":"permissions","id":"46a301e0-ec5c-11ea-aa9f-6ba6cc675d8c","attributes":{"name":"billing_edit","display_name":"Billing","description":"The
+        ability to manage your organization''s subscription and payment method.","created":"2020-09-01T14:06:05.444705+00:00","group_name":"Billing
+        and Usage","display_type":"write","restricted":false}},{"type":"permissions","id":"46a301e1-ec5c-11ea-aa9f-afa39f6f3e36","attributes":{"name":"usage_read","display_name":"Usage","description":"The
+        ability to view your organization''s usage and usage attribution.","created":"2020-09-01T14:06:05.444705+00:00","group_name":"Billing
+        and Usage","display_type":"read","restricted":false}},{"type":"permissions","id":"46a301e2-ec5c-11ea-aa9f-1f511b7305fd","attributes":{"name":"usage_edit","display_name":"Usage","description":"The
+        ability to manage your organization''s usage attribution set-up.","created":"2020-09-01T14:06:05.444705+00:00","group_name":"Billing
+        and Usage","display_type":"write","restricted":false}},{"type":"permissions","id":"46a301e4-ec5c-11ea-aa9f-87282b3a50cc","attributes":{"name":"metric_tags_write","display_name":"Manage
+        Tags for Metrics","description":"The ability to edit and save tag configurations
+        for custom metrics.","created":"2020-09-01T14:06:05.444705+00:00","group_name":"Metrics","display_type":"write","restricted":false}},{"type":"permissions","id":"07c3c146-f7f8-11ea-acf6-0bd62b9ae60e","attributes":{"name":"logs_write_historical_view","display_name":"Logs
+        Historical View","description":"The capability to rehydrate logs from Archives.","created":"2020-09-16T08:38:44.242076+00:00","group_name":"Logs","display_type":"write","restricted":false}},{"type":"permissions","id":"372896c4-f923-11ea-adbc-4fecd107156d","attributes":{"name":"api_keys_read","display_name":"API
+        Keys","description":"The ability to list and retrive the key values of all
+        API Keys in your organization.","created":"2020-09-17T20:20:23.279769+00:00","group_name":"API
+        and Application Keys","display_type":"read","restricted":false}},{"type":"permissions","id":"3e4d4d28-f923-11ea-adbc-e3565938c12e","attributes":{"name":"api_keys_write","display_name":"API
+        Keys","description":"The ability to create, rename, and revoke API Keys for
+        your organization.","created":"2020-09-17T20:20:35.264430+00:00","group_name":"API
+        and Application Keys","display_type":"write","restricted":false}},{"type":"permissions","id":"4628ca54-f923-11ea-adbc-4b2b7f88c5e9","attributes":{"name":"synthetics_global_variable_read","display_name":"Global
+        Variables","description":"The ability to view and search through all the existing
+        global variables for Synthetics.","created":"2020-09-17T20:20:48.446916+00:00","group_name":"Synthetic
+        Monitoring","display_type":"read","restricted":false}},{"type":"permissions","id":"4ada6e36-f923-11ea-adbc-0788e5c5e3cf","attributes":{"name":"synthetics_global_variable_write","display_name":"Global
+        Variables","description":"The ability to create, edit, and delete global variables
+        for Synthetics.","created":"2020-09-17T20:20:56.322003+00:00","group_name":"Synthetic
+        Monitoring","display_type":"write","restricted":false}},{"type":"permissions","id":"5025ee24-f923-11ea-adbc-576ea241df8d","attributes":{"name":"synthetics_read","display_name":"Synthetic
+        Tests","description":"The ability to list and view configured Synthetic tests.","created":"2020-09-17T20:21:05.205361+00:00","group_name":"Synthetic
+        Monitoring","display_type":"read","restricted":false}},{"type":"permissions","id":"55f4b5ec-f923-11ea-adbc-1bfa2334a755","attributes":{"name":"synthetics_write","display_name":"Synthetic
+        Tests","description":"The ability to create, edit, and delete Synthetic tests.","created":"2020-09-17T20:21:14.949140+00:00","group_name":"Synthetic
+        Monitoring","display_type":"write","restricted":false}},{"type":"permissions","id":"5c6b88e2-f923-11ea-adbc-abf57d079420","attributes":{"name":"synthetics_default_settings_read","display_name":"Default
+        Settings","description":"The ability to view default settings for Synthetics
+        Monitoring.","created":"2020-09-17T20:21:25.794160+00:00","group_name":"Synthetic
+        Monitoring","display_type":"read","restricted":false}},{"type":"permissions","id":"642eebe6-f923-11ea-adbc-eb617674ea04","attributes":{"name":"synthetics_default_settings_write","display_name":"Default
+        Settings","description":"The ability to edit default settings for Synthetics
+        Monitoring.","created":"2020-09-17T20:21:38.818771+00:00","group_name":"Synthetic
+        Monitoring","display_type":"write","restricted":false}},{"type":"permissions","id":"6ba32d22-0e1a-11eb-ba44-bf9a5aafaa39","attributes":{"name":"logs_write_facets","display_name":"Logs
+        Facets","description":"The capability to create or edit logs facets.","created":"2020-10-14T12:40:20.271908+00:00","group_name":"Logs","display_type":"write","restricted":false}},{"type":"permissions","id":"fcac2ad8-2843-11eb-8315-0fe47949d625","attributes":{"name":"integrations_api","display_name":"Integrations
+        API Access","description":"The ability to use the Integrations APIs to configure
+        Integrations that the user has access to. This permission does not restrict
+        or grant access to Integrations.","created":"2020-11-16T19:43:23.198568+00:00","group_name":"Integrations","display_type":"other","restricted":false}},{"type":"permissions","id":"417ba636-2dce-11eb-84c0-6bce5b0d9de0","attributes":{"name":"apm_read","display_name":"APM
+        Read Access","description":"The ability to read and query APM and Trace Analytics.","created":"2020-11-23T20:55:45.006110+00:00","group_name":"APM","display_type":"read","restricted":true}},{"type":"permissions","id":"43fa188e-2dce-11eb-84c0-835ad1fd6287","attributes":{"name":"apm_retention_filter_read","display_name":"Manage
+        Retention Filters","description":"The ability to read trace retention filters.
+        A user with this permission can view the retention filters page, list of filters,
+        their statistics, and creation info.","created":"2020-11-23T20:55:49.190595+00:00","group_name":"APM","display_type":"read","restricted":false}},{"type":"permissions","id":"465cfe66-2dce-11eb-84c0-6baa888239fa","attributes":{"name":"apm_retention_filter_write","display_name":"Manage
+        Retention Filters","description":"The ability to create, edit and delete trace
+        retention filters. A user with this permission can create new retention filters,
+        and update or delete to existing retention filters.","created":"2020-11-23T20:55:53.194236+00:00","group_name":"APM","display_type":"write","restricted":false}},{"type":"permissions","id":"4916eebe-2dce-11eb-84c0-271cb2c672e8","attributes":{"name":"apm_service_ingest_read","display_name":"Manage
+        Service Ingestion","description":"The ability to access Service Ingestion
+        pages. A user with this permission can view the service ingestion page, list
+        of root service, their statistics, and creation info.","created":"2020-11-23T20:55:57.768261+00:00","group_name":"APM","display_type":"read","restricted":false}},{"type":"permissions","id":"4e3f02b4-2dce-11eb-84c0-2fca946a6efc","attributes":{"name":"apm_service_ingest_write","display_name":"Manage
+        Service Ingestion","description":"The ability to edit Service Ingestion pages
+        root services. A user with this permission can edit the root service ingestion
+        and generate a code snippet to increase ingestion per service.","created":"2020-11-23T20:56:06.419518+00:00","group_name":"APM","display_type":"write","restricted":false}},{"type":"permissions","id":"53950c54-2dce-11eb-84c0-a79ae108f6f8","attributes":{"name":"apm_apdex_manage_write","display_name":"Apdex
+        Management","description":"The ability to set Apdex T value on any service.
+        A user with this permission can set the T value from the Apdex graph on the
+        service page.","created":"2020-11-23T20:56:15.371926+00:00","group_name":"APM","display_type":"write","restricted":false}},{"type":"permissions","id":"5cbe5f9c-2dce-11eb-84c0-872d3e9f1076","attributes":{"name":"apm_tag_management_write","display_name":"Primary
+        Tag Management","description":"The ability to edit second primary tag selection.
+        A user with this permission can modify the second primary tag dropdown in
+        the APM settings page.","created":"2020-11-23T20:56:30.742299+00:00","group_name":"APM","display_type":"write","restricted":false}},{"type":"permissions","id":"61765026-2dce-11eb-84c0-833e230d1b8f","attributes":{"name":"apm_primary_operation_write","display_name":"Primary
+        Operation","description":"The ability to edit the operation name value selection.
+        A user with this permission can modify the operation name list in the APM
+        settings page and can modify the operation name controller on the service
+        page.","created":"2020-11-23T20:56:38.658649+00:00","group_name":"APM","display_type":"write","restricted":false}},{"type":"permissions","id":"8106300a-54f7-11eb-8cbc-7781a434a67b","attributes":{"name":"rum_apps_write","display_name":"RUM
+        Applications","description":"The ability to create, edit, and delete RUM Applications.","created":"2021-01-12T16:59:16.324480+00:00","group_name":"Real
+        User Monitoring","display_type":"write","restricted":false}},{"type":"permissions","id":"bf0dcf7c-90af-11eb-9b82-da7ad0900002","attributes":{"name":"data_scanner_read","display_name":"Data
+        Scanner","description":"View data scanner configuration.","created":"2021-03-29T16:56:46.394971+00:00","group_name":"Access
+        Management","display_type":"read","restricted":false}},{"type":"permissions","id":"bf0dcf7d-90af-11eb-9b82-da7ad0900002","attributes":{"name":"data_scanner_write","display_name":"Data
+        Scanner","description":"Edit data scanner configuration.","created":"2021-03-29T16:56:46.398584+00:00","group_name":"Access
+        Management","display_type":"write","restricted":false}}]}'
+  recorded_at: Fri, 09 Apr 2021 12:23:55 GMT
 - request:
     method: post
-    uri: http://127.0.0.1:8126/v0.4/traces
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        kdwAEY2lc3RhcnTPFk0uX9SbIBCoZHVyYXRpb27PAAAABkvYia+nc3Bhbl9pZM8aa8FsiLLpkKlwYXJlbnRfaWQAqHRyYWNlX2lkzyogDzkhK4sipG5hbWWkdGVzdKdzZXJ2aWNlt2RhdGFkb2ctYXBpLWNsaWVudC1ydWJ5qHJlc291cmNl2SdSZXZva2UgcGVybWlzc2lvbiByZXR1cm5zICJPSyIgcmVzcG9uc2WkdHlwZaR0ZXN0pG1ldGGIqnJ1bnRpbWUtaWTZJGVkMTE1NmVhLWVmY2MtNGI4Ny04MmE1LWEzZTdiNDA2NzQzNa50ZXN0LmZyYW1ld29ya6hjdWN1bWJlcql0ZXN0Lm5hbWXZJ1Jldm9rZSBwZXJtaXNzaW9uIHJldHVybnMgIk9LIiByZXNwb25zZap0ZXN0LnN1aXRluWZlYXR1cmVzL3YyL3JvbGVzLmZlYXR1cmWpdGVzdC50eXBlpHRlc3Spc3Bhbi5raW5kpHRlc3SndmVyc2lvbqVyb2xlc6t0ZXN0LnN0YXR1c6RwYXNzp21ldHJpY3OFrV9kZC5hZ2VudF9wc3LLP/AAAAAAAACqc3lzdGVtLnBpZMtA94dAAAAAAK1fZGQxLnNyLmVhdXNyyz/wAAAAAAAArF9kZC5tZWFzdXJlZMs/8AAAAAAAALVfc2FtcGxpbmdfcHJpb3JpdHlfdjHLP/AAAAAAAACrYWxsb2NhdGlvbnPNa3WlZXJyb3IAjaVzdGFydM8WTS5f1Ky0EKhkdXJhdGlvbs4AAl14p3NwYW5faWTPKfirloLZt+KpcGFyZW50X2lkzxprwWyIsumQqHRyYWNlX2lkzyogDzkhK4sipG5hbWWkc3RlcKdzZXJ2aWNlt2RhdGFkb2ctYXBpLWNsaWVudC1ydWJ5qHJlc291cmNl2SZhIHZhbGlkICJhcGlLZXlBdXRoIiBrZXkgaW4gdGhlIHN5c3RlbaR0eXBlpHN0ZXCkbWV0YYGrdGVzdC5zdGF0dXOkcGFzc6dtZXRyaWNzgKthbGxvY2F0aW9uczulZXJyb3IAjaVzdGFydM8WTS5f1LGpmKhkdXJhdGlvbs3ep6dzcGFuX2lkzzLIU2P79FxMqXBhcmVudF9pZM8aa8FsiLLpkKh0cmFjZV9pZM8qIA85ISuLIqRuYW1lpHN0ZXCnc2VydmljZbdkYXRhZG9nLWFwaS1jbGllbnQtcnVieahyZXNvdXJjZdkmYSB2YWxpZCAiYXBwS2V5QXV0aCIga2V5IGluIHRoZSBzeXN0ZW2kdHlwZaRzdGVwpG1ldGGBq3Rlc3Quc3RhdHVzpHBhc3OnbWV0cmljc4CrYWxsb2NhdGlvbnMnpWVycm9yAI2lc3RhcnTPFk0uX9SzYwCoZHVyYXRpb27OAAE0l6dzcGFuX2lkzxM9GLIl8UujqXBhcmVudF9pZM8aa8FsiLLpkKh0cmFjZV9pZM8qIA85ISuLIqRuYW1lpHN0ZXCnc2VydmljZbdkYXRhZG9nLWFwaS1jbGllbnQtcnVieahyZXNvdXJjZbphbiBpbnN0YW5jZSBvZiAiUm9sZXMiIEFQSaR0eXBlpHN0ZXCkbWV0YYGrdGVzdC5zdGF0dXOkcGFzc6dtZXRyaWNzgKthbGxvY2F0aW9uczalZXJyb3IAjaVzdGFydM8WTS5f1LXfuKhkdXJhdGlvbs4MoQg/p3NwYW5faWTPG5Dk06LONuepcGFyZW50X2lkzxprwWyIsumQqHRyYWNlX2lkzyogDzkhK4sipG5hbWWkc3RlcKdzZXJ2aWNlt2RhdGFkb2ctYXBpLWNsaWVudC1ydWJ5qHJlc291cmNl2SV0aGVyZSBpcyBhIHZhbGlkICJyb2xlIiBpbiB0aGUgc3lzdGVtpHR5cGWkc3RlcKRtZXRhgat0ZXN0LnN0YXR1c6RwYXNzp21ldHJpY3OAq2FsbG9jYXRpb25zzRPOpWVycm9yAI2lc3RhcnTPFk0uX9TrVzioZHVyYXRpb27ODFnN36dzcGFuX2lkzzTeT/+dLz5zqXBhcmVudF9pZM8bkOTTos4256h0cmFjZV9pZM8qIA85ISuLIqRuYW1lrWV0aG9uLnJlcXVlc3Snc2VydmljZaVldGhvbqhyZXNvdXJjZaRQT1NUpHR5cGWkaHR0cKRtZXRhhaxwZWVyLnNlcnZpY2WlZXRob26oaHR0cC51cmytL2FwaS92Mi9yb2xlc6todHRwLm1ldGhvZKRQT1NUqG91dC5ob3N0sWFwaS5kYXRhZG9naHEuY29tsGh0dHAuc3RhdHVzX2NvZGWjMjAwp21ldHJpY3OBqG91dC5wb3J0y0B7sAAAAAAAq2FsbG9jYXRpb25zzKulZXJyb3IAjaVzdGFydM8WTS5f4VtUyKhkdXJhdGlvbs4IeSDgp3NwYW5faWTPHLtIB9/37LGpcGFyZW50X2lkzxprwWyIsumQqHRyYWNlX2lkzyogDzkhK4sipG5hbWWkc3RlcKdzZXJ2aWNlt2RhdGFkb2ctYXBpLWNsaWVudC1ydWJ5qHJlc291cmNl2St0aGVyZSBpcyBhIHZhbGlkICJwZXJtaXNzaW9uIiBpbiB0aGUgc3lzdGVtpHR5cGWkc3RlcKRtZXRhgat0ZXN0LnN0YXR1c6RwYXNzp21ldHJpY3OAq2FsbG9jYXRpb25zzRlHpWVycm9yAI2lc3RhcnTPFk0uX+FyyLCoZHVyYXRpb27OCC0QOKdzcGFuX2lkzw0v4b5OpOWnqXBhcmVudF9pZM8cu0gH3/fssah0cmFjZV9pZM8qIA85ISuLIqRuYW1lrWV0aG9uLnJlcXVlc3Snc2VydmljZaVldGhvbqhyZXNvdXJjZaNHRVSkdHlwZaRodHRwpG1ldGGFrHBlZXIuc2VydmljZaVldGhvbqhodHRwLnVybLMvYXBpL3YyL3Blcm1pc3Npb25zq2h0dHAubWV0aG9ko0dFVKhvdXQuaG9zdLFhcGkuZGF0YWRvZ2hxLmNvbbBodHRwLnN0YXR1c19jb2RlozIwMKdtZXRyaWNzgahvdXQucG9ydMtAe7AAAAAAAKthbGxvY2F0aW9uc8ykpWVycm9yAI2lc3RhcnTPFk0uX+nXX8CoZHVyYXRpb27OCvcFp6dzcGFuX2lkzzBYGuimnUAZqXBhcmVudF9pZM8aa8FsiLLpkKh0cmFjZV9pZM8qIA85ISuLIqRuYW1lpHN0ZXCnc2VydmljZbdkYXRhZG9nLWFwaS1jbGllbnQtcnVieahyZXNvdXJjZdkpdGhlICJwZXJtaXNzaW9uIiBpcyBncmFudGVkIHRvIHRoZSAicm9sZSKkdHlwZaRzdGVwpG1ldGGBq3Rlc3Quc3RhdHVzpHBhc3OnbWV0cmljc4CrYWxsb2NhdGlvbnPNDv2lZXJyb3IAjaVzdGFydM8WTS5f6fqq6KhkdXJhdGlvbs4KxbiPp3NwYW5faWTPKLpbnfZT8yGpcGFyZW50X2lkzzBYGuimnUAZqHRyYWNlX2lkzyogDzkhK4sipG5hbWWtZXRob24ucmVxdWVzdKdzZXJ2aWNlpWV0aG9uqHJlc291cmNlpFBPU1SkdHlwZaRodHRwpG1ldGGFrHBlZXIuc2VydmljZaVldGhvbqhodHRwLnVybNk+L2FwaS92Mi9yb2xlcy8wOGU3ZGU4ZS0zNTUzLTExZWItODdiMy0zZjJiM2RiZjZiZmIvcGVybWlzc2lvbnOraHR0cC5tZXRob2SkUE9TVKhvdXQuaG9zdLFhcGkuZGF0YWRvZ2hxLmNvbbBodHRwLnN0YXR1c19jb2RlozIwMKdtZXRyaWNzgahvdXQucG9ydMtAe7AAAAAAAKthbGxvY2F0aW9uc8yrpWVycm9yAI2lc3RhcnTPFk0uX/TQvvioZHVyYXRpb27OAAEhEKdzcGFuX2lkzzDU90HXnOyIqXBhcmVudF9pZM8aa8FsiLLpkKh0cmFjZV9pZM8qIA85ISuLIqRuYW1lpHN0ZXCnc2VydmljZbdkYXRhZG9nLWFwaS1jbGllbnQtcnVieahyZXNvdXJjZdkmbmV3ICJSZW1vdmVQZXJtaXNzaW9uRnJvbVJvbGUiIHJlcXVlc3SkdHlwZaRzdGVwpG1ldGGBq3Rlc3Quc3RhdHVzpHBhc3OnbWV0cmljc4CrYWxsb2NhdGlvbnM4pWVycm9yAI2lc3RhcnTPFk0uX/TTN8ioZHVyYXRpb27N+gCnc3Bhbl9pZM8GRF7vP46PPqlwYXJlbnRfaWTPGmvBbIiy6ZCodHJhY2VfaWTPKiAPOSEriyKkbmFtZaRzdGVwp3NlcnZpY2W3ZGF0YWRvZy1hcGktY2xpZW50LXJ1YnmocmVzb3VyY2XZOHJlcXVlc3QgY29udGFpbnMgInJvbGVfaWQiIHBhcmFtZXRlciBmcm9tICJyb2xlLmRhdGEuaWQipHR5cGWkc3RlcKRtZXRhgat0ZXN0LnN0YXR1c6RwYXNzp21ldHJpY3OAq2FsbG9jYXRpb25zQ6VlcnJvcgCNpXN0YXJ0zxZNLl/01XIYqGR1cmF0aW9uzcc4p3NwYW5faWTPA6YofBHFanapcGFyZW50X2lkzxprwWyIsumQqHRyYWNlX2lkzyogDzkhK4sipG5hbWWkc3RlcKdzZXJ2aWNlt2RhdGFkb2ctYXBpLWNsaWVudC1ydWJ5qHJlc291cmNl2U1ib2R5IHsiZGF0YSI6IHsiaWQiOiAie3sgcGVybWlzc2lvbi5pZCB9fSIsICJ0eXBlIjogInt7IHBlcm1pc3Npb24udHlwZSB9fSJ9faR0eXBlpHN0ZXCkbWV0YYGrdGVzdC5zdGF0dXOkcGFzc6dtZXRyaWNzgKthbGxvY2F0aW9uc1elZXJyb3IAjaVzdGFydM8WTS5mCyqkiKhkdXJhdGlvbs4Kg0Dvp3NwYW5faWTPC35/qOT2/RypcGFyZW50X2lkzxprwWyIsumQqHRyYWNlX2lkzyogDzkhK4sipG5hbWWkc3RlcKdzZXJ2aWNlt2RhdGFkb2ctYXBpLWNsaWVudC1ydWJ5qHJlc291cmNls3RoZSByZXF1ZXN0IGlzIHNlbnSkdHlwZaRzdGVwpG1ldGGBq3Rlc3Quc3RhdHVzpHBhc3OnbWV0cmljc4CrYWxsb2NhdGlvbnPNC7SlZXJyb3IAjaVzdGFydM8WTS5mC08wAKhkdXJhdGlvbs4KPMIQp3NwYW5faWTPMWlyILCf3UepcGFyZW50X2lkzwt+f6jk9v0cqHRyYWNlX2lkzyogDzkhK4sipG5hbWWtZXRob24ucmVxdWVzdKdzZXJ2aWNlpWV0aG9uqHJlc291cmNlpkRFTEVURaR0eXBlpGh0dHCkbWV0YYWscGVlci5zZXJ2aWNlpWV0aG9uqGh0dHAudXJs2T4vYXBpL3YyL3JvbGVzLzA4ZTdkZThlLTM1NTMtMTFlYi04N2IzLTNmMmIzZGJmNmJmYi9wZXJtaXNzaW9uc6todHRwLm1ldGhvZKZERUxFVEWob3V0Lmhvc3SxYXBpLmRhdGFkb2docS5jb22waHR0cC5zdGF0dXNfY29kZaMyMDCnbWV0cmljc4Gob3V0LnBvcnTLQHuwAAAAAACrYWxsb2NhdGlvbnPMq6VlcnJvcgCNpXN0YXJ0zxZNLmYVsjrYqGR1cmF0aW9uzgACo8inc3Bhbl9pZM8n2rJIMtkwgqlwYXJlbnRfaWTPGmvBbIiy6ZCodHJhY2VfaWTPKiAPOSEriyKkbmFtZaRzdGVwp3NlcnZpY2W3ZGF0YWRvZy1hcGktY2xpZW50LXJ1YnmocmVzb3VyY2W9dGhlIHJlc3BvbnNlIHN0YXR1cyBpcyAyMDAgT0ukdHlwZaRzdGVwpG1ldGGBq3Rlc3Quc3RhdHVzpHBhc3OnbWV0cmljc4CrYWxsb2NhdGlvbnMxpWVycm9yAI2lc3RhcnTPFk0uZhY14fioZHVyYXRpb27OCiMfkKdzcGFuX2lkzxjHxBOa1KKLqXBhcmVudF9pZM8aa8FsiLLpkKh0cmFjZV9pZM8qIA85ISuLIqRuYW1lrWV0aG9uLnJlcXVlc3Snc2VydmljZaVldGhvbqhyZXNvdXJjZaZERUxFVEWkdHlwZaRodHRwpG1ldGGFrHBlZXIuc2VydmljZaVldGhvbqhodHRwLnVybNkyL2FwaS92Mi9yb2xlcy8wOGU3ZGU4ZS0zNTUzLTExZWItODdiMy0zZjJiM2RiZjZiZmKraHR0cC5tZXRob2SmREVMRVRFqG91dC5ob3N0sWFwaS5kYXRhZG9naHEuY29tsGh0dHAuc3RhdHVzX2NvZGWjMjA0p21ldHJpY3OBqG91dC5wb3J0y0B7sAAAAAAAq2FsbG9jYXRpb25zzI+lZXJyb3IA
-    headers:
-      X-Datadog-Trace-Count:
-      - '1'
-      Content-Type:
-      - application/msgpack
-      Datadog-Meta-Lang:
-      - ruby
-      Datadog-Meta-Lang-Version:
-      - 2.7.1
-      Datadog-Meta-Lang-Interpreter:
-      - ruby-x86_64-darwin19
-      Datadog-Meta-Tracer-Version:
-      - 0.43.0
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json
-      Date:
-      - Thu, 03 Dec 2020 10:34:18 GMT
-      Content-Length:
-      - '126'
-    body:
-      encoding: UTF-8
-      string: '{"rate_by_service":{"service:,env:":1,"service:datadog-api-client-ruby,env:":1,"service:datadog-api-client-ruby,env:none":1}}
-
-        '
-  recorded_at: Thu, 03 Dec 2020 10:34:18 GMT
-- request:
-    method: post
-    uri: https://api.datadoghq.com/api/v2/roles/1912b9aa-3553-11eb-87b3-1f50249b5405/permissions
+    uri: https://api.datadoghq.com/api/v2/roles/73fa9cfe-992e-11eb-9ceb-da7ad0900002/permissions
     body:
       encoding: UTF-8
       string: '{"data":{"id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","type":"permissions"}}'
     headers:
       User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.7.1; os darwin19.6.0; arch x86_64)
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -242,11 +400,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 03 Dec 2020 10:34:18 GMT
+      - Fri, 09 Apr 2021 12:23:56 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '1128'
+      - '1426'
       Connection:
       - keep-alive
       Vary:
@@ -255,50 +413,46 @@ http_interactions:
       - no-cache
       Cache-Control:
       - no-cache
-      Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 10-Dec-2020 10:34:18 GMT;
-        secure; HttpOnly
       X-Dd-Version:
-      - '35.3468590'
+      - '35.4275715'
       X-Ratelimit-Limit:
       - '500'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '42'
+      - '4'
       X-Ratelimit-Remaining:
-      - '496'
+      - '480'
       X-Dd-Debug:
-      - Kk/IK0yKFQFO85P6+hozZV6nj4lzf3jJe8dZhRkIu12QKZF7MHi2yPiBbpLyX6Ve
-      Dd-Pool:
-      - dogweb
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
+      - LcgNasIYBRkNppmD6mCKE9J6iv0eEjosuuHR5V5zw2fWbR54i39C8dhdK8zDq/40
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
       - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
     body:
       encoding: UTF-8
       string: '{"data":[{"type":"permissions","id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","attributes":{"name":"admin","display_name":"Privileged
         Access","description":"This permission gives you the ability to view and edit
         everything in your Datadog organization that does not have an explicitly defined
-        permission. This includes billing and usage, key, and organization management.
-        This permission is inclusive of all Standard access permissions.","created":"2018-10-19T15:35:23.734317+00:00","group_name":"General","display_type":"other","restricted":false}},{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2","attributes":{"name":"dashboards_read","display_name":"Dashboards","description":"The
+        permission. This includes organization settings and SAML management. This
+        permission is inclusive of all Standard access permissions.","created":"2018-10-19T15:35:23.734317+00:00","group_name":"General","display_type":"other","restricted":false}},{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2","attributes":{"name":"dashboards_read","display_name":"Dashboards","description":"The
         ability to view dashboards.","created":"2019-09-10T14:39:51.955175+00:00","group_name":"Dashboards","display_type":"read","restricted":true}},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304","attributes":{"name":"monitors_read","display_name":"Monitors","description":"The
-        ability to view monitors.","created":"2019-09-16T18:39:07.744297+00:00","group_name":"Monitors","display_type":"read","restricted":true}}]}'
-  recorded_at: Thu, 03 Dec 2020 10:34:18 GMT
+        ability to view monitors.","created":"2019-09-16T18:39:07.744297+00:00","group_name":"Monitors","display_type":"read","restricted":true}},{"type":"permissions","id":"417ba636-2dce-11eb-84c0-6bce5b0d9de0","attributes":{"name":"apm_read","display_name":"APM
+        Read Access","description":"The ability to read and query APM and Trace Analytics.","created":"2020-11-23T20:55:45.006110+00:00","group_name":"APM","display_type":"read","restricted":true}}]}'
+  recorded_at: Fri, 09 Apr 2021 12:23:55 GMT
 - request:
     method: get
-    uri: https://api.datadoghq.com/api/v2/roles/1912b9aa-3553-11eb-87b3-1f50249b5405/permissions
+    uri: https://api.datadoghq.com/api/v2/roles/73fa9cfe-992e-11eb-9ceb-da7ad0900002/permissions
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.7.1; os darwin19.6.0; arch x86_64)
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -311,11 +465,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 03 Dec 2020 10:34:18 GMT
+      - Fri, 09 Apr 2021 12:23:56 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '1128'
+      - '1426'
       Connection:
       - keep-alive
       Vary:
@@ -324,39 +478,35 @@ http_interactions:
       - no-cache
       Cache-Control:
       - no-cache
-      Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 10-Dec-2020 10:34:18 GMT;
-        secure; HttpOnly
       X-Dd-Version:
-      - '35.3468623'
+      - '35.4275715'
       X-Ratelimit-Limit:
       - '500'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '42'
+      - '4'
       X-Ratelimit-Remaining:
-      - '495'
+      - '479'
       X-Dd-Debug:
-      - jksv6NXchM8W/4CgjBiDDYPQGBQ0jGtm+dmNJmQoft/ZYfYSEvwpU9lIHwYKsM2d
-      Dd-Pool:
-      - dogweb
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
+      - L3ULR3HwCWYmEqCWGz2Yob3chcH4pjowBacBXkncP7o+/uPqKt9yGEYf/g1AJPzQ
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
       - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
     body:
       encoding: UTF-8
       string: '{"data":[{"type":"permissions","id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","attributes":{"name":"admin","display_name":"Privileged
         Access","description":"This permission gives you the ability to view and edit
         everything in your Datadog organization that does not have an explicitly defined
-        permission. This includes billing and usage, key, and organization management.
-        This permission is inclusive of all Standard access permissions.","created":"2018-10-19T15:35:23.734317+00:00","group_name":"General","display_type":"other","restricted":false}},{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2","attributes":{"name":"dashboards_read","display_name":"Dashboards","description":"The
+        permission. This includes organization settings and SAML management. This
+        permission is inclusive of all Standard access permissions.","created":"2018-10-19T15:35:23.734317+00:00","group_name":"General","display_type":"other","restricted":false}},{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2","attributes":{"name":"dashboards_read","display_name":"Dashboards","description":"The
         ability to view dashboards.","created":"2019-09-10T14:39:51.955175+00:00","group_name":"Dashboards","display_type":"read","restricted":true}},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304","attributes":{"name":"monitors_read","display_name":"Monitors","description":"The
-        ability to view monitors.","created":"2019-09-16T18:39:07.744297+00:00","group_name":"Monitors","display_type":"read","restricted":true}}]}'
-  recorded_at: Thu, 03 Dec 2020 10:34:18 GMT
+        ability to view monitors.","created":"2019-09-16T18:39:07.744297+00:00","group_name":"Monitors","display_type":"read","restricted":true}},{"type":"permissions","id":"417ba636-2dce-11eb-84c0-6bce5b0d9de0","attributes":{"name":"apm_read","display_name":"APM
+        Read Access","description":"The ability to read and query APM and Trace Analytics.","created":"2020-11-23T20:55:45.006110+00:00","group_name":"APM","display_type":"read","restricted":true}}]}'
+  recorded_at: Fri, 09 Apr 2021 12:23:55 GMT
 recorded_with: VCR 6.0.0

@@ -5,10 +5,11 @@ http_interactions:
     uri: https://api.datadoghq.com/api/v2/users
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"email":"ruby-Send_invitation_emails_returns_OK_response-1606991664@datadoghq.com"},"type":"users"}}'
+      string: '{"data":{"attributes":{"email":"Test-Send_invitation_emails_returns_OK_response-1617971050@datadoghq.com","title":"user
+        title"},"type":"users"}}'
     headers:
       User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.7.1; os darwin19.6.0; arch x86_64)
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -21,47 +22,43 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Thu, 03 Dec 2020 10:34:24 GMT
+      - Fri, 09 Apr 2021 12:24:11 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '631'
+      - '688'
       Connection:
       - keep-alive
       Pragma:
       - no-cache
       Cache-Control:
       - no-cache
-      Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 10-Dec-2020 10:34:24 GMT;
-        secure; HttpOnly
       X-Dd-Version:
-      - '35.3468623'
+      - '35.4275715'
       X-Dd-Debug:
-      - hkXZRrnCTh2pkyHJgLo1+B5+sLp+RYzQrqT867R6UzDvqVGo8Av8yUCpaA0POidP
-      Dd-Pool:
-      - dogweb
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
+      - LcgNasIYBRkNppmD6mCKE9J6iv0eEjosuuHR5V5zw2fWbR54i39C8dhdK8zDq/40
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
       - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"users","id":"1c843e6a-3553-11eb-87b3-a355e909f1b8","attributes":{"name":null,"handle":"ruby-send_invitation_emails_returns_ok_response-1606991664@datadoghq.com","created_at":"2020-12-03T10:34:24.190395+00:00","email":"ruby-send_invitation_emails_returns_ok_response-1606991664@datadoghq.com","icon":"https://secure.gravatar.com/avatar/01d362416dbc159154aa2a5bddc8f59f?s=48&d=retro","title":null,"verified":false,"service_account":false,"disabled":false,"allowed_login_methods":[],"status":"Pending"},"relationships":{"roles":{"data":[]},"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}}'
-  recorded_at: Thu, 03 Dec 2020 10:34:24 GMT
+      string: '{"data":{"type":"users","id":"7d018948-992e-11eb-9ceb-da7ad0900002","attributes":{"name":null,"handle":"test-send_invitation_emails_returns_ok_response-1617971050@datadoghq.com","created_at":"2021-04-09T12:24:10.971282+00:00","modified_at":"2021-04-09T12:24:11.014948+00:00","email":"test-send_invitation_emails_returns_ok_response-1617971050@datadoghq.com","icon":"https://secure.gravatar.com/avatar/e8625f212e9dbd300134f55bf056f3ac?s=48&d=retro","title":"user
+        title","verified":false,"service_account":false,"disabled":false,"allowed_login_methods":[],"status":"Pending"},"relationships":{"roles":{"data":[]},"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}}'
+  recorded_at: Fri, 09 Apr 2021 12:24:10 GMT
 - request:
     method: post
     uri: https://api.datadoghq.com/api/v2/user_invitations
     body:
       encoding: UTF-8
-      string: '{"data":[{"type":"user_invitations","relationships":{"user":{"data":{"type":"users","id":"1c843e6a-3553-11eb-87b3-a355e909f1b8"}}}}]}'
+      string: '{"data":[{"type":"user_invitations","relationships":{"user":{"data":{"type":"users","id":"7d018948-992e-11eb-9ceb-da7ad0900002"}}}}]}'
     headers:
       User-Agent:
-      - datadog-api-client-ruby/0.1.0 (ruby 2.7.1; os darwin19.6.0; arch x86_64)
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -74,7 +71,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Thu, 03 Dec 2020 10:34:24 GMT
+      - Fri, 09 Apr 2021 12:24:11 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -85,25 +82,20 @@ http_interactions:
       - no-cache
       Cache-Control:
       - no-cache
-      Set-Cookie:
-      - DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 10-Dec-2020 10:34:24 GMT;
-        secure; HttpOnly
       X-Dd-Version:
-      - '35.3468590'
+      - '35.4275715'
       X-Dd-Debug:
-      - motUb+3MrSbL60qP2VQvKfticEMFw/ITb9aZ1t0IvCT8MphWULXKj1d6mnYOkJDn
-      Dd-Pool:
-      - dogweb
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
+      - nLnnBNvlCFDECRnZvzDb0z4sAO35G+IMidcAs8vrCKyjvsKWE8Yd9S3n6OjZ1qRN
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
       - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"data":[{"type":"user_invitations","id":"1cc43722-3553-11eb-87b3-73d12ecdc7d6","attributes":{"uuid":"1cc43722-3553-11eb-87b3-73d12ecdc7d6","login_method":null,"invite_type":"openid_invite","created_at":"2020-12-03T10:34:24.610645+00:00","expires_at":"2020-12-05T10:34:24.450729+00:00"},"relationships":{"user":{"data":{"type":"users","id":"1c843e6a-3553-11eb-87b3-a355e909f1b8"}}}}]}'
-  recorded_at: Thu, 03 Dec 2020 10:34:24 GMT
+      string: '{"data":[{"type":"user_invitations","id":"7d3beb1a-992e-11eb-9ceb-da7ad0900002","attributes":{"uuid":"7d3beb1a-992e-11eb-9ceb-da7ad0900002","login_method":null,"invite_type":"openid_invite","created_at":"2021-04-09T12:24:11.354594+00:00","expires_at":"2021-04-11T12:24:11.194372+00:00"},"relationships":{"user":{"data":{"type":"users","id":"7d018948-992e-11eb-9ceb-da7ad0900002"}}}}]}'
+  recorded_at: Fri, 09 Apr 2021 12:24:10 GMT
 recorded_with: VCR 6.0.0

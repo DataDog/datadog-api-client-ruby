@@ -2,14 +2,13 @@
 http_interactions:
 - request:
     method: delete
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/rules/du3-f9u-9te
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/rules/wha-wkt-fq5
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.7.2; os darwin19.6.0; arch
-        x86_64)
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -22,9 +21,9 @@ http_interactions:
       message: No Content
     headers:
       Date:
-      - Mon, 29 Mar 2021 09:10:11 GMT
+      - Fri, 09 Apr 2021 11:56:55 GMT
       Content-Length:
-      - '2'
+      - '0'
       Connection:
       - keep-alive
       Pragma:
@@ -32,11 +31,11 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dd-Version:
-      - '35.4188031'
+      - '35.4275259'
       Content-Disposition:
       - inline
       X-Dd-Debug:
-      - bgHykj7A9bfZx0Y5ZO3swhhp5tGUSNJHqFWR868+qg087CYrDOd5hQslC+noiEtH
+      - gYZcaADwbKcv7Hm19HJx6WsLoKuOijDWAt2viPeCfWqUgyKY+9e1xZdmMJeXV3YV
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -48,215 +47,18 @@ http_interactions:
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Mon, 29 Mar 2021 09:10:11 GMT
-- request:
-    method: delete
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/rules/wse-0qe-ycu
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.7.2; os darwin19.6.0; arch
-        x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 204
-      message: No Content
-    headers:
-      Date:
-      - Mon, 29 Mar 2021 09:20:37 GMT
-      Content-Length:
-      - '2'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Dd-Version:
-      - '35.4188031'
-      Content-Disposition:
-      - inline
-      X-Dd-Debug:
-      - l8RQo2maZqJf6GFThBbKNE6dvthz6njusVtau3dPXJWL2RLFoN81H+BLPB/1xgs1
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: UTF-8
-      string: ''
-  recorded_at: Mon, 29 Mar 2021 09:20:37 GMT
-- request:
-    method: delete
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/rules/3lb-woz-yxz
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.7.2; os darwin19.6.0; arch
-        x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 204
-      message: No Content
-    headers:
-      Date:
-      - Mon, 29 Mar 2021 09:31:02 GMT
-      Content-Length:
-      - '2'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Dd-Version:
-      - '35.4188031'
-      Content-Disposition:
-      - inline
-      X-Dd-Debug:
-      - bgHykj7A9bfZx0Y5ZO3swhhp5tGUSNJHqFWR868+qg087CYrDOd5hQslC+noiEtH
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: UTF-8
-      string: ''
-  recorded_at: Mon, 29 Mar 2021 09:31:02 GMT
-- request:
-    method: delete
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/rules/kop-j3b-t6s
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.7.2; os darwin19.6.0; arch
-        x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 204
-      message: No Content
-    headers:
-      Date:
-      - Mon, 29 Mar 2021 10:18:13 GMT
-      Content-Length:
-      - '2'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Dd-Version:
-      - '35.4188542'
-      Content-Disposition:
-      - inline
-      X-Dd-Debug:
-      - dCmL/3rURV6BPeaqeP3Rxigq41m5CAb17XjrRE42uZ01zpr07HVhbL5/3TWMkvgu
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: UTF-8
-      string: ''
-  recorded_at: Mon, 29 Mar 2021 10:18:13 GMT
-- request:
-    method: delete
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/rules/r0x-qrm-5dd
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.7.2; os darwin19.6.0; arch
-        x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 204
-      message: No Content
-    headers:
-      Date:
-      - Mon, 29 Mar 2021 10:32:54 GMT
-      Content-Length:
-      - '2'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Dd-Version:
-      - '35.4188771'
-      Content-Disposition:
-      - inline
-      X-Dd-Debug:
-      - F5gm0Rce1/Abr9/0Fw8HAqWfiz0FdiH8er/AXnN6lOn3L6KyGgbsLCwgPlob1No8
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: UTF-8
-      string: ''
-  recorded_at: Mon, 29 Mar 2021 10:32:54 GMT
+  recorded_at: Fri, 09 Apr 2021 11:56:54 GMT
 - request:
     method: post
     uri: https://api.datadoghq.com/api/v2/security_monitoring/rules
     body:
       encoding: UTF-8
-      string: '{"name":"ruby-Delete_an_existing_rule_returns_OK_response-1617014189","queries":[{"query":"@test:true","aggregation":"count","groupByFields":[],"distinctFields":[],"metric":""}],"filters":[],"cases":[{"name":"","status":"info","condition":"a
+      string: '{"name":"Test-Delete_an_existing_rule_returns_OK_response-1617971040","queries":[{"query":"@test:true","aggregation":"count","groupByFields":[],"distinctFields":[],"metric":""}],"filters":[],"cases":[{"name":"","status":"info","condition":"a
         \u003e 0","notifications":[]}],"options":{"evaluationWindow":900,"keepAlive":3600,"maxSignalDuration":86400},"hasExtendedTitle":false,"message":"Test
         rule","tags":[],"isDefault":false,"isEnabled":true,"type":"log_detection"}'
     headers:
       User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.7.2; os darwin19.6.0; arch
-        x86_64)
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -269,7 +71,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 29 Mar 2021 10:36:29 GMT
+      - Fri, 09 Apr 2021 12:24:00 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
@@ -283,11 +85,11 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dd-Version:
-      - '35.4188771'
+      - '35.4275715'
       Content-Disposition:
       - inline
       X-Dd-Debug:
-      - JpIJLwIH2nFlZOC+u71rq7aAOL43MLZN3MUsL+gpYHdZz5QLUOG8Jysf8kVK6tPU
+      - nLnnBNvlCFDECRnZvzDb0z4sAO35G+IMidcAs8vrCKyjvsKWE8Yd9S3n6OjZ1qRN
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -299,19 +101,18 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"creationAuthorId":1445416,"tags":[],"isEnabled":true,"hasExtendedTitle":false,"message":"Test
-        rule","options":{"detectionMethod":"threshold","evaluationWindow":900,"maxSignalDuration":86400,"keepAlive":3600},"version":1,"createdAt":1617014189431,"filters":[],"queries":[{"distinctFields":[],"name":"","metric":"","aggregation":"count","groupByFields":[],"query":"@test:true","trackType":"logs"}],"isDeleted":false,"cases":[{"status":"info","notifications":[],"name":"","condition":"a
-        > 0"}],"type":"log_detection","id":"39w-fdj-6kp","isDefault":false,"name":"ruby-Delete_an_existing_rule_returns_OK_response-1617014189"}'
-  recorded_at: Mon, 29 Mar 2021 10:36:29 GMT
+        rule","options":{"detectionMethod":"threshold","evaluationWindow":900,"maxSignalDuration":86400,"keepAlive":3600},"version":1,"createdAt":1617971040392,"filters":[],"queries":[{"distinctFields":[],"name":"","metric":"","aggregation":"count","groupByFields":[],"query":"@test:true","trackType":"logs"}],"isDeleted":false,"cases":[{"status":"info","notifications":[],"name":"","condition":"a
+        > 0"}],"type":"log_detection","id":"tqg-3hd-1zz","isDefault":false,"name":"Test-Delete_an_existing_rule_returns_OK_response-1617971040"}'
+  recorded_at: Fri, 09 Apr 2021 12:24:00 GMT
 - request:
     method: delete
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/rules/39w-fdj-6kp
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/rules/tqg-3hd-1zz
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.7.2; os darwin19.6.0; arch
-        x86_64)
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -324,9 +125,9 @@ http_interactions:
       message: No Content
     headers:
       Date:
-      - Mon, 29 Mar 2021 10:36:29 GMT
+      - Fri, 09 Apr 2021 12:24:00 GMT
       Content-Length:
-      - '2'
+      - '0'
       Connection:
       - keep-alive
       Pragma:
@@ -334,11 +135,11 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dd-Version:
-      - '35.4188771'
+      - '35.4275715'
       Content-Disposition:
       - inline
       X-Dd-Debug:
-      - LcgNasIYBRkNppmD6mCKE9J6iv0eEjosuuHR5V5zw2fWbR54i39C8dhdK8zDq/40
+      - fIO2C4qGDheGHy4YbS+r3a3CXbh4cbRo7roILOimQyiHGjQdOat0cIpWCkupM1uX
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -350,5 +151,5 @@ http_interactions:
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Mon, 29 Mar 2021 10:36:29 GMT
+  recorded_at: Fri, 09 Apr 2021 12:24:00 GMT
 recorded_with: VCR 6.0.0
