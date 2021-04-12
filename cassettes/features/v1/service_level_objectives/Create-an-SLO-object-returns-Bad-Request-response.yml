@@ -1,0 +1,57 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.datadoghq.com/api/v1/slo
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.7.3; os linux; arch x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Fri, 09 Apr 2021 11:51:12 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '69'
+      Connection:
+      - keep-alive
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Ratelimit-Limit:
+      - '500'
+      X-Ratelimit-Period:
+      - '60'
+      X-Ratelimit-Reset:
+      - '48'
+      X-Ratelimit-Remaining:
+      - '499'
+      X-Dd-Version:
+      - '35.4275259'
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: '{"errors": ["Invalid payload: Required parameter ''type'' is missing"]}'
+  recorded_at: Fri, 09 Apr 2021 11:51:12 GMT
+recorded_with: VCR 6.0.0
