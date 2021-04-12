@@ -891,6 +891,8 @@ components:
             type: string
           nullable: true
           type: array
+        reflow_type:
+          $ref: '#/components/schemas/DashboardReflowType'
         template_variable_presets:
           description: Array of template variables saved views.
           items:
@@ -1002,6 +1004,21 @@ components:
             $ref: '#/components/schemas/DashboardList'
           type: array
       type: object
+    DashboardReflowType:
+      description: 'Reflow type for a multi-size layout dashboard. Set this only when
+        layout type is ''ordered''.
+
+        If set to ''fixed'', the dashboard expect all widgets to have a layout, and
+        if it''s set to ''auto'',
+
+        widgets should not have layouts.'
+      enum:
+      - auto
+      - fixed
+      type: string
+      x-enum-varnames:
+      - AUTO
+      - FIXED
     DashboardSummary:
       description: Dashboard summary response.
       properties:
@@ -2177,12 +2194,28 @@ components:
     GeomapWidgetRequest:
       description: An updated geomap widget.
       properties:
+        formulas:
+          description: List of formulas that operate on queries. **This feature is
+            currently in beta.**
+          items:
+            $ref: '#/components/schemas/WidgetFormula'
+          type: array
         log_query:
           $ref: '#/components/schemas/LogQueryDefinition'
         q:
           description: The widget metrics query.
           type: string
+        queries:
+          description: List of queries that can be returned directly or used in formulas.
+            **This feature is currently in beta.**
+          items:
+            $ref: '#/components/schemas/FormulaAndFunctionQueryDefinition'
+          type: array
+        response_format:
+          $ref: '#/components/schemas/FormulaAndFunctionResponseFormat'
         rum_query:
+          $ref: '#/components/schemas/LogQueryDefinition'
+        security_query:
           $ref: '#/components/schemas/LogQueryDefinition'
       type: object
     GraphSnapshot:
@@ -16479,7 +16512,7 @@ paths:
         type: safe
   /api/v1/slo/correction:
     get:
-      description: Get all Service Level Objective Corrections
+      description: Get all Service Level Objective corrections
       operationId: ListSLOCorrection
       responses:
         '200':
@@ -16556,7 +16589,7 @@ paths:
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
   /api/v1/slo/correction/{slo_correction_id}:
     delete:
-      description: Permanently delete the specified SLO Correction object
+      description: Permanently delete the specified SLO correction object
       operationId: DeleteSLOCorrection
       parameters:
       - description: The ID of the SLO correction object
@@ -16580,7 +16613,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/APIErrorResponse'
           description: Not found
-      summary: Delete an SLO Correction
+      summary: Delete an SLO correction
       tags:
       - Service Level Objective Corrections
       x-undo:
@@ -16589,7 +16622,7 @@ paths:
 
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
     get:
-      description: Get an SLO Correction
+      description: Get an SLO correction
       operationId: GetSLOCorrection
       parameters:
       - description: The ID of the SLO correction object
@@ -16667,7 +16700,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/APIErrorResponse'
           description: Not Found
-      summary: Update an SLO Correction
+      summary: Update an SLO correction
       tags:
       - Service Level Objective Corrections
       x-codegen-request-body-name: body
@@ -16841,6 +16874,17 @@ paths:
         schema:
           format: int64
           type: integer
+      - description: The SLO target. If `target` is passed in, the response will include
+          the error budget that remains.
+        in: query
+        name: target
+        schema:
+          exclusiveMaximum: true
+          exclusiveMinimum: true
+          format: double
+          maximum: 100
+          minimum: 0
+          type: number
       responses:
         '200':
           content:

@@ -131,10 +131,10 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::PagerDutyIntegrationAPI* | [**update_pager_duty_integration_service**](PagerDutyIntegrationAPI.md#update_pager_duty_integration_service) | **PUT** /api/v1/integration/pagerduty/configuration/services/{service_name} | Update a single service object
 *DatadogAPIClient::V1::ServiceChecksAPI* | [**submit_service_check**](ServiceChecksAPI.md#submit_service_check) | **POST** /api/v1/check_run | Submit a Service Check
 *DatadogAPIClient::V1::ServiceLevelObjectiveCorrectionsAPI* | [**create_slo_correction**](ServiceLevelObjectiveCorrectionsAPI.md#create_slo_correction) | **POST** /api/v1/slo/correction | Create an SLO correction
-*DatadogAPIClient::V1::ServiceLevelObjectiveCorrectionsAPI* | [**delete_slo_correction**](ServiceLevelObjectiveCorrectionsAPI.md#delete_slo_correction) | **DELETE** /api/v1/slo/correction/{slo_correction_id} | Delete an SLO Correction
+*DatadogAPIClient::V1::ServiceLevelObjectiveCorrectionsAPI* | [**delete_slo_correction**](ServiceLevelObjectiveCorrectionsAPI.md#delete_slo_correction) | **DELETE** /api/v1/slo/correction/{slo_correction_id} | Delete an SLO correction
 *DatadogAPIClient::V1::ServiceLevelObjectiveCorrectionsAPI* | [**get_slo_correction**](ServiceLevelObjectiveCorrectionsAPI.md#get_slo_correction) | **GET** /api/v1/slo/correction/{slo_correction_id} | Get an SLO correction for an SLO
 *DatadogAPIClient::V1::ServiceLevelObjectiveCorrectionsAPI* | [**list_slo_correction**](ServiceLevelObjectiveCorrectionsAPI.md#list_slo_correction) | **GET** /api/v1/slo/correction | Get all SLO corrections
-*DatadogAPIClient::V1::ServiceLevelObjectiveCorrectionsAPI* | [**update_slo_correction**](ServiceLevelObjectiveCorrectionsAPI.md#update_slo_correction) | **PATCH** /api/v1/slo/correction/{slo_correction_id} | Update an SLO Correction
+*DatadogAPIClient::V1::ServiceLevelObjectiveCorrectionsAPI* | [**update_slo_correction**](ServiceLevelObjectiveCorrectionsAPI.md#update_slo_correction) | **PATCH** /api/v1/slo/correction/{slo_correction_id} | Update an SLO correction
 *DatadogAPIClient::V1::ServiceLevelObjectivesAPI* | [**check_can_delete_slo**](ServiceLevelObjectivesAPI.md#check_can_delete_slo) | **GET** /api/v1/slo/can_delete | Check if SLOs can be safely deleted
 *DatadogAPIClient::V1::ServiceLevelObjectivesAPI* | [**create_slo**](ServiceLevelObjectivesAPI.md#create_slo) | **POST** /api/v1/slo | Create an SLO object
 *DatadogAPIClient::V1::ServiceLevelObjectivesAPI* | [**delete_slo**](ServiceLevelObjectivesAPI.md#delete_slo) | **DELETE** /api/v1/slo/{slo_id} | Delete an SLO
@@ -270,6 +270,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::DashboardList](DashboardList.md)
  - [DatadogAPIClient::V1::DashboardListDeleteResponse](DashboardListDeleteResponse.md)
  - [DatadogAPIClient::V1::DashboardListListResponse](DashboardListListResponse.md)
+ - [DatadogAPIClient::V1::DashboardReflowType](DashboardReflowType.md)
  - [DatadogAPIClient::V1::DashboardSummary](DashboardSummary.md)
  - [DatadogAPIClient::V1::DashboardSummaryDefinition](DashboardSummaryDefinition.md)
  - [DatadogAPIClient::V1::DashboardTemplateVariable](DashboardTemplateVariable.md)
