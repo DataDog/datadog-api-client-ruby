@@ -97,8 +97,8 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Delete an SLO Correction
-    # Permanently delete the specified SLO Correction object
+    # Delete an SLO correction
+    # Permanently delete the specified SLO correction object
     # @param slo_correction_id [String] The ID of the SLO correction object
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -107,8 +107,8 @@ module DatadogAPIClient::V1
       nil
     end
 
-    # Delete an SLO Correction
-    # Permanently delete the specified SLO Correction object
+    # Delete an SLO correction
+    # Permanently delete the specified SLO correction object
     # @param slo_correction_id [String] The ID of the SLO correction object
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -171,7 +171,7 @@ module DatadogAPIClient::V1
     end
 
     # Get an SLO correction for an SLO
-    # Get an SLO Correction
+    # Get an SLO correction
     # @param slo_correction_id [String] The ID of the SLO correction object
     # @param [Hash] opts the optional parameters
     # @return [SLOCorrectionResponse]
@@ -181,7 +181,7 @@ module DatadogAPIClient::V1
     end
 
     # Get an SLO correction for an SLO
-    # Get an SLO Correction
+    # Get an SLO correction
     # @param slo_correction_id [String] The ID of the SLO correction object
     # @param [Hash] opts the optional parameters
     # @return [Array<(SLOCorrectionResponse, Integer, Hash)>] SLOCorrectionResponse data, response status code and response headers
@@ -244,7 +244,7 @@ module DatadogAPIClient::V1
     end
 
     # Get all SLO corrections
-    # Get all Service Level Objective Corrections
+    # Get all Service Level Objective corrections
     # @param [Hash] opts the optional parameters
     # @return [SLOCorrectionListResponse]
     def list_slo_correction(opts = {})
@@ -253,7 +253,7 @@ module DatadogAPIClient::V1
     end
 
     # Get all SLO corrections
-    # Get all Service Level Objective Corrections
+    # Get all Service Level Objective corrections
     # @param [Hash] opts the optional parameters
     # @return [Array<(SLOCorrectionListResponse, Integer, Hash)>] SLOCorrectionListResponse data, response status code and response headers
     def list_slo_correction_with_http_info(opts = {})
@@ -310,7 +310,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Update an SLO Correction
+    # Update an SLO correction
     # Update the specified SLO correction object object
     # @param slo_correction_id [String] The ID of the SLO correction object
     # @param body [SLOCorrectionUpdateRequest] The edited SLO correction object.
@@ -321,7 +321,7 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Update an SLO Correction
+    # Update an SLO correction
     # Update the specified SLO correction object object
     # @param slo_correction_id [String] The ID of the SLO correction object
     # @param body [SLOCorrectionUpdateRequest] The edited SLO correction object.
