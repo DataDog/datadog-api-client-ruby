@@ -330,7 +330,7 @@ end
 
 ## get_slo_history
 
-> <SLOHistoryResponse> get_slo_history(slo_id, from_ts, to_ts)
+> <SLOHistoryResponse> get_slo_history(slo_id, from_ts, to_ts, opts)
 
 Get an SLO's history
 
@@ -349,10 +349,13 @@ api_instance = DatadogAPIClient::V1::ServiceLevelObjectivesAPI.new
 slo_id = 'slo_id_example' # String | The ID of the service level objective object.
 from_ts = 789 # Integer | The `from` timestamp for the query window in epoch seconds.
 to_ts = 789 # Integer | The `to` timestamp for the query window in epoch seconds.
+opts = {
+  target: 1.2 # Float | The SLO target. If `target` is passed in, the response will include the error budget that remains.
+}
 
 begin
   # Get an SLO's history
-  result = api_instance.get_slo_history(slo_id, from_ts, to_ts)
+  result = api_instance.get_slo_history(slo_id, from_ts, to_ts, opts)
   p result
 rescue DatadogAPIClient::V1::APIError => e
   puts "Error when calling ServiceLevelObjectivesAPI->get_slo_history: #{e}"
@@ -363,12 +366,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<SLOHistoryResponse>, Integer, Hash)> get_slo_history_with_http_info(slo_id, from_ts, to_ts)
+> <Array(<SLOHistoryResponse>, Integer, Hash)> get_slo_history_with_http_info(slo_id, from_ts, to_ts, opts)
 
 ```ruby
 begin
   # Get an SLO's history
-  data, status_code, headers = api_instance.get_slo_history_with_http_info(slo_id, from_ts, to_ts)
+  data, status_code, headers = api_instance.get_slo_history_with_http_info(slo_id, from_ts, to_ts, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SLOHistoryResponse>
@@ -384,6 +387,7 @@ end
 | **slo_id** | **String** | The ID of the service level objective object. |  |
 | **from_ts** | **Integer** | The &#x60;from&#x60; timestamp for the query window in epoch seconds. |  |
 | **to_ts** | **Integer** | The &#x60;to&#x60; timestamp for the query window in epoch seconds. |  |
+| **target** | **Float** | The SLO target. If &#x60;target&#x60; is passed in, the response will include the error budget that remains. | [optional] |
 
 ### Return type
 

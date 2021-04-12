@@ -401,6 +401,7 @@ module DatadogAPIClient::V1
     # @param from_ts [Integer] The &#x60;from&#x60; timestamp for the query window in epoch seconds.
     # @param to_ts [Integer] The &#x60;to&#x60; timestamp for the query window in epoch seconds.
     # @param [Hash] opts the optional parameters
+    # @option opts [Float] :target The SLO target. If &#x60;target&#x60; is passed in, the response will include the error budget that remains.
     # @return [SLOHistoryResponse]
     def get_slo_history(slo_id, from_ts, to_ts, opts = {})
       data, _status_code, _headers = get_slo_history_with_http_info(slo_id, from_ts, to_ts, opts)
@@ -413,6 +414,7 @@ module DatadogAPIClient::V1
     # @param from_ts [Integer] The &#x60;from&#x60; timestamp for the query window in epoch seconds.
     # @param to_ts [Integer] The &#x60;to&#x60; timestamp for the query window in epoch seconds.
     # @param [Hash] opts the optional parameters
+    # @option opts [Float] :target The SLO target. If &#x60;target&#x60; is passed in, the response will include the error budget that remains.
     # @return [Array<(SLOHistoryResponse, Integer, Hash)>] SLOHistoryResponse data, response status code and response headers
     def get_slo_history_with_http_info(slo_id, from_ts, to_ts, opts = {})
 
@@ -440,6 +442,14 @@ module DatadogAPIClient::V1
       if @api_client.config.client_side_validation && to_ts.nil?
         fail ArgumentError, "Missing the required parameter 'to_ts' when calling ServiceLevelObjectivesAPI.get_slo_history"
       end
+      if @api_client.config.client_side_validation && !opts[:'target'].nil? && opts[:'target'] >= 100
+        fail ArgumentError, 'invalid value for "opts[:"target"]" when calling ServiceLevelObjectivesAPI.get_slo_history, must be smaller than 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'target'].nil? && opts[:'target'] <= 0
+        fail ArgumentError, 'invalid value for "opts[:"target"]" when calling ServiceLevelObjectivesAPI.get_slo_history, must be greater than 0.'
+      end
+
       # resource path
       local_var_path = '/api/v1/slo/{slo_id}/history'.sub('{' + 'slo_id' + '}', CGI.escape(slo_id.to_s))
 
@@ -447,6 +457,7 @@ module DatadogAPIClient::V1
       query_params = opts[:query_params] || {}
       query_params[:'from_ts'] = from_ts
       query_params[:'to_ts'] = to_ts
+      query_params[:'target'] = opts[:'target'] if !opts[:'target'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
