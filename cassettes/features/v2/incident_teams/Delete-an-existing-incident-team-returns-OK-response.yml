@@ -1,67 +1,11 @@
 ---
 http_interactions:
 - request:
-    method: delete
-    uri: https://api.datadoghq.com/api/v2/teams/300e460e-09cf-595e-a893-25c91f38be7d
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 204
-      message: No Content
-    headers:
-      Date:
-      - Fri, 09 Apr 2021 11:56:29 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '0'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Dd-Version:
-      - '35.4275259'
-      X-Ratelimit-Limit:
-      - '100'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Reset:
-      - '31'
-      X-Ratelimit-Remaining:
-      - '98'
-      X-Dd-Debug:
-      - JpIJLwIH2nFlZOC+u71rq7aAOL43MLZN3MUsL+gpYHdZz5QLUOG8Jysf8kVK6tPU
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: UTF-8
-      string: ''
-  recorded_at: Fri, 09 Apr 2021 11:56:29 GMT
-- request:
     method: post
     uri: https://api.datadoghq.com/api/v2/teams
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"name":"Test-Delete_an_existing_incident_team_returns_OK_response-1617971009"},"type":"teams"}}'
+      string: '{"data":{"attributes":{"name":"Test-Delete_an_existing_incident_team_returns_OK_response-1618390730"},"type":"teams"}}'
     headers:
       User-Agent:
       - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
@@ -77,7 +21,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Fri, 09 Apr 2021 12:23:29 GMT
+      - Wed, 14 Apr 2021 08:58:50 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -89,17 +33,17 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dd-Version:
-      - '35.4275715'
+      - '35.4307086'
       X-Ratelimit-Limit:
       - '100'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '31'
+      - '10'
       X-Ratelimit-Remaining:
-      - '98'
+      - '99'
       X-Dd-Debug:
-      - dPySkcOzIZtKyMKDAAzuysY3gNGGj6RtYogGuSb76E8mPvoqzREyRp6lPYm91hQU
+      - PhosSd3Ch1B6B0DXI71steKUi7XhPDttnPiIP1NdXTw0VJNWpoUnYyBmODS5ne3q
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -110,11 +54,11 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"included":[{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0","attributes":{"name":null,"handle":"frog@datadoghq.com","created_at":"2019-10-02T08:15:39.795051+00:00","modified_at":"2020-06-15T12:33:12.884459+00:00","email":"frog@datadoghq.com","icon":"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro","title":null,"verified":true,"service_account":false,"disabled":false,"allowed_login_methods":[],"status":"Active"},"relationships":{"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}],"data":{"type":"teams","id":"f8a4af5b-3051-57e2-a821-a2a6b419e5fa","attributes":{"name":"Test-Delete_an_existing_incident_team_returns_OK_response-1617971009","created":"2021-04-09T12:23:29.381934+00:00","modified":"2021-04-09T12:23:29.381934+00:00"},"relationships":{"last_modified_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}},"created_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}}}}}'
-  recorded_at: Fri, 09 Apr 2021 12:23:29 GMT
+      string: '{"included":[{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0","attributes":{"name":null,"handle":"frog@datadoghq.com","created_at":"2019-10-02T08:15:39.795051+00:00","modified_at":"2020-06-15T12:33:12.884459+00:00","email":"frog@datadoghq.com","icon":"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro","title":null,"verified":true,"service_account":false,"disabled":false,"allowed_login_methods":[],"status":"Active"},"relationships":{"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}],"data":{"type":"teams","id":"3baf1f78-70bd-5d8e-a3ae-d05a2bf9b3fd","attributes":{"name":"Test-Delete_an_existing_incident_team_returns_OK_response-1618390730","created":"2021-04-14T08:58:50.588091+00:00","modified":"2021-04-14T08:58:50.588091+00:00"},"relationships":{"last_modified_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}},"created_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}}}}}'
+  recorded_at: Wed, 14 Apr 2021 08:58:50 GMT
 - request:
     method: delete
-    uri: https://api.datadoghq.com/api/v2/teams/f8a4af5b-3051-57e2-a821-a2a6b419e5fa
+    uri: https://api.datadoghq.com/api/v2/teams/3baf1f78-70bd-5d8e-a3ae-d05a2bf9b3fd
     body:
       encoding: US-ASCII
       string: ''
@@ -133,7 +77,7 @@ http_interactions:
       message: No Content
     headers:
       Date:
-      - Fri, 09 Apr 2021 12:23:29 GMT
+      - Wed, 14 Apr 2021 08:58:50 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -145,17 +89,17 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dd-Version:
-      - '35.4275715'
+      - '35.4307086'
       X-Ratelimit-Limit:
       - '100'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '31'
+      - '10'
       X-Ratelimit-Remaining:
-      - '98'
+      - '99'
       X-Dd-Debug:
-      - SY1h8ScsWq+kYmtbh63ltMLFAZsQjqfrgvdfAoRX+9TzT1sgMBRYaFRwfWWRRe9a
+      - HbtaOKlJ6OCrx9tMXO6ivMTrEM+g0c93HDp08trmOmgdHozC5J+vn10F0H4WPjCU
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -167,5 +111,5 @@ http_interactions:
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Fri, 09 Apr 2021 12:23:29 GMT
+  recorded_at: Wed, 14 Apr 2021 08:58:50 GMT
 recorded_with: VCR 6.0.0
