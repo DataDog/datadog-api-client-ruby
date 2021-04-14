@@ -27,11 +27,11 @@ end
 
 module RecordMode
   def self.true(config)
-    config.default_cassette_options = { :record => :all, :allow_unused_http_interactions => false, :clean_outdated_http_interactions => true, :re_record_interval => 3600}
+    config.default_cassette_options = { :record => :all, :allow_unused_http_interactions => false, :clean_outdated_http_interactions => true, :re_record_interval => 3600 }
   end
 
   def self.false(config)
-    config.default_cassette_options = { :record => :none, :allow_unused_http_interactions => false}
+    config.default_cassette_options = { :record => :none, :allow_unused_http_interactions => false }
   end
 
   def self.none(config)
