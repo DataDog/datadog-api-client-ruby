@@ -32,15 +32,13 @@ Install [bundler](https://bundler.io/) and setup your RubyGems credentials:
 
 ### Update Changelog
 #### Commands
-- See changes ready for release by running `ddev release show changes . --tag-prefix v --since <CURRENT_VERSION>` at the root of this project. Add any missing labels to PRs if needed.
-- Run `ddev release changelog . <NEW_VERSION> <CURRENT_VERSION> --no-semver` to update the `CHANGELOG.md` file at the root of this repository
-- Commit the changes to the repository in a release branch. Do not merge yet.
+1. See changes ready for release by running `ddev release show changes . --tag-prefix v --since <CURRENT_VERSION>` at the root of this project. Add any missing labels to PRs if needed.
+1. Bump the version. e.g. `gem bump -v 1.0.0`.
+1. Run `ddev release changelog . <NEW_VERSION> <CURRENT_VERSION> --no-semver` to update the `CHANGELOG.md` file at the root of this repository
+1. Commit the changes to the repository in a release branch. Do not merge yet.
 
 ### Release
-1. Bump the version. e.g. `gem bump -v 1.0.0`. 
 1. Merge the PR to master.
 1. Create the release in the [Github releases page](https://github.com/DataDog/datadog-api-client-ruby/releases).
-1. Checkout the tag created at the previous step.
-1. Release the gem: `gem release`.
-1. Check that the [Ruby Gem is published](https://rubygems.org/gems/datadog_api_client).
+1. A github action will kick off that builds and publishes this tag to Ruby Gem. Check that the [Ruby Gem is published](https://rubygems.org/gems/datadog_api_client).
 1. Bump the version again to a dev version (e.g. `gem bump -v 1.0.1.dev`), open a PR and merge it to master.
