@@ -48,4 +48,3 @@ jobs:
         DD_TEST_CLIENT_APP_KEY: $(datadogAPPKey)
         DD_TRACE_ANALYTICS_ENABLED: "true"
         RECORD: "none"
-        CODECOV_TOKEN: $(codecovToken)

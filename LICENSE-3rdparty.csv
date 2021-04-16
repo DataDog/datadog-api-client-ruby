@@ -7,7 +7,6 @@ benchmark,BSD-2-Clause,Yukihiro Matsumoto
 builder,MIT,Jim Weirich
 bundler,MIT,"André Arko, Samuel Giddins, Colby Swandale, Hiroshi Shibata, David Rodríguez, Grey Baker, Stephanie Morillo, Chris Morris, James Wen, Tim Moore, André Medeiros, Jessica Lynn Suttles, Terence Lee, Carl Lerche, Yehuda Katz"
 byebug,BSD-2-Clause,"David Rodriguez, Kent Sibilev, Mark Moseley"
-codecov,MIT,codecov
 coderay,MIT,Kornelius Kalnbach
 concurrent-ruby,MIT,"Jerry D'Antonio, Petr Chalupa, The Ruby Concurrency Team"
 crack,MIT,John Nunemaker

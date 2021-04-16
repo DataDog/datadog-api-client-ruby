@@ -5,7 +5,6 @@ source 'https://rubygems.org'
 gemspec
 
 group :development, :test do
-  gem 'codecov', '!= 0.2.14'
   gem 'cucumber'
   gem 'gem-release'
   # gem 'ddtrace'
