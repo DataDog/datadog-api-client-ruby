@@ -5,12 +5,12 @@ http_interactions:
     uri: https://api.datadoghq.com/api/v2/security_monitoring/rules
     body:
       encoding: UTF-8
-      string: '{"name":"Test-Delete_an_existing_rule_returns_OK_response-1618390753","queries":[{"query":"@test:true","aggregation":"count","groupByFields":[],"distinctFields":[],"metric":""}],"filters":[],"cases":[{"name":"","status":"info","condition":"a
-        \u003e 0","notifications":[]}],"options":{"evaluationWindow":900,"keepAlive":3600,"maxSignalDuration":86400},"hasExtendedTitle":false,"message":"Test
-        rule","tags":[],"isDefault":false,"isEnabled":true,"type":"log_detection"}'
+      string: '{"name":"Test-Delete_an_existing_rule_returns_OK_response-1618572619","queries":[{"query":"@test:true","aggregation":"count","groupByFields":[],"distinctFields":[],"metric":""}],"filters":[],"cases":[{"name":"","status":"info","condition":"a
+        \u003e 0","notifications":[]}],"options":{"evaluationWindow":900,"keepAlive":3600,"maxSignalDuration":86400},"message":"Test
+        rule","tags":[],"isEnabled":true}'
     headers:
       User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
+      - datadog-api-client-ruby/1.0.0.beta.4.dev.1 (ruby 2.7.3; os linux; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 14 Apr 2021 08:59:13 GMT
+      - Fri, 16 Apr 2021 11:30:19 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
@@ -37,7 +37,57 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dd-Version:
-      - '35.4307086'
+      - '35.4327367'
+      Content-Disposition:
+      - inline
+      X-Dd-Debug:
+      - S1wfaMZOKGT/IoMw6fqAwAwGWo2vQ44sjF3YzuETnQfxZO2T5eJbs0aX3UKb9Dwu
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: ASCII-8BIT
+      string: '{"creationAuthorId":2320499,"tags":[],"isEnabled":true,"hasExtendedTitle":false,"message":"Test
+        rule","options":{"detectionMethod":"threshold","evaluationWindow":900,"maxSignalDuration":86400,"keepAlive":3600},"version":1,"createdAt":1618572619732,"filters":[],"queries":[{"distinctFields":[],"name":"","metric":"","aggregation":"count","groupByFields":[],"query":"@test:true","trackType":"logs"}],"isDeleted":false,"cases":[{"status":"info","notifications":[],"name":"","condition":"a
+        > 0"}],"type":"log_detection","id":"qih-uch-tb6","isDefault":false,"name":"Test-Delete_an_existing_rule_returns_OK_response-1618572619"}'
+  recorded_at: Fri, 16 Apr 2021 11:30:19 GMT
+- request:
+    method: delete
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/rules/qih-uch-tb6
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/1.0.0.beta.4.dev.1 (ruby 2.7.3; os linux; arch x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Fri, 16 Apr 2021 11:30:19 GMT
+      Content-Length:
+      - '0'
+      Connection:
+      - keep-alive
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Dd-Version:
+      - '35.4327367'
       Content-Disposition:
       - inline
       X-Dd-Debug:
@@ -51,57 +101,7 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
     body:
-      encoding: UTF-8
-      string: '{"creationAuthorId":1445416,"tags":[],"isEnabled":true,"hasExtendedTitle":false,"message":"Test
-        rule","options":{"detectionMethod":"threshold","evaluationWindow":900,"maxSignalDuration":86400,"keepAlive":3600},"version":1,"createdAt":1618390753515,"filters":[],"queries":[{"distinctFields":[],"name":"","metric":"","aggregation":"count","groupByFields":[],"query":"@test:true","trackType":"logs"}],"isDeleted":false,"cases":[{"status":"info","notifications":[],"name":"","condition":"a
-        > 0"}],"type":"log_detection","id":"za4-l31-9wx","isDefault":false,"name":"Test-Delete_an_existing_rule_returns_OK_response-1618390753"}'
-  recorded_at: Wed, 14 Apr 2021 08:59:13 GMT
-- request:
-    method: delete
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/rules/za4-l31-9wx
-    body:
-      encoding: US-ASCII
+      encoding: ASCII-8BIT
       string: ''
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 204
-      message: No Content
-    headers:
-      Date:
-      - Wed, 14 Apr 2021 08:59:13 GMT
-      Content-Length:
-      - '0'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Dd-Version:
-      - '35.4307086'
-      Content-Disposition:
-      - inline
-      X-Dd-Debug:
-      - vdJ3/nHEY1ioXQ6pQrBVvsQK1s4yyc+wufBMPSoXql71qZVuP/xMdtNo6DafhOAk
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: UTF-8
-      string: ''
-  recorded_at: Wed, 14 Apr 2021 08:59:13 GMT
+  recorded_at: Fri, 16 Apr 2021 11:30:19 GMT
 recorded_with: VCR 6.0.0

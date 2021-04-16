@@ -309,7 +309,7 @@ end
 
 api_instance = DatadogAPIClient::V2::IncidentTeamsAPI.new
 team_id = 'team_id_example' # String | The ID of the incident team.
-body = DatadogAPIClient::V2::IncidentTeamUpdateRequest.new({data: DatadogAPIClient::V2::IncidentTeamUpdateData.new({id: '00000000-0000-0000-0000-000000000000', type: DatadogAPIClient::V2::IncidentTeamType::TEAMS})}) # IncidentTeamUpdateRequest | Incident Team Payload.
+body = DatadogAPIClient::V2::IncidentTeamUpdateRequest.new({data: DatadogAPIClient::V2::IncidentTeamUpdateData.new({type: DatadogAPIClient::V2::IncidentTeamType::TEAMS})}) # IncidentTeamUpdateRequest | Incident Team Payload.
 
 begin
   # Update an existing incident team

@@ -5,10 +5,10 @@ http_interactions:
     uri: https://api.datadoghq.com/api/v2/logs/config/metrics
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"Test-Update_a_log_based_metric_returns_OK_response-1617971019","attributes":{"filter":{"query":"source:Test-Update_a_log_based_metric_returns_OK_response-1617971019"},"compute":{"aggregation_type":"count"}},"type":"logs_metrics"}}'
+      string: '{"data":{"id":"Test-Update_a_log_based_metric_returns_OK_response-1618572619","attributes":{"filter":{"query":"source:Test-Update_a_log_based_metric_returns_OK_response-1618572619"},"compute":{"aggregation_type":"count"}},"type":"logs_metrics"}}'
     headers:
       User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
+      - datadog-api-client-ruby/1.0.0.beta.4.dev.1 (ruby 2.7.3; os linux; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 09 Apr 2021 12:23:39 GMT
+      - Fri, 16 Apr 2021 11:30:19 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
@@ -35,19 +35,19 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dd-Version:
-      - '35.4275715'
+      - '35.4327367'
       X-Ratelimit-Limit:
       - '100'
       X-Ratelimit-Period:
       - '3600'
       X-Ratelimit-Reset:
-      - '2181'
+      - '1781'
       X-Ratelimit-Remaining:
       - '74'
       Content-Disposition:
       - inline
       X-Dd-Debug:
-      - tpRCH6w417YjBovRJ8VmtuXmNONVYiRp2c8d2AxjPdGBn8PCtgG4vAztrx3qUZAN
+      - l8RQo2maZqJf6GFThBbKNE6dvthz6njusVtau3dPXJWL2RLFoN81H+BLPB/1xgs1
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -57,18 +57,18 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
     body:
-      encoding: UTF-8
-      string: '{"data":{"id":"Test_Update_a_log_based_metric_returns_OK_response_1617971019","attributes":{"filter":{"query":"source:Test-Update_a_log_based_metric_returns_OK_response-1617971019"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"}}'
-  recorded_at: Fri, 09 Apr 2021 12:23:39 GMT
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"Test_Update_a_log_based_metric_returns_OK_response_1618572619","attributes":{"filter":{"query":"source:Test-Update_a_log_based_metric_returns_OK_response-1618572619"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"}}'
+  recorded_at: Fri, 16 Apr 2021 11:30:19 GMT
 - request:
     method: patch
-    uri: https://api.datadoghq.com/api/v2/logs/config/metrics/Test_Update_a_log_based_metric_returns_OK_response_1617971019
+    uri: https://api.datadoghq.com/api/v2/logs/config/metrics/Test_Update_a_log_based_metric_returns_OK_response_1618572619
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"Test_Update_a_log_based_metric_returns_OK_response_1617971019","type":"logs_metrics","attributes":{"filter":{"query":"source:Test-Update_a_log_based_metric_returns_OK_response-1617971019-updated"}}}}'
+      string: '{"data":{"type":"logs_metrics","attributes":{"filter":{"query":"source:Test-Update_a_log_based_metric_returns_OK_response-1618572619-updated"}}}}'
     headers:
       User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
+      - datadog-api-client-ruby/1.0.0.beta.4.dev.1 (ruby 2.7.3; os linux; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -81,7 +81,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 09 Apr 2021 12:23:40 GMT
+      - Fri, 16 Apr 2021 11:30:19 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
@@ -95,19 +95,19 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dd-Version:
-      - '35.4275715'
+      - '35.4327367'
       X-Ratelimit-Limit:
       - '100'
       X-Ratelimit-Period:
       - '3600'
       X-Ratelimit-Reset:
-      - '2180'
+      - '1781'
       X-Ratelimit-Remaining:
       - '73'
       Content-Disposition:
       - inline
       X-Dd-Debug:
-      - Wjq53IVIwnB4SiR238oOYgHFMq/ZYP0LQ/Dv8C2fFLBwTje/dWJHu6pI6vIOK1zG
+      - S1wfaMZOKGT/IoMw6fqAwAwGWo2vQ44sjF3YzuETnQfxZO2T5eJbs0aX3UKb9Dwu
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -117,7 +117,7 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
     body:
-      encoding: UTF-8
-      string: '{"data":{"id":"Test_Update_a_log_based_metric_returns_OK_response_1617971019","attributes":{"filter":{"query":"source:Test-Update_a_log_based_metric_returns_OK_response-1617971019-updated"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"}}'
-  recorded_at: Fri, 09 Apr 2021 12:23:39 GMT
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"Test_Update_a_log_based_metric_returns_OK_response_1618572619","attributes":{"filter":{"query":"source:Test-Update_a_log_based_metric_returns_OK_response-1618572619-updated"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics"}}'
+  recorded_at: Fri, 16 Apr 2021 11:30:19 GMT
 recorded_with: VCR 6.0.0

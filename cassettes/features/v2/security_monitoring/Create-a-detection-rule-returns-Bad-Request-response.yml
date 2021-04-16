@@ -5,10 +5,11 @@ http_interactions:
     uri: https://api.datadoghq.com/api/v2/security_monitoring/rules
     body:
       encoding: UTF-8
-      string: "{}"
+      string: '{"name":"Test-Create_a_detection_rule_returns_Bad_Request_response-1618572619","queries":[{"query":""}],"cases":[{"status":"info"}],"options":{},"message":"Test
+        rule","tags":[],"isEnabled":true}'
     headers:
       User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
+      - datadog-api-client-ruby/1.0.0.beta.4.dev.1 (ruby 2.7.3; os linux; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -21,11 +22,11 @@ http_interactions:
       message: Bad Request
     headers:
       Date:
-      - Fri, 09 Apr 2021 12:23:59 GMT
+      - Fri, 16 Apr 2021 11:30:19 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '67'
+      - '29'
       Connection:
       - keep-alive
       Pragma:
@@ -33,7 +34,7 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dd-Version:
-      - '35.4275715'
+      - '35.4327367'
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -43,7 +44,7 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
     body:
-      encoding: UTF-8
-      string: '{"errors":["Invalid rule configuration","Options cannot be empty"]}'
-  recorded_at: Fri, 09 Apr 2021 12:23:59 GMT
+      encoding: ASCII-8BIT
+      string: '{"errors":["Internal error"]}'
+  recorded_at: Fri, 16 Apr 2021 11:30:19 GMT
 recorded_with: VCR 6.0.0
