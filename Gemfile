@@ -15,6 +15,7 @@ group :development, :test do
   gem 'rubocop'
   gem 'reek'
   gem 'rspec-expectations'
+  gem 'simplecov'
   gem 'solargraph'
   gem 'timecop'
   gem 'webmock'
