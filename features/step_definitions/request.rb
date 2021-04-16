@@ -102,7 +102,9 @@ module APIWorld
     undo_builder = build_undo_for(operation_name, given_api_instance)
 
     # enable unstable operation
-    given_configuration.unstable_operations[operation_name.to_sym] = true
+    if given_configuration.unstable_operations.has_key?(operation_name.to_sym)
+      given_configuration.unstable_operations[operation_name.to_sym] = true
+    end
 
     # perform operation
     args = operation["parameters"].map do |p|
