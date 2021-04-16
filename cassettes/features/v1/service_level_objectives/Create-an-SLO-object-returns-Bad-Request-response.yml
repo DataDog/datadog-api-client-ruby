@@ -5,10 +5,10 @@ http_interactions:
     uri: https://api.datadoghq.com/api/v1/slo
     body:
       encoding: UTF-8
-      string: "{}"
+      string: '{"type":"monitor","name":"Test-Create_an_SLO_object_returns_Bad_Request_response-1618572618","thresholds":[{"target":95.0,"target_display":"95.0","timeframe":"7d","warning":98,"warning_display":"98.0"}]}'
     headers:
       User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.7.3; os linux; arch x86_64)
+      - datadog-api-client-ruby/1.0.0.beta.4.dev.1 (ruby 2.7.3; os linux; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -21,11 +21,11 @@ http_interactions:
       message: Bad Request
     headers:
       Date:
-      - Fri, 09 Apr 2021 11:51:12 GMT
+      - Fri, 16 Apr 2021 11:30:18 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '69'
+      - '75'
       Connection:
       - keep-alive
       Pragma:
@@ -37,11 +37,11 @@ http_interactions:
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '48'
+      - '42'
       X-Ratelimit-Remaining:
-      - '499'
+      - '498'
       X-Dd-Version:
-      - '35.4275259'
+      - '35.4327367'
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -51,7 +51,7 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
     body:
-      encoding: UTF-8
-      string: '{"errors": ["Invalid payload: Required parameter ''type'' is missing"]}'
-  recorded_at: Fri, 09 Apr 2021 11:51:12 GMT
+      encoding: ASCII-8BIT
+      string: '{"errors": ["Invalid payload: must specify monitor_ids or monitor_search"]}'
+  recorded_at: Fri, 16 Apr 2021 11:30:18 GMT
 recorded_with: VCR 6.0.0

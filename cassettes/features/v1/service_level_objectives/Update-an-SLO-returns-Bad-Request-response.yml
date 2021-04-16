@@ -1,68 +1,14 @@
 ---
 http_interactions:
 - request:
-    method: put
-    uri: https://api.datadoghq.com/api/v1/slo/testupdateansloreturnsbadrequestresponse1618243616
-    body:
-      encoding: UTF-8
-      string: "{}"
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 400
-      message: Bad Request
-    headers:
-      Date:
-      - Mon, 12 Apr 2021 16:06:56 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '69'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Ratelimit-Limit:
-      - '500'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Reset:
-      - '4'
-      X-Ratelimit-Remaining:
-      - '497'
-      X-Dd-Version:
-      - '35.4290818'
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: UTF-8
-      string: '{"errors": ["Invalid payload: Required parameter ''type'' is missing"]}'
-  recorded_at: Mon, 12 Apr 2021 16:06:56 GMT
-- request:
     method: post
     uri: https://api.datadoghq.com/api/v1/slo
     body:
       encoding: UTF-8
-      string: '{"type":"metric","name":"Test-Update_an_SLO_returns_Bad_Request_response-1618476732","thresholds":[{"timeframe":"7d","target":95.0,"warning":98.0}],"query":{"numerator":"sum:httpservice.hits{code:2xx}.as_count()","denominator":"sum:httpservice.hits{!code:3xx}.as_count()"}}'
+      string: '{"type":"metric","name":"Test-Update_an_SLO_returns_Bad_Request_response-1618572618","thresholds":[{"timeframe":"7d","target":95.0,"warning":98.0}],"query":{"numerator":"sum:httpservice.hits{code:2xx}.as_count()","denominator":"sum:httpservice.hits{!code:3xx}.as_count()"}}'
     headers:
       User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.7.3; os linux; arch x86_64)
+      - datadog-api-client-ruby/1.0.0.beta.4.dev.1 (ruby 2.7.3; os linux; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -75,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 15 Apr 2021 08:52:12 GMT
+      - Fri, 16 Apr 2021 11:30:18 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -89,15 +35,15 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dd-Version:
-      - '35.4317157'
+      - '35.4327367'
       X-Ratelimit-Limit:
       - '500'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '48'
+      - '42'
       X-Ratelimit-Remaining:
-      - '498'
+      - '497'
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -109,17 +55,17 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"data":[{"description":"","monitor_tags":[],"creator":{"handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","name":"CI
-        Account","email":"team-intg-tools-libs@datadoghq.com"},"thresholds":[{"warning":98.0,"warning_display":"98.","target":95.0,"target_display":"95.","timeframe":"7d"}],"type_id":1,"query":{"denominator":"sum:httpservice.hits{!code:3xx}.as_count()","numerator":"sum:httpservice.hits{code:2xx}.as_count()"},"id":"ffe10eec735f562eb7f40524aaaf1f01","name":"Test-Update_an_SLO_returns_Bad_Request_response-1618476732","created_at":1618476732,"tags":[],"modified_at":1618476732,"type":"metric"}],"error":null}'
-  recorded_at: Thu, 15 Apr 2021 08:52:12 GMT
+        Account","email":"team-intg-tools-libs@datadoghq.com"},"thresholds":[{"warning":98.0,"warning_display":"98.","target":95.0,"target_display":"95.","timeframe":"7d"}],"type_id":1,"query":{"denominator":"sum:httpservice.hits{!code:3xx}.as_count()","numerator":"sum:httpservice.hits{code:2xx}.as_count()"},"id":"d59b7b654a195cc6b16c0b69438ab9be","name":"Test-Update_an_SLO_returns_Bad_Request_response-1618572618","created_at":1618572618,"tags":[],"modified_at":1618572618,"type":"metric"}],"error":null}'
+  recorded_at: Fri, 16 Apr 2021 11:30:18 GMT
 - request:
     method: put
-    uri: https://api.datadoghq.com/api/v1/slo/ffe10eec735f562eb7f40524aaaf1f01
+    uri: https://api.datadoghq.com/api/v1/slo/d59b7b654a195cc6b16c0b69438ab9be
     body:
       encoding: UTF-8
-      string: '{"type":"monitor","name":"Test-Update_an_SLO_returns_Bad_Request_response-1618476732","thresholds":[{"target":95.0,"target_display":"95.0","timeframe":"7d","warning":98,"warning_display":"98.0"}]}'
+      string: '{"type":"monitor","name":"Test-Update_an_SLO_returns_Bad_Request_response-1618572618","thresholds":[{"target":95.0,"target_display":"95.0","timeframe":"7d","warning":98,"warning_display":"98.0"}]}'
     headers:
       User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.7.3; os linux; arch x86_64)
+      - datadog-api-client-ruby/1.0.0.beta.4.dev.1 (ruby 2.7.3; os linux; arch x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -132,7 +78,7 @@ http_interactions:
       message: Bad Request
     headers:
       Date:
-      - Thu, 15 Apr 2021 08:52:12 GMT
+      - Fri, 16 Apr 2021 11:30:18 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -148,11 +94,11 @@ http_interactions:
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '48'
+      - '42'
       X-Ratelimit-Remaining:
       - '499'
       X-Dd-Version:
-      - '35.4317157'
+      - '35.4327367'
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -164,5 +110,5 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"errors": ["Invalid payload: must specify the query for count types"]}'
-  recorded_at: Thu, 15 Apr 2021 08:52:12 GMT
+  recorded_at: Fri, 16 Apr 2021 11:30:18 GMT
 recorded_with: VCR 6.0.0
