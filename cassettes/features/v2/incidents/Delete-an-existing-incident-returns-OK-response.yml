@@ -1,67 +1,11 @@
 ---
 http_interactions:
 - request:
-    method: delete
-    uri: https://api.datadoghq.com/api/v2/incidents/d49f24da-cb60-50f6-977e-d309ab0a5d32
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 204
-      message: No Content
-    headers:
-      Date:
-      - Fri, 09 Apr 2021 11:56:32 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '0'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Dd-Version:
-      - '35.4275259'
-      X-Ratelimit-Limit:
-      - '400'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Reset:
-      - '28'
-      X-Ratelimit-Remaining:
-      - '398'
-      X-Dd-Debug:
-      - gYZcaADwbKcv7Hm19HJx6WsLoKuOijDWAt2viPeCfWqUgyKY+9e1xZdmMJeXV3YV
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: UTF-8
-      string: ''
-  recorded_at: Fri, 09 Apr 2021 11:56:32 GMT
-- request:
     method: post
     uri: https://api.datadoghq.com/api/v2/incidents
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"title":"Test-Delete_an_existing_incident_returns_OK_response-1617971012","customer_impacted":false},"type":"incidents"}}'
+      string: '{"data":{"attributes":{"title":"Test-Delete_an_existing_incident_returns_OK_response-1618390732","customer_impacted":false},"type":"incidents"}}'
     headers:
       User-Agent:
       - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
@@ -77,7 +21,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Fri, 09 Apr 2021 12:23:32 GMT
+      - Wed, 14 Apr 2021 08:58:52 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -89,17 +33,17 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dd-Version:
-      - '35.4275715'
+      - '35.4307086'
       X-Ratelimit-Limit:
       - '400'
       X-Ratelimit-Period:
       - '3600'
       X-Ratelimit-Reset:
-      - '2188'
+      - '68'
       X-Ratelimit-Remaining:
-      - '398'
+      - '387'
       X-Dd-Debug:
-      - tpRCH6w417YjBovRJ8VmtuXmNONVYiRp2c8d2AxjPdGBn8PCtgG4vAztrx3qUZAN
+      - fIO2C4qGDheGHy4YbS+r3a3CXbh4cbRo7roILOimQyiHGjQdOat0cIpWCkupM1uX
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -110,11 +54,11 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"incidents","id":"2df81b16-8093-5a1c-9064-4017c042225f","attributes":{"public_id":34222,"title":"Test-Delete_an_existing_incident_returns_OK_response-1617971012","resolved":null,"customer_impact_scope":null,"customer_impact_start":null,"customer_impact_end":null,"customer_impacted":false,"notification_handles":null,"last_modified_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0","attributes":{"uuid":"3ad549bf-eba0-11e9-a77a-0705486660d0","handle":"frog@datadoghq.com","email":"frog@datadoghq.com","name":null,"icon":"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro"}}},"last_modified_by_uuid":null,"created":"2021-04-09T12:23:32.344131+00:00","modified":"2021-04-09T12:23:32.344131+00:00","commander":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0","attributes":{"uuid":"3ad549bf-eba0-11e9-a77a-0705486660d0","handle":"frog@datadoghq.com","email":"frog@datadoghq.com","name":null,"icon":"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro"}}},"detected":"2021-04-09T12:23:32.342513+00:00","created_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0","attributes":{"uuid":"3ad549bf-eba0-11e9-a77a-0705486660d0","handle":"frog@datadoghq.com","email":"frog@datadoghq.com","name":null,"icon":"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro"}}},"created_by_uuid":null,"creation_idempotency_key":null,"customer_impact_duration":0,"time_to_detect":0,"time_to_repair":0,"time_to_internal_response":0,"time_to_resolve":0,"fields":{"severity":{"type":"dropdown","value":"UNKNOWN"},"detection_method":{"type":"dropdown","value":"unknown"},"root_cause":{"type":"textbox","value":null},"teams":{"type":"autocomplete","value":null},"state":{"type":"dropdown","value":"active"},"services":{"type":"autocomplete","value":null}},"field_analytics":null,"severity":"UNKNOWN","state":"active","non_datadog_creator":null},"relationships":{"created_by_user":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}},"last_modified_by_user":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}},"commander_user":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}},"user_defined_fields":{"data":[{"type":"user_defined_field","id":"4148ead2-da45-548e-b6be-8e319bafc425"},{"type":"user_defined_field","id":"66b62f59-48f6-5fee-969a-0886b1db6dcd"},{"type":"user_defined_field","id":"299616f7-8acd-5403-886b-991656d6b982"},{"type":"user_defined_field","id":"ad2b9456-eaec-5bbd-9bae-e502d74e23f8"},{"type":"user_defined_field","id":"d8a54f16-8b2a-5ab4-87b8-5f0fa575c83e"},{"type":"user_defined_field","id":"623af0a5-f30c-577e-8146-09b8324bdb2d"}]},"integrations":{"data":[]},"attachments":{"data":[]},"responders":{"data":[]}}}}'
-  recorded_at: Fri, 09 Apr 2021 12:23:32 GMT
+      string: '{"data":{"type":"incidents","id":"007bd344-9bee-5404-865d-5cbb55ae400b","attributes":{"public_id":35753,"title":"Test-Delete_an_existing_incident_returns_OK_response-1618390732","resolved":null,"customer_impact_scope":null,"customer_impact_start":null,"customer_impact_end":null,"customer_impacted":false,"notification_handles":null,"last_modified_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0","attributes":{"uuid":"3ad549bf-eba0-11e9-a77a-0705486660d0","handle":"frog@datadoghq.com","email":"frog@datadoghq.com","name":null,"icon":"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro"}}},"last_modified_by_uuid":null,"created":"2021-04-14T08:58:52.414781+00:00","modified":"2021-04-14T08:58:52.414781+00:00","commander":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0","attributes":{"uuid":"3ad549bf-eba0-11e9-a77a-0705486660d0","handle":"frog@datadoghq.com","email":"frog@datadoghq.com","name":null,"icon":"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro"}}},"detected":"2021-04-14T08:58:52.413204+00:00","created_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0","attributes":{"uuid":"3ad549bf-eba0-11e9-a77a-0705486660d0","handle":"frog@datadoghq.com","email":"frog@datadoghq.com","name":null,"icon":"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro"}}},"created_by_uuid":null,"creation_idempotency_key":null,"customer_impact_duration":0,"time_to_detect":0,"time_to_repair":0,"time_to_internal_response":0,"time_to_resolve":0,"fields":{"severity":{"type":"dropdown","value":"UNKNOWN"},"detection_method":{"type":"dropdown","value":"unknown"},"root_cause":{"type":"textbox","value":null},"teams":{"type":"autocomplete","value":null},"state":{"type":"dropdown","value":"active"},"services":{"type":"autocomplete","value":null}},"field_analytics":null,"severity":"UNKNOWN","state":"active","non_datadog_creator":null},"relationships":{"created_by_user":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}},"last_modified_by_user":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}},"commander_user":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}},"user_defined_fields":{"data":[{"type":"user_defined_field","id":"4148ead2-da45-548e-b6be-8e319bafc425"},{"type":"user_defined_field","id":"66b62f59-48f6-5fee-969a-0886b1db6dcd"},{"type":"user_defined_field","id":"299616f7-8acd-5403-886b-991656d6b982"},{"type":"user_defined_field","id":"ad2b9456-eaec-5bbd-9bae-e502d74e23f8"},{"type":"user_defined_field","id":"d8a54f16-8b2a-5ab4-87b8-5f0fa575c83e"},{"type":"user_defined_field","id":"623af0a5-f30c-577e-8146-09b8324bdb2d"}]},"integrations":{"data":[]},"attachments":{"data":[]},"responders":{"data":[]}}}}'
+  recorded_at: Wed, 14 Apr 2021 08:58:52 GMT
 - request:
     method: delete
-    uri: https://api.datadoghq.com/api/v2/incidents/2df81b16-8093-5a1c-9064-4017c042225f
+    uri: https://api.datadoghq.com/api/v2/incidents/007bd344-9bee-5404-865d-5cbb55ae400b
     body:
       encoding: US-ASCII
       string: ''
@@ -133,7 +77,7 @@ http_interactions:
       message: No Content
     headers:
       Date:
-      - Fri, 09 Apr 2021 12:23:32 GMT
+      - Wed, 14 Apr 2021 08:58:52 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -145,17 +89,17 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dd-Version:
-      - '35.4275715'
+      - '35.4307086'
       X-Ratelimit-Limit:
       - '400'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '28'
+      - '8'
       X-Ratelimit-Remaining:
-      - '398'
+      - '399'
       X-Dd-Debug:
-      - PhosSd3Ch1B6B0DXI71steKUi7XhPDttnPiIP1NdXTw0VJNWpoUnYyBmODS5ne3q
+      - bgHykj7A9bfZx0Y5ZO3swhhp5tGUSNJHqFWR868+qg087CYrDOd5hQslC+noiEtH
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -167,5 +111,5 @@ http_interactions:
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Fri, 09 Apr 2021 12:23:32 GMT
+  recorded_at: Wed, 14 Apr 2021 08:58:52 GMT
 recorded_with: VCR 6.0.0

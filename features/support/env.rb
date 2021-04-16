@@ -27,11 +27,11 @@ end
 
 module RecordMode
   def self.true(config)
-    config.default_cassette_options = { :record => :all }
+    config.default_cassette_options = { :record => :all, :allow_unused_http_interactions => false, }
   end
 
   def self.false(config)
-    config.default_cassette_options = { :record => :none }
+    config.default_cassette_options = { :record => :none, :allow_unused_http_interactions => false }
   end
 
   def self.none(config)

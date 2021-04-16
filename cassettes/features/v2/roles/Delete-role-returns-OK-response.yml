@@ -1,67 +1,11 @@
 ---
 http_interactions:
 - request:
-    method: delete
-    uri: https://api.datadoghq.com/api/v2/roles/a995a362-992a-11eb-9ceb-da7ad0900002
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 204
-      message: No Content
-    headers:
-      Date:
-      - Fri, 09 Apr 2021 11:56:47 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '0'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Dd-Version:
-      - '35.4275259'
-      X-Ratelimit-Limit:
-      - '500'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Reset:
-      - '13'
-      X-Ratelimit-Remaining:
-      - '493'
-      X-Dd-Debug:
-      - mNzaoDhdDKO7t4QSrAe5X7pHd0bJND187D+vRbwoluXouE2m1UaQQX0RGCvRpLVE
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: UTF-8
-      string: ''
-  recorded_at: Fri, 09 Apr 2021 11:56:47 GMT
-- request:
     method: post
     uri: https://api.datadoghq.com/api/v2/roles
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"name":"Test-Delete_role_returns_OK_response-1617971032"},"type":"roles"}}'
+      string: '{"data":{"attributes":{"name":"Test-Delete_role_returns_OK_response-1618390745"},"type":"roles"}}'
     headers:
       User-Agent:
       - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
@@ -77,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 09 Apr 2021 12:23:52 GMT
+      - Wed, 14 Apr 2021 08:59:05 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -91,17 +35,17 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dd-Version:
-      - '35.4275715'
+      - '35.4307086'
       X-Ratelimit-Limit:
       - '500'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '8'
+      - '55'
       X-Ratelimit-Remaining:
-      - '494'
+      - '496'
       X-Dd-Debug:
-      - l4HFlaRP3QwYSqoGKhzbYfv7zgkK63HIRR7YkyVYZspq0lGjjTBwoK8V/alf+XYt
+      - LcgNasIYBRkNppmD6mCKE9J6iv0eEjosuuHR5V5zw2fWbR54i39C8dhdK8zDq/40
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -112,11 +56,11 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"roles","id":"71c911b8-992e-11eb-9ceb-da7ad0900002","attributes":{"name":"Test-Delete_role_returns_OK_response-1617971032","created_at":"2021-04-09T12:23:52.147235+00:00","modified_at":"2021-04-09T12:23:52.147235+00:00"},"relationships":{"permissions":{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2"},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304"},{"type":"permissions","id":"417ba636-2dce-11eb-84c0-6bce5b0d9de0"}]}}}}'
-  recorded_at: Fri, 09 Apr 2021 12:23:52 GMT
+      string: '{"data":{"type":"roles","id":"aa8b1ada-9cff-11eb-9daf-da7ad0900002","attributes":{"name":"Test-Delete_role_returns_OK_response-1618390745","created_at":"2021-04-14T08:59:05.675964+00:00","modified_at":"2021-04-14T08:59:05.675964+00:00"},"relationships":{"permissions":{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2"},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304"},{"type":"permissions","id":"417ba636-2dce-11eb-84c0-6bce5b0d9de0"}]}}}}'
+  recorded_at: Wed, 14 Apr 2021 08:59:05 GMT
 - request:
     method: delete
-    uri: https://api.datadoghq.com/api/v2/roles/71c911b8-992e-11eb-9ceb-da7ad0900002
+    uri: https://api.datadoghq.com/api/v2/roles/aa8b1ada-9cff-11eb-9daf-da7ad0900002
     body:
       encoding: US-ASCII
       string: ''
@@ -135,7 +79,7 @@ http_interactions:
       message: No Content
     headers:
       Date:
-      - Fri, 09 Apr 2021 12:23:52 GMT
+      - Wed, 14 Apr 2021 08:59:05 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -147,17 +91,17 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dd-Version:
-      - '35.4275715'
+      - '35.4307086'
       X-Ratelimit-Limit:
       - '500'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '8'
+      - '55'
       X-Ratelimit-Remaining:
-      - '493'
+      - '495'
       X-Dd-Debug:
-      - l4HFlaRP3QwYSqoGKhzbYfv7zgkK63HIRR7YkyVYZspq0lGjjTBwoK8V/alf+XYt
+      - tpRCH6w417YjBovRJ8VmtuXmNONVYiRp2c8d2AxjPdGBn8PCtgG4vAztrx3qUZAN
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -169,5 +113,5 @@ http_interactions:
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Fri, 09 Apr 2021 12:23:52 GMT
+  recorded_at: Wed, 14 Apr 2021 08:59:05 GMT
 recorded_with: VCR 6.0.0

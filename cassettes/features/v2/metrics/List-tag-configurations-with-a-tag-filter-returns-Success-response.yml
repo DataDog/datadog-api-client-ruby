@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.datadoghq.com/api/v2/metrics?filter%5Btags%5D=TestListtagconfigurationswithatagfilterreturnsSuccessresponse1617969404
+    uri: https://api.datadoghq.com/api/v2/metrics?filter%5Btags%5D=TestListtagconfigurationswithatagfilterreturnsSuccessresponse1618390743
     body:
       encoding: US-ASCII
       string: ''
@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 09 Apr 2021 11:56:45 GMT
+      - Wed, 14 Apr 2021 08:59:03 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -33,17 +33,17 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dd-Version:
-      - '35.4275259'
+      - '35.4307086'
       X-Ratelimit-Limit:
       - '50'
       X-Ratelimit-Period:
       - '60'
       X-Ratelimit-Reset:
-      - '16'
+      - '57'
       X-Ratelimit-Remaining:
-      - '36'
+      - '48'
       X-Dd-Debug:
-      - l4HFlaRP3QwYSqoGKhzbYfv7zgkK63HIRR7YkyVYZspq0lGjjTBwoK8V/alf+XYt
+      - vdJ3/nHEY1ioXQ6pQrBVvsQK1s4yyc+wufBMPSoXql71qZVuP/xMdtNo6DafhOAk
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -55,61 +55,5 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"data":[]}'
-  recorded_at: Fri, 09 Apr 2021 11:56:44 GMT
-- request:
-    method: get
-    uri: https://api.datadoghq.com/api/v2/metrics?filter%5Btags%5D=TestListtagconfigurationswithatagfilterreturnsSuccessresponse1617971028
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Fri, 09 Apr 2021 12:23:48 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '11'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Dd-Version:
-      - '35.4275715'
-      X-Ratelimit-Limit:
-      - '50'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Reset:
-      - '12'
-      X-Ratelimit-Remaining:
-      - '36'
-      X-Dd-Debug:
-      - mNzaoDhdDKO7t4QSrAe5X7pHd0bJND187D+vRbwoluXouE2m1UaQQX0RGCvRpLVE
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: UTF-8
-      string: '{"data":[]}'
-  recorded_at: Fri, 09 Apr 2021 12:23:48 GMT
+  recorded_at: Wed, 14 Apr 2021 08:59:03 GMT
 recorded_with: VCR 6.0.0
