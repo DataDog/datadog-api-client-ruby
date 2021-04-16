@@ -1,3 +1,11 @@
+# SimpleCov must start at the very top
+# https://github.com/simplecov-ruby/simplecov/blob/master/README.md#getting-started
+require 'simplecov'
+SimpleCov.start do
+  add_filter "/features/"
+  add_filter "/spec"
+end
+
 require 'cucumber'
 require 'datadog_api_client'
 require 'ddtrace'
