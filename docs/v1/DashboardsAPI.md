@@ -199,7 +199,7 @@ end
 
 ## list_dashboards
 
-> <DashboardSummary> list_dashboards
+> <DashboardSummary> list_dashboards(opts)
 
 Get all dashboards
 
@@ -210,10 +210,13 @@ Get all dashboards.  **Note**: This query will only return custom created or clo
 ```ruby
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::DashboardsAPI.new
+opts = {
+  filter_shared: true # Boolean | When `true`, this query only returns shared custom created or cloned dashboards.
+}
 
 begin
   # Get all dashboards
-  result = api_instance.list_dashboards
+  result = api_instance.list_dashboards(opts)
   p result
 rescue DatadogAPIClient::V1::APIError => e
   puts "Error when calling DashboardsAPI->list_dashboards: #{e}"
@@ -224,12 +227,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DashboardSummary>, Integer, Hash)> list_dashboards_with_http_info
+> <Array(<DashboardSummary>, Integer, Hash)> list_dashboards_with_http_info(opts)
 
 ```ruby
 begin
   # Get all dashboards
-  data, status_code, headers = api_instance.list_dashboards_with_http_info
+  data, status_code, headers = api_instance.list_dashboards_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DashboardSummary>
@@ -240,7 +243,9 @@ end
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter_shared** | **Boolean** | When &#x60;true&#x60;, this query only returns shared custom created or cloned dashboards. | [optional] |
 
 ### Return type
 

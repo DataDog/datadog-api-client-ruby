@@ -246,6 +246,7 @@ module DatadogAPIClient::V1
     # Get all dashboards
     # Get all dashboards.  **Note**: This query will only return custom created or cloned dashboards. This query will not return preset dashboards.
     # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :filter_shared When &#x60;true&#x60;, this query only returns shared custom created or cloned dashboards.
     # @return [DashboardSummary]
     def list_dashboards(opts = {})
       data, _status_code, _headers = list_dashboards_with_http_info(opts)
@@ -255,6 +256,7 @@ module DatadogAPIClient::V1
     # Get all dashboards
     # Get all dashboards.  **Note**: This query will only return custom created or cloned dashboards. This query will not return preset dashboards.
     # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :filter_shared When &#x60;true&#x60;, this query only returns shared custom created or cloned dashboards.
     # @return [Array<(DashboardSummary, Integer, Hash)>] DashboardSummary data, response status code and response headers
     def list_dashboards_with_http_info(opts = {})
 
@@ -275,6 +277,7 @@ module DatadogAPIClient::V1
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'filter[shared]'] = opts[:'filter_shared'] if !opts[:'filter_shared'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

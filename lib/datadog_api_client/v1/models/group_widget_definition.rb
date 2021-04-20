@@ -19,10 +19,15 @@ require 'time'
 module DatadogAPIClient::V1
   # The groups widget allows you to keep similar graphs together on your timeboard. Each group has a custom header, can hold one to many graphs, and is collapsible.
   class GroupWidgetDefinition
+    # Background color of the group title.
+    attr_accessor :background_color
+
     attr_accessor :layout_type
 
     # Title of the widget.
     attr_accessor :title
+
+    attr_accessor :title_align
 
     attr_accessor :type
 
@@ -32,8 +37,10 @@ module DatadogAPIClient::V1
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'background_color' => :'background_color',
         :'layout_type' => :'layout_type',
         :'title' => :'title',
+        :'title_align' => :'title_align',
         :'type' => :'type',
         :'widgets' => :'widgets'
       }
@@ -47,8 +54,10 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'background_color' => :'String',
         :'layout_type' => :'WidgetLayoutType',
         :'title' => :'String',
+        :'title_align' => :'WidgetTextAlign',
         :'type' => :'GroupWidgetDefinitionType',
         :'widgets' => :'Array<Widget>'
       }
@@ -75,12 +84,20 @@ module DatadogAPIClient::V1
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'background_color')
+        self.background_color = attributes[:'background_color']
+      end
+
       if attributes.key?(:'layout_type')
         self.layout_type = attributes[:'layout_type']
       end
 
       if attributes.key?(:'title')
         self.title = attributes[:'title']
+      end
+
+      if attributes.key?(:'title_align')
+        self.title_align = attributes[:'title_align']
       end
 
       if attributes.key?(:'type')
@@ -129,8 +146,10 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          background_color == o.background_color &&
           layout_type == o.layout_type &&
           title == o.title &&
+          title_align == o.title_align &&
           type == o.type &&
           widgets == o.widgets
     end
@@ -144,7 +163,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [layout_type, title, type, widgets].hash
+      [background_color, layout_type, title, title_align, type, widgets].hash
     end
 
     # Builds the object from hash
