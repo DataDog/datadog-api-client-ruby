@@ -14,17 +14,17 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**delete_tests**](SyntheticsAPI.md#delete_tests) | **POST** /api/v1/synthetics/tests/delete | Delete tests |
 | [**edit_global_variable**](SyntheticsAPI.md#edit_global_variable) | **PUT** /api/v1/synthetics/variables/{variable_id} | Edit a global variable |
 | [**get_api_test**](SyntheticsAPI.md#get_api_test) | **GET** /api/v1/synthetics/tests/api/{public_id} | Get an API test |
-| [**get_api_test_latest_results**](SyntheticsAPI.md#get_api_test_latest_results) | **GET** /api/v1/synthetics/tests/{public_id}/results | Get the test&#39;s latest results summaries (API) |
-| [**get_api_test_result**](SyntheticsAPI.md#get_api_test_result) | **GET** /api/v1/synthetics/tests/{public_id}/results/{result_id} | Get a test result (API) |
-| [**get_browser_test**](SyntheticsAPI.md#get_browser_test) | **GET** /api/v1/synthetics/tests/browser/{public_id} | Get a test configuration (browser) |
-| [**get_browser_test_latest_results**](SyntheticsAPI.md#get_browser_test_latest_results) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results | Get the test&#39;s latest results summaries (browser) |
-| [**get_browser_test_result**](SyntheticsAPI.md#get_browser_test_result) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results/{result_id} | Get a test result (browser) |
+| [**get_api_test_latest_results**](SyntheticsAPI.md#get_api_test_latest_results) | **GET** /api/v1/synthetics/tests/{public_id}/results | Get an API test&#39;s latest results summaries |
+| [**get_api_test_result**](SyntheticsAPI.md#get_api_test_result) | **GET** /api/v1/synthetics/tests/{public_id}/results/{result_id} | Get an API test result |
+| [**get_browser_test**](SyntheticsAPI.md#get_browser_test) | **GET** /api/v1/synthetics/tests/browser/{public_id} | Get a browser test |
+| [**get_browser_test_latest_results**](SyntheticsAPI.md#get_browser_test_latest_results) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results | Get a browser test&#39;s latest results summaries |
+| [**get_browser_test_result**](SyntheticsAPI.md#get_browser_test_result) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results/{result_id} | Get a browser test result |
 | [**get_global_variable**](SyntheticsAPI.md#get_global_variable) | **GET** /api/v1/synthetics/variables/{variable_id} | Get a global variable |
 | [**get_private_location**](SyntheticsAPI.md#get_private_location) | **GET** /api/v1/synthetics/private-locations/{location_id} | Get a private location |
 | [**get_test**](SyntheticsAPI.md#get_test) | **GET** /api/v1/synthetics/tests/{public_id} | Get a test configuration (API) |
 | [**list_locations**](SyntheticsAPI.md#list_locations) | **GET** /api/v1/synthetics/locations | Get all locations (public and private) |
 | [**list_tests**](SyntheticsAPI.md#list_tests) | **GET** /api/v1/synthetics/tests | Get the list of all tests |
-| [**trigger_ci_tests**](SyntheticsAPI.md#trigger_ci_tests) | **POST** /api/v1/synthetics/tests/trigger/ci | Trigger some Synthetics tests for CI |
+| [**trigger_ci_tests**](SyntheticsAPI.md#trigger_ci_tests) | **POST** /api/v1/synthetics/tests/trigger/ci | Trigger tests from CI/CD pipelines |
 | [**update_api_test**](SyntheticsAPI.md#update_api_test) | **PUT** /api/v1/synthetics/tests/api/{public_id} | Edit an API test |
 | [**update_browser_test**](SyntheticsAPI.md#update_browser_test) | **PUT** /api/v1/synthetics/tests/browser/{public_id} | Edit a browser test |
 | [**update_private_location**](SyntheticsAPI.md#update_private_location) | **PUT** /api/v1/synthetics/private-locations/{location_id} | Edit a private location |
@@ -656,7 +656,7 @@ end
 
 > <SyntheticsGetAPITestLatestResultsResponse> get_api_test_latest_results(public_id, opts)
 
-Get the test's latest results summaries (API)
+Get an API test's latest results summaries
 
 Get the last 50 test results summaries for a given Synthetics API test.
 
@@ -673,7 +673,7 @@ opts = {
 }
 
 begin
-  # Get the test's latest results summaries (API)
+  # Get an API test's latest results summaries
   result = api_instance.get_api_test_latest_results(public_id, opts)
   p result
 rescue DatadogAPIClient::V1::APIError => e
@@ -689,7 +689,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get the test's latest results summaries (API)
+  # Get an API test's latest results summaries
   data, status_code, headers = api_instance.get_api_test_latest_results_with_http_info(public_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -726,7 +726,7 @@ end
 
 > <SyntheticsAPITestResultFull> get_api_test_result(public_id, result_id)
 
-Get a test result (API)
+Get an API test result
 
 Get a specific full result from a given (API) Synthetic test.
 
@@ -739,7 +739,7 @@ public_id = 'public_id_example' # String | The public ID of the API test to whic
 result_id = 'result_id_example' # String | The ID of the result to get.
 
 begin
-  # Get a test result (API)
+  # Get an API test result
   result = api_instance.get_api_test_result(public_id, result_id)
   p result
 rescue DatadogAPIClient::V1::APIError => e
@@ -755,7 +755,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get a test result (API)
+  # Get an API test result
   data, status_code, headers = api_instance.get_api_test_result_with_http_info(public_id, result_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -790,7 +790,7 @@ end
 
 > <SyntheticsBrowserTest> get_browser_test(public_id)
 
-Get a test configuration (browser)
+Get a browser test
 
 Get the detailed configuration (including steps) associated with a Synthetic browser test.
 
@@ -802,7 +802,7 @@ api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
 public_id = 'public_id_example' # String | The public ID of the test to get details from.
 
 begin
-  # Get a test configuration (browser)
+  # Get a browser test
   result = api_instance.get_browser_test(public_id)
   p result
 rescue DatadogAPIClient::V1::APIError => e
@@ -818,7 +818,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get a test configuration (browser)
+  # Get a browser test
   data, status_code, headers = api_instance.get_browser_test_with_http_info(public_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -852,7 +852,7 @@ end
 
 > <SyntheticsGetBrowserTestLatestResultsResponse> get_browser_test_latest_results(public_id, opts)
 
-Get the test's latest results summaries (browser)
+Get a browser test's latest results summaries
 
 Get the last 50 test results summaries for a given Synthetics Browser test.
 
@@ -869,7 +869,7 @@ opts = {
 }
 
 begin
-  # Get the test's latest results summaries (browser)
+  # Get a browser test's latest results summaries
   result = api_instance.get_browser_test_latest_results(public_id, opts)
   p result
 rescue DatadogAPIClient::V1::APIError => e
@@ -885,7 +885,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get the test's latest results summaries (browser)
+  # Get a browser test's latest results summaries
   data, status_code, headers = api_instance.get_browser_test_latest_results_with_http_info(public_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -922,7 +922,7 @@ end
 
 > <SyntheticsBrowserTestResultFull> get_browser_test_result(public_id, result_id)
 
-Get a test result (browser)
+Get a browser test result
 
 Get a specific full result from a given (browser) Synthetic test.
 
@@ -935,7 +935,7 @@ public_id = 'public_id_example' # String | The public ID of the browser test to 
 result_id = 'result_id_example' # String | The ID of the result to get.
 
 begin
-  # Get a test result (browser)
+  # Get a browser test result
   result = api_instance.get_browser_test_result(public_id, result_id)
   p result
 rescue DatadogAPIClient::V1::APIError => e
@@ -951,7 +951,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get a test result (browser)
+  # Get a browser test result
   data, status_code, headers = api_instance.get_browser_test_result_with_http_info(public_id, result_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -1290,7 +1290,7 @@ This endpoint does not need any parameter.
 
 > <SyntheticsTriggerCITestsResponse> trigger_ci_tests(body)
 
-Trigger some Synthetics tests for CI
+Trigger tests from CI/CD pipelines
 
 Trigger a set of Synthetics tests for continuous integration.
 
@@ -1302,7 +1302,7 @@ api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
 body = DatadogAPIClient::V1::SyntheticsCITestBody.new # SyntheticsCITestBody | Details of the test to trigger.
 
 begin
-  # Trigger some Synthetics tests for CI
+  # Trigger tests from CI/CD pipelines
   result = api_instance.trigger_ci_tests(body)
   p result
 rescue DatadogAPIClient::V1::APIError => e
@@ -1318,7 +1318,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Trigger some Synthetics tests for CI
+  # Trigger tests from CI/CD pipelines
   data, status_code, headers = api_instance.trigger_ci_tests_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }

@@ -159,17 +159,17 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::SyntheticsAPI* | [**delete_tests**](SyntheticsAPI.md#delete_tests) | **POST** /api/v1/synthetics/tests/delete | Delete tests
 *DatadogAPIClient::V1::SyntheticsAPI* | [**edit_global_variable**](SyntheticsAPI.md#edit_global_variable) | **PUT** /api/v1/synthetics/variables/{variable_id} | Edit a global variable
 *DatadogAPIClient::V1::SyntheticsAPI* | [**get_api_test**](SyntheticsAPI.md#get_api_test) | **GET** /api/v1/synthetics/tests/api/{public_id} | Get an API test
-*DatadogAPIClient::V1::SyntheticsAPI* | [**get_api_test_latest_results**](SyntheticsAPI.md#get_api_test_latest_results) | **GET** /api/v1/synthetics/tests/{public_id}/results | Get the test's latest results summaries (API)
-*DatadogAPIClient::V1::SyntheticsAPI* | [**get_api_test_result**](SyntheticsAPI.md#get_api_test_result) | **GET** /api/v1/synthetics/tests/{public_id}/results/{result_id} | Get a test result (API)
-*DatadogAPIClient::V1::SyntheticsAPI* | [**get_browser_test**](SyntheticsAPI.md#get_browser_test) | **GET** /api/v1/synthetics/tests/browser/{public_id} | Get a test configuration (browser)
-*DatadogAPIClient::V1::SyntheticsAPI* | [**get_browser_test_latest_results**](SyntheticsAPI.md#get_browser_test_latest_results) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results | Get the test's latest results summaries (browser)
-*DatadogAPIClient::V1::SyntheticsAPI* | [**get_browser_test_result**](SyntheticsAPI.md#get_browser_test_result) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results/{result_id} | Get a test result (browser)
+*DatadogAPIClient::V1::SyntheticsAPI* | [**get_api_test_latest_results**](SyntheticsAPI.md#get_api_test_latest_results) | **GET** /api/v1/synthetics/tests/{public_id}/results | Get an API test's latest results summaries
+*DatadogAPIClient::V1::SyntheticsAPI* | [**get_api_test_result**](SyntheticsAPI.md#get_api_test_result) | **GET** /api/v1/synthetics/tests/{public_id}/results/{result_id} | Get an API test result
+*DatadogAPIClient::V1::SyntheticsAPI* | [**get_browser_test**](SyntheticsAPI.md#get_browser_test) | **GET** /api/v1/synthetics/tests/browser/{public_id} | Get a browser test
+*DatadogAPIClient::V1::SyntheticsAPI* | [**get_browser_test_latest_results**](SyntheticsAPI.md#get_browser_test_latest_results) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results | Get a browser test's latest results summaries
+*DatadogAPIClient::V1::SyntheticsAPI* | [**get_browser_test_result**](SyntheticsAPI.md#get_browser_test_result) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results/{result_id} | Get a browser test result
 *DatadogAPIClient::V1::SyntheticsAPI* | [**get_global_variable**](SyntheticsAPI.md#get_global_variable) | **GET** /api/v1/synthetics/variables/{variable_id} | Get a global variable
 *DatadogAPIClient::V1::SyntheticsAPI* | [**get_private_location**](SyntheticsAPI.md#get_private_location) | **GET** /api/v1/synthetics/private-locations/{location_id} | Get a private location
 *DatadogAPIClient::V1::SyntheticsAPI* | [**get_test**](SyntheticsAPI.md#get_test) | **GET** /api/v1/synthetics/tests/{public_id} | Get a test configuration (API)
 *DatadogAPIClient::V1::SyntheticsAPI* | [**list_locations**](SyntheticsAPI.md#list_locations) | **GET** /api/v1/synthetics/locations | Get all locations (public and private)
 *DatadogAPIClient::V1::SyntheticsAPI* | [**list_tests**](SyntheticsAPI.md#list_tests) | **GET** /api/v1/synthetics/tests | Get the list of all tests
-*DatadogAPIClient::V1::SyntheticsAPI* | [**trigger_ci_tests**](SyntheticsAPI.md#trigger_ci_tests) | **POST** /api/v1/synthetics/tests/trigger/ci | Trigger some Synthetics tests for CI
+*DatadogAPIClient::V1::SyntheticsAPI* | [**trigger_ci_tests**](SyntheticsAPI.md#trigger_ci_tests) | **POST** /api/v1/synthetics/tests/trigger/ci | Trigger tests from CI/CD pipelines
 *DatadogAPIClient::V1::SyntheticsAPI* | [**update_api_test**](SyntheticsAPI.md#update_api_test) | **PUT** /api/v1/synthetics/tests/api/{public_id} | Edit an API test
 *DatadogAPIClient::V1::SyntheticsAPI* | [**update_browser_test**](SyntheticsAPI.md#update_browser_test) | **PUT** /api/v1/synthetics/tests/browser/{public_id} | Edit a browser test
 *DatadogAPIClient::V1::SyntheticsAPI* | [**update_private_location**](SyntheticsAPI.md#update_private_location) | **PUT** /api/v1/synthetics/private-locations/{location_id} | Edit a private location
