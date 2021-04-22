@@ -184,8 +184,6 @@ module DatadogAPIClient::V2
             delete_tag_configuration: false,
             list_tag_configuration_by_name: false,
             list_tag_configurations: false,
-            list_tags_by_metric_name: false,
-            list_volumes_by_metric_name: false,
             update_tag_configuration: false,
             list_security_monitoring_signals: false,
             search_security_monitoring_signals: false,
