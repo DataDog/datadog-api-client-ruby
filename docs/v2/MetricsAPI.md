@@ -306,11 +306,6 @@ View indexed tag key-value pairs for a given metric name.
 
 ```ruby
 require 'datadog_api_client'
-
-DatadogAPIClient::V2.configure do |config|
-  config.unstable_operations[:list_tags_by_metric_name] = true
-end
-
 api_instance = DatadogAPIClient::V2::MetricsAPI.new
 metric_name = 'dist.http.endpoint.request' # String | The name of the metric.
 
@@ -373,11 +368,6 @@ View distinct metrics volumes for the given metric name.  Custom distribution me
 
 ```ruby
 require 'datadog_api_client'
-
-DatadogAPIClient::V2.configure do |config|
-  config.unstable_operations[:list_volumes_by_metric_name] = true
-end
-
 api_instance = DatadogAPIClient::V2::MetricsAPI.new
 metric_name = 'dist.http.endpoint.request' # String | The name of the metric.
 
