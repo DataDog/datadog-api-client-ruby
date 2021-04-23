@@ -17,50 +17,27 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The Distribution visualization is another way of showing metrics aggregated across one or several tags, such as hosts. Unlike the heat map, a distribution graph’s x-axis is quantity rather than time.
-  class DistributionWidgetDefinition
-    # (Deprecated) The widget legend was replaced by a tooltip and sidebar.
-    attr_accessor :legend_size
+  # X Axis controls for the distribution widget.
+  class DistributionWidgetXAxis
+    # True includes zero.
+    attr_accessor :include_zero
 
-    # List of markers.
-    attr_accessor :markers
+    # Specifies maximum value to show on the x-axis. It takes a number, percentile (p90 === 90th percentile), or auto for default behavior.
+    attr_accessor :max
 
-    # Array of one request object to display in the widget.  See the dedicated [Request JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json)  to learn how to build the `REQUEST_SCHEMA`.
-    attr_accessor :requests
+    # Specifies minimum value to show on the x-axis. It takes a number, percentile (p90 === 90th percentile), or auto for default behavior.
+    attr_accessor :min
 
-    # (Deprecated) The widget legend was replaced by a tooltip and sidebar.
-    attr_accessor :show_legend
-
-    attr_accessor :time
-
-    # Title of the widget.
-    attr_accessor :title
-
-    attr_accessor :title_align
-
-    # Size of the title.
-    attr_accessor :title_size
-
-    attr_accessor :type
-
-    attr_accessor :xaxis
-
-    attr_accessor :yaxis
+    # Specifies the scale type. Possible values are `linear`.
+    attr_accessor :scale
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'legend_size' => :'legend_size',
-        :'markers' => :'markers',
-        :'requests' => :'requests',
-        :'show_legend' => :'show_legend',
-        :'time' => :'time',
-        :'title' => :'title',
-        :'title_align' => :'title_align',
-        :'title_size' => :'title_size',
-        :'type' => :'type',
-        :'xaxis' => :'xaxis',
-        :'yaxis' => :'yaxis'
+        :'include_zero' => :'include_zero',
+        :'max' => :'max',
+        :'min' => :'min',
+        :'scale' => :'scale'
       }
     end
 
@@ -72,17 +49,10 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'legend_size' => :'String',
-        :'markers' => :'Array<WidgetMarker>',
-        :'requests' => :'Array<DistributionWidgetRequest>',
-        :'show_legend' => :'Boolean',
-        :'time' => :'WidgetTime',
-        :'title' => :'String',
-        :'title_align' => :'WidgetTextAlign',
-        :'title_size' => :'String',
-        :'type' => :'DistributionWidgetDefinitionType',
-        :'xaxis' => :'DistributionWidgetXAxis',
-        :'yaxis' => :'DistributionWidgetYAxis'
+        :'include_zero' => :'Boolean',
+        :'max' => :'String',
+        :'min' => :'String',
+        :'scale' => :'String'
       }
     end
 
@@ -96,65 +66,37 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::DistributionWidgetDefinition` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::DistributionWidgetXAxis` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::DistributionWidgetDefinition`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::DistributionWidgetXAxis`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'legend_size')
-        self.legend_size = attributes[:'legend_size']
+      if attributes.key?(:'include_zero')
+        self.include_zero = attributes[:'include_zero']
       end
 
-      if attributes.key?(:'markers')
-        if (value = attributes[:'markers']).is_a?(Array)
-          self.markers = value
-        end
-      end
-
-      if attributes.key?(:'requests')
-        if (value = attributes[:'requests']).is_a?(Array)
-          self.requests = value
-        end
-      end
-
-      if attributes.key?(:'show_legend')
-        self.show_legend = attributes[:'show_legend']
-      end
-
-      if attributes.key?(:'time')
-        self.time = attributes[:'time']
-      end
-
-      if attributes.key?(:'title')
-        self.title = attributes[:'title']
-      end
-
-      if attributes.key?(:'title_align')
-        self.title_align = attributes[:'title_align']
-      end
-
-      if attributes.key?(:'title_size')
-        self.title_size = attributes[:'title_size']
-      end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'max')
+        self.max = attributes[:'max']
       else
-        self.type = 'distribution'
+        self.max = 'auto'
       end
 
-      if attributes.key?(:'xaxis')
-        self.xaxis = attributes[:'xaxis']
+      if attributes.key?(:'min')
+        self.min = attributes[:'min']
+      else
+        self.min = 'auto'
       end
 
-      if attributes.key?(:'yaxis')
-        self.yaxis = attributes[:'yaxis']
+      if attributes.key?(:'scale')
+        self.scale = attributes[:'scale']
+      else
+        self.scale = 'linear'
       end
     end
 
@@ -162,51 +104,13 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @requests.nil?
-        invalid_properties.push('invalid value for "requests", requests cannot be nil.')
-      end
-
-      if @requests.length > 1
-        invalid_properties.push('invalid value for "requests", number of items must be less than or equal to 1.')
-      end
-
-      if @requests.length < 1
-        invalid_properties.push('invalid value for "requests", number of items must be greater than or equal to 1.')
-      end
-
-      if @type.nil?
-        invalid_properties.push('invalid value for "type", type cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @requests.nil?
-      return false if @requests.length > 1
-      return false if @requests.length < 1
-      return false if @type.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] requests Value to be assigned
-    def requests=(requests)
-      if requests.nil?
-        fail ArgumentError, 'requests cannot be nil'
-      end
-
-      if requests.length > 1
-        fail ArgumentError, 'invalid value for "requests", number of items must be less than or equal to 1.'
-      end
-
-      if requests.length < 1
-        fail ArgumentError, 'invalid value for "requests", number of items must be greater than or equal to 1.'
-      end
-
-      @requests = requests
     end
 
     # Checks equality by comparing each attribute.
@@ -214,17 +118,10 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          legend_size == o.legend_size &&
-          markers == o.markers &&
-          requests == o.requests &&
-          show_legend == o.show_legend &&
-          time == o.time &&
-          title == o.title &&
-          title_align == o.title_align &&
-          title_size == o.title_size &&
-          type == o.type &&
-          xaxis == o.xaxis &&
-          yaxis == o.yaxis
+          include_zero == o.include_zero &&
+          max == o.max &&
+          min == o.min &&
+          scale == o.scale
     end
 
     # @see the `==` method
@@ -236,7 +133,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [legend_size, markers, requests, show_legend, time, title, title_align, title_size, type, xaxis, yaxis].hash
+      [include_zero, max, min, scale].hash
     end
 
     # Builds the object from hash
