@@ -21,7 +21,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**get_browser_test_result**](SyntheticsAPI.md#get_browser_test_result) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results/{result_id} | Get a browser test result |
 | [**get_global_variable**](SyntheticsAPI.md#get_global_variable) | **GET** /api/v1/synthetics/variables/{variable_id} | Get a global variable |
 | [**get_private_location**](SyntheticsAPI.md#get_private_location) | **GET** /api/v1/synthetics/private-locations/{location_id} | Get a private location |
-| [**get_test**](SyntheticsAPI.md#get_test) | **GET** /api/v1/synthetics/tests/{public_id} | Get a test configuration (API) |
+| [**get_test**](SyntheticsAPI.md#get_test) | **GET** /api/v1/synthetics/tests/{public_id} | Get a test configuration |
 | [**list_locations**](SyntheticsAPI.md#list_locations) | **GET** /api/v1/synthetics/locations | Get all locations (public and private) |
 | [**list_tests**](SyntheticsAPI.md#list_tests) | **GET** /api/v1/synthetics/tests | Get the list of all tests |
 | [**trigger_ci_tests**](SyntheticsAPI.md#trigger_ci_tests) | **POST** /api/v1/synthetics/tests/trigger/ci | Trigger tests from CI/CD pipelines |
@@ -1110,7 +1110,7 @@ end
 
 > <SyntheticsTestDetails> get_test(public_id)
 
-Get a test configuration (API)
+Get a test configuration
 
 Get the detailed configuration associated with a Synthetics test.
 
@@ -1122,7 +1122,7 @@ api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
 public_id = 'public_id_example' # String | The public ID of the test to get details from.
 
 begin
-  # Get a test configuration (API)
+  # Get a test configuration
   result = api_instance.get_test(public_id)
   p result
 rescue DatadogAPIClient::V1::APIError => e
@@ -1138,7 +1138,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get a test configuration (API)
+  # Get a test configuration
   data, status_code, headers = api_instance.get_test_with_http_info(public_id)
   p status_code # => 2xx
   p headers # => { ... }

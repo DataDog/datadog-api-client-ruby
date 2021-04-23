@@ -1313,7 +1313,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get a test configuration (API)
+    # Get a test configuration
     # Get the detailed configuration associated with a Synthetics test.
     # @param public_id [String] The public ID of the test to get details from.
     # @param [Hash] opts the optional parameters
@@ -1323,7 +1323,7 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get a test configuration (API)
+    # Get a test configuration
     # Get the detailed configuration associated with a Synthetics test.
     # @param public_id [String] The public ID of the test to get details from.
     # @param [Hash] opts the optional parameters
