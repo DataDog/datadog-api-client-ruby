@@ -280,6 +280,8 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::DistributionWidgetDefinition](DistributionWidgetDefinition.md)
  - [DatadogAPIClient::V1::DistributionWidgetDefinitionType](DistributionWidgetDefinitionType.md)
  - [DatadogAPIClient::V1::DistributionWidgetRequest](DistributionWidgetRequest.md)
+ - [DatadogAPIClient::V1::DistributionWidgetXAxis](DistributionWidgetXAxis.md)
+ - [DatadogAPIClient::V1::DistributionWidgetYAxis](DistributionWidgetYAxis.md)
  - [DatadogAPIClient::V1::Downtime](Downtime.md)
  - [DatadogAPIClient::V1::DowntimeRecurrence](DowntimeRecurrence.md)
  - [DatadogAPIClient::V1::Event](Event.md)
