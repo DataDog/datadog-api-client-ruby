@@ -5,10 +5,11 @@ http_interactions:
     uri: https://api.datadoghq.com/api/v1/series
     body:
       encoding: UTF-8
-      string: '{"series":[{"metric":"system.load.1","points":[[1600348600,1.1]],"tags":["test:TestSubmitmetricsreturnsPayloadacceptedresponse1617971005"]}]}'
+      string: '{"series":[{"metric":"system.load.1","type":"gauge","points":[[1600348600,1.1]],"tags":["test:TestSubmitmetricsreturnsPayloadacceptedresponse1619165497"]}]}'
     headers:
       User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
+      - datadog-api-client-ruby/1.0.0.beta.4.dev.1 (ruby 2.6.3; os darwin19; arch
+        x86_64)
       Content-Type:
       - application/json
       Accept:
@@ -21,7 +22,7 @@ http_interactions:
       message: Accepted
     headers:
       Date:
-      - Fri, 09 Apr 2021 12:23:25 GMT
+      - Fri, 23 Apr 2021 08:11:37 GMT
       Content-Type:
       - text/json
       Content-Length:
@@ -37,7 +38,7 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: '{"status": "ok"}'
-  recorded_at: Fri, 09 Apr 2021 12:23:25 GMT
+  recorded_at: Fri, 23 Apr 2021 08:11:37 GMT
 recorded_with: VCR 6.0.0
