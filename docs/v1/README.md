@@ -153,7 +153,6 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::SyntheticsAPI* | [**create_private_location**](SyntheticsAPI.md#create_private_location) | **POST** /api/v1/synthetics/private-locations | Create a private location
 *DatadogAPIClient::V1::SyntheticsAPI* | [**create_synthetics_api_test**](SyntheticsAPI.md#create_synthetics_api_test) | **POST** /api/v1/synthetics/tests/api | Create an API test
 *DatadogAPIClient::V1::SyntheticsAPI* | [**create_synthetics_browser_test**](SyntheticsAPI.md#create_synthetics_browser_test) | **POST** /api/v1/synthetics/tests/browser | Create a browser test
-*DatadogAPIClient::V1::SyntheticsAPI* | [**create_test**](SyntheticsAPI.md#create_test) | **POST** /api/v1/synthetics/tests | Create a test
 *DatadogAPIClient::V1::SyntheticsAPI* | [**delete_global_variable**](SyntheticsAPI.md#delete_global_variable) | **DELETE** /api/v1/synthetics/variables/{variable_id} | Delete a global variable
 *DatadogAPIClient::V1::SyntheticsAPI* | [**delete_private_location**](SyntheticsAPI.md#delete_private_location) | **DELETE** /api/v1/synthetics/private-locations/{location_id} | Delete a private location
 *DatadogAPIClient::V1::SyntheticsAPI* | [**delete_tests**](SyntheticsAPI.md#delete_tests) | **POST** /api/v1/synthetics/tests/delete | Delete tests
@@ -173,7 +172,6 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::SyntheticsAPI* | [**update_api_test**](SyntheticsAPI.md#update_api_test) | **PUT** /api/v1/synthetics/tests/api/{public_id} | Edit an API test
 *DatadogAPIClient::V1::SyntheticsAPI* | [**update_browser_test**](SyntheticsAPI.md#update_browser_test) | **PUT** /api/v1/synthetics/tests/browser/{public_id} | Edit a browser test
 *DatadogAPIClient::V1::SyntheticsAPI* | [**update_private_location**](SyntheticsAPI.md#update_private_location) | **PUT** /api/v1/synthetics/private-locations/{location_id} | Edit a private location
-*DatadogAPIClient::V1::SyntheticsAPI* | [**update_test**](SyntheticsAPI.md#update_test) | **PUT** /api/v1/synthetics/tests/{public_id} | Edit a test
 *DatadogAPIClient::V1::SyntheticsAPI* | [**update_test_pause_status**](SyntheticsAPI.md#update_test_pause_status) | **PUT** /api/v1/synthetics/tests/{public_id}/status | Pause or start a test
 *DatadogAPIClient::V1::TagsAPI* | [**create_host_tags**](TagsAPI.md#create_host_tags) | **POST** /api/v1/tags/hosts/{host_name} | Add tags to a host
 *DatadogAPIClient::V1::TagsAPI* | [**delete_host_tags**](TagsAPI.md#delete_host_tags) | **DELETE** /api/v1/tags/hosts/{host_name} | Remove host tags

@@ -8,7 +8,6 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**create_private_location**](SyntheticsAPI.md#create_private_location) | **POST** /api/v1/synthetics/private-locations | Create a private location |
 | [**create_synthetics_api_test**](SyntheticsAPI.md#create_synthetics_api_test) | **POST** /api/v1/synthetics/tests/api | Create an API test |
 | [**create_synthetics_browser_test**](SyntheticsAPI.md#create_synthetics_browser_test) | **POST** /api/v1/synthetics/tests/browser | Create a browser test |
-| [**create_test**](SyntheticsAPI.md#create_test) | **POST** /api/v1/synthetics/tests | Create a test |
 | [**delete_global_variable**](SyntheticsAPI.md#delete_global_variable) | **DELETE** /api/v1/synthetics/variables/{variable_id} | Delete a global variable |
 | [**delete_private_location**](SyntheticsAPI.md#delete_private_location) | **DELETE** /api/v1/synthetics/private-locations/{location_id} | Delete a private location |
 | [**delete_tests**](SyntheticsAPI.md#delete_tests) | **POST** /api/v1/synthetics/tests/delete | Delete tests |
@@ -28,7 +27,6 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**update_api_test**](SyntheticsAPI.md#update_api_test) | **PUT** /api/v1/synthetics/tests/api/{public_id} | Edit an API test |
 | [**update_browser_test**](SyntheticsAPI.md#update_browser_test) | **PUT** /api/v1/synthetics/tests/browser/{public_id} | Edit a browser test |
 | [**update_private_location**](SyntheticsAPI.md#update_private_location) | **PUT** /api/v1/synthetics/private-locations/{location_id} | Edit a private location |
-| [**update_test**](SyntheticsAPI.md#update_test) | **PUT** /api/v1/synthetics/tests/{public_id} | Edit a test |
 | [**update_test_pause_status**](SyntheticsAPI.md#update_test_pause_status) | **PUT** /api/v1/synthetics/tests/{public_id}/status | Pause or start a test |
 
 
@@ -269,68 +267,6 @@ end
 ### Return type
 
 [**SyntheticsBrowserTest**](SyntheticsBrowserTest.md)
-
-### Authorization
-
-[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## create_test
-
-> <SyntheticsTestDetails> create_test(body)
-
-Create a test
-
-Create a Synthetic test.
-
-### Examples
-
-```ruby
-require 'datadog_api_client'
-api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
-body = DatadogAPIClient::V1::SyntheticsTestDetails.new # SyntheticsTestDetails | Details of the test to create.
-
-begin
-  # Create a test
-  result = api_instance.create_test(body)
-  p result
-rescue DatadogAPIClient::V1::APIError => e
-  puts "Error when calling SyntheticsAPI->create_test: #{e}"
-end
-```
-
-#### Using the create_test_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<SyntheticsTestDetails>, Integer, Hash)> create_test_with_http_info(body)
-
-```ruby
-begin
-  # Create a test
-  data, status_code, headers = api_instance.create_test_with_http_info(body)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <SyntheticsTestDetails>
-rescue DatadogAPIClient::V1::APIError => e
-  puts "Error when calling SyntheticsAPI->create_test_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**SyntheticsTestDetails**](SyntheticsTestDetails.md) | Details of the test to create. |  |
-
-### Return type
-
-[**SyntheticsTestDetails**](SyntheticsTestDetails.md)
 
 ### Authorization
 
@@ -1529,70 +1465,6 @@ end
 ### Return type
 
 [**SyntheticsPrivateLocation**](SyntheticsPrivateLocation.md)
-
-### Authorization
-
-[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## update_test
-
-> <SyntheticsTestDetails> update_test(public_id, body)
-
-Edit a test
-
-Edit the configuration of a Synthetic test.
-
-### Examples
-
-```ruby
-require 'datadog_api_client'
-api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
-public_id = 'public_id_example' # String | The public ID of the test to get details from.
-body = DatadogAPIClient::V1::SyntheticsTestDetails.new # SyntheticsTestDetails | New test details to be saved.
-
-begin
-  # Edit a test
-  result = api_instance.update_test(public_id, body)
-  p result
-rescue DatadogAPIClient::V1::APIError => e
-  puts "Error when calling SyntheticsAPI->update_test: #{e}"
-end
-```
-
-#### Using the update_test_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<SyntheticsTestDetails>, Integer, Hash)> update_test_with_http_info(public_id, body)
-
-```ruby
-begin
-  # Edit a test
-  data, status_code, headers = api_instance.update_test_with_http_info(public_id, body)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <SyntheticsTestDetails>
-rescue DatadogAPIClient::V1::APIError => e
-  puts "Error when calling SyntheticsAPI->update_test_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **public_id** | **String** | The public ID of the test to get details from. |  |
-| **body** | [**SyntheticsTestDetails**](SyntheticsTestDetails.md) | New test details to be saved. |  |
-
-### Return type
-
-[**SyntheticsTestDetails**](SyntheticsTestDetails.md)
 
 ### Authorization
 
