@@ -58,6 +58,9 @@ module DatadogAPIClient::V1
     # Contains the total number of hosts reported by Datadog exporter for the OpenTelemetry Collector.
     attr_accessor :opentelemetry_host_count
 
+    # Contains the total number of hosts that reported via vSphere integration (and were NOT running the Datadog Agent).
+    attr_accessor :vsphere_host_count
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -73,7 +76,8 @@ module DatadogAPIClient::V1
         :'host_count' => :'host_count',
         :'hour' => :'hour',
         :'infra_azure_app_service' => :'infra_azure_app_service',
-        :'opentelemetry_host_count' => :'opentelemetry_host_count'
+        :'opentelemetry_host_count' => :'opentelemetry_host_count',
+        :'vsphere_host_count' => :'vsphere_host_count'
       }
     end
 
@@ -97,7 +101,8 @@ module DatadogAPIClient::V1
         :'host_count' => :'Integer',
         :'hour' => :'Time',
         :'infra_azure_app_service' => :'Integer',
-        :'opentelemetry_host_count' => :'Integer'
+        :'opentelemetry_host_count' => :'Integer',
+        :'vsphere_host_count' => :'Integer'
       }
     end
 
@@ -173,6 +178,10 @@ module DatadogAPIClient::V1
       if attributes.key?(:'opentelemetry_host_count')
         self.opentelemetry_host_count = attributes[:'opentelemetry_host_count']
       end
+
+      if attributes.key?(:'vsphere_host_count')
+        self.vsphere_host_count = attributes[:'vsphere_host_count']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -205,7 +214,8 @@ module DatadogAPIClient::V1
           host_count == o.host_count &&
           hour == o.hour &&
           infra_azure_app_service == o.infra_azure_app_service &&
-          opentelemetry_host_count == o.opentelemetry_host_count
+          opentelemetry_host_count == o.opentelemetry_host_count &&
+          vsphere_host_count == o.vsphere_host_count
     end
 
     # @see the `==` method
@@ -217,7 +227,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_host_count, alibaba_host_count, apm_azure_app_service_host_count, apm_host_count, aws_host_count, azure_host_count, container_count, gcp_host_count, heroku_host_count, host_count, hour, infra_azure_app_service, opentelemetry_host_count].hash
+      [agent_host_count, alibaba_host_count, apm_azure_app_service_host_count, apm_host_count, aws_host_count, azure_host_count, container_count, gcp_host_count, heroku_host_count, host_count, hour, infra_azure_app_service, opentelemetry_host_count, vsphere_host_count].hash
     end
 
     # Builds the object from hash

@@ -50,6 +50,7 @@
 | **trace_search_indexed_events_count_agg_sum** | **Integer** | Shows the sum of all Indexed Spans indexed over all hours in the current months for all organizations. | [optional] |
 | **twol_ingested_events_bytes_agg_sum** | **Integer** | Shows the sum of all tracing without limits bytes ingested over all hours in the current months for all organizations. | [optional] |
 | **usage** | [**Array&lt;UsageSummaryDate&gt;**](UsageSummaryDate.md) | An array of objects regarding hourly usage. | [optional] |
+| **vsphere_host_top99p_sum** | **Integer** | Shows the 99th percentile of all vSphere hosts over all hours in the current months for all organizations. | [optional] |
 
 ## Example
 
@@ -102,7 +103,8 @@ instance = DatadogAPIClient::V1::UsageSummaryResponse.new(
   synthetics_check_calls_count_agg_sum: null,
   trace_search_indexed_events_count_agg_sum: null,
   twol_ingested_events_bytes_agg_sum: null,
-  usage: null
+  usage: null,
+  vsphere_host_top99p_sum: null
 )
 ```
 

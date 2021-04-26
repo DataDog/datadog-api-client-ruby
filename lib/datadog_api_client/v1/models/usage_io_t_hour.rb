@@ -22,7 +22,7 @@ module DatadogAPIClient::V1
     # The hour for the usage.
     attr_accessor :hour
 
-    # The total number of IoT device hours from the start of the given hour's month until the given hour.
+    # The total number of IoT devices during a given hour.
     attr_accessor :iot_device_count
 
     # Attribute mapping from ruby-style variable name to JSON key.

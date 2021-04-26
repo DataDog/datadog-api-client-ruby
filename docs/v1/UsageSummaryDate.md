@@ -21,19 +21,19 @@
 | **fargate_tasks_count_avg** | **Integer** | Shows the high-watermark of all Fargate tasks over all hours in the current date for all organizations. | [optional] |
 | **fargate_tasks_count_hwm** | **Integer** | Shows the average of all Fargate tasks over all hours in the current date for all organizations. | [optional] |
 | **gcp_host_top99p** | **Integer** | Shows the 99th percentile of all GCP hosts over all hours in the current date for all organizations. | [optional] |
-| **heroku_host_top99p_sum** | **Integer** | Shows the 99th percentile of all Heroku dynos over all hours in the current date for all organizations. | [optional] |
+| **heroku_host_top99p** | **Integer** | Shows the 99th percentile of all Heroku dynos over all hours in the current date for all organizations. | [optional] |
 | **incident_management_monthly_active_users_hwm** | **Integer** | Shows the high-water mark of incident management monthly active users over all hours in the current date for all organizations. | [optional] |
 | **indexed_events_count_sum** | **Integer** | Shows the sum of all log events indexed over all hours in the current date for all organizations. | [optional] |
 | **infra_host_top99p** | **Integer** | Shows the 99th percentile of all distinct infrastructure hosts over all hours in the current date for all organizations. | [optional] |
 | **ingested_events_bytes_sum** | **Integer** | Shows the sum of all log bytes ingested over all hours in the current date for all organizations. | [optional] |
-| **iot_device_agg_sum** | **Integer** | Shows the sum of all IoT devices over all hours in the current date for all organizations. | [optional] |
-| **iot_device_top99p_sum** | **Integer** | Shows the 99th percentile of all IoT devices over all hours in the current date all organizations. | [optional] |
+| **iot_device_sum** | **Integer** | Shows the sum of all IoT devices over all hours in the current date for all organizations. | [optional] |
+| **iot_device_top99p** | **Integer** | Shows the 99th percentile of all IoT devices over all hours in the current date all organizations. | [optional] |
 | **mobile_rum_session_count_android_sum** | **Integer** | Shows the sum of all mobile RUM Sessions on Android over all hours in the current date for all organizations. | [optional] |
 | **mobile_rum_session_count_ios_sum** | **Integer** | Shows the sum of all mobile RUM Sessions on iOS over all hours in the current date for all organizations. | [optional] |
 | **mobile_rum_session_count_sum** | **Integer** | Shows the sum of all mobile RUM Sessions over all hours in the current date for all organizations | [optional] |
 | **netflow_indexed_events_count_sum** | **Integer** | Shows the sum of all Network flows indexed over all hours in the current date for all organizations. | [optional] |
 | **npm_host_top99p** | **Integer** | Shows the 99th percentile of all distinct Networks hosts over all hours in the current date for all organizations. | [optional] |
-| **opentelemetry_host_top99p_sum** | **Integer** | Shows the 99th percentile of all hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for all organizations. | [optional] |
+| **opentelemetry_host_top99p** | **Integer** | Shows the 99th percentile of all hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for all organizations. | [optional] |
 | **orgs** | [**Array&lt;UsageSummaryDateOrg&gt;**](UsageSummaryDateOrg.md) | Organizations associated with a user. | [optional] |
 | **profiling_host_top99p** | **Integer** | Shows the 99th percentile of all profiled hosts over all hours in the current date for all organizations. | [optional] |
 | **rum_session_count_sum** | **Integer** | Shows the sum of all browser RUM Sessions over all hours in the current date for all organizations | [optional] |
@@ -42,6 +42,7 @@
 | **synthetics_check_calls_count_sum** | **Integer** | Shows the sum of all Synthetic API tests over all hours in the current date for all organizations. | [optional] |
 | **trace_search_indexed_events_count_sum** | **Integer** | Shows the sum of all Indexed Spans indexed over all hours in the current date for all organizations. | [optional] |
 | **twol_ingested_events_bytes_sum** | **Integer** | Shows the sum of all tracing without limits bytes ingested over all hours in the current date for all organizations. | [optional] |
+| **vsphere_host_top99p** | **Integer** | Shows the 99th percentile of all vSphere hosts over all hours in the current date for all organizations. | [optional] |
 
 ## Example
 
@@ -66,19 +67,19 @@ instance = DatadogAPIClient::V1::UsageSummaryDate.new(
   fargate_tasks_count_avg: null,
   fargate_tasks_count_hwm: null,
   gcp_host_top99p: null,
-  heroku_host_top99p_sum: null,
+  heroku_host_top99p: null,
   incident_management_monthly_active_users_hwm: null,
   indexed_events_count_sum: null,
   infra_host_top99p: null,
   ingested_events_bytes_sum: null,
-  iot_device_agg_sum: null,
-  iot_device_top99p_sum: null,
+  iot_device_sum: null,
+  iot_device_top99p: null,
   mobile_rum_session_count_android_sum: null,
   mobile_rum_session_count_ios_sum: null,
   mobile_rum_session_count_sum: null,
   netflow_indexed_events_count_sum: null,
   npm_host_top99p: null,
-  opentelemetry_host_top99p_sum: null,
+  opentelemetry_host_top99p: null,
   orgs: null,
   profiling_host_top99p: null,
   rum_session_count_sum: null,
@@ -86,7 +87,8 @@ instance = DatadogAPIClient::V1::UsageSummaryDate.new(
   synthetics_browser_check_calls_count_sum: null,
   synthetics_check_calls_count_sum: null,
   trace_search_indexed_events_count_sum: null,
-  twol_ingested_events_bytes_sum: null
+  twol_ingested_events_bytes_sum: null,
+  vsphere_host_top99p: null
 )
 ```
 

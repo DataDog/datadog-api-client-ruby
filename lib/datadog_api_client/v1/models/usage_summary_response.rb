@@ -157,6 +157,9 @@ module DatadogAPIClient::V1
     # An array of objects regarding hourly usage.
     attr_accessor :usage
 
+    # Shows the 99th percentile of all vSphere hosts over all hours in the current months for all organizations.
+    attr_accessor :vsphere_host_top99p_sum
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -205,7 +208,8 @@ module DatadogAPIClient::V1
         :'synthetics_check_calls_count_agg_sum' => :'synthetics_check_calls_count_agg_sum',
         :'trace_search_indexed_events_count_agg_sum' => :'trace_search_indexed_events_count_agg_sum',
         :'twol_ingested_events_bytes_agg_sum' => :'twol_ingested_events_bytes_agg_sum',
-        :'usage' => :'usage'
+        :'usage' => :'usage',
+        :'vsphere_host_top99p_sum' => :'vsphere_host_top99p_sum'
       }
     end
 
@@ -262,7 +266,8 @@ module DatadogAPIClient::V1
         :'synthetics_check_calls_count_agg_sum' => :'Integer',
         :'trace_search_indexed_events_count_agg_sum' => :'Integer',
         :'twol_ingested_events_bytes_agg_sum' => :'Integer',
-        :'usage' => :'Array<UsageSummaryDate>'
+        :'usage' => :'Array<UsageSummaryDate>',
+        :'vsphere_host_top99p_sum' => :'Integer'
       }
     end
 
@@ -473,6 +478,10 @@ module DatadogAPIClient::V1
           self.usage = value
         end
       end
+
+      if attributes.key?(:'vsphere_host_top99p_sum')
+        self.vsphere_host_top99p_sum = attributes[:'vsphere_host_top99p_sum']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -538,7 +547,8 @@ module DatadogAPIClient::V1
           synthetics_check_calls_count_agg_sum == o.synthetics_check_calls_count_agg_sum &&
           trace_search_indexed_events_count_agg_sum == o.trace_search_indexed_events_count_agg_sum &&
           twol_ingested_events_bytes_agg_sum == o.twol_ingested_events_bytes_agg_sum &&
-          usage == o.usage
+          usage == o.usage &&
+          vsphere_host_top99p_sum == o.vsphere_host_top99p_sum
     end
 
     # @see the `==` method
@@ -550,7 +560,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_host_top99p_sum, apm_azure_app_service_host_top99p_sum, apm_host_top99p_sum, aws_host_top99p_sum, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p_sum, azure_host_top99p_sum, billable_ingested_bytes_agg_sum, compliance_container_agg_sum, compliance_host_agg_sum, container_avg_sum, container_hwm_sum, custom_ts_sum, end_date, fargate_tasks_count_avg_sum, fargate_tasks_count_hwm_sum, gcp_host_top99p_sum, heroku_host_top99p_sum, incident_management_monthly_active_users_hwm_sum, indexed_events_count_agg_sum, infra_host_top99p_sum, ingested_events_bytes_agg_sum, iot_device_agg_sum, iot_device_top99p_sum, last_updated, live_indexed_events_agg_sum, live_ingested_bytes_agg_sum, mobile_rum_session_count_agg_sum, mobile_rum_session_count_android_agg_sum, mobile_rum_session_count_ios_agg_sum, netflow_indexed_events_count_agg_sum, npm_host_top99p_sum, opentelemetry_host_top99p_sum, profiling_container_agent_count_avg, profiling_host_count_top99p_sum, rehydrated_indexed_events_agg_sum, rehydrated_ingested_bytes_agg_sum, rum_session_count_agg_sum, rum_total_session_count_agg_sum, start_date, synthetics_browser_check_calls_count_agg_sum, synthetics_check_calls_count_agg_sum, trace_search_indexed_events_count_agg_sum, twol_ingested_events_bytes_agg_sum, usage].hash
+      [agent_host_top99p_sum, apm_azure_app_service_host_top99p_sum, apm_host_top99p_sum, aws_host_top99p_sum, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p_sum, azure_host_top99p_sum, billable_ingested_bytes_agg_sum, compliance_container_agg_sum, compliance_host_agg_sum, container_avg_sum, container_hwm_sum, custom_ts_sum, end_date, fargate_tasks_count_avg_sum, fargate_tasks_count_hwm_sum, gcp_host_top99p_sum, heroku_host_top99p_sum, incident_management_monthly_active_users_hwm_sum, indexed_events_count_agg_sum, infra_host_top99p_sum, ingested_events_bytes_agg_sum, iot_device_agg_sum, iot_device_top99p_sum, last_updated, live_indexed_events_agg_sum, live_ingested_bytes_agg_sum, mobile_rum_session_count_agg_sum, mobile_rum_session_count_android_agg_sum, mobile_rum_session_count_ios_agg_sum, netflow_indexed_events_count_agg_sum, npm_host_top99p_sum, opentelemetry_host_top99p_sum, profiling_container_agent_count_avg, profiling_host_count_top99p_sum, rehydrated_indexed_events_agg_sum, rehydrated_ingested_bytes_agg_sum, rum_session_count_agg_sum, rum_total_session_count_agg_sum, start_date, synthetics_browser_check_calls_count_agg_sum, synthetics_check_calls_count_agg_sum, trace_search_indexed_events_count_agg_sum, twol_ingested_events_bytes_agg_sum, usage, vsphere_host_top99p_sum].hash
     end
 
     # Builds the object from hash
