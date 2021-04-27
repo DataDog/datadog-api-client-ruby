@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   class MetricTagConfigurationMetricTypes
     GAUGE = "gauge".freeze
     COUNT = "count".freeze
+    RATE = "rate".freeze
     DISTRIBUTION = "distribution".freeze
 
     # Builds the enum from string
