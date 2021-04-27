@@ -40,11 +40,17 @@ module DatadogAPIClient::V1
     # Determines whether or not to save the response body.
     attr_accessor :no_saving_response_body
 
+    # Number of pings to use per test.
+    attr_accessor :number_of_packets
+
     # Port to use when performing the test.
     attr_accessor :port
 
     # Query to use for the test.
     attr_accessor :query
+
+    # Turns on a traceroute probe to discover all gateways along the path to the host destination.
+    attr_accessor :should_track_hops
 
     # Timeout in seconds for the test.
     attr_accessor :timeout
@@ -63,8 +69,10 @@ module DatadogAPIClient::V1
         :'host' => :'host',
         :'method' => :'method',
         :'no_saving_response_body' => :'noSavingResponseBody',
+        :'number_of_packets' => :'numberOfPackets',
         :'port' => :'port',
         :'query' => :'query',
+        :'should_track_hops' => :'shouldTrackHops',
         :'timeout' => :'timeout',
         :'url' => :'url'
       }
@@ -86,8 +94,10 @@ module DatadogAPIClient::V1
         :'host' => :'String',
         :'method' => :'HTTPMethod',
         :'no_saving_response_body' => :'Boolean',
+        :'number_of_packets' => :'Integer',
         :'port' => :'Integer',
         :'query' => :'Object',
+        :'should_track_hops' => :'Boolean',
         :'timeout' => :'Float',
         :'url' => :'String'
       }
@@ -148,12 +158,20 @@ module DatadogAPIClient::V1
         self.no_saving_response_body = attributes[:'no_saving_response_body']
       end
 
+      if attributes.key?(:'number_of_packets')
+        self.number_of_packets = attributes[:'number_of_packets']
+      end
+
       if attributes.key?(:'port')
         self.port = attributes[:'port']
       end
 
       if attributes.key?(:'query')
         self.query = attributes[:'query']
+      end
+
+      if attributes.key?(:'should_track_hops')
+        self.should_track_hops = attributes[:'should_track_hops']
       end
 
       if attributes.key?(:'timeout')
@@ -169,13 +187,37 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@number_of_packets.nil? && @number_of_packets > 10
+        invalid_properties.push('invalid value for "number_of_packets", must be smaller than or equal to 10.')
+      end
+
+      if !@number_of_packets.nil? && @number_of_packets < 0
+        invalid_properties.push('invalid value for "number_of_packets", must be greater than or equal to 0.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@number_of_packets.nil? && @number_of_packets > 10
+      return false if !@number_of_packets.nil? && @number_of_packets < 0
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] number_of_packets Value to be assigned
+    def number_of_packets=(number_of_packets)
+      if !number_of_packets.nil? && number_of_packets > 10
+        fail ArgumentError, 'invalid value for "number_of_packets", must be smaller than or equal to 10.'
+      end
+
+      if !number_of_packets.nil? && number_of_packets < 0
+        fail ArgumentError, 'invalid value for "number_of_packets", must be greater than or equal to 0.'
+      end
+
+      @number_of_packets = number_of_packets
     end
 
     # Checks equality by comparing each attribute.
@@ -191,8 +233,10 @@ module DatadogAPIClient::V1
           host == o.host &&
           method == o.method &&
           no_saving_response_body == o.no_saving_response_body &&
+          number_of_packets == o.number_of_packets &&
           port == o.port &&
           query == o.query &&
+          should_track_hops == o.should_track_hops &&
           timeout == o.timeout &&
           url == o.url
     end
@@ -206,7 +250,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [basic_auth, body, certificate, dns_server, headers, host, method, no_saving_response_body, port, query, timeout, url].hash
+      [basic_auth, body, certificate, dns_server, headers, host, method, no_saving_response_body, number_of_packets, port, query, should_track_hops, timeout, url].hash
     end
 
     # Builds the object from hash
