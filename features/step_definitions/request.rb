@@ -148,7 +148,12 @@ Given('operation {string} enabled') do |name|
   configuration.unstable_operations[name.snakecase.to_sym] = true
 end
 
-Given(/^body (.*)$/) do |body|
+Given(/^body with value (.*)$/) do |body|
+  opts[:body] = JSON.parse(body.templated fixtures)
+end
+
+Given(/^body from file "(.*)"$/) do |file|
+  body = File.read(File.join(__dir__, ["..", "v" + @api_version, file]))
   opts[:body] = JSON.parse(body.templated fixtures)
 end
 
