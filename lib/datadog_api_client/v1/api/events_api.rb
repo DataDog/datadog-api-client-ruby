@@ -171,14 +171,16 @@ module DatadogAPIClient::V1
     end
 
     # Query the event stream
-    # The event stream can be queried and filtered by time, priority, sources and tags.  **Notes**: - If the event you’re querying contains markdown formatting of any kind, you may see characters such as `%`,`\\`,`n` in your output.  - This endpoint returns a maximum of `1000` most recent results. To return additional results, identify the last timestamp of the last result and set that as the `end` query time to paginate the results.
+    # The event stream can be queried and filtered by time, priority, sources and tags.  **Notes**: - If the event you’re querying contains markdown formatting of any kind, you may see characters such as `%`,`\\`,`n` in your output.  - This endpoint returns a maximum of `1000` most recent results. To return additional results, identify the last timestamp of the last result and set that as the `end` query time to paginate the results. You can also use the page parameter to specify which set of `1000` results to return.
     # @param start [Integer] POSIX timestamp.
     # @param _end [Integer] POSIX timestamp.
     # @param [Hash] opts the optional parameters
     # @option opts [EventPriority] :priority Priority of your events, either &#x60;low&#x60; or &#x60;normal&#x60;.
     # @option opts [String] :sources A comma separated string of sources.
     # @option opts [String] :tags A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope.
-    # @option opts [Boolean] :unaggregated Set unaggregated to &#x60;true&#x60; to return all events within the specified [&#x60;start&#x60;,&#x60;end&#x60;] timeframe. Otherwise if an event is aggregated to a parent event with a timestamp outside of the timeframe, it won&#39;t be available in the output.
+    # @option opts [Boolean] :unaggregated Set unaggregated to &#x60;true&#x60; to return all events within the specified [&#x60;start&#x60;,&#x60;end&#x60;] timeframe. Otherwise if an event is aggregated to a parent event with a timestamp outside of the timeframe, it won&#39;t be available in the output. Aggregated events with &#x60;is_aggregate&#x3D;true&#x60; in the response will still be returned unless exclude_aggregate is set to &#x60;true.&#x60;
+    # @option opts [Boolean] :exclude_aggregate Set &#x60;exclude_aggregate&#x60; to &#x60;true&#x60; to only return unaggregated events where &#x60;is_aggregate&#x3D;false&#x60; in the response. If the &#x60;exclude_aggregate&#x60; parameter is set to &#x60;true&#x60;, then the unaggregated parameter is ignored and will be &#x60;true&#x60; by default.
+    # @option opts [Integer] :page By default 1000 results are returned per request. Set page to the number of the page to return with &#x60;0&#x60; being the first page. The page parameter can only be used when either unaggregated or exclude_aggregate is set to &#x60;true.&#x60;
     # @return [EventListResponse]
     def list_events(start, _end, opts = {})
       data, _status_code, _headers = list_events_with_http_info(start, _end, opts)
@@ -186,14 +188,16 @@ module DatadogAPIClient::V1
     end
 
     # Query the event stream
-    # The event stream can be queried and filtered by time, priority, sources and tags.  **Notes**: - If the event you’re querying contains markdown formatting of any kind, you may see characters such as &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output.  - This endpoint returns a maximum of &#x60;1000&#x60; most recent results. To return additional results, identify the last timestamp of the last result and set that as the &#x60;end&#x60; query time to paginate the results.
+    # The event stream can be queried and filtered by time, priority, sources and tags.  **Notes**: - If the event you’re querying contains markdown formatting of any kind, you may see characters such as &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output.  - This endpoint returns a maximum of &#x60;1000&#x60; most recent results. To return additional results, identify the last timestamp of the last result and set that as the &#x60;end&#x60; query time to paginate the results. You can also use the page parameter to specify which set of &#x60;1000&#x60; results to return.
     # @param start [Integer] POSIX timestamp.
     # @param _end [Integer] POSIX timestamp.
     # @param [Hash] opts the optional parameters
     # @option opts [EventPriority] :priority Priority of your events, either &#x60;low&#x60; or &#x60;normal&#x60;.
     # @option opts [String] :sources A comma separated string of sources.
     # @option opts [String] :tags A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope.
-    # @option opts [Boolean] :unaggregated Set unaggregated to &#x60;true&#x60; to return all events within the specified [&#x60;start&#x60;,&#x60;end&#x60;] timeframe. Otherwise if an event is aggregated to a parent event with a timestamp outside of the timeframe, it won&#39;t be available in the output.
+    # @option opts [Boolean] :unaggregated Set unaggregated to &#x60;true&#x60; to return all events within the specified [&#x60;start&#x60;,&#x60;end&#x60;] timeframe. Otherwise if an event is aggregated to a parent event with a timestamp outside of the timeframe, it won&#39;t be available in the output. Aggregated events with &#x60;is_aggregate&#x3D;true&#x60; in the response will still be returned unless exclude_aggregate is set to &#x60;true.&#x60;
+    # @option opts [Boolean] :exclude_aggregate Set &#x60;exclude_aggregate&#x60; to &#x60;true&#x60; to only return unaggregated events where &#x60;is_aggregate&#x3D;false&#x60; in the response. If the &#x60;exclude_aggregate&#x60; parameter is set to &#x60;true&#x60;, then the unaggregated parameter is ignored and will be &#x60;true&#x60; by default.
+    # @option opts [Integer] :page By default 1000 results are returned per request. Set page to the number of the page to return with &#x60;0&#x60; being the first page. The page parameter can only be used when either unaggregated or exclude_aggregate is set to &#x60;true.&#x60;
     # @return [Array<(EventListResponse, Integer, Hash)>] EventListResponse data, response status code and response headers
     def list_events_with_http_info(start, _end, opts = {})
 
@@ -217,6 +221,10 @@ module DatadogAPIClient::V1
       if @api_client.config.client_side_validation && _end.nil?
         fail ArgumentError, "Missing the required parameter '_end' when calling EventsAPI.list_events"
       end
+      if @api_client.config.client_side_validation && !opts[:'page'].nil? && opts[:'page'] > 2147483647
+        fail ArgumentError, 'invalid value for "opts[:"page"]" when calling EventsAPI.list_events, must be smaller than or equal to 2147483647.'
+      end
+
       # resource path
       local_var_path = '/api/v1/events'
 
@@ -228,6 +236,8 @@ module DatadogAPIClient::V1
       query_params[:'sources'] = opts[:'sources'] if !opts[:'sources'].nil?
       query_params[:'tags'] = opts[:'tags'] if !opts[:'tags'].nil?
       query_params[:'unaggregated'] = opts[:'unaggregated'] if !opts[:'unaggregated'].nil?
+      query_params[:'exclude_aggregate'] = opts[:'exclude_aggregate'] if !opts[:'exclude_aggregate'].nil?
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
