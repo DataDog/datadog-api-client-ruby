@@ -153,7 +153,7 @@ Given(/^body with value (.*)$/) do |body|
 end
 
 Given(/^body from file "(.*)"$/) do |file|
-  body = File.read(File.join(__dir__, ["..", "v" + @api_version, file]))
+  body = File.read(File.join(__dir__, "..", "v" + @api_version, file))
   opts[:body] = JSON.parse(body.templated fixtures)
 end
 
