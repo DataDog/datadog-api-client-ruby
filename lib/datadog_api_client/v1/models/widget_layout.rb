@@ -17,10 +17,13 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The layout for a widget on a free dashboard.
+  # The layout for a widget on a `free` or **new dashboard layout** dashboard.
   class WidgetLayout
     # The height of the widget. Should be a non-negative integer.
     attr_accessor :height
+
+    # Whether the widget should be the first one on the second column in high density or not. **Note**: Only for the **new dashboard layout** and only one widget in the dashboard should have this property set to `true`.
+    attr_accessor :is_column_break
 
     # The width of the widget. Should be a non-negative integer.
     attr_accessor :width
@@ -35,6 +38,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'height' => :'height',
+        :'is_column_break' => :'is_column_break',
         :'width' => :'width',
         :'x' => :'x',
         :'y' => :'y'
@@ -50,6 +54,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'height' => :'Integer',
+        :'is_column_break' => :'Boolean',
         :'width' => :'Integer',
         :'x' => :'Integer',
         :'y' => :'Integer'
@@ -79,6 +84,12 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'height')
         self.height = attributes[:'height']
+      end
+
+      if attributes.key?(:'is_column_break')
+        self.is_column_break = attributes[:'is_column_break']
+      else
+        self.is_column_break = false
       end
 
       if attributes.key?(:'width')
@@ -209,6 +220,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           height == o.height &&
+          is_column_break == o.is_column_break &&
           width == o.width &&
           x == o.x &&
           y == o.y
@@ -223,7 +235,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [height, width, x, y].hash
+      [height, is_column_break, width, x, y].hash
     end
 
     # Builds the object from hash

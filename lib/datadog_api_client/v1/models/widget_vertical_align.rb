@@ -17,15 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  class WidgetImageSizing
-    FILL = "fill".freeze
-    CONTAIN = "contain".freeze
-    COVER = "cover".freeze
-    NONE = "none".freeze
-    SCALEDOWN = "scale-down".freeze
-    ZOOM = "zoom".freeze
-    FIT = "fit".freeze
+  class WidgetVerticalAlign
     CENTER = "center".freeze
+    TOP = "top".freeze
+    BOTTOM = "bottom".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
@@ -38,8 +33,8 @@ module DatadogAPIClient::V1
     # @param [String] The enum value in the form of the string
     # @return [String] The enum value
     def build_from_hash(value)
-      constantValues = WidgetImageSizing.constants.select { |c| WidgetImageSizing::const_get(c) == value }
-      raise "Invalid ENUM value #{value} for class #WidgetImageSizing" if constantValues.empty?
+      constantValues = WidgetVerticalAlign.constants.select { |c| WidgetVerticalAlign::const_get(c) == value }
+      raise "Invalid ENUM value #{value} for class #WidgetVerticalAlign" if constantValues.empty?
       value
     end
   end

@@ -19,6 +19,14 @@ require 'time'
 module DatadogAPIClient::V1
   # The image widget allows you to embed an image on your dashboard. An image can be a PNG, JPG, or animated GIF. Only available on FREE layout dashboards.
   class ImageWidgetDefinition
+    # Whether to display a background or not.
+    attr_accessor :has_background
+
+    # Whether to display a border or not.
+    attr_accessor :has_border
+
+    attr_accessor :horizontal_align
+
     attr_accessor :margin
 
     attr_accessor :sizing
@@ -28,13 +36,23 @@ module DatadogAPIClient::V1
     # URL of the image.
     attr_accessor :url
 
+    # URL of the image in dark mode.
+    attr_accessor :url_dark_theme
+
+    attr_accessor :vertical_align
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'has_background' => :'has_background',
+        :'has_border' => :'has_border',
+        :'horizontal_align' => :'horizontal_align',
         :'margin' => :'margin',
         :'sizing' => :'sizing',
         :'type' => :'type',
-        :'url' => :'url'
+        :'url' => :'url',
+        :'url_dark_theme' => :'url_dark_theme',
+        :'vertical_align' => :'vertical_align'
       }
     end
 
@@ -46,10 +64,15 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'has_background' => :'Boolean',
+        :'has_border' => :'Boolean',
+        :'horizontal_align' => :'WidgetHorizontalAlign',
         :'margin' => :'WidgetMargin',
         :'sizing' => :'WidgetImageSizing',
         :'type' => :'ImageWidgetDefinitionType',
-        :'url' => :'String'
+        :'url' => :'String',
+        :'url_dark_theme' => :'String',
+        :'vertical_align' => :'WidgetVerticalAlign'
       }
     end
 
@@ -74,6 +97,22 @@ module DatadogAPIClient::V1
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'has_background')
+        self.has_background = attributes[:'has_background']
+      else
+        self.has_background = true
+      end
+
+      if attributes.key?(:'has_border')
+        self.has_border = attributes[:'has_border']
+      else
+        self.has_border = true
+      end
+
+      if attributes.key?(:'horizontal_align')
+        self.horizontal_align = attributes[:'horizontal_align']
+      end
+
       if attributes.key?(:'margin')
         self.margin = attributes[:'margin']
       end
@@ -90,6 +129,14 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'url')
         self.url = attributes[:'url']
+      end
+
+      if attributes.key?(:'url_dark_theme')
+        self.url_dark_theme = attributes[:'url_dark_theme']
+      end
+
+      if attributes.key?(:'vertical_align')
+        self.vertical_align = attributes[:'vertical_align']
       end
     end
 
@@ -121,10 +168,15 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          has_background == o.has_background &&
+          has_border == o.has_border &&
+          horizontal_align == o.horizontal_align &&
           margin == o.margin &&
           sizing == o.sizing &&
           type == o.type &&
-          url == o.url
+          url == o.url &&
+          url_dark_theme == o.url_dark_theme &&
+          vertical_align == o.vertical_align
     end
 
     # @see the `==` method
@@ -136,7 +188,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [margin, sizing, type, url].hash
+      [has_background, has_border, horizontal_align, margin, sizing, type, url, url_dark_theme, vertical_align].hash
     end
 
     # Builds the object from hash

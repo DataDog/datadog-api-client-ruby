@@ -28,6 +28,9 @@ module DatadogAPIClient::V1
     # Size of the text.
     attr_accessor :font_size
 
+    # Whether to add padding or not.
+    attr_accessor :has_padding
+
     # Whether to show a tick or not.
     attr_accessor :show_tick
 
@@ -40,17 +43,21 @@ module DatadogAPIClient::V1
 
     attr_accessor :type
 
+    attr_accessor :vertical_align
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'background_color' => :'background_color',
         :'content' => :'content',
         :'font_size' => :'font_size',
+        :'has_padding' => :'has_padding',
         :'show_tick' => :'show_tick',
         :'text_align' => :'text_align',
         :'tick_edge' => :'tick_edge',
         :'tick_pos' => :'tick_pos',
-        :'type' => :'type'
+        :'type' => :'type',
+        :'vertical_align' => :'vertical_align'
       }
     end
 
@@ -65,11 +72,13 @@ module DatadogAPIClient::V1
         :'background_color' => :'String',
         :'content' => :'String',
         :'font_size' => :'String',
+        :'has_padding' => :'Boolean',
         :'show_tick' => :'Boolean',
         :'text_align' => :'WidgetTextAlign',
         :'tick_edge' => :'WidgetTickEdge',
         :'tick_pos' => :'String',
-        :'type' => :'NoteWidgetDefinitionType'
+        :'type' => :'NoteWidgetDefinitionType',
+        :'vertical_align' => :'WidgetVerticalAlign'
       }
     end
 
@@ -106,6 +115,12 @@ module DatadogAPIClient::V1
         self.font_size = attributes[:'font_size']
       end
 
+      if attributes.key?(:'has_padding')
+        self.has_padding = attributes[:'has_padding']
+      else
+        self.has_padding = true
+      end
+
       if attributes.key?(:'show_tick')
         self.show_tick = attributes[:'show_tick']
       end
@@ -126,6 +141,10 @@ module DatadogAPIClient::V1
         self.type = attributes[:'type']
       else
         self.type = 'note'
+      end
+
+      if attributes.key?(:'vertical_align')
+        self.vertical_align = attributes[:'vertical_align']
       end
     end
 
@@ -160,11 +179,13 @@ module DatadogAPIClient::V1
           background_color == o.background_color &&
           content == o.content &&
           font_size == o.font_size &&
+          has_padding == o.has_padding &&
           show_tick == o.show_tick &&
           text_align == o.text_align &&
           tick_edge == o.tick_edge &&
           tick_pos == o.tick_pos &&
-          type == o.type
+          type == o.type &&
+          vertical_align == o.vertical_align
     end
 
     # @see the `==` method
@@ -176,7 +197,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [background_color, content, font_size, show_tick, text_align, tick_edge, tick_pos, type].hash
+      [background_color, content, font_size, has_padding, show_tick, text_align, tick_edge, tick_pos, type, vertical_align].hash
     end
 
     # Builds the object from hash
