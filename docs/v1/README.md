@@ -705,6 +705,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::WidgetFormula](WidgetFormula.md)
  - [DatadogAPIClient::V1::WidgetFormulaLimit](WidgetFormulaLimit.md)
  - [DatadogAPIClient::V1::WidgetGrouping](WidgetGrouping.md)
+ - [DatadogAPIClient::V1::WidgetHorizontalAlign](WidgetHorizontalAlign.md)
  - [DatadogAPIClient::V1::WidgetImageSizing](WidgetImageSizing.md)
  - [DatadogAPIClient::V1::WidgetLayout](WidgetLayout.md)
  - [DatadogAPIClient::V1::WidgetLayoutType](WidgetLayoutType.md)
@@ -729,6 +730,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::WidgetTickEdge](WidgetTickEdge.md)
  - [DatadogAPIClient::V1::WidgetTime](WidgetTime.md)
  - [DatadogAPIClient::V1::WidgetTimeWindows](WidgetTimeWindows.md)
+ - [DatadogAPIClient::V1::WidgetVerticalAlign](WidgetVerticalAlign.md)
  - [DatadogAPIClient::V1::WidgetViewMode](WidgetViewMode.md)
  - [DatadogAPIClient::V1::WidgetVizType](WidgetVizType.md)
 

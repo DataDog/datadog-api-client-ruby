@@ -22,7 +22,13 @@ module DatadogAPIClient::V1
     # Background color of the group title.
     attr_accessor :background_color
 
+    # URL of image to display as a banner for the group.
+    attr_accessor :banner_img
+
     attr_accessor :layout_type
+
+    # Whether to show the title or not.
+    attr_accessor :show_title
 
     # Title of the widget.
     attr_accessor :title
@@ -38,7 +44,9 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'background_color' => :'background_color',
+        :'banner_img' => :'banner_img',
         :'layout_type' => :'layout_type',
+        :'show_title' => :'show_title',
         :'title' => :'title',
         :'title_align' => :'title_align',
         :'type' => :'type',
@@ -55,7 +63,9 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'background_color' => :'String',
+        :'banner_img' => :'String',
         :'layout_type' => :'WidgetLayoutType',
+        :'show_title' => :'Boolean',
         :'title' => :'String',
         :'title_align' => :'WidgetTextAlign',
         :'type' => :'GroupWidgetDefinitionType',
@@ -88,8 +98,18 @@ module DatadogAPIClient::V1
         self.background_color = attributes[:'background_color']
       end
 
+      if attributes.key?(:'banner_img')
+        self.banner_img = attributes[:'banner_img']
+      end
+
       if attributes.key?(:'layout_type')
         self.layout_type = attributes[:'layout_type']
+      end
+
+      if attributes.key?(:'show_title')
+        self.show_title = attributes[:'show_title']
+      else
+        self.show_title = true
       end
 
       if attributes.key?(:'title')
@@ -147,7 +167,9 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           background_color == o.background_color &&
+          banner_img == o.banner_img &&
           layout_type == o.layout_type &&
+          show_title == o.show_title &&
           title == o.title &&
           title_align == o.title_align &&
           type == o.type &&
@@ -163,7 +185,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [background_color, layout_type, title, title_align, type, widgets].hash
+      [background_color, banner_img, layout_type, show_title, title, title_align, type, widgets].hash
     end
 
     # Builds the object from hash
