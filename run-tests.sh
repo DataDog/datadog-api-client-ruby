@@ -18,10 +18,4 @@ if [ "$RERECORD_FAILED_TESTS" == "true" ] && [ "$CUCUMBER_RESULT" -ne "0" ]; the
     CUCUMBER_RESULT=$?
 fi
 
-# Always run integration-only scenarios
-set -e
-if [ "$RECORD" != "none" ] && [ -n "$DD_TEST_CLIENT_API_KEY" ] && [ -n "$DD_TEST_CLIENT_APP_KEY" ]; then
-    RECORD=none bundle exec cucumber -t '@integration-only' -f pretty
-fi
-
 exit "$(($RSPEC_RESULT+$CUCUMBER_RESULT))"
