@@ -19,11 +19,17 @@ require 'time'
 module DatadogAPIClient::V1
   # The steps used in a Synthetics multistep API test.
   class SyntheticsAPIStep
+    # Determines whether or not to continue with test if this step fails.
+    attr_accessor :allow_failure
+
     # Array of assertions used for the test.
     attr_accessor :assertions
 
     # Array of values to parse and save as variables from the response.
     attr_accessor :extracted_values
+
+    # Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
+    attr_accessor :is_critical
 
     # The name of the step.
     attr_accessor :name
@@ -35,8 +41,10 @@ module DatadogAPIClient::V1
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'allow_failure' => :'allowFailure',
         :'assertions' => :'assertions',
         :'extracted_values' => :'extractedValues',
+        :'is_critical' => :'isCritical',
         :'name' => :'name',
         :'request' => :'request',
         :'subtype' => :'subtype'
@@ -51,8 +59,10 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'allow_failure' => :'Boolean',
         :'assertions' => :'Array<SyntheticsAssertion>',
         :'extracted_values' => :'Array<SyntheticsParsingOptions>',
+        :'is_critical' => :'Boolean',
         :'name' => :'String',
         :'request' => :'SyntheticsTestRequest',
         :'subtype' => :'SyntheticsAPIStepSubtype'
@@ -80,6 +90,10 @@ module DatadogAPIClient::V1
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'allow_failure')
+        self.allow_failure = attributes[:'allow_failure']
+      end
+
       if attributes.key?(:'assertions')
         if (value = attributes[:'assertions']).is_a?(Array)
           self.assertions = value
@@ -90,6 +104,10 @@ module DatadogAPIClient::V1
         if (value = attributes[:'extracted_values']).is_a?(Array)
           self.extracted_values = value
         end
+      end
+
+      if attributes.key?(:'is_critical')
+        self.is_critical = attributes[:'is_critical']
       end
 
       if attributes.key?(:'name')
@@ -123,8 +141,10 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          allow_failure == o.allow_failure &&
           assertions == o.assertions &&
           extracted_values == o.extracted_values &&
+          is_critical == o.is_critical &&
           name == o.name &&
           request == o.request &&
           subtype == o.subtype
@@ -139,7 +159,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [assertions, extracted_values, name, request, subtype].hash
+      [allow_failure, assertions, extracted_values, is_critical, name, request, subtype].hash
     end
 
     # Builds the object from hash
