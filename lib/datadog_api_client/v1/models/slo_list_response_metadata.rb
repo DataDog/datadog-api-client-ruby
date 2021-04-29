@@ -17,22 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # A response with one or more service level objective.
-  class SLOListResponse
-    # An array of service level objective objects.
-    attr_accessor :data
-
-    # An array of error messages. Each endpoint documents how/whether this field is used.
-    attr_accessor :errors
-
-    attr_accessor :metadata
+  # The metadata object containing additional information about the list of SLOs.
+  class SLOListResponseMetadata
+    attr_accessor :page
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'errors' => :'errors',
-        :'metadata' => :'metadata'
+        :'page' => :'page'
       }
     end
 
@@ -44,9 +36,7 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'data' => :'Array<ServiceLevelObjective>',
-        :'errors' => :'Array<String>',
-        :'metadata' => :'SLOListResponseMetadata'
+        :'page' => :'SLOListResponseMetadataPage'
       }
     end
 
@@ -60,31 +50,19 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SLOListResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SLOListResponseMetadata` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SLOListResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SLOListResponseMetadata`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
-      end
-
-      if attributes.key?(:'errors')
-        if (value = attributes[:'errors']).is_a?(Array)
-          self.errors = value
-        end
-      end
-
-      if attributes.key?(:'metadata')
-        self.metadata = attributes[:'metadata']
+      if attributes.key?(:'page')
+        self.page = attributes[:'page']
       end
     end
 
@@ -106,9 +84,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          errors == o.errors &&
-          metadata == o.metadata
+          page == o.page
     end
 
     # @see the `==` method
@@ -120,7 +96,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [data, errors, metadata].hash
+      [page].hash
     end
 
     # Builds the object from hash

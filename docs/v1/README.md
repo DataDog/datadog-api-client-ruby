@@ -479,6 +479,8 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::SLOHistoryResponseError](SLOHistoryResponseError.md)
  - [DatadogAPIClient::V1::SLOHistorySLIData](SLOHistorySLIData.md)
  - [DatadogAPIClient::V1::SLOListResponse](SLOListResponse.md)
+ - [DatadogAPIClient::V1::SLOListResponseMetadata](SLOListResponseMetadata.md)
+ - [DatadogAPIClient::V1::SLOListResponseMetadataPage](SLOListResponseMetadataPage.md)
  - [DatadogAPIClient::V1::SLOResponse](SLOResponse.md)
  - [DatadogAPIClient::V1::SLOThreshold](SLOThreshold.md)
  - [DatadogAPIClient::V1::SLOTimeframe](SLOTimeframe.md)
