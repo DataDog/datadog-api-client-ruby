@@ -24,6 +24,9 @@ module DatadogAPIClient::V1
 
     attr_accessor :request
 
+    # Cookies to be used for the request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+    attr_accessor :set_cookie
+
     # Array of variables used for the test steps.
     attr_accessor :variables
 
@@ -32,6 +35,7 @@ module DatadogAPIClient::V1
       {
         :'assertions' => :'assertions',
         :'request' => :'request',
+        :'set_cookie' => :'setCookie',
         :'variables' => :'variables'
       }
     end
@@ -46,6 +50,7 @@ module DatadogAPIClient::V1
       {
         :'assertions' => :'Array<SyntheticsAssertion>',
         :'request' => :'SyntheticsTestRequest',
+        :'set_cookie' => :'String',
         :'variables' => :'Array<SyntheticsBrowserVariable>'
       }
     end
@@ -79,6 +84,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'request')
         self.request = attributes[:'request']
+      end
+
+      if attributes.key?(:'set_cookie')
+        self.set_cookie = attributes[:'set_cookie']
       end
 
       if attributes.key?(:'variables')
@@ -118,6 +127,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           assertions == o.assertions &&
           request == o.request &&
+          set_cookie == o.set_cookie &&
           variables == o.variables
     end
 
@@ -130,7 +140,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [assertions, request, variables].hash
+      [assertions, request, set_cookie, variables].hash
     end
 
     # Builds the object from hash
