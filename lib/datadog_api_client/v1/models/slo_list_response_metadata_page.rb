@@ -17,22 +17,19 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # A response with one or more service level objective.
-  class SLOListResponse
-    # An array of service level objective objects.
-    attr_accessor :data
+  # The object containing information about the pages of the list of SLOs.
+  class SLOListResponseMetadataPage
+    # The total number of resources that could be retrieved ignoring the parameters and filters in the request.
+    attr_accessor :total_count
 
-    # An array of error messages. Each endpoint documents how/whether this field is used.
-    attr_accessor :errors
-
-    attr_accessor :metadata
+    # The total number of resources that match the parameters and filters in the request. This attribute can be used by a client to determine the total number of pages.
+    attr_accessor :total_filtered_count
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'errors' => :'errors',
-        :'metadata' => :'metadata'
+        :'total_count' => :'total_count',
+        :'total_filtered_count' => :'total_filtered_count'
       }
     end
 
@@ -44,9 +41,8 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'data' => :'Array<ServiceLevelObjective>',
-        :'errors' => :'Array<String>',
-        :'metadata' => :'SLOListResponseMetadata'
+        :'total_count' => :'Integer',
+        :'total_filtered_count' => :'Integer'
       }
     end
 
@@ -60,31 +56,23 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SLOListResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SLOListResponseMetadataPage` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SLOListResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SLOListResponseMetadataPage`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
+      if attributes.key?(:'total_count')
+        self.total_count = attributes[:'total_count']
       end
 
-      if attributes.key?(:'errors')
-        if (value = attributes[:'errors']).is_a?(Array)
-          self.errors = value
-        end
-      end
-
-      if attributes.key?(:'metadata')
-        self.metadata = attributes[:'metadata']
+      if attributes.key?(:'total_filtered_count')
+        self.total_filtered_count = attributes[:'total_filtered_count']
       end
     end
 
@@ -106,9 +94,8 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          errors == o.errors &&
-          metadata == o.metadata
+          total_count == o.total_count &&
+          total_filtered_count == o.total_filtered_count
     end
 
     # @see the `==` method
@@ -120,7 +107,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [data, errors, metadata].hash
+      [total_count, total_filtered_count].hash
     end
 
     # Builds the object from hash
