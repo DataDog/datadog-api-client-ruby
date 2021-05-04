@@ -19,13 +19,16 @@ require 'time'
 module DatadogAPIClient::V1
   # The Distribution visualization is another way of showing metrics aggregated across one or several tags, such as hosts. Unlike the heat map, a distribution graph’s x-axis is quantity rather than time.
   class DistributionWidgetDefinition
-    # Available legend sizes for a widget. Should be one of \"0\", \"2\", \"4\", \"8\", \"16\", or \"auto\".
+    # (Deprecated) The widget legend was replaced by a tooltip and sidebar.
     attr_accessor :legend_size
+
+    # List of markers.
+    attr_accessor :markers
 
     # Array of one request object to display in the widget.  See the dedicated [Request JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json)  to learn how to build the `REQUEST_SCHEMA`.
     attr_accessor :requests
 
-    # Whether or not to display the legend on this widget.
+    # (Deprecated) The widget legend was replaced by a tooltip and sidebar.
     attr_accessor :show_legend
 
     attr_accessor :time
@@ -40,17 +43,24 @@ module DatadogAPIClient::V1
 
     attr_accessor :type
 
+    attr_accessor :xaxis
+
+    attr_accessor :yaxis
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'legend_size' => :'legend_size',
+        :'markers' => :'markers',
         :'requests' => :'requests',
         :'show_legend' => :'show_legend',
         :'time' => :'time',
         :'title' => :'title',
         :'title_align' => :'title_align',
         :'title_size' => :'title_size',
-        :'type' => :'type'
+        :'type' => :'type',
+        :'xaxis' => :'xaxis',
+        :'yaxis' => :'yaxis'
       }
     end
 
@@ -63,13 +73,16 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'legend_size' => :'String',
+        :'markers' => :'Array<WidgetMarker>',
         :'requests' => :'Array<DistributionWidgetRequest>',
         :'show_legend' => :'Boolean',
         :'time' => :'WidgetTime',
         :'title' => :'String',
         :'title_align' => :'WidgetTextAlign',
         :'title_size' => :'String',
-        :'type' => :'DistributionWidgetDefinitionType'
+        :'type' => :'DistributionWidgetDefinitionType',
+        :'xaxis' => :'DistributionWidgetXAxis',
+        :'yaxis' => :'DistributionWidgetYAxis'
       }
     end
 
@@ -96,6 +109,12 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'legend_size')
         self.legend_size = attributes[:'legend_size']
+      end
+
+      if attributes.key?(:'markers')
+        if (value = attributes[:'markers']).is_a?(Array)
+          self.markers = value
+        end
       end
 
       if attributes.key?(:'requests')
@@ -128,6 +147,14 @@ module DatadogAPIClient::V1
         self.type = attributes[:'type']
       else
         self.type = 'distribution'
+      end
+
+      if attributes.key?(:'xaxis')
+        self.xaxis = attributes[:'xaxis']
+      end
+
+      if attributes.key?(:'yaxis')
+        self.yaxis = attributes[:'yaxis']
       end
     end
 
@@ -188,13 +215,16 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           legend_size == o.legend_size &&
+          markers == o.markers &&
           requests == o.requests &&
           show_legend == o.show_legend &&
           time == o.time &&
           title == o.title &&
           title_align == o.title_align &&
           title_size == o.title_size &&
-          type == o.type
+          type == o.type &&
+          xaxis == o.xaxis &&
+          yaxis == o.yaxis
     end
 
     # @see the `==` method
@@ -206,7 +236,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [legend_size, requests, show_legend, time, title, title_align, title_size, type].hash
+      [legend_size, markers, requests, show_legend, time, title, title_align, title_size, type, xaxis, yaxis].hash
     end
 
     # Builds the object from hash

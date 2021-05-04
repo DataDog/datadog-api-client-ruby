@@ -18,6 +18,9 @@ require 'time'
 
 module DatadogAPIClient::V1
   class WidgetMargin
+    SM = "sm".freeze
+    MD = "md".freeze
+    LG = "lg".freeze
     SMALL = "small".freeze
     LARGE = "large".freeze
 

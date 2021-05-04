@@ -25,11 +25,14 @@ module DatadogAPIClient::V1
     # An array of error messages. Each endpoint documents how/whether this field is used.
     attr_accessor :errors
 
+    attr_accessor :metadata
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'data' => :'data',
-        :'errors' => :'errors'
+        :'errors' => :'errors',
+        :'metadata' => :'metadata'
       }
     end
 
@@ -42,7 +45,8 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'data' => :'Array<ServiceLevelObjective>',
-        :'errors' => :'Array<String>'
+        :'errors' => :'Array<String>',
+        :'metadata' => :'SLOListResponseMetadata'
       }
     end
 
@@ -78,6 +82,10 @@ module DatadogAPIClient::V1
           self.errors = value
         end
       end
+
+      if attributes.key?(:'metadata')
+        self.metadata = attributes[:'metadata']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -99,7 +107,8 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           data == o.data &&
-          errors == o.errors
+          errors == o.errors &&
+          metadata == o.metadata
     end
 
     # @see the `==` method
@@ -111,7 +120,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [data, errors].hash
+      [data, errors, metadata].hash
     end
 
     # Builds the object from hash

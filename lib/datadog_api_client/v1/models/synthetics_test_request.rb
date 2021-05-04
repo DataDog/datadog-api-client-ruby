@@ -29,6 +29,9 @@ module DatadogAPIClient::V1
     # DNS server to use for DNS tests.
     attr_accessor :dns_server
 
+    # DNS server port to use for DNS tests.
+    attr_accessor :dns_server_port
+
     # Headers to include when performing the test.
     attr_accessor :headers
 
@@ -40,11 +43,17 @@ module DatadogAPIClient::V1
     # Determines whether or not to save the response body.
     attr_accessor :no_saving_response_body
 
+    # Number of pings to use per test.
+    attr_accessor :number_of_packets
+
     # Port to use when performing the test.
     attr_accessor :port
 
     # Query to use for the test.
     attr_accessor :query
+
+    # Turns on a traceroute probe to discover all gateways along the path to the host destination.
+    attr_accessor :should_track_hops
 
     # Timeout in seconds for the test.
     attr_accessor :timeout
@@ -59,12 +68,15 @@ module DatadogAPIClient::V1
         :'body' => :'body',
         :'certificate' => :'certificate',
         :'dns_server' => :'dnsServer',
+        :'dns_server_port' => :'dnsServerPort',
         :'headers' => :'headers',
         :'host' => :'host',
         :'method' => :'method',
         :'no_saving_response_body' => :'noSavingResponseBody',
+        :'number_of_packets' => :'numberOfPackets',
         :'port' => :'port',
         :'query' => :'query',
+        :'should_track_hops' => :'shouldTrackHops',
         :'timeout' => :'timeout',
         :'url' => :'url'
       }
@@ -82,12 +94,15 @@ module DatadogAPIClient::V1
         :'body' => :'String',
         :'certificate' => :'SyntheticsTestRequestCertificate',
         :'dns_server' => :'String',
+        :'dns_server_port' => :'Integer',
         :'headers' => :'Hash<String, String>',
         :'host' => :'String',
         :'method' => :'HTTPMethod',
         :'no_saving_response_body' => :'Boolean',
+        :'number_of_packets' => :'Integer',
         :'port' => :'Integer',
         :'query' => :'Object',
+        :'should_track_hops' => :'Boolean',
         :'timeout' => :'Float',
         :'url' => :'String'
       }
@@ -130,6 +145,10 @@ module DatadogAPIClient::V1
         self.dns_server = attributes[:'dns_server']
       end
 
+      if attributes.key?(:'dns_server_port')
+        self.dns_server_port = attributes[:'dns_server_port']
+      end
+
       if attributes.key?(:'headers')
         if (value = attributes[:'headers']).is_a?(Hash)
           self.headers = value
@@ -148,12 +167,20 @@ module DatadogAPIClient::V1
         self.no_saving_response_body = attributes[:'no_saving_response_body']
       end
 
+      if attributes.key?(:'number_of_packets')
+        self.number_of_packets = attributes[:'number_of_packets']
+      end
+
       if attributes.key?(:'port')
         self.port = attributes[:'port']
       end
 
       if attributes.key?(:'query')
         self.query = attributes[:'query']
+      end
+
+      if attributes.key?(:'should_track_hops')
+        self.should_track_hops = attributes[:'should_track_hops']
       end
 
       if attributes.key?(:'timeout')
@@ -169,13 +196,61 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@dns_server_port.nil? && @dns_server_port > 65535
+        invalid_properties.push('invalid value for "dns_server_port", must be smaller than or equal to 65535.')
+      end
+
+      if !@dns_server_port.nil? && @dns_server_port < 1
+        invalid_properties.push('invalid value for "dns_server_port", must be greater than or equal to 1.')
+      end
+
+      if !@number_of_packets.nil? && @number_of_packets > 10
+        invalid_properties.push('invalid value for "number_of_packets", must be smaller than or equal to 10.')
+      end
+
+      if !@number_of_packets.nil? && @number_of_packets < 0
+        invalid_properties.push('invalid value for "number_of_packets", must be greater than or equal to 0.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@dns_server_port.nil? && @dns_server_port > 65535
+      return false if !@dns_server_port.nil? && @dns_server_port < 1
+      return false if !@number_of_packets.nil? && @number_of_packets > 10
+      return false if !@number_of_packets.nil? && @number_of_packets < 0
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] dns_server_port Value to be assigned
+    def dns_server_port=(dns_server_port)
+      if !dns_server_port.nil? && dns_server_port > 65535
+        fail ArgumentError, 'invalid value for "dns_server_port", must be smaller than or equal to 65535.'
+      end
+
+      if !dns_server_port.nil? && dns_server_port < 1
+        fail ArgumentError, 'invalid value for "dns_server_port", must be greater than or equal to 1.'
+      end
+
+      @dns_server_port = dns_server_port
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] number_of_packets Value to be assigned
+    def number_of_packets=(number_of_packets)
+      if !number_of_packets.nil? && number_of_packets > 10
+        fail ArgumentError, 'invalid value for "number_of_packets", must be smaller than or equal to 10.'
+      end
+
+      if !number_of_packets.nil? && number_of_packets < 0
+        fail ArgumentError, 'invalid value for "number_of_packets", must be greater than or equal to 0.'
+      end
+
+      @number_of_packets = number_of_packets
     end
 
     # Checks equality by comparing each attribute.
@@ -187,12 +262,15 @@ module DatadogAPIClient::V1
           body == o.body &&
           certificate == o.certificate &&
           dns_server == o.dns_server &&
+          dns_server_port == o.dns_server_port &&
           headers == o.headers &&
           host == o.host &&
           method == o.method &&
           no_saving_response_body == o.no_saving_response_body &&
+          number_of_packets == o.number_of_packets &&
           port == o.port &&
           query == o.query &&
+          should_track_hops == o.should_track_hops &&
           timeout == o.timeout &&
           url == o.url
     end
@@ -206,7 +284,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [basic_auth, body, certificate, dns_server, headers, host, method, no_saving_response_body, port, query, timeout, url].hash
+      [basic_auth, body, certificate, dns_server, dns_server_port, headers, host, method, no_saving_response_body, number_of_packets, port, query, should_track_hops, timeout, url].hash
     end
 
     # Builds the object from hash

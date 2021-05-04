@@ -153,7 +153,6 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::SyntheticsAPI* | [**create_private_location**](SyntheticsAPI.md#create_private_location) | **POST** /api/v1/synthetics/private-locations | Create a private location
 *DatadogAPIClient::V1::SyntheticsAPI* | [**create_synthetics_api_test**](SyntheticsAPI.md#create_synthetics_api_test) | **POST** /api/v1/synthetics/tests/api | Create an API test
 *DatadogAPIClient::V1::SyntheticsAPI* | [**create_synthetics_browser_test**](SyntheticsAPI.md#create_synthetics_browser_test) | **POST** /api/v1/synthetics/tests/browser | Create a browser test
-*DatadogAPIClient::V1::SyntheticsAPI* | [**create_test**](SyntheticsAPI.md#create_test) | **POST** /api/v1/synthetics/tests | Create a test
 *DatadogAPIClient::V1::SyntheticsAPI* | [**delete_global_variable**](SyntheticsAPI.md#delete_global_variable) | **DELETE** /api/v1/synthetics/variables/{variable_id} | Delete a global variable
 *DatadogAPIClient::V1::SyntheticsAPI* | [**delete_private_location**](SyntheticsAPI.md#delete_private_location) | **DELETE** /api/v1/synthetics/private-locations/{location_id} | Delete a private location
 *DatadogAPIClient::V1::SyntheticsAPI* | [**delete_tests**](SyntheticsAPI.md#delete_tests) | **POST** /api/v1/synthetics/tests/delete | Delete tests
@@ -166,14 +165,13 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::SyntheticsAPI* | [**get_browser_test_result**](SyntheticsAPI.md#get_browser_test_result) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results/{result_id} | Get a browser test result
 *DatadogAPIClient::V1::SyntheticsAPI* | [**get_global_variable**](SyntheticsAPI.md#get_global_variable) | **GET** /api/v1/synthetics/variables/{variable_id} | Get a global variable
 *DatadogAPIClient::V1::SyntheticsAPI* | [**get_private_location**](SyntheticsAPI.md#get_private_location) | **GET** /api/v1/synthetics/private-locations/{location_id} | Get a private location
-*DatadogAPIClient::V1::SyntheticsAPI* | [**get_test**](SyntheticsAPI.md#get_test) | **GET** /api/v1/synthetics/tests/{public_id} | Get a test configuration (API)
+*DatadogAPIClient::V1::SyntheticsAPI* | [**get_test**](SyntheticsAPI.md#get_test) | **GET** /api/v1/synthetics/tests/{public_id} | Get a test configuration
 *DatadogAPIClient::V1::SyntheticsAPI* | [**list_locations**](SyntheticsAPI.md#list_locations) | **GET** /api/v1/synthetics/locations | Get all locations (public and private)
 *DatadogAPIClient::V1::SyntheticsAPI* | [**list_tests**](SyntheticsAPI.md#list_tests) | **GET** /api/v1/synthetics/tests | Get the list of all tests
 *DatadogAPIClient::V1::SyntheticsAPI* | [**trigger_ci_tests**](SyntheticsAPI.md#trigger_ci_tests) | **POST** /api/v1/synthetics/tests/trigger/ci | Trigger tests from CI/CD pipelines
 *DatadogAPIClient::V1::SyntheticsAPI* | [**update_api_test**](SyntheticsAPI.md#update_api_test) | **PUT** /api/v1/synthetics/tests/api/{public_id} | Edit an API test
 *DatadogAPIClient::V1::SyntheticsAPI* | [**update_browser_test**](SyntheticsAPI.md#update_browser_test) | **PUT** /api/v1/synthetics/tests/browser/{public_id} | Edit a browser test
 *DatadogAPIClient::V1::SyntheticsAPI* | [**update_private_location**](SyntheticsAPI.md#update_private_location) | **PUT** /api/v1/synthetics/private-locations/{location_id} | Edit a private location
-*DatadogAPIClient::V1::SyntheticsAPI* | [**update_test**](SyntheticsAPI.md#update_test) | **PUT** /api/v1/synthetics/tests/{public_id} | Edit a test
 *DatadogAPIClient::V1::SyntheticsAPI* | [**update_test_pause_status**](SyntheticsAPI.md#update_test_pause_status) | **PUT** /api/v1/synthetics/tests/{public_id}/status | Pause or start a test
 *DatadogAPIClient::V1::TagsAPI* | [**create_host_tags**](TagsAPI.md#create_host_tags) | **POST** /api/v1/tags/hosts/{host_name} | Add tags to a host
 *DatadogAPIClient::V1::TagsAPI* | [**delete_host_tags**](TagsAPI.md#delete_host_tags) | **DELETE** /api/v1/tags/hosts/{host_name} | Remove host tags
@@ -280,6 +278,8 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::DistributionWidgetDefinition](DistributionWidgetDefinition.md)
  - [DatadogAPIClient::V1::DistributionWidgetDefinitionType](DistributionWidgetDefinitionType.md)
  - [DatadogAPIClient::V1::DistributionWidgetRequest](DistributionWidgetRequest.md)
+ - [DatadogAPIClient::V1::DistributionWidgetXAxis](DistributionWidgetXAxis.md)
+ - [DatadogAPIClient::V1::DistributionWidgetYAxis](DistributionWidgetYAxis.md)
  - [DatadogAPIClient::V1::Downtime](Downtime.md)
  - [DatadogAPIClient::V1::DowntimeRecurrence](DowntimeRecurrence.md)
  - [DatadogAPIClient::V1::Event](Event.md)
@@ -479,6 +479,8 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::SLOHistoryResponseError](SLOHistoryResponseError.md)
  - [DatadogAPIClient::V1::SLOHistorySLIData](SLOHistorySLIData.md)
  - [DatadogAPIClient::V1::SLOListResponse](SLOListResponse.md)
+ - [DatadogAPIClient::V1::SLOListResponseMetadata](SLOListResponseMetadata.md)
+ - [DatadogAPIClient::V1::SLOListResponseMetadataPage](SLOListResponseMetadataPage.md)
  - [DatadogAPIClient::V1::SLOResponse](SLOResponse.md)
  - [DatadogAPIClient::V1::SLOThreshold](SLOThreshold.md)
  - [DatadogAPIClient::V1::SLOTimeframe](SLOTimeframe.md)
@@ -705,6 +707,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::WidgetFormula](WidgetFormula.md)
  - [DatadogAPIClient::V1::WidgetFormulaLimit](WidgetFormulaLimit.md)
  - [DatadogAPIClient::V1::WidgetGrouping](WidgetGrouping.md)
+ - [DatadogAPIClient::V1::WidgetHorizontalAlign](WidgetHorizontalAlign.md)
  - [DatadogAPIClient::V1::WidgetImageSizing](WidgetImageSizing.md)
  - [DatadogAPIClient::V1::WidgetLayout](WidgetLayout.md)
  - [DatadogAPIClient::V1::WidgetLayoutType](WidgetLayoutType.md)
@@ -729,6 +732,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::WidgetTickEdge](WidgetTickEdge.md)
  - [DatadogAPIClient::V1::WidgetTime](WidgetTime.md)
  - [DatadogAPIClient::V1::WidgetTimeWindows](WidgetTimeWindows.md)
+ - [DatadogAPIClient::V1::WidgetVerticalAlign](WidgetVerticalAlign.md)
  - [DatadogAPIClient::V1::WidgetViewMode](WidgetViewMode.md)
  - [DatadogAPIClient::V1::WidgetVizType](WidgetVizType.md)
 

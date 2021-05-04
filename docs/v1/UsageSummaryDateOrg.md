@@ -43,6 +43,7 @@
 | **synthetics_check_calls_count_sum** | **Integer** | Shows the sum of all Synthetic API tests over all hours in the current date for the given org. | [optional] |
 | **trace_search_indexed_events_count_sum** | **Integer** | Shows the sum of all Indexed Spans indexed over all hours in the current date for the given org. | [optional] |
 | **twol_ingested_events_bytes_sum** | **Integer** | Shows the sum of all tracing without limits bytes ingested over all hours in the current date for the given org. | [optional] |
+| **vsphere_host_top99p** | **Integer** | Shows the 99th percentile of all vSphere hosts over all hours in the current date for the given org. | [optional] |
 
 ## Example
 
@@ -88,7 +89,8 @@ instance = DatadogAPIClient::V1::UsageSummaryDateOrg.new(
   synthetics_browser_check_calls_count_sum: null,
   synthetics_check_calls_count_sum: null,
   trace_search_indexed_events_count_sum: null,
-  twol_ingested_events_bytes_sum: null
+  twol_ingested_events_bytes_sum: null,
+  vsphere_host_top99p: null
 )
 ```
 

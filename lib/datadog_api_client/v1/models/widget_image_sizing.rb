@@ -18,6 +18,11 @@ require 'time'
 
 module DatadogAPIClient::V1
   class WidgetImageSizing
+    FILL = "fill".freeze
+    CONTAIN = "contain".freeze
+    COVER = "cover".freeze
+    NONE = "none".freeze
+    SCALEDOWN = "scale-down".freeze
     ZOOM = "zoom".freeze
     FIT = "fit".freeze
     CENTER = "center".freeze

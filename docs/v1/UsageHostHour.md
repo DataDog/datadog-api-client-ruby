@@ -17,6 +17,7 @@
 | **hour** | **Time** | The hour for the usage. | [optional] |
 | **infra_azure_app_service** | **Integer** | Contains the total number of hosts that reported via the Azure App Services integration (and were NOT running the Datadog Agent). | [optional] |
 | **opentelemetry_host_count** | **Integer** | Contains the total number of hosts reported by Datadog exporter for the OpenTelemetry Collector. | [optional] |
+| **vsphere_host_count** | **Integer** | Contains the total number of hosts that reported via vSphere integration (and were NOT running the Datadog Agent). | [optional] |
 
 ## Example
 
@@ -36,7 +37,8 @@ instance = DatadogAPIClient::V1::UsageHostHour.new(
   host_count: null,
   hour: null,
   infra_azure_app_service: null,
-  opentelemetry_host_count: null
+  opentelemetry_host_count: null,
+  vsphere_host_count: null
 )
 ```
 
