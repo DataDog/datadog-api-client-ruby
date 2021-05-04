@@ -5,7 +5,7 @@ if [ $# -eq 0 ]; then
     exit 2
 fi
 
-./extract-code-blocks.sh
+./extract-code-blocks.sh examples $1
 
 bundle install
 ls examples/$1/*/*.rbbeta | xargs -P $(($(nproc)*2)) -n 1 bundle exec ruby -cw && bundle exec rubocop examples/$1/*/*.rbbeta
