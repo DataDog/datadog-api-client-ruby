@@ -326,6 +326,7 @@ module DatadogAPIClient::V1
     # Get a service level objective object.
     # @param slo_id [String] The ID of the service level objective object.
     # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :with_configured_alert_ids Get the IDs of SLO monitors that reference this SLO.
     # @return [SLOResponse]
     def get_slo(slo_id, opts = {})
       data, _status_code, _headers = get_slo_with_http_info(slo_id, opts)
@@ -336,6 +337,7 @@ module DatadogAPIClient::V1
     # Get a service level objective object.
     # @param slo_id [String] The ID of the service level objective object.
     # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :with_configured_alert_ids Get the IDs of SLO monitors that reference this SLO.
     # @return [Array<(SLOResponse, Integer, Hash)>] SLOResponse data, response status code and response headers
     def get_slo_with_http_info(slo_id, opts = {})
 
@@ -360,6 +362,7 @@ module DatadogAPIClient::V1
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'with_configured_alert_ids'] = opts[:'with_configured_alert_ids'] if !opts[:'with_configured_alert_ids'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

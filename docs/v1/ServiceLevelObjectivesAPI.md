@@ -268,7 +268,7 @@ end
 
 ## get_slo
 
-> <SLOResponse> get_slo(slo_id)
+> <SLOResponse> get_slo(slo_id, opts)
 
 Get an SLO's details
 
@@ -280,10 +280,13 @@ Get a service level objective object.
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::ServiceLevelObjectivesAPI.new
 slo_id = 'slo_id_example' # String | The ID of the service level objective object.
+opts = {
+  with_configured_alert_ids: true # Boolean | Get the IDs of SLO monitors that reference this SLO.
+}
 
 begin
   # Get an SLO's details
-  result = api_instance.get_slo(slo_id)
+  result = api_instance.get_slo(slo_id, opts)
   p result
 rescue DatadogAPIClient::V1::APIError => e
   puts "Error when calling ServiceLevelObjectivesAPI->get_slo: #{e}"
@@ -294,12 +297,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<SLOResponse>, Integer, Hash)> get_slo_with_http_info(slo_id)
+> <Array(<SLOResponse>, Integer, Hash)> get_slo_with_http_info(slo_id, opts)
 
 ```ruby
 begin
   # Get an SLO's details
-  data, status_code, headers = api_instance.get_slo_with_http_info(slo_id)
+  data, status_code, headers = api_instance.get_slo_with_http_info(slo_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SLOResponse>
@@ -313,6 +316,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **slo_id** | **String** | The ID of the service level objective object. |  |
+| **with_configured_alert_ids** | **Boolean** | Get the IDs of SLO monitors that reference this SLO. | [optional] |
 
 ### Return type
 
