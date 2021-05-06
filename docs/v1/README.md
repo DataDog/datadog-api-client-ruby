@@ -482,6 +482,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::SLOListResponseMetadata](SLOListResponseMetadata.md)
  - [DatadogAPIClient::V1::SLOListResponseMetadataPage](SLOListResponseMetadataPage.md)
  - [DatadogAPIClient::V1::SLOResponse](SLOResponse.md)
+ - [DatadogAPIClient::V1::SLOResponseData](SLOResponseData.md)
  - [DatadogAPIClient::V1::SLOThreshold](SLOThreshold.md)
  - [DatadogAPIClient::V1::SLOTimeframe](SLOTimeframe.md)
  - [DatadogAPIClient::V1::SLOType](SLOType.md)
