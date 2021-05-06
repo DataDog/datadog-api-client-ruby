@@ -28,7 +28,7 @@ module DatadogAPIClient::V1
     # For browser test, array with the different device IDs used to run the test.
     attr_accessor :device_ids
 
-    # Whether or not to disable CORS mechanism. Currently only available for Chrome.
+    # Whether or not to disable CORS mechanism.
     attr_accessor :disable_cors
 
     # For API HTTP test, whether or not the test should follow redirects.

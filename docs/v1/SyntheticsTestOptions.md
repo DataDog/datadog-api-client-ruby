@@ -7,7 +7,7 @@
 | **accept_self_signed** | **Boolean** | For SSL test, whether or not the test should allow self signed certificates. | [optional] |
 | **allow_insecure** | **Boolean** | Allows loading insecure content for an HTTP request. | [optional] |
 | **device_ids** | [**Array&lt;SyntheticsDeviceID&gt;**](SyntheticsDeviceID.md) | For browser test, array with the different device IDs used to run the test. | [optional] |
-| **disable_cors** | **Boolean** | Whether or not to disable CORS mechanism. Currently only available for Chrome. | [optional] |
+| **disable_cors** | **Boolean** | Whether or not to disable CORS mechanism. | [optional] |
 | **follow_redirects** | **Boolean** | For API HTTP test, whether or not the test should follow redirects. | [optional] |
 | **min_failure_duration** | **Integer** | Minimum amount of time in failure required to trigger an alert. | [optional] |
 | **min_location_failed** | **Integer** | Minimum number of locations in failure required to trigger an alert. | [optional] |
