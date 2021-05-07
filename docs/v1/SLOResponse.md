@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **data** | [**ServiceLevelObjective**](ServiceLevelObjective.md) |  | [optional] |
+| **data** | [**SLOResponseData**](SLOResponseData.md) |  | [optional] |
 | **errors** | **Array&lt;String&gt;** | An array of error messages. Each endpoint documents how/whether this field is used. | [optional] |
 
 ## Example
