@@ -32,6 +32,7 @@
 | **last_updated** | **Time** | Shows the the most recent hour in the current months for all organizations for which all usages were calculated. | [optional] |
 | **live_indexed_events_agg_sum** | **Integer** | Shows the sum of all live logs indexed over all hours in the current months for all organizations (data available as of December 1, 2020). | [optional] |
 | **live_ingested_bytes_agg_sum** | **Integer** | Shows the sum of all live logs bytes ingested over all hours in the current months for all organizations (data available as of December 1, 2020). | [optional] |
+| **logs_by_retention** | [**LogsByRetention**](LogsByRetention.md) |  | [optional] |
 | **mobile_rum_session_count_agg_sum** | **Integer** | Shows the sum of all mobile RUM Sessions over all hours in the current months for all organizations. | [optional] |
 | **mobile_rum_session_count_android_agg_sum** | **Integer** | Shows the sum of all mobile RUM Sessions on Android over all hours in the current months for all organizations. | [optional] |
 | **mobile_rum_session_count_ios_agg_sum** | **Integer** | Shows the sum of all mobile RUM Sessions on iOS over all hours in the current months for all organizations. | [optional] |
@@ -86,6 +87,7 @@ instance = DatadogAPIClient::V1::UsageSummaryResponse.new(
   last_updated: null,
   live_indexed_events_agg_sum: null,
   live_ingested_bytes_agg_sum: null,
+  logs_by_retention: null,
   mobile_rum_session_count_agg_sum: null,
   mobile_rum_session_count_android_agg_sum: null,
   mobile_rum_session_count_ios_agg_sum: null,
