@@ -107,10 +107,6 @@ module DatadogAPIClient::V1
         invalid_properties.push('invalid value for "assertions", assertions cannot be nil.')
       end
 
-      if @request.nil?
-        invalid_properties.push('invalid value for "request", request cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -118,7 +114,6 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     def valid?
       return false if @assertions.nil?
-      return false if @request.nil?
       true
     end
 
