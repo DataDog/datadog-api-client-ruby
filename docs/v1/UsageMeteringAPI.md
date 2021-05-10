@@ -22,6 +22,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**get_usage_lambda**](UsageMeteringAPI.md#get_usage_lambda) | **GET** /api/v1/usage/aws_lambda | Get hourly usage for Lambda |
 | [**get_usage_logs**](UsageMeteringAPI.md#get_usage_logs) | **GET** /api/v1/usage/logs | Get hourly usage for Logs |
 | [**get_usage_logs_by_index**](UsageMeteringAPI.md#get_usage_logs_by_index) | **GET** /api/v1/usage/logs_by_index | Get hourly usage for Logs by Index |
+| [**get_usage_logs_by_retention**](UsageMeteringAPI.md#get_usage_logs_by_retention) | **GET** /api/v1/usage/logs-by-retention | Get hourly logs usage by retention |
 | [**get_usage_network_flows**](UsageMeteringAPI.md#get_usage_network_flows) | **GET** /api/v1/usage/network_flows | Get hourly usage for Network Flows |
 | [**get_usage_network_hosts**](UsageMeteringAPI.md#get_usage_network_hosts) | **GET** /api/v1/usage/network_hosts | Get hourly usage for Network Hosts |
 | [**get_usage_profiling**](UsageMeteringAPI.md#get_usage_profiling) | **GET** /api/v1/usage/profiling | Get hourly usage for profiled hosts |
@@ -1244,6 +1245,72 @@ end
 ### Return type
 
 [**UsageLogsByIndexResponse**](UsageLogsByIndexResponse.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json;datetime-format=rfc3339
+
+
+## get_usage_logs_by_retention
+
+> <UsageLogsByRetentionResponse> get_usage_logs_by_retention(start_hr, opts)
+
+Get hourly logs usage by retention
+
+Get hourly usage for indexed logs by retention period.
+
+### Examples
+
+```ruby
+require 'datadog_api_client'
+api_instance = DatadogAPIClient::V1::UsageMeteringAPI.new
+start_hr = Time.parse('2013-10-20T19:20:30+01:00') # Time | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
+opts = {
+  end_hr: Time.parse('2013-10-20T19:20:30+01:00') # Time | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
+}
+
+begin
+  # Get hourly logs usage by retention
+  result = api_instance.get_usage_logs_by_retention(start_hr, opts)
+  p result
+rescue DatadogAPIClient::V1::APIError => e
+  puts "Error when calling UsageMeteringAPI->get_usage_logs_by_retention: #{e}"
+end
+```
+
+#### Using the get_usage_logs_by_retention_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<UsageLogsByRetentionResponse>, Integer, Hash)> get_usage_logs_by_retention_with_http_info(start_hr, opts)
+
+```ruby
+begin
+  # Get hourly logs usage by retention
+  data, status_code, headers = api_instance.get_usage_logs_by_retention_with_http_info(start_hr, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <UsageLogsByRetentionResponse>
+rescue DatadogAPIClient::V1::APIError => e
+  puts "Error when calling UsageMeteringAPI->get_usage_logs_by_retention_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |  |
+| **end_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+
+### Return type
+
+[**UsageLogsByRetentionResponse**](UsageLogsByRetentionResponse.md)
 
 ### Authorization
 
