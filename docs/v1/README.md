@@ -627,6 +627,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::UsageAttributionPagination](UsageAttributionPagination.md)
  - [DatadogAPIClient::V1::UsageAttributionResponse](UsageAttributionResponse.md)
  - [DatadogAPIClient::V1::UsageAttributionSort](UsageAttributionSort.md)
+ - [DatadogAPIClient::V1::UsageAttributionSupportedMetrics](UsageAttributionSupportedMetrics.md)
  - [DatadogAPIClient::V1::UsageAttributionValues](UsageAttributionValues.md)
  - [DatadogAPIClient::V1::UsageBillableSummaryBody](UsageBillableSummaryBody.md)
  - [DatadogAPIClient::V1::UsageBillableSummaryHour](UsageBillableSummaryHour.md)

@@ -604,7 +604,7 @@ end
 
 api_instance = DatadogAPIClient::V1::UsageMeteringAPI.new
 start_month = Time.parse('2013-10-20T19:20:30+01:00') # Time | Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage beginning in this month. Maximum of 15 months ago.
-fields = 'fields_example' # String | The specified field to search results for.
+fields = DatadogAPIClient::V1::UsageAttributionSupportedMetrics::CUSTOM_TIMESERIES_USAGE # UsageAttributionSupportedMetrics | Comma-separated list of usage types to return, or `*` for all usage types.
 opts = {
   end_month: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage ending this month.
   sort_direction: DatadogAPIClient::V1::UsageSortDirection::DESC, # UsageSortDirection | The direction to sort by: `[desc, asc]`.
@@ -643,7 +643,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **start_month** | **Time** | Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago. |  |
-| **fields** | **String** | The specified field to search results for. |  |
+| **fields** | **UsageAttributionSupportedMetrics** | Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage types. |  |
 | **end_month** | **Time** | Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month. | [optional] |
 | **sort_direction** | **UsageSortDirection** | The direction to sort by: &#x60;[desc, asc]&#x60;. | [optional][default to &#39;desc&#39;] |
 | **sort_name** | **UsageAttributionSort** | The field to sort by. | [optional][default to &#39;custom_timeseries_usage&#39;] |

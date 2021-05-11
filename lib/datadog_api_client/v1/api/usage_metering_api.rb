@@ -637,7 +637,7 @@ module DatadogAPIClient::V1
     # Get Usage Attribution
     # Get Usage Attribution.
     # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
-    # @param fields [String] The specified field to search results for.
+    # @param fields [UsageAttributionSupportedMetrics] Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage types.
     # @param [Hash] opts the optional parameters
     # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
     # @option opts [UsageSortDirection] :sort_direction The direction to sort by: &#x60;[desc, asc]&#x60;. (default to 'desc')
@@ -651,7 +651,7 @@ module DatadogAPIClient::V1
     # Get Usage Attribution
     # Get Usage Attribution.
     # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
-    # @param fields [String] The specified field to search results for.
+    # @param fields [UsageAttributionSupportedMetrics] Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage types.
     # @param [Hash] opts the optional parameters
     # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
     # @option opts [UsageSortDirection] :sort_direction The direction to sort by: &#x60;[desc, asc]&#x60;.
