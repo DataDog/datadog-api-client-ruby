@@ -637,7 +637,7 @@ module DatadogAPIClient::V1
     # Get Usage Attribution
     # Get Usage Attribution.
     # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
-    # @param fields [String] The specified field to search results for.
+    # @param fields [UsageAttributionSupportedMetrics] Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage types.
     # @param [Hash] opts the optional parameters
     # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
     # @option opts [UsageSortDirection] :sort_direction The direction to sort by: &#x60;[desc, asc]&#x60;. (default to 'desc')
@@ -651,7 +651,7 @@ module DatadogAPIClient::V1
     # Get Usage Attribution
     # Get Usage Attribution.
     # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
-    # @param fields [String] The specified field to search results for.
+    # @param fields [UsageAttributionSupportedMetrics] Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage types.
     # @param [Hash] opts the optional parameters
     # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
     # @option opts [UsageSortDirection] :sort_direction The direction to sort by: &#x60;[desc, asc]&#x60;.
@@ -1409,6 +1409,83 @@ module DatadogAPIClient::V1
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: UsageMeteringAPI#get_usage_logs_by_index\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get hourly logs usage by retention
+    # Get hourly usage for indexed logs by retention period.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+    # @return [UsageLogsByRetentionResponse]
+    def get_usage_logs_by_retention(start_hr, opts = {})
+      data, _status_code, _headers = get_usage_logs_by_retention_with_http_info(start_hr, opts)
+      data
+    end
+
+    # Get hourly logs usage by retention
+    # Get hourly usage for indexed logs by retention period.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+    # @return [Array<(UsageLogsByRetentionResponse, Integer, Hash)>] UsageLogsByRetentionResponse data, response status code and response headers
+    def get_usage_logs_by_retention_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_usage_logs_by_retention)
+        unstable_enabled = @api_client.config.unstable_operations[:get_usage_logs_by_retention]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_logs_by_retention")
+        else
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_usage_logs_by_retention"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_logs_by_retention ...'
+      end
+      # verify the required parameter 'start_hr' is set
+      if @api_client.config.client_side_validation && start_hr.nil?
+        fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_logs_by_retention"
+      end
+      # resource path
+      local_var_path = '/api/v1/usage/logs-by-retention'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'start_hr'] = start_hr
+      query_params[:'end_hr'] = opts[:'end_hr'] if !opts[:'end_hr'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UsageLogsByRetentionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_usage_logs_by_retention,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsageMeteringAPI#get_usage_logs_by_retention\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -17,26 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Configuration object for a Synthetic test.
-  class SyntheticsTestConfig
-    # Array of assertions used for the test.
-    attr_accessor :assertions
-
-    # API tests only - array of variables used for the test.
-    attr_accessor :config_variables
-
-    attr_accessor :request
-
-    # Browser tests only - array of variables used for the test steps.
-    attr_accessor :variables
+  # Indexed logs usage by retention for a single organization.
+  class LogsByRetentionOrgUsage
+    # Indexed logs usage for each active retention for the organization.
+    attr_accessor :usage
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'assertions' => :'assertions',
-        :'config_variables' => :'configVariables',
-        :'request' => :'request',
-        :'variables' => :'variables'
+        :'usage' => :'usage'
       }
     end
 
@@ -48,10 +37,7 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'assertions' => :'Array<SyntheticsAssertion>',
-        :'config_variables' => :'Array<SyntheticsConfigVariable>',
-        :'request' => :'SyntheticsTestRequest',
-        :'variables' => :'Array<SyntheticsBrowserVariable>'
+        :'usage' => :'Array<LogsRetentionSumUsage>'
       }
     end
 
@@ -65,36 +51,20 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsTestConfig` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::LogsByRetentionOrgUsage` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SyntheticsTestConfig`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::LogsByRetentionOrgUsage`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'assertions')
-        if (value = attributes[:'assertions']).is_a?(Array)
-          self.assertions = value
-        end
-      end
-
-      if attributes.key?(:'config_variables')
-        if (value = attributes[:'config_variables']).is_a?(Array)
-          self.config_variables = value
-        end
-      end
-
-      if attributes.key?(:'request')
-        self.request = attributes[:'request']
-      end
-
-      if attributes.key?(:'variables')
-        if (value = attributes[:'variables']).is_a?(Array)
-          self.variables = value
+      if attributes.key?(:'usage')
+        if (value = attributes[:'usage']).is_a?(Array)
+          self.usage = value
         end
       end
     end
@@ -103,17 +73,12 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @assertions.nil?
-        invalid_properties.push('invalid value for "assertions", assertions cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @assertions.nil?
       true
     end
 
@@ -122,10 +87,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          assertions == o.assertions &&
-          config_variables == o.config_variables &&
-          request == o.request &&
-          variables == o.variables
+          usage == o.usage
     end
 
     # @see the `==` method
@@ -137,7 +99,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [assertions, config_variables, request, variables].hash
+      [usage].hash
     end
 
     # Builds the object from hash

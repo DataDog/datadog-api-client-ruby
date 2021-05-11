@@ -17,26 +17,64 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Configuration object for a Synthetic test.
-  class SyntheticsTestConfig
-    # Array of assertions used for the test.
-    attr_accessor :assertions
+  # A service level objective object includes a service level indicator, thresholds for one or more timeframes, and metadata (`name`, `description`, `tags`, etc.).
+  class SLOResponseData
+    # A list of SLO monitors IDs that reference this SLO. This field is returned only when `with_configured_alert_ids` parameter is true in query.
+    attr_accessor :configured_alert_ids
 
-    # API tests only - array of variables used for the test.
-    attr_accessor :config_variables
+    # Creation timestamp (UNIX time in seconds)  Always included in service level objective responses.
+    attr_accessor :created_at
 
-    attr_accessor :request
+    attr_accessor :creator
 
-    # Browser tests only - array of variables used for the test steps.
-    attr_accessor :variables
+    # A user-defined description of the service level objective.  Always included in service level objective responses (but may be `null`). Optional in create/update requests.
+    attr_accessor :description
+
+    # A list of (up to 20) monitor groups that narrow the scope of a monitor service level objective.  Included in service level objective responses if it is not empty. Optional in create/update requests for monitor service level objectives, but may only be used when then length of the `monitor_ids` field is one.
+    attr_accessor :groups
+
+    # A unique identifier for the service level objective object.  Always included in service level objective responses.
+    attr_accessor :id
+
+    # Modification timestamp (UNIX time in seconds)  Always included in service level objective responses.
+    attr_accessor :modified_at
+
+    # A list of monitor ids that defines the scope of a monitor service level objective. **Required if type is `monitor`**.
+    attr_accessor :monitor_ids
+
+    # The union of monitor tags for all monitors referenced by the `monitor_ids` field. Always included in service level objective responses for monitor service level objectives (but may be empty). Ignored in create/update requests. Does not affect which monitors are included in the service level objective (that is determined entirely by the `monitor_ids` field).
+    attr_accessor :monitor_tags
+
+    # The name of the service level objective object.
+    attr_accessor :name
+
+    attr_accessor :query
+
+    # A list of tags associated with this service level objective. Always included in service level objective responses (but may be empty). Optional in create/update requests.
+    attr_accessor :tags
+
+    # The thresholds (timeframes and associated targets) for this service level objective object.
+    attr_accessor :thresholds
+
+    attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'assertions' => :'assertions',
-        :'config_variables' => :'configVariables',
-        :'request' => :'request',
-        :'variables' => :'variables'
+        :'configured_alert_ids' => :'configured_alert_ids',
+        :'created_at' => :'created_at',
+        :'creator' => :'creator',
+        :'description' => :'description',
+        :'groups' => :'groups',
+        :'id' => :'id',
+        :'modified_at' => :'modified_at',
+        :'monitor_ids' => :'monitor_ids',
+        :'monitor_tags' => :'monitor_tags',
+        :'name' => :'name',
+        :'query' => :'query',
+        :'tags' => :'tags',
+        :'thresholds' => :'thresholds',
+        :'type' => :'type'
       }
     end
 
@@ -48,16 +86,27 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'assertions' => :'Array<SyntheticsAssertion>',
-        :'config_variables' => :'Array<SyntheticsConfigVariable>',
-        :'request' => :'SyntheticsTestRequest',
-        :'variables' => :'Array<SyntheticsBrowserVariable>'
+        :'configured_alert_ids' => :'Array<Integer>',
+        :'created_at' => :'Integer',
+        :'creator' => :'Creator',
+        :'description' => :'String',
+        :'groups' => :'Array<String>',
+        :'id' => :'String',
+        :'modified_at' => :'Integer',
+        :'monitor_ids' => :'Array<Integer>',
+        :'monitor_tags' => :'Array<String>',
+        :'name' => :'String',
+        :'query' => :'ServiceLevelObjectiveQuery',
+        :'tags' => :'Array<String>',
+        :'thresholds' => :'Array<SLOThreshold>',
+        :'type' => :'SLOType'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'description',
       ])
     end
 
@@ -65,37 +114,83 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsTestConfig` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SLOResponseData` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SyntheticsTestConfig`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SLOResponseData`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'assertions')
-        if (value = attributes[:'assertions']).is_a?(Array)
-          self.assertions = value
+      if attributes.key?(:'configured_alert_ids')
+        if (value = attributes[:'configured_alert_ids']).is_a?(Array)
+          self.configured_alert_ids = value
         end
       end
 
-      if attributes.key?(:'config_variables')
-        if (value = attributes[:'config_variables']).is_a?(Array)
-          self.config_variables = value
+      if attributes.key?(:'created_at')
+        self.created_at = attributes[:'created_at']
+      end
+
+      if attributes.key?(:'creator')
+        self.creator = attributes[:'creator']
+      end
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'groups')
+        if (value = attributes[:'groups']).is_a?(Array)
+          self.groups = value
         end
       end
 
-      if attributes.key?(:'request')
-        self.request = attributes[:'request']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'variables')
-        if (value = attributes[:'variables']).is_a?(Array)
-          self.variables = value
+      if attributes.key?(:'modified_at')
+        self.modified_at = attributes[:'modified_at']
+      end
+
+      if attributes.key?(:'monitor_ids')
+        if (value = attributes[:'monitor_ids']).is_a?(Array)
+          self.monitor_ids = value
         end
+      end
+
+      if attributes.key?(:'monitor_tags')
+        if (value = attributes[:'monitor_tags']).is_a?(Array)
+          self.monitor_tags = value
+        end
+      end
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'query')
+        self.query = attributes[:'query']
+      end
+
+      if attributes.key?(:'tags')
+        if (value = attributes[:'tags']).is_a?(Array)
+          self.tags = value
+        end
+      end
+
+      if attributes.key?(:'thresholds')
+        if (value = attributes[:'thresholds']).is_a?(Array)
+          self.thresholds = value
+        end
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -103,17 +198,12 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @assertions.nil?
-        invalid_properties.push('invalid value for "assertions", assertions cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @assertions.nil?
       true
     end
 
@@ -122,10 +212,20 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          assertions == o.assertions &&
-          config_variables == o.config_variables &&
-          request == o.request &&
-          variables == o.variables
+          configured_alert_ids == o.configured_alert_ids &&
+          created_at == o.created_at &&
+          creator == o.creator &&
+          description == o.description &&
+          groups == o.groups &&
+          id == o.id &&
+          modified_at == o.modified_at &&
+          monitor_ids == o.monitor_ids &&
+          monitor_tags == o.monitor_tags &&
+          name == o.name &&
+          query == o.query &&
+          tags == o.tags &&
+          thresholds == o.thresholds &&
+          type == o.type
     end
 
     # @see the `==` method
@@ -137,7 +237,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [assertions, config_variables, request, variables].hash
+      [configured_alert_ids, created_at, creator, description, groups, id, modified_at, monitor_ids, monitor_tags, name, query, tags, thresholds, type].hash
     end
 
     # Builds the object from hash

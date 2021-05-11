@@ -103,6 +103,8 @@ module DatadogAPIClient::V1
     # Shows the sum of all live logs bytes ingested over all hours in the current months for all organizations (data available as of December 1, 2020).
     attr_accessor :live_ingested_bytes_agg_sum
 
+    attr_accessor :logs_by_retention
+
     # Shows the sum of all mobile RUM Sessions over all hours in the current months for all organizations.
     attr_accessor :mobile_rum_session_count_agg_sum
 
@@ -191,6 +193,7 @@ module DatadogAPIClient::V1
         :'last_updated' => :'last_updated',
         :'live_indexed_events_agg_sum' => :'live_indexed_events_agg_sum',
         :'live_ingested_bytes_agg_sum' => :'live_ingested_bytes_agg_sum',
+        :'logs_by_retention' => :'logs_by_retention',
         :'mobile_rum_session_count_agg_sum' => :'mobile_rum_session_count_agg_sum',
         :'mobile_rum_session_count_android_agg_sum' => :'mobile_rum_session_count_android_agg_sum',
         :'mobile_rum_session_count_ios_agg_sum' => :'mobile_rum_session_count_ios_agg_sum',
@@ -249,6 +252,7 @@ module DatadogAPIClient::V1
         :'last_updated' => :'Time',
         :'live_indexed_events_agg_sum' => :'Integer',
         :'live_ingested_bytes_agg_sum' => :'Integer',
+        :'logs_by_retention' => :'LogsByRetention',
         :'mobile_rum_session_count_agg_sum' => :'Integer',
         :'mobile_rum_session_count_android_agg_sum' => :'Integer',
         :'mobile_rum_session_count_ios_agg_sum' => :'Integer',
@@ -405,6 +409,10 @@ module DatadogAPIClient::V1
         self.live_ingested_bytes_agg_sum = attributes[:'live_ingested_bytes_agg_sum']
       end
 
+      if attributes.key?(:'logs_by_retention')
+        self.logs_by_retention = attributes[:'logs_by_retention']
+      end
+
       if attributes.key?(:'mobile_rum_session_count_agg_sum')
         self.mobile_rum_session_count_agg_sum = attributes[:'mobile_rum_session_count_agg_sum']
       end
@@ -530,6 +538,7 @@ module DatadogAPIClient::V1
           last_updated == o.last_updated &&
           live_indexed_events_agg_sum == o.live_indexed_events_agg_sum &&
           live_ingested_bytes_agg_sum == o.live_ingested_bytes_agg_sum &&
+          logs_by_retention == o.logs_by_retention &&
           mobile_rum_session_count_agg_sum == o.mobile_rum_session_count_agg_sum &&
           mobile_rum_session_count_android_agg_sum == o.mobile_rum_session_count_android_agg_sum &&
           mobile_rum_session_count_ios_agg_sum == o.mobile_rum_session_count_ios_agg_sum &&
@@ -560,7 +569,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_host_top99p_sum, apm_azure_app_service_host_top99p_sum, apm_host_top99p_sum, aws_host_top99p_sum, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p_sum, azure_host_top99p_sum, billable_ingested_bytes_agg_sum, compliance_container_agg_sum, compliance_host_agg_sum, container_avg_sum, container_hwm_sum, custom_ts_sum, end_date, fargate_tasks_count_avg_sum, fargate_tasks_count_hwm_sum, gcp_host_top99p_sum, heroku_host_top99p_sum, incident_management_monthly_active_users_hwm_sum, indexed_events_count_agg_sum, infra_host_top99p_sum, ingested_events_bytes_agg_sum, iot_device_agg_sum, iot_device_top99p_sum, last_updated, live_indexed_events_agg_sum, live_ingested_bytes_agg_sum, mobile_rum_session_count_agg_sum, mobile_rum_session_count_android_agg_sum, mobile_rum_session_count_ios_agg_sum, netflow_indexed_events_count_agg_sum, npm_host_top99p_sum, opentelemetry_host_top99p_sum, profiling_container_agent_count_avg, profiling_host_count_top99p_sum, rehydrated_indexed_events_agg_sum, rehydrated_ingested_bytes_agg_sum, rum_session_count_agg_sum, rum_total_session_count_agg_sum, start_date, synthetics_browser_check_calls_count_agg_sum, synthetics_check_calls_count_agg_sum, trace_search_indexed_events_count_agg_sum, twol_ingested_events_bytes_agg_sum, usage, vsphere_host_top99p_sum].hash
+      [agent_host_top99p_sum, apm_azure_app_service_host_top99p_sum, apm_host_top99p_sum, aws_host_top99p_sum, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p_sum, azure_host_top99p_sum, billable_ingested_bytes_agg_sum, compliance_container_agg_sum, compliance_host_agg_sum, container_avg_sum, container_hwm_sum, custom_ts_sum, end_date, fargate_tasks_count_avg_sum, fargate_tasks_count_hwm_sum, gcp_host_top99p_sum, heroku_host_top99p_sum, incident_management_monthly_active_users_hwm_sum, indexed_events_count_agg_sum, infra_host_top99p_sum, ingested_events_bytes_agg_sum, iot_device_agg_sum, iot_device_top99p_sum, last_updated, live_indexed_events_agg_sum, live_ingested_bytes_agg_sum, logs_by_retention, mobile_rum_session_count_agg_sum, mobile_rum_session_count_android_agg_sum, mobile_rum_session_count_ios_agg_sum, netflow_indexed_events_count_agg_sum, npm_host_top99p_sum, opentelemetry_host_top99p_sum, profiling_container_agent_count_avg, profiling_host_count_top99p_sum, rehydrated_indexed_events_agg_sum, rehydrated_ingested_bytes_agg_sum, rum_session_count_agg_sum, rum_total_session_count_agg_sum, start_date, synthetics_browser_check_calls_count_agg_sum, synthetics_check_calls_count_agg_sum, trace_search_indexed_events_count_agg_sum, twol_ingested_events_bytes_agg_sum, usage, vsphere_host_top99p_sum].hash
     end
 
     # Builds the object from hash

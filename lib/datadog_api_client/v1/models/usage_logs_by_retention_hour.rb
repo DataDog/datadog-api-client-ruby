@@ -17,26 +17,27 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Configuration object for a Synthetic test.
-  class SyntheticsTestConfig
-    # Array of assertions used for the test.
-    attr_accessor :assertions
+  # The number of indexed logs for each hour for a given organization broken down by retention period.
+  class UsageLogsByRetentionHour
+    # Total logs indexed with this retention period during a given hour.
+    attr_accessor :indexed_events_count
 
-    # API tests only - array of variables used for the test.
-    attr_accessor :config_variables
+    # Live logs indexed with this retention period during a given hour.
+    attr_accessor :live_indexed_events_count
 
-    attr_accessor :request
+    # Rehydrated logs indexed with this retention period during a given hour.
+    attr_accessor :rehydrated_indexed_events_count
 
-    # Browser tests only - array of variables used for the test steps.
-    attr_accessor :variables
+    # The retention period in days or \"custom\" for all custom retention usage.
+    attr_accessor :retention
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'assertions' => :'assertions',
-        :'config_variables' => :'configVariables',
-        :'request' => :'request',
-        :'variables' => :'variables'
+        :'indexed_events_count' => :'indexed_events_count',
+        :'live_indexed_events_count' => :'live_indexed_events_count',
+        :'rehydrated_indexed_events_count' => :'rehydrated_indexed_events_count',
+        :'retention' => :'retention'
       }
     end
 
@@ -48,10 +49,10 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'assertions' => :'Array<SyntheticsAssertion>',
-        :'config_variables' => :'Array<SyntheticsConfigVariable>',
-        :'request' => :'SyntheticsTestRequest',
-        :'variables' => :'Array<SyntheticsBrowserVariable>'
+        :'indexed_events_count' => :'Integer',
+        :'live_indexed_events_count' => :'Integer',
+        :'rehydrated_indexed_events_count' => :'Integer',
+        :'retention' => :'String'
       }
     end
 
@@ -65,37 +66,31 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsTestConfig` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::UsageLogsByRetentionHour` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SyntheticsTestConfig`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::UsageLogsByRetentionHour`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'assertions')
-        if (value = attributes[:'assertions']).is_a?(Array)
-          self.assertions = value
-        end
+      if attributes.key?(:'indexed_events_count')
+        self.indexed_events_count = attributes[:'indexed_events_count']
       end
 
-      if attributes.key?(:'config_variables')
-        if (value = attributes[:'config_variables']).is_a?(Array)
-          self.config_variables = value
-        end
+      if attributes.key?(:'live_indexed_events_count')
+        self.live_indexed_events_count = attributes[:'live_indexed_events_count']
       end
 
-      if attributes.key?(:'request')
-        self.request = attributes[:'request']
+      if attributes.key?(:'rehydrated_indexed_events_count')
+        self.rehydrated_indexed_events_count = attributes[:'rehydrated_indexed_events_count']
       end
 
-      if attributes.key?(:'variables')
-        if (value = attributes[:'variables']).is_a?(Array)
-          self.variables = value
-        end
+      if attributes.key?(:'retention')
+        self.retention = attributes[:'retention']
       end
     end
 
@@ -103,17 +98,12 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @assertions.nil?
-        invalid_properties.push('invalid value for "assertions", assertions cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @assertions.nil?
       true
     end
 
@@ -122,10 +112,10 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          assertions == o.assertions &&
-          config_variables == o.config_variables &&
-          request == o.request &&
-          variables == o.variables
+          indexed_events_count == o.indexed_events_count &&
+          live_indexed_events_count == o.live_indexed_events_count &&
+          rehydrated_indexed_events_count == o.rehydrated_indexed_events_count &&
+          retention == o.retention
     end
 
     # @see the `==` method
@@ -137,7 +127,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [assertions, config_variables, request, variables].hash
+      [indexed_events_count, live_indexed_events_count, rehydrated_indexed_events_count, retention].hash
     end
 
     # Builds the object from hash

@@ -196,6 +196,7 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_lambda**](UsageMeteringAPI.md#get_usage_lambda) | **GET** /api/v1/usage/aws_lambda | Get hourly usage for Lambda
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_logs**](UsageMeteringAPI.md#get_usage_logs) | **GET** /api/v1/usage/logs | Get hourly usage for Logs
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_logs_by_index**](UsageMeteringAPI.md#get_usage_logs_by_index) | **GET** /api/v1/usage/logs_by_index | Get hourly usage for Logs by Index
+*DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_logs_by_retention**](UsageMeteringAPI.md#get_usage_logs_by_retention) | **GET** /api/v1/usage/logs-by-retention | Get hourly logs usage by retention
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_network_flows**](UsageMeteringAPI.md#get_usage_network_flows) | **GET** /api/v1/usage/network_flows | Get hourly usage for Network Flows
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_network_hosts**](UsageMeteringAPI.md#get_usage_network_hosts) | **GET** /api/v1/usage/network_hosts | Get hourly usage for Network Hosts
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_profiling**](UsageMeteringAPI.md#get_usage_profiling) | **GET** /api/v1/usage/profiling | Get hourly usage for profiled hosts
@@ -367,6 +368,10 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::LogsArithmeticProcessorType](LogsArithmeticProcessorType.md)
  - [DatadogAPIClient::V1::LogsAttributeRemapper](LogsAttributeRemapper.md)
  - [DatadogAPIClient::V1::LogsAttributeRemapperType](LogsAttributeRemapperType.md)
+ - [DatadogAPIClient::V1::LogsByRetention](LogsByRetention.md)
+ - [DatadogAPIClient::V1::LogsByRetentionMonthlyUsage](LogsByRetentionMonthlyUsage.md)
+ - [DatadogAPIClient::V1::LogsByRetentionOrgUsage](LogsByRetentionOrgUsage.md)
+ - [DatadogAPIClient::V1::LogsByRetentionOrgs](LogsByRetentionOrgs.md)
  - [DatadogAPIClient::V1::LogsCategoryProcessor](LogsCategoryProcessor.md)
  - [DatadogAPIClient::V1::LogsCategoryProcessorCategory](LogsCategoryProcessorCategory.md)
  - [DatadogAPIClient::V1::LogsCategoryProcessorType](LogsCategoryProcessorType.md)
@@ -397,6 +402,8 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::LogsPipelinesOrder](LogsPipelinesOrder.md)
  - [DatadogAPIClient::V1::LogsProcessor](LogsProcessor.md)
  - [DatadogAPIClient::V1::LogsQueryCompute](LogsQueryCompute.md)
+ - [DatadogAPIClient::V1::LogsRetentionAggSumUsage](LogsRetentionAggSumUsage.md)
+ - [DatadogAPIClient::V1::LogsRetentionSumUsage](LogsRetentionSumUsage.md)
  - [DatadogAPIClient::V1::LogsServiceRemapper](LogsServiceRemapper.md)
  - [DatadogAPIClient::V1::LogsServiceRemapperType](LogsServiceRemapperType.md)
  - [DatadogAPIClient::V1::LogsSort](LogsSort.md)
@@ -482,6 +489,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::SLOListResponseMetadata](SLOListResponseMetadata.md)
  - [DatadogAPIClient::V1::SLOListResponseMetadataPage](SLOListResponseMetadataPage.md)
  - [DatadogAPIClient::V1::SLOResponse](SLOResponse.md)
+ - [DatadogAPIClient::V1::SLOResponseData](SLOResponseData.md)
  - [DatadogAPIClient::V1::SLOThreshold](SLOThreshold.md)
  - [DatadogAPIClient::V1::SLOTimeframe](SLOTimeframe.md)
  - [DatadogAPIClient::V1::SLOType](SLOType.md)
@@ -619,6 +627,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::UsageAttributionPagination](UsageAttributionPagination.md)
  - [DatadogAPIClient::V1::UsageAttributionResponse](UsageAttributionResponse.md)
  - [DatadogAPIClient::V1::UsageAttributionSort](UsageAttributionSort.md)
+ - [DatadogAPIClient::V1::UsageAttributionSupportedMetrics](UsageAttributionSupportedMetrics.md)
  - [DatadogAPIClient::V1::UsageAttributionValues](UsageAttributionValues.md)
  - [DatadogAPIClient::V1::UsageBillableSummaryBody](UsageBillableSummaryBody.md)
  - [DatadogAPIClient::V1::UsageBillableSummaryHour](UsageBillableSummaryHour.md)
@@ -647,6 +656,8 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::UsageLambdaResponse](UsageLambdaResponse.md)
  - [DatadogAPIClient::V1::UsageLogsByIndexHour](UsageLogsByIndexHour.md)
  - [DatadogAPIClient::V1::UsageLogsByIndexResponse](UsageLogsByIndexResponse.md)
+ - [DatadogAPIClient::V1::UsageLogsByRetentionHour](UsageLogsByRetentionHour.md)
+ - [DatadogAPIClient::V1::UsageLogsByRetentionResponse](UsageLogsByRetentionResponse.md)
  - [DatadogAPIClient::V1::UsageLogsHour](UsageLogsHour.md)
  - [DatadogAPIClient::V1::UsageLogsResponse](UsageLogsResponse.md)
  - [DatadogAPIClient::V1::UsageMetricCategory](UsageMetricCategory.md)

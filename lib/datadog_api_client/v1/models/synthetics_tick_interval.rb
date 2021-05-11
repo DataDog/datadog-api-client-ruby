@@ -18,6 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V1
   class SyntheticsTickInterval
+    THIRTY_SECONDS = 30.freeze
     MINUTE = 60.freeze
     FIVE_MINUTES = 300.freeze
     FIFTEEN_MINUTES = 900.freeze
