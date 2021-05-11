@@ -1,0 +1,176 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.datadoghq.com/api/v1/notebooks
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"notebooks","attributes":{"name":"Test-Delete_a_notebook_returns_OK_response-1620725779","time":{"live_span":"1h"},"cells":[{"attributes":{"definition":{"text":"#
+        Test-Delete_a_notebook_returns_OK_response-1620725779 notebook text","type":"markdown"}},"type":"notebook_cells"}]}}}'
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/1.0.0.beta.4.dev.1 (ruby 2.7.3; os linux; arch x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 11 May 2021 09:36:19 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '719'
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Dd-Version:
+      - '35.4503153'
+      X-Ratelimit-Limit:
+      - '30'
+      X-Ratelimit-Period:
+      - '60'
+      X-Ratelimit-Reset:
+      - '41'
+      X-Ratelimit-Remaining:
+      - '28'
+      X-Dd-Debug:
+      - PhosSd3Ch1B6B0DXI71steKUi7XhPDttnPiIP1NdXTw0VJNWpoUnYyBmODS5ne3q
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"type":"notebooks","id":774010,"attributes":{"name":"Test-Delete_a_notebook_returns_OK_response-1620725779","cells":[{"attributes":{"definition":{"text":"#
+        Test-Delete_a_notebook_returns_OK_response-1620725779 notebook text","type":"markdown"}},"type":"notebook_cells","id":"9va0areu"}],"time":{"live_span":"1h"},"status":"published","modified":"2021-05-11T09:36:19.407724+00:00","created":"2021-05-11T09:36:19.407724+00:00","author":{"name":"CI
+        Account","handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","email":"team-intg-tools-libs-spam@datadoghq.com","icon":"https://secure.gravatar.com/avatar/b7c189b5b4c2c429d7c1e0bc3749330e?s=48&d=retro","title":null,"verified":true,"disabled":false,"status":"Active"}}}}'
+  recorded_at: Tue, 11 May 2021 09:36:19 GMT
+- request:
+    method: delete
+    uri: https://api.datadoghq.com/api/v1/notebooks/774010
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/1.0.0.beta.4.dev.1 (ruby 2.7.3; os linux; arch x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Tue, 11 May 2021 09:36:19 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '0'
+      Connection:
+      - keep-alive
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Dd-Version:
+      - '35.4503153'
+      X-Ratelimit-Limit:
+      - '30'
+      X-Ratelimit-Period:
+      - '60'
+      X-Ratelimit-Reset:
+      - '41'
+      X-Ratelimit-Remaining:
+      - '28'
+      X-Dd-Debug:
+      - PhosSd3Ch1B6B0DXI71steKUi7XhPDttnPiIP1NdXTw0VJNWpoUnYyBmODS5ne3q
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+  recorded_at: Tue, 11 May 2021 09:36:19 GMT
+- request:
+    method: delete
+    uri: https://api.datadoghq.com/api/v1/notebooks/774010
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/1.0.0.beta.4.dev.1 (ruby 2.7.3; os linux; arch x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Tue, 11 May 2021 09:36:19 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '34'
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Ratelimit-Limit:
+      - '30'
+      X-Ratelimit-Period:
+      - '60'
+      X-Ratelimit-Reset:
+      - '41'
+      X-Ratelimit-Remaining:
+      - '27'
+      X-Dd-Version:
+      - '35.4503153'
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: ASCII-8BIT
+      string: '{"errors": ["Notebook not found"]}'
+  recorded_at: Tue, 11 May 2021 09:36:19 GMT
+recorded_with: VCR 6.0.0
