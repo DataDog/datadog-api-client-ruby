@@ -287,6 +287,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::DistributionWidgetXAxis](DistributionWidgetXAxis.md)
  - [DatadogAPIClient::V1::DistributionWidgetYAxis](DistributionWidgetYAxis.md)
  - [DatadogAPIClient::V1::Downtime](Downtime.md)
+ - [DatadogAPIClient::V1::DowntimeChild](DowntimeChild.md)
  - [DatadogAPIClient::V1::DowntimeRecurrence](DowntimeRecurrence.md)
  - [DatadogAPIClient::V1::Event](Event.md)
  - [DatadogAPIClient::V1::EventAlertType](EventAlertType.md)
