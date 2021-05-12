@@ -17,12 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Downtiming gives you greater control over monitor notifications by allowing you to globally exclude scopes from alerting. Downtime settings, which can be scheduled with start and end times, prevent all alerting related to specified Datadog tags.
-  class Downtime
+  # The downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
+  class DowntimeChild
     # If a scheduled downtime currently exists.
     attr_accessor :active
-
-    attr_accessor :active_child
 
     # If a scheduled downtime is canceled.
     attr_accessor :canceled
@@ -72,7 +70,6 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'active' => :'active',
-        :'active_child' => :'active_child',
         :'canceled' => :'canceled',
         :'creator_id' => :'creator_id',
         :'disabled' => :'disabled',
@@ -100,7 +97,6 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'active' => :'Boolean',
-        :'active_child' => :'DowntimeChild',
         :'canceled' => :'Integer',
         :'creator_id' => :'Integer',
         :'disabled' => :'Boolean',
@@ -122,7 +118,6 @@ module DatadogAPIClient::V1
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'active_child',
         :'canceled',
         :'_end',
         :'monitor_id',
@@ -136,23 +131,19 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::Downtime` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::DowntimeChild` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::Downtime`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::DowntimeChild`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
       if attributes.key?(:'active')
         self.active = attributes[:'active']
-      end
-
-      if attributes.key?(:'active_child')
-        self.active_child = attributes[:'active_child']
       end
 
       if attributes.key?(:'canceled')
@@ -284,7 +275,6 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           active == o.active &&
-          active_child == o.active_child &&
           canceled == o.canceled &&
           creator_id == o.creator_id &&
           disabled == o.disabled &&
@@ -311,7 +301,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [active, active_child, canceled, creator_id, disabled, downtime_type, _end, id, message, monitor_id, monitor_tags, parent_id, recurrence, scope, start, timezone, updater_id].hash
+      [active, canceled, creator_id, disabled, downtime_type, _end, id, message, monitor_id, monitor_tags, parent_id, recurrence, scope, start, timezone, updater_id].hash
     end
 
     # Builds the object from hash

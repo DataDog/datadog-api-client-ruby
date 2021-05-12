@@ -1,11 +1,10 @@
-# DatadogAPIClient::V1::Downtime
+# DatadogAPIClient::V1::DowntimeChild
 
 ## Properties
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **active** | **Boolean** | If a scheduled downtime currently exists. | [optional][readonly] |
-| **active_child** | [**DowntimeChild**](DowntimeChild.md) |  | [optional] |
 | **canceled** | **Integer** | If a scheduled downtime is canceled. | [optional][readonly] |
 | **creator_id** | **Integer** | User ID of the downtime creator. | [optional][readonly] |
 | **disabled** | **Boolean** | If a downtime has been disabled. | [optional] |
@@ -27,15 +26,14 @@
 ```ruby
 require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::Downtime.new(
+instance = DatadogAPIClient::V1::DowntimeChild.new(
   active: true,
-  active_child: null,
   canceled: 1412799983,
   creator_id: 123456,
   disabled: false,
   downtime_type: 2,
   _end: 1412793983,
-  id: 1625,
+  id: 1626,
   message: Message on the downtime,
   monitor_id: 123456,
   monitor_tags: [&quot;*&quot;],
