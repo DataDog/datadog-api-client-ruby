@@ -88,8 +88,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'is_column_break')
         self.is_column_break = attributes[:'is_column_break']
-      else
-        self.is_column_break = false
       end
 
       if attributes.key?(:'width')
