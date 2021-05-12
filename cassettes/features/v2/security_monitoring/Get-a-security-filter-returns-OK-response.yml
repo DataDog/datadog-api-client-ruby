@@ -5,9 +5,8 @@ http_interactions:
     uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"security_filters","attributes":{"name":"Custom security
-        filter","query":"service:api","exclusion_filters":[{"name":"Exclude logs from
-        staging","query":"source:staging"}],"filtered_data_type":"logs","is_enabled":true}}}'
+      string: '{"data":{"type":"security_filters","attributes":{"name":"Test-Get_a_security_filter_returns_OK_response-1620804282","query":"service:TestGetasecurityfilterreturnsOKresponse1620804282","exclusion_filters":[{"name":"Exclude
+        logs from staging","query":"source:staging"}],"filtered_data_type":"logs","is_enabled":true}}}'
     headers:
       User-Agent:
       - datadog-api-client-ruby/1.0.0.beta.4.dev.1 (ruby 2.7.3; os linux; arch x86_64)
@@ -23,11 +22,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 11 May 2021 16:46:15 GMT
+      - Wed, 12 May 2021 07:24:42 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
-      - '285'
+      - '366'
       Connection:
       - keep-alive
       Vary:
@@ -37,11 +36,11 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dd-Version:
-      - '35.4508212'
+      - '35.4512853'
       Content-Disposition:
       - inline
       X-Dd-Debug:
-      - vdJ3/nHEY1ioXQ6pQrBVvsQK1s4yyc+wufBMPSoXql71qZVuP/xMdtNo6DafhOAk
+      - Wjq53IVIwnB4SiR238oOYgHFMq/ZYP0LQ/Dv8C2fFLBwTje/dWJHu6pI6vIOK1zG
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -52,12 +51,12 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"attributes":{"is_enabled":true,"name":"Custom security filter","filtered_data_type":"logs","exclusion_filters":[{"query":"source:staging","name":"Exclude
-        logs from staging"}],"version":1,"query":"service:api","is_builtin":false},"type":"security_filters","id":"qsv-9qt-9ax"}}'
-  recorded_at: Tue, 11 May 2021 16:46:15 GMT
+      string: '{"data":{"attributes":{"is_enabled":true,"name":"Test-Get_a_security_filter_returns_OK_response-1620804282","filtered_data_type":"logs","exclusion_filters":[{"query":"source:staging","name":"Exclude
+        logs from staging"}],"version":1,"query":"service:TestGetasecurityfilterreturnsOKresponse1620804282","is_builtin":false},"type":"security_filters","id":"vpr-ym6-56s"}}'
+  recorded_at: Wed, 12 May 2021 07:24:42 GMT
 - request:
     method: get
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters/qsv-9qt-9ax
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters/vpr-ym6-56s
     body:
       encoding: US-ASCII
       string: ''
@@ -76,11 +75,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 11 May 2021 16:46:15 GMT
+      - Wed, 12 May 2021 07:24:42 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
-      - '285'
+      - '366'
       Connection:
       - keep-alive
       Vary:
@@ -90,11 +89,11 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dd-Version:
-      - '35.4508212'
+      - '35.4512853'
       Content-Disposition:
       - inline
       X-Dd-Debug:
-      - fIO2C4qGDheGHy4YbS+r3a3CXbh4cbRo7roILOimQyiHGjQdOat0cIpWCkupM1uX
+      - PhosSd3Ch1B6B0DXI71steKUi7XhPDttnPiIP1NdXTw0VJNWpoUnYyBmODS5ne3q
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -105,12 +104,12 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"attributes":{"is_enabled":true,"name":"Custom security filter","filtered_data_type":"logs","exclusion_filters":[{"query":"source:staging","name":"Exclude
-        logs from staging"}],"version":1,"query":"service:api","is_builtin":false},"type":"security_filters","id":"qsv-9qt-9ax"}}'
-  recorded_at: Tue, 11 May 2021 16:46:15 GMT
+      string: '{"data":{"attributes":{"is_enabled":true,"name":"Test-Get_a_security_filter_returns_OK_response-1620804282","filtered_data_type":"logs","exclusion_filters":[{"query":"source:staging","name":"Exclude
+        logs from staging"}],"version":1,"query":"service:TestGetasecurityfilterreturnsOKresponse1620804282","is_builtin":false},"type":"security_filters","id":"vpr-ym6-56s"}}'
+  recorded_at: Wed, 12 May 2021 07:24:42 GMT
 - request:
     method: delete
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters/qsv-9qt-9ax
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters/vpr-ym6-56s
     body:
       encoding: US-ASCII
       string: ''
@@ -129,7 +128,7 @@ http_interactions:
       message: No Content
     headers:
       Date:
-      - Tue, 11 May 2021 16:46:15 GMT
+      - Wed, 12 May 2021 07:24:42 GMT
       Content-Length:
       - '0'
       Connection:
@@ -139,11 +138,11 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dd-Version:
-      - '35.4508212'
+      - '35.4512853'
       Content-Disposition:
       - inline
       X-Dd-Debug:
-      - JpIJLwIH2nFlZOC+u71rq7aAOL43MLZN3MUsL+gpYHdZz5QLUOG8Jysf8kVK6tPU
+      - Wjq53IVIwnB4SiR238oOYgHFMq/ZYP0LQ/Dv8C2fFLBwTje/dWJHu6pI6vIOK1zG
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -155,5 +154,5 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: ''
-  recorded_at: Tue, 11 May 2021 16:46:15 GMT
+  recorded_at: Wed, 12 May 2021 07:24:42 GMT
 recorded_with: VCR 6.0.0

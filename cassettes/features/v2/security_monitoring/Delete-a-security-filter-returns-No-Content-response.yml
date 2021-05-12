@@ -5,9 +5,8 @@ http_interactions:
     uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"security_filters","attributes":{"name":"Custom security
-        filter","query":"service:api","exclusion_filters":[{"name":"Exclude logs from
-        staging","query":"source:staging"}],"filtered_data_type":"logs","is_enabled":true}}}'
+      string: '{"data":{"type":"security_filters","attributes":{"name":"Test-Delete_a_security_filter_returns_No_Content_response-1620804282","query":"service:TestDeleteasecurityfilterreturnsNoContentresponse1620804282","exclusion_filters":[{"name":"Exclude
+        logs from staging","query":"source:staging"}],"filtered_data_type":"logs","is_enabled":true}}}'
     headers:
       User-Agent:
       - datadog-api-client-ruby/1.0.0.beta.4.dev.1 (ruby 2.7.3; os linux; arch x86_64)
@@ -23,11 +22,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 11 May 2021 16:46:14 GMT
+      - Wed, 12 May 2021 07:24:42 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
-      - '285'
+      - '387'
       Connection:
       - keep-alive
       Vary:
@@ -37,11 +36,11 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dd-Version:
-      - '35.4508212'
+      - '35.4512853'
       Content-Disposition:
       - inline
       X-Dd-Debug:
-      - SY1h8ScsWq+kYmtbh63ltMLFAZsQjqfrgvdfAoRX+9TzT1sgMBRYaFRwfWWRRe9a
+      - 2328yjLSqI4XmR1pVqrPRR/SFcQsbafjEpPmZx7/3PfxUK1nJQQsX+wrMelyVyj+
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -52,12 +51,12 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"attributes":{"is_enabled":true,"name":"Custom security filter","filtered_data_type":"logs","exclusion_filters":[{"query":"source:staging","name":"Exclude
-        logs from staging"}],"version":1,"query":"service:api","is_builtin":false},"type":"security_filters","id":"ofz-zjy-6td"}}'
-  recorded_at: Tue, 11 May 2021 16:46:14 GMT
+      string: '{"data":{"attributes":{"is_enabled":true,"name":"Test-Delete_a_security_filter_returns_No_Content_response-1620804282","filtered_data_type":"logs","exclusion_filters":[{"query":"source:staging","name":"Exclude
+        logs from staging"}],"version":1,"query":"service:TestDeleteasecurityfilterreturnsNoContentresponse1620804282","is_builtin":false},"type":"security_filters","id":"gp8-rbx-mgn"}}'
+  recorded_at: Wed, 12 May 2021 07:24:42 GMT
 - request:
     method: delete
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters/ofz-zjy-6td
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters/gp8-rbx-mgn
     body:
       encoding: US-ASCII
       string: ''
@@ -76,7 +75,7 @@ http_interactions:
       message: No Content
     headers:
       Date:
-      - Tue, 11 May 2021 16:46:15 GMT
+      - Wed, 12 May 2021 07:24:42 GMT
       Content-Length:
       - '0'
       Connection:
@@ -86,11 +85,11 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dd-Version:
-      - '35.4508212'
+      - '35.4512853'
       Content-Disposition:
       - inline
       X-Dd-Debug:
-      - gYZcaADwbKcv7Hm19HJx6WsLoKuOijDWAt2viPeCfWqUgyKY+9e1xZdmMJeXV3YV
+      - 25u1gDlL724DHllbjFT4BhOLorBTilh+aah2uWAUEjFC/+rjczJdiyWrV/HwLwe/
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -102,10 +101,10 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: ''
-  recorded_at: Tue, 11 May 2021 16:46:14 GMT
+  recorded_at: Wed, 12 May 2021 07:24:42 GMT
 - request:
     method: delete
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters/ofz-zjy-6td
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters/gp8-rbx-mgn
     body:
       encoding: US-ASCII
       string: ''
@@ -124,7 +123,7 @@ http_interactions:
       message: Not Found
     headers:
       Date:
-      - Tue, 11 May 2021 16:46:15 GMT
+      - Wed, 12 May 2021 07:24:42 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -138,7 +137,7 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dd-Version:
-      - '35.4508212'
+      - '35.4512853'
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
@@ -149,6 +148,6 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: ASCII-8BIT
-      string: '{"errors":["not_found(Security filter with id ''ofz-zjy-6td'' not found)"]}'
-  recorded_at: Tue, 11 May 2021 16:46:14 GMT
+      string: '{"errors":["not_found(Security filter with id ''gp8-rbx-mgn'' not found)"]}'
+  recorded_at: Wed, 12 May 2021 07:24:42 GMT
 recorded_with: VCR 6.0.0
