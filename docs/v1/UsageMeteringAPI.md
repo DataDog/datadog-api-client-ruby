@@ -33,7 +33,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**get_usage_synthetics_api**](UsageMeteringAPI.md#get_usage_synthetics_api) | **GET** /api/v1/usage/synthetics_api | Get hourly usage for Synthetics API Checks |
 | [**get_usage_synthetics_browser**](UsageMeteringAPI.md#get_usage_synthetics_browser) | **GET** /api/v1/usage/synthetics_browser | Get hourly usage for Synthetics Browser Checks |
 | [**get_usage_timeseries**](UsageMeteringAPI.md#get_usage_timeseries) | **GET** /api/v1/usage/timeseries | Get hourly usage for custom metrics |
-| [**get_usage_top_avg_metrics**](UsageMeteringAPI.md#get_usage_top_avg_metrics) | **GET** /api/v1/usage/top_avg_metrics | Get top custom metrics by hourly average |
+| [**get_usage_top_avg_metrics**](UsageMeteringAPI.md#get_usage_top_avg_metrics) | **GET** /api/v1/usage/top_avg_metrics | Get all custom metrics by hourly average |
 | [**get_usage_trace**](UsageMeteringAPI.md#get_usage_trace) | **GET** /api/v1/usage/traces | Get hourly usage for Trace Search |
 
 
@@ -1990,9 +1990,9 @@ end
 
 > <UsageTopAvgMetricsResponse> get_usage_top_avg_metrics(opts)
 
-Get top custom metrics by hourly average
+Get all custom metrics by hourly average
 
-Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use the month parameter to get a month-to-date data resolution or use the day parameter to get a daily resolution. One of the two is required, and only one of the two is allowed.
+Get all [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use the month parameter to get a month-to-date data resolution or use the day parameter to get a daily resolution. One of the two is required, and only one of the two is allowed.
 
 ### Examples
 
@@ -2003,11 +2003,12 @@ opts = {
   month: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour. (Either month or day should be specified, but not both)
   day: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD] for usage beginning at this hour. (Either month or day should be specified, but not both)
   names: ['inner_example'], # Array<String> | Comma-separated list of metric names.
-  limit: 56 # Integer | Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified.
+  limit: 56, # Integer | Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified.
+  next_record_id: 'next_record_id_example' # String | List following results with a next_record_id provided in the previous query.
 }
 
 begin
-  # Get top custom metrics by hourly average
+  # Get all custom metrics by hourly average
   result = api_instance.get_usage_top_avg_metrics(opts)
   p result
 rescue DatadogAPIClient::V1::APIError => e
@@ -2023,7 +2024,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get top custom metrics by hourly average
+  # Get all custom metrics by hourly average
   data, status_code, headers = api_instance.get_usage_top_avg_metrics_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -2041,6 +2042,7 @@ end
 | **day** | **Time** | Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD] for usage beginning at this hour. (Either month or day should be specified, but not both) | [optional] |
 | **names** | **Array&lt;String&gt;** | Comma-separated list of metric names. | [optional] |
 | **limit** | **Integer** | Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified. | [optional][default to 500] |
+| **next_record_id** | **String** | List following results with a next_record_id provided in the previous query. | [optional] |
 
 ### Return type
 
