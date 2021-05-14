@@ -7,10 +7,10 @@
 | **config** | [**SyntheticsTestConfig**](SyntheticsTestConfig.md) |  | [optional] |
 | **locations** | **Array&lt;String&gt;** | Array of locations used to run the test. | [optional] |
 | **message** | **String** | Notification message associated with the test. | [optional] |
-| **monitor_id** | **Integer** | The associated monitor ID. | [optional] |
+| **monitor_id** | **Integer** | The associated monitor ID. | [optional][readonly] |
 | **name** | **String** | Name of the test. | [optional] |
 | **options** | [**SyntheticsTestOptions**](SyntheticsTestOptions.md) |  | [optional] |
-| **public_id** | **String** | The test public ID. | [optional] |
+| **public_id** | **String** | The test public ID. | [optional][readonly] |
 | **status** | [**SyntheticsTestPauseStatus**](SyntheticsTestPauseStatus.md) |  | [optional] |
 | **steps** | [**Array&lt;SyntheticsStep&gt;**](SyntheticsStep.md) | For browser test, the steps of the test. | [optional] |
 | **subtype** | [**SyntheticsTestDetailsSubType**](SyntheticsTestDetailsSubType.md) |  | [optional] |

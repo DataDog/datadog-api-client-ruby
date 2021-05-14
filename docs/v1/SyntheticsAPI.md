@@ -43,7 +43,7 @@ Create a Synthetics global variable.
 ```ruby
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
-body = DatadogAPIClient::V1::SyntheticsGlobalVariable.new({description: 'Example description', name: 'MY_VARIABLE', tags: ['tags_example'], value: DatadogAPIClient::V1::SyntheticsGlobalVariableValue.new({value: 'example-value'})}) # SyntheticsGlobalVariable | Details of the global variable to create.
+body = DatadogAPIClient::V1::SyntheticsGlobalVariable.new({description: 'Example description', name: 'MY_VARIABLE', tags: ['tags_example'], value: DatadogAPIClient::V1::SyntheticsGlobalVariableValue.new}) # SyntheticsGlobalVariable | Details of the global variable to create.
 
 begin
   # Create a global variable
@@ -476,7 +476,7 @@ Edit a Synthetics global variable.
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
 variable_id = 'variable_id_example' # String | The ID of the global variable.
-body = DatadogAPIClient::V1::SyntheticsGlobalVariable.new({description: 'Example description', name: 'MY_VARIABLE', tags: ['tags_example'], value: DatadogAPIClient::V1::SyntheticsGlobalVariableValue.new({value: 'example-value'})}) # SyntheticsGlobalVariable | Details of the global variable to update.
+body = DatadogAPIClient::V1::SyntheticsGlobalVariable.new({description: 'Example description', name: 'MY_VARIABLE', tags: ['tags_example'], value: DatadogAPIClient::V1::SyntheticsGlobalVariableValue.new}) # SyntheticsGlobalVariable | Details of the global variable to update.
 
 begin
   # Edit a global variable
