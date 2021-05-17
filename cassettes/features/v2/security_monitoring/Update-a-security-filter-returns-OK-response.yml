@@ -1,0 +1,157 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"security_filters","attributes":{"name":"Test-Update_a_security_filter_returns_OK_response-1620804282","query":"service:TestUpdateasecurityfilterreturnsOKresponse1620804282","exclusion_filters":[{"name":"Exclude
+        logs from staging","query":"source:staging"}],"filtered_data_type":"logs","is_enabled":true}}}'
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/1.0.0.beta.4.dev.1 (ruby 2.7.3; os linux; arch x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 12 May 2021 07:24:43 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '372'
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Dd-Version:
+      - '35.4512853'
+      Content-Disposition:
+      - inline
+      X-Dd-Debug:
+      - dCmL/3rURV6BPeaqeP3Rxigq41m5CAb17XjrRE42uZ01zpr07HVhbL5/3TWMkvgu
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"attributes":{"is_enabled":true,"name":"Test-Update_a_security_filter_returns_OK_response-1620804282","filtered_data_type":"logs","exclusion_filters":[{"query":"source:staging","name":"Exclude
+        logs from staging"}],"version":1,"query":"service:TestUpdateasecurityfilterreturnsOKresponse1620804282","is_builtin":false},"type":"security_filters","id":"mxk-jbg-ldt"}}'
+  recorded_at: Wed, 12 May 2021 07:24:42 GMT
+- request:
+    method: patch
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters/mxk-jbg-ldt
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"exclusion_filters":[],"filtered_data_type":"logs","is_enabled":true,"name":"Test-Update_a_security_filter_returns_OK_response-1620804282","query":"service:TestUpdateasecurityfilterreturnsOKresponse1620804282","version":1},"type":"security_filters"}}'
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/1.0.0.beta.4.dev.1 (ruby 2.7.3; os linux; arch x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 12 May 2021 07:24:43 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '311'
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Dd-Version:
+      - '35.4512853'
+      Content-Disposition:
+      - inline
+      X-Dd-Debug:
+      - Um4CoU685QqAscnxhS5BD+goWu2yX1Jd4zCfGzSsEvPPIm1qURZaF8dlLl/OEY4I
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"attributes":{"is_enabled":true,"name":"Test-Update_a_security_filter_returns_OK_response-1620804282","filtered_data_type":"logs","exclusion_filters":[],"version":2,"query":"service:TestUpdateasecurityfilterreturnsOKresponse1620804282","is_builtin":false},"type":"security_filters","id":"mxk-jbg-ldt"}}'
+  recorded_at: Wed, 12 May 2021 07:24:42 GMT
+- request:
+    method: delete
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters/mxk-jbg-ldt
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/1.0.0.beta.4.dev.1 (ruby 2.7.3; os linux; arch x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Wed, 12 May 2021 07:24:43 GMT
+      Content-Length:
+      - '0'
+      Connection:
+      - keep-alive
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Dd-Version:
+      - '35.4512853'
+      Content-Disposition:
+      - inline
+      X-Dd-Debug:
+      - F5gm0Rce1/Abr9/0Fw8HAqWfiz0FdiH8er/AXnN6lOn3L6KyGgbsLCwgPlob1No8
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+  recorded_at: Wed, 12 May 2021 07:24:42 GMT
+recorded_with: VCR 6.0.0
