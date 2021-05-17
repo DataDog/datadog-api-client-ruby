@@ -102,12 +102,17 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V2::RolesAPI* | [**remove_permission_from_role**](RolesAPI.md#remove_permission_from_role) | **DELETE** /api/v2/roles/{role_id}/permissions | Revoke permission
 *DatadogAPIClient::V2::RolesAPI* | [**remove_user_from_role**](RolesAPI.md#remove_user_from_role) | **DELETE** /api/v2/roles/{role_id}/users | Remove a user from a role
 *DatadogAPIClient::V2::RolesAPI* | [**update_role**](RolesAPI.md#update_role) | **PATCH** /api/v2/roles/{role_id} | Update a role
+*DatadogAPIClient::V2::SecurityMonitoringAPI* | [**create_security_filter**](SecurityMonitoringAPI.md#create_security_filter) | **POST** /api/v2/security_monitoring/configuration/security_filters | Create a security filter
 *DatadogAPIClient::V2::SecurityMonitoringAPI* | [**create_security_monitoring_rule**](SecurityMonitoringAPI.md#create_security_monitoring_rule) | **POST** /api/v2/security_monitoring/rules | Create a detection rule
+*DatadogAPIClient::V2::SecurityMonitoringAPI* | [**delete_security_filter**](SecurityMonitoringAPI.md#delete_security_filter) | **DELETE** /api/v2/security_monitoring/configuration/security_filters/{security_filter_id} | Delete a security filter
 *DatadogAPIClient::V2::SecurityMonitoringAPI* | [**delete_security_monitoring_rule**](SecurityMonitoringAPI.md#delete_security_monitoring_rule) | **DELETE** /api/v2/security_monitoring/rules/{rule_id} | Delete an existing rule
+*DatadogAPIClient::V2::SecurityMonitoringAPI* | [**get_security_filter**](SecurityMonitoringAPI.md#get_security_filter) | **GET** /api/v2/security_monitoring/configuration/security_filters/{security_filter_id} | Get a security filter
 *DatadogAPIClient::V2::SecurityMonitoringAPI* | [**get_security_monitoring_rule**](SecurityMonitoringAPI.md#get_security_monitoring_rule) | **GET** /api/v2/security_monitoring/rules/{rule_id} | Get a rule's details
+*DatadogAPIClient::V2::SecurityMonitoringAPI* | [**list_security_filters**](SecurityMonitoringAPI.md#list_security_filters) | **GET** /api/v2/security_monitoring/configuration/security_filters | Get all security filters
 *DatadogAPIClient::V2::SecurityMonitoringAPI* | [**list_security_monitoring_rules**](SecurityMonitoringAPI.md#list_security_monitoring_rules) | **GET** /api/v2/security_monitoring/rules | List rules
 *DatadogAPIClient::V2::SecurityMonitoringAPI* | [**list_security_monitoring_signals**](SecurityMonitoringAPI.md#list_security_monitoring_signals) | **GET** /api/v2/security_monitoring/signals | Get a quick list of security signals
 *DatadogAPIClient::V2::SecurityMonitoringAPI* | [**search_security_monitoring_signals**](SecurityMonitoringAPI.md#search_security_monitoring_signals) | **POST** /api/v2/security_monitoring/signals/search | Get a list of security signals
+*DatadogAPIClient::V2::SecurityMonitoringAPI* | [**update_security_filter**](SecurityMonitoringAPI.md#update_security_filter) | **PATCH** /api/v2/security_monitoring/configuration/security_filters/{security_filter_id} | Update a security filter
 *DatadogAPIClient::V2::SecurityMonitoringAPI* | [**update_security_monitoring_rule**](SecurityMonitoringAPI.md#update_security_monitoring_rule) | **PUT** /api/v2/security_monitoring/rules/{rule_id} | Update an existing rule
 *DatadogAPIClient::V2::UsersAPI* | [**create_user**](UsersAPI.md#create_user) | **POST** /api/v2/users | Create a user
 *DatadogAPIClient::V2::UsersAPI* | [**disable_user**](UsersAPI.md#disable_user) | **DELETE** /api/v2/users/{user_id} | Disable a user
@@ -371,6 +376,22 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::RolesResponse](RolesResponse.md)
  - [DatadogAPIClient::V2::RolesSort](RolesSort.md)
  - [DatadogAPIClient::V2::RolesType](RolesType.md)
+ - [DatadogAPIClient::V2::SecurityFilter](SecurityFilter.md)
+ - [DatadogAPIClient::V2::SecurityFilterAttributes](SecurityFilterAttributes.md)
+ - [DatadogAPIClient::V2::SecurityFilterCreateAttributes](SecurityFilterCreateAttributes.md)
+ - [DatadogAPIClient::V2::SecurityFilterCreateData](SecurityFilterCreateData.md)
+ - [DatadogAPIClient::V2::SecurityFilterCreateRequest](SecurityFilterCreateRequest.md)
+ - [DatadogAPIClient::V2::SecurityFilterDeleteResponse](SecurityFilterDeleteResponse.md)
+ - [DatadogAPIClient::V2::SecurityFilterExclusionFilter](SecurityFilterExclusionFilter.md)
+ - [DatadogAPIClient::V2::SecurityFilterExclusionFilterResponse](SecurityFilterExclusionFilterResponse.md)
+ - [DatadogAPIClient::V2::SecurityFilterFilteredDataType](SecurityFilterFilteredDataType.md)
+ - [DatadogAPIClient::V2::SecurityFilterMeta](SecurityFilterMeta.md)
+ - [DatadogAPIClient::V2::SecurityFilterResponse](SecurityFilterResponse.md)
+ - [DatadogAPIClient::V2::SecurityFilterType](SecurityFilterType.md)
+ - [DatadogAPIClient::V2::SecurityFilterUpdateAttributes](SecurityFilterUpdateAttributes.md)
+ - [DatadogAPIClient::V2::SecurityFilterUpdateData](SecurityFilterUpdateData.md)
+ - [DatadogAPIClient::V2::SecurityFilterUpdateRequest](SecurityFilterUpdateRequest.md)
+ - [DatadogAPIClient::V2::SecurityFiltersResponse](SecurityFiltersResponse.md)
  - [DatadogAPIClient::V2::SecurityMonitoringFilter](SecurityMonitoringFilter.md)
  - [DatadogAPIClient::V2::SecurityMonitoringFilterAction](SecurityMonitoringFilterAction.md)
  - [DatadogAPIClient::V2::SecurityMonitoringListRulesResponse](SecurityMonitoringListRulesResponse.md)

@@ -22,6 +22,81 @@ module DatadogAPIClient::V2
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+    # Create a security filter
+    # Create a security filter.
+    # @param body [SecurityFilterCreateRequest] The definition of the new security filter.
+    # @param [Hash] opts the optional parameters
+    # @return [SecurityFilterResponse]
+    def create_security_filter(body, opts = {})
+      data, _status_code, _headers = create_security_filter_with_http_info(body, opts)
+      data
+    end
+
+    # Create a security filter
+    # Create a security filter.
+    # @param body [SecurityFilterCreateRequest] The definition of the new security filter.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(SecurityFilterResponse, Integer, Hash)>] SecurityFilterResponse data, response status code and response headers
+    def create_security_filter_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:create_security_filter)
+        unstable_enabled = @api_client.config.unstable_operations[:create_security_filter]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_security_filter")
+        else
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_security_filter"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_security_filter ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.create_security_filter"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/security_filters'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityFilterResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_security_filter,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#create_security_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a detection rule
     # Create a detection rule.
     # @param body [SecurityMonitoringRuleCreatePayload] 
@@ -93,6 +168,79 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#create_security_monitoring_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a security filter
+    # Delete a specific security filter.
+    # @param security_filter_id [String] The ID of the security filter.
+    # @param [Hash] opts the optional parameters
+    # @return [SecurityFilterDeleteResponse]
+    def delete_security_filter(security_filter_id, opts = {})
+      data, _status_code, _headers = delete_security_filter_with_http_info(security_filter_id, opts)
+      data
+    end
+
+    # Delete a security filter
+    # Delete a specific security filter.
+    # @param security_filter_id [String] The ID of the security filter.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(SecurityFilterDeleteResponse, Integer, Hash)>] SecurityFilterDeleteResponse data, response status code and response headers
+    def delete_security_filter_with_http_info(security_filter_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:delete_security_filter)
+        unstable_enabled = @api_client.config.unstable_operations[:delete_security_filter]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_security_filter")
+        else
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_security_filter"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.delete_security_filter ...'
+      end
+      # verify the required parameter 'security_filter_id' is set
+      if @api_client.config.client_side_validation && security_filter_id.nil?
+        fail ArgumentError, "Missing the required parameter 'security_filter_id' when calling SecurityMonitoringAPI.delete_security_filter"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/security_filters/{security_filter_id}'.sub('{' + 'security_filter_id' + '}', CGI.escape(security_filter_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityFilterDeleteResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_security_filter,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#delete_security_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -170,6 +318,79 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get a security filter
+    # Get the details of a specific security filter.
+    # @param security_filter_id [String] The ID of the security filter.
+    # @param [Hash] opts the optional parameters
+    # @return [SecurityFilterResponse]
+    def get_security_filter(security_filter_id, opts = {})
+      data, _status_code, _headers = get_security_filter_with_http_info(security_filter_id, opts)
+      data
+    end
+
+    # Get a security filter
+    # Get the details of a specific security filter.
+    # @param security_filter_id [String] The ID of the security filter.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(SecurityFilterResponse, Integer, Hash)>] SecurityFilterResponse data, response status code and response headers
+    def get_security_filter_with_http_info(security_filter_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_security_filter)
+        unstable_enabled = @api_client.config.unstable_operations[:get_security_filter]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_security_filter")
+        else
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_security_filter"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_security_filter ...'
+      end
+      # verify the required parameter 'security_filter_id' is set
+      if @api_client.config.client_side_validation && security_filter_id.nil?
+        fail ArgumentError, "Missing the required parameter 'security_filter_id' when calling SecurityMonitoringAPI.get_security_filter"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/security_filters/{security_filter_id}'.sub('{' + 'security_filter_id' + '}', CGI.escape(security_filter_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityFilterResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_security_filter,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_security_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a rule's details
     # Get a rule's details.
     # @param rule_id [String] The ID of the rule.
@@ -239,6 +460,73 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#get_security_monitoring_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get all security filters
+    # Get the list of configured security filters with their definitions.
+    # @param [Hash] opts the optional parameters
+    # @return [SecurityFiltersResponse]
+    def list_security_filters(opts = {})
+      data, _status_code, _headers = list_security_filters_with_http_info(opts)
+      data
+    end
+
+    # Get all security filters
+    # Get the list of configured security filters with their definitions.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(SecurityFiltersResponse, Integer, Hash)>] SecurityFiltersResponse data, response status code and response headers
+    def list_security_filters_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_security_filters)
+        unstable_enabled = @api_client.config.unstable_operations[:list_security_filters]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_security_filters")
+        else
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_security_filters"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_security_filters ...'
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/security_filters'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityFiltersResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_security_filters,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#list_security_filters\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -472,6 +760,87 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#search_security_monitoring_signals\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a security filter
+    # Update a specific security filter. Returns the security filter object when the request is successful.
+    # @param security_filter_id [String] The ID of the security filter.
+    # @param body [SecurityFilterUpdateRequest] New definition of the security filter.
+    # @param [Hash] opts the optional parameters
+    # @return [SecurityFilterResponse]
+    def update_security_filter(security_filter_id, body, opts = {})
+      data, _status_code, _headers = update_security_filter_with_http_info(security_filter_id, body, opts)
+      data
+    end
+
+    # Update a security filter
+    # Update a specific security filter. Returns the security filter object when the request is successful.
+    # @param security_filter_id [String] The ID of the security filter.
+    # @param body [SecurityFilterUpdateRequest] New definition of the security filter.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(SecurityFilterResponse, Integer, Hash)>] SecurityFilterResponse data, response status code and response headers
+    def update_security_filter_with_http_info(security_filter_id, body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:update_security_filter)
+        unstable_enabled = @api_client.config.unstable_operations[:update_security_filter]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_security_filter")
+        else
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_security_filter"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.update_security_filter ...'
+      end
+      # verify the required parameter 'security_filter_id' is set
+      if @api_client.config.client_side_validation && security_filter_id.nil?
+        fail ArgumentError, "Missing the required parameter 'security_filter_id' when calling SecurityMonitoringAPI.update_security_filter"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.update_security_filter"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/configuration/security_filters/{security_filter_id}'.sub('{' + 'security_filter_id' + '}', CGI.escape(security_filter_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityFilterResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :update_security_filter,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#update_security_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

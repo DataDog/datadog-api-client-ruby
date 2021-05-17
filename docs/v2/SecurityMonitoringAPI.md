@@ -4,13 +4,80 @@ All URIs are relative to *https://api.datadoghq.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**create_security_filter**](SecurityMonitoringAPI.md#create_security_filter) | **POST** /api/v2/security_monitoring/configuration/security_filters | Create a security filter |
 | [**create_security_monitoring_rule**](SecurityMonitoringAPI.md#create_security_monitoring_rule) | **POST** /api/v2/security_monitoring/rules | Create a detection rule |
+| [**delete_security_filter**](SecurityMonitoringAPI.md#delete_security_filter) | **DELETE** /api/v2/security_monitoring/configuration/security_filters/{security_filter_id} | Delete a security filter |
 | [**delete_security_monitoring_rule**](SecurityMonitoringAPI.md#delete_security_monitoring_rule) | **DELETE** /api/v2/security_monitoring/rules/{rule_id} | Delete an existing rule |
+| [**get_security_filter**](SecurityMonitoringAPI.md#get_security_filter) | **GET** /api/v2/security_monitoring/configuration/security_filters/{security_filter_id} | Get a security filter |
 | [**get_security_monitoring_rule**](SecurityMonitoringAPI.md#get_security_monitoring_rule) | **GET** /api/v2/security_monitoring/rules/{rule_id} | Get a rule&#39;s details |
+| [**list_security_filters**](SecurityMonitoringAPI.md#list_security_filters) | **GET** /api/v2/security_monitoring/configuration/security_filters | Get all security filters |
 | [**list_security_monitoring_rules**](SecurityMonitoringAPI.md#list_security_monitoring_rules) | **GET** /api/v2/security_monitoring/rules | List rules |
 | [**list_security_monitoring_signals**](SecurityMonitoringAPI.md#list_security_monitoring_signals) | **GET** /api/v2/security_monitoring/signals | Get a quick list of security signals |
 | [**search_security_monitoring_signals**](SecurityMonitoringAPI.md#search_security_monitoring_signals) | **POST** /api/v2/security_monitoring/signals/search | Get a list of security signals |
+| [**update_security_filter**](SecurityMonitoringAPI.md#update_security_filter) | **PATCH** /api/v2/security_monitoring/configuration/security_filters/{security_filter_id} | Update a security filter |
 | [**update_security_monitoring_rule**](SecurityMonitoringAPI.md#update_security_monitoring_rule) | **PUT** /api/v2/security_monitoring/rules/{rule_id} | Update an existing rule |
+
+
+## create_security_filter
+
+> <SecurityFilterResponse> create_security_filter(body)
+
+Create a security filter
+
+Create a security filter.
+
+### Examples
+
+```ruby
+require 'datadog_api_client'
+api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
+body = DatadogAPIClient::V2::SecurityFilterCreateRequest.new({data: DatadogAPIClient::V2::SecurityFilterCreateData.new({attributes: DatadogAPIClient::V2::SecurityFilterCreateAttributes.new({exclusion_filters: [DatadogAPIClient::V2::SecurityFilterExclusionFilter.new({name: 'Exclude staging', query: 'source:staging'})], filtered_data_type: DatadogAPIClient::V2::SecurityFilterFilteredDataType::LOGS, is_enabled: true, name: 'Custom security filter', query: 'service:api'}), type: DatadogAPIClient::V2::SecurityFilterType::SECURITY_FILTERS})}) # SecurityFilterCreateRequest | The definition of the new security filter.
+
+begin
+  # Create a security filter
+  result = api_instance.create_security_filter(body)
+  p result
+rescue DatadogAPIClient::V2::APIError => e
+  puts "Error when calling SecurityMonitoringAPI->create_security_filter: #{e}"
+end
+```
+
+#### Using the create_security_filter_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SecurityFilterResponse>, Integer, Hash)> create_security_filter_with_http_info(body)
+
+```ruby
+begin
+  # Create a security filter
+  data, status_code, headers = api_instance.create_security_filter_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SecurityFilterResponse>
+rescue DatadogAPIClient::V2::APIError => e
+  puts "Error when calling SecurityMonitoringAPI->create_security_filter_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**SecurityFilterCreateRequest**](SecurityFilterCreateRequest.md) | The definition of the new security filter. |  |
+
+### Return type
+
+[**SecurityFilterResponse**](SecurityFilterResponse.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
 ## create_security_monitoring_rule
@@ -75,6 +142,68 @@ end
 - **Accept**: application/json
 
 
+## delete_security_filter
+
+> <SecurityFilterDeleteResponse> delete_security_filter(security_filter_id)
+
+Delete a security filter
+
+Delete a specific security filter.
+
+### Examples
+
+```ruby
+require 'datadog_api_client'
+api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
+security_filter_id = 'security_filter_id_example' # String | The ID of the security filter.
+
+begin
+  # Delete a security filter
+  result = api_instance.delete_security_filter(security_filter_id)
+  p result
+rescue DatadogAPIClient::V2::APIError => e
+  puts "Error when calling SecurityMonitoringAPI->delete_security_filter: #{e}"
+end
+```
+
+#### Using the delete_security_filter_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SecurityFilterDeleteResponse>, Integer, Hash)> delete_security_filter_with_http_info(security_filter_id)
+
+```ruby
+begin
+  # Delete a security filter
+  data, status_code, headers = api_instance.delete_security_filter_with_http_info(security_filter_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SecurityFilterDeleteResponse>
+rescue DatadogAPIClient::V2::APIError => e
+  puts "Error when calling SecurityMonitoringAPI->delete_security_filter_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **security_filter_id** | **String** | The ID of the security filter. |  |
+
+### Return type
+
+[**SecurityFilterDeleteResponse**](SecurityFilterDeleteResponse.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## delete_security_monitoring_rule
 
 > delete_security_monitoring_rule(rule_id)
@@ -125,6 +254,68 @@ end
 ### Return type
 
 nil (empty response body)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_security_filter
+
+> <SecurityFilterResponse> get_security_filter(security_filter_id)
+
+Get a security filter
+
+Get the details of a specific security filter.
+
+### Examples
+
+```ruby
+require 'datadog_api_client'
+api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
+security_filter_id = 'security_filter_id_example' # String | The ID of the security filter.
+
+begin
+  # Get a security filter
+  result = api_instance.get_security_filter(security_filter_id)
+  p result
+rescue DatadogAPIClient::V2::APIError => e
+  puts "Error when calling SecurityMonitoringAPI->get_security_filter: #{e}"
+end
+```
+
+#### Using the get_security_filter_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SecurityFilterResponse>, Integer, Hash)> get_security_filter_with_http_info(security_filter_id)
+
+```ruby
+begin
+  # Get a security filter
+  data, status_code, headers = api_instance.get_security_filter_with_http_info(security_filter_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SecurityFilterResponse>
+rescue DatadogAPIClient::V2::APIError => e
+  puts "Error when calling SecurityMonitoringAPI->get_security_filter_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **security_filter_id** | **String** | The ID of the security filter. |  |
+
+### Return type
+
+[**SecurityFilterResponse**](SecurityFilterResponse.md)
 
 ### Authorization
 
@@ -187,6 +378,65 @@ end
 ### Return type
 
 [**SecurityMonitoringRuleResponse**](SecurityMonitoringRuleResponse.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## list_security_filters
+
+> <SecurityFiltersResponse> list_security_filters
+
+Get all security filters
+
+Get the list of configured security filters with their definitions.
+
+### Examples
+
+```ruby
+require 'datadog_api_client'
+api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
+
+begin
+  # Get all security filters
+  result = api_instance.list_security_filters
+  p result
+rescue DatadogAPIClient::V2::APIError => e
+  puts "Error when calling SecurityMonitoringAPI->list_security_filters: #{e}"
+end
+```
+
+#### Using the list_security_filters_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SecurityFiltersResponse>, Integer, Hash)> list_security_filters_with_http_info
+
+```ruby
+begin
+  # Get all security filters
+  data, status_code, headers = api_instance.list_security_filters_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SecurityFiltersResponse>
+rescue DatadogAPIClient::V2::APIError => e
+  puts "Error when calling SecurityMonitoringAPI->list_security_filters_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**SecurityFiltersResponse**](SecurityFiltersResponse.md)
 
 ### Authorization
 
@@ -401,6 +651,70 @@ end
 ### Return type
 
 [**SecurityMonitoringSignalsListResponse**](SecurityMonitoringSignalsListResponse.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## update_security_filter
+
+> <SecurityFilterResponse> update_security_filter(security_filter_id, body)
+
+Update a security filter
+
+Update a specific security filter. Returns the security filter object when the request is successful.
+
+### Examples
+
+```ruby
+require 'datadog_api_client'
+api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
+security_filter_id = 'security_filter_id_example' # String | The ID of the security filter.
+body = DatadogAPIClient::V2::SecurityFilterUpdateRequest.new({data: DatadogAPIClient::V2::SecurityFilterUpdateData.new({attributes: DatadogAPIClient::V2::SecurityFilterUpdateAttributes.new, type: DatadogAPIClient::V2::SecurityFilterType::SECURITY_FILTERS})}) # SecurityFilterUpdateRequest | New definition of the security filter.
+
+begin
+  # Update a security filter
+  result = api_instance.update_security_filter(security_filter_id, body)
+  p result
+rescue DatadogAPIClient::V2::APIError => e
+  puts "Error when calling SecurityMonitoringAPI->update_security_filter: #{e}"
+end
+```
+
+#### Using the update_security_filter_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SecurityFilterResponse>, Integer, Hash)> update_security_filter_with_http_info(security_filter_id, body)
+
+```ruby
+begin
+  # Update a security filter
+  data, status_code, headers = api_instance.update_security_filter_with_http_info(security_filter_id, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SecurityFilterResponse>
+rescue DatadogAPIClient::V2::APIError => e
+  puts "Error when calling SecurityMonitoringAPI->update_security_filter_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **security_filter_id** | **String** | The ID of the security filter. |  |
+| **body** | [**SecurityFilterUpdateRequest**](SecurityFilterUpdateRequest.md) | New definition of the security filter. |  |
+
+### Return type
+
+[**SecurityFilterResponse**](SecurityFilterResponse.md)
 
 ### Authorization
 
