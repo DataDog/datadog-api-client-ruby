@@ -22,6 +22,8 @@ module DatadogAPIClient::V1
     # If a scheduled downtime currently exists.
     attr_accessor :active
 
+    attr_accessor :active_child
+
     # If a scheduled downtime is canceled.
     attr_accessor :canceled
 
@@ -70,6 +72,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'active' => :'active',
+        :'active_child' => :'active_child',
         :'canceled' => :'canceled',
         :'creator_id' => :'creator_id',
         :'disabled' => :'disabled',
@@ -97,6 +100,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'active' => :'Boolean',
+        :'active_child' => :'DowntimeChild',
         :'canceled' => :'Integer',
         :'creator_id' => :'Integer',
         :'disabled' => :'Boolean',
@@ -118,6 +122,7 @@ module DatadogAPIClient::V1
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'active_child',
         :'canceled',
         :'_end',
         :'monitor_id',
@@ -144,6 +149,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'active')
         self.active = attributes[:'active']
+      end
+
+      if attributes.key?(:'active_child')
+        self.active_child = attributes[:'active_child']
       end
 
       if attributes.key?(:'canceled')
@@ -275,6 +284,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           active == o.active &&
+          active_child == o.active_child &&
           canceled == o.canceled &&
           creator_id == o.creator_id &&
           disabled == o.disabled &&
@@ -301,7 +311,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [active, canceled, creator_id, disabled, downtime_type, _end, id, message, monitor_id, monitor_tags, parent_id, recurrence, scope, start, timezone, updater_id].hash
+      [active, active_child, canceled, creator_id, disabled, downtime_type, _end, id, message, monitor_id, monitor_tags, parent_id, recurrence, scope, start, timezone, updater_id].hash
     end
 
     # Builds the object from hash

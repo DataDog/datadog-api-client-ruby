@@ -19,17 +19,25 @@ require 'time'
 module DatadogAPIClient::V1
   # Custom links help you connect a data value to a URL, like a Datadog page or your AWS console.
   class WidgetCustomLink
+    # The flag for toggling context menu link visibility.
+    attr_accessor :is_hidden
+
     # The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
     attr_accessor :label
 
     # The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
     attr_accessor :link
 
+    # The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
+    attr_accessor :override_label
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'is_hidden' => :'is_hidden',
         :'label' => :'label',
-        :'link' => :'link'
+        :'link' => :'link',
+        :'override_label' => :'override_label'
       }
     end
 
@@ -41,8 +49,10 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'is_hidden' => :'Boolean',
         :'label' => :'String',
-        :'link' => :'String'
+        :'link' => :'String',
+        :'override_label' => :'String'
       }
     end
 
@@ -67,6 +77,10 @@ module DatadogAPIClient::V1
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'is_hidden')
+        self.is_hidden = attributes[:'is_hidden']
+      end
+
       if attributes.key?(:'label')
         self.label = attributes[:'label']
       end
@@ -74,28 +88,22 @@ module DatadogAPIClient::V1
       if attributes.key?(:'link')
         self.link = attributes[:'link']
       end
+
+      if attributes.key?(:'override_label')
+        self.override_label = attributes[:'override_label']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @label.nil?
-        invalid_properties.push('invalid value for "label", label cannot be nil.')
-      end
-
-      if @link.nil?
-        invalid_properties.push('invalid value for "link", link cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @label.nil?
-      return false if @link.nil?
       true
     end
 
@@ -104,8 +112,10 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          is_hidden == o.is_hidden &&
           label == o.label &&
-          link == o.link
+          link == o.link &&
+          override_label == o.override_label
     end
 
     # @see the `==` method
@@ -117,7 +127,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [label, link].hash
+      [is_hidden, label, link, override_label].hash
     end
 
     # Builds the object from hash

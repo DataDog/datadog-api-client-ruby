@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **active** | **Boolean** | If a scheduled downtime currently exists. | [optional][readonly] |
+| **active_child** | [**DowntimeChild**](DowntimeChild.md) |  | [optional] |
 | **canceled** | **Integer** | If a scheduled downtime is canceled. | [optional][readonly] |
 | **creator_id** | **Integer** | User ID of the downtime creator. | [optional][readonly] |
 | **disabled** | **Boolean** | If a downtime has been disabled. | [optional] |
@@ -28,6 +29,7 @@ require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::Downtime.new(
   active: true,
+  active_child: null,
   canceled: 1412799983,
   creator_id: 123456,
   disabled: false,

@@ -120,6 +120,11 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::MonitorsAPI* | [**list_monitors**](MonitorsAPI.md#list_monitors) | **GET** /api/v1/monitor | Get all monitor details
 *DatadogAPIClient::V1::MonitorsAPI* | [**update_monitor**](MonitorsAPI.md#update_monitor) | **PUT** /api/v1/monitor/{monitor_id} | Edit a monitor
 *DatadogAPIClient::V1::MonitorsAPI* | [**validate_monitor**](MonitorsAPI.md#validate_monitor) | **POST** /api/v1/monitor/validate | Validate a monitor
+*DatadogAPIClient::V1::NotebooksAPI* | [**create_notebook**](NotebooksAPI.md#create_notebook) | **POST** /api/v1/notebooks | Create a notebook
+*DatadogAPIClient::V1::NotebooksAPI* | [**delete_notebook**](NotebooksAPI.md#delete_notebook) | **DELETE** /api/v1/notebooks/{notebook_id} | Delete a notebook
+*DatadogAPIClient::V1::NotebooksAPI* | [**get_notebook**](NotebooksAPI.md#get_notebook) | **GET** /api/v1/notebooks/{notebook_id} | Get a notebook
+*DatadogAPIClient::V1::NotebooksAPI* | [**list_notebooks**](NotebooksAPI.md#list_notebooks) | **GET** /api/v1/notebooks | Get all notebooks
+*DatadogAPIClient::V1::NotebooksAPI* | [**update_notebook**](NotebooksAPI.md#update_notebook) | **PUT** /api/v1/notebooks/{notebook_id} | Update a notebook
 *DatadogAPIClient::V1::OrganizationsAPI* | [**create_child_org**](OrganizationsAPI.md#create_child_org) | **POST** /api/v1/org | Create a child organization
 *DatadogAPIClient::V1::OrganizationsAPI* | [**get_org**](OrganizationsAPI.md#get_org) | **GET** /api/v1/org/{public_id} | Get organization information
 *DatadogAPIClient::V1::OrganizationsAPI* | [**list_orgs**](OrganizationsAPI.md#list_orgs) | **GET** /api/v1/org | List your managed organizations
@@ -207,7 +212,7 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_synthetics_api**](UsageMeteringAPI.md#get_usage_synthetics_api) | **GET** /api/v1/usage/synthetics_api | Get hourly usage for Synthetics API Checks
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_synthetics_browser**](UsageMeteringAPI.md#get_usage_synthetics_browser) | **GET** /api/v1/usage/synthetics_browser | Get hourly usage for Synthetics Browser Checks
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_timeseries**](UsageMeteringAPI.md#get_usage_timeseries) | **GET** /api/v1/usage/timeseries | Get hourly usage for custom metrics
-*DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_top_avg_metrics**](UsageMeteringAPI.md#get_usage_top_avg_metrics) | **GET** /api/v1/usage/top_avg_metrics | Get top custom metrics by hourly average
+*DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_top_avg_metrics**](UsageMeteringAPI.md#get_usage_top_avg_metrics) | **GET** /api/v1/usage/top_avg_metrics | Get all custom metrics by hourly average
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_trace**](UsageMeteringAPI.md#get_usage_trace) | **GET** /api/v1/usage/traces | Get hourly usage for Trace Search
 *DatadogAPIClient::V1::UsersAPI* | [**create_user**](UsersAPI.md#create_user) | **POST** /api/v1/user | Create a user
 *DatadogAPIClient::V1::UsersAPI* | [**disable_user**](UsersAPI.md#disable_user) | **DELETE** /api/v1/user/{user_handle} | Disable a user
@@ -282,6 +287,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::DistributionWidgetXAxis](DistributionWidgetXAxis.md)
  - [DatadogAPIClient::V1::DistributionWidgetYAxis](DistributionWidgetYAxis.md)
  - [DatadogAPIClient::V1::Downtime](Downtime.md)
+ - [DatadogAPIClient::V1::DowntimeChild](DowntimeChild.md)
  - [DatadogAPIClient::V1::DowntimeRecurrence](DowntimeRecurrence.md)
  - [DatadogAPIClient::V1::Event](Event.md)
  - [DatadogAPIClient::V1::EventAlertType](EventAlertType.md)
@@ -440,6 +446,43 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::MonitorUpdateRequest](MonitorUpdateRequest.md)
  - [DatadogAPIClient::V1::NoteWidgetDefinition](NoteWidgetDefinition.md)
  - [DatadogAPIClient::V1::NoteWidgetDefinitionType](NoteWidgetDefinitionType.md)
+ - [DatadogAPIClient::V1::NotebookAbsoluteTime](NotebookAbsoluteTime.md)
+ - [DatadogAPIClient::V1::NotebookAuthor](NotebookAuthor.md)
+ - [DatadogAPIClient::V1::NotebookCellCreateRequest](NotebookCellCreateRequest.md)
+ - [DatadogAPIClient::V1::NotebookCellCreateRequestAttributes](NotebookCellCreateRequestAttributes.md)
+ - [DatadogAPIClient::V1::NotebookCellResourceType](NotebookCellResourceType.md)
+ - [DatadogAPIClient::V1::NotebookCellResponse](NotebookCellResponse.md)
+ - [DatadogAPIClient::V1::NotebookCellResponseAttributes](NotebookCellResponseAttributes.md)
+ - [DatadogAPIClient::V1::NotebookCellTime](NotebookCellTime.md)
+ - [DatadogAPIClient::V1::NotebookCellUpdateRequest](NotebookCellUpdateRequest.md)
+ - [DatadogAPIClient::V1::NotebookCellUpdateRequestAttributes](NotebookCellUpdateRequestAttributes.md)
+ - [DatadogAPIClient::V1::NotebookCreateData](NotebookCreateData.md)
+ - [DatadogAPIClient::V1::NotebookCreateDataAttributes](NotebookCreateDataAttributes.md)
+ - [DatadogAPIClient::V1::NotebookCreateRequest](NotebookCreateRequest.md)
+ - [DatadogAPIClient::V1::NotebookDistributionCellAttributes](NotebookDistributionCellAttributes.md)
+ - [DatadogAPIClient::V1::NotebookGlobalTime](NotebookGlobalTime.md)
+ - [DatadogAPIClient::V1::NotebookGraphSize](NotebookGraphSize.md)
+ - [DatadogAPIClient::V1::NotebookHeatMapCellAttributes](NotebookHeatMapCellAttributes.md)
+ - [DatadogAPIClient::V1::NotebookLogStreamCellAttributes](NotebookLogStreamCellAttributes.md)
+ - [DatadogAPIClient::V1::NotebookMarkdownCellAttributes](NotebookMarkdownCellAttributes.md)
+ - [DatadogAPIClient::V1::NotebookMarkdownCellDefinition](NotebookMarkdownCellDefinition.md)
+ - [DatadogAPIClient::V1::NotebookMarkdownCellDefinitionType](NotebookMarkdownCellDefinitionType.md)
+ - [DatadogAPIClient::V1::NotebookRelativeTime](NotebookRelativeTime.md)
+ - [DatadogAPIClient::V1::NotebookResourceType](NotebookResourceType.md)
+ - [DatadogAPIClient::V1::NotebookResponse](NotebookResponse.md)
+ - [DatadogAPIClient::V1::NotebookResponseData](NotebookResponseData.md)
+ - [DatadogAPIClient::V1::NotebookResponseDataAttributes](NotebookResponseDataAttributes.md)
+ - [DatadogAPIClient::V1::NotebookSplitBy](NotebookSplitBy.md)
+ - [DatadogAPIClient::V1::NotebookStatus](NotebookStatus.md)
+ - [DatadogAPIClient::V1::NotebookTimeseriesCellAttributes](NotebookTimeseriesCellAttributes.md)
+ - [DatadogAPIClient::V1::NotebookToplistCellAttributes](NotebookToplistCellAttributes.md)
+ - [DatadogAPIClient::V1::NotebookUpdateCell](NotebookUpdateCell.md)
+ - [DatadogAPIClient::V1::NotebookUpdateData](NotebookUpdateData.md)
+ - [DatadogAPIClient::V1::NotebookUpdateDataAttributes](NotebookUpdateDataAttributes.md)
+ - [DatadogAPIClient::V1::NotebookUpdateRequest](NotebookUpdateRequest.md)
+ - [DatadogAPIClient::V1::NotebooksResponse](NotebooksResponse.md)
+ - [DatadogAPIClient::V1::NotebooksResponseMeta](NotebooksResponseMeta.md)
+ - [DatadogAPIClient::V1::NotebooksResponsePage](NotebooksResponsePage.md)
  - [DatadogAPIClient::V1::Organization](Organization.md)
  - [DatadogAPIClient::V1::OrganizationBilling](OrganizationBilling.md)
  - [DatadogAPIClient::V1::OrganizationCreateBody](OrganizationCreateBody.md)

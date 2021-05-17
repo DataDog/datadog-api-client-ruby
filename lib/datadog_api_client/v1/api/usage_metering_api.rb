@@ -2266,26 +2266,28 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get top custom metrics by hourly average
-    # Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use the month parameter to get a month-to-date data resolution or use the day parameter to get a daily resolution. One of the two is required, and only one of the two is allowed.
+    # Get all custom metrics by hourly average
+    # Get all [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use the month parameter to get a month-to-date data resolution or use the day parameter to get a daily resolution. One of the two is required, and only one of the two is allowed.
     # @param [Hash] opts the optional parameters
     # @option opts [Time] :month Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour. (Either month or day should be specified, but not both)
     # @option opts [Time] :day Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD] for usage beginning at this hour. (Either month or day should be specified, but not both)
     # @option opts [Array<String>] :names Comma-separated list of metric names.
     # @option opts [Integer] :limit Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified. (default to 500)
+    # @option opts [String] :next_record_id List following results with a next_record_id provided in the previous query.
     # @return [UsageTopAvgMetricsResponse]
     def get_usage_top_avg_metrics(opts = {})
       data, _status_code, _headers = get_usage_top_avg_metrics_with_http_info(opts)
       data
     end
 
-    # Get top custom metrics by hourly average
-    # Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use the month parameter to get a month-to-date data resolution or use the day parameter to get a daily resolution. One of the two is required, and only one of the two is allowed.
+    # Get all custom metrics by hourly average
+    # Get all [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use the month parameter to get a month-to-date data resolution or use the day parameter to get a daily resolution. One of the two is required, and only one of the two is allowed.
     # @param [Hash] opts the optional parameters
     # @option opts [Time] :month Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour. (Either month or day should be specified, but not both)
     # @option opts [Time] :day Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD] for usage beginning at this hour. (Either month or day should be specified, but not both)
     # @option opts [Array<String>] :names Comma-separated list of metric names.
     # @option opts [Integer] :limit Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified.
+    # @option opts [String] :next_record_id List following results with a next_record_id provided in the previous query.
     # @return [Array<(UsageTopAvgMetricsResponse, Integer, Hash)>] UsageTopAvgMetricsResponse data, response status code and response headers
     def get_usage_top_avg_metrics_with_http_info(opts = {})
 
@@ -2318,6 +2320,7 @@ module DatadogAPIClient::V1
       query_params[:'day'] = opts[:'day'] if !opts[:'day'].nil?
       query_params[:'names'] = @api_client.build_collection_param(opts[:'names'], :multi) if !opts[:'names'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'next_record_id'] = opts[:'next_record_id'] if !opts[:'next_record_id'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

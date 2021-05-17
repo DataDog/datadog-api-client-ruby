@@ -5,10 +5,8 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **limit** | **Integer** | Maximum amount of records to be returned. | [optional] |
-| **offset** | **Integer** | Records to be skipped before beginning to return. | [optional] |
-| **sort_direction** | **String** | Direction to sort by. | [optional] |
-| **sort_name** | **String** | Field to sort by. | [optional] |
-| **total_number_of_records** | **Integer** | Total number of records. | [optional] |
+| **next_record_id** | **String** | The cursor to use to get the next results, if any. To make the next request, use the same parameters with the addition of this next_record_id. | [optional] |
+| **total_number_of_records** | **Integer** | Total number of records. (deprecated after May 1st, 2021) | [optional] |
 
 ## Example
 
@@ -17,9 +15,7 @@ require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::UsageAttributionPagination.new(
   limit: null,
-  offset: null,
-  sort_direction: null,
-  sort_name: null,
+  next_record_id: null,
   total_number_of_records: null
 )
 ```
