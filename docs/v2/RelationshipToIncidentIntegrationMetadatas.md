@@ -12,7 +12,7 @@
 require 'datadog_api_client/v2'
 
 instance = DatadogAPIClient::V2::RelationshipToIncidentIntegrationMetadatas.new(
-  data: [{&quot;id&quot;:&quot;00000000-0000-0000-0000-000000000000&quot;,&quot;type&quot;:&quot;incident_integration_metadata&quot;},{&quot;id&quot;:&quot;00000000-0000-0000-0000-000000000000&quot;,&quot;type&quot;:&quot;incident_integration_metadata&quot;}]
+  data: [{&quot;id&quot;:&quot;00000000-0000-0000-0000-000000000000&quot;,&quot;type&quot;:&quot;incident_integrations&quot;},{&quot;id&quot;:&quot;00000000-0000-0000-0000-000000000000&quot;,&quot;type&quot;:&quot;incident_integrations&quot;}]
 )
 ```
 
