@@ -235,8 +235,8 @@ end
 api_instance = DatadogAPIClient::V2::IncidentServicesAPI.new
 opts = {
   include: DatadogAPIClient::V2::IncidentRelatedObject::USERS, # IncidentRelatedObject | Specifies which types of related objects should be included in the response.
-  page_size: 789, # Integer | Size for a given page.
-  page_offset: 789, # Integer | Specific offset to use as the beginning of the returned page.
+  page_size: 10, # Integer | Size for a given page.
+  page_offset: 0, # Integer | Specific offset to use as the beginning of the returned page.
   filter: 'ExampleServiceName' # String | A search query that filters services by name.
 }
 

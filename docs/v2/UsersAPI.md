@@ -90,7 +90,7 @@ Disable a user. Can only be used with an application key belonging to an adminis
 ```ruby
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::UsersAPI.new
-user_id = 'user_id_example' # String | The ID of the user.
+user_id = '00000000-0000-0000-0000-000000000000' # String | The ID of the user.
 
 begin
   # Disable a user
@@ -151,7 +151,7 @@ Returns a single user invitation by its UUID.
 ```ruby
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::UsersAPI.new
-user_invitation_uuid = 'user_invitation_uuid_example' # String | The UUID of the user invitation.
+user_invitation_uuid = '00000000-0000-0000-0000-000000000000' # String | The UUID of the user invitation.
 
 begin
   # Get a user invitation
@@ -213,7 +213,7 @@ Get a user in the organization specified by the user’s `user_id`.
 ```ruby
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::UsersAPI.new
-user_id = 'user_id_example' # String | The ID of the user.
+user_id = '00000000-0000-0000-0000-000000000000' # String | The ID of the user.
 
 begin
   # Get user details
@@ -275,7 +275,7 @@ Get a user organization. Returns the user information and all organizations join
 ```ruby
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::UsersAPI.new
-user_id = 'user_id_example' # String | The ID of the user.
+user_id = '00000000-0000-0000-0000-000000000000' # String | The ID of the user.
 
 begin
   # Get a user organization
@@ -337,7 +337,7 @@ Get a user permission set. Returns a list of the user’s permissions granted by
 ```ruby
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::UsersAPI.new
-user_id = 'user_id_example' # String | The ID of the user.
+user_id = '00000000-0000-0000-0000-000000000000' # String | The ID of the user.
 
 begin
   # Get a user permissions
@@ -400,12 +400,12 @@ Get the list of all users in the organization. This list includes all users even
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::UsersAPI.new
 opts = {
-  page_size: 789, # Integer | Size for a given page.
-  page_number: 789, # Integer | Specific page number to return.
-  sort: 'sort_example', # String | User attribute to order results by. Sort order is ascending by default. Sort order is descending if the field is prefixed by a negative sign, for example `sort=-name`. Options: `name`, `modified_at`, `user_count`.
+  page_size: 10, # Integer | Size for a given page.
+  page_number: 0, # Integer | Specific page number to return.
+  sort: 'name', # String | User attribute to order results by. Sort order is ascending by default. Sort order is descending if the field is prefixed by a negative sign, for example `sort=-name`. Options: `name`, `modified_at`, `user_count`.
   sort_dir: DatadogAPIClient::V2::QuerySortOrder::ASC, # QuerySortOrder | Direction of sort. Options: `asc`, `desc`.
   filter: 'filter_example', # String | Filter all users by the given string. Defaults to no filtering.
-  filter_status: 'filter_status_example' # String | Filter on status attribute. Comma separated list, with possible values `Active`, `Pending`, and `Disabled`. Defaults to no filtering.
+  filter_status: 'Active' # String | Filter on status attribute. Comma separated list, with possible values `Active`, `Pending`, and `Disabled`. Defaults to no filtering.
 }
 
 begin
@@ -535,7 +535,7 @@ Edit a user. Can only be used with an application key belonging to an administra
 ```ruby
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::UsersAPI.new
-user_id = 'user_id_example' # String | The ID of the user.
+user_id = '00000000-0000-0000-0000-000000000000' # String | The ID of the user.
 body = DatadogAPIClient::V2::UserUpdateRequest.new({data: DatadogAPIClient::V2::UserUpdateData.new({attributes: DatadogAPIClient::V2::UserUpdateAttributes.new, id: '00000000-0000-0000-0000-000000000000', type: DatadogAPIClient::V2::UsersType::USERS})}) # UserUpdateRequest | 
 
 begin
