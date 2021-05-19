@@ -73,7 +73,7 @@ module DatadogAPIClient::V2
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       else
-        self.type = 'incident_integration_metadata'
+        self.type = 'incident_integrations'
       end
     end
 

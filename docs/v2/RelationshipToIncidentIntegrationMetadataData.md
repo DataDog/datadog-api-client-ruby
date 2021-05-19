@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** | A unique identifier that represents the integration metadata. |  |
-| **type** | [**IncidentIntegrationMetadataType**](IncidentIntegrationMetadataType.md) |  | [default to &#39;incident_integration_metadata&#39;] |
+| **type** | [**IncidentIntegrationMetadataType**](IncidentIntegrationMetadataType.md) |  | [default to &#39;incident_integrations&#39;] |
 
 ## Example
 
