@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The attributes of a notebook toplist cell.
+  # The attributes of a notebook `toplist` cell.
   class NotebookToplistCellAttributes
     attr_accessor :definition
 

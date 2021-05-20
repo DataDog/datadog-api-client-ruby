@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The attributes of a notebooks markdown cell.
+  # The attributes of a notebook `markdown` cell.
   class NotebookMarkdownCellAttributes
     attr_accessor :definition
 

@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The attributes of a notebook heat map cell.
+  # The attributes of a notebook `heatmap` cell.
   class NotebookHeatMapCellAttributes
     attr_accessor :definition
 

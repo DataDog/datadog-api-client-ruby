@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The attributes of a notebook log stream cell.
+  # The attributes of a notebook `log_stream` cell.
   class NotebookLogStreamCellAttributes
     attr_accessor :definition
 

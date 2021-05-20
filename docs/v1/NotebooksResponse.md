@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **data** | [**Array&lt;NotebookResponseData&gt;**](NotebookResponseData.md) | List of notebook definitions. | [optional] |
+| **data** | [**Array&lt;NotebooksResponseData&gt;**](NotebooksResponseData.md) | List of notebook definitions. | [optional] |
 | **meta** | [**NotebooksResponseMeta**](NotebooksResponseMeta.md) |  | [optional] |
 
 ## Example

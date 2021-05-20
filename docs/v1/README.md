@@ -481,6 +481,8 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::NotebookUpdateDataAttributes](NotebookUpdateDataAttributes.md)
  - [DatadogAPIClient::V1::NotebookUpdateRequest](NotebookUpdateRequest.md)
  - [DatadogAPIClient::V1::NotebooksResponse](NotebooksResponse.md)
+ - [DatadogAPIClient::V1::NotebooksResponseData](NotebooksResponseData.md)
+ - [DatadogAPIClient::V1::NotebooksResponseDataAttributes](NotebooksResponseDataAttributes.md)
  - [DatadogAPIClient::V1::NotebooksResponseMeta](NotebooksResponseMeta.md)
  - [DatadogAPIClient::V1::NotebooksResponsePage](NotebooksResponsePage.md)
  - [DatadogAPIClient::V1::Organization](Organization.md)

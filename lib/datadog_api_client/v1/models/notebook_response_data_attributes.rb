@@ -24,13 +24,13 @@ module DatadogAPIClient::V1
     # List of cells to display in the notebook.
     attr_accessor :cells
 
-    # UTC time stamp.
+    # UTC time stamp for when the notebook was created.
     attr_accessor :created
 
-    # UTC time stamp.
+    # UTC time stamp for when the notebook was last modified.
     attr_accessor :modified
 
-    # Notebook name.
+    # The name of the notebook.
     attr_accessor :name
 
     attr_accessor :status

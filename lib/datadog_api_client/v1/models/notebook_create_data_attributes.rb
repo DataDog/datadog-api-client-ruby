@@ -22,7 +22,7 @@ module DatadogAPIClient::V1
     # List of cells to display in the notebook.
     attr_accessor :cells
 
-    # Notebook name.
+    # The name of the notebook.
     attr_accessor :name
 
     attr_accessor :status
