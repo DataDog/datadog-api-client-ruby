@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **cells** | [**Array&lt;NotebookUpdateCell&gt;**](NotebookUpdateCell.md) | List of cells to display in the notebook. |  |
-| **name** | **String** | Notebook name. |  |
+| **name** | **String** | The name of the notebook. |  |
 | **status** | [**NotebookStatus**](NotebookStatus.md) |  | [optional][default to &#39;published&#39;] |
 | **time** | [**NotebookGlobalTime**](NotebookGlobalTime.md) |  |  |
 

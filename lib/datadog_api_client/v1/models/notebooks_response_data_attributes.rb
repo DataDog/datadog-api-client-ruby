@@ -17,22 +17,35 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The attributes of a notebook `distribution` cell.
-  class NotebookDistributionCellAttributes
-    attr_accessor :definition
+  # The attributes of a notebook in get all response.
+  class NotebooksResponseDataAttributes
+    attr_accessor :author
 
-    attr_accessor :graph_size
+    # List of cells to display in the notebook.
+    attr_accessor :cells
 
-    attr_accessor :split_by
+    # UTC time stamp for when the notebook was created.
+    attr_accessor :created
+
+    # UTC time stamp for when the notebook was last modified.
+    attr_accessor :modified
+
+    # The name of the notebook.
+    attr_accessor :name
+
+    attr_accessor :status
 
     attr_accessor :time
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'definition' => :'definition',
-        :'graph_size' => :'graph_size',
-        :'split_by' => :'split_by',
+        :'author' => :'author',
+        :'cells' => :'cells',
+        :'created' => :'created',
+        :'modified' => :'modified',
+        :'name' => :'name',
+        :'status' => :'status',
         :'time' => :'time'
       }
     end
@@ -45,17 +58,19 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'definition' => :'DistributionWidgetDefinition',
-        :'graph_size' => :'NotebookGraphSize',
-        :'split_by' => :'NotebookSplitBy',
-        :'time' => :'NotebookCellTime'
+        :'author' => :'NotebookAuthor',
+        :'cells' => :'Array<NotebookCellResponse>',
+        :'created' => :'Time',
+        :'modified' => :'Time',
+        :'name' => :'String',
+        :'status' => :'NotebookStatus',
+        :'time' => :'NotebookGlobalTime'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'time'
       ])
     end
 
@@ -63,27 +78,43 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::NotebookDistributionCellAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::NotebooksResponseDataAttributes` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::NotebookDistributionCellAttributes`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::NotebooksResponseDataAttributes`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'definition')
-        self.definition = attributes[:'definition']
+      if attributes.key?(:'author')
+        self.author = attributes[:'author']
       end
 
-      if attributes.key?(:'graph_size')
-        self.graph_size = attributes[:'graph_size']
+      if attributes.key?(:'cells')
+        if (value = attributes[:'cells']).is_a?(Array)
+          self.cells = value
+        end
       end
 
-      if attributes.key?(:'split_by')
-        self.split_by = attributes[:'split_by']
+      if attributes.key?(:'created')
+        self.created = attributes[:'created']
+      end
+
+      if attributes.key?(:'modified')
+        self.modified = attributes[:'modified']
+      end
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
+      else
+        self.status = 'published'
       end
 
       if attributes.key?(:'time')
@@ -95,8 +126,16 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @definition.nil?
-        invalid_properties.push('invalid value for "definition", definition cannot be nil.')
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
+      if @name.to_s.length > 80
+        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 80.')
+      end
+
+      if @name.to_s.length < 0
+        invalid_properties.push('invalid value for "name", the character length must be great than or equal to 0.')
       end
 
       invalid_properties
@@ -105,8 +144,28 @@ module DatadogAPIClient::V1
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @definition.nil?
+      return false if @name.nil?
+      return false if @name.to_s.length > 80
+      return false if @name.to_s.length < 0
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] name Value to be assigned
+    def name=(name)
+      if name.nil?
+        fail ArgumentError, 'name cannot be nil'
+      end
+
+      if name.to_s.length > 80
+        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 80.'
+      end
+
+      if name.to_s.length < 0
+        fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 0.'
+      end
+
+      @name = name
     end
 
     # Checks equality by comparing each attribute.
@@ -114,9 +173,12 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          definition == o.definition &&
-          graph_size == o.graph_size &&
-          split_by == o.split_by &&
+          author == o.author &&
+          cells == o.cells &&
+          created == o.created &&
+          modified == o.modified &&
+          name == o.name &&
+          status == o.status &&
           time == o.time
     end
 
@@ -129,7 +191,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [definition, graph_size, split_by, time].hash
+      [author, cells, created, modified, name, status, time].hash
     end
 
     # Builds the object from hash

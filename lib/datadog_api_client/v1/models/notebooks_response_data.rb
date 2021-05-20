@@ -17,23 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The attributes of a notebook `distribution` cell.
-  class NotebookDistributionCellAttributes
-    attr_accessor :definition
+  # The data for a notebook in get all response.
+  class NotebooksResponseData
+    attr_accessor :attributes
 
-    attr_accessor :graph_size
+    # Unique notebook ID, assigned when you create the notebook.
+    attr_accessor :id
 
-    attr_accessor :split_by
-
-    attr_accessor :time
+    attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'definition' => :'definition',
-        :'graph_size' => :'graph_size',
-        :'split_by' => :'split_by',
-        :'time' => :'time'
+        :'attributes' => :'attributes',
+        :'id' => :'id',
+        :'type' => :'type'
       }
     end
 
@@ -45,17 +43,15 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'definition' => :'DistributionWidgetDefinition',
-        :'graph_size' => :'NotebookGraphSize',
-        :'split_by' => :'NotebookSplitBy',
-        :'time' => :'NotebookCellTime'
+        :'attributes' => :'NotebooksResponseDataAttributes',
+        :'id' => :'Integer',
+        :'type' => :'NotebookResourceType'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'time'
       ])
     end
 
@@ -63,31 +59,29 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::NotebookDistributionCellAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::NotebooksResponseData` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::NotebookDistributionCellAttributes`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::NotebooksResponseData`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'definition')
-        self.definition = attributes[:'definition']
+      if attributes.key?(:'attributes')
+        self.attributes = attributes[:'attributes']
       end
 
-      if attributes.key?(:'graph_size')
-        self.graph_size = attributes[:'graph_size']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'split_by')
-        self.split_by = attributes[:'split_by']
-      end
-
-      if attributes.key?(:'time')
-        self.time = attributes[:'time']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      else
+        self.type = 'notebooks'
       end
     end
 
@@ -95,8 +89,16 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @definition.nil?
-        invalid_properties.push('invalid value for "definition", definition cannot be nil.')
+      if @attributes.nil?
+        invalid_properties.push('invalid value for "attributes", attributes cannot be nil.')
+      end
+
+      if @id.nil?
+        invalid_properties.push('invalid value for "id", id cannot be nil.')
+      end
+
+      if @type.nil?
+        invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
 
       invalid_properties
@@ -105,7 +107,9 @@ module DatadogAPIClient::V1
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @definition.nil?
+      return false if @attributes.nil?
+      return false if @id.nil?
+      return false if @type.nil?
       true
     end
 
@@ -114,10 +118,9 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          definition == o.definition &&
-          graph_size == o.graph_size &&
-          split_by == o.split_by &&
-          time == o.time
+          attributes == o.attributes &&
+          id == o.id &&
+          type == o.type
     end
 
     # @see the `==` method
@@ -129,7 +132,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [definition, graph_size, split_by, time].hash
+      [attributes, id, type].hash
     end
 
     # Builds the object from hash

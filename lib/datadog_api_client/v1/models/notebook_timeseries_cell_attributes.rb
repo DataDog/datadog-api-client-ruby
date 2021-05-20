@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The attributes of a notebook timeseries cell.
+  # The attributes of a notebook `timeseries` cell.
   class NotebookTimeseriesCellAttributes
     attr_accessor :definition
 

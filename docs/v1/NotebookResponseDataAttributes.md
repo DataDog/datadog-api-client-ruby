@@ -6,9 +6,9 @@
 | ---- | ---- | ----------- | ----- |
 | **author** | [**NotebookAuthor**](NotebookAuthor.md) |  | [optional] |
 | **cells** | [**Array&lt;NotebookCellResponse&gt;**](NotebookCellResponse.md) | List of cells to display in the notebook. |  |
-| **created** | **Time** | UTC time stamp. | [optional][readonly] |
-| **modified** | **Time** | UTC time stamp. | [optional][readonly] |
-| **name** | **String** | Notebook name. |  |
+| **created** | **Time** | UTC time stamp for when the notebook was created. | [optional][readonly] |
+| **modified** | **Time** | UTC time stamp for when the notebook was last modified. | [optional][readonly] |
+| **name** | **String** | The name of the notebook. |  |
 | **status** | [**NotebookStatus**](NotebookStatus.md) |  | [optional][default to &#39;published&#39;] |
 | **time** | [**NotebookGlobalTime**](NotebookGlobalTime.md) |  |  |
 
