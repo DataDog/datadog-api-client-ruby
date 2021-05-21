@@ -15,11 +15,11 @@
 | **options** | [**MonitorOptions**](MonitorOptions.md) |  | [optional] |
 | **overall_state** | [**MonitorOverallStates**](MonitorOverallStates.md) |  | [optional] |
 | **priority** | **Integer** | Integer from 1 (high) to 5 (low) indicating alert severity. | [optional] |
-| **query** | **String** | The monitor query. | [optional] |
+| **query** | **String** | The monitor query. |  |
 | **restricted_roles** | **Array&lt;String&gt;** | A list of role identifiers that can be pulled from the Roles API. Cannot be used with &#x60;locked&#x60; option. | [optional] |
 | **state** | [**MonitorState**](MonitorState.md) |  | [optional] |
 | **tags** | **Array&lt;String&gt;** | Tags associated to your monitor. | [optional] |
-| **type** | [**MonitorType**](MonitorType.md) |  | [optional] |
+| **type** | [**MonitorType**](MonitorType.md) |  |  |
 
 ## Example
 
@@ -38,7 +38,7 @@ instance = DatadogAPIClient::V1::Monitor.new(
   options: null,
   overall_state: null,
   priority: null,
-  query: null,
+  query: avg(last_5m):sum:system.net.bytes_rcvd{host:host0} &gt; 100,
   restricted_roles: null,
   state: null,
   tags: null,

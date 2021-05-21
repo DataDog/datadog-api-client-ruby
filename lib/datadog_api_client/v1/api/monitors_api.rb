@@ -503,7 +503,7 @@ module DatadogAPIClient::V1
     # Validate the monitor provided in the request.
     # @param body [Monitor] Monitor request object
     # @param [Hash] opts the optional parameters
-    # @return [Monitor]
+    # @return [Object]
     def validate_monitor(body, opts = {})
       data, _status_code, _headers = validate_monitor_with_http_info(body, opts)
       data
@@ -513,7 +513,7 @@ module DatadogAPIClient::V1
     # Validate the monitor provided in the request.
     # @param body [Monitor] Monitor request object
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Monitor, Integer, Hash)>] Monitor data, response status code and response headers
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def validate_monitor_with_http_info(body, opts = {})
 
       if @api_client.config.unstable_operations.has_key?(:validate_monitor)
@@ -552,7 +552,7 @@ module DatadogAPIClient::V1
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Monitor'
+      return_type = opts[:debug_return_type] || 'Object'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]

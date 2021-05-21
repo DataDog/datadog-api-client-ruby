@@ -214,6 +214,14 @@ module DatadogAPIClient::V1
         invalid_properties.push('invalid value for "priority", must be greater than or equal to 1.')
       end
 
+      if @query.nil?
+        invalid_properties.push('invalid value for "query", query cannot be nil.')
+      end
+
+      if @type.nil?
+        invalid_properties.push('invalid value for "type", type cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -222,6 +230,8 @@ module DatadogAPIClient::V1
     def valid?
       return false if !@priority.nil? && @priority > 5
       return false if !@priority.nil? && @priority < 1
+      return false if @query.nil?
+      return false if @type.nil?
       true
     end
 
