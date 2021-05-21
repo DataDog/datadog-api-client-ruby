@@ -88,7 +88,7 @@ Create a monitor using the specified options.  #### Monitor Types  The type of m
 ```ruby
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::MonitorsAPI.new
-body = DatadogAPIClient::V1::Monitor.new # Monitor | Create a monitor request body.
+body = DatadogAPIClient::V1::Monitor.new({query: 'avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100', type: DatadogAPIClient::V1::MonitorType::COMPOSITE}) # Monitor | Create a monitor request body.
 
 begin
   # Create a monitor
@@ -152,7 +152,7 @@ require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::MonitorsAPI.new
 monitor_id = 789 # Integer | The ID of the monitor.
 opts = {
-  force: 'force_example' # String | Delete the monitor even if it's referenced by other resources (e.g. SLO, composite monitor).
+  force: 'false' # String | Delete the monitor even if it's referenced by other resources (e.g. SLO, composite monitor).
 }
 
 begin
@@ -283,14 +283,14 @@ Get details about the specified monitor from your organization.
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::MonitorsAPI.new
 opts = {
-  group_states: 'group_states_example', # String | When specified, shows additional information about the group states. Choose one or more from `all`, `alert`, `warn`, and `no data`.
+  group_states: 'alert', # String | When specified, shows additional information about the group states. Choose one or more from `all`, `alert`, `warn`, and `no data`.
   name: 'name_example', # String | A string to filter monitors by name.
-  tags: 'tags_example', # String | A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope. For example, `host:host0`.
-  monitor_tags: 'monitor_tags_example', # String | A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended. For example, `service:my-app`.
+  tags: 'host:host0', # String | A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope. For example, `host:host0`.
+  monitor_tags: 'service:my-app', # String | A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended. For example, `service:my-app`.
   with_downtimes: true, # Boolean | If this argument is set to true, then the returned data includes all current downtimes for each monitor.
   id_offset: 789, # Integer | Monitor ID offset.
-  page: 789, # Integer | The page to start paginating from. If this argument is not specified, the request returns all monitors without pagination.
-  page_size: 56 # Integer | The number of monitors to return per page. If the page argument is not specified, the default behavior returns all monitors without a `page_size` limit. However, if page is specified and `page_size` is not, the argument defaults to 100.
+  page: 0, # Integer | The page to start paginating from. If this argument is not specified, the request returns all monitors without pagination.
+  page_size: 20 # Integer | The number of monitors to return per page. If the page argument is not specified, the default behavior returns all monitors without a `page_size` limit. However, if page is specified and `page_size` is not, the argument defaults to 100.
 }
 
 begin
@@ -413,7 +413,7 @@ end
 
 ## validate_monitor
 
-> <Monitor> validate_monitor(body)
+> Object validate_monitor(body)
 
 Validate a monitor
 
@@ -424,7 +424,7 @@ Validate the monitor provided in the request.
 ```ruby
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::MonitorsAPI.new
-body = DatadogAPIClient::V1::Monitor.new # Monitor | Monitor request object
+body = DatadogAPIClient::V1::Monitor.new({query: 'avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100', type: DatadogAPIClient::V1::MonitorType::COMPOSITE}) # Monitor | Monitor request object
 
 begin
   # Validate a monitor
@@ -439,7 +439,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Monitor>, Integer, Hash)> validate_monitor_with_http_info(body)
+> <Array(Object, Integer, Hash)> validate_monitor_with_http_info(body)
 
 ```ruby
 begin
@@ -447,7 +447,7 @@ begin
   data, status_code, headers = api_instance.validate_monitor_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <Monitor>
+  p data # => Object
 rescue DatadogAPIClient::V1::APIError => e
   puts "Error when calling MonitorsAPI->validate_monitor_with_http_info: #{e}"
 end
@@ -461,7 +461,7 @@ end
 
 ### Return type
 
-[**Monitor**](Monitor.md)
+**Object**
 
 ### Authorization
 
