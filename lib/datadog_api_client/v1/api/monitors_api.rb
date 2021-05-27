@@ -418,6 +418,164 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
+    # Monitors group search
+    # Search and filter your monitor groups details.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :query After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance &#x60;query&#x3D;\&quot;type:metric status:alert\&quot;&#x60;.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage_monitor/#find-the-monitors
+    # @option opts [Integer] :page Page to start paginating from. (default to 0)
+    # @option opts [Integer] :per_page Number of monitors to return per page. (default to 30)
+    # @option opts [String] :sort String for sort order, composed of field and sort order separate by a comma, e.g. &#x60;name,asc&#x60;. Supported sort directions: &#x60;asc&#x60;, &#x60;desc&#x60;. Supported fields:  * &#x60;name&#x60; * &#x60;status&#x60; * &#x60;tags&#x60;
+    # @return [MonitorGroupSearchResponse]
+    def search_monitor_groups(opts = {})
+      data, _status_code, _headers = search_monitor_groups_with_http_info(opts)
+      data
+    end
+
+    # Monitors group search
+    # Search and filter your monitor groups details.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :query After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance &#x60;query&#x3D;\&quot;type:metric status:alert\&quot;&#x60;.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage_monitor/#find-the-monitors
+    # @option opts [Integer] :page Page to start paginating from.
+    # @option opts [Integer] :per_page Number of monitors to return per page.
+    # @option opts [String] :sort String for sort order, composed of field and sort order separate by a comma, e.g. &#x60;name,asc&#x60;. Supported sort directions: &#x60;asc&#x60;, &#x60;desc&#x60;. Supported fields:  * &#x60;name&#x60; * &#x60;status&#x60; * &#x60;tags&#x60;
+    # @return [Array<(MonitorGroupSearchResponse, Integer, Hash)>] MonitorGroupSearchResponse data, response status code and response headers
+    def search_monitor_groups_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:search_monitor_groups)
+        unstable_enabled = @api_client.config.unstable_operations[:search_monitor_groups]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "search_monitor_groups")
+        else
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "search_monitor_groups"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MonitorsAPI.search_monitor_groups ...'
+      end
+      # resource path
+      local_var_path = '/api/v1/monitor/groups/search'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'per_page'] = opts[:'per_page'] if !opts[:'per_page'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MonitorGroupSearchResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :search_monitor_groups,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MonitorsAPI#search_monitor_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Monitors search
+    # Search and filter your monitors details.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :query After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance &#x60;query&#x3D;\&quot;type:metric status:alert\&quot;&#x60;.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage_monitor/#find-the-monitors
+    # @option opts [Integer] :page Page to start paginating from. (default to 0)
+    # @option opts [Integer] :per_page Number of monitors to return per page. (default to 30)
+    # @option opts [String] :sort String for sort order, composed of field and sort order separate by a comma, e.g. &#x60;name,asc&#x60;. Supported sort directions: &#x60;asc&#x60;, &#x60;desc&#x60;. Supported fields:  * &#x60;name&#x60; * &#x60;status&#x60; * &#x60;tags&#x60;
+    # @return [MonitorSearchResponse]
+    def search_monitors(opts = {})
+      data, _status_code, _headers = search_monitors_with_http_info(opts)
+      data
+    end
+
+    # Monitors search
+    # Search and filter your monitors details.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :query After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance &#x60;query&#x3D;\&quot;type:metric status:alert\&quot;&#x60;.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage_monitor/#find-the-monitors
+    # @option opts [Integer] :page Page to start paginating from.
+    # @option opts [Integer] :per_page Number of monitors to return per page.
+    # @option opts [String] :sort String for sort order, composed of field and sort order separate by a comma, e.g. &#x60;name,asc&#x60;. Supported sort directions: &#x60;asc&#x60;, &#x60;desc&#x60;. Supported fields:  * &#x60;name&#x60; * &#x60;status&#x60; * &#x60;tags&#x60;
+    # @return [Array<(MonitorSearchResponse, Integer, Hash)>] MonitorSearchResponse data, response status code and response headers
+    def search_monitors_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:search_monitors)
+        unstable_enabled = @api_client.config.unstable_operations[:search_monitors]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "search_monitors")
+        else
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "search_monitors"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MonitorsAPI.search_monitors ...'
+      end
+      # resource path
+      local_var_path = '/api/v1/monitor/search'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'per_page'] = opts[:'per_page'] if !opts[:'per_page'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MonitorSearchResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :search_monitors,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MonitorsAPI#search_monitors\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Edit a monitor
     # Edit the specified monitor.
     # @param monitor_id [Integer] The ID of the monitor.

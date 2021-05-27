@@ -118,6 +118,8 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::MonitorsAPI* | [**delete_monitor**](MonitorsAPI.md#delete_monitor) | **DELETE** /api/v1/monitor/{monitor_id} | Delete a monitor
 *DatadogAPIClient::V1::MonitorsAPI* | [**get_monitor**](MonitorsAPI.md#get_monitor) | **GET** /api/v1/monitor/{monitor_id} | Get a monitor's details
 *DatadogAPIClient::V1::MonitorsAPI* | [**list_monitors**](MonitorsAPI.md#list_monitors) | **GET** /api/v1/monitor | Get all monitor details
+*DatadogAPIClient::V1::MonitorsAPI* | [**search_monitor_groups**](MonitorsAPI.md#search_monitor_groups) | **GET** /api/v1/monitor/groups/search | Monitors group search
+*DatadogAPIClient::V1::MonitorsAPI* | [**search_monitors**](MonitorsAPI.md#search_monitors) | **GET** /api/v1/monitor/search | Monitors search
 *DatadogAPIClient::V1::MonitorsAPI* | [**update_monitor**](MonitorsAPI.md#update_monitor) | **PUT** /api/v1/monitor/{monitor_id} | Edit a monitor
 *DatadogAPIClient::V1::MonitorsAPI* | [**validate_monitor**](MonitorsAPI.md#validate_monitor) | **POST** /api/v1/monitor/validate | Validate a monitor
 *DatadogAPIClient::V1::NotebooksAPI* | [**create_notebook**](NotebooksAPI.md#create_notebook) | **POST** /api/v1/notebooks | Create a notebook
@@ -433,9 +435,17 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::MetricsQueryUnit](MetricsQueryUnit.md)
  - [DatadogAPIClient::V1::Monitor](Monitor.md)
  - [DatadogAPIClient::V1::MonitorDeviceID](MonitorDeviceID.md)
+ - [DatadogAPIClient::V1::MonitorGroupSearchResponse](MonitorGroupSearchResponse.md)
+ - [DatadogAPIClient::V1::MonitorGroupSearchResponseCounts](MonitorGroupSearchResponseCounts.md)
+ - [DatadogAPIClient::V1::MonitorGroupSearchResult](MonitorGroupSearchResult.md)
  - [DatadogAPIClient::V1::MonitorOptions](MonitorOptions.md)
  - [DatadogAPIClient::V1::MonitorOptionsAggregation](MonitorOptionsAggregation.md)
  - [DatadogAPIClient::V1::MonitorOverallStates](MonitorOverallStates.md)
+ - [DatadogAPIClient::V1::MonitorSearchResponse](MonitorSearchResponse.md)
+ - [DatadogAPIClient::V1::MonitorSearchResponseCounts](MonitorSearchResponseCounts.md)
+ - [DatadogAPIClient::V1::MonitorSearchResponseMetadata](MonitorSearchResponseMetadata.md)
+ - [DatadogAPIClient::V1::MonitorSearchResult](MonitorSearchResult.md)
+ - [DatadogAPIClient::V1::MonitorSearchResultNotification](MonitorSearchResultNotification.md)
  - [DatadogAPIClient::V1::MonitorState](MonitorState.md)
  - [DatadogAPIClient::V1::MonitorStateGroup](MonitorStateGroup.md)
  - [DatadogAPIClient::V1::MonitorSummaryWidgetDefinition](MonitorSummaryWidgetDefinition.md)
