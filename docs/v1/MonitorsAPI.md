@@ -9,6 +9,8 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**delete_monitor**](MonitorsAPI.md#delete_monitor) | **DELETE** /api/v1/monitor/{monitor_id} | Delete a monitor |
 | [**get_monitor**](MonitorsAPI.md#get_monitor) | **GET** /api/v1/monitor/{monitor_id} | Get a monitor&#39;s details |
 | [**list_monitors**](MonitorsAPI.md#list_monitors) | **GET** /api/v1/monitor | Get all monitor details |
+| [**search_monitor_groups**](MonitorsAPI.md#search_monitor_groups) | **GET** /api/v1/monitor/groups/search | Monitors group search |
+| [**search_monitors**](MonitorsAPI.md#search_monitors) | **GET** /api/v1/monitor/search | Monitors search |
 | [**update_monitor**](MonitorsAPI.md#update_monitor) | **PUT** /api/v1/monitor/{monitor_id} | Edit a monitor |
 | [**validate_monitor**](MonitorsAPI.md#validate_monitor) | **POST** /api/v1/monitor/validate | Validate a monitor |
 
@@ -336,6 +338,146 @@ end
 ### Return type
 
 [**Array&lt;Monitor&gt;**](Monitor.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## search_monitor_groups
+
+> <MonitorGroupSearchResponse> search_monitor_groups(opts)
+
+Monitors group search
+
+Search and filter your monitor groups details.
+
+### Examples
+
+```ruby
+require 'datadog_api_client'
+api_instance = DatadogAPIClient::V1::MonitorsAPI.new
+opts = {
+  query: 'query_example', # String | After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance `query=\"type:metric status:alert\"`.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage_monitor/#find-the-monitors
+  page: 789, # Integer | Page to start paginating from.
+  per_page: 789, # Integer | Number of monitors to return per page.
+  sort: 'sort_example' # String | String for sort order, composed of field and sort order separate by a comma, e.g. `name,asc`. Supported sort directions: `asc`, `desc`. Supported fields:  * `name` * `status` * `tags`
+}
+
+begin
+  # Monitors group search
+  result = api_instance.search_monitor_groups(opts)
+  p result
+rescue DatadogAPIClient::V1::APIError => e
+  puts "Error when calling MonitorsAPI->search_monitor_groups: #{e}"
+end
+```
+
+#### Using the search_monitor_groups_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MonitorGroupSearchResponse>, Integer, Hash)> search_monitor_groups_with_http_info(opts)
+
+```ruby
+begin
+  # Monitors group search
+  data, status_code, headers = api_instance.search_monitor_groups_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MonitorGroupSearchResponse>
+rescue DatadogAPIClient::V1::APIError => e
+  puts "Error when calling MonitorsAPI->search_monitor_groups_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **query** | **String** | After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance &#x60;query&#x3D;\&quot;type:metric status:alert\&quot;&#x60;.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage_monitor/#find-the-monitors | [optional] |
+| **page** | **Integer** | Page to start paginating from. | [optional][default to 0] |
+| **per_page** | **Integer** | Number of monitors to return per page. | [optional][default to 30] |
+| **sort** | **String** | String for sort order, composed of field and sort order separate by a comma, e.g. &#x60;name,asc&#x60;. Supported sort directions: &#x60;asc&#x60;, &#x60;desc&#x60;. Supported fields:  * &#x60;name&#x60; * &#x60;status&#x60; * &#x60;tags&#x60; | [optional] |
+
+### Return type
+
+[**MonitorGroupSearchResponse**](MonitorGroupSearchResponse.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## search_monitors
+
+> <MonitorSearchResponse> search_monitors(opts)
+
+Monitors search
+
+Search and filter your monitors details.
+
+### Examples
+
+```ruby
+require 'datadog_api_client'
+api_instance = DatadogAPIClient::V1::MonitorsAPI.new
+opts = {
+  query: 'query_example', # String | After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance `query=\"type:metric status:alert\"`.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage_monitor/#find-the-monitors
+  page: 789, # Integer | Page to start paginating from.
+  per_page: 789, # Integer | Number of monitors to return per page.
+  sort: 'sort_example' # String | String for sort order, composed of field and sort order separate by a comma, e.g. `name,asc`. Supported sort directions: `asc`, `desc`. Supported fields:  * `name` * `status` * `tags`
+}
+
+begin
+  # Monitors search
+  result = api_instance.search_monitors(opts)
+  p result
+rescue DatadogAPIClient::V1::APIError => e
+  puts "Error when calling MonitorsAPI->search_monitors: #{e}"
+end
+```
+
+#### Using the search_monitors_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MonitorSearchResponse>, Integer, Hash)> search_monitors_with_http_info(opts)
+
+```ruby
+begin
+  # Monitors search
+  data, status_code, headers = api_instance.search_monitors_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MonitorSearchResponse>
+rescue DatadogAPIClient::V1::APIError => e
+  puts "Error when calling MonitorsAPI->search_monitors_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **query** | **String** | After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance &#x60;query&#x3D;\&quot;type:metric status:alert\&quot;&#x60;.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage_monitor/#find-the-monitors | [optional] |
+| **page** | **Integer** | Page to start paginating from. | [optional][default to 0] |
+| **per_page** | **Integer** | Number of monitors to return per page. | [optional][default to 30] |
+| **sort** | **String** | String for sort order, composed of field and sort order separate by a comma, e.g. &#x60;name,asc&#x60;. Supported sort directions: &#x60;asc&#x60;, &#x60;desc&#x60;. Supported fields:  * &#x60;name&#x60; * &#x60;status&#x60; * &#x60;tags&#x60; | [optional] |
+
+### Return type
+
+[**MonitorSearchResponse**](MonitorSearchResponse.md)
 
 ### Authorization
 
