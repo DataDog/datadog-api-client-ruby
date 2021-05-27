@@ -18,6 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V1
   class SyntheticsConfigVariableType
+    GLOBAL = "global".freeze
     TEXT = "text".freeze
 
     # Builds the enum from string

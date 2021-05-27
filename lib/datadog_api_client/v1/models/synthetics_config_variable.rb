@@ -22,6 +22,9 @@ module DatadogAPIClient::V1
     # Example for the variable.
     attr_accessor :example
 
+    # ID of the variable for global variables.
+    attr_accessor :id
+
     # Name of the variable.
     attr_accessor :name
 
@@ -34,6 +37,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'example' => :'example',
+        :'id' => :'id',
         :'name' => :'name',
         :'pattern' => :'pattern',
         :'type' => :'type'
@@ -49,6 +53,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'example' => :'String',
+        :'id' => :'String',
         :'name' => :'String',
         :'pattern' => :'String',
         :'type' => :'SyntheticsConfigVariableType'
@@ -80,6 +85,10 @@ module DatadogAPIClient::V1
         self.example = attributes[:'example']
       end
 
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -97,10 +106,6 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @example.nil?
-        invalid_properties.push('invalid value for "example", example cannot be nil.')
-      end
-
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
@@ -115,7 +120,6 @@ module DatadogAPIClient::V1
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @example.nil?
       return false if @name.nil?
       return false if @type.nil?
       true
@@ -127,6 +131,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           example == o.example &&
+          id == o.id &&
           name == o.name &&
           pattern == o.pattern &&
           type == o.type
@@ -141,7 +146,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [example, name, pattern, type].hash
+      [example, id, name, pattern, type].hash
     end
 
     # Builds the object from hash
