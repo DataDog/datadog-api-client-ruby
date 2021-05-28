@@ -173,6 +173,7 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::SyntheticsAPI* | [**get_global_variable**](SyntheticsAPI.md#get_global_variable) | **GET** /api/v1/synthetics/variables/{variable_id} | Get a global variable
 *DatadogAPIClient::V1::SyntheticsAPI* | [**get_private_location**](SyntheticsAPI.md#get_private_location) | **GET** /api/v1/synthetics/private-locations/{location_id} | Get a private location
 *DatadogAPIClient::V1::SyntheticsAPI* | [**get_test**](SyntheticsAPI.md#get_test) | **GET** /api/v1/synthetics/tests/{public_id} | Get a test configuration
+*DatadogAPIClient::V1::SyntheticsAPI* | [**list_global_variables**](SyntheticsAPI.md#list_global_variables) | **GET** /api/v1/synthetics/variables | Get all global variables
 *DatadogAPIClient::V1::SyntheticsAPI* | [**list_locations**](SyntheticsAPI.md#list_locations) | **GET** /api/v1/synthetics/locations | Get all locations (public and private)
 *DatadogAPIClient::V1::SyntheticsAPI* | [**list_tests**](SyntheticsAPI.md#list_tests) | **GET** /api/v1/synthetics/tests | Get the list of all tests
 *DatadogAPIClient::V1::SyntheticsAPI* | [**trigger_ci_tests**](SyntheticsAPI.md#trigger_ci_tests) | **POST** /api/v1/synthetics/tests/trigger/ci | Trigger tests from CI/CD pipelines
@@ -619,6 +620,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::SyntheticsGlobalVariableParseTestOptionsType](SyntheticsGlobalVariableParseTestOptionsType.md)
  - [DatadogAPIClient::V1::SyntheticsGlobalVariableParserType](SyntheticsGlobalVariableParserType.md)
  - [DatadogAPIClient::V1::SyntheticsGlobalVariableValue](SyntheticsGlobalVariableValue.md)
+ - [DatadogAPIClient::V1::SyntheticsListGlobalVariablesResponse](SyntheticsListGlobalVariablesResponse.md)
  - [DatadogAPIClient::V1::SyntheticsListTestsResponse](SyntheticsListTestsResponse.md)
  - [DatadogAPIClient::V1::SyntheticsLocation](SyntheticsLocation.md)
  - [DatadogAPIClient::V1::SyntheticsLocations](SyntheticsLocations.md)

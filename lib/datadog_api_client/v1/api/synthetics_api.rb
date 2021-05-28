@@ -1311,6 +1311,73 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
+    # Get all global variables
+    # Get the list of all Synthetics global variables.
+    # @param [Hash] opts the optional parameters
+    # @return [SyntheticsListGlobalVariablesResponse]
+    def list_global_variables(opts = {})
+      data, _status_code, _headers = list_global_variables_with_http_info(opts)
+      data
+    end
+
+    # Get all global variables
+    # Get the list of all Synthetics global variables.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(SyntheticsListGlobalVariablesResponse, Integer, Hash)>] SyntheticsListGlobalVariablesResponse data, response status code and response headers
+    def list_global_variables_with_http_info(opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_global_variables)
+        unstable_enabled = @api_client.config.unstable_operations[:list_global_variables]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_global_variables")
+        else
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_global_variables"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.list_global_variables ...'
+      end
+      # resource path
+      local_var_path = '/api/v1/synthetics/variables'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SyntheticsListGlobalVariablesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :list_global_variables,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SyntheticsAPI#list_global_variables\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get all locations (public and private)
     # Get the list of public and private locations available for Synthetic tests. No arguments required.
     # @param [Hash] opts the optional parameters
