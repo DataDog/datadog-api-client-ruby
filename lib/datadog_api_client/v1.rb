@@ -414,6 +414,7 @@ require 'datadog_api_client/v1/models/synthetics_global_variable_parse_test_opti
 require 'datadog_api_client/v1/models/synthetics_global_variable_parse_test_options_type'
 require 'datadog_api_client/v1/models/synthetics_global_variable_parser_type'
 require 'datadog_api_client/v1/models/synthetics_global_variable_value'
+require 'datadog_api_client/v1/models/synthetics_list_global_variables_response'
 require 'datadog_api_client/v1/models/synthetics_list_tests_response'
 require 'datadog_api_client/v1/models/synthetics_location'
 require 'datadog_api_client/v1/models/synthetics_locations'

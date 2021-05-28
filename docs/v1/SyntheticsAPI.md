@@ -21,6 +21,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**get_global_variable**](SyntheticsAPI.md#get_global_variable) | **GET** /api/v1/synthetics/variables/{variable_id} | Get a global variable |
 | [**get_private_location**](SyntheticsAPI.md#get_private_location) | **GET** /api/v1/synthetics/private-locations/{location_id} | Get a private location |
 | [**get_test**](SyntheticsAPI.md#get_test) | **GET** /api/v1/synthetics/tests/{public_id} | Get a test configuration |
+| [**list_global_variables**](SyntheticsAPI.md#list_global_variables) | **GET** /api/v1/synthetics/variables | Get all global variables |
 | [**list_locations**](SyntheticsAPI.md#list_locations) | **GET** /api/v1/synthetics/locations | Get all locations (public and private) |
 | [**list_tests**](SyntheticsAPI.md#list_tests) | **GET** /api/v1/synthetics/tests | Get the list of all tests |
 | [**trigger_ci_tests**](SyntheticsAPI.md#trigger_ci_tests) | **POST** /api/v1/synthetics/tests/trigger/ci | Trigger tests from CI/CD pipelines |
@@ -1093,6 +1094,65 @@ end
 ### Return type
 
 [**SyntheticsTestDetails**](SyntheticsTestDetails.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## list_global_variables
+
+> <SyntheticsListGlobalVariablesResponse> list_global_variables
+
+Get all global variables
+
+Get the list of all Synthetics global variables.
+
+### Examples
+
+```ruby
+require 'datadog_api_client'
+api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
+
+begin
+  # Get all global variables
+  result = api_instance.list_global_variables
+  p result
+rescue DatadogAPIClient::V1::APIError => e
+  puts "Error when calling SyntheticsAPI->list_global_variables: #{e}"
+end
+```
+
+#### Using the list_global_variables_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SyntheticsListGlobalVariablesResponse>, Integer, Hash)> list_global_variables_with_http_info
+
+```ruby
+begin
+  # Get all global variables
+  data, status_code, headers = api_instance.list_global_variables_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SyntheticsListGlobalVariablesResponse>
+rescue DatadogAPIClient::V1::APIError => e
+  puts "Error when calling SyntheticsAPI->list_global_variables_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**SyntheticsListGlobalVariablesResponse**](SyntheticsListGlobalVariablesResponse.md)
 
 ### Authorization
 
