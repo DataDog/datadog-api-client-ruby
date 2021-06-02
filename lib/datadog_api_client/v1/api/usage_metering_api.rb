@@ -724,6 +724,83 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
+    # Get hourly usage for audit logs
+    # Get hourly usage for audit logs.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+    # @return [UsageAuditLogsResponse]
+    def get_usage_audit_logs(start_hr, opts = {})
+      data, _status_code, _headers = get_usage_audit_logs_with_http_info(start_hr, opts)
+      data
+    end
+
+    # Get hourly usage for audit logs
+    # Get hourly usage for audit logs.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+    # @return [Array<(UsageAuditLogsResponse, Integer, Hash)>] UsageAuditLogsResponse data, response status code and response headers
+    def get_usage_audit_logs_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_usage_audit_logs)
+        unstable_enabled = @api_client.config.unstable_operations[:get_usage_audit_logs]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_audit_logs")
+        else
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_usage_audit_logs"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_audit_logs ...'
+      end
+      # verify the required parameter 'start_hr' is set
+      if @api_client.config.client_side_validation && start_hr.nil?
+        fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_audit_logs"
+      end
+      # resource path
+      local_var_path = '/api/v1/usage/audit_logs'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'start_hr'] = start_hr
+      query_params[:'end_hr'] = opts[:'end_hr'] if !opts[:'end_hr'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UsageAuditLogsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_usage_audit_logs,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsageMeteringAPI#get_usage_audit_logs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get billable usage across your account
     # Get billable usage across your account.
     # @param [Hash] opts the optional parameters
@@ -794,43 +871,43 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get hourly usage for Compliance Monitoring
-    # Get hourly usage for Compliance Monitoring.
+    # Get hourly usage for CSPM
+    # Get hourly usage for Cloud Security Posture Management (CSPM).
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
-    # @return [UsageComplianceResponse]
-    def get_usage_compliance_monitoring(start_hr, opts = {})
-      data, _status_code, _headers = get_usage_compliance_monitoring_with_http_info(start_hr, opts)
+    # @return [UsageCloudSecurityPostureManagementResponse]
+    def get_usage_cloud_security_posture_management(start_hr, opts = {})
+      data, _status_code, _headers = get_usage_cloud_security_posture_management_with_http_info(start_hr, opts)
       data
     end
 
-    # Get hourly usage for Compliance Monitoring
-    # Get hourly usage for Compliance Monitoring.
+    # Get hourly usage for CSPM
+    # Get hourly usage for Cloud Security Posture Management (CSPM).
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
     # @param [Hash] opts the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
-    # @return [Array<(UsageComplianceResponse, Integer, Hash)>] UsageComplianceResponse data, response status code and response headers
-    def get_usage_compliance_monitoring_with_http_info(start_hr, opts = {})
+    # @return [Array<(UsageCloudSecurityPostureManagementResponse, Integer, Hash)>] UsageCloudSecurityPostureManagementResponse data, response status code and response headers
+    def get_usage_cloud_security_posture_management_with_http_info(start_hr, opts = {})
 
-      if @api_client.config.unstable_operations.has_key?(:get_usage_compliance_monitoring)
-        unstable_enabled = @api_client.config.unstable_operations[:get_usage_compliance_monitoring]
+      if @api_client.config.unstable_operations.has_key?(:get_usage_cloud_security_posture_management)
+        unstable_enabled = @api_client.config.unstable_operations[:get_usage_cloud_security_posture_management]
         if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_compliance_monitoring")
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_cloud_security_posture_management")
         else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_usage_compliance_monitoring"))
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_usage_cloud_security_posture_management"))
         end
       end
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_compliance_monitoring ...'
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_cloud_security_posture_management ...'
       end
       # verify the required parameter 'start_hr' is set
       if @api_client.config.client_side_validation && start_hr.nil?
-        fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_compliance_monitoring"
+        fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_cloud_security_posture_management"
       end
       # resource path
-      local_var_path = '/api/v1/usage/compliance-monitoring'
+      local_var_path = '/api/v1/usage/cspm'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -849,13 +926,13 @@ module DatadogAPIClient::V1
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'UsageComplianceResponse'
+      return_type = opts[:debug_return_type] || 'UsageCloudSecurityPostureManagementResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
-        :operation => :get_usage_compliance_monitoring,
+        :operation => :get_usage_cloud_security_posture_management,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -866,7 +943,7 @@ module DatadogAPIClient::V1
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UsageMeteringAPI#get_usage_compliance_monitoring\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UsageMeteringAPI#get_usage_cloud_security_posture_management\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -28,6 +28,9 @@ module DatadogAPIClient::V1
     # Shows the 99th percentile of all distinct APM hosts over all hours in the current months for all organizations.
     attr_accessor :apm_host_top99p_sum
 
+    # Shows the sum of all audit logs lines indexed over all hours in the current months for all organizations.
+    attr_accessor :audit_logs_lines_indexed_agg_sum
+
     # Shows the 99th percentile of all AWS hosts over all hours in the current months for all organizations.
     attr_accessor :aws_host_top99p_sum
 
@@ -46,17 +49,20 @@ module DatadogAPIClient::V1
     # Shows the sum of all log bytes ingested over all hours in the current months for all organizations.
     attr_accessor :billable_ingested_bytes_agg_sum
 
-    # Shows the sum of all compliance containers over all hours in the current months for all organizations.
-    attr_accessor :compliance_container_agg_sum
-
-    # Shows the sum of all compliance hosts over all hours in the current months for all organizations.
-    attr_accessor :compliance_host_agg_sum
-
     # Shows the average of all distinct containers over all hours in the current months for all organizations.
     attr_accessor :container_avg_sum
 
     # Shows the sum of the high-water marks of all distinct containers over all hours in the current months for all organizations.
     attr_accessor :container_hwm_sum
+
+    # Shows the average number of Cloud Security Posture Management containers over all hours in the current months for all organizations.
+    attr_accessor :cspm_container_avg_sum
+
+    # Shows the sum of the the high-water marks of Cloud Security Posture Management containers over all hours in the current months for all organizations.
+    attr_accessor :cspm_container_hwm_sum
+
+    # Shows the 99th percentile of all Cloud Security Posture Management hosts over all hours in the current months for all organizations.
+    attr_accessor :cspm_host_top99p_sum
 
     # Shows the average number of distinct custom metrics over all hours in the current months for all organizations.
     attr_accessor :custom_ts_sum
@@ -168,16 +174,18 @@ module DatadogAPIClient::V1
         :'agent_host_top99p_sum' => :'agent_host_top99p_sum',
         :'apm_azure_app_service_host_top99p_sum' => :'apm_azure_app_service_host_top99p_sum',
         :'apm_host_top99p_sum' => :'apm_host_top99p_sum',
+        :'audit_logs_lines_indexed_agg_sum' => :'audit_logs_lines_indexed_agg_sum',
         :'aws_host_top99p_sum' => :'aws_host_top99p_sum',
         :'aws_lambda_func_count' => :'aws_lambda_func_count',
         :'aws_lambda_invocations_sum' => :'aws_lambda_invocations_sum',
         :'azure_app_service_top99p_sum' => :'azure_app_service_top99p_sum',
         :'azure_host_top99p_sum' => :'azure_host_top99p_sum',
         :'billable_ingested_bytes_agg_sum' => :'billable_ingested_bytes_agg_sum',
-        :'compliance_container_agg_sum' => :'compliance_container_agg_sum',
-        :'compliance_host_agg_sum' => :'compliance_host_agg_sum',
         :'container_avg_sum' => :'container_avg_sum',
         :'container_hwm_sum' => :'container_hwm_sum',
+        :'cspm_container_avg_sum' => :'cspm_container_avg_sum',
+        :'cspm_container_hwm_sum' => :'cspm_container_hwm_sum',
+        :'cspm_host_top99p_sum' => :'cspm_host_top99p_sum',
         :'custom_ts_sum' => :'custom_ts_sum',
         :'end_date' => :'end_date',
         :'fargate_tasks_count_avg_sum' => :'fargate_tasks_count_avg_sum',
@@ -227,16 +235,18 @@ module DatadogAPIClient::V1
         :'agent_host_top99p_sum' => :'Integer',
         :'apm_azure_app_service_host_top99p_sum' => :'Integer',
         :'apm_host_top99p_sum' => :'Integer',
+        :'audit_logs_lines_indexed_agg_sum' => :'Integer',
         :'aws_host_top99p_sum' => :'Integer',
         :'aws_lambda_func_count' => :'Integer',
         :'aws_lambda_invocations_sum' => :'Integer',
         :'azure_app_service_top99p_sum' => :'Integer',
         :'azure_host_top99p_sum' => :'Integer',
         :'billable_ingested_bytes_agg_sum' => :'Integer',
-        :'compliance_container_agg_sum' => :'Object',
-        :'compliance_host_agg_sum' => :'Integer',
         :'container_avg_sum' => :'Integer',
         :'container_hwm_sum' => :'Integer',
+        :'cspm_container_avg_sum' => :'Integer',
+        :'cspm_container_hwm_sum' => :'Integer',
+        :'cspm_host_top99p_sum' => :'Integer',
         :'custom_ts_sum' => :'Integer',
         :'end_date' => :'Time',
         :'fargate_tasks_count_avg_sum' => :'Integer',
@@ -278,7 +288,6 @@ module DatadogAPIClient::V1
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'compliance_container_agg_sum',
       ])
     end
 
@@ -309,6 +318,10 @@ module DatadogAPIClient::V1
         self.apm_host_top99p_sum = attributes[:'apm_host_top99p_sum']
       end
 
+      if attributes.key?(:'audit_logs_lines_indexed_agg_sum')
+        self.audit_logs_lines_indexed_agg_sum = attributes[:'audit_logs_lines_indexed_agg_sum']
+      end
+
       if attributes.key?(:'aws_host_top99p_sum')
         self.aws_host_top99p_sum = attributes[:'aws_host_top99p_sum']
       end
@@ -333,20 +346,24 @@ module DatadogAPIClient::V1
         self.billable_ingested_bytes_agg_sum = attributes[:'billable_ingested_bytes_agg_sum']
       end
 
-      if attributes.key?(:'compliance_container_agg_sum')
-        self.compliance_container_agg_sum = attributes[:'compliance_container_agg_sum']
-      end
-
-      if attributes.key?(:'compliance_host_agg_sum')
-        self.compliance_host_agg_sum = attributes[:'compliance_host_agg_sum']
-      end
-
       if attributes.key?(:'container_avg_sum')
         self.container_avg_sum = attributes[:'container_avg_sum']
       end
 
       if attributes.key?(:'container_hwm_sum')
         self.container_hwm_sum = attributes[:'container_hwm_sum']
+      end
+
+      if attributes.key?(:'cspm_container_avg_sum')
+        self.cspm_container_avg_sum = attributes[:'cspm_container_avg_sum']
+      end
+
+      if attributes.key?(:'cspm_container_hwm_sum')
+        self.cspm_container_hwm_sum = attributes[:'cspm_container_hwm_sum']
+      end
+
+      if attributes.key?(:'cspm_host_top99p_sum')
+        self.cspm_host_top99p_sum = attributes[:'cspm_host_top99p_sum']
       end
 
       if attributes.key?(:'custom_ts_sum')
@@ -513,16 +530,18 @@ module DatadogAPIClient::V1
           agent_host_top99p_sum == o.agent_host_top99p_sum &&
           apm_azure_app_service_host_top99p_sum == o.apm_azure_app_service_host_top99p_sum &&
           apm_host_top99p_sum == o.apm_host_top99p_sum &&
+          audit_logs_lines_indexed_agg_sum == o.audit_logs_lines_indexed_agg_sum &&
           aws_host_top99p_sum == o.aws_host_top99p_sum &&
           aws_lambda_func_count == o.aws_lambda_func_count &&
           aws_lambda_invocations_sum == o.aws_lambda_invocations_sum &&
           azure_app_service_top99p_sum == o.azure_app_service_top99p_sum &&
           azure_host_top99p_sum == o.azure_host_top99p_sum &&
           billable_ingested_bytes_agg_sum == o.billable_ingested_bytes_agg_sum &&
-          compliance_container_agg_sum == o.compliance_container_agg_sum &&
-          compliance_host_agg_sum == o.compliance_host_agg_sum &&
           container_avg_sum == o.container_avg_sum &&
           container_hwm_sum == o.container_hwm_sum &&
+          cspm_container_avg_sum == o.cspm_container_avg_sum &&
+          cspm_container_hwm_sum == o.cspm_container_hwm_sum &&
+          cspm_host_top99p_sum == o.cspm_host_top99p_sum &&
           custom_ts_sum == o.custom_ts_sum &&
           end_date == o.end_date &&
           fargate_tasks_count_avg_sum == o.fargate_tasks_count_avg_sum &&
@@ -569,7 +588,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_host_top99p_sum, apm_azure_app_service_host_top99p_sum, apm_host_top99p_sum, aws_host_top99p_sum, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p_sum, azure_host_top99p_sum, billable_ingested_bytes_agg_sum, compliance_container_agg_sum, compliance_host_agg_sum, container_avg_sum, container_hwm_sum, custom_ts_sum, end_date, fargate_tasks_count_avg_sum, fargate_tasks_count_hwm_sum, gcp_host_top99p_sum, heroku_host_top99p_sum, incident_management_monthly_active_users_hwm_sum, indexed_events_count_agg_sum, infra_host_top99p_sum, ingested_events_bytes_agg_sum, iot_device_agg_sum, iot_device_top99p_sum, last_updated, live_indexed_events_agg_sum, live_ingested_bytes_agg_sum, logs_by_retention, mobile_rum_session_count_agg_sum, mobile_rum_session_count_android_agg_sum, mobile_rum_session_count_ios_agg_sum, netflow_indexed_events_count_agg_sum, npm_host_top99p_sum, opentelemetry_host_top99p_sum, profiling_container_agent_count_avg, profiling_host_count_top99p_sum, rehydrated_indexed_events_agg_sum, rehydrated_ingested_bytes_agg_sum, rum_session_count_agg_sum, rum_total_session_count_agg_sum, start_date, synthetics_browser_check_calls_count_agg_sum, synthetics_check_calls_count_agg_sum, trace_search_indexed_events_count_agg_sum, twol_ingested_events_bytes_agg_sum, usage, vsphere_host_top99p_sum].hash
+      [agent_host_top99p_sum, apm_azure_app_service_host_top99p_sum, apm_host_top99p_sum, audit_logs_lines_indexed_agg_sum, aws_host_top99p_sum, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p_sum, azure_host_top99p_sum, billable_ingested_bytes_agg_sum, container_avg_sum, container_hwm_sum, cspm_container_avg_sum, cspm_container_hwm_sum, cspm_host_top99p_sum, custom_ts_sum, end_date, fargate_tasks_count_avg_sum, fargate_tasks_count_hwm_sum, gcp_host_top99p_sum, heroku_host_top99p_sum, incident_management_monthly_active_users_hwm_sum, indexed_events_count_agg_sum, infra_host_top99p_sum, ingested_events_bytes_agg_sum, iot_device_agg_sum, iot_device_top99p_sum, last_updated, live_indexed_events_agg_sum, live_ingested_bytes_agg_sum, logs_by_retention, mobile_rum_session_count_agg_sum, mobile_rum_session_count_android_agg_sum, mobile_rum_session_count_ios_agg_sum, netflow_indexed_events_count_agg_sum, npm_host_top99p_sum, opentelemetry_host_top99p_sum, profiling_container_agent_count_avg, profiling_host_count_top99p_sum, rehydrated_indexed_events_agg_sum, rehydrated_ingested_bytes_agg_sum, rum_session_count_agg_sum, rum_total_session_count_agg_sum, start_date, synthetics_browser_check_calls_count_agg_sum, synthetics_check_calls_count_agg_sum, trace_search_indexed_events_count_agg_sum, twol_ingested_events_bytes_agg_sum, usage, vsphere_host_top99p_sum].hash
     end
 
     # Builds the object from hash
