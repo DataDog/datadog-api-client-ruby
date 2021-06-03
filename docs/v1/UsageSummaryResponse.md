@@ -7,16 +7,18 @@
 | **agent_host_top99p_sum** | **Integer** | Shows the 99th percentile of all agent hosts over all hours in the current months for all organizations. | [optional] |
 | **apm_azure_app_service_host_top99p_sum** | **Integer** | Shows the 99th percentile of all Azure app services using APM over all hours in the current months all organizations. | [optional] |
 | **apm_host_top99p_sum** | **Integer** | Shows the 99th percentile of all distinct APM hosts over all hours in the current months for all organizations. | [optional] |
+| **audit_logs_lines_indexed_agg_sum** | **Integer** | Shows the sum of all audit logs lines indexed over all hours in the current months for all organizations. | [optional] |
 | **aws_host_top99p_sum** | **Integer** | Shows the 99th percentile of all AWS hosts over all hours in the current months for all organizations. | [optional] |
 | **aws_lambda_func_count** | **Integer** | Shows the average of the number of functions that executed 1 or more times each hour in the current months for all organizations. | [optional] |
 | **aws_lambda_invocations_sum** | **Integer** | Shows the sum of all AWS Lambda invocations over all hours in the current months for all organizations. | [optional] |
 | **azure_app_service_top99p_sum** | **Integer** | Shows the 99th percentile of all Azure app services over all hours in the current months for all organizations. | [optional] |
 | **azure_host_top99p_sum** | **Integer** | Shows the 99th percentile of all Azure hosts over all hours in the current months for all organizations. | [optional] |
 | **billable_ingested_bytes_agg_sum** | **Integer** | Shows the sum of all log bytes ingested over all hours in the current months for all organizations. | [optional] |
-| **compliance_container_agg_sum** | **Object** | Shows the sum of all compliance containers over all hours in the current months for all organizations. | [optional] |
-| **compliance_host_agg_sum** | **Integer** | Shows the sum of all compliance hosts over all hours in the current months for all organizations. | [optional] |
 | **container_avg_sum** | **Integer** | Shows the average of all distinct containers over all hours in the current months for all organizations. | [optional] |
 | **container_hwm_sum** | **Integer** | Shows the sum of the high-water marks of all distinct containers over all hours in the current months for all organizations. | [optional] |
+| **cspm_container_avg_sum** | **Integer** | Shows the average number of Cloud Security Posture Management containers over all hours in the current months for all organizations. | [optional] |
+| **cspm_container_hwm_sum** | **Integer** | Shows the sum of the the high-water marks of Cloud Security Posture Management containers over all hours in the current months for all organizations. | [optional] |
+| **cspm_host_top99p_sum** | **Integer** | Shows the 99th percentile of all Cloud Security Posture Management hosts over all hours in the current months for all organizations. | [optional] |
 | **custom_ts_sum** | **Integer** | Shows the average number of distinct custom metrics over all hours in the current months for all organizations. | [optional] |
 | **end_date** | **Time** | Shows the last date of usage in the current months for all organizations. | [optional] |
 | **fargate_tasks_count_avg_sum** | **Integer** | Shows the average of all Fargate tasks over all hours in the current months for all organizations. | [optional] |
@@ -62,16 +64,18 @@ instance = DatadogAPIClient::V1::UsageSummaryResponse.new(
   agent_host_top99p_sum: null,
   apm_azure_app_service_host_top99p_sum: null,
   apm_host_top99p_sum: null,
+  audit_logs_lines_indexed_agg_sum: null,
   aws_host_top99p_sum: null,
   aws_lambda_func_count: null,
   aws_lambda_invocations_sum: null,
   azure_app_service_top99p_sum: null,
   azure_host_top99p_sum: null,
   billable_ingested_bytes_agg_sum: null,
-  compliance_container_agg_sum: null,
-  compliance_host_agg_sum: null,
   container_avg_sum: null,
   container_hwm_sum: null,
+  cspm_container_avg_sum: null,
+  cspm_container_hwm_sum: null,
+  cspm_host_top99p_sum: null,
   custom_ts_sum: null,
   end_date: null,
   fargate_tasks_count_avg_sum: null,

@@ -195,8 +195,9 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_tracing_without_limits**](UsageMeteringAPI.md#get_tracing_without_limits) | **GET** /api/v1/usage/tracing-without-limits | Get hourly usage for tracing without limits
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_analyzed_logs**](UsageMeteringAPI.md#get_usage_analyzed_logs) | **GET** /api/v1/usage/analyzed_logs | Get hourly usage for analyzed logs
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_attribution**](UsageMeteringAPI.md#get_usage_attribution) | **GET** /api/v1/usage/attribution | Get Usage Attribution
+*DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_audit_logs**](UsageMeteringAPI.md#get_usage_audit_logs) | **GET** /api/v1/usage/audit_logs | Get hourly usage for audit logs
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_billable_summary**](UsageMeteringAPI.md#get_usage_billable_summary) | **GET** /api/v1/usage/billable-summary | Get billable usage across your account
-*DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_compliance_monitoring**](UsageMeteringAPI.md#get_usage_compliance_monitoring) | **GET** /api/v1/usage/compliance-monitoring | Get hourly usage for Compliance Monitoring
+*DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_cloud_security_posture_management**](UsageMeteringAPI.md#get_usage_cloud_security_posture_management) | **GET** /api/v1/usage/cspm | Get hourly usage for CSPM
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_fargate**](UsageMeteringAPI.md#get_usage_fargate) | **GET** /api/v1/usage/fargate | Get hourly usage for Fargate
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_hosts**](UsageMeteringAPI.md#get_usage_hosts) | **GET** /api/v1/usage/hosts | Get hourly usage for hosts and containers
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_indexed_spans**](UsageMeteringAPI.md#get_usage_indexed_spans) | **GET** /api/v1/usage/indexed-spans | Get hourly usage for indexed spans
@@ -686,12 +687,14 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::UsageAttributionSort](UsageAttributionSort.md)
  - [DatadogAPIClient::V1::UsageAttributionSupportedMetrics](UsageAttributionSupportedMetrics.md)
  - [DatadogAPIClient::V1::UsageAttributionValues](UsageAttributionValues.md)
+ - [DatadogAPIClient::V1::UsageAuditLogsHour](UsageAuditLogsHour.md)
+ - [DatadogAPIClient::V1::UsageAuditLogsResponse](UsageAuditLogsResponse.md)
  - [DatadogAPIClient::V1::UsageBillableSummaryBody](UsageBillableSummaryBody.md)
  - [DatadogAPIClient::V1::UsageBillableSummaryHour](UsageBillableSummaryHour.md)
  - [DatadogAPIClient::V1::UsageBillableSummaryKeys](UsageBillableSummaryKeys.md)
  - [DatadogAPIClient::V1::UsageBillableSummaryResponse](UsageBillableSummaryResponse.md)
- - [DatadogAPIClient::V1::UsageComplianceHour](UsageComplianceHour.md)
- - [DatadogAPIClient::V1::UsageComplianceResponse](UsageComplianceResponse.md)
+ - [DatadogAPIClient::V1::UsageCloudSecurityPostureManagementHour](UsageCloudSecurityPostureManagementHour.md)
+ - [DatadogAPIClient::V1::UsageCloudSecurityPostureManagementResponse](UsageCloudSecurityPostureManagementResponse.md)
  - [DatadogAPIClient::V1::UsageCustomReportsAttributes](UsageCustomReportsAttributes.md)
  - [DatadogAPIClient::V1::UsageCustomReportsData](UsageCustomReportsData.md)
  - [DatadogAPIClient::V1::UsageCustomReportsMeta](UsageCustomReportsMeta.md)
