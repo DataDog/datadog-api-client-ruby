@@ -17,23 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Compliance Monitoring usage for a given organization for a given hour.
-  class UsageComplianceHour
-    # The total number of compliance container hours from the start of the given hour's month until the given hour.
-    attr_accessor :compliance_container_count
-
-    # The total number of compliance hosts hours from the start of the given hour's month until the given hour.
-    attr_accessor :compliance_host_count
-
-    # The hour for the usage.
-    attr_accessor :hour
+  # Response containing the audit logs usage for each hour for a given organization.
+  class UsageAuditLogsResponse
+    # Get hourly usage for audit logs.
+    attr_accessor :usage
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'compliance_container_count' => :'compliance_container_count',
-        :'compliance_host_count' => :'compliance_host_count',
-        :'hour' => :'hour'
+        :'usage' => :'usage'
       }
     end
 
@@ -45,9 +37,7 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'compliance_container_count' => :'Integer',
-        :'compliance_host_count' => :'Integer',
-        :'hour' => :'Time'
+        :'usage' => :'Array<UsageAuditLogsHour>'
       }
     end
 
@@ -61,27 +51,21 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::UsageComplianceHour` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::UsageAuditLogsResponse` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::UsageComplianceHour`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::UsageAuditLogsResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'compliance_container_count')
-        self.compliance_container_count = attributes[:'compliance_container_count']
-      end
-
-      if attributes.key?(:'compliance_host_count')
-        self.compliance_host_count = attributes[:'compliance_host_count']
-      end
-
-      if attributes.key?(:'hour')
-        self.hour = attributes[:'hour']
+      if attributes.key?(:'usage')
+        if (value = attributes[:'usage']).is_a?(Array)
+          self.usage = value
+        end
       end
     end
 
@@ -103,9 +87,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          compliance_container_count == o.compliance_container_count &&
-          compliance_host_count == o.compliance_host_count &&
-          hour == o.hour
+          usage == o.usage
     end
 
     # @see the `==` method
@@ -117,7 +99,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [compliance_container_count, compliance_host_count, hour].hash
+      [usage].hash
     end
 
     # Builds the object from hash
