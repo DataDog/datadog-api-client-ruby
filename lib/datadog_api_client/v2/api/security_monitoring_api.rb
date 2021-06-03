@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
     # Create a security filter
-    # Create a security filter.
+    # Create a security filter.  See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/) for more examples.
     # @param body [SecurityFilterCreateRequest] The definition of the new security filter.
     # @param [Hash] opts the optional parameters
     # @return [SecurityFilterResponse]
@@ -33,7 +33,7 @@ module DatadogAPIClient::V2
     end
 
     # Create a security filter
-    # Create a security filter.
+    # Create a security filter.  See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/) for more examples.
     # @param body [SecurityFilterCreateRequest] The definition of the new security filter.
     # @param [Hash] opts the optional parameters
     # @return [Array<(SecurityFilterResponse, Integer, Hash)>] SecurityFilterResponse data, response status code and response headers
@@ -319,7 +319,7 @@ module DatadogAPIClient::V2
     end
 
     # Get a security filter
-    # Get the details of a specific security filter.
+    # Get the details of a specific security filter.  See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/) for more examples.
     # @param security_filter_id [String] The ID of the security filter.
     # @param [Hash] opts the optional parameters
     # @return [SecurityFilterResponse]
@@ -329,7 +329,7 @@ module DatadogAPIClient::V2
     end
 
     # Get a security filter
-    # Get the details of a specific security filter.
+    # Get the details of a specific security filter.  See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/) for more examples.
     # @param security_filter_id [String] The ID of the security filter.
     # @param [Hash] opts the optional parameters
     # @return [Array<(SecurityFilterResponse, Integer, Hash)>] SecurityFilterResponse data, response status code and response headers
