@@ -16,6 +16,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**get_usage_audit_logs**](UsageMeteringAPI.md#get_usage_audit_logs) | **GET** /api/v1/usage/audit_logs | Get hourly usage for audit logs |
 | [**get_usage_billable_summary**](UsageMeteringAPI.md#get_usage_billable_summary) | **GET** /api/v1/usage/billable-summary | Get billable usage across your account |
 | [**get_usage_cloud_security_posture_management**](UsageMeteringAPI.md#get_usage_cloud_security_posture_management) | **GET** /api/v1/usage/cspm | Get hourly usage for CSPM |
+| [**get_usage_cws**](UsageMeteringAPI.md#get_usage_cws) | **GET** /api/v1/usage/cws | Get hourly usage for Cloud Workload Security |
 | [**get_usage_fargate**](UsageMeteringAPI.md#get_usage_fargate) | **GET** /api/v1/usage/fargate | Get hourly usage for Fargate |
 | [**get_usage_hosts**](UsageMeteringAPI.md#get_usage_hosts) | **GET** /api/v1/usage/hosts | Get hourly usage for hosts and containers |
 | [**get_usage_indexed_spans**](UsageMeteringAPI.md#get_usage_indexed_spans) | **GET** /api/v1/usage/indexed-spans | Get hourly usage for indexed spans |
@@ -848,6 +849,72 @@ end
 ### Return type
 
 [**UsageCloudSecurityPostureManagementResponse**](UsageCloudSecurityPostureManagementResponse.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json;datetime-format=rfc3339
+
+
+## get_usage_cws
+
+> <UsageCWSResponse> get_usage_cws(start_hr, opts)
+
+Get hourly usage for Cloud Workload Security
+
+Get hourly usage for Cloud Workload Security.
+
+### Examples
+
+```ruby
+require 'datadog_api_client'
+api_instance = DatadogAPIClient::V1::UsageMeteringAPI.new
+start_hr = Time.parse('2013-10-20T19:20:30+01:00') # Time | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
+opts = {
+  end_hr: Time.parse('2013-10-20T19:20:30+01:00') # Time | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
+}
+
+begin
+  # Get hourly usage for Cloud Workload Security
+  result = api_instance.get_usage_cws(start_hr, opts)
+  p result
+rescue DatadogAPIClient::V1::APIError => e
+  puts "Error when calling UsageMeteringAPI->get_usage_cws: #{e}"
+end
+```
+
+#### Using the get_usage_cws_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<UsageCWSResponse>, Integer, Hash)> get_usage_cws_with_http_info(start_hr, opts)
+
+```ruby
+begin
+  # Get hourly usage for Cloud Workload Security
+  data, status_code, headers = api_instance.get_usage_cws_with_http_info(start_hr, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <UsageCWSResponse>
+rescue DatadogAPIClient::V1::APIError => e
+  puts "Error when calling UsageMeteringAPI->get_usage_cws_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |  |
+| **end_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+
+### Return type
+
+[**UsageCWSResponse**](UsageCWSResponse.md)
 
 ### Authorization
 

@@ -198,6 +198,7 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_audit_logs**](UsageMeteringAPI.md#get_usage_audit_logs) | **GET** /api/v1/usage/audit_logs | Get hourly usage for audit logs
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_billable_summary**](UsageMeteringAPI.md#get_usage_billable_summary) | **GET** /api/v1/usage/billable-summary | Get billable usage across your account
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_cloud_security_posture_management**](UsageMeteringAPI.md#get_usage_cloud_security_posture_management) | **GET** /api/v1/usage/cspm | Get hourly usage for CSPM
+*DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_cws**](UsageMeteringAPI.md#get_usage_cws) | **GET** /api/v1/usage/cws | Get hourly usage for Cloud Workload Security
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_fargate**](UsageMeteringAPI.md#get_usage_fargate) | **GET** /api/v1/usage/fargate | Get hourly usage for Fargate
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_hosts**](UsageMeteringAPI.md#get_usage_hosts) | **GET** /api/v1/usage/hosts | Get hourly usage for hosts and containers
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_indexed_spans**](UsageMeteringAPI.md#get_usage_indexed_spans) | **GET** /api/v1/usage/indexed-spans | Get hourly usage for indexed spans
@@ -693,6 +694,8 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::UsageBillableSummaryHour](UsageBillableSummaryHour.md)
  - [DatadogAPIClient::V1::UsageBillableSummaryKeys](UsageBillableSummaryKeys.md)
  - [DatadogAPIClient::V1::UsageBillableSummaryResponse](UsageBillableSummaryResponse.md)
+ - [DatadogAPIClient::V1::UsageCWSHour](UsageCWSHour.md)
+ - [DatadogAPIClient::V1::UsageCWSResponse](UsageCWSResponse.md)
  - [DatadogAPIClient::V1::UsageCloudSecurityPostureManagementHour](UsageCloudSecurityPostureManagementHour.md)
  - [DatadogAPIClient::V1::UsageCloudSecurityPostureManagementResponse](UsageCloudSecurityPostureManagementResponse.md)
  - [DatadogAPIClient::V1::UsageCustomReportsAttributes](UsageCustomReportsAttributes.md)

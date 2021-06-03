@@ -64,6 +64,12 @@ module DatadogAPIClient::V1
     # Shows the average number of distinct custom metrics over all hours in the current date for the given org.
     attr_accessor :custom_ts_avg
 
+    # Shows the average of all distinct Cloud Workload Security containers over all hours in the current date for the given org.
+    attr_accessor :cws_container_count_avg
+
+    # Shows the 99th percentile of all Cloud Workload Security hosts over all hours in the current date for the given org.
+    attr_accessor :cws_host_top99p
+
     # The average task count for Fargate.
     attr_accessor :fargate_tasks_count_avg
 
@@ -163,6 +169,8 @@ module DatadogAPIClient::V1
         :'cspm_container_hwm' => :'cspm_container_hwm',
         :'cspm_host_top99p' => :'cspm_host_top99p',
         :'custom_ts_avg' => :'custom_ts_avg',
+        :'cws_container_count_avg' => :'cws_container_count_avg',
+        :'cws_host_top99p' => :'cws_host_top99p',
         :'fargate_tasks_count_avg' => :'fargate_tasks_count_avg',
         :'fargate_tasks_count_hwm' => :'fargate_tasks_count_hwm',
         :'gcp_host_top99p' => :'gcp_host_top99p',
@@ -216,6 +224,8 @@ module DatadogAPIClient::V1
         :'cspm_container_hwm' => :'Integer',
         :'cspm_host_top99p' => :'Integer',
         :'custom_ts_avg' => :'Integer',
+        :'cws_container_count_avg' => :'Integer',
+        :'cws_host_top99p' => :'Integer',
         :'fargate_tasks_count_avg' => :'Integer',
         :'fargate_tasks_count_hwm' => :'Integer',
         :'gcp_host_top99p' => :'Integer',
@@ -325,6 +335,14 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'custom_ts_avg')
         self.custom_ts_avg = attributes[:'custom_ts_avg']
+      end
+
+      if attributes.key?(:'cws_container_count_avg')
+        self.cws_container_count_avg = attributes[:'cws_container_count_avg']
+      end
+
+      if attributes.key?(:'cws_host_top99p')
+        self.cws_host_top99p = attributes[:'cws_host_top99p']
       end
 
       if attributes.key?(:'fargate_tasks_count_avg')
@@ -469,6 +487,8 @@ module DatadogAPIClient::V1
           cspm_container_hwm == o.cspm_container_hwm &&
           cspm_host_top99p == o.cspm_host_top99p &&
           custom_ts_avg == o.custom_ts_avg &&
+          cws_container_count_avg == o.cws_container_count_avg &&
+          cws_host_top99p == o.cws_host_top99p &&
           fargate_tasks_count_avg == o.fargate_tasks_count_avg &&
           fargate_tasks_count_hwm == o.fargate_tasks_count_hwm &&
           gcp_host_top99p == o.gcp_host_top99p &&
@@ -507,7 +527,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_host_top99p, apm_azure_app_service_host_top99p, apm_host_top99p, audit_logs_lines_indexed_sum, aws_host_top99p, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p, billable_ingested_bytes_sum, container_avg, container_hwm, cspm_container_avg, cspm_container_hwm, cspm_host_top99p, custom_ts_avg, fargate_tasks_count_avg, fargate_tasks_count_hwm, gcp_host_top99p, heroku_host_top99p, id, incident_management_monthly_active_users_hwm, indexed_events_count_sum, infra_host_top99p, ingested_events_bytes_sum, iot_device_agg_sum, iot_device_top99p_sum, mobile_rum_session_count_android_sum, mobile_rum_session_count_ios_sum, mobile_rum_session_count_sum, name, netflow_indexed_events_count_sum, npm_host_top99p, opentelemetry_host_top99p, profiling_host_top99p, public_id, rum_session_count_sum, rum_total_session_count_sum, synthetics_browser_check_calls_count_sum, synthetics_check_calls_count_sum, trace_search_indexed_events_count_sum, twol_ingested_events_bytes_sum, vsphere_host_top99p].hash
+      [agent_host_top99p, apm_azure_app_service_host_top99p, apm_host_top99p, audit_logs_lines_indexed_sum, aws_host_top99p, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p, billable_ingested_bytes_sum, container_avg, container_hwm, cspm_container_avg, cspm_container_hwm, cspm_host_top99p, custom_ts_avg, cws_container_count_avg, cws_host_top99p, fargate_tasks_count_avg, fargate_tasks_count_hwm, gcp_host_top99p, heroku_host_top99p, id, incident_management_monthly_active_users_hwm, indexed_events_count_sum, infra_host_top99p, ingested_events_bytes_sum, iot_device_agg_sum, iot_device_top99p_sum, mobile_rum_session_count_android_sum, mobile_rum_session_count_ios_sum, mobile_rum_session_count_sum, name, netflow_indexed_events_count_sum, npm_host_top99p, opentelemetry_host_top99p, profiling_host_top99p, public_id, rum_session_count_sum, rum_total_session_count_sum, synthetics_browser_check_calls_count_sum, synthetics_check_calls_count_sum, trace_search_indexed_events_count_sum, twol_ingested_events_bytes_sum, vsphere_host_top99p].hash
     end
 
     # Builds the object from hash
