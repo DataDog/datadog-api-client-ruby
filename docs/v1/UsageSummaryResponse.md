@@ -20,6 +20,8 @@
 | **cspm_container_hwm_sum** | **Integer** | Shows the sum of the the high-water marks of Cloud Security Posture Management containers over all hours in the current months for all organizations. | [optional] |
 | **cspm_host_top99p_sum** | **Integer** | Shows the 99th percentile of all Cloud Security Posture Management hosts over all hours in the current months for all organizations. | [optional] |
 | **custom_ts_sum** | **Integer** | Shows the average number of distinct custom metrics over all hours in the current months for all organizations. | [optional] |
+| **cws_containers_avg_sum** | **Integer** | Shows the average of all distinct Cloud Workload Security containers over all hours in the current months for all organizations. | [optional] |
+| **cws_host_top99p_sum** | **Integer** | Shows the 99th percentile of all Cloud Workload Security hosts over all hours in the current months for all organizations. | [optional] |
 | **end_date** | **Time** | Shows the last date of usage in the current months for all organizations. | [optional] |
 | **fargate_tasks_count_avg_sum** | **Integer** | Shows the average of all Fargate tasks over all hours in the current months for all organizations. | [optional] |
 | **fargate_tasks_count_hwm_sum** | **Integer** | Shows the sum of the high-water marks of all Fargate tasks over all hours in the current months for all organizations. | [optional] |
@@ -77,6 +79,8 @@ instance = DatadogAPIClient::V1::UsageSummaryResponse.new(
   cspm_container_hwm_sum: null,
   cspm_host_top99p_sum: null,
   custom_ts_sum: null,
+  cws_containers_avg_sum: null,
+  cws_host_top99p_sum: null,
   end_date: null,
   fargate_tasks_count_avg_sum: null,
   fargate_tasks_count_hwm_sum: null,
