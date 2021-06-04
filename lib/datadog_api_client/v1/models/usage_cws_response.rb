@@ -17,9 +17,9 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The response containing the Compliance Monitoring usage for each hour for a given organization.
-  class UsageComplianceResponse
-    # Get hourly usage for Compliance Monitoring.
+  # Response containing the Cloud Workload Security usage for each hour for a given organization.
+  class UsageCWSResponse
+    # Get hourly usage for Cloud Workload Security.
     attr_accessor :usage
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -37,7 +37,7 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'usage' => :'Array<UsageComplianceHour>'
+        :'usage' => :'Array<UsageCWSHour>'
       }
     end
 
@@ -51,13 +51,13 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::UsageComplianceResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::UsageCWSResponse` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::UsageComplianceResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::UsageCWSResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }

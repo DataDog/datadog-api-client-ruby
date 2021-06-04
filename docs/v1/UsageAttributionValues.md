@@ -14,6 +14,10 @@
 | **container_usage** | **Float** | The container usage by tag(s). | [optional] |
 | **custom_timeseries_percentage** | **Float** | The percentage of custom metrics usage by tag(s). | [optional] |
 | **custom_timeseries_usage** | **Float** | The custom metrics usage by tag(s). | [optional] |
+| **cws_container_percentage** | **Float** | The percentage of Cloud Workload Security container usage by tag(s) | [optional] |
+| **cws_container_usage** | **Float** | The Cloud Workload Security container usage by tag(s) | [optional] |
+| **cws_host_percentage** | **Float** | The percentage of Cloud Workload Security host usage by tag(s) | [optional] |
+| **cws_host_usage** | **Float** | The Cloud Workload Security host usage by tag(s) | [optional] |
 | **infra_host_percentage** | **Float** | The percentage of infrastructure host usage by tag(s). | [optional] |
 | **infra_host_usage** | **Float** | The infrastructure host usage by tag(s). | [optional] |
 | **lambda_functions_percentage** | **Float** | The percentage of Lambda function usage by tag(s). | [optional] |
@@ -47,6 +51,10 @@ instance = DatadogAPIClient::V1::UsageAttributionValues.new(
   container_usage: null,
   custom_timeseries_percentage: null,
   custom_timeseries_usage: null,
+  cws_container_percentage: null,
+  cws_container_usage: null,
+  cws_host_percentage: null,
+  cws_host_usage: null,
   infra_host_percentage: null,
   infra_host_usage: null,
   lambda_functions_percentage: null,
