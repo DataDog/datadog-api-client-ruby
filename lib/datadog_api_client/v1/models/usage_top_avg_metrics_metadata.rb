@@ -44,8 +44,8 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'day' => :'Object',
-        :'month' => :'Object',
+        :'day' => :'Time',
+        :'month' => :'Time',
         :'pagination' => :'UsageAttributionPagination'
       }
     end
@@ -53,8 +53,6 @@ module DatadogAPIClient::V1
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'day',
-        :'month',
       ])
     end
 
