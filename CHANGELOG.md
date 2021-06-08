@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## 1.1.0 / 2021-06-08
+
+* [Added] Add CWS to usage metering endpoint. See [#376](https://github.com/DataDog/datadog-api-client-ruby/pull/376).
+* [Added] Add endpoint to list Synthetics global variables. See [#377](https://github.com/DataDog/datadog-api-client-ruby/pull/377).
+* [Added] Add monitors search endpoint. See [#373](https://github.com/DataDog/datadog-api-client-ruby/pull/373).
+* [Added] Add `tag_config_source` to usage attribution response. See [#368](https://github.com/DataDog/datadog-api-client-ruby/pull/368).
+* [Added] Add endpoints to configure Security Filters. See [#359](https://github.com/DataDog/datadog-api-client-ruby/pull/359).
+* [Added] Add `active_child` nested downtime object to `Downtime` component for downtime APIs. See [#354](https://github.com/DataDog/datadog-api-client-ruby/pull/354).
+* [Added] Add `override_label` and `is_hidden` attribute for `WidgetCustomLink`. See [#358](https://github.com/DataDog/datadog-api-client-ruby/pull/358).
+* [Added] Add audit logs to usage endpoints. See [#384](https://github.com/DataDog/datadog-api-client-ruby/pull/384).
+* [Fixed] Fix type of day/month response attribute in custom metrics usage. See [#387](https://github.com/DataDog/datadog-api-client-ruby/pull/387).
+* [Fixed] Make `assertions` field optional for multistep synthetics tests, and add `global` config variable type. See [#375](https://github.com/DataDog/datadog-api-client-ruby/pull/375).
+* [Fixed] Properly mark monitor required fields. See [#366](https://github.com/DataDog/datadog-api-client-ruby/pull/366).
+* [Fixed] Rename `incident_integration_metadata` to `incident_integrations` to match API. See [#362](https://github.com/DataDog/datadog-api-client-ruby/pull/362).
+* [Fixed] Properly mark several synthetics attributes as read only. See [#357](https://github.com/DataDog/datadog-api-client-ruby/pull/357).
+* [Fixed] Fix paging attributes of usage attribution endpoints. See [#355](https://github.com/DataDog/datadog-api-client-ruby/pull/355).
+* [Changed] Rename `compliance` to `CSPM` in usage endpoint. See [#384](https://github.com/DataDog/datadog-api-client-ruby/pull/384).
+
 ## 1.0.0 / 2021-05-12
 
 * [Added] Notebooks Public API Documentation. See [#351](https://github.com/DataDog/datadog-api-client-ruby/pull/351).
