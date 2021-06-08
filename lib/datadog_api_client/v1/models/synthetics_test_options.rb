@@ -40,7 +40,13 @@ module DatadogAPIClient::V1
     # Minimum number of locations in failure required to trigger an alert.
     attr_accessor :min_location_failed
 
+    # The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+    attr_accessor :monitor_name
+
     attr_accessor :monitor_options
+
+    # Integer from 1 (high) to 5 (low) indicating alert severity.
+    attr_accessor :monitor_priority
 
     # Prevents saving screenshots of the steps.
     attr_accessor :no_screenshot
@@ -59,7 +65,9 @@ module DatadogAPIClient::V1
         :'follow_redirects' => :'follow_redirects',
         :'min_failure_duration' => :'min_failure_duration',
         :'min_location_failed' => :'min_location_failed',
+        :'monitor_name' => :'monitor_name',
         :'monitor_options' => :'monitor_options',
+        :'monitor_priority' => :'monitor_priority',
         :'no_screenshot' => :'noScreenshot',
         :'_retry' => :'retry',
         :'tick_every' => :'tick_every'
@@ -81,7 +89,9 @@ module DatadogAPIClient::V1
         :'follow_redirects' => :'Boolean',
         :'min_failure_duration' => :'Integer',
         :'min_location_failed' => :'Integer',
+        :'monitor_name' => :'String',
         :'monitor_options' => :'SyntheticsTestOptionsMonitorOptions',
+        :'monitor_priority' => :'Integer',
         :'no_screenshot' => :'Boolean',
         :'_retry' => :'SyntheticsTestOptionsRetry',
         :'tick_every' => :'SyntheticsTickInterval'
@@ -139,8 +149,16 @@ module DatadogAPIClient::V1
         self.min_location_failed = attributes[:'min_location_failed']
       end
 
+      if attributes.key?(:'monitor_name')
+        self.monitor_name = attributes[:'monitor_name']
+      end
+
       if attributes.key?(:'monitor_options')
         self.monitor_options = attributes[:'monitor_options']
+      end
+
+      if attributes.key?(:'monitor_priority')
+        self.monitor_priority = attributes[:'monitor_priority']
       end
 
       if attributes.key?(:'no_screenshot')
@@ -160,13 +178,37 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@monitor_priority.nil? && @monitor_priority > 5
+        invalid_properties.push('invalid value for "monitor_priority", must be smaller than or equal to 5.')
+      end
+
+      if !@monitor_priority.nil? && @monitor_priority < 1
+        invalid_properties.push('invalid value for "monitor_priority", must be greater than or equal to 1.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@monitor_priority.nil? && @monitor_priority > 5
+      return false if !@monitor_priority.nil? && @monitor_priority < 1
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] monitor_priority Value to be assigned
+    def monitor_priority=(monitor_priority)
+      if !monitor_priority.nil? && monitor_priority > 5
+        fail ArgumentError, 'invalid value for "monitor_priority", must be smaller than or equal to 5.'
+      end
+
+      if !monitor_priority.nil? && monitor_priority < 1
+        fail ArgumentError, 'invalid value for "monitor_priority", must be greater than or equal to 1.'
+      end
+
+      @monitor_priority = monitor_priority
     end
 
     # Checks equality by comparing each attribute.
@@ -181,7 +223,9 @@ module DatadogAPIClient::V1
           follow_redirects == o.follow_redirects &&
           min_failure_duration == o.min_failure_duration &&
           min_location_failed == o.min_location_failed &&
+          monitor_name == o.monitor_name &&
           monitor_options == o.monitor_options &&
+          monitor_priority == o.monitor_priority &&
           no_screenshot == o.no_screenshot &&
           _retry == o._retry &&
           tick_every == o.tick_every
@@ -196,7 +240,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [accept_self_signed, allow_insecure, device_ids, disable_cors, follow_redirects, min_failure_duration, min_location_failed, monitor_options, no_screenshot, _retry, tick_every].hash
+      [accept_self_signed, allow_insecure, device_ids, disable_cors, follow_redirects, min_failure_duration, min_location_failed, monitor_name, monitor_options, monitor_priority, no_screenshot, _retry, tick_every].hash
     end
 
     # Builds the object from hash

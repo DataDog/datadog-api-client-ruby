@@ -11,7 +11,9 @@
 | **follow_redirects** | **Boolean** | For API HTTP test, whether or not the test should follow redirects. | [optional] |
 | **min_failure_duration** | **Integer** | Minimum amount of time in failure required to trigger an alert. | [optional] |
 | **min_location_failed** | **Integer** | Minimum number of locations in failure required to trigger an alert. | [optional] |
+| **monitor_name** | **String** | The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs. | [optional] |
 | **monitor_options** | [**SyntheticsTestOptionsMonitorOptions**](SyntheticsTestOptionsMonitorOptions.md) |  | [optional] |
+| **monitor_priority** | **Integer** | Integer from 1 (high) to 5 (low) indicating alert severity. | [optional] |
 | **no_screenshot** | **Boolean** | Prevents saving screenshots of the steps. | [optional] |
 | **_retry** | [**SyntheticsTestOptionsRetry**](SyntheticsTestOptionsRetry.md) |  | [optional] |
 | **tick_every** | [**SyntheticsTickInterval**](SyntheticsTickInterval.md) |  | [optional] |
@@ -29,7 +31,9 @@ instance = DatadogAPIClient::V1::SyntheticsTestOptions.new(
   follow_redirects: null,
   min_failure_duration: null,
   min_location_failed: null,
+  monitor_name: null,
   monitor_options: null,
+  monitor_priority: null,
   no_screenshot: null,
   _retry: null,
   tick_every: null
