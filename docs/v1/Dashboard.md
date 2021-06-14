@@ -13,6 +13,7 @@
 | **modified_at** | **Time** | Modification date of the dashboard. | [optional][readonly] |
 | **notify_list** | **Array&lt;String&gt;** | List of handles of users to notify when changes are made to this dashboard. | [optional] |
 | **reflow_type** | [**DashboardReflowType**](DashboardReflowType.md) |  | [optional] |
+| **restricted_roles** | **Array&lt;String&gt;** | A list of role identifiers. Only the author and users associated with at least one of these roles can edit this dashboard. Overrides the &#x60;is_read_only&#x60; property if both are present. **This feature is currently in beta.** | [optional] |
 | **template_variable_presets** | [**Array&lt;DashboardTemplateVariablePreset&gt;**](DashboardTemplateVariablePreset.md) | Array of template variables saved views. | [optional] |
 | **template_variables** | [**Array&lt;DashboardTemplateVariable&gt;**](DashboardTemplateVariable.md) | List of template variables for this dashboard. | [optional] |
 | **title** | **String** | Title of the dashboard. |  |
@@ -34,6 +35,7 @@ instance = DatadogAPIClient::V1::Dashboard.new(
   modified_at: null,
   notify_list: null,
   reflow_type: null,
+  restricted_roles: null,
   template_variable_presets: null,
   template_variables: null,
   title: ,
