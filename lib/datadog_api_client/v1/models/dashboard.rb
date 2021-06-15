@@ -44,6 +44,9 @@ module DatadogAPIClient::V1
 
     attr_accessor :reflow_type
 
+    # A list of role identifiers. Only the author and users associated with at least one of these roles can edit this dashboard. Overrides the `is_read_only` property if both are present. **This feature is currently in beta.**
+    attr_accessor :restricted_roles
+
     # Array of template variables saved views.
     attr_accessor :template_variable_presets
 
@@ -71,6 +74,7 @@ module DatadogAPIClient::V1
         :'modified_at' => :'modified_at',
         :'notify_list' => :'notify_list',
         :'reflow_type' => :'reflow_type',
+        :'restricted_roles' => :'restricted_roles',
         :'template_variable_presets' => :'template_variable_presets',
         :'template_variables' => :'template_variables',
         :'title' => :'title',
@@ -96,6 +100,7 @@ module DatadogAPIClient::V1
         :'modified_at' => :'Time',
         :'notify_list' => :'Array<String>',
         :'reflow_type' => :'DashboardReflowType',
+        :'restricted_roles' => :'Array<String>',
         :'template_variable_presets' => :'Array<DashboardTemplateVariablePreset>',
         :'template_variables' => :'Array<DashboardTemplateVariable>',
         :'title' => :'String',
@@ -169,6 +174,12 @@ module DatadogAPIClient::V1
         self.reflow_type = attributes[:'reflow_type']
       end
 
+      if attributes.key?(:'restricted_roles')
+        if (value = attributes[:'restricted_roles']).is_a?(Array)
+          self.restricted_roles = value
+        end
+      end
+
       if attributes.key?(:'template_variable_presets')
         if (value = attributes[:'template_variable_presets']).is_a?(Array)
           self.template_variable_presets = value
@@ -238,6 +249,7 @@ module DatadogAPIClient::V1
           modified_at == o.modified_at &&
           notify_list == o.notify_list &&
           reflow_type == o.reflow_type &&
+          restricted_roles == o.restricted_roles &&
           template_variable_presets == o.template_variable_presets &&
           template_variables == o.template_variables &&
           title == o.title &&
@@ -254,7 +266,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [author_handle, created_at, description, id, is_read_only, layout_type, modified_at, notify_list, reflow_type, template_variable_presets, template_variables, title, url, widgets].hash
+      [author_handle, created_at, description, id, is_read_only, layout_type, modified_at, notify_list, reflow_type, restricted_roles, template_variable_presets, template_variables, title, url, widgets].hash
     end
 
     # Builds the object from hash
