@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Detection rule.
+  # Rule.
   class SecurityMonitoringRuleResponse
     # Cases for generating signals.
     attr_accessor :cases
@@ -30,6 +30,9 @@ module DatadogAPIClient::V2
 
     # Additional queries to filter matched events before they are processed.
     attr_accessor :filters
+
+    # Whether the notifications include the triggering group-by values in their title.
+    attr_accessor :has_extended_title
 
     # The ID of the rule.
     attr_accessor :id
@@ -57,6 +60,9 @@ module DatadogAPIClient::V2
     # Tags for generated signals.
     attr_accessor :tags
 
+    # User ID of the user who updated the rule.
+    attr_accessor :update_author_id
+
     # The version of the rule.
     attr_accessor :version
 
@@ -67,6 +73,7 @@ module DatadogAPIClient::V2
         :'created_at' => :'createdAt',
         :'creation_author_id' => :'creationAuthorId',
         :'filters' => :'filters',
+        :'has_extended_title' => :'hasExtendedTitle',
         :'id' => :'id',
         :'is_default' => :'isDefault',
         :'is_deleted' => :'isDeleted',
@@ -76,6 +83,7 @@ module DatadogAPIClient::V2
         :'options' => :'options',
         :'queries' => :'queries',
         :'tags' => :'tags',
+        :'update_author_id' => :'updateAuthorId',
         :'version' => :'version'
       }
     end
@@ -92,6 +100,7 @@ module DatadogAPIClient::V2
         :'created_at' => :'Integer',
         :'creation_author_id' => :'Integer',
         :'filters' => :'Array<SecurityMonitoringFilter>',
+        :'has_extended_title' => :'Boolean',
         :'id' => :'String',
         :'is_default' => :'Boolean',
         :'is_deleted' => :'Boolean',
@@ -101,6 +110,7 @@ module DatadogAPIClient::V2
         :'options' => :'SecurityMonitoringRuleOptions',
         :'queries' => :'Array<SecurityMonitoringRuleQuery>',
         :'tags' => :'Array<String>',
+        :'update_author_id' => :'Integer',
         :'version' => :'Integer'
       }
     end
@@ -146,6 +156,10 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'has_extended_title')
+        self.has_extended_title = attributes[:'has_extended_title']
+      end
+
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
@@ -186,6 +200,10 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'update_author_id')
+        self.update_author_id = attributes[:'update_author_id']
+      end
+
       if attributes.key?(:'version')
         self.version = attributes[:'version']
       end
@@ -213,6 +231,7 @@ module DatadogAPIClient::V2
           created_at == o.created_at &&
           creation_author_id == o.creation_author_id &&
           filters == o.filters &&
+          has_extended_title == o.has_extended_title &&
           id == o.id &&
           is_default == o.is_default &&
           is_deleted == o.is_deleted &&
@@ -222,6 +241,7 @@ module DatadogAPIClient::V2
           options == o.options &&
           queries == o.queries &&
           tags == o.tags &&
+          update_author_id == o.update_author_id &&
           version == o.version
     end
 
@@ -234,7 +254,7 @@ module DatadogAPIClient::V2
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cases, created_at, creation_author_id, filters, id, is_default, is_deleted, is_enabled, message, name, options, queries, tags, version].hash
+      [cases, created_at, creation_author_id, filters, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, tags, update_author_id, version].hash
     end
 
     # Builds the object from hash

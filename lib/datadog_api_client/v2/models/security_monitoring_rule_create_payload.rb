@@ -25,6 +25,9 @@ module DatadogAPIClient::V2
     # Additional queries to filter matched events before they are processed.
     attr_accessor :filters
 
+    # Whether the notifications include the triggering group-by values in their title.
+    attr_accessor :has_extended_title
+
     # Whether the rule is enabled.
     attr_accessor :is_enabled
 
@@ -47,6 +50,7 @@ module DatadogAPIClient::V2
       {
         :'cases' => :'cases',
         :'filters' => :'filters',
+        :'has_extended_title' => :'hasExtendedTitle',
         :'is_enabled' => :'isEnabled',
         :'message' => :'message',
         :'name' => :'name',
@@ -66,6 +70,7 @@ module DatadogAPIClient::V2
       {
         :'cases' => :'Array<SecurityMonitoringRuleCaseCreate>',
         :'filters' => :'Array<SecurityMonitoringFilter>',
+        :'has_extended_title' => :'Boolean',
         :'is_enabled' => :'Boolean',
         :'message' => :'String',
         :'name' => :'String',
@@ -106,6 +111,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'filters']).is_a?(Array)
           self.filters = value
         end
+      end
+
+      if attributes.key?(:'has_extended_title')
+        self.has_extended_title = attributes[:'has_extended_title']
       end
 
       if attributes.key?(:'is_enabled')
@@ -187,6 +196,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           cases == o.cases &&
           filters == o.filters &&
+          has_extended_title == o.has_extended_title &&
           is_enabled == o.is_enabled &&
           message == o.message &&
           name == o.name &&
@@ -204,7 +214,7 @@ module DatadogAPIClient::V2
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cases, filters, is_enabled, message, name, options, queries, tags].hash
+      [cases, filters, has_extended_title, is_enabled, message, name, options, queries, tags].hash
     end
 
     # Builds the object from hash
