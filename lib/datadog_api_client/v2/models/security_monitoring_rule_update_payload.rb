@@ -25,6 +25,9 @@ module DatadogAPIClient::V2
     # Additional queries to filter matched events before they are processed.
     attr_accessor :filters
 
+    # Whether the notifications include the triggering group-by values in their title.
+    attr_accessor :has_extended_title
+
     # Whether the rule is enabled.
     attr_accessor :is_enabled
 
@@ -42,17 +45,22 @@ module DatadogAPIClient::V2
     # Tags for generated signals.
     attr_accessor :tags
 
+    # The version of the rule being updated.
+    attr_accessor :version
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'cases' => :'cases',
         :'filters' => :'filters',
+        :'has_extended_title' => :'hasExtendedTitle',
         :'is_enabled' => :'isEnabled',
         :'message' => :'message',
         :'name' => :'name',
         :'options' => :'options',
         :'queries' => :'queries',
-        :'tags' => :'tags'
+        :'tags' => :'tags',
+        :'version' => :'version'
       }
     end
 
@@ -66,12 +74,14 @@ module DatadogAPIClient::V2
       {
         :'cases' => :'Array<SecurityMonitoringRuleCase>',
         :'filters' => :'Array<SecurityMonitoringFilter>',
+        :'has_extended_title' => :'Boolean',
         :'is_enabled' => :'Boolean',
         :'message' => :'String',
         :'name' => :'String',
         :'options' => :'SecurityMonitoringRuleOptions',
         :'queries' => :'Array<SecurityMonitoringRuleQuery>',
-        :'tags' => :'Array<String>'
+        :'tags' => :'Array<String>',
+        :'version' => :'Integer'
       }
     end
 
@@ -108,6 +118,10 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'has_extended_title')
+        self.has_extended_title = attributes[:'has_extended_title']
+      end
+
       if attributes.key?(:'is_enabled')
         self.is_enabled = attributes[:'is_enabled']
       end
@@ -135,19 +149,38 @@ module DatadogAPIClient::V2
           self.tags = value
         end
       end
+
+      if attributes.key?(:'version')
+        self.version = attributes[:'version']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@version.nil? && @version > 2147483647
+        invalid_properties.push('invalid value for "version", must be smaller than or equal to 2147483647.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@version.nil? && @version > 2147483647
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] version Value to be assigned
+    def version=(version)
+      if !version.nil? && version > 2147483647
+        fail ArgumentError, 'invalid value for "version", must be smaller than or equal to 2147483647.'
+      end
+
+      @version = version
     end
 
     # Checks equality by comparing each attribute.
@@ -157,12 +190,14 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           cases == o.cases &&
           filters == o.filters &&
+          has_extended_title == o.has_extended_title &&
           is_enabled == o.is_enabled &&
           message == o.message &&
           name == o.name &&
           options == o.options &&
           queries == o.queries &&
-          tags == o.tags
+          tags == o.tags &&
+          version == o.version
     end
 
     # @see the `==` method
@@ -174,7 +209,7 @@ module DatadogAPIClient::V2
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cases, filters, is_enabled, message, name, options, queries, tags].hash
+      [cases, filters, has_extended_title, is_enabled, message, name, options, queries, tags, version].hash
     end
 
     # Builds the object from hash
