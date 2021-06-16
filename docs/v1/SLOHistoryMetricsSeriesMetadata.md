@@ -22,7 +22,7 @@ instance = DatadogAPIClient::V1::SLOHistoryMetricsSeriesMetadata.new(
   metric: null,
   query_index: null,
   scope: null,
-  unit: [{&quot;family&quot;:&quot;bytes&quot;,&quot;scale_factor&quot;:1.0,&quot;name&quot;:&quot;byte&quot;,&quot;short_name&quot;:&quot;B&quot;,&quot;plural&quot;:&quot;bytes&quot;,&quot;id&quot;:2},null]
+  unit: [{&quot;family&quot;:&quot;bytes&quot;,&quot;id&quot;:2,&quot;name&quot;:&quot;byte&quot;,&quot;plural&quot;:&quot;bytes&quot;,&quot;scale_factor&quot;:1.0,&quot;short_name&quot;:&quot;B&quot;},null]
 )
 ```
 
