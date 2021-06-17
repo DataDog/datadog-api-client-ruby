@@ -43,7 +43,6 @@ module APIWorld
       "unique_lower": u.downcase,
       "unique_alnum": alnum,
       "unique_lower_alnum": alnum.downcase,
-      "now": Time.now,
       "timestamp": relative_time(false),
       "timeISO": relative_time(true),
     }
@@ -51,8 +50,8 @@ module APIWorld
 
   def relative_time(iso)
     time_re = /now( *([+-]) *(\d+)([smhdMy]))?/
-    lambda { |fixtures, arg|
-      ret = fixtures[:now]
+    lambda { |arg|
+      ret = Time.now
       m = arg.match time_re
       if m
         if m[1]

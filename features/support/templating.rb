@@ -40,7 +40,7 @@ class String
       func_re = /^(.+)\((.*)\)$/
       m = path.match func_re
       if m
-        next data[m[1].to_sym].call(data, m[2]).to_s
+        next data[m[1].to_sym].call(m[2]).to_s
       end
       data.lookup(path).to_s
     end
