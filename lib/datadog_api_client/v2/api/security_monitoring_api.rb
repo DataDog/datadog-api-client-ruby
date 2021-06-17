@@ -176,17 +176,17 @@ module DatadogAPIClient::V2
     # Delete a specific security filter.
     # @param security_filter_id [String] The ID of the security filter.
     # @param [Hash] opts the optional parameters
-    # @return [SecurityFilterDeleteResponse]
+    # @return [nil]
     def delete_security_filter(security_filter_id, opts = {})
-      data, _status_code, _headers = delete_security_filter_with_http_info(security_filter_id, opts)
-      data
+      delete_security_filter_with_http_info(security_filter_id, opts)
+      nil
     end
 
     # Delete a security filter
     # Delete a specific security filter.
     # @param security_filter_id [String] The ID of the security filter.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(SecurityFilterDeleteResponse, Integer, Hash)>] SecurityFilterDeleteResponse data, response status code and response headers
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_security_filter_with_http_info(security_filter_id, opts = {})
 
       if @api_client.config.unstable_operations.has_key?(:delete_security_filter)
@@ -223,7 +223,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'SecurityFilterDeleteResponse'
+      return_type = opts[:debug_return_type]
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]

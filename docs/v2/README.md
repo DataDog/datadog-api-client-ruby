@@ -381,7 +381,6 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::SecurityFilterCreateAttributes](SecurityFilterCreateAttributes.md)
  - [DatadogAPIClient::V2::SecurityFilterCreateData](SecurityFilterCreateData.md)
  - [DatadogAPIClient::V2::SecurityFilterCreateRequest](SecurityFilterCreateRequest.md)
- - [DatadogAPIClient::V2::SecurityFilterDeleteResponse](SecurityFilterDeleteResponse.md)
  - [DatadogAPIClient::V2::SecurityFilterExclusionFilter](SecurityFilterExclusionFilter.md)
  - [DatadogAPIClient::V2::SecurityFilterExclusionFilterResponse](SecurityFilterExclusionFilterResponse.md)
  - [DatadogAPIClient::V2::SecurityFilterFilteredDataType](SecurityFilterFilteredDataType.md)

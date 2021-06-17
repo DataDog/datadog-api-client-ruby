@@ -266,7 +266,6 @@ docs/SecurityFilterAttributes.md
 docs/SecurityFilterCreateAttributes.md
 docs/SecurityFilterCreateData.md
 docs/SecurityFilterCreateRequest.md
-docs/SecurityFilterDeleteResponse.md
 docs/SecurityFilterExclusionFilter.md
 docs/SecurityFilterExclusionFilterResponse.md
 docs/SecurityFilterFilteredDataType.md
@@ -605,7 +604,6 @@ lib/datadog_api_client/v2/models/security_filter_attributes.rb
 lib/datadog_api_client/v2/models/security_filter_create_attributes.rb
 lib/datadog_api_client/v2/models/security_filter_create_data.rb
 lib/datadog_api_client/v2/models/security_filter_create_request.rb
-lib/datadog_api_client/v2/models/security_filter_delete_response.rb
 lib/datadog_api_client/v2/models/security_filter_exclusion_filter.rb
 lib/datadog_api_client/v2/models/security_filter_exclusion_filter_response.rb
 lib/datadog_api_client/v2/models/security_filter_filtered_data_type.rb
@@ -939,7 +937,6 @@ spec/models/security_filter_attributes_spec.rb
 spec/models/security_filter_create_attributes_spec.rb
 spec/models/security_filter_create_data_spec.rb
 spec/models/security_filter_create_request_spec.rb
-spec/models/security_filter_delete_response_spec.rb
 spec/models/security_filter_exclusion_filter_response_spec.rb
 spec/models/security_filter_exclusion_filter_spec.rb
 spec/models/security_filter_filtered_data_type_spec.rb

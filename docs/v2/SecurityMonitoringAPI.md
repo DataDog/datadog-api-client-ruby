@@ -144,7 +144,7 @@ end
 
 ## delete_security_filter
 
-> <SecurityFilterDeleteResponse> delete_security_filter(security_filter_id)
+> delete_security_filter(security_filter_id)
 
 Delete a security filter
 
@@ -159,8 +159,7 @@ security_filter_id = 'security_filter_id_example' # String | The ID of the secur
 
 begin
   # Delete a security filter
-  result = api_instance.delete_security_filter(security_filter_id)
-  p result
+  api_instance.delete_security_filter(security_filter_id)
 rescue DatadogAPIClient::V2::APIError => e
   puts "Error when calling SecurityMonitoringAPI->delete_security_filter: #{e}"
 end
@@ -168,9 +167,9 @@ end
 
 #### Using the delete_security_filter_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(<SecurityFilterDeleteResponse>, Integer, Hash)> delete_security_filter_with_http_info(security_filter_id)
+> <Array(nil, Integer, Hash)> delete_security_filter_with_http_info(security_filter_id)
 
 ```ruby
 begin
@@ -178,7 +177,7 @@ begin
   data, status_code, headers = api_instance.delete_security_filter_with_http_info(security_filter_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <SecurityFilterDeleteResponse>
+  p data # => nil
 rescue DatadogAPIClient::V2::APIError => e
   puts "Error when calling SecurityMonitoringAPI->delete_security_filter_with_http_info: #{e}"
 end
@@ -192,7 +191,7 @@ end
 
 ### Return type
 
-[**SecurityFilterDeleteResponse**](SecurityFilterDeleteResponse.md)
+nil (empty response body)
 
 ### Authorization
 
