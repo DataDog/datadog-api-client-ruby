@@ -1,4 +1,5 @@
 require 'json'
+require 'active_support/time'
 
 module APIWorld
   def api
@@ -42,12 +43,39 @@ module APIWorld
       "unique_lower": u.downcase,
       "unique_alnum": alnum,
       "unique_lower_alnum": alnum.downcase,
-      "now_ts": Time.now.to_i,
-      "now_iso": Time.now.iso8601,
-      "hour_later_ts": (Time.now + 3600).to_i,
-      "hour_later_iso": (Time.now + 3600).iso8601,
-      "hour_ago_ts": (Time.now - 3600).to_i,
-      "hour_ago_iso": (Time.now - 3600).iso8601,
+      "timestamp": relative_time(false),
+      "timeISO": relative_time(true),
+    }
+  end
+
+  def relative_time(iso)
+    time_re = /now( *([+-]) *(\d+)([smhdMy]))?/
+    lambda { |arg|
+      ret = Time.now
+      m = arg.match time_re
+      if m
+        if m[1]
+          num = (m[2] + m[3]).to_i
+          unit = m[4]
+          case unit
+          when "s"
+            ret += num.second
+          when "m"
+            ret += num.minute
+          when "h"
+            ret += num.hour
+          when "d"
+            ret += num.day
+          when "M"
+            ret += num.month
+          when "y"
+            ret += num.year
+          end
+        end
+        return ret.iso8601 if iso
+        return ret.to_i
+      end
+      return nil
     }
   end
 
