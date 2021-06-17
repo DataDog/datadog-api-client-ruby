@@ -34,8 +34,15 @@ class String
   end
 
   def templated(data)
-    self.gsub(/{{ ?([^} ]+) ?}}/) do
-      data.lookup($1).to_s
+    self.gsub(/{{ ?([^}]+) ?}}/) do
+      puts $1
+      path = $1.strip
+      func_re = /^(.+)\((.*)\)$/
+      m = path.match func_re
+      if m
+        next data[m[1].to_sym].call(m[2]).to_s
+      end
+      data.lookup(path).to_s
     end
   end
 end
