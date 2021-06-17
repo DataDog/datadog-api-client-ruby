@@ -43,11 +43,17 @@ module DatadogAPIClient::V1
     # List of points of the time series.
     attr_accessor :pointlist
 
+    # The index of the series' query within the request.
+    attr_accessor :query_index
+
     # Metric scope, comma separated list of tags.
     attr_accessor :scope
 
     # Start of the time window, milliseconds since Unix epoch.
     attr_accessor :start
+
+    # Unique tags identifying this series.
+    attr_accessor :tag_set
 
     # Detailed information about the metric unit. First element describes the \"primary unit\" (for example, `bytes` in `bytes per second`), second describes the \"per unit\" (for example, `second` in `bytes per second`).
     attr_accessor :unit
@@ -63,8 +69,10 @@ module DatadogAPIClient::V1
         :'length' => :'length',
         :'metric' => :'metric',
         :'pointlist' => :'pointlist',
+        :'query_index' => :'query_index',
         :'scope' => :'scope',
         :'start' => :'start',
+        :'tag_set' => :'tag_set',
         :'unit' => :'unit'
       }
     end
@@ -85,8 +93,10 @@ module DatadogAPIClient::V1
         :'length' => :'Integer',
         :'metric' => :'String',
         :'pointlist' => :'Array<Array>',
+        :'query_index' => :'Integer',
         :'scope' => :'String',
         :'start' => :'Integer',
+        :'tag_set' => :'Array<String>',
         :'unit' => :'Array<MetricsQueryUnit>'
       }
     end
@@ -146,12 +156,22 @@ module DatadogAPIClient::V1
         end
       end
 
+      if attributes.key?(:'query_index')
+        self.query_index = attributes[:'query_index']
+      end
+
       if attributes.key?(:'scope')
         self.scope = attributes[:'scope']
       end
 
       if attributes.key?(:'start')
         self.start = attributes[:'start']
+      end
+
+      if attributes.key?(:'tag_set')
+        if (value = attributes[:'tag_set']).is_a?(Array)
+          self.tag_set = value
+        end
       end
 
       if attributes.key?(:'unit')
@@ -211,8 +231,10 @@ module DatadogAPIClient::V1
           length == o.length &&
           metric == o.metric &&
           pointlist == o.pointlist &&
+          query_index == o.query_index &&
           scope == o.scope &&
           start == o.start &&
+          tag_set == o.tag_set &&
           unit == o.unit
     end
 
@@ -225,7 +247,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aggr, display_name, _end, expression, interval, length, metric, pointlist, scope, start, unit].hash
+      [aggr, display_name, _end, expression, interval, length, metric, pointlist, query_index, scope, start, tag_set, unit].hash
     end
 
     # Builds the object from hash
