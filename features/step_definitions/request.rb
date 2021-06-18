@@ -104,9 +104,17 @@ module APIWorld
     method = api_instance.method("#{operation_name}_with_http_info".to_sym)
 
     lambda do |response|
-      args = operation["parameters"].map{ |p| response.lookup(p["source"]) }
+      args = operation["parameters"].map do |p|
+        if p["source"]
+          response.lookup(p["source"])
+        elsif p["template"]
+          p["template"].templated response
+        end
+      end
 
-      api_instance.api_client.config.unstable_operations[operation_name.to_sym] = true
+      if api_instance.api_client.config.unstable_operations.has_key?(operation_name.to_sym)
+        api_instance.api_client.config.unstable_operations[operation_name.to_sym] = true
+      end
       lambda { method.call(*args) }
     end
   end
@@ -213,7 +221,7 @@ When('the request is sent') do
   if @response[1].between?(200, 299)  then
     @undo << undo_builder.call(@response[0]) if undo_builder
   end
-  
+
 end
 
 Then(/^the response "([^"]+)" is equal to (.*)$/) do |response_path, value|
