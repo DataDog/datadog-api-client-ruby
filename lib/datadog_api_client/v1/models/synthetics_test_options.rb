@@ -53,6 +53,7 @@ module DatadogAPIClient::V1
 
     attr_accessor :_retry
 
+    # The frequency at which to run the Synthetic test (in seconds).
     attr_accessor :tick_every
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -94,7 +95,7 @@ module DatadogAPIClient::V1
         :'monitor_priority' => :'Integer',
         :'no_screenshot' => :'Boolean',
         :'_retry' => :'SyntheticsTestOptionsRetry',
-        :'tick_every' => :'SyntheticsTickInterval'
+        :'tick_every' => :'Integer'
       }
     end
 
@@ -186,6 +187,14 @@ module DatadogAPIClient::V1
         invalid_properties.push('invalid value for "monitor_priority", must be greater than or equal to 1.')
       end
 
+      if !@tick_every.nil? && @tick_every > 604800
+        invalid_properties.push('invalid value for "tick_every", must be smaller than or equal to 604800.')
+      end
+
+      if !@tick_every.nil? && @tick_every < 30
+        invalid_properties.push('invalid value for "tick_every", must be greater than or equal to 30.')
+      end
+
       invalid_properties
     end
 
@@ -194,6 +203,8 @@ module DatadogAPIClient::V1
     def valid?
       return false if !@monitor_priority.nil? && @monitor_priority > 5
       return false if !@monitor_priority.nil? && @monitor_priority < 1
+      return false if !@tick_every.nil? && @tick_every > 604800
+      return false if !@tick_every.nil? && @tick_every < 30
       true
     end
 
@@ -209,6 +220,20 @@ module DatadogAPIClient::V1
       end
 
       @monitor_priority = monitor_priority
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] tick_every Value to be assigned
+    def tick_every=(tick_every)
+      if !tick_every.nil? && tick_every > 604800
+        fail ArgumentError, 'invalid value for "tick_every", must be smaller than or equal to 604800.'
+      end
+
+      if !tick_every.nil? && tick_every < 30
+        fail ArgumentError, 'invalid value for "tick_every", must be greater than or equal to 30.'
+      end
+
+      @tick_every = tick_every
     end
 
     # Checks equality by comparing each attribute.

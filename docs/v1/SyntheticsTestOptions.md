@@ -16,7 +16,7 @@
 | **monitor_priority** | **Integer** | Integer from 1 (high) to 5 (low) indicating alert severity. | [optional] |
 | **no_screenshot** | **Boolean** | Prevents saving screenshots of the steps. | [optional] |
 | **_retry** | [**SyntheticsTestOptionsRetry**](SyntheticsTestOptionsRetry.md) |  | [optional] |
-| **tick_every** | [**SyntheticsTickInterval**](SyntheticsTickInterval.md) |  | [optional] |
+| **tick_every** | **Integer** | The frequency at which to run the Synthetic test (in seconds). | [optional] |
 
 ## Example
 

@@ -654,7 +654,6 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::SyntheticsTestRequest](SyntheticsTestRequest.md)
  - [DatadogAPIClient::V1::SyntheticsTestRequestCertificate](SyntheticsTestRequestCertificate.md)
  - [DatadogAPIClient::V1::SyntheticsTestRequestCertificateItem](SyntheticsTestRequestCertificateItem.md)
- - [DatadogAPIClient::V1::SyntheticsTickInterval](SyntheticsTickInterval.md)
  - [DatadogAPIClient::V1::SyntheticsTiming](SyntheticsTiming.md)
  - [DatadogAPIClient::V1::SyntheticsTriggerCITestLocation](SyntheticsTriggerCITestLocation.md)
  - [DatadogAPIClient::V1::SyntheticsTriggerCITestRunResult](SyntheticsTriggerCITestRunResult.md)
