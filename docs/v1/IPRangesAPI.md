@@ -11,8 +11,6 @@ All URIs are relative to *https://api.datadoghq.com*
 
 > <IPRanges> get_ip_ranges
 
-List IP Ranges
-
 Get information about Datadog IP ranges.
 
 ### Examples

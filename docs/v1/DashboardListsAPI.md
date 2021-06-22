@@ -15,8 +15,6 @@ All URIs are relative to *https://api.datadoghq.com*
 
 > <DashboardList> create_dashboard_list(body)
 
-Create a dashboard list
-
 Create an empty dashboard list.
 
 ### Examples
@@ -76,8 +74,6 @@ end
 ## delete_dashboard_list
 
 > <DashboardListDeleteResponse> delete_dashboard_list(list_id)
-
-Delete a dashboard list
 
 Delete a dashboard list.
 
@@ -139,8 +135,6 @@ end
 
 > <DashboardList> get_dashboard_list(list_id)
 
-Get a dashboard list
-
 Fetch an existing dashboard list's definition.
 
 ### Examples
@@ -201,8 +195,6 @@ end
 
 > <DashboardListListResponse> list_dashboard_lists
 
-Get all dashboard lists
-
 Fetch all of your existing dashboard list definitions.
 
 ### Examples
@@ -259,8 +251,6 @@ This endpoint does not need any parameter.
 ## update_dashboard_list
 
 > <DashboardList> update_dashboard_list(list_id, body)
-
-Update a dashboard list
 
 Update the name of a dashboard list.
 

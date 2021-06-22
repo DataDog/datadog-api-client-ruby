@@ -22,8 +22,6 @@ All URIs are relative to *https://api.datadoghq.com*
 
 > <PermissionsResponse> add_permission_to_role(role_id, body)
 
-Grant permission to a role
-
 Adds a permission to a role.
 
 ### Examples
@@ -85,8 +83,6 @@ end
 ## add_user_to_role
 
 > <UsersResponse> add_user_to_role(role_id, body)
-
-Add a user to a role
 
 Adds a user to a role.
 
@@ -150,8 +146,6 @@ end
 
 > <RoleCreateResponse> create_role(body)
 
-Create role
-
 Create a new role for your organization.
 
 ### Examples
@@ -212,8 +206,6 @@ end
 
 > delete_role(role_id)
 
-Delete role
-
 Disables a role.
 
 ### Examples
@@ -272,8 +264,6 @@ nil (empty response body)
 ## get_role
 
 > <RoleResponse> get_role(role_id)
-
-Get a role
 
 Get a role in the organization specified by the role’s `role_id`.
 
@@ -335,8 +325,6 @@ end
 
 > <PermissionsResponse> list_permissions
 
-List permissions
-
 Returns a list of all permissions, including name, description, and ID.
 
 ### Examples
@@ -393,8 +381,6 @@ This endpoint does not need any parameter.
 ## list_role_permissions
 
 > <PermissionsResponse> list_role_permissions(role_id)
-
-List permissions for a role
 
 Returns a list of all permissions for a single role.
 
@@ -455,8 +441,6 @@ end
 ## list_role_users
 
 > <UsersResponse> list_role_users(role_id, opts)
-
-Get all users of a role
 
 Gets all users of a role.
 
@@ -528,8 +512,6 @@ end
 
 > <RolesResponse> list_roles(opts)
 
-List roles
-
 Returns all roles, including their names and IDs.
 
 ### Examples
@@ -598,8 +580,6 @@ end
 
 > <PermissionsResponse> remove_permission_from_role(role_id, body)
 
-Revoke permission
-
 Removes a permission from a role.
 
 ### Examples
@@ -662,8 +642,6 @@ end
 
 > <UsersResponse> remove_user_from_role(role_id, body)
 
-Remove a user from a role
-
 Removes a user from a role.
 
 ### Examples
@@ -725,8 +703,6 @@ end
 ## update_role
 
 > <RoleUpdateResponse> update_role(role_id, body)
-
-Update a role
 
 Edit a role. Can only be used with application keys belonging to administrators.
 

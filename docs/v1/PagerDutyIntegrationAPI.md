@@ -14,8 +14,6 @@ All URIs are relative to *https://api.datadoghq.com*
 
 > <PagerDutyServiceName> create_pager_duty_integration_service(body)
 
-Create a new service object
-
 Create a new service object in the PagerDuty integration.
 
 ### Examples
@@ -76,8 +74,6 @@ end
 
 > delete_pager_duty_integration_service(service_name)
 
-Delete a single service object
-
 Delete a single service object in the Datadog-PagerDuty integration.
 
 ### Examples
@@ -136,8 +132,6 @@ nil (empty response body)
 ## get_pager_duty_integration_service
 
 > <PagerDutyServiceName> get_pager_duty_integration_service(service_name)
-
-Get a single service object
 
 Get service name in the Datadog-PagerDuty integration.
 
@@ -198,8 +192,6 @@ end
 ## update_pager_duty_integration_service
 
 > update_pager_duty_integration_service(service_name, body)
-
-Update a single service object
 
 Update a single service object in the Datadog-PagerDuty integration.
 

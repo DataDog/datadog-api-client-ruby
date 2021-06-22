@@ -15,9 +15,8 @@ All URIs are relative to *https://api.datadoghq.com*
 
 > <HostTags> create_host_tags(host_name, body, opts)
 
-Add tags to a host
-
-This endpoint allows you to add new tags to a host, optionally specifying where these tags come from.
+This endpoint allows you to add new tags to a host,
+optionally specifying where these tags come from.
 
 ### Examples
 
@@ -83,9 +82,8 @@ end
 
 > delete_host_tags(host_name, opts)
 
-Remove host tags
-
-This endpoint allows you to remove all user-assigned tags for a single host.
+This endpoint allows you to remove all user-assigned tags
+for a single host.
 
 ### Examples
 
@@ -147,8 +145,6 @@ nil (empty response body)
 ## get_host_tags
 
 > <HostTags> get_host_tags(host_name, opts)
-
-Get host tags
 
 Return the list of tags that apply to a given host.
 
@@ -214,8 +210,6 @@ end
 
 > <TagToHosts> list_host_tags(opts)
 
-Get Tags
-
 Return a mapping of tags to hosts for your whole infrastructure.
 
 ### Examples
@@ -278,9 +272,8 @@ end
 
 > <HostTags> update_host_tags(host_name, body, opts)
 
-Update host tags
-
-This endpoint allows you to update/replace all tags in an integration source with those supplied in the request.
+This endpoint allows you to update/replace all tags in
+an integration source with those supplied in the request.
 
 ### Examples
 

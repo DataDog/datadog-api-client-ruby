@@ -15,8 +15,6 @@ All URIs are relative to *https://api.datadoghq.com*
 
 > <IncidentResponse> create_incident(body)
 
-Create an incident
-
 Create an incident.
 
 ### Examples
@@ -82,8 +80,6 @@ end
 
 > delete_incident(incident_id)
 
-Delete an existing incident
-
 Deletes an existing incident from the users organization.
 
 ### Examples
@@ -147,8 +143,6 @@ nil (empty response body)
 ## get_incident
 
 > <IncidentResponse> get_incident(incident_id, opts)
-
-Get the details of an incident
 
 Get the details of an incident by `incident_id`.
 
@@ -218,8 +212,6 @@ end
 ## list_incidents
 
 > <IncidentsResponse> list_incidents(opts)
-
-Get a list of incidents
 
 Get all incidents for the user's organization.
 
@@ -291,8 +283,6 @@ end
 ## update_incident
 
 > <IncidentResponse> update_incident(incident_id, body)
-
-Update an existing incident
 
 Updates an incident. Provide only the attributes that should be updated as this request is a partial update.
 

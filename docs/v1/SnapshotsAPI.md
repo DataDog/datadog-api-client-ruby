@@ -11,9 +11,8 @@ All URIs are relative to *https://api.datadoghq.com*
 
 > <GraphSnapshot> get_graph_snapshot(start, _end, opts)
 
-Take graph snapshots
-
-Take graph snapshots. **Note**: When a snapshot is created, there is some delay before it is available.
+Take graph snapshots.
+**Note**: When a snapshot is created, there is some delay before it is available.
 
 ### Examples
 

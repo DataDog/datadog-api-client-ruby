@@ -15,9 +15,13 @@ All URIs are relative to *https://api.datadoghq.com*
 
 > Object create_azure_integration(body)
 
-Create an Azure integration
+Create a Datadog-Azure integration.
 
-Create a Datadog-Azure integration.  Using the `POST` method updates your integration configuration by adding your new configuration to the existing one in your Datadog organization.  Using the `PUT` method updates your integration configuration by replacing your current configuration with the new one sent to your Datadog organization.
+Using the `POST` method updates your integration configuration by adding your new
+configuration to the existing one in your Datadog organization.
+
+Using the `PUT` method updates your integration configuration by replacing your
+current configuration with the new one sent to your Datadog organization.
 
 ### Examples
 
@@ -76,8 +80,6 @@ end
 ## delete_azure_integration
 
 > Object delete_azure_integration(body)
-
-Delete an Azure integration
 
 Delete a given Datadog-Azure integration from your Datadog account.
 
@@ -139,8 +141,6 @@ end
 
 > <Array<AzureAccount>> list_azure_integration
 
-List all Azure integrations
-
 List all Datadog-Azure integrations configured in your Datadog account.
 
 ### Examples
@@ -197,8 +197,6 @@ This endpoint does not need any parameter.
 ## update_azure_host_filters
 
 > Object update_azure_host_filters(body)
-
-Update Azure integration host filters
 
 Update the defined list of host filters for a given Datadog-Azure integration.
 
@@ -260,9 +258,9 @@ end
 
 > Object update_azure_integration(body)
 
-Update an Azure integration
-
-Update a Datadog-Azure integration. Requires an existing `tenant_name` and `client_id`. Any other fields supplied will overwrite existing values. To overwrite `tenant_name` or `client_id`, use `new_tenant_name` and `new_client_id`. To leave a field unchanged, do not supply that field in the payload.
+Update a Datadog-Azure integration. Requires an existing `tenant_name` and `client_id`.
+Any other fields supplied will overwrite existing values. To overwrite `tenant_name` or `client_id`,
+use `new_tenant_name` and `new_client_id`. To leave a field unchanged, do not supply that field in the payload.
 
 ### Examples
 

@@ -15,9 +15,10 @@ All URIs are relative to *https://api.datadoghq.com*
 
 > <UserResponse> create_user(body)
 
-Create a user
+Create a user for your organization.
 
-Create a user for your organization.  **Note**: Users can only be created with the admin access role if application keys belong to administrators.
+**Note**: Users can only be created with the admin access role
+if application keys belong to administrators.
 
 ### Examples
 
@@ -77,9 +78,10 @@ end
 
 > <UserDisableResponse> disable_user(user_handle)
 
-Disable a user
+Delete a user from an organization.
 
-Delete a user from an organization.  **Note**: This endpoint can only be used with application keys belonging to administrators.
+**Note**: This endpoint can only be used with application keys belonging to
+administrators.
 
 ### Examples
 
@@ -138,8 +140,6 @@ end
 ## get_user
 
 > <UserResponse> get_user(user_handle)
-
-Get user details
 
 Get a user's details.
 
@@ -201,8 +201,6 @@ end
 
 > <UserListResponse> list_users
 
-List all users
-
 List all users for your organization.
 
 ### Examples
@@ -260,9 +258,9 @@ This endpoint does not need any parameter.
 
 > <UserResponse> update_user(user_handle, body)
 
-Update a user
+Update a user information.
 
-Update a user information.  **Note**: It can only be used with application keys belonging to administrators.
+**Note**: It can only be used with application keys belonging to administrators.
 
 ### Examples
 

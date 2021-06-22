@@ -14,8 +14,6 @@ All URIs are relative to *https://api.datadoghq.com*
 
 > <DashboardListAddItemsResponse> create_dashboard_list_items(dashboard_list_id, body)
 
-Add Items to a Dashboard List
-
 Add dashboards to an existing dashboard list.
 
 ### Examples
@@ -77,8 +75,6 @@ end
 ## delete_dashboard_list_items
 
 > <DashboardListDeleteItemsResponse> delete_dashboard_list_items(dashboard_list_id, body)
-
-Delete items from a dashboard list
 
 Delete dashboards from an existing dashboard list.
 
@@ -142,8 +138,6 @@ end
 
 > <DashboardListItems> get_dashboard_list_items(dashboard_list_id)
 
-Get items of a Dashboard List
-
 Fetch the dashboard list’s dashboard definitions.
 
 ### Examples
@@ -203,8 +197,6 @@ end
 ## update_dashboard_list_items
 
 > <DashboardListUpdateItemsResponse> update_dashboard_list_items(dashboard_list_id, body)
-
-Update items of a dashboard list
 
 Update dashboards of an existing dashboard list.
 

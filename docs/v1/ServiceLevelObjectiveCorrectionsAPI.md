@@ -15,8 +15,6 @@ All URIs are relative to *https://api.datadoghq.com*
 
 > <SLOCorrectionResponse> create_slo_correction(body)
 
-Create an SLO correction
-
 Create an SLO Correction
 
 ### Examples
@@ -82,8 +80,6 @@ end
 
 > delete_slo_correction(slo_correction_id)
 
-Delete an SLO correction
-
 Permanently delete the specified SLO correction object
 
 ### Examples
@@ -147,8 +143,6 @@ nil (empty response body)
 ## get_slo_correction
 
 > <SLOCorrectionResponse> get_slo_correction(slo_correction_id)
-
-Get an SLO correction for an SLO
 
 Get an SLO correction
 
@@ -215,8 +209,6 @@ end
 
 > <SLOCorrectionListResponse> list_slo_correction
 
-Get all SLO corrections
-
 Get all Service Level Objective corrections
 
 ### Examples
@@ -278,8 +270,6 @@ This endpoint does not need any parameter.
 ## update_slo_correction
 
 > <SLOCorrectionResponse> update_slo_correction(slo_correction_id, body)
-
-Update an SLO correction
 
 Update the specified SLO correction object object
 

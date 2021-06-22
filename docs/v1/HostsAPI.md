@@ -14,9 +14,8 @@ All URIs are relative to *https://api.datadoghq.com*
 
 > <HostTotals> get_host_totals(opts)
 
-Get the total number of active hosts
-
-This endpoint returns the total number of active and up hosts in your Datadog account. Active means the host has reported in the past hour, and up means it has reported in the past two hours.
+This endpoint returns the total number of active and up hosts in your Datadog account.
+Active means the host has reported in the past hour, and up means it has reported in the past two hours.
 
 ### Examples
 
@@ -78,9 +77,10 @@ end
 
 > <HostListResponse> list_hosts(opts)
 
-Get all hosts for your organization
-
-This endpoint allows searching for hosts by name, alias, or tag. Hosts live within the past 3 hours are included by default. Retention is 7 days. Results are paginated with a max of 1000 results at a time.
+This endpoint allows searching for hosts by name, alias, or tag.
+Hosts live within the past 3 hours are included by default.
+Retention is 7 days.
+Results are paginated with a max of 1000 results at a time.
 
 ### Examples
 
@@ -156,8 +156,6 @@ end
 
 > <HostMuteResponse> mute_host(host_name, body)
 
-Mute a host
-
 Mute a host.
 
 ### Examples
@@ -219,8 +217,6 @@ end
 ## unmute_host
 
 > <HostMuteResponse> unmute_host(host_name)
-
-Unmute a host
 
 Unmutes a host. This endpoint takes no JSON arguments.
 

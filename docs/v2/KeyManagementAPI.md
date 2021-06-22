@@ -23,8 +23,6 @@ All URIs are relative to *https://api.datadoghq.com*
 
 > <APIKeyResponse> create_api_key(body)
 
-Create an API key
-
 Create an API key.
 
 ### Examples
@@ -87,8 +85,6 @@ end
 
 Create an application key for current user
 
-Create an application key for current user
-
 ### Examples
 
 ```ruby
@@ -146,8 +142,6 @@ end
 ## delete_api_key
 
 > delete_api_key(api_key_id)
-
-Delete an API key
 
 Delete an API key.
 
@@ -210,8 +204,6 @@ nil (empty response body)
 
 Delete an application key
 
-Delete an application key
-
 ### Examples
 
 ```ruby
@@ -271,8 +263,6 @@ nil (empty response body)
 
 Delete an application key owned by current user
 
-Delete an application key owned by current user
-
 ### Examples
 
 ```ruby
@@ -329,8 +319,6 @@ nil (empty response body)
 ## get_api_key
 
 > <APIKeyResponse> get_api_key(api_key_id, opts)
-
-Get API key
 
 Get an API key.
 
@@ -396,8 +384,6 @@ end
 
 > <ApplicationKeyResponse> get_current_user_application_key(app_key_id)
 
-Get one application key owned by current user
-
 Get an application key owned by current user
 
 ### Examples
@@ -457,8 +443,6 @@ end
 ## list_api_keys
 
 > <APIKeysResponse> list_api_keys(opts)
-
-Get all API keys
 
 List all API keys available for your account.
 
@@ -538,8 +522,6 @@ end
 
 > <ListApplicationKeysResponse> list_application_keys(opts)
 
-Get all application keys
-
 List all application keys available for your org
 
 ### Examples
@@ -611,8 +593,6 @@ end
 ## list_current_user_application_keys
 
 > <ListApplicationKeysResponse> list_current_user_application_keys(opts)
-
-Get all application keys owned by current user
 
 List all application keys available for current user
 
@@ -686,8 +666,6 @@ end
 
 > <APIKeyResponse> update_api_key(api_key_id, body)
 
-Edit an API key
-
 Update an API key.
 
 ### Examples
@@ -752,8 +730,6 @@ end
 
 Edit an application key
 
-Edit an application key
-
 ### Examples
 
 ```ruby
@@ -813,8 +789,6 @@ end
 ## update_current_user_application_key
 
 > <ApplicationKeyResponse> update_current_user_application_key(app_key_id, body)
-
-Edit an application key owned by current user
 
 Edit an application key owned by current user
 

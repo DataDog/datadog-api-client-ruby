@@ -22,9 +22,10 @@ All URIs are relative to *https://api.datadoghq.com*
 
 > <SecurityFilterResponse> create_security_filter(body)
 
-Create a security filter
+Create a security filter.
 
-Create a security filter.  See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/) for more examples.
+See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/)
+for more examples.
 
 ### Examples
 
@@ -83,8 +84,6 @@ end
 ## create_security_monitoring_rule
 
 > <SecurityMonitoringRuleResponse> create_security_monitoring_rule(body)
-
-Create a detection rule
 
 Create a detection rule.
 
@@ -146,8 +145,6 @@ end
 
 > delete_security_filter(security_filter_id)
 
-Delete a security filter
-
 Delete a specific security filter.
 
 ### Examples
@@ -206,8 +203,6 @@ nil (empty response body)
 ## delete_security_monitoring_rule
 
 > delete_security_monitoring_rule(rule_id)
-
-Delete an existing rule
 
 Delete an existing rule. Default rules cannot be deleted.
 
@@ -268,9 +263,10 @@ nil (empty response body)
 
 > <SecurityFilterResponse> get_security_filter(security_filter_id)
 
-Get a security filter
+Get the details of a specific security filter.
 
-Get the details of a specific security filter.  See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/) for more examples.
+See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/)
+for more examples.
 
 ### Examples
 
@@ -329,8 +325,6 @@ end
 ## get_security_monitoring_rule
 
 > <SecurityMonitoringRuleResponse> get_security_monitoring_rule(rule_id)
-
-Get a rule's details
 
 Get a rule's details.
 
@@ -392,8 +386,6 @@ end
 
 > <SecurityFiltersResponse> list_security_filters
 
-Get all security filters
-
 Get the list of configured security filters with their definitions.
 
 ### Examples
@@ -450,8 +442,6 @@ This endpoint does not need any parameter.
 ## list_security_monitoring_rules
 
 > <SecurityMonitoringListRulesResponse> list_security_monitoring_rules(opts)
-
-List rules
 
 List rules.
 
@@ -517,9 +507,9 @@ end
 
 > <SecurityMonitoringSignalsListResponse> list_security_monitoring_signals(opts)
 
-Get a quick list of security signals
-
-The list endpoint returns security signals that match a search query. Both this endpoint and the POST endpoint can be used interchangeably when listing security signals.
+The list endpoint returns security signals that match a search query.
+Both this endpoint and the POST endpoint can be used interchangeably when listing
+security signals.
 
 ### Examples
 
@@ -596,9 +586,9 @@ end
 
 > <SecurityMonitoringSignalsListResponse> search_security_monitoring_signals(opts)
 
-Get a list of security signals
-
-Returns security signals that match a search query. Both this endpoint and the GET endpoint can be used interchangeably for listing security signals.
+Returns security signals that match a search query.
+Both this endpoint and the GET endpoint can be used interchangeably for listing
+security signals.
 
 ### Examples
 
@@ -665,9 +655,8 @@ end
 
 > <SecurityFilterResponse> update_security_filter(security_filter_id, body)
 
-Update a security filter
-
-Update a specific security filter. Returns the security filter object when the request is successful.
+Update a specific security filter.
+Returns the security filter object when the request is successful.
 
 ### Examples
 
@@ -729,9 +718,9 @@ end
 
 > <SecurityMonitoringRuleResponse> update_security_monitoring_rule(rule_id, body)
 
-Update an existing rule
-
-Update an existing rule. When updating `cases`, `queries` or `options`, the whole field must be included. For example, when modifying a query all queries must be included. Default rules can only be updated to be enabled and to change notifications.
+Update an existing rule. When updating `cases`, `queries` or `options`, the whole field
+must be included. For example, when modifying a query all queries must be included.
+Default rules can only be updated to be enabled and to change notifications.
 
 ### Examples
 

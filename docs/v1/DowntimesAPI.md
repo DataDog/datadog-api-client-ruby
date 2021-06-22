@@ -17,8 +17,6 @@ All URIs are relative to *https://api.datadoghq.com*
 
 > cancel_downtime(downtime_id)
 
-Cancel a downtime
-
 Cancel a downtime.
 
 ### Examples
@@ -77,8 +75,6 @@ nil (empty response body)
 ## cancel_downtimes_by_scope
 
 > <CanceledDowntimesIds> cancel_downtimes_by_scope(body)
-
-Cancel downtimes by scope
 
 Delete all downtimes that match the scope of `X`.
 
@@ -140,8 +136,6 @@ end
 
 > <Downtime> create_downtime(body)
 
-Schedule a downtime
-
 Schedule a downtime.
 
 ### Examples
@@ -202,8 +196,6 @@ end
 
 > <Downtime> get_downtime(downtime_id)
 
-Get a downtime
-
 Get downtime detail by `downtime_id`.
 
 ### Examples
@@ -263,8 +255,6 @@ end
 ## list_downtimes
 
 > <Array<Downtime>> list_downtimes(opts)
-
-Get all downtimes
 
 Get all scheduled downtimes.
 
@@ -328,8 +318,6 @@ end
 
 > <Array<Downtime>> list_monitor_downtimes(monitor_id)
 
-Get all downtimes for a monitor
-
 Get all downtimes for the specified monitor
 
 ### Examples
@@ -389,8 +377,6 @@ end
 ## update_downtime
 
 > <Downtime> update_downtime(downtime_id, body)
-
-Update a downtime
 
 Update a single downtime by `downtime_id`.
 

@@ -15,8 +15,6 @@ All URIs are relative to *https://api.datadoghq.com*
 
 > <NotebookResponse> create_notebook(body)
 
-Create a notebook
-
 Create a notebook using the specified options.
 
 ### Examples
@@ -77,8 +75,6 @@ end
 
 > delete_notebook(notebook_id)
 
-Delete a notebook
-
 Delete a notebook using the specified ID.
 
 ### Examples
@@ -137,8 +133,6 @@ nil (empty response body)
 ## get_notebook
 
 > <NotebookResponse> get_notebook(notebook_id)
-
-Get a notebook
 
 Get a notebook using the specified notebook ID.
 
@@ -200,9 +194,8 @@ end
 
 > <NotebooksResponse> list_notebooks(opts)
 
-Get all notebooks
-
-Get all notebooks. This can also be used to search for notebooks with a particular `query` in the notebook `name` or author `handle`.
+Get all notebooks. This can also be used to search for notebooks with a particular `query` in the notebook
+`name` or author `handle`.
 
 ### Examples
 
@@ -277,8 +270,6 @@ end
 ## update_notebook
 
 > <NotebookResponse> update_notebook(notebook_id, body)
-
-Update a notebook
 
 Update a notebook using the specified ID.
 

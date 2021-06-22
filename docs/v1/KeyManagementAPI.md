@@ -20,8 +20,6 @@ All URIs are relative to *https://api.datadoghq.com*
 
 > <ApiKeyResponse> create_api_key(body)
 
-Create an API key
-
 Creates an API key with a given name.
 
 ### Examples
@@ -81,8 +79,6 @@ end
 ## create_application_key
 
 > <ApplicationKeyResponse> create_application_key(body)
-
-Create an application key
 
 Create an application key with a given name.
 
@@ -144,8 +140,6 @@ end
 
 > <ApiKeyResponse> delete_api_key(key)
 
-Delete an API key
-
 Delete a given API key.
 
 ### Examples
@@ -205,8 +199,6 @@ end
 ## delete_application_key
 
 > <ApplicationKeyResponse> delete_application_key(key)
-
-Delete an application key
 
 Delete a given application key.
 
@@ -268,8 +260,6 @@ end
 
 > <ApiKeyResponse> get_api_key(key)
 
-Get API key
-
 Get a given API key.
 
 ### Examples
@@ -329,8 +319,6 @@ end
 ## get_application_key
 
 > <ApplicationKeyResponse> get_application_key(key)
-
-Get an application key
 
 Get a given application key.
 
@@ -392,8 +380,6 @@ end
 
 > <ApiKeyListResponse> list_api_keys
 
-Get all API keys
-
 Get all API keys available for your account.
 
 ### Examples
@@ -451,8 +437,6 @@ This endpoint does not need any parameter.
 
 > <ApplicationKeyListResponse> list_application_keys
 
-Get all application keys
-
 Get all application keys available for your Datadog account.
 
 ### Examples
@@ -509,8 +493,6 @@ This endpoint does not need any parameter.
 ## update_api_key
 
 > <ApiKeyResponse> update_api_key(key, body)
-
-Edit an API key
 
 Edit an API key name.
 
@@ -573,8 +555,6 @@ end
 ## update_application_key
 
 > <ApplicationKeyResponse> update_application_key(key, body)
-
-Edit an application key
 
 Edit an application key name.
 

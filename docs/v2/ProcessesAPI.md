@@ -11,8 +11,6 @@ All URIs are relative to *https://api.datadoghq.com*
 
 > <ProcessSummariesResponse> list_processes(opts)
 
-Get all processes
-
 Get all processes for your organization.
 
 ### Examples
