@@ -15,8 +15,6 @@ All URIs are relative to *https://api.datadoghq.com*
 
 > <IncidentServiceResponse> create_incident_service(body)
 
-Create a new incident service
-
 Creates a new incident service.
 
 ### Examples
@@ -82,8 +80,6 @@ end
 
 > delete_incident_service(service_id)
 
-Delete an existing incident service
-
 Deletes an existing incident service.
 
 ### Examples
@@ -148,9 +144,8 @@ nil (empty response body)
 
 > <IncidentServiceResponse> get_incident_service(service_id, opts)
 
-Get details of an incident service
-
-Get details of an incident service. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident services.
+Get details of an incident service. If the `include[users]` query parameter is provided,
+the included attribute will contain the users related to these incident services.
 
 ### Examples
 
@@ -218,8 +213,6 @@ end
 ## list_incident_services
 
 > <IncidentServicesResponse> list_incident_services(opts)
-
-Get a list of all incident services
 
 Get all incident services uploaded for the requesting user's organization. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident services.
 
@@ -293,8 +286,6 @@ end
 ## update_incident_service
 
 > <IncidentServiceResponse> update_incident_service(service_id, body)
-
-Update an existing incident service
 
 Updates an existing incident service. Only provide the attributes which should be updated as this request is a partial update.
 

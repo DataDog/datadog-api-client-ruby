@@ -35,8 +35,6 @@ All URIs are relative to *https://api.datadoghq.com*
 
 > <SyntheticsGlobalVariable> create_global_variable(body)
 
-Create a global variable
-
 Create a Synthetics global variable.
 
 ### Examples
@@ -96,8 +94,6 @@ end
 ## create_private_location
 
 > <SyntheticsPrivateLocationCreationResponse> create_private_location(body)
-
-Create a private location
 
 Create a new Synthetics private location.
 
@@ -159,8 +155,6 @@ end
 
 > <SyntheticsAPITest> create_synthetics_api_test(body)
 
-Create an API test
-
 Create a Synthetic API test.
 
 ### Examples
@@ -220,8 +214,6 @@ end
 ## create_synthetics_browser_test
 
 > <SyntheticsBrowserTest> create_synthetics_browser_test(body)
-
-Create a browser test
 
 Create a Synthetic browser test.
 
@@ -283,8 +275,6 @@ end
 
 > delete_global_variable(variable_id)
 
-Delete a global variable
-
 Delete a Synthetics global variable.
 
 ### Examples
@@ -343,8 +333,6 @@ nil (empty response body)
 ## delete_private_location
 
 > delete_private_location(location_id)
-
-Delete a private location
 
 Delete a Synthetics private location.
 
@@ -405,8 +393,6 @@ nil (empty response body)
 
 > <SyntheticsDeleteTestsResponse> delete_tests(body)
 
-Delete tests
-
 Delete multiple Synthetic tests by ID.
 
 ### Examples
@@ -466,8 +452,6 @@ end
 ## edit_global_variable
 
 > <SyntheticsGlobalVariable> edit_global_variable(variable_id, body)
-
-Edit a global variable
 
 Edit a Synthetics global variable.
 
@@ -531,9 +515,8 @@ end
 
 > <SyntheticsAPITest> get_api_test(public_id)
 
-Get an API test
-
-Get the detailed configuration associated with a Synthetic API test.
+Get the detailed configuration associated with
+a Synthetic API test.
 
 ### Examples
 
@@ -592,8 +575,6 @@ end
 ## get_api_test_latest_results
 
 > <SyntheticsGetAPITestLatestResultsResponse> get_api_test_latest_results(public_id, opts)
-
-Get an API test's latest results summaries
 
 Get the last 50 test results summaries for a given Synthetics API test.
 
@@ -663,8 +644,6 @@ end
 
 > <SyntheticsAPITestResultFull> get_api_test_result(public_id, result_id)
 
-Get an API test result
-
 Get a specific full result from a given (API) Synthetic test.
 
 ### Examples
@@ -727,9 +706,8 @@ end
 
 > <SyntheticsBrowserTest> get_browser_test(public_id)
 
-Get a browser test
-
-Get the detailed configuration (including steps) associated with a Synthetic browser test.
+Get the detailed configuration (including steps) associated with
+a Synthetic browser test.
 
 ### Examples
 
@@ -788,8 +766,6 @@ end
 ## get_browser_test_latest_results
 
 > <SyntheticsGetBrowserTestLatestResultsResponse> get_browser_test_latest_results(public_id, opts)
-
-Get a browser test's latest results summaries
 
 Get the last 50 test results summaries for a given Synthetics Browser test.
 
@@ -859,8 +835,6 @@ end
 
 > <SyntheticsBrowserTestResultFull> get_browser_test_result(public_id, result_id)
 
-Get a browser test result
-
 Get a specific full result from a given (browser) Synthetic test.
 
 ### Examples
@@ -923,8 +897,6 @@ end
 
 > <SyntheticsGlobalVariable> get_global_variable(variable_id)
 
-Get a global variable
-
 Get the detailed configuration of a global variable.
 
 ### Examples
@@ -984,8 +956,6 @@ end
 ## get_private_location
 
 > <SyntheticsPrivateLocation> get_private_location(location_id)
-
-Get a private location
 
 Get a Synthetics private location.
 
@@ -1047,8 +1017,6 @@ end
 
 > <SyntheticsTestDetails> get_test(public_id)
 
-Get a test configuration
-
 Get the detailed configuration associated with a Synthetics test.
 
 ### Examples
@@ -1109,8 +1077,6 @@ end
 
 > <SyntheticsListGlobalVariablesResponse> list_global_variables
 
-Get all global variables
-
 Get the list of all Synthetics global variables.
 
 ### Examples
@@ -1168,9 +1134,8 @@ This endpoint does not need any parameter.
 
 > <SyntheticsLocations> list_locations
 
-Get all locations (public and private)
-
-Get the list of public and private locations available for Synthetic tests. No arguments required.
+Get the list of public and private locations available for Synthetic
+tests. No arguments required.
 
 ### Examples
 
@@ -1226,8 +1191,6 @@ This endpoint does not need any parameter.
 ## list_tests
 
 > <SyntheticsListTestsResponse> list_tests
-
-Get the list of all tests
 
 Get the list of all Synthetic tests.
 
@@ -1285,8 +1248,6 @@ This endpoint does not need any parameter.
 ## trigger_ci_tests
 
 > <SyntheticsTriggerCITestsResponse> trigger_ci_tests(body)
-
-Trigger tests from CI/CD pipelines
 
 Trigger a set of Synthetics tests for continuous integration.
 
@@ -1347,8 +1308,6 @@ end
 ## update_api_test
 
 > <SyntheticsAPITest> update_api_test(public_id, body)
-
-Edit an API test
 
 Edit the configuration of a Synthetic API test.
 
@@ -1412,8 +1371,6 @@ end
 
 > <SyntheticsBrowserTest> update_browser_test(public_id, body)
 
-Edit a browser test
-
 Edit the configuration of a Synthetic browser test.
 
 ### Examples
@@ -1476,8 +1433,6 @@ end
 
 > <SyntheticsPrivateLocation> update_private_location(location_id, body)
 
-Edit a private location
-
 Edit a Synthetics private location.
 
 ### Examples
@@ -1539,8 +1494,6 @@ end
 ## update_test_pause_status
 
 > Boolean update_test_pause_status(public_id, body)
-
-Pause or start a test
 
 Pause or start a Synthetics test by changing the status.
 

@@ -13,9 +13,8 @@ All URIs are relative to *https://api.datadoghq.com*
 
 > <EventCreateResponse> create_event(body)
 
-Post an event
-
-This endpoint allows you to post events to the stream. Tag them, set priority and event aggregate them with other events.
+This endpoint allows you to post events to the stream.
+Tag them, set priority and event aggregate them with other events.
 
 ### Examples
 
@@ -75,9 +74,10 @@ end
 
 > <EventResponse> get_event(event_id)
 
-Get an event
+This endpoint allows you to query for event details.
 
-This endpoint allows you to query for event details.  **Note**: If the event you’re querying contains markdown formatting of any kind, you may see characters such as `%`,`\\`,`n` in your output.
+**Note**: If the event you’re querying contains markdown formatting of any kind,
+you may see characters such as `%`,`\`,`n` in your output.
 
 ### Examples
 
@@ -137,9 +137,15 @@ end
 
 > <EventListResponse> list_events(start, _end, opts)
 
-Query the event stream
+The event stream can be queried and filtered by time, priority, sources and tags.
 
-The event stream can be queried and filtered by time, priority, sources and tags.  **Notes**: - If the event you’re querying contains markdown formatting of any kind, you may see characters such as `%`,`\\`,`n` in your output.  - This endpoint returns a maximum of `1000` most recent results. To return additional results, identify the last timestamp of the last result and set that as the `end` query time to paginate the results. You can also use the page parameter to specify which set of `1000` results to return.
+**Notes**:
+- If the event you’re querying contains markdown formatting of any kind,
+you may see characters such as `%`,`\`,`n` in your output.
+
+- This endpoint returns a maximum of `1000` most recent results. To return additional results,
+identify the last timestamp of the last result and set that as the `end` query time to
+paginate the results. You can also use the page parameter to specify which set of `1000` results to return.
 
 ### Examples
 

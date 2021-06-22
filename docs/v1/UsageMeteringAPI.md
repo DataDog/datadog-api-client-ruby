@@ -43,8 +43,6 @@ All URIs are relative to *https://api.datadoghq.com*
 
 > <UsageCustomReportsResponse> get_daily_custom_reports(opts)
 
-Get the list of available daily custom reports
-
 Get daily custom reports.
 
 ### Examples
@@ -118,8 +116,6 @@ end
 
 > <UsageIncidentManagementResponse> get_incident_management(start_hr, opts)
 
-Get hourly usage for incident management
-
 Get hourly usage for incident management.
 
 ### Examples
@@ -184,8 +180,6 @@ end
 
 > <UsageIngestedSpansResponse> get_ingested_spans(start_hr, opts)
 
-Get hourly usage for ingested spans
-
 Get hourly usage for ingested spans.
 
 ### Examples
@@ -249,8 +243,6 @@ end
 ## get_monthly_custom_reports
 
 > <UsageCustomReportsResponse> get_monthly_custom_reports(opts)
-
-Get the list of available monthly custom reports
 
 Get monthly custom reports.
 
@@ -325,8 +317,6 @@ end
 
 > <UsageSpecifiedCustomReportsResponse> get_specified_daily_custom_reports(report_id)
 
-Get specified daily custom reports
-
 Get specified daily custom reports.
 
 ### Examples
@@ -391,8 +381,6 @@ end
 ## get_specified_monthly_custom_reports
 
 > <UsageSpecifiedCustomReportsResponse> get_specified_monthly_custom_reports(report_id)
-
-Get specified monthly custom reports
 
 Get specified monthly custom reports.
 
@@ -459,9 +447,9 @@ end
 
 > <UsageTracingWithoutLimitsResponse> get_tracing_without_limits(start_hr, opts)
 
-Get hourly usage for tracing without limits
+Get hourly usage for tracing without limits.
 
-Get hourly usage for tracing without limits.  **Note** This endpoint has been renamed to `/api/v1/usage/ingested-spans`.
+**Note** This endpoint has been renamed to `/api/v1/usage/ingested-spans`.
 
 ### Examples
 
@@ -524,8 +512,6 @@ end
 ## get_usage_analyzed_logs
 
 > <UsageAnalyzedLogsResponse> get_usage_analyzed_logs(start_hr, opts)
-
-Get hourly usage for analyzed logs
 
 Get hourly usage for analyzed logs (Security Monitoring).
 
@@ -590,8 +576,6 @@ end
 ## get_usage_attribution
 
 > <UsageAttributionResponse> get_usage_attribution(start_month, fields, opts)
-
-Get Usage Attribution
 
 Get Usage Attribution.
 
@@ -668,8 +652,6 @@ end
 
 > <UsageAuditLogsResponse> get_usage_audit_logs(start_hr, opts)
 
-Get hourly usage for audit logs
-
 Get hourly usage for audit logs.
 
 ### Examples
@@ -734,8 +716,6 @@ end
 
 > <UsageBillableSummaryResponse> get_usage_billable_summary(opts)
 
-Get billable usage across your account
-
 Get billable usage across your account.
 
 ### Examples
@@ -797,8 +777,6 @@ end
 ## get_usage_cloud_security_posture_management
 
 > <UsageCloudSecurityPostureManagementResponse> get_usage_cloud_security_posture_management(start_hr, opts)
-
-Get hourly usage for CSPM
 
 Get hourly usage for Cloud Security Posture Management (CSPM).
 
@@ -864,8 +842,6 @@ end
 
 > <UsageCWSResponse> get_usage_cws(start_hr, opts)
 
-Get hourly usage for Cloud Workload Security
-
 Get hourly usage for Cloud Workload Security.
 
 ### Examples
@@ -929,8 +905,6 @@ end
 ## get_usage_fargate
 
 > <UsageFargateResponse> get_usage_fargate(start_hr, opts)
-
-Get hourly usage for Fargate
 
 Get hourly usage for [Fargate](https://docs.datadoghq.com/integrations/ecs_fargate/).
 
@@ -996,8 +970,6 @@ end
 
 > <UsageHostsResponse> get_usage_hosts(start_hr, opts)
 
-Get hourly usage for hosts and containers
-
 Get hourly usage for hosts and containers.
 
 ### Examples
@@ -1061,8 +1033,6 @@ end
 ## get_usage_indexed_spans
 
 > <UsageIndexedSpansResponse> get_usage_indexed_spans(start_hr, opts)
-
-Get hourly usage for indexed spans
 
 Get hourly usage for indexed spans.
 
@@ -1128,8 +1098,6 @@ end
 
 > <UsageIoTResponse> get_usage_internet_of_things(start_hr, opts)
 
-Get hourly usage for IoT
-
 Get hourly usage for IoT.
 
 ### Examples
@@ -1193,8 +1161,6 @@ end
 ## get_usage_lambda
 
 > <UsageLambdaResponse> get_usage_lambda(start_hr, opts)
-
-Get hourly usage for Lambda
 
 Get hourly usage for lambda.
 
@@ -1260,8 +1226,6 @@ end
 
 > <UsageLogsResponse> get_usage_logs(start_hr, opts)
 
-Get hourly usage for Logs
-
 Get hourly usage for logs.
 
 ### Examples
@@ -1325,8 +1289,6 @@ end
 ## get_usage_logs_by_index
 
 > <UsageLogsByIndexResponse> get_usage_logs_by_index(start_hr, opts)
-
-Get hourly usage for Logs by Index
 
 Get hourly usage for logs by index.
 
@@ -1394,8 +1356,6 @@ end
 
 > <UsageLogsByRetentionResponse> get_usage_logs_by_retention(start_hr, opts)
 
-Get hourly logs usage by retention
-
 Get hourly usage for indexed logs by retention period.
 
 ### Examples
@@ -1459,8 +1419,6 @@ end
 ## get_usage_network_flows
 
 > <UsageNetworkFlowsResponse> get_usage_network_flows(start_hr, opts)
-
-Get hourly usage for Network Flows
 
 Get hourly usage for network flows.
 
@@ -1526,8 +1484,6 @@ end
 
 > <UsageNetworkHostsResponse> get_usage_network_hosts(start_hr, opts)
 
-Get hourly usage for Network Hosts
-
 Get hourly usage for network hosts.
 
 ### Examples
@@ -1592,8 +1548,6 @@ end
 
 > <UsageProfilingResponse> get_usage_profiling(start_hr, opts)
 
-Get hourly usage for profiled hosts
-
 Get hourly usage for profiled hosts.
 
 ### Examples
@@ -1657,8 +1611,6 @@ end
 ## get_usage_rum_sessions
 
 > <UsageRumSessionsResponse> get_usage_rum_sessions(start_hr, opts)
-
-Get hourly usage for RUM Sessions
 
 Get hourly usage for [RUM](https://docs.datadoghq.com/real_user_monitoring/) Sessions.
 
@@ -1726,8 +1678,6 @@ end
 
 > <UsageSNMPResponse> get_usage_snmp(start_hr, opts)
 
-Get hourly usage for SNMP devices
-
 Get hourly usage for SNMP devices.
 
 ### Examples
@@ -1791,8 +1741,6 @@ end
 ## get_usage_summary
 
 > <UsageSummaryResponse> get_usage_summary(start_month, opts)
-
-Get usage across your multi-org account
 
 Get usage across your multi-org account. You must have the multi-org feature enabled.
 
@@ -1860,8 +1808,6 @@ end
 
 > <UsageSyntheticsResponse> get_usage_synthetics(start_hr, opts)
 
-Get hourly usage for Synthetics Checks
-
 Get hourly usage for [Synthetics checks](https://docs.datadoghq.com/synthetics/).
 
 ### Examples
@@ -1925,8 +1871,6 @@ end
 ## get_usage_synthetics_api
 
 > <UsageSyntheticsAPIResponse> get_usage_synthetics_api(start_hr, opts)
-
-Get hourly usage for Synthetics API Checks
 
 Get hourly usage for [synthetics API checks](https://docs.datadoghq.com/synthetics/).
 
@@ -1992,8 +1936,6 @@ end
 
 > <UsageSyntheticsBrowserResponse> get_usage_synthetics_browser(start_hr, opts)
 
-Get hourly usage for Synthetics Browser Checks
-
 Get hourly usage for synthetics browser checks.
 
 ### Examples
@@ -2058,8 +2000,6 @@ end
 
 > <UsageTimeseriesResponse> get_usage_timeseries(start_hr, opts)
 
-Get hourly usage for custom metrics
-
 Get hourly usage for [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/).
 
 ### Examples
@@ -2123,8 +2063,6 @@ end
 ## get_usage_top_avg_metrics
 
 > <UsageTopAvgMetricsResponse> get_usage_top_avg_metrics(opts)
-
-Get all custom metrics by hourly average
 
 Get all [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use the month parameter to get a month-to-date data resolution or use the day parameter to get a daily resolution. One of the two is required, and only one of the two is allowed.
 
@@ -2196,9 +2134,9 @@ end
 
 > <UsageTraceResponse> get_usage_trace(start_hr, opts)
 
-Get hourly usage for Trace Search
+Get hourly usage for trace search.
 
-Get hourly usage for trace search.  **Note** This endpoint has been renamed to `/api/v1/usage/indexed-spans`.
+**Note** This endpoint has been renamed to `/api/v1/usage/indexed-spans`.
 
 ### Examples
 

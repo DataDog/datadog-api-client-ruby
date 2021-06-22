@@ -15,8 +15,6 @@ All URIs are relative to *https://api.datadoghq.com*
 
 > <IncidentTeamResponse> create_incident_team(body)
 
-Create a new incident team
-
 Creates a new incident team.
 
 ### Examples
@@ -82,8 +80,6 @@ end
 
 > delete_incident_team(team_id)
 
-Delete an existing incident team
-
 Deletes an existing incident team.
 
 ### Examples
@@ -148,9 +144,8 @@ nil (empty response body)
 
 > <IncidentTeamResponse> get_incident_team(team_id, opts)
 
-Get details of an incident team
-
-Get details of an incident team. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident teams.
+Get details of an incident team. If the `include[users]` query parameter is provided,
+the included attribute will contain the users related to these incident teams.
 
 ### Examples
 
@@ -218,8 +213,6 @@ end
 ## list_incident_teams
 
 > <IncidentTeamsResponse> list_incident_teams(opts)
-
-Get a list of all incident teams
 
 Get all incident teams for the requesting user's organization. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident teams.
 
@@ -293,8 +286,6 @@ end
 ## update_incident_team
 
 > <IncidentTeamResponse> update_incident_team(team_id, body)
-
-Update an existing incident team
 
 Updates an existing incident team. Only provide the attributes which should be updated as this request is a partial update.
 

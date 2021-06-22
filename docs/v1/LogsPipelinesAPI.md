@@ -17,8 +17,6 @@ All URIs are relative to *https://api.datadoghq.com*
 
 > <LogsPipeline> create_logs_pipeline(body)
 
-Create a pipeline
-
 Create a pipeline in your organization.
 
 ### Examples
@@ -79,9 +77,8 @@ end
 
 > delete_logs_pipeline(pipeline_id)
 
-Delete a pipeline
-
-Delete a given pipeline from your organization. This endpoint takes no JSON arguments.
+Delete a given pipeline from your organization.
+This endpoint takes no JSON arguments.
 
 ### Examples
 
@@ -140,9 +137,8 @@ nil (empty response body)
 
 > <LogsPipeline> get_logs_pipeline(pipeline_id)
 
-Get a pipeline
-
-Get a specific pipeline from your organization. This endpoint takes no JSON arguments.
+Get a specific pipeline from your organization.
+This endpoint takes no JSON arguments.
 
 ### Examples
 
@@ -202,9 +198,8 @@ end
 
 > <LogsPipelinesOrder> get_logs_pipeline_order
 
-Get pipeline order
-
-Get the current order of your pipelines. This endpoint takes no JSON arguments.
+Get the current order of your pipelines.
+This endpoint takes no JSON arguments.
 
 ### Examples
 
@@ -261,9 +256,8 @@ This endpoint does not need any parameter.
 
 > <Array<LogsPipeline>> list_logs_pipelines
 
-Get all pipelines
-
-Get all pipelines from your organization. This endpoint takes no JSON arguments.
+Get all pipelines from your organization.
+This endpoint takes no JSON arguments.
 
 ### Examples
 
@@ -320,9 +314,10 @@ This endpoint does not need any parameter.
 
 > <LogsPipeline> update_logs_pipeline(pipeline_id, body)
 
-Update a pipeline
+Update a given pipeline configuration to change it’s processors or their order.
 
-Update a given pipeline configuration to change it’s processors or their order.  **Note**: Using this method updates your pipeline configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
+**Note**: Using this method updates your pipeline configuration by **replacing**
+your current configuration with the new one sent to your Datadog organization.
 
 ### Examples
 
@@ -384,9 +379,11 @@ end
 
 > <LogsPipelinesOrder> update_logs_pipeline_order(body)
 
-Update pipeline order
+Update the order of your pipelines. Since logs are processed sequentially, reordering a pipeline may change
+the structure and content of the data processed by other pipelines and their processors.
 
-Update the order of your pipelines. Since logs are processed sequentially, reordering a pipeline may change the structure and content of the data processed by other pipelines and their processors.  **Note**: Using the `PUT` method updates your pipeline order by replacing your current order with the new one sent to your Datadog organization.
+**Note**: Using the `PUT` method updates your pipeline order by replacing your current order
+with the new one sent to your Datadog organization.
 
 ### Examples
 

@@ -15,9 +15,16 @@ All URIs are relative to *https://api.datadoghq.com*
 
 > <OrganizationCreateResponse> create_child_org(body)
 
-Create a child organization
+Create a child organization.
 
-Create a child organization.  This endpoint requires the [multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/) feature and must be enabled by [contacting support](https://docs.datadoghq.com/help/).  Once a new child organization is created, you can interact with it by using the `org.public_id`, `pi_key.key`, and `application_key.hash` provided in the response.
+This endpoint requires the
+[multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/)
+feature and must be enabled by
+[contacting support](https://docs.datadoghq.com/help/).
+
+Once a new child organization is created, you can interact with it
+by using the `org.public_id`, `pi_key.key`, and
+`application_key.hash` provided in the response.
 
 ### Examples
 
@@ -76,8 +83,6 @@ end
 ## get_org
 
 > <OrganizationResponse> get_org(public_id)
-
-Get organization information
 
 Get organization information.
 
@@ -139,8 +144,6 @@ end
 
 > <OrganizationListResponse> list_orgs
 
-List your managed organizations
-
 List your managed organizations.
 
 ### Examples
@@ -197,8 +200,6 @@ This endpoint does not need any parameter.
 ## update_org
 
 > <OrganizationResponse> update_org(public_id, body)
-
-Update your organization
 
 Update your organization.
 
@@ -262,9 +263,12 @@ end
 
 > <IdpResponse> upload_id_p_for_org(public_id, idp_file)
 
-Upload IdP metadata
+There are a couple of options for updating the Identity Provider (IdP)
+metadata from your SAML IdP.
 
-There are a couple of options for updating the Identity Provider (IdP) metadata from your SAML IdP.  * **Multipart Form-Data**: Post the IdP metadata file using a form post.  * **XML Body:** Post the IdP metadata file as the body of the request.
+* **Multipart Form-Data**: Post the IdP metadata file using a form post.
+
+* **XML Body:** Post the IdP metadata file as the body of the request.
 
 ### Examples
 
