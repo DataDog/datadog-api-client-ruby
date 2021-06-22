@@ -19,9 +19,7 @@ All URIs are relative to *{{basePath}}*
 
 > {{#returnType}}{{#returnTypeIsPrimitive}}{{returnType}}{{/returnTypeIsPrimitive}}{{^returnTypeIsPrimitive}}<{{{returnType}}}>{{/returnTypeIsPrimitive}} {{/returnType}}{{operationId}}{{#hasParams}}({{#requiredParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/requiredParams}}{{#optionalParams}}{{#-last}}{{#hasRequiredParams}}, {{/hasRequiredParams}}opts{{/-last}}{{/optionalParams}}){{/hasParams}}
 
-{{{summary}}}{{#notes}}
-
-{{{notes}}}{{/notes}}
+{{#notes}}{{{unescapedNotes}}}{{/notes}}
 
 ### Examples
 
