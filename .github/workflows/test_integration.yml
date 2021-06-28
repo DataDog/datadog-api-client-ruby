@@ -48,7 +48,7 @@ jobs:
         github-token: ${{ steps.get_token.outputs.token }}
         script: |
           const script = require('.github/workflows/scripts/test_integration.js')
-          await script.post_status_check(github, context, "pending")
+          await script.post_status_check(github, context, "integration", "pending")
     - name: Set up Ruby 2.7
       uses: ruby/setup-ruby@v1
       with:
@@ -84,4 +84,4 @@ jobs:
         github-token: ${{ steps.get_token.outputs.token }}
         script: |
           const script = require('./.github/workflows/scripts/test_integration.js')
-          await script.post_status_check(github, context, "success")
+          await script.post_status_check(github, context, "integration", "success")
