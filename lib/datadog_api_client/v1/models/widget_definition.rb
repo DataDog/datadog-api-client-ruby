@@ -47,7 +47,8 @@ module DatadogAPIClient::V1
           :'ServiceSummaryWidgetDefinition',
           :'TableWidgetDefinition',
           :'TimeseriesWidgetDefinition',
-          :'ToplistWidgetDefinition'
+          :'ToplistWidgetDefinition',
+          :'TreeMapWidgetDefinition'
         ]
       end
 

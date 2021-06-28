@@ -38,7 +38,8 @@ DatadogAPIClient::V1::WidgetDefinition.openapi_one_of
 #   :'ServiceSummaryWidgetDefinition',
 #   :'TableWidgetDefinition',
 #   :'TimeseriesWidgetDefinition',
-#   :'ToplistWidgetDefinition'
+#   :'ToplistWidgetDefinition',
+#   :'TreeMapWidgetDefinition'
 # ]
 ```
 
@@ -91,5 +92,6 @@ DatadogAPIClient::V1::WidgetDefinition.build(data_that_doesnt_match)
 - `TableWidgetDefinition`
 - `TimeseriesWidgetDefinition`
 - `ToplistWidgetDefinition`
+- `TreeMapWidgetDefinition`
 - `nil` (if no type matches)
 
