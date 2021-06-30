@@ -357,7 +357,7 @@ slo_id = 'slo_id_example' # String | The ID of the service level objective objec
 from_ts = 789 # Integer | The `from` timestamp for the query window in epoch seconds.
 to_ts = 789 # Integer | The `to` timestamp for the query window in epoch seconds.
 opts = {
-  target: 1.2 # Float | The SLO target. If `target` is passed in, the response will include the error budget that remains.
+  target: 1.2 # Float | The SLO target. If `target` is passed in, the response will include the remaining error budget and a timeframe value of `custom`.
 }
 
 begin
@@ -394,7 +394,7 @@ end
 | **slo_id** | **String** | The ID of the service level objective object. |  |
 | **from_ts** | **Integer** | The &#x60;from&#x60; timestamp for the query window in epoch seconds. |  |
 | **to_ts** | **Integer** | The &#x60;to&#x60; timestamp for the query window in epoch seconds. |  |
-| **target** | **Float** | The SLO target. If &#x60;target&#x60; is passed in, the response will include the error budget that remains. | [optional] |
+| **target** | **Float** | The SLO target. If &#x60;target&#x60; is passed in, the response will include the remaining error budget and a timeframe value of &#x60;custom&#x60;. | [optional] |
 
 ### Return type
 
