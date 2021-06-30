@@ -404,7 +404,7 @@ module DatadogAPIClient::V1
     # @param from_ts [Integer] The &#x60;from&#x60; timestamp for the query window in epoch seconds.
     # @param to_ts [Integer] The &#x60;to&#x60; timestamp for the query window in epoch seconds.
     # @param [Hash] opts the optional parameters
-    # @option opts [Float] :target The SLO target. If &#x60;target&#x60; is passed in, the response will include the error budget that remains.
+    # @option opts [Float] :target The SLO target. If &#x60;target&#x60; is passed in, the response will include the remaining error budget and a timeframe value of &#x60;custom&#x60;.
     # @return [SLOHistoryResponse]
     def get_slo_history(slo_id, from_ts, to_ts, opts = {})
       data, _status_code, _headers = get_slo_history_with_http_info(slo_id, from_ts, to_ts, opts)
@@ -417,7 +417,7 @@ module DatadogAPIClient::V1
     # @param from_ts [Integer] The &#x60;from&#x60; timestamp for the query window in epoch seconds.
     # @param to_ts [Integer] The &#x60;to&#x60; timestamp for the query window in epoch seconds.
     # @param [Hash] opts the optional parameters
-    # @option opts [Float] :target The SLO target. If &#x60;target&#x60; is passed in, the response will include the error budget that remains.
+    # @option opts [Float] :target The SLO target. If &#x60;target&#x60; is passed in, the response will include the remaining error budget and a timeframe value of &#x60;custom&#x60;.
     # @return [Array<(SLOHistoryResponse, Integer, Hash)>] SLOHistoryResponse data, response status code and response headers
     def get_slo_history_with_http_info(slo_id, from_ts, to_ts, opts = {})
 
