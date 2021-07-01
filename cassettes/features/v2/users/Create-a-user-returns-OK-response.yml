@@ -1,52 +1,80 @@
----
 http_interactions:
-- request:
-    method: post
-    uri: https://api.datadoghq.com/api/v2/users
+- recorded_at: Thu, 15 Apr 2021 13:02:51 GMT
+  request:
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"users","attributes":{"name":"Datadog API Client Python","email":"Test-Create_a_user_returns_OK_response-1617971040@datadoghq.com"}}}'
+      string: '{"data":{"attributes":{"email":"Test-Create_a_user_returns_OK_response-1618491771@datadoghq.com","name":"Datadog
+        API Client Python"},"type":"users"}}'
     headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
+      Cache-Control:
+      - no-cache
+      Connection:
+      - close
+      Content-Length:
+      - '685'
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
       - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
+      Date:
+      - Thu, 15 Apr 2021 13:02:52 GMT
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15724800;
+      X-Content-Type-Options:
+      - nosniff
+      X-Dd-Debug:
+      - Wjq53IVIwnB4SiR238oOYgHFMq/ZYP0LQ/Dv8C2fFLBwTje/dWJHu6pI6vIOK1zG
+      X-Dd-Version:
+      - '35.4318655'
+      X-Frame-Options:
+      - SAMEORIGIN
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/users
   response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"users","id":"e2fe756a-9dea-11eb-9df5-da7ad0900002","attributes":{"name":"Datadog
+        API Client Python","handle":"test-create_a_user_returns_ok_response-1618491771@datadoghq.com","created_at":"2021-04-15T13:02:52.114306+00:00","modified_at":"2021-04-15T13:02:52.132140+00:00","email":"test-create_a_user_returns_ok_response-1618491771@datadoghq.com","icon":"https://secure.gravatar.com/avatar/ff0b24a42317828ee39033ae2b535712?s=48&d=retro","title":null,"verified":false,"service_account":false,"disabled":false,"allowed_login_methods":[],"status":"Pending"},"relationships":{"roles":{"data":[]},"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}}'
     status:
       code: 201
       message: Created
+- recorded_at: Thu, 15 Apr 2021 13:02:51 GMT
+  request:
+    body: null
     headers:
-      Date:
-      - Fri, 09 Apr 2021 12:24:00 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '685'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
       Cache-Control:
       - no-cache
-      X-Dd-Version:
-      - '35.4275715'
-      X-Dd-Debug:
-      - twvpGlmuom5y6A0pjGtXzTf554cmwJgTcCZ71fK4H/RDi+v5ehBK0zQiRcTJQG5C
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
+      Connection:
+      - close
+      Content-Length:
+      - '0'
       Content-Security-Policy:
       - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 15 Apr 2021 13:02:52 GMT
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15724800;
+      X-Content-Type-Options:
+      - nosniff
+      X-Dd-Debug:
+      - L3ULR3HwCWYmEqCWGz2Yob3chcH4pjowBacBXkncP7o+/uPqKt9yGEYf/g1AJPzQ
+      X-Dd-Version:
+      - '35.4318655'
       X-Frame-Options:
       - SAMEORIGIN
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/users/e2fe756a-9dea-11eb-9df5-da7ad0900002
+  response:
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"users","id":"76f884e8-992e-11eb-9ceb-da7ad0900002","attributes":{"name":"Datadog
-        API Client Python","handle":"test-create_a_user_returns_ok_response-1617971040@datadoghq.com","created_at":"2021-04-09T12:24:00.845310+00:00","modified_at":"2021-04-09T12:24:00.861294+00:00","email":"test-create_a_user_returns_ok_response-1617971040@datadoghq.com","icon":"https://secure.gravatar.com/avatar/dfa2143277e479c451a368c907f421cc?s=48&d=retro","title":null,"verified":false,"service_account":false,"disabled":false,"allowed_login_methods":[],"status":"Pending"},"relationships":{"roles":{"data":[]},"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}}'
-  recorded_at: Fri, 09 Apr 2021 12:24:00 GMT
+      string: ''
+    status:
+      code: 204
+      message: No Content
 recorded_with: VCR 6.0.0

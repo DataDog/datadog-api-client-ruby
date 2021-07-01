@@ -1,114 +1,140 @@
----
 http_interactions:
-- request:
-    method: post
-    uri: https://api.datadoghq.com/api/v1/slo
+- recorded_at: Fri, 16 Apr 2021 11:32:12 GMT
+  request:
     body:
       encoding: UTF-8
-      string: '{"type":"metric","name":"Test-Update_an_SLO_returns_Bad_Request_response-1618572618","thresholds":[{"timeframe":"7d","target":95.0,"warning":98.0}],"query":{"numerator":"sum:httpservice.hits{code:2xx}.as_count()","denominator":"sum:httpservice.hits{!code:3xx}.as_count()"}}'
+      string: '{"name":"Test-Update_an_SLO_returns_Bad_Request_response-1618572732","query":{"denominator":"sum:httpservice.hits{!code:3xx}.as_count()","numerator":"sum:httpservice.hits{code:2xx}.as_count()"},"thresholds":[{"target":95,"timeframe":"7d","warning":98}],"type":"metric"}'
     headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.4.dev.1 (ruby 2.7.3; os linux; arch x86_64)
+      Cache-Control:
+      - no-cache
+      Connection:
+      - close
+      Content-Length:
+      - '615'
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
       - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
+      Date:
+      - Fri, 16 Apr 2021 11:32:12 GMT
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Dd-Version:
+      - '35.4327367'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Ratelimit-Limit:
+      - '500'
+      X-Ratelimit-Period:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '498'
+      X-Ratelimit-Reset:
+      - '48'
+    method: POST
+    uri: https://api.datadoghq.com/api/v1/slo
   response:
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"description":"","monitor_tags":[],"creator":{"handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","name":"CI
+        Account","email":"team-intg-tools-libs@datadoghq.com"},"thresholds":[{"warning":98.0,"warning_display":"98.","target":95.0,"target_display":"95.","timeframe":"7d"}],"type_id":1,"query":{"denominator":"sum:httpservice.hits{!code:3xx}.as_count()","numerator":"sum:httpservice.hits{code:2xx}.as_count()"},"id":"90eaa3b4c11751b884a783c81485ed31","name":"Test-Update_an_SLO_returns_Bad_Request_response-1618572732","created_at":1618572732,"tags":[],"modified_at":1618572732,"type":"metric"}],"error":null}'
     status:
       code: 200
       message: OK
+- recorded_at: Fri, 16 Apr 2021 11:32:12 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"name":"Test-Update_an_SLO_returns_Bad_Request_response-1618572732","thresholds":[{"target":95,"target_display":"95.0","timeframe":"7d","warning":98,"warning_display":"98.0"}],"type":"monitor"}'
     headers:
-      Date:
-      - Fri, 16 Apr 2021 11:30:18 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '615'
-      Connection:
-      - keep-alive
-      Vary:
-      - Accept-Encoding
-      Pragma:
-      - no-cache
       Cache-Control:
       - no-cache
+      Connection:
+      - close
+      Content-Length:
+      - '71'
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 16 Apr 2021 11:32:12 GMT
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15724800;
+      X-Content-Type-Options:
+      - nosniff
       X-Dd-Version:
       - '35.4327367'
+      X-Frame-Options:
+      - SAMEORIGIN
       X-Ratelimit-Limit:
       - '500'
       X-Ratelimit-Period:
       - '60'
-      X-Ratelimit-Reset:
-      - '42'
       X-Ratelimit-Remaining:
-      - '497'
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: ASCII-8BIT
-      string: '{"data":[{"description":"","monitor_tags":[],"creator":{"handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","name":"CI
-        Account","email":"team-intg-tools-libs@datadoghq.com"},"thresholds":[{"warning":98.0,"warning_display":"98.","target":95.0,"target_display":"95.","timeframe":"7d"}],"type_id":1,"query":{"denominator":"sum:httpservice.hits{!code:3xx}.as_count()","numerator":"sum:httpservice.hits{code:2xx}.as_count()"},"id":"d59b7b654a195cc6b16c0b69438ab9be","name":"Test-Update_an_SLO_returns_Bad_Request_response-1618572618","created_at":1618572618,"tags":[],"modified_at":1618572618,"type":"metric"}],"error":null}'
-  recorded_at: Fri, 16 Apr 2021 11:30:18 GMT
-- request:
-    method: put
-    uri: https://api.datadoghq.com/api/v1/slo/d59b7b654a195cc6b16c0b69438ab9be
+      - '499'
+      X-Ratelimit-Reset:
+      - '48'
+    method: PUT
+    uri: https://api.datadoghq.com/api/v1/slo/90eaa3b4c11751b884a783c81485ed31
+  response:
     body:
       encoding: UTF-8
-      string: '{"type":"monitor","name":"Test-Update_an_SLO_returns_Bad_Request_response-1618572618","thresholds":[{"target":95.0,"target_display":"95.0","timeframe":"7d","warning":98,"warning_display":"98.0"}]}'
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.4.dev.1 (ruby 2.7.3; os linux; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
+      string: '{"errors": ["Invalid payload: must specify the query for count types"]}'
     status:
       code: 400
       message: Bad Request
+- recorded_at: Fri, 16 Apr 2021 11:32:12 GMT
+  request:
+    body: null
     headers:
-      Date:
-      - Fri, 16 Apr 2021 11:30:18 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '71'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
       Cache-Control:
       - no-cache
-      X-Ratelimit-Limit:
-      - '500'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Reset:
-      - '42'
-      X-Ratelimit-Remaining:
-      - '499'
-      X-Dd-Version:
-      - '35.4327367'
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
+      Connection:
+      - close
+      Content-Length:
+      - '58'
       Content-Security-Policy:
       - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 16 Apr 2021 11:32:13 GMT
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Dd-Version:
+      - '35.4327367'
       X-Frame-Options:
       - SAMEORIGIN
+      X-Ratelimit-Limit:
+      - '3000'
+      X-Ratelimit-Period:
+      - '10'
+      X-Ratelimit-Remaining:
+      - '2998'
+      X-Ratelimit-Reset:
+      - '8'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v1/slo/90eaa3b4c11751b884a783c81485ed31
+  response:
     body:
-      encoding: ASCII-8BIT
-      string: '{"errors": ["Invalid payload: must specify the query for count types"]}'
-  recorded_at: Fri, 16 Apr 2021 11:30:18 GMT
+      encoding: UTF-8
+      string: '{"data":["90eaa3b4c11751b884a783c81485ed31"],"error":null}'
+    status:
+      code: 200
+      message: OK
 recorded_with: VCR 6.0.0

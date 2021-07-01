@@ -1,58 +1,46 @@
----
 http_interactions:
-- request:
-    method: get
-    uri: https://api.datadoghq.com/api/v1/monitor/groups/search?query=status:notastatus
-    body:
-      encoding: US-ASCII
-      string: ''
+- recorded_at: Tue, 25 May 2021 10:23:20 GMT
+  request:
+    body: null
     headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.1.dev.1 (ruby 2.6.3; os darwin19; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 400
-      message: Bad Request
-    headers:
-      Date:
-      - Tue, 25 May 2021 10:18:57 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '79'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
       Cache-Control:
       - no-cache
+      Connection:
+      - close
+      Content-Length:
+      - '79'
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 25 May 2021 10:23:21 GMT
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15724800;
+      X-Content-Type-Options:
+      - nosniff
+      X-Dd-Version:
+      - '35.4600248'
+      X-Frame-Options:
+      - SAMEORIGIN
       X-Ratelimit-Limit:
       - '120'
       X-Ratelimit-Period:
       - '10'
-      X-Ratelimit-Reset:
-      - '3'
       X-Ratelimit-Remaining:
       - '119'
-      X-Dd-Version:
-      - '35.4600240'
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
+      X-Ratelimit-Reset:
+      - '9'
+    method: GET
+    uri: https://api.datadoghq.com/api/v1/monitor/groups/search?query=status%3Anotastatus
+  response:
     body:
-      encoding: ASCII-8BIT
+      encoding: UTF-8
       string: '{"errors": ["Query parsing error: ''notastatus'' is not a valid monitor
         status"]}'
-  recorded_at: Tue, 25 May 2021 10:18:56 GMT
+    status:
+      code: 400
+      message: Bad Request
 recorded_with: VCR 6.0.0

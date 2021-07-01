@@ -1,59 +1,47 @@
----
 http_interactions:
-- request:
-    method: get
-    uri: https://api.datadoghq.com/api/v1/monitor/12345
-    body:
-      encoding: US-ASCII
-      string: ''
+- recorded_at: Thu, 15 Apr 2021 13:01:14 GMT
+  request:
+    body: null
     headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 404
-      message: Not Found
-    headers:
-      Date:
-      - Fri, 09 Apr 2021 12:23:25 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '33'
-      Connection:
-      - keep-alive
-      Vary:
-      - Accept-Encoding
-      Pragma:
-      - no-cache
       Cache-Control:
       - no-cache
+      Connection:
+      - close
+      Content-Length:
+      - '33'
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 15 Apr 2021 13:01:15 GMT
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Dd-Version:
+      - '35.4318655'
+      X-Frame-Options:
+      - SAMEORIGIN
       X-Ratelimit-Limit:
       - '3000'
       X-Ratelimit-Period:
       - '10'
-      X-Ratelimit-Reset:
-      - '5'
       X-Ratelimit-Remaining:
       - '2999'
-      X-Dd-Version:
-      - '35.4275715'
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
+      X-Ratelimit-Reset:
+      - '5'
+    method: GET
+    uri: https://api.datadoghq.com/api/v1/monitor/12345
+  response:
     body:
       encoding: UTF-8
       string: '{"errors": ["Monitor not found"]}'
-  recorded_at: Fri, 09 Apr 2021 12:23:25 GMT
+    status:
+      code: 404
+      message: Not Found
 recorded_with: VCR 6.0.0

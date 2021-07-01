@@ -1,45 +1,35 @@
----
 http_interactions:
-- request:
-    method: post
-    uri: https://api.datadoghq.com/api/v1/events
+- recorded_at: Thu, 15 Apr 2021 13:01:08 GMT
+  request:
     body:
       encoding: UTF-8
-      string: '{"title":"Test-Post_an_event_returns_OK_response-1617971004","text":"A
-        text message.","tags":["test:TestPostaneventreturnsOKresponse1617971004"]}'
+      string: '{"tags":["test:TestPostaneventreturnsOKresponse1618491668"],"text":"A
+        text message.","title":"Test-Post_an_event_returns_OK_response-1618491668"}'
     headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
+      Connection:
+      - close
+      Content-Length:
+      - '344'
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
       - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
+      Date:
+      - Thu, 15 Apr 2021 13:01:08 GMT
+      Strict-Transport-Security:
+      - max-age=15724800;
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    method: POST
+    uri: https://api.datadoghq.com/api/v1/events
   response:
+    body:
+      encoding: UTF-8
+      string: '{"status":"ok","event":{"id":5942973138276091518,"title":"Test-Post_an_event_returns_OK_response-1618491668","text":"A
+        text message.","date_happened":1618491668,"handle":null,"priority":null,"related_event_id":null,"tags":["test:TestPostaneventreturnsOKresponse1618491668"],"url":"https://app.datadoghq.com/event/event?id=5942973138276091518"}}'
     status:
       code: 202
       message: Accepted
-    headers:
-      Date:
-      - Fri, 09 Apr 2021 12:23:24 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '344'
-      Connection:
-      - keep-alive
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: UTF-8
-      string: '{"status":"ok","event":{"id":5934237833884326613,"title":"Test-Post_an_event_returns_OK_response-1617971004","text":"A
-        text message.","date_happened":1617971004,"handle":null,"priority":null,"related_event_id":null,"tags":["test:TestPostaneventreturnsOKresponse1617971004"],"url":"https://app.datadoghq.com/event/event?id=5934237833884326613"}}'
-  recorded_at: Fri, 09 Apr 2021 12:23:24 GMT
 recorded_with: VCR 6.0.0

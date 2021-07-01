@@ -1,57 +1,47 @@
----
 http_interactions:
-- request:
-    method: post
-    uri: https://api.datadoghq.com/api/v1/slo
+- recorded_at: Wed, 14 Apr 2021 15:12:34 GMT
+  request:
     body:
       encoding: UTF-8
-      string: '{"type":"monitor","name":"Test-Create_an_SLO_object_returns_Bad_Request_response-1618572618","thresholds":[{"target":95.0,"target_display":"95.0","timeframe":"7d","warning":98,"warning_display":"98.0"}]}'
+      string: '{"name":"Test-Create_an_SLO_object_returns_Bad_Request_response-1618413154","thresholds":[{"target":95,"target_display":"95.0","timeframe":"7d","warning":98,"warning_display":"98.0"}],"type":"monitor"}'
     headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.4.dev.1 (ruby 2.7.3; os linux; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 400
-      message: Bad Request
-    headers:
-      Date:
-      - Fri, 16 Apr 2021 11:30:18 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '75'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
       Cache-Control:
       - no-cache
+      Connection:
+      - close
+      Content-Length:
+      - '75'
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 14 Apr 2021 15:12:34 GMT
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15724800;
+      X-Content-Type-Options:
+      - nosniff
+      X-Dd-Version:
+      - '35.4310591'
+      X-Frame-Options:
+      - SAMEORIGIN
       X-Ratelimit-Limit:
       - '500'
       X-Ratelimit-Period:
       - '60'
-      X-Ratelimit-Reset:
-      - '42'
       X-Ratelimit-Remaining:
       - '498'
-      X-Dd-Version:
-      - '35.4327367'
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
+      X-Ratelimit-Reset:
+      - '26'
+    method: POST
+    uri: https://api.datadoghq.com/api/v1/slo
+  response:
     body:
-      encoding: ASCII-8BIT
+      encoding: UTF-8
       string: '{"errors": ["Invalid payload: must specify monitor_ids or monitor_search"]}'
-  recorded_at: Fri, 16 Apr 2021 11:30:18 GMT
+    status:
+      code: 400
+      message: Bad Request
 recorded_with: VCR 6.0.0
