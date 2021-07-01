@@ -17,18 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # A list of  SLO correction objects
-  class SLOCorrectionListResponse
-    # The list of of SLO corrections objects
-    attr_accessor :data
-
-    attr_accessor :meta
+  # Object describing meta attributes of response.
+  class ResponseMetaAttributes
+    attr_accessor :page
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'meta' => :'meta'
+        :'page' => :'page'
       }
     end
 
@@ -40,8 +36,7 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'data' => :'Array<SLOCorrection>',
-        :'meta' => :'ResponseMetaAttributes'
+        :'page' => :'Pagination'
       }
     end
 
@@ -55,25 +50,19 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SLOCorrectionListResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::ResponseMetaAttributes` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SLOCorrectionListResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::ResponseMetaAttributes`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
-      end
-
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
+      if attributes.key?(:'page')
+        self.page = attributes[:'page']
       end
     end
 
@@ -95,8 +84,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          meta == o.meta
+          page == o.page
     end
 
     # @see the `==` method
@@ -108,7 +96,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [data, meta].hash
+      [page].hash
     end
 
     # Builds the object from hash

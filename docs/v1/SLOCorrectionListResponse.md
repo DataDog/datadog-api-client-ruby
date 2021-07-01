@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **data** | [**Array&lt;SLOCorrection&gt;**](SLOCorrection.md) | The list of of SLO corrections objects | [optional] |
+| **meta** | [**ResponseMetaAttributes**](ResponseMetaAttributes.md) |  | [optional] |
 
 ## Example
 
@@ -12,7 +13,8 @@
 require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::SLOCorrectionListResponse.new(
-  data: null
+  data: null,
+  meta: null
 )
 ```
 
