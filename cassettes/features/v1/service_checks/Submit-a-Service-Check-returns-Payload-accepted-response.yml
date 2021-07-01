@@ -1,43 +1,33 @@
----
 http_interactions:
-- request:
-    method: post
-    uri: https://api.datadoghq.com/api/v1/check_run
+- recorded_at: Thu, 15 Apr 2021 13:01:16 GMT
+  request:
     body:
       encoding: UTF-8
-      string: '[{"check":"app.ok","host_name":"host","status":0,"tags":["test:TestSubmitaServiceCheckreturnsPayloadacceptedresponse1617971005"]}]'
+      string: '[{"check":"app.ok","host_name":"host","status":0,"tags":["test:TestSubmitaServiceCheckreturnsPayloadacceptedresponse1618491676"]}]'
     headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 202
-      message: Accepted
-    headers:
-      Date:
-      - Fri, 09 Apr 2021 12:23:25 GMT
-      Content-Type:
-      - text/json
+      Connection:
+      - close
       Content-Length:
       - '16'
-      Connection:
-      - keep-alive
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
       Content-Security-Policy:
       - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      Content-Type:
+      - text/json
+      Date:
+      - Thu, 15 Apr 2021 13:01:16 GMT
+      Strict-Transport-Security:
+      - max-age=15724800;
+      X-Content-Type-Options:
+      - nosniff
       X-Frame-Options:
       - SAMEORIGIN
+    method: POST
+    uri: https://api.datadoghq.com/api/v1/check_run
+  response:
     body:
       encoding: UTF-8
       string: '{"status": "ok"}'
-  recorded_at: Fri, 09 Apr 2021 12:23:25 GMT
+    status:
+      code: 202
+      message: Accepted
 recorded_with: VCR 6.0.0

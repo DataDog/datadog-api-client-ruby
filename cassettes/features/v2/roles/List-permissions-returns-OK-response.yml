@@ -1,51 +1,37 @@
----
 http_interactions:
-- request:
-    method: get
-    uri: https://api.datadoghq.com/api/v2/permissions
-    body:
-      encoding: US-ASCII
-      string: ''
+- recorded_at: Thu, 15 Apr 2021 13:02:40 GMT
+  request:
+    body: null
     headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Fri, 09 Apr 2021 12:23:56 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '21271'
-      Connection:
-      - keep-alive
-      Vary:
-      - Accept-Encoding
-      Pragma:
-      - no-cache
       Cache-Control:
       - no-cache
-      X-Dd-Version:
-      - '35.4275715'
-      X-Dd-Debug:
-      - HbtaOKlJ6OCrx9tMXO6ivMTrEM+g0c93HDp08trmOmgdHozC5J+vn10F0H4WPjCU
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
+      Connection:
+      - close
+      Content-Length:
+      - '21271'
       Content-Security-Policy:
       - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 15 Apr 2021 13:02:41 GMT
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Dd-Debug:
+      - l4HFlaRP3QwYSqoGKhzbYfv7zgkK63HIRR7YkyVYZspq0lGjjTBwoK8V/alf+XYt
+      X-Dd-Version:
+      - '35.4318655'
       X-Frame-Options:
       - SAMEORIGIN
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/permissions
+  response:
     body:
       encoding: UTF-8
       string: '{"data":[{"type":"permissions","id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","attributes":{"name":"admin","display_name":"Privileged
@@ -190,5 +176,7 @@ http_interactions:
         Management","display_type":"read","restricted":false}},{"type":"permissions","id":"bf0dcf7d-90af-11eb-9b82-da7ad0900002","attributes":{"name":"data_scanner_write","display_name":"Data
         Scanner","description":"Edit data scanner configuration.","created":"2021-03-29T16:56:46.398584+00:00","group_name":"Access
         Management","display_type":"write","restricted":false}}]}'
-  recorded_at: Fri, 09 Apr 2021 12:23:56 GMT
+    status:
+      code: 200
+      message: OK
 recorded_with: VCR 6.0.0

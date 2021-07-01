@@ -1,107 +1,122 @@
----
 http_interactions:
-- request:
-    method: post
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/rules
+- recorded_at: Fri, 16 Apr 2021 11:32:15 GMT
+  request:
     body:
       encoding: UTF-8
-      string: '{"name":"Test-Delete_an_existing_rule_returns_OK_response-1618572619","queries":[{"query":"@test:true","aggregation":"count","groupByFields":[],"distinctFields":[],"metric":""}],"filters":[],"cases":[{"name":"","status":"info","condition":"a
-        \u003e 0","notifications":[]}],"options":{"evaluationWindow":900,"keepAlive":3600,"maxSignalDuration":86400},"message":"Test
-        rule","tags":[],"isEnabled":true}'
+      string: '{"cases":[{"condition":"a > 0","name":"","notifications":[],"status":"info"}],"filters":[],"isEnabled":true,"message":"Test
+        rule","name":"Test-Delete_an_existing_rule_returns_OK_response-1618572735","options":{"evaluationWindow":900,"keepAlive":3600,"maxSignalDuration":86400},"queries":[{"aggregation":"count","distinctFields":[],"groupByFields":[],"metric":"","query":"@test:true"}],"tags":[]}'
     headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.4.dev.1 (ruby 2.7.3; os linux; arch x86_64)
+      Cache-Control:
+      - no-cache
+      Connection:
+      - close
+      Content-Disposition:
+      - inline
+      Content-Length:
+      - '622'
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
+      - application/json;charset=utf-8
+      Date:
+      - Fri, 16 Apr 2021 11:32:15 GMT
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Dd-Debug:
+      - 5gfwVh/5HZ+AnGd/Di93w3NEWC6KMHT9KzmHEiRJmNdOjBtAsbOcgVFyqEChw71h
+      X-Dd-Version:
+      - '35.4327367'
+      X-Frame-Options:
+      - SAMEORIGIN
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/rules
   response:
+    body:
+      encoding: UTF-8
+      string: '{"creationAuthorId":2320499,"tags":[],"isEnabled":true,"hasExtendedTitle":false,"message":"Test
+        rule","options":{"detectionMethod":"threshold","evaluationWindow":900,"maxSignalDuration":86400,"keepAlive":3600},"version":1,"createdAt":1618572735575,"filters":[],"queries":[{"distinctFields":[],"name":"","metric":"","aggregation":"count","groupByFields":[],"query":"@test:true","trackType":"logs"}],"isDeleted":false,"cases":[{"status":"info","notifications":[],"name":"","condition":"a
+        > 0"}],"type":"log_detection","id":"v3s-vcj-eu3","isDefault":false,"name":"Test-Delete_an_existing_rule_returns_OK_response-1618572735"}'
     status:
       code: 200
       message: OK
+- recorded_at: Fri, 16 Apr 2021 11:32:15 GMT
+  request:
+    body: null
     headers:
-      Date:
-      - Fri, 16 Apr 2021 11:30:19 GMT
-      Content-Type:
-      - application/json;charset=utf-8
-      Content-Length:
-      - '622'
-      Connection:
-      - keep-alive
-      Vary:
-      - Accept-Encoding
-      Pragma:
-      - no-cache
       Cache-Control:
       - no-cache
-      X-Dd-Version:
-      - '35.4327367'
+      Connection:
+      - close
       Content-Disposition:
       - inline
-      X-Dd-Debug:
-      - S1wfaMZOKGT/IoMw6fqAwAwGWo2vQ44sjF3YzuETnQfxZO2T5eJbs0aX3UKb9Dwu
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
+      Content-Length:
+      - '0'
       Content-Security-Policy:
       - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      Date:
+      - Fri, 16 Apr 2021 11:32:15 GMT
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15724800;
+      X-Content-Type-Options:
+      - nosniff
+      X-Dd-Debug:
+      - l8RQo2maZqJf6GFThBbKNE6dvthz6njusVtau3dPXJWL2RLFoN81H+BLPB/1xgs1
+      X-Dd-Version:
+      - '35.4327367'
       X-Frame-Options:
       - SAMEORIGIN
-    body:
-      encoding: ASCII-8BIT
-      string: '{"creationAuthorId":2320499,"tags":[],"isEnabled":true,"hasExtendedTitle":false,"message":"Test
-        rule","options":{"detectionMethod":"threshold","evaluationWindow":900,"maxSignalDuration":86400,"keepAlive":3600},"version":1,"createdAt":1618572619732,"filters":[],"queries":[{"distinctFields":[],"name":"","metric":"","aggregation":"count","groupByFields":[],"query":"@test:true","trackType":"logs"}],"isDeleted":false,"cases":[{"status":"info","notifications":[],"name":"","condition":"a
-        > 0"}],"type":"log_detection","id":"qih-uch-tb6","isDefault":false,"name":"Test-Delete_an_existing_rule_returns_OK_response-1618572619"}'
-  recorded_at: Fri, 16 Apr 2021 11:30:19 GMT
-- request:
-    method: delete
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/rules/qih-uch-tb6
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.4.dev.1 (ruby 2.7.3; os linux; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/rules/v3s-vcj-eu3
   response:
+    body:
+      encoding: UTF-8
+      string: ''
     status:
       code: 204
       message: No Content
+- recorded_at: Fri, 16 Apr 2021 11:32:15 GMT
+  request:
+    body: null
     headers:
-      Date:
-      - Fri, 16 Apr 2021 11:30:19 GMT
-      Content-Length:
-      - '0'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
       Cache-Control:
       - no-cache
-      X-Dd-Version:
-      - '35.4327367'
-      Content-Disposition:
-      - inline
-      X-Dd-Debug:
-      - SY1h8ScsWq+kYmtbh63ltMLFAZsQjqfrgvdfAoRX+9TzT1sgMBRYaFRwfWWRRe9a
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
+      Connection:
+      - close
+      Content-Length:
+      - '59'
       Content-Security-Policy:
       - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 16 Apr 2021 11:32:15 GMT
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Dd-Version:
+      - '35.4327367'
       X-Frame-Options:
       - SAMEORIGIN
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/rules/v3s-vcj-eu3
+  response:
     body:
-      encoding: ASCII-8BIT
-      string: ''
-  recorded_at: Fri, 16 Apr 2021 11:30:19 GMT
+      encoding: UTF-8
+      string: '{"errors":["Threat detection rule not found: v3s-vcj-eu3"]}'
+    status:
+      code: 404
+      message: Not Found
 recorded_with: VCR 6.0.0

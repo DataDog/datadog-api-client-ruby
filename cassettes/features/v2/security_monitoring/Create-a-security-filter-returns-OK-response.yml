@@ -1,104 +1,83 @@
----
 http_interactions:
-- request:
-    method: post
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters
+- recorded_at: Tue, 11 May 2021 16:46:29 GMT
+  request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"exclusion_filters":[{"name":"Exclude staging","query":"source:staging"}],"filtered_data_type":"logs","is_enabled":true,"name":"Test-Create_a_security_filter_returns_OK_response-1620804282","query":"service:TestCreateasecurityfilterreturnsOKresponse1620804282"},"type":"security_filters"}}'
+      string: '{"data":{"attributes":{"exclusion_filters":[{"name":"Exclude staging","query":"source:staging"}],"filtered_data_type":"logs","is_enabled":true,"name":"Test-Create_a_security_filter_returns_OK_response-1620751589","query":"service:TestCreateasecurityfilterreturnsOKresponse1620751589"},"type":"security_filters"}}'
     headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.4.dev.1 (ruby 2.7.3; os linux; arch x86_64)
+      Cache-Control:
+      - no-cache
+      Connection:
+      - close
+      Content-Disposition:
+      - inline
+      Content-Length:
+      - '362'
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
+      - application/json;charset=utf-8
+      Date:
+      - Wed, 12 May 2021 07:50:04 GMT
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Dd-Debug:
+      - 2328yjLSqI4XmR1pVqrPRR/SFcQsbafjEpPmZx7/3PfxUK1nJQQsX+wrMelyVyj+
+      X-Dd-Version:
+      - '35.4512853'
+      X-Frame-Options:
+      - SAMEORIGIN
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters
   response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"is_enabled":true,"name":"Test-Create_a_security_filter_returns_OK_response-1620751589","filtered_data_type":"logs","exclusion_filters":[{"query":"source:staging","name":"Exclude
+        staging"}],"version":1,"query":"service:TestCreateasecurityfilterreturnsOKresponse1620751589","is_builtin":false},"type":"security_filters","id":"tuz-sj9-ft0"}}'
     status:
       code: 200
       message: OK
+- recorded_at: Tue, 11 May 2021 16:46:29 GMT
+  request:
+    body: null
     headers:
-      Date:
-      - Wed, 12 May 2021 07:24:42 GMT
-      Content-Type:
-      - application/json;charset=utf-8
-      Content-Length:
-      - '362'
-      Connection:
-      - keep-alive
-      Vary:
-      - Accept-Encoding
-      Pragma:
-      - no-cache
       Cache-Control:
       - no-cache
-      X-Dd-Version:
-      - '35.4512853'
+      Connection:
+      - close
       Content-Disposition:
       - inline
-      X-Dd-Debug:
-      - "/L+SFFO+m1pPY+hRCpk5325fvfrNl0KmiquUNJolBN/5hu3HIwflqjZSbJ6NxDFG"
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
+      Content-Length:
+      - '0'
       Content-Security-Policy:
       - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      Date:
+      - Wed, 12 May 2021 07:50:04 GMT
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15724800;
+      X-Content-Type-Options:
+      - nosniff
+      X-Dd-Debug:
+      - dPySkcOzIZtKyMKDAAzuysY3gNGGj6RtYogGuSb76E8mPvoqzREyRp6lPYm91hQU
+      X-Dd-Version:
+      - '35.4512853'
       X-Frame-Options:
       - SAMEORIGIN
-    body:
-      encoding: ASCII-8BIT
-      string: '{"data":{"attributes":{"is_enabled":true,"name":"Test-Create_a_security_filter_returns_OK_response-1620804282","filtered_data_type":"logs","exclusion_filters":[{"query":"source:staging","name":"Exclude
-        staging"}],"version":1,"query":"service:TestCreateasecurityfilterreturnsOKresponse1620804282","is_builtin":false},"type":"security_filters","id":"xgf-iva-4lo"}}'
-  recorded_at: Wed, 12 May 2021 07:24:42 GMT
-- request:
-    method: delete
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters/xgf-iva-4lo
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.4.dev.1 (ruby 2.7.3; os linux; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters/tuz-sj9-ft0
   response:
+    body:
+      encoding: UTF-8
+      string: ''
     status:
       code: 204
       message: No Content
-    headers:
-      Date:
-      - Wed, 12 May 2021 07:24:42 GMT
-      Content-Length:
-      - '0'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Dd-Version:
-      - '35.4512853'
-      Content-Disposition:
-      - inline
-      X-Dd-Debug:
-      - 25u1gDlL724DHllbjFT4BhOLorBTilh+aah2uWAUEjFC/+rjczJdiyWrV/HwLwe/
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-  recorded_at: Wed, 12 May 2021 07:24:42 GMT
 recorded_with: VCR 6.0.0

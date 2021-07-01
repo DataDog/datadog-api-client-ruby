@@ -1,43 +1,33 @@
----
 http_interactions:
-- request:
-    method: post
-    uri: https://api.datadoghq.com/api/v1/series
+- recorded_at: Thu, 17 Jun 2021 12:21:41 GMT
+  request:
     body:
       encoding: UTF-8
-      string: '{"series":[{"metric":"system.load.1","type":"gauge","points":[[1623932712,1.1]],"tags":["test:TestSubmitmetricsreturnsPayloadacceptedresponse1623932712"]}]}'
+      string: '{"series":[{"metric":"system.load.1","points":[[1623932501,1.1]],"tags":["test:TestSubmitmetricsreturnsPayloadacceptedresponse1623932501"],"type":"gauge"}]}'
     headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.1.1.dev.1 (ruby 2.7.3; os darwin20; arch x86_64)
+      Connection:
+      - close
+      Content-Length:
+      - '16'
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
+      - text/json
+      Date:
+      - Thu, 17 Jun 2021 12:21:42 GMT
+      Strict-Transport-Security:
+      - max-age=15724800;
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    method: POST
+    uri: https://api.datadoghq.com/api/v1/series
   response:
+    body:
+      encoding: UTF-8
+      string: '{"status": "ok"}'
     status:
       code: 202
       message: Accepted
-    headers:
-      Date:
-      - Thu, 17 Jun 2021 12:25:12 GMT
-      Content-Type:
-      - text/json
-      Content-Length:
-      - '16'
-      Connection:
-      - keep-alive
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: ASCII-8BIT
-      string: '{"status": "ok"}'
-  recorded_at: Thu, 17 Jun 2021 12:25:12 GMT
 recorded_with: VCR 6.0.0

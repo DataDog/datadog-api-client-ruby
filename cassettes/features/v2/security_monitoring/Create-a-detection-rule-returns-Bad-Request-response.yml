@@ -1,50 +1,39 @@
----
 http_interactions:
-- request:
-    method: post
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/rules
+- recorded_at: Thu, 15 Apr 2021 07:54:22 GMT
+  request:
     body:
       encoding: UTF-8
-      string: '{"name":"Test-Create_a_detection_rule_returns_Bad_Request_response-1618572619","queries":[{"query":""}],"cases":[{"status":"info"}],"options":{},"message":"Test
-        rule","tags":[],"isEnabled":true}'
+      string: '{"cases":[{"status":"info"}],"isEnabled":true,"message":"Test rule","name":"Test-Create_a_detection_rule_returns_Bad_Request_response-1618473262","options":{},"queries":[{"query":""}],"tags":[]}'
     headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.4.dev.1 (ruby 2.7.3; os linux; arch x86_64)
+      Cache-Control:
+      - no-cache
+      Connection:
+      - close
+      Content-Length:
+      - '29'
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
       - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
+      Date:
+      - Thu, 15 Apr 2021 07:54:22 GMT
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15724800;
+      X-Content-Type-Options:
+      - nosniff
+      X-Dd-Version:
+      - '35.4316747'
+      X-Frame-Options:
+      - SAMEORIGIN
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/rules
   response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["Internal error"]}'
     status:
       code: 400
       message: Bad Request
-    headers:
-      Date:
-      - Fri, 16 Apr 2021 11:30:19 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '29'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Dd-Version:
-      - '35.4327367'
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: ASCII-8BIT
-      string: '{"errors":["Internal error"]}'
-  recorded_at: Fri, 16 Apr 2021 11:30:19 GMT
 recorded_with: VCR 6.0.0

@@ -1,59 +1,45 @@
----
 http_interactions:
-- request:
-    method: get
-    uri: https://api.datadoghq.com/api/v1/monitor/search
-    body:
-      encoding: US-ASCII
-      string: ''
+- recorded_at: Tue, 25 May 2021 10:23:22 GMT
+  request:
+    body: null
     headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.1.dev.1 (ruby 2.6.3; os darwin19; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 25 May 2021 10:18:57 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '19166'
-      Connection:
-      - keep-alive
-      Vary:
-      - Accept-Encoding
-      Pragma:
-      - no-cache
       Cache-Control:
       - no-cache
+      Connection:
+      - close
+      Content-Length:
+      - '19166'
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 25 May 2021 10:23:22 GMT
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
       X-Dd-Version:
-      - '35.4600240'
+      - '35.4600248'
+      X-Frame-Options:
+      - SAMEORIGIN
       X-Ratelimit-Limit:
       - '120'
       X-Ratelimit-Period:
       - '10'
-      X-Ratelimit-Reset:
-      - '3'
       X-Ratelimit-Remaining:
       - '116'
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
+      X-Ratelimit-Reset:
+      - '8'
+    method: GET
+    uri: https://api.datadoghq.com/api/v1/monitor/search
+  response:
     body:
-      encoding: ASCII-8BIT
+      encoding: UTF-8
       string: '{"counts":{"status":[{"count":65,"name":"No Data"},{"count":24,"name":"OK"},{"count":10,"name":"Alert"}],"muted":[{"count":71,"name":true},{"count":28,"name":false}],"tag":[{"count":33,"name":"probe_dc:aws:us-east-2"},{"count":29,"name":"client:go"},{"count":29,"name":"test"},{"count":28,"name":"check_status:live"},{"count":21,"name":"check_type:api"},{"count":19,"name":"testing:api"},{"count":10,"name":"check_status:paused"},{"count":8,"name":"check_type:browser"},{"count":8,"name":"testing:browser"},{"count":7,"name":"foo:bar"},{"count":5,"name":"environment:test"},{"count":5,"name":"generator:slops"},{"count":5,"name":"release:e6a2686"},{"count":5,"name":"systemid:splunk"},{"count":5,"name":"team:developer_insights"},{"count":4,"name":"baz"},{"count":4,"name":"probe_dc:aws:eu-central-1"},{"count":4,"name":"sli:latency"},{"count":4,"name":"slotype:alb"},{"count":3,"name":"app:webserver"},{"count":3,"name":"check_type:api-tcp"},{"count":3,"name":"env:test"},{"count":3,"name":"foo"},{"count":3,"name":"frontend"},{"count":3,"name":"testing:api-tcp"},{"count":2,"name":"check_type:api-icmp"},{"count":2,"name":"check_type:api-multi"},{"count":2,"name":"testing:api-icmp"},{"count":1,"name":"check_type:api-dns"},{"count":1,"name":"check_type:api-ssl"},{"count":1,"name":"probe_dc:aws:ap-northeast-1"},{"count":1,"name":"sli:availability"},{"count":1,"name":"slotype:elb"},{"count":1,"name":"tags_example"},{"count":1,"name":"testing:api-dns"}],"type":[{"count":38,"name":"synthetics"},{"count":23,"name":"log"},{"count":16,"name":"metric"},{"count":11,"name":"integration"},{"count":9,"name":"custom"},{"count":1,"name":"composite"},{"count":1,"name":"slo"}]},"monitors":[{"status":"No
         Data","scopes":["host:foo","environment:foo"],"classification":"integration","creator":{"handle":"slavek.kabrda@datadoghq.com","id":1379826,"name":"Slavek
         Kabrda"},"metrics":["aws.ec2.cpu"],"notifications":[{"handle":"hipchat-channel","name":"hipchat-channel"}],"muted_until_ts":null,"query":"avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo}
@@ -131,7 +117,10 @@ http_interactions:
         go-TestSyntheticsUpdateStatusTestErrors-32238-1605420975","tags":["testing:api","check_type:api","probe_dc:aws:us-east-2","check_status:live"],"org_id":321813,"priority":null,"overall_state_modified":null,"restricted_roles":[],"type":"synthetics
         alert"},{"status":"No Data","scopes":["database"],"classification":"custom","creator":{"handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","id":2320499,"name":"CI
         Account"},"metrics":["datadog.agent.check_status"],"notifications":[{"handle":"hipchat-channel","name":"hipchat-channel"}],"muted_until_ts":9223372036854775807,"query":"\"datadog.agent.check_status\".over(\"database\").last(2).count_by_status()","id":35382169,"last_triggered_ts":null,"name":"Test-Go-TestSLOMultipleInstances-1620936656","tags":["test","client:go"],"org_id":321813,"priority":null,"overall_state_modified":1620936770,"restricted_roles":[],"type":"service
-        check"},{"status":"Alert","scopes":[],"classification":"synthetics","creator":{"handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","id":2320499,"name":"CI
+        check"},{"status":"No Data","scopes":["host:host0"],"classification":"metric","creator":{"handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","id":2320499,"name":"CI
+        Account"},"metrics":["system.net.bytes_rcvd"],"notifications":[],"muted_until_ts":9223372036854775807,"query":"avg(last_5m):sum:system.net.bytes_rcvd{host:host0}
+        > 100","id":35676553,"last_triggered_ts":null,"name":"java-historyGetSLOErrorsTest-64695-1621420747","tags":[],"org_id":321813,"priority":null,"overall_state_modified":1621420773,"restricted_roles":[],"type":"metric
+        alert"},{"status":"Alert","scopes":[],"classification":"synthetics","creator":{"handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","id":2320499,"name":"CI
         Account"},"metrics":[],"notifications":[],"muted_until_ts":9223372036854775807,"query":"no_query","id":35686782,"last_triggered_ts":1621436862,"name":"[Synthetics]
         Test-Go-TestSyntheticsUpdateStatusTestErrors-1621436806","tags":["testing:api","check_type:api","probe_dc:aws:us-east-2","check_status:live"],"org_id":321813,"priority":null,"overall_state_modified":1621436862,"restricted_roles":[],"type":"synthetics
         alert"},{"status":"No Data","scopes":[],"classification":"log","creator":{"handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","id":2320499,"name":"CI
@@ -142,9 +131,6 @@ http_interactions:
         Account"},"metrics":[],"notifications":[{"handle":"hipchat-channel","name":"hipchat-channel"}],"muted_until_ts":9223372036854775807,"query":"logs(\"service:foo
         AND type:error\").index(\"main\").rollup(\"count\").by(\"source\").last(\"5m\")
         > 2","id":35273062,"last_triggered_ts":null,"name":"Test-Go-TestMonitorLifecycle-1620768600","tags":["test","client:go"],"org_id":321813,"priority":3,"overall_state_modified":1620768860,"restricted_roles":["94172442-be03-11e9-a77a-3b7612558ac1"],"type":"log
-        alert"},{"status":"No Data","scopes":["host:host0"],"classification":"metric","creator":{"handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","id":2320499,"name":"CI
-        Account"},"metrics":["system.net.bytes_rcvd"],"notifications":[],"muted_until_ts":9223372036854775807,"query":"avg(last_5m):sum:system.net.bytes_rcvd{host:host0}
-        > 100","id":35676553,"last_triggered_ts":null,"name":"java-historyGetSLOErrorsTest-64695-1621420747","tags":[],"org_id":321813,"priority":null,"overall_state_modified":1621420773,"restricted_roles":[],"type":"metric
         alert"},{"status":"No Data","scopes":[],"classification":"synthetics","creator":{"handle":"9919ec9b-ebc7-49ee-8dc8-03626e717cca","id":2320499,"name":"CI
         Account"},"metrics":[],"notifications":[],"muted_until_ts":9223372036854775807,"query":"no_query","id":35686787,"last_triggered_ts":null,"name":"[Synthetics]
         Test-Go-TestSyntheticsBrowserTestEndpointLifecycle-1621436813","tags":["check_status:paused","probe_dc:aws:us-east-2","testing:browser","check_type:browser"],"org_id":321813,"priority":null,"overall_state_modified":1621436867,"restricted_roles":[],"type":"synthetics
@@ -152,5 +138,7 @@ http_interactions:
         Muesch"},"metrics":[],"notifications":[],"muted_until_ts":null,"query":"no_query","id":20314950,"last_triggered_ts":null,"name":"[Synthetics]
         java-testSyntheticsMultipleTestsOperations-20175-1595364791-api","tags":["testing:api","check_type:api","probe_dc:aws:us-east-2","check_status:live"],"org_id":321813,"priority":null,"overall_state_modified":null,"restricted_roles":[],"type":"synthetics
         alert"}],"metadata":{"total_count":99,"page_count":30,"page":0,"per_page":30}}'
-  recorded_at: Tue, 25 May 2021 10:18:57 GMT
+    status:
+      code: 200
+      message: OK
 recorded_with: VCR 6.0.0

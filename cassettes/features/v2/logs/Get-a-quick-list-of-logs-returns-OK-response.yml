@@ -1,59 +1,47 @@
----
 http_interactions:
-- request:
-    method: get
-    uri: https://api.datadoghq.com/api/v2/logs/events?filter%5Bfrom%5D=2020-09-17T11:48:36%2B01:00&filter%5Bindex%5D=main&filter%5Bquery%5D=datadog-agent&filter%5Bto%5D=2020-09-17T12:48:36%2B01:00&page%5Blimit%5D=5
-    body:
-      encoding: US-ASCII
-      string: ''
+- recorded_at: Thu, 15 Apr 2021 13:02:09 GMT
+  request:
+    body: null
     headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.0.0.beta.3.dev (ruby 2.6.3; os darwin19; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Fri, 09 Apr 2021 12:23:36 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '11'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
       Cache-Control:
       - no-cache
+      Connection:
+      - close
+      Content-Length:
+      - '11'
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 15 Apr 2021 13:02:10 GMT
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15724800;
+      X-Content-Type-Options:
+      - nosniff
+      X-Dd-Debug:
+      - 25u1gDlL724DHllbjFT4BhOLorBTilh+aah2uWAUEjFC/+rjczJdiyWrV/HwLwe/
       X-Dd-Version:
-      - '35.4275715'
+      - '35.4318655'
+      X-Frame-Options:
+      - SAMEORIGIN
       X-Ratelimit-Limit:
       - '300'
       X-Ratelimit-Period:
       - '3600'
-      X-Ratelimit-Reset:
-      - '2184'
       X-Ratelimit-Remaining:
-      - '266'
-      X-Dd-Debug:
-      - 2328yjLSqI4XmR1pVqrPRR/SFcQsbafjEpPmZx7/3PfxUK1nJQQsX+wrMelyVyj+
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
+      - '298'
+      X-Ratelimit-Reset:
+      - '3470'
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/logs/events?filter%5Bquery%5D=datadog-agent&filter%5Bindex%5D=main&filter%5Bfrom%5D=2020-09-17T11%3A48%3A36%2B01%3A00&filter%5Bto%5D=2020-09-17T12%3A48%3A36%2B01%3A00&page%5Blimit%5D=5
+  response:
     body:
       encoding: UTF-8
       string: '{"data":[]}'
-  recorded_at: Fri, 09 Apr 2021 12:23:36 GMT
+    status:
+      code: 200
+      message: OK
 recorded_with: VCR 6.0.0
