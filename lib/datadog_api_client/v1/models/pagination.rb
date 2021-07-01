@@ -17,18 +17,19 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # A list of  SLO correction objects
-  class SLOCorrectionListResponse
-    # The list of of SLO corrections objects
-    attr_accessor :data
+  # Pagination object.
+  class Pagination
+    # Total count.
+    attr_accessor :total_count
 
-    attr_accessor :meta
+    # Total count of elements matched by the filter.
+    attr_accessor :total_filtered_count
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'meta' => :'meta'
+        :'total_count' => :'total_count',
+        :'total_filtered_count' => :'total_filtered_count'
       }
     end
 
@@ -40,8 +41,8 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'data' => :'Array<SLOCorrection>',
-        :'meta' => :'ResponseMetaAttributes'
+        :'total_count' => :'Integer',
+        :'total_filtered_count' => :'Integer'
       }
     end
 
@@ -55,25 +56,23 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SLOCorrectionListResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::Pagination` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SLOCorrectionListResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::Pagination`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
+      if attributes.key?(:'total_count')
+        self.total_count = attributes[:'total_count']
       end
 
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
+      if attributes.key?(:'total_filtered_count')
+        self.total_filtered_count = attributes[:'total_filtered_count']
       end
     end
 
@@ -95,8 +94,8 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          meta == o.meta
+          total_count == o.total_count &&
+          total_filtered_count == o.total_filtered_count
     end
 
     # @see the `==` method
@@ -108,7 +107,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [data, meta].hash
+      [total_count, total_filtered_count].hash
     end
 
     # Builds the object from hash
