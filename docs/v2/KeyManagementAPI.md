@@ -10,6 +10,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**delete_application_key**](KeyManagementAPI.md#delete_application_key) | **DELETE** /api/v2/application_keys/{app_key_id} | Delete an application key |
 | [**delete_current_user_application_key**](KeyManagementAPI.md#delete_current_user_application_key) | **DELETE** /api/v2/current_user/application_keys/{app_key_id} | Delete an application key owned by current user |
 | [**get_api_key**](KeyManagementAPI.md#get_api_key) | **GET** /api/v2/api_keys/{api_key_id} | Get API key |
+| [**get_application_key**](KeyManagementAPI.md#get_application_key) | **GET** /api/v2/application_keys/{app_key_id} | Get an application key |
 | [**get_current_user_application_key**](KeyManagementAPI.md#get_current_user_application_key) | **GET** /api/v2/current_user/application_keys/{app_key_id} | Get one application key owned by current user |
 | [**list_api_keys**](KeyManagementAPI.md#list_api_keys) | **GET** /api/v2/api_keys | Get all API keys |
 | [**list_application_keys**](KeyManagementAPI.md#list_application_keys) | **GET** /api/v2/application_keys | Get all application keys |
@@ -369,6 +370,70 @@ end
 ### Return type
 
 [**APIKeyResponse**](APIKeyResponse.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_application_key
+
+> <ApplicationKeyResponse> get_application_key(app_key_id, opts)
+
+Get an application key for your org.
+
+### Examples
+
+```ruby
+require 'datadog_api_client'
+api_instance = DatadogAPIClient::V2::KeyManagementAPI.new
+app_key_id = 'app_key_id_example' # String | The ID of the application key.
+opts = {
+  include: 'owned_by' # String | Resource path for related resources to include in the response. Only `owned_by` is supported.
+}
+
+begin
+  # Get an application key
+  result = api_instance.get_application_key(app_key_id, opts)
+  p result
+rescue DatadogAPIClient::V2::APIError => e
+  puts "Error when calling KeyManagementAPI->get_application_key: #{e}"
+end
+```
+
+#### Using the get_application_key_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApplicationKeyResponse>, Integer, Hash)> get_application_key_with_http_info(app_key_id, opts)
+
+```ruby
+begin
+  # Get an application key
+  data, status_code, headers = api_instance.get_application_key_with_http_info(app_key_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApplicationKeyResponse>
+rescue DatadogAPIClient::V2::APIError => e
+  puts "Error when calling KeyManagementAPI->get_application_key_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **app_key_id** | **String** | The ID of the application key. |  |
+| **include** | **String** | Resource path for related resources to include in the response. Only &#x60;owned_by&#x60; is supported. | [optional] |
+
+### Return type
+
+[**ApplicationKeyResponse**](ApplicationKeyResponse.md)
 
 ### Authorization
 

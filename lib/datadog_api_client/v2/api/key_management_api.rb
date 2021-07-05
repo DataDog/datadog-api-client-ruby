@@ -467,6 +467,82 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get an application key
+    # Get an application key for your org.
+    # @param app_key_id [String] The ID of the application key.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :include Resource path for related resources to include in the response. Only &#x60;owned_by&#x60; is supported.
+    # @return [ApplicationKeyResponse]
+    def get_application_key(app_key_id, opts = {})
+      data, _status_code, _headers = get_application_key_with_http_info(app_key_id, opts)
+      data
+    end
+
+    # Get an application key
+    # Get an application key for your org.
+    # @param app_key_id [String] The ID of the application key.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :include Resource path for related resources to include in the response. Only &#x60;owned_by&#x60; is supported.
+    # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
+    def get_application_key_with_http_info(app_key_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_application_key)
+        unstable_enabled = @api_client.config.unstable_operations[:get_application_key]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_application_key")
+        else
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_application_key"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KeyManagementAPI.get_application_key ...'
+      end
+      # verify the required parameter 'app_key_id' is set
+      if @api_client.config.client_side_validation && app_key_id.nil?
+        fail ArgumentError, "Missing the required parameter 'app_key_id' when calling KeyManagementAPI.get_application_key"
+      end
+      # resource path
+      local_var_path = '/api/v2/application_keys/{app_key_id}'.sub('{' + 'app_key_id' + '}', CGI.escape(app_key_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApplicationKeyResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_application_key,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KeyManagementAPI#get_application_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get one application key owned by current user
     # Get an application key owned by current user
     # @param app_key_id [String] The ID of the application key.
