@@ -57,6 +57,7 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V2::KeyManagementAPI* | [**delete_application_key**](KeyManagementAPI.md#delete_application_key) | **DELETE** /api/v2/application_keys/{app_key_id} | Delete an application key
 *DatadogAPIClient::V2::KeyManagementAPI* | [**delete_current_user_application_key**](KeyManagementAPI.md#delete_current_user_application_key) | **DELETE** /api/v2/current_user/application_keys/{app_key_id} | Delete an application key owned by current user
 *DatadogAPIClient::V2::KeyManagementAPI* | [**get_api_key**](KeyManagementAPI.md#get_api_key) | **GET** /api/v2/api_keys/{api_key_id} | Get API key
+*DatadogAPIClient::V2::KeyManagementAPI* | [**get_application_key**](KeyManagementAPI.md#get_application_key) | **GET** /api/v2/application_keys/{app_key_id} | Get an application key
 *DatadogAPIClient::V2::KeyManagementAPI* | [**get_current_user_application_key**](KeyManagementAPI.md#get_current_user_application_key) | **GET** /api/v2/current_user/application_keys/{app_key_id} | Get one application key owned by current user
 *DatadogAPIClient::V2::KeyManagementAPI* | [**list_api_keys**](KeyManagementAPI.md#list_api_keys) | **GET** /api/v2/api_keys | Get all API keys
 *DatadogAPIClient::V2::KeyManagementAPI* | [**list_application_keys**](KeyManagementAPI.md#list_application_keys) | **GET** /api/v2/application_keys | Get all application keys
