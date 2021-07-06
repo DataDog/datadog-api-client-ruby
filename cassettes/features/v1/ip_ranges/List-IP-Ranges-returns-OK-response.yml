@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Thu, 01 Jul 2021 10:54:14 GMT
+- recorded_at: Tue, 06 Jul 2021 10:09:46 GMT
   request:
     body: null
     headers:
@@ -12,7 +12,7 @@ http_interactions:
       Content-Type:
       - application/json
       Date:
-      - Thu, 01 Jul 2021 10:54:16 GMT
+      - Tue, 06 Jul 2021 10:09:48 GMT
       Etag:
       - '"ecb4ed42838b56fe91b86d372e2f1b0e"'
       Last-Modified:
@@ -22,11 +22,11 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Via:
-      - 1.1 d7f531af10bfff5400817f213f0b7761.cloudfront.net (CloudFront)
+      - 1.1 40adc3dc2f5b304254d63ab3859fedd2.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - IuzXMPVk_FAwRkhWBEFdbbfQygkH1FQLUnQATyJM99KjQxSOzumpRg==
+      - f78CjN_czPWSTEdMgtXeukIyTg6Q-fKmZZ6cXxlUN6ddblnecFQmQg==
       X-Amz-Cf-Pop:
-      - MAD51-C1
+      - IAD89-C2
       X-Cache:
       - RefreshHit from cloudfront
     method: GET
