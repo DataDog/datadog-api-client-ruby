@@ -329,7 +329,7 @@ DatadogAPIClient::V1.configure do |config|
 end
 
 api_instance = DatadogAPIClient::V1::UsageMeteringAPI.new
-report_id = 'report_id_example' # String | The specified ID to search results for.
+report_id = 'report_id_example' # String | Date of the report in the format `YYYY-MM-DD`.
 
 begin
   # Get specified daily custom reports
@@ -362,7 +362,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **report_id** | **String** | The specified ID to search results for. |  |
+| **report_id** | **String** | Date of the report in the format &#x60;YYYY-MM-DD&#x60;. |  |
 
 ### Return type
 
@@ -394,7 +394,7 @@ DatadogAPIClient::V1.configure do |config|
 end
 
 api_instance = DatadogAPIClient::V1::UsageMeteringAPI.new
-report_id = 'report_id_example' # String | The specified ID to search results for.
+report_id = 'report_id_example' # String | Date of the report in the format `YYYY-MM-DD`.
 
 begin
   # Get specified monthly custom reports
@@ -427,7 +427,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **report_id** | **String** | The specified ID to search results for. |  |
+| **report_id** | **String** | Date of the report in the format &#x60;YYYY-MM-DD&#x60;. |  |
 
 ### Return type
 

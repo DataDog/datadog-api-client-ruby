@@ -336,7 +336,7 @@ module DatadogAPIClient::V1
 
     # Get specified daily custom reports
     # Get specified daily custom reports.
-    # @param report_id [String] The specified ID to search results for.
+    # @param report_id [String] Date of the report in the format &#x60;YYYY-MM-DD&#x60;.
     # @param [Hash] opts the optional parameters
     # @return [UsageSpecifiedCustomReportsResponse]
     def get_specified_daily_custom_reports(report_id, opts = {})
@@ -346,7 +346,7 @@ module DatadogAPIClient::V1
 
     # Get specified daily custom reports
     # Get specified daily custom reports.
-    # @param report_id [String] The specified ID to search results for.
+    # @param report_id [String] Date of the report in the format &#x60;YYYY-MM-DD&#x60;.
     # @param [Hash] opts the optional parameters
     # @return [Array<(UsageSpecifiedCustomReportsResponse, Integer, Hash)>] UsageSpecifiedCustomReportsResponse data, response status code and response headers
     def get_specified_daily_custom_reports_with_http_info(report_id, opts = {})
@@ -409,7 +409,7 @@ module DatadogAPIClient::V1
 
     # Get specified monthly custom reports
     # Get specified monthly custom reports.
-    # @param report_id [String] The specified ID to search results for.
+    # @param report_id [String] Date of the report in the format &#x60;YYYY-MM-DD&#x60;.
     # @param [Hash] opts the optional parameters
     # @return [UsageSpecifiedCustomReportsResponse]
     def get_specified_monthly_custom_reports(report_id, opts = {})
@@ -419,7 +419,7 @@ module DatadogAPIClient::V1
 
     # Get specified monthly custom reports
     # Get specified monthly custom reports.
-    # @param report_id [String] The specified ID to search results for.
+    # @param report_id [String] Date of the report in the format &#x60;YYYY-MM-DD&#x60;.
     # @param [Hash] opts the optional parameters
     # @return [Array<(UsageSpecifiedCustomReportsResponse, Integer, Hash)>] UsageSpecifiedCustomReportsResponse data, response status code and response headers
     def get_specified_monthly_custom_reports_with_http_info(report_id, opts = {})
