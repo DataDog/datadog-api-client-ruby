@@ -14,7 +14,7 @@ require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::HTTPLogError.new(
   code: 0,
-  message: 
+  message: Your browser sent an invalid request.
 )
 ```
 
