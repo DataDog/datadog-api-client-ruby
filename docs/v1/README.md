@@ -192,7 +192,6 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_monthly_custom_reports**](UsageMeteringAPI.md#get_monthly_custom_reports) | **GET** /api/v1/monthly_custom_reports | Get the list of available monthly custom reports
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_specified_daily_custom_reports**](UsageMeteringAPI.md#get_specified_daily_custom_reports) | **GET** /api/v1/daily_custom_reports/{report_id} | Get specified daily custom reports
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_specified_monthly_custom_reports**](UsageMeteringAPI.md#get_specified_monthly_custom_reports) | **GET** /api/v1/monthly_custom_reports/{report_id} | Get specified monthly custom reports
-*DatadogAPIClient::V1::UsageMeteringAPI* | [**get_tracing_without_limits**](UsageMeteringAPI.md#get_tracing_without_limits) | **GET** /api/v1/usage/tracing-without-limits | Get hourly usage for tracing without limits
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_analyzed_logs**](UsageMeteringAPI.md#get_usage_analyzed_logs) | **GET** /api/v1/usage/analyzed_logs | Get hourly usage for analyzed logs
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_attribution**](UsageMeteringAPI.md#get_usage_attribution) | **GET** /api/v1/usage/attribution | Get Usage Attribution
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_audit_logs**](UsageMeteringAPI.md#get_usage_audit_logs) | **GET** /api/v1/usage/audit_logs | Get hourly usage for audit logs
@@ -218,7 +217,6 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_synthetics_browser**](UsageMeteringAPI.md#get_usage_synthetics_browser) | **GET** /api/v1/usage/synthetics_browser | Get hourly usage for Synthetics Browser Checks
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_timeseries**](UsageMeteringAPI.md#get_usage_timeseries) | **GET** /api/v1/usage/timeseries | Get hourly usage for custom metrics
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_top_avg_metrics**](UsageMeteringAPI.md#get_usage_top_avg_metrics) | **GET** /api/v1/usage/top_avg_metrics | Get all custom metrics by hourly average
-*DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_trace**](UsageMeteringAPI.md#get_usage_trace) | **GET** /api/v1/usage/traces | Get hourly usage for Trace Search
 *DatadogAPIClient::V1::UsersAPI* | [**create_user**](UsersAPI.md#create_user) | **POST** /api/v1/user | Create a user
 *DatadogAPIClient::V1::UsersAPI* | [**disable_user**](UsersAPI.md#disable_user) | **DELETE** /api/v1/user/{user_handle} | Disable a user
 *DatadogAPIClient::V1::UsersAPI* | [**get_user**](UsersAPI.md#get_user) | **GET** /api/v1/user/{user_handle} | Get user details
@@ -763,10 +761,6 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::UsageTopAvgMetricsHour](UsageTopAvgMetricsHour.md)
  - [DatadogAPIClient::V1::UsageTopAvgMetricsMetadata](UsageTopAvgMetricsMetadata.md)
  - [DatadogAPIClient::V1::UsageTopAvgMetricsResponse](UsageTopAvgMetricsResponse.md)
- - [DatadogAPIClient::V1::UsageTraceHour](UsageTraceHour.md)
- - [DatadogAPIClient::V1::UsageTraceResponse](UsageTraceResponse.md)
- - [DatadogAPIClient::V1::UsageTracingWithoutLimitsHour](UsageTracingWithoutLimitsHour.md)
- - [DatadogAPIClient::V1::UsageTracingWithoutLimitsResponse](UsageTracingWithoutLimitsResponse.md)
  - [DatadogAPIClient::V1::User](User.md)
  - [DatadogAPIClient::V1::UserDisableResponse](UserDisableResponse.md)
  - [DatadogAPIClient::V1::UserListResponse](UserListResponse.md)
