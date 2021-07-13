@@ -19,6 +19,9 @@ require 'time'
 module DatadogAPIClient::V1
   # Object describing the Synthetic test request.
   class SyntheticsTestRequest
+    # Allows loading insecure content for an HTTP request in a multistep test step.
+    attr_accessor :allow_insecure
+
     attr_accessor :basic_auth
 
     # Body to include in the test.
@@ -64,6 +67,7 @@ module DatadogAPIClient::V1
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'allow_insecure' => :'allow_insecure',
         :'basic_auth' => :'basicAuth',
         :'body' => :'body',
         :'certificate' => :'certificate',
@@ -90,6 +94,7 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'allow_insecure' => :'Boolean',
         :'basic_auth' => :'SyntheticsBasicAuth',
         :'body' => :'String',
         :'certificate' => :'SyntheticsTestRequestCertificate',
@@ -128,6 +133,10 @@ module DatadogAPIClient::V1
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'allow_insecure')
+        self.allow_insecure = attributes[:'allow_insecure']
+      end
 
       if attributes.key?(:'basic_auth')
         self.basic_auth = attributes[:'basic_auth']
@@ -258,6 +267,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          allow_insecure == o.allow_insecure &&
           basic_auth == o.basic_auth &&
           body == o.body &&
           certificate == o.certificate &&
@@ -284,7 +294,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [basic_auth, body, certificate, dns_server, dns_server_port, headers, host, method, no_saving_response_body, number_of_packets, port, query, should_track_hops, timeout, url].hash
+      [allow_insecure, basic_auth, body, certificate, dns_server, dns_server_port, headers, host, method, no_saving_response_body, number_of_packets, port, query, should_track_hops, timeout, url].hash
     end
 
     # Builds the object from hash

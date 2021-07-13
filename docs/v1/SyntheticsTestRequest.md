@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **allow_insecure** | **Boolean** | Allows loading insecure content for an HTTP request in a multistep test step. | [optional] |
 | **basic_auth** | [**SyntheticsBasicAuth**](SyntheticsBasicAuth.md) |  | [optional] |
 | **body** | **String** | Body to include in the test. | [optional] |
 | **certificate** | [**SyntheticsTestRequestCertificate**](SyntheticsTestRequestCertificate.md) |  | [optional] |
@@ -26,6 +27,7 @@
 require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::SyntheticsTestRequest.new(
+  allow_insecure: null,
   basic_auth: null,
   body: null,
   certificate: null,
