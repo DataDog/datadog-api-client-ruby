@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :name
 
     # Status Code of the error.
-    attr_accessor :status_code
+    attr_accessor :status
 
     attr_accessor :type
 
@@ -35,7 +35,7 @@ module DatadogAPIClient::V1
       {
         :'description' => :'description',
         :'name' => :'name',
-        :'status_code' => :'statusCode',
+        :'status' => :'status',
         :'type' => :'type'
       }
     end
@@ -50,7 +50,7 @@ module DatadogAPIClient::V1
       {
         :'description' => :'String',
         :'name' => :'String',
-        :'status_code' => :'Integer',
+        :'status' => :'Integer',
         :'type' => :'SyntheticsBrowserErrorType'
       }
     end
@@ -84,8 +84,8 @@ module DatadogAPIClient::V1
         self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'status_code')
-        self.status_code = attributes[:'status_code']
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
       end
 
       if attributes.key?(:'type')
@@ -128,7 +128,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           description == o.description &&
           name == o.name &&
-          status_code == o.status_code &&
+          status == o.status &&
           type == o.type
     end
 
@@ -141,7 +141,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [description, name, status_code, type].hash
+      [description, name, status, type].hash
     end
 
     # Builds the object from hash
