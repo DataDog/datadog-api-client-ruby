@@ -46,6 +46,12 @@ describe DatadogAPIClient::V1::UsageSummaryDate do
     end
   end
 
+  describe 'test attribute "audit_logs_lines_indexed_sum"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "aws_host_top99p"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -88,7 +94,37 @@ describe DatadogAPIClient::V1::UsageSummaryDate do
     end
   end
 
+  describe 'test attribute "cspm_container_avg"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "cspm_container_hwm"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "cspm_host_top99p"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "custom_ts_avg"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "cws_container_count_avg"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "cws_host_top99p"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -118,6 +154,12 @@ describe DatadogAPIClient::V1::UsageSummaryDate do
     end
   end
 
+  describe 'test attribute "heroku_host_top99p"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "incident_management_monthly_active_users_hwm"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -142,13 +184,13 @@ describe DatadogAPIClient::V1::UsageSummaryDate do
     end
   end
 
-  describe 'test attribute "iot_device_agg_sum"' do
+  describe 'test attribute "iot_device_sum"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  describe 'test attribute "iot_device_top99p_sum"' do
+  describe 'test attribute "iot_device_top99p"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -179,6 +221,12 @@ describe DatadogAPIClient::V1::UsageSummaryDate do
   end
 
   describe 'test attribute "npm_host_top99p"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "opentelemetry_host_top99p"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -227,6 +275,12 @@ describe DatadogAPIClient::V1::UsageSummaryDate do
   end
 
   describe 'test attribute "twol_ingested_events_bytes_sum"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "vsphere_host_top99p"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

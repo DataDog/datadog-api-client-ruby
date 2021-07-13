@@ -10,7 +10,6 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**get_monthly_custom_reports**](UsageMeteringAPI.md#get_monthly_custom_reports) | **GET** /api/v1/monthly_custom_reports | Get the list of available monthly custom reports |
 | [**get_specified_daily_custom_reports**](UsageMeteringAPI.md#get_specified_daily_custom_reports) | **GET** /api/v1/daily_custom_reports/{report_id} | Get specified daily custom reports |
 | [**get_specified_monthly_custom_reports**](UsageMeteringAPI.md#get_specified_monthly_custom_reports) | **GET** /api/v1/monthly_custom_reports/{report_id} | Get specified monthly custom reports |
-| [**get_tracing_without_limits**](UsageMeteringAPI.md#get_tracing_without_limits) | **GET** /api/v1/usage/tracing-without-limits | Get hourly usage for tracing without limits |
 | [**get_usage_analyzed_logs**](UsageMeteringAPI.md#get_usage_analyzed_logs) | **GET** /api/v1/usage/analyzed_logs | Get hourly usage for analyzed logs |
 | [**get_usage_attribution**](UsageMeteringAPI.md#get_usage_attribution) | **GET** /api/v1/usage/attribution | Get Usage Attribution |
 | [**get_usage_audit_logs**](UsageMeteringAPI.md#get_usage_audit_logs) | **GET** /api/v1/usage/audit_logs | Get hourly usage for audit logs |
@@ -36,7 +35,6 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**get_usage_synthetics_browser**](UsageMeteringAPI.md#get_usage_synthetics_browser) | **GET** /api/v1/usage/synthetics_browser | Get hourly usage for Synthetics Browser Checks |
 | [**get_usage_timeseries**](UsageMeteringAPI.md#get_usage_timeseries) | **GET** /api/v1/usage/timeseries | Get hourly usage for custom metrics |
 | [**get_usage_top_avg_metrics**](UsageMeteringAPI.md#get_usage_top_avg_metrics) | **GET** /api/v1/usage/top_avg_metrics | Get all custom metrics by hourly average |
-| [**get_usage_trace**](UsageMeteringAPI.md#get_usage_trace) | **GET** /api/v1/usage/traces | Get hourly usage for Trace Search |
 
 
 ## get_daily_custom_reports
@@ -432,72 +430,6 @@ end
 ### Return type
 
 [**UsageSpecifiedCustomReportsResponse**](UsageSpecifiedCustomReportsResponse.md)
-
-### Authorization
-
-[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
-
-
-## get_tracing_without_limits
-
-> <UsageTracingWithoutLimitsResponse> get_tracing_without_limits(start_hr, opts)
-
-Get hourly usage for tracing without limits.
-
-**Note** This endpoint has been renamed to `/api/v1/usage/ingested-spans`.
-
-### Examples
-
-```ruby
-require 'datadog_api_client'
-api_instance = DatadogAPIClient::V1::UsageMeteringAPI.new
-start_hr = Time.parse('2013-10-20T19:20:30+01:00') # Time | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
-opts = {
-  end_hr: Time.parse('2013-10-20T19:20:30+01:00') # Time | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
-}
-
-begin
-  # Get hourly usage for tracing without limits
-  result = api_instance.get_tracing_without_limits(start_hr, opts)
-  p result
-rescue DatadogAPIClient::V1::APIError => e
-  puts "Error when calling UsageMeteringAPI->get_tracing_without_limits: #{e}"
-end
-```
-
-#### Using the get_tracing_without_limits_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<UsageTracingWithoutLimitsResponse>, Integer, Hash)> get_tracing_without_limits_with_http_info(start_hr, opts)
-
-```ruby
-begin
-  # Get hourly usage for tracing without limits
-  data, status_code, headers = api_instance.get_tracing_without_limits_with_http_info(start_hr, opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <UsageTracingWithoutLimitsResponse>
-rescue DatadogAPIClient::V1::APIError => e
-  puts "Error when calling UsageMeteringAPI->get_tracing_without_limits_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |  |
-| **end_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
-
-### Return type
-
-[**UsageTracingWithoutLimitsResponse**](UsageTracingWithoutLimitsResponse.md)
 
 ### Authorization
 
@@ -2119,72 +2051,6 @@ end
 ### Return type
 
 [**UsageTopAvgMetricsResponse**](UsageTopAvgMetricsResponse.md)
-
-### Authorization
-
-[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
-
-
-## get_usage_trace
-
-> <UsageTraceResponse> get_usage_trace(start_hr, opts)
-
-Get hourly usage for trace search.
-
-**Note** This endpoint has been renamed to `/api/v1/usage/indexed-spans`.
-
-### Examples
-
-```ruby
-require 'datadog_api_client'
-api_instance = DatadogAPIClient::V1::UsageMeteringAPI.new
-start_hr = Time.parse('2013-10-20T19:20:30+01:00') # Time | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
-opts = {
-  end_hr: Time.parse('2013-10-20T19:20:30+01:00') # Time | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
-}
-
-begin
-  # Get hourly usage for Trace Search
-  result = api_instance.get_usage_trace(start_hr, opts)
-  p result
-rescue DatadogAPIClient::V1::APIError => e
-  puts "Error when calling UsageMeteringAPI->get_usage_trace: #{e}"
-end
-```
-
-#### Using the get_usage_trace_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<UsageTraceResponse>, Integer, Hash)> get_usage_trace_with_http_info(start_hr, opts)
-
-```ruby
-begin
-  # Get hourly usage for Trace Search
-  data, status_code, headers = api_instance.get_usage_trace_with_http_info(start_hr, opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <UsageTraceResponse>
-rescue DatadogAPIClient::V1::APIError => e
-  puts "Error when calling UsageMeteringAPI->get_usage_trace_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. |  |
-| **end_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
-
-### Return type
-
-[**UsageTraceResponse**](UsageTraceResponse.md)
 
 ### Authorization
 
