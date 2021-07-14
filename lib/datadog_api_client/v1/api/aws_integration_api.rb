@@ -249,7 +249,7 @@ module DatadogAPIClient::V1
 
     # Delete an AWS integration
     # Delete a Datadog-AWS integration matching the specified `account_id` and `role_name parameters`.
-    # @param body [AWSAccount] AWS request object
+    # @param body [AWSAccountDeleteRequest] AWS request object
     # @param [Hash] opts the optional parameters
     # @return [Object]
     def delete_aws_account(body, opts = {})
@@ -259,7 +259,7 @@ module DatadogAPIClient::V1
 
     # Delete an AWS integration
     # Delete a Datadog-AWS integration matching the specified &#x60;account_id&#x60; and &#x60;role_name parameters&#x60;.
-    # @param body [AWSAccount] AWS request object
+    # @param body [AWSAccountDeleteRequest] AWS request object
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def delete_aws_account_with_http_info(body, opts = {})
