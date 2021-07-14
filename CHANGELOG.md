@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## v1.2.0 / 2021-07-14
+
+* [Added] Add `allow_insecure` option for multistep steps in Synthetics. See [#426](https://github.com/DataDog/datadog-api-client-ruby/pull/426).
+* [Added] Add support for ` GET /api/v2/application_keys/{app_key_id}`. See [#416](https://github.com/DataDog/datadog-api-client-ruby/pull/416).
+* [Added] Add `meta` property with pagination info to SLOCorrectionList endpoint response. See [#414](https://github.com/DataDog/datadog-api-client-ruby/pull/414).
+* [Added] Add support for `treemap` widget. See [#409](https://github.com/DataDog/datadog-api-client-ruby/pull/409).
+* [Added] Add missing properties `query_index` and `tag_set` to `MetricsQueryMetadata`. See [#385](https://github.com/DataDog/datadog-api-client-ruby/pull/385).
+* [Added] Add missing fields `hasExtendedTitle`, `type`, `version` and `updateAuthorId` for Security Monitoring Rule endpoints. See [#398](https://github.com/DataDog/datadog-api-client-ruby/pull/398).
+* [Added] Dashboard RBAC role support. See [#395](https://github.com/DataDog/datadog-api-client-ruby/pull/395).
+* [Added] Add missing fields in usage billable summary keys. See [#393](https://github.com/DataDog/datadog-api-client-ruby/pull/393).
+* [Added] [Synthetics] Add monitor name and priority options. See [#388](https://github.com/DataDog/datadog-api-client-ruby/pull/388).
+* [Fixed] Fix `status` property name for browser error status in Synthetics. See [#428](https://github.com/DataDog/datadog-api-client-ruby/pull/428).
+* [Fixed] Remove US only constraint for AWS tag filtering. See [#405](https://github.com/DataDog/datadog-api-client-ruby/pull/405).
+* [Fixed] Add BDD tests to synthetics. See [#404](https://github.com/DataDog/datadog-api-client-ruby/pull/404).
+* [Fixed] Handle null in query metrics unit. See [#401](https://github.com/DataDog/datadog-api-client-ruby/pull/401).
+* [Changed] Add separate schema for deleting AWS account. See [#425](https://github.com/DataDog/datadog-api-client-ruby/pull/425).
+* [Changed] Specify format of `report_id` parameter. See [#422](https://github.com/DataDog/datadog-api-client-ruby/pull/422).
+* [Changed] Remove Synthetics tick interval enum. See [#403](https://github.com/DataDog/datadog-api-client-ruby/pull/403).
+* [Removed] Remove deprecated endpoints `/api/v1/usage/traces` and `/api/v1/usage/tracing-without-limits`. See [#430](https://github.com/DataDog/datadog-api-client-ruby/pull/430).
+
 ## 1.1.0 / 2021-06-08
 
 * [Added] Add CWS to usage metering endpoint. See [#376](https://github.com/DataDog/datadog-api-client-ruby/pull/376).
