@@ -92,16 +92,16 @@ module DatadogAPIClient::V1
     attr_accessor :npm_host_usage
 
     # The percentage of profiled containers usage by tag(s).
-    attr_accessor :profiled_containers_percentage
+    attr_accessor :profiled_container_percentage
 
     # The profiled container usage by tag(s).
-    attr_accessor :profiled_containers_usage
+    attr_accessor :profiled_container_usage
 
     # The percentage of profiled hosts usage by tag(s).
-    attr_accessor :profiled_hosts_percentage
+    attr_accessor :profiled_host_percentage
 
     # The profiled host usage by tag(s).
-    attr_accessor :profiled_hosts_usage
+    attr_accessor :profiled_host_usage
 
     # The percentage of network device usage by tag(s).
     attr_accessor :snmp_percentage
@@ -136,10 +136,10 @@ module DatadogAPIClient::V1
         :'lambda_usage' => :'lambda_usage',
         :'npm_host_percentage' => :'npm_host_percentage',
         :'npm_host_usage' => :'npm_host_usage',
-        :'profiled_containers_percentage' => :'profiled_containers_percentage',
-        :'profiled_containers_usage' => :'profiled_containers_usage',
-        :'profiled_hosts_percentage' => :'profiled_hosts_percentage',
-        :'profiled_hosts_usage' => :'profiled_hosts_usage',
+        :'profiled_container_percentage' => :'profiled_container_percentage',
+        :'profiled_container_usage' => :'profiled_container_usage',
+        :'profiled_host_percentage' => :'profiled_host_percentage',
+        :'profiled_host_usage' => :'profiled_host_usage',
         :'snmp_percentage' => :'snmp_percentage',
         :'snmp_usage' => :'snmp_usage'
       }
@@ -177,10 +177,10 @@ module DatadogAPIClient::V1
         :'lambda_usage' => :'Float',
         :'npm_host_percentage' => :'Float',
         :'npm_host_usage' => :'Float',
-        :'profiled_containers_percentage' => :'Float',
-        :'profiled_containers_usage' => :'Float',
-        :'profiled_hosts_percentage' => :'Float',
-        :'profiled_hosts_usage' => :'Float',
+        :'profiled_container_percentage' => :'Float',
+        :'profiled_container_usage' => :'Float',
+        :'profiled_host_percentage' => :'Float',
+        :'profiled_host_usage' => :'Float',
         :'snmp_percentage' => :'Float',
         :'snmp_usage' => :'Float'
       }
@@ -303,20 +303,20 @@ module DatadogAPIClient::V1
         self.npm_host_usage = attributes[:'npm_host_usage']
       end
 
-      if attributes.key?(:'profiled_containers_percentage')
-        self.profiled_containers_percentage = attributes[:'profiled_containers_percentage']
+      if attributes.key?(:'profiled_container_percentage')
+        self.profiled_container_percentage = attributes[:'profiled_container_percentage']
       end
 
-      if attributes.key?(:'profiled_containers_usage')
-        self.profiled_containers_usage = attributes[:'profiled_containers_usage']
+      if attributes.key?(:'profiled_container_usage')
+        self.profiled_container_usage = attributes[:'profiled_container_usage']
       end
 
-      if attributes.key?(:'profiled_hosts_percentage')
-        self.profiled_hosts_percentage = attributes[:'profiled_hosts_percentage']
+      if attributes.key?(:'profiled_host_percentage')
+        self.profiled_host_percentage = attributes[:'profiled_host_percentage']
       end
 
-      if attributes.key?(:'profiled_hosts_usage')
-        self.profiled_hosts_usage = attributes[:'profiled_hosts_usage']
+      if attributes.key?(:'profiled_host_usage')
+        self.profiled_host_usage = attributes[:'profiled_host_usage']
       end
 
       if attributes.key?(:'snmp_percentage')
@@ -370,10 +370,10 @@ module DatadogAPIClient::V1
           lambda_usage == o.lambda_usage &&
           npm_host_percentage == o.npm_host_percentage &&
           npm_host_usage == o.npm_host_usage &&
-          profiled_containers_percentage == o.profiled_containers_percentage &&
-          profiled_containers_usage == o.profiled_containers_usage &&
-          profiled_hosts_percentage == o.profiled_hosts_percentage &&
-          profiled_hosts_usage == o.profiled_hosts_usage &&
+          profiled_container_percentage == o.profiled_container_percentage &&
+          profiled_container_usage == o.profiled_container_usage &&
+          profiled_host_percentage == o.profiled_host_percentage &&
+          profiled_host_usage == o.profiled_host_usage &&
           snmp_percentage == o.snmp_percentage &&
           snmp_usage == o.snmp_usage
     end
@@ -387,7 +387,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [api_percentage, api_usage, apm_host_percentage, apm_host_usage, browser_percentage, browser_usage, container_percentage, container_usage, custom_timeseries_percentage, custom_timeseries_usage, cws_container_percentage, cws_container_usage, cws_host_percentage, cws_host_usage, infra_host_percentage, infra_host_usage, lambda_functions_percentage, lambda_functions_usage, lambda_invocations_percentage, lambda_invocations_usage, lambda_percentage, lambda_usage, npm_host_percentage, npm_host_usage, profiled_containers_percentage, profiled_containers_usage, profiled_hosts_percentage, profiled_hosts_usage, snmp_percentage, snmp_usage].hash
+      [api_percentage, api_usage, apm_host_percentage, apm_host_usage, browser_percentage, browser_usage, container_percentage, container_usage, custom_timeseries_percentage, custom_timeseries_usage, cws_container_percentage, cws_container_usage, cws_host_percentage, cws_host_usage, infra_host_percentage, infra_host_usage, lambda_functions_percentage, lambda_functions_usage, lambda_invocations_percentage, lambda_invocations_usage, lambda_percentage, lambda_usage, npm_host_percentage, npm_host_usage, profiled_container_percentage, profiled_container_usage, profiled_host_percentage, profiled_host_usage, snmp_percentage, snmp_usage].hash
     end
 
     # Builds the object from hash
