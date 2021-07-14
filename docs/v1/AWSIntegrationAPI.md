@@ -209,7 +209,7 @@ Delete a Datadog-AWS integration matching the specified `account_id` and `role_n
 ```ruby
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::AWSIntegrationAPI.new
-body = DatadogAPIClient::V1::AWSAccount.new # AWSAccount | AWS request object
+body = DatadogAPIClient::V1::AWSAccountDeleteRequest.new # AWSAccountDeleteRequest | AWS request object
 
 begin
   # Delete an AWS integration
@@ -242,7 +242,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**AWSAccount**](AWSAccount.md) | AWS request object |  |
+| **body** | [**AWSAccountDeleteRequest**](AWSAccountDeleteRequest.md) | AWS request object |  |
 
 ### Return type
 

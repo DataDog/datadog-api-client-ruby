@@ -230,6 +230,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::AWSAccount](AWSAccount.md)
  - [DatadogAPIClient::V1::AWSAccountAndLambdaRequest](AWSAccountAndLambdaRequest.md)
  - [DatadogAPIClient::V1::AWSAccountCreateResponse](AWSAccountCreateResponse.md)
+ - [DatadogAPIClient::V1::AWSAccountDeleteRequest](AWSAccountDeleteRequest.md)
  - [DatadogAPIClient::V1::AWSAccountListResponse](AWSAccountListResponse.md)
  - [DatadogAPIClient::V1::AWSLogsAsyncError](AWSLogsAsyncError.md)
  - [DatadogAPIClient::V1::AWSLogsAsyncResponse](AWSLogsAsyncResponse.md)
