@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## v1.2.0 / 2021-07-14
+## v1.2.0 / 2021-07-15
 
 * [Added] Add `allow_insecure` option for multistep steps in Synthetics. See [#426](https://github.com/DataDog/datadog-api-client-ruby/pull/426).
 * [Added] Add support for ` GET /api/v2/application_keys/{app_key_id}`. See [#416](https://github.com/DataDog/datadog-api-client-ruby/pull/416).
