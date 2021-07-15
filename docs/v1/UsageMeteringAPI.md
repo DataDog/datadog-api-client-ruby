@@ -4,6 +4,7 @@ All URIs are relative to *https://api.datadoghq.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**get_chargeback_summary**](UsageMeteringAPI.md#get_chargeback_summary) | **GET** /api/v1/usage/chargeback-summary | Get cost by sub-org |
 | [**get_daily_custom_reports**](UsageMeteringAPI.md#get_daily_custom_reports) | **GET** /api/v1/daily_custom_reports | Get the list of available daily custom reports |
 | [**get_incident_management**](UsageMeteringAPI.md#get_incident_management) | **GET** /api/v1/usage/incident-management | Get hourly usage for incident management |
 | [**get_ingested_spans**](UsageMeteringAPI.md#get_ingested_spans) | **GET** /api/v1/usage/ingested-spans | Get hourly usage for ingested spans |
@@ -35,6 +36,70 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**get_usage_synthetics_browser**](UsageMeteringAPI.md#get_usage_synthetics_browser) | **GET** /api/v1/usage/synthetics_browser | Get hourly usage for Synthetics Browser Checks |
 | [**get_usage_timeseries**](UsageMeteringAPI.md#get_usage_timeseries) | **GET** /api/v1/usage/timeseries | Get hourly usage for custom metrics |
 | [**get_usage_top_avg_metrics**](UsageMeteringAPI.md#get_usage_top_avg_metrics) | **GET** /api/v1/usage/top_avg_metrics | Get all custom metrics by hourly average |
+
+
+## get_chargeback_summary
+
+> <ChargebackSummaryResponse> get_chargeback_summary(start_month, opts)
+
+Get usage cost per product for each sub-org across your multi-org account.
+
+### Examples
+
+```ruby
+require 'datadog_api_client'
+api_instance = DatadogAPIClient::V1::UsageMeteringAPI.new
+start_month = Time.parse('2013-10-20T19:20:30+01:00') # Time | Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage beginning in this month. Maximum of 15 months ago.
+opts = {
+  end_month: Time.parse('2013-10-20T19:20:30+01:00') # Time | Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage ending this month.
+}
+
+begin
+  # Get cost by sub-org
+  result = api_instance.get_chargeback_summary(start_month, opts)
+  p result
+rescue DatadogAPIClient::V1::APIError => e
+  puts "Error when calling UsageMeteringAPI->get_chargeback_summary: #{e}"
+end
+```
+
+#### Using the get_chargeback_summary_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ChargebackSummaryResponse>, Integer, Hash)> get_chargeback_summary_with_http_info(start_month, opts)
+
+```ruby
+begin
+  # Get cost by sub-org
+  data, status_code, headers = api_instance.get_chargeback_summary_with_http_info(start_month, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ChargebackSummaryResponse>
+rescue DatadogAPIClient::V1::APIError => e
+  puts "Error when calling UsageMeteringAPI->get_chargeback_summary_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **start_month** | **Time** | Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago. |  |
+| **end_month** | **Time** | Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month. | [optional] |
+
+### Return type
+
+[**ChargebackSummaryResponse**](ChargebackSummaryResponse.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json;datetime-format=rfc3339
 
 
 ## get_daily_custom_reports
