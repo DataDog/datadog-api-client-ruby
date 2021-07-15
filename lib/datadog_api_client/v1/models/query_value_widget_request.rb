@@ -23,6 +23,8 @@ module DatadogAPIClient::V1
 
     attr_accessor :apm_query
 
+    attr_accessor :audit_query
+
     # List of conditional formats.
     attr_accessor :conditional_formats
 
@@ -56,6 +58,7 @@ module DatadogAPIClient::V1
       {
         :'aggregator' => :'aggregator',
         :'apm_query' => :'apm_query',
+        :'audit_query' => :'audit_query',
         :'conditional_formats' => :'conditional_formats',
         :'event_query' => :'event_query',
         :'formulas' => :'formulas',
@@ -81,6 +84,7 @@ module DatadogAPIClient::V1
       {
         :'aggregator' => :'WidgetAggregator',
         :'apm_query' => :'LogQueryDefinition',
+        :'audit_query' => :'LogQueryDefinition',
         :'conditional_formats' => :'Array<WidgetConditionalFormat>',
         :'event_query' => :'LogQueryDefinition',
         :'formulas' => :'Array<WidgetFormula>',
@@ -123,6 +127,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'apm_query')
         self.apm_query = attributes[:'apm_query']
+      end
+
+      if attributes.key?(:'audit_query')
+        self.audit_query = attributes[:'audit_query']
       end
 
       if attributes.key?(:'conditional_formats')
@@ -200,6 +208,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           aggregator == o.aggregator &&
           apm_query == o.apm_query &&
+          audit_query == o.audit_query &&
           conditional_formats == o.conditional_formats &&
           event_query == o.event_query &&
           formulas == o.formulas &&
@@ -223,7 +232,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aggregator, apm_query, conditional_formats, event_query, formulas, log_query, network_query, process_query, profile_metrics_query, q, queries, response_format, rum_query, security_query].hash
+      [aggregator, apm_query, audit_query, conditional_formats, event_query, formulas, log_query, network_query, process_query, profile_metrics_query, q, queries, response_format, rum_query, security_query].hash
     end
 
     # Builds the object from hash

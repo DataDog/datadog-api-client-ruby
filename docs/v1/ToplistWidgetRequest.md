@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **apm_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
+| **audit_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
 | **conditional_formats** | [**Array&lt;WidgetConditionalFormat&gt;**](WidgetConditionalFormat.md) | List of conditional formats. | [optional] |
 | **event_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
 | **formulas** | [**Array&lt;WidgetFormula&gt;**](WidgetFormula.md) | List of formulas that operate on queries. **This feature is currently in beta.** | [optional] |
@@ -26,6 +27,7 @@ require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::ToplistWidgetRequest.new(
   apm_query: null,
+  audit_query: null,
   conditional_formats: [{&quot;comparator&quot;:&quot;&gt;&#x3D;&quot;,&quot;palette&quot;:&quot;blue&quot;,&quot;value&quot;:1.0}],
   event_query: null,
   formulas: null,

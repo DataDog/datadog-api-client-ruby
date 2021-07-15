@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **aggregator** | [**WidgetAggregator**](WidgetAggregator.md) |  | [optional] |
 | **apm_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
+| **audit_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
 | **conditional_formats** | [**Array&lt;WidgetConditionalFormat&gt;**](WidgetConditionalFormat.md) | List of conditional formats. | [optional] |
 | **event_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
 | **formulas** | [**Array&lt;WidgetFormula&gt;**](WidgetFormula.md) | List of formulas that operate on queries. **This feature is currently in beta.** | [optional] |
@@ -27,6 +28,7 @@ require 'datadog_api_client/v1'
 instance = DatadogAPIClient::V1::QueryValueWidgetRequest.new(
   aggregator: null,
   apm_query: null,
+  audit_query: null,
   conditional_formats: null,
   event_query: null,
   formulas: null,
