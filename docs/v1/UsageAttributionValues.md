@@ -12,6 +12,10 @@
 | **browser_usage** | **Float** | The synthetic browser test usage by tag(s). | [optional] |
 | **container_percentage** | **Float** | The percentage of container usage by tag(s). | [optional] |
 | **container_usage** | **Float** | The container usage by tag(s). | [optional] |
+| **cspm_container_percentage** | **Float** | The percentage of Cloud Security Posture Management container usage by tag(s) | [optional] |
+| **cspm_container_usage** | **Float** | The Cloud Security Posture Management container usage by tag(s) | [optional] |
+| **cspm_host_percentage** | **Float** | The percentage of Cloud Security Posture Management host usage by tag(s) | [optional] |
+| **cspm_host_usage** | **Float** | The Cloud Security Posture Management host usage by tag(s) | [optional] |
 | **custom_timeseries_percentage** | **Float** | The percentage of custom metrics usage by tag(s). | [optional] |
 | **custom_timeseries_usage** | **Float** | The custom metrics usage by tag(s). | [optional] |
 | **cws_container_percentage** | **Float** | The percentage of Cloud Workload Security container usage by tag(s) | [optional] |
@@ -49,6 +53,10 @@ instance = DatadogAPIClient::V1::UsageAttributionValues.new(
   browser_usage: null,
   container_percentage: null,
   container_usage: null,
+  cspm_container_percentage: null,
+  cspm_container_usage: null,
+  cspm_host_percentage: null,
+  cspm_host_usage: null,
   custom_timeseries_percentage: null,
   custom_timeseries_usage: null,
   cws_container_percentage: null,
