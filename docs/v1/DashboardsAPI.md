@@ -6,8 +6,10 @@ All URIs are relative to *https://api.datadoghq.com*
 | ------ | ------------ | ----------- |
 | [**create_dashboard**](DashboardsAPI.md#create_dashboard) | **POST** /api/v1/dashboard | Create a new dashboard |
 | [**delete_dashboard**](DashboardsAPI.md#delete_dashboard) | **DELETE** /api/v1/dashboard/{dashboard_id} | Delete a dashboard |
+| [**delete_dashboards**](DashboardsAPI.md#delete_dashboards) | **DELETE** /api/v1/dashboard | Delete dashboards |
 | [**get_dashboard**](DashboardsAPI.md#get_dashboard) | **GET** /api/v1/dashboard/{dashboard_id} | Get a dashboard |
 | [**list_dashboards**](DashboardsAPI.md#list_dashboards) | **GET** /api/v1/dashboard | Get all dashboards |
+| [**restore_dashboards**](DashboardsAPI.md#restore_dashboards) | **PATCH** /api/v1/dashboard | Restore deleted dashboards |
 | [**update_dashboard**](DashboardsAPI.md#update_dashboard) | **PUT** /api/v1/dashboard/{dashboard_id} | Update a dashboard |
 
 
@@ -129,6 +131,65 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## delete_dashboards
+
+> delete_dashboards(body)
+
+Delete dashboards using the specified IDs. If there are any failures, no dashboards will be deleted (partial success is not allowed).
+
+### Examples
+
+```ruby
+require 'datadog_api_client'
+api_instance = DatadogAPIClient::V1::DashboardsAPI.new
+body = DatadogAPIClient::V1::DashboardBulkDeleteRequest.new({data: [DatadogAPIClient::V1::DashboardBulkActionData.new({id: '123-abc-456', type: DatadogAPIClient::V1::DashboardResourceType::DASHBOARD})]}) # DashboardBulkDeleteRequest | Delete dashboards request body.
+
+begin
+  # Delete dashboards
+  api_instance.delete_dashboards(body)
+rescue DatadogAPIClient::V1::APIError => e
+  puts "Error when calling DashboardsAPI->delete_dashboards: #{e}"
+end
+```
+
+#### Using the delete_dashboards_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> delete_dashboards_with_http_info(body)
+
+```ruby
+begin
+  # Delete dashboards
+  data, status_code, headers = api_instance.delete_dashboards_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue DatadogAPIClient::V1::APIError => e
+  puts "Error when calling DashboardsAPI->delete_dashboards_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DashboardBulkDeleteRequest**](DashboardBulkDeleteRequest.md) | Delete dashboards request body. |  |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -254,6 +315,65 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## restore_dashboards
+
+> restore_dashboards(body)
+
+Restore dashboards using the specified IDs. If there are any failures, no dashboards will be restored (partial success is not allowed).
+
+### Examples
+
+```ruby
+require 'datadog_api_client'
+api_instance = DatadogAPIClient::V1::DashboardsAPI.new
+body = DatadogAPIClient::V1::DashboardRestoreRequest.new({data: [DatadogAPIClient::V1::DashboardBulkActionData.new({id: '123-abc-456', type: DatadogAPIClient::V1::DashboardResourceType::DASHBOARD})]}) # DashboardRestoreRequest | Restore dashboards request body.
+
+begin
+  # Restore deleted dashboards
+  api_instance.restore_dashboards(body)
+rescue DatadogAPIClient::V1::APIError => e
+  puts "Error when calling DashboardsAPI->restore_dashboards: #{e}"
+end
+```
+
+#### Using the restore_dashboards_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> restore_dashboards_with_http_info(body)
+
+```ruby
+begin
+  # Restore deleted dashboards
+  data, status_code, headers = api_instance.restore_dashboards_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue DatadogAPIClient::V1::APIError => e
+  puts "Error when calling DashboardsAPI->restore_dashboards_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DashboardRestoreRequest**](DashboardRestoreRequest.md) | Restore dashboards request body. |  |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
