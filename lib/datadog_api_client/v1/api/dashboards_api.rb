@@ -170,6 +170,81 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
+    # Delete dashboards
+    # Delete dashboards using the specified IDs. If there are any failures, no dashboards will be deleted (partial success is not allowed).
+    # @param body [DashboardBulkDeleteRequest] Delete dashboards request body.
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def delete_dashboards(body, opts = {})
+      delete_dashboards_with_http_info(body, opts)
+      nil
+    end
+
+    # Delete dashboards
+    # Delete dashboards using the specified IDs. If there are any failures, no dashboards will be deleted (partial success is not allowed).
+    # @param body [DashboardBulkDeleteRequest] Delete dashboards request body.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_dashboards_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:delete_dashboards)
+        unstable_enabled = @api_client.config.unstable_operations[:delete_dashboards]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_dashboards")
+        else
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_dashboards"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DashboardsAPI.delete_dashboards ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling DashboardsAPI.delete_dashboards"
+      end
+      # resource path
+      local_var_path = '/api/v1/dashboard'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_dashboards,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DashboardsAPI#delete_dashboards\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a dashboard
     # Get a dashboard using the specified ID.
     # @param dashboard_id [String] The ID of the dashboard.
@@ -309,6 +384,81 @@ module DatadogAPIClient::V1
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: DashboardsAPI#list_dashboards\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Restore deleted dashboards
+    # Restore dashboards using the specified IDs. If there are any failures, no dashboards will be restored (partial success is not allowed).
+    # @param body [DashboardRestoreRequest] Restore dashboards request body.
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def restore_dashboards(body, opts = {})
+      restore_dashboards_with_http_info(body, opts)
+      nil
+    end
+
+    # Restore deleted dashboards
+    # Restore dashboards using the specified IDs. If there are any failures, no dashboards will be restored (partial success is not allowed).
+    # @param body [DashboardRestoreRequest] Restore dashboards request body.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def restore_dashboards_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:restore_dashboards)
+        unstable_enabled = @api_client.config.unstable_operations[:restore_dashboards]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "restore_dashboards")
+        else
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "restore_dashboards"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DashboardsAPI.restore_dashboards ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling DashboardsAPI.restore_dashboards"
+      end
+      # resource path
+      local_var_path = '/api/v1/dashboard'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :restore_dashboards,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DashboardsAPI#restore_dashboards\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -60,8 +60,10 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::DashboardListsAPI* | [**update_dashboard_list**](DashboardListsAPI.md#update_dashboard_list) | **PUT** /api/v1/dashboard/lists/manual/{list_id} | Update a dashboard list
 *DatadogAPIClient::V1::DashboardsAPI* | [**create_dashboard**](DashboardsAPI.md#create_dashboard) | **POST** /api/v1/dashboard | Create a new dashboard
 *DatadogAPIClient::V1::DashboardsAPI* | [**delete_dashboard**](DashboardsAPI.md#delete_dashboard) | **DELETE** /api/v1/dashboard/{dashboard_id} | Delete a dashboard
+*DatadogAPIClient::V1::DashboardsAPI* | [**delete_dashboards**](DashboardsAPI.md#delete_dashboards) | **DELETE** /api/v1/dashboard | Delete dashboards
 *DatadogAPIClient::V1::DashboardsAPI* | [**get_dashboard**](DashboardsAPI.md#get_dashboard) | **GET** /api/v1/dashboard/{dashboard_id} | Get a dashboard
 *DatadogAPIClient::V1::DashboardsAPI* | [**list_dashboards**](DashboardsAPI.md#list_dashboards) | **GET** /api/v1/dashboard | Get all dashboards
+*DatadogAPIClient::V1::DashboardsAPI* | [**restore_dashboards**](DashboardsAPI.md#restore_dashboards) | **PATCH** /api/v1/dashboard | Restore deleted dashboards
 *DatadogAPIClient::V1::DashboardsAPI* | [**update_dashboard**](DashboardsAPI.md#update_dashboard) | **PUT** /api/v1/dashboard/{dashboard_id} | Update a dashboard
 *DatadogAPIClient::V1::DowntimesAPI* | [**cancel_downtime**](DowntimesAPI.md#cancel_downtime) | **DELETE** /api/v1/downtime/{downtime_id} | Cancel a downtime
 *DatadogAPIClient::V1::DowntimesAPI* | [**cancel_downtimes_by_scope**](DowntimesAPI.md#cancel_downtimes_by_scope) | **POST** /api/v1/downtime/cancel/by_scope | Cancel downtimes by scope
@@ -273,12 +275,16 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::ContentEncoding](ContentEncoding.md)
  - [DatadogAPIClient::V1::Creator](Creator.md)
  - [DatadogAPIClient::V1::Dashboard](Dashboard.md)
+ - [DatadogAPIClient::V1::DashboardBulkActionData](DashboardBulkActionData.md)
+ - [DatadogAPIClient::V1::DashboardBulkDeleteRequest](DashboardBulkDeleteRequest.md)
  - [DatadogAPIClient::V1::DashboardDeleteResponse](DashboardDeleteResponse.md)
  - [DatadogAPIClient::V1::DashboardLayoutType](DashboardLayoutType.md)
  - [DatadogAPIClient::V1::DashboardList](DashboardList.md)
  - [DatadogAPIClient::V1::DashboardListDeleteResponse](DashboardListDeleteResponse.md)
  - [DatadogAPIClient::V1::DashboardListListResponse](DashboardListListResponse.md)
  - [DatadogAPIClient::V1::DashboardReflowType](DashboardReflowType.md)
+ - [DatadogAPIClient::V1::DashboardResourceType](DashboardResourceType.md)
+ - [DatadogAPIClient::V1::DashboardRestoreRequest](DashboardRestoreRequest.md)
  - [DatadogAPIClient::V1::DashboardSummary](DashboardSummary.md)
  - [DatadogAPIClient::V1::DashboardSummaryDefinition](DashboardSummaryDefinition.md)
  - [DatadogAPIClient::V1::DashboardTemplateVariable](DashboardTemplateVariable.md)
