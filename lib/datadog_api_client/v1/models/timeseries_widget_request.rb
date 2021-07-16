@@ -21,6 +21,8 @@ module DatadogAPIClient::V1
   class TimeseriesWidgetRequest
     attr_accessor :apm_query
 
+    attr_accessor :audit_query
+
     attr_accessor :display_type
 
     attr_accessor :event_query
@@ -60,6 +62,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'apm_query' => :'apm_query',
+        :'audit_query' => :'audit_query',
         :'display_type' => :'display_type',
         :'event_query' => :'event_query',
         :'formulas' => :'formulas',
@@ -87,6 +90,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'apm_query' => :'LogQueryDefinition',
+        :'audit_query' => :'LogQueryDefinition',
         :'display_type' => :'WidgetDisplayType',
         :'event_query' => :'LogQueryDefinition',
         :'formulas' => :'Array<WidgetFormula>',
@@ -128,6 +132,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'apm_query')
         self.apm_query = attributes[:'apm_query']
+      end
+
+      if attributes.key?(:'audit_query')
+        self.audit_query = attributes[:'audit_query']
       end
 
       if attributes.key?(:'display_type')
@@ -216,6 +224,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           apm_query == o.apm_query &&
+          audit_query == o.audit_query &&
           display_type == o.display_type &&
           event_query == o.event_query &&
           formulas == o.formulas &&
@@ -242,7 +251,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [apm_query, display_type, event_query, formulas, log_query, metadata, network_query, on_right_yaxis, process_query, profile_metrics_query, q, queries, response_format, rum_query, security_query, style].hash
+      [apm_query, audit_query, display_type, event_query, formulas, log_query, metadata, network_query, on_right_yaxis, process_query, profile_metrics_query, q, queries, response_format, rum_query, security_query, style].hash
     end
 
     # Builds the object from hash

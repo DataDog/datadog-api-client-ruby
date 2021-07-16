@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **apm_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
+| **audit_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
 | **display_type** | [**WidgetDisplayType**](WidgetDisplayType.md) |  | [optional] |
 | **event_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
 | **formulas** | [**Array&lt;WidgetFormula&gt;**](WidgetFormula.md) | List of formulas that operate on queries. **This feature is currently in beta.** | [optional] |
@@ -28,6 +29,7 @@ require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::TimeseriesWidgetRequest.new(
   apm_query: null,
+  audit_query: null,
   display_type: null,
   event_query: null,
   formulas: null,
