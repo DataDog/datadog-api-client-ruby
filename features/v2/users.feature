@@ -22,6 +22,7 @@ Feature: Users
     And the response "data.attributes.email" is equal to "{{ unique_lower }}@datadoghq.com"
     And the response "data.attributes.name" is equal to "Datadog API Client Python"
     And the response "data.attributes.disabled" is false
+    And the response "data.attributes.service_account" is false
 
   @generated @skip
   Scenario: Disable a user returns "Not found" response

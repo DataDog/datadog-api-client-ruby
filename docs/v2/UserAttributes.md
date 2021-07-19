@@ -11,6 +11,7 @@
 | **icon** | **String** | URL of the user&#39;s icon. | [optional] |
 | **modified_at** | **Time** | Time that the user was last modified. | [optional] |
 | **name** | **String** | Name of the user. | [optional] |
+| **service_account** | **Boolean** | Whether the user is a service account. | [optional] |
 | **status** | **String** | Status of the user. | [optional] |
 | **title** | **String** | Title of the user. | [optional] |
 | **verified** | **Boolean** | Whether the user is verified. | [optional] |
@@ -28,6 +29,7 @@ instance = DatadogAPIClient::V2::UserAttributes.new(
   icon: null,
   modified_at: null,
   name: null,
+  service_account: null,
   status: null,
   title: null,
   verified: null
