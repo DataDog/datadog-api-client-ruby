@@ -2,6 +2,10 @@ Before('@integration-only') do |scenario|
   skip_this_scenario('integration only') unless ENV["RECORD"] == "none"
 end
 
+Before('@skip-ruby') do |scenario|
+  skip_this_scenario('skip ruby')
+end
+
 Around do |scenario, block|
   current_span = Datadog.configuration[:cucumber][:tracer].active_span
   unless current_span.nil?
