@@ -22,6 +22,11 @@ module DatadogAPIClient::V1
     # Expression alias.
     attr_accessor :_alias
 
+    attr_accessor :cell_display_mode
+
+    # List of conditional formats.
+    attr_accessor :conditional_formats
+
     # String expression built from queries, formulas, and functions.
     attr_accessor :formula
 
@@ -31,6 +36,8 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'_alias' => :'alias',
+        :'cell_display_mode' => :'cell_display_mode',
+        :'conditional_formats' => :'conditional_formats',
         :'formula' => :'formula',
         :'limit' => :'limit'
       }
@@ -45,6 +52,8 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'_alias' => :'String',
+        :'cell_display_mode' => :'TableWidgetCellDisplayMode',
+        :'conditional_formats' => :'Array<WidgetConditionalFormat>',
         :'formula' => :'String',
         :'limit' => :'WidgetFormulaLimit'
       }
@@ -73,6 +82,16 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'_alias')
         self._alias = attributes[:'_alias']
+      end
+
+      if attributes.key?(:'cell_display_mode')
+        self.cell_display_mode = attributes[:'cell_display_mode']
+      end
+
+      if attributes.key?(:'conditional_formats')
+        if (value = attributes[:'conditional_formats']).is_a?(Array)
+          self.conditional_formats = value
+        end
       end
 
       if attributes.key?(:'formula')
@@ -108,6 +127,8 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           _alias == o._alias &&
+          cell_display_mode == o.cell_display_mode &&
+          conditional_formats == o.conditional_formats &&
           formula == o.formula &&
           limit == o.limit
     end
@@ -121,7 +142,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [_alias, formula, limit].hash
+      [_alias, cell_display_mode, conditional_formats, formula, limit].hash
     end
 
     # Builds the object from hash
