@@ -325,6 +325,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::MetricsAndMetricTagConfigurationsResponse](MetricsAndMetricTagConfigurationsResponse.md)
  - [DatadogAPIClient::V2::Organization](Organization.md)
  - [DatadogAPIClient::V2::OrganizationAttributes](OrganizationAttributes.md)
+ - [DatadogAPIClient::V2::OrganizationsResponse](OrganizationsResponse.md)
  - [DatadogAPIClient::V2::OrganizationsType](OrganizationsType.md)
  - [DatadogAPIClient::V2::Pagination](Pagination.md)
  - [DatadogAPIClient::V2::PartialAPIKey](PartialAPIKey.md)

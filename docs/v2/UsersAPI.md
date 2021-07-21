@@ -257,7 +257,7 @@ end
 
 ## list_user_organizations
 
-> <UserResponse> list_user_organizations(user_id)
+> <OrganizationsResponse> list_user_organizations(user_id)
 
 Get a user organization. Returns the user information and all organizations
 joined by this user.
@@ -282,7 +282,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<UserResponse>, Integer, Hash)> list_user_organizations_with_http_info(user_id)
+> <Array(<OrganizationsResponse>, Integer, Hash)> list_user_organizations_with_http_info(user_id)
 
 ```ruby
 begin
@@ -290,7 +290,7 @@ begin
   data, status_code, headers = api_instance.list_user_organizations_with_http_info(user_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <UserResponse>
+  p data # => <OrganizationsResponse>
 rescue DatadogAPIClient::V2::APIError => e
   puts "Error when calling UsersAPI->list_user_organizations_with_http_info: #{e}"
 end
@@ -304,7 +304,7 @@ end
 
 ### Return type
 
-[**UserResponse**](UserResponse.md)
+[**OrganizationsResponse**](OrganizationsResponse.md)
 
 ### Authorization
 

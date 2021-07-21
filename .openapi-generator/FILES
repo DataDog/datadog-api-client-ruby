@@ -207,6 +207,7 @@ docs/MetricsAndMetricTagConfigurations.md
 docs/MetricsAndMetricTagConfigurationsResponse.md
 docs/Organization.md
 docs/OrganizationAttributes.md
+docs/OrganizationsResponse.md
 docs/OrganizationsType.md
 docs/Pagination.md
 docs/PartialAPIKey.md
@@ -547,6 +548,7 @@ lib/datadog_api_client/v2/models/metrics_and_metric_tag_configurations.rb
 lib/datadog_api_client/v2/models/metrics_and_metric_tag_configurations_response.rb
 lib/datadog_api_client/v2/models/organization.rb
 lib/datadog_api_client/v2/models/organization_attributes.rb
+lib/datadog_api_client/v2/models/organizations_response.rb
 lib/datadog_api_client/v2/models/organizations_type.rb
 lib/datadog_api_client/v2/models/pagination.rb
 lib/datadog_api_client/v2/models/partial_api_key.rb
@@ -881,6 +883,7 @@ spec/models/metrics_and_metric_tag_configurations_response_spec.rb
 spec/models/metrics_and_metric_tag_configurations_spec.rb
 spec/models/organization_attributes_spec.rb
 spec/models/organization_spec.rb
+spec/models/organizations_response_spec.rb
 spec/models/organizations_type_spec.rb
 spec/models/pagination_spec.rb
 spec/models/partial_api_key_attributes_spec.rb

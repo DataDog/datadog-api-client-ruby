@@ -320,7 +320,7 @@ module DatadogAPIClient::V2
     # Get a user organization. Returns the user information and all organizations joined by this user.
     # @param user_id [String] The ID of the user.
     # @param [Hash] opts the optional parameters
-    # @return [UserResponse]
+    # @return [OrganizationsResponse]
     def list_user_organizations(user_id, opts = {})
       data, _status_code, _headers = list_user_organizations_with_http_info(user_id, opts)
       data
@@ -330,7 +330,7 @@ module DatadogAPIClient::V2
     # Get a user organization. Returns the user information and all organizations joined by this user.
     # @param user_id [String] The ID of the user.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(UserResponse, Integer, Hash)>] UserResponse data, response status code and response headers
+    # @return [Array<(OrganizationsResponse, Integer, Hash)>] OrganizationsResponse data, response status code and response headers
     def list_user_organizations_with_http_info(user_id, opts = {})
 
       if @api_client.config.unstable_operations.has_key?(:list_user_organizations)
@@ -367,7 +367,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'UserResponse'
+      return_type = opts[:debug_return_type] || 'OrganizationsResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
