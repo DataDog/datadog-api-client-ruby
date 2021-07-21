@@ -28,6 +28,7 @@ DatadogAPIClient::V1::WidgetDefinition.openapi_one_of
 #   :'HostMapWidgetDefinition',
 #   :'IFrameWidgetDefinition',
 #   :'ImageWidgetDefinition',
+#   :'ListStreamWidgetDefinition',
 #   :'LogStreamWidgetDefinition',
 #   :'MonitorSummaryWidgetDefinition',
 #   :'NoteWidgetDefinition',
@@ -81,6 +82,7 @@ DatadogAPIClient::V1::WidgetDefinition.build(data_that_doesnt_match)
 - `HostMapWidgetDefinition`
 - `IFrameWidgetDefinition`
 - `ImageWidgetDefinition`
+- `ListStreamWidgetDefinition`
 - `LogStreamWidgetDefinition`
 - `MonitorSummaryWidgetDefinition`
 - `NoteWidgetDefinition`

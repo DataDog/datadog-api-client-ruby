@@ -37,6 +37,7 @@ module DatadogAPIClient::V1
           :'HostMapWidgetDefinition',
           :'IFrameWidgetDefinition',
           :'ImageWidgetDefinition',
+          :'ListStreamWidgetDefinition',
           :'LogStreamWidgetDefinition',
           :'MonitorSummaryWidgetDefinition',
           :'NoteWidgetDefinition',
