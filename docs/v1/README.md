@@ -188,6 +188,7 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::TagsAPI* | [**get_host_tags**](TagsAPI.md#get_host_tags) | **GET** /api/v1/tags/hosts/{host_name} | Get host tags
 *DatadogAPIClient::V1::TagsAPI* | [**list_host_tags**](TagsAPI.md#list_host_tags) | **GET** /api/v1/tags/hosts | Get Tags
 *DatadogAPIClient::V1::TagsAPI* | [**update_host_tags**](TagsAPI.md#update_host_tags) | **PUT** /api/v1/tags/hosts/{host_name} | Update host tags
+*DatadogAPIClient::V1::UsageMeteringAPI* | [**get_chargeback_summary**](UsageMeteringAPI.md#get_chargeback_summary) | **GET** /api/v1/usage/chargeback-summary | Get cost by sub-org
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_daily_custom_reports**](UsageMeteringAPI.md#get_daily_custom_reports) | **GET** /api/v1/daily_custom_reports | Get the list of available daily custom reports
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_incident_management**](UsageMeteringAPI.md#get_incident_management) | **GET** /api/v1/usage/incident-management | Get hourly usage for incident management
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_ingested_spans**](UsageMeteringAPI.md#get_ingested_spans) | **GET** /api/v1/usage/ingested-spans | Get hourly usage for ingested spans
@@ -266,6 +267,9 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::ChangeWidgetDefinition](ChangeWidgetDefinition.md)
  - [DatadogAPIClient::V1::ChangeWidgetDefinitionType](ChangeWidgetDefinitionType.md)
  - [DatadogAPIClient::V1::ChangeWidgetRequest](ChangeWidgetRequest.md)
+ - [DatadogAPIClient::V1::ChargebackOrgMonth](ChargebackOrgMonth.md)
+ - [DatadogAPIClient::V1::ChargebackSummaryCharge](ChargebackSummaryCharge.md)
+ - [DatadogAPIClient::V1::ChargebackSummaryResponse](ChargebackSummaryResponse.md)
  - [DatadogAPIClient::V1::CheckCanDeleteMonitorResponse](CheckCanDeleteMonitorResponse.md)
  - [DatadogAPIClient::V1::CheckCanDeleteMonitorResponseData](CheckCanDeleteMonitorResponseData.md)
  - [DatadogAPIClient::V1::CheckCanDeleteSLOResponse](CheckCanDeleteSLOResponse.md)
