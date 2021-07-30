@@ -11,11 +11,11 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 =end
 
 require_relative '../features/support/env.rb'
-require 'ddtrace'
+require 'datadog/ci'
 require 'webmock/rspec'
 
 Datadog.configure do |c|
-  c.tracer(writer_options: { buffer_size: 5000, flush_interval: 0.1 })
+  c.ci_mode.enabled = true
   c.use :ethon, {}
   c.use :rspec, {}
 end
