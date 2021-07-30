@@ -349,7 +349,6 @@ lib/datadog_api_client/v2/api/users_api.rb
 lib/datadog_api_client/v2/api_client.rb
 lib/datadog_api_client/v2/api_error.rb
 lib/datadog_api_client/v2/configuration.rb
-lib/datadog_api_client/v2/configuration.rb
 lib/datadog_api_client/v2/models/api_error_response.rb
 lib/datadog_api_client/v2/models/api_key_create_attributes.rb
 lib/datadog_api_client/v2/models/api_key_create_data.rb
