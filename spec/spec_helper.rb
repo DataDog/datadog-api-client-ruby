@@ -112,10 +112,6 @@ RSpec.configure do |config|
     @api_client = api::APIClient.new @configuration
   end
 
-  config.after(:suite) do
-    Datadog.tracer.writer.worker.callback_traces
-  end
-
   config.example_status_persistence_file_path = 'failed.txt'
 
   # The settings below are suggested to provide a good initial experience
