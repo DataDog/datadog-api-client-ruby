@@ -565,6 +565,7 @@ module DatadogAPIClient::V1
     # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
     # @option opts [UsageSortDirection] :sort_direction The direction to sort by: &#x60;[desc, asc]&#x60;. (default to 'desc')
     # @option opts [UsageAttributionSort] :sort_name The field to sort by. (default to 'custom_timeseries_usage')
+    # @option opts [Boolean] :include_descendants Include child org usage in the response. Defaults to false. (default to false)
     # @return [UsageAttributionResponse]
     def get_usage_attribution(start_month, fields, opts = {})
       data, _status_code, _headers = get_usage_attribution_with_http_info(start_month, fields, opts)
@@ -579,6 +580,7 @@ module DatadogAPIClient::V1
     # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
     # @option opts [UsageSortDirection] :sort_direction The direction to sort by: &#x60;[desc, asc]&#x60;.
     # @option opts [UsageAttributionSort] :sort_name The field to sort by.
+    # @option opts [Boolean] :include_descendants Include child org usage in the response. Defaults to false.
     # @return [Array<(UsageAttributionResponse, Integer, Hash)>] UsageAttributionResponse data, response status code and response headers
     def get_usage_attribution_with_http_info(start_month, fields, opts = {})
 
@@ -612,6 +614,7 @@ module DatadogAPIClient::V1
       query_params[:'end_month'] = opts[:'end_month'] if !opts[:'end_month'].nil?
       query_params[:'sort_direction'] = opts[:'sort_direction'] if !opts[:'sort_direction'].nil?
       query_params[:'sort_name'] = opts[:'sort_name'] if !opts[:'sort_name'].nil?
+      query_params[:'include_descendants'] = opts[:'include_descendants'] if !opts[:'include_descendants'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

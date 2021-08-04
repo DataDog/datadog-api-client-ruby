@@ -526,7 +526,8 @@ fields = DatadogAPIClient::V1::UsageAttributionSupportedMetrics::CUSTOM_TIMESERI
 opts = {
   end_month: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage ending this month.
   sort_direction: DatadogAPIClient::V1::UsageSortDirection::DESC, # UsageSortDirection | The direction to sort by: `[desc, asc]`.
-  sort_name: DatadogAPIClient::V1::UsageAttributionSort::API_PERCENTAGE # UsageAttributionSort | The field to sort by.
+  sort_name: DatadogAPIClient::V1::UsageAttributionSort::API_PERCENTAGE, # UsageAttributionSort | The field to sort by.
+  include_descendants: true # Boolean | Include child org usage in the response. Defaults to false.
 }
 
 begin
@@ -565,6 +566,7 @@ end
 | **end_month** | **Time** | Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month. | [optional] |
 | **sort_direction** | **UsageSortDirection** | The direction to sort by: &#x60;[desc, asc]&#x60;. | [optional][default to &#39;desc&#39;] |
 | **sort_name** | **UsageAttributionSort** | The field to sort by. | [optional][default to &#39;custom_timeseries_usage&#39;] |
+| **include_descendants** | **Boolean** | Include child org usage in the response. Defaults to false. | [optional][default to false] |
 
 ### Return type
 
