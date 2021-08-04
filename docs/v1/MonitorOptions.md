@@ -14,7 +14,8 @@
 | **locked** | **Boolean** | Whether or not the monitor is locked (only editable by creator and admins). | [optional] |
 | **min_failure_duration** | **Integer** | How long the test should be in failure before alerting (integer, number of seconds, max 7200). | [optional][default to 0] |
 | **min_location_failed** | **Integer** | The minimum number of locations in failure at the same time during at least one moment in the &#x60;min_failure_duration&#x60; period (&#x60;min_location_failed&#x60; and &#x60;min_failure_duration&#x60; are part of the advanced alerting rules - integer, &gt;&#x3D; 1). | [optional][default to 1] |
-| **new_host_delay** | **Integer** | Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non negative integer. | [optional][default to 300] |
+| **new_group_delay** | **Integer** | Time (in seconds) to skip evaluations for new groups.  For example, this option can be used to skip evaluations for new hosts while they initialize.  Must be a non negative integer. | [optional] |
+| **new_host_delay** | **Integer** | Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non negative integer.  Use new_group_delay instead. | [optional][default to 300] |
 | **no_data_timeframe** | **Integer** | The number of minutes before a monitor notifies after data stops reporting. Datadog recommends at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks. If omitted, 2x the evaluation timeframe is used for metric alerts, and 24 hours is used for service checks. | [optional] |
 | **notify_audit** | **Boolean** | A Boolean indicating whether tagged users is notified on changes to this monitor. | [optional][default to false] |
 | **notify_no_data** | **Boolean** | A Boolean indicating whether this monitor notifies when data stops reporting. | [optional][default to false] |
@@ -42,6 +43,7 @@ instance = DatadogAPIClient::V1::MonitorOptions.new(
   locked: null,
   min_failure_duration: null,
   min_location_failed: null,
+  new_group_delay: null,
   new_host_delay: null,
   no_data_timeframe: null,
   notify_audit: null,

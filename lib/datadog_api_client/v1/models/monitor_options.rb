@@ -48,7 +48,10 @@ module DatadogAPIClient::V1
     # The minimum number of locations in failure at the same time during at least one moment in the `min_failure_duration` period (`min_location_failed` and `min_failure_duration` are part of the advanced alerting rules - integer, >= 1).
     attr_accessor :min_location_failed
 
-    # Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non negative integer.
+    # Time (in seconds) to skip evaluations for new groups.  For example, this option can be used to skip evaluations for new hosts while they initialize.  Must be a non negative integer.
+    attr_accessor :new_group_delay
+
+    # Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non negative integer.  Use new_group_delay instead.
     attr_accessor :new_host_delay
 
     # The number of minutes before a monitor notifies after data stops reporting. Datadog recommends at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks. If omitted, 2x the evaluation timeframe is used for metric alerts, and 24 hours is used for service checks.
@@ -92,6 +95,7 @@ module DatadogAPIClient::V1
         :'locked' => :'locked',
         :'min_failure_duration' => :'min_failure_duration',
         :'min_location_failed' => :'min_location_failed',
+        :'new_group_delay' => :'new_group_delay',
         :'new_host_delay' => :'new_host_delay',
         :'no_data_timeframe' => :'no_data_timeframe',
         :'notify_audit' => :'notify_audit',
@@ -124,6 +128,7 @@ module DatadogAPIClient::V1
         :'locked' => :'Boolean',
         :'min_failure_duration' => :'Integer',
         :'min_location_failed' => :'Integer',
+        :'new_group_delay' => :'Integer',
         :'new_host_delay' => :'Integer',
         :'no_data_timeframe' => :'Integer',
         :'notify_audit' => :'Boolean',
@@ -144,6 +149,7 @@ module DatadogAPIClient::V1
         :'evaluation_delay',
         :'min_failure_duration',
         :'min_location_failed',
+        :'new_group_delay',
         :'new_host_delay',
         :'no_data_timeframe',
         :'renotify_interval',
@@ -215,6 +221,10 @@ module DatadogAPIClient::V1
         self.min_location_failed = attributes[:'min_location_failed']
       else
         self.min_location_failed = 1
+      end
+
+      if attributes.key?(:'new_group_delay')
+        self.new_group_delay = attributes[:'new_group_delay']
       end
 
       if attributes.key?(:'new_host_delay')
@@ -322,6 +332,7 @@ module DatadogAPIClient::V1
           locked == o.locked &&
           min_failure_duration == o.min_failure_duration &&
           min_location_failed == o.min_location_failed &&
+          new_group_delay == o.new_group_delay &&
           new_host_delay == o.new_host_delay &&
           no_data_timeframe == o.no_data_timeframe &&
           notify_audit == o.notify_audit &&
@@ -344,7 +355,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aggregation, device_ids, enable_logs_sample, escalation_message, evaluation_delay, groupby_simple_monitor, include_tags, locked, min_failure_duration, min_location_failed, new_host_delay, no_data_timeframe, notify_audit, notify_no_data, renotify_interval, require_full_window, silenced, synthetics_check_id, threshold_windows, thresholds, timeout_h].hash
+      [aggregation, device_ids, enable_logs_sample, escalation_message, evaluation_delay, groupby_simple_monitor, include_tags, locked, min_failure_duration, min_location_failed, new_group_delay, new_host_delay, no_data_timeframe, notify_audit, notify_no_data, renotify_interval, require_full_window, silenced, synthetics_check_id, threshold_windows, thresholds, timeout_h].hash
     end
 
     # Builds the object from hash
