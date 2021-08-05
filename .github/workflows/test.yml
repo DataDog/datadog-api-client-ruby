@@ -51,6 +51,8 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby-version }}
           bundler-cache: true
+          # modify repository secret when there are problems with installing gems
+          cache-version: ${{ secrets.CACHE_VERSION }}
       - name: Test
         run: ./run-tests.sh
         shell: bash
