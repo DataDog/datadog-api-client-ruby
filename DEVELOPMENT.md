@@ -36,3 +36,8 @@ By default integration tests use recorded API responses stored in cassettes. To 
 **IMPORTANT**:
 When creating a PR that adds or updates a test, __never__ commit
 generated code, only commit test files being updated and any updated cassettes.
+
+### CI
+
+In rare ocassions, the test suite may fail due to a corrupted cache in `ruby/setup-ruby` action.
+Please update `CACHE_VERSION` secret in https://github.com/DataDog/datadog-api-client-ruby/settings/secrets/actions/CACHE_VERSION with a new unique value.

@@ -54,6 +54,7 @@ jobs:
         with:
           ruby-version: 2.7
           bundler-cache: true
+          cache-version: ${{ secrets.CACHE_VERSION }}
       - name: Install deps
         run: bundle install
       - name: Run integration tests
