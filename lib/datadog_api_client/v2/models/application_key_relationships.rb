@@ -19,12 +19,12 @@ require 'time'
 module DatadogAPIClient::V2
   # Resources related to the application key.
   class ApplicationKeyRelationships
-    attr_accessor :created_by
+    attr_accessor :owned_by
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'created_by' => :'created_by'
+        :'owned_by' => :'owned_by'
       }
     end
 
@@ -36,7 +36,7 @@ module DatadogAPIClient::V2
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'created_by' => :'RelationshipToUser'
+        :'owned_by' => :'RelationshipToUser'
       }
     end
 
@@ -61,8 +61,8 @@ module DatadogAPIClient::V2
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'created_by')
-        self.created_by = attributes[:'created_by']
+      if attributes.key?(:'owned_by')
+        self.owned_by = attributes[:'owned_by']
       end
     end
 
@@ -84,7 +84,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          created_by == o.created_by
+          owned_by == o.owned_by
     end
 
     # @see the `==` method
@@ -96,7 +96,7 @@ module DatadogAPIClient::V2
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_by].hash
+      [owned_by].hash
     end
 
     # Builds the object from hash

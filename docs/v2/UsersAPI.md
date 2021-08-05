@@ -4,6 +4,7 @@ All URIs are relative to *https://api.datadoghq.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**create_service_account**](UsersAPI.md#create_service_account) | **POST** /api/v2/service_accounts | Create a service account |
 | [**create_user**](UsersAPI.md#create_user) | **POST** /api/v2/users | Create a user |
 | [**disable_user**](UsersAPI.md#disable_user) | **DELETE** /api/v2/users/{user_id} | Disable a user |
 | [**get_invitation**](UsersAPI.md#get_invitation) | **GET** /api/v2/user_invitations/{user_invitation_uuid} | Get a user invitation |
@@ -13,6 +14,66 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**list_users**](UsersAPI.md#list_users) | **GET** /api/v2/users | List all users |
 | [**send_invitations**](UsersAPI.md#send_invitations) | **POST** /api/v2/user_invitations | Send invitation emails |
 | [**update_user**](UsersAPI.md#update_user) | **PATCH** /api/v2/users/{user_id} | Update a user |
+
+
+## create_service_account
+
+> <UserResponse> create_service_account(body)
+
+Create a service account for your organization.
+
+### Examples
+
+```ruby
+require 'datadog_api_client'
+api_instance = DatadogAPIClient::V2::UsersAPI.new
+body = DatadogAPIClient::V2::ServiceAccountCreateRequest.new({data: DatadogAPIClient::V2::ServiceAccountCreateData.new({attributes: DatadogAPIClient::V2::ServiceAccountCreateAttributes.new({email: 'jane.doe@example.com', service_account: true}), type: DatadogAPIClient::V2::UsersType::USERS})}) # ServiceAccountCreateRequest | 
+
+begin
+  # Create a service account
+  result = api_instance.create_service_account(body)
+  p result
+rescue DatadogAPIClient::V2::APIError => e
+  puts "Error when calling UsersAPI->create_service_account: #{e}"
+end
+```
+
+#### Using the create_service_account_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<UserResponse>, Integer, Hash)> create_service_account_with_http_info(body)
+
+```ruby
+begin
+  # Create a service account
+  data, status_code, headers = api_instance.create_service_account_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <UserResponse>
+rescue DatadogAPIClient::V2::APIError => e
+  puts "Error when calling UsersAPI->create_service_account_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ServiceAccountCreateRequest**](ServiceAccountCreateRequest.md) |  |  |
+
+### Return type
+
+[**UserResponse**](UserResponse.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
 ## create_user

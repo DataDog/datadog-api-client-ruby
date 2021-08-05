@@ -115,6 +115,12 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V2::SecurityMonitoringAPI* | [**search_security_monitoring_signals**](SecurityMonitoringAPI.md#search_security_monitoring_signals) | **POST** /api/v2/security_monitoring/signals/search | Get a list of security signals
 *DatadogAPIClient::V2::SecurityMonitoringAPI* | [**update_security_filter**](SecurityMonitoringAPI.md#update_security_filter) | **PATCH** /api/v2/security_monitoring/configuration/security_filters/{security_filter_id} | Update a security filter
 *DatadogAPIClient::V2::SecurityMonitoringAPI* | [**update_security_monitoring_rule**](SecurityMonitoringAPI.md#update_security_monitoring_rule) | **PUT** /api/v2/security_monitoring/rules/{rule_id} | Update an existing rule
+*DatadogAPIClient::V2::ServiceAccountsAPI* | [**create_service_account_application_key**](ServiceAccountsAPI.md#create_service_account_application_key) | **POST** /api/v2/service_accounts/{service_account_id}/application_keys | Create an application key for this service account
+*DatadogAPIClient::V2::ServiceAccountsAPI* | [**delete_service_account_application_key**](ServiceAccountsAPI.md#delete_service_account_application_key) | **DELETE** /api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id} | Delete an application key for this service account
+*DatadogAPIClient::V2::ServiceAccountsAPI* | [**get_service_account_application_key**](ServiceAccountsAPI.md#get_service_account_application_key) | **GET** /api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id} | Get one application key for this service account
+*DatadogAPIClient::V2::ServiceAccountsAPI* | [**list_service_account_application_keys**](ServiceAccountsAPI.md#list_service_account_application_keys) | **GET** /api/v2/service_accounts/{service_account_id}/application_keys | List application keys for this service account
+*DatadogAPIClient::V2::ServiceAccountsAPI* | [**update_service_account_application_key**](ServiceAccountsAPI.md#update_service_account_application_key) | **PATCH** /api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id} | Edit an application key for this service account
+*DatadogAPIClient::V2::UsersAPI* | [**create_service_account**](UsersAPI.md#create_service_account) | **POST** /api/v2/service_accounts | Create a service account
 *DatadogAPIClient::V2::UsersAPI* | [**create_user**](UsersAPI.md#create_user) | **POST** /api/v2/users | Create a user
 *DatadogAPIClient::V2::UsersAPI* | [**disable_user**](UsersAPI.md#disable_user) | **DELETE** /api/v2/users/{user_id} | Disable a user
 *DatadogAPIClient::V2::UsersAPI* | [**get_invitation**](UsersAPI.md#get_invitation) | **GET** /api/v2/user_invitations/{user_invitation_uuid} | Get a user invitation
@@ -331,6 +337,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::PartialAPIKeyAttributes](PartialAPIKeyAttributes.md)
  - [DatadogAPIClient::V2::PartialApplicationKey](PartialApplicationKey.md)
  - [DatadogAPIClient::V2::PartialApplicationKeyAttributes](PartialApplicationKeyAttributes.md)
+ - [DatadogAPIClient::V2::PartialApplicationKeyResponse](PartialApplicationKeyResponse.md)
  - [DatadogAPIClient::V2::Permission](Permission.md)
  - [DatadogAPIClient::V2::PermissionAttributes](PermissionAttributes.md)
  - [DatadogAPIClient::V2::PermissionsResponse](PermissionsResponse.md)
@@ -424,6 +431,9 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V2::SecurityMonitoringSignalsListResponseMeta](SecurityMonitoringSignalsListResponseMeta.md)
  - [DatadogAPIClient::V2::SecurityMonitoringSignalsListResponseMetaPage](SecurityMonitoringSignalsListResponseMetaPage.md)
  - [DatadogAPIClient::V2::SecurityMonitoringSignalsSort](SecurityMonitoringSignalsSort.md)
+ - [DatadogAPIClient::V2::ServiceAccountCreateAttributes](ServiceAccountCreateAttributes.md)
+ - [DatadogAPIClient::V2::ServiceAccountCreateData](ServiceAccountCreateData.md)
+ - [DatadogAPIClient::V2::ServiceAccountCreateRequest](ServiceAccountCreateRequest.md)
  - [DatadogAPIClient::V2::User](User.md)
  - [DatadogAPIClient::V2::UserAttributes](UserAttributes.md)
  - [DatadogAPIClient::V2::UserCreateAttributes](UserCreateAttributes.md)

@@ -17,55 +17,27 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Attributes of user object returned by the API.
-  class UserAttributes
-    # Creation time of the user.
-    attr_accessor :created_at
-
-    # Whether the user is disabled.
-    attr_accessor :disabled
-
-    # Email of the user.
+  # Attributes of the created user.
+  class ServiceAccountCreateAttributes
+    # The email of the user.
     attr_accessor :email
 
-    # Handle of the user.
-    attr_accessor :handle
-
-    # URL of the user's icon.
-    attr_accessor :icon
-
-    # Time that the user was last modified.
-    attr_accessor :modified_at
-
-    # Name of the user.
+    # The name of the user.
     attr_accessor :name
 
-    # Whether the user is a service account.
+    # Whether the user is a service account. Must be true.
     attr_accessor :service_account
 
-    # Status of the user.
-    attr_accessor :status
-
-    # Title of the user.
+    # The title of the user.
     attr_accessor :title
-
-    # Whether the user is verified.
-    attr_accessor :verified
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'created_at' => :'created_at',
-        :'disabled' => :'disabled',
         :'email' => :'email',
-        :'handle' => :'handle',
-        :'icon' => :'icon',
-        :'modified_at' => :'modified_at',
         :'name' => :'name',
         :'service_account' => :'service_account',
-        :'status' => :'status',
-        :'title' => :'title',
-        :'verified' => :'verified'
+        :'title' => :'title'
       }
     end
 
@@ -77,17 +49,10 @@ module DatadogAPIClient::V2
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'created_at' => :'Time',
-        :'disabled' => :'Boolean',
         :'email' => :'String',
-        :'handle' => :'String',
-        :'icon' => :'String',
-        :'modified_at' => :'Time',
         :'name' => :'String',
         :'service_account' => :'Boolean',
-        :'status' => :'String',
-        :'title' => :'String',
-        :'verified' => :'Boolean'
+        :'title' => :'String'
       }
     end
 
@@ -101,39 +66,19 @@ module DatadogAPIClient::V2
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::UserAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ServiceAccountCreateAttributes` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::UserAttributes`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::ServiceAccountCreateAttributes`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'created_at')
-        self.created_at = attributes[:'created_at']
-      end
-
-      if attributes.key?(:'disabled')
-        self.disabled = attributes[:'disabled']
-      end
-
       if attributes.key?(:'email')
         self.email = attributes[:'email']
-      end
-
-      if attributes.key?(:'handle')
-        self.handle = attributes[:'handle']
-      end
-
-      if attributes.key?(:'icon')
-        self.icon = attributes[:'icon']
-      end
-
-      if attributes.key?(:'modified_at')
-        self.modified_at = attributes[:'modified_at']
       end
 
       if attributes.key?(:'name')
@@ -144,16 +89,8 @@ module DatadogAPIClient::V2
         self.service_account = attributes[:'service_account']
       end
 
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
-      end
-
       if attributes.key?(:'title')
         self.title = attributes[:'title']
-      end
-
-      if attributes.key?(:'verified')
-        self.verified = attributes[:'verified']
       end
     end
 
@@ -161,12 +98,22 @@ module DatadogAPIClient::V2
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @email.nil?
+        invalid_properties.push('invalid value for "email", email cannot be nil.')
+      end
+
+      if @service_account.nil?
+        invalid_properties.push('invalid value for "service_account", service_account cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @email.nil?
+      return false if @service_account.nil?
       true
     end
 
@@ -175,17 +122,10 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          created_at == o.created_at &&
-          disabled == o.disabled &&
           email == o.email &&
-          handle == o.handle &&
-          icon == o.icon &&
-          modified_at == o.modified_at &&
           name == o.name &&
           service_account == o.service_account &&
-          status == o.status &&
-          title == o.title &&
-          verified == o.verified
+          title == o.title
     end
 
     # @see the `==` method
@@ -197,7 +137,7 @@ module DatadogAPIClient::V2
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_at, disabled, email, handle, icon, modified_at, name, service_account, status, title, verified].hash
+      [email, name, service_account, title].hash
     end
 
     # Builds the object from hash
