@@ -27,6 +27,9 @@ module DatadogAPIClient::V1
     FIREFOX_LAPTOP_LARGE = "firefox.laptop_large".freeze
     FIREFOX_TABLET = "firefox.tablet".freeze
     FIREFOX_MOBILE_SMALL = "firefox.mobile_small".freeze
+    EDGE_LAPTOP_LARGE = "edge.laptop_large".freeze
+    EDGE_TABLET = "edge.tablet".freeze
+    EDGE_MOBILE_SMALL = "edge.mobile_small".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
