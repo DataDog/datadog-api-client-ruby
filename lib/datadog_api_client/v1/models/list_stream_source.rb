@@ -20,6 +20,7 @@ module DatadogAPIClient::V1
   class ListStreamSource
     ISSUE_STREAM = "issue_stream".freeze
     LOGS_STREAM = "logs_stream".freeze
+    AUDIT_STREAM = "audit_stream".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
