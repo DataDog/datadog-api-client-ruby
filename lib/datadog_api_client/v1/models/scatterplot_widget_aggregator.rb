@@ -17,13 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  class WidgetAggregator
+  class ScatterplotWidgetAggregator
     AVERAGE = "avg".freeze
     LAST = "last".freeze
     MAXIMUM = "max".freeze
     MINIMUM = "min".freeze
     SUM = "sum".freeze
-    PERCENTILE = "percentile".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
@@ -36,8 +35,8 @@ module DatadogAPIClient::V1
     # @param [String] The enum value in the form of the string
     # @return [String] The enum value
     def build_from_hash(value)
-      constantValues = WidgetAggregator.constants.select { |c| WidgetAggregator::const_get(c) == value }
-      raise "Invalid ENUM value #{value} for class #WidgetAggregator" if constantValues.empty?
+      constantValues = ScatterplotWidgetAggregator.constants.select { |c| ScatterplotWidgetAggregator::const_get(c) == value }
+      raise "Invalid ENUM value #{value} for class #ScatterplotWidgetAggregator" if constantValues.empty?
       value
     end
   end

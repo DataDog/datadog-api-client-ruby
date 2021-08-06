@@ -25,6 +25,7 @@ module DatadogAPIClient::V1
     LAST = "last".freeze
     AREA = "area".freeze
     L2NORM = "l2norm".freeze
+    PERCENTILE = "percentile".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

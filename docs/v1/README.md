@@ -573,6 +573,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::ScatterPlotWidgetDefinition](ScatterPlotWidgetDefinition.md)
  - [DatadogAPIClient::V1::ScatterPlotWidgetDefinitionRequests](ScatterPlotWidgetDefinitionRequests.md)
  - [DatadogAPIClient::V1::ScatterPlotWidgetDefinitionType](ScatterPlotWidgetDefinitionType.md)
+ - [DatadogAPIClient::V1::ScatterplotWidgetAggregator](ScatterplotWidgetAggregator.md)
  - [DatadogAPIClient::V1::Series](Series.md)
  - [DatadogAPIClient::V1::ServiceCheck](ServiceCheck.md)
  - [DatadogAPIClient::V1::ServiceCheckStatus](ServiceCheckStatus.md)
