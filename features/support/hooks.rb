@@ -6,6 +6,10 @@ Before('@skip-ruby') do |scenario|
   skip_this_scenario('skip ruby')
 end
 
+Before('@replay-only') do |scenario|
+  skip_this_scenario('replay only') unless ENV["RECORD"] == "false"
+end
+
 Around do |scenario, block|
   current_span = Datadog.configuration[:cucumber][:tracer].active_span
   unless current_span.nil?
