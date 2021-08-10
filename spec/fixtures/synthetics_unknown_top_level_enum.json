@@ -1,0 +1,33 @@
+{
+  "status": "live",
+  "public_id": "g6d-gcm-pdq",
+  "tags": [],
+  "locations": [
+    "aws:eu-central-1",
+    "aws:ap-northeast-1"
+  ],
+  "message": "",
+  "name": "Check on www.10.0.0.1.xip.io",
+  "monitor_id": 7464050,
+  "type": "A non existent test type",
+  "created_at": "2018-12-07T17:30:49.785089+00:00",
+  "modified_at": "2019-09-04T17:01:09.921070+00:00",
+  "subtype": "http",
+  "config": {
+    "request": {
+      "url": "https://www.10.0.0.1.xip.io",
+      "method": "GET",
+      "timeout": 30
+    },
+    "assertions": [
+      {
+        "operator": "is",
+        "type": "statusCode",
+        "target": 200
+      }
+    ]
+  },
+  "options": {
+    "tick_every": 60
+  }
+}
