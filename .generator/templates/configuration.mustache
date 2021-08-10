@@ -370,4 +370,18 @@ module {{moduleName}}
       url
     end
   end
+
+  class UnparsedObject
+    # Defines unparsed object
+    attr_accessor :unparsed_object
+
+    def initialize(data)
+      @unparsed_object = data
+    end
+
+    def to_hash
+      self.unparsed_object
+    end
+  end
+
 end

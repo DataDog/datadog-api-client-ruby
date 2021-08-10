@@ -2,6 +2,9 @@
   # {{{description}}}
   {{/description}}
   class {{classname}}{{#parent}} < {{{.}}}{{/parent}}
+    # whether the object has unparsed attributes
+    attr_accessor :_has_unparsed
+
   {{#vars}}
     {{#description}}
     # {{{description}}}
