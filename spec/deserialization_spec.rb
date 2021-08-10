@@ -53,6 +53,7 @@ describe 'Deserialization', skip_before: true do
         .to_return(:body => fixture, :headers => [{"Content-Type": "application/json"}], :status => 299)
 
       data = @api_instance.get_api_test("public_id")
+      
       expect(data).to be_a DatadogAPIClient::V1::SyntheticsAPITest
       expect(data.type).to eq "A non existent test type"
       expect(data.name).to eq "Check on www.10.0.0.1.xip.io"
@@ -64,6 +65,7 @@ describe 'Deserialization', skip_before: true do
         .to_return(:body => fixture, :headers => [{"Content-Type": "application/json"}], :status => 299)
 
       data = @api_instance.get_api_test("public_id")
+
       expect(data).to be_a DatadogAPIClient::V1::SyntheticsAPITest
       expect(data.config.request).to be_a DatadogAPIClient::V1::SyntheticsTestRequest
       expect(data.config.request.method).to eq "A non existent method"
@@ -85,6 +87,7 @@ describe 'Deserialization', skip_before: true do
       .to_return(:body => fixture, :headers => [{"Content-Type": "application/json"}], :status => 299)
 
     data = @api_instance.create_logs_archive(@body)
+
     expect(data).to be_a DatadogAPIClient::V2::LogsArchive
     expect(data.data.attributes.destination.unparsed_object[:type]).to eq "A non existent destination"
     end

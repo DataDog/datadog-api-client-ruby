@@ -7,7 +7,7 @@ Before('@skip-ruby') do |scenario|
 end
 
 Before('@replay-only') do |scenario|
-  skip_this_scenario('replay only') unless ENV["RECORD"] == "false"
+  skip_this_scenario('replay only') if ENV["RECORD"] == ("true" || "none")
 end
 
 Around do |scenario, block|
