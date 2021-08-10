@@ -44,7 +44,7 @@ describe 'Deserialization', skip_before: true do
 
       expect(data).to be_a DatadogAPIClient::V1::SyntheticsAPITest
       expect(data.options.device_ids.length).to be 3
-      expect(data.options.device_ids[2]).to eq DatadogAPIClient::V1::SyntheticsDeviceID.build_from_hash("A non existent device ID")
+      expect(data.options.device_ids[2].to_hash).to eq DatadogAPIClient::V1::SyntheticsDeviceID.build_from_hash("A non existent device ID").to_hash
     end
 
     it 'should deserialize unknown top level enum' do
@@ -53,9 +53,9 @@ describe 'Deserialization', skip_before: true do
         .to_return(:body => fixture, :headers => [{"Content-Type": "application/json"}], :status => 299)
 
       data = @api_instance.get_api_test("public_id")
-      
+
       expect(data).to be_a DatadogAPIClient::V1::SyntheticsAPITest
-      expect(data.type).to eq "A non existent test type"
+      expect(data.type.to_hash).to eq "A non existent test type"
       expect(data.name).to eq "Check on www.10.0.0.1.xip.io"
     end
 
@@ -68,7 +68,7 @@ describe 'Deserialization', skip_before: true do
 
       expect(data).to be_a DatadogAPIClient::V1::SyntheticsAPITest
       expect(data.config.request).to be_a DatadogAPIClient::V1::SyntheticsTestRequest
-      expect(data.config.request.method).to eq "A non existent method"
+      expect(data.config.request.method.to_hash).to eq "A non existent method"
       expect(data.config.request.timeout).to eq 30
     end
   end
