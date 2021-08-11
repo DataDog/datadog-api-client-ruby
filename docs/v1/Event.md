@@ -9,6 +9,7 @@
 | **device_name** | **String** | A device name. | [optional] |
 | **host** | **String** | Host name to associate with the event. Any tags associated with the host are also applied to this event. | [optional] |
 | **id** | **Integer** | Integer ID of the event. | [optional][readonly] |
+| **id_str** | **String** | Handling IDs as large 64-bit numbers can cause loss of accuracy issues with some programming languages. Instead, use the string representation of the Event ID to avoid losing accuracy. | [optional][readonly] |
 | **payload** | **String** | Payload of the event. | [optional][readonly] |
 | **priority** | [**EventPriority**](EventPriority.md) |  | [optional] |
 | **source_type_name** | **String** | The type of event being posted. Option examples include nagios, hudson, jenkins, my_apps, chef, puppet, git, bitbucket, etc. A complete list of source attribute values [available here](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value). | [optional] |
@@ -28,6 +29,7 @@ instance = DatadogAPIClient::V1::Event.new(
   device_name: null,
   host: null,
   id: null,
+  id_str: null,
   payload: {},
   priority: null,
   source_type_name: null,

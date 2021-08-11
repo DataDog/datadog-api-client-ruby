@@ -64,7 +64,7 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'aggregator' => :'WidgetAggregator',
+        :'aggregator' => :'ScatterplotWidgetAggregator',
         :'apm_query' => :'LogQueryDefinition',
         :'event_query' => :'LogQueryDefinition',
         :'log_query' => :'LogQueryDefinition',

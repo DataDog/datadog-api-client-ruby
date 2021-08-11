@@ -33,6 +33,9 @@ module DatadogAPIClient::V1
     # Integer ID of the event.
     attr_accessor :id
 
+    # Handling IDs as large 64-bit numbers can cause loss of accuracy issues with some programming languages. Instead, use the string representation of the Event ID to avoid losing accuracy.
+    attr_accessor :id_str
+
     # Payload of the event.
     attr_accessor :payload
 
@@ -61,6 +64,7 @@ module DatadogAPIClient::V1
         :'device_name' => :'device_name',
         :'host' => :'host',
         :'id' => :'id',
+        :'id_str' => :'id_str',
         :'payload' => :'payload',
         :'priority' => :'priority',
         :'source_type_name' => :'source_type_name',
@@ -84,6 +88,7 @@ module DatadogAPIClient::V1
         :'device_name' => :'String',
         :'host' => :'String',
         :'id' => :'Integer',
+        :'id_str' => :'String',
         :'payload' => :'String',
         :'priority' => :'EventPriority',
         :'source_type_name' => :'String',
@@ -133,6 +138,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'id_str')
+        self.id_str = attributes[:'id_str']
       end
 
       if attributes.key?(:'payload')
@@ -219,6 +228,7 @@ module DatadogAPIClient::V1
           device_name == o.device_name &&
           host == o.host &&
           id == o.id &&
+          id_str == o.id_str &&
           payload == o.payload &&
           priority == o.priority &&
           source_type_name == o.source_type_name &&
@@ -237,7 +247,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [alert_type, date_happened, device_name, host, id, payload, priority, source_type_name, tags, text, title, url].hash
+      [alert_type, date_happened, device_name, host, id, id_str, payload, priority, source_type_name, tags, text, title, url].hash
     end
 
     # Builds the object from hash

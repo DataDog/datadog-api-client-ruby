@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **aggregator** | [**WidgetAggregator**](WidgetAggregator.md) |  | [optional] |
+| **aggregator** | [**ScatterplotWidgetAggregator**](ScatterplotWidgetAggregator.md) |  | [optional] |
 | **apm_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
 | **event_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
 | **log_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |

@@ -7,7 +7,7 @@
 | **error_budget_remaining** | **Hash&lt;String, Float&gt;** | A mapping of threshold &#x60;timeframe&#x60; to the remaining error budget. | [optional] |
 | **errors** | [**Array&lt;SLOHistoryResponseError&gt;**](SLOHistoryResponseError.md) | A list of errors while querying the history data for the service level objective. | [optional] |
 | **group** | **String** | For groups in a grouped SLO, this is the group name. | [optional] |
-| **history** | **Array&lt;Array&lt;Float&gt;&gt;** | For &#x60;monitor&#x60; based SLOs, this includes the aggregated history uptime time series. | [optional] |
+| **history** | **Array&lt;Array&lt;Float&gt;&gt;** | For &#x60;monitor&#x60; based SLOs, this includes the aggregated history as arrays that include time series and uptime data where &#x60;0&#x3D;monitor&#x60; is in &#x60;OK&#x60; state and &#x60;1&#x3D;monitor&#x60; is in &#x60;alert&#x60; state. | [optional] |
 | **monitor_modified** | **Integer** | For &#x60;monitor&#x60; based SLOs, this is the last modified timestamp in epoch seconds of the monitor. | [optional] |
 | **monitor_type** | **String** | For &#x60;monitor&#x60; based SLOs, this describes the type of monitor. | [optional] |
 | **name** | **String** | For groups in a grouped SLO, this is the group name. For monitors in a multi-monitor SLO, this is the monitor name. | [optional] |
