@@ -21,6 +21,7 @@ module DatadogAPIClient::V1
     RAW = "raw".freeze
     JSON_PATH = "json_path".freeze
     REGEX = "regex".freeze
+    X_PATH = "x_path".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
