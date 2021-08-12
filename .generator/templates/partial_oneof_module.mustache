@@ -3,7 +3,7 @@
   {{/description}}
   module {{classname}}
     class << self
-      attr_accessor :_has_unparsed
+      attr_accessor :_unparsed
 
       {{#oneOf}}
       {{#-first}}
@@ -72,7 +72,7 @@
           begin
             next if klass == :AnyType # "nullable: true"
             typed_data = find_and_cast_into_type(klass, data)
-            next if typed_data._has_unparsed
+            next if typed_data._unparsed
             return typed_data if typed_data
           rescue # rescue all errors so we keep iterating even if the current item lookup raises
           end
@@ -81,7 +81,7 @@
         if openapi_one_of.include?(:AnyType)
           data
         else
-          self._has_unparsed = true
+          self._unparsed = true
           {{moduleName}}::UnparsedObject.new(data)
         end
 

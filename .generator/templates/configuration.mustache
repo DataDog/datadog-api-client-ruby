@@ -373,14 +373,14 @@ module {{moduleName}}
 
   class UnparsedObject
     # Defines unparsed object
-    attr_accessor :unparsed_object
+    attr_accessor :data
 
     def initialize(data)
-      @unparsed_object = data
+      @data = data
     end
 
     def to_hash
-      self.unparsed_object
+      self.data
     end
   end
 

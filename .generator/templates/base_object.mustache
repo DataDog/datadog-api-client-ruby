@@ -74,7 +74,7 @@
         klass = {{moduleName}}.const_get(type)
         res = klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
         if res.instance_of? {{moduleName}}::UnparsedObject
-          self._has_unparsed = true
+          self._unparsed = true
         end
         res
       end
