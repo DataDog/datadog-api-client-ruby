@@ -1,0 +1,145 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.datadoghq.com/api/v1/integration/webhooks/configuration/webhooks
+    body:
+      encoding: UTF-8
+      string: '{"name":"Test-Get_a_webhook_integration_returns_OK_response-1628841297","url":"http://example.com/webhook"}'
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/1.2.1.dev.1 (ruby 2.7.4; os darwin20; arch x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Fri, 13 Aug 2021 07:54:58 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '381'
+      Connection:
+      - keep-alive
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      Location:
+      - https://app.datadoghq.com/api/v1/integration/webhooks/configuration/webhooks/Test-Get_a_webhook_integration_returns_OK_response-1628841297
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: ASCII-8BIT
+      string: '{"encode_as":"json","url":"http://example.com/webhook","custom_headers":null,"name":"Test-Get_a_webhook_integration_returns_OK_response-1628841297","payload":"{\"body\":
+        \"$EVENT_MSG\", \"last_updated\": \"$LAST_UPDATED\", \"event_type\": \"$EVENT_TYPE\",
+        \"title\": \"$EVENT_TITLE\", \"date\": \"$DATE\", \"org\": {\"id\": \"$ORG_ID\",
+        \"name\": \"$ORG_NAME\"}, \"id\": \"$ID\"}"}'
+  recorded_at: Fri, 13 Aug 2021 07:54:57 GMT
+- request:
+    method: get
+    uri: https://api.datadoghq.com/api/v1/integration/webhooks/configuration/webhooks/Test-Get_a_webhook_integration_returns_OK_response-1628841297
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/1.2.1.dev.1 (ruby 2.7.4; os darwin20; arch x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 13 Aug 2021 07:54:58 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '381'
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: ASCII-8BIT
+      string: '{"encode_as":"json","url":"http://example.com/webhook","custom_headers":null,"name":"Test-Get_a_webhook_integration_returns_OK_response-1628841297","payload":"{\"body\":
+        \"$EVENT_MSG\", \"last_updated\": \"$LAST_UPDATED\", \"event_type\": \"$EVENT_TYPE\",
+        \"title\": \"$EVENT_TITLE\", \"date\": \"$DATE\", \"org\": {\"id\": \"$ORG_ID\",
+        \"name\": \"$ORG_NAME\"}, \"id\": \"$ID\"}"}'
+  recorded_at: Fri, 13 Aug 2021 07:54:57 GMT
+- request:
+    method: delete
+    uri: https://api.datadoghq.com/api/v1/integration/webhooks/configuration/webhooks/Test-Get_a_webhook_integration_returns_OK_response-1628841297
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - datadog-api-client-ruby/1.2.1.dev.1 (ruby 2.7.4; os darwin20; arch x86_64)
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 13 Aug 2021 07:54:58 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '2'
+      Connection:
+      - keep-alive
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: ASCII-8BIT
+      string: "{}"
+  recorded_at: Fri, 13 Aug 2021 07:54:57 GMT
+recorded_with: VCR 6.0.0
