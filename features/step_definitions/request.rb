@@ -41,8 +41,10 @@ module APIWorld
     @fixtures ||= {
       "unique": u,
       "unique_lower": u.downcase,
+      "unique_upper": u.upcase,
       "unique_alnum": alnum,
       "unique_lower_alnum": alnum.downcase,
+      "unique_upper_alnum": alnum.upcase,
       "timestamp": relative_time(false),
       "timeISO": relative_time(true),
     }
