@@ -642,6 +642,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::SyntheticsGetAPITestLatestResultsResponse](SyntheticsGetAPITestLatestResultsResponse.md)
  - [DatadogAPIClient::V1::SyntheticsGetBrowserTestLatestResultsResponse](SyntheticsGetBrowserTestLatestResultsResponse.md)
  - [DatadogAPIClient::V1::SyntheticsGlobalVariable](SyntheticsGlobalVariable.md)
+ - [DatadogAPIClient::V1::SyntheticsGlobalVariableAttributes](SyntheticsGlobalVariableAttributes.md)
  - [DatadogAPIClient::V1::SyntheticsGlobalVariableParseTestOptions](SyntheticsGlobalVariableParseTestOptions.md)
  - [DatadogAPIClient::V1::SyntheticsGlobalVariableParseTestOptionsType](SyntheticsGlobalVariableParseTestOptionsType.md)
  - [DatadogAPIClient::V1::SyntheticsGlobalVariableParserType](SyntheticsGlobalVariableParserType.md)
