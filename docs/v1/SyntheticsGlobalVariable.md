@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **attributes** | [**SyntheticsGlobalVariableAttributes**](SyntheticsGlobalVariableAttributes.md) |  | [optional] |
 | **description** | **String** | Description of the global variable. |  |
 | **id** | **String** | Unique identifier of the global variable. | [optional][readonly] |
 | **name** | **String** | Name of the global variable. |  |
@@ -18,6 +19,7 @@
 require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::SyntheticsGlobalVariable.new(
+  attributes: null,
   description: Example description,
   id: null,
   name: MY_VARIABLE,
