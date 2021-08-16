@@ -31,7 +31,7 @@ end
 
 Around do |scenario, block|
   VCR.use_cassette(scenario.location.file.chomp('.feature') + "/" + scenario.name.gsub(/[^A-Za-z0-9]+/, '-')[0..100], :record_on_error => false, :match_requests_on => [:method, :host, :path, :query, :body_as_json]) do |cassette|
-    File.delete(cassette.file) if ENV["RECORD"] == "true" && File.exist?(cassette.file)
+    File.delete(cassette.file) if ENV["RECORD"] == "true" && File.exist?(cassette.file) && !scenario.match_tags?("@replay-only")
     Timecop.freeze(use_real_time? ? Time.now : cassette.originally_recorded_at) do
       block.call
     end
