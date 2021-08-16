@@ -25,6 +25,7 @@ module DatadogAPIClient::V1
     SECURITY_SIGNALS = "security_signals".freeze
     PROFILES = "profiles".freeze
     AUDIT = "audit".freeze
+    EVENTS = "events".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
