@@ -17,11 +17,9 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  class SyntheticsGlobalVariableParserType
-    RAW = "raw".freeze
-    JSON_PATH = "json_path".freeze
-    REGEX = "regex".freeze
-    X_PATH = "x_path".freeze
+  class WebhooksIntegrationEncoding
+    JSON = "json".freeze
+    FORM = "form".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
@@ -34,8 +32,8 @@ module DatadogAPIClient::V1
     # @param [String] The enum value in the form of the string
     # @return [String] The enum value
     def build_from_hash(value)
-      constantValues = SyntheticsGlobalVariableParserType.constants.select { |c| SyntheticsGlobalVariableParserType::const_get(c) == value }
-      raise "Invalid ENUM value #{value} for class #SyntheticsGlobalVariableParserType" if constantValues.empty?
+      constantValues = WebhooksIntegrationEncoding.constants.select { |c| WebhooksIntegrationEncoding::const_get(c) == value }
+      raise "Invalid ENUM value #{value} for class #WebhooksIntegrationEncoding" if constantValues.empty?
       value
     end
   end

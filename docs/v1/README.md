@@ -224,6 +224,14 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::UsersAPI* | [**get_user**](UsersAPI.md#get_user) | **GET** /api/v1/user/{user_handle} | Get user details
 *DatadogAPIClient::V1::UsersAPI* | [**list_users**](UsersAPI.md#list_users) | **GET** /api/v1/user | List all users
 *DatadogAPIClient::V1::UsersAPI* | [**update_user**](UsersAPI.md#update_user) | **PUT** /api/v1/user/{user_handle} | Update a user
+*DatadogAPIClient::V1::WebhooksIntegrationAPI* | [**create_webhooks_integration**](WebhooksIntegrationAPI.md#create_webhooks_integration) | **POST** /api/v1/integration/webhooks/configuration/webhooks | Create a webhooks integration
+*DatadogAPIClient::V1::WebhooksIntegrationAPI* | [**create_webhooks_integration_custom_variable**](WebhooksIntegrationAPI.md#create_webhooks_integration_custom_variable) | **POST** /api/v1/integration/webhooks/configuration/custom-variables | Create a custom variable
+*DatadogAPIClient::V1::WebhooksIntegrationAPI* | [**delete_webhooks_integration**](WebhooksIntegrationAPI.md#delete_webhooks_integration) | **DELETE** /api/v1/integration/webhooks/configuration/webhooks/{webhook_name} | Delete a webhook
+*DatadogAPIClient::V1::WebhooksIntegrationAPI* | [**delete_webhooks_integration_custom_variable**](WebhooksIntegrationAPI.md#delete_webhooks_integration_custom_variable) | **DELETE** /api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name} | Delete a custom variable
+*DatadogAPIClient::V1::WebhooksIntegrationAPI* | [**get_webhooks_integration**](WebhooksIntegrationAPI.md#get_webhooks_integration) | **GET** /api/v1/integration/webhooks/configuration/webhooks/{webhook_name} | Get a webhook integration
+*DatadogAPIClient::V1::WebhooksIntegrationAPI* | [**get_webhooks_integration_custom_variable**](WebhooksIntegrationAPI.md#get_webhooks_integration_custom_variable) | **GET** /api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name} | Get a custom variable
+*DatadogAPIClient::V1::WebhooksIntegrationAPI* | [**update_webhooks_integration**](WebhooksIntegrationAPI.md#update_webhooks_integration) | **PUT** /api/v1/integration/webhooks/configuration/webhooks/{webhook_name} | Update a webhook
+*DatadogAPIClient::V1::WebhooksIntegrationAPI* | [**update_webhooks_integration_custom_variable**](WebhooksIntegrationAPI.md#update_webhooks_integration_custom_variable) | **PUT** /api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name} | Update a custom variable
 
 
 ## Documentation for Models
@@ -781,6 +789,12 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::UserDisableResponse](UserDisableResponse.md)
  - [DatadogAPIClient::V1::UserListResponse](UserListResponse.md)
  - [DatadogAPIClient::V1::UserResponse](UserResponse.md)
+ - [DatadogAPIClient::V1::WebhooksIntegration](WebhooksIntegration.md)
+ - [DatadogAPIClient::V1::WebhooksIntegrationCustomVariable](WebhooksIntegrationCustomVariable.md)
+ - [DatadogAPIClient::V1::WebhooksIntegrationCustomVariableResponse](WebhooksIntegrationCustomVariableResponse.md)
+ - [DatadogAPIClient::V1::WebhooksIntegrationCustomVariableUpdateRequest](WebhooksIntegrationCustomVariableUpdateRequest.md)
+ - [DatadogAPIClient::V1::WebhooksIntegrationEncoding](WebhooksIntegrationEncoding.md)
+ - [DatadogAPIClient::V1::WebhooksIntegrationUpdateRequest](WebhooksIntegrationUpdateRequest.md)
  - [DatadogAPIClient::V1::Widget](Widget.md)
  - [DatadogAPIClient::V1::WidgetAggregator](WidgetAggregator.md)
  - [DatadogAPIClient::V1::WidgetAxis](WidgetAxis.md)
