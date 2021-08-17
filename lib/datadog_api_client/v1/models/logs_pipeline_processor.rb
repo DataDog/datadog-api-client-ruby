@@ -19,6 +19,9 @@ require 'time'
 module DatadogAPIClient::V1
   # Nested Pipelines are pipelines within a pipeline. Use Nested Pipelines to split the processing into two steps. For example, first use a high-level filtering such as team and then a second level of filtering based on the integration, service, or any other tag or attribute.  A pipeline can contain Nested Pipelines and Processors whereas a Nested Pipeline can only contain Processors.
   class LogsPipelineProcessor
+    # whether the object has unparsed attributes
+    attr_accessor :_unparsed
+
     attr_accessor :filter
 
     # Whether or not the processor is enabled.
@@ -220,7 +223,11 @@ module DatadogAPIClient::V1
       else # model
         # models (e.g. Pet) or oneOf
         klass = DatadogAPIClient::V1.const_get(type)
-        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        res = klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        if res.instance_of? DatadogAPIClient::V1::UnparsedObject
+          self._unparsed = true
+        end
+        res
       end
     end
 

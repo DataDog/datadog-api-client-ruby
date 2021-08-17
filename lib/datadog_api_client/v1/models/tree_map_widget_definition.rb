@@ -19,6 +19,9 @@ require 'time'
 module DatadogAPIClient::V1
   # The treemap visualization found on the Host Dashboards comes from the output of `ps auxww`. This is not continuously run on your hosts. Instead, it’s run once on Agent start/restart. The treemap is only supported for process data on a single host dashboard — this may not be reused in other dashboards or for other metrics.
   class TreeMapWidgetDefinition
+    # whether the object has unparsed attributes
+    attr_accessor :_unparsed
+
     attr_accessor :color_by
 
     attr_accessor :group_by
@@ -276,7 +279,11 @@ module DatadogAPIClient::V1
       else # model
         # models (e.g. Pet) or oneOf
         klass = DatadogAPIClient::V1.const_get(type)
-        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        res = klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        if res.instance_of? DatadogAPIClient::V1::UnparsedObject
+          self._unparsed = true
+        end
+        res
       end
     end
 

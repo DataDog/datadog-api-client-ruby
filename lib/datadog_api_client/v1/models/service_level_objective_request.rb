@@ -19,6 +19,9 @@ require 'time'
 module DatadogAPIClient::V1
   # A service level objective object includes a service level indicator, thresholds for one or more timeframes, and metadata (`name`, `description`, `tags`, etc.).
   class ServiceLevelObjectiveRequest
+    # whether the object has unparsed attributes
+    attr_accessor :_unparsed
+
     # A user-defined description of the service level objective.  Always included in service level objective responses (but may be `null`). Optional in create/update requests.
     attr_accessor :description
 
@@ -263,7 +266,11 @@ module DatadogAPIClient::V1
       else # model
         # models (e.g. Pet) or oneOf
         klass = DatadogAPIClient::V1.const_get(type)
-        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        res = klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        if res.instance_of? DatadogAPIClient::V1::UnparsedObject
+          self._unparsed = true
+        end
+        res
       end
     end
 

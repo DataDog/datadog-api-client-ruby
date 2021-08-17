@@ -19,6 +19,9 @@ require 'time'
 module DatadogAPIClient::V1
   # An object defining the recurrence of the downtime.
   class DowntimeRecurrence
+    # whether the object has unparsed attributes
+    attr_accessor :_unparsed
+
     # How often to repeat as an integer. For example, to repeat every 3 days, select a type of `days` and a period of `3`.
     attr_accessor :period
 
@@ -255,7 +258,11 @@ module DatadogAPIClient::V1
       else # model
         # models (e.g. Pet) or oneOf
         klass = DatadogAPIClient::V1.const_get(type)
-        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        res = klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        if res.instance_of? DatadogAPIClient::V1::UnparsedObject
+          self._unparsed = true
+        end
+        res
       end
     end
 

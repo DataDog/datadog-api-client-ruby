@@ -19,6 +19,9 @@ require 'time'
 module DatadogAPIClient::V1
   # Object containing all metrics and their values collected for a Synthetic API test. Learn more about those metrics in [Synthetics documentation](https://docs.datadoghq.com/synthetics/#metrics).
   class SyntheticsTiming
+    # whether the object has unparsed attributes
+    attr_accessor :_unparsed
+
     # The duration in millisecond of the DNS lookup.
     attr_accessor :dns
 
@@ -251,7 +254,11 @@ module DatadogAPIClient::V1
       else # model
         # models (e.g. Pet) or oneOf
         klass = DatadogAPIClient::V1.const_get(type)
-        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        res = klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        if res.instance_of? DatadogAPIClient::V1::UnparsedObject
+          self._unparsed = true
+        end
+        res
       end
     end
 

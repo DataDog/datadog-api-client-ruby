@@ -19,6 +19,9 @@ require 'time'
 module DatadogAPIClient::V1
   # The Distribution visualization is another way of showing metrics aggregated across one or several tags, such as hosts. Unlike the heat map, a distribution graph’s x-axis is quantity rather than time.
   class DistributionWidgetDefinition
+    # whether the object has unparsed attributes
+    attr_accessor :_unparsed
+
     # (Deprecated) The widget legend was replaced by a tooltip and sidebar.
     attr_accessor :legend_size
 
@@ -310,7 +313,11 @@ module DatadogAPIClient::V1
       else # model
         # models (e.g. Pet) or oneOf
         klass = DatadogAPIClient::V1.const_get(type)
-        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        res = klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        if res.instance_of? DatadogAPIClient::V1::UnparsedObject
+          self._unparsed = true
+        end
+        res
       end
     end
 

@@ -19,6 +19,9 @@ require 'time'
 module DatadogAPIClient::V1
   # Object containing the options for a Synthetic test as a monitor (for example, renotification).
   class SyntheticsTestOptionsMonitorOptions
+    # whether the object has unparsed attributes
+    attr_accessor :_unparsed
+
     # Time interval before renotifying if the test is still failing (in minutes).
     attr_accessor :renotify_interval
 
@@ -195,7 +198,11 @@ module DatadogAPIClient::V1
       else # model
         # models (e.g. Pet) or oneOf
         klass = DatadogAPIClient::V1.const_get(type)
-        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        res = klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        if res.instance_of? DatadogAPIClient::V1::UnparsedObject
+          self._unparsed = true
+        end
+        res
       end
     end
 

@@ -19,6 +19,9 @@ require 'time'
 module DatadogAPIClient::V1
   # Object describing the Synthetic test request.
   class SyntheticsTestRequest
+    # whether the object has unparsed attributes
+    attr_accessor :_unparsed
+
     # Allows loading insecure content for an HTTP request in a multistep test step.
     attr_accessor :allow_insecure
 
@@ -368,7 +371,11 @@ module DatadogAPIClient::V1
       else # model
         # models (e.g. Pet) or oneOf
         klass = DatadogAPIClient::V1.const_get(type)
-        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        res = klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        if res.instance_of? DatadogAPIClient::V1::UnparsedObject
+          self._unparsed = true
+        end
+        res
       end
     end
 

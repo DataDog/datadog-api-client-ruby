@@ -19,6 +19,9 @@ require 'time'
 module DatadogAPIClient::V1
   # Exclusion filter is defined by a query, a sampling rule, and a active/inactive toggle.
   class LogsExclusionFilter
+    # whether the object has unparsed attributes
+    attr_accessor :_unparsed
+
     # Default query is `*`, meaning all logs flowing in the index would be excluded. Scope down exclusion filter to only a subset of logs with a log query.
     attr_accessor :query
 
@@ -186,7 +189,11 @@ module DatadogAPIClient::V1
       else # model
         # models (e.g. Pet) or oneOf
         klass = DatadogAPIClient::V1.const_get(type)
-        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        res = klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        if res.instance_of? DatadogAPIClient::V1::UnparsedObject
+          self._unparsed = true
+        end
+        res
       end
     end
 

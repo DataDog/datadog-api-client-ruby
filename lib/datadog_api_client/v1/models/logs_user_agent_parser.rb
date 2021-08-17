@@ -19,6 +19,9 @@ require 'time'
 module DatadogAPIClient::V1
   # The User-Agent parser takes a User-Agent attribute and extracts the OS, browser, device, and other user data. It recognizes major bots like the Google Bot, Yahoo Slurp, and Bing.
   class LogsUserAgentParser
+    # whether the object has unparsed attributes
+    attr_accessor :_unparsed
+
     # Whether or not the processor is enabled.
     attr_accessor :is_enabled
 
@@ -245,7 +248,11 @@ module DatadogAPIClient::V1
       else # model
         # models (e.g. Pet) or oneOf
         klass = DatadogAPIClient::V1.const_get(type)
-        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        res = klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        if res.instance_of? DatadogAPIClient::V1::UnparsedObject
+          self._unparsed = true
+        end
+        res
       end
     end
 

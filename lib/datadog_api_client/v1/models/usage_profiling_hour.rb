@@ -19,6 +19,9 @@ require 'time'
 module DatadogAPIClient::V1
   # The number of profiled hosts for each hour for a given organization.
   class UsageProfilingHour
+    # whether the object has unparsed attributes
+    attr_accessor :_unparsed
+
     # Get average number of container agents for that hour.
     attr_accessor :avg_container_agent_count
 
@@ -191,7 +194,11 @@ module DatadogAPIClient::V1
       else # model
         # models (e.g. Pet) or oneOf
         klass = DatadogAPIClient::V1.const_get(type)
-        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        res = klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        if res.instance_of? DatadogAPIClient::V1::UnparsedObject
+          self._unparsed = true
+        end
+        res
       end
     end
 

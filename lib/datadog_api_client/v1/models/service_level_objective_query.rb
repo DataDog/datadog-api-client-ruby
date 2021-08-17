@@ -19,6 +19,9 @@ require 'time'
 module DatadogAPIClient::V1
   # A metric SLI query. **Required if type is `metric`**. Note that Datadog only allows the sum by aggregator to be used because this will sum up all request counts instead of averaging them, or taking the max or min of all of those requests.
   class ServiceLevelObjectiveQuery
+    # whether the object has unparsed attributes
+    attr_accessor :_unparsed
+
     # A Datadog metric query for total (valid) events.
     attr_accessor :denominator
 
@@ -191,7 +194,11 @@ module DatadogAPIClient::V1
       else # model
         # models (e.g. Pet) or oneOf
         klass = DatadogAPIClient::V1.const_get(type)
-        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        res = klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        if res.instance_of? DatadogAPIClient::V1::UnparsedObject
+          self._unparsed = true
+        end
+        res
       end
     end
 

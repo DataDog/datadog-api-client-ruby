@@ -32,8 +32,7 @@ module DatadogAPIClient::V1
     # @return [String] The enum value
     def build_from_hash(value)
       constantValues = EventTimelineWidgetDefinitionType.constants.select { |c| EventTimelineWidgetDefinitionType::const_get(c) == value }
-      raise "Invalid ENUM value #{value} for class #EventTimelineWidgetDefinitionType" if constantValues.empty?
-      value
+      constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
 end

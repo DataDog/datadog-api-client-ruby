@@ -19,6 +19,9 @@ require 'time'
 module DatadogAPIClient::V1
   # Use this processor if you want to assign one or more attributes as the official service.  **Note:** If multiple service remapper processors can be applied to a given log, only the first one (according to the pipeline order) is taken into account.
   class LogsServiceRemapper
+    # whether the object has unparsed attributes
+    attr_accessor :_unparsed
+
     # Whether or not the processor is enabled.
     attr_accessor :is_enabled
 
@@ -216,7 +219,11 @@ module DatadogAPIClient::V1
       else # model
         # models (e.g. Pet) or oneOf
         klass = DatadogAPIClient::V1.const_get(type)
-        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        res = klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        if res.instance_of? DatadogAPIClient::V1::UnparsedObject
+          self._unparsed = true
+        end
+        res
       end
     end
 

@@ -19,6 +19,9 @@ require 'time'
 module DatadogAPIClient::V2
   # The incident's attributes for a create request.
   class IncidentCreateAttributes
+    # whether the object has unparsed attributes
+    attr_accessor :_unparsed
+
     # A flag indicating whether the incident caused customer impact.
     attr_accessor :customer_impacted
 
@@ -227,7 +230,11 @@ module DatadogAPIClient::V2
       else # model
         # models (e.g. Pet) or oneOf
         klass = DatadogAPIClient::V2.const_get(type)
-        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        res = klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        if res.instance_of? DatadogAPIClient::V2::UnparsedObject
+          self._unparsed = true
+        end
+        res
       end
     end
 

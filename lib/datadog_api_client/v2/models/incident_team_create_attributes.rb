@@ -19,6 +19,9 @@ require 'time'
 module DatadogAPIClient::V2
   # The incident team's attributes for a create request.
   class IncidentTeamCreateAttributes
+    # whether the object has unparsed attributes
+    attr_accessor :_unparsed
+
     # Name of the incident team.
     attr_accessor :name
 
@@ -176,7 +179,11 @@ module DatadogAPIClient::V2
       else # model
         # models (e.g. Pet) or oneOf
         klass = DatadogAPIClient::V2.const_get(type)
-        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        res = klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        if res.instance_of? DatadogAPIClient::V2::UnparsedObject
+          self._unparsed = true
+        end
+        res
       end
     end
 

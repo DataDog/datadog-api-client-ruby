@@ -457,4 +457,18 @@ module DatadogAPIClient::V1
       url
     end
   end
+
+  class UnparsedObject
+    # Defines unparsed object
+    attr_accessor :data
+
+    def initialize(data)
+      @data = data
+    end
+
+    def to_hash
+      self.data
+    end
+  end
+
 end

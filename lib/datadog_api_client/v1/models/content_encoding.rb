@@ -33,8 +33,7 @@ module DatadogAPIClient::V1
     # @return [String] The enum value
     def build_from_hash(value)
       constantValues = ContentEncoding.constants.select { |c| ContentEncoding::const_get(c) == value }
-      raise "Invalid ENUM value #{value} for class #ContentEncoding" if constantValues.empty?
-      value
+      constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
 end

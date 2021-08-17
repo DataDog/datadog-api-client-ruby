@@ -19,6 +19,9 @@ require 'time'
 module DatadogAPIClient::V1
   # Global hourly report of all data billed by Datadog for a given organization.
   class UsageSummaryDateOrg
+    # whether the object has unparsed attributes
+    attr_accessor :_unparsed
+
     # Shows the 99th percentile of all agent hosts over all hours in the current date for the given org.
     attr_accessor :agent_host_top99p
 
@@ -601,7 +604,11 @@ module DatadogAPIClient::V1
       else # model
         # models (e.g. Pet) or oneOf
         klass = DatadogAPIClient::V1.const_get(type)
-        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        res = klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        if res.instance_of? DatadogAPIClient::V1::UnparsedObject
+          self._unparsed = true
+        end
+        res
       end
     end
 
