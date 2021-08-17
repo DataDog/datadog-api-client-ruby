@@ -19,6 +19,9 @@ require 'time'
 module DatadogAPIClient::V2
   # Pagination object.
   class Pagination
+    # whether the object has unparsed attributes
+    attr_accessor :_unparsed
+
     # Total count.
     attr_accessor :total_count
 
@@ -181,7 +184,11 @@ module DatadogAPIClient::V2
       else # model
         # models (e.g. Pet) or oneOf
         klass = DatadogAPIClient::V2.const_get(type)
-        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        res = klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        if res.instance_of? DatadogAPIClient::V2::UnparsedObject
+          self._unparsed = true
+        end
+        res
       end
     end
 

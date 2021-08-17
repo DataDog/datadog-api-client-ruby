@@ -19,6 +19,9 @@ require 'time'
 module DatadogAPIClient::V1
   # The downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
   class DowntimeChild
+    # whether the object has unparsed attributes
+    attr_accessor :_unparsed
+
     # If a scheduled downtime currently exists.
     attr_accessor :active
 
@@ -375,7 +378,11 @@ module DatadogAPIClient::V1
       else # model
         # models (e.g. Pet) or oneOf
         klass = DatadogAPIClient::V1.const_get(type)
-        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        res = klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        if res.instance_of? DatadogAPIClient::V1::UnparsedObject
+          self._unparsed = true
+        end
+        res
       end
     end
 

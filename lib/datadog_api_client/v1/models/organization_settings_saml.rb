@@ -19,6 +19,9 @@ require 'time'
 module DatadogAPIClient::V1
   # Set the boolean property enabled to enable or disable single sign on with SAML. See the SAML documentation for more information about all SAML settings.
   class OrganizationSettingsSaml
+    # whether the object has unparsed attributes
+    attr_accessor :_unparsed
+
     # Whether or not SAML is enabled for this organization.
     attr_accessor :enabled
 
@@ -171,7 +174,11 @@ module DatadogAPIClient::V1
       else # model
         # models (e.g. Pet) or oneOf
         klass = DatadogAPIClient::V1.const_get(type)
-        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        res = klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        if res.instance_of? DatadogAPIClient::V1::UnparsedObject
+          self._unparsed = true
+        end
+        res
       end
     end
 

@@ -93,23 +93,25 @@ RSpec.configure do |config|
   end
 
   config.before(:example) do |example|
-    now = Time.now
-    name = example.metadata[:full_description].gsub(/[^A-Za-z0-9]+/, '-')[0..100]
-    @unique ||= "ruby-#{name}-#{now.to_i}"
-    m = example.metadata[:file_path].match /spec\/v(?<version>\d+)\/.*/
-    @api_version = m[:version]
-    api = Object.const_get("DatadogAPIClient::V#{@api_version}")
-    @configuration = api::Configuration.new
-    @configuration.api_key = ENV["DD_TEST_CLIENT_API_KEY"]
-    @configuration.application_key = ENV["DD_TEST_CLIENT_APP_KEY"]
-    @configuration.debugging = (!ENV["DEBUG"].nil? and ENV["DEBUG"] != "false")
-    @configuration.configure do |c|
-      if ENV.key? 'DD_TEST_SITE' then
-        c.server_index = 2
-        c.server_variables[:site] = ENV['DD_TEST_SITE']
+    unless example.metadata[:skip_before]
+      now = Time.now
+      name = example.metadata[:full_description].gsub(/[^A-Za-z0-9]+/, '-')[0..100]
+      @unique ||= "ruby-#{name}-#{now.to_i}"
+      m = example.metadata[:file_path].match /spec\/v(?<version>\d+)\/.*/
+      @api_version = m[:version]
+      api = Object.const_get("DatadogAPIClient::V#{@api_version}")
+      @configuration = api::Configuration.new
+      @configuration.api_key = ENV["DD_TEST_CLIENT_API_KEY"]
+      @configuration.application_key = ENV["DD_TEST_CLIENT_APP_KEY"]
+      @configuration.debugging = (!ENV["DEBUG"].nil? and ENV["DEBUG"] != "false")
+      @configuration.configure do |c|
+        if ENV.key? 'DD_TEST_SITE' then
+          c.server_index = 2
+          c.server_variables[:site] = ENV['DD_TEST_SITE']
+        end
       end
+      @api_client = api::APIClient.new @configuration
     end
-    @api_client = api::APIClient.new @configuration
   end
 
   config.example_status_persistence_file_path = 'failed.txt'

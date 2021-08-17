@@ -19,6 +19,9 @@ require 'time'
 module DatadogAPIClient::V1
   # Information about widget.  **Note**: The `layout` property is required for widgets in dashboards with `free` `layout_type`.       For the **new dashboard layout**, the `layout` property depends on the `reflow_type` of the dashboard.       - If `reflow_type` is `fixed`, `layout` is required.       - If `reflow_type` is `auto`, `layout` should not be set.
   class Widget
+    # whether the object has unparsed attributes
+    attr_accessor :_unparsed
+
     attr_accessor :definition
 
     # ID of the widget.
@@ -194,7 +197,11 @@ module DatadogAPIClient::V1
       else # model
         # models (e.g. Pet) or oneOf
         klass = DatadogAPIClient::V1.const_get(type)
-        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        res = klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        if res.instance_of? DatadogAPIClient::V1::UnparsedObject
+          self._unparsed = true
+        end
+        res
       end
     end
 

@@ -19,6 +19,9 @@ require 'time'
 module DatadogAPIClient::V2
   # The object sent with the request to retrieve a list of logs from your organization.
   class LogsAggregateRequest
+    # whether the object has unparsed attributes
+    attr_accessor :_unparsed
+
     # The list of metrics or timeseries to compute for the retrieved buckets.
     attr_accessor :compute
 
@@ -212,7 +215,11 @@ module DatadogAPIClient::V2
       else # model
         # models (e.g. Pet) or oneOf
         klass = DatadogAPIClient::V2.const_get(type)
-        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        res = klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        if res.instance_of? DatadogAPIClient::V2::UnparsedObject
+          self._unparsed = true
+        end
+        res
       end
     end
 

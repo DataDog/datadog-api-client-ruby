@@ -32,8 +32,7 @@ module DatadogAPIClient::V2
     # @return [String] The enum value
     def build_from_hash(value)
       constantValues = LogsArchiveDestinationS3Type.constants.select { |c| LogsArchiveDestinationS3Type::const_get(c) == value }
-      raise "Invalid ENUM value #{value} for class #LogsArchiveDestinationS3Type" if constantValues.empty?
-      value
+      constantValues.empty? ? DatadogAPIClient::V2::UnparsedObject.new(value) : value
     end
   end
 end

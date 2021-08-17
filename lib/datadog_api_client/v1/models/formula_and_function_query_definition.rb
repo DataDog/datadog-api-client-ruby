@@ -20,6 +20,8 @@ module DatadogAPIClient::V1
   # A formula and function query.
   module FormulaAndFunctionQueryDefinition
     class << self
+      attr_accessor :_unparsed
+
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
@@ -44,12 +46,19 @@ module DatadogAPIClient::V1
           begin
             next if klass == :AnyType # "nullable: true"
             typed_data = find_and_cast_into_type(klass, data)
+            next if typed_data._unparsed
             return typed_data if typed_data
           rescue # rescue all errors so we keep iterating even if the current item lookup raises
           end
         end
 
-        openapi_one_of.include?(:AnyType) ? data : nil
+        if openapi_one_of.include?(:AnyType)
+          data
+        else
+          self._unparsed = true
+          DatadogAPIClient::V1::UnparsedObject.new(data)
+        end
+
       end
 
       private

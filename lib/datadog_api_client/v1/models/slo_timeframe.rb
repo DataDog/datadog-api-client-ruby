@@ -35,8 +35,7 @@ module DatadogAPIClient::V1
     # @return [String] The enum value
     def build_from_hash(value)
       constantValues = SLOTimeframe.constants.select { |c| SLOTimeframe::const_get(c) == value }
-      raise "Invalid ENUM value #{value} for class #SLOTimeframe" if constantValues.empty?
-      value
+      constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
 end

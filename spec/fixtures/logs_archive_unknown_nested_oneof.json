@@ -1,0 +1,23 @@
+{
+  "data": {
+    "type": "archives",
+    "id": "n_XDSxVpScepiBnyhysj_A",
+    "attributes": {
+      "name": "my first azure archive",
+      "query": "service:toto",
+      "state": "UNKNOWN",
+      "destination": {
+        "container": "my-container",
+        "storage_account": "storageaccount",
+        "path": "/path/blou",
+        "type": "A non existent destination",
+        "integration": {
+          "tenant_id": "tf-TestAccDatadogLogsArchiveAzure_basic-local-1624981538",
+          "client_id": "testc7f6-1234-5678-9101-3fcbf464test"
+        }
+      },
+      "rehydration_tags": [],
+      "include_tags": false
+    }
+  }
+}
