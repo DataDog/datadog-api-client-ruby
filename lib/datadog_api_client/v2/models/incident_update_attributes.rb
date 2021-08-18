@@ -78,7 +78,7 @@ module DatadogAPIClient::V2
         :'customer_impacted' => :'Boolean',
         :'detected' => :'Time',
         :'fields' => :'Hash<String, IncidentFieldAttributes>',
-        :'notification_handles' => :'Array<String>',
+        :'notification_handles' => :'Array<IncidentNotificationHandle>',
         :'resolved' => :'Time',
         :'title' => :'String'
       }

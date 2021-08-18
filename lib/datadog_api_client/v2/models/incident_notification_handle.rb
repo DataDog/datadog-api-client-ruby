@@ -17,34 +17,22 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The incident's attributes for a create request.
-  class IncidentCreateAttributes
+  # A notification handle that will be notified at incident creation.
+  class IncidentNotificationHandle
     # whether the object has unparsed attributes
     attr_accessor :_unparsed
 
-    # A flag indicating whether the incident caused customer impact.
-    attr_accessor :customer_impacted
+    # The name of the notified handle.
+    attr_accessor :display_name
 
-    # A condensed view of the user-defined fields for which to create initial selections.
-    attr_accessor :fields
-
-    # An array of initial timeline cells to be placed at the beginning of the incident timeline.
-    attr_accessor :initial_cells
-
-    # Notification handles that will be notified of the incident at creation.
-    attr_accessor :notification_handles
-
-    # The title of the incident, which summarizes what happened.
-    attr_accessor :title
+    # The email address used for the notification.
+    attr_accessor :handle
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'customer_impacted' => :'customer_impacted',
-        :'fields' => :'fields',
-        :'initial_cells' => :'initial_cells',
-        :'notification_handles' => :'notification_handles',
-        :'title' => :'title'
+        :'display_name' => :'display_name',
+        :'handle' => :'handle'
       }
     end
 
@@ -56,11 +44,8 @@ module DatadogAPIClient::V2
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'customer_impacted' => :'Boolean',
-        :'fields' => :'Hash<String, IncidentFieldAttributes>',
-        :'initial_cells' => :'Array<IncidentTimelineCellCreateAttributes>',
-        :'notification_handles' => :'Array<IncidentNotificationHandle>',
-        :'title' => :'String'
+        :'display_name' => :'String',
+        :'handle' => :'String'
       }
     end
 
@@ -74,41 +59,23 @@ module DatadogAPIClient::V2
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentCreateAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentNotificationHandle` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::IncidentCreateAttributes`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::IncidentNotificationHandle`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'customer_impacted')
-        self.customer_impacted = attributes[:'customer_impacted']
+      if attributes.key?(:'display_name')
+        self.display_name = attributes[:'display_name']
       end
 
-      if attributes.key?(:'fields')
-        if (value = attributes[:'fields']).is_a?(Hash)
-          self.fields = value
-        end
-      end
-
-      if attributes.key?(:'initial_cells')
-        if (value = attributes[:'initial_cells']).is_a?(Array)
-          self.initial_cells = value
-        end
-      end
-
-      if attributes.key?(:'notification_handles')
-        if (value = attributes[:'notification_handles']).is_a?(Array)
-          self.notification_handles = value
-        end
-      end
-
-      if attributes.key?(:'title')
-        self.title = attributes[:'title']
+      if attributes.key?(:'handle')
+        self.handle = attributes[:'handle']
       end
     end
 
@@ -116,22 +83,12 @@ module DatadogAPIClient::V2
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @customer_impacted.nil?
-        invalid_properties.push('invalid value for "customer_impacted", customer_impacted cannot be nil.')
-      end
-
-      if @title.nil?
-        invalid_properties.push('invalid value for "title", title cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @customer_impacted.nil?
-      return false if @title.nil?
       true
     end
 
@@ -140,11 +97,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          customer_impacted == o.customer_impacted &&
-          fields == o.fields &&
-          initial_cells == o.initial_cells &&
-          notification_handles == o.notification_handles &&
-          title == o.title
+          display_name == o.display_name &&
+          handle == o.handle
     end
 
     # @see the `==` method
@@ -156,7 +110,7 @@ module DatadogAPIClient::V2
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [customer_impacted, fields, initial_cells, notification_handles, title].hash
+      [display_name, handle].hash
     end
 
     # Builds the object from hash

@@ -13,7 +13,7 @@
 | **detected** | **Time** | Timestamp when the incident was detected. | [optional] |
 | **fields** | [**Hash&lt;String, IncidentFieldAttributes&gt;**](IncidentFieldAttributes.md) | A condensed view of the user-defined fields attached to incidents. | [optional] |
 | **modified** | **Time** | Timestamp when the incident was last modified. | [optional][readonly] |
-| **notification_handles** | **Array&lt;String&gt;** | Notification handles that will be notified of the incident during update. | [optional] |
+| **notification_handles** | [**Array&lt;IncidentNotificationHandle&gt;**](IncidentNotificationHandle.md) | Notification handles that will be notified of the incident during update. | [optional] |
 | **postmortem_id** | **String** | The UUID of the postmortem object attached to the incident. | [optional] |
 | **public_id** | **Integer** | The monotonically increasing integer ID for the incident. | [optional] |
 | **resolved** | **Time** | Timestamp when the incident&#39;s state was set to resolved. | [optional] |
