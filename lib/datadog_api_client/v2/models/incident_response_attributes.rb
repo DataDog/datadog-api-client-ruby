@@ -117,7 +117,7 @@ module DatadogAPIClient::V2
         :'detected' => :'Time',
         :'fields' => :'Hash<String, IncidentFieldAttributes>',
         :'modified' => :'Time',
-        :'notification_handles' => :'Array<String>',
+        :'notification_handles' => :'Array<IncidentNotificationHandle>',
         :'postmortem_id' => :'String',
         :'public_id' => :'Integer',
         :'resolved' => :'Time',
