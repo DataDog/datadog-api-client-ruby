@@ -63,6 +63,8 @@ module DatadogAPIClient::V2
     # Tags for generated signals.
     attr_accessor :tags
 
+    attr_accessor :type
+
     # User ID of the user who updated the rule.
     attr_accessor :update_author_id
 
@@ -86,6 +88,7 @@ module DatadogAPIClient::V2
         :'options' => :'options',
         :'queries' => :'queries',
         :'tags' => :'tags',
+        :'type' => :'type',
         :'update_author_id' => :'updateAuthorId',
         :'version' => :'version'
       }
@@ -113,6 +116,7 @@ module DatadogAPIClient::V2
         :'options' => :'SecurityMonitoringRuleOptions',
         :'queries' => :'Array<SecurityMonitoringRuleQuery>',
         :'tags' => :'Array<String>',
+        :'type' => :'SecurityMonitoringRuleTypeRead',
         :'update_author_id' => :'Integer',
         :'version' => :'Integer'
       }
@@ -203,6 +207,10 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      end
+
       if attributes.key?(:'update_author_id')
         self.update_author_id = attributes[:'update_author_id']
       end
@@ -244,6 +252,7 @@ module DatadogAPIClient::V2
           options == o.options &&
           queries == o.queries &&
           tags == o.tags &&
+          type == o.type &&
           update_author_id == o.update_author_id &&
           version == o.version
     end
@@ -257,7 +266,7 @@ module DatadogAPIClient::V2
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cases, created_at, creation_author_id, filters, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, tags, update_author_id, version].hash
+      [cases, created_at, creation_author_id, filters, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, tags, type, update_author_id, version].hash
     end
 
     # Builds the object from hash
