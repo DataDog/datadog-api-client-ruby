@@ -18,6 +18,7 @@
 | **options** | [**SecurityMonitoringRuleOptions**](SecurityMonitoringRuleOptions.md) |  | [optional] |
 | **queries** | [**Array&lt;SecurityMonitoringRuleQuery&gt;**](SecurityMonitoringRuleQuery.md) | Queries for selecting logs which are part of the rule. | [optional] |
 | **tags** | **Array&lt;String&gt;** | Tags for generated signals. | [optional] |
+| **type** | [**SecurityMonitoringRuleTypeRead**](SecurityMonitoringRuleTypeRead.md) |  | [optional] |
 | **update_author_id** | **Integer** | User ID of the user who updated the rule. | [optional] |
 | **version** | **Integer** | The version of the rule. | [optional] |
 
@@ -41,6 +42,7 @@ instance = DatadogAPIClient::V2::SecurityMonitoringRuleResponse.new(
   options: null,
   queries: null,
   tags: null,
+  type: null,
   update_author_id: null,
   version: null
 )

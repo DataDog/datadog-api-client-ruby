@@ -48,6 +48,8 @@ module DatadogAPIClient::V2
     # Tags for generated signals.
     attr_accessor :tags
 
+    attr_accessor :type
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -59,7 +61,8 @@ module DatadogAPIClient::V2
         :'name' => :'name',
         :'options' => :'options',
         :'queries' => :'queries',
-        :'tags' => :'tags'
+        :'tags' => :'tags',
+        :'type' => :'type'
       }
     end
 
@@ -79,7 +82,8 @@ module DatadogAPIClient::V2
         :'name' => :'String',
         :'options' => :'SecurityMonitoringRuleOptions',
         :'queries' => :'Array<SecurityMonitoringRuleQueryCreate>',
-        :'tags' => :'Array<String>'
+        :'tags' => :'Array<String>',
+        :'type' => :'SecurityMonitoringRuleTypeCreate'
       }
     end
 
@@ -147,6 +151,10 @@ module DatadogAPIClient::V2
           self.tags = value
         end
       end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -205,7 +213,8 @@ module DatadogAPIClient::V2
           name == o.name &&
           options == o.options &&
           queries == o.queries &&
-          tags == o.tags
+          tags == o.tags &&
+          type == o.type
     end
 
     # @see the `==` method
@@ -217,7 +226,7 @@ module DatadogAPIClient::V2
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cases, filters, has_extended_title, is_enabled, message, name, options, queries, tags].hash
+      [cases, filters, has_extended_title, is_enabled, message, name, options, queries, tags, type].hash
     end
 
     # Builds the object from hash

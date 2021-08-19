@@ -13,6 +13,7 @@
 | **options** | [**SecurityMonitoringRuleOptions**](SecurityMonitoringRuleOptions.md) |  |  |
 | **queries** | [**Array&lt;SecurityMonitoringRuleQueryCreate&gt;**](SecurityMonitoringRuleQueryCreate.md) | Queries for selecting logs which are part of the rule. |  |
 | **tags** | **Array&lt;String&gt;** | Tags for generated signals. | [optional] |
+| **type** | [**SecurityMonitoringRuleTypeCreate**](SecurityMonitoringRuleTypeCreate.md) |  | [optional] |
 
 ## Example
 
@@ -28,7 +29,8 @@ instance = DatadogAPIClient::V2::SecurityMonitoringRuleCreatePayload.new(
   name: My security monitoring rule.,
   options: null,
   queries: [],
-  tags: [&quot;env:prod&quot;,&quot;team:security&quot;]
+  tags: [&quot;env:prod&quot;,&quot;team:security&quot;],
+  type: null
 )
 ```
 
