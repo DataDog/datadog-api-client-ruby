@@ -22,10 +22,10 @@ module DatadogAPIClient::V1
     # whether the object has unparsed attributes
     attr_accessor :_unparsed
 
-    # Determines if the variable is secure.
+    # Determines if the value of the variable is hidden.
     attr_accessor :secure
 
-    # Value of the global variable. When reading a global variable, the value will not be present if the variable is secure.
+    # Value of the global variable. When reading a global variable, the value will not be present if the variable is hidden with the `secure` property.
     attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.
