@@ -22,6 +22,9 @@ module DatadogAPIClient::V1
     # whether the object has unparsed attributes
     attr_accessor :_unparsed
 
+    # The public ID of the batch triggered.
+    attr_accessor :batch_id
+
     # List of Synthetics locations.
     attr_accessor :locations
 
@@ -34,6 +37,7 @@ module DatadogAPIClient::V1
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'batch_id' => :'batch_id',
         :'locations' => :'locations',
         :'results' => :'results',
         :'triggered_check_ids' => :'triggered_check_ids'
@@ -48,6 +52,7 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'batch_id' => :'String',
         :'locations' => :'Array<SyntheticsTriggerCITestLocation>',
         :'results' => :'Array<SyntheticsTriggerCITestRunResult>',
         :'triggered_check_ids' => :'Array<String>'
@@ -74,6 +79,10 @@ module DatadogAPIClient::V1
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'batch_id')
+        self.batch_id = attributes[:'batch_id']
+      end
 
       if attributes.key?(:'locations')
         if (value = attributes[:'locations']).is_a?(Array)
@@ -112,6 +121,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          batch_id == o.batch_id &&
           locations == o.locations &&
           results == o.results &&
           triggered_check_ids == o.triggered_check_ids
@@ -126,7 +136,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [locations, results, triggered_check_ids].hash
+      [batch_id, locations, results, triggered_check_ids].hash
     end
 
     # Builds the object from hash
