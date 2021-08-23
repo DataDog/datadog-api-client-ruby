@@ -410,7 +410,7 @@ opts = {
   name: 'name_example', # String | A string to filter monitors by name.
   tags: 'host:host0', # String | A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope. For example, `host:host0`.
   monitor_tags: 'service:my-app', # String | A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended. For example, `service:my-app`.
-  with_downtimes: true, # Boolean | If this argument is set to true, then the returned data includes all current downtimes for each monitor.
+  with_downtimes: true, # Boolean | If this argument is set to true, then the returned data includes all current active downtimes for each monitor.
   id_offset: 789, # Integer | Monitor ID offset.
   page: 0, # Integer | The page to start paginating from. If this argument is not specified, the request returns all monitors without pagination.
   page_size: 20 # Integer | The number of monitors to return per page. If the page argument is not specified, the default behavior returns all monitors without a `page_size` limit. However, if page is specified and `page_size` is not, the argument defaults to 100.
@@ -451,7 +451,7 @@ end
 | **name** | **String** | A string to filter monitors by name. | [optional] |
 | **tags** | **String** | A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope. For example, &#x60;host:host0&#x60;. | [optional] |
 | **monitor_tags** | **String** | A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended. For example, &#x60;service:my-app&#x60;. | [optional] |
-| **with_downtimes** | **Boolean** | If this argument is set to true, then the returned data includes all current downtimes for each monitor. | [optional] |
+| **with_downtimes** | **Boolean** | If this argument is set to true, then the returned data includes all current active downtimes for each monitor. | [optional] |
 | **id_offset** | **Integer** | Monitor ID offset. | [optional] |
 | **page** | **Integer** | The page to start paginating from. If this argument is not specified, the request returns all monitors without pagination. | [optional] |
 | **page_size** | **Integer** | The number of monitors to return per page. If the page argument is not specified, the default behavior returns all monitors without a &#x60;page_size&#x60; limit. However, if page is specified and &#x60;page_size&#x60; is not, the argument defaults to 100. | [optional] |
