@@ -585,8 +585,8 @@ require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
 public_id = 'public_id_example' # String | The public ID of the test for which to search results for.
 opts = {
-  from_ts: 789, # Integer | Timestamp from which to start querying results.
-  to_ts: 789, # Integer | Timestamp up to which to query results.
+  from_ts: 789, # Integer | Timestamp in milliseconds from which to start querying results.
+  to_ts: 789, # Integer | Timestamp in milliseconds up to which to query results.
   probe_dc: ['inner_example'] # Array<String> | Locations for which to query results.
 }
 
@@ -622,8 +622,8 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **public_id** | **String** | The public ID of the test for which to search results for. |  |
-| **from_ts** | **Integer** | Timestamp from which to start querying results. | [optional] |
-| **to_ts** | **Integer** | Timestamp up to which to query results. | [optional] |
+| **from_ts** | **Integer** | Timestamp in milliseconds from which to start querying results. | [optional] |
+| **to_ts** | **Integer** | Timestamp in milliseconds up to which to query results. | [optional] |
 | **probe_dc** | **Array&lt;String&gt;** | Locations for which to query results. | [optional] |
 
 ### Return type
@@ -776,8 +776,8 @@ require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
 public_id = 'public_id_example' # String | The public ID of the browser test for which to search results for.
 opts = {
-  from_ts: 789, # Integer | Timestamp from which to start querying results.
-  to_ts: 789, # Integer | Timestamp up to which to query results.
+  from_ts: 789, # Integer | Timestamp in milliseconds from which to start querying results.
+  to_ts: 789, # Integer | Timestamp in milliseconds up to which to query results.
   probe_dc: ['inner_example'] # Array<String> | Locations for which to query results.
 }
 
@@ -813,8 +813,8 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **public_id** | **String** | The public ID of the browser test for which to search results for. |  |
-| **from_ts** | **Integer** | Timestamp from which to start querying results. | [optional] |
-| **to_ts** | **Integer** | Timestamp up to which to query results. | [optional] |
+| **from_ts** | **Integer** | Timestamp in milliseconds from which to start querying results. | [optional] |
+| **to_ts** | **Integer** | Timestamp in milliseconds up to which to query results. | [optional] |
 | **probe_dc** | **Array&lt;String&gt;** | Locations for which to query results. | [optional] |
 
 ### Return type

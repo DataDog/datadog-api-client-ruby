@@ -701,8 +701,8 @@ module DatadogAPIClient::V1
     # Get the last 50 test results summaries for a given Synthetics API test.
     # @param public_id [String] The public ID of the test for which to search results for.
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :from_ts Timestamp from which to start querying results.
-    # @option opts [Integer] :to_ts Timestamp up to which to query results.
+    # @option opts [Integer] :from_ts Timestamp in milliseconds from which to start querying results.
+    # @option opts [Integer] :to_ts Timestamp in milliseconds up to which to query results.
     # @option opts [Array<String>] :probe_dc Locations for which to query results.
     # @return [SyntheticsGetAPITestLatestResultsResponse]
     def get_api_test_latest_results(public_id, opts = {})
@@ -714,8 +714,8 @@ module DatadogAPIClient::V1
     # Get the last 50 test results summaries for a given Synthetics API test.
     # @param public_id [String] The public ID of the test for which to search results for.
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :from_ts Timestamp from which to start querying results.
-    # @option opts [Integer] :to_ts Timestamp up to which to query results.
+    # @option opts [Integer] :from_ts Timestamp in milliseconds from which to start querying results.
+    # @option opts [Integer] :to_ts Timestamp in milliseconds up to which to query results.
     # @option opts [Array<String>] :probe_dc Locations for which to query results.
     # @return [Array<(SyntheticsGetAPITestLatestResultsResponse, Integer, Hash)>] SyntheticsGetAPITestLatestResultsResponse data, response status code and response headers
     def get_api_test_latest_results_with_http_info(public_id, opts = {})
@@ -935,8 +935,8 @@ module DatadogAPIClient::V1
     # Get the last 50 test results summaries for a given Synthetics Browser test.
     # @param public_id [String] The public ID of the browser test for which to search results for.
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :from_ts Timestamp from which to start querying results.
-    # @option opts [Integer] :to_ts Timestamp up to which to query results.
+    # @option opts [Integer] :from_ts Timestamp in milliseconds from which to start querying results.
+    # @option opts [Integer] :to_ts Timestamp in milliseconds up to which to query results.
     # @option opts [Array<String>] :probe_dc Locations for which to query results.
     # @return [SyntheticsGetBrowserTestLatestResultsResponse]
     def get_browser_test_latest_results(public_id, opts = {})
@@ -948,8 +948,8 @@ module DatadogAPIClient::V1
     # Get the last 50 test results summaries for a given Synthetics Browser test.
     # @param public_id [String] The public ID of the browser test for which to search results for.
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :from_ts Timestamp from which to start querying results.
-    # @option opts [Integer] :to_ts Timestamp up to which to query results.
+    # @option opts [Integer] :from_ts Timestamp in milliseconds from which to start querying results.
+    # @option opts [Integer] :to_ts Timestamp in milliseconds up to which to query results.
     # @option opts [Array<String>] :probe_dc Locations for which to query results.
     # @return [Array<(SyntheticsGetBrowserTestLatestResultsResponse, Integer, Hash)>] SyntheticsGetBrowserTestLatestResultsResponse data, response status code and response headers
     def get_browser_test_latest_results_with_http_info(public_id, opts = {})
