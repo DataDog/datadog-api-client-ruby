@@ -25,6 +25,9 @@ module DatadogAPIClient::V1
     # Array of assertions used for the test.
     attr_accessor :assertions
 
+    # Array of variables used for the test.
+    attr_accessor :config_variables
+
     attr_accessor :request
 
     # Cookies to be used for the request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
@@ -37,6 +40,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'assertions' => :'assertions',
+        :'config_variables' => :'configVariables',
         :'request' => :'request',
         :'set_cookie' => :'setCookie',
         :'variables' => :'variables'
@@ -52,6 +56,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'assertions' => :'Array<SyntheticsAssertion>',
+        :'config_variables' => :'Array<SyntheticsConfigVariable>',
         :'request' => :'SyntheticsTestRequest',
         :'set_cookie' => :'String',
         :'variables' => :'Array<SyntheticsBrowserVariable>'
@@ -82,6 +87,12 @@ module DatadogAPIClient::V1
       if attributes.key?(:'assertions')
         if (value = attributes[:'assertions']).is_a?(Array)
           self.assertions = value
+        end
+      end
+
+      if attributes.key?(:'config_variables')
+        if (value = attributes[:'config_variables']).is_a?(Array)
+          self.config_variables = value
         end
       end
 
@@ -129,6 +140,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           assertions == o.assertions &&
+          config_variables == o.config_variables &&
           request == o.request &&
           set_cookie == o.set_cookie &&
           variables == o.variables
@@ -143,7 +155,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [assertions, request, set_cookie, variables].hash
+      [assertions, config_variables, request, set_cookie, variables].hash
     end
 
     # Builds the object from hash
