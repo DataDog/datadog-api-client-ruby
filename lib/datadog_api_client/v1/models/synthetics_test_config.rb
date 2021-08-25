@@ -25,7 +25,7 @@ module DatadogAPIClient::V1
     # Array of assertions used for the test.
     attr_accessor :assertions
 
-    # API tests only - array of variables used for the test.
+    # Array of variables used for the test.
     attr_accessor :config_variables
 
     attr_accessor :request
