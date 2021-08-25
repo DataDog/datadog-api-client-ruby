@@ -76,6 +76,18 @@ module DatadogAPIClient::V1
     # The Cloud Workload Security host usage by tag(s)
     attr_accessor :cws_host_usage
 
+    # The percentage of Database Monitoring host usage by tag(s).
+    attr_accessor :dbm_host_percentage
+
+    # The Database Monitoring host usage by tag(s).
+    attr_accessor :dbm_host_usage
+
+    # The percentage of Database Monitoring normalized queries usage by tag(s).
+    attr_accessor :dbm_queries_percentage
+
+    # The Database Monitoring normalized queries usage by tag(s).
+    attr_accessor :dbm_queries_usage
+
     # The percentage of infrastructure host usage by tag(s).
     attr_accessor :infra_host_percentage
 
@@ -145,6 +157,10 @@ module DatadogAPIClient::V1
         :'cws_container_usage' => :'cws_container_usage',
         :'cws_host_percentage' => :'cws_host_percentage',
         :'cws_host_usage' => :'cws_host_usage',
+        :'dbm_host_percentage' => :'dbm_host_percentage',
+        :'dbm_host_usage' => :'dbm_host_usage',
+        :'dbm_queries_percentage' => :'dbm_queries_percentage',
+        :'dbm_queries_usage' => :'dbm_queries_usage',
         :'infra_host_percentage' => :'infra_host_percentage',
         :'infra_host_usage' => :'infra_host_usage',
         :'lambda_functions_percentage' => :'lambda_functions_percentage',
@@ -190,6 +206,10 @@ module DatadogAPIClient::V1
         :'cws_container_usage' => :'Float',
         :'cws_host_percentage' => :'Float',
         :'cws_host_usage' => :'Float',
+        :'dbm_host_percentage' => :'Float',
+        :'dbm_host_usage' => :'Float',
+        :'dbm_queries_percentage' => :'Float',
+        :'dbm_queries_usage' => :'Float',
         :'infra_host_percentage' => :'Float',
         :'infra_host_usage' => :'Float',
         :'lambda_functions_percentage' => :'Float',
@@ -302,6 +322,22 @@ module DatadogAPIClient::V1
         self.cws_host_usage = attributes[:'cws_host_usage']
       end
 
+      if attributes.key?(:'dbm_host_percentage')
+        self.dbm_host_percentage = attributes[:'dbm_host_percentage']
+      end
+
+      if attributes.key?(:'dbm_host_usage')
+        self.dbm_host_usage = attributes[:'dbm_host_usage']
+      end
+
+      if attributes.key?(:'dbm_queries_percentage')
+        self.dbm_queries_percentage = attributes[:'dbm_queries_percentage']
+      end
+
+      if attributes.key?(:'dbm_queries_usage')
+        self.dbm_queries_usage = attributes[:'dbm_queries_usage']
+      end
+
       if attributes.key?(:'infra_host_percentage')
         self.infra_host_percentage = attributes[:'infra_host_percentage']
       end
@@ -403,6 +439,10 @@ module DatadogAPIClient::V1
           cws_container_usage == o.cws_container_usage &&
           cws_host_percentage == o.cws_host_percentage &&
           cws_host_usage == o.cws_host_usage &&
+          dbm_host_percentage == o.dbm_host_percentage &&
+          dbm_host_usage == o.dbm_host_usage &&
+          dbm_queries_percentage == o.dbm_queries_percentage &&
+          dbm_queries_usage == o.dbm_queries_usage &&
           infra_host_percentage == o.infra_host_percentage &&
           infra_host_usage == o.infra_host_usage &&
           lambda_functions_percentage == o.lambda_functions_percentage &&
@@ -430,7 +470,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [api_percentage, api_usage, apm_host_percentage, apm_host_usage, browser_percentage, browser_usage, container_percentage, container_usage, cspm_container_percentage, cspm_container_usage, cspm_host_percentage, cspm_host_usage, custom_timeseries_percentage, custom_timeseries_usage, cws_container_percentage, cws_container_usage, cws_host_percentage, cws_host_usage, infra_host_percentage, infra_host_usage, lambda_functions_percentage, lambda_functions_usage, lambda_invocations_percentage, lambda_invocations_usage, lambda_percentage, lambda_usage, npm_host_percentage, npm_host_usage, profiled_containers_percentage, profiled_containers_usage, profiled_hosts_percentage, profiled_hosts_usage, snmp_percentage, snmp_usage].hash
+      [api_percentage, api_usage, apm_host_percentage, apm_host_usage, browser_percentage, browser_usage, container_percentage, container_usage, cspm_container_percentage, cspm_container_usage, cspm_host_percentage, cspm_host_usage, custom_timeseries_percentage, custom_timeseries_usage, cws_container_percentage, cws_container_usage, cws_host_percentage, cws_host_usage, dbm_host_percentage, dbm_host_usage, dbm_queries_percentage, dbm_queries_usage, infra_host_percentage, infra_host_usage, lambda_functions_percentage, lambda_functions_usage, lambda_invocations_percentage, lambda_invocations_usage, lambda_percentage, lambda_usage, npm_host_percentage, npm_host_usage, profiled_containers_percentage, profiled_containers_usage, profiled_hosts_percentage, profiled_hosts_usage, snmp_percentage, snmp_usage].hash
     end
 
     # Builds the object from hash

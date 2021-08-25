@@ -200,6 +200,7 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_billable_summary**](UsageMeteringAPI.md#get_usage_billable_summary) | **GET** /api/v1/usage/billable-summary | Get billable usage across your account
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_cloud_security_posture_management**](UsageMeteringAPI.md#get_usage_cloud_security_posture_management) | **GET** /api/v1/usage/cspm | Get hourly usage for CSPM
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_cws**](UsageMeteringAPI.md#get_usage_cws) | **GET** /api/v1/usage/cws | Get hourly usage for Cloud Workload Security
+*DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_dbm**](UsageMeteringAPI.md#get_usage_dbm) | **GET** /api/v1/usage/dbm | Get hourly usage for Database Monitoring
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_fargate**](UsageMeteringAPI.md#get_usage_fargate) | **GET** /api/v1/usage/fargate | Get hourly usage for Fargate
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_hosts**](UsageMeteringAPI.md#get_usage_hosts) | **GET** /api/v1/usage/hosts | Get hourly usage for hosts and containers
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_indexed_spans**](UsageMeteringAPI.md#get_usage_indexed_spans) | **GET** /api/v1/usage/indexed-spans | Get hourly usage for indexed spans
@@ -733,6 +734,8 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::UsageCustomReportsMeta](UsageCustomReportsMeta.md)
  - [DatadogAPIClient::V1::UsageCustomReportsPage](UsageCustomReportsPage.md)
  - [DatadogAPIClient::V1::UsageCustomReportsResponse](UsageCustomReportsResponse.md)
+ - [DatadogAPIClient::V1::UsageDBMHour](UsageDBMHour.md)
+ - [DatadogAPIClient::V1::UsageDBMResponse](UsageDBMResponse.md)
  - [DatadogAPIClient::V1::UsageFargateHour](UsageFargateHour.md)
  - [DatadogAPIClient::V1::UsageFargateResponse](UsageFargateResponse.md)
  - [DatadogAPIClient::V1::UsageHostHour](UsageHostHour.md)

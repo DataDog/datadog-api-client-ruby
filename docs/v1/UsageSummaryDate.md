@@ -22,6 +22,8 @@
 | **cws_container_count_avg** | **Integer** | Shows the average of all distinct Cloud Workload Security containers over all hours in the current date for all organizations. | [optional] |
 | **cws_host_top99p** | **Integer** | Shows the 99th percentile of all Cloud Workload Security hosts over all hours in the current date for all organizations. | [optional] |
 | **date** | **Time** | The date for the usage. | [optional] |
+| **dbm_host_top99p** | **Integer** | Shows the 99th percentile of all Database Monitoring hosts over all hours in the current date for all organizations. | [optional] |
+| **dbm_queries_count_avg** | **Integer** | Shows the average of all normalized Database Monitoring queries over all hours in the current date for all organizations. | [optional] |
 | **fargate_tasks_count_avg** | **Integer** | Shows the high-watermark of all Fargate tasks over all hours in the current date for all organizations. | [optional] |
 | **fargate_tasks_count_hwm** | **Integer** | Shows the average of all Fargate tasks over all hours in the current date for all organizations. | [optional] |
 | **gcp_host_top99p** | **Integer** | Shows the 99th percentile of all GCP hosts over all hours in the current date for all organizations. | [optional] |
@@ -72,6 +74,8 @@ instance = DatadogAPIClient::V1::UsageSummaryDate.new(
   cws_container_count_avg: null,
   cws_host_top99p: null,
   date: null,
+  dbm_host_top99p: null,
+  dbm_queries_count_avg: null,
   fargate_tasks_count_avg: null,
   fargate_tasks_count_hwm: null,
   gcp_host_top99p: null,
