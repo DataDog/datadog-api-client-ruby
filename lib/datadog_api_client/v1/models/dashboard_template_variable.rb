@@ -22,6 +22,9 @@ module DatadogAPIClient::V1
     # whether the object has unparsed attributes
     attr_accessor :_unparsed
 
+    # The list of values that the template variable drop-down is limited to.
+    attr_accessor :available_values
+
     # The default value for the template variable on dashboard load.
     attr_accessor :default
 
@@ -34,6 +37,7 @@ module DatadogAPIClient::V1
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'available_values' => :'available_values',
         :'default' => :'default',
         :'name' => :'name',
         :'prefix' => :'prefix'
@@ -48,6 +52,7 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'available_values' => :'Array<String>',
         :'default' => :'String',
         :'name' => :'String',
         :'prefix' => :'String'
@@ -57,6 +62,7 @@ module DatadogAPIClient::V1
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'available_values',
         :'default',
         :'prefix'
       ])
@@ -76,6 +82,12 @@ module DatadogAPIClient::V1
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'available_values')
+        if (value = attributes[:'available_values']).is_a?(Array)
+          self.available_values = value
+        end
+      end
 
       if attributes.key?(:'default')
         self.default = attributes[:'default']
@@ -113,6 +125,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          available_values == o.available_values &&
           default == o.default &&
           name == o.name &&
           prefix == o.prefix
@@ -127,7 +140,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [default, name, prefix].hash
+      [available_values, default, name, prefix].hash
     end
 
     # Builds the object from hash
