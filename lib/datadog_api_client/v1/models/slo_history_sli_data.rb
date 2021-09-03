@@ -25,7 +25,7 @@ module DatadogAPIClient::V1
     # A mapping of threshold `timeframe` to the remaining error budget.
     attr_accessor :error_budget_remaining
 
-    # A list of errors while querying the history data for the service level objective.
+    # An array of error objects returned while querying the history data for the service level objective.
     attr_accessor :errors
 
     # For groups in a grouped SLO, this is the group name.
@@ -85,7 +85,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'error_budget_remaining' => :'Hash<String, Float>',
-        :'errors' => :'Array<SLOHistoryResponseError>',
+        :'errors' => :'Array<SLOHistoryResponseErrorWithType>',
         :'group' => :'String',
         :'history' => :'Array<Array<Float>>',
         :'monitor_modified' => :'Integer',

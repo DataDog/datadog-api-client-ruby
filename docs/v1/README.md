@@ -566,6 +566,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::SLOHistoryResponse](SLOHistoryResponse.md)
  - [DatadogAPIClient::V1::SLOHistoryResponseData](SLOHistoryResponseData.md)
  - [DatadogAPIClient::V1::SLOHistoryResponseError](SLOHistoryResponseError.md)
+ - [DatadogAPIClient::V1::SLOHistoryResponseErrorWithType](SLOHistoryResponseErrorWithType.md)
  - [DatadogAPIClient::V1::SLOHistorySLIData](SLOHistorySLIData.md)
  - [DatadogAPIClient::V1::SLOListResponse](SLOListResponse.md)
  - [DatadogAPIClient::V1::SLOListResponseMetadata](SLOListResponseMetadata.md)

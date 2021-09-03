@@ -17,18 +17,22 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # A list of errors while querying the history data for the service level objective.
-  class SLOHistoryResponseError
+  # An object describing the error with error type and error message.
+  class SLOHistoryResponseErrorWithType
     # whether the object has unparsed attributes
     attr_accessor :_unparsed
 
-    # Human readable error.
-    attr_accessor :error
+    # A message with more details about the error.
+    attr_accessor :error_message
+
+    # Type of the error.
+    attr_accessor :error_type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'error' => :'error'
+        :'error_message' => :'error_message',
+        :'error_type' => :'error_type'
       }
     end
 
@@ -40,7 +44,8 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'error' => :'String'
+        :'error_message' => :'String',
+        :'error_type' => :'String'
       }
     end
 
@@ -54,19 +59,23 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SLOHistoryResponseError` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SLOHistoryResponseErrorWithType` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SLOHistoryResponseError`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SLOHistoryResponseErrorWithType`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'error')
-        self.error = attributes[:'error']
+      if attributes.key?(:'error_message')
+        self.error_message = attributes[:'error_message']
+      end
+
+      if attributes.key?(:'error_type')
+        self.error_type = attributes[:'error_type']
       end
     end
 
@@ -74,12 +83,22 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @error_message.nil?
+        invalid_properties.push('invalid value for "error_message", error_message cannot be nil.')
+      end
+
+      if @error_type.nil?
+        invalid_properties.push('invalid value for "error_type", error_type cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @error_message.nil?
+      return false if @error_type.nil?
       true
     end
 
@@ -88,7 +107,8 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          error == o.error
+          error_message == o.error_message &&
+          error_type == o.error_type
     end
 
     # @see the `==` method
@@ -100,7 +120,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [error].hash
+      [error_message, error_type].hash
     end
 
     # Builds the object from hash
