@@ -17,50 +17,62 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # An array of service level objective objects.
-  class SLOHistoryResponseData
+  # An object that holds an SLI value and its associated data. It can represent an SLO's overall SLI value. This can also represent the SLI value for a specific monitor in multi-monitor SLOs, or a group in grouped SLOs.
+  class SLOHistoryMonitor
     # whether the object has unparsed attributes
     attr_accessor :_unparsed
 
-    # The `from` timestamp in epoch seconds.
-    attr_accessor :from_ts
+    # A mapping of threshold `timeframe` to the remaining error budget.
+    attr_accessor :error_budget_remaining
 
-    # For `metric` based SLOs where the query includes a group-by clause, this represents the list of grouping parameters.  This is not included in responses for `monitor` based SLOs.
-    attr_accessor :group_by
+    # An array of error objects returned while querying the history data for the service level objective.
+    attr_accessor :errors
 
-    # For grouped SLOs, this represents SLI data for specific groups.  This is not included in the responses for `metric` based SLOs.
-    attr_accessor :groups
+    # For groups in a grouped SLO, this is the group name.
+    attr_accessor :group
 
-    # For multi-monitor SLOs, this represents SLI data for specific monitors.  This is not included in the responses for `metric` based SLOs.
-    attr_accessor :monitors
+    # For `monitor` based SLOs, this includes the aggregated history as arrays that include time series and uptime data where `0=monitor` is in `OK` state and `1=monitor` is in `alert` state.
+    attr_accessor :history
 
-    attr_accessor :overall
+    # For `monitor` based SLOs, this is the last modified timestamp in epoch seconds of the monitor.
+    attr_accessor :monitor_modified
 
-    attr_accessor :series
+    # For `monitor` based SLOs, this describes the type of monitor.
+    attr_accessor :monitor_type
 
-    # mapping of string timeframe to the SLO threshold.
-    attr_accessor :thresholds
+    # For groups in a grouped SLO, this is the group name. For monitors in a multi-monitor SLO, this is the monitor name.
+    attr_accessor :name
 
-    # The `to` timestamp in epoch seconds.
-    attr_accessor :to_ts
+    # The amount of decimal places the SLI value is accurate to for the given from `&&` to timestamp. Use `span_precision` instead.
+    attr_accessor :precision
 
-    attr_accessor :type
+    # For `monitor` based SLOs, when `true` this indicates that a replay is in progress to give an accurate uptime calculation.
+    attr_accessor :preview
 
-    attr_accessor :type_id
+    # The current SLI value of the SLO over the history window.
+    attr_accessor :sli_value
+
+    # The amount of decimal places the SLI value is accurate to for the given from `&&` to timestamp.
+    attr_accessor :span_precision
+
+    # Use `sli_value` instead.
+    attr_accessor :uptime
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'from_ts' => :'from_ts',
-        :'group_by' => :'group_by',
-        :'groups' => :'groups',
-        :'monitors' => :'monitors',
-        :'overall' => :'overall',
-        :'series' => :'series',
-        :'thresholds' => :'thresholds',
-        :'to_ts' => :'to_ts',
-        :'type' => :'type',
-        :'type_id' => :'type_id'
+        :'error_budget_remaining' => :'error_budget_remaining',
+        :'errors' => :'errors',
+        :'group' => :'group',
+        :'history' => :'history',
+        :'monitor_modified' => :'monitor_modified',
+        :'monitor_type' => :'monitor_type',
+        :'name' => :'name',
+        :'precision' => :'precision',
+        :'preview' => :'preview',
+        :'sli_value' => :'sli_value',
+        :'span_precision' => :'span_precision',
+        :'uptime' => :'uptime'
       }
     end
 
@@ -72,16 +84,18 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'from_ts' => :'Integer',
-        :'group_by' => :'Array<String>',
-        :'groups' => :'Array<SLOHistoryMonitor>',
-        :'monitors' => :'Array<SLOHistoryMonitor>',
-        :'overall' => :'SLOHistorySLIData',
-        :'series' => :'SLOHistoryMetrics',
-        :'thresholds' => :'Hash<String, SLOThreshold>',
-        :'to_ts' => :'Integer',
-        :'type' => :'SLOType',
-        :'type_id' => :'SLOTypeNumeric'
+        :'error_budget_remaining' => :'Hash<String, Float>',
+        :'errors' => :'Array<SLOHistoryResponseErrorWithType>',
+        :'group' => :'String',
+        :'history' => :'Array<Array<Float>>',
+        :'monitor_modified' => :'Integer',
+        :'monitor_type' => :'String',
+        :'name' => :'String',
+        :'precision' => :'Float',
+        :'preview' => :'Boolean',
+        :'sli_value' => :'Float',
+        :'span_precision' => :'Float',
+        :'uptime' => :'Float'
       }
     end
 
@@ -95,63 +109,69 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SLOHistoryResponseData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SLOHistoryMonitor` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SLOHistoryResponseData`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SLOHistoryMonitor`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'from_ts')
-        self.from_ts = attributes[:'from_ts']
-      end
-
-      if attributes.key?(:'group_by')
-        if (value = attributes[:'group_by']).is_a?(Array)
-          self.group_by = value
+      if attributes.key?(:'error_budget_remaining')
+        if (value = attributes[:'error_budget_remaining']).is_a?(Hash)
+          self.error_budget_remaining = value
         end
       end
 
-      if attributes.key?(:'groups')
-        if (value = attributes[:'groups']).is_a?(Array)
-          self.groups = value
+      if attributes.key?(:'errors')
+        if (value = attributes[:'errors']).is_a?(Array)
+          self.errors = value
         end
       end
 
-      if attributes.key?(:'monitors')
-        if (value = attributes[:'monitors']).is_a?(Array)
-          self.monitors = value
+      if attributes.key?(:'group')
+        self.group = attributes[:'group']
+      end
+
+      if attributes.key?(:'history')
+        if (value = attributes[:'history']).is_a?(Array)
+          self.history = value
         end
       end
 
-      if attributes.key?(:'overall')
-        self.overall = attributes[:'overall']
+      if attributes.key?(:'monitor_modified')
+        self.monitor_modified = attributes[:'monitor_modified']
       end
 
-      if attributes.key?(:'series')
-        self.series = attributes[:'series']
+      if attributes.key?(:'monitor_type')
+        self.monitor_type = attributes[:'monitor_type']
       end
 
-      if attributes.key?(:'thresholds')
-        if (value = attributes[:'thresholds']).is_a?(Hash)
-          self.thresholds = value
-        end
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'to_ts')
-        self.to_ts = attributes[:'to_ts']
+      if attributes.key?(:'precision')
+        self.precision = attributes[:'precision']
       end
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'preview')
+        self.preview = attributes[:'preview']
       end
 
-      if attributes.key?(:'type_id')
-        self.type_id = attributes[:'type_id']
+      if attributes.key?(:'sli_value')
+        self.sli_value = attributes[:'sli_value']
+      end
+
+      if attributes.key?(:'span_precision')
+        self.span_precision = attributes[:'span_precision']
+      end
+
+      if attributes.key?(:'uptime')
+        self.uptime = attributes[:'uptime']
       end
     end
 
@@ -173,16 +193,18 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          from_ts == o.from_ts &&
-          group_by == o.group_by &&
-          groups == o.groups &&
-          monitors == o.monitors &&
-          overall == o.overall &&
-          series == o.series &&
-          thresholds == o.thresholds &&
-          to_ts == o.to_ts &&
-          type == o.type &&
-          type_id == o.type_id
+          error_budget_remaining == o.error_budget_remaining &&
+          errors == o.errors &&
+          group == o.group &&
+          history == o.history &&
+          monitor_modified == o.monitor_modified &&
+          monitor_type == o.monitor_type &&
+          name == o.name &&
+          precision == o.precision &&
+          preview == o.preview &&
+          sli_value == o.sli_value &&
+          span_precision == o.span_precision &&
+          uptime == o.uptime
     end
 
     # @see the `==` method
@@ -194,7 +216,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [from_ts, group_by, groups, monitors, overall, series, thresholds, to_ts, type, type_id].hash
+      [error_budget_remaining, errors, group, history, monitor_modified, monitor_type, name, precision, preview, sli_value, span_precision, uptime].hash
     end
 
     # Builds the object from hash
