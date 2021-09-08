@@ -1,5 +1,5 @@
   {{#description}}
-  # {{{description}}}
+  # {{{.}}}
   {{/description}}
   class {{classname}}{{#parent}} < {{{.}}}{{/parent}}
     # whether the object has unparsed attributes
@@ -7,7 +7,7 @@
 
   {{#vars}}
     {{#description}}
-    # {{{description}}}
+    # {{{.}}}
     {{/description}}
     attr_accessor :{{{name}}}
 
