@@ -10,6 +10,7 @@
 | **certificate** | [**SyntheticsTestRequestCertificate**](SyntheticsTestRequestCertificate.md) |  | [optional] |
 | **dns_server** | **String** | DNS server to use for DNS tests. | [optional] |
 | **dns_server_port** | **Integer** | DNS server port to use for DNS tests. | [optional] |
+| **follow_redirects** | **Boolean** | Specifies whether or not the request follows redirects. | [optional] |
 | **headers** | **Hash&lt;String, String&gt;** | Headers to include when performing the test. | [optional] |
 | **host** | **String** | Host name to perform the test with. | [optional] |
 | **method** | [**HTTPMethod**](HTTPMethod.md) |  | [optional] |
@@ -33,6 +34,7 @@ instance = DatadogAPIClient::V1::SyntheticsTestRequest.new(
   certificate: null,
   dns_server: null,
   dns_server_port: null,
+  follow_redirects: null,
   headers: null,
   host: null,
   method: null,
