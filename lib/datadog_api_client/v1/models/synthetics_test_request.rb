@@ -38,6 +38,9 @@ module DatadogAPIClient::V1
     # DNS server port to use for DNS tests.
     attr_accessor :dns_server_port
 
+    # Specifies whether or not the request follows redirects.
+    attr_accessor :follow_redirects
+
     # Headers to include when performing the test.
     attr_accessor :headers
 
@@ -76,6 +79,7 @@ module DatadogAPIClient::V1
         :'certificate' => :'certificate',
         :'dns_server' => :'dnsServer',
         :'dns_server_port' => :'dnsServerPort',
+        :'follow_redirects' => :'follow_redirects',
         :'headers' => :'headers',
         :'host' => :'host',
         :'method' => :'method',
@@ -103,6 +107,7 @@ module DatadogAPIClient::V1
         :'certificate' => :'SyntheticsTestRequestCertificate',
         :'dns_server' => :'String',
         :'dns_server_port' => :'Integer',
+        :'follow_redirects' => :'Boolean',
         :'headers' => :'Hash<String, String>',
         :'host' => :'String',
         :'method' => :'HTTPMethod',
@@ -159,6 +164,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'dns_server_port')
         self.dns_server_port = attributes[:'dns_server_port']
+      end
+
+      if attributes.key?(:'follow_redirects')
+        self.follow_redirects = attributes[:'follow_redirects']
       end
 
       if attributes.key?(:'headers')
@@ -276,6 +285,7 @@ module DatadogAPIClient::V1
           certificate == o.certificate &&
           dns_server == o.dns_server &&
           dns_server_port == o.dns_server_port &&
+          follow_redirects == o.follow_redirects &&
           headers == o.headers &&
           host == o.host &&
           method == o.method &&
@@ -297,7 +307,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [allow_insecure, basic_auth, body, certificate, dns_server, dns_server_port, headers, host, method, no_saving_response_body, number_of_packets, port, query, should_track_hops, timeout, url].hash
+      [allow_insecure, basic_auth, body, certificate, dns_server, dns_server_port, follow_redirects, headers, host, method, no_saving_response_body, number_of_packets, port, query, should_track_hops, timeout, url].hash
     end
 
     # Builds the object from hash
