@@ -563,6 +563,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::SLOHistoryMetricsSeries](SLOHistoryMetricsSeries.md)
  - [DatadogAPIClient::V1::SLOHistoryMetricsSeriesMetadata](SLOHistoryMetricsSeriesMetadata.md)
  - [DatadogAPIClient::V1::SLOHistoryMetricsSeriesMetadataUnit](SLOHistoryMetricsSeriesMetadataUnit.md)
+ - [DatadogAPIClient::V1::SLOHistoryMonitor](SLOHistoryMonitor.md)
  - [DatadogAPIClient::V1::SLOHistoryResponse](SLOHistoryResponse.md)
  - [DatadogAPIClient::V1::SLOHistoryResponseData](SLOHistoryResponseData.md)
  - [DatadogAPIClient::V1::SLOHistoryResponseError](SLOHistoryResponseError.md)
