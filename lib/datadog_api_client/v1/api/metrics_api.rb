@@ -76,7 +76,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'MetricMetadata'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_metric_metadata,
@@ -156,7 +156,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'MetricsListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :list_active_metrics,
@@ -230,7 +230,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'MetricSearchResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :list_metrics,
@@ -318,7 +318,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'MetricsQueryResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :query_metrics,

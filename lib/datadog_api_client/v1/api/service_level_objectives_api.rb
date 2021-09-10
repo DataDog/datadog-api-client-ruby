@@ -379,7 +379,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SLOResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_slo,
@@ -477,7 +477,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SLOHistoryResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_slo_history,
@@ -562,7 +562,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SLOListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :list_slos,

@@ -77,7 +77,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'CheckCanDeleteMonitorResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :check_can_delete_monitor,
@@ -152,7 +152,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Monitor'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :create_monitor,
@@ -228,7 +228,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'DeletedMonitor'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :delete_monitor,
@@ -304,7 +304,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Monitor'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_monitor,
@@ -399,7 +399,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Array<Monitor>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :list_monitors,
@@ -478,7 +478,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'MonitorGroupSearchResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :search_monitor_groups,
@@ -557,7 +557,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'MonitorSearchResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :search_monitors,
@@ -638,7 +638,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Monitor'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :update_monitor,
@@ -713,7 +713,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Object'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :validate_monitor,

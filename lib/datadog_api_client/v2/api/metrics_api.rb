@@ -315,7 +315,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'MetricsAndMetricTagConfigurationsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :list_tag_configurations,
@@ -388,7 +388,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'MetricAllTagsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :list_tags_by_metric_name,
@@ -461,7 +461,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'MetricVolumesResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :list_volumes_by_metric_name,
