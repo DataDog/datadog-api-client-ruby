@@ -106,10 +106,6 @@ module DatadogAPIClient::V1
         invalid_properties.push('invalid value for "count", count cannot be nil.')
       end
 
-      if @metadata.nil?
-        invalid_properties.push('invalid value for "metadata", metadata cannot be nil.')
-      end
-
       if @sum.nil?
         invalid_properties.push('invalid value for "sum", sum cannot be nil.')
       end
@@ -125,7 +121,6 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     def valid?
       return false if @count.nil?
-      return false if @metadata.nil?
       return false if @sum.nil?
       return false if @values.nil?
       true
