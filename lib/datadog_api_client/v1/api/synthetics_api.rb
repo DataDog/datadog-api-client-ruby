@@ -228,7 +228,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsAPITest'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :create_synthetics_api_test,
@@ -303,7 +303,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsBrowserTest'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :create_synthetics_browser_test,
@@ -376,7 +376,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :delete_global_variable,
@@ -524,7 +524,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsDeleteTestsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :delete_tests,
@@ -678,7 +678,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsAPITest'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_api_test,
@@ -760,7 +760,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsGetAPITestLatestResultsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_api_test_latest_results,
@@ -839,7 +839,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsAPITestResultFull'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_api_test_result,
@@ -912,7 +912,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsBrowserTest'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_browser_test,
@@ -994,7 +994,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsGetBrowserTestLatestResultsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_browser_test_latest_results,
@@ -1073,7 +1073,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsBrowserTestResultFull'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_browser_test_result,
@@ -1146,7 +1146,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsGlobalVariable'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_global_variable,
@@ -1359,7 +1359,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsListGlobalVariablesResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :list_global_variables,
@@ -1426,7 +1426,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsLocations'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :list_locations,
@@ -1493,7 +1493,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsListTestsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :list_tests,
@@ -1649,7 +1649,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsAPITest'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :update_api_test,
@@ -1730,7 +1730,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsBrowserTest'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :update_browser_test,
@@ -1892,7 +1892,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Boolean'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :update_test_pause_status,

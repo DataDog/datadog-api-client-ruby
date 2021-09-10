@@ -84,7 +84,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'PermissionsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :add_permission_to_role,
@@ -165,7 +165,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'UsersResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :add_user_to_role,
@@ -240,7 +240,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'RoleCreateResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :create_role,
@@ -313,7 +313,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :delete_role,
@@ -386,7 +386,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'RoleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_role,
@@ -453,7 +453,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'PermissionsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :list_permissions,
@@ -526,7 +526,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'PermissionsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :list_role_permissions,
@@ -611,7 +611,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'UsersResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :list_role_users,
@@ -690,7 +690,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'RolesResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :list_roles,
@@ -771,7 +771,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'PermissionsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :remove_permission_from_role,
@@ -852,7 +852,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'UsersResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :remove_user_from_role,
@@ -933,7 +933,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'RoleUpdateResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :update_role,

@@ -238,7 +238,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'DashboardListItems'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_dashboard_list_items,

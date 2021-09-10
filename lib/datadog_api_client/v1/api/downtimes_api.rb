@@ -76,7 +76,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :cancel_downtime,
@@ -151,7 +151,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'CanceledDowntimesIds'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :cancel_downtimes_by_scope,
@@ -226,7 +226,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Downtime'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :create_downtime,
@@ -299,7 +299,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Downtime'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_downtime,
@@ -369,7 +369,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Array<Downtime>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :list_downtimes,
@@ -523,7 +523,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Downtime'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :update_downtime,

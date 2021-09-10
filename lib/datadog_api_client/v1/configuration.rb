@@ -237,6 +237,13 @@ module DatadogAPIClient::V1
     # Returns Auth Settings hash for api client.
     def auth_settings
       {
+        AuthZ:
+          {
+            type: 'oauth2',
+            in: 'header',
+            key: 'Authorization',
+            value: "Bearer #{access_token}"
+          },
         apiKeyAuth:
           {
             type: 'api_key',
