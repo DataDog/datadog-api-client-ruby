@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **count** | **Integer** | Count of submitted metrics. |  |
-| **metadata** | [**SLOHistoryMetricsSeriesMetadata**](SLOHistoryMetricsSeriesMetadata.md) |  |  |
+| **metadata** | [**SLOHistoryMetricsSeriesMetadata**](SLOHistoryMetricsSeriesMetadata.md) |  | [optional] |
 | **sum** | **Float** | Total sum of the query. |  |
 | **values** | **Array&lt;Float&gt;** | The query values for each metric. |  |
 
