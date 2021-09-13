@@ -4,18 +4,16 @@
 
 * [Added] Add `follow_redirects` options to test request in Synthetics. See [#481](https://github.com/DataDog/datadog-api-client-ruby/pull/481).
 * [Added] Added `available_values` property to template variables schema. See [#476](https://github.com/DataDog/datadog-api-client-ruby/pull/476).
-* [Added] Improve resiliency of Java SDK when deserialising enums/oneOfs. See [#469](https://github.com/DataDog/datadog-api-client-ruby/pull/469).
 * [Added] Add config variables to Synthetics browser test config. See [#475](https://github.com/DataDog/datadog-api-client-ruby/pull/475).
 * [Added] Add DBM usage endpoint. See [#459](https://github.com/DataDog/datadog-api-client-ruby/pull/459).
 * [Added] Add `audit alert` monitor type. See [#471](https://github.com/DataDog/datadog-api-client-ruby/pull/471).
 * [Added] Add `batch_id` to the synthetics trigger endpoint response. See [#468](https://github.com/DataDog/datadog-api-client-ruby/pull/468).
 * [Added] Adding support for security monitoring rule `type` property. See [#457](https://github.com/DataDog/datadog-api-client-ruby/pull/457).
-* [Added]  Improve resiliency of Ruby SDK when deserializing enums/oneOfs. See [#460](https://github.com/DataDog/datadog-api-client-ruby/pull/460).
+* [Added] Improve resiliency of Ruby SDK when deserializing enums/oneOfs. See [#460](https://github.com/DataDog/datadog-api-client-ruby/pull/460).
 * [Added] Add events data source to Dashboard widgets. See [#458](https://github.com/DataDog/datadog-api-client-ruby/pull/458).
 * [Added] Add restricted roles for Synthetics global variables. See [#463](https://github.com/DataDog/datadog-api-client-ruby/pull/463).
 * [Added] Webhooks integration SDK. See [#462](https://github.com/DataDog/datadog-api-client-ruby/pull/462).
 * [Added] Add missing synthetics variable parser type `x_path`. See [#461](https://github.com/DataDog/datadog-api-client-ruby/pull/461).
-* [Added] Improve resiliency of typescript SDK when deserialising enums/oneOfs. See [#442](https://github.com/DataDog/datadog-api-client-ruby/pull/442).
 * [Added] Add `audit_stream` to `ListStreamSource`. See [#448](https://github.com/DataDog/datadog-api-client-ruby/pull/448).
 * [Added] Add percentile to dashboard `WidgetAggregator` schema. See [#444](https://github.com/DataDog/datadog-api-client-ruby/pull/444).
 * [Added] Add `id_str` property to Event response. See [#451](https://github.com/DataDog/datadog-api-client-ruby/pull/451).
@@ -24,7 +22,7 @@
 * [Added] Add `new_group_delay` and deprecate `new_host_delay` monitor properties. See [#447](https://github.com/DataDog/datadog-api-client-ruby/pull/447).
 * [Added] Add `include_descendants` param to usage attribution API. See [#453](https://github.com/DataDog/datadog-api-client-ruby/pull/453).
 * [Added] Add support for list widget in dashboards. See [#418](https://github.com/DataDog/datadog-api-client-ruby/pull/418).
-* [Added] [dashboards] Extend table widget requests to support formulas and functions. See [#438](https://github.com/DataDog/datadog-api-client-ruby/pull/438).
+* [Added] Extend dashboards table widget requests to support formulas and functions. See [#438](https://github.com/DataDog/datadog-api-client-ruby/pull/438).
 * [Added] Add CSPM to usage attribution. See [#429](https://github.com/DataDog/datadog-api-client-ruby/pull/429).
 * [Added] Add support for dashboard bulk delete, restore endpoints. See [#415](https://github.com/DataDog/datadog-api-client-ruby/pull/415).
 * [Added] Add support for audit logs data source in dashboards. See [#432](https://github.com/DataDog/datadog-api-client-ruby/pull/432).
@@ -140,7 +138,6 @@
 * [Added] Update required fields in create and update requests . See [#171](https://github.com/DataDog/datadog-api-client-ruby/pull/171).
 * [Added] Add docs for log index creation (POST). See [#168](https://github.com/DataDog/datadog-api-client-ruby/pull/168).
 * [Fixed] Browser Test message required. See [#254](https://github.com/DataDog/datadog-api-client-ruby/pull/254).
-* [Fixed] Add missing tlsVersion and minTlsVersion to Synthetics assertion types. See [#212](https://github.com/DataDog/datadog-api-client-ruby/pull/212).
 * [Fixed] rule: all nested objects in arrays must be defined on top-level. See [#208](https://github.com/DataDog/datadog-api-client-ruby/pull/208).
 * [Fixed] Add support for DD_SITE in examples. See [#202](https://github.com/DataDog/datadog-api-client-ruby/pull/202).
 * [Fixed] [dashboards] Change analyzed_spans -> spans. See [#201](https://github.com/DataDog/datadog-api-client-ruby/pull/201).
