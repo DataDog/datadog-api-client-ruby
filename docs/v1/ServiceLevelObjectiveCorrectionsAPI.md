@@ -15,7 +15,7 @@ All URIs are relative to *https://api.datadoghq.com*
 
 > <SLOCorrectionResponse> create_slo_correction(body)
 
-Create an SLO Correction
+Create an SLO Correction.
 
 ### Examples
 
@@ -80,7 +80,7 @@ end
 
 > delete_slo_correction(slo_correction_id)
 
-Permanently delete the specified SLO correction object
+Permanently delete the specified SLO correction object.
 
 ### Examples
 
@@ -92,7 +92,7 @@ DatadogAPIClient::V1.configure do |config|
 end
 
 api_instance = DatadogAPIClient::V1::ServiceLevelObjectiveCorrectionsAPI.new
-slo_correction_id = 'slo_correction_id_example' # String | The ID of the SLO correction object
+slo_correction_id = 'slo_correction_id_example' # String | The ID of the SLO correction object.
 
 begin
   # Delete an SLO correction
@@ -124,7 +124,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **slo_correction_id** | **String** | The ID of the SLO correction object |  |
+| **slo_correction_id** | **String** | The ID of the SLO correction object. |  |
 
 ### Return type
 
@@ -144,7 +144,7 @@ nil (empty response body)
 
 > <SLOCorrectionResponse> get_slo_correction(slo_correction_id)
 
-Get an SLO correction
+Get an SLO correction.
 
 ### Examples
 
@@ -156,7 +156,7 @@ DatadogAPIClient::V1.configure do |config|
 end
 
 api_instance = DatadogAPIClient::V1::ServiceLevelObjectiveCorrectionsAPI.new
-slo_correction_id = 'slo_correction_id_example' # String | The ID of the SLO correction object
+slo_correction_id = 'slo_correction_id_example' # String | The ID of the SLO correction object.
 
 begin
   # Get an SLO correction for an SLO
@@ -189,7 +189,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **slo_correction_id** | **String** | The ID of the SLO correction object |  |
+| **slo_correction_id** | **String** | The ID of the SLO correction object. |  |
 
 ### Return type
 
@@ -209,7 +209,7 @@ end
 
 > <SLOCorrectionListResponse> list_slo_correction
 
-Get all Service Level Objective corrections
+Get all Service Level Objective corrections.
 
 ### Examples
 
@@ -271,7 +271,7 @@ This endpoint does not need any parameter.
 
 > <SLOCorrectionResponse> update_slo_correction(slo_correction_id, body)
 
-Update the specified SLO correction object object
+Update the specified SLO correction object object.
 
 ### Examples
 
@@ -283,7 +283,7 @@ DatadogAPIClient::V1.configure do |config|
 end
 
 api_instance = DatadogAPIClient::V1::ServiceLevelObjectiveCorrectionsAPI.new
-slo_correction_id = 'slo_correction_id_example' # String | The ID of the SLO correction object
+slo_correction_id = 'slo_correction_id_example' # String | The ID of the SLO correction object.
 body = DatadogAPIClient::V1::SLOCorrectionUpdateRequest.new # SLOCorrectionUpdateRequest | The edited SLO correction object.
 
 begin
@@ -317,7 +317,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **slo_correction_id** | **String** | The ID of the SLO correction object |  |
+| **slo_correction_id** | **String** | The ID of the SLO correction object. |  |
 | **body** | [**SLOCorrectionUpdateRequest**](SLOCorrectionUpdateRequest.md) | The edited SLO correction object. |  |
 
 ### Return type

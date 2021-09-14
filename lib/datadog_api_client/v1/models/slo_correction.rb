@@ -17,14 +17,14 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The response object of a list of SLO corrections
+  # The response object of a list of SLO corrections.
   class SLOCorrection
     # whether the object has unparsed attributes
     attr_accessor :_unparsed
 
     attr_accessor :attributes
 
-    # The ID of the SLO correction
+    # The ID of the SLO correction.
     attr_accessor :id
 
     attr_accessor :type

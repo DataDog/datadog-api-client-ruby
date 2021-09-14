@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **attributes** | [**SLOCorrectionCreateRequestAttributes**](SLOCorrectionCreateRequestAttributes.md) |  | [optional] |
-| **type** | [**SLOCorrectionType**](SLOCorrectionType.md) |  | [optional][default to &#39;correction&#39;] |
+| **type** | [**SLOCorrectionType**](SLOCorrectionType.md) |  | [default to &#39;correction&#39;] |
 
 ## Example
 
