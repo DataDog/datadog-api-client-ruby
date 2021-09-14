@@ -14,6 +14,7 @@ require 'datadog_api_client/v1'
 DatadogAPIClient::V1::FormulaAndFunctionQueryDefinition.openapi_one_of
 # =>
 # [
+#   :'FormulaAndFunctionApmDependencyStatsQueryDefinition',
 #   :'FormulaAndFunctionEventQueryDefinition',
 #   :'FormulaAndFunctionMetricQueryDefinition',
 #   :'FormulaAndFunctionProcessQueryDefinition'
@@ -30,7 +31,7 @@ Find the appropriate object from the `openapi_one_of` list and casts the data in
 require 'datadog_api_client/v1'
 
 DatadogAPIClient::V1::FormulaAndFunctionQueryDefinition.build(data)
-# => #<FormulaAndFunctionEventQueryDefinition:0x00007fdd4aab02a0>
+# => #<FormulaAndFunctionApmDependencyStatsQueryDefinition:0x00007fdd4aab02a0>
 
 DatadogAPIClient::V1::FormulaAndFunctionQueryDefinition.build(data_that_doesnt_match)
 # => nil
@@ -44,6 +45,7 @@ DatadogAPIClient::V1::FormulaAndFunctionQueryDefinition.build(data_that_doesnt_m
 
 #### Return type
 
+- `FormulaAndFunctionApmDependencyStatsQueryDefinition`
 - `FormulaAndFunctionEventQueryDefinition`
 - `FormulaAndFunctionMetricQueryDefinition`
 - `FormulaAndFunctionProcessQueryDefinition`
