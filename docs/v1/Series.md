@@ -20,7 +20,7 @@ instance = DatadogAPIClient::V1::Series.new(
   host: test.example.com,
   interval: 20,
   metric: system.load.1,
-  points: [[1575317847,0.5]],
+  points: null,
   tags: [&quot;environment:test&quot;],
   type: rate
 )

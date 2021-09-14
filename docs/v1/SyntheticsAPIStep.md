@@ -19,7 +19,7 @@ require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::SyntheticsAPIStep.new(
   allow_failure: null,
-  assertions: [],
+  assertions: null,
   extracted_values: null,
   is_critical: null,
   name: null,

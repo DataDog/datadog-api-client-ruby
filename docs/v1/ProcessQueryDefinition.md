@@ -17,7 +17,7 @@ require 'datadog_api_client/v1'
 instance = DatadogAPIClient::V1::ProcessQueryDefinition.new(
   filter_by: null,
   limit: null,
-  metric: ,
+  metric: system.load.1,
   search_by: null
 )
 ```

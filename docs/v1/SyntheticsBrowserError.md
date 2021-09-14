@@ -15,9 +15,9 @@
 require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::SyntheticsBrowserError.new(
-  description: ,
-  name: ,
-  status: null,
+  description: Example error message,
+  name: Failed test,
+  status: 500,
   type: null
 )
 ```
