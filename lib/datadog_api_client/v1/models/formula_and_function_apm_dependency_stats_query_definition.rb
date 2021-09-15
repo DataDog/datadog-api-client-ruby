@@ -161,6 +161,10 @@ module DatadogAPIClient::V1
         invalid_properties.push('invalid value for "env", env cannot be nil.')
       end
 
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
       if @operation_name.nil?
         invalid_properties.push('invalid value for "operation_name", operation_name cannot be nil.')
       end
@@ -185,6 +189,7 @@ module DatadogAPIClient::V1
     def valid?
       return false if @data_source.nil?
       return false if @env.nil?
+      return false if @name.nil?
       return false if @operation_name.nil?
       return false if @resource_name.nil?
       return false if @service.nil?
