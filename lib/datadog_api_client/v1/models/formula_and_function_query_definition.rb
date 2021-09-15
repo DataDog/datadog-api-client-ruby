@@ -26,6 +26,7 @@ module DatadogAPIClient::V1
       def openapi_one_of
         [
           :'FormulaAndFunctionApmDependencyStatsQueryDefinition',
+          :'FormulaAndFunctionApmResourceStatsQueryDefinition',
           :'FormulaAndFunctionEventQueryDefinition',
           :'FormulaAndFunctionMetricQueryDefinition',
           :'FormulaAndFunctionProcessQueryDefinition'
