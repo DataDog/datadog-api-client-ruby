@@ -31,7 +31,7 @@ end
 
 Around do |scenario, block|
   VCR.use_cassette(scenario.location.file.chomp('.feature') + "/" + scenario.name.gsub(/[^A-Za-z0-9]+/, '-')[0..100], :record_on_error => false, :match_requests_on => [:method, :host, :path, :query, :body_as_json]) do |cassette|
-    if !File.exist?(cassette.file) && ENV.fetch("RECORD", "false") == "false"
+    if !File.exist?(cassette.file) && ENV.fetch("RECORD", "false") == "false" && !scenario.match_tags?("@integration-only")
       raise Exception.new "Cassette '#{cassette.file}' not found: create one setting `RECORD=true` or ignore it using `RECORD=none`";
     end
     File.delete(cassette.file) if ENV["RECORD"] == "true" && File.exist?(cassette.file) && !scenario.match_tags?("@replay-only")
