@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The data object associated with the SLO correction to be updated
+  # The data object associated with the SLO correction to be updated.
   class SLOCorrectionUpdateData
     # whether the object has unparsed attributes
     attr_accessor :_unparsed

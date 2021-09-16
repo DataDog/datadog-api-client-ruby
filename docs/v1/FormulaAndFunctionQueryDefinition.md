@@ -15,6 +15,7 @@ DatadogAPIClient::V1::FormulaAndFunctionQueryDefinition.openapi_one_of
 # =>
 # [
 #   :'FormulaAndFunctionApmDependencyStatsQueryDefinition',
+#   :'FormulaAndFunctionApmResourceStatsQueryDefinition',
 #   :'FormulaAndFunctionEventQueryDefinition',
 #   :'FormulaAndFunctionMetricQueryDefinition',
 #   :'FormulaAndFunctionProcessQueryDefinition'
@@ -46,6 +47,7 @@ DatadogAPIClient::V1::FormulaAndFunctionQueryDefinition.build(data_that_doesnt_m
 #### Return type
 
 - `FormulaAndFunctionApmDependencyStatsQueryDefinition`
+- `FormulaAndFunctionApmResourceStatsQueryDefinition`
 - `FormulaAndFunctionEventQueryDefinition`
 - `FormulaAndFunctionMetricQueryDefinition`
 - `FormulaAndFunctionProcessQueryDefinition`

@@ -6,10 +6,10 @@
 | ---- | ---- | ----------- | ----- |
 | **category** | [**SLOCorrectionCategory**](SLOCorrectionCategory.md) |  |  |
 | **description** | **String** | Description of the correction being made. | [optional] |
-| **_end** | **Integer** | Ending time of the correction in epoch seconds |  |
-| **slo_id** | **String** | ID of the SLO that this correction will be applied to |  |
-| **start** | **Integer** | Starting time of the correction in epoch seconds |  |
-| **timezone** | **String** | The timezone to display in the UI for the correction times (defaults to \&quot;UTC\&quot;) | [optional] |
+| **_end** | **Integer** | Ending time of the correction in epoch seconds. |  |
+| **slo_id** | **String** | ID of the SLO that this correction will be applied to. |  |
+| **start** | **Integer** | Starting time of the correction in epoch seconds. |  |
+| **timezone** | **String** | The timezone to display in the UI for the correction times (defaults to \&quot;UTC\&quot;). | [optional] |
 
 ## Example
 

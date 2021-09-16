@@ -17,33 +17,52 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The attribute object associated with the SLO correction to be updated.
-  class SLOCorrectionUpdateRequestAttributes
+  # APM resource stats query using formulas and functions.
+  class FormulaAndFunctionApmResourceStatsQueryDefinition
     # whether the object has unparsed attributes
     attr_accessor :_unparsed
 
-    attr_accessor :category
+    attr_accessor :data_source
 
-    # Description of the correction being made.
-    attr_accessor :description
+    # APM environment.
+    attr_accessor :env
 
-    # Ending time of the correction in epoch seconds.
-    attr_accessor :_end
+    # Array of fields to group results by.
+    attr_accessor :group_by
 
-    # Starting time of the correction in epoch seconds.
-    attr_accessor :start
+    # Name of this query to use in formulas.
+    attr_accessor :name
 
-    # The timezone to display in the UI for the correction times (defaults to \"UTC\").
-    attr_accessor :timezone
+    # Name of operation on service.
+    attr_accessor :operation_name
+
+    # Name of the second primary tag used within APM. Required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog
+    attr_accessor :primary_tag_name
+
+    # Value of the second primary tag by which to filter APM data. `primary_tag_name` must also be specified.
+    attr_accessor :primary_tag_value
+
+    # APM resource name.
+    attr_accessor :resource_name
+
+    # APM service name.
+    attr_accessor :service
+
+    attr_accessor :stat
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'category' => :'category',
-        :'description' => :'description',
-        :'_end' => :'end',
-        :'start' => :'start',
-        :'timezone' => :'timezone'
+        :'data_source' => :'data_source',
+        :'env' => :'env',
+        :'group_by' => :'group_by',
+        :'name' => :'name',
+        :'operation_name' => :'operation_name',
+        :'primary_tag_name' => :'primary_tag_name',
+        :'primary_tag_value' => :'primary_tag_value',
+        :'resource_name' => :'resource_name',
+        :'service' => :'service',
+        :'stat' => :'stat'
       }
     end
 
@@ -55,11 +74,16 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'category' => :'SLOCorrectionCategory',
-        :'description' => :'String',
-        :'_end' => :'Integer',
-        :'start' => :'Integer',
-        :'timezone' => :'String'
+        :'data_source' => :'FormulaAndFunctionApmResourceStatsDataSource',
+        :'env' => :'String',
+        :'group_by' => :'Array<String>',
+        :'name' => :'String',
+        :'operation_name' => :'String',
+        :'primary_tag_name' => :'String',
+        :'primary_tag_value' => :'String',
+        :'resource_name' => :'String',
+        :'service' => :'String',
+        :'stat' => :'FormulaAndFunctionApmResourceStatName'
       }
     end
 
@@ -73,35 +97,57 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SLOCorrectionUpdateRequestAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::FormulaAndFunctionApmResourceStatsQueryDefinition` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SLOCorrectionUpdateRequestAttributes`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::FormulaAndFunctionApmResourceStatsQueryDefinition`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'category')
-        self.category = attributes[:'category']
+      if attributes.key?(:'data_source')
+        self.data_source = attributes[:'data_source']
       end
 
-      if attributes.key?(:'description')
-        self.description = attributes[:'description']
+      if attributes.key?(:'env')
+        self.env = attributes[:'env']
       end
 
-      if attributes.key?(:'_end')
-        self._end = attributes[:'_end']
+      if attributes.key?(:'group_by')
+        if (value = attributes[:'group_by']).is_a?(Array)
+          self.group_by = value
+        end
       end
 
-      if attributes.key?(:'start')
-        self.start = attributes[:'start']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'timezone')
-        self.timezone = attributes[:'timezone']
+      if attributes.key?(:'operation_name')
+        self.operation_name = attributes[:'operation_name']
+      end
+
+      if attributes.key?(:'primary_tag_name')
+        self.primary_tag_name = attributes[:'primary_tag_name']
+      end
+
+      if attributes.key?(:'primary_tag_value')
+        self.primary_tag_value = attributes[:'primary_tag_value']
+      end
+
+      if attributes.key?(:'resource_name')
+        self.resource_name = attributes[:'resource_name']
+      end
+
+      if attributes.key?(:'service')
+        self.service = attributes[:'service']
+      end
+
+      if attributes.key?(:'stat')
+        self.stat = attributes[:'stat']
       end
     end
 
@@ -109,12 +155,37 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @data_source.nil?
+        invalid_properties.push('invalid value for "data_source", data_source cannot be nil.')
+      end
+
+      if @env.nil?
+        invalid_properties.push('invalid value for "env", env cannot be nil.')
+      end
+
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
+      if @service.nil?
+        invalid_properties.push('invalid value for "service", service cannot be nil.')
+      end
+
+      if @stat.nil?
+        invalid_properties.push('invalid value for "stat", stat cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @data_source.nil?
+      return false if @env.nil?
+      return false if @name.nil?
+      return false if @service.nil?
+      return false if @stat.nil?
       true
     end
 
@@ -123,11 +194,16 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          category == o.category &&
-          description == o.description &&
-          _end == o._end &&
-          start == o.start &&
-          timezone == o.timezone
+          data_source == o.data_source &&
+          env == o.env &&
+          group_by == o.group_by &&
+          name == o.name &&
+          operation_name == o.operation_name &&
+          primary_tag_name == o.primary_tag_name &&
+          primary_tag_value == o.primary_tag_value &&
+          resource_name == o.resource_name &&
+          service == o.service &&
+          stat == o.stat
     end
 
     # @see the `==` method
@@ -139,7 +215,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [category, description, _end, start, timezone].hash
+      [data_source, env, group_by, name, operation_name, primary_tag_name, primary_tag_value, resource_name, service, stat].hash
     end
 
     # Builds the object from hash

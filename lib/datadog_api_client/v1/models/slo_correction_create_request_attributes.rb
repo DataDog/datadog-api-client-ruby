@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The attribute object associated with the SLO correction to be created
+  # The attribute object associated with the SLO correction to be created.
   class SLOCorrectionCreateRequestAttributes
     # whether the object has unparsed attributes
     attr_accessor :_unparsed
@@ -27,16 +27,16 @@ module DatadogAPIClient::V1
     # Description of the correction being made.
     attr_accessor :description
 
-    # Ending time of the correction in epoch seconds
+    # Ending time of the correction in epoch seconds.
     attr_accessor :_end
 
-    # ID of the SLO that this correction will be applied to
+    # ID of the SLO that this correction will be applied to.
     attr_accessor :slo_id
 
-    # Starting time of the correction in epoch seconds
+    # Starting time of the correction in epoch seconds.
     attr_accessor :start
 
-    # The timezone to display in the UI for the correction times (defaults to \"UTC\")
+    # The timezone to display in the UI for the correction times (defaults to \"UTC\").
     attr_accessor :timezone
 
     # Attribute mapping from ruby-style variable name to JSON key.
