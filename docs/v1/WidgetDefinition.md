@@ -22,6 +22,7 @@ DatadogAPIClient::V1::WidgetDefinition.openapi_one_of
 #   :'EventStreamWidgetDefinition',
 #   :'EventTimelineWidgetDefinition',
 #   :'FreeTextWidgetDefinition',
+#   :'FunnelWidgetDefinition',
 #   :'GeomapWidgetDefinition',
 #   :'GroupWidgetDefinition',
 #   :'HeatMapWidgetDefinition',
@@ -76,6 +77,7 @@ DatadogAPIClient::V1::WidgetDefinition.build(data_that_doesnt_match)
 - `EventStreamWidgetDefinition`
 - `EventTimelineWidgetDefinition`
 - `FreeTextWidgetDefinition`
+- `FunnelWidgetDefinition`
 - `GeomapWidgetDefinition`
 - `GroupWidgetDefinition`
 - `HeatMapWidgetDefinition`

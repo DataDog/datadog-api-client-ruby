@@ -33,6 +33,7 @@ module DatadogAPIClient::V1
           :'EventStreamWidgetDefinition',
           :'EventTimelineWidgetDefinition',
           :'FreeTextWidgetDefinition',
+          :'FunnelWidgetDefinition',
           :'GeomapWidgetDefinition',
           :'GroupWidgetDefinition',
           :'HeatMapWidgetDefinition',
