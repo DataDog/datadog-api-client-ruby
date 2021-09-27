@@ -24,6 +24,8 @@ module DatadogAPIClient::V1
 
     attr_accessor :config
 
+    attr_accessor :creator
+
     # Array of locations used to run the test.
     attr_accessor :locations
 
@@ -57,6 +59,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'config' => :'config',
+        :'creator' => :'creator',
         :'locations' => :'locations',
         :'message' => :'message',
         :'monitor_id' => :'monitor_id',
@@ -80,6 +83,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'config' => :'SyntheticsTestConfig',
+        :'creator' => :'Creator',
         :'locations' => :'Array<String>',
         :'message' => :'String',
         :'monitor_id' => :'Integer',
@@ -117,6 +121,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'config')
         self.config = attributes[:'config']
+      end
+
+      if attributes.key?(:'creator')
+        self.creator = attributes[:'creator']
       end
 
       if attributes.key?(:'locations')
@@ -189,6 +197,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           config == o.config &&
+          creator == o.creator &&
           locations == o.locations &&
           message == o.message &&
           monitor_id == o.monitor_id &&
@@ -211,7 +220,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [config, locations, message, monitor_id, name, options, public_id, status, steps, subtype, tags, type].hash
+      [config, creator, locations, message, monitor_id, name, options, public_id, status, steps, subtype, tags, type].hash
     end
 
     # Builds the object from hash
