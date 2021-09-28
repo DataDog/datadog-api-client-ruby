@@ -36,8 +36,8 @@
 | **lambda_usage** | **Float** | The Lambda function usage by tag(s).  **Note** this field is deprecated. Use lambda_functions_usage instead. | [optional] |
 | **npm_host_percentage** | **Float** | The percentage of network host usage by tag(s). | [optional] |
 | **npm_host_usage** | **Float** | The network host usage by tag(s). | [optional] |
-| **profiled_containers_percentage** | **Float** | The percentage of profiled containers usage by tag(s). | [optional] |
-| **profiled_containers_usage** | **Float** | The profiled container usage by tag(s). | [optional] |
+| **profiled_container_percentage** | **Float** | The percentage of profiled containers usage by tag(s). | [optional] |
+| **profiled_container_usage** | **Float** | The profiled container usage by tag(s). | [optional] |
 | **profiled_hosts_percentage** | **Float** | The percentage of profiled hosts usage by tag(s). | [optional] |
 | **profiled_hosts_usage** | **Float** | The profiled host usage by tag(s). | [optional] |
 | **snmp_percentage** | **Float** | The percentage of network device usage by tag(s). | [optional] |
@@ -81,8 +81,8 @@ instance = DatadogAPIClient::V1::UsageAttributionValues.new(
   lambda_usage: null,
   npm_host_percentage: null,
   npm_host_usage: null,
-  profiled_containers_percentage: null,
-  profiled_containers_usage: null,
+  profiled_container_percentage: null,
+  profiled_container_usage: null,
   profiled_hosts_percentage: null,
   profiled_hosts_usage: null,
   snmp_percentage: null,

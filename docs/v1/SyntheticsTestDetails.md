@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **config** | [**SyntheticsTestConfig**](SyntheticsTestConfig.md) |  | [optional] |
+| **creator** | [**Creator**](Creator.md) |  | [optional] |
 | **locations** | **Array&lt;String&gt;** | Array of locations used to run the test. | [optional] |
 | **message** | **String** | Notification message associated with the test. | [optional] |
 | **monitor_id** | **Integer** | The associated monitor ID. | [optional][readonly] |
@@ -24,6 +25,7 @@ require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::SyntheticsTestDetails.new(
   config: null,
+  creator: null,
   locations: null,
   message: null,
   monitor_id: null,
