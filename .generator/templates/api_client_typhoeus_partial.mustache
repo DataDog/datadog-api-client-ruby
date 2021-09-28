@@ -117,6 +117,7 @@
         gzip.close
       elsif header_params['Content-Encoding'] == 'deflate'
         data = Zlib::deflate(data)
+      end
       data
     end
 
