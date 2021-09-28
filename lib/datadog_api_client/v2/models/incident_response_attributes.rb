@@ -136,6 +136,7 @@ module DatadogAPIClient::V2
         :'customer_impact_scope',
         :'customer_impact_start',
         :'detected',
+        :'notification_handles',
         :'resolved',
       ])
     end
