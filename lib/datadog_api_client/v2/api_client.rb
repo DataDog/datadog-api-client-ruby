@@ -156,6 +156,13 @@ module DatadogAPIClient::V2
       else
         data = nil
       end
+      if header_params['Content-Encoding'] == 'gzip'
+        gzip = Zlib::Deflate.new(nil, Zlib::MAX_WBITS + 16)
+        data = gzip.deflate(data, Zlib::FINISH)
+        gzip.close
+      elsif header_params['Content-Encoding'] == 'deflate'
+        data = Zlib::deflate(data)
+      end
       data
     end
 

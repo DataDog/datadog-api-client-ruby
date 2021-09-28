@@ -107,7 +107,7 @@ require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::LogsAPI.new
 body = [DatadogAPIClient::V1::HTTPLogItem.new] # Array<HTTPLogItem> | Log to send (JSON format).
 opts = {
-  content_encoding: DatadogAPIClient::V1::ContentEncoding::gzip, # ContentEncoding | HTTP header used to compress the media-type.
+  content_encoding: DatadogAPIClient::V1::ContentEncoding::GZIP, # ContentEncoding | HTTP header used to compress the media-type.
   ddtags: 'env:prod,user:my-user' # String | Log tags can be passed as query parameters with `text/plain` content type.
 }
 
