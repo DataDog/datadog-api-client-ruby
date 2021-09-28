@@ -20,6 +20,7 @@ module DatadogAPIClient::V2
   class IncidentFieldAttributesSingleValueType
     DROPDOWN = "dropdown".freeze
     TEXTBOX = "textbox".freeze
+    AUTOCOMPLETE = "autocomplete".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
