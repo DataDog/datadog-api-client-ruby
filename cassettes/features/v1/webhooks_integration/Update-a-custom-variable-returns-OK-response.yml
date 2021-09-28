@@ -1,139 +1,109 @@
----
 http_interactions:
-- request:
-    method: post
-    uri: https://api.datadoghq.com/api/v1/integration/webhooks/configuration/custom-variables
+- recorded_at: Thu, 12 Aug 2021 16:28:38 GMT
+  request:
     body:
       encoding: UTF-8
-      string: '{"name":"TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1628841298","value":"variable-value","is_secret":false}'
+      string: '{"is_secret":false,"name":"TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1628785718","value":"variable-value"}'
     headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.2.1.dev.1 (ruby 2.7.4; os darwin20; arch x86_64)
+      Cache-Control:
+      - no-cache
+      Connection:
+      - close
+      Content-Length:
+      - '106'
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
       - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
+      Date:
+      - Thu, 12 Aug 2021 16:28:38 GMT
+      Location:
+      - https://app.datadoghq.com/api/v1/integration/webhooks/configuration/custom-variables/TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1628785718
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15724800;
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    method: POST
+    uri: https://api.datadoghq.com/api/v1/integration/webhooks/configuration/custom-variables
   response:
+    body:
+      encoding: UTF-8
+      string: '{"is_secret":false,"name":"TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1628785718","value":"variable-value"}'
     status:
       code: 201
       message: Created
-    headers:
-      Date:
-      - Fri, 13 Aug 2021 07:54:58 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '106'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      Location:
-      - https://app.datadoghq.com/api/v1/integration/webhooks/configuration/custom-variables/TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1628841298
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: ASCII-8BIT
-      string: '{"is_secret":false,"name":"TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1628841298","value":"variable-value"}'
-  recorded_at: Fri, 13 Aug 2021 07:54:58 GMT
-- request:
-    method: put
-    uri: https://api.datadoghq.com/api/v1/integration/webhooks/configuration/custom-variables/TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1628841298
+- recorded_at: Thu, 12 Aug 2021 16:28:38 GMT
+  request:
     body:
       encoding: UTF-8
       string: '{"value":"variable-updated"}'
     headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.2.1.dev.1 (ruby 2.7.4; os darwin20; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Fri, 13 Aug 2021 07:54:58 GMT
-      Content-Type:
-      - application/json
+      Cache-Control:
+      - no-cache
+      Connection:
+      - close
       Content-Length:
       - '108'
-      Connection:
-      - keep-alive
-      Vary:
-      - Accept-Encoding
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
       Content-Security-Policy:
       - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: ASCII-8BIT
-      string: '{"is_secret":false,"name":"TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1628841298","value":"variable-updated"}'
-  recorded_at: Fri, 13 Aug 2021 07:54:58 GMT
-- request:
-    method: delete
-    uri: https://api.datadoghq.com/api/v1/integration/webhooks/configuration/custom-variables/TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1628841298
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.2.1.dev.1 (ruby 2.7.4; os darwin20; arch x86_64)
       Content-Type:
       - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
+      Date:
+      - Thu, 12 Aug 2021 16:28:39 GMT
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    method: PUT
+    uri: https://api.datadoghq.com/api/v1/integration/webhooks/configuration/custom-variables/TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1628785718
   response:
+    body:
+      encoding: UTF-8
+      string: '{"is_secret":false,"name":"TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1628785718","value":"variable-updated"}'
     status:
       code: 200
       message: OK
+- recorded_at: Thu, 12 Aug 2021 16:28:38 GMT
+  request:
+    body: null
     headers:
-      Date:
-      - Fri, 13 Aug 2021 07:54:59 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '2'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
       Cache-Control:
       - no-cache
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
+      Connection:
+      - close
+      Content-Length:
+      - '2'
       Content-Security-Policy:
       - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 12 Aug 2021 16:28:39 GMT
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15724800;
+      X-Content-Type-Options:
+      - nosniff
       X-Frame-Options:
       - SAMEORIGIN
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v1/integration/webhooks/configuration/custom-variables/TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1628785718
+  response:
     body:
-      encoding: ASCII-8BIT
-      string: "{}"
-  recorded_at: Fri, 13 Aug 2021 07:54:58 GMT
+      encoding: UTF-8
+      string: '{}'
+    status:
+      code: 200
+      message: OK
 recorded_with: VCR 6.0.0

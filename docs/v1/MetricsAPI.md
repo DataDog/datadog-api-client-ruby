@@ -328,8 +328,8 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: text/json
+- **Accept**: text/json
 
 
 ## update_metric_metadata
