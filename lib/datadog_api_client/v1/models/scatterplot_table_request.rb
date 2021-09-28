@@ -17,23 +17,25 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Widget definition.
-  class ScatterPlotWidgetDefinitionRequests
+  # Scatterplot request containing formulas and functions.
+  class ScatterplotTableRequest
     # whether the object has unparsed attributes
     attr_accessor :_unparsed
 
-    attr_accessor :table
+    # List of Scatterplot formulas that operate on queries. **This feature is currently in beta.**
+    attr_accessor :formulas
 
-    attr_accessor :x
+    # List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
+    attr_accessor :queries
 
-    attr_accessor :y
+    attr_accessor :response_format
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'table' => :'table',
-        :'x' => :'x',
-        :'y' => :'y'
+        :'formulas' => :'formulas',
+        :'queries' => :'queries',
+        :'response_format' => :'response_format'
       }
     end
 
@@ -45,9 +47,9 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'table' => :'ScatterplotTableRequest',
-        :'x' => :'ScatterPlotRequest',
-        :'y' => :'ScatterPlotRequest'
+        :'formulas' => :'Array<ScatterplotWidgetFormula>',
+        :'queries' => :'Array<FormulaAndFunctionQueryDefinition>',
+        :'response_format' => :'FormulaAndFunctionResponseFormat'
       }
     end
 
@@ -61,27 +63,31 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::ScatterPlotWidgetDefinitionRequests` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::ScatterplotTableRequest` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::ScatterPlotWidgetDefinitionRequests`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::ScatterplotTableRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'table')
-        self.table = attributes[:'table']
+      if attributes.key?(:'formulas')
+        if (value = attributes[:'formulas']).is_a?(Array)
+          self.formulas = value
+        end
       end
 
-      if attributes.key?(:'x')
-        self.x = attributes[:'x']
+      if attributes.key?(:'queries')
+        if (value = attributes[:'queries']).is_a?(Array)
+          self.queries = value
+        end
       end
 
-      if attributes.key?(:'y')
-        self.y = attributes[:'y']
+      if attributes.key?(:'response_format')
+        self.response_format = attributes[:'response_format']
       end
     end
 
@@ -103,9 +109,9 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          table == o.table &&
-          x == o.x &&
-          y == o.y
+          formulas == o.formulas &&
+          queries == o.queries &&
+          response_format == o.response_format
     end
 
     # @see the `==` method
@@ -117,7 +123,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [table, x, y].hash
+      [formulas, queries, response_format].hash
     end
 
     # Builds the object from hash

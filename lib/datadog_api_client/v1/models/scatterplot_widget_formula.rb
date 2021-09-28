@@ -17,23 +17,25 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Widget definition.
-  class ScatterPlotWidgetDefinitionRequests
+  # Formula to be used in a Scatterplot widget query.
+  class ScatterplotWidgetFormula
     # whether the object has unparsed attributes
     attr_accessor :_unparsed
 
-    attr_accessor :table
+    # Expression alias.
+    attr_accessor :_alias
 
-    attr_accessor :x
+    attr_accessor :dimension
 
-    attr_accessor :y
+    # String expression built from queries, formulas, and functions.
+    attr_accessor :formula
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'table' => :'table',
-        :'x' => :'x',
-        :'y' => :'y'
+        :'_alias' => :'alias',
+        :'dimension' => :'dimension',
+        :'formula' => :'formula'
       }
     end
 
@@ -45,9 +47,9 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'table' => :'ScatterplotTableRequest',
-        :'x' => :'ScatterPlotRequest',
-        :'y' => :'ScatterPlotRequest'
+        :'_alias' => :'String',
+        :'dimension' => :'ScatterplotDimension',
+        :'formula' => :'String'
       }
     end
 
@@ -61,27 +63,27 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::ScatterPlotWidgetDefinitionRequests` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::ScatterplotWidgetFormula` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::ScatterPlotWidgetDefinitionRequests`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::ScatterplotWidgetFormula`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'table')
-        self.table = attributes[:'table']
+      if attributes.key?(:'_alias')
+        self._alias = attributes[:'_alias']
       end
 
-      if attributes.key?(:'x')
-        self.x = attributes[:'x']
+      if attributes.key?(:'dimension')
+        self.dimension = attributes[:'dimension']
       end
 
-      if attributes.key?(:'y')
-        self.y = attributes[:'y']
+      if attributes.key?(:'formula')
+        self.formula = attributes[:'formula']
       end
     end
 
@@ -89,12 +91,22 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @dimension.nil?
+        invalid_properties.push('invalid value for "dimension", dimension cannot be nil.')
+      end
+
+      if @formula.nil?
+        invalid_properties.push('invalid value for "formula", formula cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @dimension.nil?
+      return false if @formula.nil?
       true
     end
 
@@ -103,9 +115,9 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          table == o.table &&
-          x == o.x &&
-          y == o.y
+          _alias == o._alias &&
+          dimension == o.dimension &&
+          formula == o.formula
     end
 
     # @see the `==` method
@@ -117,7 +129,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [table, x, y].hash
+      [_alias, dimension, formula].hash
     end
 
     # Builds the object from hash

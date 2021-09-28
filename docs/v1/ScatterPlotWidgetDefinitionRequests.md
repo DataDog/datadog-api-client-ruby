@@ -4,8 +4,9 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **x** | [**ScatterPlotRequest**](ScatterPlotRequest.md) |  |  |
-| **y** | [**ScatterPlotRequest**](ScatterPlotRequest.md) |  |  |
+| **table** | [**ScatterplotTableRequest**](ScatterplotTableRequest.md) |  | [optional] |
+| **x** | [**ScatterPlotRequest**](ScatterPlotRequest.md) |  | [optional] |
+| **y** | [**ScatterPlotRequest**](ScatterPlotRequest.md) |  | [optional] |
 
 ## Example
 
@@ -13,6 +14,7 @@
 require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::ScatterPlotWidgetDefinitionRequests.new(
+  table: null,
   x: null,
   y: null
 )
