@@ -1,140 +1,106 @@
----
 http_interactions:
-- request:
-    method: post
-    uri: https://api.datadoghq.com/api/v1/integration/webhooks/configuration/webhooks
+- recorded_at: Thu, 12 Aug 2021 16:28:35 GMT
+  request:
     body:
       encoding: UTF-8
-      string: '{"name":"Test-Delete_a_webhook_returns_OK_response-1628841297","url":"http://example.com/webhook"}'
+      string: '{"name":"Test-Delete_a_webhook_returns_OK_response-1628785715","url":"http://example.com/webhook"}'
     headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.2.1.dev.1 (ruby 2.7.4; os darwin20; arch x86_64)
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 201
-      message: Created
-    headers:
-      Date:
-      - Fri, 13 Aug 2021 07:54:57 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '372'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
       Cache-Control:
       - no-cache
-      Location:
-      - https://app.datadoghq.com/api/v1/integration/webhooks/configuration/webhooks/Test-Delete_a_webhook_returns_OK_response-1628841297
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
+      Connection:
+      - close
+      Content-Length:
+      - '372'
       Content-Security-Policy:
       - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 12 Aug 2021 16:28:35 GMT
+      Location:
+      - https://app.datadoghq.com/api/v1/integration/webhooks/configuration/webhooks/Test-Delete_a_webhook_returns_OK_response-1628785715
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15724800;
+      X-Content-Type-Options:
+      - nosniff
       X-Frame-Options:
       - SAMEORIGIN
+    method: POST
+    uri: https://api.datadoghq.com/api/v1/integration/webhooks/configuration/webhooks
+  response:
     body:
-      encoding: ASCII-8BIT
-      string: '{"encode_as":"json","url":"http://example.com/webhook","custom_headers":null,"name":"Test-Delete_a_webhook_returns_OK_response-1628841297","payload":"{\"body\":
+      encoding: UTF-8
+      string: '{"encode_as":"json","url":"http://example.com/webhook","custom_headers":null,"name":"Test-Delete_a_webhook_returns_OK_response-1628785715","payload":"{\"body\":
         \"$EVENT_MSG\", \"last_updated\": \"$LAST_UPDATED\", \"event_type\": \"$EVENT_TYPE\",
         \"title\": \"$EVENT_TITLE\", \"date\": \"$DATE\", \"org\": {\"id\": \"$ORG_ID\",
         \"name\": \"$ORG_NAME\"}, \"id\": \"$ID\"}"}'
-  recorded_at: Fri, 13 Aug 2021 07:54:57 GMT
-- request:
-    method: delete
-    uri: https://api.datadoghq.com/api/v1/integration/webhooks/configuration/webhooks/Test-Delete_a_webhook_returns_OK_response-1628841297
-    body:
-      encoding: US-ASCII
-      string: ''
+    status:
+      code: 201
+      message: Created
+- recorded_at: Thu, 12 Aug 2021 16:28:35 GMT
+  request:
+    body: null
     headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.2.1.dev.1 (ruby 2.7.4; os darwin20; arch x86_64)
+      Cache-Control:
+      - no-cache
+      Connection:
+      - close
+      Content-Length:
+      - '2'
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
       - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
+      Date:
+      - Thu, 12 Aug 2021 16:28:36 GMT
+      Pragma:
+      - no-cache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v1/integration/webhooks/configuration/webhooks/Test-Delete_a_webhook_returns_OK_response-1628785715
   response:
+    body:
+      encoding: UTF-8
+      string: '{}'
     status:
       code: 200
       message: OK
+- recorded_at: Thu, 12 Aug 2021 16:28:35 GMT
+  request:
+    body: null
     headers:
-      Date:
-      - Fri, 13 Aug 2021 07:54:57 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '2'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
       Cache-Control:
       - no-cache
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
+      Connection:
+      - close
+      Content-Length:
+      - '38'
       Content-Security-Policy:
       - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: ASCII-8BIT
-      string: "{}"
-  recorded_at: Fri, 13 Aug 2021 07:54:57 GMT
-- request:
-    method: delete
-    uri: https://api.datadoghq.com/api/v1/integration/webhooks/configuration/webhooks/Test-Delete_a_webhook_returns_OK_response-1628841297
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - datadog-api-client-ruby/1.2.1.dev.1 (ruby 2.7.4; os darwin20; arch x86_64)
       Content-Type:
       - application/json
-      Accept:
-      - application/json
-      Expect:
-      - ''
+      Date:
+      - Thu, 12 Aug 2021 16:28:36 GMT
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15724800;
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v1/integration/webhooks/configuration/webhooks/Test-Delete_a_webhook_returns_OK_response-1628785715
   response:
+    body:
+      encoding: UTF-8
+      string: '{"errors": ["Webhook does not exist"]}'
     status:
       code: 400
       message: Bad Request
-    headers:
-      Date:
-      - Fri, 13 Aug 2021 07:54:57 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '38'
-      Connection:
-      - keep-alive
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: ASCII-8BIT
-      string: '{"errors": ["Webhook does not exist"]}'
-  recorded_at: Fri, 13 Aug 2021 07:54:57 GMT
 recorded_with: VCR 6.0.0

@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Thu, 17 Jun 2021 12:21:41 GMT
+- recorded_at: Tue, 28 Sep 2021 10:25:39 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"series":[{"metric":"system.load.1","points":[[1623932501,1.1]],"tags":["test:TestSubmitmetricsreturnsPayloadacceptedresponse1623932501"],"type":"gauge"}]}'
+      string: '{"series":[{"metric":"system.load.1","points":[[1632824739,1.1]],"tags":["test:TestSubmitmetricsreturnsPayloadacceptedresponse1632824739"],"type":"gauge"}]}'
     headers:
       Connection:
       - close
@@ -14,7 +14,7 @@ http_interactions:
       Content-Type:
       - text/json
       Date:
-      - Thu, 17 Jun 2021 12:21:42 GMT
+      - Tue, 28 Sep 2021 10:25:39 GMT
       Strict-Transport-Security:
       - max-age=15724800;
       X-Content-Type-Options:
