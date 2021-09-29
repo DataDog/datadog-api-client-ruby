@@ -88,7 +88,7 @@ administrators.
 ```ruby
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::UsersAPI.new
-user_handle = TODO # String | The handle of the user.
+user_handle = 'test@datadoghq.com' # String | The handle of the user.
 
 begin
   # Disable a user
@@ -148,7 +148,7 @@ Get a user's details.
 ```ruby
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::UsersAPI.new
-user_handle = TODO # String | The ID of the user.
+user_handle = 'test@datadoghq.com' # String | The ID of the user.
 
 begin
   # Get user details
@@ -267,7 +267,7 @@ Update a user information.
 ```ruby
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::UsersAPI.new
-user_handle = TODO # String | The ID of the user.
+user_handle = 'test@datadoghq.com' # String | The ID of the user.
 body = DatadogAPIClient::V1::User.new # User | Description of the update.
 
 begin
