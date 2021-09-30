@@ -78,7 +78,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SecurityFilterResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :create_security_filter,
@@ -226,7 +226,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :delete_security_filter,
@@ -372,7 +372,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SecurityFilterResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_security_filter,
@@ -512,7 +512,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SecurityFiltersResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :list_security_filters,
@@ -826,7 +826,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SecurityFilterResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :update_security_filter,
