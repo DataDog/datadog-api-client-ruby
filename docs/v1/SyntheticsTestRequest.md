@@ -18,6 +18,7 @@
 | **number_of_packets** | **Integer** | Number of pings to use per test. | [optional] |
 | **port** | **Integer** | Port to use when performing the test. | [optional] |
 | **query** | **Object** | Query to use for the test. | [optional] |
+| **servername** | **String** | For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number. | [optional] |
 | **should_track_hops** | **Boolean** | Turns on a traceroute probe to discover all gateways along the path to the host destination. | [optional] |
 | **timeout** | **Float** | Timeout in seconds for the test. | [optional] |
 | **url** | **String** | URL to perform the test with. | [optional] |
@@ -42,6 +43,7 @@ instance = DatadogAPIClient::V1::SyntheticsTestRequest.new(
   number_of_packets: null,
   port: null,
   query: null,
+  servername: null,
   should_track_hops: null,
   timeout: null,
   url: null

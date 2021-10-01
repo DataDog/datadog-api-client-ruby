@@ -61,6 +61,9 @@ module DatadogAPIClient::V1
     # Query to use for the test.
     attr_accessor :query
 
+    # For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
+    attr_accessor :servername
+
     # Turns on a traceroute probe to discover all gateways along the path to the host destination.
     attr_accessor :should_track_hops
 
@@ -87,6 +90,7 @@ module DatadogAPIClient::V1
         :'number_of_packets' => :'numberOfPackets',
         :'port' => :'port',
         :'query' => :'query',
+        :'servername' => :'servername',
         :'should_track_hops' => :'shouldTrackHops',
         :'timeout' => :'timeout',
         :'url' => :'url'
@@ -115,6 +119,7 @@ module DatadogAPIClient::V1
         :'number_of_packets' => :'Integer',
         :'port' => :'Integer',
         :'query' => :'Object',
+        :'servername' => :'String',
         :'should_track_hops' => :'Boolean',
         :'timeout' => :'Float',
         :'url' => :'String'
@@ -198,6 +203,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'query')
         self.query = attributes[:'query']
+      end
+
+      if attributes.key?(:'servername')
+        self.servername = attributes[:'servername']
       end
 
       if attributes.key?(:'should_track_hops')
@@ -293,6 +302,7 @@ module DatadogAPIClient::V1
           number_of_packets == o.number_of_packets &&
           port == o.port &&
           query == o.query &&
+          servername == o.servername &&
           should_track_hops == o.should_track_hops &&
           timeout == o.timeout &&
           url == o.url
@@ -307,7 +317,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [allow_insecure, basic_auth, body, certificate, dns_server, dns_server_port, follow_redirects, headers, host, method, no_saving_response_body, number_of_packets, port, query, should_track_hops, timeout, url].hash
+      [allow_insecure, basic_auth, body, certificate, dns_server, dns_server_port, follow_redirects, headers, host, method, no_saving_response_body, number_of_packets, port, query, servername, should_track_hops, timeout, url].hash
     end
 
     # Builds the object from hash
