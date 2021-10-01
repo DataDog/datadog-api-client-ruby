@@ -341,6 +341,7 @@ module DatadogAPIClient::V1
     # The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards. The maximum payload size is 3.2 megabytes (3200000 bytes). Compressed payloads must have a decompressed size of less than 62 megabytes (62914560 bytes).  If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect:  - 64 bits for the timestamp - 32 bits for the value - 20 bytes for the metric names - 50 bytes for the timeseries - The full payload is approximately 100 bytes. However, with the DogStatsD API, compression is applied, which reduces the payload size.
     # @param body [MetricsPayload] 
     # @param [Hash] opts the optional parameters
+    # @option opts [MetricContentEncoding] :content_encoding HTTP header used to compress the media-type.
     # @return [IntakePayloadAccepted]
     def submit_metrics(body, opts = {})
       data, _status_code, _headers = submit_metrics_with_http_info(body, opts)
@@ -351,6 +352,7 @@ module DatadogAPIClient::V1
     # The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards. The maximum payload size is 3.2 megabytes (3200000 bytes). Compressed payloads must have a decompressed size of less than 62 megabytes (62914560 bytes).  If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect:  - 64 bits for the timestamp - 32 bits for the value - 20 bytes for the metric names - 50 bytes for the timeseries - The full payload is approximately 100 bytes. However, with the DogStatsD API, compression is applied, which reduces the payload size.
     # @param body [MetricsPayload] 
     # @param [Hash] opts the optional parameters
+    # @option opts [MetricContentEncoding] :content_encoding HTTP header used to compress the media-type.
     # @return [Array<(IntakePayloadAccepted, Integer, Hash)>] IntakePayloadAccepted data, response status code and response headers
     def submit_metrics_with_http_info(body, opts = {})
 
@@ -382,6 +384,7 @@ module DatadogAPIClient::V1
       header_params['Accept'] = @api_client.select_header_accept(['text/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['text/json'])
+      header_params['Content-Encoding'] = opts[:'content_encoding'] if !opts[:'content_encoding'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}

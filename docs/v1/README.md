@@ -462,6 +462,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::LogsURLParserType](LogsURLParserType.md)
  - [DatadogAPIClient::V1::LogsUserAgentParser](LogsUserAgentParser.md)
  - [DatadogAPIClient::V1::LogsUserAgentParserType](LogsUserAgentParserType.md)
+ - [DatadogAPIClient::V1::MetricContentEncoding](MetricContentEncoding.md)
  - [DatadogAPIClient::V1::MetricMetadata](MetricMetadata.md)
  - [DatadogAPIClient::V1::MetricSearchResponse](MetricSearchResponse.md)
  - [DatadogAPIClient::V1::MetricSearchResponseResults](MetricSearchResponseResults.md)
