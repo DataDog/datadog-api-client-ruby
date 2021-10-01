@@ -264,7 +264,7 @@ end
 
 ## submit_metrics
 
-> <IntakePayloadAccepted> submit_metrics(body)
+> <IntakePayloadAccepted> submit_metrics(body, opts)
 
 The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards.
 The maximum payload size is 3.2 megabytes (3200000 bytes). Compressed payloads must have a decompressed size of less than 62 megabytes (62914560 bytes).
@@ -284,10 +284,13 @@ compression is applied, which reduces the payload size.
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::MetricsAPI.new
 body = DatadogAPIClient::V1::MetricsPayload.new({series: [DatadogAPIClient::V1::Series.new({metric: 'system.load.1', points: [[3.56]]})]}) # MetricsPayload | 
+opts = {
+  content_encoding: DatadogAPIClient::V1::MetricContentEncoding::DEFLATE # MetricContentEncoding | HTTP header used to compress the media-type.
+}
 
 begin
   # Submit metrics
-  result = api_instance.submit_metrics(body)
+  result = api_instance.submit_metrics(body, opts)
   p result
 rescue DatadogAPIClient::V1::APIError => e
   puts "Error when calling MetricsAPI->submit_metrics: #{e}"
@@ -298,12 +301,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<IntakePayloadAccepted>, Integer, Hash)> submit_metrics_with_http_info(body)
+> <Array(<IntakePayloadAccepted>, Integer, Hash)> submit_metrics_with_http_info(body, opts)
 
 ```ruby
 begin
   # Submit metrics
-  data, status_code, headers = api_instance.submit_metrics_with_http_info(body)
+  data, status_code, headers = api_instance.submit_metrics_with_http_info(body, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <IntakePayloadAccepted>
@@ -317,6 +320,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **body** | [**MetricsPayload**](MetricsPayload.md) |  |  |
+| **content_encoding** | **MetricContentEncoding** | HTTP header used to compress the media-type. | [optional] |
 
 ### Return type
 
