@@ -39,6 +39,7 @@ module DatadogAPIClient::V1
         'Content-Type' => 'application/json',
         'User-Agent' => @user_agent
       }
+      @default_headers['Accept-Encoding'] = 'gzip' if @config.compress
     end
 
     def self.default
@@ -228,6 +229,12 @@ module DatadogAPIClient::V1
       return @tempfile if return_type == 'File'
 
       return nil if body.nil? || body.empty?
+
+      if response.headers['Content-Encoding'].eql?('gzip') then
+        gzip = Zlib::Inflate.new(Zlib::MAX_WBITS + 16)
+        body = gzip.inflate(body)
+        gzip.close
+      end
 
       # return response body directly for String return type
       return body if return_type == 'String'
