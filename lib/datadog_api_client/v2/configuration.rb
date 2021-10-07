@@ -143,6 +143,9 @@ module DatadogAPIClient::V2
 
     attr_accessor :force_ending_format
 
+    # Set this to add accept encoding header for compression
+    attr_accessor :compress
+
     def initialize
       @scheme = 'https'
       @host = 'api.datadoghq.com'
@@ -163,6 +166,7 @@ module DatadogAPIClient::V2
       @debugging = false
       @inject_format = false
       @force_ending_format = false
+      @compress = true
       @logger = defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
       @unstable_operations = {
             create_incident_service: false,
