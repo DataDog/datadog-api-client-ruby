@@ -107,11 +107,22 @@ end
 
 where `<unstable_operation_id>` is the name of the method used to interact with that endpoint. For example: `list_log_indexes`, or `get_logs_index`
 
+
+### Disable compressed payloads
+
+If you want to disable GZIP compressed responses, set the `compress` flag
+on your configuration object:
+
+```ruby
+config = DatadogAPIClient::V1::Configuration.new
+config.compress = false
+client = DatadogAPIClient::V1::APIClient.new(config)
+```
 ## Documentation
 
 If you are interested in general documentation for all public Datadog API endpoints, checkout the [general documentation site](api docs).
 
-Developer documentation for supported endpoints and models is divided based on API version prefix to [`v1`](/docs/v1/README.md) and [`v2`](/docs/v2/README.md). 
+Developer documentation for supported endpoints and models is divided based on API version prefix to [`v1`](/docs/v1/README.md) and [`v2`](/docs/v2/README.md).
 
 For contributing, checkout the [contribution guidelines](contribution docs) and [development guide][development docs].
 

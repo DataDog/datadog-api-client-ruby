@@ -103,6 +103,9 @@ module {{moduleName}}
 
     attr_accessor :force_ending_format
 
+    # Set this to add accept encoding header for compression
+    attr_accessor :compress
+
     def initialize
       @scheme = '{{scheme}}'
       @host = '{{host}}{{#port}}:{{{.}}}{{/port}}'
@@ -132,6 +135,7 @@ module {{moduleName}}
       @debugging = false
       @inject_format = false
       @force_ending_format = false
+      @compress = true
       @logger = defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
       @unstable_operations = {
         {{#apiInfo}}
