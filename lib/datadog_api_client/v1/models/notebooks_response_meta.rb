@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Metadata returned by the API.
+  # Searches metadata returned by the API.
   class NotebooksResponseMeta
     # whether the object has unparsed attributes
     attr_accessor :_unparsed
