@@ -69,6 +69,12 @@ module DatadogAPIClient::V1
     # The number of minutes after the last notification before a monitor re-notifies on the current status. It only re-notifies if it’s not resolved.
     attr_accessor :renotify_interval
 
+    # The number of times re-notification messages should be sent on the current status at the provided re-notification interval.
+    attr_accessor :renotify_occurrences
+
+    # The types of monitor statuses for which re-notification messages are sent.
+    attr_accessor :renotify_statuses
+
     # A Boolean indicating whether this monitor needs a full window of data before it’s evaluated. We highly recommend you set this to `false` for sparse metrics, otherwise some evaluations are skipped. Default is false.
     attr_accessor :require_full_window
 
@@ -104,6 +110,8 @@ module DatadogAPIClient::V1
         :'notify_audit' => :'notify_audit',
         :'notify_no_data' => :'notify_no_data',
         :'renotify_interval' => :'renotify_interval',
+        :'renotify_occurrences' => :'renotify_occurrences',
+        :'renotify_statuses' => :'renotify_statuses',
         :'require_full_window' => :'require_full_window',
         :'silenced' => :'silenced',
         :'synthetics_check_id' => :'synthetics_check_id',
@@ -137,6 +145,8 @@ module DatadogAPIClient::V1
         :'notify_audit' => :'Boolean',
         :'notify_no_data' => :'Boolean',
         :'renotify_interval' => :'Integer',
+        :'renotify_occurrences' => :'Integer',
+        :'renotify_statuses' => :'Array<MonitorRenotifyStatusType>',
         :'require_full_window' => :'Boolean',
         :'silenced' => :'Hash<String, Integer>',
         :'synthetics_check_id' => :'String',
@@ -156,6 +166,8 @@ module DatadogAPIClient::V1
         :'new_host_delay',
         :'no_data_timeframe',
         :'renotify_interval',
+        :'renotify_occurrences',
+        :'renotify_statuses',
         :'synthetics_check_id',
         :'timeout_h'
       ])
@@ -256,6 +268,16 @@ module DatadogAPIClient::V1
         self.renotify_interval = attributes[:'renotify_interval']
       end
 
+      if attributes.key?(:'renotify_occurrences')
+        self.renotify_occurrences = attributes[:'renotify_occurrences']
+      end
+
+      if attributes.key?(:'renotify_statuses')
+        if (value = attributes[:'renotify_statuses']).is_a?(Array)
+          self.renotify_statuses = value
+        end
+      end
+
       if attributes.key?(:'require_full_window')
         self.require_full_window = attributes[:'require_full_window']
       end
@@ -341,6 +363,8 @@ module DatadogAPIClient::V1
           notify_audit == o.notify_audit &&
           notify_no_data == o.notify_no_data &&
           renotify_interval == o.renotify_interval &&
+          renotify_occurrences == o.renotify_occurrences &&
+          renotify_statuses == o.renotify_statuses &&
           require_full_window == o.require_full_window &&
           silenced == o.silenced &&
           synthetics_check_id == o.synthetics_check_id &&
@@ -358,7 +382,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aggregation, device_ids, enable_logs_sample, escalation_message, evaluation_delay, groupby_simple_monitor, include_tags, locked, min_failure_duration, min_location_failed, new_group_delay, new_host_delay, no_data_timeframe, notify_audit, notify_no_data, renotify_interval, require_full_window, silenced, synthetics_check_id, threshold_windows, thresholds, timeout_h].hash
+      [aggregation, device_ids, enable_logs_sample, escalation_message, evaluation_delay, groupby_simple_monitor, include_tags, locked, min_failure_duration, min_location_failed, new_group_delay, new_host_delay, no_data_timeframe, notify_audit, notify_no_data, renotify_interval, renotify_occurrences, renotify_statuses, require_full_window, silenced, synthetics_check_id, threshold_windows, thresholds, timeout_h].hash
     end
 
     # Builds the object from hash
