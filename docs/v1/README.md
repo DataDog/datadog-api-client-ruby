@@ -479,6 +479,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::MonitorOptions](MonitorOptions.md)
  - [DatadogAPIClient::V1::MonitorOptionsAggregation](MonitorOptionsAggregation.md)
  - [DatadogAPIClient::V1::MonitorOverallStates](MonitorOverallStates.md)
+ - [DatadogAPIClient::V1::MonitorRenotifyStatusType](MonitorRenotifyStatusType.md)
  - [DatadogAPIClient::V1::MonitorSearchResponse](MonitorSearchResponse.md)
  - [DatadogAPIClient::V1::MonitorSearchResponseCounts](MonitorSearchResponseCounts.md)
  - [DatadogAPIClient::V1::MonitorSearchResponseMetadata](MonitorSearchResponseMetadata.md)
