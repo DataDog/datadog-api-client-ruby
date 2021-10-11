@@ -108,6 +108,16 @@ end
 where `<unstable_operation_id>` is the name of the method used to interact with that endpoint. For example: `list_log_indexes`, or `get_logs_index`
 
 
+### Changing Server
+
+When talking to a different server, like the `eu` instance, change the `server_variables`:
+
+```ruby
+config = DatadogAPIClient::V1::Configuration.new
+config.server_variables["site"] = "datadoghq.eu"
+client = DatadogAPIClient::V1::APIClient.new(config)
+```
+
 ### Disable compressed payloads
 
 If you want to disable GZIP compressed responses, set the `compress` flag
