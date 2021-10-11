@@ -516,6 +516,8 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::NotebookMarkdownCellAttributes](NotebookMarkdownCellAttributes.md)
  - [DatadogAPIClient::V1::NotebookMarkdownCellDefinition](NotebookMarkdownCellDefinition.md)
  - [DatadogAPIClient::V1::NotebookMarkdownCellDefinitionType](NotebookMarkdownCellDefinitionType.md)
+ - [DatadogAPIClient::V1::NotebookMetadata](NotebookMetadata.md)
+ - [DatadogAPIClient::V1::NotebookMetadataType](NotebookMetadataType.md)
  - [DatadogAPIClient::V1::NotebookRelativeTime](NotebookRelativeTime.md)
  - [DatadogAPIClient::V1::NotebookResourceType](NotebookResourceType.md)
  - [DatadogAPIClient::V1::NotebookResponse](NotebookResponse.md)
