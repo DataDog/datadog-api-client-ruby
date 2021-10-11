@@ -107,7 +107,6 @@ end
 
 where `<unstable_operation_id>` is the name of the method used to interact with that endpoint. For example: `list_log_indexes`, or `get_logs_index`
 
-
 ### Changing Server
 
 When talking to a different server, like the `eu` instance, change the `server_variables`:
