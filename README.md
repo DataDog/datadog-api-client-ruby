@@ -118,6 +118,18 @@ config = DatadogAPIClient::V1::Configuration.new
 config.compress = false
 client = DatadogAPIClient::V1::APIClient.new(config)
 ```
+
+### Enable requests tracing
+
+If you want to enable requests tracing, set the `debugging` flag
+on your configuration object:
+
+```ruby
+config = DatadogAPIClient::V1::Configuration.new
+config.debugging = true
+client = DatadogAPIClient::V1::APIClient.new(config)
+```
+
 ## Documentation
 
 If you are interested in general documentation for all public Datadog API endpoints, checkout the [general documentation site](api docs).
