@@ -109,7 +109,7 @@ where `<unstable_operation_id>` is the name of the method used to interact with 
 
 ### Changing Server
 
-When talking to a different server, like the `eu` instance, change the `server_variables`:
+When talking to a different server, like the `eu` instance, change the `server_variables` on your configuration object:
 
 ```ruby
 config = DatadogAPIClient::V1::Configuration.new
