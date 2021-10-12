@@ -1,0 +1,38 @@
+http_interactions:
+- recorded_at: Tue, 28 Sep 2021 08:13:10 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"tags":["test:TestPostaneventwithalongtitlereturnsOKresponse1632816790"],"text":"A
+        text message.","title":"Test-Post_an_event_with_a_long_title_returns_OK_response-1632816790
+        very very very looooooooong looooooooooooong loooooooooooooooooooooong looooooooooooooooooooooooooong
+        title with 100+ characters"}'
+    headers:
+      Connection:
+      - close
+      Content-Length:
+      - '536'
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 28 Sep 2021 08:13:10 GMT
+      Strict-Transport-Security:
+      - max-age=15724800;
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    method: POST
+    uri: https://api.datadoghq.com/api/v1/events
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"status":"ok","event":{"id":6183308802141975575,"id_str":"6183308802141975575","title":"Test-Post_an_event_with_a_long_title_returns_OK_response-1632816790
+        very very very looooooooong looooooooooooong loooooooooooooooooooooong looooooooooooooooooooooooooong
+        title with 100+ characters","text":"A text message.","date_happened":1632816790,"handle":null,"priority":null,"related_event_id":null,"tags":["test:TestPostaneventwithalongtitlereturnsOKresponse1632816790"],"url":"https://app.datadoghq.com/event/event?id=6183308802141975575"}}'
+    status:
+      code: 202
+      message: Accepted
+recorded_with: VCR 6.0.0
