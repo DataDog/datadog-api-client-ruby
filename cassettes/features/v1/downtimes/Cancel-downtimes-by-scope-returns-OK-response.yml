@@ -1,0 +1,107 @@
+http_interactions:
+- recorded_at: Fri, 01 Oct 2021 08:28:32 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"message":"Test-Cancel_downtimes_by_scope_returns_OK_response-1633076912","recurrence":{"period":1,"type":"weeks","until_date":1634891312,"week_days":["Mon","Tue","Wed","Thu","Fri"]},"scope":["test:testcanceldowntimesbyscopereturnsokresponse1633076912"],"start":1633076912,"timezone":"Etc/UTC"}'
+    headers:
+      Cache-Control:
+      - no-cache
+      Connection:
+      - close
+      Content-Length:
+      - '582'
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 01 Oct 2021 08:28:32 GMT
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    method: POST
+    uri: https://api.datadoghq.com/api/v1/downtime
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"recurrence":{"until_date":1634891312,"until_occurrences":null,"week_days":["Mon","Tue","Wed","Thu","Fri"],"type":"weeks","period":1},"end":null,"monitor_tags":["*"],"child_id":null,"canceled":null,"monitor_id":null,"created":1633076912,"org_id":321813,"modified":1633076912,"disabled":false,"start":1633076912,"creator_id":1445416,"parent_id":null,"timezone":"Etc/UTC","active":true,"scope":["test:testcanceldowntimesbyscopereturnsokresponse1633076912"],"message":"Test-Cancel_downtimes_by_scope_returns_OK_response-1633076912","downtime_type":2,"id":1477730819,"updater_id":null}'
+    status:
+      code: 200
+      message: OK
+- recorded_at: Fri, 01 Oct 2021 08:28:32 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"scope":"test:testcanceldowntimesbyscopereturnsokresponse1633076912"}'
+    headers:
+      Cache-Control:
+      - no-cache
+      Connection:
+      - close
+      Content-Length:
+      - '30'
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 01 Oct 2021 08:28:32 GMT
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    method: POST
+    uri: https://api.datadoghq.com/api/v1/downtime/cancel/by_scope
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"cancelled_ids":[1477730819]}'
+    status:
+      code: 200
+      message: OK
+- recorded_at: Fri, 01 Oct 2021 08:28:32 GMT
+  request:
+    body: null
+    headers:
+      Cache-Control:
+      - no-cache
+      Connection:
+      - close
+      Content-Length:
+      - '0'
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      Date:
+      - Fri, 01 Oct 2021 08:28:32 GMT
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15724800;
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v1/downtime/1477730819
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0
