@@ -30,6 +30,8 @@ module DatadogAPIClient::V1
     # UTC time stamp for when the notebook was created.
     attr_accessor :created
 
+    attr_accessor :metadata
+
     # UTC time stamp for when the notebook was last modified.
     attr_accessor :modified
 
@@ -46,6 +48,7 @@ module DatadogAPIClient::V1
         :'author' => :'author',
         :'cells' => :'cells',
         :'created' => :'created',
+        :'metadata' => :'metadata',
         :'modified' => :'modified',
         :'name' => :'name',
         :'status' => :'status',
@@ -64,6 +67,7 @@ module DatadogAPIClient::V1
         :'author' => :'NotebookAuthor',
         :'cells' => :'Array<NotebookCellResponse>',
         :'created' => :'Time',
+        :'metadata' => :'NotebookMetadata',
         :'modified' => :'Time',
         :'name' => :'String',
         :'status' => :'NotebookStatus',
@@ -104,6 +108,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'created')
         self.created = attributes[:'created']
+      end
+
+      if attributes.key?(:'metadata')
+        self.metadata = attributes[:'metadata']
       end
 
       if attributes.key?(:'modified')
@@ -179,6 +187,7 @@ module DatadogAPIClient::V1
           author == o.author &&
           cells == o.cells &&
           created == o.created &&
+          metadata == o.metadata &&
           modified == o.modified &&
           name == o.name &&
           status == o.status &&
@@ -194,7 +203,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [author, cells, created, modified, name, status, time].hash
+      [author, cells, created, metadata, modified, name, status, time].hash
     end
 
     # Builds the object from hash

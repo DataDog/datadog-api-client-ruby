@@ -25,6 +25,8 @@ module DatadogAPIClient::V1
     # List of cells to display in the notebook.
     attr_accessor :cells
 
+    attr_accessor :metadata
+
     # The name of the notebook.
     attr_accessor :name
 
@@ -36,6 +38,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'cells' => :'cells',
+        :'metadata' => :'metadata',
         :'name' => :'name',
         :'status' => :'status',
         :'time' => :'time'
@@ -51,6 +54,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'cells' => :'Array<NotebookCellCreateRequest>',
+        :'metadata' => :'NotebookMetadata',
         :'name' => :'String',
         :'status' => :'NotebookStatus',
         :'time' => :'NotebookGlobalTime'
@@ -82,6 +86,10 @@ module DatadogAPIClient::V1
         if (value = attributes[:'cells']).is_a?(Array)
           self.cells = value
         end
+      end
+
+      if attributes.key?(:'metadata')
+        self.metadata = attributes[:'metadata']
       end
 
       if attributes.key?(:'name')
@@ -161,6 +169,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           cells == o.cells &&
+          metadata == o.metadata &&
           name == o.name &&
           status == o.status &&
           time == o.time
@@ -175,7 +184,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cells, name, status, time].hash
+      [cells, metadata, name, status, time].hash
     end
 
     # Builds the object from hash

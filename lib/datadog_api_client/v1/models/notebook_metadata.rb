@@ -17,31 +17,25 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The data attributes of a notebook.
-  class NotebookUpdateDataAttributes
+  # Metadata associated with the notebook.
+  class NotebookMetadata
     # whether the object has unparsed attributes
     attr_accessor :_unparsed
 
-    # List of cells to display in the notebook.
-    attr_accessor :cells
+    # Whether or not the notebook is a template.
+    attr_accessor :is_template
 
-    attr_accessor :metadata
+    # Whether or not the notebook takes snapshot image backups of the notebook's fixed-time graphs.
+    attr_accessor :take_snapshots
 
-    # The name of the notebook.
-    attr_accessor :name
-
-    attr_accessor :status
-
-    attr_accessor :time
+    attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'cells' => :'cells',
-        :'metadata' => :'metadata',
-        :'name' => :'name',
-        :'status' => :'status',
-        :'time' => :'time'
+        :'is_template' => :'is_template',
+        :'take_snapshots' => :'take_snapshots',
+        :'type' => :'type'
       }
     end
 
@@ -53,17 +47,16 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'cells' => :'Array<NotebookUpdateCell>',
-        :'metadata' => :'NotebookMetadata',
-        :'name' => :'String',
-        :'status' => :'NotebookStatus',
-        :'time' => :'NotebookGlobalTime'
+        :'is_template' => :'Boolean',
+        :'take_snapshots' => :'Boolean',
+        :'type' => :'NotebookMetadataType'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'type'
       ])
     end
 
@@ -71,39 +64,33 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::NotebookUpdateDataAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::NotebookMetadata` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::NotebookUpdateDataAttributes`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::NotebookMetadata`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'cells')
-        if (value = attributes[:'cells']).is_a?(Array)
-          self.cells = value
-        end
-      end
-
-      if attributes.key?(:'metadata')
-        self.metadata = attributes[:'metadata']
-      end
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
+      if attributes.key?(:'is_template')
+        self.is_template = attributes[:'is_template']
       else
-        self.status = 'published'
+        self.is_template = false
       end
 
-      if attributes.key?(:'time')
-        self.time = attributes[:'time']
+      if attributes.key?(:'take_snapshots')
+        self.take_snapshots = attributes[:'take_snapshots']
+      else
+        self.take_snapshots = false
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      else
+        self.type = 'null'
       end
     end
 
@@ -111,56 +98,13 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @cells.nil?
-        invalid_properties.push('invalid value for "cells", cells cannot be nil.')
-      end
-
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @name.to_s.length > 80
-        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 80.')
-      end
-
-      if @name.to_s.length < 0
-        invalid_properties.push('invalid value for "name", the character length must be great than or equal to 0.')
-      end
-
-      if @time.nil?
-        invalid_properties.push('invalid value for "time", time cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @cells.nil?
-      return false if @name.nil?
-      return false if @name.to_s.length > 80
-      return false if @name.to_s.length < 0
-      return false if @time.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'name cannot be nil'
-      end
-
-      if name.to_s.length > 80
-        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 80.'
-      end
-
-      if name.to_s.length < 0
-        fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 0.'
-      end
-
-      @name = name
     end
 
     # Checks equality by comparing each attribute.
@@ -168,11 +112,9 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          cells == o.cells &&
-          metadata == o.metadata &&
-          name == o.name &&
-          status == o.status &&
-          time == o.time
+          is_template == o.is_template &&
+          take_snapshots == o.take_snapshots &&
+          type == o.type
     end
 
     # @see the `==` method
@@ -184,7 +126,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cells, metadata, name, status, time].hash
+      [is_template, take_snapshots, type].hash
     end
 
     # Builds the object from hash

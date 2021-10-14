@@ -207,10 +207,12 @@ opts = {
   exclude_author_handle: 'test@datadoghq.com', # String | Return notebooks not created by the given `author_handle`.
   start: 0, # Integer | The index of the first notebook you want returned.
   count: 5, # Integer | The number of notebooks to be returned.
-  sort_field: 'modified', # String | Sort by field `modified` or `name`.
+  sort_field: 'modified', # String | Sort by field `modified`, `name`, or `created`.
   sort_dir: 'desc', # String | Sort by direction `asc` or `desc`.
   query: 'postmortem', # String | Return only notebooks with `query` string in notebook name or author handle.
-  include_cells: false # Boolean | Value of `false` excludes the `cells` and global `time` for each notebook.
+  include_cells: false, # Boolean | Value of `false` excludes the `cells` and global `time` for each notebook.
+  is_template: false, # Boolean | True value returns only template notebooks. Default is false (returns only non-template notebooks).
+  type: 'investigation' # String | If type is provided, returns only notebooks with that metadata type. Default does not have type filtering.
 }
 
 begin
@@ -248,10 +250,12 @@ end
 | **exclude_author_handle** | **String** | Return notebooks not created by the given &#x60;author_handle&#x60;. | [optional] |
 | **start** | **Integer** | The index of the first notebook you want returned. | [optional] |
 | **count** | **Integer** | The number of notebooks to be returned. | [optional] |
-| **sort_field** | **String** | Sort by field &#x60;modified&#x60; or &#x60;name&#x60;. | [optional][default to &#39;modified&#39;] |
+| **sort_field** | **String** | Sort by field &#x60;modified&#x60;, &#x60;name&#x60;, or &#x60;created&#x60;. | [optional][default to &#39;modified&#39;] |
 | **sort_dir** | **String** | Sort by direction &#x60;asc&#x60; or &#x60;desc&#x60;. | [optional][default to &#39;desc&#39;] |
 | **query** | **String** | Return only notebooks with &#x60;query&#x60; string in notebook name or author handle. | [optional] |
 | **include_cells** | **Boolean** | Value of &#x60;false&#x60; excludes the &#x60;cells&#x60; and global &#x60;time&#x60; for each notebook. | [optional][default to true] |
+| **is_template** | **Boolean** | True value returns only template notebooks. Default is false (returns only non-template notebooks). | [optional][default to false] |
+| **type** | **String** | If type is provided, returns only notebooks with that metadata type. Default does not have type filtering. | [optional] |
 
 ### Return type
 
