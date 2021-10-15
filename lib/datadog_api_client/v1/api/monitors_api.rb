@@ -60,7 +60,7 @@ module DatadogAPIClient::V1
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'monitor_ids'] = @api_client.build_collection_param(monitor_ids, :multi)
+      query_params[:'monitor_ids'] = @api_client.build_collection_param(monitor_ids, :csv)
 
       # header parameters
       header_params = opts[:header_params] || {}
