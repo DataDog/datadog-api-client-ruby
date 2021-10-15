@@ -45,6 +45,8 @@
 | **public_id** | **String** | The organization public id. | [optional] |
 | **rum_session_count_sum** | **Integer** | Shows the sum of all browser RUM Sessions over all hours in the current date for the given org. | [optional] |
 | **rum_total_session_count_sum** | **Integer** | Shows the sum of RUM Sessions (browser and mobile) over all hours in the current date for the given org. | [optional] |
+| **sds_logs_scanned_bytes_sum** | **Integer** | Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all hours in the current month for all organizations. | [optional] |
+| **sds_total_scanned_bytes_sum** | **Integer** | Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner over all hours in the current month for all organizations. | [optional] |
 | **synthetics_browser_check_calls_count_sum** | **Integer** | Shows the sum of all Synthetic browser tests over all hours in the current date for the given org. | [optional] |
 | **synthetics_check_calls_count_sum** | **Integer** | Shows the sum of all Synthetic API tests over all hours in the current date for the given org. | [optional] |
 | **trace_search_indexed_events_count_sum** | **Integer** | Shows the sum of all Indexed Spans indexed over all hours in the current date for the given org. | [optional] |
@@ -98,6 +100,8 @@ instance = DatadogAPIClient::V1::UsageSummaryDateOrg.new(
   public_id: null,
   rum_session_count_sum: null,
   rum_total_session_count_sum: null,
+  sds_logs_scanned_bytes_sum: null,
+  sds_total_scanned_bytes_sum: null,
   synthetics_browser_check_calls_count_sum: null,
   synthetics_check_calls_count_sum: null,
   trace_search_indexed_events_count_sum: null,

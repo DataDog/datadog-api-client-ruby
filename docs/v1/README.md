@@ -214,6 +214,7 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_network_hosts**](UsageMeteringAPI.md#get_usage_network_hosts) | **GET** /api/v1/usage/network_hosts | Get hourly usage for Network Hosts
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_profiling**](UsageMeteringAPI.md#get_usage_profiling) | **GET** /api/v1/usage/profiling | Get hourly usage for profiled hosts
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_rum_sessions**](UsageMeteringAPI.md#get_usage_rum_sessions) | **GET** /api/v1/usage/rum_sessions | Get hourly usage for RUM Sessions
+*DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_sds**](UsageMeteringAPI.md#get_usage_sds) | **GET** /api/v1/usage/sds | Get hourly usage for Sensitive Data Scanner
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_snmp**](UsageMeteringAPI.md#get_usage_snmp) | **GET** /api/v1/usage/snmp | Get hourly usage for SNMP devices
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_summary**](UsageMeteringAPI.md#get_usage_summary) | **GET** /api/v1/usage/summary | Get usage across your multi-org account
 *DatadogAPIClient::V1::UsageMeteringAPI* | [**get_usage_synthetics**](UsageMeteringAPI.md#get_usage_synthetics) | **GET** /api/v1/usage/synthetics | Get hourly usage for Synthetics Checks
@@ -793,6 +794,8 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::UsageReportsType](UsageReportsType.md)
  - [DatadogAPIClient::V1::UsageRumSessionsHour](UsageRumSessionsHour.md)
  - [DatadogAPIClient::V1::UsageRumSessionsResponse](UsageRumSessionsResponse.md)
+ - [DatadogAPIClient::V1::UsageSDSHour](UsageSDSHour.md)
+ - [DatadogAPIClient::V1::UsageSDSResponse](UsageSDSResponse.md)
  - [DatadogAPIClient::V1::UsageSNMPHour](UsageSNMPHour.md)
  - [DatadogAPIClient::V1::UsageSNMPResponse](UsageSNMPResponse.md)
  - [DatadogAPIClient::V1::UsageSort](UsageSort.md)

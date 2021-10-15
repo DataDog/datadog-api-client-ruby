@@ -145,6 +145,12 @@ module DatadogAPIClient::V1
     # Shows the sum of RUM Sessions (browser and mobile) over all hours in the current date for the given org.
     attr_accessor :rum_total_session_count_sum
 
+    # Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all hours in the current month for all organizations.
+    attr_accessor :sds_logs_scanned_bytes_sum
+
+    # Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner over all hours in the current month for all organizations.
+    attr_accessor :sds_total_scanned_bytes_sum
+
     # Shows the sum of all Synthetic browser tests over all hours in the current date for the given org.
     attr_accessor :synthetics_browser_check_calls_count_sum
 
@@ -204,6 +210,8 @@ module DatadogAPIClient::V1
         :'public_id' => :'public_id',
         :'rum_session_count_sum' => :'rum_session_count_sum',
         :'rum_total_session_count_sum' => :'rum_total_session_count_sum',
+        :'sds_logs_scanned_bytes_sum' => :'sds_logs_scanned_bytes_sum',
+        :'sds_total_scanned_bytes_sum' => :'sds_total_scanned_bytes_sum',
         :'synthetics_browser_check_calls_count_sum' => :'synthetics_browser_check_calls_count_sum',
         :'synthetics_check_calls_count_sum' => :'synthetics_check_calls_count_sum',
         :'trace_search_indexed_events_count_sum' => :'trace_search_indexed_events_count_sum',
@@ -261,6 +269,8 @@ module DatadogAPIClient::V1
         :'public_id' => :'String',
         :'rum_session_count_sum' => :'Integer',
         :'rum_total_session_count_sum' => :'Integer',
+        :'sds_logs_scanned_bytes_sum' => :'Integer',
+        :'sds_total_scanned_bytes_sum' => :'Integer',
         :'synthetics_browser_check_calls_count_sum' => :'Integer',
         :'synthetics_check_calls_count_sum' => :'Integer',
         :'trace_search_indexed_events_count_sum' => :'Integer',
@@ -454,6 +464,14 @@ module DatadogAPIClient::V1
         self.rum_total_session_count_sum = attributes[:'rum_total_session_count_sum']
       end
 
+      if attributes.key?(:'sds_logs_scanned_bytes_sum')
+        self.sds_logs_scanned_bytes_sum = attributes[:'sds_logs_scanned_bytes_sum']
+      end
+
+      if attributes.key?(:'sds_total_scanned_bytes_sum')
+        self.sds_total_scanned_bytes_sum = attributes[:'sds_total_scanned_bytes_sum']
+      end
+
       if attributes.key?(:'synthetics_browser_check_calls_count_sum')
         self.synthetics_browser_check_calls_count_sum = attributes[:'synthetics_browser_check_calls_count_sum']
       end
@@ -534,6 +552,8 @@ module DatadogAPIClient::V1
           public_id == o.public_id &&
           rum_session_count_sum == o.rum_session_count_sum &&
           rum_total_session_count_sum == o.rum_total_session_count_sum &&
+          sds_logs_scanned_bytes_sum == o.sds_logs_scanned_bytes_sum &&
+          sds_total_scanned_bytes_sum == o.sds_total_scanned_bytes_sum &&
           synthetics_browser_check_calls_count_sum == o.synthetics_browser_check_calls_count_sum &&
           synthetics_check_calls_count_sum == o.synthetics_check_calls_count_sum &&
           trace_search_indexed_events_count_sum == o.trace_search_indexed_events_count_sum &&
@@ -550,7 +570,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_host_top99p, apm_azure_app_service_host_top99p, apm_host_top99p, audit_logs_lines_indexed_sum, aws_host_top99p, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p, billable_ingested_bytes_sum, container_avg, container_hwm, cspm_container_avg, cspm_container_hwm, cspm_host_top99p, custom_ts_avg, cws_container_count_avg, cws_host_top99p, dbm_host_top99p_sum, dbm_queries_avg_sum, fargate_tasks_count_avg, fargate_tasks_count_hwm, gcp_host_top99p, heroku_host_top99p, id, incident_management_monthly_active_users_hwm, indexed_events_count_sum, infra_host_top99p, ingested_events_bytes_sum, iot_device_agg_sum, iot_device_top99p_sum, mobile_rum_session_count_android_sum, mobile_rum_session_count_ios_sum, mobile_rum_session_count_sum, name, netflow_indexed_events_count_sum, npm_host_top99p, opentelemetry_host_top99p, profiling_host_top99p, public_id, rum_session_count_sum, rum_total_session_count_sum, synthetics_browser_check_calls_count_sum, synthetics_check_calls_count_sum, trace_search_indexed_events_count_sum, twol_ingested_events_bytes_sum, vsphere_host_top99p].hash
+      [agent_host_top99p, apm_azure_app_service_host_top99p, apm_host_top99p, audit_logs_lines_indexed_sum, aws_host_top99p, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p, billable_ingested_bytes_sum, container_avg, container_hwm, cspm_container_avg, cspm_container_hwm, cspm_host_top99p, custom_ts_avg, cws_container_count_avg, cws_host_top99p, dbm_host_top99p_sum, dbm_queries_avg_sum, fargate_tasks_count_avg, fargate_tasks_count_hwm, gcp_host_top99p, heroku_host_top99p, id, incident_management_monthly_active_users_hwm, indexed_events_count_sum, infra_host_top99p, ingested_events_bytes_sum, iot_device_agg_sum, iot_device_top99p_sum, mobile_rum_session_count_android_sum, mobile_rum_session_count_ios_sum, mobile_rum_session_count_sum, name, netflow_indexed_events_count_sum, npm_host_top99p, opentelemetry_host_top99p, profiling_host_top99p, public_id, rum_session_count_sum, rum_total_session_count_sum, sds_logs_scanned_bytes_sum, sds_total_scanned_bytes_sum, synthetics_browser_check_calls_count_sum, synthetics_check_calls_count_sum, trace_search_indexed_events_count_sum, twol_ingested_events_bytes_sum, vsphere_host_top99p].hash
     end
 
     # Builds the object from hash
