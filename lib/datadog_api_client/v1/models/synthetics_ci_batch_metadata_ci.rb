@@ -17,20 +17,22 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Metadata for the Synthetics tests run
-  class SyntheticsCITestMetadata
+  # Description of the CI provider.
+  class SyntheticsCIBatchMetadataCI
     # whether the object has unparsed attributes
     attr_accessor :_unparsed
 
-    attr_accessor :ci
+    # Name of the pipeline.
+    attr_accessor :pipeline
 
-    attr_accessor :git
+    # Name of the CI provider.
+    attr_accessor :provider
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'ci' => :'ci',
-        :'git' => :'git'
+        :'pipeline' => :'pipeline',
+        :'provider' => :'provider'
       }
     end
 
@@ -42,8 +44,8 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'ci' => :'SyntheticsCITestMetadataCi',
-        :'git' => :'SyntheticsCITestMetadataGit'
+        :'pipeline' => :'String',
+        :'provider' => :'String'
       }
     end
 
@@ -57,23 +59,23 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsCITestMetadata` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsCIBatchMetadataCI` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SyntheticsCITestMetadata`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SyntheticsCIBatchMetadataCI`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'ci')
-        self.ci = attributes[:'ci']
+      if attributes.key?(:'pipeline')
+        self.pipeline = attributes[:'pipeline']
       end
 
-      if attributes.key?(:'git')
-        self.git = attributes[:'git']
+      if attributes.key?(:'provider')
+        self.provider = attributes[:'provider']
       end
     end
 
@@ -95,8 +97,8 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          ci == o.ci &&
-          git == o.git
+          pipeline == o.pipeline &&
+          provider == o.provider
     end
 
     # @see the `==` method
@@ -108,7 +110,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ci, git].hash
+      [pipeline, provider].hash
     end
 
     # Builds the object from hash

@@ -1,4 +1,4 @@
-# DatadogAPIClient::V1::SyntheticsCITestMetadataCi
+# DatadogAPIClient::V1::SyntheticsCIBatchMetadataCI
 
 ## Properties
 
@@ -12,7 +12,7 @@
 ```ruby
 require 'datadog_api_client/v1'
 
-instance = DatadogAPIClient::V1::SyntheticsCITestMetadataCi.new(
+instance = DatadogAPIClient::V1::SyntheticsCIBatchMetadataCI.new(
   pipeline: null,
   provider: null
 )
