@@ -20,6 +20,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**get_browser_test_result**](SyntheticsAPI.md#get_browser_test_result) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results/{result_id} | Get a browser test result |
 | [**get_global_variable**](SyntheticsAPI.md#get_global_variable) | **GET** /api/v1/synthetics/variables/{variable_id} | Get a global variable |
 | [**get_private_location**](SyntheticsAPI.md#get_private_location) | **GET** /api/v1/synthetics/private-locations/{location_id} | Get a private location |
+| [**get_synthetics_ci_batch**](SyntheticsAPI.md#get_synthetics_ci_batch) | **GET** /api/v1/synthetics/ci/batch/{batch_id} | Get details of batch |
 | [**get_test**](SyntheticsAPI.md#get_test) | **GET** /api/v1/synthetics/tests/{public_id} | Get a test configuration |
 | [**list_global_variables**](SyntheticsAPI.md#list_global_variables) | **GET** /api/v1/synthetics/variables | Get all global variables |
 | [**list_locations**](SyntheticsAPI.md#list_locations) | **GET** /api/v1/synthetics/locations | Get all locations (public and private) |
@@ -1002,6 +1003,66 @@ end
 ### Return type
 
 [**SyntheticsPrivateLocation**](SyntheticsPrivateLocation.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_synthetics_ci_batch
+
+> <SyntheticsBatchDetails> get_synthetics_ci_batch(batch_id)
+
+Get a batch's updated details.
+
+### Examples
+
+```ruby
+require 'datadog_api_client'
+api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
+batch_id = 'batch_id_example' # String | The ID of the batch.
+
+begin
+  # Get details of batch
+  result = api_instance.get_synthetics_ci_batch(batch_id)
+  p result
+rescue DatadogAPIClient::V1::APIError => e
+  puts "Error when calling SyntheticsAPI->get_synthetics_ci_batch: #{e}"
+end
+```
+
+#### Using the get_synthetics_ci_batch_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SyntheticsBatchDetails>, Integer, Hash)> get_synthetics_ci_batch_with_http_info(batch_id)
+
+```ruby
+begin
+  # Get details of batch
+  data, status_code, headers = api_instance.get_synthetics_ci_batch_with_http_info(batch_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SyntheticsBatchDetails>
+rescue DatadogAPIClient::V1::APIError => e
+  puts "Error when calling SyntheticsAPI->get_synthetics_ci_batch_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **batch_id** | **String** | The ID of the batch. |  |
+
+### Return type
+
+[**SyntheticsBatchDetails**](SyntheticsBatchDetails.md)
 
 ### Authorization
 

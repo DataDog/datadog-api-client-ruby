@@ -174,6 +174,7 @@ Class | Method | HTTP request | Description
 *DatadogAPIClient::V1::SyntheticsAPI* | [**get_browser_test_result**](SyntheticsAPI.md#get_browser_test_result) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results/{result_id} | Get a browser test result
 *DatadogAPIClient::V1::SyntheticsAPI* | [**get_global_variable**](SyntheticsAPI.md#get_global_variable) | **GET** /api/v1/synthetics/variables/{variable_id} | Get a global variable
 *DatadogAPIClient::V1::SyntheticsAPI* | [**get_private_location**](SyntheticsAPI.md#get_private_location) | **GET** /api/v1/synthetics/private-locations/{location_id} | Get a private location
+*DatadogAPIClient::V1::SyntheticsAPI* | [**get_synthetics_ci_batch**](SyntheticsAPI.md#get_synthetics_ci_batch) | **GET** /api/v1/synthetics/ci/batch/{batch_id} | Get details of batch
 *DatadogAPIClient::V1::SyntheticsAPI* | [**get_test**](SyntheticsAPI.md#get_test) | **GET** /api/v1/synthetics/tests/{public_id} | Get a test configuration
 *DatadogAPIClient::V1::SyntheticsAPI* | [**list_global_variables**](SyntheticsAPI.md#list_global_variables) | **GET** /api/v1/synthetics/variables | Get all global variables
 *DatadogAPIClient::V1::SyntheticsAPI* | [**list_locations**](SyntheticsAPI.md#list_locations) | **GET** /api/v1/synthetics/locations | Get all locations (public and private)
@@ -634,6 +635,9 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::SyntheticsAssertionTarget](SyntheticsAssertionTarget.md)
  - [DatadogAPIClient::V1::SyntheticsAssertionType](SyntheticsAssertionType.md)
  - [DatadogAPIClient::V1::SyntheticsBasicAuth](SyntheticsBasicAuth.md)
+ - [DatadogAPIClient::V1::SyntheticsBatchDetails](SyntheticsBatchDetails.md)
+ - [DatadogAPIClient::V1::SyntheticsBatchDetailsData](SyntheticsBatchDetailsData.md)
+ - [DatadogAPIClient::V1::SyntheticsBatchResult](SyntheticsBatchResult.md)
  - [DatadogAPIClient::V1::SyntheticsBrowserError](SyntheticsBrowserError.md)
  - [DatadogAPIClient::V1::SyntheticsBrowserErrorType](SyntheticsBrowserErrorType.md)
  - [DatadogAPIClient::V1::SyntheticsBrowserTest](SyntheticsBrowserTest.md)
@@ -646,11 +650,11 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::SyntheticsBrowserTestType](SyntheticsBrowserTestType.md)
  - [DatadogAPIClient::V1::SyntheticsBrowserVariable](SyntheticsBrowserVariable.md)
  - [DatadogAPIClient::V1::SyntheticsBrowserVariableType](SyntheticsBrowserVariableType.md)
+ - [DatadogAPIClient::V1::SyntheticsCIBatchMetadata](SyntheticsCIBatchMetadata.md)
+ - [DatadogAPIClient::V1::SyntheticsCIBatchMetadataCI](SyntheticsCIBatchMetadataCI.md)
+ - [DatadogAPIClient::V1::SyntheticsCIBatchMetadataGit](SyntheticsCIBatchMetadataGit.md)
  - [DatadogAPIClient::V1::SyntheticsCITest](SyntheticsCITest.md)
  - [DatadogAPIClient::V1::SyntheticsCITestBody](SyntheticsCITestBody.md)
- - [DatadogAPIClient::V1::SyntheticsCITestMetadata](SyntheticsCITestMetadata.md)
- - [DatadogAPIClient::V1::SyntheticsCITestMetadataCi](SyntheticsCITestMetadataCi.md)
- - [DatadogAPIClient::V1::SyntheticsCITestMetadataGit](SyntheticsCITestMetadataGit.md)
  - [DatadogAPIClient::V1::SyntheticsCheckType](SyntheticsCheckType.md)
  - [DatadogAPIClient::V1::SyntheticsConfigVariable](SyntheticsConfigVariable.md)
  - [DatadogAPIClient::V1::SyntheticsConfigVariableType](SyntheticsConfigVariableType.md)
@@ -684,6 +688,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::SyntheticsSSLCertificate](SyntheticsSSLCertificate.md)
  - [DatadogAPIClient::V1::SyntheticsSSLCertificateIssuer](SyntheticsSSLCertificateIssuer.md)
  - [DatadogAPIClient::V1::SyntheticsSSLCertificateSubject](SyntheticsSSLCertificateSubject.md)
+ - [DatadogAPIClient::V1::SyntheticsStatus](SyntheticsStatus.md)
  - [DatadogAPIClient::V1::SyntheticsStep](SyntheticsStep.md)
  - [DatadogAPIClient::V1::SyntheticsStepDetail](SyntheticsStepDetail.md)
  - [DatadogAPIClient::V1::SyntheticsStepDetailWarning](SyntheticsStepDetailWarning.md)
@@ -692,6 +697,7 @@ Class | Method | HTTP request | Description
  - [DatadogAPIClient::V1::SyntheticsTestDetails](SyntheticsTestDetails.md)
  - [DatadogAPIClient::V1::SyntheticsTestDetailsSubType](SyntheticsTestDetailsSubType.md)
  - [DatadogAPIClient::V1::SyntheticsTestDetailsType](SyntheticsTestDetailsType.md)
+ - [DatadogAPIClient::V1::SyntheticsTestExecutionRule](SyntheticsTestExecutionRule.md)
  - [DatadogAPIClient::V1::SyntheticsTestMonitorStatus](SyntheticsTestMonitorStatus.md)
  - [DatadogAPIClient::V1::SyntheticsTestOptions](SyntheticsTestOptions.md)
  - [DatadogAPIClient::V1::SyntheticsTestOptionsMonitorOptions](SyntheticsTestOptionsMonitorOptions.md)

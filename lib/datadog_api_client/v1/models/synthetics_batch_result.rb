@@ -17,22 +17,50 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Git information.
-  class SyntheticsCITestMetadataGit
+  # Object with the results of a Synthetics batch.
+  class SyntheticsBatchResult
     # whether the object has unparsed attributes
     attr_accessor :_unparsed
 
-    # Branch name.
-    attr_accessor :branch
+    attr_accessor :device
 
-    # Commit SHA.
-    attr_accessor :commit_sha
+    # Total duration in millisecond of the test.
+    attr_accessor :duration
+
+    attr_accessor :execution_rule
+
+    # Name of the location.
+    attr_accessor :location
+
+    # The ID of the result to get.
+    attr_accessor :result_id
+
+    # Total duration in millisecond of the test.
+    attr_accessor :retries
+
+    attr_accessor :status
+
+    # Name of the test.
+    attr_accessor :test_name
+
+    # The public ID of the Synthetic test.
+    attr_accessor :test_public_id
+
+    attr_accessor :test_type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'branch' => :'branch',
-        :'commit_sha' => :'commit_sha'
+        :'device' => :'device',
+        :'duration' => :'duration',
+        :'execution_rule' => :'execution_rule',
+        :'location' => :'location',
+        :'result_id' => :'result_id',
+        :'retries' => :'retries',
+        :'status' => :'status',
+        :'test_name' => :'test_name',
+        :'test_public_id' => :'test_public_id',
+        :'test_type' => :'test_type'
       }
     end
 
@@ -44,8 +72,16 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'branch' => :'String',
-        :'commit_sha' => :'String'
+        :'device' => :'SyntheticsDeviceID',
+        :'duration' => :'Float',
+        :'execution_rule' => :'SyntheticsTestExecutionRule',
+        :'location' => :'String',
+        :'result_id' => :'String',
+        :'retries' => :'Float',
+        :'status' => :'SyntheticsStatus',
+        :'test_name' => :'String',
+        :'test_public_id' => :'String',
+        :'test_type' => :'SyntheticsTestDetailsType'
       }
     end
 
@@ -59,23 +95,55 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsCITestMetadataGit` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsBatchResult` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SyntheticsCITestMetadataGit`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SyntheticsBatchResult`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'branch')
-        self.branch = attributes[:'branch']
+      if attributes.key?(:'device')
+        self.device = attributes[:'device']
       end
 
-      if attributes.key?(:'commit_sha')
-        self.commit_sha = attributes[:'commit_sha']
+      if attributes.key?(:'duration')
+        self.duration = attributes[:'duration']
+      end
+
+      if attributes.key?(:'execution_rule')
+        self.execution_rule = attributes[:'execution_rule']
+      end
+
+      if attributes.key?(:'location')
+        self.location = attributes[:'location']
+      end
+
+      if attributes.key?(:'result_id')
+        self.result_id = attributes[:'result_id']
+      end
+
+      if attributes.key?(:'retries')
+        self.retries = attributes[:'retries']
+      end
+
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
+      end
+
+      if attributes.key?(:'test_name')
+        self.test_name = attributes[:'test_name']
+      end
+
+      if attributes.key?(:'test_public_id')
+        self.test_public_id = attributes[:'test_public_id']
+      end
+
+      if attributes.key?(:'test_type')
+        self.test_type = attributes[:'test_type']
       end
     end
 
@@ -97,8 +165,16 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          branch == o.branch &&
-          commit_sha == o.commit_sha
+          device == o.device &&
+          duration == o.duration &&
+          execution_rule == o.execution_rule &&
+          location == o.location &&
+          result_id == o.result_id &&
+          retries == o.retries &&
+          status == o.status &&
+          test_name == o.test_name &&
+          test_public_id == o.test_public_id &&
+          test_type == o.test_type
     end
 
     # @see the `==` method
@@ -110,7 +186,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [branch, commit_sha].hash
+      [device, duration, execution_rule, location, result_id, retries, status, test_name, test_public_id, test_type].hash
     end
 
     # Builds the object from hash
