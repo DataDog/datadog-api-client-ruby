@@ -31,6 +31,9 @@ module DatadogAPIClient::V1
     # An object, (in the form `{\"namespace1\":true/false, \"namespace2\":true/false}`), that enables or disables metric collection for specific AWS namespaces for this AWS account only.
     attr_accessor :account_specific_namespace_rules
 
+    # Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general `resource_collection`.
+    attr_accessor :cspm_resource_collection_enabled
+
     # An array of AWS regions to exclude from metrics collection.
     attr_accessor :excluded_regions
 
@@ -39,6 +42,12 @@ module DatadogAPIClient::V1
 
     # Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
     attr_accessor :host_tags
+
+    # Whether Datadog collects metrics for this AWS account.
+    attr_accessor :metrics_collection_enabled
+
+    # Whether Datadog collects a standard set of resources from your AWS account.
+    attr_accessor :resource_collection_enabled
 
     # Your Datadog role delegation name.
     attr_accessor :role_name
@@ -52,9 +61,12 @@ module DatadogAPIClient::V1
         :'access_key_id' => :'access_key_id',
         :'account_id' => :'account_id',
         :'account_specific_namespace_rules' => :'account_specific_namespace_rules',
+        :'cspm_resource_collection_enabled' => :'cspm_resource_collection_enabled',
         :'excluded_regions' => :'excluded_regions',
         :'filter_tags' => :'filter_tags',
         :'host_tags' => :'host_tags',
+        :'metrics_collection_enabled' => :'metrics_collection_enabled',
+        :'resource_collection_enabled' => :'resource_collection_enabled',
         :'role_name' => :'role_name',
         :'secret_access_key' => :'secret_access_key'
       }
@@ -71,9 +83,12 @@ module DatadogAPIClient::V1
         :'access_key_id' => :'String',
         :'account_id' => :'String',
         :'account_specific_namespace_rules' => :'Hash<String, Boolean>',
+        :'cspm_resource_collection_enabled' => :'Boolean',
         :'excluded_regions' => :'Array<String>',
         :'filter_tags' => :'Array<String>',
         :'host_tags' => :'Array<String>',
+        :'metrics_collection_enabled' => :'Boolean',
+        :'resource_collection_enabled' => :'Boolean',
         :'role_name' => :'String',
         :'secret_access_key' => :'String'
       }
@@ -114,6 +129,12 @@ module DatadogAPIClient::V1
         end
       end
 
+      if attributes.key?(:'cspm_resource_collection_enabled')
+        self.cspm_resource_collection_enabled = attributes[:'cspm_resource_collection_enabled']
+      else
+        self.cspm_resource_collection_enabled = false
+      end
+
       if attributes.key?(:'excluded_regions')
         if (value = attributes[:'excluded_regions']).is_a?(Array)
           self.excluded_regions = value
@@ -130,6 +151,18 @@ module DatadogAPIClient::V1
         if (value = attributes[:'host_tags']).is_a?(Array)
           self.host_tags = value
         end
+      end
+
+      if attributes.key?(:'metrics_collection_enabled')
+        self.metrics_collection_enabled = attributes[:'metrics_collection_enabled']
+      else
+        self.metrics_collection_enabled = true
+      end
+
+      if attributes.key?(:'resource_collection_enabled')
+        self.resource_collection_enabled = attributes[:'resource_collection_enabled']
+      else
+        self.resource_collection_enabled = false
       end
 
       if attributes.key?(:'role_name')
@@ -162,9 +195,12 @@ module DatadogAPIClient::V1
           access_key_id == o.access_key_id &&
           account_id == o.account_id &&
           account_specific_namespace_rules == o.account_specific_namespace_rules &&
+          cspm_resource_collection_enabled == o.cspm_resource_collection_enabled &&
           excluded_regions == o.excluded_regions &&
           filter_tags == o.filter_tags &&
           host_tags == o.host_tags &&
+          metrics_collection_enabled == o.metrics_collection_enabled &&
+          resource_collection_enabled == o.resource_collection_enabled &&
           role_name == o.role_name &&
           secret_access_key == o.secret_access_key
     end
@@ -178,7 +214,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_key_id, account_id, account_specific_namespace_rules, excluded_regions, filter_tags, host_tags, role_name, secret_access_key].hash
+      [access_key_id, account_id, account_specific_namespace_rules, cspm_resource_collection_enabled, excluded_regions, filter_tags, host_tags, metrics_collection_enabled, resource_collection_enabled, role_name, secret_access_key].hash
     end
 
     # Builds the object from hash
