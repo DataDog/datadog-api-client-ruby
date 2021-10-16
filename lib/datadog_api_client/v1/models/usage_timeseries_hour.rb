@@ -31,7 +31,7 @@ module DatadogAPIClient::V1
     # Contains the number of custom metrics that are outputs for aggregations (metric configured is custom).
     attr_accessor :num_custom_output_timeseries
 
-    # Contains the number of non-aggregation custom metrics.
+    # Contains sum of non-aggregation custom metrics and custom metrics that are outputs for aggregations.
     attr_accessor :num_custom_timeseries
 
     # Attribute mapping from ruby-style variable name to JSON key.
