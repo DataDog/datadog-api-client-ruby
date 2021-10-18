@@ -1,5 +1,32 @@
 # CHANGELOG
 
+## 1.4.0 / 2021-10-18
+
+* [Added] Add `metrics_collection_enabled`, `cspm_resource_collection_enabled ` and `resource_collection_enabled` to AWS integration request. See [#524](https://github.com/DataDog/datadog-api-client-ruby/pull/524).
+* [Added] Add SDS to usage metering endpoint. See [#527](https://github.com/DataDog/datadog-api-client-ruby/pull/527).
+* [Added] [Synthetics] Add endpoint to get details of a batch. See [#477](https://github.com/DataDog/datadog-api-client-ruby/pull/477).
+* [Added] Add `type` and `is_template` properties to notebooks. See [#522](https://github.com/DataDog/datadog-api-client-ruby/pull/522).
+* [Added] Add `renotify_occurrences` and `renotify_statuses` monitor options. See [#520](https://github.com/DataDog/datadog-api-client-ruby/pull/520).
+* [Added] Add `servername` property to SSL Synthetics tests request. See [#510](https://github.com/DataDog/datadog-api-client-ruby/pull/510).
+* [Added] Document encoding in metrics intake. See [#511](https://github.com/DataDog/datadog-api-client-ruby/pull/511).
+* [Added] Add support for formulas and functions in the Scatterplot Widget for dashboards. See [#495](https://github.com/DataDog/datadog-api-client-ruby/pull/495).
+* [Added] Add support for gzip and deflate encoding. See [#500](https://github.com/DataDog/datadog-api-client-ruby/pull/500).
+* [Added] Add information about creator to Synthetics tests details. See [#503](https://github.com/DataDog/datadog-api-client-ruby/pull/503).
+* [Added] Add support for funnel widget in dashboards. See [#497](https://github.com/DataDog/datadog-api-client-ruby/pull/497).
+* [Added] Add formula and function APM resource stats query definition for dashboards. See [#489](https://github.com/DataDog/datadog-api-client-ruby/pull/489).
+* [Added] ApmDependencyStatsQuery for formulas and functions dashboard widgets. See [#488](https://github.com/DataDog/datadog-api-client-ruby/pull/488).
+* [Fixed] Make monitor properties `priority` and `restricted_roles` nullable. See [#532](https://github.com/DataDog/datadog-api-client-ruby/pull/532).
+* [Fixed] Remove event title length constraint. See [#505](https://github.com/DataDog/datadog-api-client-ruby/pull/505).
+* [Fixed] Allow nullable date in notebook cells. See [#514](https://github.com/DataDog/datadog-api-client-ruby/pull/514).
+* [Fixed] `IncidentFieldAttributesMultipleValue` can be nullable. See [#509](https://github.com/DataDog/datadog-api-client-ruby/pull/509).
+* [Fixed] Fix incidents schemas. See [#508](https://github.com/DataDog/datadog-api-client-ruby/pull/508).
+* [Fixed] Make sure that OpenAPI definition are valid with real server responses. See [#502](https://github.com/DataDog/datadog-api-client-ruby/pull/502).
+* [Fixed] Fix typo in usage attribution field names for profiled containers. See [#504](https://github.com/DataDog/datadog-api-client-ruby/pull/504).
+* [Fixed] [dashboards] Make the name property required for APM Dependency Stat Query. See [#494](https://github.com/DataDog/datadog-api-client-ruby/pull/494).
+* [Fixed] Mark SLO Correction Type as required. See [#479](https://github.com/DataDog/datadog-api-client-ruby/pull/479).
+* [Changed] Enable compression in responses. See [#519](https://github.com/DataDog/datadog-api-client-ruby/pull/519).
+* [Changed] Use AVG aggregation function for DBM queries. See [#499](https://github.com/DataDog/datadog-api-client-ruby/pull/499).
+
 ## 1.3.0 / 2021-09-13
 
 * [Added] Add `follow_redirects` options to test request in Synthetics. See [#481](https://github.com/DataDog/datadog-api-client-ruby/pull/481).
