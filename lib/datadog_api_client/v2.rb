@@ -383,4 +383,5 @@ module DatadogAPIClient
         end
       end
     end
+  end
 end
