@@ -3,7 +3,7 @@
 require 'rbconfig'
 
 module DatadogAPIClient
-  VERSION = '1.4.0'
+  VERSION = '1.4.1.dev.1'
 
   USER_AGENT = format(
     'datadog-api-client-ruby/%<version>s (ruby %<ruver>s; os %<os>s; arch %<arch>s)',
