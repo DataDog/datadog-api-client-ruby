@@ -24,6 +24,8 @@ module DatadogAPIClient::V1
 
     attr_accessor :apm_query
 
+    attr_accessor :apm_stats_query
+
     attr_accessor :event_query
 
     attr_accessor :log_query
@@ -47,6 +49,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'apm_query' => :'apm_query',
+        :'apm_stats_query' => :'apm_stats_query',
         :'event_query' => :'event_query',
         :'log_query' => :'log_query',
         :'network_query' => :'network_query',
@@ -68,6 +71,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'apm_query' => :'LogQueryDefinition',
+        :'apm_stats_query' => :'ApmStatsQueryDefinition',
         :'event_query' => :'LogQueryDefinition',
         :'log_query' => :'LogQueryDefinition',
         :'network_query' => :'LogQueryDefinition',
@@ -103,6 +107,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'apm_query')
         self.apm_query = attributes[:'apm_query']
+      end
+
+      if attributes.key?(:'apm_stats_query')
+        self.apm_stats_query = attributes[:'apm_stats_query']
       end
 
       if attributes.key?(:'event_query')
@@ -161,6 +169,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           apm_query == o.apm_query &&
+          apm_stats_query == o.apm_stats_query &&
           event_query == o.event_query &&
           log_query == o.log_query &&
           network_query == o.network_query &&
@@ -181,7 +190,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [apm_query, event_query, log_query, network_query, process_query, profile_metrics_query, q, rum_query, security_query, style].hash
+      [apm_query, apm_stats_query, event_query, log_query, network_query, process_query, profile_metrics_query, q, rum_query, security_query, style].hash
     end
 
     # Builds the object from hash

@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **apm_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
+| **apm_stats_query** | [**ApmStatsQueryDefinition**](ApmStatsQueryDefinition.md) |  | [optional] |
 | **event_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
 | **log_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
 | **network_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
@@ -22,6 +23,7 @@ require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::DistributionWidgetRequest.new(
   apm_query: null,
+  apm_stats_query: null,
   event_query: null,
   log_query: null,
   network_query: null,
