@@ -1,0 +1,46 @@
+http_interactions:
+- recorded_at: Tue, 19 Oct 2021 14:57:44 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"query":"query","type":"log alert"}'
+    headers:
+      Cache-Control:
+      - no-cache
+      Connection:
+      - close
+      Content-Length:
+      - '97'
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 19 Oct 2021 14:57:44 GMT
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15724800;
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Ratelimit-Limit:
+      - '500'
+      X-Ratelimit-Period:
+      - '10'
+      X-Ratelimit-Remaining:
+      - '498'
+      X-Ratelimit-Reset:
+      - '6'
+    method: POST
+    uri: https://api.datadoghq.com/api/v1/monitor
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors": ["The value provided for parameter ''query'' is invalid:
+        invalid operator specified: "]}'
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0
