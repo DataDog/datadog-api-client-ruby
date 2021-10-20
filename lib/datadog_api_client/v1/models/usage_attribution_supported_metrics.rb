@@ -46,8 +46,8 @@ module DatadogAPIClient::V1
     PROFILED_HOST_PERCENTAGE = "profiled_host_percentage".freeze
     PROFILED_CONTAINER_USAGE = "profiled_container_usage".freeze
     PROFILED_CONTAINER_PERCENTAGE = "profiled_container_percentage".freeze
-    DBM_HOST_USAGE = "dbm_host_usage".freeze
-    DBM_HOST_PERCENTAGE = "dbm_host_percentage".freeze
+    DBM_HOSTS_USAGE = "dbm_hosts_usage".freeze
+    DBM_HOSTS_PERCENTAGE = "dbm_hosts_percentage".freeze
     DBM_QUERIES_USAGE = "dbm_queries_usage".freeze
     DBM_QUERIES_PERCENTAGE = "dbm_queries_percentage".freeze
     ALL = "*".freeze
