@@ -22,8 +22,8 @@
 | **cws_container_usage** | **Float** | The Cloud Workload Security container usage by tag(s) | [optional] |
 | **cws_host_percentage** | **Float** | The percentage of Cloud Workload Security host usage by tag(s) | [optional] |
 | **cws_host_usage** | **Float** | The Cloud Workload Security host usage by tag(s) | [optional] |
-| **dbm_host_percentage** | **Float** | The percentage of Database Monitoring host usage by tag(s). | [optional] |
-| **dbm_host_usage** | **Float** | The Database Monitoring host usage by tag(s). | [optional] |
+| **dbm_hosts_percentage** | **Float** | The percentage of Database Monitoring host usage by tag(s). | [optional] |
+| **dbm_hosts_usage** | **Float** | The Database Monitoring host usage by tag(s). | [optional] |
 | **dbm_queries_percentage** | **Float** | The percentage of Database Monitoring normalized queries usage by tag(s). | [optional] |
 | **dbm_queries_usage** | **Float** | The Database Monitoring normalized queries usage by tag(s). | [optional] |
 | **infra_host_percentage** | **Float** | The percentage of infrastructure host usage by tag(s). | [optional] |
@@ -67,8 +67,8 @@ instance = DatadogAPIClient::V1::UsageAttributionValues.new(
   cws_container_usage: null,
   cws_host_percentage: null,
   cws_host_usage: null,
-  dbm_host_percentage: null,
-  dbm_host_usage: null,
+  dbm_hosts_percentage: null,
+  dbm_hosts_usage: null,
   dbm_queries_percentage: null,
   dbm_queries_usage: null,
   infra_host_percentage: null,
