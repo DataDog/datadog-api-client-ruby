@@ -17,29 +17,20 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Object containing the definition of a metric tag configuration to be created.
-  class MetricTagConfigurationCreateAttributes
+  # A time and space aggregation combination for use in query.
+  class MetricCustomAggregation
     # whether the object has unparsed attributes
     attr_accessor :_unparsed
 
-    # A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and Gauge metrics require the (time: avg, space: avg) aggregation. Additional time & space combinations are also available:  - time: avg, space: avg - time: avg, space: max - time: avg, space: min - time: avg, space: sum - time: count, space: sum - time: max, space: max - time: min, space: min - time: sum, space: avg - time: sum, space: sum  Can only be applied to metrics that have a `metric_type` of `count`, `rate`, or `gauge`.
-    attr_accessor :aggregations
+    attr_accessor :space
 
-    # Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of `distribution`.
-    attr_accessor :include_percentiles
-
-    attr_accessor :metric_type
-
-    # A list of tag keys that will be queryable for your metric.
-    attr_accessor :tags
+    attr_accessor :time
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'aggregations' => :'aggregations',
-        :'include_percentiles' => :'include_percentiles',
-        :'metric_type' => :'metric_type',
-        :'tags' => :'tags'
+        :'space' => :'space',
+        :'time' => :'time'
       }
     end
 
@@ -51,10 +42,8 @@ module DatadogAPIClient::V2
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'aggregations' => :'Array<MetricCustomAggregation>',
-        :'include_percentiles' => :'Boolean',
-        :'metric_type' => :'MetricTagConfigurationMetricTypes',
-        :'tags' => :'Array<String>'
+        :'space' => :'MetricCustomSpaceAggregation',
+        :'time' => :'MetricCustomTimeAggregation'
       }
     end
 
@@ -68,39 +57,23 @@ module DatadogAPIClient::V2
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MetricTagConfigurationCreateAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MetricCustomAggregation` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::MetricTagConfigurationCreateAttributes`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::MetricCustomAggregation`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'aggregations')
-        if (value = attributes[:'aggregations']).is_a?(Array)
-          self.aggregations = value
-        end
+      if attributes.key?(:'space')
+        self.space = attributes[:'space']
       end
 
-      if attributes.key?(:'include_percentiles')
-        self.include_percentiles = attributes[:'include_percentiles']
-      else
-        self.include_percentiles = false
-      end
-
-      if attributes.key?(:'metric_type')
-        self.metric_type = attributes[:'metric_type']
-      else
-        self.metric_type = 'gauge'
-      end
-
-      if attributes.key?(:'tags')
-        if (value = attributes[:'tags']).is_a?(Array)
-          self.tags = value
-        end
+      if attributes.key?(:'time')
+        self.time = attributes[:'time']
       end
     end
 
@@ -108,12 +81,12 @@ module DatadogAPIClient::V2
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @metric_type.nil?
-        invalid_properties.push('invalid value for "metric_type", metric_type cannot be nil.')
+      if @space.nil?
+        invalid_properties.push('invalid value for "space", space cannot be nil.')
       end
 
-      if @tags.nil?
-        invalid_properties.push('invalid value for "tags", tags cannot be nil.')
+      if @time.nil?
+        invalid_properties.push('invalid value for "time", time cannot be nil.')
       end
 
       invalid_properties
@@ -122,8 +95,8 @@ module DatadogAPIClient::V2
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @metric_type.nil?
-      return false if @tags.nil?
+      return false if @space.nil?
+      return false if @time.nil?
       true
     end
 
@@ -132,10 +105,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          aggregations == o.aggregations &&
-          include_percentiles == o.include_percentiles &&
-          metric_type == o.metric_type &&
-          tags == o.tags
+          space == o.space &&
+          time == o.time
     end
 
     # @see the `==` method
@@ -147,7 +118,7 @@ module DatadogAPIClient::V2
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aggregations, include_percentiles, metric_type, tags].hash
+      [space, time].hash
     end
 
     # Builds the object from hash
