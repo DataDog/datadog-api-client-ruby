@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
     # Create a tag configuration
-    # Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any distribution metric. Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
+    # Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any distribution metric or configure custom aggregations on any count, rate, or gauge metric. Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
     # @param metric_name [String] The name of the metric.
     # @param body [MetricTagConfigurationCreateRequest] 
     # @param [Hash] opts the optional parameters
@@ -34,7 +34,7 @@ module DatadogAPIClient::V2
     end
 
     # Create a tag configuration
-    # Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any distribution metric. Can only be used with application keys of users with the &#x60;Manage Tags for Metrics&#x60; permission.
+    # Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any distribution metric or configure custom aggregations on any count, rate, or gauge metric. Can only be used with application keys of users with the &#x60;Manage Tags for Metrics&#x60; permission.
     # @param metric_name [String] The name of the metric.
     # @param body [MetricTagConfigurationCreateRequest] 
     # @param [Hash] opts the optional parameters
@@ -481,7 +481,7 @@ module DatadogAPIClient::V2
     end
 
     # Update a tag configuration
-    # Update the tag configuration of a metric or percentile aggregations of a distribution metric. Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
+    # Update the tag configuration of a metric or percentile aggregations of a distribution metric or custom aggregations of a count, rate, or gauge metric. Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
     # @param metric_name [String] The name of the metric.
     # @param body [MetricTagConfigurationUpdateRequest] 
     # @param [Hash] opts the optional parameters
@@ -492,7 +492,7 @@ module DatadogAPIClient::V2
     end
 
     # Update a tag configuration
-    # Update the tag configuration of a metric or percentile aggregations of a distribution metric. Can only be used with application keys from users with the &#x60;Manage Tags for Metrics&#x60; permission.
+    # Update the tag configuration of a metric or percentile aggregations of a distribution metric or custom aggregations of a count, rate, or gauge metric. Can only be used with application keys from users with the &#x60;Manage Tags for Metrics&#x60; permission.
     # @param metric_name [String] The name of the metric.
     # @param body [MetricTagConfigurationUpdateRequest] 
     # @param [Hash] opts the optional parameters
