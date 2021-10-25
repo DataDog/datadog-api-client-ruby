@@ -23,15 +23,15 @@ require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::SyntheticsAPITest.new(
   config: null,
-  locations: null,
-  message: null,
-  monitor_id: null,
-  name: null,
+  locations: [&quot;aws:eu-west-3&quot;],
+  message: Notification message,
+  monitor_id: 12345678,
+  name: Test name,
   options: null,
-  public_id: null,
+  public_id: 123-abc-456,
   status: null,
   subtype: null,
-  tags: null,
+  tags: [&quot;env:production&quot;],
   type: null
 )
 ```
