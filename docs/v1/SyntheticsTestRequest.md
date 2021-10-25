@@ -46,7 +46,7 @@ instance = DatadogAPIClient::V1::SyntheticsTestRequest.new(
   servername: null,
   should_track_hops: null,
   timeout: null,
-  url: https://example.com
+  url: null
 )
 ```
 

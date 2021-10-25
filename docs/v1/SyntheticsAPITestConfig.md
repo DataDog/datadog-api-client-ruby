@@ -15,7 +15,7 @@
 require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::SyntheticsAPITestConfig.new(
-  assertions: [{&quot;operator&quot;:&quot;lessThan&quot;,&quot;target&quot;:1000,&quot;type&quot;:&quot;responseTime&quot;}],
+  assertions: [],
   config_variables: null,
   request: null,
   steps: null
