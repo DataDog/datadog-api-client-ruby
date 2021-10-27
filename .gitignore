@@ -1,4 +1,5 @@
 .bundle
+.env
 Gemfile.lock
 failed.txt
 rerun.txt

@@ -57,10 +57,28 @@ jobs:
         run: ./run-tests.sh
         shell: bash
 
+  examples:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false && !contains(github.event.pull_request.labels.*.name, 'ci/skip') && !contains(github.event.pull_request.head.ref, 'datadog-api-spec/test/')
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "2.7"
+          bundler-cache: true
+          # modify repository secret when there are problems with installing gems
+          cache-version: ${{ secrets.CACHE_VERSION }}
+      - name: Check examples
+        run: ./check-examples.sh
+        shell: bash
+
   report:
     runs-on: ubuntu-latest
     if: always() && github.event_name == 'pull_request' && contains(github.event.pull_request.head.ref, 'datadog-api-spec/generated/')
-    needs: test
+    needs:
+      - test
+      - examples
     steps:
       - name: Get GitHub App token
         if: github.event_name == 'pull_request'
@@ -77,5 +95,5 @@ jobs:
         with:
           github-token: ${{ steps.get_token.outputs.token }}
           repo: datadog-api-spec
-          status: ${{ needs.test.result }}
+          status: ${{ needs.test.result == 'success' && needs.examples.result == 'success' && 'success' || 'failure' }}
           context: unit
