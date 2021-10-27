@@ -107,6 +107,15 @@ end
 
 where `<unstable_operation_id>` is the name of the method used to interact with that endpoint. For example: `list_log_indexes`, or `get_logs_index`
 
+### Changing Server
+
+When talking to a different server, like the `eu` instance, change the `server_variables` on your configuration object:
+
+```ruby
+config = DatadogAPIClient::V1::Configuration.new
+config.server_variables["site"] = "datadoghq.eu"
+client = DatadogAPIClient::V1::APIClient.new(config)
+```
 
 ### Disable compressed payloads
 
@@ -118,6 +127,18 @@ config = DatadogAPIClient::V1::Configuration.new
 config.compress = false
 client = DatadogAPIClient::V1::APIClient.new(config)
 ```
+
+### Enable requests tracing
+
+If you want to enable requests tracing, set the `debugging` flag
+on your configuration object:
+
+```ruby
+config = DatadogAPIClient::V1::Configuration.new
+config.debugging = true
+client = DatadogAPIClient::V1::APIClient.new(config)
+```
+
 ## Documentation
 
 If you are interested in general documentation for all public Datadog API endpoints, checkout the [general documentation site](api docs).
