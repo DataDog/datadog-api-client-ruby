@@ -7,6 +7,7 @@ class Object
           index = part.to_i
           result = result[index]
         else
+          part = part.snakecase
           case result
           when Hash
             result = result[part.to_sym] rescue result[part]
@@ -34,13 +35,15 @@ class String
   end
 
   def templated(data)
-    self.gsub(/{{ ?([^}]+) ?}}/) do
-      puts $1
+    self.gsub(/{{ *([^{}]+|'[^']+'|"[^"]+") *}}/) do
       path = $1.strip
       func_re = /^(.+)\((.*)\)$/
       m = path.match func_re
       if m
         next data[m[1].to_sym].call(m[2]).to_s
+      end
+      if path[0] == '"' || path[0] == "'"
+        next path[1..-2]
       end
       data.lookup(path).to_s
     end

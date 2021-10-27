@@ -87,17 +87,25 @@ module APIWorld
 
   def undo_operations
     return @undo_operations if @undo_operations
-    undo_path = File.join(__dir__, '..', "v#{@api_version}", 'undo.json')
-    @undo_operations ||= JSON.parse(File.read(undo_path)).map{
-      |operation_id, settings| [operation_id.snakecase, settings["undo"]]
-    }.to_h
+    @undo_operations = {}
+    Dir.glob(File.join(__dir__, '..', "v*", 'undo.json')).each do |undo_path|
+      m = File.expand_path(undo_path).match /features\/v(?<version>\d+)\/.*/
+      version = m[:version]
+      @undo_operations[version] = {}
+      JSON.parse(File.read(undo_path)).each do |operation_id, settings|
+        @undo_operations[version][operation_id.snakecase] = settings["undo"]
+      end
+    end
+    @undo_operations
   end
 
-  def build_undo_for(operation_id, api_instance = nil)
-    raise "missing x-undo for #{operation_id}" unless undo_operations.key? operation_id
-
-    operation = undo_operations[operation_id]
-    raise "update x-undo for #{operation_id}" unless operation["type"]
+  def build_undo_for(version, operation_id, api_instance = nil)
+    operation = undo_operations
+    raise "missing x-undo for #{version}" unless operation.key? version
+    operation = operation[version]
+    raise "missing x-undo for #{version}: #{operation_id}" unless operation.key? operation_id
+    operation = operation[operation_id]
+    raise "update x-undo for #{version}: #{operation_id}" unless operation["type"]
 
     return if operation["type"] != "unsafe"
 
@@ -133,11 +141,11 @@ module APIWorld
     Kernel.puts given_configuration.inspect
     Kernel.puts given_configuration.base_url
     given_api_client = given_api::APIClient.new given_configuration
-    given_api_instance = api.const_get("#{api_name}API").new given_api_client
+    given_api_instance = given_api.const_get("#{api_name}API").new given_api_client
     method = given_api_instance.method("#{operation_name}_with_http_info".to_sym)
 
     # find undo method
-    undo_builder = build_undo_for(operation_name, given_api_instance)
+    undo_builder = build_undo_for(api_version, operation_name, given_api_instance)
 
     # enable unstable operation
     if given_configuration.unstable_operations.has_key?(operation_name.to_sym)
@@ -209,7 +217,7 @@ end
 
 When('the request is sent') do
   params = @api_method.parameters.select { |p| p[0] == :req }.map { |p| opts.delete(p[1]) }
-  undo_builder = build_undo_for @api_method.name.to_s.chomp('_with_http_info')  # fail early on missing undo method
+  undo_builder = build_undo_for(@api_version, @api_method.name.to_s.chomp('_with_http_info'))  # fail early on missing undo method
 
   begin
     @response = @api_method.call(*params, opts)

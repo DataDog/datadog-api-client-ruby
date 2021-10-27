@@ -183,6 +183,9 @@ docs/Metric.md
 docs/MetricAllTags.md
 docs/MetricAllTagsAttributes.md
 docs/MetricAllTagsResponse.md
+docs/MetricCustomAggregation.md
+docs/MetricCustomSpaceAggregation.md
+docs/MetricCustomTimeAggregation.md
 docs/MetricDistinctVolume.md
 docs/MetricDistinctVolumeAttributes.md
 docs/MetricDistinctVolumeType.md
@@ -532,6 +535,9 @@ lib/datadog_api_client/v2/models/metric.rb
 lib/datadog_api_client/v2/models/metric_all_tags.rb
 lib/datadog_api_client/v2/models/metric_all_tags_attributes.rb
 lib/datadog_api_client/v2/models/metric_all_tags_response.rb
+lib/datadog_api_client/v2/models/metric_custom_aggregation.rb
+lib/datadog_api_client/v2/models/metric_custom_space_aggregation.rb
+lib/datadog_api_client/v2/models/metric_custom_time_aggregation.rb
 lib/datadog_api_client/v2/models/metric_distinct_volume.rb
 lib/datadog_api_client/v2/models/metric_distinct_volume_attributes.rb
 lib/datadog_api_client/v2/models/metric_distinct_volume_type.rb
@@ -873,6 +879,9 @@ spec/models/logs_warning_spec.rb
 spec/models/metric_all_tags_attributes_spec.rb
 spec/models/metric_all_tags_response_spec.rb
 spec/models/metric_all_tags_spec.rb
+spec/models/metric_custom_aggregation_spec.rb
+spec/models/metric_custom_space_aggregation_spec.rb
+spec/models/metric_custom_time_aggregation_spec.rb
 spec/models/metric_distinct_volume_attributes_spec.rb
 spec/models/metric_distinct_volume_spec.rb
 spec/models/metric_distinct_volume_type_spec.rb

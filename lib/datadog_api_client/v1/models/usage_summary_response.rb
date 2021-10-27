@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Response with hourly report of all data billed by Datadog all organizations.
+  # Response summarizing all usage aggregated across the months in the request for all organizations, and broken down by month and by organization.
   class UsageSummaryResponse
     # whether the object has unparsed attributes
     attr_accessor :_unparsed
@@ -162,6 +162,12 @@ module DatadogAPIClient::V1
     # Shows the sum of RUM Sessions (browser and mobile) over all hours in the current months for all organizations.
     attr_accessor :rum_total_session_count_agg_sum
 
+    # Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all hours in the current month for all organizations.
+    attr_accessor :sds_logs_scanned_bytes_sum
+
+    # Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner over all hours in the current month for all organizations.
+    attr_accessor :sds_total_scanned_bytes_sum
+
     # Shows the first date of usage in the current months for all organizations.
     attr_accessor :start_date
 
@@ -233,6 +239,8 @@ module DatadogAPIClient::V1
         :'rehydrated_ingested_bytes_agg_sum' => :'rehydrated_ingested_bytes_agg_sum',
         :'rum_session_count_agg_sum' => :'rum_session_count_agg_sum',
         :'rum_total_session_count_agg_sum' => :'rum_total_session_count_agg_sum',
+        :'sds_logs_scanned_bytes_sum' => :'sds_logs_scanned_bytes_sum',
+        :'sds_total_scanned_bytes_sum' => :'sds_total_scanned_bytes_sum',
         :'start_date' => :'start_date',
         :'synthetics_browser_check_calls_count_agg_sum' => :'synthetics_browser_check_calls_count_agg_sum',
         :'synthetics_check_calls_count_agg_sum' => :'synthetics_check_calls_count_agg_sum',
@@ -298,6 +306,8 @@ module DatadogAPIClient::V1
         :'rehydrated_ingested_bytes_agg_sum' => :'Integer',
         :'rum_session_count_agg_sum' => :'Integer',
         :'rum_total_session_count_agg_sum' => :'Integer',
+        :'sds_logs_scanned_bytes_sum' => :'Integer',
+        :'sds_total_scanned_bytes_sum' => :'Integer',
         :'start_date' => :'Time',
         :'synthetics_browser_check_calls_count_agg_sum' => :'Integer',
         :'synthetics_check_calls_count_agg_sum' => :'Integer',
@@ -517,6 +527,14 @@ module DatadogAPIClient::V1
         self.rum_total_session_count_agg_sum = attributes[:'rum_total_session_count_agg_sum']
       end
 
+      if attributes.key?(:'sds_logs_scanned_bytes_sum')
+        self.sds_logs_scanned_bytes_sum = attributes[:'sds_logs_scanned_bytes_sum']
+      end
+
+      if attributes.key?(:'sds_total_scanned_bytes_sum')
+        self.sds_total_scanned_bytes_sum = attributes[:'sds_total_scanned_bytes_sum']
+      end
+
       if attributes.key?(:'start_date')
         self.start_date = attributes[:'start_date']
       end
@@ -613,6 +631,8 @@ module DatadogAPIClient::V1
           rehydrated_ingested_bytes_agg_sum == o.rehydrated_ingested_bytes_agg_sum &&
           rum_session_count_agg_sum == o.rum_session_count_agg_sum &&
           rum_total_session_count_agg_sum == o.rum_total_session_count_agg_sum &&
+          sds_logs_scanned_bytes_sum == o.sds_logs_scanned_bytes_sum &&
+          sds_total_scanned_bytes_sum == o.sds_total_scanned_bytes_sum &&
           start_date == o.start_date &&
           synthetics_browser_check_calls_count_agg_sum == o.synthetics_browser_check_calls_count_agg_sum &&
           synthetics_check_calls_count_agg_sum == o.synthetics_check_calls_count_agg_sum &&
@@ -631,7 +651,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_host_top99p_sum, apm_azure_app_service_host_top99p_sum, apm_host_top99p_sum, audit_logs_lines_indexed_agg_sum, aws_host_top99p_sum, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p_sum, azure_host_top99p_sum, billable_ingested_bytes_agg_sum, container_avg_sum, container_hwm_sum, cspm_container_avg_sum, cspm_container_hwm_sum, cspm_host_top99p_sum, custom_ts_sum, cws_containers_avg_sum, cws_host_top99p_sum, dbm_host_top99p_sum, dbm_queries_avg_sum, end_date, fargate_tasks_count_avg_sum, fargate_tasks_count_hwm_sum, gcp_host_top99p_sum, heroku_host_top99p_sum, incident_management_monthly_active_users_hwm_sum, indexed_events_count_agg_sum, infra_host_top99p_sum, ingested_events_bytes_agg_sum, iot_device_agg_sum, iot_device_top99p_sum, last_updated, live_indexed_events_agg_sum, live_ingested_bytes_agg_sum, logs_by_retention, mobile_rum_session_count_agg_sum, mobile_rum_session_count_android_agg_sum, mobile_rum_session_count_ios_agg_sum, netflow_indexed_events_count_agg_sum, npm_host_top99p_sum, opentelemetry_host_top99p_sum, profiling_container_agent_count_avg, profiling_host_count_top99p_sum, rehydrated_indexed_events_agg_sum, rehydrated_ingested_bytes_agg_sum, rum_session_count_agg_sum, rum_total_session_count_agg_sum, start_date, synthetics_browser_check_calls_count_agg_sum, synthetics_check_calls_count_agg_sum, trace_search_indexed_events_count_agg_sum, twol_ingested_events_bytes_agg_sum, usage, vsphere_host_top99p_sum].hash
+      [agent_host_top99p_sum, apm_azure_app_service_host_top99p_sum, apm_host_top99p_sum, audit_logs_lines_indexed_agg_sum, aws_host_top99p_sum, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p_sum, azure_host_top99p_sum, billable_ingested_bytes_agg_sum, container_avg_sum, container_hwm_sum, cspm_container_avg_sum, cspm_container_hwm_sum, cspm_host_top99p_sum, custom_ts_sum, cws_containers_avg_sum, cws_host_top99p_sum, dbm_host_top99p_sum, dbm_queries_avg_sum, end_date, fargate_tasks_count_avg_sum, fargate_tasks_count_hwm_sum, gcp_host_top99p_sum, heroku_host_top99p_sum, incident_management_monthly_active_users_hwm_sum, indexed_events_count_agg_sum, infra_host_top99p_sum, ingested_events_bytes_agg_sum, iot_device_agg_sum, iot_device_top99p_sum, last_updated, live_indexed_events_agg_sum, live_ingested_bytes_agg_sum, logs_by_retention, mobile_rum_session_count_agg_sum, mobile_rum_session_count_android_agg_sum, mobile_rum_session_count_ios_agg_sum, netflow_indexed_events_count_agg_sum, npm_host_top99p_sum, opentelemetry_host_top99p_sum, profiling_container_agent_count_avg, profiling_host_count_top99p_sum, rehydrated_indexed_events_agg_sum, rehydrated_ingested_bytes_agg_sum, rum_session_count_agg_sum, rum_total_session_count_agg_sum, sds_logs_scanned_bytes_sum, sds_total_scanned_bytes_sum, start_date, synthetics_browser_check_calls_count_agg_sum, synthetics_check_calls_count_agg_sum, trace_search_indexed_events_count_agg_sum, twol_ingested_events_bytes_agg_sum, usage, vsphere_host_top99p_sum].hash
     end
 
     # Builds the object from hash

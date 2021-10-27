@@ -98,7 +98,7 @@ module DatadogAPIClient::V1
         :'follow_redirects' => :'Boolean',
         :'headers' => :'Hash<String, String>',
         :'locations' => :'Array<String>',
-        :'metadata' => :'SyntheticsCITestMetadata',
+        :'metadata' => :'SyntheticsCIBatchMetadata',
         :'public_id' => :'String',
         :'_retry' => :'SyntheticsTestOptionsRetry',
         :'start_url' => :'String',

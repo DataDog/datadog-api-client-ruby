@@ -292,6 +292,7 @@ module DatadogAPIClient::V1
                 enum_values: [
                   "datadoghq.com",
                   "us3.datadoghq.com",
+                  "us5.datadoghq.com",
                   "datadoghq.eu",
                   "ddog-gov.com"
                 ]
@@ -346,6 +347,7 @@ module DatadogAPIClient::V1
                 enum_values: [
                   "datadoghq.com",
                   "us3.datadoghq.com",
+                  "us5.datadoghq.com",
                   "datadoghq.eu",
                   "ddog-gov.com"
                 ]
@@ -392,6 +394,7 @@ module DatadogAPIClient::V1
                 enum_values: [
                   "datadoghq.com",
                   "us3.datadoghq.com",
+                  "us5.datadoghq.com",
                   "datadoghq.eu",
                   "ddog-gov.com"
                 ]

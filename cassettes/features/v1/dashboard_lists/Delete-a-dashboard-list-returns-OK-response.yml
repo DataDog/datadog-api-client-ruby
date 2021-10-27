@@ -1,0 +1,109 @@
+http_interactions:
+- recorded_at: Fri, 01 Oct 2021 08:28:30 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"name":"Test-Delete_a_dashboard_list_returns_OK_response-1633076910"}'
+    headers:
+      Cache-Control:
+      - no-cache
+      Connection:
+      - close
+      Content-Length:
+      - '315'
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 01 Oct 2021 08:28:30 GMT
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    method: POST
+    uri: https://api.datadoghq.com/api/v1/dashboard/lists/manual
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"is_favorite":false,"name":"Test-Delete_a_dashboard_list_returns_OK_response-1633076910","dashboard_count":0,"author":{"handle":"frog@datadoghq.com","name":null},"created":"2021-10-01T08:28:30.884570+00:00","type":"manual_dashboard_list","dashboards":null,"modified":"2021-10-01T08:28:30.884612+00:00","id":240515}'
+    status:
+      code: 200
+      message: OK
+- recorded_at: Fri, 01 Oct 2021 08:28:30 GMT
+  request:
+    body: null
+    headers:
+      Cache-Control:
+      - no-cache
+      Connection:
+      - close
+      Content-Length:
+      - '36'
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 01 Oct 2021 08:28:31 GMT
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v1/dashboard/lists/manual/240515
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"deleted_dashboard_list_id":240515}'
+    status:
+      code: 200
+      message: OK
+- recorded_at: Fri, 01 Oct 2021 08:28:30 GMT
+  request:
+    body: null
+    headers:
+      Cache-Control:
+      - no-cache
+      Connection:
+      - close
+      Content-Length:
+      - '62'
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 01 Oct 2021 08:28:31 GMT
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v1/dashboard/lists/manual/240515
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors": ["Manual Dashboard List with id 240515 not found"]}'
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0

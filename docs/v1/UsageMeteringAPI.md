@@ -29,6 +29,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**get_usage_network_hosts**](UsageMeteringAPI.md#get_usage_network_hosts) | **GET** /api/v1/usage/network_hosts | Get hourly usage for Network Hosts |
 | [**get_usage_profiling**](UsageMeteringAPI.md#get_usage_profiling) | **GET** /api/v1/usage/profiling | Get hourly usage for profiled hosts |
 | [**get_usage_rum_sessions**](UsageMeteringAPI.md#get_usage_rum_sessions) | **GET** /api/v1/usage/rum_sessions | Get hourly usage for RUM Sessions |
+| [**get_usage_sds**](UsageMeteringAPI.md#get_usage_sds) | **GET** /api/v1/usage/sds | Get hourly usage for Sensitive Data Scanner |
 | [**get_usage_snmp**](UsageMeteringAPI.md#get_usage_snmp) | **GET** /api/v1/usage/snmp | Get hourly usage for SNMP devices |
 | [**get_usage_summary**](UsageMeteringAPI.md#get_usage_summary) | **GET** /api/v1/usage/summary | Get usage across your multi-org account |
 | [**get_usage_synthetics**](UsageMeteringAPI.md#get_usage_synthetics) | **GET** /api/v1/usage/synthetics | Get hourly usage for Synthetics Checks |
@@ -1666,6 +1667,70 @@ end
 ### Authorization
 
 [AuthZ](README.md#AuthZ), [apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json;datetime-format=rfc3339
+
+
+## get_usage_sds
+
+> <UsageSDSResponse> get_usage_sds(start_hr, opts)
+
+Get hourly usage for Sensitive Data Scanner.
+
+### Examples
+
+```ruby
+require 'datadog_api_client'
+api_instance = DatadogAPIClient::V1::UsageMeteringAPI.new
+start_hr = Time.parse('2013-10-20T19:20:30+01:00') # Time | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
+opts = {
+  end_hr: Time.parse('2013-10-20T19:20:30+01:00') # Time | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
+}
+
+begin
+  # Get hourly usage for Sensitive Data Scanner
+  result = api_instance.get_usage_sds(start_hr, opts)
+  p result
+rescue DatadogAPIClient::V1::APIError => e
+  puts "Error when calling UsageMeteringAPI->get_usage_sds: #{e}"
+end
+```
+
+#### Using the get_usage_sds_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<UsageSDSResponse>, Integer, Hash)> get_usage_sds_with_http_info(start_hr, opts)
+
+```ruby
+begin
+  # Get hourly usage for Sensitive Data Scanner
+  data, status_code, headers = api_instance.get_usage_sds_with_http_info(start_hr, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <UsageSDSResponse>
+rescue DatadogAPIClient::V1::APIError => e
+  puts "Error when calling UsageMeteringAPI->get_usage_sds_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |  |
+| **end_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+
+### Return type
+
+[**UsageSDSResponse**](UsageSDSResponse.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 

@@ -22,6 +22,9 @@ module DatadogAPIClient::V2
     # whether the object has unparsed attributes
     attr_accessor :_unparsed
 
+    # A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and Gauge metrics require the (time: avg, space: avg) aggregation. Additional time & space combinations are also available:  - time: avg, space: avg - time: avg, space: max - time: avg, space: min - time: avg, space: sum - time: count, space: sum - time: max, space: max - time: min, space: min - time: sum, space: avg - time: sum, space: sum  Can only be applied to metrics that have a `metric_type` of `count`, `rate`, or `gauge`.
+    attr_accessor :aggregations
+
     # Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of `distribution`.
     attr_accessor :include_percentiles
 
@@ -33,6 +36,7 @@ module DatadogAPIClient::V2
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'aggregations' => :'aggregations',
         :'include_percentiles' => :'include_percentiles',
         :'metric_type' => :'metric_type',
         :'tags' => :'tags'
@@ -47,6 +51,7 @@ module DatadogAPIClient::V2
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'aggregations' => :'Array<MetricCustomAggregation>',
         :'include_percentiles' => :'Boolean',
         :'metric_type' => :'MetricTagConfigurationMetricTypes',
         :'tags' => :'Array<String>'
@@ -73,6 +78,12 @@ module DatadogAPIClient::V2
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'aggregations')
+        if (value = attributes[:'aggregations']).is_a?(Array)
+          self.aggregations = value
+        end
+      end
 
       if attributes.key?(:'include_percentiles')
         self.include_percentiles = attributes[:'include_percentiles']
@@ -121,6 +132,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          aggregations == o.aggregations &&
           include_percentiles == o.include_percentiles &&
           metric_type == o.metric_type &&
           tags == o.tags
@@ -135,7 +147,7 @@ module DatadogAPIClient::V2
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [include_percentiles, metric_type, tags].hash
+      [aggregations, include_percentiles, metric_type, tags].hash
     end
 
     # Builds the object from hash
