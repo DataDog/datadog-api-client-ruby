@@ -2,14 +2,14 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **critical** | **Float** | The monitor &#x60;CRITICAL&#x60; threshold. | [optional] |
+| Name                  | Type      | Description                                          | Notes      |
+| --------------------- | --------- | ---------------------------------------------------- | ---------- |
+| **critical**          | **Float** | The monitor &#x60;CRITICAL&#x60; threshold.          | [optional] |
 | **critical_recovery** | **Float** | The monitor &#x60;CRITICAL&#x60; recovery threshold. | [optional] |
-| **ok** | **Float** | The monitor &#x60;OK&#x60; threshold. | [optional] |
-| **unknown** | **Float** | The monitor UNKNOWN threshold. | [optional] |
-| **warning** | **Float** | The monitor &#x60;WARNING&#x60; threshold. | [optional] |
-| **warning_recovery** | **Float** | The monitor &#x60;WARNING&#x60; recovery threshold. | [optional] |
+| **ok**                | **Float** | The monitor &#x60;OK&#x60; threshold.                | [optional] |
+| **unknown**           | **Float** | The monitor UNKNOWN threshold.                       | [optional] |
+| **warning**           | **Float** | The monitor &#x60;WARNING&#x60; threshold.           | [optional] |
+| **warning_recovery**  | **Float** | The monitor &#x60;WARNING&#x60; recovery threshold.  | [optional] |
 
 ## Example
 
@@ -25,4 +25,3 @@ instance = DatadogAPIClient::V1::MonitorThresholds.new(
   warning_recovery: null
 )
 ```
-

@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **attributes** | [**SLOCorrectionResponseAttributes**](SLOCorrectionResponseAttributes.md) |  | [optional] |
-| **id** | **String** | The ID of the SLO correction. | [optional] |
-| **type** | [**SLOCorrectionType**](SLOCorrectionType.md) |  | [optional][default to &#39;correction&#39;] |
+| Name           | Type                                                                      | Description                   | Notes                                       |
+| -------------- | ------------------------------------------------------------------------- | ----------------------------- | ------------------------------------------- |
+| **attributes** | [**SLOCorrectionResponseAttributes**](SLOCorrectionResponseAttributes.md) |                               | [optional]                                  |
+| **id**         | **String**                                                                | The ID of the SLO correction. | [optional]                                  |
+| **type**       | [**SLOCorrectionType**](SLOCorrectionType.md)                             |                               | [optional][default to &#39;correction&#39;] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::SLOCorrection.new(
   type: null
 )
 ```
-

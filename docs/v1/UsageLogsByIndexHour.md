@@ -2,13 +2,13 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name            | Type        | Description                                            | Notes      |
+| --------------- | ----------- | ------------------------------------------------------ | ---------- |
 | **event_count** | **Integer** | The total number of indexed logs for the queried hour. | [optional] |
-| **hour** | **Time** | The hour for the usage. | [optional] |
-| **index_id** | **String** | The index ID for this usage. | [optional] |
-| **index_name** | **String** | The user specified name for this index ID. | [optional] |
-| **retention** | **Integer** | The retention period (in days) for this index ID. | [optional] |
+| **hour**        | **Time**    | The hour for the usage.                                | [optional] |
+| **index_id**    | **String**  | The index ID for this usage.                           | [optional] |
+| **index_name**  | **String**  | The user specified name for this index ID.             | [optional] |
+| **retention**   | **Integer** | The retention period (in days) for this index ID.      | [optional] |
 
 ## Example
 
@@ -23,4 +23,3 @@ instance = DatadogAPIClient::V1::UsageLogsByIndexHour.new(
   retention: null
 )
 ```
-

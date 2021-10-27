@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name     | Type                                         | Description           | Notes      |
+| -------- | -------------------------------------------- | --------------------- | ---------- |
 | **data** | [**Array&lt;Permission&gt;**](Permission.md) | Array of permissions. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V2::PermissionsResponse.new(
   data: null
 )
 ```
-

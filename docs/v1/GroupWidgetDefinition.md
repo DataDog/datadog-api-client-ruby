@@ -2,16 +2,16 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **background_color** | **String** | Background color of the group title. | [optional] |
-| **banner_img** | **String** | URL of image to display as a banner for the group. | [optional] |
-| **layout_type** | [**WidgetLayoutType**](WidgetLayoutType.md) |  |  |
-| **show_title** | **Boolean** | Whether to show the title or not. | [optional][default to true] |
-| **title** | **String** | Title of the widget. | [optional] |
-| **title_align** | [**WidgetTextAlign**](WidgetTextAlign.md) |  | [optional] |
-| **type** | [**GroupWidgetDefinitionType**](GroupWidgetDefinitionType.md) |  | [default to &#39;group&#39;] |
-| **widgets** | [**Array&lt;Widget&gt;**](Widget.md) | List of widget groups. |  |
+| Name                 | Type                                                          | Description                                        | Notes                        |
+| -------------------- | ------------------------------------------------------------- | -------------------------------------------------- | ---------------------------- |
+| **background_color** | **String**                                                    | Background color of the group title.               | [optional]                   |
+| **banner_img**       | **String**                                                    | URL of image to display as a banner for the group. | [optional]                   |
+| **layout_type**      | [**WidgetLayoutType**](WidgetLayoutType.md)                   |                                                    |                              |
+| **show_title**       | **Boolean**                                                   | Whether to show the title or not.                  | [optional][default to true]  |
+| **title**            | **String**                                                    | Title of the widget.                               | [optional]                   |
+| **title_align**      | [**WidgetTextAlign**](WidgetTextAlign.md)                     |                                                    | [optional]                   |
+| **type**             | [**GroupWidgetDefinitionType**](GroupWidgetDefinitionType.md) |                                                    | [default to &#39;group&#39;] |
+| **widgets**          | [**Array&lt;Widget&gt;**](Widget.md)                          | List of widget groups.                             |                              |
 
 ## Example
 
@@ -29,4 +29,3 @@ instance = DatadogAPIClient::V1::GroupWidgetDefinition.new(
   widgets: [{&quot;definition&quot;:{&quot;requests&quot;:{&quot;fill&quot;:{&quot;q&quot;:&quot;system.cpu.user&quot;}},&quot;type&quot;:&quot;hostmap&quot;}}]
 )
 ```
-

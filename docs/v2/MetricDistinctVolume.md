@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **attributes** | [**MetricDistinctVolumeAttributes**](MetricDistinctVolumeAttributes.md) |  | [optional] |
-| **id** | **String** | The metric name for this resource. | [optional] |
-| **type** | [**MetricDistinctVolumeType**](MetricDistinctVolumeType.md) |  | [optional][default to &#39;distinct_metric_volumes&#39;] |
+| Name           | Type                                                                    | Description                        | Notes                                                    |
+| -------------- | ----------------------------------------------------------------------- | ---------------------------------- | -------------------------------------------------------- |
+| **attributes** | [**MetricDistinctVolumeAttributes**](MetricDistinctVolumeAttributes.md) |                                    | [optional]                                               |
+| **id**         | **String**                                                              | The metric name for this resource. | [optional]                                               |
+| **type**       | [**MetricDistinctVolumeType**](MetricDistinctVolumeType.md)             |                                    | [optional][default to &#39;distinct_metric_volumes&#39;] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V2::MetricDistinctVolume.new(
   type: null
 )
 ```
-

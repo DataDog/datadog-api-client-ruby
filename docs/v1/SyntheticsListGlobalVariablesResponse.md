@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name          | Type                                                                     | Description                          | Notes      |
+| ------------- | ------------------------------------------------------------------------ | ------------------------------------ | ---------- |
 | **variables** | [**Array&lt;SyntheticsGlobalVariable&gt;**](SyntheticsGlobalVariable.md) | Array of Synthetic global variables. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::SyntheticsListGlobalVariablesResponse.new(
   variables: null
 )
 ```
-

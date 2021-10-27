@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **interval** | **Float** | The bin size of the histogram buckets |  |
-| **max** | **Float** | The maximum value for the measure used in the histogram (values greater than this one are filtered out) |  |
-| **min** | **Float** | The minimum value for the measure used in the histogram (values smaller than this one are filtered out) |  |
+| Name         | Type      | Description                                                                                             | Notes |
+| ------------ | --------- | ------------------------------------------------------------------------------------------------------- | ----- |
+| **interval** | **Float** | The bin size of the histogram buckets                                                                   |       |
+| **max**      | **Float** | The maximum value for the measure used in the histogram (values greater than this one are filtered out) |       |
+| **min**      | **Float** | The minimum value for the measure used in the histogram (values smaller than this one are filtered out) |       |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V2::LogsGroupByHistogram.new(
   min: 50
 )
 ```
-

@@ -2,15 +2,15 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **custom_links** | [**Array&lt;WidgetCustomLink&gt;**](WidgetCustomLink.md) | List of custom links. | [optional] |
-| **filters** | **Array&lt;String&gt;** | Your environment and primary tag (or * if enabled for your account). |  |
-| **service** | **String** | The ID of the service you want to map. |  |
-| **title** | **String** | The title of your widget. | [optional] |
-| **title_align** | [**WidgetTextAlign**](WidgetTextAlign.md) |  | [optional] |
-| **title_size** | **String** | Size of the title. | [optional] |
-| **type** | [**ServiceMapWidgetDefinitionType**](ServiceMapWidgetDefinitionType.md) |  | [default to &#39;servicemap&#39;] |
+| Name             | Type                                                                    | Description                                                           | Notes                             |
+| ---------------- | ----------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------- |
+| **custom_links** | [**Array&lt;WidgetCustomLink&gt;**](WidgetCustomLink.md)                | List of custom links.                                                 | [optional]                        |
+| **filters**      | **Array&lt;String&gt;**                                                 | Your environment and primary tag (or \* if enabled for your account). |                                   |
+| **service**      | **String**                                                              | The ID of the service you want to map.                                |                                   |
+| **title**        | **String**                                                              | The title of your widget.                                             | [optional]                        |
+| **title_align**  | [**WidgetTextAlign**](WidgetTextAlign.md)                               |                                                                       | [optional]                        |
+| **title_size**   | **String**                                                              | Size of the title.                                                    | [optional]                        |
+| **type**         | [**ServiceMapWidgetDefinitionType**](ServiceMapWidgetDefinitionType.md) |                                                                       | [default to &#39;servicemap&#39;] |
 
 ## Example
 
@@ -27,4 +27,3 @@ instance = DatadogAPIClient::V1::ServiceMapWidgetDefinition.new(
   type: null
 )
 ```
-

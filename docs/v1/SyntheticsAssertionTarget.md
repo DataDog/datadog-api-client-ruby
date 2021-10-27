@@ -2,12 +2,12 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **operator** | [**SyntheticsAssertionOperator**](SyntheticsAssertionOperator.md) |  |  |
-| **property** | **String** | The associated assertion property. | [optional] |
-| **target** | **Object** | Value used by the operator. | [optional] |
-| **type** | [**SyntheticsAssertionType**](SyntheticsAssertionType.md) |  |  |
+| Name         | Type                                                              | Description                        | Notes      |
+| ------------ | ----------------------------------------------------------------- | ---------------------------------- | ---------- |
+| **operator** | [**SyntheticsAssertionOperator**](SyntheticsAssertionOperator.md) |                                    |            |
+| **property** | **String**                                                        | The associated assertion property. | [optional] |
+| **target**   | **Object**                                                        | Value used by the operator.        | [optional] |
+| **type**     | [**SyntheticsAssertionType**](SyntheticsAssertionType.md)         |                                    |            |
 
 ## Example
 
@@ -21,4 +21,3 @@ instance = DatadogAPIClient::V1::SyntheticsAssertionTarget.new(
   type: null
 )
 ```
-

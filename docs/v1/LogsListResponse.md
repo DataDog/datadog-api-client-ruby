@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **logs** | [**Array&lt;Log&gt;**](Log.md) | Array of logs matching the request and the &#x60;nextLogId&#x60; if sent. | [optional] |
-| **next_log_id** | **String** | Hash identifier of the next log to return in the list. This parameter is used for the pagination feature. | [optional] |
-| **status** | **String** | Status of the response. | [optional] |
+| Name            | Type                           | Description                                                                                               | Notes      |
+| --------------- | ------------------------------ | --------------------------------------------------------------------------------------------------------- | ---------- |
+| **logs**        | [**Array&lt;Log&gt;**](Log.md) | Array of logs matching the request and the &#x60;nextLogId&#x60; if sent.                                 | [optional] |
+| **next_log_id** | **String**                     | Hash identifier of the next log to return in the list. This parameter is used for the pagination feature. | [optional] |
+| **status**      | **String**                     | Status of the response.                                                                                   | [optional] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::LogsListResponse.new(
   status: null
 )
 ```
-

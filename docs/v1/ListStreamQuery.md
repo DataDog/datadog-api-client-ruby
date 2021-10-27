@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data_source** | [**ListStreamSource**](ListStreamSource.md) |  | [default to &#39;issue_stream&#39;] |
-| **indexes** | **Array&lt;String&gt;** | List of indexes. | [optional] |
-| **query_string** | **String** | Widget query. |  |
+| Name             | Type                                        | Description      | Notes                               |
+| ---------------- | ------------------------------------------- | ---------------- | ----------------------------------- |
+| **data_source**  | [**ListStreamSource**](ListStreamSource.md) |                  | [default to &#39;issue_stream&#39;] |
+| **indexes**      | **Array&lt;String&gt;**                     | List of indexes. | [optional]                          |
+| **query_string** | **String**                                  | Widget query.    |                                     |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::ListStreamQuery.new(
   query_string: @service:app
 )
 ```
-

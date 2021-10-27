@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **orgs** | [**LogsByRetentionOrgs**](LogsByRetentionOrgs.md) |  | [optional] |
-| **usage** | [**Array&lt;LogsRetentionAggSumUsage&gt;**](LogsRetentionAggSumUsage.md) | Aggregated index logs usage for each retention period with usage. | [optional] |
-| **usage_by_month** | [**LogsByRetentionMonthlyUsage**](LogsByRetentionMonthlyUsage.md) |  | [optional] |
+| Name               | Type                                                                     | Description                                                       | Notes      |
+| ------------------ | ------------------------------------------------------------------------ | ----------------------------------------------------------------- | ---------- |
+| **orgs**           | [**LogsByRetentionOrgs**](LogsByRetentionOrgs.md)                        |                                                                   | [optional] |
+| **usage**          | [**Array&lt;LogsRetentionAggSumUsage&gt;**](LogsRetentionAggSumUsage.md) | Aggregated index logs usage for each retention period with usage. | [optional] |
+| **usage_by_month** | [**LogsByRetentionMonthlyUsage**](LogsByRetentionMonthlyUsage.md)        |                                                                   | [optional] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::LogsByRetention.new(
   usage_by_month: null
 )
 ```
-

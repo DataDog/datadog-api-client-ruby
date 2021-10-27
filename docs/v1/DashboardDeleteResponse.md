@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name                     | Type       | Description                  | Notes      |
+| ------------------------ | ---------- | ---------------------------- | ---------- |
 | **deleted_dashboard_id** | **String** | ID of the deleted dashboard. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::DashboardDeleteResponse.new(
   deleted_dashboard_id: null
 )
 ```
-

@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **application_key** | [**ApplicationKey**](ApplicationKey.md) |  | [optional] |
+| Name                | Type                                    | Description | Notes      |
+| ------------------- | --------------------------------------- | ----------- | ---------- |
+| **application_key** | [**ApplicationKey**](ApplicationKey.md) |             | [optional] |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::ApplicationKeyResponse.new(
   application_key: null
 )
 ```
-

@@ -2,14 +2,13 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method | HTTP request | Description |
-| ------ | ------------ | ----------- |
-| [**create_user**](UsersAPI.md#create_user) | **POST** /api/v1/user | Create a user |
-| [**disable_user**](UsersAPI.md#disable_user) | **DELETE** /api/v1/user/{user_handle} | Disable a user |
-| [**get_user**](UsersAPI.md#get_user) | **GET** /api/v1/user/{user_handle} | Get user details |
-| [**list_users**](UsersAPI.md#list_users) | **GET** /api/v1/user | List all users |
-| [**update_user**](UsersAPI.md#update_user) | **PUT** /api/v1/user/{user_handle} | Update a user |
-
+| Method                                       | HTTP request                          | Description      |
+| -------------------------------------------- | ------------------------------------- | ---------------- |
+| [**create_user**](UsersAPI.md#create_user)   | **POST** /api/v1/user                 | Create a user    |
+| [**disable_user**](UsersAPI.md#disable_user) | **DELETE** /api/v1/user/{user_handle} | Disable a user   |
+| [**get_user**](UsersAPI.md#get_user)         | **GET** /api/v1/user/{user_handle}    | Get user details |
+| [**list_users**](UsersAPI.md#list_users)     | **GET** /api/v1/user                  | List all users   |
+| [**update_user**](UsersAPI.md#update_user)   | **PUT** /api/v1/user/{user_handle}    | Update a user    |
 
 ## create_user
 
@@ -56,9 +55,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**User**](User.md) | User object that needs to be created. |  |
+| Name     | Type                | Description                           | Notes |
+| -------- | ------------------- | ------------------------------------- | ----- |
+| **body** | [**User**](User.md) | User object that needs to be created. |       |
 
 ### Return type
 
@@ -72,7 +71,6 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## disable_user
 
@@ -119,9 +117,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **user_handle** | **String** | The handle of the user. |  |
+| Name            | Type       | Description             | Notes |
+| --------------- | ---------- | ----------------------- | ----- |
+| **user_handle** | **String** | The handle of the user. |       |
 
 ### Return type
 
@@ -135,7 +133,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_user
 
@@ -179,9 +176,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **user_handle** | **String** | The ID of the user. |  |
+| Name            | Type       | Description         | Notes |
+| --------------- | ---------- | ------------------- | ----- |
+| **user_handle** | **String** | The ID of the user. |       |
 
 ### Return type
 
@@ -195,7 +192,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## list_users
 
@@ -253,7 +249,6 @@ This endpoint does not need any parameter.
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-
 ## update_user
 
 > <UserResponse> update_user(user_handle, body)
@@ -299,10 +294,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **user_handle** | **String** | The ID of the user. |  |
-| **body** | [**User**](User.md) | Description of the update. |  |
+| Name            | Type                | Description                | Notes |
+| --------------- | ------------------- | -------------------------- | ----- |
+| **user_handle** | **String**          | The ID of the user.        |       |
+| **body**        | [**User**](User.md) | Description of the update. |       |
 
 ### Return type
 
@@ -316,4 +311,3 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-

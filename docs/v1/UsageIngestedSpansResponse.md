@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name      | Type                                                                 | Description                          | Notes      |
+| --------- | -------------------------------------------------------------------- | ------------------------------------ | ---------- |
 | **usage** | [**Array&lt;UsageIngestedSpansHour&gt;**](UsageIngestedSpansHour.md) | Get hourly usage for ingested spans. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::UsageIngestedSpansResponse.new(
   usage: null
 )
 ```
-

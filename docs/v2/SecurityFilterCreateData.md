@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **attributes** | [**SecurityFilterCreateAttributes**](SecurityFilterCreateAttributes.md) |  |  |
-| **type** | [**SecurityFilterType**](SecurityFilterType.md) |  | [default to &#39;security_filters&#39;] |
+| Name           | Type                                                                    | Description | Notes                                   |
+| -------------- | ----------------------------------------------------------------------- | ----------- | --------------------------------------- |
+| **attributes** | [**SecurityFilterCreateAttributes**](SecurityFilterCreateAttributes.md) |             |                                         |
+| **type**       | [**SecurityFilterType**](SecurityFilterType.md)                         |             | [default to &#39;security_filters&#39;] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::SecurityFilterCreateData.new(
   type: null
 )
 ```
-

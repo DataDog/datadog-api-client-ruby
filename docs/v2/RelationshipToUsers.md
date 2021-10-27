@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data** | [**Array&lt;RelationshipToUserData&gt;**](RelationshipToUserData.md) | Relationships to user objects. |  |
+| Name     | Type                                                                 | Description                    | Notes |
+| -------- | -------------------------------------------------------------------- | ------------------------------ | ----- |
+| **data** | [**Array&lt;RelationshipToUserData&gt;**](RelationshipToUserData.md) | Relationships to user objects. |       |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V2::RelationshipToUsers.new(
   data: []
 )
 ```
-

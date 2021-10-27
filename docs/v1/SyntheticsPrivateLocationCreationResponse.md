@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **config** | **Object** | Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration. | [optional] |
-| **private_location** | [**SyntheticsPrivateLocation**](SyntheticsPrivateLocation.md) |  | [optional] |
-| **result_encryption** | [**SyntheticsPrivateLocationCreationResponseResultEncryption**](SyntheticsPrivateLocationCreationResponseResultEncryption.md) |  | [optional] |
+| Name                  | Type                                                                                                                          | Description                                                                                                                              | Notes      |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **config**            | **Object**                                                                                                                    | Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration. | [optional] |
+| **private_location**  | [**SyntheticsPrivateLocation**](SyntheticsPrivateLocation.md)                                                                 |                                                                                                                                          | [optional] |
+| **result_encryption** | [**SyntheticsPrivateLocationCreationResponseResultEncryption**](SyntheticsPrivateLocationCreationResponseResultEncryption.md) |                                                                                                                                          | [optional] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::SyntheticsPrivateLocationCreationResponse.new(
   result_encryption: null
 )
 ```
-

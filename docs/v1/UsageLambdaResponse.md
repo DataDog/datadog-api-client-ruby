@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name      | Type                                                   | Description                  | Notes      |
+| --------- | ------------------------------------------------------ | ---------------------------- | ---------- |
 | **usage** | [**Array&lt;UsageLambdaHour&gt;**](UsageLambdaHour.md) | Get hourly usage for Lambda. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::UsageLambdaResponse.new(
   usage: null
 )
 ```
-

@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **display** | [**SlackIntegrationChannelDisplay**](SlackIntegrationChannelDisplay.md) |  | [optional] |
-| **name** | **String** | Your channel name. | [optional] |
+| Name        | Type                                                                    | Description        | Notes      |
+| ----------- | ----------------------------------------------------------------------- | ------------------ | ---------- |
+| **display** | [**SlackIntegrationChannelDisplay**](SlackIntegrationChannelDisplay.md) |                    | [optional] |
+| **name**    | **String**                                                              | Your channel name. | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::SlackIntegrationChannel.new(
   name: #general
 )
 ```
-

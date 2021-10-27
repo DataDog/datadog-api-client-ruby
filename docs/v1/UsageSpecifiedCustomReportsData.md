@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **attributes** | [**UsageSpecifiedCustomReportsAttributes**](UsageSpecifiedCustomReportsAttributes.md) |  | [optional] |
-| **id** | **String** | The date for specified custom reports. | [optional] |
-| **type** | [**UsageReportsType**](UsageReportsType.md) |  | [optional][default to &#39;reports&#39;] |
+| Name           | Type                                                                                  | Description                            | Notes                                    |
+| -------------- | ------------------------------------------------------------------------------------- | -------------------------------------- | ---------------------------------------- |
+| **attributes** | [**UsageSpecifiedCustomReportsAttributes**](UsageSpecifiedCustomReportsAttributes.md) |                                        | [optional]                               |
+| **id**         | **String**                                                                            | The date for specified custom reports. | [optional]                               |
+| **type**       | [**UsageReportsType**](UsageReportsType.md)                                           |                                        | [optional][default to &#39;reports&#39;] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::UsageSpecifiedCustomReportsData.new(
   type: null
 )
 ```
-

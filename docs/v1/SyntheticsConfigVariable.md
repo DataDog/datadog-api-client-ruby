@@ -2,13 +2,13 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **example** | **String** | Example for the variable. | [optional] |
-| **id** | **String** | ID of the variable for global variables. | [optional] |
-| **name** | **String** | Name of the variable. |  |
-| **pattern** | **String** | Pattern of the variable. | [optional] |
-| **type** | [**SyntheticsConfigVariableType**](SyntheticsConfigVariableType.md) |  |  |
+| Name        | Type                                                                | Description                              | Notes      |
+| ----------- | ------------------------------------------------------------------- | ---------------------------------------- | ---------- |
+| **example** | **String**                                                          | Example for the variable.                | [optional] |
+| **id**      | **String**                                                          | ID of the variable for global variables. | [optional] |
+| **name**    | **String**                                                          | Name of the variable.                    |            |
+| **pattern** | **String**                                                          | Pattern of the variable.                 | [optional] |
+| **type**    | [**SyntheticsConfigVariableType**](SyntheticsConfigVariableType.md) |                                          |            |
 
 ## Example
 
@@ -23,4 +23,3 @@ instance = DatadogAPIClient::V1::SyntheticsConfigVariable.new(
   type: null
 )
 ```
-

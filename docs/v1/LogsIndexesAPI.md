@@ -2,15 +2,14 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method | HTTP request | Description |
-| ------ | ------------ | ----------- |
-| [**create_logs_index**](LogsIndexesAPI.md#create_logs_index) | **POST** /api/v1/logs/config/indexes | Create an index |
-| [**get_logs_index**](LogsIndexesAPI.md#get_logs_index) | **GET** /api/v1/logs/config/indexes/{name} | Get an index |
-| [**get_logs_index_order**](LogsIndexesAPI.md#get_logs_index_order) | **GET** /api/v1/logs/config/index-order | Get indexes order |
-| [**list_log_indexes**](LogsIndexesAPI.md#list_log_indexes) | **GET** /api/v1/logs/config/indexes | Get all indexes |
-| [**update_logs_index**](LogsIndexesAPI.md#update_logs_index) | **PUT** /api/v1/logs/config/indexes/{name} | Update an index |
-| [**update_logs_index_order**](LogsIndexesAPI.md#update_logs_index_order) | **PUT** /api/v1/logs/config/index-order | Update indexes order |
-
+| Method                                                                   | HTTP request                               | Description          |
+| ------------------------------------------------------------------------ | ------------------------------------------ | -------------------- |
+| [**create_logs_index**](LogsIndexesAPI.md#create_logs_index)             | **POST** /api/v1/logs/config/indexes       | Create an index      |
+| [**get_logs_index**](LogsIndexesAPI.md#get_logs_index)                   | **GET** /api/v1/logs/config/indexes/{name} | Get an index         |
+| [**get_logs_index_order**](LogsIndexesAPI.md#get_logs_index_order)       | **GET** /api/v1/logs/config/index-order    | Get indexes order    |
+| [**list_log_indexes**](LogsIndexesAPI.md#list_log_indexes)               | **GET** /api/v1/logs/config/indexes        | Get all indexes      |
+| [**update_logs_index**](LogsIndexesAPI.md#update_logs_index)             | **PUT** /api/v1/logs/config/indexes/{name} | Update an index      |
+| [**update_logs_index_order**](LogsIndexesAPI.md#update_logs_index_order) | **PUT** /api/v1/logs/config/index-order    | Update indexes order |
 
 ## create_logs_index
 
@@ -54,9 +53,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**LogsIndex**](LogsIndex.md) | Object containing the new index. |  |
+| Name     | Type                          | Description                      | Notes |
+| -------- | ----------------------------- | -------------------------------- | ----- |
+| **body** | [**LogsIndex**](LogsIndex.md) | Object containing the new index. |       |
 
 ### Return type
 
@@ -70,7 +69,6 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## get_logs_index
 
@@ -114,9 +112,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **name** | **String** | Name of the log index. |  |
+| Name     | Type       | Description            | Notes |
+| -------- | ---------- | ---------------------- | ----- |
+| **name** | **String** | Name of the log index. |       |
 
 ### Return type
 
@@ -130,7 +128,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_logs_index_order
 
@@ -187,7 +184,6 @@ This endpoint does not need any parameter.
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## list_log_indexes
 
@@ -246,7 +242,6 @@ This endpoint does not need any parameter.
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-
 ## update_logs_index
 
 > <LogsIndex> update_logs_index(name, body)
@@ -294,10 +289,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **name** | **String** | Name of the log index. |  |
-| **body** | [**LogsIndexUpdateRequest**](LogsIndexUpdateRequest.md) | Object containing the new &#x60;LogsIndexUpdateRequest&#x60;. |  |
+| Name     | Type                                                    | Description                                                   | Notes |
+| -------- | ------------------------------------------------------- | ------------------------------------------------------------- | ----- |
+| **name** | **String**                                              | Name of the log index.                                        |       |
+| **body** | [**LogsIndexUpdateRequest**](LogsIndexUpdateRequest.md) | Object containing the new &#x60;LogsIndexUpdateRequest&#x60;. |       |
 
 ### Return type
 
@@ -311,7 +306,6 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## update_logs_index_order
 
@@ -356,9 +350,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**LogsIndexesOrder**](LogsIndexesOrder.md) | Object containing the new ordered list of index names |  |
+| Name     | Type                                        | Description                                           | Notes |
+| -------- | ------------------------------------------- | ----------------------------------------------------- | ----- |
+| **body** | [**LogsIndexesOrder**](LogsIndexesOrder.md) | Object containing the new ordered list of index names |       |
 
 ### Return type
 
@@ -372,4 +366,3 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-

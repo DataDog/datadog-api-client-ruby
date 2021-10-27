@@ -2,16 +2,15 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method | HTTP request | Description |
-| ------ | ------------ | ----------- |
-| [**create_logs_pipeline**](LogsPipelinesAPI.md#create_logs_pipeline) | **POST** /api/v1/logs/config/pipelines | Create a pipeline |
-| [**delete_logs_pipeline**](LogsPipelinesAPI.md#delete_logs_pipeline) | **DELETE** /api/v1/logs/config/pipelines/{pipeline_id} | Delete a pipeline |
-| [**get_logs_pipeline**](LogsPipelinesAPI.md#get_logs_pipeline) | **GET** /api/v1/logs/config/pipelines/{pipeline_id} | Get a pipeline |
-| [**get_logs_pipeline_order**](LogsPipelinesAPI.md#get_logs_pipeline_order) | **GET** /api/v1/logs/config/pipeline-order | Get pipeline order |
-| [**list_logs_pipelines**](LogsPipelinesAPI.md#list_logs_pipelines) | **GET** /api/v1/logs/config/pipelines | Get all pipelines |
-| [**update_logs_pipeline**](LogsPipelinesAPI.md#update_logs_pipeline) | **PUT** /api/v1/logs/config/pipelines/{pipeline_id} | Update a pipeline |
-| [**update_logs_pipeline_order**](LogsPipelinesAPI.md#update_logs_pipeline_order) | **PUT** /api/v1/logs/config/pipeline-order | Update pipeline order |
-
+| Method                                                                           | HTTP request                                           | Description           |
+| -------------------------------------------------------------------------------- | ------------------------------------------------------ | --------------------- |
+| [**create_logs_pipeline**](LogsPipelinesAPI.md#create_logs_pipeline)             | **POST** /api/v1/logs/config/pipelines                 | Create a pipeline     |
+| [**delete_logs_pipeline**](LogsPipelinesAPI.md#delete_logs_pipeline)             | **DELETE** /api/v1/logs/config/pipelines/{pipeline_id} | Delete a pipeline     |
+| [**get_logs_pipeline**](LogsPipelinesAPI.md#get_logs_pipeline)                   | **GET** /api/v1/logs/config/pipelines/{pipeline_id}    | Get a pipeline        |
+| [**get_logs_pipeline_order**](LogsPipelinesAPI.md#get_logs_pipeline_order)       | **GET** /api/v1/logs/config/pipeline-order             | Get pipeline order    |
+| [**list_logs_pipelines**](LogsPipelinesAPI.md#list_logs_pipelines)               | **GET** /api/v1/logs/config/pipelines                  | Get all pipelines     |
+| [**update_logs_pipeline**](LogsPipelinesAPI.md#update_logs_pipeline)             | **PUT** /api/v1/logs/config/pipelines/{pipeline_id}    | Update a pipeline     |
+| [**update_logs_pipeline_order**](LogsPipelinesAPI.md#update_logs_pipeline_order) | **PUT** /api/v1/logs/config/pipeline-order             | Update pipeline order |
 
 ## create_logs_pipeline
 
@@ -55,9 +54,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**LogsPipeline**](LogsPipeline.md) | Definition of the new pipeline. |  |
+| Name     | Type                                | Description                     | Notes |
+| -------- | ----------------------------------- | ------------------------------- | ----- |
+| **body** | [**LogsPipeline**](LogsPipeline.md) | Definition of the new pipeline. |       |
 
 ### Return type
 
@@ -71,7 +70,6 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## delete_logs_pipeline
 
@@ -115,9 +113,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **pipeline_id** | **String** | ID of the pipeline to delete. |  |
+| Name            | Type       | Description                   | Notes |
+| --------------- | ---------- | ----------------------------- | ----- |
+| **pipeline_id** | **String** | ID of the pipeline to delete. |       |
 
 ### Return type
 
@@ -131,7 +129,6 @@ nil (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_logs_pipeline
 
@@ -176,9 +173,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **pipeline_id** | **String** | ID of the pipeline to get. |  |
+| Name            | Type       | Description                | Notes |
+| --------------- | ---------- | -------------------------- | ----- |
+| **pipeline_id** | **String** | ID of the pipeline to get. |       |
 
 ### Return type
 
@@ -192,7 +189,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_logs_pipeline_order
 
@@ -251,7 +247,6 @@ This endpoint does not need any parameter.
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-
 ## list_logs_pipelines
 
 > <Array<LogsPipeline>> list_logs_pipelines
@@ -309,7 +304,6 @@ This endpoint does not need any parameter.
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-
 ## update_logs_pipeline
 
 > <LogsPipeline> update_logs_pipeline(pipeline_id, body)
@@ -356,10 +350,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **pipeline_id** | **String** | ID of the pipeline to delete. |  |
-| **body** | [**LogsPipeline**](LogsPipeline.md) | New definition of the pipeline. |  |
+| Name            | Type                                | Description                     | Notes |
+| --------------- | ----------------------------------- | ------------------------------- | ----- |
+| **pipeline_id** | **String**                          | ID of the pipeline to delete.   |       |
+| **body**        | [**LogsPipeline**](LogsPipeline.md) | New definition of the pipeline. |       |
 
 ### Return type
 
@@ -373,7 +367,6 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## update_logs_pipeline_order
 
@@ -421,9 +414,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**LogsPipelinesOrder**](LogsPipelinesOrder.md) | Object containing the new ordered list of pipeline IDs. |  |
+| Name     | Type                                            | Description                                             | Notes |
+| -------- | ----------------------------------------------- | ------------------------------------------------------- | ----- |
+| **body** | [**LogsPipelinesOrder**](LogsPipelinesOrder.md) | Object containing the new ordered list of pipeline IDs. |       |
 
 ### Return type
 
@@ -437,4 +430,3 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-

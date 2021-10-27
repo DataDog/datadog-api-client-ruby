@@ -2,21 +2,20 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method | HTTP request | Description |
-| ------ | ------------ | ----------- |
-| [**add_permission_to_role**](RolesAPI.md#add_permission_to_role) | **POST** /api/v2/roles/{role_id}/permissions | Grant permission to a role |
-| [**add_user_to_role**](RolesAPI.md#add_user_to_role) | **POST** /api/v2/roles/{role_id}/users | Add a user to a role |
-| [**create_role**](RolesAPI.md#create_role) | **POST** /api/v2/roles | Create role |
-| [**delete_role**](RolesAPI.md#delete_role) | **DELETE** /api/v2/roles/{role_id} | Delete role |
-| [**get_role**](RolesAPI.md#get_role) | **GET** /api/v2/roles/{role_id} | Get a role |
-| [**list_permissions**](RolesAPI.md#list_permissions) | **GET** /api/v2/permissions | List permissions |
-| [**list_role_permissions**](RolesAPI.md#list_role_permissions) | **GET** /api/v2/roles/{role_id}/permissions | List permissions for a role |
-| [**list_role_users**](RolesAPI.md#list_role_users) | **GET** /api/v2/roles/{role_id}/users | Get all users of a role |
-| [**list_roles**](RolesAPI.md#list_roles) | **GET** /api/v2/roles | List roles |
-| [**remove_permission_from_role**](RolesAPI.md#remove_permission_from_role) | **DELETE** /api/v2/roles/{role_id}/permissions | Revoke permission |
-| [**remove_user_from_role**](RolesAPI.md#remove_user_from_role) | **DELETE** /api/v2/roles/{role_id}/users | Remove a user from a role |
-| [**update_role**](RolesAPI.md#update_role) | **PATCH** /api/v2/roles/{role_id} | Update a role |
-
+| Method                                                                     | HTTP request                                   | Description                 |
+| -------------------------------------------------------------------------- | ---------------------------------------------- | --------------------------- |
+| [**add_permission_to_role**](RolesAPI.md#add_permission_to_role)           | **POST** /api/v2/roles/{role_id}/permissions   | Grant permission to a role  |
+| [**add_user_to_role**](RolesAPI.md#add_user_to_role)                       | **POST** /api/v2/roles/{role_id}/users         | Add a user to a role        |
+| [**create_role**](RolesAPI.md#create_role)                                 | **POST** /api/v2/roles                         | Create role                 |
+| [**delete_role**](RolesAPI.md#delete_role)                                 | **DELETE** /api/v2/roles/{role_id}             | Delete role                 |
+| [**get_role**](RolesAPI.md#get_role)                                       | **GET** /api/v2/roles/{role_id}                | Get a role                  |
+| [**list_permissions**](RolesAPI.md#list_permissions)                       | **GET** /api/v2/permissions                    | List permissions            |
+| [**list_role_permissions**](RolesAPI.md#list_role_permissions)             | **GET** /api/v2/roles/{role_id}/permissions    | List permissions for a role |
+| [**list_role_users**](RolesAPI.md#list_role_users)                         | **GET** /api/v2/roles/{role_id}/users          | Get all users of a role     |
+| [**list_roles**](RolesAPI.md#list_roles)                                   | **GET** /api/v2/roles                          | List roles                  |
+| [**remove_permission_from_role**](RolesAPI.md#remove_permission_from_role) | **DELETE** /api/v2/roles/{role_id}/permissions | Revoke permission           |
+| [**remove_user_from_role**](RolesAPI.md#remove_user_from_role)             | **DELETE** /api/v2/roles/{role_id}/users       | Remove a user from a role   |
+| [**update_role**](RolesAPI.md#update_role)                                 | **PATCH** /api/v2/roles/{role_id}              | Update a role               |
 
 ## add_permission_to_role
 
@@ -30,7 +29,7 @@ Adds a permission to a role.
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::RolesAPI.new
 role_id = 'role_id_example' # String | The ID of the role.
-body = DatadogAPIClient::V2::RelationshipToPermission.new # RelationshipToPermission | 
+body = DatadogAPIClient::V2::RelationshipToPermission.new # RelationshipToPermission |
 
 begin
   # Grant permission to a role
@@ -61,10 +60,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **role_id** | **String** | The ID of the role. |  |
-| **body** | [**RelationshipToPermission**](RelationshipToPermission.md) |  |  |
+| Name        | Type                                                        | Description         | Notes |
+| ----------- | ----------------------------------------------------------- | ------------------- | ----- |
+| **role_id** | **String**                                                  | The ID of the role. |       |
+| **body**    | [**RelationshipToPermission**](RelationshipToPermission.md) |                     |       |
 
 ### Return type
 
@@ -79,7 +78,6 @@ end
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-
 ## add_user_to_role
 
 > <UsersResponse> add_user_to_role(role_id, body)
@@ -92,7 +90,7 @@ Adds a user to a role.
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::RolesAPI.new
 role_id = 'role_id_example' # String | The ID of the role.
-body = DatadogAPIClient::V2::RelationshipToUser.new({data: DatadogAPIClient::V2::RelationshipToUserData.new({id: '00000000-0000-0000-0000-000000000000', type: DatadogAPIClient::V2::UsersType::USERS})}) # RelationshipToUser | 
+body = DatadogAPIClient::V2::RelationshipToUser.new({data: DatadogAPIClient::V2::RelationshipToUserData.new({id: '00000000-0000-0000-0000-000000000000', type: DatadogAPIClient::V2::UsersType::USERS})}) # RelationshipToUser |
 
 begin
   # Add a user to a role
@@ -123,10 +121,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **role_id** | **String** | The ID of the role. |  |
-| **body** | [**RelationshipToUser**](RelationshipToUser.md) |  |  |
+| Name        | Type                                            | Description         | Notes |
+| ----------- | ----------------------------------------------- | ------------------- | ----- |
+| **role_id** | **String**                                      | The ID of the role. |       |
+| **body**    | [**RelationshipToUser**](RelationshipToUser.md) |                     |       |
 
 ### Return type
 
@@ -141,7 +139,6 @@ end
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-
 ## create_role
 
 > <RoleCreateResponse> create_role(body)
@@ -153,7 +150,7 @@ Create a new role for your organization.
 ```ruby
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::RolesAPI.new
-body = DatadogAPIClient::V2::RoleCreateRequest.new({data: DatadogAPIClient::V2::RoleCreateData.new({attributes: DatadogAPIClient::V2::RoleCreateAttributes.new({name: 'developers'})})}) # RoleCreateRequest | 
+body = DatadogAPIClient::V2::RoleCreateRequest.new({data: DatadogAPIClient::V2::RoleCreateData.new({attributes: DatadogAPIClient::V2::RoleCreateAttributes.new({name: 'developers'})})}) # RoleCreateRequest |
 
 begin
   # Create role
@@ -184,9 +181,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**RoleCreateRequest**](RoleCreateRequest.md) |  |  |
+| Name     | Type                                          | Description | Notes |
+| -------- | --------------------------------------------- | ----------- | ----- |
+| **body** | [**RoleCreateRequest**](RoleCreateRequest.md) |             |       |
 
 ### Return type
 
@@ -200,7 +197,6 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## delete_role
 
@@ -243,9 +239,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **role_id** | **String** | The ID of the role. |  |
+| Name        | Type       | Description         | Notes |
+| ----------- | ---------- | ------------------- | ----- |
+| **role_id** | **String** | The ID of the role. |       |
 
 ### Return type
 
@@ -259,7 +255,6 @@ nil (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_role
 
@@ -303,9 +298,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **role_id** | **String** | The ID of the role. |  |
+| Name        | Type       | Description         | Notes |
+| ----------- | ---------- | ------------------- | ----- |
+| **role_id** | **String** | The ID of the role. |       |
 
 ### Return type
 
@@ -319,7 +314,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## list_permissions
 
@@ -377,7 +371,6 @@ This endpoint does not need any parameter.
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-
 ## list_role_permissions
 
 > <PermissionsResponse> list_role_permissions(role_id)
@@ -420,9 +413,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **role_id** | **String** | The ID of the role. |  |
+| Name        | Type       | Description         | Notes |
+| ----------- | ---------- | ------------------- | ----- |
+| **role_id** | **String** | The ID of the role. |       |
 
 ### Return type
 
@@ -436,7 +429,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## list_role_users
 
@@ -486,13 +478,13 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **role_id** | **String** | The ID of the role. |  |
-| **page_size** | **Integer** | Size for a given page. | [optional][default to 10] |
-| **page_number** | **Integer** | Specific page number to return. | [optional][default to 0] |
-| **sort** | **String** | User attribute to order results by. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;email&#x60;, &#x60;status&#x60;. | [optional][default to &#39;name&#39;] |
-| **filter** | **String** | Filter all users by the given string. Defaults to no filtering. | [optional] |
+| Name            | Type        | Description                                                                                                                                                                                                                                                      | Notes                                 |
+| --------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| **role_id**     | **String**  | The ID of the role.                                                                                                                                                                                                                                              |                                       |
+| **page_size**   | **Integer** | Size for a given page.                                                                                                                                                                                                                                           | [optional][default to 10]             |
+| **page_number** | **Integer** | Specific page number to return.                                                                                                                                                                                                                                  | [optional][default to 0]              |
+| **sort**        | **String**  | User attribute to order results by. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;email&#x60;, &#x60;status&#x60;. | [optional][default to &#39;name&#39;] |
+| **filter**      | **String**  | Filter all users by the given string. Defaults to no filtering.                                                                                                                                                                                                  | [optional]                            |
 
 ### Return type
 
@@ -506,7 +498,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## list_roles
 
@@ -555,12 +546,12 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **page_size** | **Integer** | Size for a given page. | [optional][default to 10] |
-| **page_number** | **Integer** | Specific page number to return. | [optional][default to 0] |
-| **sort** | **RolesSort** | Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: &#x60;sort&#x3D;-name&#x60;. | [optional][default to &#39;name&#39;] |
-| **filter** | **String** | Filter all roles by the given string. | [optional] |
+| Name            | Type          | Description                                                                                                                                                                                          | Notes                                 |
+| --------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| **page_size**   | **Integer**   | Size for a given page.                                                                                                                                                                               | [optional][default to 10]             |
+| **page_number** | **Integer**   | Specific page number to return.                                                                                                                                                                      | [optional][default to 0]              |
+| **sort**        | **RolesSort** | Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: &#x60;sort&#x3D;-name&#x60;. | [optional][default to &#39;name&#39;] |
+| **filter**      | **String**    | Filter all roles by the given string.                                                                                                                                                                | [optional]                            |
 
 ### Return type
 
@@ -575,7 +566,6 @@ end
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-
 ## remove_permission_from_role
 
 > <PermissionsResponse> remove_permission_from_role(role_id, body)
@@ -588,7 +578,7 @@ Removes a permission from a role.
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::RolesAPI.new
 role_id = 'role_id_example' # String | The ID of the role.
-body = DatadogAPIClient::V2::RelationshipToPermission.new # RelationshipToPermission | 
+body = DatadogAPIClient::V2::RelationshipToPermission.new # RelationshipToPermission |
 
 begin
   # Revoke permission
@@ -619,10 +609,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **role_id** | **String** | The ID of the role. |  |
-| **body** | [**RelationshipToPermission**](RelationshipToPermission.md) |  |  |
+| Name        | Type                                                        | Description         | Notes |
+| ----------- | ----------------------------------------------------------- | ------------------- | ----- |
+| **role_id** | **String**                                                  | The ID of the role. |       |
+| **body**    | [**RelationshipToPermission**](RelationshipToPermission.md) |                     |       |
 
 ### Return type
 
@@ -637,7 +627,6 @@ end
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-
 ## remove_user_from_role
 
 > <UsersResponse> remove_user_from_role(role_id, body)
@@ -650,7 +639,7 @@ Removes a user from a role.
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::RolesAPI.new
 role_id = 'role_id_example' # String | The ID of the role.
-body = DatadogAPIClient::V2::RelationshipToUser.new({data: DatadogAPIClient::V2::RelationshipToUserData.new({id: '00000000-0000-0000-0000-000000000000', type: DatadogAPIClient::V2::UsersType::USERS})}) # RelationshipToUser | 
+body = DatadogAPIClient::V2::RelationshipToUser.new({data: DatadogAPIClient::V2::RelationshipToUserData.new({id: '00000000-0000-0000-0000-000000000000', type: DatadogAPIClient::V2::UsersType::USERS})}) # RelationshipToUser |
 
 begin
   # Remove a user from a role
@@ -681,10 +670,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **role_id** | **String** | The ID of the role. |  |
-| **body** | [**RelationshipToUser**](RelationshipToUser.md) |  |  |
+| Name        | Type                                            | Description         | Notes |
+| ----------- | ----------------------------------------------- | ------------------- | ----- |
+| **role_id** | **String**                                      | The ID of the role. |       |
+| **body**    | [**RelationshipToUser**](RelationshipToUser.md) |                     |       |
 
 ### Return type
 
@@ -699,7 +688,6 @@ end
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-
 ## update_role
 
 > <RoleUpdateResponse> update_role(role_id, body)
@@ -712,7 +700,7 @@ Edit a role. Can only be used with application keys belonging to administrators.
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::RolesAPI.new
 role_id = 'role_id_example' # String | The ID of the role.
-body = DatadogAPIClient::V2::RoleUpdateRequest.new({data: DatadogAPIClient::V2::RoleUpdateData.new({attributes: DatadogAPIClient::V2::RoleUpdateAttributes.new, id: '00000000-0000-0000-0000-000000000000', type: DatadogAPIClient::V2::RolesType::ROLES})}) # RoleUpdateRequest | 
+body = DatadogAPIClient::V2::RoleUpdateRequest.new({data: DatadogAPIClient::V2::RoleUpdateData.new({attributes: DatadogAPIClient::V2::RoleUpdateAttributes.new, id: '00000000-0000-0000-0000-000000000000', type: DatadogAPIClient::V2::RolesType::ROLES})}) # RoleUpdateRequest |
 
 begin
   # Update a role
@@ -743,10 +731,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **role_id** | **String** | The ID of the role. |  |
-| **body** | [**RoleUpdateRequest**](RoleUpdateRequest.md) |  |  |
+| Name        | Type                                          | Description         | Notes |
+| ----------- | --------------------------------------------- | ------------------- | ----- |
+| **role_id** | **String**                                    | The ID of the role. |       |
+| **body**    | [**RoleUpdateRequest**](RoleUpdateRequest.md) |                     |       |
 
 ### Return type
 
@@ -760,4 +748,3 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-

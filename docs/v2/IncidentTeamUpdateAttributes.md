@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **name** | **String** | Name of the incident team. |  |
+| Name     | Type       | Description                | Notes |
+| -------- | ---------- | -------------------------- | ----- |
+| **name** | **String** | Name of the incident team. |       |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V2::IncidentTeamUpdateAttributes.new(
   name: team name
 )
 ```
-

@@ -2,14 +2,13 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method | HTTP request | Description |
-| ------ | ------------ | ----------- |
-| [**create_slo_correction**](ServiceLevelObjectiveCorrectionsAPI.md#create_slo_correction) | **POST** /api/v1/slo/correction | Create an SLO correction |
-| [**delete_slo_correction**](ServiceLevelObjectiveCorrectionsAPI.md#delete_slo_correction) | **DELETE** /api/v1/slo/correction/{slo_correction_id} | Delete an SLO correction |
-| [**get_slo_correction**](ServiceLevelObjectiveCorrectionsAPI.md#get_slo_correction) | **GET** /api/v1/slo/correction/{slo_correction_id} | Get an SLO correction for an SLO |
-| [**list_slo_correction**](ServiceLevelObjectiveCorrectionsAPI.md#list_slo_correction) | **GET** /api/v1/slo/correction | Get all SLO corrections |
-| [**update_slo_correction**](ServiceLevelObjectiveCorrectionsAPI.md#update_slo_correction) | **PATCH** /api/v1/slo/correction/{slo_correction_id} | Update an SLO correction |
-
+| Method                                                                                    | HTTP request                                          | Description                      |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------- | -------------------------------- |
+| [**create_slo_correction**](ServiceLevelObjectiveCorrectionsAPI.md#create_slo_correction) | **POST** /api/v1/slo/correction                       | Create an SLO correction         |
+| [**delete_slo_correction**](ServiceLevelObjectiveCorrectionsAPI.md#delete_slo_correction) | **DELETE** /api/v1/slo/correction/{slo_correction_id} | Delete an SLO correction         |
+| [**get_slo_correction**](ServiceLevelObjectiveCorrectionsAPI.md#get_slo_correction)       | **GET** /api/v1/slo/correction/{slo_correction_id}    | Get an SLO correction for an SLO |
+| [**list_slo_correction**](ServiceLevelObjectiveCorrectionsAPI.md#list_slo_correction)     | **GET** /api/v1/slo/correction                        | Get all SLO corrections          |
+| [**update_slo_correction**](ServiceLevelObjectiveCorrectionsAPI.md#update_slo_correction) | **PATCH** /api/v1/slo/correction/{slo_correction_id}  | Update an SLO correction         |
 
 ## create_slo_correction
 
@@ -58,9 +57,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**SLOCorrectionCreateRequest**](SLOCorrectionCreateRequest.md) | Create an SLO Correction |  |
+| Name     | Type                                                            | Description              | Notes |
+| -------- | --------------------------------------------------------------- | ------------------------ | ----- |
+| **body** | [**SLOCorrectionCreateRequest**](SLOCorrectionCreateRequest.md) | Create an SLO Correction |       |
 
 ### Return type
 
@@ -74,7 +73,6 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## delete_slo_correction
 
@@ -122,9 +120,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **slo_correction_id** | **String** | The ID of the SLO correction object. |  |
+| Name                  | Type       | Description                          | Notes |
+| --------------------- | ---------- | ------------------------------------ | ----- |
+| **slo_correction_id** | **String** | The ID of the SLO correction object. |       |
 
 ### Return type
 
@@ -138,7 +136,6 @@ nil (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_slo_correction
 
@@ -187,9 +184,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **slo_correction_id** | **String** | The ID of the SLO correction object. |  |
+| Name                  | Type       | Description                          | Notes |
+| --------------------- | ---------- | ------------------------------------ | ----- |
+| **slo_correction_id** | **String** | The ID of the SLO correction object. |       |
 
 ### Return type
 
@@ -203,7 +200,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## list_slo_correction
 
@@ -266,7 +262,6 @@ This endpoint does not need any parameter.
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-
 ## update_slo_correction
 
 > <SLOCorrectionResponse> update_slo_correction(slo_correction_id, body)
@@ -315,10 +310,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **slo_correction_id** | **String** | The ID of the SLO correction object. |  |
-| **body** | [**SLOCorrectionUpdateRequest**](SLOCorrectionUpdateRequest.md) | The edited SLO correction object. |  |
+| Name                  | Type                                                            | Description                          | Notes |
+| --------------------- | --------------------------------------------------------------- | ------------------------------------ | ----- |
+| **slo_correction_id** | **String**                                                      | The ID of the SLO correction object. |       |
+| **body**              | [**SLOCorrectionUpdateRequest**](SLOCorrectionUpdateRequest.md) | The edited SLO correction object.    |       |
 
 ### Return type
 
@@ -332,4 +327,3 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-

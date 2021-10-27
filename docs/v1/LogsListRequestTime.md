@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **from** | **Time** | Minimum timestamp for requested logs. |  |
+| Name         | Type       | Description                                                                                                                      | Notes      |
+| ------------ | ---------- | -------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **from**     | **Time**   | Minimum timestamp for requested logs.                                                                                            |            |
 | **timezone** | **String** | Timezone can be specified both as an offset (e.g. \&quot;UTC+03:00\&quot;) or a regional zone (e.g. \&quot;Europe/Paris\&quot;). | [optional] |
-| **to** | **Time** | Maximum timestamp for requested logs. |  |
+| **to**       | **Time**   | Maximum timestamp for requested logs.                                                                                            |            |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::LogsListRequestTime.new(
   to: 2020-02-02T20:20:20Z
 )
 ```
-

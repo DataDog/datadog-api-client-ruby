@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **attributes** | [**APIKeyCreateAttributes**](APIKeyCreateAttributes.md) |  |  |
-| **type** | [**APIKeysType**](APIKeysType.md) |  | [default to &#39;api_keys&#39;] |
+| Name           | Type                                                    | Description | Notes                           |
+| -------------- | ------------------------------------------------------- | ----------- | ------------------------------- |
+| **attributes** | [**APIKeyCreateAttributes**](APIKeyCreateAttributes.md) |             |                                 |
+| **type**       | [**APIKeysType**](APIKeysType.md)                       |             | [default to &#39;api_keys&#39;] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::APIKeyCreateData.new(
   type: null
 )
 ```
-

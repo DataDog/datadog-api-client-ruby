@@ -2,19 +2,18 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method | HTTP request | Description |
-| ------ | ------------ | ----------- |
-| [**create_service_account**](UsersAPI.md#create_service_account) | **POST** /api/v2/service_accounts | Create a service account |
-| [**create_user**](UsersAPI.md#create_user) | **POST** /api/v2/users | Create a user |
-| [**disable_user**](UsersAPI.md#disable_user) | **DELETE** /api/v2/users/{user_id} | Disable a user |
-| [**get_invitation**](UsersAPI.md#get_invitation) | **GET** /api/v2/user_invitations/{user_invitation_uuid} | Get a user invitation |
-| [**get_user**](UsersAPI.md#get_user) | **GET** /api/v2/users/{user_id} | Get user details |
-| [**list_user_organizations**](UsersAPI.md#list_user_organizations) | **GET** /api/v2/users/{user_id}/orgs | Get a user organization |
-| [**list_user_permissions**](UsersAPI.md#list_user_permissions) | **GET** /api/v2/users/{user_id}/permissions | Get a user permissions |
-| [**list_users**](UsersAPI.md#list_users) | **GET** /api/v2/users | List all users |
-| [**send_invitations**](UsersAPI.md#send_invitations) | **POST** /api/v2/user_invitations | Send invitation emails |
-| [**update_user**](UsersAPI.md#update_user) | **PATCH** /api/v2/users/{user_id} | Update a user |
-
+| Method                                                             | HTTP request                                            | Description              |
+| ------------------------------------------------------------------ | ------------------------------------------------------- | ------------------------ |
+| [**create_service_account**](UsersAPI.md#create_service_account)   | **POST** /api/v2/service_accounts                       | Create a service account |
+| [**create_user**](UsersAPI.md#create_user)                         | **POST** /api/v2/users                                  | Create a user            |
+| [**disable_user**](UsersAPI.md#disable_user)                       | **DELETE** /api/v2/users/{user_id}                      | Disable a user           |
+| [**get_invitation**](UsersAPI.md#get_invitation)                   | **GET** /api/v2/user_invitations/{user_invitation_uuid} | Get a user invitation    |
+| [**get_user**](UsersAPI.md#get_user)                               | **GET** /api/v2/users/{user_id}                         | Get user details         |
+| [**list_user_organizations**](UsersAPI.md#list_user_organizations) | **GET** /api/v2/users/{user_id}/orgs                    | Get a user organization  |
+| [**list_user_permissions**](UsersAPI.md#list_user_permissions)     | **GET** /api/v2/users/{user_id}/permissions             | Get a user permissions   |
+| [**list_users**](UsersAPI.md#list_users)                           | **GET** /api/v2/users                                   | List all users           |
+| [**send_invitations**](UsersAPI.md#send_invitations)               | **POST** /api/v2/user_invitations                       | Send invitation emails   |
+| [**update_user**](UsersAPI.md#update_user)                         | **PATCH** /api/v2/users/{user_id}                       | Update a user            |
 
 ## create_service_account
 
@@ -27,7 +26,7 @@ Create a service account for your organization.
 ```ruby
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::UsersAPI.new
-body = DatadogAPIClient::V2::ServiceAccountCreateRequest.new({data: DatadogAPIClient::V2::ServiceAccountCreateData.new({attributes: DatadogAPIClient::V2::ServiceAccountCreateAttributes.new({email: 'jane.doe@example.com', service_account: true}), type: DatadogAPIClient::V2::UsersType::USERS})}) # ServiceAccountCreateRequest | 
+body = DatadogAPIClient::V2::ServiceAccountCreateRequest.new({data: DatadogAPIClient::V2::ServiceAccountCreateData.new({attributes: DatadogAPIClient::V2::ServiceAccountCreateAttributes.new({email: 'jane.doe@example.com', service_account: true}), type: DatadogAPIClient::V2::UsersType::USERS})}) # ServiceAccountCreateRequest |
 
 begin
   # Create a service account
@@ -58,9 +57,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**ServiceAccountCreateRequest**](ServiceAccountCreateRequest.md) |  |  |
+| Name     | Type                                                              | Description | Notes |
+| -------- | ----------------------------------------------------------------- | ----------- | ----- |
+| **body** | [**ServiceAccountCreateRequest**](ServiceAccountCreateRequest.md) |             |       |
 
 ### Return type
 
@@ -75,7 +74,6 @@ end
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-
 ## create_user
 
 > <UserResponse> create_user(body)
@@ -87,7 +85,7 @@ Create a user for your organization.
 ```ruby
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::UsersAPI.new
-body = DatadogAPIClient::V2::UserCreateRequest.new({data: DatadogAPIClient::V2::UserCreateData.new({attributes: DatadogAPIClient::V2::UserCreateAttributes.new({email: 'jane.doe@example.com'}), type: DatadogAPIClient::V2::UsersType::USERS})}) # UserCreateRequest | 
+body = DatadogAPIClient::V2::UserCreateRequest.new({data: DatadogAPIClient::V2::UserCreateData.new({attributes: DatadogAPIClient::V2::UserCreateAttributes.new({email: 'jane.doe@example.com'}), type: DatadogAPIClient::V2::UsersType::USERS})}) # UserCreateRequest |
 
 begin
   # Create a user
@@ -118,9 +116,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**UserCreateRequest**](UserCreateRequest.md) |  |  |
+| Name     | Type                                          | Description | Notes |
+| -------- | --------------------------------------------- | ----------- | ----- |
+| **body** | [**UserCreateRequest**](UserCreateRequest.md) |             |       |
 
 ### Return type
 
@@ -134,7 +132,6 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## disable_user
 
@@ -178,9 +175,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **user_id** | **String** | The ID of the user. |  |
+| Name        | Type       | Description         | Notes |
+| ----------- | ---------- | ------------------- | ----- |
+| **user_id** | **String** | The ID of the user. |       |
 
 ### Return type
 
@@ -194,7 +191,6 @@ nil (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_invitation
 
@@ -238,9 +234,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **user_invitation_uuid** | **String** | The UUID of the user invitation. |  |
+| Name                     | Type       | Description                      | Notes |
+| ------------------------ | ---------- | -------------------------------- | ----- |
+| **user_invitation_uuid** | **String** | The UUID of the user invitation. |       |
 
 ### Return type
 
@@ -254,7 +250,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_user
 
@@ -298,9 +293,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **user_id** | **String** | The ID of the user. |  |
+| Name        | Type       | Description         | Notes |
+| ----------- | ---------- | ------------------- | ----- |
+| **user_id** | **String** | The ID of the user. |       |
 
 ### Return type
 
@@ -314,7 +309,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## list_user_organizations
 
@@ -359,9 +353,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **user_id** | **String** | The ID of the user. |  |
+| Name        | Type       | Description         | Notes |
+| ----------- | ---------- | ------------------- | ----- |
+| **user_id** | **String** | The ID of the user. |       |
 
 ### Return type
 
@@ -375,7 +369,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## list_user_permissions
 
@@ -420,9 +413,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **user_id** | **String** | The ID of the user. |  |
+| Name        | Type       | Description         | Notes |
+| ----------- | ---------- | ------------------- | ----- |
+| **user_id** | **String** | The ID of the user. |       |
 
 ### Return type
 
@@ -436,7 +429,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## list_users
 
@@ -488,14 +480,14 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **page_size** | **Integer** | Size for a given page. | [optional][default to 10] |
-| **page_number** | **Integer** | Specific page number to return. | [optional][default to 0] |
-| **sort** | **String** | User attribute to order results by. Sort order is ascending by default. Sort order is descending if the field is prefixed by a negative sign, for example &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;modified_at&#x60;, &#x60;user_count&#x60;. | [optional][default to &#39;name&#39;] |
-| **sort_dir** | **QuerySortOrder** | Direction of sort. Options: &#x60;asc&#x60;, &#x60;desc&#x60;. | [optional][default to &#39;desc&#39;] |
-| **filter** | **String** | Filter all users by the given string. Defaults to no filtering. | [optional] |
-| **filter_status** | **String** | Filter on status attribute. Comma separated list, with possible values &#x60;Active&#x60;, &#x60;Pending&#x60;, and &#x60;Disabled&#x60;. Defaults to no filtering. | [optional] |
+| Name              | Type               | Description                                                                                                                                                                                                                                                        | Notes                                 |
+| ----------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------- |
+| **page_size**     | **Integer**        | Size for a given page.                                                                                                                                                                                                                                             | [optional][default to 10]             |
+| **page_number**   | **Integer**        | Specific page number to return.                                                                                                                                                                                                                                    | [optional][default to 0]              |
+| **sort**          | **String**         | User attribute to order results by. Sort order is ascending by default. Sort order is descending if the field is prefixed by a negative sign, for example &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;modified_at&#x60;, &#x60;user_count&#x60;. | [optional][default to &#39;name&#39;] |
+| **sort_dir**      | **QuerySortOrder** | Direction of sort. Options: &#x60;asc&#x60;, &#x60;desc&#x60;.                                                                                                                                                                                                     | [optional][default to &#39;desc&#39;] |
+| **filter**        | **String**         | Filter all users by the given string. Defaults to no filtering.                                                                                                                                                                                                    | [optional]                            |
+| **filter_status** | **String**         | Filter on status attribute. Comma separated list, with possible values &#x60;Active&#x60;, &#x60;Pending&#x60;, and &#x60;Disabled&#x60;. Defaults to no filtering.                                                                                                | [optional]                            |
 
 ### Return type
 
@@ -510,7 +502,6 @@ end
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-
 ## send_invitations
 
 > <UserInvitationsResponse> send_invitations(body)
@@ -522,7 +513,7 @@ Sends emails to one or more users inviting them to join the organization.
 ```ruby
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::UsersAPI.new
-body = DatadogAPIClient::V2::UserInvitationsRequest.new({data: [DatadogAPIClient::V2::UserInvitationData.new({relationships: DatadogAPIClient::V2::UserInvitationRelationships.new({user: DatadogAPIClient::V2::RelationshipToUser.new({data: DatadogAPIClient::V2::RelationshipToUserData.new({id: '00000000-0000-0000-0000-000000000000', type: DatadogAPIClient::V2::UsersType::USERS})})}), type: DatadogAPIClient::V2::UserInvitationsType::USER_INVITATIONS})]}) # UserInvitationsRequest | 
+body = DatadogAPIClient::V2::UserInvitationsRequest.new({data: [DatadogAPIClient::V2::UserInvitationData.new({relationships: DatadogAPIClient::V2::UserInvitationRelationships.new({user: DatadogAPIClient::V2::RelationshipToUser.new({data: DatadogAPIClient::V2::RelationshipToUserData.new({id: '00000000-0000-0000-0000-000000000000', type: DatadogAPIClient::V2::UsersType::USERS})})}), type: DatadogAPIClient::V2::UserInvitationsType::USER_INVITATIONS})]}) # UserInvitationsRequest |
 
 begin
   # Send invitation emails
@@ -553,9 +544,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**UserInvitationsRequest**](UserInvitationsRequest.md) |  |  |
+| Name     | Type                                                    | Description | Notes |
+| -------- | ------------------------------------------------------- | ----------- | ----- |
+| **body** | [**UserInvitationsRequest**](UserInvitationsRequest.md) |             |       |
 
 ### Return type
 
@@ -570,7 +561,6 @@ end
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-
 ## update_user
 
 > <UserResponse> update_user(user_id, body)
@@ -584,7 +574,7 @@ to an administrator user.
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::UsersAPI.new
 user_id = '00000000-0000-0000-0000-000000000000' # String | The ID of the user.
-body = DatadogAPIClient::V2::UserUpdateRequest.new({data: DatadogAPIClient::V2::UserUpdateData.new({attributes: DatadogAPIClient::V2::UserUpdateAttributes.new, id: '00000000-0000-0000-0000-000000000000', type: DatadogAPIClient::V2::UsersType::USERS})}) # UserUpdateRequest | 
+body = DatadogAPIClient::V2::UserUpdateRequest.new({data: DatadogAPIClient::V2::UserUpdateData.new({attributes: DatadogAPIClient::V2::UserUpdateAttributes.new, id: '00000000-0000-0000-0000-000000000000', type: DatadogAPIClient::V2::UsersType::USERS})}) # UserUpdateRequest |
 
 begin
   # Update a user
@@ -615,10 +605,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **user_id** | **String** | The ID of the user. |  |
-| **body** | [**UserUpdateRequest**](UserUpdateRequest.md) |  |  |
+| Name        | Type                                          | Description         | Notes |
+| ----------- | --------------------------------------------- | ------------------- | ----- |
+| **user_id** | **String**                                    | The ID of the user. |       |
+| **body**    | [**UserUpdateRequest**](UserUpdateRequest.md) |                     |       |
 
 ### Return type
 
@@ -632,4 +622,3 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-

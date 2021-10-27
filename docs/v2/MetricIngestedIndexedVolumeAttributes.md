@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **indexed_volume** | **Integer** | Indexed volume for the given metric. | [optional] |
+| Name                | Type        | Description                           | Notes      |
+| ------------------- | ----------- | ------------------------------------- | ---------- |
+| **indexed_volume**  | **Integer** | Indexed volume for the given metric.  | [optional] |
 | **ingested_volume** | **Integer** | Ingested volume for the given metric. | [optional] |
 
 ## Example
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::MetricIngestedIndexedVolumeAttributes.new(
   ingested_volume: 20
 )
 ```
-

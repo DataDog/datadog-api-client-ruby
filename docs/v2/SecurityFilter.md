@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **attributes** | [**SecurityFilterAttributes**](SecurityFilterAttributes.md) |  | [optional] |
-| **id** | **String** | The ID of the security filter. | [optional] |
-| **type** | [**SecurityFilterType**](SecurityFilterType.md) |  | [optional][default to &#39;security_filters&#39;] |
+| Name           | Type                                                        | Description                    | Notes                                             |
+| -------------- | ----------------------------------------------------------- | ------------------------------ | ------------------------------------------------- |
+| **attributes** | [**SecurityFilterAttributes**](SecurityFilterAttributes.md) |                                | [optional]                                        |
+| **id**         | **String**                                                  | The ID of the security filter. | [optional]                                        |
+| **type**       | [**SecurityFilterType**](SecurityFilterType.md)             |                                | [optional][default to &#39;security_filters&#39;] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V2::SecurityFilter.new(
   type: null
 )
 ```
-

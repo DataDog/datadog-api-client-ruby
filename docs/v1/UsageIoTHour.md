@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **hour** | **Time** | The hour for the usage. | [optional] |
+| Name                 | Type        | Description                                          | Notes      |
+| -------------------- | ----------- | ---------------------------------------------------- | ---------- |
+| **hour**             | **Time**    | The hour for the usage.                              | [optional] |
 | **iot_device_count** | **Integer** | The total number of IoT devices during a given hour. | [optional] |
 
 ## Example
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::UsageIoTHour.new(
   iot_device_count: null
 )
 ```
-

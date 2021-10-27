@@ -2,12 +2,12 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **bucket** | **String** | The bucket where the archive will be stored. |  |
-| **integration** | [**LogsArchiveIntegrationGCS**](LogsArchiveIntegrationGCS.md) |  |  |
-| **path** | **String** | The archive path. | [optional] |
-| **type** | [**LogsArchiveDestinationGCSType**](LogsArchiveDestinationGCSType.md) |  | [default to &#39;gcs&#39;] |
+| Name            | Type                                                                  | Description                                  | Notes                      |
+| --------------- | --------------------------------------------------------------------- | -------------------------------------------- | -------------------------- |
+| **bucket**      | **String**                                                            | The bucket where the archive will be stored. |                            |
+| **integration** | [**LogsArchiveIntegrationGCS**](LogsArchiveIntegrationGCS.md)         |                                              |                            |
+| **path**        | **String**                                                            | The archive path.                            | [optional]                 |
+| **type**        | [**LogsArchiveDestinationGCSType**](LogsArchiveDestinationGCSType.md) |                                              | [default to &#39;gcs&#39;] |
 
 ## Example
 
@@ -21,4 +21,3 @@ instance = DatadogAPIClient::V2::LogsArchiveDestinationGCS.new(
   type: null
 )
 ```
-

@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **q** | **String** | Query definition. |  |
+| Name               | Type       | Description                                   | Notes      |
+| ------------------ | ---------- | --------------------------------------------- | ---------- |
+| **q**              | **String** | Query definition.                             |            |
 | **tags_execution** | **String** | The execution method for multi-value filters. | [optional] |
 
 ## Example
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::WidgetEvent.new(
   tags_execution: null
 )
 ```
-

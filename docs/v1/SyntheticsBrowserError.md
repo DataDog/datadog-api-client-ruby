@@ -2,12 +2,12 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **description** | **String** | Description of the error. |  |
-| **name** | **String** | Name of the error. |  |
-| **status** | **Integer** | Status Code of the error. | [optional] |
-| **type** | [**SyntheticsBrowserErrorType**](SyntheticsBrowserErrorType.md) |  |  |
+| Name            | Type                                                            | Description               | Notes      |
+| --------------- | --------------------------------------------------------------- | ------------------------- | ---------- |
+| **description** | **String**                                                      | Description of the error. |            |
+| **name**        | **String**                                                      | Name of the error.        |            |
+| **status**      | **Integer**                                                     | Status Code of the error. | [optional] |
+| **type**        | [**SyntheticsBrowserErrorType**](SyntheticsBrowserErrorType.md) |                           |            |
 
 ## Example
 
@@ -21,4 +21,3 @@ instance = DatadogAPIClient::V1::SyntheticsBrowserError.new(
   type: null
 )
 ```
-

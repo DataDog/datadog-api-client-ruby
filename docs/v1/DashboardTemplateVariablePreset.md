@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **name** | **String** | The name of the variable. | [optional] |
-| **template_variables** | [**Array&lt;DashboardTemplateVariablePresetValue&gt;**](DashboardTemplateVariablePresetValue.md) | List of variables. | [optional] |
+| Name                   | Type                                                                                             | Description               | Notes      |
+| ---------------------- | ------------------------------------------------------------------------------------------------ | ------------------------- | ---------- |
+| **name**               | **String**                                                                                       | The name of the variable. | [optional] |
+| **template_variables** | [**Array&lt;DashboardTemplateVariablePresetValue&gt;**](DashboardTemplateVariablePresetValue.md) | List of variables.        | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::DashboardTemplateVariablePreset.new(
   template_variables: null
 )
 ```
-

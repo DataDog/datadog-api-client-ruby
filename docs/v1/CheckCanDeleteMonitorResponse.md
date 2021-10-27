@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data** | [**CheckCanDeleteMonitorResponseData**](CheckCanDeleteMonitorResponseData.md) |  |  |
-| **errors** | **Hash&lt;String, Array&lt;String&gt;&gt;** | A mapping of Monitor ID to strings denoting where it&#39;s used. | [optional] |
+| Name       | Type                                                                          | Description                                                      | Notes      |
+| ---------- | ----------------------------------------------------------------------------- | ---------------------------------------------------------------- | ---------- |
+| **data**   | [**CheckCanDeleteMonitorResponseData**](CheckCanDeleteMonitorResponseData.md) |                                                                  |            |
+| **errors** | **Hash&lt;String, Array&lt;String&gt;&gt;**                                   | A mapping of Monitor ID to strings denoting where it&#39;s used. | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::CheckCanDeleteMonitorResponse.new(
   errors: null
 )
 ```
-

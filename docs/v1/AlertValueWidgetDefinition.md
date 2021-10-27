@@ -2,16 +2,16 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **alert_id** | **String** | ID of the alert to use in the widget. |  |
-| **precision** | **Integer** | Number of decimal to show. If not defined, will use the raw value. | [optional] |
-| **text_align** | [**WidgetTextAlign**](WidgetTextAlign.md) |  | [optional] |
-| **title** | **String** | Title of the widget. | [optional] |
-| **title_align** | [**WidgetTextAlign**](WidgetTextAlign.md) |  | [optional] |
-| **title_size** | **String** | Size of value in the widget. | [optional] |
-| **type** | [**AlertValueWidgetDefinitionType**](AlertValueWidgetDefinitionType.md) |  | [default to &#39;alert_value&#39;] |
-| **unit** | **String** | Unit to display with the value. | [optional] |
+| Name            | Type                                                                    | Description                                                        | Notes                              |
+| --------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------ | ---------------------------------- |
+| **alert_id**    | **String**                                                              | ID of the alert to use in the widget.                              |                                    |
+| **precision**   | **Integer**                                                             | Number of decimal to show. If not defined, will use the raw value. | [optional]                         |
+| **text_align**  | [**WidgetTextAlign**](WidgetTextAlign.md)                               |                                                                    | [optional]                         |
+| **title**       | **String**                                                              | Title of the widget.                                               | [optional]                         |
+| **title_align** | [**WidgetTextAlign**](WidgetTextAlign.md)                               |                                                                    | [optional]                         |
+| **title_size**  | **String**                                                              | Size of value in the widget.                                       | [optional]                         |
+| **type**        | [**AlertValueWidgetDefinitionType**](AlertValueWidgetDefinitionType.md) |                                                                    | [default to &#39;alert_value&#39;] |
+| **unit**        | **String**                                                              | Unit to display with the value.                                    | [optional]                         |
 
 ## Example
 
@@ -29,4 +29,3 @@ instance = DatadogAPIClient::V1::AlertValueWidgetDefinition.new(
   unit: null
 )
 ```
-

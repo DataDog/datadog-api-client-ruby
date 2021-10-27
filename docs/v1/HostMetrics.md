@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **cpu** | **Float** | The percent of CPU used (everything but idle). | [optional] |
+| Name       | Type      | Description                                                                  | Notes      |
+| ---------- | --------- | ---------------------------------------------------------------------------- | ---------- |
+| **cpu**    | **Float** | The percent of CPU used (everything but idle).                               | [optional] |
 | **iowait** | **Float** | The percent of CPU spent waiting on the IO (not reported for all platforms). | [optional] |
-| **load** | **Float** | The system load over the last 15 minutes. | [optional] |
+| **load**   | **Float** | The system load over the last 15 minutes.                                    | [optional] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::HostMetrics.new(
   load: 0.5
 )
 ```
-

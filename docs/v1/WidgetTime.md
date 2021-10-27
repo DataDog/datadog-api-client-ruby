@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **live_span** | [**WidgetLiveSpan**](WidgetLiveSpan.md) |  | [optional] |
+| Name          | Type                                    | Description | Notes      |
+| ------------- | --------------------------------------- | ----------- | ---------- |
+| **live_span** | [**WidgetLiveSpan**](WidgetLiveSpan.md) |             | [optional] |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::WidgetTime.new(
   live_span: null
 )
 ```
-

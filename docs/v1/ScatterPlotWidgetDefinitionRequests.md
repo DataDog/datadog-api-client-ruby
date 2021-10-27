@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **table** | [**ScatterplotTableRequest**](ScatterplotTableRequest.md) |  | [optional] |
-| **x** | [**ScatterPlotRequest**](ScatterPlotRequest.md) |  | [optional] |
-| **y** | [**ScatterPlotRequest**](ScatterPlotRequest.md) |  | [optional] |
+| Name      | Type                                                      | Description | Notes      |
+| --------- | --------------------------------------------------------- | ----------- | ---------- |
+| **table** | [**ScatterplotTableRequest**](ScatterplotTableRequest.md) |             | [optional] |
+| **x**     | [**ScatterPlotRequest**](ScatterPlotRequest.md)           |             | [optional] |
+| **y**     | [**ScatterPlotRequest**](ScatterPlotRequest.md)           |             | [optional] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::ScatterPlotWidgetDefinitionRequests.new(
   y: null
 )
 ```
-

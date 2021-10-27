@@ -2,16 +2,15 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method | HTTP request | Description |
-| ------ | ------------ | ----------- |
-| [**create_tag_configuration**](MetricsAPI.md#create_tag_configuration) | **POST** /api/v2/metrics/{metric_name}/tags | Create a tag configuration |
-| [**delete_tag_configuration**](MetricsAPI.md#delete_tag_configuration) | **DELETE** /api/v2/metrics/{metric_name}/tags | Delete a tag configuration |
-| [**list_tag_configuration_by_name**](MetricsAPI.md#list_tag_configuration_by_name) | **GET** /api/v2/metrics/{metric_name}/tags | List tag configuration by name |
-| [**list_tag_configurations**](MetricsAPI.md#list_tag_configurations) | **GET** /api/v2/metrics | List tag configurations |
-| [**list_tags_by_metric_name**](MetricsAPI.md#list_tags_by_metric_name) | **GET** /api/v2/metrics/{metric_name}/all-tags | List tags by metric name |
-| [**list_volumes_by_metric_name**](MetricsAPI.md#list_volumes_by_metric_name) | **GET** /api/v2/metrics/{metric_name}/volumes | List distinct metric volumes by metric name |
-| [**update_tag_configuration**](MetricsAPI.md#update_tag_configuration) | **PATCH** /api/v2/metrics/{metric_name}/tags | Update a tag configuration |
-
+| Method                                                                             | HTTP request                                   | Description                                 |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------- | ------------------------------------------- |
+| [**create_tag_configuration**](MetricsAPI.md#create_tag_configuration)             | **POST** /api/v2/metrics/{metric_name}/tags    | Create a tag configuration                  |
+| [**delete_tag_configuration**](MetricsAPI.md#delete_tag_configuration)             | **DELETE** /api/v2/metrics/{metric_name}/tags  | Delete a tag configuration                  |
+| [**list_tag_configuration_by_name**](MetricsAPI.md#list_tag_configuration_by_name) | **GET** /api/v2/metrics/{metric_name}/tags     | List tag configuration by name              |
+| [**list_tag_configurations**](MetricsAPI.md#list_tag_configurations)               | **GET** /api/v2/metrics                        | List tag configurations                     |
+| [**list_tags_by_metric_name**](MetricsAPI.md#list_tags_by_metric_name)             | **GET** /api/v2/metrics/{metric_name}/all-tags | List tags by metric name                    |
+| [**list_volumes_by_metric_name**](MetricsAPI.md#list_volumes_by_metric_name)       | **GET** /api/v2/metrics/{metric_name}/volumes  | List distinct metric volumes by metric name |
+| [**update_tag_configuration**](MetricsAPI.md#update_tag_configuration)             | **PATCH** /api/v2/metrics/{metric_name}/tags   | Update a tag configuration                  |
 
 ## create_tag_configuration
 
@@ -33,7 +32,7 @@ end
 
 api_instance = DatadogAPIClient::V2::MetricsAPI.new
 metric_name = 'dist.http.endpoint.request' # String | The name of the metric.
-body = DatadogAPIClient::V2::MetricTagConfigurationCreateRequest.new({data: DatadogAPIClient::V2::MetricTagConfigurationCreateData.new({id: 'test.metric.latency', type: DatadogAPIClient::V2::MetricTagConfigurationType::MANAGE_TAGS})}) # MetricTagConfigurationCreateRequest | 
+body = DatadogAPIClient::V2::MetricTagConfigurationCreateRequest.new({data: DatadogAPIClient::V2::MetricTagConfigurationCreateData.new({id: 'test.metric.latency', type: DatadogAPIClient::V2::MetricTagConfigurationType::MANAGE_TAGS})}) # MetricTagConfigurationCreateRequest |
 
 begin
   # Create a tag configuration
@@ -64,10 +63,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **metric_name** | **String** | The name of the metric. |  |
-| **body** | [**MetricTagConfigurationCreateRequest**](MetricTagConfigurationCreateRequest.md) |  |  |
+| Name            | Type                                                                              | Description             | Notes |
+| --------------- | --------------------------------------------------------------------------------- | ----------------------- | ----- |
+| **metric_name** | **String**                                                                        | The name of the metric. |       |
+| **body**        | [**MetricTagConfigurationCreateRequest**](MetricTagConfigurationCreateRequest.md) |                         |       |
 
 ### Return type
 
@@ -81,7 +80,6 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## delete_tag_configuration
 
@@ -130,9 +128,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **metric_name** | **String** | The name of the metric. |  |
+| Name            | Type       | Description             | Notes |
+| --------------- | ---------- | ----------------------- | ----- |
+| **metric_name** | **String** | The name of the metric. |       |
 
 ### Return type
 
@@ -146,7 +144,6 @@ nil (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## list_tag_configuration_by_name
 
@@ -195,9 +192,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **metric_name** | **String** | The name of the metric. |  |
+| Name            | Type       | Description             | Notes |
+| --------------- | ---------- | ----------------------- | ----- |
+| **metric_name** | **String** | The name of the metric. |       |
 
 ### Return type
 
@@ -211,7 +208,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## list_tag_configurations
 
@@ -268,14 +264,14 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **filter_configured** | **Boolean** | Filter metrics that have configured tags. | [optional] |
-| **filter_tags_configured** | **String** | Filter tag configurations by configured tags. | [optional] |
-| **filter_metric_type** | **MetricTagConfigurationMetricTypes** | Filter tag configurations by metric type. | [optional][default to &#39;gauge&#39;] |
-| **filter_include_percentiles** | **Boolean** | Filter distributions with additional percentile aggregations enabled or disabled. | [optional] |
-| **filter_tags** | **String** | Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters. | [optional] |
-| **window_seconds** | **Integer** | The number of seconds of look back (from now) to apply to a filter[tag] query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days). | [optional] |
+| Name                           | Type                                  | Description                                                                                                                                        | Notes                                  |
+| ------------------------------ | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| **filter_configured**          | **Boolean**                           | Filter metrics that have configured tags.                                                                                                          | [optional]                             |
+| **filter_tags_configured**     | **String**                            | Filter tag configurations by configured tags.                                                                                                      | [optional]                             |
+| **filter_metric_type**         | **MetricTagConfigurationMetricTypes** | Filter tag configurations by metric type.                                                                                                          | [optional][default to &#39;gauge&#39;] |
+| **filter_include_percentiles** | **Boolean**                           | Filter distributions with additional percentile aggregations enabled or disabled.                                                                  | [optional]                             |
+| **filter_tags**                | **String**                            | Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.     | [optional]                             |
+| **window_seconds**             | **Integer**                           | The number of seconds of look back (from now) to apply to a filter[tag] query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days). | [optional]                             |
 
 ### Return type
 
@@ -289,7 +285,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## list_tags_by_metric_name
 
@@ -333,9 +328,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **metric_name** | **String** | The name of the metric. |  |
+| Name            | Type       | Description             | Notes |
+| --------------- | ---------- | ----------------------- | ----- |
+| **metric_name** | **String** | The name of the metric. |       |
 
 ### Return type
 
@@ -349,7 +344,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## list_volumes_by_metric_name
 
@@ -397,9 +391,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **metric_name** | **String** | The name of the metric. |  |
+| Name            | Type       | Description             | Notes |
+| --------------- | ---------- | ----------------------- | ----- |
+| **metric_name** | **String** | The name of the metric. |       |
 
 ### Return type
 
@@ -413,7 +407,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## update_tag_configuration
 
@@ -434,7 +427,7 @@ end
 
 api_instance = DatadogAPIClient::V2::MetricsAPI.new
 metric_name = 'dist.http.endpoint.request' # String | The name of the metric.
-body = DatadogAPIClient::V2::MetricTagConfigurationUpdateRequest.new({data: DatadogAPIClient::V2::MetricTagConfigurationUpdateData.new({id: 'test.metric.latency', type: DatadogAPIClient::V2::MetricTagConfigurationType::MANAGE_TAGS})}) # MetricTagConfigurationUpdateRequest | 
+body = DatadogAPIClient::V2::MetricTagConfigurationUpdateRequest.new({data: DatadogAPIClient::V2::MetricTagConfigurationUpdateData.new({id: 'test.metric.latency', type: DatadogAPIClient::V2::MetricTagConfigurationType::MANAGE_TAGS})}) # MetricTagConfigurationUpdateRequest |
 
 begin
   # Update a tag configuration
@@ -465,10 +458,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **metric_name** | **String** | The name of the metric. |  |
-| **body** | [**MetricTagConfigurationUpdateRequest**](MetricTagConfigurationUpdateRequest.md) |  |  |
+| Name            | Type                                                                              | Description             | Notes |
+| --------------- | --------------------------------------------------------------------------------- | ----------------------- | ----- |
+| **metric_name** | **String**                                                                        | The name of the metric. |       |
+| **body**        | [**MetricTagConfigurationUpdateRequest**](MetricTagConfigurationUpdateRequest.md) |                         |       |
 
 ### Return type
 
@@ -482,4 +475,3 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-

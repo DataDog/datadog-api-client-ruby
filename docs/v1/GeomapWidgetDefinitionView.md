@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **focus** | **String** | The 2-letter ISO code of a country to focus the map on. Or &#x60;WORLD&#x60;. |  |
+| Name      | Type       | Description                                                                   | Notes |
+| --------- | ---------- | ----------------------------------------------------------------------------- | ----- |
+| **focus** | **String** | The 2-letter ISO code of a country to focus the map on. Or &#x60;WORLD&#x60;. |       |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::GeomapWidgetDefinitionView.new(
   focus: WORLD
 )
 ```
-

@@ -2,16 +2,15 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method | HTTP request | Description |
-| ------ | ------------ | ----------- |
-| [**create_dashboard**](DashboardsAPI.md#create_dashboard) | **POST** /api/v1/dashboard | Create a new dashboard |
-| [**delete_dashboard**](DashboardsAPI.md#delete_dashboard) | **DELETE** /api/v1/dashboard/{dashboard_id} | Delete a dashboard |
-| [**delete_dashboards**](DashboardsAPI.md#delete_dashboards) | **DELETE** /api/v1/dashboard | Delete dashboards |
-| [**get_dashboard**](DashboardsAPI.md#get_dashboard) | **GET** /api/v1/dashboard/{dashboard_id} | Get a dashboard |
-| [**list_dashboards**](DashboardsAPI.md#list_dashboards) | **GET** /api/v1/dashboard | Get all dashboards |
-| [**restore_dashboards**](DashboardsAPI.md#restore_dashboards) | **PATCH** /api/v1/dashboard | Restore deleted dashboards |
-| [**update_dashboard**](DashboardsAPI.md#update_dashboard) | **PUT** /api/v1/dashboard/{dashboard_id} | Update a dashboard |
-
+| Method                                                        | HTTP request                                | Description                |
+| ------------------------------------------------------------- | ------------------------------------------- | -------------------------- |
+| [**create_dashboard**](DashboardsAPI.md#create_dashboard)     | **POST** /api/v1/dashboard                  | Create a new dashboard     |
+| [**delete_dashboard**](DashboardsAPI.md#delete_dashboard)     | **DELETE** /api/v1/dashboard/{dashboard_id} | Delete a dashboard         |
+| [**delete_dashboards**](DashboardsAPI.md#delete_dashboards)   | **DELETE** /api/v1/dashboard                | Delete dashboards          |
+| [**get_dashboard**](DashboardsAPI.md#get_dashboard)           | **GET** /api/v1/dashboard/{dashboard_id}    | Get a dashboard            |
+| [**list_dashboards**](DashboardsAPI.md#list_dashboards)       | **GET** /api/v1/dashboard                   | Get all dashboards         |
+| [**restore_dashboards**](DashboardsAPI.md#restore_dashboards) | **PATCH** /api/v1/dashboard                 | Restore deleted dashboards |
+| [**update_dashboard**](DashboardsAPI.md#update_dashboard)     | **PUT** /api/v1/dashboard/{dashboard_id}    | Update a dashboard         |
 
 ## create_dashboard
 
@@ -56,9 +55,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**Dashboard**](Dashboard.md) | Create a dashboard request body. |  |
+| Name     | Type                          | Description                      | Notes |
+| -------- | ----------------------------- | -------------------------------- | ----- |
+| **body** | [**Dashboard**](Dashboard.md) | Create a dashboard request body. |       |
 
 ### Return type
 
@@ -72,7 +71,6 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## delete_dashboard
 
@@ -116,9 +114,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **dashboard_id** | **String** | The ID of the dashboard. |  |
+| Name             | Type       | Description              | Notes |
+| ---------------- | ---------- | ------------------------ | ----- |
+| **dashboard_id** | **String** | The ID of the dashboard. |       |
 
 ### Return type
 
@@ -132,7 +130,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## delete_dashboards
 
@@ -175,9 +172,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**DashboardBulkDeleteRequest**](DashboardBulkDeleteRequest.md) | Delete dashboards request body. |  |
+| Name     | Type                                                            | Description                     | Notes |
+| -------- | --------------------------------------------------------------- | ------------------------------- | ----- |
+| **body** | [**DashboardBulkDeleteRequest**](DashboardBulkDeleteRequest.md) | Delete dashboards request body. |       |
 
 ### Return type
 
@@ -191,7 +188,6 @@ nil (empty response body)
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## get_dashboard
 
@@ -235,9 +231,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **dashboard_id** | **String** | The ID of the dashboard. |  |
+| Name             | Type       | Description              | Notes |
+| ---------------- | ---------- | ------------------------ | ----- |
+| **dashboard_id** | **String** | The ID of the dashboard. |       |
 
 ### Return type
 
@@ -251,7 +247,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## list_dashboards
 
@@ -300,8 +295,8 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name              | Type        | Description                                                                                | Notes      |
+| ----------------- | ----------- | ------------------------------------------------------------------------------------------ | ---------- |
 | **filter_shared** | **Boolean** | When &#x60;true&#x60;, this query only returns shared custom created or cloned dashboards. | [optional] |
 
 ### Return type
@@ -316,7 +311,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## restore_dashboards
 
@@ -359,9 +353,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**DashboardRestoreRequest**](DashboardRestoreRequest.md) | Restore dashboards request body. |  |
+| Name     | Type                                                      | Description                      | Notes |
+| -------- | --------------------------------------------------------- | -------------------------------- | ----- |
+| **body** | [**DashboardRestoreRequest**](DashboardRestoreRequest.md) | Restore dashboards request body. |       |
 
 ### Return type
 
@@ -375,7 +369,6 @@ nil (empty response body)
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## update_dashboard
 
@@ -420,10 +413,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **dashboard_id** | **String** | The ID of the dashboard. |  |
-| **body** | [**Dashboard**](Dashboard.md) | Update Dashboard request body. |  |
+| Name             | Type                          | Description                    | Notes |
+| ---------------- | ----------------------------- | ------------------------------ | ----- |
+| **dashboard_id** | **String**                    | The ID of the dashboard.       |       |
+| **body**         | [**Dashboard**](Dashboard.md) | Update Dashboard request body. |       |
 
 ### Return type
 
@@ -437,4 +430,3 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-

@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **column** | **String** | Facet path for the column |  |
-| **order** | [**WidgetSort**](WidgetSort.md) |  |  |
+| Name       | Type                            | Description               | Notes |
+| ---------- | ------------------------------- | ------------------------- | ----- |
+| **column** | **String**                      | Facet path for the column |       |
+| **order**  | [**WidgetSort**](WidgetSort.md) |                           |       |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::WidgetFieldSort.new(
   order: null
 )
 ```
-

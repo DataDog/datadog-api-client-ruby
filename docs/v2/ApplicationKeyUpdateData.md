@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **attributes** | [**ApplicationKeyUpdateAttributes**](ApplicationKeyUpdateAttributes.md) |  |  |
-| **id** | **String** | ID of the application key. |  |
-| **type** | [**ApplicationKeysType**](ApplicationKeysType.md) |  | [default to &#39;application_keys&#39;] |
+| Name           | Type                                                                    | Description                | Notes                                   |
+| -------------- | ----------------------------------------------------------------------- | -------------------------- | --------------------------------------- |
+| **attributes** | [**ApplicationKeyUpdateAttributes**](ApplicationKeyUpdateAttributes.md) |                            |                                         |
+| **id**         | **String**                                                              | ID of the application key. |                                         |
+| **type**       | [**ApplicationKeysType**](ApplicationKeysType.md)                       |                            | [default to &#39;application_keys&#39;] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V2::ApplicationKeyUpdateData.new(
   type: null
 )
 ```
-

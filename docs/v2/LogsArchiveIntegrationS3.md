@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **account_id** | **String** | The account ID for the integration. |  |
-| **role_name** | **String** | The path of the integration. |  |
+| Name           | Type       | Description                         | Notes |
+| -------------- | ---------- | ----------------------------------- | ----- |
+| **account_id** | **String** | The account ID for the integration. |       |
+| **role_name**  | **String** | The path of the integration.        |       |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::LogsArchiveIntegrationS3.new(
   role_name: role-name
 )
 ```
-

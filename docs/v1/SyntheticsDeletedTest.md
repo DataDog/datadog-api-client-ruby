@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **deleted_at** | **Time** | Deletion timestamp of the Synthetic test ID. | [optional] |
-| **public_id** | **String** | The Synthetic test ID deleted. | [optional] |
+| Name           | Type       | Description                                  | Notes      |
+| -------------- | ---------- | -------------------------------------------- | ---------- |
+| **deleted_at** | **Time**   | Deletion timestamp of the Synthetic test ID. | [optional] |
+| **public_id**  | **String** | The Synthetic test ID deleted.               | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::SyntheticsDeletedTest.new(
   public_id: null
 )
 ```
-

@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **branch** | **String** | The branch name. | [optional] |
-| **commit_sha** | **String** | The commit SHA. | [optional] |
+| Name           | Type       | Description      | Notes      |
+| -------------- | ---------- | ---------------- | ---------- |
+| **branch**     | **String** | The branch name. | [optional] |
+| **commit_sha** | **String** | The commit SHA.  | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::SyntheticsCIBatchMetadataGit.new(
   commit_sha: null
 )
 ```
-

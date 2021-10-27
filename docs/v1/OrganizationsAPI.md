@@ -2,14 +2,13 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method | HTTP request | Description |
-| ------ | ------------ | ----------- |
-| [**create_child_org**](OrganizationsAPI.md#create_child_org) | **POST** /api/v1/org | Create a child organization |
-| [**get_org**](OrganizationsAPI.md#get_org) | **GET** /api/v1/org/{public_id} | Get organization information |
-| [**list_orgs**](OrganizationsAPI.md#list_orgs) | **GET** /api/v1/org | List your managed organizations |
-| [**update_org**](OrganizationsAPI.md#update_org) | **PUT** /api/v1/org/{public_id} | Update your organization |
-| [**upload_id_p_for_org**](OrganizationsAPI.md#upload_id_p_for_org) | **POST** /api/v1/org/{public_id}/idp_metadata | Upload IdP metadata |
-
+| Method                                                             | HTTP request                                  | Description                     |
+| ------------------------------------------------------------------ | --------------------------------------------- | ------------------------------- |
+| [**create_child_org**](OrganizationsAPI.md#create_child_org)       | **POST** /api/v1/org                          | Create a child organization     |
+| [**get_org**](OrganizationsAPI.md#get_org)                         | **GET** /api/v1/org/{public_id}               | Get organization information    |
+| [**list_orgs**](OrganizationsAPI.md#list_orgs)                     | **GET** /api/v1/org                           | List your managed organizations |
+| [**update_org**](OrganizationsAPI.md#update_org)                   | **PUT** /api/v1/org/{public_id}               | Update your organization        |
+| [**upload_id_p_for_org**](OrganizationsAPI.md#upload_id_p_for_org) | **POST** /api/v1/org/{public_id}/idp_metadata | Upload IdP metadata             |
 
 ## create_child_org
 
@@ -62,9 +61,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**OrganizationCreateBody**](OrganizationCreateBody.md) | Organization object that needs to be created |  |
+| Name     | Type                                                    | Description                                  | Notes |
+| -------- | ------------------------------------------------------- | -------------------------------------------- | ----- |
+| **body** | [**OrganizationCreateBody**](OrganizationCreateBody.md) | Organization object that needs to be created |       |
 
 ### Return type
 
@@ -78,7 +77,6 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## get_org
 
@@ -122,9 +120,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **public_id** | **String** | The &#x60;public_id&#x60; of the organization you are operating within. |  |
+| Name          | Type       | Description                                                             | Notes |
+| ------------- | ---------- | ----------------------------------------------------------------------- | ----- |
+| **public_id** | **String** | The &#x60;public_id&#x60; of the organization you are operating within. |       |
 
 ### Return type
 
@@ -138,7 +136,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## list_orgs
 
@@ -196,7 +193,6 @@ This endpoint does not need any parameter.
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-
 ## update_org
 
 > <OrganizationResponse> update_org(public_id, body)
@@ -209,7 +205,7 @@ Update your organization.
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::OrganizationsAPI.new
 public_id = 'abc123' # String | The `public_id` of the organization you are operating within.
-body = DatadogAPIClient::V1::Organization.new # Organization | 
+body = DatadogAPIClient::V1::Organization.new # Organization |
 
 begin
   # Update your organization
@@ -240,10 +236,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **public_id** | **String** | The &#x60;public_id&#x60; of the organization you are operating within. |  |
-| **body** | [**Organization**](Organization.md) |  |  |
+| Name          | Type                                | Description                                                             | Notes |
+| ------------- | ----------------------------------- | ----------------------------------------------------------------------- | ----- |
+| **public_id** | **String**                          | The &#x60;public_id&#x60; of the organization you are operating within. |       |
+| **body**      | [**Organization**](Organization.md) |                                                                         |       |
 
 ### Return type
 
@@ -258,7 +254,6 @@ end
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-
 ## upload_id_p_for_org
 
 > <IdpResponse> upload_id_p_for_org(public_id, idp_file)
@@ -266,9 +261,9 @@ end
 There are a couple of options for updating the Identity Provider (IdP)
 metadata from your SAML IdP.
 
-* **Multipart Form-Data**: Post the IdP metadata file using a form post.
+- **Multipart Form-Data**: Post the IdP metadata file using a form post.
 
-* **XML Body:** Post the IdP metadata file as the body of the request.
+- **XML Body:** Post the IdP metadata file as the body of the request.
 
 ### Examples
 
@@ -307,10 +302,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **public_id** | **String** | The &#x60;public_id&#x60; of the organization you are operating with |  |
-| **idp_file** | **File** | The path to the XML metadata file you wish to upload. |  |
+| Name          | Type       | Description                                                          | Notes |
+| ------------- | ---------- | -------------------------------------------------------------------- | ----- |
+| **public_id** | **String** | The &#x60;public_id&#x60; of the organization you are operating with |       |
+| **idp_file**  | **File**   | The path to the XML metadata file you wish to upload.                |       |
 
 ### Return type
 
@@ -324,4 +319,3 @@ end
 
 - **Content-Type**: multipart/form-data
 - **Accept**: application/json
-

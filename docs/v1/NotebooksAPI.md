@@ -2,14 +2,13 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method | HTTP request | Description |
-| ------ | ------------ | ----------- |
-| [**create_notebook**](NotebooksAPI.md#create_notebook) | **POST** /api/v1/notebooks | Create a notebook |
+| Method                                                 | HTTP request                               | Description       |
+| ------------------------------------------------------ | ------------------------------------------ | ----------------- |
+| [**create_notebook**](NotebooksAPI.md#create_notebook) | **POST** /api/v1/notebooks                 | Create a notebook |
 | [**delete_notebook**](NotebooksAPI.md#delete_notebook) | **DELETE** /api/v1/notebooks/{notebook_id} | Delete a notebook |
-| [**get_notebook**](NotebooksAPI.md#get_notebook) | **GET** /api/v1/notebooks/{notebook_id} | Get a notebook |
-| [**list_notebooks**](NotebooksAPI.md#list_notebooks) | **GET** /api/v1/notebooks | Get all notebooks |
-| [**update_notebook**](NotebooksAPI.md#update_notebook) | **PUT** /api/v1/notebooks/{notebook_id} | Update a notebook |
-
+| [**get_notebook**](NotebooksAPI.md#get_notebook)       | **GET** /api/v1/notebooks/{notebook_id}    | Get a notebook    |
+| [**list_notebooks**](NotebooksAPI.md#list_notebooks)   | **GET** /api/v1/notebooks                  | Get all notebooks |
+| [**update_notebook**](NotebooksAPI.md#update_notebook) | **PUT** /api/v1/notebooks/{notebook_id}    | Update a notebook |
 
 ## create_notebook
 
@@ -53,9 +52,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**NotebookCreateRequest**](NotebookCreateRequest.md) | The JSON description of the notebook you want to create. |  |
+| Name     | Type                                                  | Description                                              | Notes |
+| -------- | ----------------------------------------------------- | -------------------------------------------------------- | ----- |
+| **body** | [**NotebookCreateRequest**](NotebookCreateRequest.md) | The JSON description of the notebook you want to create. |       |
 
 ### Return type
 
@@ -69,7 +68,6 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## delete_notebook
 
@@ -112,9 +110,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **notebook_id** | **Integer** | Unique ID, assigned when you create the notebook. |  |
+| Name            | Type        | Description                                       | Notes |
+| --------------- | ----------- | ------------------------------------------------- | ----- |
+| **notebook_id** | **Integer** | Unique ID, assigned when you create the notebook. |       |
 
 ### Return type
 
@@ -128,7 +126,6 @@ nil (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_notebook
 
@@ -172,9 +169,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **notebook_id** | **Integer** | Unique ID, assigned when you create the notebook. |  |
+| Name            | Type        | Description                                       | Notes |
+| --------------- | ----------- | ------------------------------------------------- | ----- |
+| **notebook_id** | **Integer** | Unique ID, assigned when you create the notebook. |       |
 
 ### Return type
 
@@ -188,7 +185,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## list_notebooks
 
@@ -244,18 +240,18 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **author_handle** | **String** | Return notebooks created by the given &#x60;author_handle&#x60;. | [optional] |
-| **exclude_author_handle** | **String** | Return notebooks not created by the given &#x60;author_handle&#x60;. | [optional] |
-| **start** | **Integer** | The index of the first notebook you want returned. | [optional] |
-| **count** | **Integer** | The number of notebooks to be returned. | [optional] |
-| **sort_field** | **String** | Sort by field &#x60;modified&#x60;, &#x60;name&#x60;, or &#x60;created&#x60;. | [optional][default to &#39;modified&#39;] |
-| **sort_dir** | **String** | Sort by direction &#x60;asc&#x60; or &#x60;desc&#x60;. | [optional][default to &#39;desc&#39;] |
-| **query** | **String** | Return only notebooks with &#x60;query&#x60; string in notebook name or author handle. | [optional] |
-| **include_cells** | **Boolean** | Value of &#x60;false&#x60; excludes the &#x60;cells&#x60; and global &#x60;time&#x60; for each notebook. | [optional][default to true] |
-| **is_template** | **Boolean** | True value returns only template notebooks. Default is false (returns only non-template notebooks). | [optional][default to false] |
-| **type** | **String** | If type is provided, returns only notebooks with that metadata type. Default does not have type filtering. | [optional] |
+| Name                      | Type        | Description                                                                                                | Notes                                     |
+| ------------------------- | ----------- | ---------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
+| **author_handle**         | **String**  | Return notebooks created by the given &#x60;author_handle&#x60;.                                           | [optional]                                |
+| **exclude_author_handle** | **String**  | Return notebooks not created by the given &#x60;author_handle&#x60;.                                       | [optional]                                |
+| **start**                 | **Integer** | The index of the first notebook you want returned.                                                         | [optional]                                |
+| **count**                 | **Integer** | The number of notebooks to be returned.                                                                    | [optional]                                |
+| **sort_field**            | **String**  | Sort by field &#x60;modified&#x60;, &#x60;name&#x60;, or &#x60;created&#x60;.                              | [optional][default to &#39;modified&#39;] |
+| **sort_dir**              | **String**  | Sort by direction &#x60;asc&#x60; or &#x60;desc&#x60;.                                                     | [optional][default to &#39;desc&#39;]     |
+| **query**                 | **String**  | Return only notebooks with &#x60;query&#x60; string in notebook name or author handle.                     | [optional]                                |
+| **include_cells**         | **Boolean** | Value of &#x60;false&#x60; excludes the &#x60;cells&#x60; and global &#x60;time&#x60; for each notebook.   | [optional][default to true]               |
+| **is_template**           | **Boolean** | True value returns only template notebooks. Default is false (returns only non-template notebooks).        | [optional][default to false]              |
+| **type**                  | **String**  | If type is provided, returns only notebooks with that metadata type. Default does not have type filtering. | [optional]                                |
 
 ### Return type
 
@@ -269,7 +265,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## update_notebook
 
@@ -314,10 +309,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **notebook_id** | **Integer** | Unique ID, assigned when you create the notebook. |  |
-| **body** | [**NotebookUpdateRequest**](NotebookUpdateRequest.md) | Update notebook request body. |  |
+| Name            | Type                                                  | Description                                       | Notes |
+| --------------- | ----------------------------------------------------- | ------------------------------------------------- | ----- |
+| **notebook_id** | **Integer**                                           | Unique ID, assigned when you create the notebook. |       |
+| **body**        | [**NotebookUpdateRequest**](NotebookUpdateRequest.md) | Update notebook request body.                     |       |
 
 ### Return type
 
@@ -331,4 +326,3 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-

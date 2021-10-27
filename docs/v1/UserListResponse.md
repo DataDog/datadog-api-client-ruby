@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name      | Type                             | Description     | Notes      |
+| --------- | -------------------------------- | --------------- | ---------- |
 | **users** | [**Array&lt;User&gt;**](User.md) | Array of users. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::UserListResponse.new(
   users: null
 )
 ```
-

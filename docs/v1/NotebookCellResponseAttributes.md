@@ -41,8 +41,8 @@ DatadogAPIClient::V1::NotebookCellResponseAttributes.build(data_that_doesnt_matc
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
+| Name     | Type      | Description                                        |
+| -------- | --------- | -------------------------------------------------- |
 | **data** | **Mixed** | data to be matched against the list of oneOf items |
 
 #### Return type
@@ -54,4 +54,3 @@ DatadogAPIClient::V1::NotebookCellResponseAttributes.build(data_that_doesnt_matc
 - `NotebookTimeseriesCellAttributes`
 - `NotebookToplistCellAttributes`
 - `nil` (if no type matches)
-

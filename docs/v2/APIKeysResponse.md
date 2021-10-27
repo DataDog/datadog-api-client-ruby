@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data** | [**Array&lt;PartialAPIKey&gt;**](PartialAPIKey.md) | Array of API keys. | [optional] |
+| Name         | Type                                                                         | Description                              | Notes      |
+| ------------ | ---------------------------------------------------------------------------- | ---------------------------------------- | ---------- |
+| **data**     | [**Array&lt;PartialAPIKey&gt;**](PartialAPIKey.md)                           | Array of API keys.                       | [optional] |
 | **included** | [**Array&lt;APIKeyResponseIncludedItem&gt;**](APIKeyResponseIncludedItem.md) | Array of objects related to the API key. | [optional] |
 
 ## Example
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::APIKeysResponse.new(
   included: null
 )
 ```
-

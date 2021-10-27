@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **page** | [**ProcessSummariesMetaPage**](ProcessSummariesMetaPage.md) |  | [optional] |
+| Name     | Type                                                        | Description | Notes      |
+| -------- | ----------------------------------------------------------- | ----------- | ---------- |
+| **page** | [**ProcessSummariesMetaPage**](ProcessSummariesMetaPage.md) |             | [optional] |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V2::ProcessSummariesMeta.new(
   page: null
 )
 ```
-

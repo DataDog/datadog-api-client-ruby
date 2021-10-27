@@ -2,16 +2,16 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **created_at** | **Time** | Creation time of the organization. | [optional] |
-| **description** | **String** | Description of the organization. | [optional] |
-| **disabled** | **Boolean** | Whether or not the organization is disabled. | [optional] |
-| **modified_at** | **Time** | Time of last organization modification. | [optional] |
-| **name** | **String** | Name of the organization. | [optional] |
-| **public_id** | **String** | Public ID of the organization. | [optional] |
-| **sharing** | **String** | Sharing type of the organization. | [optional] |
-| **url** | **String** | URL of the site that this organization exists at. | [optional] |
+| Name            | Type        | Description                                       | Notes      |
+| --------------- | ----------- | ------------------------------------------------- | ---------- |
+| **created_at**  | **Time**    | Creation time of the organization.                | [optional] |
+| **description** | **String**  | Description of the organization.                  | [optional] |
+| **disabled**    | **Boolean** | Whether or not the organization is disabled.      | [optional] |
+| **modified_at** | **Time**    | Time of last organization modification.           | [optional] |
+| **name**        | **String**  | Name of the organization.                         | [optional] |
+| **public_id**   | **String**  | Public ID of the organization.                    | [optional] |
+| **sharing**     | **String**  | Sharing type of the organization.                 | [optional] |
+| **url**         | **String**  | URL of the site that this organization exists at. | [optional] |
 
 ## Example
 
@@ -29,4 +29,3 @@ instance = DatadogAPIClient::V2::OrganizationAttributes.new(
   url: null
 )
 ```
-

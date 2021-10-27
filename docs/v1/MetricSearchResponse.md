@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **results** | [**MetricSearchResponseResults**](MetricSearchResponseResults.md) |  | [optional] |
+| Name        | Type                                                              | Description | Notes      |
+| ----------- | ----------------------------------------------------------------- | ----------- | ---------- |
+| **results** | [**MetricSearchResponseResults**](MetricSearchResponseResults.md) |             | [optional] |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::MetricSearchResponse.new(
   results: null
 )
 ```
-

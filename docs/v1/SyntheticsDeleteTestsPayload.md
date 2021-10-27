@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name           | Type                    | Description                                        | Notes      |
+| -------------- | ----------------------- | -------------------------------------------------- | ---------- |
 | **public_ids** | **Array&lt;String&gt;** | An array of Synthetic test IDs you want to delete. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::SyntheticsDeleteTestsPayload.new(
   public_ids: []
 )
 ```
-

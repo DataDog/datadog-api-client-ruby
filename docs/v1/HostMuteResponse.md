@@ -2,12 +2,12 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **action** | **String** | Action applied to the hosts. | [optional] |
-| **_end** | **Integer** | POSIX timestamp in seconds when the host is unmuted. | [optional] |
-| **hostname** | **String** | The host name. | [optional] |
-| **message** | **String** | Message associated with the mute. | [optional] |
+| Name         | Type        | Description                                          | Notes      |
+| ------------ | ----------- | ---------------------------------------------------- | ---------- |
+| **action**   | **String**  | Action applied to the hosts.                         | [optional] |
+| **\_end**    | **Integer** | POSIX timestamp in seconds when the host is unmuted. | [optional] |
+| **hostname** | **String**  | The host name.                                       | [optional] |
+| **message**  | **String**  | Message associated with the mute.                    | [optional] |
 
 ## Example
 
@@ -21,4 +21,3 @@ instance = DatadogAPIClient::V1::HostMuteResponse.new(
   message: Muting this host for a test!
 )
 ```
-

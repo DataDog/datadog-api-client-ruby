@@ -2,12 +2,12 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **count** | **Integer** | Count of submitted metrics. |  |
-| **metadata** | [**SLOHistoryMetricsSeriesMetadata**](SLOHistoryMetricsSeriesMetadata.md) |  | [optional] |
-| **sum** | **Float** | Total sum of the query. |  |
-| **values** | **Array&lt;Float&gt;** | The query values for each metric. |  |
+| Name         | Type                                                                      | Description                       | Notes      |
+| ------------ | ------------------------------------------------------------------------- | --------------------------------- | ---------- |
+| **count**    | **Integer**                                                               | Count of submitted metrics.       |            |
+| **metadata** | [**SLOHistoryMetricsSeriesMetadata**](SLOHistoryMetricsSeriesMetadata.md) |                                   | [optional] |
+| **sum**      | **Float**                                                                 | Total sum of the query.           |            |
+| **values**   | **Array&lt;Float&gt;**                                                    | The query values for each metric. |            |
 
 ## Example
 
@@ -21,4 +21,3 @@ instance = DatadogAPIClient::V1::SLOHistoryMetricsSeries.new(
   values: []
 )
 ```
-

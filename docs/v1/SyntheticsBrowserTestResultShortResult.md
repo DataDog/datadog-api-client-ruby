@@ -2,13 +2,13 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **device** | [**SyntheticsDevice**](SyntheticsDevice.md) |  | [optional] |
-| **duration** | **Float** | Length in second of the browser test run. | [optional] |
-| **error_count** | **Integer** | Amount of errors collected for a single browser test run. | [optional] |
-| **step_count_completed** | **Integer** | Amount of browser test steps completed before failing. | [optional] |
-| **step_count_total** | **Integer** | Total amount of browser test steps. | [optional] |
+| Name                     | Type                                        | Description                                               | Notes      |
+| ------------------------ | ------------------------------------------- | --------------------------------------------------------- | ---------- |
+| **device**               | [**SyntheticsDevice**](SyntheticsDevice.md) |                                                           | [optional] |
+| **duration**             | **Float**                                   | Length in second of the browser test run.                 | [optional] |
+| **error_count**          | **Integer**                                 | Amount of errors collected for a single browser test run. | [optional] |
+| **step_count_completed** | **Integer**                                 | Amount of browser test steps completed before failing.    | [optional] |
+| **step_count_total**     | **Integer**                                 | Total amount of browser test steps.                       | [optional] |
 
 ## Example
 
@@ -23,4 +23,3 @@ instance = DatadogAPIClient::V1::SyntheticsBrowserTestResultShortResult.new(
   step_count_total: null
 )
 ```
-

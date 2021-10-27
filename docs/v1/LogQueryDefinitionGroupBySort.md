@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **aggregation** | **String** | The aggregation method. |  |
-| **facet** | **String** | Facet name. | [optional] |
-| **order** | [**WidgetSort**](WidgetSort.md) |  |  |
+| Name            | Type                            | Description             | Notes      |
+| --------------- | ------------------------------- | ----------------------- | ---------- |
+| **aggregation** | **String**                      | The aggregation method. |            |
+| **facet**       | **String**                      | Facet name.             | [optional] |
+| **order**       | [**WidgetSort**](WidgetSort.md) |                         |            |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::LogQueryDefinitionGroupBySort.new(
   order: null
 )
 ```
-

@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **hour** | **Time** | The hour for the usage. | [optional] |
+| Name            | Type        | Description                      | Notes      |
+| --------------- | ----------- | -------------------------------- | ---------- |
+| **hour**        | **Time**    | The hour for the usage.          | [optional] |
 | **tasks_count** | **Integer** | The number of Fargate tasks run. | [optional] |
 
 ## Example
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::UsageFargateHour.new(
   tasks_count: null
 )
 ```
-

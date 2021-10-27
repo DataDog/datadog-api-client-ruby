@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **time** | **String** | The time value for this point | [optional] |
-| **value** | **Float** | The value for this point | [optional] |
+| Name      | Type       | Description                   | Notes      |
+| --------- | ---------- | ----------------------------- | ---------- |
+| **time**  | **String** | The time value for this point | [optional] |
+| **value** | **Float**  | The value for this point      | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::LogsAggregateBucketValueTimeseriesPoint.new(
   value: 19
 )
 ```
-

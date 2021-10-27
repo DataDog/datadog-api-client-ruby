@@ -2,12 +2,12 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **avg_metric_hour** | **Integer** | Average number of timeseries per hour in which the metric occurs. | [optional] |
-| **max_metric_hour** | **Integer** | Maximum number of timeseries per hour in which the metric occurs. | [optional] |
-| **metric_category** | [**UsageMetricCategory**](UsageMetricCategory.md) |  | [optional] |
-| **metric_name** | **String** | Contains the custom metric name. | [optional] |
+| Name                | Type                                              | Description                                                       | Notes      |
+| ------------------- | ------------------------------------------------- | ----------------------------------------------------------------- | ---------- |
+| **avg_metric_hour** | **Integer**                                       | Average number of timeseries per hour in which the metric occurs. | [optional] |
+| **max_metric_hour** | **Integer**                                       | Maximum number of timeseries per hour in which the metric occurs. | [optional] |
+| **metric_category** | [**UsageMetricCategory**](UsageMetricCategory.md) |                                                                   | [optional] |
+| **metric_name**     | **String**                                        | Contains the custom metric name.                                  | [optional] |
 
 ## Example
 
@@ -21,4 +21,3 @@ instance = DatadogAPIClient::V1::UsageTopAvgMetricsHour.new(
   metric_name: null
 )
 ```
-

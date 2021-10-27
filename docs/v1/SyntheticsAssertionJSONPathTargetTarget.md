@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **json_path** | **String** | The JSON path to assert. | [optional] |
-| **operator** | **String** | The specific operator to use on the path. | [optional] |
-| **target_value** | **Object** | The path target value to compare to. | [optional] |
+| Name             | Type       | Description                               | Notes      |
+| ---------------- | ---------- | ----------------------------------------- | ---------- |
+| **json_path**    | **String** | The JSON path to assert.                  | [optional] |
+| **operator**     | **String** | The specific operator to use on the path. | [optional] |
+| **target_value** | **Object** | The path target value to compare to.      | [optional] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::SyntheticsAssertionJSONPathTargetTarget.new(
   target_value: null
 )
 ```
-

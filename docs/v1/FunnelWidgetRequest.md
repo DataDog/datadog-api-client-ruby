@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **query** | [**FunnelQuery**](FunnelQuery.md) |  |  |
-| **request_type** | [**FunnelRequestType**](FunnelRequestType.md) |  |  |
+| Name             | Type                                          | Description | Notes |
+| ---------------- | --------------------------------------------- | ----------- | ----- |
+| **query**        | [**FunnelQuery**](FunnelQuery.md)             |             |       |
+| **request_type** | [**FunnelRequestType**](FunnelRequestType.md) |             |       |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::FunnelWidgetRequest.new(
   request_type: null
 )
 ```
-

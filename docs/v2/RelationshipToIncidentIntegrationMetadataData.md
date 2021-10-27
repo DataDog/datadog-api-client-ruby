@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **id** | **String** | A unique identifier that represents the integration metadata. |  |
-| **type** | [**IncidentIntegrationMetadataType**](IncidentIntegrationMetadataType.md) |  | [default to &#39;incident_integrations&#39;] |
+| Name     | Type                                                                      | Description                                                   | Notes                                        |
+| -------- | ------------------------------------------------------------------------- | ------------------------------------------------------------- | -------------------------------------------- |
+| **id**   | **String**                                                                | A unique identifier that represents the integration metadata. |                                              |
+| **type** | [**IncidentIntegrationMetadataType**](IncidentIntegrationMetadataType.md) |                                                               | [default to &#39;incident_integrations&#39;] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::RelationshipToIncidentIntegrationMetadataData.n
   type: null
 )
 ```
-

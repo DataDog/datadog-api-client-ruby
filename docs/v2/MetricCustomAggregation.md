@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **space** | [**MetricCustomSpaceAggregation**](MetricCustomSpaceAggregation.md) |  |  |
-| **time** | [**MetricCustomTimeAggregation**](MetricCustomTimeAggregation.md) |  |  |
+| Name      | Type                                                                | Description | Notes |
+| --------- | ------------------------------------------------------------------- | ----------- | ----- |
+| **space** | [**MetricCustomSpaceAggregation**](MetricCustomSpaceAggregation.md) |             |       |
+| **time**  | [**MetricCustomTimeAggregation**](MetricCustomTimeAggregation.md)   |             |       |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::MetricCustomAggregation.new(
   time: null
 )
 ```
-

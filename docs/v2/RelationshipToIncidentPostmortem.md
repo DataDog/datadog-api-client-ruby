@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data** | [**RelationshipToIncidentPostmortemData**](RelationshipToIncidentPostmortemData.md) |  |  |
+| Name     | Type                                                                                | Description | Notes |
+| -------- | ----------------------------------------------------------------------------------- | ----------- | ----- |
+| **data** | [**RelationshipToIncidentPostmortemData**](RelationshipToIncidentPostmortemData.md) |             |       |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V2::RelationshipToIncidentPostmortem.new(
   data: null
 )
 ```
-

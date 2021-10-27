@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **metadata** | [**UsageAttributionMetadata**](UsageAttributionMetadata.md) |  | [optional] |
-| **usage** | [**Array&lt;UsageAttributionBody&gt;**](UsageAttributionBody.md) | Get Usage Summary by tag(s). | [optional] |
+| Name         | Type                                                             | Description                  | Notes      |
+| ------------ | ---------------------------------------------------------------- | ---------------------------- | ---------- |
+| **metadata** | [**UsageAttributionMetadata**](UsageAttributionMetadata.md)      |                              | [optional] |
+| **usage**    | [**Array&lt;UsageAttributionBody&gt;**](UsageAttributionBody.md) | Get Usage Summary by tag(s). | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::UsageAttributionResponse.new(
   usage: null
 )
 ```
-

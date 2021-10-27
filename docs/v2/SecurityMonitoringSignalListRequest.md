@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **filter** | [**SecurityMonitoringSignalListRequestFilter**](SecurityMonitoringSignalListRequestFilter.md) |  | [optional] |
-| **page** | [**SecurityMonitoringSignalListRequestPage**](SecurityMonitoringSignalListRequestPage.md) |  | [optional] |
-| **sort** | [**SecurityMonitoringSignalsSort**](SecurityMonitoringSignalsSort.md) |  | [optional] |
+| Name       | Type                                                                                          | Description | Notes      |
+| ---------- | --------------------------------------------------------------------------------------------- | ----------- | ---------- |
+| **filter** | [**SecurityMonitoringSignalListRequestFilter**](SecurityMonitoringSignalListRequestFilter.md) |             | [optional] |
+| **page**   | [**SecurityMonitoringSignalListRequestPage**](SecurityMonitoringSignalListRequestPage.md)     |             | [optional] |
+| **sort**   | [**SecurityMonitoringSignalsSort**](SecurityMonitoringSignalsSort.md)                         |             | [optional] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V2::SecurityMonitoringSignalListRequest.new(
   sort: null
 )
 ```
-

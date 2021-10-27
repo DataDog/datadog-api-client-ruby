@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **aggregation_type** | [**LogsMetricComputeAggregationType**](LogsMetricComputeAggregationType.md) |  |  |
-| **path** | **String** | The path to the value the log-based metric will aggregate on (only used if the aggregation type is a \&quot;distribution\&quot;). | [optional] |
+| Name                 | Type                                                                        | Description                                                                                                                       | Notes      |
+| -------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **aggregation_type** | [**LogsMetricComputeAggregationType**](LogsMetricComputeAggregationType.md) |                                                                                                                                   |            |
+| **path**             | **String**                                                                  | The path to the value the log-based metric will aggregate on (only used if the aggregation type is a \&quot;distribution\&quot;). | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::LogsMetricCompute.new(
   path: @duration
 )
 ```
-

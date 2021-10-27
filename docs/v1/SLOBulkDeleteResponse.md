@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data** | [**SLOBulkDeleteResponseData**](SLOBulkDeleteResponseData.md) |  | [optional] |
-| **errors** | [**Array&lt;SLOBulkDeleteError&gt;**](SLOBulkDeleteError.md) | Array of errors object returned. | [optional] |
+| Name       | Type                                                          | Description                      | Notes      |
+| ---------- | ------------------------------------------------------------- | -------------------------------- | ---------- |
+| **data**   | [**SLOBulkDeleteResponseData**](SLOBulkDeleteResponseData.md) |                                  | [optional] |
+| **errors** | [**Array&lt;SLOBulkDeleteError&gt;**](SLOBulkDeleteError.md)  | Array of errors object returned. | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::SLOBulkDeleteResponse.new(
   errors: null
 )
 ```
-

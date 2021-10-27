@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **aggregation** | [**FormulaAndFunctionEventAggregation**](FormulaAndFunctionEventAggregation.md) |  |  |
-| **interval** | **Integer** | A time interval in milliseconds. | [optional] |
-| **metric** | **String** | Measurable attribute to compute. | [optional] |
+| Name            | Type                                                                            | Description                      | Notes      |
+| --------------- | ------------------------------------------------------------------------------- | -------------------------------- | ---------- |
+| **aggregation** | [**FormulaAndFunctionEventAggregation**](FormulaAndFunctionEventAggregation.md) |                                  |            |
+| **interval**    | **Integer**                                                                     | A time interval in milliseconds. | [optional] |
+| **metric**      | **String**                                                                      | Measurable attribute to compute. | [optional] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::FormulaAndFunctionEventQueryDefinitionCompute.n
   metric: @duration
 )
 ```
-

@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **permissions** | [**RelationshipToPermissions**](RelationshipToPermissions.md) |  | [optional] |
-| **users** | [**RelationshipToUsers**](RelationshipToUsers.md) |  | [optional] |
+| Name            | Type                                                          | Description | Notes      |
+| --------------- | ------------------------------------------------------------- | ----------- | ---------- |
+| **permissions** | [**RelationshipToPermissions**](RelationshipToPermissions.md) |             | [optional] |
+| **users**       | [**RelationshipToUsers**](RelationshipToUsers.md)             |             | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::RoleRelationships.new(
   users: null
 )
 ```
-

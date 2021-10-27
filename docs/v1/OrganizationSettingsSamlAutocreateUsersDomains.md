@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **domains** | **Array&lt;String&gt;** | List of domains where the SAML automated user creation is enabled. | [optional] |
-| **enabled** | **Boolean** | Whether or not the automated user creation based on SAML domain is enabled. | [optional] |
+| Name        | Type                    | Description                                                                 | Notes      |
+| ----------- | ----------------------- | --------------------------------------------------------------------------- | ---------- |
+| **domains** | **Array&lt;String&gt;** | List of domains where the SAML automated user creation is enabled.          | [optional] |
+| **enabled** | **Boolean**             | Whether or not the automated user creation based on SAML domain is enabled. | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::OrganizationSettingsSamlAutocreateUsersDomains.
   enabled: false
 )
 ```
-

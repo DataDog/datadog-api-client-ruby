@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **definition** | [**LogStreamWidgetDefinition**](LogStreamWidgetDefinition.md) |  |  |
-| **graph_size** | [**NotebookGraphSize**](NotebookGraphSize.md) |  | [optional] |
-| **time** | [**NotebookCellTime**](NotebookCellTime.md) |  | [optional] |
+| Name           | Type                                                          | Description | Notes      |
+| -------------- | ------------------------------------------------------------- | ----------- | ---------- |
+| **definition** | [**LogStreamWidgetDefinition**](LogStreamWidgetDefinition.md) |             |            |
+| **graph_size** | [**NotebookGraphSize**](NotebookGraphSize.md)                 |             | [optional] |
+| **time**       | [**NotebookCellTime**](NotebookCellTime.md)                   |             | [optional] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::NotebookLogStreamCellAttributes.new(
   time: null
 )
 ```
-

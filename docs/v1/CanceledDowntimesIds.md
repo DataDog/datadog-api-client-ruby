@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name              | Type                     | Description                         | Notes      |
+| ----------------- | ------------------------ | ----------------------------------- | ---------- |
 | **cancelled_ids** | **Array&lt;Integer&gt;** | ID of downtimes that were canceled. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::CanceledDowntimesIds.new(
   cancelled_ids: [123456789,123456790]
 )
 ```
-

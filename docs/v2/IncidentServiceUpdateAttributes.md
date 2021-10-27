@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **name** | **String** | Name of the incident service. |  |
+| Name     | Type       | Description                   | Notes |
+| -------- | ---------- | ----------------------------- | ----- |
+| **name** | **String** | Name of the incident service. |       |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V2::IncidentServiceUpdateAttributes.new(
   name: an example service name
 )
 ```
-

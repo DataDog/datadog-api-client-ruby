@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **time_offset** | **Integer** | The time offset (in seconds) to apply to the query. | [optional] |
-| **timezone** | **String** | The timezone can be specified both as an offset, for example: \&quot;UTC+03:00\&quot;. | [optional][default to &#39;UTC&#39;] |
+| Name            | Type        | Description                                                                            | Notes                                |
+| --------------- | ----------- | -------------------------------------------------------------------------------------- | ------------------------------------ |
+| **time_offset** | **Integer** | The time offset (in seconds) to apply to the query.                                    | [optional]                           |
+| **timezone**    | **String**  | The timezone can be specified both as an offset, for example: \&quot;UTC+03:00\&quot;. | [optional][default to &#39;utc&#39;] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::LogsQueryOptions.new(
   timezone: GMT
 )
 ```
-

@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **count** | **Integer** | Number of results to return. | [optional] |
-| **order** | [**QuerySortOrder**](QuerySortOrder.md) |  | [optional][default to &#39;desc&#39;] |
+| Name      | Type                                    | Description                  | Notes                                 |
+| --------- | --------------------------------------- | ---------------------------- | ------------------------------------- |
+| **count** | **Integer**                             | Number of results to return. | [optional]                            |
+| **order** | [**QuerySortOrder**](QuerySortOrder.md) |                              | [optional][default to &#39;desc&#39;] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::WidgetFormulaLimit.new(
   order: null
 )
 ```
-

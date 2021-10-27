@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **text** | **String** | The markdown content. |  |
-| **type** | [**NotebookMarkdownCellDefinitionType**](NotebookMarkdownCellDefinitionType.md) |  | [default to &#39;markdown&#39;] |
+| Name     | Type                                                                            | Description           | Notes                           |
+| -------- | ------------------------------------------------------------------------------- | --------------------- | ------------------------------- |
+| **text** | **String**                                                                      | The markdown content. |                                 |
+| **type** | [**NotebookMarkdownCellDefinitionType**](NotebookMarkdownCellDefinitionType.md) |                       | [default to &#39;markdown&#39;] |
 
 ## Example
 
@@ -13,9 +13,8 @@
 require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::NotebookMarkdownCellDefinition.new(
-  text: # Example Header 
+  text: # Example Header
 example content,
   type: null
 )
 ```
-

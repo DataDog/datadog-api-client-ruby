@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **namespace** | [**AWSNamespace**](AWSNamespace.md) |  | [optional] |
-| **tag_filter_str** | **String** | The tag filter string. | [optional] |
+| Name               | Type                                | Description            | Notes      |
+| ------------------ | ----------------------------------- | ---------------------- | ---------- |
+| **namespace**      | [**AWSNamespace**](AWSNamespace.md) |                        | [optional] |
+| **tag_filter_str** | **String**                          | The tag filter string. | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::AWSTagFilter.new(
   tag_filter_str: prod*
 )
 ```
-

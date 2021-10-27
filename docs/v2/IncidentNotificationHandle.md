@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **display_name** | **String** | The name of the notified handle. | [optional] |
-| **handle** | **String** | The email address used for the notification. | [optional] |
+| Name             | Type       | Description                                  | Notes      |
+| ---------------- | ---------- | -------------------------------------------- | ---------- |
+| **display_name** | **String** | The name of the notified handle.             | [optional] |
+| **handle**       | **String** | The email address used for the notification. | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::IncidentNotificationHandle.new(
   handle: @test.user@test.com
 )
 ```
-

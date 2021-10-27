@@ -12,4 +12,3 @@ require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::LogStreamWidgetDefinitionType.new()
 ```
-

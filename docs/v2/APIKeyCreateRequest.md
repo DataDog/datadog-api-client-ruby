@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data** | [**APIKeyCreateData**](APIKeyCreateData.md) |  |  |
+| Name     | Type                                        | Description | Notes |
+| -------- | ------------------------------------------- | ----------- | ----- |
+| **data** | [**APIKeyCreateData**](APIKeyCreateData.md) |             |       |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V2::APIKeyCreateRequest.new(
   data: null
 )
 ```
-

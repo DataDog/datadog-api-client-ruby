@@ -2,13 +2,13 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **height** | **Integer** | Screen height of the device. |  |
-| **id** | [**SyntheticsDeviceID**](SyntheticsDeviceID.md) |  |  |
-| **is_mobile** | **Boolean** | Whether or not the device is a mobile. | [optional] |
-| **name** | **String** | The device name. |  |
-| **width** | **Integer** | Screen width of the device. |  |
+| Name          | Type                                            | Description                            | Notes      |
+| ------------- | ----------------------------------------------- | -------------------------------------- | ---------- |
+| **height**    | **Integer**                                     | Screen height of the device.           |            |
+| **id**        | [**SyntheticsDeviceID**](SyntheticsDeviceID.md) |                                        |            |
+| **is_mobile** | **Boolean**                                     | Whether or not the device is a mobile. | [optional] |
+| **name**      | **String**                                      | The device name.                       |            |
+| **width**     | **Integer**                                     | Screen width of the device.            |            |
 
 ## Example
 
@@ -23,4 +23,3 @@ instance = DatadogAPIClient::V1::SyntheticsDevice.new(
   width: 0
 )
 ```
-

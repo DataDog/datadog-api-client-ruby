@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name      | Type                                             | Description                              | Notes      |
+| --------- | ------------------------------------------------ | ---------------------------------------- | ---------- |
 | **usage** | [**Array&lt;UsageDBMHour&gt;**](UsageDBMHour.md) | Get hourly usage for Database Monitoring | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::UsageDBMResponse.new(
   usage: null
 )
 ```
-

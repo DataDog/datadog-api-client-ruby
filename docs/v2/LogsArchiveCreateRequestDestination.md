@@ -38,8 +38,8 @@ DatadogAPIClient::V2::LogsArchiveCreateRequestDestination.build(data_that_doesnt
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
+| Name     | Type      | Description                                        |
+| -------- | --------- | -------------------------------------------------- |
 | **data** | **Mixed** | data to be matched against the list of oneOf items |
 
 #### Return type
@@ -48,4 +48,3 @@ DatadogAPIClient::V2::LogsArchiveCreateRequestDestination.build(data_that_doesnt
 - `LogsArchiveDestinationGCS`
 - `LogsArchiveDestinationS3`
 - `nil` (if no type matches)
-

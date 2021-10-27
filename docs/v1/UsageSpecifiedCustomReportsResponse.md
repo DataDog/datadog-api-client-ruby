@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data** | [**UsageSpecifiedCustomReportsData**](UsageSpecifiedCustomReportsData.md) |  | [optional] |
-| **meta** | [**UsageSpecifiedCustomReportsMeta**](UsageSpecifiedCustomReportsMeta.md) |  | [optional] |
+| Name     | Type                                                                      | Description | Notes      |
+| -------- | ------------------------------------------------------------------------- | ----------- | ---------- |
+| **data** | [**UsageSpecifiedCustomReportsData**](UsageSpecifiedCustomReportsData.md) |             | [optional] |
+| **meta** | [**UsageSpecifiedCustomReportsMeta**](UsageSpecifiedCustomReportsMeta.md) |             | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::UsageSpecifiedCustomReportsResponse.new(
   meta: null
 )
 ```
-

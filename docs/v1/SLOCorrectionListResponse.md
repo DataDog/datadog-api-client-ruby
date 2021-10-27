@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data** | [**Array&lt;SLOCorrection&gt;**](SLOCorrection.md) | The list of of SLO corrections objects. | [optional] |
-| **meta** | [**ResponseMetaAttributes**](ResponseMetaAttributes.md) |  | [optional] |
+| Name     | Type                                                    | Description                             | Notes      |
+| -------- | ------------------------------------------------------- | --------------------------------------- | ---------- |
+| **data** | [**Array&lt;SLOCorrection&gt;**](SLOCorrection.md)      | The list of of SLO corrections objects. | [optional] |
+| **meta** | [**ResponseMetaAttributes**](ResponseMetaAttributes.md) |                                         | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::SLOCorrectionListResponse.new(
   meta: null
 )
 ```
-

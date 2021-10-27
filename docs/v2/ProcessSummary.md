@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **attributes** | [**ProcessSummaryAttributes**](ProcessSummaryAttributes.md) |  | [optional] |
-| **id** | **String** | Process ID. | [optional] |
-| **type** | [**ProcessSummaryType**](ProcessSummaryType.md) |  | [optional][default to &#39;process&#39;] |
+| Name           | Type                                                        | Description | Notes                                    |
+| -------------- | ----------------------------------------------------------- | ----------- | ---------------------------------------- |
+| **attributes** | [**ProcessSummaryAttributes**](ProcessSummaryAttributes.md) |             | [optional]                               |
+| **id**         | **String**                                                  | Process ID. | [optional]                               |
+| **type**       | [**ProcessSummaryType**](ProcessSummaryType.md)             |             | [optional][default to &#39;process&#39;] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V2::ProcessSummary.new(
   type: null
 )
 ```
-

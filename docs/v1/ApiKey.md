@@ -2,12 +2,12 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **created** | **String** | Date of creation of the API key. | [optional][readonly] |
+| Name           | Type       | Description                                   | Notes                |
+| -------------- | ---------- | --------------------------------------------- | -------------------- |
+| **created**    | **String** | Date of creation of the API key.              | [optional][readonly] |
 | **created_by** | **String** | Datadog user handle that created the API key. | [optional][readonly] |
-| **key** | **String** | API key. | [optional][readonly] |
-| **name** | **String** | Name of your API key. | [optional] |
+| **key**        | **String** | API key.                                      | [optional][readonly] |
+| **name**       | **String** | Name of your API key.                         | [optional]           |
 
 ## Example
 
@@ -21,4 +21,3 @@ instance = DatadogAPIClient::V1::ApiKey.new(
   name: example user
 )
 ```
-

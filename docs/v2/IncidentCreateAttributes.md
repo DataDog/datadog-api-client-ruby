@@ -2,13 +2,13 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **customer_impacted** | **Boolean** | A flag indicating whether the incident caused customer impact. |  |
-| **fields** | [**Hash&lt;String, IncidentFieldAttributes&gt;**](IncidentFieldAttributes.md) | A condensed view of the user-defined fields for which to create initial selections. | [optional] |
-| **initial_cells** | [**Array&lt;IncidentTimelineCellCreateAttributes&gt;**](IncidentTimelineCellCreateAttributes.md) | An array of initial timeline cells to be placed at the beginning of the incident timeline. | [optional] |
-| **notification_handles** | [**Array&lt;IncidentNotificationHandle&gt;**](IncidentNotificationHandle.md) | Notification handles that will be notified of the incident at creation. | [optional] |
-| **title** | **String** | The title of the incident, which summarizes what happened. |  |
+| Name                     | Type                                                                                             | Description                                                                                | Notes      |
+| ------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ---------- |
+| **customer_impacted**    | **Boolean**                                                                                      | A flag indicating whether the incident caused customer impact.                             |            |
+| **fields**               | [**Hash&lt;String, IncidentFieldAttributes&gt;**](IncidentFieldAttributes.md)                    | A condensed view of the user-defined fields for which to create initial selections.        | [optional] |
+| **initial_cells**        | [**Array&lt;IncidentTimelineCellCreateAttributes&gt;**](IncidentTimelineCellCreateAttributes.md) | An array of initial timeline cells to be placed at the beginning of the incident timeline. | [optional] |
+| **notification_handles** | [**Array&lt;IncidentNotificationHandle&gt;**](IncidentNotificationHandle.md)                     | Notification handles that will be notified of the incident at creation.                    | [optional] |
+| **title**                | **String**                                                                                       | The title of the incident, which summarizes what happened.                                 |            |
 
 ## Example
 
@@ -23,4 +23,3 @@ instance = DatadogAPIClient::V2::IncidentCreateAttributes.new(
   title: A test incident title
 )
 ```
-

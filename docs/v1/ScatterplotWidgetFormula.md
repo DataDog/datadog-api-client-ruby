@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **_alias** | **String** | Expression alias. | [optional] |
-| **dimension** | [**ScatterplotDimension**](ScatterplotDimension.md) |  |  |
-| **formula** | **String** | String expression built from queries, formulas, and functions. |  |
+| Name          | Type                                                | Description                                                    | Notes      |
+| ------------- | --------------------------------------------------- | -------------------------------------------------------------- | ---------- |
+| **\_alias**   | **String**                                          | Expression alias.                                              | [optional] |
+| **dimension** | [**ScatterplotDimension**](ScatterplotDimension.md) |                                                                |            |
+| **formula**   | **String**                                          | String expression built from queries, formulas, and functions. |            |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::ScatterplotWidgetFormula.new(
   formula: func(a) + b
 )
 ```
-

@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name              | Type                    | Description            | Notes      |
+| ----------------- | ----------------------- | ---------------------- | ---------- |
 | **prefixes_ipv4** | **Array&lt;String&gt;** | List of IPv4 prefixes. | [optional] |
 | **prefixes_ipv6** | **Array&lt;String&gt;** | List of IPv6 prefixes. | [optional] |
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::IPPrefixesAPM.new(
   prefixes_ipv6: null
 )
 ```
-

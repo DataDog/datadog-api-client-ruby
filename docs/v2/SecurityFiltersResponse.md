@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name     | Type                                                 | Description                         | Notes      |
+| -------- | ---------------------------------------------------- | ----------------------------------- | ---------- |
 | **data** | [**Array&lt;SecurityFilter&gt;**](SecurityFilter.md) | A list of security filters objects. | [optional] |
-| **meta** | [**SecurityFilterMeta**](SecurityFilterMeta.md) |  | [optional] |
+| **meta** | [**SecurityFilterMeta**](SecurityFilterMeta.md)      |                                     | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::SecurityFiltersResponse.new(
   meta: null
 )
 ```
-

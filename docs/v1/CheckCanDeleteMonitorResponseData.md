@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name   | Type                     | Description                                            | Notes      |
+| ------ | ------------------------ | ------------------------------------------------------ | ---------- |
 | **ok** | **Array&lt;Integer&gt;** | An array of of Monitor IDs that can be safely deleted. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::CheckCanDeleteMonitorResponseData.new(
   ok: null
 )
 ```
-

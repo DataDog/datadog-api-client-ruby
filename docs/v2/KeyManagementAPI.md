@@ -2,23 +2,22 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method | HTTP request | Description |
-| ------ | ------------ | ----------- |
-| [**create_api_key**](KeyManagementAPI.md#create_api_key) | **POST** /api/v2/api_keys | Create an API key |
-| [**create_current_user_application_key**](KeyManagementAPI.md#create_current_user_application_key) | **POST** /api/v2/current_user/application_keys | Create an application key for current user |
-| [**delete_api_key**](KeyManagementAPI.md#delete_api_key) | **DELETE** /api/v2/api_keys/{api_key_id} | Delete an API key |
-| [**delete_application_key**](KeyManagementAPI.md#delete_application_key) | **DELETE** /api/v2/application_keys/{app_key_id} | Delete an application key |
+| Method                                                                                             | HTTP request                                                  | Description                                     |
+| -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ----------------------------------------------- |
+| [**create_api_key**](KeyManagementAPI.md#create_api_key)                                           | **POST** /api/v2/api_keys                                     | Create an API key                               |
+| [**create_current_user_application_key**](KeyManagementAPI.md#create_current_user_application_key) | **POST** /api/v2/current_user/application_keys                | Create an application key for current user      |
+| [**delete_api_key**](KeyManagementAPI.md#delete_api_key)                                           | **DELETE** /api/v2/api_keys/{api_key_id}                      | Delete an API key                               |
+| [**delete_application_key**](KeyManagementAPI.md#delete_application_key)                           | **DELETE** /api/v2/application_keys/{app_key_id}              | Delete an application key                       |
 | [**delete_current_user_application_key**](KeyManagementAPI.md#delete_current_user_application_key) | **DELETE** /api/v2/current_user/application_keys/{app_key_id} | Delete an application key owned by current user |
-| [**get_api_key**](KeyManagementAPI.md#get_api_key) | **GET** /api/v2/api_keys/{api_key_id} | Get API key |
-| [**get_application_key**](KeyManagementAPI.md#get_application_key) | **GET** /api/v2/application_keys/{app_key_id} | Get an application key |
-| [**get_current_user_application_key**](KeyManagementAPI.md#get_current_user_application_key) | **GET** /api/v2/current_user/application_keys/{app_key_id} | Get one application key owned by current user |
-| [**list_api_keys**](KeyManagementAPI.md#list_api_keys) | **GET** /api/v2/api_keys | Get all API keys |
-| [**list_application_keys**](KeyManagementAPI.md#list_application_keys) | **GET** /api/v2/application_keys | Get all application keys |
-| [**list_current_user_application_keys**](KeyManagementAPI.md#list_current_user_application_keys) | **GET** /api/v2/current_user/application_keys | Get all application keys owned by current user |
-| [**update_api_key**](KeyManagementAPI.md#update_api_key) | **PATCH** /api/v2/api_keys/{api_key_id} | Edit an API key |
-| [**update_application_key**](KeyManagementAPI.md#update_application_key) | **PATCH** /api/v2/application_keys/{app_key_id} | Edit an application key |
-| [**update_current_user_application_key**](KeyManagementAPI.md#update_current_user_application_key) | **PATCH** /api/v2/current_user/application_keys/{app_key_id} | Edit an application key owned by current user |
-
+| [**get_api_key**](KeyManagementAPI.md#get_api_key)                                                 | **GET** /api/v2/api_keys/{api_key_id}                         | Get API key                                     |
+| [**get_application_key**](KeyManagementAPI.md#get_application_key)                                 | **GET** /api/v2/application_keys/{app_key_id}                 | Get an application key                          |
+| [**get_current_user_application_key**](KeyManagementAPI.md#get_current_user_application_key)       | **GET** /api/v2/current_user/application_keys/{app_key_id}    | Get one application key owned by current user   |
+| [**list_api_keys**](KeyManagementAPI.md#list_api_keys)                                             | **GET** /api/v2/api_keys                                      | Get all API keys                                |
+| [**list_application_keys**](KeyManagementAPI.md#list_application_keys)                             | **GET** /api/v2/application_keys                              | Get all application keys                        |
+| [**list_current_user_application_keys**](KeyManagementAPI.md#list_current_user_application_keys)   | **GET** /api/v2/current_user/application_keys                 | Get all application keys owned by current user  |
+| [**update_api_key**](KeyManagementAPI.md#update_api_key)                                           | **PATCH** /api/v2/api_keys/{api_key_id}                       | Edit an API key                                 |
+| [**update_application_key**](KeyManagementAPI.md#update_application_key)                           | **PATCH** /api/v2/application_keys/{app_key_id}               | Edit an application key                         |
+| [**update_current_user_application_key**](KeyManagementAPI.md#update_current_user_application_key) | **PATCH** /api/v2/current_user/application_keys/{app_key_id}  | Edit an application key owned by current user   |
 
 ## create_api_key
 
@@ -31,7 +30,7 @@ Create an API key.
 ```ruby
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::KeyManagementAPI.new
-body = DatadogAPIClient::V2::APIKeyCreateRequest.new({data: DatadogAPIClient::V2::APIKeyCreateData.new({attributes: DatadogAPIClient::V2::APIKeyCreateAttributes.new({name: 'API Key for submitting metrics'}), type: DatadogAPIClient::V2::APIKeysType::API_KEYS})}) # APIKeyCreateRequest | 
+body = DatadogAPIClient::V2::APIKeyCreateRequest.new({data: DatadogAPIClient::V2::APIKeyCreateData.new({attributes: DatadogAPIClient::V2::APIKeyCreateAttributes.new({name: 'API Key for submitting metrics'}), type: DatadogAPIClient::V2::APIKeysType::API_KEYS})}) # APIKeyCreateRequest |
 
 begin
   # Create an API key
@@ -62,9 +61,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**APIKeyCreateRequest**](APIKeyCreateRequest.md) |  |  |
+| Name     | Type                                              | Description | Notes |
+| -------- | ------------------------------------------------- | ----------- | ----- |
+| **body** | [**APIKeyCreateRequest**](APIKeyCreateRequest.md) |             |       |
 
 ### Return type
 
@@ -79,7 +78,6 @@ end
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-
 ## create_current_user_application_key
 
 > <ApplicationKeyResponse> create_current_user_application_key(body)
@@ -91,7 +89,7 @@ Create an application key for current user
 ```ruby
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::KeyManagementAPI.new
-body = DatadogAPIClient::V2::ApplicationKeyCreateRequest.new({data: DatadogAPIClient::V2::ApplicationKeyCreateData.new({attributes: DatadogAPIClient::V2::ApplicationKeyCreateAttributes.new({name: 'Application Key for submitting metrics'}), type: DatadogAPIClient::V2::ApplicationKeysType::APPLICATION_KEYS})}) # ApplicationKeyCreateRequest | 
+body = DatadogAPIClient::V2::ApplicationKeyCreateRequest.new({data: DatadogAPIClient::V2::ApplicationKeyCreateData.new({attributes: DatadogAPIClient::V2::ApplicationKeyCreateAttributes.new({name: 'Application Key for submitting metrics'}), type: DatadogAPIClient::V2::ApplicationKeysType::APPLICATION_KEYS})}) # ApplicationKeyCreateRequest |
 
 begin
   # Create an application key for current user
@@ -122,9 +120,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**ApplicationKeyCreateRequest**](ApplicationKeyCreateRequest.md) |  |  |
+| Name     | Type                                                              | Description | Notes |
+| -------- | ----------------------------------------------------------------- | ----------- | ----- |
+| **body** | [**ApplicationKeyCreateRequest**](ApplicationKeyCreateRequest.md) |             |       |
 
 ### Return type
 
@@ -138,7 +136,6 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## delete_api_key
 
@@ -181,9 +178,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **api_key_id** | **String** | The ID of the API key. |  |
+| Name           | Type       | Description            | Notes |
+| -------------- | ---------- | ---------------------- | ----- |
+| **api_key_id** | **String** | The ID of the API key. |       |
 
 ### Return type
 
@@ -197,7 +194,6 @@ nil (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## delete_application_key
 
@@ -240,9 +236,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **app_key_id** | **String** | The ID of the application key. |  |
+| Name           | Type       | Description                    | Notes |
+| -------------- | ---------- | ------------------------------ | ----- |
+| **app_key_id** | **String** | The ID of the application key. |       |
 
 ### Return type
 
@@ -256,7 +252,6 @@ nil (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## delete_current_user_application_key
 
@@ -299,9 +294,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **app_key_id** | **String** | The ID of the application key. |  |
+| Name           | Type       | Description                    | Notes |
+| -------------- | ---------- | ------------------------------ | ----- |
+| **app_key_id** | **String** | The ID of the application key. |       |
 
 ### Return type
 
@@ -315,7 +310,6 @@ nil (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_api_key
 
@@ -362,10 +356,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **api_key_id** | **String** | The ID of the API key. |  |
-| **include** | **String** | Comma separated list of resource paths for related resources to include in the response. Supported resource paths are &#x60;created_by&#x60; and &#x60;modified_by&#x60;. | [optional] |
+| Name           | Type       | Description                                                                                                                                                               | Notes      |
+| -------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **api_key_id** | **String** | The ID of the API key.                                                                                                                                                    |            |
+| **include**    | **String** | Comma separated list of resource paths for related resources to include in the response. Supported resource paths are &#x60;created_by&#x60; and &#x60;modified_by&#x60;. | [optional] |
 
 ### Return type
 
@@ -379,7 +373,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_application_key
 
@@ -426,10 +419,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **app_key_id** | **String** | The ID of the application key. |  |
-| **include** | **String** | Resource path for related resources to include in the response. Only &#x60;owned_by&#x60; is supported. | [optional] |
+| Name           | Type       | Description                                                                                             | Notes      |
+| -------------- | ---------- | ------------------------------------------------------------------------------------------------------- | ---------- |
+| **app_key_id** | **String** | The ID of the application key.                                                                          |            |
+| **include**    | **String** | Resource path for related resources to include in the response. Only &#x60;owned_by&#x60; is supported. | [optional] |
 
 ### Return type
 
@@ -443,7 +436,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_current_user_application_key
 
@@ -487,9 +479,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **app_key_id** | **String** | The ID of the application key. |  |
+| Name           | Type       | Description                    | Notes |
+| -------------- | ---------- | ------------------------------ | ----- |
+| **app_key_id** | **String** | The ID of the application key. |       |
 
 ### Return type
 
@@ -503,7 +495,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## list_api_keys
 
@@ -557,17 +548,17 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **page_size** | **Integer** | Size for a given page. | [optional][default to 10] |
-| **page_number** | **Integer** | Specific page number to return. | [optional][default to 0] |
-| **sort** | **APIKeysSort** | API key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. | [optional][default to &#39;name&#39;] |
-| **filter** | **String** | Filter API keys by the specified string. | [optional] |
-| **filter_created_at_start** | **String** | Only include API keys created on or after the specified date. | [optional] |
-| **filter_created_at_end** | **String** | Only include API keys created on or before the specified date. | [optional] |
-| **filter_modified_at_start** | **String** | Only include API keys modified on or after the specified date. | [optional] |
-| **filter_modified_at_end** | **String** | Only include API keys modified on or before the specified date. | [optional] |
-| **include** | **String** | Comma separated list of resource paths for related resources to include in the response. Supported resource paths are &#x60;created_by&#x60; and &#x60;modified_by&#x60;. | [optional] |
+| Name                         | Type            | Description                                                                                                                                                               | Notes                                 |
+| ---------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| **page_size**                | **Integer**     | Size for a given page.                                                                                                                                                    | [optional][default to 10]             |
+| **page_number**              | **Integer**     | Specific page number to return.                                                                                                                                           | [optional][default to 0]              |
+| **sort**                     | **APIKeysSort** | API key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.                | [optional][default to &#39;name&#39;] |
+| **filter**                   | **String**      | Filter API keys by the specified string.                                                                                                                                  | [optional]                            |
+| **filter_created_at_start**  | **String**      | Only include API keys created on or after the specified date.                                                                                                             | [optional]                            |
+| **filter_created_at_end**    | **String**      | Only include API keys created on or before the specified date.                                                                                                            | [optional]                            |
+| **filter_modified_at_start** | **String**      | Only include API keys modified on or after the specified date.                                                                                                            | [optional]                            |
+| **filter_modified_at_end**   | **String**      | Only include API keys modified on or before the specified date.                                                                                                           | [optional]                            |
+| **include**                  | **String**      | Comma separated list of resource paths for related resources to include in the response. Supported resource paths are &#x60;created_by&#x60; and &#x60;modified_by&#x60;. | [optional]                            |
 
 ### Return type
 
@@ -581,7 +572,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## list_application_keys
 
@@ -632,14 +622,14 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **page_size** | **Integer** | Size for a given page. | [optional][default to 10] |
-| **page_number** | **Integer** | Specific page number to return. | [optional][default to 0] |
-| **sort** | **ApplicationKeysSort** | Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. | [optional][default to &#39;name&#39;] |
-| **filter** | **String** | Filter application keys by the specified string. | [optional] |
-| **filter_created_at_start** | **String** | Only include application keys created on or after the specified date. | [optional] |
-| **filter_created_at_end** | **String** | Only include application keys created on or before the specified date. | [optional] |
+| Name                        | Type                    | Description                                                                                                                                                        | Notes                                 |
+| --------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------- |
+| **page_size**               | **Integer**             | Size for a given page.                                                                                                                                             | [optional][default to 10]             |
+| **page_number**             | **Integer**             | Specific page number to return.                                                                                                                                    | [optional][default to 0]              |
+| **sort**                    | **ApplicationKeysSort** | Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. | [optional][default to &#39;name&#39;] |
+| **filter**                  | **String**              | Filter application keys by the specified string.                                                                                                                   | [optional]                            |
+| **filter_created_at_start** | **String**              | Only include application keys created on or after the specified date.                                                                                              | [optional]                            |
+| **filter_created_at_end**   | **String**              | Only include application keys created on or before the specified date.                                                                                             | [optional]                            |
 
 ### Return type
 
@@ -653,7 +643,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## list_current_user_application_keys
 
@@ -704,14 +693,14 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **page_size** | **Integer** | Size for a given page. | [optional][default to 10] |
-| **page_number** | **Integer** | Specific page number to return. | [optional][default to 0] |
-| **sort** | **ApplicationKeysSort** | Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. | [optional][default to &#39;name&#39;] |
-| **filter** | **String** | Filter application keys by the specified string. | [optional] |
-| **filter_created_at_start** | **String** | Only include application keys created on or after the specified date. | [optional] |
-| **filter_created_at_end** | **String** | Only include application keys created on or before the specified date. | [optional] |
+| Name                        | Type                    | Description                                                                                                                                                        | Notes                                 |
+| --------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------- |
+| **page_size**               | **Integer**             | Size for a given page.                                                                                                                                             | [optional][default to 10]             |
+| **page_number**             | **Integer**             | Specific page number to return.                                                                                                                                    | [optional][default to 0]              |
+| **sort**                    | **ApplicationKeysSort** | Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. | [optional][default to &#39;name&#39;] |
+| **filter**                  | **String**              | Filter application keys by the specified string.                                                                                                                   | [optional]                            |
+| **filter_created_at_start** | **String**              | Only include application keys created on or after the specified date.                                                                                              | [optional]                            |
+| **filter_created_at_end**   | **String**              | Only include application keys created on or before the specified date.                                                                                             | [optional]                            |
 
 ### Return type
 
@@ -726,7 +715,6 @@ end
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-
 ## update_api_key
 
 > <APIKeyResponse> update_api_key(api_key_id, body)
@@ -739,7 +727,7 @@ Update an API key.
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::KeyManagementAPI.new
 api_key_id = 'api_key_id_example' # String | The ID of the API key.
-body = DatadogAPIClient::V2::APIKeyUpdateRequest.new({data: DatadogAPIClient::V2::APIKeyUpdateData.new({attributes: DatadogAPIClient::V2::APIKeyUpdateAttributes.new({name: 'API Key for submitting metrics'}), id: '00112233-4455-6677-8899-aabbccddeeff', type: DatadogAPIClient::V2::APIKeysType::API_KEYS})}) # APIKeyUpdateRequest | 
+body = DatadogAPIClient::V2::APIKeyUpdateRequest.new({data: DatadogAPIClient::V2::APIKeyUpdateData.new({attributes: DatadogAPIClient::V2::APIKeyUpdateAttributes.new({name: 'API Key for submitting metrics'}), id: '00112233-4455-6677-8899-aabbccddeeff', type: DatadogAPIClient::V2::APIKeysType::API_KEYS})}) # APIKeyUpdateRequest |
 
 begin
   # Edit an API key
@@ -770,10 +758,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **api_key_id** | **String** | The ID of the API key. |  |
-| **body** | [**APIKeyUpdateRequest**](APIKeyUpdateRequest.md) |  |  |
+| Name           | Type                                              | Description            | Notes |
+| -------------- | ------------------------------------------------- | ---------------------- | ----- |
+| **api_key_id** | **String**                                        | The ID of the API key. |       |
+| **body**       | [**APIKeyUpdateRequest**](APIKeyUpdateRequest.md) |                        |       |
 
 ### Return type
 
@@ -788,7 +776,6 @@ end
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-
 ## update_application_key
 
 > <ApplicationKeyResponse> update_application_key(app_key_id, body)
@@ -801,7 +788,7 @@ Edit an application key
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::KeyManagementAPI.new
 app_key_id = 'app_key_id_example' # String | The ID of the application key.
-body = DatadogAPIClient::V2::ApplicationKeyUpdateRequest.new({data: DatadogAPIClient::V2::ApplicationKeyUpdateData.new({attributes: DatadogAPIClient::V2::ApplicationKeyUpdateAttributes.new({name: 'Application Key for submitting metrics'}), id: '00112233-4455-6677-8899-aabbccddeeff', type: DatadogAPIClient::V2::ApplicationKeysType::APPLICATION_KEYS})}) # ApplicationKeyUpdateRequest | 
+body = DatadogAPIClient::V2::ApplicationKeyUpdateRequest.new({data: DatadogAPIClient::V2::ApplicationKeyUpdateData.new({attributes: DatadogAPIClient::V2::ApplicationKeyUpdateAttributes.new({name: 'Application Key for submitting metrics'}), id: '00112233-4455-6677-8899-aabbccddeeff', type: DatadogAPIClient::V2::ApplicationKeysType::APPLICATION_KEYS})}) # ApplicationKeyUpdateRequest |
 
 begin
   # Edit an application key
@@ -832,10 +819,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **app_key_id** | **String** | The ID of the application key. |  |
-| **body** | [**ApplicationKeyUpdateRequest**](ApplicationKeyUpdateRequest.md) |  |  |
+| Name           | Type                                                              | Description                    | Notes |
+| -------------- | ----------------------------------------------------------------- | ------------------------------ | ----- |
+| **app_key_id** | **String**                                                        | The ID of the application key. |       |
+| **body**       | [**ApplicationKeyUpdateRequest**](ApplicationKeyUpdateRequest.md) |                                |       |
 
 ### Return type
 
@@ -850,7 +837,6 @@ end
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-
 ## update_current_user_application_key
 
 > <ApplicationKeyResponse> update_current_user_application_key(app_key_id, body)
@@ -863,7 +849,7 @@ Edit an application key owned by current user
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::KeyManagementAPI.new
 app_key_id = 'app_key_id_example' # String | The ID of the application key.
-body = DatadogAPIClient::V2::ApplicationKeyUpdateRequest.new({data: DatadogAPIClient::V2::ApplicationKeyUpdateData.new({attributes: DatadogAPIClient::V2::ApplicationKeyUpdateAttributes.new({name: 'Application Key for submitting metrics'}), id: '00112233-4455-6677-8899-aabbccddeeff', type: DatadogAPIClient::V2::ApplicationKeysType::APPLICATION_KEYS})}) # ApplicationKeyUpdateRequest | 
+body = DatadogAPIClient::V2::ApplicationKeyUpdateRequest.new({data: DatadogAPIClient::V2::ApplicationKeyUpdateData.new({attributes: DatadogAPIClient::V2::ApplicationKeyUpdateAttributes.new({name: 'Application Key for submitting metrics'}), id: '00112233-4455-6677-8899-aabbccddeeff', type: DatadogAPIClient::V2::ApplicationKeysType::APPLICATION_KEYS})}) # ApplicationKeyUpdateRequest |
 
 begin
   # Edit an application key owned by current user
@@ -894,10 +880,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **app_key_id** | **String** | The ID of the application key. |  |
-| **body** | [**ApplicationKeyUpdateRequest**](ApplicationKeyUpdateRequest.md) |  |  |
+| Name           | Type                                                              | Description                    | Notes |
+| -------------- | ----------------------------------------------------------------- | ------------------------------ | ----- |
+| **app_key_id** | **String**                                                        | The ID of the application key. |       |
+| **body**       | [**ApplicationKeyUpdateRequest**](ApplicationKeyUpdateRequest.md) |                                |       |
 
 ### Return type
 
@@ -911,4 +897,3 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-

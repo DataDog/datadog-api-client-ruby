@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **attributes** | [**LogsMetricUpdateAttributes**](LogsMetricUpdateAttributes.md) |  |  |
-| **type** | [**LogsMetricType**](LogsMetricType.md) |  | [default to &#39;logs_metrics&#39;] |
+| Name           | Type                                                            | Description | Notes                               |
+| -------------- | --------------------------------------------------------------- | ----------- | ----------------------------------- |
+| **attributes** | [**LogsMetricUpdateAttributes**](LogsMetricUpdateAttributes.md) |             |                                     |
+| **type**       | [**LogsMetricType**](LogsMetricType.md)                         |             | [default to &#39;logs_metrics&#39;] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::LogsMetricUpdateData.new(
   type: null
 )
 ```
-

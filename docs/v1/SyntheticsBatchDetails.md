@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data** | [**SyntheticsBatchDetailsData**](SyntheticsBatchDetailsData.md) |  | [optional] |
+| Name     | Type                                                            | Description | Notes      |
+| -------- | --------------------------------------------------------------- | ----------- | ---------- |
+| **data** | [**SyntheticsBatchDetailsData**](SyntheticsBatchDetailsData.md) |             | [optional] |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::SyntheticsBatchDetails.new(
   data: null
 )
 ```
-

@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data** | [**SLOHistoryResponseData**](SLOHistoryResponseData.md) |  | [optional] |
+| Name       | Type                                                                   | Description                                                                       | Notes      |
+| ---------- | ---------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ---------- |
+| **data**   | [**SLOHistoryResponseData**](SLOHistoryResponseData.md)                |                                                                                   | [optional] |
 | **errors** | [**Array&lt;SLOHistoryResponseError&gt;**](SLOHistoryResponseError.md) | A list of errors while querying the history data for the service level objective. | [optional] |
 
 ## Example
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::SLOHistoryResponse.new(
   errors: null
 )
 ```
-

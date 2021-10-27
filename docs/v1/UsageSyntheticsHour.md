@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name                  | Type        | Description                                      | Notes      |
+| --------------------- | ----------- | ------------------------------------------------ | ---------- |
 | **check_calls_count** | **Integer** | Contains the number of Synthetics API tests run. | [optional] |
-| **hour** | **Time** | The hour for the usage. | [optional] |
+| **hour**              | **Time**    | The hour for the usage.                          | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::UsageSyntheticsHour.new(
   hour: null
 )
 ```
-

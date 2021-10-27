@@ -2,15 +2,15 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **created** | **Time** | Creation time of the permission. | [optional] |
-| **description** | **String** | Description of the permission. | [optional] |
-| **display_name** | **String** | Displayed name for the permission. | [optional] |
-| **display_type** | **String** | Display type. | [optional] |
-| **group_name** | **String** | Name of the permission group. | [optional] |
-| **name** | **String** | Name of the permission. | [optional] |
-| **restricted** | **Boolean** | Whether or not the permission is restricted. | [optional] |
+| Name             | Type        | Description                                  | Notes      |
+| ---------------- | ----------- | -------------------------------------------- | ---------- |
+| **created**      | **Time**    | Creation time of the permission.             | [optional] |
+| **description**  | **String**  | Description of the permission.               | [optional] |
+| **display_name** | **String**  | Displayed name for the permission.           | [optional] |
+| **display_type** | **String**  | Display type.                                | [optional] |
+| **group_name**   | **String**  | Name of the permission group.                | [optional] |
+| **name**         | **String**  | Name of the permission.                      | [optional] |
+| **restricted**   | **Boolean** | Whether or not the permission is restricted. | [optional] |
 
 ## Example
 
@@ -27,4 +27,3 @@ instance = DatadogAPIClient::V2::PermissionAttributes.new(
   restricted: null
 )
 ```
-

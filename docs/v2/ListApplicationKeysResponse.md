@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data** | [**Array&lt;PartialApplicationKey&gt;**](PartialApplicationKey.md) | Array of application keys. | [optional] |
+| Name         | Type                                                                                         | Description                                      | Notes      |
+| ------------ | -------------------------------------------------------------------------------------------- | ------------------------------------------------ | ---------- |
+| **data**     | [**Array&lt;PartialApplicationKey&gt;**](PartialApplicationKey.md)                           | Array of application keys.                       | [optional] |
 | **included** | [**Array&lt;ApplicationKeyResponseIncludedItem&gt;**](ApplicationKeyResponseIncludedItem.md) | Array of objects related to the application key. | [optional] |
 
 ## Example
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::ListApplicationKeysResponse.new(
   included: null
 )
 ```
-

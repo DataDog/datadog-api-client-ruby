@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **id** | **String** | A unique identifier that represents the postmortem. |  |
-| **type** | [**IncidentPostmortemType**](IncidentPostmortemType.md) |  | [default to &#39;incident_postmortems&#39;] |
+| Name     | Type                                                    | Description                                         | Notes                                       |
+| -------- | ------------------------------------------------------- | --------------------------------------------------- | ------------------------------------------- |
+| **id**   | **String**                                              | A unique identifier that represents the postmortem. |                                             |
+| **type** | [**IncidentPostmortemType**](IncidentPostmortemType.md) |                                                     | [default to &#39;incident_postmortems&#39;] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::RelationshipToIncidentPostmortemData.new(
   type: null
 )
 ```
-

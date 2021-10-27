@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data** | [**User**](User.md) |  | [optional] |
+| Name         | Type                                                                     | Description                           | Notes      |
+| ------------ | ------------------------------------------------------------------------ | ------------------------------------- | ---------- |
+| **data**     | [**User**](User.md)                                                      |                                       | [optional] |
 | **included** | [**Array&lt;UserResponseIncludedItem&gt;**](UserResponseIncludedItem.md) | Array of objects related to the user. | [optional] |
 
 ## Example
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::UserResponse.new(
   included: null
 )
 ```
-

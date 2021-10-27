@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **id** | **String** | ID of the permission. | [optional] |
-| **type** | [**PermissionsType**](PermissionsType.md) |  | [optional][default to &#39;permissions&#39;] |
+| Name     | Type                                      | Description           | Notes                                        |
+| -------- | ----------------------------------------- | --------------------- | -------------------------------------------- |
+| **id**   | **String**                                | ID of the permission. | [optional]                                   |
+| **type** | [**PermissionsType**](PermissionsType.md) |                       | [optional][default to &#39;permissions&#39;] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::RelationshipToPermissionData.new(
   type: null
 )
 ```
-

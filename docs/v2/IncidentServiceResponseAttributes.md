@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **created** | **Time** | Timestamp of when the incident service was created. | [optional][readonly] |
-| **modified** | **Time** | Timestamp of when the incident service was modified. | [optional][readonly] |
-| **name** | **String** | Name of the incident service. | [optional] |
+| Name         | Type       | Description                                          | Notes                |
+| ------------ | ---------- | ---------------------------------------------------- | -------------------- |
+| **created**  | **Time**   | Timestamp of when the incident service was created.  | [optional][readonly] |
+| **modified** | **Time**   | Timestamp of when the incident service was modified. | [optional][readonly] |
+| **name**     | **String** | Name of the incident service.                        | [optional]           |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V2::IncidentServiceResponseAttributes.new(
   name: service name
 )
 ```
-

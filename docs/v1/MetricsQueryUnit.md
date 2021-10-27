@@ -2,13 +2,13 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **family** | **String** | Unit family, allows for conversion between units of the same family, for scaling. | [optional][readonly] |
-| **name** | **String** | Unit name | [optional][readonly] |
-| **plural** | **String** | Plural form of the unit name. | [optional][readonly] |
-| **scale_factor** | **Float** | Factor for scaling between units of the same family. | [optional][readonly] |
-| **short_name** | **String** | Abbreviation of the unit. | [optional][readonly] |
+| Name             | Type       | Description                                                                       | Notes                |
+| ---------------- | ---------- | --------------------------------------------------------------------------------- | -------------------- |
+| **family**       | **String** | Unit family, allows for conversion between units of the same family, for scaling. | [optional][readonly] |
+| **name**         | **String** | Unit name                                                                         | [optional][readonly] |
+| **plural**       | **String** | Plural form of the unit name.                                                     | [optional][readonly] |
+| **scale_factor** | **Float**  | Factor for scaling between units of the same family.                              | [optional][readonly] |
+| **short_name**   | **String** | Abbreviation of the unit.                                                         | [optional][readonly] |
 
 ## Example
 
@@ -23,4 +23,3 @@ instance = DatadogAPIClient::V1::MetricsQueryUnit.new(
   short_name: min
 )
 ```
-

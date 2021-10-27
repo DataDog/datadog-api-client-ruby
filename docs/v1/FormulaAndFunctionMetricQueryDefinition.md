@@ -2,12 +2,12 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **aggregator** | [**FormulaAndFunctionMetricAggregation**](FormulaAndFunctionMetricAggregation.md) |  | [optional] |
-| **data_source** | [**FormulaAndFunctionMetricDataSource**](FormulaAndFunctionMetricDataSource.md) |  |  |
-| **name** | **String** | Name of the query for use in formulas. |  |
-| **query** | **String** | Metrics query definition. |  |
+| Name            | Type                                                                              | Description                            | Notes      |
+| --------------- | --------------------------------------------------------------------------------- | -------------------------------------- | ---------- |
+| **aggregator**  | [**FormulaAndFunctionMetricAggregation**](FormulaAndFunctionMetricAggregation.md) |                                        | [optional] |
+| **data_source** | [**FormulaAndFunctionMetricDataSource**](FormulaAndFunctionMetricDataSource.md)   |                                        |            |
+| **name**        | **String**                                                                        | Name of the query for use in formulas. |            |
+| **query**       | **String**                                                                        | Metrics query definition.              |            |
 
 ## Example
 
@@ -21,4 +21,3 @@ instance = DatadogAPIClient::V1::FormulaAndFunctionMetricQueryDefinition.new(
   query: avg:system.cpu.user{*}
 )
 ```
-

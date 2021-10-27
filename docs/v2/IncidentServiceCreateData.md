@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **attributes** | [**IncidentServiceCreateAttributes**](IncidentServiceCreateAttributes.md) |  | [optional] |
-| **relationships** | [**IncidentServiceRelationships**](IncidentServiceRelationships.md) |  | [optional] |
-| **type** | [**IncidentServiceType**](IncidentServiceType.md) |  | [default to &#39;services&#39;] |
+| Name              | Type                                                                      | Description | Notes                           |
+| ----------------- | ------------------------------------------------------------------------- | ----------- | ------------------------------- |
+| **attributes**    | [**IncidentServiceCreateAttributes**](IncidentServiceCreateAttributes.md) |             | [optional]                      |
+| **relationships** | [**IncidentServiceRelationships**](IncidentServiceRelationships.md)       |             | [optional]                      |
+| **type**          | [**IncidentServiceType**](IncidentServiceType.md)                         |             | [default to &#39;services&#39;] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V2::IncidentServiceCreateData.new(
   type: null
 )
 ```
-

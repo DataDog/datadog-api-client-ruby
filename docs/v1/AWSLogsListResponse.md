@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **account_id** | **String** | Your AWS Account ID without dashes. | [optional] |
-| **lambdas** | [**Array&lt;AWSLogsLambda&gt;**](AWSLogsLambda.md) | List of ARNs configured in your Datadog account. | [optional] |
-| **services** | **Array&lt;String&gt;** | Array of services IDs. | [optional] |
+| Name           | Type                                               | Description                                      | Notes      |
+| -------------- | -------------------------------------------------- | ------------------------------------------------ | ---------- |
+| **account_id** | **String**                                         | Your AWS Account ID without dashes.              | [optional] |
+| **lambdas**    | [**Array&lt;AWSLogsLambda&gt;**](AWSLogsLambda.md) | List of ARNs configured in your Datadog account. | [optional] |
+| **services**   | **Array&lt;String&gt;**                            | Array of services IDs.                           | [optional] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::AWSLogsListResponse.new(
   services: [&quot;s3&quot;,&quot;elb&quot;,&quot;elbv2&quot;,&quot;cloudfront&quot;,&quot;redshift&quot;,&quot;lambda&quot;]
 )
 ```
-

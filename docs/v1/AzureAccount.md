@@ -2,15 +2,15 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **client_id** | **String** | Your Azure web application ID. | [optional] |
-| **client_secret** | **String** | Your Azure web application secret key. | [optional] |
-| **errors** | **Array&lt;String&gt;** | Errors in your configuration. | [optional] |
-| **host_filters** | **String** | Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. | [optional] |
-| **new_client_id** | **String** | Your New Azure web application ID. | [optional] |
-| **new_tenant_name** | **String** | Your New Azure Active Directory ID. | [optional] |
-| **tenant_name** | **String** | Your Azure Active Directory ID. | [optional] |
+| Name                | Type                    | Description                                                                                                                                    | Notes      |
+| ------------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **client_id**       | **String**              | Your Azure web application ID.                                                                                                                 | [optional] |
+| **client_secret**   | **String**              | Your Azure web application secret key.                                                                                                         | [optional] |
+| **errors**          | **Array&lt;String&gt;** | Errors in your configuration.                                                                                                                  | [optional] |
+| **host_filters**    | **String**              | Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. | [optional] |
+| **new_client_id**   | **String**              | Your New Azure web application ID.                                                                                                             | [optional] |
+| **new_tenant_name** | **String**              | Your New Azure Active Directory ID.                                                                                                            | [optional] |
+| **tenant_name**     | **String**              | Your Azure Active Directory ID.                                                                                                                | [optional] |
 
 ## Example
 
@@ -27,4 +27,3 @@ instance = DatadogAPIClient::V1::AzureAccount.new(
   tenant_name: testc44-1234-5678-9101-cc00736ftest
 )
 ```
-

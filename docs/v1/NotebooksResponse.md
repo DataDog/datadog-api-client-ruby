@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name     | Type                                                               | Description                   | Notes      |
+| -------- | ------------------------------------------------------------------ | ----------------------------- | ---------- |
 | **data** | [**Array&lt;NotebooksResponseData&gt;**](NotebooksResponseData.md) | List of notebook definitions. | [optional] |
-| **meta** | [**NotebooksResponseMeta**](NotebooksResponseMeta.md) |  | [optional] |
+| **meta** | [**NotebooksResponseMeta**](NotebooksResponseMeta.md)              |                               | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::NotebooksResponse.new(
   meta: null
 )
 ```
-

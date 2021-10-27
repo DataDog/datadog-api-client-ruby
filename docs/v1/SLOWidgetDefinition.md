@@ -2,18 +2,18 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **global_time_target** | **String** | Defined global time target. | [optional] |
-| **show_error_budget** | **Boolean** | Defined error budget. | [optional] |
-| **slo_id** | **String** | ID of the SLO displayed. | [optional] |
-| **time_windows** | [**Array&lt;WidgetTimeWindows&gt;**](WidgetTimeWindows.md) | Times being monitored. | [optional] |
-| **title** | **String** | Title of the widget. | [optional] |
-| **title_align** | [**WidgetTextAlign**](WidgetTextAlign.md) |  | [optional] |
-| **title_size** | **String** | Size of the title. | [optional] |
-| **type** | [**SLOWidgetDefinitionType**](SLOWidgetDefinitionType.md) |  | [default to &#39;slo&#39;] |
-| **view_mode** | [**WidgetViewMode**](WidgetViewMode.md) |  | [optional] |
-| **view_type** | **String** | Type of view displayed by the widget. | [default to &#39;detail&#39;] |
+| Name                   | Type                                                       | Description                           | Notes                         |
+| ---------------------- | ---------------------------------------------------------- | ------------------------------------- | ----------------------------- |
+| **global_time_target** | **String**                                                 | Defined global time target.           | [optional]                    |
+| **show_error_budget**  | **Boolean**                                                | Defined error budget.                 | [optional]                    |
+| **slo_id**             | **String**                                                 | ID of the SLO displayed.              | [optional]                    |
+| **time_windows**       | [**Array&lt;WidgetTimeWindows&gt;**](WidgetTimeWindows.md) | Times being monitored.                | [optional]                    |
+| **title**              | **String**                                                 | Title of the widget.                  | [optional]                    |
+| **title_align**        | [**WidgetTextAlign**](WidgetTextAlign.md)                  |                                       | [optional]                    |
+| **title_size**         | **String**                                                 | Size of the title.                    | [optional]                    |
+| **type**               | [**SLOWidgetDefinitionType**](SLOWidgetDefinitionType.md)  |                                       | [default to &#39;slo&#39;]    |
+| **view_mode**          | [**WidgetViewMode**](WidgetViewMode.md)                    |                                       | [optional]                    |
+| **view_type**          | **String**                                                 | Type of view displayed by the widget. | [default to &#39;detail&#39;] |
 
 ## Example
 
@@ -33,4 +33,3 @@ instance = DatadogAPIClient::V1::SLOWidgetDefinition.new(
   view_type: detail
 )
 ```
-

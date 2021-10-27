@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **id** | **String** | A unique identifier that represents the user. |  |
-| **type** | [**UsersType**](UsersType.md) |  | [default to &#39;users&#39;] |
+| Name     | Type                          | Description                                   | Notes                        |
+| -------- | ----------------------------- | --------------------------------------------- | ---------------------------- |
+| **id**   | **String**                    | A unique identifier that represents the user. |                              |
+| **type** | [**UsersType**](UsersType.md) |                                               | [default to &#39;users&#39;] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::RelationshipToUserData.new(
   type: null
 )
 ```
-

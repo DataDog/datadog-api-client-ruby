@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **avg_container_agent_count** | **Integer** | Get average number of container agents for that hour. | [optional] |
-| **host_count** | **Integer** | Contains the total number of profiled hosts reporting during a given hour. | [optional] |
-| **hour** | **Time** | The hour for the usage. | [optional] |
+| Name                          | Type        | Description                                                                | Notes      |
+| ----------------------------- | ----------- | -------------------------------------------------------------------------- | ---------- |
+| **avg_container_agent_count** | **Integer** | Get average number of container agents for that hour.                      | [optional] |
+| **host_count**                | **Integer** | Contains the total number of profiled hosts reporting during a given hour. | [optional] |
+| **hour**                      | **Time**    | The hour for the usage.                                                    | [optional] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::UsageProfilingHour.new(
   hour: null
 )
 ```
-

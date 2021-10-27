@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data** | [**CheckCanDeleteSLOResponseData**](CheckCanDeleteSLOResponseData.md) |  | [optional] |
-| **errors** | **Hash&lt;String, String&gt;** | A mapping of SLO id to it&#39;s current usages. | [optional] |
+| Name       | Type                                                                  | Description                                     | Notes      |
+| ---------- | --------------------------------------------------------------------- | ----------------------------------------------- | ---------- |
+| **data**   | [**CheckCanDeleteSLOResponseData**](CheckCanDeleteSLOResponseData.md) |                                                 | [optional] |
+| **errors** | **Hash&lt;String, String&gt;**                                        | A mapping of SLO id to it&#39;s current usages. | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::CheckCanDeleteSLOResponse.new(
   errors: null
 )
 ```
-

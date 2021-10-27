@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **facet** | **String** | Facet name. |  |
-| **limit** | **Integer** | Maximum number of items in the group. | [optional] |
-| **sort** | [**LogQueryDefinitionGroupBySort**](LogQueryDefinitionGroupBySort.md) |  | [optional] |
+| Name      | Type                                                                  | Description                           | Notes      |
+| --------- | --------------------------------------------------------------------- | ------------------------------------- | ---------- |
+| **facet** | **String**                                                            | Facet name.                           |            |
+| **limit** | **Integer**                                                           | Maximum number of items in the group. | [optional] |
+| **sort**  | [**LogQueryDefinitionGroupBySort**](LogQueryDefinitionGroupBySort.md) |                                       | [optional] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::LogQueryDefinitionGroupBy.new(
   sort: null
 )
 ```
-

@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data** | [**RelationshipToOrganizationData**](RelationshipToOrganizationData.md) |  |  |
+| Name     | Type                                                                    | Description | Notes |
+| -------- | ----------------------------------------------------------------------- | ----------- | ----- |
+| **data** | [**RelationshipToOrganizationData**](RelationshipToOrganizationData.md) |             |       |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V2::RelationshipToOrganization.new(
   data: null
 )
 ```
-

@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **id** | **String** | ID of the organization. |  |
-| **type** | [**OrganizationsType**](OrganizationsType.md) |  | [default to &#39;orgs&#39;] |
+| Name     | Type                                          | Description             | Notes                       |
+| -------- | --------------------------------------------- | ----------------------- | --------------------------- |
+| **id**   | **String**                                    | ID of the organization. |                             |
+| **type** | [**OrganizationsType**](OrganizationsType.md) |                         | [default to &#39;orgs&#39;] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::RelationshipToOrganizationData.new(
   type: null
 )
 ```
-

@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **account_id** | **String** | Your AWS Account ID without dashes. | [optional] |
-| **namespace** | [**AWSNamespace**](AWSNamespace.md) |  | [optional] |
-| **tag_filter_str** | **String** | The tag filter string. | [optional] |
+| Name               | Type                                | Description                         | Notes      |
+| ------------------ | ----------------------------------- | ----------------------------------- | ---------- |
+| **account_id**     | **String**                          | Your AWS Account ID without dashes. | [optional] |
+| **namespace**      | [**AWSNamespace**](AWSNamespace.md) |                                     | [optional] |
+| **tag_filter_str** | **String**                          | The tag filter string.              | [optional] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::AWSTagFilterCreateRequest.new(
   tag_filter_str: prod*
 )
 ```
-

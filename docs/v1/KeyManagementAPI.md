@@ -2,19 +2,18 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method | HTTP request | Description |
-| ------ | ------------ | ----------- |
-| [**create_api_key**](KeyManagementAPI.md#create_api_key) | **POST** /api/v1/api_key | Create an API key |
-| [**create_application_key**](KeyManagementAPI.md#create_application_key) | **POST** /api/v1/application_key | Create an application key |
-| [**delete_api_key**](KeyManagementAPI.md#delete_api_key) | **DELETE** /api/v1/api_key/{key} | Delete an API key |
+| Method                                                                   | HTTP request                             | Description               |
+| ------------------------------------------------------------------------ | ---------------------------------------- | ------------------------- |
+| [**create_api_key**](KeyManagementAPI.md#create_api_key)                 | **POST** /api/v1/api_key                 | Create an API key         |
+| [**create_application_key**](KeyManagementAPI.md#create_application_key) | **POST** /api/v1/application_key         | Create an application key |
+| [**delete_api_key**](KeyManagementAPI.md#delete_api_key)                 | **DELETE** /api/v1/api_key/{key}         | Delete an API key         |
 | [**delete_application_key**](KeyManagementAPI.md#delete_application_key) | **DELETE** /api/v1/application_key/{key} | Delete an application key |
-| [**get_api_key**](KeyManagementAPI.md#get_api_key) | **GET** /api/v1/api_key/{key} | Get API key |
-| [**get_application_key**](KeyManagementAPI.md#get_application_key) | **GET** /api/v1/application_key/{key} | Get an application key |
-| [**list_api_keys**](KeyManagementAPI.md#list_api_keys) | **GET** /api/v1/api_key | Get all API keys |
-| [**list_application_keys**](KeyManagementAPI.md#list_application_keys) | **GET** /api/v1/application_key | Get all application keys |
-| [**update_api_key**](KeyManagementAPI.md#update_api_key) | **PUT** /api/v1/api_key/{key} | Edit an API key |
-| [**update_application_key**](KeyManagementAPI.md#update_application_key) | **PUT** /api/v1/application_key/{key} | Edit an application key |
-
+| [**get_api_key**](KeyManagementAPI.md#get_api_key)                       | **GET** /api/v1/api_key/{key}            | Get API key               |
+| [**get_application_key**](KeyManagementAPI.md#get_application_key)       | **GET** /api/v1/application_key/{key}    | Get an application key    |
+| [**list_api_keys**](KeyManagementAPI.md#list_api_keys)                   | **GET** /api/v1/api_key                  | Get all API keys          |
+| [**list_application_keys**](KeyManagementAPI.md#list_application_keys)   | **GET** /api/v1/application_key          | Get all application keys  |
+| [**update_api_key**](KeyManagementAPI.md#update_api_key)                 | **PUT** /api/v1/api_key/{key}            | Edit an API key           |
+| [**update_application_key**](KeyManagementAPI.md#update_application_key) | **PUT** /api/v1/application_key/{key}    | Edit an application key   |
 
 ## create_api_key
 
@@ -27,7 +26,7 @@ Creates an API key with a given name.
 ```ruby
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::KeyManagementAPI.new
-body = DatadogAPIClient::V1::ApiKey.new # ApiKey | 
+body = DatadogAPIClient::V1::ApiKey.new # ApiKey |
 
 begin
   # Create an API key
@@ -58,9 +57,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**ApiKey**](ApiKey.md) |  |  |
+| Name     | Type                    | Description | Notes |
+| -------- | ----------------------- | ----------- | ----- |
+| **body** | [**ApiKey**](ApiKey.md) |             |       |
 
 ### Return type
 
@@ -75,7 +74,6 @@ end
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-
 ## create_application_key
 
 > <ApplicationKeyResponse> create_application_key(body)
@@ -87,7 +85,7 @@ Create an application key with a given name.
 ```ruby
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::KeyManagementAPI.new
-body = DatadogAPIClient::V1::ApplicationKey.new # ApplicationKey | 
+body = DatadogAPIClient::V1::ApplicationKey.new # ApplicationKey |
 
 begin
   # Create an application key
@@ -118,9 +116,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**ApplicationKey**](ApplicationKey.md) |  |  |
+| Name     | Type                                    | Description | Notes |
+| -------- | --------------------------------------- | ----------- | ----- |
+| **body** | [**ApplicationKey**](ApplicationKey.md) |             |       |
 
 ### Return type
 
@@ -134,7 +132,6 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## delete_api_key
 
@@ -178,9 +175,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **key** | **String** | The specific API key you are working with. |  |
+| Name    | Type       | Description                                | Notes |
+| ------- | ---------- | ------------------------------------------ | ----- |
+| **key** | **String** | The specific API key you are working with. |       |
 
 ### Return type
 
@@ -194,7 +191,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## delete_application_key
 
@@ -238,9 +234,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **key** | **String** | The specific APP key you are working with. |  |
+| Name    | Type       | Description                                | Notes |
+| ------- | ---------- | ------------------------------------------ | ----- |
+| **key** | **String** | The specific APP key you are working with. |       |
 
 ### Return type
 
@@ -254,7 +250,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_api_key
 
@@ -298,9 +293,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **key** | **String** | The specific API key you are working with. |  |
+| Name    | Type       | Description                                | Notes |
+| ------- | ---------- | ------------------------------------------ | ----- |
+| **key** | **String** | The specific API key you are working with. |       |
 
 ### Return type
 
@@ -314,7 +309,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_application_key
 
@@ -358,9 +352,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **key** | **String** | The specific APP key you are working with. |  |
+| Name    | Type       | Description                                | Notes |
+| ------- | ---------- | ------------------------------------------ | ----- |
+| **key** | **String** | The specific APP key you are working with. |       |
 
 ### Return type
 
@@ -374,7 +368,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## list_api_keys
 
@@ -432,7 +425,6 @@ This endpoint does not need any parameter.
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-
 ## list_application_keys
 
 > <ApplicationKeyListResponse> list_application_keys
@@ -489,7 +481,6 @@ This endpoint does not need any parameter.
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-
 ## update_api_key
 
 > <ApiKeyResponse> update_api_key(key, body)
@@ -502,7 +493,7 @@ Edit an API key name.
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::KeyManagementAPI.new
 key = 'key_example' # String | The specific API key you are working with.
-body = DatadogAPIClient::V1::ApiKey.new # ApiKey | 
+body = DatadogAPIClient::V1::ApiKey.new # ApiKey |
 
 begin
   # Edit an API key
@@ -533,10 +524,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **key** | **String** | The specific API key you are working with. |  |
-| **body** | [**ApiKey**](ApiKey.md) |  |  |
+| Name     | Type                    | Description                                | Notes |
+| -------- | ----------------------- | ------------------------------------------ | ----- |
+| **key**  | **String**              | The specific API key you are working with. |       |
+| **body** | [**ApiKey**](ApiKey.md) |                                            |       |
 
 ### Return type
 
@@ -551,7 +542,6 @@ end
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-
 ## update_application_key
 
 > <ApplicationKeyResponse> update_application_key(key, body)
@@ -564,7 +554,7 @@ Edit an application key name.
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::KeyManagementAPI.new
 key = 'key_example' # String | The specific APP key you are working with.
-body = DatadogAPIClient::V1::ApplicationKey.new # ApplicationKey | 
+body = DatadogAPIClient::V1::ApplicationKey.new # ApplicationKey |
 
 begin
   # Edit an application key
@@ -595,10 +585,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **key** | **String** | The specific APP key you are working with. |  |
-| **body** | [**ApplicationKey**](ApplicationKey.md) |  |  |
+| Name     | Type                                    | Description                                | Notes |
+| -------- | --------------------------------------- | ------------------------------------------ | ----- |
+| **key**  | **String**                              | The specific APP key you are working with. |       |
+| **body** | [**ApplicationKey**](ApplicationKey.md) |                                            |       |
 
 ### Return type
 
@@ -612,4 +602,3 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-

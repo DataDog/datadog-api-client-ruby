@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name           | Type                                                                       | Description                               | Notes      |
+| -------------- | -------------------------------------------------------------------------- | ----------------------------------------- | ---------- |
 | **dashboards** | [**Array&lt;DashboardListItemResponse&gt;**](DashboardListItemResponse.md) | List of dashboards in the dashboard list. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V2::DashboardListUpdateItemsResponse.new(
   dashboards: null
 )
 ```
-

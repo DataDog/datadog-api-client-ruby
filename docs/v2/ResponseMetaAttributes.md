@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **page** | [**Pagination**](Pagination.md) |  | [optional] |
+| Name     | Type                            | Description | Notes      |
+| -------- | ------------------------------- | ----------- | ---------- |
+| **page** | [**Pagination**](Pagination.md) |             | [optional] |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V2::ResponseMetaAttributes.new(
   page: null
 )
 ```
-

@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **aggregation** | [**FormulaAndFunctionEventAggregation**](FormulaAndFunctionEventAggregation.md) |  |  |
-| **metric** | **String** | Metric used for sorting group by results. | [optional] |
-| **order** | [**QuerySortOrder**](QuerySortOrder.md) |  | [optional][default to &#39;desc&#39;] |
+| Name            | Type                                                                            | Description                               | Notes                                 |
+| --------------- | ------------------------------------------------------------------------------- | ----------------------------------------- | ------------------------------------- |
+| **aggregation** | [**FormulaAndFunctionEventAggregation**](FormulaAndFunctionEventAggregation.md) |                                           |                                       |
+| **metric**      | **String**                                                                      | Metric used for sorting group by results. | [optional]                            |
+| **order**       | [**QuerySortOrder**](QuerySortOrder.md)                                         |                                           | [optional][default to &#39;desc&#39;] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::FormulaAndFunctionEventQueryGroupBySort.new(
   order: null
 )
 ```
-

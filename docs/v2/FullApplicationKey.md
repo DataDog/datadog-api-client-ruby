@@ -2,12 +2,12 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **attributes** | [**FullApplicationKeyAttributes**](FullApplicationKeyAttributes.md) |  | [optional] |
-| **id** | **String** | ID of the application key. | [optional] |
-| **relationships** | [**ApplicationKeyRelationships**](ApplicationKeyRelationships.md) |  | [optional] |
-| **type** | [**ApplicationKeysType**](ApplicationKeysType.md) |  | [optional][default to &#39;application_keys&#39;] |
+| Name              | Type                                                                | Description                | Notes                                             |
+| ----------------- | ------------------------------------------------------------------- | -------------------------- | ------------------------------------------------- |
+| **attributes**    | [**FullApplicationKeyAttributes**](FullApplicationKeyAttributes.md) |                            | [optional]                                        |
+| **id**            | **String**                                                          | ID of the application key. | [optional]                                        |
+| **relationships** | [**ApplicationKeyRelationships**](ApplicationKeyRelationships.md)   |                            | [optional]                                        |
+| **type**          | [**ApplicationKeysType**](ApplicationKeysType.md)                   |                            | [optional][default to &#39;application_keys&#39;] |
 
 ## Example
 
@@ -21,4 +21,3 @@ instance = DatadogAPIClient::V2::FullApplicationKey.new(
   type: null
 )
 ```
-

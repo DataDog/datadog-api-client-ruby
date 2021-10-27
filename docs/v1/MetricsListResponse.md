@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **from** | **String** | Time when the metrics were active, seconds since the Unix epoch. | [optional] |
-| **metrics** | **Array&lt;String&gt;** | List of metric names. | [optional] |
+| Name        | Type                    | Description                                                      | Notes      |
+| ----------- | ----------------------- | ---------------------------------------------------------------- | ---------- |
+| **from**    | **String**              | Time when the metrics were active, seconds since the Unix epoch. | [optional] |
+| **metrics** | **Array&lt;String&gt;** | List of metric names.                                            | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::MetricsListResponse.new(
   metrics: null
 )
 ```
-

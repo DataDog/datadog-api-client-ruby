@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **page** | [**SLOListResponseMetadataPage**](SLOListResponseMetadataPage.md) |  | [optional] |
+| Name     | Type                                                              | Description | Notes      |
+| -------- | ----------------------------------------------------------------- | ----------- | ---------- |
+| **page** | [**SLOListResponseMetadataPage**](SLOListResponseMetadataPage.md) |             | [optional] |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::SLOListResponseMetadata.new(
   page: null
 )
 ```
-

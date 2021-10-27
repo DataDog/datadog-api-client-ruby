@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **host_list** | [**Array&lt;Host&gt;**](Host.md) | Array of hosts. | [optional] |
-| **total_matching** | **Integer** | Number of host matching the query. | [optional] |
-| **total_returned** | **Integer** | Number of host returned. | [optional] |
+| Name               | Type                             | Description                        | Notes      |
+| ------------------ | -------------------------------- | ---------------------------------- | ---------- |
+| **host_list**      | [**Array&lt;Host&gt;**](Host.md) | Array of hosts.                    | [optional] |
+| **total_matching** | **Integer**                      | Number of host matching the query. | [optional] |
+| **total_returned** | **Integer**                      | Number of host returned.           | [optional] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::HostListResponse.new(
   total_returned: 1
 )
 ```
-

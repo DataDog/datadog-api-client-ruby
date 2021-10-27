@@ -2,12 +2,12 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **created_at** | **String** | Creation date of the API key. | [optional][readonly] |
-| **last4** | **String** | The last four characters of the API key. | [optional][readonly] |
-| **modified_at** | **String** | Date the API key was last modified. | [optional][readonly] |
-| **name** | **String** | Name of the API key. | [optional] |
+| Name            | Type       | Description                              | Notes                |
+| --------------- | ---------- | ---------------------------------------- | -------------------- |
+| **created_at**  | **String** | Creation date of the API key.            | [optional][readonly] |
+| **last4**       | **String** | The last four characters of the API key. | [optional][readonly] |
+| **modified_at** | **String** | Date the API key was last modified.      | [optional][readonly] |
+| **name**        | **String** | Name of the API key.                     | [optional]           |
 
 ## Example
 
@@ -21,4 +21,3 @@ instance = DatadogAPIClient::V2::PartialAPIKeyAttributes.new(
   name: API Key for submitting metrics
 )
 ```
-

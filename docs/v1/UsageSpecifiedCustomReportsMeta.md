@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **page** | [**UsageSpecifiedCustomReportsPage**](UsageSpecifiedCustomReportsPage.md) |  | [optional] |
+| Name     | Type                                                                      | Description | Notes      |
+| -------- | ------------------------------------------------------------------------- | ----------- | ---------- |
+| **page** | [**UsageSpecifiedCustomReportsPage**](UsageSpecifiedCustomReportsPage.md) |             | [optional] |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::UsageSpecifiedCustomReportsMeta.new(
   page: null
 )
 ```
-

@@ -2,12 +2,12 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **created_at** | **String** | Creation date of the application key. | [optional][readonly] |
-| **key** | **String** | The application key. | [optional][readonly] |
-| **last4** | **String** | The last four characters of the application key. | [optional][readonly] |
-| **name** | **String** | Name of the application key. | [optional] |
+| Name           | Type       | Description                                      | Notes                |
+| -------------- | ---------- | ------------------------------------------------ | -------------------- |
+| **created_at** | **String** | Creation date of the application key.            | [optional][readonly] |
+| **key**        | **String** | The application key.                             | [optional][readonly] |
+| **last4**      | **String** | The last four characters of the application key. | [optional][readonly] |
+| **name**       | **String** | Name of the application key.                     | [optional]           |
 
 ## Example
 
@@ -21,4 +21,3 @@ instance = DatadogAPIClient::V2::FullApplicationKeyAttributes.new(
   name: Application Key for submitting metrics
 )
 ```
-

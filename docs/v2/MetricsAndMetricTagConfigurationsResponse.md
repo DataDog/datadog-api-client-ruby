@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name     | Type                                                                                       | Description                                     | Notes      |
+| -------- | ------------------------------------------------------------------------------------------ | ----------------------------------------------- | ---------- |
 | **data** | [**Array&lt;MetricsAndMetricTagConfigurations&gt;**](MetricsAndMetricTagConfigurations.md) | Array of metrics and metric tag configurations. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V2::MetricsAndMetricTagConfigurationsResponse.new(
   data: null
 )
 ```
-

@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **attributes** | [**IncidentTeamCreateAttributes**](IncidentTeamCreateAttributes.md) |  | [optional] |
-| **relationships** | [**IncidentTeamRelationships**](IncidentTeamRelationships.md) |  | [optional] |
-| **type** | [**IncidentTeamType**](IncidentTeamType.md) |  | [default to &#39;teams&#39;] |
+| Name              | Type                                                                | Description | Notes                        |
+| ----------------- | ------------------------------------------------------------------- | ----------- | ---------------------------- |
+| **attributes**    | [**IncidentTeamCreateAttributes**](IncidentTeamCreateAttributes.md) |             | [optional]                   |
+| **relationships** | [**IncidentTeamRelationships**](IncidentTeamRelationships.md)       |             | [optional]                   |
+| **type**          | [**IncidentTeamType**](IncidentTeamType.md)                         |             | [default to &#39;teams&#39;] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V2::IncidentTeamCreateData.new(
   type: null
 )
 ```
-

@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name                | Type        | Description                           | Notes      |
+| ------------------- | ----------- | ------------------------------------- | ---------- |
 | **distinct_volume** | **Integer** | Distinct volume for the given metric. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V2::MetricDistinctVolumeAttributes.new(
   distinct_volume: 10
 )
 ```
-

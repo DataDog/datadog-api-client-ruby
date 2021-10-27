@@ -2,16 +2,15 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method | HTTP request | Description |
-| ------ | ------------ | ----------- |
-| [**cancel_downtime**](DowntimesAPI.md#cancel_downtime) | **DELETE** /api/v1/downtime/{downtime_id} | Cancel a downtime |
-| [**cancel_downtimes_by_scope**](DowntimesAPI.md#cancel_downtimes_by_scope) | **POST** /api/v1/downtime/cancel/by_scope | Cancel downtimes by scope |
-| [**create_downtime**](DowntimesAPI.md#create_downtime) | **POST** /api/v1/downtime | Schedule a downtime |
-| [**get_downtime**](DowntimesAPI.md#get_downtime) | **GET** /api/v1/downtime/{downtime_id} | Get a downtime |
-| [**list_downtimes**](DowntimesAPI.md#list_downtimes) | **GET** /api/v1/downtime | Get all downtimes |
-| [**list_monitor_downtimes**](DowntimesAPI.md#list_monitor_downtimes) | **GET** /api/v1/monitor/{monitor_id}/downtimes | Get all downtimes for a monitor |
-| [**update_downtime**](DowntimesAPI.md#update_downtime) | **PUT** /api/v1/downtime/{downtime_id} | Update a downtime |
-
+| Method                                                                     | HTTP request                                   | Description                     |
+| -------------------------------------------------------------------------- | ---------------------------------------------- | ------------------------------- |
+| [**cancel_downtime**](DowntimesAPI.md#cancel_downtime)                     | **DELETE** /api/v1/downtime/{downtime_id}      | Cancel a downtime               |
+| [**cancel_downtimes_by_scope**](DowntimesAPI.md#cancel_downtimes_by_scope) | **POST** /api/v1/downtime/cancel/by_scope      | Cancel downtimes by scope       |
+| [**create_downtime**](DowntimesAPI.md#create_downtime)                     | **POST** /api/v1/downtime                      | Schedule a downtime             |
+| [**get_downtime**](DowntimesAPI.md#get_downtime)                           | **GET** /api/v1/downtime/{downtime_id}         | Get a downtime                  |
+| [**list_downtimes**](DowntimesAPI.md#list_downtimes)                       | **GET** /api/v1/downtime                       | Get all downtimes               |
+| [**list_monitor_downtimes**](DowntimesAPI.md#list_monitor_downtimes)       | **GET** /api/v1/monitor/{monitor_id}/downtimes | Get all downtimes for a monitor |
+| [**update_downtime**](DowntimesAPI.md#update_downtime)                     | **PUT** /api/v1/downtime/{downtime_id}         | Update a downtime               |
 
 ## cancel_downtime
 
@@ -54,9 +53,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **downtime_id** | **Integer** | ID of the downtime to cancel. |  |
+| Name            | Type        | Description                   | Notes |
+| --------------- | ----------- | ----------------------------- | ----- |
+| **downtime_id** | **Integer** | ID of the downtime to cancel. |       |
 
 ### Return type
 
@@ -70,7 +69,6 @@ nil (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## cancel_downtimes_by_scope
 
@@ -114,9 +112,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**CancelDowntimesByScopeRequest**](CancelDowntimesByScopeRequest.md) | Scope to cancel downtimes for. |  |
+| Name     | Type                                                                  | Description                    | Notes |
+| -------- | --------------------------------------------------------------------- | ------------------------------ | ----- |
+| **body** | [**CancelDowntimesByScopeRequest**](CancelDowntimesByScopeRequest.md) | Scope to cancel downtimes for. |       |
 
 ### Return type
 
@@ -130,7 +128,6 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## create_downtime
 
@@ -174,9 +171,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**Downtime**](Downtime.md) | Schedule a downtime request body. |  |
+| Name     | Type                        | Description                       | Notes |
+| -------- | --------------------------- | --------------------------------- | ----- |
+| **body** | [**Downtime**](Downtime.md) | Schedule a downtime request body. |       |
 
 ### Return type
 
@@ -190,7 +187,6 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## get_downtime
 
@@ -234,9 +230,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **downtime_id** | **Integer** | ID of the downtime to fetch. |  |
+| Name            | Type        | Description                  | Notes |
+| --------------- | ----------- | ---------------------------- | ----- |
+| **downtime_id** | **Integer** | ID of the downtime to fetch. |       |
 
 ### Return type
 
@@ -250,7 +246,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## list_downtimes
 
@@ -296,8 +291,8 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name             | Type        | Description                                                     | Notes      |
+| ---------------- | ----------- | --------------------------------------------------------------- | ---------- |
 | **current_only** | **Boolean** | Only return downtimes that are active when the request is made. | [optional] |
 
 ### Return type
@@ -312,7 +307,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## list_monitor_downtimes
 
@@ -356,9 +350,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **monitor_id** | **Integer** | The id of the monitor |  |
+| Name           | Type        | Description           | Notes |
+| -------------- | ----------- | --------------------- | ----- |
+| **monitor_id** | **Integer** | The id of the monitor |       |
 
 ### Return type
 
@@ -372,7 +366,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## update_downtime
 
@@ -417,10 +410,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **downtime_id** | **Integer** | ID of the downtime to update. |  |
-| **body** | [**Downtime**](Downtime.md) | Update a downtime request body. |  |
+| Name            | Type                        | Description                     | Notes |
+| --------------- | --------------------------- | ------------------------------- | ----- |
+| **downtime_id** | **Integer**                 | ID of the downtime to update.   |       |
+| **body**        | [**Downtime**](Downtime.md) | Update a downtime request body. |       |
 
 ### Return type
 
@@ -434,4 +427,3 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-

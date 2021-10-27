@@ -2,12 +2,11 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method | HTTP request | Description |
-| ------ | ------------ | ----------- |
-| [**aggregate_logs**](LogsAPI.md#aggregate_logs) | **POST** /api/v2/logs/analytics/aggregate | Aggregate events |
-| [**list_logs**](LogsAPI.md#list_logs) | **POST** /api/v2/logs/events/search | Search logs |
-| [**list_logs_get**](LogsAPI.md#list_logs_get) | **GET** /api/v2/logs/events | Get a list of logs |
-
+| Method                                          | HTTP request                              | Description        |
+| ----------------------------------------------- | ----------------------------------------- | ------------------ |
+| [**aggregate_logs**](LogsAPI.md#aggregate_logs) | **POST** /api/v2/logs/analytics/aggregate | Aggregate events   |
+| [**list_logs**](LogsAPI.md#list_logs)           | **POST** /api/v2/logs/events/search       | Search logs        |
+| [**list_logs_get**](LogsAPI.md#list_logs_get)   | **GET** /api/v2/logs/events               | Get a list of logs |
 
 ## aggregate_logs
 
@@ -20,7 +19,7 @@ The API endpoint to aggregate events into buckets and compute metrics and timese
 ```ruby
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::LogsAPI.new
-body = DatadogAPIClient::V2::LogsAggregateRequest.new # LogsAggregateRequest | 
+body = DatadogAPIClient::V2::LogsAggregateRequest.new # LogsAggregateRequest |
 
 begin
   # Aggregate events
@@ -51,9 +50,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**LogsAggregateRequest**](LogsAggregateRequest.md) |  |  |
+| Name     | Type                                                | Description | Notes |
+| -------- | --------------------------------------------------- | ----------- | ----- |
+| **body** | [**LogsAggregateRequest**](LogsAggregateRequest.md) |             |       |
 
 ### Return type
 
@@ -67,7 +66,6 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## list_logs
 
@@ -91,7 +89,7 @@ See [Datadog Logs Archive documentation][2].**
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::LogsAPI.new
 opts = {
-  body: DatadogAPIClient::V2::LogsListRequest.new # LogsListRequest | 
+  body: DatadogAPIClient::V2::LogsListRequest.new # LogsListRequest |
 }
 
 begin
@@ -123,9 +121,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**LogsListRequest**](LogsListRequest.md) |  | [optional] |
+| Name     | Type                                      | Description | Notes      |
+| -------- | ----------------------------------------- | ----------- | ---------- |
+| **body** | [**LogsListRequest**](LogsListRequest.md) |             | [optional] |
 
 ### Return type
 
@@ -139,7 +137,6 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## list_logs_get
 
@@ -201,15 +198,15 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **filter_query** | **String** | Search query following logs syntax. | [optional] |
-| **filter_index** | **String** | For customers with multiple indexes, the indexes to search Defaults to &#39;*&#39; which means all indexes | [optional] |
-| **filter_from** | **Time** | Minimum timestamp for requested logs. | [optional] |
-| **filter_to** | **Time** | Maximum timestamp for requested logs. | [optional] |
-| **sort** | **LogsSort** | Order of logs in results. | [optional] |
-| **page_cursor** | **String** | List following results with a cursor provided in the previous query. | [optional] |
-| **page_limit** | **Integer** | Maximum number of logs in the response. | [optional][default to 10] |
+| Name             | Type         | Description                                                                                                 | Notes                     |
+| ---------------- | ------------ | ----------------------------------------------------------------------------------------------------------- | ------------------------- |
+| **filter_query** | **String**   | Search query following logs syntax.                                                                         | [optional]                |
+| **filter_index** | **String**   | For customers with multiple indexes, the indexes to search Defaults to &#39;\*&#39; which means all indexes | [optional]                |
+| **filter_from**  | **Time**     | Minimum timestamp for requested logs.                                                                       | [optional]                |
+| **filter_to**    | **Time**     | Maximum timestamp for requested logs.                                                                       | [optional]                |
+| **sort**         | **LogsSort** | Order of logs in results.                                                                                   | [optional]                |
+| **page_cursor**  | **String**   | List following results with a cursor provided in the previous query.                                        | [optional]                |
+| **page_limit**   | **Integer**  | Maximum number of logs in the response.                                                                     | [optional][default to 10] |
 
 ### Return type
 
@@ -223,4 +220,3 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-

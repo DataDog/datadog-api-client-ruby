@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **ci** | [**SyntheticsCIBatchMetadataCI**](SyntheticsCIBatchMetadataCI.md) |  | [optional] |
-| **git** | [**SyntheticsCIBatchMetadataGit**](SyntheticsCIBatchMetadataGit.md) |  | [optional] |
+| Name    | Type                                                                | Description | Notes      |
+| ------- | ------------------------------------------------------------------- | ----------- | ---------- |
+| **ci**  | [**SyntheticsCIBatchMetadataCI**](SyntheticsCIBatchMetadataCI.md)   |             | [optional] |
+| **git** | [**SyntheticsCIBatchMetadataGit**](SyntheticsCIBatchMetadataGit.md) |             | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::SyntheticsCIBatchMetadata.new(
   git: null
 )
 ```
-

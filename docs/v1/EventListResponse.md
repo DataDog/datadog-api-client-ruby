@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name       | Type                               | Description         | Notes      |
+| ---------- | ---------------------------------- | ------------------- | ---------- |
 | **events** | [**Array&lt;Event&gt;**](Event.md) | An array of events. | [optional] |
-| **status** | **String** | A status. | [optional] |
+| **status** | **String**                         | A status.           | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::EventListResponse.new(
   status: null
 )
 ```
-

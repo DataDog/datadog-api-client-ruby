@@ -2,14 +2,13 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method | HTTP request | Description |
-| ------ | ------------ | ----------- |
-| [**create_logs_metric**](LogsMetricsAPI.md#create_logs_metric) | **POST** /api/v2/logs/config/metrics | Create a log-based metric |
+| Method                                                         | HTTP request                                       | Description               |
+| -------------------------------------------------------------- | -------------------------------------------------- | ------------------------- |
+| [**create_logs_metric**](LogsMetricsAPI.md#create_logs_metric) | **POST** /api/v2/logs/config/metrics               | Create a log-based metric |
 | [**delete_logs_metric**](LogsMetricsAPI.md#delete_logs_metric) | **DELETE** /api/v2/logs/config/metrics/{metric_id} | Delete a log-based metric |
-| [**get_logs_metric**](LogsMetricsAPI.md#get_logs_metric) | **GET** /api/v2/logs/config/metrics/{metric_id} | Get a log-based metric |
-| [**list_logs_metrics**](LogsMetricsAPI.md#list_logs_metrics) | **GET** /api/v2/logs/config/metrics | Get all log-based metrics |
-| [**update_logs_metric**](LogsMetricsAPI.md#update_logs_metric) | **PATCH** /api/v2/logs/config/metrics/{metric_id} | Update a log-based metric |
-
+| [**get_logs_metric**](LogsMetricsAPI.md#get_logs_metric)       | **GET** /api/v2/logs/config/metrics/{metric_id}    | Get a log-based metric    |
+| [**list_logs_metrics**](LogsMetricsAPI.md#list_logs_metrics)   | **GET** /api/v2/logs/config/metrics                | Get all log-based metrics |
+| [**update_logs_metric**](LogsMetricsAPI.md#update_logs_metric) | **PATCH** /api/v2/logs/config/metrics/{metric_id}  | Update a log-based metric |
 
 ## create_logs_metric
 
@@ -54,9 +53,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**LogsMetricCreateRequest**](LogsMetricCreateRequest.md) | The definition of the new log-based metric. |  |
+| Name     | Type                                                      | Description                                 | Notes |
+| -------- | --------------------------------------------------------- | ------------------------------------------- | ----- |
+| **body** | [**LogsMetricCreateRequest**](LogsMetricCreateRequest.md) | The definition of the new log-based metric. |       |
 
 ### Return type
 
@@ -70,7 +69,6 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## delete_logs_metric
 
@@ -113,9 +111,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **metric_id** | **String** | The name of the log-based metric. |  |
+| Name          | Type       | Description                       | Notes |
+| ------------- | ---------- | --------------------------------- | ----- |
+| **metric_id** | **String** | The name of the log-based metric. |       |
 
 ### Return type
 
@@ -129,7 +127,6 @@ nil (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_logs_metric
 
@@ -173,9 +170,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **metric_id** | **String** | The name of the log-based metric. |  |
+| Name          | Type       | Description                       | Notes |
+| ------------- | ---------- | --------------------------------- | ----- |
+| **metric_id** | **String** | The name of the log-based metric. |       |
 
 ### Return type
 
@@ -189,7 +186,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## list_logs_metrics
 
@@ -247,7 +243,6 @@ This endpoint does not need any parameter.
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-
 ## update_logs_metric
 
 > <LogsMetricResponse> update_logs_metric(metric_id, body)
@@ -292,10 +287,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **metric_id** | **String** | The name of the log-based metric. |  |
-| **body** | [**LogsMetricUpdateRequest**](LogsMetricUpdateRequest.md) | New definition of the log-based metric. |  |
+| Name          | Type                                                      | Description                             | Notes |
+| ------------- | --------------------------------------------------------- | --------------------------------------- | ----- |
+| **metric_id** | **String**                                                | The name of the log-based metric.       |       |
+| **body**      | [**LogsMetricUpdateRequest**](LogsMetricUpdateRequest.md) | New definition of the log-based metric. |       |
 
 ### Return type
 
@@ -309,4 +304,3 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-

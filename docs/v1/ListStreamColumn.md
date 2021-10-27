@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **field** | **String** | Widget column field. |  |
-| **width** | [**ListStreamColumnWidth**](ListStreamColumnWidth.md) |  |  |
+| Name      | Type                                                  | Description          | Notes |
+| --------- | ----------------------------------------------------- | -------------------- | ----- |
+| **field** | **String**                                            | Widget column field. |       |
+| **width** | [**ListStreamColumnWidth**](ListStreamColumnWidth.md) |                      |       |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::ListStreamColumn.new(
   width: null
 )
 ```
-

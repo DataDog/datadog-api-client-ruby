@@ -2,12 +2,12 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **attributes** | **Hash&lt;String, Object&gt;** | A JSON object of attributes in the security signal. | [optional] |
-| **message** | **String** | The message in the security signal defined by the rule that generated the signal. | [optional] |
-| **tags** | **Array&lt;Object&gt;** | An array of tags associated with the security signal. | [optional] |
-| **timestamp** | **Time** | The timestamp of the security signal. | [optional] |
+| Name           | Type                           | Description                                                                       | Notes      |
+| -------------- | ------------------------------ | --------------------------------------------------------------------------------- | ---------- |
+| **attributes** | **Hash&lt;String, Object&gt;** | A JSON object of attributes in the security signal.                               | [optional] |
+| **message**    | **String**                     | The message in the security signal defined by the rule that generated the signal. | [optional] |
+| **tags**       | **Array&lt;Object&gt;**        | An array of tags associated with the security signal.                             | [optional] |
+| **timestamp**  | **Time**                       | The timestamp of the security signal.                                             | [optional] |
 
 ## Example
 
@@ -21,4 +21,3 @@ instance = DatadogAPIClient::V2::SecurityMonitoringSignalAttributes.new(
   timestamp: 2019-01-02T09:42:36.320Z
 )
 ```
-

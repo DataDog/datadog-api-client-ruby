@@ -2,14 +2,14 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **requests** | [**Array&lt;FunnelWidgetRequest&gt;**](FunnelWidgetRequest.md) | Request payload used to query items. |  |
-| **time** | [**WidgetTime**](WidgetTime.md) |  | [optional] |
-| **title** | **String** | The title of the widget. | [optional] |
-| **title_align** | [**WidgetTextAlign**](WidgetTextAlign.md) |  | [optional] |
-| **title_size** | **String** | The size of the title. | [optional] |
-| **type** | [**FunnelWidgetDefinitionType**](FunnelWidgetDefinitionType.md) |  | [default to &#39;funnel&#39;] |
+| Name            | Type                                                            | Description                          | Notes                         |
+| --------------- | --------------------------------------------------------------- | ------------------------------------ | ----------------------------- |
+| **requests**    | [**Array&lt;FunnelWidgetRequest&gt;**](FunnelWidgetRequest.md)  | Request payload used to query items. |                               |
+| **time**        | [**WidgetTime**](WidgetTime.md)                                 |                                      | [optional]                    |
+| **title**       | **String**                                                      | The title of the widget.             | [optional]                    |
+| **title_align** | [**WidgetTextAlign**](WidgetTextAlign.md)                       |                                      | [optional]                    |
+| **title_size**  | **String**                                                      | The size of the title.               | [optional]                    |
+| **type**        | [**FunnelWidgetDefinitionType**](FunnelWidgetDefinitionType.md) |                                      | [default to &#39;funnel&#39;] |
 
 ## Example
 
@@ -25,4 +25,3 @@ instance = DatadogAPIClient::V1::FunnelWidgetDefinition.new(
   type: null
 )
 ```
-

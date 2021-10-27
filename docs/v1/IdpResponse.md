@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **message** | **String** | Identity provider response. |  |
+| Name        | Type       | Description                 | Notes |
+| ----------- | ---------- | --------------------------- | ----- |
+| **message** | **String** | Identity provider response. |       |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::IdpResponse.new(
   message: IdP metadata successfully uploaded for example org
 )
 ```
-

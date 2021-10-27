@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name     | Type                                                                         | Description                | Notes      |
+| -------- | ---------------------------------------------------------------------------- | -------------------------- | ---------- |
 | **data** | [**Array&lt;UserInvitationResponseData&gt;**](UserInvitationResponseData.md) | Array of user invitations. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V2::UserInvitationsResponse.new(
   data: null
 )
 ```
-

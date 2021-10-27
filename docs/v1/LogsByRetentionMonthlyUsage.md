@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **date** | **String** | The month for the usage. | [optional] |
+| Name      | Type                                                               | Description                                                 | Notes      |
+| --------- | ------------------------------------------------------------------ | ----------------------------------------------------------- | ---------- |
+| **date**  | **String**                                                         | The month for the usage.                                    | [optional] |
 | **usage** | [**Array&lt;LogsRetentionSumUsage&gt;**](LogsRetentionSumUsage.md) | Indexed logs usage for each active retention for the month. | [optional] |
 
 ## Example
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::LogsByRetentionMonthlyUsage.new(
   usage: null
 )
 ```
-

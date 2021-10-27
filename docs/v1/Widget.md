@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **definition** | [**WidgetDefinition**](WidgetDefinition.md) |  |  |
-| **id** | **Integer** | ID of the widget. | [optional] |
-| **layout** | [**WidgetLayout**](WidgetLayout.md) |  | [optional] |
+| Name           | Type                                        | Description       | Notes      |
+| -------------- | ------------------------------------------- | ----------------- | ---------- |
+| **definition** | [**WidgetDefinition**](WidgetDefinition.md) |                   |            |
+| **id**         | **Integer**                                 | ID of the widget. | [optional] |
+| **layout**     | [**WidgetLayout**](WidgetLayout.md)         |                   | [optional] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::Widget.new(
   layout: null
 )
 ```
-

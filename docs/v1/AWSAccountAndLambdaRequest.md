@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **account_id** | **String** | Your AWS Account ID without dashes. |  |
-| **lambda_arn** | **String** | ARN of the Datadog Lambda created during the Datadog-Amazon Web services Log collection setup. |  |
+| Name           | Type       | Description                                                                                    | Notes |
+| -------------- | ---------- | ---------------------------------------------------------------------------------------------- | ----- |
+| **account_id** | **String** | Your AWS Account ID without dashes.                                                            |       |
+| **lambda_arn** | **String** | ARN of the Datadog Lambda created during the Datadog-Amazon Web services Log collection setup. |       |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::AWSAccountAndLambdaRequest.new(
   lambda_arn: arn:aws:lambda:us-east-1:1234567:function:LogsCollectionAPITest
 )
 ```
-

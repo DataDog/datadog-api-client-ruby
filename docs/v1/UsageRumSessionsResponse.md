@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name      | Type                                                             | Description                        | Notes      |
+| --------- | ---------------------------------------------------------------- | ---------------------------------- | ---------- |
 | **usage** | [**Array&lt;UsageRumSessionsHour&gt;**](UsageRumSessionsHour.md) | Get hourly usage for RUM Sessions. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::UsageRumSessionsResponse.new(
   usage: null
 )
 ```
-

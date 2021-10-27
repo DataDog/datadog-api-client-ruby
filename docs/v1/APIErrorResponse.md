@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **errors** | **Array&lt;String&gt;** | Array of errors returned by the API. |  |
+| Name       | Type                    | Description                          | Notes |
+| ---------- | ----------------------- | ------------------------------------ | ----- |
+| **errors** | **Array&lt;String&gt;** | Array of errors returned by the API. |       |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::APIErrorResponse.new(
   errors: null
 )
 ```
-

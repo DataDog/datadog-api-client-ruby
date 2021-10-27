@@ -2,13 +2,13 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **computed_on** | **String** | The date the specified custom report was computed. | [optional] |
-| **end_date** | **String** | The ending date of custom report. | [optional] |
-| **size** | **Integer** | size | [optional] |
-| **start_date** | **String** | The starting date of custom report. | [optional] |
-| **tags** | **Array&lt;String&gt;** | A list of tags to apply to custom reports. | [optional] |
+| Name            | Type                    | Description                                        | Notes      |
+| --------------- | ----------------------- | -------------------------------------------------- | ---------- |
+| **computed_on** | **String**              | The date the specified custom report was computed. | [optional] |
+| **end_date**    | **String**              | The ending date of custom report.                  | [optional] |
+| **size**        | **Integer**             | size                                               | [optional] |
+| **start_date**  | **String**              | The starting date of custom report.                | [optional] |
+| **tags**        | **Array&lt;String&gt;** | A list of tags to apply to custom reports.         | [optional] |
 
 ## Example
 
@@ -23,4 +23,3 @@ instance = DatadogAPIClient::V1::UsageCustomReportsAttributes.new(
   tags: null
 )
 ```
-

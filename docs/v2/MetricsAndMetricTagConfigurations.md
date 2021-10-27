@@ -37,8 +37,8 @@ DatadogAPIClient::V2::MetricsAndMetricTagConfigurations.build(data_that_doesnt_m
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
+| Name     | Type      | Description                                        |
+| -------- | --------- | -------------------------------------------------- |
 | **data** | **Mixed** | data to be matched against the list of oneOf items |
 
 #### Return type
@@ -46,4 +46,3 @@ DatadogAPIClient::V2::MetricsAndMetricTagConfigurations.build(data_that_doesnt_m
 - `Metric`
 - `MetricTagConfiguration`
 - `nil` (if no type matches)
-

@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **account_id** | **String** | The unique identifier of your AWS account. | [optional] |
-| **namespace** | [**AWSNamespace**](AWSNamespace.md) |  | [optional] |
+| Name           | Type                                | Description                                | Notes      |
+| -------------- | ----------------------------------- | ------------------------------------------ | ---------- |
+| **account_id** | **String**                          | The unique identifier of your AWS account. | [optional] |
+| **namespace**  | [**AWSNamespace**](AWSNamespace.md) |                                            | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::AWSTagFilterDeleteRequest.new(
   namespace: null
 )
 ```
-

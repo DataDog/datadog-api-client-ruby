@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **service_key** | **String** | Your service key in PagerDuty. |  |
-| **service_name** | **String** | Your service name associated with a service key in PagerDuty. |  |
+| Name             | Type       | Description                                                   | Notes |
+| ---------------- | ---------- | ------------------------------------------------------------- | ----- |
+| **service_key**  | **String** | Your service key in PagerDuty.                                |       |
+| **service_name** | **String** | Your service name associated with a service key in PagerDuty. |       |
 
 ## Example
 
@@ -14,7 +14,6 @@ require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::PagerDutyService.new(
   service_key: ,
-  service_name: 
+  service_name:
 )
 ```
-

@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name           | Type                                                                         | Description                    | Notes      |
+| -------------- | ---------------------------------------------------------------------------- | ------------------------------ | ---------- |
 | **dashboards** | [**Array&lt;DashboardSummaryDefinition&gt;**](DashboardSummaryDefinition.md) | List of dashboard definitions. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::DashboardSummary.new(
   dashboards: null
 )
 ```
-

@@ -2,17 +2,16 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method | HTTP request | Description |
-| ------ | ------------ | ----------- |
-| [**create_webhooks_integration**](WebhooksIntegrationAPI.md#create_webhooks_integration) | **POST** /api/v1/integration/webhooks/configuration/webhooks | Create a webhooks integration |
-| [**create_webhooks_integration_custom_variable**](WebhooksIntegrationAPI.md#create_webhooks_integration_custom_variable) | **POST** /api/v1/integration/webhooks/configuration/custom-variables | Create a custom variable |
-| [**delete_webhooks_integration**](WebhooksIntegrationAPI.md#delete_webhooks_integration) | **DELETE** /api/v1/integration/webhooks/configuration/webhooks/{webhook_name} | Delete a webhook |
-| [**delete_webhooks_integration_custom_variable**](WebhooksIntegrationAPI.md#delete_webhooks_integration_custom_variable) | **DELETE** /api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name} | Delete a custom variable |
-| [**get_webhooks_integration**](WebhooksIntegrationAPI.md#get_webhooks_integration) | **GET** /api/v1/integration/webhooks/configuration/webhooks/{webhook_name} | Get a webhook integration |
-| [**get_webhooks_integration_custom_variable**](WebhooksIntegrationAPI.md#get_webhooks_integration_custom_variable) | **GET** /api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name} | Get a custom variable |
-| [**update_webhooks_integration**](WebhooksIntegrationAPI.md#update_webhooks_integration) | **PUT** /api/v1/integration/webhooks/configuration/webhooks/{webhook_name} | Update a webhook |
-| [**update_webhooks_integration_custom_variable**](WebhooksIntegrationAPI.md#update_webhooks_integration_custom_variable) | **PUT** /api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name} | Update a custom variable |
-
+| Method                                                                                                                   | HTTP request                                                                                  | Description                   |
+| ------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- | ----------------------------- |
+| [**create_webhooks_integration**](WebhooksIntegrationAPI.md#create_webhooks_integration)                                 | **POST** /api/v1/integration/webhooks/configuration/webhooks                                  | Create a webhooks integration |
+| [**create_webhooks_integration_custom_variable**](WebhooksIntegrationAPI.md#create_webhooks_integration_custom_variable) | **POST** /api/v1/integration/webhooks/configuration/custom-variables                          | Create a custom variable      |
+| [**delete_webhooks_integration**](WebhooksIntegrationAPI.md#delete_webhooks_integration)                                 | **DELETE** /api/v1/integration/webhooks/configuration/webhooks/{webhook_name}                 | Delete a webhook              |
+| [**delete_webhooks_integration_custom_variable**](WebhooksIntegrationAPI.md#delete_webhooks_integration_custom_variable) | **DELETE** /api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name} | Delete a custom variable      |
+| [**get_webhooks_integration**](WebhooksIntegrationAPI.md#get_webhooks_integration)                                       | **GET** /api/v1/integration/webhooks/configuration/webhooks/{webhook_name}                    | Get a webhook integration     |
+| [**get_webhooks_integration_custom_variable**](WebhooksIntegrationAPI.md#get_webhooks_integration_custom_variable)       | **GET** /api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name}    | Get a custom variable         |
+| [**update_webhooks_integration**](WebhooksIntegrationAPI.md#update_webhooks_integration)                                 | **PUT** /api/v1/integration/webhooks/configuration/webhooks/{webhook_name}                    | Update a webhook              |
+| [**update_webhooks_integration_custom_variable**](WebhooksIntegrationAPI.md#update_webhooks_integration_custom_variable) | **PUT** /api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name}    | Update a custom variable      |
 
 ## create_webhooks_integration
 
@@ -56,9 +55,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**WebhooksIntegration**](WebhooksIntegration.md) | Create a webhooks integration request body. |  |
+| Name     | Type                                              | Description                                 | Notes |
+| -------- | ------------------------------------------------- | ------------------------------------------- | ----- |
+| **body** | [**WebhooksIntegration**](WebhooksIntegration.md) | Create a webhooks integration request body. |       |
 
 ### Return type
 
@@ -72,7 +71,6 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## create_webhooks_integration_custom_variable
 
@@ -116,9 +114,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**WebhooksIntegrationCustomVariable**](WebhooksIntegrationCustomVariable.md) | Define a custom variable request body. |  |
+| Name     | Type                                                                          | Description                            | Notes |
+| -------- | ----------------------------------------------------------------------------- | -------------------------------------- | ----- |
+| **body** | [**WebhooksIntegrationCustomVariable**](WebhooksIntegrationCustomVariable.md) | Define a custom variable request body. |       |
 
 ### Return type
 
@@ -132,7 +130,6 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## delete_webhooks_integration
 
@@ -175,9 +172,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **webhook_name** | **String** | The name of the webhook. |  |
+| Name             | Type       | Description              | Notes |
+| ---------------- | ---------- | ------------------------ | ----- |
+| **webhook_name** | **String** | The name of the webhook. |       |
 
 ### Return type
 
@@ -191,7 +188,6 @@ nil (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## delete_webhooks_integration_custom_variable
 
@@ -234,9 +230,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **custom_variable_name** | **String** | The name of the custom variable. |  |
+| Name                     | Type       | Description                      | Notes |
+| ------------------------ | ---------- | -------------------------------- | ----- |
+| **custom_variable_name** | **String** | The name of the custom variable. |       |
 
 ### Return type
 
@@ -250,7 +246,6 @@ nil (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_webhooks_integration
 
@@ -294,9 +289,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **webhook_name** | **String** | The name of the webhook. |  |
+| Name             | Type       | Description              | Notes |
+| ---------------- | ---------- | ------------------------ | ----- |
+| **webhook_name** | **String** | The name of the webhook. |       |
 
 ### Return type
 
@@ -310,7 +305,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_webhooks_integration_custom_variable
 
@@ -357,9 +351,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **custom_variable_name** | **String** | The name of the custom variable. |  |
+| Name                     | Type       | Description                      | Notes |
+| ------------------------ | ---------- | -------------------------------- | ----- |
+| **custom_variable_name** | **String** | The name of the custom variable. |       |
 
 ### Return type
 
@@ -373,7 +367,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## update_webhooks_integration
 
@@ -418,10 +411,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **webhook_name** | **String** | The name of the webhook. |  |
-| **body** | [**WebhooksIntegrationUpdateRequest**](WebhooksIntegrationUpdateRequest.md) | Update an existing Datadog-Webhooks integration. |  |
+| Name             | Type                                                                        | Description                                      | Notes |
+| ---------------- | --------------------------------------------------------------------------- | ------------------------------------------------ | ----- |
+| **webhook_name** | **String**                                                                  | The name of the webhook.                         |       |
+| **body**         | [**WebhooksIntegrationUpdateRequest**](WebhooksIntegrationUpdateRequest.md) | Update an existing Datadog-Webhooks integration. |       |
 
 ### Return type
 
@@ -435,7 +428,6 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## update_webhooks_integration_custom_variable
 
@@ -480,10 +472,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **custom_variable_name** | **String** | The name of the custom variable. |  |
-| **body** | [**WebhooksIntegrationCustomVariableUpdateRequest**](WebhooksIntegrationCustomVariableUpdateRequest.md) | Update an existing custom variable request body. |  |
+| Name                     | Type                                                                                                    | Description                                      | Notes |
+| ------------------------ | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | ----- |
+| **custom_variable_name** | **String**                                                                                              | The name of the custom variable.                 |       |
+| **body**                 | [**WebhooksIntegrationCustomVariableUpdateRequest**](WebhooksIntegrationCustomVariableUpdateRequest.md) | Update an existing custom variable request body. |       |
 
 ### Return type
 
@@ -497,4 +489,3 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-

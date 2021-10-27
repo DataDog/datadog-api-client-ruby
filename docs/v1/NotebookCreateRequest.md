@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data** | [**NotebookCreateData**](NotebookCreateData.md) |  |  |
+| Name     | Type                                            | Description | Notes |
+| -------- | ----------------------------------------------- | ----------- | ----- |
+| **data** | [**NotebookCreateData**](NotebookCreateData.md) |             |       |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::NotebookCreateRequest.new(
   data: null
 )
 ```
-

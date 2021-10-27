@@ -38,8 +38,8 @@ DatadogAPIClient::V2::LogsGroupByTotal.build(data_that_doesnt_match)
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
+| Name     | Type      | Description                                        |
+| -------- | --------- | -------------------------------------------------- |
 | **data** | **Mixed** | data to be matched against the list of oneOf items |
 
 #### Return type
@@ -48,4 +48,3 @@ DatadogAPIClient::V2::LogsGroupByTotal.build(data_that_doesnt_match)
 - `Float`
 - `String`
 - `nil` (if no type matches)
-

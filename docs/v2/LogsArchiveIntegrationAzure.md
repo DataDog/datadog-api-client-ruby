@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **client_id** | **String** | A client ID. |  |
-| **tenant_id** | **String** | A tenant ID. |  |
+| Name          | Type       | Description  | Notes |
+| ------------- | ---------- | ------------ | ----- |
+| **client_id** | **String** | A client ID. |       |
+| **tenant_id** | **String** | A tenant ID. |       |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::LogsArchiveIntegrationAzure.new(
   tenant_id: aaaaaaaa-1a1a-1a1a-1a1a-aaaaaaaaaaaa
 )
 ```
-

@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **attributes** | [**ApplicationKeyCreateAttributes**](ApplicationKeyCreateAttributes.md) |  |  |
-| **type** | [**ApplicationKeysType**](ApplicationKeysType.md) |  | [default to &#39;application_keys&#39;] |
+| Name           | Type                                                                    | Description | Notes                                   |
+| -------------- | ----------------------------------------------------------------------- | ----------- | --------------------------------------- |
+| **attributes** | [**ApplicationKeyCreateAttributes**](ApplicationKeyCreateAttributes.md) |             |                                         |
+| **type**       | [**ApplicationKeysType**](ApplicationKeysType.md)                       |             | [default to &#39;application_keys&#39;] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::ApplicationKeyCreateData.new(
   type: null
 )
 ```
-

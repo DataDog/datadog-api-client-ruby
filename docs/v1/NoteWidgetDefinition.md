@@ -2,18 +2,18 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **background_color** | **String** | Background color of the note. | [optional] |
-| **content** | **String** | Content of the note. |  |
-| **font_size** | **String** | Size of the text. | [optional] |
-| **has_padding** | **Boolean** | Whether to add padding or not. | [optional][default to true] |
-| **show_tick** | **Boolean** | Whether to show a tick or not. | [optional] |
-| **text_align** | [**WidgetTextAlign**](WidgetTextAlign.md) |  | [optional] |
-| **tick_edge** | [**WidgetTickEdge**](WidgetTickEdge.md) |  | [optional] |
-| **tick_pos** | **String** | Where to position the tick on an edge. | [optional] |
-| **type** | [**NoteWidgetDefinitionType**](NoteWidgetDefinitionType.md) |  | [default to &#39;note&#39;] |
-| **vertical_align** | [**WidgetVerticalAlign**](WidgetVerticalAlign.md) |  | [optional] |
+| Name                 | Type                                                        | Description                            | Notes                       |
+| -------------------- | ----------------------------------------------------------- | -------------------------------------- | --------------------------- |
+| **background_color** | **String**                                                  | Background color of the note.          | [optional]                  |
+| **content**          | **String**                                                  | Content of the note.                   |                             |
+| **font_size**        | **String**                                                  | Size of the text.                      | [optional]                  |
+| **has_padding**      | **Boolean**                                                 | Whether to add padding or not.         | [optional][default to true] |
+| **show_tick**        | **Boolean**                                                 | Whether to show a tick or not.         | [optional]                  |
+| **text_align**       | [**WidgetTextAlign**](WidgetTextAlign.md)                   |                                        | [optional]                  |
+| **tick_edge**        | [**WidgetTickEdge**](WidgetTickEdge.md)                     |                                        | [optional]                  |
+| **tick_pos**         | **String**                                                  | Where to position the tick on an edge. | [optional]                  |
+| **type**             | [**NoteWidgetDefinitionType**](NoteWidgetDefinitionType.md) |                                        | [default to &#39;note&#39;] |
+| **vertical_align**   | [**WidgetVerticalAlign**](WidgetVerticalAlign.md)           |                                        | [optional]                  |
 
 ## Example
 
@@ -33,4 +33,3 @@ instance = DatadogAPIClient::V1::NoteWidgetDefinition.new(
   vertical_align: null
 )
 ```
-

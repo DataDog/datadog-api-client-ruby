@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **event** | [**Event**](Event.md) |  | [optional] |
-| **status** | **String** | A status. | [optional] |
+| Name       | Type                  | Description | Notes      |
+| ---------- | --------------------- | ----------- | ---------- |
+| **event**  | [**Event**](Event.md) |             | [optional] |
+| **status** | **String**            | A status.   | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::EventResponse.new(
   status: null
 )
 ```
-

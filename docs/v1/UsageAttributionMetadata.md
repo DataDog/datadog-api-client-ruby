@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name           | Type                                                                                 | Description                       | Notes      |
+| -------------- | ------------------------------------------------------------------------------------ | --------------------------------- | ---------- |
 | **aggregates** | [**Array&lt;UsageAttributionAggregatesBody&gt;**](UsageAttributionAggregatesBody.md) | An array of available aggregates. | [optional] |
-| **pagination** | [**UsageAttributionPagination**](UsageAttributionPagination.md) |  | [optional] |
+| **pagination** | [**UsageAttributionPagination**](UsageAttributionPagination.md)                      |                                   | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::UsageAttributionMetadata.new(
   pagination: null
 )
 ```
-

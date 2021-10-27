@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data** | [**Array&lt;UserInvitationData&gt;**](UserInvitationData.md) | List of user invitations. |  |
+| Name     | Type                                                         | Description               | Notes |
+| -------- | ------------------------------------------------------------ | ------------------------- | ----- |
+| **data** | [**Array&lt;UserInvitationData&gt;**](UserInvitationData.md) | List of user invitations. |       |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V2::UserInvitationsRequest.new(
   data: []
 )
 ```
-

@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name       | Type       | Description                                       | Notes                |
+| ---------- | ---------- | ------------------------------------------------- | -------------------- |
 | **handle** | **String** | The email address that received the notification. | [optional][readonly] |
-| **name** | **String** | The username receiving the notification | [optional][readonly] |
+| **name**   | **String** | The username receiving the notification           | [optional][readonly] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::MonitorSearchResultNotification.new(
   name: null
 )
 ```
-

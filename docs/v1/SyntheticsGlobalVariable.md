@@ -2,16 +2,16 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **attributes** | [**SyntheticsGlobalVariableAttributes**](SyntheticsGlobalVariableAttributes.md) |  | [optional] |
-| **description** | **String** | Description of the global variable. |  |
-| **id** | **String** | Unique identifier of the global variable. | [optional][readonly] |
-| **name** | **String** | Name of the global variable. |  |
-| **parse_test_options** | [**SyntheticsGlobalVariableParseTestOptions**](SyntheticsGlobalVariableParseTestOptions.md) |  | [optional] |
-| **parse_test_public_id** | **String** | A Synthetic test ID to use as a test to generate the variable value. | [optional] |
-| **tags** | **Array&lt;String&gt;** | Tags of the global variable. |  |
-| **value** | [**SyntheticsGlobalVariableValue**](SyntheticsGlobalVariableValue.md) |  |  |
+| Name                     | Type                                                                                        | Description                                                          | Notes                |
+| ------------------------ | ------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------- |
+| **attributes**           | [**SyntheticsGlobalVariableAttributes**](SyntheticsGlobalVariableAttributes.md)             |                                                                      | [optional]           |
+| **description**          | **String**                                                                                  | Description of the global variable.                                  |                      |
+| **id**                   | **String**                                                                                  | Unique identifier of the global variable.                            | [optional][readonly] |
+| **name**                 | **String**                                                                                  | Name of the global variable.                                         |                      |
+| **parse_test_options**   | [**SyntheticsGlobalVariableParseTestOptions**](SyntheticsGlobalVariableParseTestOptions.md) |                                                                      | [optional]           |
+| **parse_test_public_id** | **String**                                                                                  | A Synthetic test ID to use as a test to generate the variable value. | [optional]           |
+| **tags**                 | **Array&lt;String&gt;**                                                                     | Tags of the global variable.                                         |                      |
+| **value**                | [**SyntheticsGlobalVariableValue**](SyntheticsGlobalVariableValue.md)                       |                                                                      |                      |
 
 ## Example
 
@@ -29,4 +29,3 @@ instance = DatadogAPIClient::V1::SyntheticsGlobalVariable.new(
   value: null
 )
 ```
-

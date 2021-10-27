@@ -2,15 +2,15 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **group** | **String** | The name of the group. | [optional][readonly] |
-| **group_tags** | **Array&lt;String&gt;** | The list of tags of the monitor group. | [optional][readonly] |
-| **last_nodata_ts** | **Integer** | Latest timestamp the monitor group was in NO_DATA state. | [optional][readonly] |
-| **last_triggered_ts** | **Integer** | Latest timestamp the monitor group triggered. | [optional][readonly] |
-| **monitor_id** | **Integer** | The ID of the monitor. | [optional][readonly] |
-| **monitor_name** | **String** | The name of the monitor. | [optional][readonly] |
-| **status** | [**MonitorOverallStates**](MonitorOverallStates.md) |  | [optional] |
+| Name                  | Type                                                | Description                                              | Notes                |
+| --------------------- | --------------------------------------------------- | -------------------------------------------------------- | -------------------- |
+| **group**             | **String**                                          | The name of the group.                                   | [optional][readonly] |
+| **group_tags**        | **Array&lt;String&gt;**                             | The list of tags of the monitor group.                   | [optional][readonly] |
+| **last_nodata_ts**    | **Integer**                                         | Latest timestamp the monitor group was in NO_DATA state. | [optional][readonly] |
+| **last_triggered_ts** | **Integer**                                         | Latest timestamp the monitor group triggered.            | [optional][readonly] |
+| **monitor_id**        | **Integer**                                         | The ID of the monitor.                                   | [optional][readonly] |
+| **monitor_name**      | **String**                                          | The name of the monitor.                                 | [optional][readonly] |
+| **status**            | [**MonitorOverallStates**](MonitorOverallStates.md) |                                                          | [optional]           |
 
 ## Example
 
@@ -27,4 +27,3 @@ instance = DatadogAPIClient::V1::MonitorGroupSearchResult.new(
   status: null
 )
 ```
-

@@ -2,10 +2,9 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method | HTTP request | Description |
-| ------ | ------------ | ----------- |
+| Method                                                               | HTTP request               | Description            |
+| -------------------------------------------------------------------- | -------------------------- | ---------------------- |
 | [**submit_service_check**](ServiceChecksAPI.md#submit_service_check) | **POST** /api/v1/check_run | Submit a Service Check |
-
 
 ## submit_service_check
 
@@ -51,9 +50,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**Array&lt;ServiceCheck&gt;**](ServiceCheck.md) | Service Check request body. |  |
+| Name     | Type                                             | Description                 | Notes |
+| -------- | ------------------------------------------------ | --------------------------- | ----- |
+| **body** | [**Array&lt;ServiceCheck&gt;**](ServiceCheck.md) | Service Check request body. |       |
 
 ### Return type
 
@@ -67,4 +66,3 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: text/json
-

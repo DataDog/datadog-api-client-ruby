@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name                | Type        | Description                                                                           | Notes      |
+| ------------------- | ----------- | ------------------------------------------------------------------------------------- | ---------- |
 | **container_count** | **Integer** | The total number of Cloud Security Posture Management containers during a given hour. | [optional] |
-| **host_count** | **Integer** | The total number of Cloud Security Posture Management hosts during a given hour. | [optional] |
-| **hour** | **Time** | The hour for the usage. | [optional] |
+| **host_count**      | **Integer** | The total number of Cloud Security Posture Management hosts during a given hour.      | [optional] |
+| **hour**            | **Time**    | The hour for the usage.                                                               | [optional] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::UsageCloudSecurityPostureManagementHour.new(
   hour: null
 )
 ```
-

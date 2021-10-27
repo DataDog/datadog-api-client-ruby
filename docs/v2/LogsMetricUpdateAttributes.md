@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **filter** | [**LogsMetricFilter**](LogsMetricFilter.md) |  | [optional] |
+| Name         | Type                                                       | Description                 | Notes      |
+| ------------ | ---------------------------------------------------------- | --------------------------- | ---------- |
+| **filter**   | [**LogsMetricFilter**](LogsMetricFilter.md)                |                             | [optional] |
 | **group_by** | [**Array&lt;LogsMetricGroupBy&gt;**](LogsMetricGroupBy.md) | The rules for the group by. | [optional] |
 
 ## Example
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::LogsMetricUpdateAttributes.new(
   group_by: null
 )
 ```
-

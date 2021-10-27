@@ -2,12 +2,12 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **attributes** | [**FullAPIKeyAttributes**](FullAPIKeyAttributes.md) |  | [optional] |
-| **id** | **String** | ID of the API key. | [optional] |
-| **relationships** | [**APIKeyRelationships**](APIKeyRelationships.md) |  | [optional] |
-| **type** | [**APIKeysType**](APIKeysType.md) |  | [optional][default to &#39;api_keys&#39;] |
+| Name              | Type                                                | Description        | Notes                                     |
+| ----------------- | --------------------------------------------------- | ------------------ | ----------------------------------------- |
+| **attributes**    | [**FullAPIKeyAttributes**](FullAPIKeyAttributes.md) |                    | [optional]                                |
+| **id**            | **String**                                          | ID of the API key. | [optional]                                |
+| **relationships** | [**APIKeyRelationships**](APIKeyRelationships.md)   |                    | [optional]                                |
+| **type**          | [**APIKeysType**](APIKeysType.md)                   |                    | [optional][default to &#39;api_keys&#39;] |
 
 ## Example
 
@@ -21,4 +21,3 @@ instance = DatadogAPIClient::V2::FullAPIKey.new(
   type: null
 )
 ```
-

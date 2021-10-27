@@ -2,12 +2,12 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **filter_by** | **Array&lt;String&gt;** | List of processes. | [optional] |
-| **limit** | **Integer** | Max number of items in the filter list. | [optional] |
-| **metric** | **String** | Your chosen metric. |  |
-| **search_by** | **String** | Your chosen search term. | [optional] |
+| Name          | Type                    | Description                             | Notes      |
+| ------------- | ----------------------- | --------------------------------------- | ---------- |
+| **filter_by** | **Array&lt;String&gt;** | List of processes.                      | [optional] |
+| **limit**     | **Integer**             | Max number of items in the filter list. | [optional] |
+| **metric**    | **String**              | Your chosen metric.                     |            |
+| **search_by** | **String**              | Your chosen search term.                | [optional] |
 
 ## Example
 
@@ -21,4 +21,3 @@ instance = DatadogAPIClient::V1::ProcessQueryDefinition.new(
   search_by: null
 )
 ```
-

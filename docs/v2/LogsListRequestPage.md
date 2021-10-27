@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **cursor** | **String** | List following results with a cursor provided in the previous query. | [optional] |
-| **limit** | **Integer** | Maximum number of logs in the response. | [optional][default to 10] |
+| Name       | Type        | Description                                                          | Notes                     |
+| ---------- | ----------- | -------------------------------------------------------------------- | ------------------------- |
+| **cursor** | **String**  | List following results with a cursor provided in the previous query. | [optional]                |
+| **limit**  | **Integer** | Maximum number of logs in the response.                              | [optional][default to 10] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::LogsListRequestPage.new(
   limit: 25
 )
 ```
-

@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **forget_after** | [**SecurityMonitoringRuleNewValueOptionsForgetAfter**](SecurityMonitoringRuleNewValueOptionsForgetAfter.md) |  | [optional] |
-| **learning_duration** | [**SecurityMonitoringRuleNewValueOptionsLearningDuration**](SecurityMonitoringRuleNewValueOptionsLearningDuration.md) |  | [optional] |
+| Name                  | Type                                                                                                                  | Description | Notes      |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------- | ----------- | ---------- |
+| **forget_after**      | [**SecurityMonitoringRuleNewValueOptionsForgetAfter**](SecurityMonitoringRuleNewValueOptionsForgetAfter.md)           |             | [optional] |
+| **learning_duration** | [**SecurityMonitoringRuleNewValueOptionsLearningDuration**](SecurityMonitoringRuleNewValueOptionsLearningDuration.md) |             | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::SecurityMonitoringRuleNewValueOptions.new(
   learning_duration: null
 )
 ```
-

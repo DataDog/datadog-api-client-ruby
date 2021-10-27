@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **name** | **String** | The exclusion filter name. | [optional] |
+| Name      | Type       | Description                 | Notes      |
+| --------- | ---------- | --------------------------- | ---------- |
+| **name**  | **String** | The exclusion filter name.  | [optional] |
 | **query** | **String** | The exclusion filter query. | [optional] |
 
 ## Example
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::SecurityFilterExclusionFilterResponse.new(
   query: source:staging
 )
 ```
-
