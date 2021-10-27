@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **id** | **String** | Key value in returned object. | [optional] |
+| Name      | Type       | Description                                                    | Notes      |
+| --------- | ---------- | -------------------------------------------------------------- | ---------- |
+| **id**    | **String** | Key value in returned object.                                  | [optional] |
 | **label** | **String** | Name of service available for configuration with Datadog logs. | [optional] |
 
 ## Example
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::AWSLogsListServicesResponse.new(
   label: S3 Access Logs
 )
 ```
-

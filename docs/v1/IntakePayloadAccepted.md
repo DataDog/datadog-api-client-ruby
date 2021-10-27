@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name       | Type       | Description                       | Notes      |
+| ---------- | ---------- | --------------------------------- | ---------- |
 | **status** | **String** | The status of the intake payload. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::IntakePayloadAccepted.new(
   status: ok
 )
 ```
-

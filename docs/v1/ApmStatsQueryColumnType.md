@@ -2,12 +2,12 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **_alias** | **String** | A user-assigned alias for the column. | [optional] |
-| **cell_display_mode** | [**TableWidgetCellDisplayMode**](TableWidgetCellDisplayMode.md) |  | [optional] |
-| **name** | **String** | Column name. |  |
-| **order** | [**WidgetSort**](WidgetSort.md) |  | [optional] |
+| Name                  | Type                                                            | Description                           | Notes      |
+| --------------------- | --------------------------------------------------------------- | ------------------------------------- | ---------- |
+| **\_alias**           | **String**                                                      | A user-assigned alias for the column. | [optional] |
+| **cell_display_mode** | [**TableWidgetCellDisplayMode**](TableWidgetCellDisplayMode.md) |                                       | [optional] |
+| **name**              | **String**                                                      | Column name.                          |            |
+| **order**             | [**WidgetSort**](WidgetSort.md)                                 |                                       | [optional] |
 
 ## Example
 
@@ -21,4 +21,3 @@ instance = DatadogAPIClient::V1::ApmStatsQueryColumnType.new(
   order: null
 )
 ```
-

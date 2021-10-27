@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name     | Type                                                               | Description         | Notes      |
+| -------- | ------------------------------------------------------------------ | ------------------- | ---------- |
 | **data** | [**Array&lt;LogsArchiveDefinition&gt;**](LogsArchiveDefinition.md) | A list of archives. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V2::LogsArchives.new(
   data: null
 )
 ```
-

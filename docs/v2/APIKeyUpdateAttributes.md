@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **name** | **String** | Name of the API key. |  |
+| Name     | Type       | Description          | Notes |
+| -------- | ---------- | -------------------- | ----- |
+| **name** | **String** | Name of the API key. |       |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V2::APIKeyUpdateAttributes.new(
   name: API Key for submitting metrics
 )
 ```
-

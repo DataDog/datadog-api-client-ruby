@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name                 | Type                    | Description                                                     | Notes      |
+| -------------------- | ----------------------- | --------------------------------------------------------------- | ---------- |
 | **restricted_roles** | **Array&lt;String&gt;** | List of role identifiers that can be pulled from the Roles API. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::SyntheticsGlobalVariableAttributes.new(
   restricted_roles: null
 )
 ```
-

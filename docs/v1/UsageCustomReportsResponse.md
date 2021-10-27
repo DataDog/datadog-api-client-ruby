@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name     | Type                                                                 | Description                           | Notes      |
+| -------- | -------------------------------------------------------------------- | ------------------------------------- | ---------- |
 | **data** | [**Array&lt;UsageCustomReportsData&gt;**](UsageCustomReportsData.md) | An array of available custom reports. | [optional] |
-| **meta** | [**UsageCustomReportsMeta**](UsageCustomReportsMeta.md) |  | [optional] |
+| **meta** | [**UsageCustomReportsMeta**](UsageCustomReportsMeta.md)              |                                       | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::UsageCustomReportsResponse.new(
   meta: null
 )
 ```
-

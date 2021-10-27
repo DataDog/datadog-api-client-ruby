@@ -2,15 +2,15 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **alert_id** | **String** | ID of the alert to use in the widget. |  |
-| **time** | [**WidgetTime**](WidgetTime.md) |  | [optional] |
-| **title** | **String** | The title of the widget. | [optional] |
-| **title_align** | [**WidgetTextAlign**](WidgetTextAlign.md) |  | [optional] |
-| **title_size** | **String** | Size of the title. | [optional] |
-| **type** | [**AlertGraphWidgetDefinitionType**](AlertGraphWidgetDefinitionType.md) |  | [default to &#39;alert_graph&#39;] |
-| **viz_type** | [**WidgetVizType**](WidgetVizType.md) |  |  |
+| Name            | Type                                                                    | Description                           | Notes                              |
+| --------------- | ----------------------------------------------------------------------- | ------------------------------------- | ---------------------------------- |
+| **alert_id**    | **String**                                                              | ID of the alert to use in the widget. |                                    |
+| **time**        | [**WidgetTime**](WidgetTime.md)                                         |                                       | [optional]                         |
+| **title**       | **String**                                                              | The title of the widget.              | [optional]                         |
+| **title_align** | [**WidgetTextAlign**](WidgetTextAlign.md)                               |                                       | [optional]                         |
+| **title_size**  | **String**                                                              | Size of the title.                    | [optional]                         |
+| **type**        | [**AlertGraphWidgetDefinitionType**](AlertGraphWidgetDefinitionType.md) |                                       | [default to &#39;alert_graph&#39;] |
+| **viz_type**    | [**WidgetVizType**](WidgetVizType.md)                                   |                                       |                                    |
 
 ## Example
 
@@ -27,4 +27,3 @@ instance = DatadogAPIClient::V1::AlertGraphWidgetDefinition.new(
   viz_type: null
 )
 ```
-

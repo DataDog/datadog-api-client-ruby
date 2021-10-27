@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **live_span** | [**WidgetLiveSpan**](WidgetLiveSpan.md) |  |  |
+| Name          | Type                                    | Description | Notes |
+| ------------- | --------------------------------------- | ----------- | ----- |
+| **live_span** | [**WidgetLiveSpan**](WidgetLiveSpan.md) |             |       |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::NotebookRelativeTime.new(
   live_span: null
 )
 ```
-

@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **attributes** | [**UserCreateAttributes**](UserCreateAttributes.md) |  |  |
-| **relationships** | [**UserRelationships**](UserRelationships.md) |  | [optional] |
-| **type** | [**UsersType**](UsersType.md) |  | [default to &#39;users&#39;] |
+| Name              | Type                                                | Description | Notes                        |
+| ----------------- | --------------------------------------------------- | ----------- | ---------------------------- |
+| **attributes**    | [**UserCreateAttributes**](UserCreateAttributes.md) |             |                              |
+| **relationships** | [**UserRelationships**](UserRelationships.md)       |             | [optional]                   |
+| **type**          | [**UsersType**](UsersType.md)                       |             | [default to &#39;users&#39;] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V2::UserCreateData.new(
   type: null
 )
 ```
-

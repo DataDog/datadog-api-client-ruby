@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **attributes** | [**RoleUpdateAttributes**](RoleUpdateAttributes.md) |  |  |
-| **id** | **String** | ID of the role. |  |
-| **type** | [**RolesType**](RolesType.md) |  | [default to &#39;roles&#39;] |
+| Name           | Type                                                | Description     | Notes                        |
+| -------------- | --------------------------------------------------- | --------------- | ---------------------------- |
+| **attributes** | [**RoleUpdateAttributes**](RoleUpdateAttributes.md) |                 |                              |
+| **id**         | **String**                                          | ID of the role. |                              |
+| **type**       | [**RolesType**](RolesType.md)                       |                 | [default to &#39;roles&#39;] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V2::RoleUpdateData.new(
   type: null
 )
 ```
-

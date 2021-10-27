@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data** | [**ApplicationKeyCreateData**](ApplicationKeyCreateData.md) |  |  |
+| Name     | Type                                                        | Description | Notes |
+| -------- | ----------------------------------------------------------- | ----------- | ----- |
+| **data** | [**ApplicationKeyCreateData**](ApplicationKeyCreateData.md) |             |       |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V2::ApplicationKeyCreateRequest.new(
   data: null
 )
 ```
-

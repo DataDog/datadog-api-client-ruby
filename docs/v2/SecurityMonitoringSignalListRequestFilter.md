@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **from** | **Time** | The minimum timestamp for requested security signals. | [optional] |
-| **query** | **String** | Search query for listing security signals. | [optional] |
-| **to** | **Time** | The maximum timestamp for requested security signals. | [optional] |
+| Name      | Type       | Description                                           | Notes      |
+| --------- | ---------- | ----------------------------------------------------- | ---------- |
+| **from**  | **Time**   | The minimum timestamp for requested security signals. | [optional] |
+| **query** | **String** | Search query for listing security signals.            | [optional] |
+| **to**    | **Time**   | The maximum timestamp for requested security signals. | [optional] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V2::SecurityMonitoringSignalListRequestFilter.new(
   to: 2019-01-03T09:42:36.320Z
 )
 ```
-

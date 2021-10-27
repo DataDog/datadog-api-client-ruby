@@ -2,13 +2,13 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **filter** | [**LogsFilter**](LogsFilter.md) |  | [optional] |
-| **is_enabled** | **Boolean** | Whether or not the processor is enabled. | [optional][default to false] |
-| **name** | **String** | Name of the processor. | [optional] |
-| **processors** | [**Array&lt;LogsProcessor&gt;**](LogsProcessor.md) | Ordered list of processors in this pipeline. | [optional] |
-| **type** | [**LogsPipelineProcessorType**](LogsPipelineProcessorType.md) |  | [default to &#39;pipeline&#39;] |
+| Name           | Type                                                          | Description                                  | Notes                           |
+| -------------- | ------------------------------------------------------------- | -------------------------------------------- | ------------------------------- |
+| **filter**     | [**LogsFilter**](LogsFilter.md)                               |                                              | [optional]                      |
+| **is_enabled** | **Boolean**                                                   | Whether or not the processor is enabled.     | [optional][default to false]    |
+| **name**       | **String**                                                    | Name of the processor.                       | [optional]                      |
+| **processors** | [**Array&lt;LogsProcessor&gt;**](LogsProcessor.md)            | Ordered list of processors in this pipeline. | [optional]                      |
+| **type**       | [**LogsPipelineProcessorType**](LogsPipelineProcessorType.md) |                                              | [default to &#39;pipeline&#39;] |
 
 ## Example
 
@@ -23,4 +23,3 @@ instance = DatadogAPIClient::V1::LogsPipelineProcessor.new(
   type: null
 )
 ```
-

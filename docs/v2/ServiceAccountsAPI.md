@@ -2,14 +2,13 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method | HTTP request | Description |
-| ------ | ------------ | ----------- |
-| [**create_service_account_application_key**](ServiceAccountsAPI.md#create_service_account_application_key) | **POST** /api/v2/service_accounts/{service_account_id}/application_keys | Create an application key for this service account |
+| Method                                                                                                     | HTTP request                                                                           | Description                                        |
+| ---------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| [**create_service_account_application_key**](ServiceAccountsAPI.md#create_service_account_application_key) | **POST** /api/v2/service_accounts/{service_account_id}/application_keys                | Create an application key for this service account |
 | [**delete_service_account_application_key**](ServiceAccountsAPI.md#delete_service_account_application_key) | **DELETE** /api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id} | Delete an application key for this service account |
-| [**get_service_account_application_key**](ServiceAccountsAPI.md#get_service_account_application_key) | **GET** /api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id} | Get one application key for this service account |
-| [**list_service_account_application_keys**](ServiceAccountsAPI.md#list_service_account_application_keys) | **GET** /api/v2/service_accounts/{service_account_id}/application_keys | List application keys for this service account |
-| [**update_service_account_application_key**](ServiceAccountsAPI.md#update_service_account_application_key) | **PATCH** /api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id} | Edit an application key for this service account |
-
+| [**get_service_account_application_key**](ServiceAccountsAPI.md#get_service_account_application_key)       | **GET** /api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id}    | Get one application key for this service account   |
+| [**list_service_account_application_keys**](ServiceAccountsAPI.md#list_service_account_application_keys)   | **GET** /api/v2/service_accounts/{service_account_id}/application_keys                 | List application keys for this service account     |
+| [**update_service_account_application_key**](ServiceAccountsAPI.md#update_service_account_application_key) | **PATCH** /api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id}  | Edit an application key for this service account   |
 
 ## create_service_account_application_key
 
@@ -23,7 +22,7 @@ Create an application key for this service account.
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::ServiceAccountsAPI.new
 service_account_id = '00000000-0000-0000-0000-000000000000' # String | The ID of the service account.
-body = DatadogAPIClient::V2::ApplicationKeyCreateRequest.new({data: DatadogAPIClient::V2::ApplicationKeyCreateData.new({attributes: DatadogAPIClient::V2::ApplicationKeyCreateAttributes.new({name: 'Application Key for submitting metrics'}), type: DatadogAPIClient::V2::ApplicationKeysType::APPLICATION_KEYS})}) # ApplicationKeyCreateRequest | 
+body = DatadogAPIClient::V2::ApplicationKeyCreateRequest.new({data: DatadogAPIClient::V2::ApplicationKeyCreateData.new({attributes: DatadogAPIClient::V2::ApplicationKeyCreateAttributes.new({name: 'Application Key for submitting metrics'}), type: DatadogAPIClient::V2::ApplicationKeysType::APPLICATION_KEYS})}) # ApplicationKeyCreateRequest |
 
 begin
   # Create an application key for this service account
@@ -54,10 +53,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **service_account_id** | **String** | The ID of the service account. |  |
-| **body** | [**ApplicationKeyCreateRequest**](ApplicationKeyCreateRequest.md) |  |  |
+| Name                   | Type                                                              | Description                    | Notes |
+| ---------------------- | ----------------------------------------------------------------- | ------------------------------ | ----- |
+| **service_account_id** | **String**                                                        | The ID of the service account. |       |
+| **body**               | [**ApplicationKeyCreateRequest**](ApplicationKeyCreateRequest.md) |                                |       |
 
 ### Return type
 
@@ -71,7 +70,6 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## delete_service_account_application_key
 
@@ -115,10 +113,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **service_account_id** | **String** | The ID of the service account. |  |
-| **app_key_id** | **String** | The ID of the application key. |  |
+| Name                   | Type       | Description                    | Notes |
+| ---------------------- | ---------- | ------------------------------ | ----- |
+| **service_account_id** | **String** | The ID of the service account. |       |
+| **app_key_id**         | **String** | The ID of the application key. |       |
 
 ### Return type
 
@@ -132,7 +130,6 @@ nil (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_service_account_application_key
 
@@ -177,10 +174,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **service_account_id** | **String** | The ID of the service account. |  |
-| **app_key_id** | **String** | The ID of the application key. |  |
+| Name                   | Type       | Description                    | Notes |
+| ---------------------- | ---------- | ------------------------------ | ----- |
+| **service_account_id** | **String** | The ID of the service account. |       |
+| **app_key_id**         | **String** | The ID of the application key. |       |
 
 ### Return type
 
@@ -194,7 +191,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## list_service_account_application_keys
 
@@ -246,15 +242,15 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **service_account_id** | **String** | The ID of the service account. |  |
-| **page_size** | **Integer** | Size for a given page. | [optional][default to 10] |
-| **page_number** | **Integer** | Specific page number to return. | [optional][default to 0] |
-| **sort** | **ApplicationKeysSort** | Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. | [optional][default to &#39;name&#39;] |
-| **filter** | **String** | Filter application keys by the specified string. | [optional] |
-| **filter_created_at_start** | **String** | Only include application keys created on or after the specified date. | [optional] |
-| **filter_created_at_end** | **String** | Only include application keys created on or before the specified date. | [optional] |
+| Name                        | Type                    | Description                                                                                                                                                        | Notes                                 |
+| --------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------- |
+| **service_account_id**      | **String**              | The ID of the service account.                                                                                                                                     |                                       |
+| **page_size**               | **Integer**             | Size for a given page.                                                                                                                                             | [optional][default to 10]             |
+| **page_number**             | **Integer**             | Specific page number to return.                                                                                                                                    | [optional][default to 0]              |
+| **sort**                    | **ApplicationKeysSort** | Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. | [optional][default to &#39;name&#39;] |
+| **filter**                  | **String**              | Filter application keys by the specified string.                                                                                                                   | [optional]                            |
+| **filter_created_at_start** | **String**              | Only include application keys created on or after the specified date.                                                                                              | [optional]                            |
+| **filter_created_at_end**   | **String**              | Only include application keys created on or before the specified date.                                                                                             | [optional]                            |
 
 ### Return type
 
@@ -269,7 +265,6 @@ end
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-
 ## update_service_account_application_key
 
 > <PartialApplicationKeyResponse> update_service_account_application_key(service_account_id, app_key_id, body)
@@ -283,7 +278,7 @@ require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::ServiceAccountsAPI.new
 service_account_id = '00000000-0000-0000-0000-000000000000' # String | The ID of the service account.
 app_key_id = 'app_key_id_example' # String | The ID of the application key.
-body = DatadogAPIClient::V2::ApplicationKeyUpdateRequest.new({data: DatadogAPIClient::V2::ApplicationKeyUpdateData.new({attributes: DatadogAPIClient::V2::ApplicationKeyUpdateAttributes.new({name: 'Application Key for submitting metrics'}), id: '00112233-4455-6677-8899-aabbccddeeff', type: DatadogAPIClient::V2::ApplicationKeysType::APPLICATION_KEYS})}) # ApplicationKeyUpdateRequest | 
+body = DatadogAPIClient::V2::ApplicationKeyUpdateRequest.new({data: DatadogAPIClient::V2::ApplicationKeyUpdateData.new({attributes: DatadogAPIClient::V2::ApplicationKeyUpdateAttributes.new({name: 'Application Key for submitting metrics'}), id: '00112233-4455-6677-8899-aabbccddeeff', type: DatadogAPIClient::V2::ApplicationKeysType::APPLICATION_KEYS})}) # ApplicationKeyUpdateRequest |
 
 begin
   # Edit an application key for this service account
@@ -314,11 +309,11 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **service_account_id** | **String** | The ID of the service account. |  |
-| **app_key_id** | **String** | The ID of the application key. |  |
-| **body** | [**ApplicationKeyUpdateRequest**](ApplicationKeyUpdateRequest.md) |  |  |
+| Name                   | Type                                                              | Description                    | Notes |
+| ---------------------- | ----------------------------------------------------------------- | ------------------------------ | ----- |
+| **service_account_id** | **String**                                                        | The ID of the service account. |       |
+| **app_key_id**         | **String**                                                        | The ID of the application key. |       |
+| **body**               | [**ApplicationKeyUpdateRequest**](ApplicationKeyUpdateRequest.md) |                                |       |
 
 ### Return type
 
@@ -332,4 +327,3 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-

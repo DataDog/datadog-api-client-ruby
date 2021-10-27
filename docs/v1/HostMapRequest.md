@@ -2,17 +2,17 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **apm_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
-| **event_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
-| **log_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
-| **network_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
-| **process_query** | [**ProcessQueryDefinition**](ProcessQueryDefinition.md) |  | [optional] |
-| **profile_metrics_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
-| **q** | **String** | Query definition. | [optional] |
-| **rum_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
-| **security_query** | [**LogQueryDefinition**](LogQueryDefinition.md) |  | [optional] |
+| Name                      | Type                                                    | Description       | Notes      |
+| ------------------------- | ------------------------------------------------------- | ----------------- | ---------- |
+| **apm_query**             | [**LogQueryDefinition**](LogQueryDefinition.md)         |                   | [optional] |
+| **event_query**           | [**LogQueryDefinition**](LogQueryDefinition.md)         |                   | [optional] |
+| **log_query**             | [**LogQueryDefinition**](LogQueryDefinition.md)         |                   | [optional] |
+| **network_query**         | [**LogQueryDefinition**](LogQueryDefinition.md)         |                   | [optional] |
+| **process_query**         | [**ProcessQueryDefinition**](ProcessQueryDefinition.md) |                   | [optional] |
+| **profile_metrics_query** | [**LogQueryDefinition**](LogQueryDefinition.md)         |                   | [optional] |
+| **q**                     | **String**                                              | Query definition. | [optional] |
+| **rum_query**             | [**LogQueryDefinition**](LogQueryDefinition.md)         |                   | [optional] |
+| **security_query**        | [**LogQueryDefinition**](LogQueryDefinition.md)         |                   | [optional] |
 
 ## Example
 
@@ -31,4 +31,3 @@ instance = DatadogAPIClient::V1::HostMapRequest.new(
   security_query: null
 )
 ```
-

@@ -2,14 +2,13 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method | HTTP request | Description |
-| ------ | ------------ | ----------- |
-| [**create_incident_team**](IncidentTeamsAPI.md#create_incident_team) | **POST** /api/v2/teams | Create a new incident team |
+| Method                                                               | HTTP request                       | Description                      |
+| -------------------------------------------------------------------- | ---------------------------------- | -------------------------------- |
+| [**create_incident_team**](IncidentTeamsAPI.md#create_incident_team) | **POST** /api/v2/teams             | Create a new incident team       |
 | [**delete_incident_team**](IncidentTeamsAPI.md#delete_incident_team) | **DELETE** /api/v2/teams/{team_id} | Delete an existing incident team |
-| [**get_incident_team**](IncidentTeamsAPI.md#get_incident_team) | **GET** /api/v2/teams/{team_id} | Get details of an incident team |
-| [**list_incident_teams**](IncidentTeamsAPI.md#list_incident_teams) | **GET** /api/v2/teams | Get a list of all incident teams |
-| [**update_incident_team**](IncidentTeamsAPI.md#update_incident_team) | **PATCH** /api/v2/teams/{team_id} | Update an existing incident team |
-
+| [**get_incident_team**](IncidentTeamsAPI.md#get_incident_team)       | **GET** /api/v2/teams/{team_id}    | Get details of an incident team  |
+| [**list_incident_teams**](IncidentTeamsAPI.md#list_incident_teams)   | **GET** /api/v2/teams              | Get a list of all incident teams |
+| [**update_incident_team**](IncidentTeamsAPI.md#update_incident_team) | **PATCH** /api/v2/teams/{team_id}  | Update an existing incident team |
 
 ## create_incident_team
 
@@ -58,9 +57,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**IncidentTeamCreateRequest**](IncidentTeamCreateRequest.md) | Incident Team Payload. |  |
+| Name     | Type                                                          | Description            | Notes |
+| -------- | ------------------------------------------------------------- | ---------------------- | ----- |
+| **body** | [**IncidentTeamCreateRequest**](IncidentTeamCreateRequest.md) | Incident Team Payload. |       |
 
 ### Return type
 
@@ -74,7 +73,6 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## delete_incident_team
 
@@ -122,9 +120,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **team_id** | **String** | The ID of the incident team. |  |
+| Name        | Type       | Description                  | Notes |
+| ----------- | ---------- | ---------------------------- | ----- |
+| **team_id** | **String** | The ID of the incident team. |       |
 
 ### Return type
 
@@ -138,7 +136,6 @@ nil (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_incident_team
 
@@ -191,9 +188,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **team_id** | **String** | The ID of the incident team. |  |
+| Name        | Type                      | Description                                                                  | Notes      |
+| ----------- | ------------------------- | ---------------------------------------------------------------------------- | ---------- |
+| **team_id** | **String**                | The ID of the incident team.                                                 |            |
 | **include** | **IncidentRelatedObject** | Specifies which types of related objects should be included in the response. | [optional] |
 
 ### Return type
@@ -208,7 +205,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## list_incident_teams
 
@@ -262,12 +258,12 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **include** | **IncidentRelatedObject** | Specifies which types of related objects should be included in the response. | [optional] |
-| **page_size** | **Integer** | Size for a given page. | [optional][default to 10] |
-| **page_offset** | **Integer** | Specific offset to use as the beginning of the returned page. | [optional][default to 0] |
-| **filter** | **String** | A search query that filters teams by name. | [optional] |
+| Name            | Type                      | Description                                                                  | Notes                     |
+| --------------- | ------------------------- | ---------------------------------------------------------------------------- | ------------------------- |
+| **include**     | **IncidentRelatedObject** | Specifies which types of related objects should be included in the response. | [optional]                |
+| **page_size**   | **Integer**               | Size for a given page.                                                       | [optional][default to 10] |
+| **page_offset** | **Integer**               | Specific offset to use as the beginning of the returned page.                | [optional][default to 0]  |
+| **filter**      | **String**                | A search query that filters teams by name.                                   | [optional]                |
 
 ### Return type
 
@@ -281,7 +277,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## update_incident_team
 
@@ -331,10 +326,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **team_id** | **String** | The ID of the incident team. |  |
-| **body** | [**IncidentTeamUpdateRequest**](IncidentTeamUpdateRequest.md) | Incident Team Payload. |  |
+| Name        | Type                                                          | Description                  | Notes |
+| ----------- | ------------------------------------------------------------- | ---------------------------- | ----- |
+| **team_id** | **String**                                                    | The ID of the incident team. |       |
+| **body**    | [**IncidentTeamUpdateRequest**](IncidentTeamUpdateRequest.md) | Incident Team Payload.       |       |
 
 ### Return type
 
@@ -348,4 +343,3 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-

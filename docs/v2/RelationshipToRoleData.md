@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **id** | **String** | ID of the role. | [optional] |
-| **type** | [**RolesType**](RolesType.md) |  | [optional][default to &#39;roles&#39;] |
+| Name     | Type                          | Description     | Notes                                  |
+| -------- | ----------------------------- | --------------- | -------------------------------------- |
+| **id**   | **String**                    | ID of the role. | [optional]                             |
+| **type** | [**RolesType**](RolesType.md) |                 | [optional][default to &#39;roles&#39;] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::RelationshipToRoleData.new(
   type: null
 )
 ```
-

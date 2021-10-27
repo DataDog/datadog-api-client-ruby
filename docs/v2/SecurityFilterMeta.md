@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name        | Type       | Description        | Notes      |
+| ----------- | ---------- | ------------------ | ---------- |
 | **warning** | **String** | A warning message. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V2::SecurityFilterMeta.new(
   warning: All the security filters are disabled. As a result, no logs are being analyzed.
 )
 ```
-

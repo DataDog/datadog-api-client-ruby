@@ -2,14 +2,13 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method | HTTP request | Description |
-| ------ | ------------ | ----------- |
-| [**create_incident**](IncidentsAPI.md#create_incident) | **POST** /api/v2/incidents | Create an incident |
-| [**delete_incident**](IncidentsAPI.md#delete_incident) | **DELETE** /api/v2/incidents/{incident_id} | Delete an existing incident |
-| [**get_incident**](IncidentsAPI.md#get_incident) | **GET** /api/v2/incidents/{incident_id} | Get the details of an incident |
-| [**list_incidents**](IncidentsAPI.md#list_incidents) | **GET** /api/v2/incidents | Get a list of incidents |
-| [**update_incident**](IncidentsAPI.md#update_incident) | **PATCH** /api/v2/incidents/{incident_id} | Update an existing incident |
-
+| Method                                                 | HTTP request                               | Description                    |
+| ------------------------------------------------------ | ------------------------------------------ | ------------------------------ |
+| [**create_incident**](IncidentsAPI.md#create_incident) | **POST** /api/v2/incidents                 | Create an incident             |
+| [**delete_incident**](IncidentsAPI.md#delete_incident) | **DELETE** /api/v2/incidents/{incident_id} | Delete an existing incident    |
+| [**get_incident**](IncidentsAPI.md#get_incident)       | **GET** /api/v2/incidents/{incident_id}    | Get the details of an incident |
+| [**list_incidents**](IncidentsAPI.md#list_incidents)   | **GET** /api/v2/incidents                  | Get a list of incidents        |
+| [**update_incident**](IncidentsAPI.md#update_incident) | **PATCH** /api/v2/incidents/{incident_id}  | Update an existing incident    |
 
 ## create_incident
 
@@ -58,9 +57,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**IncidentCreateRequest**](IncidentCreateRequest.md) | Incident payload. |  |
+| Name     | Type                                                  | Description       | Notes |
+| -------- | ----------------------------------------------------- | ----------------- | ----- |
+| **body** | [**IncidentCreateRequest**](IncidentCreateRequest.md) | Incident payload. |       |
 
 ### Return type
 
@@ -74,7 +73,6 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## delete_incident
 
@@ -122,9 +120,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **incident_id** | **String** | The UUID the incident. |  |
+| Name            | Type       | Description            | Notes |
+| --------------- | ---------- | ---------------------- | ----- |
+| **incident_id** | **String** | The UUID the incident. |       |
 
 ### Return type
 
@@ -138,7 +136,6 @@ nil (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_incident
 
@@ -190,10 +187,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **incident_id** | **String** | The UUID the incident. |  |
-| **include** | **Array&lt;IncidentRelatedObject&gt;** | Specifies which types of related objects should be included in the response. | [optional] |
+| Name            | Type                                   | Description                                                                  | Notes      |
+| --------------- | -------------------------------------- | ---------------------------------------------------------------------------- | ---------- |
+| **incident_id** | **String**                             | The UUID the incident.                                                       |            |
+| **include**     | **Array&lt;IncidentRelatedObject&gt;** | Specifies which types of related objects should be included in the response. | [optional] |
 
 ### Return type
 
@@ -207,7 +204,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## list_incidents
 
@@ -260,11 +256,11 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **include** | **Array&lt;IncidentRelatedObject&gt;** | Specifies which types of related objects should be included in the response. | [optional] |
-| **page_size** | **Integer** | Size for a given page. | [optional][default to 10] |
-| **page_offset** | **Integer** | Specific offset to use as the beginning of the returned page. | [optional][default to 0] |
+| Name            | Type                                   | Description                                                                  | Notes                     |
+| --------------- | -------------------------------------- | ---------------------------------------------------------------------------- | ------------------------- |
+| **include**     | **Array&lt;IncidentRelatedObject&gt;** | Specifies which types of related objects should be included in the response. | [optional]                |
+| **page_size**   | **Integer**                            | Size for a given page.                                                       | [optional][default to 10] |
+| **page_offset** | **Integer**                            | Specific offset to use as the beginning of the returned page.                | [optional][default to 0]  |
 
 ### Return type
 
@@ -278,7 +274,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## update_incident
 
@@ -328,10 +323,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **incident_id** | **String** | The UUID the incident. |  |
-| **body** | [**IncidentUpdateRequest**](IncidentUpdateRequest.md) | Incident Payload. |  |
+| Name            | Type                                                  | Description            | Notes |
+| --------------- | ----------------------------------------------------- | ---------------------- | ----- |
+| **incident_id** | **String**                                            | The UUID the incident. |       |
+| **body**        | [**IncidentUpdateRequest**](IncidentUpdateRequest.md) | Incident Payload.      |       |
 
 ### Return type
 
@@ -345,4 +340,3 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-

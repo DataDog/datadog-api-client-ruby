@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name     | Type                                                                 | Description                         | Notes      |
+| -------- | -------------------------------------------------------------------- | ----------------------------------- | ---------- |
 | **data** | [**Array&lt;LogsMetricResponseData&gt;**](LogsMetricResponseData.md) | A list of log-based metric objects. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V2::LogsMetricsResponse.new(
   data: null
 )
 ```
-

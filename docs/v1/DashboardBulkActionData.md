@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **id** | **String** | Dashboard resource ID. |  |
-| **type** | [**DashboardResourceType**](DashboardResourceType.md) |  | [default to &#39;dashboard&#39;] |
+| Name     | Type                                                  | Description            | Notes                            |
+| -------- | ----------------------------------------------------- | ---------------------- | -------------------------------- |
+| **id**   | **String**                                            | Dashboard resource ID. |                                  |
+| **type** | [**DashboardResourceType**](DashboardResourceType.md) |                        | [default to &#39;dashboard&#39;] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::DashboardBulkActionData.new(
   type: null
 )
 ```
-

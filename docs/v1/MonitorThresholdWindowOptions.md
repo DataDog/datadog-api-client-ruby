@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name                | Type       | Description                                                                      | Notes      |
+| ------------------- | ---------- | -------------------------------------------------------------------------------- | ---------- |
 | **recovery_window** | **String** | Describes how long an anomalous metric must be normal before the alert recovers. | [optional] |
-| **trigger_window** | **String** | Describes how long a metric must be anomalous before an alert triggers. | [optional] |
+| **trigger_window**  | **String** | Describes how long a metric must be anomalous before an alert triggers.          | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::MonitorThresholdWindowOptions.new(
   trigger_window: null
 )
 ```
-

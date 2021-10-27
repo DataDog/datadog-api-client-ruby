@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **authentication** | [**SyntheticsPrivateLocationSecretsAuthentication**](SyntheticsPrivateLocationSecretsAuthentication.md) |  | [optional] |
-| **config_decryption** | [**SyntheticsPrivateLocationSecretsConfigDecryption**](SyntheticsPrivateLocationSecretsConfigDecryption.md) |  | [optional] |
+| Name                  | Type                                                                                                        | Description | Notes      |
+| --------------------- | ----------------------------------------------------------------------------------------------------------- | ----------- | ---------- |
+| **authentication**    | [**SyntheticsPrivateLocationSecretsAuthentication**](SyntheticsPrivateLocationSecretsAuthentication.md)     |             | [optional] |
+| **config_decryption** | [**SyntheticsPrivateLocationSecretsConfigDecryption**](SyntheticsPrivateLocationSecretsConfigDecryption.md) |             | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::SyntheticsPrivateLocationSecrets.new(
   config_decryption: null
 )
 ```
-

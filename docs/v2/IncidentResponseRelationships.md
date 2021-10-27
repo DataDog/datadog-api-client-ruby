@@ -2,13 +2,13 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **commander_user** | [**RelationshipToUser**](RelationshipToUser.md) |  | [optional] |
-| **created_by_user** | [**RelationshipToUser**](RelationshipToUser.md) |  | [optional] |
-| **integrations** | [**RelationshipToIncidentIntegrationMetadatas**](RelationshipToIncidentIntegrationMetadatas.md) |  | [optional] |
-| **last_modified_by_user** | [**RelationshipToUser**](RelationshipToUser.md) |  | [optional] |
-| **postmortem** | [**RelationshipToIncidentPostmortem**](RelationshipToIncidentPostmortem.md) |  | [optional] |
+| Name                      | Type                                                                                            | Description | Notes      |
+| ------------------------- | ----------------------------------------------------------------------------------------------- | ----------- | ---------- |
+| **commander_user**        | [**RelationshipToUser**](RelationshipToUser.md)                                                 |             | [optional] |
+| **created_by_user**       | [**RelationshipToUser**](RelationshipToUser.md)                                                 |             | [optional] |
+| **integrations**          | [**RelationshipToIncidentIntegrationMetadatas**](RelationshipToIncidentIntegrationMetadatas.md) |             | [optional] |
+| **last_modified_by_user** | [**RelationshipToUser**](RelationshipToUser.md)                                                 |             | [optional] |
+| **postmortem**            | [**RelationshipToIncidentPostmortem**](RelationshipToIncidentPostmortem.md)                     |             | [optional] |
 
 ## Example
 
@@ -23,4 +23,3 @@ instance = DatadogAPIClient::V2::IncidentResponseRelationships.new(
   postmortem: null
 )
 ```
-

@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **_end** | **Time** | The end time. |  |
-| **live** | **Boolean** | Indicates whether the timeframe should be shifted to end at the current time. | [optional] |
-| **start** | **Time** | The start time. |  |
+| Name      | Type        | Description                                                                   | Notes      |
+| --------- | ----------- | ----------------------------------------------------------------------------- | ---------- |
+| **\_end** | **Time**    | The end time.                                                                 |            |
+| **live**  | **Boolean** | Indicates whether the timeframe should be shifted to end at the current time. | [optional] |
+| **start** | **Time**    | The start time.                                                               |            |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::NotebookAbsoluteTime.new(
   start: 2021-02-24T19:18:28Z
 )
 ```
-

@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **count** | **Integer** | Number of times a test needs to be retried before marking a location as failed. Defaults to 0. | [optional] |
-| **interval** | **Float** | Time interval between retries (in milliseconds). Defaults to 300ms. | [optional] |
+| Name         | Type        | Description                                                                                    | Notes      |
+| ------------ | ----------- | ---------------------------------------------------------------------------------------------- | ---------- |
+| **count**    | **Integer** | Number of times a test needs to be retried before marking a location as failed. Defaults to 0. | [optional] |
+| **interval** | **Float**   | Time interval between retries (in milliseconds). Defaults to 300ms.                            | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::SyntheticsTestOptionsRetry.new(
   interval: null
 )
 ```
-

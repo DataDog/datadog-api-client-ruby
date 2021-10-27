@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **hour** | **Time** | The hour for the usage. | [optional] |
+| Name                      | Type        | Description                                                      | Notes      |
+| ------------------------- | ----------- | ---------------------------------------------------------------- | ---------- |
+| **hour**                  | **Time**    | The hour for the usage.                                          | [optional] |
 | **ingested_events_bytes** | **Integer** | Contains the total number of bytes ingested during a given hour. | [optional] |
 
 ## Example
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::UsageIngestedSpansHour.new(
   ingested_events_bytes: null
 )
 ```
-

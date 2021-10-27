@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **type** | [**IncidentFieldAttributesSingleValueType**](IncidentFieldAttributesSingleValueType.md) |  | [optional][default to &#39;dropdown&#39;] |
-| **value** | **String** | The single value selected for this field. | [optional] |
+| Name      | Type                                                                                    | Description                               | Notes                                     |
+| --------- | --------------------------------------------------------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| **type**  | [**IncidentFieldAttributesSingleValueType**](IncidentFieldAttributesSingleValueType.md) |                                           | [optional][default to &#39;dropdown&#39;] |
+| **value** | **String**                                                                              | The single value selected for this field. | [optional]                                |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::IncidentFieldAttributesSingleValue.new(
   value: SEV-1
 )
 ```
-

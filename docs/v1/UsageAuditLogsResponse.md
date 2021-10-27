@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name      | Type                                                         | Description                      | Notes      |
+| --------- | ------------------------------------------------------------ | -------------------------------- | ---------- |
 | **usage** | [**Array&lt;UsageAuditLogsHour&gt;**](UsageAuditLogsHour.md) | Get hourly usage for audit logs. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::UsageAuditLogsResponse.new(
   usage: null
 )
 ```
-

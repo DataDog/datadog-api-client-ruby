@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **code** | **Integer** | Error code. |  |
-| **message** | **String** | Error message. |  |
+| Name        | Type        | Description    | Notes |
+| ----------- | ----------- | -------------- | ----- |
+| **code**    | **Integer** | Error code.    |       |
+| **message** | **String**  | Error message. |       |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::HTTPLogError.new(
   message: Your browser sent an invalid request.
 )
 ```
-

@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **attributes** | [**UserUpdateAttributes**](UserUpdateAttributes.md) |  |  |
-| **id** | **String** | ID of the user. |  |
-| **type** | [**UsersType**](UsersType.md) |  | [default to &#39;users&#39;] |
+| Name           | Type                                                | Description     | Notes                        |
+| -------------- | --------------------------------------------------- | --------------- | ---------------------------- |
+| **attributes** | [**UserUpdateAttributes**](UserUpdateAttributes.md) |                 |                              |
+| **id**         | **String**                                          | ID of the user. |                              |
+| **type**       | [**UsersType**](UsersType.md)                       |                 | [default to &#39;users&#39;] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V2::UserUpdateData.new(
   type: null
 )
 ```
-

@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **idp_file** | **File** | The path to the XML metadata file you wish to upload. |  |
+| Name         | Type     | Description                                           | Notes |
+| ------------ | -------- | ----------------------------------------------------- | ----- |
+| **idp_file** | **File** | The path to the XML metadata file you wish to upload. |       |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::IdpFormData.new(
   idp_file: null
 )
 ```
-

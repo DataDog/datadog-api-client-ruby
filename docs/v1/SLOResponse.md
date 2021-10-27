@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data** | [**SLOResponseData**](SLOResponseData.md) |  | [optional] |
-| **errors** | **Array&lt;String&gt;** | An array of error messages. Each endpoint documents how/whether this field is used. | [optional] |
+| Name       | Type                                      | Description                                                                         | Notes      |
+| ---------- | ----------------------------------------- | ----------------------------------------------------------------------------------- | ---------- |
+| **data**   | [**SLOResponseData**](SLOResponseData.md) |                                                                                     | [optional] |
+| **errors** | **Array&lt;String&gt;**                   | An array of error messages. Each endpoint documents how/whether this field is used. | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::SLOResponse.new(
   errors: null
 )
 ```
-

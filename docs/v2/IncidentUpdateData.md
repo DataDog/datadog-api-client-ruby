@@ -2,12 +2,12 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **attributes** | [**IncidentUpdateAttributes**](IncidentUpdateAttributes.md) |  | [optional] |
-| **id** | **String** | The team&#39;s ID. |  |
-| **relationships** | [**IncidentUpdateRelationships**](IncidentUpdateRelationships.md) |  | [optional] |
-| **type** | [**IncidentType**](IncidentType.md) |  | [default to &#39;incidents&#39;] |
+| Name              | Type                                                              | Description        | Notes                            |
+| ----------------- | ----------------------------------------------------------------- | ------------------ | -------------------------------- |
+| **attributes**    | [**IncidentUpdateAttributes**](IncidentUpdateAttributes.md)       |                    | [optional]                       |
+| **id**            | **String**                                                        | The team&#39;s ID. |                                  |
+| **relationships** | [**IncidentUpdateRelationships**](IncidentUpdateRelationships.md) |                    | [optional]                       |
+| **type**          | [**IncidentType**](IncidentType.md)                               |                    | [default to &#39;incidents&#39;] |
 
 ## Example
 
@@ -21,4 +21,3 @@ instance = DatadogAPIClient::V2::IncidentUpdateData.new(
   type: null
 )
 ```
-

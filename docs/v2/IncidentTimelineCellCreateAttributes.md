@@ -36,12 +36,11 @@ DatadogAPIClient::V2::IncidentTimelineCellCreateAttributes.build(data_that_doesn
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
+| Name     | Type      | Description                                        |
+| -------- | --------- | -------------------------------------------------- |
 | **data** | **Mixed** | data to be matched against the list of oneOf items |
 
 #### Return type
 
 - `IncidentTimelineCellMarkdownCreateAttributes`
 - `nil` (if no type matches)
-

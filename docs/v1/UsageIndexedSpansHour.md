@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **hour** | **Time** | The hour for the usage. | [optional] |
+| Name                     | Type        | Description                           | Notes      |
+| ------------------------ | ----------- | ------------------------------------- | ---------- |
+| **hour**                 | **Time**    | The hour for the usage.               | [optional] |
 | **indexed_events_count** | **Integer** | Contains the number of spans indexed. | [optional] |
 
 ## Example
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::UsageIndexedSpansHour.new(
   indexed_events_count: null
 )
 ```
-

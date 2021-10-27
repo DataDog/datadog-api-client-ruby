@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name                   | Type        | Description                | Notes      |
+| ---------------------- | ----------- | -------------------------- | ---------- |
 | **deleted_monitor_id** | **Integer** | ID of the deleted monitor. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::DeletedMonitor.new(
   deleted_monitor_id: null
 )
 ```
-

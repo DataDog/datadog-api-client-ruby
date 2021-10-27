@@ -2,12 +2,12 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **operator** | [**SyntheticsAssertionJSONPathOperator**](SyntheticsAssertionJSONPathOperator.md) |  |  |
-| **property** | **String** | The associated assertion property. | [optional] |
-| **target** | [**SyntheticsAssertionJSONPathTargetTarget**](SyntheticsAssertionJSONPathTargetTarget.md) |  | [optional] |
-| **type** | [**SyntheticsAssertionType**](SyntheticsAssertionType.md) |  |  |
+| Name         | Type                                                                                      | Description                        | Notes      |
+| ------------ | ----------------------------------------------------------------------------------------- | ---------------------------------- | ---------- |
+| **operator** | [**SyntheticsAssertionJSONPathOperator**](SyntheticsAssertionJSONPathOperator.md)         |                                    |            |
+| **property** | **String**                                                                                | The associated assertion property. | [optional] |
+| **target**   | [**SyntheticsAssertionJSONPathTargetTarget**](SyntheticsAssertionJSONPathTargetTarget.md) |                                    | [optional] |
+| **type**     | [**SyntheticsAssertionType**](SyntheticsAssertionType.md)                                 |                                    |            |
 
 ## Example
 
@@ -21,4 +21,3 @@ instance = DatadogAPIClient::V1::SyntheticsAssertionJSONPathTarget.new(
   type: null
 )
 ```
-

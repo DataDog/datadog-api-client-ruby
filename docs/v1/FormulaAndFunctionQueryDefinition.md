@@ -40,8 +40,8 @@ DatadogAPIClient::V1::FormulaAndFunctionQueryDefinition.build(data_that_doesnt_m
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
+| Name     | Type      | Description                                        |
+| -------- | --------- | -------------------------------------------------- |
 | **data** | **Mixed** | data to be matched against the list of oneOf items |
 
 #### Return type
@@ -52,4 +52,3 @@ DatadogAPIClient::V1::FormulaAndFunctionQueryDefinition.build(data_that_doesnt_m
 - `FormulaAndFunctionMetricQueryDefinition`
 - `FormulaAndFunctionProcessQueryDefinition`
 - `nil` (if no type matches)
-

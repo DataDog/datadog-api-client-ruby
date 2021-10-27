@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name      | Type                                             | Description               | Notes      |
+| --------- | ------------------------------------------------ | ------------------------- | ---------- |
 | **usage** | [**Array&lt;UsageIoTHour&gt;**](UsageIoTHour.md) | Get hourly usage for IoT. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::UsageIoTResponse.new(
   usage: null
 )
 ```
-

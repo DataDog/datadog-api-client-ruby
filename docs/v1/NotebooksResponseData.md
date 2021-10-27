@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **attributes** | [**NotebooksResponseDataAttributes**](NotebooksResponseDataAttributes.md) |  |  |
-| **id** | **Integer** | Unique notebook ID, assigned when you create the notebook. | [readonly] |
-| **type** | [**NotebookResourceType**](NotebookResourceType.md) |  | [default to &#39;notebooks&#39;] |
+| Name           | Type                                                                      | Description                                                | Notes                            |
+| -------------- | ------------------------------------------------------------------------- | ---------------------------------------------------------- | -------------------------------- |
+| **attributes** | [**NotebooksResponseDataAttributes**](NotebooksResponseDataAttributes.md) |                                                            |                                  |
+| **id**         | **Integer**                                                               | Unique notebook ID, assigned when you create the notebook. | [readonly]                       |
+| **type**       | [**NotebookResourceType**](NotebookResourceType.md)                       |                                                            | [default to &#39;notebooks&#39;] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::NotebooksResponseData.new(
   type: null
 )
 ```
-

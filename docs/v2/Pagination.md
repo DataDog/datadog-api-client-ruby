@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **total_count** | **Integer** | Total count. | [optional] |
+| Name                     | Type        | Description                                    | Notes      |
+| ------------------------ | ----------- | ---------------------------------------------- | ---------- |
+| **total_count**          | **Integer** | Total count.                                   | [optional] |
 | **total_filtered_count** | **Integer** | Total count of elements matched by the filter. | [optional] |
 
 ## Example
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::Pagination.new(
   total_filtered_count: null
 )
 ```
-

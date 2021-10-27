@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **errors** | [**Array&lt;AWSLogsAsyncError&gt;**](AWSLogsAsyncError.md) | List of errors. | [optional] |
-| **status** | **String** | Status of the properties. | [optional] |
+| Name       | Type                                                       | Description               | Notes      |
+| ---------- | ---------------------------------------------------------- | ------------------------- | ---------- |
+| **errors** | [**Array&lt;AWSLogsAsyncError&gt;**](AWSLogsAsyncError.md) | List of errors.           | [optional] |
+| **status** | **String**                                                 | Status of the properties. | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::AWSLogsAsyncResponse.new(
   status: created
 )
 ```
-

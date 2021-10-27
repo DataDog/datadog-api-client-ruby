@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name        | Type       | Description                       | Notes      |
+| ----------- | ---------- | --------------------------------- | ---------- |
 | **content** | **String** | The Markdown content of the cell. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V2::IncidentTimelineCellMarkdownCreateAttributesCon
   content: An example timeline cell message.
 )
 ```
-

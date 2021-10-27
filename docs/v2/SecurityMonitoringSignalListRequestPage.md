@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **cursor** | **String** | A list of results using the cursor provided in the previous query. | [optional] |
-| **limit** | **Integer** | The maximum number of security signals in the response. | [optional][default to 10] |
+| Name       | Type        | Description                                                        | Notes                     |
+| ---------- | ----------- | ------------------------------------------------------------------ | ------------------------- |
+| **cursor** | **String**  | A list of results using the cursor provided in the previous query. | [optional]                |
+| **limit**  | **Integer** | The maximum number of security signals in the response.            | [optional][default to 10] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::SecurityMonitoringSignalListRequestPage.new(
   limit: 25
 )
 ```
-

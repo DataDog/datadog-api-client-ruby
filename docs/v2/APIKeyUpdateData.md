@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **attributes** | [**APIKeyUpdateAttributes**](APIKeyUpdateAttributes.md) |  |  |
-| **id** | **String** | ID of the API key. |  |
-| **type** | [**APIKeysType**](APIKeysType.md) |  | [default to &#39;api_keys&#39;] |
+| Name           | Type                                                    | Description        | Notes                           |
+| -------------- | ------------------------------------------------------- | ------------------ | ------------------------------- |
+| **attributes** | [**APIKeyUpdateAttributes**](APIKeyUpdateAttributes.md) |                    |                                 |
+| **id**         | **String**                                              | ID of the API key. |                                 |
+| **type**       | [**APIKeysType**](APIKeysType.md)                       |                    | [default to &#39;api_keys&#39;] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V2::APIKeyUpdateData.new(
   type: null
 )
 ```
-

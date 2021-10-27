@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **pagination** | [**IncidentServicesResponseMetaPagination**](IncidentServicesResponseMetaPagination.md) |  | [optional] |
+| Name           | Type                                                                                    | Description | Notes      |
+| -------------- | --------------------------------------------------------------------------------------- | ----------- | ---------- |
+| **pagination** | [**IncidentServicesResponseMetaPagination**](IncidentServicesResponseMetaPagination.md) |             | [optional] |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V2::IncidentServicesResponseMeta.new(
   pagination: null
 )
 ```
-

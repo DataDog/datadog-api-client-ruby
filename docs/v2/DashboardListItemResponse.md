@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **id** | **String** | ID of the dashboard. | [readonly] |
-| **type** | [**DashboardType**](DashboardType.md) |  |  |
+| Name     | Type                                  | Description          | Notes      |
+| -------- | ------------------------------------- | -------------------- | ---------- |
+| **id**   | **String**                            | ID of the dashboard. | [readonly] |
+| **type** | [**DashboardType**](DashboardType.md) |                      |            |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::DashboardListItemResponse.new(
   type: null
 )
 ```
-

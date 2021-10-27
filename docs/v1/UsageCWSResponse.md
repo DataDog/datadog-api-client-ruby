@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name      | Type                                             | Description                                   | Notes      |
+| --------- | ------------------------------------------------ | --------------------------------------------- | ---------- |
 | **usage** | [**Array&lt;UsageCWSHour&gt;**](UsageCWSHour.md) | Get hourly usage for Cloud Workload Security. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::UsageCWSResponse.new(
   usage: null
 )
 ```
-

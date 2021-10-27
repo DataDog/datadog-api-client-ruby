@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **dbm_host_count** | **Integer** | The total number of Database Monitoring host hours from the start of the given hour’s month until the given hour. | [optional] |
+| Name                  | Type        | Description                                                                                                               | Notes      |
+| --------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **dbm_host_count**    | **Integer** | The total number of Database Monitoring host hours from the start of the given hour’s month until the given hour.         | [optional] |
 | **dbm_queries_count** | **Integer** | The total number of normalized Database Monitoring queries from the start of the given hour’s month until the given hour. | [optional] |
-| **hour** | **Time** | The hour for the usage. | [optional] |
+| **hour**              | **Time**    | The hour for the usage.                                                                                                   | [optional] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::UsageDBMHour.new(
   hour: null
 )
 ```
-

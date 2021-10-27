@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name       | Type                                                              | Description                                                                                                                                | Notes      |
+| ---------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ---------- |
 | **groups** | [**Hash&lt;String, MonitorStateGroup&gt;**](MonitorStateGroup.md) | Dictionary where the keys are groups (comma separated lists of tags) and the values are the list of groups your monitor is broken down on. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::MonitorState.new(
   groups: null
 )
 ```
-

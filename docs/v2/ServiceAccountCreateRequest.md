@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data** | [**ServiceAccountCreateData**](ServiceAccountCreateData.md) |  |  |
+| Name     | Type                                                        | Description | Notes |
+| -------- | ----------------------------------------------------------- | ----------- | ----- |
+| **data** | [**ServiceAccountCreateData**](ServiceAccountCreateData.md) |             |       |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V2::ServiceAccountCreateRequest.new(
   data: null
 )
 ```
-

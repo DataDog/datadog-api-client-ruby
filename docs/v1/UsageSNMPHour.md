@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **hour** | **Time** | The hour for the usage. | [optional] |
+| Name             | Type        | Description                          | Notes      |
+| ---------------- | ----------- | ------------------------------------ | ---------- |
+| **hour**         | **Time**    | The hour for the usage.              | [optional] |
 | **snmp_devices** | **Integer** | Contains the number of SNMP devices. | [optional] |
 
 ## Example
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::UsageSNMPHour.new(
   snmp_devices: null
 )
 ```
-

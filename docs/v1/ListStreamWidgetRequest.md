@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **columns** | [**Array&lt;ListStreamColumn&gt;**](ListStreamColumn.md) | Widget columns. |  |
-| **query** | [**ListStreamQuery**](ListStreamQuery.md) |  |  |
-| **response_format** | [**ListStreamResponseFormat**](ListStreamResponseFormat.md) |  |  |
+| Name                | Type                                                        | Description     | Notes |
+| ------------------- | ----------------------------------------------------------- | --------------- | ----- |
+| **columns**         | [**Array&lt;ListStreamColumn&gt;**](ListStreamColumn.md)    | Widget columns. |       |
+| **query**           | [**ListStreamQuery**](ListStreamQuery.md)                   |                 |       |
+| **response_format** | [**ListStreamResponseFormat**](ListStreamResponseFormat.md) |                 |       |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::ListStreamWidgetRequest.new(
   response_format: null
 )
 ```
-

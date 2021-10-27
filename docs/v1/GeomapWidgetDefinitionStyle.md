@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **palette** | **String** | The color palette to apply to the widget. |  |
-| **palette_flip** | **Boolean** | Whether to flip the palette tones. |  |
+| Name             | Type        | Description                               | Notes |
+| ---------------- | ----------- | ----------------------------------------- | ----- |
+| **palette**      | **String**  | The color palette to apply to the widget. |       |
+| **palette_flip** | **Boolean** | Whether to flip the palette tones.        |       |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::GeomapWidgetDefinitionStyle.new(
   palette_flip: false
 )
 ```
-

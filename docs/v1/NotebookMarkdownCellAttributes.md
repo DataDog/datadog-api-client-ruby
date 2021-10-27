@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **definition** | [**NotebookMarkdownCellDefinition**](NotebookMarkdownCellDefinition.md) |  |  |
+| Name           | Type                                                                    | Description | Notes |
+| -------------- | ----------------------------------------------------------------------- | ----------- | ----- |
+| **definition** | [**NotebookMarkdownCellDefinition**](NotebookMarkdownCellDefinition.md) |             |       |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::NotebookMarkdownCellAttributes.new(
   definition: null
 )
 ```
-

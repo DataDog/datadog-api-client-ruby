@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **id** | **String** | Access key for the private location. | [optional][readonly] |
+| Name    | Type       | Description                                 | Notes                |
+| ------- | ---------- | ------------------------------------------- | -------------------- |
+| **id**  | **String** | Access key for the private location.        | [optional][readonly] |
 | **key** | **String** | Secret access key for the private location. | [optional][readonly] |
 
 ## Example
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::SyntheticsPrivateLocationSecretsAuthentication.
   key: null
 )
 ```
-

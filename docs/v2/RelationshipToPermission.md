@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data** | [**RelationshipToPermissionData**](RelationshipToPermissionData.md) |  | [optional] |
+| Name     | Type                                                                | Description | Notes      |
+| -------- | ------------------------------------------------------------------- | ----------- | ---------- |
+| **data** | [**RelationshipToPermissionData**](RelationshipToPermissionData.md) |             | [optional] |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V2::RelationshipToPermission.new(
   data: null
 )
 ```
-

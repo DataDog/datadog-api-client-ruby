@@ -2,13 +2,13 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **cells** | [**Array&lt;NotebookCellCreateRequest&gt;**](NotebookCellCreateRequest.md) | List of cells to display in the notebook. |  |
-| **metadata** | [**NotebookMetadata**](NotebookMetadata.md) |  | [optional] |
-| **name** | **String** | The name of the notebook. |  |
-| **status** | [**NotebookStatus**](NotebookStatus.md) |  | [optional][default to &#39;published&#39;] |
-| **time** | [**NotebookGlobalTime**](NotebookGlobalTime.md) |  |  |
+| Name         | Type                                                                       | Description                               | Notes                                      |
+| ------------ | -------------------------------------------------------------------------- | ----------------------------------------- | ------------------------------------------ |
+| **cells**    | [**Array&lt;NotebookCellCreateRequest&gt;**](NotebookCellCreateRequest.md) | List of cells to display in the notebook. |                                            |
+| **metadata** | [**NotebookMetadata**](NotebookMetadata.md)                                |                                           | [optional]                                 |
+| **name**     | **String**                                                                 | The name of the notebook.                 |                                            |
+| **status**   | [**NotebookStatus**](NotebookStatus.md)                                    |                                           | [optional][default to &#39;published&#39;] |
+| **time**     | [**NotebookGlobalTime**](NotebookGlobalTime.md)                            |                                           |                                            |
 
 ## Example
 
@@ -23,4 +23,3 @@ instance = DatadogAPIClient::V1::NotebookCreateDataAttributes.new(
   time: null
 )
 ```
-

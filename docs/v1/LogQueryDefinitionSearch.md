@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **query** | **String** | Search value to apply. |  |
+| Name      | Type       | Description            | Notes |
+| --------- | ---------- | ---------------------- | ----- |
+| **query** | **String** | Search value to apply. |       |
 
 ## Example
 
@@ -12,7 +12,6 @@
 require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::LogQueryDefinitionSearch.new(
-  query: 
+  query:
 )
 ```
-

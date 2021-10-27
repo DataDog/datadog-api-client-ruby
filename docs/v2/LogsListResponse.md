@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data** | [**Array&lt;Log&gt;**](Log.md) | Array of logs matching the request. | [optional] |
-| **links** | [**LogsListResponseLinks**](LogsListResponseLinks.md) |  | [optional] |
-| **meta** | [**LogsResponseMetadata**](LogsResponseMetadata.md) |  | [optional] |
+| Name      | Type                                                  | Description                         | Notes      |
+| --------- | ----------------------------------------------------- | ----------------------------------- | ---------- |
+| **data**  | [**Array&lt;Log&gt;**](Log.md)                        | Array of logs matching the request. | [optional] |
+| **links** | [**LogsListResponseLinks**](LogsListResponseLinks.md) |                                     | [optional] |
+| **meta**  | [**LogsResponseMetadata**](LogsResponseMetadata.md)   |                                     | [optional] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V2::LogsListResponse.new(
   meta: null
 )
 ```
-

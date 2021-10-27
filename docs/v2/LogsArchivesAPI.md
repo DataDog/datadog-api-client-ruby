@@ -2,19 +2,18 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method | HTTP request | Description |
-| ------ | ------------ | ----------- |
-| [**add_read_role_to_archive**](LogsArchivesAPI.md#add_read_role_to_archive) | **POST** /api/v2/logs/config/archives/{archive_id}/readers | Grant role to an archive |
-| [**create_logs_archive**](LogsArchivesAPI.md#create_logs_archive) | **POST** /api/v2/logs/config/archives | Create an archive |
-| [**delete_logs_archive**](LogsArchivesAPI.md#delete_logs_archive) | **DELETE** /api/v2/logs/config/archives/{archive_id} | Delete an archive |
-| [**get_logs_archive**](LogsArchivesAPI.md#get_logs_archive) | **GET** /api/v2/logs/config/archives/{archive_id} | Get an archive |
-| [**get_logs_archive_order**](LogsArchivesAPI.md#get_logs_archive_order) | **GET** /api/v2/logs/config/archive-order | Get archive order |
-| [**list_archive_read_roles**](LogsArchivesAPI.md#list_archive_read_roles) | **GET** /api/v2/logs/config/archives/{archive_id}/readers | List read roles for an archive |
-| [**list_logs_archives**](LogsArchivesAPI.md#list_logs_archives) | **GET** /api/v2/logs/config/archives | Get all archives |
-| [**remove_role_from_archive**](LogsArchivesAPI.md#remove_role_from_archive) | **DELETE** /api/v2/logs/config/archives/{archive_id}/readers | Revoke role from an archive |
-| [**update_logs_archive**](LogsArchivesAPI.md#update_logs_archive) | **PUT** /api/v2/logs/config/archives/{archive_id} | Update an archive |
-| [**update_logs_archive_order**](LogsArchivesAPI.md#update_logs_archive_order) | **PUT** /api/v2/logs/config/archive-order | Update archive order |
-
+| Method                                                                        | HTTP request                                                 | Description                    |
+| ----------------------------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------ |
+| [**add_read_role_to_archive**](LogsArchivesAPI.md#add_read_role_to_archive)   | **POST** /api/v2/logs/config/archives/{archive_id}/readers   | Grant role to an archive       |
+| [**create_logs_archive**](LogsArchivesAPI.md#create_logs_archive)             | **POST** /api/v2/logs/config/archives                        | Create an archive              |
+| [**delete_logs_archive**](LogsArchivesAPI.md#delete_logs_archive)             | **DELETE** /api/v2/logs/config/archives/{archive_id}         | Delete an archive              |
+| [**get_logs_archive**](LogsArchivesAPI.md#get_logs_archive)                   | **GET** /api/v2/logs/config/archives/{archive_id}            | Get an archive                 |
+| [**get_logs_archive_order**](LogsArchivesAPI.md#get_logs_archive_order)       | **GET** /api/v2/logs/config/archive-order                    | Get archive order              |
+| [**list_archive_read_roles**](LogsArchivesAPI.md#list_archive_read_roles)     | **GET** /api/v2/logs/config/archives/{archive_id}/readers    | List read roles for an archive |
+| [**list_logs_archives**](LogsArchivesAPI.md#list_logs_archives)               | **GET** /api/v2/logs/config/archives                         | Get all archives               |
+| [**remove_role_from_archive**](LogsArchivesAPI.md#remove_role_from_archive)   | **DELETE** /api/v2/logs/config/archives/{archive_id}/readers | Revoke role from an archive    |
+| [**update_logs_archive**](LogsArchivesAPI.md#update_logs_archive)             | **PUT** /api/v2/logs/config/archives/{archive_id}            | Update an archive              |
+| [**update_logs_archive_order**](LogsArchivesAPI.md#update_logs_archive_order) | **PUT** /api/v2/logs/config/archive-order                    | Update archive order           |
 
 ## add_read_role_to_archive
 
@@ -28,7 +27,7 @@ Adds a read role to an archive. ([Roles API](https://docs.datadoghq.com/api/v2/r
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::LogsArchivesAPI.new
 archive_id = 'archive_id_example' # String | The ID of the archive.
-body = DatadogAPIClient::V2::RelationshipToRole.new # RelationshipToRole | 
+body = DatadogAPIClient::V2::RelationshipToRole.new # RelationshipToRole |
 
 begin
   # Grant role to an archive
@@ -58,10 +57,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **archive_id** | **String** | The ID of the archive. |  |
-| **body** | [**RelationshipToRole**](RelationshipToRole.md) |  |  |
+| Name           | Type                                            | Description            | Notes |
+| -------------- | ----------------------------------------------- | ---------------------- | ----- |
+| **archive_id** | **String**                                      | The ID of the archive. |       |
+| **body**       | [**RelationshipToRole**](RelationshipToRole.md) |                        |       |
 
 ### Return type
 
@@ -75,7 +74,6 @@ nil (empty response body)
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## create_logs_archive
 
@@ -119,9 +117,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**LogsArchiveCreateRequest**](LogsArchiveCreateRequest.md) | The definition of the new archive. |  |
+| Name     | Type                                                        | Description                        | Notes |
+| -------- | ----------------------------------------------------------- | ---------------------------------- | ----- |
+| **body** | [**LogsArchiveCreateRequest**](LogsArchiveCreateRequest.md) | The definition of the new archive. |       |
 
 ### Return type
 
@@ -135,7 +133,6 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## delete_logs_archive
 
@@ -178,9 +175,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **archive_id** | **String** | The ID of the archive. |  |
+| Name           | Type       | Description            | Notes |
+| -------------- | ---------- | ---------------------- | ----- |
+| **archive_id** | **String** | The ID of the archive. |       |
 
 ### Return type
 
@@ -194,7 +191,6 @@ nil (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_logs_archive
 
@@ -238,9 +234,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **archive_id** | **String** | The ID of the archive. |  |
+| Name           | Type       | Description            | Notes |
+| -------------- | ---------- | ---------------------- | ----- |
+| **archive_id** | **String** | The ID of the archive. |       |
 
 ### Return type
 
@@ -254,7 +250,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_logs_archive_order
 
@@ -313,7 +308,6 @@ This endpoint does not need any parameter.
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-
 ## list_archive_read_roles
 
 > <RolesResponse> list_archive_read_roles(archive_id)
@@ -356,9 +350,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **archive_id** | **String** | The ID of the archive. |  |
+| Name           | Type       | Description            | Notes |
+| -------------- | ---------- | ---------------------- | ----- |
+| **archive_id** | **String** | The ID of the archive. |       |
 
 ### Return type
 
@@ -372,7 +366,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## list_logs_archives
 
@@ -430,7 +423,6 @@ This endpoint does not need any parameter.
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-
 ## remove_role_from_archive
 
 > remove_role_from_archive(archive_id, body)
@@ -443,7 +435,7 @@ Removes a role from an archive. ([Roles API](https://docs.datadoghq.com/api/v2/r
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::LogsArchivesAPI.new
 archive_id = 'archive_id_example' # String | The ID of the archive.
-body = DatadogAPIClient::V2::RelationshipToRole.new # RelationshipToRole | 
+body = DatadogAPIClient::V2::RelationshipToRole.new # RelationshipToRole |
 
 begin
   # Revoke role from an archive
@@ -473,10 +465,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **archive_id** | **String** | The ID of the archive. |  |
-| **body** | [**RelationshipToRole**](RelationshipToRole.md) |  |  |
+| Name           | Type                                            | Description            | Notes |
+| -------------- | ----------------------------------------------- | ---------------------- | ----- |
+| **archive_id** | **String**                                      | The ID of the archive. |       |
+| **body**       | [**RelationshipToRole**](RelationshipToRole.md) |                        |       |
 
 ### Return type
 
@@ -490,7 +482,6 @@ nil (empty response body)
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## update_logs_archive
 
@@ -538,10 +529,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **archive_id** | **String** | The ID of the archive. |  |
-| **body** | [**LogsArchiveCreateRequest**](LogsArchiveCreateRequest.md) | New definition of the archive. |  |
+| Name           | Type                                                        | Description                    | Notes |
+| -------------- | ----------------------------------------------------------- | ------------------------------ | ----- |
+| **archive_id** | **String**                                                  | The ID of the archive.         |       |
+| **body**       | [**LogsArchiveCreateRequest**](LogsArchiveCreateRequest.md) | New definition of the archive. |       |
 
 ### Return type
 
@@ -555,7 +546,6 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## update_logs_archive_order
 
@@ -603,9 +593,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**LogsArchiveOrder**](LogsArchiveOrder.md) | An object containing the new ordered list of archive IDs. |  |
+| Name     | Type                                        | Description                                               | Notes |
+| -------- | ------------------------------------------- | --------------------------------------------------------- | ----- |
+| **body** | [**LogsArchiveOrder**](LogsArchiveOrder.md) | An object containing the new ordered list of archive IDs. |       |
 
 ### Return type
 
@@ -619,4 +609,3 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-

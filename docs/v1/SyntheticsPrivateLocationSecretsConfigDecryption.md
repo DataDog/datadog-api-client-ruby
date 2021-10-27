@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name    | Type       | Description                           | Notes                |
+| ------- | ---------- | ------------------------------------- | -------------------- |
 | **key** | **String** | Private key for the private location. | [optional][readonly] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::SyntheticsPrivateLocationSecretsConfigDecryptio
   key: null
 )
 ```
-

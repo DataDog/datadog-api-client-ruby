@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **attributes** | [**NotebookCellCreateRequestAttributes**](NotebookCellCreateRequestAttributes.md) |  |  |
-| **type** | [**NotebookCellResourceType**](NotebookCellResourceType.md) |  | [default to &#39;notebook_cells&#39;] |
+| Name           | Type                                                                              | Description | Notes                                 |
+| -------------- | --------------------------------------------------------------------------------- | ----------- | ------------------------------------- |
+| **attributes** | [**NotebookCellCreateRequestAttributes**](NotebookCellCreateRequestAttributes.md) |             |                                       |
+| **type**       | [**NotebookCellResourceType**](NotebookCellResourceType.md)                       |             | [default to &#39;notebook_cells&#39;] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::NotebookCellCreateRequest.new(
   type: null
 )
 ```
-

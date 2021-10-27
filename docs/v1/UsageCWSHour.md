@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name                    | Type        | Description                                                                                                                | Notes      |
+| ----------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------- | ---------- |
 | **cws_container_count** | **Integer** | The total number of Cloud Workload Security container hours from the start of the given hour’s month until the given hour. | [optional] |
-| **cws_host_count** | **Integer** | The total number of Cloud Workload Security host hours from the start of the given hour’s month until the given hour. | [optional] |
-| **hour** | **Time** | The hour for the usage. | [optional] |
+| **cws_host_count**      | **Integer** | The total number of Cloud Workload Security host hours from the start of the given hour’s month until the given hour.      | [optional] |
+| **hour**                | **Time**    | The hour for the usage.                                                                                                    | [optional] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::UsageCWSHour.new(
   hour: null
 )
 ```
-

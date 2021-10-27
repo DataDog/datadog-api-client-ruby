@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name        | Type                                             | Description              | Notes      |
+| ----------- | ------------------------------------------------ | ------------------------ | ---------- |
 | **filters** | [**Array&lt;AWSTagFilter&gt;**](AWSTagFilter.md) | An array of tag filters. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::AWSTagFilterListResponse.new(
   filters: null
 )
 ```
-

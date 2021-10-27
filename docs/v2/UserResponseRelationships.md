@@ -2,12 +2,12 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **org** | [**RelationshipToOrganization**](RelationshipToOrganization.md) |  | [optional] |
-| **other_orgs** | [**RelationshipToOrganizations**](RelationshipToOrganizations.md) |  | [optional] |
-| **other_users** | [**RelationshipToUsers**](RelationshipToUsers.md) |  | [optional] |
-| **roles** | [**RelationshipToRoles**](RelationshipToRoles.md) |  | [optional] |
+| Name            | Type                                                              | Description | Notes      |
+| --------------- | ----------------------------------------------------------------- | ----------- | ---------- |
+| **org**         | [**RelationshipToOrganization**](RelationshipToOrganization.md)   |             | [optional] |
+| **other_orgs**  | [**RelationshipToOrganizations**](RelationshipToOrganizations.md) |             | [optional] |
+| **other_users** | [**RelationshipToUsers**](RelationshipToUsers.md)                 |             | [optional] |
+| **roles**       | [**RelationshipToRoles**](RelationshipToRoles.md)                 |             | [optional] |
 
 ## Example
 
@@ -21,4 +21,3 @@ instance = DatadogAPIClient::V2::UserResponseRelationships.new(
   roles: null
 )
 ```
-

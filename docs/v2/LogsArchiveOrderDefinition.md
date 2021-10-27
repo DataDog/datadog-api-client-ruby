@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **attributes** | [**LogsArchiveOrderAttributes**](LogsArchiveOrderAttributes.md) |  |  |
-| **type** | [**LogsArchiveOrderDefinitionType**](LogsArchiveOrderDefinitionType.md) |  | [default to &#39;archive_order&#39;] |
+| Name           | Type                                                                    | Description | Notes                                |
+| -------------- | ----------------------------------------------------------------------- | ----------- | ------------------------------------ |
+| **attributes** | [**LogsArchiveOrderAttributes**](LogsArchiveOrderAttributes.md)         |             |                                      |
+| **type**       | [**LogsArchiveOrderDefinitionType**](LogsArchiveOrderDefinitionType.md) |             | [default to &#39;archive_order&#39;] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::LogsArchiveOrderDefinition.new(
   type: null
 )
 ```
-

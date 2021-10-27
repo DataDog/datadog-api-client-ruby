@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data** | [**MetricTagConfigurationUpdateData**](MetricTagConfigurationUpdateData.md) |  |  |
+| Name     | Type                                                                        | Description | Notes |
+| -------- | --------------------------------------------------------------------------- | ----------- | ----- |
+| **data** | [**MetricTagConfigurationUpdateData**](MetricTagConfigurationUpdateData.md) |             |       |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V2::MetricTagConfigurationUpdateRequest.new(
   data: null
 )
 ```
-

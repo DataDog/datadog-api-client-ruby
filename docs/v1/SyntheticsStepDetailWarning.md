@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **message** | **String** | Message for the warning. |  |
-| **type** | [**SyntheticsWarningType**](SyntheticsWarningType.md) |  |  |
+| Name        | Type                                                  | Description              | Notes |
+| ----------- | ----------------------------------------------------- | ------------------------ | ----- |
+| **message** | **String**                                            | Message for the warning. |       |
+| **type**    | [**SyntheticsWarningType**](SyntheticsWarningType.md) |                          |       |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::SyntheticsStepDetailWarning.new(
   type: null
 )
 ```
-

@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data** | [**Array&lt;Role&gt;**](Role.md) | Array of returned roles. | [optional] |
-| **meta** | [**ResponseMetaAttributes**](ResponseMetaAttributes.md) |  | [optional] |
+| Name     | Type                                                    | Description              | Notes      |
+| -------- | ------------------------------------------------------- | ------------------------ | ---------- |
+| **data** | [**Array&lt;Role&gt;**](Role.md)                        | Array of returned roles. | [optional] |
+| **meta** | [**ResponseMetaAttributes**](ResponseMetaAttributes.md) |                          | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::RolesResponse.new(
   meta: null
 )
 ```
-

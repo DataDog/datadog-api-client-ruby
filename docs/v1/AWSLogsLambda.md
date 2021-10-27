@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name    | Type       | Description        | Notes      |
+| ------- | ---------- | ------------------ | ---------- |
 | **arn** | **String** | Available ARN IDs. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::AWSLogsLambda.new(
   arn: null
 )
 ```
-

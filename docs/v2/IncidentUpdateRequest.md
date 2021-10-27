@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data** | [**IncidentUpdateData**](IncidentUpdateData.md) |  |  |
+| Name     | Type                                            | Description | Notes |
+| -------- | ----------------------------------------------- | ----------- | ----- |
+| **data** | [**IncidentUpdateData**](IncidentUpdateData.md) |             |       |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V2::IncidentUpdateRequest.new(
   data: null
 )
 ```
-

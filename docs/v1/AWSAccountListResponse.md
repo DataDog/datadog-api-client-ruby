@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name         | Type                                         | Description                   | Notes      |
+| ------------ | -------------------------------------------- | ----------------------------- | ---------- |
 | **accounts** | [**Array&lt;AWSAccount&gt;**](AWSAccount.md) | List of enabled AWS accounts. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::AWSAccountListResponse.new(
   accounts: null
 )
 ```
-

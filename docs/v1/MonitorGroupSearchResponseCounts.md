@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name       | Type                    | Description    | Notes      |
+| ---------- | ----------------------- | -------------- | ---------- |
 | **status** | **Array&lt;Object&gt;** | Search facets. | [optional] |
-| **type** | **Array&lt;Object&gt;** | Search facets. | [optional] |
+| **type**   | **Array&lt;Object&gt;** | Search facets. | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::MonitorGroupSearchResponseCounts.new(
   type: null
 )
 ```
-

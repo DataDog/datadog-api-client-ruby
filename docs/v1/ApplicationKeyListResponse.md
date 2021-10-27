@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name                 | Type                                                 | Description                | Notes      |
+| -------------------- | ---------------------------------------------------- | -------------------------- | ---------- |
 | **application_keys** | [**Array&lt;ApplicationKey&gt;**](ApplicationKey.md) | Array of application keys. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::ApplicationKeyListResponse.new(
   application_keys: null
 )
 ```
-

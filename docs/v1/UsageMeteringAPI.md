@@ -2,42 +2,41 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method | HTTP request | Description |
-| ------ | ------------ | ----------- |
-| [**get_daily_custom_reports**](UsageMeteringAPI.md#get_daily_custom_reports) | **GET** /api/v1/daily_custom_reports | Get the list of available daily custom reports |
-| [**get_incident_management**](UsageMeteringAPI.md#get_incident_management) | **GET** /api/v1/usage/incident-management | Get hourly usage for incident management |
-| [**get_ingested_spans**](UsageMeteringAPI.md#get_ingested_spans) | **GET** /api/v1/usage/ingested-spans | Get hourly usage for ingested spans |
-| [**get_monthly_custom_reports**](UsageMeteringAPI.md#get_monthly_custom_reports) | **GET** /api/v1/monthly_custom_reports | Get the list of available monthly custom reports |
-| [**get_specified_daily_custom_reports**](UsageMeteringAPI.md#get_specified_daily_custom_reports) | **GET** /api/v1/daily_custom_reports/{report_id} | Get specified daily custom reports |
-| [**get_specified_monthly_custom_reports**](UsageMeteringAPI.md#get_specified_monthly_custom_reports) | **GET** /api/v1/monthly_custom_reports/{report_id} | Get specified monthly custom reports |
-| [**get_usage_analyzed_logs**](UsageMeteringAPI.md#get_usage_analyzed_logs) | **GET** /api/v1/usage/analyzed_logs | Get hourly usage for analyzed logs |
-| [**get_usage_attribution**](UsageMeteringAPI.md#get_usage_attribution) | **GET** /api/v1/usage/attribution | Get Usage Attribution |
-| [**get_usage_audit_logs**](UsageMeteringAPI.md#get_usage_audit_logs) | **GET** /api/v1/usage/audit_logs | Get hourly usage for audit logs |
-| [**get_usage_billable_summary**](UsageMeteringAPI.md#get_usage_billable_summary) | **GET** /api/v1/usage/billable-summary | Get billable usage across your account |
-| [**get_usage_cloud_security_posture_management**](UsageMeteringAPI.md#get_usage_cloud_security_posture_management) | **GET** /api/v1/usage/cspm | Get hourly usage for CSPM |
-| [**get_usage_cws**](UsageMeteringAPI.md#get_usage_cws) | **GET** /api/v1/usage/cws | Get hourly usage for Cloud Workload Security |
-| [**get_usage_dbm**](UsageMeteringAPI.md#get_usage_dbm) | **GET** /api/v1/usage/dbm | Get hourly usage for Database Monitoring |
-| [**get_usage_fargate**](UsageMeteringAPI.md#get_usage_fargate) | **GET** /api/v1/usage/fargate | Get hourly usage for Fargate |
-| [**get_usage_hosts**](UsageMeteringAPI.md#get_usage_hosts) | **GET** /api/v1/usage/hosts | Get hourly usage for hosts and containers |
-| [**get_usage_indexed_spans**](UsageMeteringAPI.md#get_usage_indexed_spans) | **GET** /api/v1/usage/indexed-spans | Get hourly usage for indexed spans |
-| [**get_usage_internet_of_things**](UsageMeteringAPI.md#get_usage_internet_of_things) | **GET** /api/v1/usage/iot | Get hourly usage for IoT |
-| [**get_usage_lambda**](UsageMeteringAPI.md#get_usage_lambda) | **GET** /api/v1/usage/aws_lambda | Get hourly usage for Lambda |
-| [**get_usage_logs**](UsageMeteringAPI.md#get_usage_logs) | **GET** /api/v1/usage/logs | Get hourly usage for Logs |
-| [**get_usage_logs_by_index**](UsageMeteringAPI.md#get_usage_logs_by_index) | **GET** /api/v1/usage/logs_by_index | Get hourly usage for Logs by Index |
-| [**get_usage_logs_by_retention**](UsageMeteringAPI.md#get_usage_logs_by_retention) | **GET** /api/v1/usage/logs-by-retention | Get hourly logs usage by retention |
-| [**get_usage_network_flows**](UsageMeteringAPI.md#get_usage_network_flows) | **GET** /api/v1/usage/network_flows | Get hourly usage for Network Flows |
-| [**get_usage_network_hosts**](UsageMeteringAPI.md#get_usage_network_hosts) | **GET** /api/v1/usage/network_hosts | Get hourly usage for Network Hosts |
-| [**get_usage_profiling**](UsageMeteringAPI.md#get_usage_profiling) | **GET** /api/v1/usage/profiling | Get hourly usage for profiled hosts |
-| [**get_usage_rum_sessions**](UsageMeteringAPI.md#get_usage_rum_sessions) | **GET** /api/v1/usage/rum_sessions | Get hourly usage for RUM Sessions |
-| [**get_usage_sds**](UsageMeteringAPI.md#get_usage_sds) | **GET** /api/v1/usage/sds | Get hourly usage for Sensitive Data Scanner |
-| [**get_usage_snmp**](UsageMeteringAPI.md#get_usage_snmp) | **GET** /api/v1/usage/snmp | Get hourly usage for SNMP devices |
-| [**get_usage_summary**](UsageMeteringAPI.md#get_usage_summary) | **GET** /api/v1/usage/summary | Get usage across your multi-org account |
-| [**get_usage_synthetics**](UsageMeteringAPI.md#get_usage_synthetics) | **GET** /api/v1/usage/synthetics | Get hourly usage for Synthetics Checks |
-| [**get_usage_synthetics_api**](UsageMeteringAPI.md#get_usage_synthetics_api) | **GET** /api/v1/usage/synthetics_api | Get hourly usage for Synthetics API Checks |
-| [**get_usage_synthetics_browser**](UsageMeteringAPI.md#get_usage_synthetics_browser) | **GET** /api/v1/usage/synthetics_browser | Get hourly usage for Synthetics Browser Checks |
-| [**get_usage_timeseries**](UsageMeteringAPI.md#get_usage_timeseries) | **GET** /api/v1/usage/timeseries | Get hourly usage for custom metrics |
-| [**get_usage_top_avg_metrics**](UsageMeteringAPI.md#get_usage_top_avg_metrics) | **GET** /api/v1/usage/top_avg_metrics | Get all custom metrics by hourly average |
-
+| Method                                                                                                             | HTTP request                                       | Description                                      |
+| ------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------- | ------------------------------------------------ |
+| [**get_daily_custom_reports**](UsageMeteringAPI.md#get_daily_custom_reports)                                       | **GET** /api/v1/daily_custom_reports               | Get the list of available daily custom reports   |
+| [**get_incident_management**](UsageMeteringAPI.md#get_incident_management)                                         | **GET** /api/v1/usage/incident-management          | Get hourly usage for incident management         |
+| [**get_ingested_spans**](UsageMeteringAPI.md#get_ingested_spans)                                                   | **GET** /api/v1/usage/ingested-spans               | Get hourly usage for ingested spans              |
+| [**get_monthly_custom_reports**](UsageMeteringAPI.md#get_monthly_custom_reports)                                   | **GET** /api/v1/monthly_custom_reports             | Get the list of available monthly custom reports |
+| [**get_specified_daily_custom_reports**](UsageMeteringAPI.md#get_specified_daily_custom_reports)                   | **GET** /api/v1/daily_custom_reports/{report_id}   | Get specified daily custom reports               |
+| [**get_specified_monthly_custom_reports**](UsageMeteringAPI.md#get_specified_monthly_custom_reports)               | **GET** /api/v1/monthly_custom_reports/{report_id} | Get specified monthly custom reports             |
+| [**get_usage_analyzed_logs**](UsageMeteringAPI.md#get_usage_analyzed_logs)                                         | **GET** /api/v1/usage/analyzed_logs                | Get hourly usage for analyzed logs               |
+| [**get_usage_attribution**](UsageMeteringAPI.md#get_usage_attribution)                                             | **GET** /api/v1/usage/attribution                  | Get Usage Attribution                            |
+| [**get_usage_audit_logs**](UsageMeteringAPI.md#get_usage_audit_logs)                                               | **GET** /api/v1/usage/audit_logs                   | Get hourly usage for audit logs                  |
+| [**get_usage_billable_summary**](UsageMeteringAPI.md#get_usage_billable_summary)                                   | **GET** /api/v1/usage/billable-summary             | Get billable usage across your account           |
+| [**get_usage_cloud_security_posture_management**](UsageMeteringAPI.md#get_usage_cloud_security_posture_management) | **GET** /api/v1/usage/cspm                         | Get hourly usage for CSPM                        |
+| [**get_usage_cws**](UsageMeteringAPI.md#get_usage_cws)                                                             | **GET** /api/v1/usage/cws                          | Get hourly usage for Cloud Workload Security     |
+| [**get_usage_dbm**](UsageMeteringAPI.md#get_usage_dbm)                                                             | **GET** /api/v1/usage/dbm                          | Get hourly usage for Database Monitoring         |
+| [**get_usage_fargate**](UsageMeteringAPI.md#get_usage_fargate)                                                     | **GET** /api/v1/usage/fargate                      | Get hourly usage for Fargate                     |
+| [**get_usage_hosts**](UsageMeteringAPI.md#get_usage_hosts)                                                         | **GET** /api/v1/usage/hosts                        | Get hourly usage for hosts and containers        |
+| [**get_usage_indexed_spans**](UsageMeteringAPI.md#get_usage_indexed_spans)                                         | **GET** /api/v1/usage/indexed-spans                | Get hourly usage for indexed spans               |
+| [**get_usage_internet_of_things**](UsageMeteringAPI.md#get_usage_internet_of_things)                               | **GET** /api/v1/usage/iot                          | Get hourly usage for IoT                         |
+| [**get_usage_lambda**](UsageMeteringAPI.md#get_usage_lambda)                                                       | **GET** /api/v1/usage/aws_lambda                   | Get hourly usage for Lambda                      |
+| [**get_usage_logs**](UsageMeteringAPI.md#get_usage_logs)                                                           | **GET** /api/v1/usage/logs                         | Get hourly usage for Logs                        |
+| [**get_usage_logs_by_index**](UsageMeteringAPI.md#get_usage_logs_by_index)                                         | **GET** /api/v1/usage/logs_by_index                | Get hourly usage for Logs by Index               |
+| [**get_usage_logs_by_retention**](UsageMeteringAPI.md#get_usage_logs_by_retention)                                 | **GET** /api/v1/usage/logs-by-retention            | Get hourly logs usage by retention               |
+| [**get_usage_network_flows**](UsageMeteringAPI.md#get_usage_network_flows)                                         | **GET** /api/v1/usage/network_flows                | Get hourly usage for Network Flows               |
+| [**get_usage_network_hosts**](UsageMeteringAPI.md#get_usage_network_hosts)                                         | **GET** /api/v1/usage/network_hosts                | Get hourly usage for Network Hosts               |
+| [**get_usage_profiling**](UsageMeteringAPI.md#get_usage_profiling)                                                 | **GET** /api/v1/usage/profiling                    | Get hourly usage for profiled hosts              |
+| [**get_usage_rum_sessions**](UsageMeteringAPI.md#get_usage_rum_sessions)                                           | **GET** /api/v1/usage/rum_sessions                 | Get hourly usage for RUM Sessions                |
+| [**get_usage_sds**](UsageMeteringAPI.md#get_usage_sds)                                                             | **GET** /api/v1/usage/sds                          | Get hourly usage for Sensitive Data Scanner      |
+| [**get_usage_snmp**](UsageMeteringAPI.md#get_usage_snmp)                                                           | **GET** /api/v1/usage/snmp                         | Get hourly usage for SNMP devices                |
+| [**get_usage_summary**](UsageMeteringAPI.md#get_usage_summary)                                                     | **GET** /api/v1/usage/summary                      | Get usage across your multi-org account          |
+| [**get_usage_synthetics**](UsageMeteringAPI.md#get_usage_synthetics)                                               | **GET** /api/v1/usage/synthetics                   | Get hourly usage for Synthetics Checks           |
+| [**get_usage_synthetics_api**](UsageMeteringAPI.md#get_usage_synthetics_api)                                       | **GET** /api/v1/usage/synthetics_api               | Get hourly usage for Synthetics API Checks       |
+| [**get_usage_synthetics_browser**](UsageMeteringAPI.md#get_usage_synthetics_browser)                               | **GET** /api/v1/usage/synthetics_browser           | Get hourly usage for Synthetics Browser Checks   |
+| [**get_usage_timeseries**](UsageMeteringAPI.md#get_usage_timeseries)                                               | **GET** /api/v1/usage/timeseries                   | Get hourly usage for custom metrics              |
+| [**get_usage_top_avg_metrics**](UsageMeteringAPI.md#get_usage_top_avg_metrics)                                     | **GET** /api/v1/usage/top_avg_metrics              | Get all custom metrics by hourly average         |
 
 ## get_daily_custom_reports
 
@@ -91,12 +90,12 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **page_size** | **Integer** | The number of files to return in the response. &#x60;[default&#x3D;60]&#x60;. | [optional] |
-| **page_number** | **Integer** | The identifier of the first page to return. This parameter is used for the pagination feature &#x60;[default&#x3D;0]&#x60;. | [optional] |
-| **sort_dir** | **UsageSortDirection** | The direction to sort by: &#x60;[desc, asc]&#x60;. | [optional][default to &#39;desc&#39;] |
-| **sort** | **UsageSort** | The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;. | [optional][default to &#39;start_date&#39;] |
+| Name            | Type                   | Description                                                                                                                 | Notes                                       |
+| --------------- | ---------------------- | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| **page_size**   | **Integer**            | The number of files to return in the response. &#x60;[default&#x3D;60]&#x60;.                                               | [optional]                                  |
+| **page_number** | **Integer**            | The identifier of the first page to return. This parameter is used for the pagination feature &#x60;[default&#x3D;0]&#x60;. | [optional]                                  |
+| **sort_dir**    | **UsageSortDirection** | The direction to sort by: &#x60;[desc, asc]&#x60;.                                                                          | [optional][default to &#39;desc&#39;]       |
+| **sort**        | **UsageSort**          | The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;.                                                | [optional][default to &#39;start_date&#39;] |
 
 ### Return type
 
@@ -110,7 +109,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-
 
 ## get_incident_management
 
@@ -157,10 +155,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |  |
-| **end_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+| Name         | Type     | Description                                                                                                           | Notes      |
+| ------------ | -------- | --------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      |            |
+| **end_hr**   | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
 
 ### Return type
 
@@ -174,7 +172,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-
 
 ## get_ingested_spans
 
@@ -221,10 +218,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |  |
-| **end_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+| Name         | Type     | Description                                                                                                           | Notes      |
+| ------------ | -------- | --------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      |            |
+| **end_hr**   | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
 
 ### Return type
 
@@ -238,7 +235,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-
 
 ## get_monthly_custom_reports
 
@@ -292,12 +288,12 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **page_size** | **Integer** | The number of files to return in the response &#x60;[default&#x3D;60].&#x60; | [optional] |
-| **page_number** | **Integer** | The identifier of the first page to return. This parameter is used for the pagination feature &#x60;[default&#x3D;0]&#x60;. | [optional] |
-| **sort_dir** | **UsageSortDirection** | The direction to sort by: &#x60;[desc, asc]&#x60;. | [optional][default to &#39;desc&#39;] |
-| **sort** | **UsageSort** | The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;. | [optional][default to &#39;start_date&#39;] |
+| Name            | Type                   | Description                                                                                                                 | Notes                                       |
+| --------------- | ---------------------- | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| **page_size**   | **Integer**            | The number of files to return in the response &#x60;[default&#x3D;60].&#x60;                                                | [optional]                                  |
+| **page_number** | **Integer**            | The identifier of the first page to return. This parameter is used for the pagination feature &#x60;[default&#x3D;0]&#x60;. | [optional]                                  |
+| **sort_dir**    | **UsageSortDirection** | The direction to sort by: &#x60;[desc, asc]&#x60;.                                                                          | [optional][default to &#39;desc&#39;]       |
+| **sort**        | **UsageSort**          | The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;.                                                | [optional][default to &#39;start_date&#39;] |
 
 ### Return type
 
@@ -311,7 +307,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-
 
 ## get_specified_daily_custom_reports
 
@@ -360,9 +355,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **report_id** | **String** | Date of the report in the format &#x60;YYYY-MM-DD&#x60;. |  |
+| Name          | Type       | Description                                              | Notes |
+| ------------- | ---------- | -------------------------------------------------------- | ----- |
+| **report_id** | **String** | Date of the report in the format &#x60;YYYY-MM-DD&#x60;. |       |
 
 ### Return type
 
@@ -376,7 +371,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-
 
 ## get_specified_monthly_custom_reports
 
@@ -425,9 +419,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **report_id** | **String** | Date of the report in the format &#x60;YYYY-MM-DD&#x60;. |  |
+| Name          | Type       | Description                                              | Notes |
+| ------------- | ---------- | -------------------------------------------------------- | ----- |
+| **report_id** | **String** | Date of the report in the format &#x60;YYYY-MM-DD&#x60;. |       |
 
 ### Return type
 
@@ -441,7 +435,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-
 
 ## get_usage_analyzed_logs
 
@@ -488,10 +481,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |  |
-| **end_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+| Name         | Type     | Description                                                                                                           | Notes      |
+| ------------ | -------- | --------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      |            |
+| **end_hr**   | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
 
 ### Return type
 
@@ -505,7 +498,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-
 
 ## get_usage_attribution
 
@@ -561,14 +553,14 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **start_month** | **Time** | Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago. |  |
-| **fields** | **UsageAttributionSupportedMetrics** | Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage types. |  |
-| **end_month** | **Time** | Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month. | [optional] |
-| **sort_direction** | **UsageSortDirection** | The direction to sort by: &#x60;[desc, asc]&#x60;. | [optional][default to &#39;desc&#39;] |
-| **sort_name** | **UsageAttributionSort** | The field to sort by. | [optional][default to &#39;custom_timeseries_usage&#39;] |
-| **include_descendants** | **Boolean** | Include child org usage in the response. Defaults to false. | [optional][default to false] |
+| Name                    | Type                                 | Description                                                                                                                            | Notes                                                    |
+| ----------------------- | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| **start_month**         | **Time**                             | Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago. |                                                          |
+| **fields**              | **UsageAttributionSupportedMetrics** | Comma-separated list of usage types to return, or &#x60;\*&#x60; for all usage types.                                                  |                                                          |
+| **end_month**           | **Time**                             | Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.                                 | [optional]                                               |
+| **sort_direction**      | **UsageSortDirection**               | The direction to sort by: &#x60;[desc, asc]&#x60;.                                                                                     | [optional][default to &#39;desc&#39;]                    |
+| **sort_name**           | **UsageAttributionSort**             | The field to sort by.                                                                                                                  | [optional][default to &#39;custom_timeseries_usage&#39;] |
+| **include_descendants** | **Boolean**                          | Include child org usage in the response. Defaults to false.                                                                            | [optional][default to false]                             |
 
 ### Return type
 
@@ -582,7 +574,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-
 
 ## get_usage_audit_logs
 
@@ -629,10 +620,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |  |
-| **end_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+| Name         | Type     | Description                                                                                                           | Notes      |
+| ------------ | -------- | --------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      |            |
+| **end_hr**   | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
 
 ### Return type
 
@@ -646,7 +637,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-
 
 ## get_usage_billable_summary
 
@@ -692,8 +682,8 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name      | Type     | Description                                                                                              | Notes      |
+| --------- | -------- | -------------------------------------------------------------------------------------------------------- | ---------- |
 | **month** | **Time** | Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage starting this month. | [optional] |
 
 ### Return type
@@ -708,7 +698,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-
 
 ## get_usage_cloud_security_posture_management
 
@@ -755,10 +744,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |  |
-| **end_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+| Name         | Type     | Description                                                                                                           | Notes      |
+| ------------ | -------- | --------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      |            |
+| **end_hr**   | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
 
 ### Return type
 
@@ -772,7 +761,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-
 
 ## get_usage_cws
 
@@ -819,10 +807,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |  |
-| **end_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+| Name         | Type     | Description                                                                                                           | Notes      |
+| ------------ | -------- | --------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      |            |
+| **end_hr**   | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
 
 ### Return type
 
@@ -836,7 +824,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-
 
 ## get_usage_dbm
 
@@ -883,10 +870,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |  |
-| **end_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+| Name         | Type     | Description                                                                                                           | Notes      |
+| ------------ | -------- | --------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      |            |
+| **end_hr**   | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
 
 ### Return type
 
@@ -900,7 +887,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-
 
 ## get_usage_fargate
 
@@ -947,10 +933,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. |  |
-| **end_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
+| Name         | Type     | Description                                                                                               | Notes      |
+| ------------ | -------- | --------------------------------------------------------------------------------------------------------- | ---------- |
+| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.      |            |
+| **end_hr**   | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
 
 ### Return type
 
@@ -964,7 +950,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-
 
 ## get_usage_hosts
 
@@ -1011,10 +996,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. |  |
-| **end_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
+| Name         | Type     | Description                                                                                               | Notes      |
+| ------------ | -------- | --------------------------------------------------------------------------------------------------------- | ---------- |
+| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.      |            |
+| **end_hr**   | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
 
 ### Return type
 
@@ -1028,7 +1013,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-
 
 ## get_usage_indexed_spans
 
@@ -1075,10 +1059,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |  |
-| **end_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+| Name         | Type     | Description                                                                                                           | Notes      |
+| ------------ | -------- | --------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      |            |
+| **end_hr**   | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
 
 ### Return type
 
@@ -1092,7 +1076,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-
 
 ## get_usage_internet_of_things
 
@@ -1139,10 +1122,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |  |
-| **end_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+| Name         | Type     | Description                                                                                                           | Notes      |
+| ------------ | -------- | --------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      |            |
+| **end_hr**   | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
 
 ### Return type
 
@@ -1156,7 +1139,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-
 
 ## get_usage_lambda
 
@@ -1203,10 +1185,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. |  |
-| **end_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
+| Name         | Type     | Description                                                                                               | Notes      |
+| ------------ | -------- | --------------------------------------------------------------------------------------------------------- | ---------- |
+| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.      |            |
+| **end_hr**   | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
 
 ### Return type
 
@@ -1220,7 +1202,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-
 
 ## get_usage_logs
 
@@ -1267,10 +1248,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. |  |
-| **end_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
+| Name         | Type     | Description                                                                                               | Notes      |
+| ------------ | -------- | --------------------------------------------------------------------------------------------------------- | ---------- |
+| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.      |            |
+| **end_hr**   | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
 
 ### Return type
 
@@ -1284,7 +1265,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-
 
 ## get_usage_logs_by_index
 
@@ -1332,11 +1312,11 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. |  |
-| **end_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
-| **index_name** | **Array&lt;String&gt;** | Comma-separated list of log index names. | [optional] |
+| Name           | Type                    | Description                                                                                               | Notes      |
+| -------------- | ----------------------- | --------------------------------------------------------------------------------------------------------- | ---------- |
+| **start_hr**   | **Time**                | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.      |            |
+| **end_hr**     | **Time**                | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
+| **index_name** | **Array&lt;String&gt;** | Comma-separated list of log index names.                                                                  | [optional] |
 
 ### Return type
 
@@ -1350,7 +1330,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-
 
 ## get_usage_logs_by_retention
 
@@ -1397,10 +1376,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |  |
-| **end_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+| Name         | Type     | Description                                                                                                           | Notes      |
+| ------------ | -------- | --------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      |            |
+| **end_hr**   | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
 
 ### Return type
 
@@ -1414,7 +1393,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-
 
 ## get_usage_network_flows
 
@@ -1461,10 +1439,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |  |
-| **end_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+| Name         | Type     | Description                                                                                                           | Notes      |
+| ------------ | -------- | --------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      |            |
+| **end_hr**   | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
 
 ### Return type
 
@@ -1478,7 +1456,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-
 
 ## get_usage_network_hosts
 
@@ -1525,10 +1502,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. |  |
-| **end_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
+| Name         | Type     | Description                                                                                               | Notes      |
+| ------------ | -------- | --------------------------------------------------------------------------------------------------------- | ---------- |
+| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.      |            |
+| **end_hr**   | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
 
 ### Return type
 
@@ -1542,7 +1519,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-
 
 ## get_usage_profiling
 
@@ -1589,10 +1565,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |  |
-| **end_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+| Name         | Type     | Description                                                                                                           | Notes      |
+| ------------ | -------- | --------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      |            |
+| **end_hr**   | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
 
 ### Return type
 
@@ -1606,7 +1582,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-
 
 ## get_usage_rum_sessions
 
@@ -1654,11 +1629,11 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. |  |
-| **end_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
-| **type** | **String** | RUM type: &#x60;[browser, mobile]&#x60;. Defaults to &#x60;browser&#x60;. | [optional] |
+| Name         | Type       | Description                                                                                               | Notes      |
+| ------------ | ---------- | --------------------------------------------------------------------------------------------------------- | ---------- |
+| **start_hr** | **Time**   | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.      |            |
+| **end_hr**   | **Time**   | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
+| **type**     | **String** | RUM type: &#x60;[browser, mobile]&#x60;. Defaults to &#x60;browser&#x60;.                                 | [optional] |
 
 ### Return type
 
@@ -1672,7 +1647,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-
 
 ## get_usage_sds
 
@@ -1719,10 +1693,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |  |
-| **end_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+| Name         | Type     | Description                                                                                                           | Notes      |
+| ------------ | -------- | --------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      |            |
+| **end_hr**   | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
 
 ### Return type
 
@@ -1736,7 +1710,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-
 
 ## get_usage_snmp
 
@@ -1783,10 +1756,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |  |
-| **end_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+| Name         | Type     | Description                                                                                                           | Notes      |
+| ------------ | -------- | --------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      |            |
+| **end_hr**   | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
 
 ### Return type
 
@@ -1800,7 +1773,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-
 
 ## get_usage_summary
 
@@ -1848,11 +1820,11 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **start_month** | **Time** | Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago. |  |
-| **end_month** | **Time** | Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month. | [optional] |
-| **include_org_details** | **Boolean** | Include usage summaries for each sub-org. | [optional] |
+| Name                    | Type        | Description                                                                                                                            | Notes      |
+| ----------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **start_month**         | **Time**    | Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago. |            |
+| **end_month**           | **Time**    | Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.                                 | [optional] |
+| **include_org_details** | **Boolean** | Include usage summaries for each sub-org.                                                                                              | [optional] |
 
 ### Return type
 
@@ -1866,7 +1838,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-
 
 ## get_usage_synthetics
 
@@ -1913,10 +1884,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. |  |
-| **end_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
+| Name         | Type     | Description                                                                                               | Notes      |
+| ------------ | -------- | --------------------------------------------------------------------------------------------------------- | ---------- |
+| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.      |            |
+| **end_hr**   | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
 
 ### Return type
 
@@ -1930,7 +1901,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-
 
 ## get_usage_synthetics_api
 
@@ -1977,10 +1947,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. |  |
-| **end_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
+| Name         | Type     | Description                                                                                               | Notes      |
+| ------------ | -------- | --------------------------------------------------------------------------------------------------------- | ---------- |
+| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.      |            |
+| **end_hr**   | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
 
 ### Return type
 
@@ -1994,7 +1964,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-
 
 ## get_usage_synthetics_browser
 
@@ -2041,10 +2010,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. |  |
-| **end_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
+| Name         | Type     | Description                                                                                               | Notes      |
+| ------------ | -------- | --------------------------------------------------------------------------------------------------------- | ---------- |
+| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.      |            |
+| **end_hr**   | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
 
 ### Return type
 
@@ -2058,7 +2027,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-
 
 ## get_usage_timeseries
 
@@ -2105,10 +2073,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. |  |
-| **end_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
+| Name         | Type     | Description                                                                                               | Notes      |
+| ------------ | -------- | --------------------------------------------------------------------------------------------------------- | ---------- |
+| **start_hr** | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.      |            |
+| **end_hr**   | **Time** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
 
 ### Return type
 
@@ -2122,7 +2090,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-
 
 ## get_usage_top_avg_metrics
 
@@ -2172,13 +2139,13 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **month** | **Time** | Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour. (Either month or day should be specified, but not both) | [optional] |
-| **day** | **Time** | Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD] for usage beginning at this hour. (Either month or day should be specified, but not both) | [optional] |
-| **names** | **Array&lt;String&gt;** | Comma-separated list of metric names. | [optional] |
-| **limit** | **Integer** | Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified. | [optional][default to 500] |
-| **next_record_id** | **String** | List following results with a next_record_id provided in the previous query. | [optional] |
+| Name               | Type                    | Description                                                                                                                                              | Notes                      |
+| ------------------ | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| **month**          | **Time**                | Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour. (Either month or day should be specified, but not both)  | [optional]                 |
+| **day**            | **Time**                | Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD] for usage beginning at this hour. (Either month or day should be specified, but not both) | [optional]                 |
+| **names**          | **Array&lt;String&gt;** | Comma-separated list of metric names.                                                                                                                    | [optional]                 |
+| **limit**          | **Integer**             | Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified.                                               | [optional][default to 500] |
+| **next_record_id** | **String**              | List following results with a next_record_id provided in the previous query.                                                                             | [optional]                 |
 
 ### Return type
 
@@ -2192,4 +2159,3 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json;datetime-format=rfc3339
-

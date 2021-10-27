@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **pipeline** | **String** | Name of the pipeline. | [optional] |
+| Name         | Type       | Description              | Notes      |
+| ------------ | ---------- | ------------------------ | ---------- |
+| **pipeline** | **String** | Name of the pipeline.    | [optional] |
 | **provider** | **String** | Name of the CI provider. | [optional] |
 
 ## Example
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::SyntheticsCIBatchMetadataCI.new(
   provider: null
 )
 ```
-

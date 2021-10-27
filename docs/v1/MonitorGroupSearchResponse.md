@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **counts** | [**MonitorGroupSearchResponseCounts**](MonitorGroupSearchResponseCounts.md) |  | [optional] |
-| **groups** | [**Array&lt;MonitorGroupSearchResult&gt;**](MonitorGroupSearchResult.md) | The list of found monitor groups. | [optional][readonly] |
-| **metadata** | [**MonitorSearchResponseMetadata**](MonitorSearchResponseMetadata.md) |  | [optional] |
+| Name         | Type                                                                        | Description                       | Notes                |
+| ------------ | --------------------------------------------------------------------------- | --------------------------------- | -------------------- |
+| **counts**   | [**MonitorGroupSearchResponseCounts**](MonitorGroupSearchResponseCounts.md) |                                   | [optional]           |
+| **groups**   | [**Array&lt;MonitorGroupSearchResult&gt;**](MonitorGroupSearchResult.md)    | The list of found monitor groups. | [optional][readonly] |
+| **metadata** | [**MonitorSearchResponseMetadata**](MonitorSearchResponseMetadata.md)       |                                   | [optional]           |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::MonitorGroupSearchResponse.new(
   metadata: null
 )
 ```
-

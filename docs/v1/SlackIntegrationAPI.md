@@ -2,14 +2,13 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method | HTTP request | Description |
-| ------ | ------------ | ----------- |
-| [**create_slack_integration_channel**](SlackIntegrationAPI.md#create_slack_integration_channel) | **POST** /api/v1/integration/slack/configuration/accounts/{account_name}/channels | Create a Slack integration channel |
-| [**get_slack_integration_channel**](SlackIntegrationAPI.md#get_slack_integration_channel) | **GET** /api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name} | Get a Slack integration channel |
-| [**get_slack_integration_channels**](SlackIntegrationAPI.md#get_slack_integration_channels) | **GET** /api/v1/integration/slack/configuration/accounts/{account_name}/channels | Get all channels in a Slack integration |
-| [**remove_slack_integration_channel**](SlackIntegrationAPI.md#remove_slack_integration_channel) | **DELETE** /api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name} | Remove a Slack integration channel |
-| [**update_slack_integration_channel**](SlackIntegrationAPI.md#update_slack_integration_channel) | **PATCH** /api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name} | Update a Slack integration channel |
-
+| Method                                                                                          | HTTP request                                                                                       | Description                             |
+| ----------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| [**create_slack_integration_channel**](SlackIntegrationAPI.md#create_slack_integration_channel) | **POST** /api/v1/integration/slack/configuration/accounts/{account_name}/channels                  | Create a Slack integration channel      |
+| [**get_slack_integration_channel**](SlackIntegrationAPI.md#get_slack_integration_channel)       | **GET** /api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}    | Get a Slack integration channel         |
+| [**get_slack_integration_channels**](SlackIntegrationAPI.md#get_slack_integration_channels)     | **GET** /api/v1/integration/slack/configuration/accounts/{account_name}/channels                   | Get all channels in a Slack integration |
+| [**remove_slack_integration_channel**](SlackIntegrationAPI.md#remove_slack_integration_channel) | **DELETE** /api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name} | Remove a Slack integration channel      |
+| [**update_slack_integration_channel**](SlackIntegrationAPI.md#update_slack_integration_channel) | **PATCH** /api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}  | Update a Slack integration channel      |
 
 ## create_slack_integration_channel
 
@@ -54,10 +53,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **account_name** | **String** | Your Slack account name. |  |
-| **body** | [**SlackIntegrationChannel**](SlackIntegrationChannel.md) | Payload describing Slack channel to be created |  |
+| Name             | Type                                                      | Description                                    | Notes |
+| ---------------- | --------------------------------------------------------- | ---------------------------------------------- | ----- |
+| **account_name** | **String**                                                | Your Slack account name.                       |       |
+| **body**         | [**SlackIntegrationChannel**](SlackIntegrationChannel.md) | Payload describing Slack channel to be created |       |
 
 ### Return type
 
@@ -71,7 +70,6 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## get_slack_integration_channel
 
@@ -116,10 +114,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **account_name** | **String** | Your Slack account name. |  |
-| **channel_name** | **String** | The name of the Slack channel being operated on. |  |
+| Name             | Type       | Description                                      | Notes |
+| ---------------- | ---------- | ------------------------------------------------ | ----- |
+| **account_name** | **String** | Your Slack account name.                         |       |
+| **channel_name** | **String** | The name of the Slack channel being operated on. |       |
 
 ### Return type
 
@@ -133,7 +131,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_slack_integration_channels
 
@@ -177,9 +174,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **account_name** | **String** | Your Slack account name. |  |
+| Name             | Type       | Description              | Notes |
+| ---------------- | ---------- | ------------------------ | ----- |
+| **account_name** | **String** | Your Slack account name. |       |
 
 ### Return type
 
@@ -193,7 +190,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## remove_slack_integration_channel
 
@@ -237,10 +233,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **account_name** | **String** | Your Slack account name. |  |
-| **channel_name** | **String** | The name of the Slack channel being operated on. |  |
+| Name             | Type       | Description                                      | Notes |
+| ---------------- | ---------- | ------------------------------------------------ | ----- |
+| **account_name** | **String** | Your Slack account name.                         |       |
+| **channel_name** | **String** | The name of the Slack channel being operated on. |       |
 
 ### Return type
 
@@ -254,7 +250,6 @@ nil (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## update_slack_integration_channel
 
@@ -300,11 +295,11 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **account_name** | **String** | Your Slack account name. |  |
-| **channel_name** | **String** | The name of the Slack channel being operated on. |  |
-| **body** | [**SlackIntegrationChannel**](SlackIntegrationChannel.md) | Payload describing fields and values to be updated. |  |
+| Name             | Type                                                      | Description                                         | Notes |
+| ---------------- | --------------------------------------------------------- | --------------------------------------------------- | ----- |
+| **account_name** | **String**                                                | Your Slack account name.                            |       |
+| **channel_name** | **String**                                                | The name of the Slack channel being operated on.    |       |
+| **body**         | [**SlackIntegrationChannel**](SlackIntegrationChannel.md) | Payload describing fields and values to be updated. |       |
 
 ### Return type
 
@@ -318,4 +313,3 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-

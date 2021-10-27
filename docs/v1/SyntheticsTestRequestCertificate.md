@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **cert** | [**SyntheticsTestRequestCertificateItem**](SyntheticsTestRequestCertificateItem.md) |  | [optional] |
-| **key** | [**SyntheticsTestRequestCertificateItem**](SyntheticsTestRequestCertificateItem.md) |  | [optional] |
+| Name     | Type                                                                                | Description | Notes      |
+| -------- | ----------------------------------------------------------------------------------- | ----------- | ---------- |
+| **cert** | [**SyntheticsTestRequestCertificateItem**](SyntheticsTestRequestCertificateItem.md) |             | [optional] |
+| **key**  | [**SyntheticsTestRequestCertificateItem**](SyntheticsTestRequestCertificateItem.md) |             | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::SyntheticsTestRequestCertificate.new(
   key: null
 )
 ```
-

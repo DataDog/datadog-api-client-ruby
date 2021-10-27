@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **denominator** | **String** | A Datadog metric query for total (valid) events. |  |
-| **numerator** | **String** | A Datadog metric query for good events. |  |
+| Name            | Type       | Description                                      | Notes |
+| --------------- | ---------- | ------------------------------------------------ | ----- |
+| **denominator** | **String** | A Datadog metric query for total (valid) events. |       |
+| **numerator**   | **String** | A Datadog metric query for good events.          |       |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::ServiceLevelObjectiveQuery.new(
   numerator: sum:my.custom.metric{type:good}.as_count()
 )
 ```
-

@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data** | [**LogsAggregateResponseData**](LogsAggregateResponseData.md) |  | [optional] |
-| **meta** | [**LogsResponseMetadata**](LogsResponseMetadata.md) |  | [optional] |
+| Name     | Type                                                          | Description | Notes      |
+| -------- | ------------------------------------------------------------- | ----------- | ---------- |
+| **data** | [**LogsAggregateResponseData**](LogsAggregateResponseData.md) |             | [optional] |
+| **meta** | [**LogsResponseMetadata**](LogsResponseMetadata.md)           |             | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::LogsAggregateResponse.new(
   meta: null
 )
 ```
-

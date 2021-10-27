@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **created_by** | [**RelationshipToUser**](RelationshipToUser.md) |  | [optional] |
-| **modified_by** | [**RelationshipToUser**](RelationshipToUser.md) |  | [optional] |
+| Name            | Type                                            | Description | Notes      |
+| --------------- | ----------------------------------------------- | ----------- | ---------- |
+| **created_by**  | [**RelationshipToUser**](RelationshipToUser.md) |             | [optional] |
+| **modified_by** | [**RelationshipToUser**](RelationshipToUser.md) |             | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::APIKeyRelationships.new(
   modified_by: null
 )
 ```
-

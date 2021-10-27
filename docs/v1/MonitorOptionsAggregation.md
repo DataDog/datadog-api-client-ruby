@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name         | Type       | Description                         | Notes      |
+| ------------ | ---------- | ----------------------------------- | ---------- |
 | **group_by** | **String** | Group to break down the monitor on. | [optional] |
-| **metric** | **String** | Metric name used in the monitor. | [optional] |
-| **type** | **String** | Metric type used in the monitor. | [optional] |
+| **metric**   | **String** | Metric name used in the monitor.    | [optional] |
+| **type**     | **String** | Metric type used in the monitor.    | [optional] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::MonitorOptionsAggregation.new(
   type: count
 )
 ```
-

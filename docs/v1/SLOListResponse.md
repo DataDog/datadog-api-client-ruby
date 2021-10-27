@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data** | [**Array&lt;ServiceLevelObjective&gt;**](ServiceLevelObjective.md) | An array of service level objective objects. | [optional] |
-| **errors** | **Array&lt;String&gt;** | An array of error messages. Each endpoint documents how/whether this field is used. | [optional] |
-| **metadata** | [**SLOListResponseMetadata**](SLOListResponseMetadata.md) |  | [optional] |
+| Name         | Type                                                               | Description                                                                         | Notes      |
+| ------------ | ------------------------------------------------------------------ | ----------------------------------------------------------------------------------- | ---------- |
+| **data**     | [**Array&lt;ServiceLevelObjective&gt;**](ServiceLevelObjective.md) | An array of service level objective objects.                                        | [optional] |
+| **errors**   | **Array&lt;String&gt;**                                            | An array of error messages. Each endpoint documents how/whether this field is used. | [optional] |
+| **metadata** | [**SLOListResponseMetadata**](SLOListResponseMetadata.md)          |                                                                                     | [optional] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::SLOListResponse.new(
   metadata: null
 )
 ```
-

@@ -2,12 +2,11 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method | HTTP request | Description |
-| ------ | ------------ | ----------- |
-| [**create_event**](EventsAPI.md#create_event) | **POST** /api/v1/events | Post an event |
-| [**get_event**](EventsAPI.md#get_event) | **GET** /api/v1/events/{event_id} | Get an event |
-| [**list_events**](EventsAPI.md#list_events) | **GET** /api/v1/events | Query the event stream |
-
+| Method                                        | HTTP request                      | Description            |
+| --------------------------------------------- | --------------------------------- | ---------------------- |
+| [**create_event**](EventsAPI.md#create_event) | **POST** /api/v1/events           | Post an event          |
+| [**get_event**](EventsAPI.md#get_event)       | **GET** /api/v1/events/{event_id} | Get an event           |
+| [**list_events**](EventsAPI.md#list_events)   | **GET** /api/v1/events            | Query the event stream |
 
 ## create_event
 
@@ -52,9 +51,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**EventCreateRequest**](EventCreateRequest.md) | Event request object |  |
+| Name     | Type                                            | Description          | Notes |
+| -------- | ----------------------------------------------- | -------------------- | ----- |
+| **body** | [**EventCreateRequest**](EventCreateRequest.md) | Event request object |       |
 
 ### Return type
 
@@ -68,7 +67,6 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## get_event
 
@@ -115,9 +113,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **event_id** | **Integer** | The ID of the event. |  |
+| Name         | Type        | Description          | Notes |
+| ------------ | ----------- | -------------------- | ----- |
+| **event_id** | **Integer** | The ID of the event. |       |
 
 ### Return type
 
@@ -132,20 +130,20 @@ end
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-
 ## list_events
 
-> <EventListResponse> list_events(start, _end, opts)
+> <EventListResponse> list_events(start, \_end, opts)
 
 The event stream can be queried and filtered by time, priority, sources and tags.
 
 **Notes**:
+
 - If the event you’re querying contains markdown formatting of any kind,
-you may see characters such as `%`,`\`,`n` in your output.
+  you may see characters such as `%`,`\`,`n` in your output.
 
 - This endpoint returns a maximum of `1000` most recent results. To return additional results,
-identify the last timestamp of the last result and set that as the `end` query time to
-paginate the results. You can also use the page parameter to specify which set of `1000` results to return.
+  identify the last timestamp of the last result and set that as the `end` query time to
+  paginate the results. You can also use the page parameter to specify which set of `1000` results to return.
 
 ### Examples
 
@@ -176,7 +174,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<EventListResponse>, Integer, Hash)> list_events_with_http_info(start, _end, opts)
+> <Array(<EventListResponse>, Integer, Hash)> list_events_with_http_info(start, \_end, opts)
 
 ```ruby
 begin
@@ -192,16 +190,16 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **start** | **Integer** | POSIX timestamp. |  |
-| **_end** | **Integer** | POSIX timestamp. |  |
-| **priority** | **EventPriority** | Priority of your events, either &#x60;low&#x60; or &#x60;normal&#x60;. | [optional] |
-| **sources** | **String** | A comma separated string of sources. | [optional] |
-| **tags** | **String** | A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope. | [optional] |
-| **unaggregated** | **Boolean** | Set unaggregated to &#x60;true&#x60; to return all events within the specified [&#x60;start&#x60;,&#x60;end&#x60;] timeframe. Otherwise if an event is aggregated to a parent event with a timestamp outside of the timeframe, it won&#39;t be available in the output. Aggregated events with &#x60;is_aggregate&#x3D;true&#x60; in the response will still be returned unless exclude_aggregate is set to &#x60;true.&#x60; | [optional] |
-| **exclude_aggregate** | **Boolean** | Set &#x60;exclude_aggregate&#x60; to &#x60;true&#x60; to only return unaggregated events where &#x60;is_aggregate&#x3D;false&#x60; in the response. If the &#x60;exclude_aggregate&#x60; parameter is set to &#x60;true&#x60;, then the unaggregated parameter is ignored and will be &#x60;true&#x60; by default. | [optional] |
-| **page** | **Integer** | By default 1000 results are returned per request. Set page to the number of the page to return with &#x60;0&#x60; being the first page. The page parameter can only be used when either unaggregated or exclude_aggregate is set to &#x60;true.&#x60; | [optional] |
+| Name                  | Type              | Description                                                                                                                                                                                                                                                                                                                                                                                                                   | Notes      |
+| --------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **start**             | **Integer**       | POSIX timestamp.                                                                                                                                                                                                                                                                                                                                                                                                              |            |
+| **\_end**             | **Integer**       | POSIX timestamp.                                                                                                                                                                                                                                                                                                                                                                                                              |            |
+| **priority**          | **EventPriority** | Priority of your events, either &#x60;low&#x60; or &#x60;normal&#x60;.                                                                                                                                                                                                                                                                                                                                                        | [optional] |
+| **sources**           | **String**        | A comma separated string of sources.                                                                                                                                                                                                                                                                                                                                                                                          | [optional] |
+| **tags**              | **String**        | A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope.                                                                                                                                                                                                                                                                                                                  | [optional] |
+| **unaggregated**      | **Boolean**       | Set unaggregated to &#x60;true&#x60; to return all events within the specified [&#x60;start&#x60;,&#x60;end&#x60;] timeframe. Otherwise if an event is aggregated to a parent event with a timestamp outside of the timeframe, it won&#39;t be available in the output. Aggregated events with &#x60;is_aggregate&#x3D;true&#x60; in the response will still be returned unless exclude_aggregate is set to &#x60;true.&#x60; | [optional] |
+| **exclude_aggregate** | **Boolean**       | Set &#x60;exclude_aggregate&#x60; to &#x60;true&#x60; to only return unaggregated events where &#x60;is_aggregate&#x3D;false&#x60; in the response. If the &#x60;exclude_aggregate&#x60; parameter is set to &#x60;true&#x60;, then the unaggregated parameter is ignored and will be &#x60;true&#x60; by default.                                                                                                            | [optional] |
+| **page**              | **Integer**       | By default 1000 results are returned per request. Set page to the number of the page to return with &#x60;0&#x60; being the first page. The page parameter can only be used when either unaggregated or exclude_aggregate is set to &#x60;true.&#x60;                                                                                                                                                                         | [optional] |
 
 ### Return type
 
@@ -215,4 +213,3 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-

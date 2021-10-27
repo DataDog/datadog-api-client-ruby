@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data** | [**Array&lt;IncidentTeamResponseData&gt;**](IncidentTeamResponseData.md) | An array of incident teams. |  |
+| Name         | Type                                                                       | Description                                          | Notes                |
+| ------------ | -------------------------------------------------------------------------- | ---------------------------------------------------- | -------------------- |
+| **data**     | [**Array&lt;IncidentTeamResponseData&gt;**](IncidentTeamResponseData.md)   | An array of incident teams.                          |                      |
 | **included** | [**Array&lt;IncidentTeamIncludedItems&gt;**](IncidentTeamIncludedItems.md) | Included related resources which the user requested. | [optional][readonly] |
-| **meta** | [**IncidentServicesResponseMeta**](IncidentServicesResponseMeta.md) |  | [optional] |
+| **meta**     | [**IncidentServicesResponseMeta**](IncidentServicesResponseMeta.md)        |                                                      | [optional]           |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V2::IncidentTeamsResponse.new(
   meta: null
 )
 ```
-

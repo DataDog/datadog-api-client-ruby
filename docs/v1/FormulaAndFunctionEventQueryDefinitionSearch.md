@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **query** | **String** | Events search string. |  |
+| Name      | Type       | Description           | Notes |
+| --------- | ---------- | --------------------- | ----- |
+| **query** | **String** | Events search string. |       |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::FormulaAndFunctionEventQueryDefinitionSearch.ne
   query: service:query
 )
 ```
-

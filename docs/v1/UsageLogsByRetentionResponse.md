@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name      | Type                                                                     | Description                                            | Notes      |
+| --------- | ------------------------------------------------------------------------ | ------------------------------------------------------ | ---------- |
 | **usage** | [**Array&lt;UsageLogsByRetentionHour&gt;**](UsageLogsByRetentionHour.md) | Get hourly usage for indexed logs by retention period. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::UsageLogsByRetentionResponse.new(
   usage: null
 )
 ```
-

@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name     | Type                                                 | Description                       | Notes      |
+| -------- | ---------------------------------------------------- | --------------------------------- | ---------- |
 | **data** | [**Array&lt;ProcessSummary&gt;**](ProcessSummary.md) | Array of process summary objects. | [optional] |
-| **meta** | [**ProcessSummariesMeta**](ProcessSummariesMeta.md) |  | [optional] |
+| **meta** | [**ProcessSummariesMeta**](ProcessSummariesMeta.md)  |                                   | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::ProcessSummariesResponse.new(
   meta: null
 )
 ```
-

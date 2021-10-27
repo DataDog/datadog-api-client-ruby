@@ -2,15 +2,15 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **custom_links** | [**Array&lt;WidgetCustomLink&gt;**](WidgetCustomLink.md) | List of custom links. | [optional] |
-| **requests** | [**Array&lt;ToplistWidgetRequest&gt;**](ToplistWidgetRequest.md) | List of top list widget requests. |  |
-| **time** | [**WidgetTime**](WidgetTime.md) |  | [optional] |
-| **title** | **String** | Title of your widget. | [optional] |
-| **title_align** | [**WidgetTextAlign**](WidgetTextAlign.md) |  | [optional] |
-| **title_size** | **String** | Size of the title. | [optional] |
-| **type** | [**ToplistWidgetDefinitionType**](ToplistWidgetDefinitionType.md) |  | [default to &#39;toplist&#39;] |
+| Name             | Type                                                              | Description                       | Notes                          |
+| ---------------- | ----------------------------------------------------------------- | --------------------------------- | ------------------------------ |
+| **custom_links** | [**Array&lt;WidgetCustomLink&gt;**](WidgetCustomLink.md)          | List of custom links.             | [optional]                     |
+| **requests**     | [**Array&lt;ToplistWidgetRequest&gt;**](ToplistWidgetRequest.md)  | List of top list widget requests. |                                |
+| **time**         | [**WidgetTime**](WidgetTime.md)                                   |                                   | [optional]                     |
+| **title**        | **String**                                                        | Title of your widget.             | [optional]                     |
+| **title_align**  | [**WidgetTextAlign**](WidgetTextAlign.md)                         |                                   | [optional]                     |
+| **title_size**   | **String**                                                        | Size of the title.                | [optional]                     |
+| **type**         | [**ToplistWidgetDefinitionType**](ToplistWidgetDefinitionType.md) |                                   | [default to &#39;toplist&#39;] |
 
 ## Example
 
@@ -27,4 +27,3 @@ instance = DatadogAPIClient::V1::ToplistWidgetDefinition.new(
   type: null
 )
 ```
-

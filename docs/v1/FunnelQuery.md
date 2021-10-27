@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data_source** | [**FunnelSource**](FunnelSource.md) |  | [default to &#39;rum&#39;] |
-| **query_string** | **String** | The widget query. |  |
-| **steps** | **Array&lt;Object&gt;** | List of funnel steps. |  |
+| Name             | Type                                | Description           | Notes                      |
+| ---------------- | ----------------------------------- | --------------------- | -------------------------- |
+| **data_source**  | [**FunnelSource**](FunnelSource.md) |                       | [default to &#39;rum&#39;] |
+| **query_string** | **String**                          | The widget query.     |                            |
+| **steps**        | **Array&lt;Object&gt;**             | List of funnel steps. |                            |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::FunnelQuery.new(
   steps: null
 )
 ```
-

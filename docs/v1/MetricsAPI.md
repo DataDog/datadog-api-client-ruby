@@ -2,15 +2,14 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method | HTTP request | Description |
-| ------ | ------------ | ----------- |
-| [**get_metric_metadata**](MetricsAPI.md#get_metric_metadata) | **GET** /api/v1/metrics/{metric_name} | Get metric metadata |
-| [**list_active_metrics**](MetricsAPI.md#list_active_metrics) | **GET** /api/v1/metrics | Get active metrics list |
-| [**list_metrics**](MetricsAPI.md#list_metrics) | **GET** /api/v1/search | Search metrics |
-| [**query_metrics**](MetricsAPI.md#query_metrics) | **GET** /api/v1/query | Query timeseries points |
-| [**submit_metrics**](MetricsAPI.md#submit_metrics) | **POST** /api/v1/series | Submit metrics |
-| [**update_metric_metadata**](MetricsAPI.md#update_metric_metadata) | **PUT** /api/v1/metrics/{metric_name} | Edit metric metadata |
-
+| Method                                                             | HTTP request                          | Description             |
+| ------------------------------------------------------------------ | ------------------------------------- | ----------------------- |
+| [**get_metric_metadata**](MetricsAPI.md#get_metric_metadata)       | **GET** /api/v1/metrics/{metric_name} | Get metric metadata     |
+| [**list_active_metrics**](MetricsAPI.md#list_active_metrics)       | **GET** /api/v1/metrics               | Get active metrics list |
+| [**list_metrics**](MetricsAPI.md#list_metrics)                     | **GET** /api/v1/search                | Search metrics          |
+| [**query_metrics**](MetricsAPI.md#query_metrics)                   | **GET** /api/v1/query                 | Query timeseries points |
+| [**submit_metrics**](MetricsAPI.md#submit_metrics)                 | **POST** /api/v1/series               | Submit metrics          |
+| [**update_metric_metadata**](MetricsAPI.md#update_metric_metadata) | **PUT** /api/v1/metrics/{metric_name} | Edit metric metadata    |
 
 ## get_metric_metadata
 
@@ -54,9 +53,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **metric_name** | **String** | Name of the metric for which to get metadata. |  |
+| Name            | Type       | Description                                   | Notes |
+| --------------- | ---------- | --------------------------------------------- | ----- |
+| **metric_name** | **String** | Name of the metric for which to get metadata. |       |
 
 ### Return type
 
@@ -70,7 +69,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## list_active_metrics
 
@@ -118,11 +116,11 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **from** | **Integer** | Seconds since the Unix epoch. |  |
-| **host** | **String** | Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag. | [optional] |
-| **tag_filter** | **String** | Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters. | [optional] |
+| Name           | Type        | Description                                                                                                                                    | Notes      |
+| -------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **from**       | **Integer** | Seconds since the Unix epoch.                                                                                                                  |            |
+| **host**       | **String**  | Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag.                  | [optional] |
+| **tag_filter** | **String**  | Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters. | [optional] |
 
 ### Return type
 
@@ -136,7 +134,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## list_metrics
 
@@ -180,9 +177,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **q** | **String** | Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60;. |  |
+| Name  | Type       | Description                                                                      | Notes |
+| ----- | ---------- | -------------------------------------------------------------------------------- | ----- |
+| **q** | **String** | Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60;. |       |
 
 ### Return type
 
@@ -196,7 +193,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## query_metrics
 
@@ -242,11 +238,11 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **from** | **Integer** | Start of the queried time period, seconds since the Unix epoch. |  |
-| **to** | **Integer** | End of the queried time period, seconds since the Unix epoch. |  |
-| **query** | **String** | Query string. |  |
+| Name      | Type        | Description                                                     | Notes |
+| --------- | ----------- | --------------------------------------------------------------- | ----- |
+| **from**  | **Integer** | Start of the queried time period, seconds since the Unix epoch. |       |
+| **to**    | **Integer** | End of the queried time period, seconds since the Unix epoch.   |       |
+| **query** | **String**  | Query string.                                                   |       |
 
 ### Return type
 
@@ -260,7 +256,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## submit_metrics
 
@@ -276,14 +271,14 @@ If you’re submitting metrics directly to the Datadog API without using DogStat
 - 20 bytes for the metric names
 - 50 bytes for the timeseries
 - The full payload is approximately 100 bytes. However, with the DogStatsD API,
-compression is applied, which reduces the payload size.
+  compression is applied, which reduces the payload size.
 
 ### Examples
 
 ```ruby
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::MetricsAPI.new
-body = DatadogAPIClient::V1::MetricsPayload.new({series: [DatadogAPIClient::V1::Series.new({metric: 'system.load.1', points: [[3.56]]})]}) # MetricsPayload | 
+body = DatadogAPIClient::V1::MetricsPayload.new({series: [DatadogAPIClient::V1::Series.new({metric: 'system.load.1', points: [[3.56]]})]}) # MetricsPayload |
 opts = {
   content_encoding: DatadogAPIClient::V1::MetricContentEncoding::DEFLATE # MetricContentEncoding | HTTP header used to compress the media-type.
 }
@@ -317,10 +312,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**MetricsPayload**](MetricsPayload.md) |  |  |
-| **content_encoding** | **MetricContentEncoding** | HTTP header used to compress the media-type. | [optional] |
+| Name                 | Type                                    | Description                                  | Notes      |
+| -------------------- | --------------------------------------- | -------------------------------------------- | ---------- |
+| **body**             | [**MetricsPayload**](MetricsPayload.md) |                                              |            |
+| **content_encoding** | **MetricContentEncoding**               | HTTP header used to compress the media-type. | [optional] |
 
 ### Return type
 
@@ -334,7 +329,6 @@ end
 
 - **Content-Type**: text/json
 - **Accept**: text/json
-
 
 ## update_metric_metadata
 
@@ -379,10 +373,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **metric_name** | **String** | Name of the metric for which to edit metadata. |  |
-| **body** | [**MetricMetadata**](MetricMetadata.md) | New metadata. |  |
+| Name            | Type                                    | Description                                    | Notes |
+| --------------- | --------------------------------------- | ---------------------------------------------- | ----- |
+| **metric_name** | **String**                              | Name of the metric for which to edit metadata. |       |
+| **body**        | [**MetricMetadata**](MetricMetadata.md) | New metadata.                                  |       |
 
 ### Return type
 
@@ -396,4 +390,3 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-

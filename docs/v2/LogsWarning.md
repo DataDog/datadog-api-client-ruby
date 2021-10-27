@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **code** | **String** | A unique code for this type of warning | [optional] |
+| Name       | Type       | Description                                     | Notes      |
+| ---------- | ---------- | ----------------------------------------------- | ---------- |
+| **code**   | **String** | A unique code for this type of warning          | [optional] |
 | **detail** | **String** | A detailed explanation of this specific warning | [optional] |
-| **title** | **String** | A short human-readable summary of the warning | [optional] |
+| **title**  | **String** | A short human-readable summary of the warning   | [optional] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V2::LogsWarning.new(
   title: One or several indexes are missing or invalid, results hold data from the other indexes
 )
 ```
-

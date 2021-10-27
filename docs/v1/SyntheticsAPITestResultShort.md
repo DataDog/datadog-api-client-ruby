@@ -2,13 +2,13 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **check_time** | **Float** | Last time the API test was performed. | [optional] |
-| **probe_dc** | **String** | Location from which the API test was performed. | [optional] |
-| **result** | [**SyntheticsAPITestResultShortResult**](SyntheticsAPITestResultShortResult.md) |  | [optional] |
-| **result_id** | **String** | ID of the API test result. | [optional] |
-| **status** | [**SyntheticsTestMonitorStatus**](SyntheticsTestMonitorStatus.md) |  | [optional] |
+| Name           | Type                                                                            | Description                                     | Notes      |
+| -------------- | ------------------------------------------------------------------------------- | ----------------------------------------------- | ---------- |
+| **check_time** | **Float**                                                                       | Last time the API test was performed.           | [optional] |
+| **probe_dc**   | **String**                                                                      | Location from which the API test was performed. | [optional] |
+| **result**     | [**SyntheticsAPITestResultShortResult**](SyntheticsAPITestResultShortResult.md) |                                                 | [optional] |
+| **result_id**  | **String**                                                                      | ID of the API test result.                      | [optional] |
+| **status**     | [**SyntheticsTestMonitorStatus**](SyntheticsTestMonitorStatus.md)               |                                                 | [optional] |
 
 ## Example
 
@@ -23,4 +23,3 @@ instance = DatadogAPIClient::V1::SyntheticsAPITestResultShort.new(
   status: null
 )
 ```
-

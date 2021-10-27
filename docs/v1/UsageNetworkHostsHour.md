@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name           | Type        | Description                              | Notes      |
+| -------------- | ----------- | ---------------------------------------- | ---------- |
 | **host_count** | **Integer** | Contains the number of active NPM hosts. | [optional] |
-| **hour** | **Time** | The hour for the usage. | [optional] |
+| **hour**       | **Time**    | The hour for the usage.                  | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::UsageNetworkHostsHour.new(
   hour: null
 )
 ```
-

@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name     | Type                                                                                 | Description                         | Notes      |
+| -------- | ------------------------------------------------------------------------------------ | ----------------------------------- | ---------- |
 | **data** | [**Array&lt;SecurityMonitoringRuleResponse&gt;**](SecurityMonitoringRuleResponse.md) | Array containing the list of rules. | [optional] |
-| **meta** | [**ResponseMetaAttributes**](ResponseMetaAttributes.md) |  | [optional] |
+| **meta** | [**ResponseMetaAttributes**](ResponseMetaAttributes.md)                              |                                     | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::SecurityMonitoringListRulesResponse.new(
   meta: null
 )
 ```
-

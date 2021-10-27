@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **cls** | **Integer** | Cumulative Layout Shift. | [optional] |
+| Name    | Type        | Description                               | Notes      |
+| ------- | ----------- | ----------------------------------------- | ---------- |
+| **cls** | **Integer** | Cumulative Layout Shift.                  | [optional] |
 | **lcp** | **Integer** | Largest Contentful Paint in milliseconds. | [optional] |
-| **url** | **String** | URL attached to the metrics. | [optional] |
+| **url** | **String**  | URL attached to the metrics.              | [optional] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::SyntheticsCoreWebVitals.new(
   url: null
 )
 ```
-

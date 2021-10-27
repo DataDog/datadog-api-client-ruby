@@ -2,16 +2,16 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **author** | [**Creator**](Creator.md) |  | [optional] |
-| **created** | **Time** | Date of creation of the dashboard list. | [optional][readonly] |
-| **dashboard_count** | **Integer** | The number of dashboards in the list. | [optional][readonly] |
-| **id** | **Integer** | The ID of the dashboard list. | [optional][readonly] |
-| **is_favorite** | **Boolean** | Whether or not the list is in the favorites. | [optional][readonly] |
-| **modified** | **Time** | Date of last edition of the dashboard list. | [optional][readonly] |
-| **name** | **String** | The name of the dashboard list. |  |
-| **type** | **String** | The type of dashboard list. | [optional][readonly] |
+| Name                | Type                      | Description                                  | Notes                |
+| ------------------- | ------------------------- | -------------------------------------------- | -------------------- |
+| **author**          | [**Creator**](Creator.md) |                                              | [optional]           |
+| **created**         | **Time**                  | Date of creation of the dashboard list.      | [optional][readonly] |
+| **dashboard_count** | **Integer**               | The number of dashboards in the list.        | [optional][readonly] |
+| **id**              | **Integer**               | The ID of the dashboard list.                | [optional][readonly] |
+| **is_favorite**     | **Boolean**               | Whether or not the list is in the favorites. | [optional][readonly] |
+| **modified**        | **Time**                  | Date of last edition of the dashboard list.  | [optional][readonly] |
+| **name**            | **String**                | The name of the dashboard list.              |                      |
+| **type**            | **String**                | The type of dashboard list.                  | [optional][readonly] |
 
 ## Example
 
@@ -29,4 +29,3 @@ instance = DatadogAPIClient::V1::DashboardList.new(
   type: manual_dashboard_list
 )
 ```
-

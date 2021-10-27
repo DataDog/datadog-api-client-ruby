@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name     | Type                    | Description                      | Notes      |
+| -------- | ----------------------- | -------------------------------- | ---------- |
 | **tags** | **Array&lt;String&gt;** | List of indexed tag value pairs. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V2::MetricAllTagsAttributes.new(
   tags: [&quot;sport:golf&quot;,&quot;sport:football&quot;,&quot;animal:dog&quot;]
 )
 ```
-

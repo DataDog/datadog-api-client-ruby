@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data** | [**IncidentTeamCreateData**](IncidentTeamCreateData.md) |  |  |
+| Name     | Type                                                    | Description | Notes |
+| -------- | ------------------------------------------------------- | ----------- | ----- |
+| **data** | [**IncidentTeamCreateData**](IncidentTeamCreateData.md) |             |       |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V2::IncidentTeamCreateRequest.new(
   data: null
 )
 ```
-

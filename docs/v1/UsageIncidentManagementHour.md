@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **hour** | **Time** | The hour for the usage. | [optional] |
+| Name                     | Type        | Description                                                                                                       | Notes      |
+| ------------------------ | ----------- | ----------------------------------------------------------------------------------------------------------------- | ---------- |
+| **hour**                 | **Time**    | The hour for the usage.                                                                                           | [optional] |
 | **monthly_active_users** | **Integer** | Contains the total number monthly active users from the start of the given hour&#39;s month until the given hour. | [optional] |
 
 ## Example
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::UsageIncidentManagementHour.new(
   monthly_active_users: null
 )
 ```
-

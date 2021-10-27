@@ -2,13 +2,13 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **exclusion_filters** | [**Array&lt;SecurityFilterExclusionFilter&gt;**](SecurityFilterExclusionFilter.md) | Exclusion filters to exclude some logs from the security filter. |  |
-| **filtered_data_type** | [**SecurityFilterFilteredDataType**](SecurityFilterFilteredDataType.md) |  |  |
-| **is_enabled** | **Boolean** | Whether the security filter is enabled. |  |
-| **name** | **String** | The name of the security filter. |  |
-| **query** | **String** | The query of the security filter. |  |
+| Name                   | Type                                                                               | Description                                                      | Notes |
+| ---------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ----- |
+| **exclusion_filters**  | [**Array&lt;SecurityFilterExclusionFilter&gt;**](SecurityFilterExclusionFilter.md) | Exclusion filters to exclude some logs from the security filter. |       |
+| **filtered_data_type** | [**SecurityFilterFilteredDataType**](SecurityFilterFilteredDataType.md)            |                                                                  |       |
+| **is_enabled**         | **Boolean**                                                                        | Whether the security filter is enabled.                          |       |
+| **name**               | **String**                                                                         | The name of the security filter.                                 |       |
+| **query**              | **String**                                                                         | The query of the security filter.                                |       |
 
 ## Example
 
@@ -23,4 +23,3 @@ instance = DatadogAPIClient::V2::SecurityFilterCreateAttributes.new(
   query: service:api
 )
 ```
-

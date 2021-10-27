@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **name** | **String** | Exclusion filter name. |  |
-| **query** | **String** | Exclusion filter query. Logs that match this query are excluded from the security filter. |  |
+| Name      | Type       | Description                                                                               | Notes |
+| --------- | ---------- | ----------------------------------------------------------------------------------------- | ----- |
+| **name**  | **String** | Exclusion filter name.                                                                    |       |
+| **query** | **String** | Exclusion filter query. Logs that match this query are excluded from the security filter. |       |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::SecurityFilterExclusionFilter.new(
   query: source:staging
 )
 ```
-

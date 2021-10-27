@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **total_count** | **Integer** | The total number of notebooks that would be returned if the request was not filtered by &#x60;start&#x60; and &#x60;count&#x60; parameters. | [optional] |
-| **total_filtered_count** | **Integer** | The total number of notebooks returned. | [optional] |
+| Name                     | Type        | Description                                                                                                                                 | Notes      |
+| ------------------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **total_count**          | **Integer** | The total number of notebooks that would be returned if the request was not filtered by &#x60;start&#x60; and &#x60;count&#x60; parameters. | [optional] |
+| **total_filtered_count** | **Integer** | The total number of notebooks returned.                                                                                                     | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::NotebooksResponsePage.new(
   total_filtered_count: null
 )
 ```
-

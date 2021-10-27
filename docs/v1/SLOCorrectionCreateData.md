@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **attributes** | [**SLOCorrectionCreateRequestAttributes**](SLOCorrectionCreateRequestAttributes.md) |  | [optional] |
-| **type** | [**SLOCorrectionType**](SLOCorrectionType.md) |  | [default to &#39;correction&#39;] |
+| Name           | Type                                                                                | Description | Notes                             |
+| -------------- | ----------------------------------------------------------------------------------- | ----------- | --------------------------------- |
+| **attributes** | [**SLOCorrectionCreateRequestAttributes**](SLOCorrectionCreateRequestAttributes.md) |             | [optional]                        |
+| **type**       | [**SLOCorrectionType**](SLOCorrectionType.md)                                       |             | [default to &#39;correction&#39;] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::SLOCorrectionCreateData.new(
   type: null
 )
 ```
-

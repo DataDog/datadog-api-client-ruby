@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name              | Type       | Description                                                                               | Notes      |
+| ----------------- | ---------- | ----------------------------------------------------------------------------------------- | ---------- |
 | **access_key_id** | **String** | Your AWS access key ID. Only required if your AWS account is a GovCloud or China account. | [optional] |
-| **account_id** | **String** | Your AWS Account ID without dashes. | [optional] |
-| **role_name** | **String** | Your Datadog role delegation name. | [optional] |
+| **account_id**    | **String** | Your AWS Account ID without dashes.                                                       | [optional] |
+| **role_name**     | **String** | Your Datadog role delegation name.                                                        | [optional] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::AWSAccountDeleteRequest.new(
   role_name: DatadogAWSIntegrationRole
 )
 ```
-

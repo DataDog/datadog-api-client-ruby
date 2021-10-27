@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **attributes** | [**MetricTagConfigurationAttributes**](MetricTagConfigurationAttributes.md) |  | [optional] |
-| **id** | **String** | The metric name for this resource. | [optional] |
-| **type** | [**MetricTagConfigurationType**](MetricTagConfigurationType.md) |  | [optional][default to &#39;manage_tags&#39;] |
+| Name           | Type                                                                        | Description                        | Notes                                        |
+| -------------- | --------------------------------------------------------------------------- | ---------------------------------- | -------------------------------------------- |
+| **attributes** | [**MetricTagConfigurationAttributes**](MetricTagConfigurationAttributes.md) |                                    | [optional]                                   |
+| **id**         | **String**                                                                  | The metric name for this resource. | [optional]                                   |
+| **type**       | [**MetricTagConfigurationType**](MetricTagConfigurationType.md)             |                                    | [optional][default to &#39;manage_tags&#39;] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V2::MetricTagConfiguration.new(
   type: null
 )
 ```
-

@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **attributes** | [**NotebookCreateDataAttributes**](NotebookCreateDataAttributes.md) |  |  |
-| **type** | [**NotebookResourceType**](NotebookResourceType.md) |  | [default to &#39;notebooks&#39;] |
+| Name           | Type                                                                | Description | Notes                            |
+| -------------- | ------------------------------------------------------------------- | ----------- | -------------------------------- |
+| **attributes** | [**NotebookCreateDataAttributes**](NotebookCreateDataAttributes.md) |             |                                  |
+| **type**       | [**NotebookResourceType**](NotebookResourceType.md)                 |             | [default to &#39;notebooks&#39;] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::NotebookCreateData.new(
   type: null
 )
 ```
-

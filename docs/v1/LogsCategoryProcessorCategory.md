@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **filter** | [**LogsFilter**](LogsFilter.md) |  | [optional] |
-| **name** | **String** | Value to assign to the target attribute. | [optional] |
+| Name       | Type                            | Description                              | Notes      |
+| ---------- | ------------------------------- | ---------------------------------------- | ---------- |
+| **filter** | [**LogsFilter**](LogsFilter.md) |                                          | [optional] |
+| **name**   | **String**                      | Value to assign to the target attribute. | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::LogsCategoryProcessorCategory.new(
   name: null
 )
 ```
-

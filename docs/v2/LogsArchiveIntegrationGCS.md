@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **client_email** | **String** | A client email. |  |
-| **project_id** | **String** | A project ID. |  |
+| Name             | Type       | Description     | Notes |
+| ---------------- | ---------- | --------------- | ----- |
+| **client_email** | **String** | A client email. |       |
+| **project_id**   | **String** | A project ID.   |       |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::LogsArchiveIntegrationGCS.new(
   project_id: project-id
 )
 ```
-

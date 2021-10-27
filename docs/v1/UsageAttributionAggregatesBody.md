@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **agg_type** | **String** | The aggregate type. | [optional] |
-| **field** | **String** | The field. | [optional] |
-| **value** | **Float** | The value for a given field. | [optional] |
+| Name         | Type       | Description                  | Notes      |
+| ------------ | ---------- | ---------------------------- | ---------- |
+| **agg_type** | **String** | The aggregate type.          | [optional] |
+| **field**    | **String** | The field.                   | [optional] |
+| **value**    | **Float**  | The value for a given field. | [optional] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::UsageAttributionAggregatesBody.new(
   value: null
 )
 ```
-

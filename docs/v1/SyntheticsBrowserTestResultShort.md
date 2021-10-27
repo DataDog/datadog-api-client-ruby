@@ -2,13 +2,13 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **check_time** | **Float** | Last time the browser test was performed. | [optional] |
-| **probe_dc** | **String** | Location from which the Browser test was performed. | [optional] |
-| **result** | [**SyntheticsBrowserTestResultShortResult**](SyntheticsBrowserTestResultShortResult.md) |  | [optional] |
-| **result_id** | **String** | ID of the browser test result. | [optional] |
-| **status** | [**SyntheticsTestMonitorStatus**](SyntheticsTestMonitorStatus.md) |  | [optional] |
+| Name           | Type                                                                                    | Description                                         | Notes      |
+| -------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------- | ---------- |
+| **check_time** | **Float**                                                                               | Last time the browser test was performed.           | [optional] |
+| **probe_dc**   | **String**                                                                              | Location from which the Browser test was performed. | [optional] |
+| **result**     | [**SyntheticsBrowserTestResultShortResult**](SyntheticsBrowserTestResultShortResult.md) |                                                     | [optional] |
+| **result_id**  | **String**                                                                              | ID of the browser test result.                      | [optional] |
+| **status**     | [**SyntheticsTestMonitorStatus**](SyntheticsTestMonitorStatus.md)                       |                                                     | [optional] |
 
 ## Example
 
@@ -23,4 +23,3 @@ instance = DatadogAPIClient::V1::SyntheticsBrowserTestResultShort.new(
   status: null
 )
 ```
-

@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data** | [**UserInvitationResponseData**](UserInvitationResponseData.md) |  | [optional] |
+| Name     | Type                                                            | Description | Notes      |
+| -------- | --------------------------------------------------------------- | ----------- | ---------- |
+| **data** | [**UserInvitationResponseData**](UserInvitationResponseData.md) |             | [optional] |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V2::UserInvitationResponse.new(
   data: null
 )
 ```
-

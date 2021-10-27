@@ -2,17 +2,17 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **created_at** | **Time** | Creation time of the user. | [optional] |
-| **disabled** | **Boolean** | Whether the user is disabled. | [optional] |
-| **email** | **String** | Email of the user. | [optional] |
-| **handle** | **String** | Handle of the user. | [optional] |
-| **icon** | **String** | URL of the user&#39;s icon. | [optional] |
-| **name** | **String** | Name of the user. | [optional] |
-| **status** | **String** | Status of the user. | [optional] |
-| **title** | **String** | Title of the user. | [optional] |
-| **verified** | **Boolean** | Whether the user is verified. | [optional] |
+| Name           | Type        | Description                   | Notes      |
+| -------------- | ----------- | ----------------------------- | ---------- |
+| **created_at** | **Time**    | Creation time of the user.    | [optional] |
+| **disabled**   | **Boolean** | Whether the user is disabled. | [optional] |
+| **email**      | **String**  | Email of the user.            | [optional] |
+| **handle**     | **String**  | Handle of the user.           | [optional] |
+| **icon**       | **String**  | URL of the user&#39;s icon.   | [optional] |
+| **name**       | **String**  | Name of the user.             | [optional] |
+| **status**     | **String**  | Status of the user.           | [optional] |
+| **title**      | **String**  | Title of the user.            | [optional] |
+| **verified**   | **Boolean** | Whether the user is verified. | [optional] |
 
 ## Example
 
@@ -31,4 +31,3 @@ instance = DatadogAPIClient::V1::NotebookAuthor.new(
   verified: null
 )
 ```
-

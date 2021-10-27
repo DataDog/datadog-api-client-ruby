@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **line_type** | [**WidgetLineType**](WidgetLineType.md) |  | [optional] |
-| **line_width** | [**WidgetLineWidth**](WidgetLineWidth.md) |  | [optional] |
-| **palette** | **String** | Color palette to apply to the widget. | [optional] |
+| Name           | Type                                      | Description                           | Notes      |
+| -------------- | ----------------------------------------- | ------------------------------------- | ---------- |
+| **line_type**  | [**WidgetLineType**](WidgetLineType.md)   |                                       | [optional] |
+| **line_width** | [**WidgetLineWidth**](WidgetLineWidth.md) |                                       | [optional] |
+| **palette**    | **String**                                | Color palette to apply to the widget. | [optional] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::WidgetRequestStyle.new(
   palette: null
 )
 ```
-

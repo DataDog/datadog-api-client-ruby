@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **facet** | **String** | Event facet. |  |
-| **limit** | **Integer** | Number of groups to return. | [optional] |
-| **sort** | [**FormulaAndFunctionEventQueryGroupBySort**](FormulaAndFunctionEventQueryGroupBySort.md) |  | [optional] |
+| Name      | Type                                                                                      | Description                 | Notes      |
+| --------- | ----------------------------------------------------------------------------------------- | --------------------------- | ---------- |
+| **facet** | **String**                                                                                | Event facet.                |            |
+| **limit** | **Integer**                                                                               | Number of groups to return. | [optional] |
+| **sort**  | [**FormulaAndFunctionEventQueryGroupBySort**](FormulaAndFunctionEventQueryGroupBySort.md) |                             | [optional] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::FormulaAndFunctionEventQueryGroupBy.new(
   sort: null
 )
 ```
-

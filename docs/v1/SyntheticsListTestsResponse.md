@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name      | Type                                                               | Description                             | Notes      |
+| --------- | ------------------------------------------------------------------ | --------------------------------------- | ---------- |
 | **tests** | [**Array&lt;SyntheticsTestDetails&gt;**](SyntheticsTestDetails.md) | Array of Synthetic tests configuration. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::SyntheticsListTestsResponse.new(
   tests: null
 )
 ```
-

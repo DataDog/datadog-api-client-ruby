@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **api_key** | [**ApiKey**](ApiKey.md) |  | [optional] |
+| Name        | Type                    | Description | Notes      |
+| ----------- | ----------------------- | ----------- | ---------- |
+| **api_key** | [**ApiKey**](ApiKey.md) |             | [optional] |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::ApiKeyResponse.new(
   api_key: null
 )
 ```
-

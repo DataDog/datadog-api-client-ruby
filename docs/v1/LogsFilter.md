@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name      | Type       | Description       | Notes      |
+| --------- | ---------- | ----------------- | ---------- |
 | **query** | **String** | The filter query. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::LogsFilter.new(
   query: source:python
 )
 ```
-

@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name      | Type                                               | Description                                         | Notes      |
+| --------- | -------------------------------------------------- | --------------------------------------------------- | ---------- |
 | **usage** | [**Array&lt;UsageLogsHour&gt;**](UsageLogsHour.md) | An array of objects regarding hourly usage of logs. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::UsageLogsResponse.new(
   usage: null
 )
 ```
-

@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **action** | [**SecurityMonitoringFilterAction**](SecurityMonitoringFilterAction.md) |  | [optional] |
-| **query** | **String** | Query for selecting logs to apply the filtering action. | [optional] |
+| Name       | Type                                                                    | Description                                             | Notes      |
+| ---------- | ----------------------------------------------------------------------- | ------------------------------------------------------- | ---------- |
+| **action** | [**SecurityMonitoringFilterAction**](SecurityMonitoringFilterAction.md) |                                                         | [optional] |
+| **query**  | **String**                                                              | Query for selecting logs to apply the filtering action. | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::SecurityMonitoringFilter.new(
   query: null
 )
 ```
-

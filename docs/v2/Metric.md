@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **id** | **String** | The metric name for this resource. | [optional] |
-| **type** | [**MetricType**](MetricType.md) |  | [optional][default to &#39;metrics&#39;] |
+| Name     | Type                            | Description                        | Notes                                    |
+| -------- | ------------------------------- | ---------------------------------- | ---------------------------------------- |
+| **id**   | **String**                      | The metric name for this resource. | [optional]                               |
+| **type** | [**MetricType**](MetricType.md) |                                    | [optional][default to &#39;metrics&#39;] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::Metric.new(
   type: null
 )
 ```
-

@@ -63,8 +63,8 @@ DatadogAPIClient::V1::WidgetDefinition.build(data_that_doesnt_match)
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
+| Name     | Type      | Description                                        |
+| -------- | --------- | -------------------------------------------------- |
 | **data** | **Mixed** | data to be matched against the list of oneOf items |
 
 #### Return type
@@ -98,4 +98,3 @@ DatadogAPIClient::V1::WidgetDefinition.build(data_that_doesnt_match)
 - `ToplistWidgetDefinition`
 - `TreeMapWidgetDefinition`
 - `nil` (if no type matches)
-

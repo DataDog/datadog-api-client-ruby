@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **config** | [**SyntheticsTestConfig**](SyntheticsTestConfig.md) |  |  |
+| Name       | Type                                                | Description | Notes |
+| ---------- | --------------------------------------------------- | ----------- | ----- |
+| **config** | [**SyntheticsTestConfig**](SyntheticsTestConfig.md) |             |       |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::SyntheticsBrowserTestResultFullCheck.new(
   config: null
 )
 ```
-

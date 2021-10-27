@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name            | Type        | Description       | Notes      |
+| --------------- | ----------- | ----------------- | ---------- |
 | **total_count** | **Integer** | Total page count. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::UsageSpecifiedCustomReportsPage.new(
   total_count: null
 )
 ```
-

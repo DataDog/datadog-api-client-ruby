@@ -2,12 +2,12 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **message** | **Boolean** | Show the main body of the alert event. | [optional][default to true] |
+| Name         | Type        | Description                                    | Notes                       |
+| ------------ | ----------- | ---------------------------------------------- | --------------------------- |
+| **message**  | **Boolean** | Show the main body of the alert event.         | [optional][default to true] |
 | **notified** | **Boolean** | Show the list of @-handles in the alert event. | [optional][default to true] |
-| **snapshot** | **Boolean** | Show the alert event&#39;s snapshot image. | [optional][default to true] |
-| **tags** | **Boolean** | Show the scopes on which the monitor alerted. | [optional][default to true] |
+| **snapshot** | **Boolean** | Show the alert event&#39;s snapshot image.     | [optional][default to true] |
+| **tags**     | **Boolean** | Show the scopes on which the monitor alerted.  | [optional][default to true] |
 
 ## Example
 
@@ -21,4 +21,3 @@ instance = DatadogAPIClient::V1::SlackIntegrationChannelDisplay.new(
   tags: null
 )
 ```
-

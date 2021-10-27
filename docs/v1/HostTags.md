@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **host** | **String** | Your host name. | [optional] |
+| Name     | Type                    | Description                          | Notes      |
+| -------- | ----------------------- | ------------------------------------ | ---------- |
+| **host** | **String**              | Your host name.                      | [optional] |
 | **tags** | **Array&lt;String&gt;** | A list of tags to apply to the host. | [optional] |
 
 ## Example
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::HostTags.new(
   tags: null
 )
 ```
-

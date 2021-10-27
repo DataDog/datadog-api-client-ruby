@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **is_template** | **Boolean** | Whether or not the notebook is a template. | [optional][default to false] |
-| **take_snapshots** | **Boolean** | Whether or not the notebook takes snapshot image backups of the notebook&#39;s fixed-time graphs. | [optional][default to false] |
-| **type** | [**NotebookMetadataType**](NotebookMetadataType.md) |  | [optional][default to &#39;null&#39;] |
+| Name               | Type                                                | Description                                                                                       | Notes                                 |
+| ------------------ | --------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| **is_template**    | **Boolean**                                         | Whether or not the notebook is a template.                                                        | [optional][default to false]          |
+| **take_snapshots** | **Boolean**                                         | Whether or not the notebook takes snapshot image backups of the notebook&#39;s fixed-time graphs. | [optional][default to false]          |
+| **type**           | [**NotebookMetadataType**](NotebookMetadataType.md) |                                                                                                   | [optional][default to &#39;null&#39;] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::NotebookMetadata.new(
   type: null
 )
 ```
-

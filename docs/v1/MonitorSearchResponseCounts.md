@@ -2,12 +2,12 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **muted** | **Array&lt;Object&gt;** | Search facets. | [optional] |
+| Name       | Type                    | Description    | Notes      |
+| ---------- | ----------------------- | -------------- | ---------- |
+| **muted**  | **Array&lt;Object&gt;** | Search facets. | [optional] |
 | **status** | **Array&lt;Object&gt;** | Search facets. | [optional] |
-| **tag** | **Array&lt;Object&gt;** | Search facets. | [optional] |
-| **type** | **Array&lt;Object&gt;** | Search facets. | [optional] |
+| **tag**    | **Array&lt;Object&gt;** | Search facets. | [optional] |
+| **type**   | **Array&lt;Object&gt;** | Search facets. | [optional] |
 
 ## Example
 
@@ -21,4 +21,3 @@ instance = DatadogAPIClient::V1::MonitorSearchResponseCounts.new(
   type: null
 )
 ```
-

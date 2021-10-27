@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **last_timestamp_fetched** | **Integer** | Timestamp of the latest browser test run. | [optional] |
-| **results** | [**Array&lt;SyntheticsBrowserTestResultShort&gt;**](SyntheticsBrowserTestResultShort.md) | Result of the latest browser test run. | [optional] |
+| Name                       | Type                                                                                     | Description                               | Notes      |
+| -------------------------- | ---------------------------------------------------------------------------------------- | ----------------------------------------- | ---------- |
+| **last_timestamp_fetched** | **Integer**                                                                              | Timestamp of the latest browser test run. | [optional] |
+| **results**                | [**Array&lt;SyntheticsBrowserTestResultShort&gt;**](SyntheticsBrowserTestResultShort.md) | Result of the latest browser test run.    | [optional] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::SyntheticsGetBrowserTestLatestResultsResponse.n
   results: null
 )
 ```
-

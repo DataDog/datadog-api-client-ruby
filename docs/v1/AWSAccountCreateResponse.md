@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name            | Type       | Description      | Notes      |
+| --------------- | ---------- | ---------------- | ---------- |
 | **external_id** | **String** | AWS external_id. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::AWSAccountCreateResponse.new(
   external_id: null
 )
 ```
-

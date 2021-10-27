@@ -2,12 +2,12 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **attributes** | [**IncidentTeamResponseAttributes**](IncidentTeamResponseAttributes.md) |  | [optional] |
-| **id** | **String** | The incident team&#39;s ID. | [optional] |
-| **relationships** | [**IncidentTeamRelationships**](IncidentTeamRelationships.md) |  | [optional] |
-| **type** | [**IncidentTeamType**](IncidentTeamType.md) |  | [optional][default to &#39;teams&#39;] |
+| Name              | Type                                                                    | Description                 | Notes                                  |
+| ----------------- | ----------------------------------------------------------------------- | --------------------------- | -------------------------------------- |
+| **attributes**    | [**IncidentTeamResponseAttributes**](IncidentTeamResponseAttributes.md) |                             | [optional]                             |
+| **id**            | **String**                                                              | The incident team&#39;s ID. | [optional]                             |
+| **relationships** | [**IncidentTeamRelationships**](IncidentTeamRelationships.md)           |                             | [optional]                             |
+| **type**          | [**IncidentTeamType**](IncidentTeamType.md)                             |                             | [optional][default to &#39;teams&#39;] |
 
 ## Example
 
@@ -21,4 +21,3 @@ instance = DatadogAPIClient::V2::IncidentTeamResponseData.new(
   type: null
 )
 ```
-

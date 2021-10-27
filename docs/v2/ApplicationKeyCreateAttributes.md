@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **name** | **String** | Name of the application key. |  |
+| Name     | Type       | Description                  | Notes |
+| -------- | ---------- | ---------------------------- | ----- |
+| **name** | **String** | Name of the application key. |       |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V2::ApplicationKeyCreateAttributes.new(
   name: Application Key for submitting metrics
 )
 ```
-

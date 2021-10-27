@@ -34,7 +34,7 @@ module DatadogAPIClient::V1
     # ID of the dashboard.
     attr_accessor :id
 
-    # Whether this dashboard is read-only. If True, only the author and admins can make changes to it.
+    # Whether this dashboard is read-only. If True, only the author and admins can make changes to it. Prefer using `restricted_roles` to manage write authorization.
     attr_accessor :is_read_only
 
     attr_accessor :layout_type
@@ -47,7 +47,7 @@ module DatadogAPIClient::V1
 
     attr_accessor :reflow_type
 
-    # A list of role identifiers. Only the author and users associated with at least one of these roles can edit this dashboard. Overrides the `is_read_only` property if both are present. **This feature is currently in beta.**
+    # A list of role identifiers. Only the author and users associated with at least one of these roles can edit this dashboard.
     attr_accessor :restricted_roles
 
     # Array of template variables saved views.

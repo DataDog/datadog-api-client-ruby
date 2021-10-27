@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **metadata** | [**SyntheticsCIBatchMetadata**](SyntheticsCIBatchMetadata.md) |  | [optional] |
-| **results** | [**Array&lt;SyntheticsBatchResult&gt;**](SyntheticsBatchResult.md) | List of results for the batch. | [optional] |
-| **status** | [**SyntheticsStatus**](SyntheticsStatus.md) |  | [optional] |
+| Name         | Type                                                               | Description                    | Notes      |
+| ------------ | ------------------------------------------------------------------ | ------------------------------ | ---------- |
+| **metadata** | [**SyntheticsCIBatchMetadata**](SyntheticsCIBatchMetadata.md)      |                                | [optional] |
+| **results**  | [**Array&lt;SyntheticsBatchResult&gt;**](SyntheticsBatchResult.md) | List of results for the batch. | [optional] |
+| **status**   | [**SyntheticsStatus**](SyntheticsStatus.md)                        |                                | [optional] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::SyntheticsBatchDetailsData.new(
   status: null
 )
 ```
-

@@ -2,21 +2,20 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method | HTTP request | Description |
-| ------ | ------------ | ----------- |
-| [**create_security_filter**](SecurityMonitoringAPI.md#create_security_filter) | **POST** /api/v2/security_monitoring/configuration/security_filters | Create a security filter |
-| [**create_security_monitoring_rule**](SecurityMonitoringAPI.md#create_security_monitoring_rule) | **POST** /api/v2/security_monitoring/rules | Create a detection rule |
-| [**delete_security_filter**](SecurityMonitoringAPI.md#delete_security_filter) | **DELETE** /api/v2/security_monitoring/configuration/security_filters/{security_filter_id} | Delete a security filter |
-| [**delete_security_monitoring_rule**](SecurityMonitoringAPI.md#delete_security_monitoring_rule) | **DELETE** /api/v2/security_monitoring/rules/{rule_id} | Delete an existing rule |
-| [**get_security_filter**](SecurityMonitoringAPI.md#get_security_filter) | **GET** /api/v2/security_monitoring/configuration/security_filters/{security_filter_id} | Get a security filter |
-| [**get_security_monitoring_rule**](SecurityMonitoringAPI.md#get_security_monitoring_rule) | **GET** /api/v2/security_monitoring/rules/{rule_id} | Get a rule&#39;s details |
-| [**list_security_filters**](SecurityMonitoringAPI.md#list_security_filters) | **GET** /api/v2/security_monitoring/configuration/security_filters | Get all security filters |
-| [**list_security_monitoring_rules**](SecurityMonitoringAPI.md#list_security_monitoring_rules) | **GET** /api/v2/security_monitoring/rules | List rules |
-| [**list_security_monitoring_signals**](SecurityMonitoringAPI.md#list_security_monitoring_signals) | **GET** /api/v2/security_monitoring/signals | Get a quick list of security signals |
-| [**search_security_monitoring_signals**](SecurityMonitoringAPI.md#search_security_monitoring_signals) | **POST** /api/v2/security_monitoring/signals/search | Get a list of security signals |
-| [**update_security_filter**](SecurityMonitoringAPI.md#update_security_filter) | **PATCH** /api/v2/security_monitoring/configuration/security_filters/{security_filter_id} | Update a security filter |
-| [**update_security_monitoring_rule**](SecurityMonitoringAPI.md#update_security_monitoring_rule) | **PUT** /api/v2/security_monitoring/rules/{rule_id} | Update an existing rule |
-
+| Method                                                                                                | HTTP request                                                                               | Description                          |
+| ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ------------------------------------ |
+| [**create_security_filter**](SecurityMonitoringAPI.md#create_security_filter)                         | **POST** /api/v2/security_monitoring/configuration/security_filters                        | Create a security filter             |
+| [**create_security_monitoring_rule**](SecurityMonitoringAPI.md#create_security_monitoring_rule)       | **POST** /api/v2/security_monitoring/rules                                                 | Create a detection rule              |
+| [**delete_security_filter**](SecurityMonitoringAPI.md#delete_security_filter)                         | **DELETE** /api/v2/security_monitoring/configuration/security_filters/{security_filter_id} | Delete a security filter             |
+| [**delete_security_monitoring_rule**](SecurityMonitoringAPI.md#delete_security_monitoring_rule)       | **DELETE** /api/v2/security_monitoring/rules/{rule_id}                                     | Delete an existing rule              |
+| [**get_security_filter**](SecurityMonitoringAPI.md#get_security_filter)                               | **GET** /api/v2/security_monitoring/configuration/security_filters/{security_filter_id}    | Get a security filter                |
+| [**get_security_monitoring_rule**](SecurityMonitoringAPI.md#get_security_monitoring_rule)             | **GET** /api/v2/security_monitoring/rules/{rule_id}                                        | Get a rule&#39;s details             |
+| [**list_security_filters**](SecurityMonitoringAPI.md#list_security_filters)                           | **GET** /api/v2/security_monitoring/configuration/security_filters                         | Get all security filters             |
+| [**list_security_monitoring_rules**](SecurityMonitoringAPI.md#list_security_monitoring_rules)         | **GET** /api/v2/security_monitoring/rules                                                  | List rules                           |
+| [**list_security_monitoring_signals**](SecurityMonitoringAPI.md#list_security_monitoring_signals)     | **GET** /api/v2/security_monitoring/signals                                                | Get a quick list of security signals |
+| [**search_security_monitoring_signals**](SecurityMonitoringAPI.md#search_security_monitoring_signals) | **POST** /api/v2/security_monitoring/signals/search                                        | Get a list of security signals       |
+| [**update_security_filter**](SecurityMonitoringAPI.md#update_security_filter)                         | **PATCH** /api/v2/security_monitoring/configuration/security_filters/{security_filter_id}  | Update a security filter             |
+| [**update_security_monitoring_rule**](SecurityMonitoringAPI.md#update_security_monitoring_rule)       | **PUT** /api/v2/security_monitoring/rules/{rule_id}                                        | Update an existing rule              |
 
 ## create_security_filter
 
@@ -63,9 +62,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**SecurityFilterCreateRequest**](SecurityFilterCreateRequest.md) | The definition of the new security filter. |  |
+| Name     | Type                                                              | Description                                | Notes |
+| -------- | ----------------------------------------------------------------- | ------------------------------------------ | ----- |
+| **body** | [**SecurityFilterCreateRequest**](SecurityFilterCreateRequest.md) | The definition of the new security filter. |       |
 
 ### Return type
 
@@ -80,7 +79,6 @@ end
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-
 ## create_security_monitoring_rule
 
 > <SecurityMonitoringRuleResponse> create_security_monitoring_rule(body)
@@ -92,7 +90,7 @@ Create a detection rule.
 ```ruby
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
-body = DatadogAPIClient::V2::SecurityMonitoringRuleCreatePayload.new({cases: [DatadogAPIClient::V2::SecurityMonitoringRuleCaseCreate.new({status: DatadogAPIClient::V2::SecurityMonitoringRuleSeverity::INFO})], is_enabled: true, message: 'message_example', name: 'My security monitoring rule.', options: DatadogAPIClient::V2::SecurityMonitoringRuleOptions.new, queries: [DatadogAPIClient::V2::SecurityMonitoringRuleQueryCreate.new({query: 'a > 3'})]}) # SecurityMonitoringRuleCreatePayload | 
+body = DatadogAPIClient::V2::SecurityMonitoringRuleCreatePayload.new({cases: [DatadogAPIClient::V2::SecurityMonitoringRuleCaseCreate.new({status: DatadogAPIClient::V2::SecurityMonitoringRuleSeverity::INFO})], is_enabled: true, message: 'message_example', name: 'My security monitoring rule.', options: DatadogAPIClient::V2::SecurityMonitoringRuleOptions.new, queries: [DatadogAPIClient::V2::SecurityMonitoringRuleQueryCreate.new({query: 'a > 3'})]}) # SecurityMonitoringRuleCreatePayload |
 
 begin
   # Create a detection rule
@@ -123,9 +121,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**SecurityMonitoringRuleCreatePayload**](SecurityMonitoringRuleCreatePayload.md) |  |  |
+| Name     | Type                                                                              | Description | Notes |
+| -------- | --------------------------------------------------------------------------------- | ----------- | ----- |
+| **body** | [**SecurityMonitoringRuleCreatePayload**](SecurityMonitoringRuleCreatePayload.md) |             |       |
 
 ### Return type
 
@@ -139,7 +137,6 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## delete_security_filter
 
@@ -182,9 +179,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **security_filter_id** | **String** | The ID of the security filter. |  |
+| Name                   | Type       | Description                    | Notes |
+| ---------------------- | ---------- | ------------------------------ | ----- |
+| **security_filter_id** | **String** | The ID of the security filter. |       |
 
 ### Return type
 
@@ -198,7 +195,6 @@ nil (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## delete_security_monitoring_rule
 
@@ -241,9 +237,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **rule_id** | **String** | The ID of the rule. |  |
+| Name        | Type       | Description         | Notes |
+| ----------- | ---------- | ------------------- | ----- |
+| **rule_id** | **String** | The ID of the rule. |       |
 
 ### Return type
 
@@ -257,7 +253,6 @@ nil (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_security_filter
 
@@ -304,9 +299,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **security_filter_id** | **String** | The ID of the security filter. |  |
+| Name                   | Type       | Description                    | Notes |
+| ---------------------- | ---------- | ------------------------------ | ----- |
+| **security_filter_id** | **String** | The ID of the security filter. |       |
 
 ### Return type
 
@@ -320,7 +315,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_security_monitoring_rule
 
@@ -364,9 +358,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **rule_id** | **String** | The ID of the rule. |  |
+| Name        | Type       | Description         | Notes |
+| ----------- | ---------- | ------------------- | ----- |
+| **rule_id** | **String** | The ID of the rule. |       |
 
 ### Return type
 
@@ -380,7 +374,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## list_security_filters
 
@@ -438,7 +431,6 @@ This endpoint does not need any parameter.
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-
 ## list_security_monitoring_rules
 
 > <SecurityMonitoringListRulesResponse> list_security_monitoring_rules(opts)
@@ -484,10 +476,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **page_size** | **Integer** | Size for a given page. | [optional][default to 10] |
-| **page_number** | **Integer** | Specific page number to return. | [optional][default to 0] |
+| Name            | Type        | Description                     | Notes                     |
+| --------------- | ----------- | ------------------------------- | ------------------------- |
+| **page_size**   | **Integer** | Size for a given page.          | [optional][default to 10] |
+| **page_number** | **Integer** | Specific page number to return. | [optional][default to 0]  |
 
 ### Return type
 
@@ -501,7 +493,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## list_security_monitoring_signals
 
@@ -559,14 +550,14 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **filter_query** | **String** | The search query for security signals. | [optional] |
-| **filter_from** | **Time** | The minimum timestamp for requested security signals. | [optional] |
-| **filter_to** | **Time** | The maximum timestamp for requested security signals. | [optional] |
-| **sort** | **SecurityMonitoringSignalsSort** | The order of the security signals in results. | [optional] |
-| **page_cursor** | **String** | A list of results using the cursor provided in the previous query. | [optional] |
-| **page_limit** | **Integer** | The maximum number of security signals in the response. | [optional][default to 10] |
+| Name             | Type                              | Description                                                        | Notes                     |
+| ---------------- | --------------------------------- | ------------------------------------------------------------------ | ------------------------- |
+| **filter_query** | **String**                        | The search query for security signals.                             | [optional]                |
+| **filter_from**  | **Time**                          | The minimum timestamp for requested security signals.              | [optional]                |
+| **filter_to**    | **Time**                          | The maximum timestamp for requested security signals.              | [optional]                |
+| **sort**         | **SecurityMonitoringSignalsSort** | The order of the security signals in results.                      | [optional]                |
+| **page_cursor**  | **String**                        | A list of results using the cursor provided in the previous query. | [optional]                |
+| **page_limit**   | **Integer**                       | The maximum number of security signals in the response.            | [optional][default to 10] |
 
 ### Return type
 
@@ -580,7 +571,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## search_security_monitoring_signals
 
@@ -601,7 +591,7 @@ end
 
 api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
 opts = {
-  body: DatadogAPIClient::V2::SecurityMonitoringSignalListRequest.new # SecurityMonitoringSignalListRequest | 
+  body: DatadogAPIClient::V2::SecurityMonitoringSignalListRequest.new # SecurityMonitoringSignalListRequest |
 }
 
 begin
@@ -633,9 +623,9 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**SecurityMonitoringSignalListRequest**](SecurityMonitoringSignalListRequest.md) |  | [optional] |
+| Name     | Type                                                                              | Description | Notes      |
+| -------- | --------------------------------------------------------------------------------- | ----------- | ---------- |
+| **body** | [**SecurityMonitoringSignalListRequest**](SecurityMonitoringSignalListRequest.md) |             | [optional] |
 
 ### Return type
 
@@ -649,7 +639,6 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## update_security_filter
 
@@ -695,10 +684,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **security_filter_id** | **String** | The ID of the security filter. |  |
-| **body** | [**SecurityFilterUpdateRequest**](SecurityFilterUpdateRequest.md) | New definition of the security filter. |  |
+| Name                   | Type                                                              | Description                            | Notes |
+| ---------------------- | ----------------------------------------------------------------- | -------------------------------------- | ----- |
+| **security_filter_id** | **String**                                                        | The ID of the security filter.         |       |
+| **body**               | [**SecurityFilterUpdateRequest**](SecurityFilterUpdateRequest.md) | New definition of the security filter. |       |
 
 ### Return type
 
@@ -712,7 +701,6 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## update_security_monitoring_rule
 
@@ -728,7 +716,7 @@ Default rules can only be updated to be enabled and to change notifications.
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
 rule_id = 'rule_id_example' # String | The ID of the rule.
-body = DatadogAPIClient::V2::SecurityMonitoringRuleUpdatePayload.new # SecurityMonitoringRuleUpdatePayload | 
+body = DatadogAPIClient::V2::SecurityMonitoringRuleUpdatePayload.new # SecurityMonitoringRuleUpdatePayload |
 
 begin
   # Update an existing rule
@@ -759,10 +747,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **rule_id** | **String** | The ID of the rule. |  |
-| **body** | [**SecurityMonitoringRuleUpdatePayload**](SecurityMonitoringRuleUpdatePayload.md) |  |  |
+| Name        | Type                                                                              | Description         | Notes |
+| ----------- | --------------------------------------------------------------------------------- | ------------------- | ----- |
+| **rule_id** | **String**                                                                        | The ID of the rule. |       |
+| **body**    | [**SecurityMonitoringRuleUpdatePayload**](SecurityMonitoringRuleUpdatePayload.md) |                     |       |
 
 ### Return type
 
@@ -776,4 +764,3 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-

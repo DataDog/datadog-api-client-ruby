@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data** | [**Array&lt;DashboardBulkActionData&gt;**](DashboardBulkActionData.md) | List of dashboard bulk action request data objects. |  |
+| Name     | Type                                                                   | Description                                         | Notes |
+| -------- | ---------------------------------------------------------------------- | --------------------------------------------------- | ----- |
+| **data** | [**Array&lt;DashboardBulkActionData&gt;**](DashboardBulkActionData.md) | List of dashboard bulk action request data objects. |       |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::DashboardBulkDeleteRequest.new(
   data: [{&quot;id&quot;:&quot;123-abc-456&quot;,&quot;type&quot;:&quot;dashboard&quot;}]
 )
 ```
-

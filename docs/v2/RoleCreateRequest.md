@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **data** | [**RoleCreateData**](RoleCreateData.md) |  |  |
+| Name     | Type                                    | Description | Notes |
+| -------- | --------------------------------------- | ----------- | ----- |
+| **data** | [**RoleCreateData**](RoleCreateData.md) |             |       |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V2::RoleCreateRequest.new(
   data: null
 )
 ```
-

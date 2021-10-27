@@ -2,12 +2,12 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **page** | **Integer** | The page to start paginating from. | [optional][readonly] |
-| **page_count** | **Integer** | The number of pages. | [optional][readonly] |
-| **per_page** | **Integer** | The number of monitors to return per page. | [optional][readonly] |
-| **total_count** | **Integer** | The total number of monitors. | [optional][readonly] |
+| Name            | Type        | Description                                | Notes                |
+| --------------- | ----------- | ------------------------------------------ | -------------------- |
+| **page**        | **Integer** | The page to start paginating from.         | [optional][readonly] |
+| **page_count**  | **Integer** | The number of pages.                       | [optional][readonly] |
+| **per_page**    | **Integer** | The number of monitors to return per page. | [optional][readonly] |
+| **total_count** | **Integer** | The total number of monitors.              | [optional][readonly] |
 
 ## Example
 
@@ -21,4 +21,3 @@ instance = DatadogAPIClient::V1::MonitorSearchResponseMetadata.new(
   total_count: null
 )
 ```
-

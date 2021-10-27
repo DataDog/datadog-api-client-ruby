@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **commander** | [**RelationshipToUser**](RelationshipToUser.md) |  |  |
+| Name          | Type                                            | Description | Notes |
+| ------------- | ----------------------------------------------- | ----------- | ----- |
+| **commander** | [**RelationshipToUser**](RelationshipToUser.md) |             |       |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V2::IncidentCreateRelationships.new(
   commander: null
 )
 ```
-

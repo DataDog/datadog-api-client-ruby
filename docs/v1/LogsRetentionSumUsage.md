@@ -2,12 +2,12 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **logs_indexed_logs_usage_sum** | **Integer** | Total indexed logs for this retention period. | [optional] |
-| **logs_live_indexed_logs_usage_sum** | **Integer** | Live indexed logs for this retention period. | [optional] |
-| **logs_rehydrated_indexed_logs_usage_sum** | **Integer** | Rehydrated indexed logs for this retention period. | [optional] |
-| **retention** | **String** | The retention period in days or \&quot;custom\&quot; for all custom retention periods. | [optional] |
+| Name                                       | Type        | Description                                                                            | Notes      |
+| ------------------------------------------ | ----------- | -------------------------------------------------------------------------------------- | ---------- |
+| **logs_indexed_logs_usage_sum**            | **Integer** | Total indexed logs for this retention period.                                          | [optional] |
+| **logs_live_indexed_logs_usage_sum**       | **Integer** | Live indexed logs for this retention period.                                           | [optional] |
+| **logs_rehydrated_indexed_logs_usage_sum** | **Integer** | Rehydrated indexed logs for this retention period.                                     | [optional] |
+| **retention**                              | **String**  | The retention period in days or \&quot;custom\&quot; for all custom retention periods. | [optional] |
 
 ## Example
 
@@ -21,4 +21,3 @@ instance = DatadogAPIClient::V1::LogsRetentionSumUsage.new(
   retention: null
 )
 ```
-

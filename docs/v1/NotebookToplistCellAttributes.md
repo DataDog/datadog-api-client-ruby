@@ -2,12 +2,12 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **definition** | [**ToplistWidgetDefinition**](ToplistWidgetDefinition.md) |  |  |
-| **graph_size** | [**NotebookGraphSize**](NotebookGraphSize.md) |  | [optional] |
-| **split_by** | [**NotebookSplitBy**](NotebookSplitBy.md) |  | [optional] |
-| **time** | [**NotebookCellTime**](NotebookCellTime.md) |  | [optional] |
+| Name           | Type                                                      | Description | Notes      |
+| -------------- | --------------------------------------------------------- | ----------- | ---------- |
+| **definition** | [**ToplistWidgetDefinition**](ToplistWidgetDefinition.md) |             |            |
+| **graph_size** | [**NotebookGraphSize**](NotebookGraphSize.md)             |             | [optional] |
+| **split_by**   | [**NotebookSplitBy**](NotebookSplitBy.md)                 |             | [optional] |
+| **time**       | [**NotebookCellTime**](NotebookCellTime.md)               |             | [optional] |
 
 ## Example
 
@@ -21,4 +21,3 @@ instance = DatadogAPIClient::V1::NotebookToplistCellAttributes.new(
   time: null
 )
 ```
-

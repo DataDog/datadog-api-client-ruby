@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **compute** | [**LogsMetricResponseCompute**](LogsMetricResponseCompute.md) |  | [optional] |
-| **filter** | [**LogsMetricResponseFilter**](LogsMetricResponseFilter.md) |  | [optional] |
+| Name         | Type                                                                       | Description                 | Notes      |
+| ------------ | -------------------------------------------------------------------------- | --------------------------- | ---------- |
+| **compute**  | [**LogsMetricResponseCompute**](LogsMetricResponseCompute.md)              |                             | [optional] |
+| **filter**   | [**LogsMetricResponseFilter**](LogsMetricResponseFilter.md)                |                             | [optional] |
 | **group_by** | [**Array&lt;LogsMetricResponseGroupBy&gt;**](LogsMetricResponseGroupBy.md) | The rules for the group by. | [optional] |
 
 ## Example
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V2::LogsMetricResponseAttributes.new(
   group_by: null
 )
 ```
-

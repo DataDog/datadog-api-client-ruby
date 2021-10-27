@@ -2,14 +2,14 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **compute** | [**FormulaAndFunctionEventQueryDefinitionCompute**](FormulaAndFunctionEventQueryDefinitionCompute.md) |  |  |
-| **data_source** | [**FormulaAndFunctionEventsDataSource**](FormulaAndFunctionEventsDataSource.md) |  |  |
-| **group_by** | [**Array&lt;FormulaAndFunctionEventQueryGroupBy&gt;**](FormulaAndFunctionEventQueryGroupBy.md) | Group by options. | [optional] |
-| **indexes** | **Array&lt;String&gt;** | An array of index names to query in the stream. Omit or use &#x60;[]&#x60; to query all indexes at once. | [optional] |
-| **name** | **String** | Name of the query for use in formulas. |  |
-| **search** | [**FormulaAndFunctionEventQueryDefinitionSearch**](FormulaAndFunctionEventQueryDefinitionSearch.md) |  | [optional] |
+| Name            | Type                                                                                                  | Description                                                                                              | Notes      |
+| --------------- | ----------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ---------- |
+| **compute**     | [**FormulaAndFunctionEventQueryDefinitionCompute**](FormulaAndFunctionEventQueryDefinitionCompute.md) |                                                                                                          |            |
+| **data_source** | [**FormulaAndFunctionEventsDataSource**](FormulaAndFunctionEventsDataSource.md)                       |                                                                                                          |            |
+| **group_by**    | [**Array&lt;FormulaAndFunctionEventQueryGroupBy&gt;**](FormulaAndFunctionEventQueryGroupBy.md)        | Group by options.                                                                                        | [optional] |
+| **indexes**     | **Array&lt;String&gt;**                                                                               | An array of index names to query in the stream. Omit or use &#x60;[]&#x60; to query all indexes at once. | [optional] |
+| **name**        | **String**                                                                                            | Name of the query for use in formulas.                                                                   |            |
+| **search**      | [**FormulaAndFunctionEventQueryDefinitionSearch**](FormulaAndFunctionEventQueryDefinitionSearch.md)   |                                                                                                          | [optional] |
 
 ## Example
 
@@ -25,4 +25,3 @@ instance = DatadogAPIClient::V1::FormulaAndFunctionEventQueryDefinition.new(
   search: null
 )
 ```
-

@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **user** | [**User**](User.md) |  | [optional] |
+| Name     | Type                | Description | Notes      |
+| -------- | ------------------- | ----------- | ---------- |
+| **user** | [**User**](User.md) |             | [optional] |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::UserResponse.new(
   user: null
 )
 ```
-

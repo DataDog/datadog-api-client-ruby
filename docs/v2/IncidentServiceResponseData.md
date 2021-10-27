@@ -2,12 +2,12 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **attributes** | [**IncidentServiceResponseAttributes**](IncidentServiceResponseAttributes.md) |  | [optional] |
-| **id** | **String** | The incident service&#39;s ID. |  |
-| **relationships** | [**IncidentServiceRelationships**](IncidentServiceRelationships.md) |  | [optional] |
-| **type** | [**IncidentServiceType**](IncidentServiceType.md) |  | [default to &#39;services&#39;] |
+| Name              | Type                                                                          | Description                    | Notes                           |
+| ----------------- | ----------------------------------------------------------------------------- | ------------------------------ | ------------------------------- |
+| **attributes**    | [**IncidentServiceResponseAttributes**](IncidentServiceResponseAttributes.md) |                                | [optional]                      |
+| **id**            | **String**                                                                    | The incident service&#39;s ID. |                                 |
+| **relationships** | [**IncidentServiceRelationships**](IncidentServiceRelationships.md)           |                                | [optional]                      |
+| **type**          | [**IncidentServiceType**](IncidentServiceType.md)                             |                                | [default to &#39;services&#39;] |
 
 ## Example
 
@@ -21,4 +21,3 @@ instance = DatadogAPIClient::V2::IncidentServiceResponseData.new(
   type: null
 )
 ```
-

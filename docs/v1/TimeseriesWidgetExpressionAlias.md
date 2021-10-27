@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name           | Type       | Description       | Notes      |
+| -------------- | ---------- | ----------------- | ---------- |
 | **alias_name** | **String** | Expression alias. | [optional] |
-| **expression** | **String** | Expression name. |  |
+| **expression** | **String** | Expression name.  |            |
 
 ## Example
 
@@ -14,7 +14,6 @@ require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::TimeseriesWidgetExpressionAlias.new(
   alias_name: null,
-  expression: 
+  expression:
 )
 ```
-
