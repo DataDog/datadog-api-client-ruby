@@ -27,8 +27,14 @@ module DatadogAPIClient::V1
     # Description of the correction being made.
     attr_accessor :description
 
+    # Length of time (in seconds) for a specified `rrule` recurring SLO correction.
+    attr_accessor :duration
+
     # Ending time of the correction in epoch seconds.
     attr_accessor :_end
+
+    # Recurrence rules as defined in the iCalendar RFC 5545.
+    attr_accessor :rrule
 
     # ID of the SLO that this correction will be applied to.
     attr_accessor :slo_id
@@ -44,7 +50,9 @@ module DatadogAPIClient::V1
       {
         :'category' => :'category',
         :'description' => :'description',
+        :'duration' => :'duration',
         :'_end' => :'end',
+        :'rrule' => :'rrule',
         :'slo_id' => :'slo_id',
         :'start' => :'start',
         :'timezone' => :'timezone'
@@ -61,7 +69,9 @@ module DatadogAPIClient::V1
       {
         :'category' => :'SLOCorrectionCategory',
         :'description' => :'String',
+        :'duration' => :'Integer',
         :'_end' => :'Integer',
+        :'rrule' => :'String',
         :'slo_id' => :'String',
         :'start' => :'Integer',
         :'timezone' => :'String'
@@ -97,8 +107,16 @@ module DatadogAPIClient::V1
         self.description = attributes[:'description']
       end
 
+      if attributes.key?(:'duration')
+        self.duration = attributes[:'duration']
+      end
+
       if attributes.key?(:'_end')
         self._end = attributes[:'_end']
+      end
+
+      if attributes.key?(:'rrule')
+        self.rrule = attributes[:'rrule']
       end
 
       if attributes.key?(:'slo_id')
@@ -122,10 +140,6 @@ module DatadogAPIClient::V1
         invalid_properties.push('invalid value for "category", category cannot be nil.')
       end
 
-      if @_end.nil?
-        invalid_properties.push('invalid value for "_end", _end cannot be nil.')
-      end
-
       if @slo_id.nil?
         invalid_properties.push('invalid value for "slo_id", slo_id cannot be nil.')
       end
@@ -141,7 +155,6 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     def valid?
       return false if @category.nil?
-      return false if @_end.nil?
       return false if @slo_id.nil?
       return false if @start.nil?
       true
@@ -154,7 +167,9 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           category == o.category &&
           description == o.description &&
+          duration == o.duration &&
           _end == o._end &&
+          rrule == o.rrule &&
           slo_id == o.slo_id &&
           start == o.start &&
           timezone == o.timezone
@@ -169,7 +184,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [category, description, _end, slo_id, start, timezone].hash
+      [category, description, duration, _end, rrule, slo_id, start, timezone].hash
     end
 
     # Builds the object from hash
