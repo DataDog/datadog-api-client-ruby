@@ -29,8 +29,14 @@ module DatadogAPIClient::V1
     # Description of the correction being made.
     attr_accessor :description
 
+    # Length of time (in seconds) for a specified `rrule` recurring SLO correction.
+    attr_accessor :duration
+
     # Ending time of the correction in epoch seconds.
     attr_accessor :_end
+
+    # Recurrence rules as defined in the iCalendar RFC 5545.
+    attr_accessor :rrule
 
     # ID of the SLO that this correction will be applied to.
     attr_accessor :slo_id
@@ -47,7 +53,9 @@ module DatadogAPIClient::V1
         :'category' => :'category',
         :'creator' => :'creator',
         :'description' => :'description',
+        :'duration' => :'duration',
         :'_end' => :'end',
+        :'rrule' => :'rrule',
         :'slo_id' => :'slo_id',
         :'start' => :'start',
         :'timezone' => :'timezone'
@@ -65,7 +73,9 @@ module DatadogAPIClient::V1
         :'category' => :'SLOCorrectionCategory',
         :'creator' => :'Creator',
         :'description' => :'String',
+        :'duration' => :'Integer',
         :'_end' => :'Integer',
+        :'rrule' => :'String',
         :'slo_id' => :'String',
         :'start' => :'Integer',
         :'timezone' => :'String'
@@ -105,8 +115,16 @@ module DatadogAPIClient::V1
         self.description = attributes[:'description']
       end
 
+      if attributes.key?(:'duration')
+        self.duration = attributes[:'duration']
+      end
+
       if attributes.key?(:'_end')
         self._end = attributes[:'_end']
+      end
+
+      if attributes.key?(:'rrule')
+        self.rrule = attributes[:'rrule']
       end
 
       if attributes.key?(:'slo_id')
@@ -143,7 +161,9 @@ module DatadogAPIClient::V1
           category == o.category &&
           creator == o.creator &&
           description == o.description &&
+          duration == o.duration &&
           _end == o._end &&
+          rrule == o.rrule &&
           slo_id == o.slo_id &&
           start == o.start &&
           timezone == o.timezone
@@ -158,7 +178,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [category, creator, description, _end, slo_id, start, timezone].hash
+      [category, creator, description, duration, _end, rrule, slo_id, start, timezone].hash
     end
 
     # Builds the object from hash
