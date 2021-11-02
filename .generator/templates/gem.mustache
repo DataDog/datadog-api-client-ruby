@@ -2,26 +2,27 @@
 {{> api_info}}
 =end
 
-# Common files
 require 'datadog_api_client/version'
-require '{{gemName}}/api_client'
-require '{{gemName}}/api_error'
-require '{{gemName}}/configuration'
-
-# Models
-{{#models}}
-{{#model}}
-require '{{gemName}}/{{modelPackage}}/{{classFilename}}'{{/model}}
-{{/models}}
-
-# APIs
-{{#apiInfo}}
-{{#apis}}
-require '{{importPath}}'
-{{/apis}}
-{{/apiInfo}}
 
 module {{moduleName}}
+  # Common files
+  autoload :APIClient, '{{gemName}}/api_client'
+  autoload :APIError, '{{gemName}}/api_error'
+  autoload :Configuration, '{{gemName}}/configuration'
+
+  # Models
+  {{#models}}
+  {{#model}}
+  autoload :{{classname}}, '{{gemName}}/{{modelPackage}}/{{classFilename}}'{{/model}}
+  {{/models}}
+
+  # APIs
+  {{#apiInfo}}
+  {{#apis}}
+  autoload :{{classname}}, '{{importPath}}'
+  {{/apis}}
+  {{/apiInfo}}
+
   class << self
     # Customize default settings for the SDK using block.
     #   {{moduleName}}.configure do |config|
