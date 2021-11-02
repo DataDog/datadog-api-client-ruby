@@ -26,6 +26,6 @@ instance = DatadogAPIClient::V1::GroupWidgetDefinition.new(
   title: null,
   title_align: null,
   type: null,
-  widgets: [{&quot;definition&quot;:{&quot;requests&quot;:{&quot;fill&quot;:{&quot;q&quot;:&quot;system.cpu.user&quot;}},&quot;type&quot;:&quot;hostmap&quot;}}]
+  widgets: [{&quot;definition&quot;:{&quot;requests&quot;:{&quot;fill&quot;:{&quot;q&quot;:&quot;avg:system.cpu.user{*}&quot;}},&quot;type&quot;:&quot;hostmap&quot;}}]
 )
 ```
