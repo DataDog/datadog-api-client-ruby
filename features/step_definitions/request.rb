@@ -29,7 +29,7 @@ module APIWorld
   end
 
   def unique
-    now = Time.now
+    now = Time.now.utc
     scenario_name = @scenario.name.gsub(/[^A-Za-z0-9]+/, '_')[0..100]
     prefix = ENV["RECORD"] == "none" ? "Test-Ruby" : "Test"
     @unique ||= "#{prefix}-#{scenario_name}-#{now.to_i}"
@@ -53,7 +53,7 @@ module APIWorld
   def relative_time(iso)
     time_re = /now( *([+-]) *(\d+)([smhdMy]))?/
     lambda { |arg|
-      ret = Time.now
+      ret = Time.now.utc
       m = arg.match time_re
       if m
         if m[1]
