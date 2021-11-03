@@ -22,7 +22,7 @@ module DatadogAPIClient::V1
     # whether the object has unparsed attributes
     attr_accessor :_unparsed
 
-    # Array of assertions used for the test.
+    # Array of assertions used for the test. Required for single API tests.
     attr_accessor :assertions
 
     # Array of variables used for the test.

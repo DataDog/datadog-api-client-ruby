@@ -653,6 +653,8 @@ All URIs are relative to *https://api.datadoghq.com*
 - [DatadogAPIClient::V1::SyntheticsCIBatchMetadata](SyntheticsCIBatchMetadata.md)
 - [DatadogAPIClient::V1::SyntheticsCIBatchMetadataCI](SyntheticsCIBatchMetadataCI.md)
 - [DatadogAPIClient::V1::SyntheticsCIBatchMetadataGit](SyntheticsCIBatchMetadataGit.md)
+- [DatadogAPIClient::V1::SyntheticsCIBatchMetadataPipeline](SyntheticsCIBatchMetadataPipeline.md)
+- [DatadogAPIClient::V1::SyntheticsCIBatchMetadataProvider](SyntheticsCIBatchMetadataProvider.md)
 - [DatadogAPIClient::V1::SyntheticsCITest](SyntheticsCITest.md)
 - [DatadogAPIClient::V1::SyntheticsCITestBody](SyntheticsCITestBody.md)
 - [DatadogAPIClient::V1::SyntheticsCheckType](SyntheticsCheckType.md)
