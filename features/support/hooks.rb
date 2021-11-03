@@ -35,7 +35,7 @@ Around do |scenario, block|
       raise Exception.new "Cassette '#{cassette.file}' not found: create one setting `RECORD=true` or ignore it using `RECORD=none`";
     end
     File.delete(cassette.file) if ENV["RECORD"] == "true" && File.exist?(cassette.file) && !scenario.match_tags?("@replay-only")
-    Timecop.freeze(use_real_time? ? Time.now : cassette.originally_recorded_at) do
+    Timecop.freeze(use_real_time? ? Time.now.utc : cassette.originally_recorded_at) do
       block.call
     end
   end
