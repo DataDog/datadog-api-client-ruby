@@ -40,6 +40,6 @@ instance = DatadogAPIClient::V1::Dashboard.new(
   template_variables: null,
   title: ,
   url: /dashboard/123-abc-456/example-dashboard-title,
-  widgets: [{&quot;definition&quot;:{&quot;requests&quot;:{&quot;fill&quot;:{&quot;q&quot;:&quot;system.cpu.user&quot;}},&quot;type&quot;:&quot;hostmap&quot;}}]
+  widgets: [{&quot;definition&quot;:{&quot;requests&quot;:{&quot;fill&quot;:{&quot;q&quot;:&quot;avg:system.cpu.user{*}&quot;}},&quot;type&quot;:&quot;hostmap&quot;}}]
 )
 ```
