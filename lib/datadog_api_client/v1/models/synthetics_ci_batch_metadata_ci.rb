@@ -22,10 +22,8 @@ module DatadogAPIClient::V1
     # whether the object has unparsed attributes
     attr_accessor :_unparsed
 
-    # Name of the pipeline.
     attr_accessor :pipeline
 
-    # Name of the CI provider.
     attr_accessor :provider
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -44,8 +42,8 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'pipeline' => :'String',
-        :'provider' => :'String'
+        :'pipeline' => :'SyntheticsCIBatchMetadataPipeline',
+        :'provider' => :'SyntheticsCIBatchMetadataProvider'
       }
     end
 
