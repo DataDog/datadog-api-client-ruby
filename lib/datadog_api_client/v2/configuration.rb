@@ -333,6 +333,57 @@ module DatadogAPIClient::V2
 
     def operation_server_settings
       {
+        submit_log: [
+          {
+          url: "https://{subdomain}.{site}",
+          description: "No description provided",
+          variables: {
+            site: {
+                description: "The regional site for customers.",
+                default_value: "datadoghq.com",
+                enum_values: [
+                  "datadoghq.com",
+                  "us3.datadoghq.com",
+                  "us5.datadoghq.com",
+                  "datadoghq.eu",
+                  "ddog-gov.com"
+                ]
+              },
+            subdomain: {
+                description: "The subdomain where the API is deployed.",
+                default_value: "http-intake.logs",
+              }
+            }
+          },
+          {
+          url: "{protocol}://{name}",
+          description: "No description provided",
+          variables: {
+            name: {
+                description: "Full site DNS name.",
+                default_value: "http-intake.logs.datadoghq.com",
+              },
+            protocol: {
+                description: "The protocol for accessing the API.",
+                default_value: "https",
+              }
+            }
+          },
+          {
+          url: "https://{subdomain}.{site}",
+          description: "No description provided",
+          variables: {
+            site: {
+                description: "Any Datadog deployment.",
+                default_value: "datadoghq.com",
+              },
+            subdomain: {
+                description: "The subdomain where the API is deployed.",
+                default_value: "http-intake.logs",
+              }
+            }
+          }
+        ],
       }
     end
 

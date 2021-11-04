@@ -259,5 +259,86 @@ module DatadogAPIClient::V2
       end
       return data, status_code, headers
     end
+
+    # Send logs
+    # Send your logs to your Datadog platform over HTTP. Limits per HTTP request are:  - Maximum content size per payload (uncompressed): 5MB - Maximum size for a single log: 1MB - Maximum array size if sending multiple logs in an array: 1000 entries  Any log exceeding 1MB is accepted and truncated by Datadog: - For a single log request, the API truncates the log at 1MB and returns a 2xx. - For a multi-logs request, the API processes all logs, truncates only logs larger than 1MB, and returns a 2xx.  Datadog recommends sending your logs compressed. Add the `Content-Encoding: gzip` header to the request when sending compressed logs.  The status codes answered by the HTTP API are: - 202: Accepted: the request has been accepted for processing - 400: Bad request (likely an issue in the payload formatting) - 401: Unauthorized (likely a missing API Key) - 403: Permission issue (likely using an invalid API Key) - 408: Request Timeout, request should be retried after some time - 413: Payload too large (batch is above 5MB uncompressed) - 429: Too Many Requests, request should be retried after some time - 500: Internal Server Error, the server encountered an unexpected condition that prevented it from fulfilling the request, request should be retried after some time - 503: Service Unavailable, the server is not ready to handle the request probably because it is overloaded, request should be retried after some time
+    # @param body [Array<HTTPLogItem>] Log to send (JSON format).
+    # @param [Hash] opts the optional parameters
+    # @option opts [ContentEncoding] :content_encoding HTTP header used to compress the media-type.
+    # @option opts [String] :ddtags Log tags can be passed as query parameters with &#x60;text/plain&#x60; content type.
+    # @return [Object]
+    def submit_log(body, opts = {})
+      data, _status_code, _headers = submit_log_with_http_info(body, opts)
+      data
+    end
+
+    # Send logs
+    # Send your logs to your Datadog platform over HTTP. Limits per HTTP request are:  - Maximum content size per payload (uncompressed): 5MB - Maximum size for a single log: 1MB - Maximum array size if sending multiple logs in an array: 1000 entries  Any log exceeding 1MB is accepted and truncated by Datadog: - For a single log request, the API truncates the log at 1MB and returns a 2xx. - For a multi-logs request, the API processes all logs, truncates only logs larger than 1MB, and returns a 2xx.  Datadog recommends sending your logs compressed. Add the &#x60;Content-Encoding: gzip&#x60; header to the request when sending compressed logs.  The status codes answered by the HTTP API are: - 202: Accepted: the request has been accepted for processing - 400: Bad request (likely an issue in the payload formatting) - 401: Unauthorized (likely a missing API Key) - 403: Permission issue (likely using an invalid API Key) - 408: Request Timeout, request should be retried after some time - 413: Payload too large (batch is above 5MB uncompressed) - 429: Too Many Requests, request should be retried after some time - 500: Internal Server Error, the server encountered an unexpected condition that prevented it from fulfilling the request, request should be retried after some time - 503: Service Unavailable, the server is not ready to handle the request probably because it is overloaded, request should be retried after some time
+    # @param body [Array<HTTPLogItem>] Log to send (JSON format).
+    # @param [Hash] opts the optional parameters
+    # @option opts [ContentEncoding] :content_encoding HTTP header used to compress the media-type.
+    # @option opts [String] :ddtags Log tags can be passed as query parameters with &#x60;text/plain&#x60; content type.
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def submit_log_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:submit_log)
+        unstable_enabled = @api_client.config.unstable_operations[:submit_log]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "submit_log")
+        else
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "submit_log"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LogsAPI.submit_log ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling LogsAPI.submit_log"
+      end
+      # resource path
+      local_var_path = '/api/v2/logs'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ddtags'] = opts[:'ddtags'] if !opts[:'ddtags'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'application/logplex-1', 'text/plain'])
+      header_params['Content-Encoding'] = opts[:'content_encoding'] if !opts[:'content_encoding'].nil?
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Object'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :submit_log,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LogsAPI#submit_log\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
   end
 end
