@@ -22,6 +22,9 @@ module DatadogAPIClient::V1
     # whether the object has unparsed attributes
     attr_accessor :_unparsed
 
+    # Silence monitors for expected Azure VM shutdowns.
+    attr_accessor :automute
+
     # Your Azure web application ID.
     attr_accessor :client_id
 
@@ -46,6 +49,7 @@ module DatadogAPIClient::V1
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'automute' => :'automute',
         :'client_id' => :'client_id',
         :'client_secret' => :'client_secret',
         :'errors' => :'errors',
@@ -64,6 +68,7 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'automute' => :'Boolean',
         :'client_id' => :'String',
         :'client_secret' => :'String',
         :'errors' => :'Array<String>',
@@ -94,6 +99,10 @@ module DatadogAPIClient::V1
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'automute')
+        self.automute = attributes[:'automute']
+      end
 
       if attributes.key?(:'client_id')
         self.client_id = attributes[:'client_id']
@@ -144,6 +153,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          automute == o.automute &&
           client_id == o.client_id &&
           client_secret == o.client_secret &&
           errors == o.errors &&
@@ -162,7 +172,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [client_id, client_secret, errors, host_filters, new_client_id, new_tenant_name, tenant_name].hash
+      [automute, client_id, client_secret, errors, host_filters, new_client_id, new_tenant_name, tenant_name].hash
     end
 
     # Builds the object from hash

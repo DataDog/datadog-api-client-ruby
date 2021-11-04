@@ -4,6 +4,7 @@
 
 | Name                | Type                    | Description                                                                                                                                    | Notes      |
 | ------------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **automute**        | **Boolean**             | Silence monitors for expected Azure VM shutdowns.                                                                                              | [optional] |
 | **client_id**       | **String**              | Your Azure web application ID.                                                                                                                 | [optional] |
 | **client_secret**   | **String**              | Your Azure web application secret key.                                                                                                         | [optional] |
 | **errors**          | **Array&lt;String&gt;** | Errors in your configuration.                                                                                                                  | [optional] |
@@ -18,6 +19,7 @@
 require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::AzureAccount.new(
+  automute: true,
   client_id: testc7f6-1234-5678-9101-3fcbf464test,
   client_secret: testingx./Sw*g/Y33t..R1cH+hScMDt,
   errors: [&quot;*&quot;],
