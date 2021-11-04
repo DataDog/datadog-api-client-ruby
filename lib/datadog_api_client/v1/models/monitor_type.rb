@@ -21,16 +21,15 @@ module DatadogAPIClient::V1
     COMPOSITE = "composite".freeze
     EVENT_ALERT = "event alert".freeze
     LOG_ALERT = "log alert".freeze
-    METRIC_ALERT = "metric alert".freeze
-    PROCESS_ALERT = "process alert".freeze
-    QUERY_ALERT = "query alert".freeze
-    RUM_ALERT = "rum alert".freeze
-    SERVICE_CHECK = "service check".freeze
-    SYNTHETICS_ALERT = "synthetics alert".freeze
-    TRACE_ANALYTICS_ALERT = "trace-analytics alert".freeze
-    SLO_ALERT = "slo alert".freeze
-    EVENT_V2_ALERT = "event-v2 alert".freeze
-    AUDIT_ALERT = "audit alert".freeze
+    METRIC_ALERT = "process alert".freeze
+    PROCESS_ALERT = "query alert".freeze
+    QUERY_ALERT = "rum alert".freeze
+    RUM_ALERT = "service check".freeze
+    SERVICE_CHECK = "synthetics alert".freeze
+    SYNTHETICS_ALERT = "trace-analytics alert".freeze
+    TRACE_ANALYTICS_ALERT = "slo alert".freeze
+    SLO_ALERT = "event-v2 alert".freeze
+    EVENT_V2_ALERT = "audit alert".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
