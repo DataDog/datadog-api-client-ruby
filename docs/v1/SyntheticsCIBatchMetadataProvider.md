@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name     | Type       | Description              | Notes      |
+| -------- | ---------- | ------------------------ | ---------- |
 | **name** | **String** | Name of the CI provider. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::SyntheticsCIBatchMetadataProvider.new(
   name: null
 )
 ```
-
