@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name       | Type       | Description    | Notes      |
+| ---------- | ---------- | -------------- | ---------- |
 | **detail** | **String** | Error message. | [optional] |
-| **status** | **String** | Error code. | [optional] |
-| **title** | **String** | Error title. | [optional] |
+| **status** | **String** | Error code.    | [optional] |
+| **title**  | **String** | Error title.   | [optional] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V2::HTTPLogError.new(
   title: Bad Request
 )
 ```
-
