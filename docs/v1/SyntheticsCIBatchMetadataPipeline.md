@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name    | Type       | Description          | Notes      |
+| ------- | ---------- | -------------------- | ---------- |
 | **url** | **String** | URL of the pipeline. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::SyntheticsCIBatchMetadataPipeline.new(
   url: null
 )
 ```
-
