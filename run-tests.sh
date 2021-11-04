@@ -5,6 +5,12 @@ function finish {
 trap finish EXIT
 
 bundle install
+RSPEC_RESULT=0
+if [ "${RECORD:-false}" == "false" ]; then
+    bundle exec rspec
+    RSPEC_RESULT=$?
+fi
+
 bundle exec cucumber -t 'not @skip' -f rerun -o rerun.txt -f pretty
 CUCUMBER_RESULT=$?
 if [ "$RERECORD_FAILED_TESTS" == "true" ] && [ "$CUCUMBER_RESULT" -ne "0" ]; then
@@ -12,4 +18,4 @@ if [ "$RERECORD_FAILED_TESTS" == "true" ] && [ "$CUCUMBER_RESULT" -ne "0" ]; the
     CUCUMBER_RESULT=$?
 fi
 
-exit $CUCUMBER_RESULT
+exit "$(($RSPEC_RESULT+$CUCUMBER_RESULT))"
