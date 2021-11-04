@@ -68,6 +68,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | _DatadogAPIClient::V2::LogsAPI_               | [**aggregate_logs**](LogsAPI.md#aggregate_logs)                                                            | **POST** /api/v2/logs/analytics/aggregate                                                  | Aggregate events                                   |
 | _DatadogAPIClient::V2::LogsAPI_               | [**list_logs**](LogsAPI.md#list_logs)                                                                      | **POST** /api/v2/logs/events/search                                                        | Search logs                                        |
 | _DatadogAPIClient::V2::LogsAPI_               | [**list_logs_get**](LogsAPI.md#list_logs_get)                                                              | **GET** /api/v2/logs/events                                                                | Get a list of logs                                 |
+| _DatadogAPIClient::V2::LogsAPI_               | [**submit_log**](LogsAPI.md#submit_log)                                                                    | **POST** /api/v2/logs                                                                      | Send logs                                          |
 | _DatadogAPIClient::V2::LogsArchivesAPI_       | [**add_read_role_to_archive**](LogsArchivesAPI.md#add_read_role_to_archive)                                | **POST** /api/v2/logs/config/archives/{archive_id}/readers                                 | Grant role to an archive                           |
 | _DatadogAPIClient::V2::LogsArchivesAPI_       | [**create_logs_archive**](LogsArchivesAPI.md#create_logs_archive)                                          | **POST** /api/v2/logs/config/archives                                                      | Create an archive                                  |
 | _DatadogAPIClient::V2::LogsArchivesAPI_       | [**delete_logs_archive**](LogsArchivesAPI.md#delete_logs_archive)                                          | **DELETE** /api/v2/logs/config/archives/{archive_id}                                       | Delete an archive                                  |
@@ -157,6 +158,7 @@ All URIs are relative to *https://api.datadoghq.com*
 - [DatadogAPIClient::V2::ApplicationKeyUpdateRequest](ApplicationKeyUpdateRequest.md)
 - [DatadogAPIClient::V2::ApplicationKeysSort](ApplicationKeysSort.md)
 - [DatadogAPIClient::V2::ApplicationKeysType](ApplicationKeysType.md)
+- [DatadogAPIClient::V2::ContentEncoding](ContentEncoding.md)
 - [DatadogAPIClient::V2::Creator](Creator.md)
 - [DatadogAPIClient::V2::DashboardListAddItemsRequest](DashboardListAddItemsRequest.md)
 - [DatadogAPIClient::V2::DashboardListAddItemsResponse](DashboardListAddItemsResponse.md)
@@ -173,6 +175,9 @@ All URIs are relative to *https://api.datadoghq.com*
 - [DatadogAPIClient::V2::FullAPIKeyAttributes](FullAPIKeyAttributes.md)
 - [DatadogAPIClient::V2::FullApplicationKey](FullApplicationKey.md)
 - [DatadogAPIClient::V2::FullApplicationKeyAttributes](FullApplicationKeyAttributes.md)
+- [DatadogAPIClient::V2::HTTPLogError](HTTPLogError.md)
+- [DatadogAPIClient::V2::HTTPLogErrors](HTTPLogErrors.md)
+- [DatadogAPIClient::V2::HTTPLogItem](HTTPLogItem.md)
 - [DatadogAPIClient::V2::IncidentCreateAttributes](IncidentCreateAttributes.md)
 - [DatadogAPIClient::V2::IncidentCreateData](IncidentCreateData.md)
 - [DatadogAPIClient::V2::IncidentCreateRelationships](IncidentCreateRelationships.md)
