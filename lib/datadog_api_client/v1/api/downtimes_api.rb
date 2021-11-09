@@ -389,7 +389,7 @@ module DatadogAPIClient::V1
     end
 
     # Get all downtimes for a monitor
-    # Get all downtimes for the specified monitor
+    # Get all active downtimes for the specified monitor.
     # @param monitor_id [Integer] The id of the monitor
     # @param [Hash] opts the optional parameters
     # @return [Array<Downtime>]
@@ -399,7 +399,7 @@ module DatadogAPIClient::V1
     end
 
     # Get all downtimes for a monitor
-    # Get all downtimes for the specified monitor
+    # Get all active downtimes for the specified monitor.
     # @param monitor_id [Integer] The id of the monitor
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<Downtime>, Integer, Hash)>] Array<Downtime> data, response status code and response headers
