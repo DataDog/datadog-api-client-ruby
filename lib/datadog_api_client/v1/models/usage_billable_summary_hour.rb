@@ -72,7 +72,7 @@ module DatadogAPIClient::V1
         :'num_orgs' => :'Integer',
         :'org_name' => :'String',
         :'public_id' => :'String',
-        :'ratio_in_month' => :'Integer',
+        :'ratio_in_month' => :'Float',
         :'start_date' => :'Time',
         :'usage' => :'UsageBillableSummaryKeys'
       }
