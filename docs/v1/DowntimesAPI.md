@@ -312,7 +312,7 @@ end
 
 > <Array<Downtime>> list_monitor_downtimes(monitor_id)
 
-Get all downtimes for the specified monitor
+Get all active downtimes for the specified monitor.
 
 ### Examples
 
