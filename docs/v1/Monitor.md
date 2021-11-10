@@ -34,7 +34,7 @@ instance = DatadogAPIClient::V1::Monitor.new(
   message: null,
   modified: null,
   multi: null,
-  name: null,
+  name: My monitor,
   options: null,
   overall_state: null,
   priority: null,
