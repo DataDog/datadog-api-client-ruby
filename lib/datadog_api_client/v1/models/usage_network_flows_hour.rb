@@ -26,13 +26,13 @@ module DatadogAPIClient::V1
     attr_accessor :hour
 
     # Contains the number of netflow events indexed.
-    attr_accessor :indexed_event_count
+    attr_accessor :indexed_events_count
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'hour' => :'hour',
-        :'indexed_event_count' => :'indexed_event_count'
+        :'indexed_events_count' => :'indexed_events_count'
       }
     end
 
@@ -45,7 +45,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'hour' => :'Time',
-        :'indexed_event_count' => :'Integer'
+        :'indexed_events_count' => :'Integer'
       }
     end
 
@@ -74,8 +74,8 @@ module DatadogAPIClient::V1
         self.hour = attributes[:'hour']
       end
 
-      if attributes.key?(:'indexed_event_count')
-        self.indexed_event_count = attributes[:'indexed_event_count']
+      if attributes.key?(:'indexed_events_count')
+        self.indexed_events_count = attributes[:'indexed_events_count']
       end
     end
 
@@ -98,7 +98,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           hour == o.hour &&
-          indexed_event_count == o.indexed_event_count
+          indexed_events_count == o.indexed_events_count
     end
 
     # @see the `==` method
@@ -110,7 +110,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [hour, indexed_event_count].hash
+      [hour, indexed_events_count].hash
     end
 
     # Builds the object from hash
