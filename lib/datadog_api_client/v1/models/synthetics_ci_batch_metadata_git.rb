@@ -22,7 +22,7 @@ module DatadogAPIClient::V1
     # whether the object has unparsed attributes
     attr_accessor :_unparsed
 
-    # The branch name.
+    # Branch name.
     attr_accessor :branch
 
     # The commit SHA.
