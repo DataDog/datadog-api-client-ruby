@@ -204,11 +204,11 @@ Given(/^body from file "(.*)"$/) do |file|
 end
 
 Given(/^request contains "([^"]+)" parameter from "([^"]+)"$/) do |parameter_name, fixture_path|
-  opts[parameter_name.to_sym] = fixtures.lookup(fixture_path)
+  opts[parameter_name.to_parameter.to_sym] = fixtures.lookup(fixture_path)
 end
 
 Given(/^request contains "([^"]+)" parameter with value (.+)$/) do |parameter_name, value|
-  opts[parameter_name.snakecase.to_sym] = JSON.parse(value.templated fixtures)
+  opts[parameter_name.to_parameter.to_sym] = JSON.parse(value.templated fixtures)
 end
 
 Given(/^new "([^"]+)" request$/) do |name|

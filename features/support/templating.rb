@@ -34,6 +34,12 @@ class String
       downcase
   end
 
+  def to_parameter
+    name = snakecase
+    name = '_' + snakecase if name == "end"
+    name
+  end
+
   def templated(data)
     self.gsub(/{{ *([^{}]+|'[^']+'|"[^"]+") *}}/) do
       path = $1.strip
