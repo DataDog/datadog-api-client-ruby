@@ -52,6 +52,15 @@ module DatadogAPIClient::V1
     # Shows the sum of all log bytes ingested over all hours in the current months for all organizations.
     attr_accessor :billable_ingested_bytes_agg_sum
 
+    # Shows the sum of all browser lite sessions over all hours in the current months for all organizations.
+    attr_accessor :browser_rum_lite_session_count_agg_sum
+
+    # Shows the sum of all browser replay sessions over all hours in the current months for all organizations.
+    attr_accessor :browser_rum_replay_session_count_agg_sum
+
+    # Shows the sum of all browser RUM units over all hours in the current months for all organizations.
+    attr_accessor :browser_rum_units_agg_sum
+
     # Shows the average of all distinct containers over all hours in the current months for all organizations.
     attr_accessor :container_avg_sum
 
@@ -126,6 +135,9 @@ module DatadogAPIClient::V1
 
     attr_accessor :logs_by_retention
 
+    # Shows the sum of all mobile lite sessions over all hours in the current months for all organizations.
+    attr_accessor :mobile_rum_lite_session_count_agg_sum
+
     # Shows the sum of all mobile RUM Sessions over all hours in the current months for all organizations.
     attr_accessor :mobile_rum_session_count_agg_sum
 
@@ -134,6 +146,9 @@ module DatadogAPIClient::V1
 
     # Shows the sum of all mobile RUM Sessions on iOS over all hours in the current months for all organizations.
     attr_accessor :mobile_rum_session_count_ios_agg_sum
+
+    # Shows the sum of all mobile RUM units over all hours in the current months for all organizations.
+    attr_accessor :mobile_rum_units_agg_sum
 
     # Shows the sum of all Network flows indexed over all hours in the current months for all organizations.
     attr_accessor :netflow_indexed_events_count_agg_sum
@@ -161,6 +176,9 @@ module DatadogAPIClient::V1
 
     # Shows the sum of RUM Sessions (browser and mobile) over all hours in the current months for all organizations.
     attr_accessor :rum_total_session_count_agg_sum
+
+    # Shows the sum of all browser and mobile RUM units over all hours in the current months for all organizations.
+    attr_accessor :rum_units_agg_sum
 
     # Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all hours in the current month for all organizations.
     attr_accessor :sds_logs_scanned_bytes_sum
@@ -202,6 +220,9 @@ module DatadogAPIClient::V1
         :'azure_app_service_top99p_sum' => :'azure_app_service_top99p_sum',
         :'azure_host_top99p_sum' => :'azure_host_top99p_sum',
         :'billable_ingested_bytes_agg_sum' => :'billable_ingested_bytes_agg_sum',
+        :'browser_rum_lite_session_count_agg_sum' => :'browser_rum_lite_session_count_agg_sum',
+        :'browser_rum_replay_session_count_agg_sum' => :'browser_rum_replay_session_count_agg_sum',
+        :'browser_rum_units_agg_sum' => :'browser_rum_units_agg_sum',
         :'container_avg_sum' => :'container_avg_sum',
         :'container_hwm_sum' => :'container_hwm_sum',
         :'cspm_container_avg_sum' => :'cspm_container_avg_sum',
@@ -227,9 +248,11 @@ module DatadogAPIClient::V1
         :'live_indexed_events_agg_sum' => :'live_indexed_events_agg_sum',
         :'live_ingested_bytes_agg_sum' => :'live_ingested_bytes_agg_sum',
         :'logs_by_retention' => :'logs_by_retention',
+        :'mobile_rum_lite_session_count_agg_sum' => :'mobile_rum_lite_session_count_agg_sum',
         :'mobile_rum_session_count_agg_sum' => :'mobile_rum_session_count_agg_sum',
         :'mobile_rum_session_count_android_agg_sum' => :'mobile_rum_session_count_android_agg_sum',
         :'mobile_rum_session_count_ios_agg_sum' => :'mobile_rum_session_count_ios_agg_sum',
+        :'mobile_rum_units_agg_sum' => :'mobile_rum_units_agg_sum',
         :'netflow_indexed_events_count_agg_sum' => :'netflow_indexed_events_count_agg_sum',
         :'npm_host_top99p_sum' => :'npm_host_top99p_sum',
         :'opentelemetry_host_top99p_sum' => :'opentelemetry_host_top99p_sum',
@@ -239,6 +262,7 @@ module DatadogAPIClient::V1
         :'rehydrated_ingested_bytes_agg_sum' => :'rehydrated_ingested_bytes_agg_sum',
         :'rum_session_count_agg_sum' => :'rum_session_count_agg_sum',
         :'rum_total_session_count_agg_sum' => :'rum_total_session_count_agg_sum',
+        :'rum_units_agg_sum' => :'rum_units_agg_sum',
         :'sds_logs_scanned_bytes_sum' => :'sds_logs_scanned_bytes_sum',
         :'sds_total_scanned_bytes_sum' => :'sds_total_scanned_bytes_sum',
         :'start_date' => :'start_date',
@@ -269,6 +293,9 @@ module DatadogAPIClient::V1
         :'azure_app_service_top99p_sum' => :'Integer',
         :'azure_host_top99p_sum' => :'Integer',
         :'billable_ingested_bytes_agg_sum' => :'Integer',
+        :'browser_rum_lite_session_count_agg_sum' => :'Integer',
+        :'browser_rum_replay_session_count_agg_sum' => :'Integer',
+        :'browser_rum_units_agg_sum' => :'Integer',
         :'container_avg_sum' => :'Integer',
         :'container_hwm_sum' => :'Integer',
         :'cspm_container_avg_sum' => :'Integer',
@@ -294,9 +321,11 @@ module DatadogAPIClient::V1
         :'live_indexed_events_agg_sum' => :'Integer',
         :'live_ingested_bytes_agg_sum' => :'Integer',
         :'logs_by_retention' => :'LogsByRetention',
+        :'mobile_rum_lite_session_count_agg_sum' => :'Integer',
         :'mobile_rum_session_count_agg_sum' => :'Integer',
         :'mobile_rum_session_count_android_agg_sum' => :'Integer',
         :'mobile_rum_session_count_ios_agg_sum' => :'Integer',
+        :'mobile_rum_units_agg_sum' => :'Integer',
         :'netflow_indexed_events_count_agg_sum' => :'Integer',
         :'npm_host_top99p_sum' => :'Integer',
         :'opentelemetry_host_top99p_sum' => :'Integer',
@@ -306,6 +335,7 @@ module DatadogAPIClient::V1
         :'rehydrated_ingested_bytes_agg_sum' => :'Integer',
         :'rum_session_count_agg_sum' => :'Integer',
         :'rum_total_session_count_agg_sum' => :'Integer',
+        :'rum_units_agg_sum' => :'Integer',
         :'sds_logs_scanned_bytes_sum' => :'Integer',
         :'sds_total_scanned_bytes_sum' => :'Integer',
         :'start_date' => :'Time',
@@ -377,6 +407,18 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'billable_ingested_bytes_agg_sum')
         self.billable_ingested_bytes_agg_sum = attributes[:'billable_ingested_bytes_agg_sum']
+      end
+
+      if attributes.key?(:'browser_rum_lite_session_count_agg_sum')
+        self.browser_rum_lite_session_count_agg_sum = attributes[:'browser_rum_lite_session_count_agg_sum']
+      end
+
+      if attributes.key?(:'browser_rum_replay_session_count_agg_sum')
+        self.browser_rum_replay_session_count_agg_sum = attributes[:'browser_rum_replay_session_count_agg_sum']
+      end
+
+      if attributes.key?(:'browser_rum_units_agg_sum')
+        self.browser_rum_units_agg_sum = attributes[:'browser_rum_units_agg_sum']
       end
 
       if attributes.key?(:'container_avg_sum')
@@ -479,6 +521,10 @@ module DatadogAPIClient::V1
         self.logs_by_retention = attributes[:'logs_by_retention']
       end
 
+      if attributes.key?(:'mobile_rum_lite_session_count_agg_sum')
+        self.mobile_rum_lite_session_count_agg_sum = attributes[:'mobile_rum_lite_session_count_agg_sum']
+      end
+
       if attributes.key?(:'mobile_rum_session_count_agg_sum')
         self.mobile_rum_session_count_agg_sum = attributes[:'mobile_rum_session_count_agg_sum']
       end
@@ -489,6 +535,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'mobile_rum_session_count_ios_agg_sum')
         self.mobile_rum_session_count_ios_agg_sum = attributes[:'mobile_rum_session_count_ios_agg_sum']
+      end
+
+      if attributes.key?(:'mobile_rum_units_agg_sum')
+        self.mobile_rum_units_agg_sum = attributes[:'mobile_rum_units_agg_sum']
       end
 
       if attributes.key?(:'netflow_indexed_events_count_agg_sum')
@@ -525,6 +575,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'rum_total_session_count_agg_sum')
         self.rum_total_session_count_agg_sum = attributes[:'rum_total_session_count_agg_sum']
+      end
+
+      if attributes.key?(:'rum_units_agg_sum')
+        self.rum_units_agg_sum = attributes[:'rum_units_agg_sum']
       end
 
       if attributes.key?(:'sds_logs_scanned_bytes_sum')
@@ -594,6 +648,9 @@ module DatadogAPIClient::V1
           azure_app_service_top99p_sum == o.azure_app_service_top99p_sum &&
           azure_host_top99p_sum == o.azure_host_top99p_sum &&
           billable_ingested_bytes_agg_sum == o.billable_ingested_bytes_agg_sum &&
+          browser_rum_lite_session_count_agg_sum == o.browser_rum_lite_session_count_agg_sum &&
+          browser_rum_replay_session_count_agg_sum == o.browser_rum_replay_session_count_agg_sum &&
+          browser_rum_units_agg_sum == o.browser_rum_units_agg_sum &&
           container_avg_sum == o.container_avg_sum &&
           container_hwm_sum == o.container_hwm_sum &&
           cspm_container_avg_sum == o.cspm_container_avg_sum &&
@@ -619,9 +676,11 @@ module DatadogAPIClient::V1
           live_indexed_events_agg_sum == o.live_indexed_events_agg_sum &&
           live_ingested_bytes_agg_sum == o.live_ingested_bytes_agg_sum &&
           logs_by_retention == o.logs_by_retention &&
+          mobile_rum_lite_session_count_agg_sum == o.mobile_rum_lite_session_count_agg_sum &&
           mobile_rum_session_count_agg_sum == o.mobile_rum_session_count_agg_sum &&
           mobile_rum_session_count_android_agg_sum == o.mobile_rum_session_count_android_agg_sum &&
           mobile_rum_session_count_ios_agg_sum == o.mobile_rum_session_count_ios_agg_sum &&
+          mobile_rum_units_agg_sum == o.mobile_rum_units_agg_sum &&
           netflow_indexed_events_count_agg_sum == o.netflow_indexed_events_count_agg_sum &&
           npm_host_top99p_sum == o.npm_host_top99p_sum &&
           opentelemetry_host_top99p_sum == o.opentelemetry_host_top99p_sum &&
@@ -631,6 +690,7 @@ module DatadogAPIClient::V1
           rehydrated_ingested_bytes_agg_sum == o.rehydrated_ingested_bytes_agg_sum &&
           rum_session_count_agg_sum == o.rum_session_count_agg_sum &&
           rum_total_session_count_agg_sum == o.rum_total_session_count_agg_sum &&
+          rum_units_agg_sum == o.rum_units_agg_sum &&
           sds_logs_scanned_bytes_sum == o.sds_logs_scanned_bytes_sum &&
           sds_total_scanned_bytes_sum == o.sds_total_scanned_bytes_sum &&
           start_date == o.start_date &&
@@ -651,7 +711,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_host_top99p_sum, apm_azure_app_service_host_top99p_sum, apm_host_top99p_sum, audit_logs_lines_indexed_agg_sum, aws_host_top99p_sum, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p_sum, azure_host_top99p_sum, billable_ingested_bytes_agg_sum, container_avg_sum, container_hwm_sum, cspm_container_avg_sum, cspm_container_hwm_sum, cspm_host_top99p_sum, custom_ts_sum, cws_containers_avg_sum, cws_host_top99p_sum, dbm_host_top99p_sum, dbm_queries_avg_sum, end_date, fargate_tasks_count_avg_sum, fargate_tasks_count_hwm_sum, gcp_host_top99p_sum, heroku_host_top99p_sum, incident_management_monthly_active_users_hwm_sum, indexed_events_count_agg_sum, infra_host_top99p_sum, ingested_events_bytes_agg_sum, iot_device_agg_sum, iot_device_top99p_sum, last_updated, live_indexed_events_agg_sum, live_ingested_bytes_agg_sum, logs_by_retention, mobile_rum_session_count_agg_sum, mobile_rum_session_count_android_agg_sum, mobile_rum_session_count_ios_agg_sum, netflow_indexed_events_count_agg_sum, npm_host_top99p_sum, opentelemetry_host_top99p_sum, profiling_container_agent_count_avg, profiling_host_count_top99p_sum, rehydrated_indexed_events_agg_sum, rehydrated_ingested_bytes_agg_sum, rum_session_count_agg_sum, rum_total_session_count_agg_sum, sds_logs_scanned_bytes_sum, sds_total_scanned_bytes_sum, start_date, synthetics_browser_check_calls_count_agg_sum, synthetics_check_calls_count_agg_sum, trace_search_indexed_events_count_agg_sum, twol_ingested_events_bytes_agg_sum, usage, vsphere_host_top99p_sum].hash
+      [agent_host_top99p_sum, apm_azure_app_service_host_top99p_sum, apm_host_top99p_sum, audit_logs_lines_indexed_agg_sum, aws_host_top99p_sum, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p_sum, azure_host_top99p_sum, billable_ingested_bytes_agg_sum, browser_rum_lite_session_count_agg_sum, browser_rum_replay_session_count_agg_sum, browser_rum_units_agg_sum, container_avg_sum, container_hwm_sum, cspm_container_avg_sum, cspm_container_hwm_sum, cspm_host_top99p_sum, custom_ts_sum, cws_containers_avg_sum, cws_host_top99p_sum, dbm_host_top99p_sum, dbm_queries_avg_sum, end_date, fargate_tasks_count_avg_sum, fargate_tasks_count_hwm_sum, gcp_host_top99p_sum, heroku_host_top99p_sum, incident_management_monthly_active_users_hwm_sum, indexed_events_count_agg_sum, infra_host_top99p_sum, ingested_events_bytes_agg_sum, iot_device_agg_sum, iot_device_top99p_sum, last_updated, live_indexed_events_agg_sum, live_ingested_bytes_agg_sum, logs_by_retention, mobile_rum_lite_session_count_agg_sum, mobile_rum_session_count_agg_sum, mobile_rum_session_count_android_agg_sum, mobile_rum_session_count_ios_agg_sum, mobile_rum_units_agg_sum, netflow_indexed_events_count_agg_sum, npm_host_top99p_sum, opentelemetry_host_top99p_sum, profiling_container_agent_count_avg, profiling_host_count_top99p_sum, rehydrated_indexed_events_agg_sum, rehydrated_ingested_bytes_agg_sum, rum_session_count_agg_sum, rum_total_session_count_agg_sum, rum_units_agg_sum, sds_logs_scanned_bytes_sum, sds_total_scanned_bytes_sum, start_date, synthetics_browser_check_calls_count_agg_sum, synthetics_check_calls_count_agg_sum, trace_search_indexed_events_count_agg_sum, twol_ingested_events_bytes_agg_sum, usage, vsphere_host_top99p_sum].hash
     end
 
     # Builds the object from hash

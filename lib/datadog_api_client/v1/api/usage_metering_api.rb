@@ -1958,6 +1958,83 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
+    # Get hourly usage for RUM Units
+    # Get hourly usage for [RUM](https://docs.datadoghq.com/real_user_monitoring/) Units.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+    # @return [UsageRumUnitsResponse]
+    def get_usage_rum_units(start_hr, opts = {})
+      data, _status_code, _headers = get_usage_rum_units_with_http_info(start_hr, opts)
+      data
+    end
+
+    # Get hourly usage for RUM Units
+    # Get hourly usage for [RUM](https://docs.datadoghq.com/real_user_monitoring/) Units.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+    # @return [Array<(UsageRumUnitsResponse, Integer, Hash)>] UsageRumUnitsResponse data, response status code and response headers
+    def get_usage_rum_units_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_usage_rum_units)
+        unstable_enabled = @api_client.config.unstable_operations[:get_usage_rum_units]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_rum_units")
+        else
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_usage_rum_units"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_rum_units ...'
+      end
+      # verify the required parameter 'start_hr' is set
+      if @api_client.config.client_side_validation && start_hr.nil?
+        fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_rum_units"
+      end
+      # resource path
+      local_var_path = '/api/v1/usage/rum'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'start_hr'] = start_hr
+      query_params[:'end_hr'] = opts[:'end_hr'] if !opts[:'end_hr'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UsageRumUnitsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_usage_rum_units,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsageMeteringAPI#get_usage_rum_units\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get hourly usage for Sensitive Data Scanner
     # Get hourly usage for Sensitive Data Scanner.
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.

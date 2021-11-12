@@ -14,6 +14,9 @@
 | **azure_app_service_top99p_sum**                     | **Integer**                                              | Shows the 99th percentile of all Azure app services over all hours in the current months for all organizations.                                                     | [optional] |
 | **azure_host_top99p_sum**                            | **Integer**                                              | Shows the 99th percentile of all Azure hosts over all hours in the current months for all organizations.                                                            | [optional] |
 | **billable_ingested_bytes_agg_sum**                  | **Integer**                                              | Shows the sum of all log bytes ingested over all hours in the current months for all organizations.                                                                 | [optional] |
+| **browser_rum_lite_session_count_agg_sum**           | **Integer**                                              | Shows the sum of all browser lite sessions over all hours in the current months for all organizations.                                                              | [optional] |
+| **browser_rum_replay_session_count_agg_sum**         | **Integer**                                              | Shows the sum of all browser replay sessions over all hours in the current months for all organizations.                                                            | [optional] |
+| **browser_rum_units_agg_sum**                        | **Integer**                                              | Shows the sum of all browser RUM units over all hours in the current months for all organizations.                                                                  | [optional] |
 | **container_avg_sum**                                | **Integer**                                              | Shows the average of all distinct containers over all hours in the current months for all organizations.                                                            | [optional] |
 | **container_hwm_sum**                                | **Integer**                                              | Shows the sum of the high-water marks of all distinct containers over all hours in the current months for all organizations.                                        | [optional] |
 | **cspm_container_avg_sum**                           | **Integer**                                              | Shows the average number of Cloud Security Posture Management containers over all hours in the current months for all organizations.                                | [optional] |
@@ -39,9 +42,11 @@
 | **live_indexed_events_agg_sum**                      | **Integer**                                              | Shows the sum of all live logs indexed over all hours in the current months for all organizations (data available as of December 1, 2020).                          | [optional] |
 | **live_ingested_bytes_agg_sum**                      | **Integer**                                              | Shows the sum of all live logs bytes ingested over all hours in the current months for all organizations (data available as of December 1, 2020).                   | [optional] |
 | **logs_by_retention**                                | [**LogsByRetention**](LogsByRetention.md)                |                                                                                                                                                                     | [optional] |
+| **mobile_rum_lite_session_count_agg_sum**            | **Integer**                                              | Shows the sum of all mobile lite sessions over all hours in the current months for all organizations.                                                               | [optional] |
 | **mobile_rum_session_count_agg_sum**                 | **Integer**                                              | Shows the sum of all mobile RUM Sessions over all hours in the current months for all organizations.                                                                | [optional] |
 | **mobile_rum_session_count_android_agg_sum**         | **Integer**                                              | Shows the sum of all mobile RUM Sessions on Android over all hours in the current months for all organizations.                                                     | [optional] |
 | **mobile_rum_session_count_ios_agg_sum**             | **Integer**                                              | Shows the sum of all mobile RUM Sessions on iOS over all hours in the current months for all organizations.                                                         | [optional] |
+| **mobile_rum_units_agg_sum**                         | **Integer**                                              | Shows the sum of all mobile RUM units over all hours in the current months for all organizations.                                                                   | [optional] |
 | **netflow_indexed_events_count_agg_sum**             | **Integer**                                              | Shows the sum of all Network flows indexed over all hours in the current months for all organizations.                                                              | [optional] |
 | **npm_host_top99p_sum**                              | **Integer**                                              | Shows the 99th percentile of all distinct Networks hosts over all hours in the current months for all organizations.                                                | [optional] |
 | **opentelemetry_host_top99p_sum**                    | **Integer**                                              | Shows the 99th percentile of all hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current months for all organizations. | [optional] |
@@ -51,6 +56,7 @@
 | **rehydrated_ingested_bytes_agg_sum**                | **Integer**                                              | Shows the sum of all rehydrated logs bytes ingested over all hours in the current months for all organizations (data available as of December 1, 2020).             | [optional] |
 | **rum_session_count_agg_sum**                        | **Integer**                                              | Shows the sum of all browser RUM Sessions over all hours in the current months for all organizations.                                                               | [optional] |
 | **rum_total_session_count_agg_sum**                  | **Integer**                                              | Shows the sum of RUM Sessions (browser and mobile) over all hours in the current months for all organizations.                                                      | [optional] |
+| **rum_units_agg_sum**                                | **Integer**                                              | Shows the sum of all browser and mobile RUM units over all hours in the current months for all organizations.                                                       | [optional] |
 | **sds_logs_scanned_bytes_sum**                       | **Integer**                                              | Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all hours in the current month for all organizations.                           | [optional] |
 | **sds_total_scanned_bytes_sum**                      | **Integer**                                              | Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner over all hours in the current month for all organizations.                  | [optional] |
 | **start_date**                                       | **Time**                                                 | Shows the first date of usage in the current months for all organizations.                                                                                          | [optional] |
@@ -77,6 +83,9 @@ instance = DatadogAPIClient::V1::UsageSummaryResponse.new(
   azure_app_service_top99p_sum: null,
   azure_host_top99p_sum: null,
   billable_ingested_bytes_agg_sum: null,
+  browser_rum_lite_session_count_agg_sum: null,
+  browser_rum_replay_session_count_agg_sum: null,
+  browser_rum_units_agg_sum: null,
   container_avg_sum: null,
   container_hwm_sum: null,
   cspm_container_avg_sum: null,
@@ -102,9 +111,11 @@ instance = DatadogAPIClient::V1::UsageSummaryResponse.new(
   live_indexed_events_agg_sum: null,
   live_ingested_bytes_agg_sum: null,
   logs_by_retention: null,
+  mobile_rum_lite_session_count_agg_sum: null,
   mobile_rum_session_count_agg_sum: null,
   mobile_rum_session_count_android_agg_sum: null,
   mobile_rum_session_count_ios_agg_sum: null,
+  mobile_rum_units_agg_sum: null,
   netflow_indexed_events_count_agg_sum: null,
   npm_host_top99p_sum: null,
   opentelemetry_host_top99p_sum: null,
@@ -114,6 +125,7 @@ instance = DatadogAPIClient::V1::UsageSummaryResponse.new(
   rehydrated_ingested_bytes_agg_sum: null,
   rum_session_count_agg_sum: null,
   rum_total_session_count_agg_sum: null,
+  rum_units_agg_sum: null,
   sds_logs_scanned_bytes_sum: null,
   sds_total_scanned_bytes_sum: null,
   start_date: null,
