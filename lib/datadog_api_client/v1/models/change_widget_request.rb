@@ -30,6 +30,9 @@ module DatadogAPIClient::V1
 
     attr_accessor :event_query
 
+    # List of formulas that operate on queries. **This feature is currently in beta.**
+    attr_accessor :formulas
+
     # Whether to show increase as good.
     attr_accessor :increase_good
 
@@ -48,6 +51,11 @@ module DatadogAPIClient::V1
     # Query definition.
     attr_accessor :q
 
+    # List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
+    attr_accessor :queries
+
+    attr_accessor :response_format
+
     attr_accessor :rum_query
 
     attr_accessor :security_query
@@ -62,6 +70,7 @@ module DatadogAPIClient::V1
         :'change_type' => :'change_type',
         :'compare_to' => :'compare_to',
         :'event_query' => :'event_query',
+        :'formulas' => :'formulas',
         :'increase_good' => :'increase_good',
         :'log_query' => :'log_query',
         :'network_query' => :'network_query',
@@ -70,6 +79,8 @@ module DatadogAPIClient::V1
         :'process_query' => :'process_query',
         :'profile_metrics_query' => :'profile_metrics_query',
         :'q' => :'q',
+        :'queries' => :'queries',
+        :'response_format' => :'response_format',
         :'rum_query' => :'rum_query',
         :'security_query' => :'security_query',
         :'show_present' => :'show_present'
@@ -88,6 +99,7 @@ module DatadogAPIClient::V1
         :'change_type' => :'WidgetChangeType',
         :'compare_to' => :'WidgetCompareTo',
         :'event_query' => :'LogQueryDefinition',
+        :'formulas' => :'Array<WidgetFormula>',
         :'increase_good' => :'Boolean',
         :'log_query' => :'LogQueryDefinition',
         :'network_query' => :'LogQueryDefinition',
@@ -96,6 +108,8 @@ module DatadogAPIClient::V1
         :'process_query' => :'ProcessQueryDefinition',
         :'profile_metrics_query' => :'LogQueryDefinition',
         :'q' => :'String',
+        :'queries' => :'Array<FormulaAndFunctionQueryDefinition>',
+        :'response_format' => :'FormulaAndFunctionResponseFormat',
         :'rum_query' => :'LogQueryDefinition',
         :'security_query' => :'LogQueryDefinition',
         :'show_present' => :'Boolean'
@@ -139,6 +153,12 @@ module DatadogAPIClient::V1
         self.event_query = attributes[:'event_query']
       end
 
+      if attributes.key?(:'formulas')
+        if (value = attributes[:'formulas']).is_a?(Array)
+          self.formulas = value
+        end
+      end
+
       if attributes.key?(:'increase_good')
         self.increase_good = attributes[:'increase_good']
       end
@@ -169,6 +189,16 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'q')
         self.q = attributes[:'q']
+      end
+
+      if attributes.key?(:'queries')
+        if (value = attributes[:'queries']).is_a?(Array)
+          self.queries = value
+        end
+      end
+
+      if attributes.key?(:'response_format')
+        self.response_format = attributes[:'response_format']
       end
 
       if attributes.key?(:'rum_query')
@@ -206,6 +236,7 @@ module DatadogAPIClient::V1
           change_type == o.change_type &&
           compare_to == o.compare_to &&
           event_query == o.event_query &&
+          formulas == o.formulas &&
           increase_good == o.increase_good &&
           log_query == o.log_query &&
           network_query == o.network_query &&
@@ -214,6 +245,8 @@ module DatadogAPIClient::V1
           process_query == o.process_query &&
           profile_metrics_query == o.profile_metrics_query &&
           q == o.q &&
+          queries == o.queries &&
+          response_format == o.response_format &&
           rum_query == o.rum_query &&
           security_query == o.security_query &&
           show_present == o.show_present
@@ -228,7 +261,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [apm_query, change_type, compare_to, event_query, increase_good, log_query, network_query, order_by, order_dir, process_query, profile_metrics_query, q, rum_query, security_query, show_present].hash
+      [apm_query, change_type, compare_to, event_query, formulas, increase_good, log_query, network_query, order_by, order_dir, process_query, profile_metrics_query, q, queries, response_format, rum_query, security_query, show_present].hash
     end
 
     # Builds the object from hash
