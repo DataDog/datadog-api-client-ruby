@@ -180,6 +180,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | _DatadogAPIClient::V1::SyntheticsAPI_                       | [**list_locations**](SyntheticsAPI.md#list_locations)                                                                    | **GET** /api/v1/synthetics/locations                                                               | Get all locations (public and private)           |
 | _DatadogAPIClient::V1::SyntheticsAPI_                       | [**list_tests**](SyntheticsAPI.md#list_tests)                                                                            | **GET** /api/v1/synthetics/tests                                                                   | Get the list of all tests                        |
 | _DatadogAPIClient::V1::SyntheticsAPI_                       | [**trigger_ci_tests**](SyntheticsAPI.md#trigger_ci_tests)                                                                | **POST** /api/v1/synthetics/tests/trigger/ci                                                       | Trigger tests from CI/CD pipelines               |
+| _DatadogAPIClient::V1::SyntheticsAPI_                       | [**trigger_tests**](SyntheticsAPI.md#trigger_tests)                                                                      | **POST** /api/v1/synthetics/tests/trigger                                                          | Trigger some Synthetics tests                    |
 | _DatadogAPIClient::V1::SyntheticsAPI_                       | [**update_api_test**](SyntheticsAPI.md#update_api_test)                                                                  | **PUT** /api/v1/synthetics/tests/api/{public_id}                                                   | Edit an API test                                 |
 | _DatadogAPIClient::V1::SyntheticsAPI_                       | [**update_browser_test**](SyntheticsAPI.md#update_browser_test)                                                          | **PUT** /api/v1/synthetics/tests/browser/{public_id}                                               | Edit a browser test                              |
 | _DatadogAPIClient::V1::SyntheticsAPI_                       | [**update_private_location**](SyntheticsAPI.md#update_private_location)                                                  | **PUT** /api/v1/synthetics/private-locations/{location_id}                                         | Edit a private location                          |
@@ -711,9 +712,11 @@ All URIs are relative to *https://api.datadoghq.com*
 - [DatadogAPIClient::V1::SyntheticsTestRequestCertificate](SyntheticsTestRequestCertificate.md)
 - [DatadogAPIClient::V1::SyntheticsTestRequestCertificateItem](SyntheticsTestRequestCertificateItem.md)
 - [DatadogAPIClient::V1::SyntheticsTiming](SyntheticsTiming.md)
+- [DatadogAPIClient::V1::SyntheticsTriggerBody](SyntheticsTriggerBody.md)
 - [DatadogAPIClient::V1::SyntheticsTriggerCITestLocation](SyntheticsTriggerCITestLocation.md)
 - [DatadogAPIClient::V1::SyntheticsTriggerCITestRunResult](SyntheticsTriggerCITestRunResult.md)
 - [DatadogAPIClient::V1::SyntheticsTriggerCITestsResponse](SyntheticsTriggerCITestsResponse.md)
+- [DatadogAPIClient::V1::SyntheticsTriggerTest](SyntheticsTriggerTest.md)
 - [DatadogAPIClient::V1::SyntheticsUpdateTestPauseStatusPayload](SyntheticsUpdateTestPauseStatusPayload.md)
 - [DatadogAPIClient::V1::SyntheticsVariableParser](SyntheticsVariableParser.md)
 - [DatadogAPIClient::V1::SyntheticsWarningType](SyntheticsWarningType.md)
