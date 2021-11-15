@@ -32,6 +32,7 @@ module DatadogAPIClient::V1
     PACKET_LOSS_PERCENTAGE = "packetLossPercentage".freeze
     PACKETS_RECEIVED = "packetsReceived".freeze
     NETWORK_HOP = "networkHop".freeze
+    RECEIVED_MESSAGE = "receivedMessage".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

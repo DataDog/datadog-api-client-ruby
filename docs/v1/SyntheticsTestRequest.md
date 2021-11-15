@@ -13,6 +13,7 @@
 | **follow_redirects**        | **Boolean**                                                                 | Specifies whether or not the request follows redirects.                                                                                                                                              | [optional] |
 | **headers**                 | **Hash&lt;String, String&gt;**                                              | Headers to include when performing the test.                                                                                                                                                         | [optional] |
 | **host**                    | **String**                                                                  | Host name to perform the test with.                                                                                                                                                                  | [optional] |
+| **message**                 | **String**                                                                  | Message to send for UDP tests.                                                                                                                                                                       | [optional] |
 | **method**                  | [**HTTPMethod**](HTTPMethod.md)                                             |                                                                                                                                                                                                      | [optional] |
 | **no_saving_response_body** | **Boolean**                                                                 | Determines whether or not to save the response body.                                                                                                                                                 | [optional] |
 | **number_of_packets**       | **Integer**                                                                 | Number of pings to use per test.                                                                                                                                                                     | [optional] |
@@ -38,6 +39,7 @@ instance = DatadogAPIClient::V1::SyntheticsTestRequest.new(
   follow_redirects: null,
   headers: null,
   host: null,
+  message: null,
   method: null,
   no_saving_response_body: null,
   number_of_packets: null,

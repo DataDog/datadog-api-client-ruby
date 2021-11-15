@@ -47,6 +47,9 @@ module DatadogAPIClient::V1
     # Host name to perform the test with.
     attr_accessor :host
 
+    # Message to send for UDP tests.
+    attr_accessor :message
+
     attr_accessor :method
 
     # Determines whether or not to save the response body.
@@ -85,6 +88,7 @@ module DatadogAPIClient::V1
         :'follow_redirects' => :'follow_redirects',
         :'headers' => :'headers',
         :'host' => :'host',
+        :'message' => :'message',
         :'method' => :'method',
         :'no_saving_response_body' => :'noSavingResponseBody',
         :'number_of_packets' => :'numberOfPackets',
@@ -114,6 +118,7 @@ module DatadogAPIClient::V1
         :'follow_redirects' => :'Boolean',
         :'headers' => :'Hash<String, String>',
         :'host' => :'String',
+        :'message' => :'String',
         :'method' => :'HTTPMethod',
         :'no_saving_response_body' => :'Boolean',
         :'number_of_packets' => :'Integer',
@@ -183,6 +188,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'host')
         self.host = attributes[:'host']
+      end
+
+      if attributes.key?(:'message')
+        self.message = attributes[:'message']
       end
 
       if attributes.key?(:'method')
@@ -297,6 +306,7 @@ module DatadogAPIClient::V1
           follow_redirects == o.follow_redirects &&
           headers == o.headers &&
           host == o.host &&
+          message == o.message &&
           method == o.method &&
           no_saving_response_body == o.no_saving_response_body &&
           number_of_packets == o.number_of_packets &&
@@ -317,7 +327,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [allow_insecure, basic_auth, body, certificate, dns_server, dns_server_port, follow_redirects, headers, host, method, no_saving_response_body, number_of_packets, port, query, servername, should_track_hops, timeout, url].hash
+      [allow_insecure, basic_auth, body, certificate, dns_server, dns_server_port, follow_redirects, headers, host, message, method, no_saving_response_body, number_of_packets, port, query, servername, should_track_hops, timeout, url].hash
     end
 
     # Builds the object from hash

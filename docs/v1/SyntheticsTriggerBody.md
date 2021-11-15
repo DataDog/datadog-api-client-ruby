@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **tests** | [**Array&lt;SyntheticsTriggerTest&gt;**](SyntheticsTriggerTest.md) | Individual synthetics test. |  |
+| Name      | Type                                                               | Description                 | Notes |
+| --------- | ------------------------------------------------------------------ | --------------------------- | ----- |
+| **tests** | [**Array&lt;SyntheticsTriggerTest&gt;**](SyntheticsTriggerTest.md) | Individual synthetics test. |       |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::SyntheticsTriggerBody.new(
   tests: null
 )
 ```
-
