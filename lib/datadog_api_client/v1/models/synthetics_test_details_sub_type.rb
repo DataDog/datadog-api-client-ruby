@@ -24,6 +24,7 @@ module DatadogAPIClient::V1
     DNS = "dns".freeze
     MULTI = "multi".freeze
     ICMP = "icmp".freeze
+    UDP = "udp".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

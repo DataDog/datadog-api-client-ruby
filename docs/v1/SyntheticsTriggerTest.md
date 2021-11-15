@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **metadata** | [**SyntheticsCIBatchMetadata**](SyntheticsCIBatchMetadata.md) |  | [optional] |
-| **public_id** | **String** | The public ID of the Synthetics test to trigger. |  |
+| Name          | Type                                                          | Description                                      | Notes      |
+| ------------- | ------------------------------------------------------------- | ------------------------------------------------ | ---------- |
+| **metadata**  | [**SyntheticsCIBatchMetadata**](SyntheticsCIBatchMetadata.md) |                                                  | [optional] |
+| **public_id** | **String**                                                    | The public ID of the Synthetics test to trigger. |            |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V1::SyntheticsTriggerTest.new(
   public_id: aaa-aaa-aaa
 )
 ```
-
