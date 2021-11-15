@@ -53,7 +53,7 @@ function camel(value) {
             close(out_file);
         }
         system("mkdir -p " output "/" tag);
-        out_file=output "/" tag "/" operation_id ".rbbeta";
+        out_file=output "/" tag "/" operation_id ".rb";
         if (system("[ -f " out_file " ]") == 0) {
             printf "skipped: "
             in_code_block = 0;
