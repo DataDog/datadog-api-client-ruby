@@ -61,10 +61,6 @@ Layout/MultilineMethodCallIndentation:
 Layout/MultilineOperationIndentation:
   Enabled: true
 
-    #Layout/ParameterAlignment:
-    #Enabled: true
-    #  EnforcedStyle: with_fixed_indentation
-
 Layout/ArgumentAlignment:
   Enabled: true
 
