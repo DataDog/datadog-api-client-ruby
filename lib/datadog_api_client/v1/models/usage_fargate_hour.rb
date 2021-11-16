@@ -22,6 +22,9 @@ module DatadogAPIClient::V1
     # whether the object has unparsed attributes
     attr_accessor :_unparsed
 
+    # The average profiled task count for Fargate Profiling.
+    attr_accessor :avg_profiled_fargate_tasks
+
     # The hour for the usage.
     attr_accessor :hour
 
@@ -31,6 +34,7 @@ module DatadogAPIClient::V1
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'avg_profiled_fargate_tasks' => :'avg_profiled_fargate_tasks',
         :'hour' => :'hour',
         :'tasks_count' => :'tasks_count'
       }
@@ -44,6 +48,7 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'avg_profiled_fargate_tasks' => :'Integer',
         :'hour' => :'Time',
         :'tasks_count' => :'Integer'
       }
@@ -69,6 +74,10 @@ module DatadogAPIClient::V1
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'avg_profiled_fargate_tasks')
+        self.avg_profiled_fargate_tasks = attributes[:'avg_profiled_fargate_tasks']
+      end
 
       if attributes.key?(:'hour')
         self.hour = attributes[:'hour']
@@ -97,6 +106,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          avg_profiled_fargate_tasks == o.avg_profiled_fargate_tasks &&
           hour == o.hour &&
           tasks_count == o.tasks_count
     end
@@ -110,7 +120,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [hour, tasks_count].hash
+      [avg_profiled_fargate_tasks, hour, tasks_count].hash
     end
 
     # Builds the object from hash

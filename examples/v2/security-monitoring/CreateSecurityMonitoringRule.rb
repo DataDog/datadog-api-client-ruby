@@ -25,11 +25,12 @@ body = DatadogAPIClient::V2::SecurityMonitoringRuleCreatePayload.new({
   ],
   options: DatadogAPIClient::V2::SecurityMonitoringRuleOptions.new({
     evaluation_window: DatadogAPIClient::V2::SecurityMonitoringRuleEvaluationWindow::FIFTEEN_MINUTES,
-    keep_alive: DatadogAPIClient::V2::SecurityMonitoringRuleKeepAlive::ONE_HOUR,
-    max_signal_duration: DatadogAPIClient::V2::SecurityMonitoringRuleMaxSignalDuration::ONE_DAY
+  keep_alive: DatadogAPIClient::V2::SecurityMonitoringRuleKeepAlive::ONE_HOUR,
+  max_signal_duration: DatadogAPIClient::V2::SecurityMonitoringRuleMaxSignalDuration::ONE_DAY
   }),
   message: 'Test rule',
   tags: [],
   is_enabled: true
 })
 p api_instance.create_security_monitoring_rule(body)
+dy)
