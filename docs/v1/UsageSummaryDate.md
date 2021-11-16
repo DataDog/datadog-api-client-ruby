@@ -8,6 +8,7 @@
 | **apm_azure_app_service_host_top99p**            | **Integer**                                                    | Shows the 99th percentile of all Azure app services using APM over all hours in the current date all organizations.                                               | [optional] |
 | **apm_host_top99p**                              | **Integer**                                                    | Shows the 99th percentile of all distinct APM hosts over all hours in the current date for all organizations.                                                     | [optional] |
 | **audit_logs_lines_indexed_sum**                 | **Integer**                                                    | Shows the sum of audit logs lines indexed over all hours in the current date for all organizations.                                                               | [optional] |
+| **avg_profiled_fargate_tasks**                   | **Integer**                                                    | The average profiled task count for Fargate Profiling.                                                                                                            | [optional] |
 | **aws_host_top99p**                              | **Integer**                                                    | Shows the 99th percentile of all AWS hosts over all hours in the current date for all organizations.                                                              | [optional] |
 | **aws_lambda_func_count**                        | **Integer**                                                    | Shows the average of the number of functions that executed 1 or more times each hour in the current date for all organizations.                                   | [optional] |
 | **aws_lambda_invocations_sum**                   | **Integer**                                                    | Shows the sum of all AWS Lambda invocations over all hours in the current date for all organizations.                                                             | [optional] |
@@ -68,6 +69,7 @@ instance = DatadogAPIClient::V1::UsageSummaryDate.new(
   apm_azure_app_service_host_top99p: null,
   apm_host_top99p: null,
   audit_logs_lines_indexed_sum: null,
+  avg_profiled_fargate_tasks: null,
   aws_host_top99p: null,
   aws_lambda_func_count: null,
   aws_lambda_invocations_sum: null,
