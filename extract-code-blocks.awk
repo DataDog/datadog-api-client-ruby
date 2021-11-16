@@ -32,6 +32,7 @@ function camel(value) {
     # NOTE special cases for all caps groups which we can't handle otherwise
     gsub("Aws", "AWS", head);
     gsub("Gcp", "GCP", head);
+    gsub("Slo", "SLO", head);
     return head;
 }
 
@@ -52,7 +53,7 @@ function camel(value) {
             close(out_file);
         }
         system("mkdir -p " output "/" tag);
-        out_file=output "/" tag "/" operation_id ".rbbeta";
+        out_file=output "/" tag "/" operation_id ".rb";
         if (system("[ -f " out_file " ]") == 0) {
             printf "skipped: "
             in_code_block = 0;
