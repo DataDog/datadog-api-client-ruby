@@ -25,6 +25,7 @@ module DatadogAPIClient::V1
     MULTI = "multi".freeze
     ICMP = "icmp".freeze
     UDP = "udp".freeze
+    WEBSOCKET = "websocket".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

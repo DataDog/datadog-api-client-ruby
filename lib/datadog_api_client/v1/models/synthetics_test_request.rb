@@ -47,7 +47,7 @@ module DatadogAPIClient::V1
     # Host name to perform the test with.
     attr_accessor :host
 
-    # Message to send for UDP tests.
+    # Message to send for UDP or WebSocket tests.
     attr_accessor :message
 
     attr_accessor :method
