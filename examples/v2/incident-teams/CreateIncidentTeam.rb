@@ -1,6 +1,9 @@
 # Create a new incident team returns "CREATED" response
 
 require 'datadog_api_client'
+DatadogAPIClient::V2.configure do |config|
+  config.unstable_operations[:create_incident_team] = true
+end
 api_instance = DatadogAPIClient::V2::IncidentTeamsAPI.new
 
 body = DatadogAPIClient::V2::IncidentTeamCreateRequest.new({

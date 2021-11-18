@@ -1,6 +1,9 @@
 # Delete an existing incident service returns "OK" response
 
 require 'datadog_api_client'
+DatadogAPIClient::V2.configure do |config|
+  config.unstable_operations[:delete_incident_service] = true
+end
 api_instance = DatadogAPIClient::V2::IncidentServicesAPI.new
 
 # there is a valid "service" in the system

@@ -1,6 +1,9 @@
 # Update an SLO correction returns "OK" response
 
 require 'datadog_api_client'
+DatadogAPIClient::V2.configure do |config|
+  config.unstable_operations[:update_slo_correction] = true
+end
 api_instance = DatadogAPIClient::V1::ServiceLevelObjectiveCorrectionsAPI.new
 
 # there is a valid "correction" for "slo"
