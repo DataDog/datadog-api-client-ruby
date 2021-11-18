@@ -18,9 +18,15 @@
           fail APIError.new(:code => 0,
                             :message => response.return_message)
         else
+          body = response.body
+          if response.headers['Content-Encoding'].eql?('gzip') && !(body.nil? || body.empty?) then
+            gzip = Zlib::Inflate.new(Zlib::MAX_WBITS + 16)
+            body = gzip.inflate(body)
+            gzip.close
+          end
           fail APIError.new(:code => response.code,
                             :response_headers => response.headers,
-                            :response_body => response.body),
+                            :response_body => body),
                response.status_message
         end
       end
