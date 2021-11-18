@@ -109,7 +109,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_incident_management
 
@@ -172,7 +172,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_ingested_spans
 
@@ -235,7 +235,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_monthly_custom_reports
 
@@ -307,7 +307,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_specified_daily_custom_reports
 
@@ -371,7 +371,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_specified_monthly_custom_reports
 
@@ -435,7 +435,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_usage_analyzed_logs
 
@@ -498,7 +498,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_usage_attribution
 
@@ -574,7 +574,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_usage_audit_logs
 
@@ -637,7 +637,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_usage_billable_summary
 
@@ -698,7 +698,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_usage_cloud_security_posture_management
 
@@ -761,7 +761,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_usage_cws
 
@@ -824,7 +824,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_usage_dbm
 
@@ -887,7 +887,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_usage_fargate
 
@@ -950,7 +950,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_usage_hosts
 
@@ -1013,7 +1013,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_usage_indexed_spans
 
@@ -1076,7 +1076,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_usage_internet_of_things
 
@@ -1139,7 +1139,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_usage_lambda
 
@@ -1202,7 +1202,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_usage_logs
 
@@ -1265,7 +1265,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_usage_logs_by_index
 
@@ -1330,7 +1330,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_usage_logs_by_retention
 
@@ -1393,7 +1393,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_usage_network_flows
 
@@ -1456,7 +1456,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_usage_network_hosts
 
@@ -1519,7 +1519,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_usage_profiling
 
@@ -1582,7 +1582,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_usage_rum_sessions
 
@@ -1647,7 +1647,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_usage_rum_units
 
@@ -1710,7 +1710,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_usage_sds
 
@@ -1773,7 +1773,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_usage_snmp
 
@@ -1836,7 +1836,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_usage_summary
 
@@ -1901,7 +1901,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_usage_synthetics
 
@@ -1964,7 +1964,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_usage_synthetics_api
 
@@ -2027,7 +2027,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_usage_synthetics_browser
 
@@ -2090,7 +2090,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_usage_timeseries
 
@@ -2153,7 +2153,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ## get_usage_top_avg_metrics
 
@@ -2222,4 +2222,4 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
