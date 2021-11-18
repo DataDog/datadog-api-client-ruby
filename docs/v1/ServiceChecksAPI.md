@@ -68,4 +68,4 @@ end
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: text/json
+- **Accept**: text/json, application/json
