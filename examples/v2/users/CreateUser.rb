@@ -7,9 +7,10 @@ body = DatadogAPIClient::V2::UserCreateRequest.new({
   data: DatadogAPIClient::V2::UserCreateData.new({
     type: DatadogAPIClient::V2::UsersType::USERS,
     attributes: DatadogAPIClient::V2::UserCreateAttributes.new({
-      name: 'Datadog API Client Python',
-      email: 'Example-Create_a_user_returns_OK_response@datadoghq.com'
-    })
+    name: 'Datadog API Client Python',
+    email: 'Example-Create_a_user_returns_OK_response@datadoghq.com'
+  })
   })
 })
 p api_instance.create_user(body)
+dy)
