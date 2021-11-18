@@ -1,6 +1,9 @@
 # Create an incident returns "CREATED" response
 
 require 'datadog_api_client'
+DatadogAPIClient::V2.configure do |config|
+  config.unstable_operations[:create_incident] = true
+end
 api_instance = DatadogAPIClient::V2::IncidentsAPI.new
 
 # there is a valid "user" in the system

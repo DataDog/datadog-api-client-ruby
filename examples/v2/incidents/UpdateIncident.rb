@@ -1,6 +1,9 @@
 # Update an existing incident returns "OK" response
 
 require 'datadog_api_client'
+DatadogAPIClient::V2.configure do |config|
+  config.unstable_operations[:update_incident] = true
+end
 api_instance = DatadogAPIClient::V2::IncidentsAPI.new
 
 # there is a valid "incident" in the system

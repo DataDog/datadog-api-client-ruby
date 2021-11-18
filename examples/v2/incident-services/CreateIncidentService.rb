@@ -1,6 +1,9 @@
 # Create a new incident service returns "CREATED" response
 
 require 'datadog_api_client'
+DatadogAPIClient::V2.configure do |config|
+  config.unstable_operations[:create_incident_service] = true
+end
 api_instance = DatadogAPIClient::V2::IncidentServicesAPI.new
 
 body = DatadogAPIClient::V2::IncidentServiceCreateRequest.new({

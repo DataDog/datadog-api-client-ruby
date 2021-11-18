@@ -1,6 +1,9 @@
 # Get a list of all incident teams returns "OK" response
 
 require 'datadog_api_client'
+DatadogAPIClient::V2.configure do |config|
+  config.unstable_operations[:list_incident_teams] = true
+end
 api_instance = DatadogAPIClient::V2::IncidentTeamsAPI.new
 
 # there is a valid "team" in the system
