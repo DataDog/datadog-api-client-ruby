@@ -56,7 +56,7 @@ module DatadogAPIClient::V1
     # The body of the event. Limited to 4000 characters. The text supports markdown. To use markdown in the event text, start the text block with `%%% \\n` and end the text block with `\\n %%%`. Use `msg_text` with the Datadog Ruby library.
     attr_accessor :text
 
-    # The event title. Limited to 100 characters. Use `msg_title` with the Datadog Ruby library.
+    # The event title.
     attr_accessor :title
 
     # URL of the event.
@@ -207,10 +207,6 @@ module DatadogAPIClient::V1
         invalid_properties.push('invalid value for "title", title cannot be nil.')
       end
 
-      if @title.to_s.length > 100
-        invalid_properties.push('invalid value for "title", the character length must be smaller than or equal to 100.')
-      end
-
       invalid_properties
     end
 
@@ -221,7 +217,6 @@ module DatadogAPIClient::V1
       return false if @text.nil?
       return false if @text.to_s.length > 4000
       return false if @title.nil?
-      return false if @title.to_s.length > 100
       true
     end
 
@@ -247,20 +242,6 @@ module DatadogAPIClient::V1
       end
 
       @text = text
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] title Value to be assigned
-    def title=(title)
-      if title.nil?
-        fail ArgumentError, 'title cannot be nil'
-      end
-
-      if title.to_s.length > 100
-        fail ArgumentError, 'invalid value for "title", the character length must be smaller than or equal to 100.'
-      end
-
-      @title = title
     end
 
     # Checks equality by comparing each attribute.
