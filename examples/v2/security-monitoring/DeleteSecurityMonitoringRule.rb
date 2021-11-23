@@ -1,6 +1,6 @@
 # Delete an existing rule returns "OK" response
 
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
 
 # there is a valid "security_rule" in the system

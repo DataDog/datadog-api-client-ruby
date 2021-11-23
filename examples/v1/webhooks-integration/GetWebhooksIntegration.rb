@@ -1,6 +1,6 @@
 # Get a webhook integration returns "OK" response
 
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::WebhooksIntegrationAPI.new
 
 # there is a valid "webhook" in the system

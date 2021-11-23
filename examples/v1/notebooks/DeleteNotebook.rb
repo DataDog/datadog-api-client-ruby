@@ -1,6 +1,6 @@
 # Delete a notebook returns "OK" response
 
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::NotebooksAPI.new
 
 # there is a valid "notebook" in the system

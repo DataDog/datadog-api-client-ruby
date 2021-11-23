@@ -1,6 +1,6 @@
 # Get a dashboard list returns "OK" response
 
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::DashboardListsAPI.new
 
 # there is a valid "dashboard_list" in the system

@@ -1,6 +1,6 @@
 # Get a user invitation returns "OK" response
 
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::UsersAPI.new
 
 # the "user" has a "user_invitation"

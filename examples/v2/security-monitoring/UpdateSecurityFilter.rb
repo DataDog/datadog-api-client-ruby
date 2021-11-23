@@ -1,6 +1,6 @@
 # Update a security filter returns "OK" response
 
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
 
 # there is a valid "security_filter" in the system
@@ -12,11 +12,11 @@ body = DatadogAPIClient::V2::SecurityFilterUpdateRequest.new({
       exclusion_filters: [],
       filtered_data_type: DatadogAPIClient::V2::SecurityFilterFilteredDataType::LOGS,
       is_enabled: true,
-      name: 'Example-Update_a_security_filter_returns_OK_response',
-      query: 'service:ExampleUpdateasecurityfilterreturnsOKresponse',
-      version: 1
+      name: "Example-Update_a_security_filter_returns_OK_response",
+      query: "service:ExampleUpdateasecurityfilterreturnsOKresponse",
+      version: 1,
     }),
-    type: DatadogAPIClient::V2::SecurityFilterType::SECURITY_FILTERS
-  })
+    type: DatadogAPIClient::V2::SecurityFilterType::SECURITY_FILTERS,
+  }),
 })
 p api_instance.update_security_filter(SECURITY_FILTER_DATA_ID, body)

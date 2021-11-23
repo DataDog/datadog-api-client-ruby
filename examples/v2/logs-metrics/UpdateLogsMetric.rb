@@ -1,6 +1,6 @@
 # Update a log-based metric returns "OK" response
 
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::LogsMetricsAPI.new
 
 # there is a valid "logs_metric" in the system
@@ -12,9 +12,9 @@ body = DatadogAPIClient::V2::LogsMetricUpdateRequest.new({
     type: DatadogAPIClient::V2::LogsMetricType::LOGS_METRICS,
     attributes: DatadogAPIClient::V2::LogsMetricUpdateAttributes.new({
       filter: DatadogAPIClient::V2::LogsMetricFilter.new({
-        query: 'service:web* AND @http.status_code:[200 TO 299]-updated'
-      })
-    })
-  })
+        query: "service:web* AND @http.status_code:[200 TO 299]-updated",
+      }),
+    }),
+  }),
 })
 p api_instance.update_logs_metric(LOGS_METRIC_DATA_ID, body)
