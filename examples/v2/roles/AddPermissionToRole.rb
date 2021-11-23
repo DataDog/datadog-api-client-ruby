@@ -12,7 +12,8 @@ PERMISSION_ID = ENV["PERMISSION_ID"]
 body = DatadogAPIClient::V2::RelationshipToPermission.new({
   data: DatadogAPIClient::V2::RelationshipToPermissionData.new({
     id: PERMISSION_ID,
-    type: DatadogAPIClient::V2::PermissionsType::PERMISSIONS
+  type: DatadogAPIClient::V2::PermissionsType::PERMISSIONS
   })
 })
 p api_instance.add_permission_to_role(ROLE_DATA_ID, body)
+)
