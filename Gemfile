@@ -19,4 +19,5 @@ group :development, :test do
   gem 'solargraph'
   gem 'timecop'
   gem 'webmock'
+  gem 'rufo'
 end
