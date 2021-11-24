@@ -1,6 +1,6 @@
 # Remove a user from a role returns "OK" response
 
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::RolesAPI.new
 
 # there is a valid "role" in the system
@@ -12,7 +12,7 @@ USER_DATA_ID = ENV["USER_DATA_ID"]
 body = DatadogAPIClient::V2::RelationshipToUser.new({
   data: DatadogAPIClient::V2::RelationshipToUserData.new({
     id: USER_DATA_ID,
-    type: DatadogAPIClient::V2::UsersType::USERS
-  })
+    type: DatadogAPIClient::V2::UsersType::USERS,
+  }),
 })
 p api_instance.remove_user_from_role(ROLE_DATA_ID, body)

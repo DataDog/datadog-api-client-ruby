@@ -1,21 +1,21 @@
 # Validate a monitor returns "OK" response
 
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::MonitorsAPI.new
 
 body = DatadogAPIClient::V1::Monitor.new({
-  name: 'Example-Validate_a_monitor_returns_OK_response',
+  name: "Example-Validate_a_monitor_returns_OK_response",
   type: DatadogAPIClient::V1::MonitorType::LOG_ALERT,
   query: 'logs("service:foo AND type:error").index("main").rollup("count").by("source").last("5m") > 2',
-  message: 'some message Notify: @hipchat-channel',
+  message: "some message Notify: @hipchat-channel",
   tags: [
-    'test:examplevalidateamonitorreturnsokresponse',
-    'env:ci'
+    "test:examplevalidateamonitorreturnsokresponse",
+    "env:ci",
   ],
   priority: 3,
   options: DatadogAPIClient::V1::MonitorOptions.new({
     enable_logs_sample: true,
-    escalation_message: 'the situation has escalated',
+    escalation_message: "the situation has escalated",
     evaluation_delay: 700,
     groupby_simple_monitor: true,
     include_tags: true,
@@ -26,8 +26,11 @@ body = DatadogAPIClient::V1::Monitor.new({
     notify_no_data: false,
     renotify_interval: 60,
     require_full_window: true,
-    thresholds: DatadogAPIClient::V1::MonitorThresholds.new({ critical: 2, warning: 1 }),
-    timeout_h: 60
-  })
+    thresholds: DatadogAPIClient::V1::MonitorThresholds.new({
+      critical: 2,
+      warning: 1,
+    }),
+    timeout_h: 60,
+  }),
 })
 p api_instance.validate_monitor(body)

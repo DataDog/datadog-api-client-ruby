@@ -1,6 +1,6 @@
 # Get the details of an incident returns "OK" response
 
-require 'datadog_api_client'
+require "datadog_api_client"
 DatadogAPIClient::V2.configure do |config|
   config.unstable_operations[:get_incident] = true
 end

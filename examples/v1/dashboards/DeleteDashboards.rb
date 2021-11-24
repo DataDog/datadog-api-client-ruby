@@ -1,6 +1,6 @@
 # Delete dashboards returns "No Content" response
 
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::DashboardsAPI.new
 
 # there is a valid "dashboard" in the system
@@ -10,8 +10,8 @@ body = DatadogAPIClient::V1::DashboardBulkDeleteRequest.new({
   data: [
     DatadogAPIClient::V1::DashboardBulkActionData.new({
       id: DASHBOARD_ID,
-      type: DatadogAPIClient::V1::DashboardResourceType::DASHBOARD
-    })
-  ]
+      type: DatadogAPIClient::V1::DashboardResourceType::DASHBOARD,
+    }),
+  ],
 })
 api_instance.delete_dashboards(body)

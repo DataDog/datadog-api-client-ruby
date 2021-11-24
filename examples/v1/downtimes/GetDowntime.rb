@@ -1,6 +1,6 @@
 # Get a downtime returns "OK" response
 
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::DowntimesAPI.new
 
 # there is a valid "downtime" in the system

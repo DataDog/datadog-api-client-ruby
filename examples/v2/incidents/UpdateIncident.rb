@@ -1,6 +1,6 @@
 # Update an existing incident returns "OK" response
 
-require 'datadog_api_client'
+require "datadog_api_client"
 DatadogAPIClient::V2.configure do |config|
   config.unstable_operations[:update_incident] = true
 end
@@ -18,10 +18,11 @@ body = DatadogAPIClient::V2::IncidentUpdateRequest.new({
       fields: DatadogAPIClient::V2::IncidentUpdateAttributesFields.new({
         state: DatadogAPIClient::V2::IncidentFieldAttributesSingleValue.new({
           type: DatadogAPIClient::V2::IncidentFieldAttributesSingleValueType::DROPDOWN,
-          value: 'resolved'
-        }) }),
-      title: 'A test incident title-updated'
-    })
-  })
+          value: "resolved",
+        }),
+      }),
+      title: "A test incident title-updated",
+    }),
+  }),
 })
 p api_instance.update_incident(INCIDENT_DATA_ID, body)

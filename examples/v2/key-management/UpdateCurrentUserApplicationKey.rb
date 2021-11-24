@@ -1,6 +1,6 @@
 # Edit an application key owned by current user returns "OK" response
 
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::KeyManagementAPI.new
 
 # there is a valid "application_key" in the system
@@ -12,8 +12,8 @@ body = DatadogAPIClient::V2::ApplicationKeyUpdateRequest.new({
     id: APPLICATION_KEY_DATA_ID,
     type: DatadogAPIClient::V2::ApplicationKeysType::APPLICATION_KEYS,
     attributes: DatadogAPIClient::V2::ApplicationKeyUpdateAttributes.new({
-      name: 'Application Key for submitting metrics-updated'
-    })
-  })
+      name: "Application Key for submitting metrics-updated",
+    }),
+  }),
 })
 p api_instance.update_current_user_application_key(APPLICATION_KEY_DATA_ID, body)

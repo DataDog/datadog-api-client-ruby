@@ -1,6 +1,6 @@
 # Get a monitor's details returns "OK" response
 
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::MonitorsAPI.new
 
 # there is a valid "monitor" in the system

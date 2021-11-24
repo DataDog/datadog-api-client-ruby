@@ -1,6 +1,6 @@
 # Get details of an incident team returns "OK" response
 
-require 'datadog_api_client'
+require "datadog_api_client"
 DatadogAPIClient::V2.configure do |config|
   config.unstable_operations[:get_incident_team] = true
 end

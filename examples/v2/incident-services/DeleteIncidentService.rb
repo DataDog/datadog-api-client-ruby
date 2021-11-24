@@ -1,6 +1,6 @@
 # Delete an existing incident service returns "OK" response
 
-require 'datadog_api_client'
+require "datadog_api_client"
 DatadogAPIClient::V2.configure do |config|
   config.unstable_operations[:delete_incident_service] = true
 end

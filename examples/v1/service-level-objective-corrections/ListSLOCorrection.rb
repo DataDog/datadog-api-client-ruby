@@ -1,6 +1,6 @@
 # Get all SLO corrections returns "OK" response
 
-require 'datadog_api_client'
+require "datadog_api_client"
 DatadogAPIClient::V2.configure do |config|
   config.unstable_operations[:list_slo_correction] = true
 end

@@ -1,6 +1,6 @@
 # Get API key returns "OK" response
 
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::KeyManagementAPI.new
 
 # there is a valid "api_key" in the system
