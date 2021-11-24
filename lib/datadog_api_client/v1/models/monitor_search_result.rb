@@ -45,6 +45,9 @@ module DatadogAPIClient::V1
     # The ID of the organization.
     attr_accessor :org_id
 
+    # The monitor query.
+    attr_accessor :query
+
     # The scope(s) to which the downtime applies, e.g. `host:app2`. Provide multiple scopes as a comma-separated list, e.g. `env:dev,env:prod`. The resulting downtime applies to sources that matches ALL provided scopes (i.e. `env:dev AND env:prod`), NOT any of them.
     attr_accessor :scopes
 
@@ -66,6 +69,7 @@ module DatadogAPIClient::V1
         :'name' => :'name',
         :'notifications' => :'notifications',
         :'org_id' => :'org_id',
+        :'query' => :'query',
         :'scopes' => :'scopes',
         :'status' => :'status',
         :'tags' => :'tags',
@@ -89,6 +93,7 @@ module DatadogAPIClient::V1
         :'name' => :'String',
         :'notifications' => :'Array<MonitorSearchResultNotification>',
         :'org_id' => :'Integer',
+        :'query' => :'String',
         :'scopes' => :'Array<String>',
         :'status' => :'MonitorOverallStates',
         :'tags' => :'Array<String>',
@@ -154,6 +159,10 @@ module DatadogAPIClient::V1
         self.org_id = attributes[:'org_id']
       end
 
+      if attributes.key?(:'query')
+        self.query = attributes[:'query']
+      end
+
       if attributes.key?(:'scopes')
         if (value = attributes[:'scopes']).is_a?(Array)
           self.scopes = value
@@ -201,6 +210,7 @@ module DatadogAPIClient::V1
           name == o.name &&
           notifications == o.notifications &&
           org_id == o.org_id &&
+          query == o.query &&
           scopes == o.scopes &&
           status == o.status &&
           tags == o.tags &&
@@ -216,7 +226,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [classification, creator, id, last_triggered_ts, metrics, name, notifications, org_id, scopes, status, tags, type].hash
+      [classification, creator, id, last_triggered_ts, metrics, name, notifications, org_id, query, scopes, status, tags, type].hash
     end
 
     # Builds the object from hash
