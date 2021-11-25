@@ -28,6 +28,12 @@ module DatadogAPIClient::V1
     # The hour for the usage.
     attr_accessor :hour
 
+    # The organization name.
+    attr_accessor :org_name
+
+    # The organization public ID.
+    attr_accessor :public_id
+
     # The number of Fargate tasks run.
     attr_accessor :tasks_count
 
@@ -36,6 +42,8 @@ module DatadogAPIClient::V1
       {
         :'avg_profiled_fargate_tasks' => :'avg_profiled_fargate_tasks',
         :'hour' => :'hour',
+        :'org_name' => :'org_name',
+        :'public_id' => :'public_id',
         :'tasks_count' => :'tasks_count'
       }
     end
@@ -50,6 +58,8 @@ module DatadogAPIClient::V1
       {
         :'avg_profiled_fargate_tasks' => :'Integer',
         :'hour' => :'Time',
+        :'org_name' => :'String',
+        :'public_id' => :'String',
         :'tasks_count' => :'Integer'
       }
     end
@@ -83,6 +93,14 @@ module DatadogAPIClient::V1
         self.hour = attributes[:'hour']
       end
 
+      if attributes.key?(:'org_name')
+        self.org_name = attributes[:'org_name']
+      end
+
+      if attributes.key?(:'public_id')
+        self.public_id = attributes[:'public_id']
+      end
+
       if attributes.key?(:'tasks_count')
         self.tasks_count = attributes[:'tasks_count']
       end
@@ -108,6 +126,8 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           avg_profiled_fargate_tasks == o.avg_profiled_fargate_tasks &&
           hour == o.hour &&
+          org_name == o.org_name &&
+          public_id == o.public_id &&
           tasks_count == o.tasks_count
     end
 
@@ -120,7 +140,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [avg_profiled_fargate_tasks, hour, tasks_count].hash
+      [avg_profiled_fargate_tasks, hour, org_name, public_id, tasks_count].hash
     end
 
     # Builds the object from hash
