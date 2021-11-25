@@ -149,6 +149,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | _DatadogAPIClient::V1::ServiceLevelObjectivesAPI_           | [**delete_slo**](ServiceLevelObjectivesAPI.md#delete_slo)                                                                | **DELETE** /api/v1/slo/{slo_id}                                                                    | Delete an SLO                                    |
 | _DatadogAPIClient::V1::ServiceLevelObjectivesAPI_           | [**delete_slo_timeframe_in_bulk**](ServiceLevelObjectivesAPI.md#delete_slo_timeframe_in_bulk)                            | **POST** /api/v1/slo/bulk_delete                                                                   | Bulk Delete SLO Timeframes                       |
 | _DatadogAPIClient::V1::ServiceLevelObjectivesAPI_           | [**get_slo**](ServiceLevelObjectivesAPI.md#get_slo)                                                                      | **GET** /api/v1/slo/{slo_id}                                                                       | Get an SLO's details                             |
+| _DatadogAPIClient::V1::ServiceLevelObjectivesAPI_           | [**get_slo_corrections**](ServiceLevelObjectivesAPI.md#get_slo_corrections)                                              | **GET** /api/v1/slo/{slo_id}/corrections                                                           | Get Corrections For an SLO                       |
 | _DatadogAPIClient::V1::ServiceLevelObjectivesAPI_           | [**get_slo_history**](ServiceLevelObjectivesAPI.md#get_slo_history)                                                      | **GET** /api/v1/slo/{slo_id}/history                                                               | Get an SLO's history                             |
 | _DatadogAPIClient::V1::ServiceLevelObjectivesAPI_           | [**list_slos**](ServiceLevelObjectivesAPI.md#list_slos)                                                                  | **GET** /api/v1/slo                                                                                | Get all SLOs                                     |
 | _DatadogAPIClient::V1::ServiceLevelObjectivesAPI_           | [**update_slo**](ServiceLevelObjectivesAPI.md#update_slo)                                                                | **PUT** /api/v1/slo/{slo_id}                                                                       | Update an SLO                                    |
@@ -572,6 +573,7 @@ All URIs are relative to *https://api.datadoghq.com*
 - [DatadogAPIClient::V1::SLOCorrectionListResponse](SLOCorrectionListResponse.md)
 - [DatadogAPIClient::V1::SLOCorrectionResponse](SLOCorrectionResponse.md)
 - [DatadogAPIClient::V1::SLOCorrectionResponseAttributes](SLOCorrectionResponseAttributes.md)
+- [DatadogAPIClient::V1::SLOCorrectionResponseAttributesModifier](SLOCorrectionResponseAttributesModifier.md)
 - [DatadogAPIClient::V1::SLOCorrectionType](SLOCorrectionType.md)
 - [DatadogAPIClient::V1::SLOCorrectionUpdateData](SLOCorrectionUpdateData.md)
 - [DatadogAPIClient::V1::SLOCorrectionUpdateRequest](SLOCorrectionUpdateRequest.md)

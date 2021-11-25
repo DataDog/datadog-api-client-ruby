@@ -17,59 +17,26 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The attribute object associated with the SLO correction.
-  class SLOCorrectionResponseAttributes
+  # Modifier of the object.
+  class SLOCorrectionResponseAttributesModifier
     # whether the object has unparsed attributes
     attr_accessor :_unparsed
 
-    attr_accessor :category
+    # Email of the Modifier.
+    attr_accessor :email
 
-    # The epoch timestamp of when the correction was created at
-    attr_accessor :created_at
+    # Handle of the Modifier.
+    attr_accessor :handle
 
-    attr_accessor :creator
-
-    # Description of the correction being made.
-    attr_accessor :description
-
-    # Length of time (in seconds) for a specified `rrule` recurring SLO correction.
-    attr_accessor :duration
-
-    # Ending time of the correction in epoch seconds.
-    attr_accessor :_end
-
-    # The epoch timestamp of when the correction was modified at
-    attr_accessor :modified_at
-
-    attr_accessor :modifier
-
-    # Recurrence rules as defined in the iCalendar RFC 5545.
-    attr_accessor :rrule
-
-    # ID of the SLO that this correction will be applied to.
-    attr_accessor :slo_id
-
-    # Starting time of the correction in epoch seconds.
-    attr_accessor :start
-
-    # The timezone to display in the UI for the correction times (defaults to \"UTC\").
-    attr_accessor :timezone
+    # Name of the Modifier.
+    attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'category' => :'category',
-        :'created_at' => :'created_at',
-        :'creator' => :'creator',
-        :'description' => :'description',
-        :'duration' => :'duration',
-        :'_end' => :'end',
-        :'modified_at' => :'modified_at',
-        :'modifier' => :'modifier',
-        :'rrule' => :'rrule',
-        :'slo_id' => :'slo_id',
-        :'start' => :'start',
-        :'timezone' => :'timezone'
+        :'email' => :'email',
+        :'handle' => :'handle',
+        :'name' => :'name'
       }
     end
 
@@ -81,27 +48,15 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'category' => :'SLOCorrectionCategory',
-        :'created_at' => :'Integer',
-        :'creator' => :'Creator',
-        :'description' => :'String',
-        :'duration' => :'Integer',
-        :'_end' => :'Integer',
-        :'modified_at' => :'Integer',
-        :'modifier' => :'SLOCorrectionResponseAttributesModifier',
-        :'rrule' => :'String',
-        :'slo_id' => :'String',
-        :'start' => :'Integer',
-        :'timezone' => :'String'
+        :'email' => :'String',
+        :'handle' => :'String',
+        :'name' => :'String'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'duration',
-        :'modifier',
-        :'rrule',
       ])
     end
 
@@ -109,63 +64,27 @@ module DatadogAPIClient::V1
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SLOCorrectionResponseAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SLOCorrectionResponseAttributesModifier` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SLOCorrectionResponseAttributes`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SLOCorrectionResponseAttributesModifier`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'category')
-        self.category = attributes[:'category']
+      if attributes.key?(:'email')
+        self.email = attributes[:'email']
       end
 
-      if attributes.key?(:'created_at')
-        self.created_at = attributes[:'created_at']
+      if attributes.key?(:'handle')
+        self.handle = attributes[:'handle']
       end
 
-      if attributes.key?(:'creator')
-        self.creator = attributes[:'creator']
-      end
-
-      if attributes.key?(:'description')
-        self.description = attributes[:'description']
-      end
-
-      if attributes.key?(:'duration')
-        self.duration = attributes[:'duration']
-      end
-
-      if attributes.key?(:'_end')
-        self._end = attributes[:'_end']
-      end
-
-      if attributes.key?(:'modified_at')
-        self.modified_at = attributes[:'modified_at']
-      end
-
-      if attributes.key?(:'modifier')
-        self.modifier = attributes[:'modifier']
-      end
-
-      if attributes.key?(:'rrule')
-        self.rrule = attributes[:'rrule']
-      end
-
-      if attributes.key?(:'slo_id')
-        self.slo_id = attributes[:'slo_id']
-      end
-
-      if attributes.key?(:'start')
-        self.start = attributes[:'start']
-      end
-
-      if attributes.key?(:'timezone')
-        self.timezone = attributes[:'timezone']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
     end
 
@@ -187,18 +106,9 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          category == o.category &&
-          created_at == o.created_at &&
-          creator == o.creator &&
-          description == o.description &&
-          duration == o.duration &&
-          _end == o._end &&
-          modified_at == o.modified_at &&
-          modifier == o.modifier &&
-          rrule == o.rrule &&
-          slo_id == o.slo_id &&
-          start == o.start &&
-          timezone == o.timezone
+          email == o.email &&
+          handle == o.handle &&
+          name == o.name
     end
 
     # @see the `==` method
@@ -210,7 +120,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [category, created_at, creator, description, duration, _end, modified_at, modifier, rrule, slo_id, start, timezone].hash
+      [email, handle, name].hash
     end
 
     # Builds the object from hash

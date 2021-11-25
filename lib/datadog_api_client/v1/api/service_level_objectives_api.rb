@@ -398,6 +398,79 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
+    # Get Corrections For an SLO
+    # Get corrections applied to an SLO
+    # @param slo_id [String] The ID of the service level objective object.
+    # @param [Hash] opts the optional parameters
+    # @return [SLOCorrectionListResponse]
+    def get_slo_corrections(slo_id, opts = {})
+      data, _status_code, _headers = get_slo_corrections_with_http_info(slo_id, opts)
+      data
+    end
+
+    # Get Corrections For an SLO
+    # Get corrections applied to an SLO
+    # @param slo_id [String] The ID of the service level objective object.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(SLOCorrectionListResponse, Integer, Hash)>] SLOCorrectionListResponse data, response status code and response headers
+    def get_slo_corrections_with_http_info(slo_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_slo_corrections)
+        unstable_enabled = @api_client.config.unstable_operations[:get_slo_corrections]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_slo_corrections")
+        else
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_slo_corrections"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ServiceLevelObjectivesAPI.get_slo_corrections ...'
+      end
+      # verify the required parameter 'slo_id' is set
+      if @api_client.config.client_side_validation && slo_id.nil?
+        fail ArgumentError, "Missing the required parameter 'slo_id' when calling ServiceLevelObjectivesAPI.get_slo_corrections"
+      end
+      # resource path
+      local_var_path = '/api/v1/slo/{slo_id}/corrections'.sub('{' + 'slo_id' + '}', CGI.escape(slo_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SLOCorrectionListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_slo_corrections,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ServiceLevelObjectivesAPI#get_slo_corrections\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get an SLO's history
     # Get a specific SLO’s history, regardless of its SLO type.  The detailed history data is structured according to the source data type. For example, metric data is included for event SLOs that use the metric source, and monitor SLO types include the monitor transition history.  **Note:** There are different response formats for event based and time based SLOs. Examples of both are shown.
     # @param slo_id [String] The ID of the service level objective object.
@@ -405,6 +478,7 @@ module DatadogAPIClient::V1
     # @param to_ts [Integer] The &#x60;to&#x60; timestamp for the query window in epoch seconds.
     # @param [Hash] opts the optional parameters
     # @option opts [Float] :target The SLO target. If &#x60;target&#x60; is passed in, the response will include the remaining error budget and a timeframe value of &#x60;custom&#x60;.
+    # @option opts [Boolean] :apply_correction Defaults to &#x60;true&#x60;. If any SLO corrections are applied and this parameter is set to &#x60;false&#x60;, then the corrections will not be applied and the SLI values will not be affected.
     # @return [SLOHistoryResponse]
     def get_slo_history(slo_id, from_ts, to_ts, opts = {})
       data, _status_code, _headers = get_slo_history_with_http_info(slo_id, from_ts, to_ts, opts)
@@ -418,6 +492,7 @@ module DatadogAPIClient::V1
     # @param to_ts [Integer] The &#x60;to&#x60; timestamp for the query window in epoch seconds.
     # @param [Hash] opts the optional parameters
     # @option opts [Float] :target The SLO target. If &#x60;target&#x60; is passed in, the response will include the remaining error budget and a timeframe value of &#x60;custom&#x60;.
+    # @option opts [Boolean] :apply_correction Defaults to &#x60;true&#x60;. If any SLO corrections are applied and this parameter is set to &#x60;false&#x60;, then the corrections will not be applied and the SLI values will not be affected.
     # @return [Array<(SLOHistoryResponse, Integer, Hash)>] SLOHistoryResponse data, response status code and response headers
     def get_slo_history_with_http_info(slo_id, from_ts, to_ts, opts = {})
 
@@ -461,6 +536,7 @@ module DatadogAPIClient::V1
       query_params[:'from_ts'] = from_ts
       query_params[:'to_ts'] = to_ts
       query_params[:'target'] = opts[:'target'] if !opts[:'target'].nil?
+      query_params[:'apply_correction'] = opts[:'apply_correction'] if !opts[:'apply_correction'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

@@ -174,6 +174,7 @@ module DatadogAPIClient::V1
             get_slo_correction: false,
             list_slo_correction: false,
             update_slo_correction: false,
+            get_slo_corrections: false,
             get_slo_history: false,
             get_daily_custom_reports: false,
             get_monthly_custom_reports: false,
