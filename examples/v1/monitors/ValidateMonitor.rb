@@ -26,11 +26,11 @@ body = DatadogAPIClient::V1::Monitor.new({
     notify_no_data: false,
     renotify_interval: 60,
     require_full_window: true,
+    timeout_h: 24,
     thresholds: DatadogAPIClient::V1::MonitorThresholds.new({
       critical: 2,
       warning: 1,
     }),
-    timeout_h: 60,
   }),
 })
 p api_instance.validate_monitor(body)
