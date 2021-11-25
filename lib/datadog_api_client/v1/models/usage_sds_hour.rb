@@ -28,6 +28,12 @@ module DatadogAPIClient::V1
     # The total number of bytes scanned of logs usage by the Sensitive Data Scanner from the start of the given hour’s month until the given hour.
     attr_accessor :logs_scanned_bytes
 
+    # The organization name.
+    attr_accessor :org_name
+
+    # The organization public ID.
+    attr_accessor :public_id
+
     # The total number of bytes scanned across all usage types by the Sensitive Data Scanner from the start of the given hour’s month until the given hour.
     attr_accessor :total_scanned_bytes
 
@@ -36,6 +42,8 @@ module DatadogAPIClient::V1
       {
         :'hour' => :'hour',
         :'logs_scanned_bytes' => :'logs_scanned_bytes',
+        :'org_name' => :'org_name',
+        :'public_id' => :'public_id',
         :'total_scanned_bytes' => :'total_scanned_bytes'
       }
     end
@@ -50,6 +58,8 @@ module DatadogAPIClient::V1
       {
         :'hour' => :'Time',
         :'logs_scanned_bytes' => :'Integer',
+        :'org_name' => :'String',
+        :'public_id' => :'String',
         :'total_scanned_bytes' => :'Integer'
       }
     end
@@ -83,6 +93,14 @@ module DatadogAPIClient::V1
         self.logs_scanned_bytes = attributes[:'logs_scanned_bytes']
       end
 
+      if attributes.key?(:'org_name')
+        self.org_name = attributes[:'org_name']
+      end
+
+      if attributes.key?(:'public_id')
+        self.public_id = attributes[:'public_id']
+      end
+
       if attributes.key?(:'total_scanned_bytes')
         self.total_scanned_bytes = attributes[:'total_scanned_bytes']
       end
@@ -108,6 +126,8 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           hour == o.hour &&
           logs_scanned_bytes == o.logs_scanned_bytes &&
+          org_name == o.org_name &&
+          public_id == o.public_id &&
           total_scanned_bytes == o.total_scanned_bytes
     end
 
@@ -120,7 +140,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [hour, logs_scanned_bytes, total_scanned_bytes].hash
+      [hour, logs_scanned_bytes, org_name, public_id, total_scanned_bytes].hash
     end
 
     # Builds the object from hash
