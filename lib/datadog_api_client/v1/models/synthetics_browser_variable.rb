@@ -25,7 +25,7 @@ module DatadogAPIClient::V1
     # Example for the variable.
     attr_accessor :example
 
-    # ID for the variable.
+    # ID for the variable. Global variables require an ID.
     attr_accessor :id
 
     # Name of the variable.
