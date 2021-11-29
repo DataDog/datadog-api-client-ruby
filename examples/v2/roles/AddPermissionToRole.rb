@@ -11,7 +11,7 @@ PERMISSION_ID = ENV["PERMISSION_ID"]
 
 body = DatadogAPIClient::V2::RelationshipToPermission.new({
   data: DatadogAPIClient::V2::RelationshipToPermissionData.new({
-    id: PERMISSION_ID,
+    id: "9f865bb4-effd-83da-86fa-606419feb786",
     type: DatadogAPIClient::V2::PermissionsType::PERMISSIONS,
   }),
 })
