@@ -50,6 +50,8 @@ module DatadogAPIClient::V1
     DBM_HOSTS_PERCENTAGE = "dbm_hosts_percentage".freeze
     DBM_QUERIES_USAGE = "dbm_queries_usage".freeze
     DBM_QUERIES_PERCENTAGE = "dbm_queries_percentage".freeze
+    ESTIMATED_INDEXED_LOGS_USAGE = "estimated_indexed_logs_usage".freeze
+    ESTIMATED_INDEXED_LOGS_PERCENTAGE = "estimated_indexed_logs_percentage".freeze
     ALL = "*".freeze
 
     # Builds the enum from string
