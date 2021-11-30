@@ -1,4 +1,4 @@
-# Trigger some Synthetics tests returns "OK" response
+# Trigger Synthetics tests returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
