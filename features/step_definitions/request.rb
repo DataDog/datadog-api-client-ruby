@@ -225,7 +225,7 @@ When('the request is sent') do
     # If we have an exception, make a stub response object to use for assertions
     # Instead of finding the response class of the method, we use the fact that all
     # responses returned have the `1` element set to the response code
-    @response = [nil, e.code, nil]
+    @response = [JSON.parse(e.response_body, :symbolize_names => true), e.code, nil]
   end
 
   if @response[1].between?(200, 299)  then
@@ -235,7 +235,8 @@ When('the request is sent') do
 end
 
 Then(/^the response "([^"]+)" is equal to (.*)$/) do |response_path, value|
-  expect(@response[0].to_body.lookup response_path).to eq JSON.parse(value.templated(fixtures), :symbolize_names => true)
+  body = @response[0].respond_to?(:to_body) ? @response[0].to_body : @response[0]
+  expect(body.lookup response_path).to eq JSON.parse(value.templated(fixtures), :symbolize_names => true)
 end
 
 Then(/^the response status is (\d+) (.*)$/) do |status, msg|
