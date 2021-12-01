@@ -1660,7 +1660,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Trigger some Synthetics tests
+    # Trigger Synthetics tests
     # Trigger a set of Synthetics tests.
     # @param body [SyntheticsTriggerBody] The identifiers of the tests to trigger.
     # @param [Hash] opts the optional parameters
@@ -1670,7 +1670,7 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Trigger some Synthetics tests
+    # Trigger Synthetics tests
     # Trigger a set of Synthetics tests.
     # @param body [SyntheticsTriggerBody] The identifiers of the tests to trigger.
     # @param [Hash] opts the optional parameters

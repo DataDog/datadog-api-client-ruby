@@ -26,7 +26,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**list_locations**](SyntheticsAPI.md#list_locations)                                   | **GET** /api/v1/synthetics/locations                                     | Get all locations (public and private)            |
 | [**list_tests**](SyntheticsAPI.md#list_tests)                                           | **GET** /api/v1/synthetics/tests                                         | Get the list of all tests                         |
 | [**trigger_ci_tests**](SyntheticsAPI.md#trigger_ci_tests)                               | **POST** /api/v1/synthetics/tests/trigger/ci                             | Trigger tests from CI/CD pipelines                |
-| [**trigger_tests**](SyntheticsAPI.md#trigger_tests)                                     | **POST** /api/v1/synthetics/tests/trigger                                | Trigger some Synthetics tests                     |
+| [**trigger_tests**](SyntheticsAPI.md#trigger_tests)                                     | **POST** /api/v1/synthetics/tests/trigger                                | Trigger Synthetics tests                          |
 | [**update_api_test**](SyntheticsAPI.md#update_api_test)                                 | **PUT** /api/v1/synthetics/tests/api/{public_id}                         | Edit an API test                                  |
 | [**update_browser_test**](SyntheticsAPI.md#update_browser_test)                         | **PUT** /api/v1/synthetics/tests/browser/{public_id}                     | Edit a browser test                               |
 | [**update_private_location**](SyntheticsAPI.md#update_private_location)                 | **PUT** /api/v1/synthetics/private-locations/{location_id}               | Edit a private location                           |
@@ -1358,7 +1358,7 @@ api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
 body = DatadogAPIClient::V1::SyntheticsTriggerBody.new({tests: [DatadogAPIClient::V1::SyntheticsTriggerTest.new({public_id: 'aaa-aaa-aaa'})]}) # SyntheticsTriggerBody | The identifiers of the tests to trigger.
 
 begin
-  # Trigger some Synthetics tests
+  # Trigger Synthetics tests
   result = api_instance.trigger_tests(body)
   p result
 rescue DatadogAPIClient::V1::APIError => e
@@ -1374,7 +1374,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Trigger some Synthetics tests
+  # Trigger Synthetics tests
   data, status_code, headers = api_instance.trigger_tests_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
