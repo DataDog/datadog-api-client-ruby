@@ -16,6 +16,9 @@ Around do |scenario, block|
     scenario.tags.each do |tag|
       prefix = '@endpoint('
       current_span.set_tag('version', tag.name[prefix.length...-1]) if tag.name.start_with? prefix
+      # add test.codeowners from team: tag
+      prefix = '@team:'
+      current_span.set_tag('test.codeowners', '@' + tag.name[prefix.length...]) if tag.name.start_with? prefix
     end
   end
   block.call
