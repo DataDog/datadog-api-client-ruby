@@ -18,10 +18,10 @@ Around do |scenario, block|
     codeowners = []
     scenario.tags.each do |tag|
       prefix = '@endpoint('
-      current_span.set_tag('version', tag.name[prefix.length...-1]) if tag.name.start_with? prefix
+      current_span.set_tag('version', tag.name[prefix.length...-2]) if tag.name.start_with? prefix
       # add test.codeowners from team: tag
       prefix = '@team:'
-      codeowners.push('@' + tag.name[prefix.length...]) if tag.name.start_with? prefix
+      codeowners.push('@' + tag.name[prefix.length...-1]) if tag.name.start_with? prefix
     end
     current_span.set_tag('test.codeowners', codeowners.to_json) unless codeowners.empty?
   end
