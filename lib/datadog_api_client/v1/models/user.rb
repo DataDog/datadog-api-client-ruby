@@ -22,6 +22,8 @@ module DatadogAPIClient::V1
     # whether the object has unparsed attributes
     attr_accessor :_unparsed
 
+    attr_accessor :access_role
+
     # The new disabled status of the user.
     attr_accessor :disabled
 
@@ -43,6 +45,7 @@ module DatadogAPIClient::V1
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'access_role' => :'access_role',
         :'disabled' => :'disabled',
         :'email' => :'email',
         :'handle' => :'handle',
@@ -60,6 +63,7 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'access_role' => :'AccessRole',
         :'disabled' => :'Boolean',
         :'email' => :'String',
         :'handle' => :'String',
@@ -89,6 +93,12 @@ module DatadogAPIClient::V1
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'access_role')
+        self.access_role = attributes[:'access_role']
+      else
+        self.access_role = 'st'
+      end
 
       if attributes.key?(:'disabled')
         self.disabled = attributes[:'disabled']
@@ -133,6 +143,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          access_role == o.access_role &&
           disabled == o.disabled &&
           email == o.email &&
           handle == o.handle &&
@@ -150,7 +161,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [disabled, email, handle, icon, name, verified].hash
+      [access_role, disabled, email, handle, icon, name, verified].hash
     end
 
     # Builds the object from hash
