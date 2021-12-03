@@ -1,3 +1,5 @@
+require 'json'
+
 Before('@integration-only') do |scenario|
   skip_this_scenario('integration only') unless ENV["RECORD"] == "none"
 end
@@ -13,13 +15,15 @@ end
 Around do |scenario, block|
   current_span = Datadog.configuration[:cucumber][:tracer].active_span
   unless current_span.nil?
+    codeowners = []
     scenario.tags.each do |tag|
       prefix = '@endpoint('
       current_span.set_tag('version', tag.name[prefix.length...-1]) if tag.name.start_with? prefix
       # add test.codeowners from team: tag
       prefix = '@team:'
-      current_span.set_tag('test.codeowners', '@' + tag.name[prefix.length...]) if tag.name.start_with? prefix
+      codeowners.push('@' + tag.name[prefix.length...]) if tag.name.start_with? prefix
     end
+    current_span.set_tag('test.codeowners', codeowners.to_json) unless codeowners.empty?
   end
   block.call
 end
