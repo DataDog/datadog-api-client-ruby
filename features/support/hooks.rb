@@ -21,7 +21,7 @@ Around do |scenario, block|
       current_span.set_tag('version', tag.name[prefix.length...-2]) if tag.name.start_with? prefix
       # add test.codeowners from team: tag
       prefix = '@team:'
-      codeowners.push('@' + tag.name[prefix.length...tag.length]) if tag.name.start_with? prefix
+      codeowners.push('@' + tag.name[prefix.length...tag.name.length]) if tag.name.start_with? prefix
     end
     current_span.set_tag('test.codeowners', codeowners.to_json) unless codeowners.empty?
   end
