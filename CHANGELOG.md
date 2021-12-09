@@ -1,5 +1,36 @@
 # CHANGELOG
 
+## 1.5.0 / 2021-12-09
+
+* [Added] Add Limit Note for Hourly Requests. See [#614](https://github.com/DataDog/datadog-api-client-ruby/pull/614).
+* [Added] Expose estimated logs usage in Usage Attribution API. See [#615](https://github.com/DataDog/datadog-api-client-ruby/pull/615).
+* [Added] Add endpoint to get corrections applied to an SLO. See [#604](https://github.com/DataDog/datadog-api-client-ruby/pull/604).
+* [Added] Expose `public_id` and `org_name` in Usage API response. See [#607](https://github.com/DataDog/datadog-api-client-ruby/pull/607).
+* [Added] Document query in `MonitorSearchResult`. See [#605](https://github.com/DataDog/datadog-api-client-ruby/pull/605).
+* [Added] Add 429 error responses. See [#585](https://github.com/DataDog/datadog-api-client-ruby/pull/585).
+* [Added] Add support for profiled Fargate tasks in Usage API. See [#576](https://github.com/DataDog/datadog-api-client-ruby/pull/576).
+* [Added] Add support for `websocket` synthetics tests. See [#580](https://github.com/DataDog/datadog-api-client-ruby/pull/580).
+* [Added] [Synthetics] Add support for UDP API tests. See [#569](https://github.com/DataDog/datadog-api-client-ruby/pull/569).
+* [Added] Add trigger synthetics tests endpoint. See [#546](https://github.com/DataDog/datadog-api-client-ruby/pull/546).
+* [Added] Add RUM Units to usage metering API. See [#565](https://github.com/DataDog/datadog-api-client-ruby/pull/565).
+* [Added] [dashboards formulas and functions] Add formulas and functions support to change widget. See [#478](https://github.com/DataDog/datadog-api-client-ruby/pull/478).
+* [Added] Add support for Azure `automute` option. See [#551](https://github.com/DataDog/datadog-api-client-ruby/pull/551).
+* [Added] Add v2 intake endpoint. See [#545](https://github.com/DataDog/datadog-api-client-ruby/pull/545).
+* [Added] Add support for RRULE fields in SLO corrections. See [#507](https://github.com/DataDog/datadog-api-client-ruby/pull/507).
+* [Added] Add aggregations attribute to v2 metric tag configuration. See [#485](https://github.com/DataDog/datadog-api-client-ruby/pull/485).
+* [Added] Add `apm_stats_query` property to `DistributionWidgetRequest`. See [#535](https://github.com/DataDog/datadog-api-client-ruby/pull/535).
+* [Fixed] Be more resilient to plain text errors. See [#611](https://github.com/DataDog/datadog-api-client-ruby/pull/611).
+* [Fixed] Fix monitor `timeout_h` example and limits. See [#599](https://github.com/DataDog/datadog-api-client-ruby/pull/599).
+* [Fixed] Remove event title length constraint. See [#593](https://github.com/DataDog/datadog-api-client-ruby/pull/593).
+* [Fixed] Mark `batch_id` in Synthetics Trigger CI response as nullable. See [#587](https://github.com/DataDog/datadog-api-client-ruby/pull/587).
+* [Fixed] SLO Correction attributes `rrule` and `duration` can be nullable. See [#571](https://github.com/DataDog/datadog-api-client-ruby/pull/571).
+* [Fixed] Change `UsageNetworkFlowsHour.indexed_event_count` to match actual API. See [#568](https://github.com/DataDog/datadog-api-client-ruby/pull/568).
+* [Fixed] Fix type for `ratio_in_month` in usage metering. See [#559](https://github.com/DataDog/datadog-api-client-ruby/pull/559).
+* [Fixed] Use plural form for dbm hosts usage properties. See [#518](https://github.com/DataDog/datadog-api-client-ruby/pull/518).
+* [Changed] [Synthetics] Fix required target in assertions and type in step results. See [#572](https://github.com/DataDog/datadog-api-client-ruby/pull/572).
+* [Changed] Update Synthetics CI test metadata. See [#515](https://github.com/DataDog/datadog-api-client-ruby/pull/515).
+* [Deprecated] Update property descriptions for Dashboard RBAC release. See [#544](https://github.com/DataDog/datadog-api-client-ruby/pull/544).
+
 ## 1.4.0 / 2021-10-18
 
 * [Added] Add `metrics_collection_enabled`, `cspm_resource_collection_enabled ` and `resource_collection_enabled` to AWS integration request. See [#524](https://github.com/DataDog/datadog-api-client-ruby/pull/524).
