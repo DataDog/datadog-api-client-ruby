@@ -22,6 +22,9 @@ module DatadogAPIClient::V2
     # whether the object has unparsed attributes
     attr_accessor :_unparsed
 
+    # UUID of the role to clone from.
+    attr_accessor :clone_from_uuid
+
     # Creation time of the role.
     attr_accessor :created_at
 
@@ -34,6 +37,7 @@ module DatadogAPIClient::V2
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'clone_from_uuid' => :'clone_from_uuid',
         :'created_at' => :'created_at',
         :'modified_at' => :'modified_at',
         :'name' => :'name'
@@ -48,6 +52,7 @@ module DatadogAPIClient::V2
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'clone_from_uuid' => :'String',
         :'created_at' => :'Time',
         :'modified_at' => :'Time',
         :'name' => :'String'
@@ -74,6 +79,10 @@ module DatadogAPIClient::V2
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'clone_from_uuid')
+        self.clone_from_uuid = attributes[:'clone_from_uuid']
+      end
 
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
@@ -111,6 +120,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          clone_from_uuid == o.clone_from_uuid &&
           created_at == o.created_at &&
           modified_at == o.modified_at &&
           name == o.name
@@ -125,7 +135,7 @@ module DatadogAPIClient::V2
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_at, modified_at, name].hash
+      [clone_from_uuid, created_at, modified_at, name].hash
     end
 
     # Builds the object from hash
