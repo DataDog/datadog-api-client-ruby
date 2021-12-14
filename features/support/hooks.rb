@@ -15,6 +15,10 @@ Before do |scenario|
   end
 end
 
+Before('@skip') do |scenario|
+  skip_this_scenario('skip')
+end
+
 Before('@integration-only') do |scenario|
   skip_this_scenario('integration only') unless ENV["RECORD"] == "none"
 end
