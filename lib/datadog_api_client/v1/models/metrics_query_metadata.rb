@@ -95,7 +95,7 @@ module DatadogAPIClient::V1
         :'interval' => :'Integer',
         :'length' => :'Integer',
         :'metric' => :'String',
-        :'pointlist' => :'Array<Array>',
+        :'pointlist' => :'Array<Array<Float>>',
         :'query_index' => :'Integer',
         :'scope' => :'String',
         :'start' => :'Integer',
