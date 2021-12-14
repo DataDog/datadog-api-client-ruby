@@ -1,17 +1,5 @@
 require 'json'
 
-Before('@integration-only') do |scenario|
-  skip_this_scenario('integration only') unless ENV["RECORD"] == "none"
-end
-
-Before('@skip-ruby') do |scenario|
-  skip_this_scenario('skip ruby')
-end
-
-Before('@replay-only') do |scenario|
-  skip_this_scenario('replay only') unless ENV["RECORD"].nil? || ENV["RECORD"] == "false"
-end
-
 Around do |scenario, block|
   current_span = Datadog.configuration[:cucumber][:tracer].active_span
   unless current_span.nil?
@@ -25,6 +13,23 @@ Around do |scenario, block|
     end
     current_span.set_tag('test.codeowners', codeowners.to_json) unless codeowners.empty?
   end
+
+  if scenario.tags.any? { |tag| tag.name == '@skip' } then
+    skip_this_scenario('skip')
+  end
+
+  if scenario.tags.any? { |tag| tag.name == '@skip-ruby' } then
+    skip_this_scenario('skip ruby')
+  end
+
+  if !(ENV["RECORD"].nil? || ENV["RECORD"] == "false") && scenario.tags.any? { |tag| tag.name == '@replay-only' } then
+    skip_this_scenario('replay only')
+  end
+  
+  if ENV["RECORD"] != "none" && scenario.tags.any? { |tag| tag.name == '@integration-only' } then
+    skip_this_scenario('integration only')
+  end
+
   block.call
 end
 
