@@ -1,5 +1,8 @@
 require 'json'
+require 'active_support'
 require 'active_support/time'
+
+SLEEP_AFTER_REQUEST = ENV["SLEEP_AFTER_REQUEST"].present? ? ENV["SLEEP_AFTER_REQUEST"].to_i : 0
 
 module APIWorld
   def api
@@ -26,6 +29,10 @@ module APIWorld
 
   def api_error
     api::APIError
+  end
+  
+  def sleep_after_request
+    sleep SLEEP_AFTER_REQUEST unless ENV["RECORD"] == "false" || SLEEP_AFTER_REQUEST <= 0
   end
 
   def unique
@@ -169,6 +176,9 @@ module APIWorld
 
     # store response in fixtures
     fixtures[operation['key'].to_sym] = result if operation.key? 'key'
+
+    # wait for resource propagation
+    sleep_after_request
 
     result
   end
