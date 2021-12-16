@@ -1,4 +1,5 @@
 require 'json'
+require 'active_support'
 require 'active_support/time'
 
 SLEEP_AFTER_REQUEST = ENV["SLEEP_AFTER_REQUEST"].present? ? ENV["SLEEP_AFTER_REQUEST"].to_i : 0
