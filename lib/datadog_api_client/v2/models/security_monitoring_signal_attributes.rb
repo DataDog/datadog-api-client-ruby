@@ -54,7 +54,7 @@ module DatadogAPIClient::V2
       {
         :'attributes' => :'Hash<String, Object>',
         :'message' => :'String',
-        :'tags' => :'Array<Object>',
+        :'tags' => :'Array<String>',
         :'timestamp' => :'Time'
       }
     end
