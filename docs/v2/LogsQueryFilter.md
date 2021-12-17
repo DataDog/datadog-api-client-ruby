@@ -4,10 +4,10 @@
 
 | Name        | Type                    | Description                                                                                                    | Notes                                    |
 | ----------- | ----------------------- | -------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
-| **from**    | **String**              | The minimum time for the requested logs, supports date math and regular timestamps                             | [optional][default to &#39;now-15m&#39;] |
+| **from**    | **String**              | The minimum time for the requested logs, supports date math and regular timestamps (milliseconds).             | [optional][default to &#39;now-15m&#39;] |
 | **indexes** | **Array&lt;String&gt;** | For customers with multiple indexes, the indexes to search. Defaults to [&#39;*&#39;] which means all indexes. | [optional]                               |
 | **query**   | **String**              | The search query - following the log search syntax.                                                            | [optional][default to &#39;*&#39;]       |
-| **to**      | **String**              | The maximum time for the requested logs, supports date math and regular timestamps                             | [optional][default to &#39;now&#39;]     |
+| **to**      | **String**              | The maximum time for the requested logs, supports date math and regular timestamps (milliseconds).             | [optional][default to &#39;now&#39;]     |
 
 ## Example
 
