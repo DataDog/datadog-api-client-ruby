@@ -22,17 +22,8 @@ module DatadogAPIClient::V1
     # whether the object has unparsed attributes
     attr_accessor :_unparsed
 
-    # Number of browser RUM lite sessions.
-    attr_accessor :browser_rum_lite_session_count
-
-    # Number of browser RUM replay sessions.
-    attr_accessor :browser_rum_replay_session_count
-
     # The number of browser RUM units.
     attr_accessor :browser_rum_units
-
-    # Number of mobile RUM lite sessions.
-    attr_accessor :mobile_rum_lite_session_count
 
     # The number of mobile RUM units.
     attr_accessor :mobile_rum_units
@@ -49,10 +40,7 @@ module DatadogAPIClient::V1
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'browser_rum_lite_session_count' => :'browser_rum_lite_session_count',
-        :'browser_rum_replay_session_count' => :'browser_rum_replay_session_count',
         :'browser_rum_units' => :'browser_rum_units',
-        :'mobile_rum_lite_session_count' => :'mobile_rum_lite_session_count',
         :'mobile_rum_units' => :'mobile_rum_units',
         :'org_name' => :'org_name',
         :'public_id' => :'public_id',
@@ -68,10 +56,7 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'browser_rum_lite_session_count' => :'Integer',
-        :'browser_rum_replay_session_count' => :'Integer',
         :'browser_rum_units' => :'Integer',
-        :'mobile_rum_lite_session_count' => :'Integer',
         :'mobile_rum_units' => :'Integer',
         :'org_name' => :'String',
         :'public_id' => :'String',
@@ -101,20 +86,8 @@ module DatadogAPIClient::V1
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'browser_rum_lite_session_count')
-        self.browser_rum_lite_session_count = attributes[:'browser_rum_lite_session_count']
-      end
-
-      if attributes.key?(:'browser_rum_replay_session_count')
-        self.browser_rum_replay_session_count = attributes[:'browser_rum_replay_session_count']
-      end
-
       if attributes.key?(:'browser_rum_units')
         self.browser_rum_units = attributes[:'browser_rum_units']
-      end
-
-      if attributes.key?(:'mobile_rum_lite_session_count')
-        self.mobile_rum_lite_session_count = attributes[:'mobile_rum_lite_session_count']
       end
 
       if attributes.key?(:'mobile_rum_units')
@@ -152,10 +125,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          browser_rum_lite_session_count == o.browser_rum_lite_session_count &&
-          browser_rum_replay_session_count == o.browser_rum_replay_session_count &&
           browser_rum_units == o.browser_rum_units &&
-          mobile_rum_lite_session_count == o.mobile_rum_lite_session_count &&
           mobile_rum_units == o.mobile_rum_units &&
           org_name == o.org_name &&
           public_id == o.public_id &&
@@ -171,7 +141,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [browser_rum_lite_session_count, browser_rum_replay_session_count, browser_rum_units, mobile_rum_lite_session_count, mobile_rum_units, org_name, public_id, rum_units].hash
+      [browser_rum_units, mobile_rum_units, org_name, public_id, rum_units].hash
     end
 
     # Builds the object from hash
