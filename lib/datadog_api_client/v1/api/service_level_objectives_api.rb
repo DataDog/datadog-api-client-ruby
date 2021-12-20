@@ -175,7 +175,7 @@ module DatadogAPIClient::V1
     # Permanently delete the specified service level objective object.  If an SLO is used in a dashboard, the `DELETE /v1/slo/` endpoint returns a 409 conflict error because the SLO is referenced in a dashboard.
     # @param slo_id [String] The ID of the service level objective.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :force Delete the monitor even if it&#39;s referenced by other resources (e.g. SLO, composite monitor).
+    # @option opts [String] :force Delete the monitor even if it&#39;s referenced by other resources (for example SLO, composite monitor).
     # @return [SLODeleteResponse]
     def delete_slo(slo_id, opts = {})
       data, _status_code, _headers = delete_slo_with_http_info(slo_id, opts)
@@ -186,7 +186,7 @@ module DatadogAPIClient::V1
     # Permanently delete the specified service level objective object.  If an SLO is used in a dashboard, the &#x60;DELETE /v1/slo/&#x60; endpoint returns a 409 conflict error because the SLO is referenced in a dashboard.
     # @param slo_id [String] The ID of the service level objective.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :force Delete the monitor even if it&#39;s referenced by other resources (e.g. SLO, composite monitor).
+    # @option opts [String] :force Delete the monitor even if it&#39;s referenced by other resources (for example SLO, composite monitor).
     # @return [Array<(SLODeleteResponse, Integer, Hash)>] SLODeleteResponse data, response status code and response headers
     def delete_slo_with_http_info(slo_id, opts = {})
 

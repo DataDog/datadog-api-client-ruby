@@ -25,7 +25,7 @@ module DatadogAPIClient::V1
     # The target value for the service level indicator within the corresponding timeframe.
     attr_accessor :target
 
-    # A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (e.g. `98.00`).  Always included in service level objective responses. Ignored in create/update requests.
+    # A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (for example `98.00`).  Always included in service level objective responses. Ignored in create/update requests.
     attr_accessor :target_display
 
     attr_accessor :timeframe

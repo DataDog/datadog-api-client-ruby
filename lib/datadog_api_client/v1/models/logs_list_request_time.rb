@@ -25,7 +25,7 @@ module DatadogAPIClient::V1
     # Minimum timestamp for requested logs.
     attr_accessor :from
 
-    # Timezone can be specified both as an offset (e.g. \"UTC+03:00\") or a regional zone (e.g. \"Europe/Paris\").
+    # Timezone can be specified both as an offset (for example \"UTC+03:00\") or a regional zone (for example \"Europe/Paris\").
     attr_accessor :timezone
 
     # Maximum timestamp for requested logs.

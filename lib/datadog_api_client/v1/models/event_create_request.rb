@@ -27,7 +27,7 @@ module DatadogAPIClient::V1
 
     attr_accessor :alert_type
 
-    # POSIX timestamp of the event. Must be sent as an integer (i.e. no quotes). Limited to events no older than 7 days.
+    # POSIX timestamp of the event. Must be sent as an integer (that is no quotes). Limited to events no older than 7 days.
     attr_accessor :date_happened
 
     # A device name.
@@ -44,7 +44,7 @@ module DatadogAPIClient::V1
 
     attr_accessor :priority
 
-    # ID of the parent event. Must be sent as an integer (i.e. no quotes).
+    # ID of the parent event. Must be sent as an integer (that is no quotes).
     attr_accessor :related_event_id
 
     # The type of event being posted. Option examples include nagios, hudson, jenkins, my_apps, chef, puppet, git, bitbucket, etc. A complete list of source attribute values [available here](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).

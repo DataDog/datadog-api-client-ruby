@@ -90,7 +90,7 @@ require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::TagsAPI.new
 host_name = 'host_name_example' # String | This endpoint allows you to remove all user-assigned tags for a single host.
 opts = {
-  source: 'source_example' # String | The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
+  source: 'source_example' # String | The source of the tags (for example chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
 }
 
 begin
@@ -121,10 +121,10 @@ end
 
 ### Parameters
 
-| Name          | Type       | Description                                                                                                                                                             | Notes      |
-| ------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| **host_name** | **String** | This endpoint allows you to remove all user-assigned tags for a single host.                                                                                            |            |
-| **source**    | **String** | The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value). | [optional] |
+| Name          | Type       | Description                                                                                                                                                                    | Notes      |
+| ------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- |
+| **host_name** | **String** | This endpoint allows you to remove all user-assigned tags for a single host.                                                                                                   |            |
+| **source**    | **String** | The source of the tags (for example chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value). | [optional] |
 
 ### Return type
 
@@ -278,7 +278,7 @@ api_instance = DatadogAPIClient::V1::TagsAPI.new
 host_name = 'host_name_example' # String | This endpoint allows you to update/replace all in an integration source with those supplied in the request.
 body = DatadogAPIClient::V1::HostTags.new # HostTags | Add tags to host
 opts = {
-  source: 'source_example' # String | The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value)
+  source: 'source_example' # String | The source of the tags (for example chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value)
 }
 
 begin
@@ -310,11 +310,11 @@ end
 
 ### Parameters
 
-| Name          | Type                        | Description                                                                                                                                                            | Notes      |
-| ------------- | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| **host_name** | **String**                  | This endpoint allows you to update/replace all in an integration source with those supplied in the request.                                                            |            |
-| **body**      | [**HostTags**](HostTags.md) | Add tags to host                                                                                                                                                       |            |
-| **source**    | **String**                  | The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value) | [optional] |
+| Name          | Type                        | Description                                                                                                                                                                   | Notes      |
+| ------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **host_name** | **String**                  | This endpoint allows you to update/replace all in an integration source with those supplied in the request.                                                                   |            |
+| **body**      | [**HostTags**](HostTags.md) | Add tags to host                                                                                                                                                              |            |
+| **source**    | **String**                  | The source of the tags (for example chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value) | [optional] |
 
 ### Return type
 
