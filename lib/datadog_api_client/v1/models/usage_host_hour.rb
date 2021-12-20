@@ -25,7 +25,7 @@ module DatadogAPIClient::V1
     # Contains the total number of infrastructure hosts reporting during a given hour that were running the Datadog Agent.
     attr_accessor :agent_host_count
 
-    # Contains the total number of hosts that reported via Alibaba integration (and were NOT running the Datadog Agent).
+    # Contains the total number of hosts that reported through Alibaba integration (and were NOT running the Datadog Agent).
     attr_accessor :alibaba_host_count
 
     # Contains the total number of Azure App Services hosts using APM.
@@ -34,16 +34,16 @@ module DatadogAPIClient::V1
     # Shows the total number of hosts using APM during the hour, these are counted as billable (except during trial periods).
     attr_accessor :apm_host_count
 
-    # Contains the total number of hosts that reported via the AWS integration (and were NOT running the Datadog Agent).
+    # Contains the total number of hosts that reported through the AWS integration (and were NOT running the Datadog Agent).
     attr_accessor :aws_host_count
 
-    # Contains the total number of hosts that reported via Azure integration (and were NOT running the Datadog Agent).
+    # Contains the total number of hosts that reported through Azure integration (and were NOT running the Datadog Agent).
     attr_accessor :azure_host_count
 
     # Shows the total number of containers reported by the Docker integration during the hour.
     attr_accessor :container_count
 
-    # Contains the total number of hosts that reported via the Google Cloud integration (and were NOT running the Datadog Agent).
+    # Contains the total number of hosts that reported through the Google Cloud integration (and were NOT running the Datadog Agent).
     attr_accessor :gcp_host_count
 
     # Contains the total number of Heroku dynos reported by the Datadog Agent.
@@ -55,13 +55,13 @@ module DatadogAPIClient::V1
     # The hour for the usage.
     attr_accessor :hour
 
-    # Contains the total number of hosts that reported via the Azure App Services integration (and were NOT running the Datadog Agent).
+    # Contains the total number of hosts that reported through the Azure App Services integration (and were NOT running the Datadog Agent).
     attr_accessor :infra_azure_app_service
 
     # Contains the total number of hosts reported by Datadog exporter for the OpenTelemetry Collector.
     attr_accessor :opentelemetry_host_count
 
-    # Contains the total number of hosts that reported via vSphere integration (and were NOT running the Datadog Agent).
+    # Contains the total number of hosts that reported through vSphere integration (and were NOT running the Datadog Agent).
     attr_accessor :vsphere_host_count
 
     # Attribute mapping from ruby-style variable name to JSON key.

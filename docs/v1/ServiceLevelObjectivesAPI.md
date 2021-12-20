@@ -149,7 +149,7 @@ require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::ServiceLevelObjectivesAPI.new
 slo_id = 'slo_id_example' # String | The ID of the service level objective.
 opts = {
-  force: 'force_example' # String | Delete the monitor even if it's referenced by other resources (e.g. SLO, composite monitor).
+  force: 'force_example' # String | Delete the monitor even if it's referenced by other resources (for example SLO, composite monitor).
 }
 
 begin
@@ -181,10 +181,10 @@ end
 
 ### Parameters
 
-| Name       | Type       | Description                                                                                      | Notes      |
-| ---------- | ---------- | ------------------------------------------------------------------------------------------------ | ---------- |
-| **slo_id** | **String** | The ID of the service level objective.                                                           |            |
-| **force**  | **String** | Delete the monitor even if it&#39;s referenced by other resources (e.g. SLO, composite monitor). | [optional] |
+| Name       | Type       | Description                                                                                             | Notes      |
+| ---------- | ---------- | ------------------------------------------------------------------------------------------------------- | ---------- |
+| **slo_id** | **String** | The ID of the service level objective.                                                                  |            |
+| **force**  | **String** | Delete the monitor even if it&#39;s referenced by other resources (for example SLO, composite monitor). | [optional] |
 
 ### Return type
 

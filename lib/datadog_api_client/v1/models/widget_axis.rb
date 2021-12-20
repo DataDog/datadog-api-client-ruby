@@ -34,7 +34,7 @@ module DatadogAPIClient::V1
     # Specifies minimum value to show on the y-axis. It takes a number, or auto for default behavior.
     attr_accessor :min
 
-    # Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, `pow##` (e.g. `pow2`, `pow0.5` etc.).
+    # Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, `pow##` (for example `pow2`, `pow0.5` etc.).
     attr_accessor :scale
 
     # Attribute mapping from ruby-style variable name to JSON key.

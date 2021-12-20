@@ -131,8 +131,8 @@ Use this to create an outlier monitor using the following query:
 
 Example: `"check".over(tags).last(count).by(group).count_by_status()`
 
-- **`check`** name of the check, e.g. `datadog.agent.up`
-- **`tags`** one or more quoted tags (comma-separated), or "\*". e.g.: `.over("env:prod", "role:db")`; **`over`** cannot be blank.
+- **`check`** name of the check, for example `datadog.agent.up`
+- **`tags`** one or more quoted tags (comma-separated), or "\*". for example: `.over("env:prod", "role:db")`; **`over`** cannot be blank.
 - **`count`** must be at greater than or equal to your max threshold (defined in the `options`). It is limited to 100.
   For example, if you've specified to notify on 1 critical, 3 ok, and 2 warn statuses, `count` should be at least 3.
 - **`group`** must be specified for check monitors. Per-check grouping is already explicitly known for some service checks.
@@ -289,7 +289,7 @@ require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::MonitorsAPI.new
 monitor_id = 789 # Integer | The ID of the monitor.
 opts = {
-  force: 'false' # String | Delete the monitor even if it's referenced by other resources (e.g. SLO, composite monitor).
+  force: 'false' # String | Delete the monitor even if it's referenced by other resources (for example SLO, composite monitor).
 }
 
 begin
@@ -321,10 +321,10 @@ end
 
 ### Parameters
 
-| Name           | Type        | Description                                                                                      | Notes      |
-| -------------- | ----------- | ------------------------------------------------------------------------------------------------ | ---------- |
-| **monitor_id** | **Integer** | The ID of the monitor.                                                                           |            |
-| **force**      | **String**  | Delete the monitor even if it&#39;s referenced by other resources (e.g. SLO, composite monitor). | [optional] |
+| Name           | Type        | Description                                                                                             | Notes      |
+| -------------- | ----------- | ------------------------------------------------------------------------------------------------------- | ---------- |
+| **monitor_id** | **Integer** | The ID of the monitor.                                                                                  |            |
+| **force**      | **String**  | Delete the monitor even if it&#39;s referenced by other resources (for example SLO, composite monitor). | [optional] |
 
 ### Return type
 
@@ -492,7 +492,7 @@ opts = {
   query: 'query_example', # String | After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance `query=\"type:metric status:alert\"`.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage/#find-the-monitors
   page: 789, # Integer | Page to start paginating from.
   per_page: 789, # Integer | Number of monitors to return per page.
-  sort: 'sort_example' # String | String for sort order, composed of field and sort order separate by a comma, e.g. `name,asc`. Supported sort directions: `asc`, `desc`. Supported fields:  * `name` * `status` * `tags`
+  sort: 'sort_example' # String | String for sort order, composed of field and sort order separate by a comma, for example `name,asc`. Supported sort directions: `asc`, `desc`. Supported fields:  * `name` * `status` * `tags`
 }
 
 begin
@@ -529,7 +529,7 @@ end
 | **query**    | **String**  | After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more. The query can contain any number of space-separated monitor attributes, for instance &#x60;query&#x3D;\&quot;type:metric status:alert\&quot;&#x60;. [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage/#find-the-monitors | [optional]                |
 | **page**     | **Integer** | Page to start paginating from.                                                                                                                                                                                                                                                                                                                                                                                                                                           | [optional][default to 0]  |
 | **per_page** | **Integer** | Number of monitors to return per page.                                                                                                                                                                                                                                                                                                                                                                                                                                   | [optional][default to 30] |
-| **sort**     | **String**  | String for sort order, composed of field and sort order separate by a comma, e.g. &#x60;name,asc&#x60;. Supported sort directions: &#x60;asc&#x60;, &#x60;desc&#x60;. Supported fields: _ &#x60;name&#x60; _ &#x60;status&#x60; \* &#x60;tags&#x60;                                                                                                                                                                                                                      | [optional]                |
+| **sort**     | **String**  | String for sort order, composed of field and sort order separate by a comma, for example &#x60;name,asc&#x60;. Supported sort directions: &#x60;asc&#x60;, &#x60;desc&#x60;. Supported fields: _ &#x60;name&#x60; _ &#x60;status&#x60; \* &#x60;tags&#x60;                                                                                                                                                                                                               | [optional]                |
 
 ### Return type
 
@@ -559,7 +559,7 @@ opts = {
   query: 'query_example', # String | After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance `query=\"type:metric status:alert\"`.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage/#find-the-monitors
   page: 789, # Integer | Page to start paginating from.
   per_page: 789, # Integer | Number of monitors to return per page.
-  sort: 'sort_example' # String | String for sort order, composed of field and sort order separate by a comma, e.g. `name,asc`. Supported sort directions: `asc`, `desc`. Supported fields:  * `name` * `status` * `tags`
+  sort: 'sort_example' # String | String for sort order, composed of field and sort order separate by a comma, for example `name,asc`. Supported sort directions: `asc`, `desc`. Supported fields:  * `name` * `status` * `tags`
 }
 
 begin
@@ -596,7 +596,7 @@ end
 | **query**    | **String**  | After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more. The query can contain any number of space-separated monitor attributes, for instance &#x60;query&#x3D;\&quot;type:metric status:alert\&quot;&#x60;. [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage/#find-the-monitors | [optional]                |
 | **page**     | **Integer** | Page to start paginating from.                                                                                                                                                                                                                                                                                                                                                                                                                                           | [optional][default to 0]  |
 | **per_page** | **Integer** | Number of monitors to return per page.                                                                                                                                                                                                                                                                                                                                                                                                                                   | [optional][default to 30] |
-| **sort**     | **String**  | String for sort order, composed of field and sort order separate by a comma, e.g. &#x60;name,asc&#x60;. Supported sort directions: &#x60;asc&#x60;, &#x60;desc&#x60;. Supported fields: _ &#x60;name&#x60; _ &#x60;status&#x60; \* &#x60;tags&#x60;                                                                                                                                                                                                                      | [optional]                |
+| **sort**     | **String**  | String for sort order, composed of field and sort order separate by a comma, for example &#x60;name,asc&#x60;. Supported sort directions: &#x60;asc&#x60;, &#x60;desc&#x60;. Supported fields: _ &#x60;name&#x60; _ &#x60;status&#x60; \* &#x60;tags&#x60;                                                                                                                                                                                                               | [optional]                |
 
 ### Return type
 
