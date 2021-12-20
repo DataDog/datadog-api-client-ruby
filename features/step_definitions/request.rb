@@ -123,16 +123,17 @@ module APIWorld
     lambda do |response|
       args = operation["parameters"].map do |p|
         if p["source"]
-          response.lookup(p["source"])
+          [p["name"].to_sym, response.lookup(p["source"])]
         elsif p["template"]
-          p["template"].templated response
+          [p["name"].to_sym, p["template"].templated(response)]
         end
-      end
+      end.to_h
+      params = method.parameters.select { |p| p[0] == :req }.map { |p| args.delete(p[1]) }
 
       if api_instance.api_client.config.unstable_operations.has_key?(operation_name.to_sym)
         api_instance.api_client.config.unstable_operations[operation_name.to_sym] = true
       end
-      lambda { method.call(*args) }
+      lambda { method.call(*params) }
     end
   end
 

@@ -1,0 +1,70 @@
+http_interactions:
+- recorded_at: Fri, 17 Dec 2021 16:05:10 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"api_keys","attributes":{"name":"Test-Create_an_API_key_returns_Created_response-1639757110"}}}'
+    headers:
+      Cache-Control:
+      - no-cache
+      Connection:
+      - close
+      Content-Length:
+      - '493'
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 17 Dec 2021 16:05:11 GMT
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/api_keys
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"api_keys","attributes":{"created_at":"2021-12-17T16:05:11.162599+00:00","key":"dead4087c6b3d1ae4b5e22e77a98beef","last4":"beef","modified_at":"2021-12-17T16:05:11.162599+00:00","name":"Test-Create_an_API_key_returns_Created_response-1639757110"},"relationships":{"created_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}},"modified_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}}},"id":"b4826cba-c36e-5bb0-b789-a40a81b4acfa"}}'
+    status:
+      code: 201
+      message: Created
+- recorded_at: Fri, 17 Dec 2021 16:05:10 GMT
+  request:
+    body: null
+    headers:
+      Cache-Control:
+      - no-cache
+      Connection:
+      - close
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      Date:
+      - Fri, 17 Dec 2021 16:05:11 GMT
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/api_keys/b4826cba-c36e-5bb0-b789-a40a81b4acfa
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0
