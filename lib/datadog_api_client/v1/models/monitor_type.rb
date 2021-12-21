@@ -31,6 +31,7 @@ module DatadogAPIClient::V1
     SLO_ALERT = "slo alert".freeze
     EVENT_V2_ALERT = "event-v2 alert".freeze
     AUDIT_ALERT = "audit alert".freeze
+    CI_PIPELINES_ALERT = "ci-pipelines alert".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
