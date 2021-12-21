@@ -94,6 +94,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | _DatadogAPIClient::V2::ProcessesAPI_          | [**list_processes**](ProcessesAPI.md#list_processes)                                                       | **GET** /api/v2/processes                                                                  | Get all processes                                  |
 | _DatadogAPIClient::V2::RolesAPI_              | [**add_permission_to_role**](RolesAPI.md#add_permission_to_role)                                           | **POST** /api/v2/roles/{role_id}/permissions                                               | Grant permission to a role                         |
 | _DatadogAPIClient::V2::RolesAPI_              | [**add_user_to_role**](RolesAPI.md#add_user_to_role)                                                       | **POST** /api/v2/roles/{role_id}/users                                                     | Add a user to a role                               |
+| _DatadogAPIClient::V2::RolesAPI_              | [**clone_role**](RolesAPI.md#clone_role)                                                                   | **POST** /api/v2/roles/{role_id}/clone                                                     | Create a new role by cloning an existing role      |
 | _DatadogAPIClient::V2::RolesAPI_              | [**create_role**](RolesAPI.md#create_role)                                                                 | **POST** /api/v2/roles                                                                     | Create role                                        |
 | _DatadogAPIClient::V2::RolesAPI_              | [**delete_role**](RolesAPI.md#delete_role)                                                                 | **DELETE** /api/v2/roles/{role_id}                                                         | Delete role                                        |
 | _DatadogAPIClient::V2::RolesAPI_              | [**get_role**](RolesAPI.md#get_role)                                                                       | **GET** /api/v2/roles/{role_id}                                                            | Get a role                                         |
@@ -376,6 +377,9 @@ All URIs are relative to *https://api.datadoghq.com*
 - [DatadogAPIClient::V2::ResponseMetaAttributes](ResponseMetaAttributes.md)
 - [DatadogAPIClient::V2::Role](Role.md)
 - [DatadogAPIClient::V2::RoleAttributes](RoleAttributes.md)
+- [DatadogAPIClient::V2::RoleClone](RoleClone.md)
+- [DatadogAPIClient::V2::RoleCloneAttributes](RoleCloneAttributes.md)
+- [DatadogAPIClient::V2::RoleCloneRequest](RoleCloneRequest.md)
 - [DatadogAPIClient::V2::RoleCreateAttributes](RoleCreateAttributes.md)
 - [DatadogAPIClient::V2::RoleCreateData](RoleCreateData.md)
 - [DatadogAPIClient::V2::RoleCreateRequest](RoleCreateRequest.md)

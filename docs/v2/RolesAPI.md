@@ -2,20 +2,21 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method                                                                     | HTTP request                                   | Description                 |
-| -------------------------------------------------------------------------- | ---------------------------------------------- | --------------------------- |
-| [**add_permission_to_role**](RolesAPI.md#add_permission_to_role)           | **POST** /api/v2/roles/{role_id}/permissions   | Grant permission to a role  |
-| [**add_user_to_role**](RolesAPI.md#add_user_to_role)                       | **POST** /api/v2/roles/{role_id}/users         | Add a user to a role        |
-| [**create_role**](RolesAPI.md#create_role)                                 | **POST** /api/v2/roles                         | Create role                 |
-| [**delete_role**](RolesAPI.md#delete_role)                                 | **DELETE** /api/v2/roles/{role_id}             | Delete role                 |
-| [**get_role**](RolesAPI.md#get_role)                                       | **GET** /api/v2/roles/{role_id}                | Get a role                  |
-| [**list_permissions**](RolesAPI.md#list_permissions)                       | **GET** /api/v2/permissions                    | List permissions            |
-| [**list_role_permissions**](RolesAPI.md#list_role_permissions)             | **GET** /api/v2/roles/{role_id}/permissions    | List permissions for a role |
-| [**list_role_users**](RolesAPI.md#list_role_users)                         | **GET** /api/v2/roles/{role_id}/users          | Get all users of a role     |
-| [**list_roles**](RolesAPI.md#list_roles)                                   | **GET** /api/v2/roles                          | List roles                  |
-| [**remove_permission_from_role**](RolesAPI.md#remove_permission_from_role) | **DELETE** /api/v2/roles/{role_id}/permissions | Revoke permission           |
-| [**remove_user_from_role**](RolesAPI.md#remove_user_from_role)             | **DELETE** /api/v2/roles/{role_id}/users       | Remove a user from a role   |
-| [**update_role**](RolesAPI.md#update_role)                                 | **PATCH** /api/v2/roles/{role_id}              | Update a role               |
+| Method                                                                     | HTTP request                                   | Description                                   |
+| -------------------------------------------------------------------------- | ---------------------------------------------- | --------------------------------------------- |
+| [**add_permission_to_role**](RolesAPI.md#add_permission_to_role)           | **POST** /api/v2/roles/{role_id}/permissions   | Grant permission to a role                    |
+| [**add_user_to_role**](RolesAPI.md#add_user_to_role)                       | **POST** /api/v2/roles/{role_id}/users         | Add a user to a role                          |
+| [**clone_role**](RolesAPI.md#clone_role)                                   | **POST** /api/v2/roles/{role_id}/clone         | Create a new role by cloning an existing role |
+| [**create_role**](RolesAPI.md#create_role)                                 | **POST** /api/v2/roles                         | Create role                                   |
+| [**delete_role**](RolesAPI.md#delete_role)                                 | **DELETE** /api/v2/roles/{role_id}             | Delete role                                   |
+| [**get_role**](RolesAPI.md#get_role)                                       | **GET** /api/v2/roles/{role_id}                | Get a role                                    |
+| [**list_permissions**](RolesAPI.md#list_permissions)                       | **GET** /api/v2/permissions                    | List permissions                              |
+| [**list_role_permissions**](RolesAPI.md#list_role_permissions)             | **GET** /api/v2/roles/{role_id}/permissions    | List permissions for a role                   |
+| [**list_role_users**](RolesAPI.md#list_role_users)                         | **GET** /api/v2/roles/{role_id}/users          | Get all users of a role                       |
+| [**list_roles**](RolesAPI.md#list_roles)                                   | **GET** /api/v2/roles                          | List roles                                    |
+| [**remove_permission_from_role**](RolesAPI.md#remove_permission_from_role) | **DELETE** /api/v2/roles/{role_id}/permissions | Revoke permission                             |
+| [**remove_user_from_role**](RolesAPI.md#remove_user_from_role)             | **DELETE** /api/v2/roles/{role_id}/users       | Remove a user from a role                     |
+| [**update_role**](RolesAPI.md#update_role)                                 | **PATCH** /api/v2/roles/{role_id}              | Update a role                                 |
 
 ## add_permission_to_role
 
@@ -129,6 +130,67 @@ end
 ### Return type
 
 [**UsersResponse**](UsersResponse.md)
+
+### Authorization
+
+[AuthZ](README.md#AuthZ), [apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+## clone_role
+
+> <RoleResponse> clone_role(role_id, body)
+
+Clone an existing role
+
+### Examples
+
+```ruby
+require 'datadog_api_client'
+api_instance = DatadogAPIClient::V2::RolesAPI.new
+role_id = 'role_id_example' # String | The ID of the role.
+body = DatadogAPIClient::V2::RoleCloneRequest.new({data: DatadogAPIClient::V2::RoleClone.new({attributes: DatadogAPIClient::V2::RoleCloneAttributes.new({name: 'cloned-role'}), type: DatadogAPIClient::V2::RolesType::ROLES})}) # RoleCloneRequest |
+
+begin
+  # Create a new role by cloning an existing role
+  result = api_instance.clone_role(role_id, body)
+  p result
+rescue DatadogAPIClient::V2::APIError => e
+  puts "Error when calling RolesAPI->clone_role: #{e}"
+end
+```
+
+#### Using the clone_role_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RoleResponse>, Integer, Hash)> clone_role_with_http_info(role_id, body)
+
+```ruby
+begin
+  # Create a new role by cloning an existing role
+  data, status_code, headers = api_instance.clone_role_with_http_info(role_id, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RoleResponse>
+rescue DatadogAPIClient::V2::APIError => e
+  puts "Error when calling RolesAPI->clone_role_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name        | Type                                        | Description         | Notes |
+| ----------- | ------------------------------------------- | ------------------- | ----- |
+| **role_id** | **String**                                  | The ID of the role. |       |
+| **body**    | [**RoleCloneRequest**](RoleCloneRequest.md) |                     |       |
+
+### Return type
+
+[**RoleResponse**](RoleResponse.md)
 
 ### Authorization
 
