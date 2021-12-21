@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **hide_percent** | **Boolean** | Whether to hide the percentages of the groups. | [optional] |
-| **hide_value** | **Boolean** | Whether to hide the values of the groups. | [optional] |
-| **type** | [**SunburstWidgetLegendInlineAutomaticType**](SunburstWidgetLegendInlineAutomaticType.md) |  |  |
+| Name             | Type                                                                                      | Description                                    | Notes      |
+| ---------------- | ----------------------------------------------------------------------------------------- | ---------------------------------------------- | ---------- |
+| **hide_percent** | **Boolean**                                                                               | Whether to hide the percentages of the groups. | [optional] |
+| **hide_value**   | **Boolean**                                                                               | Whether to hide the values of the groups.      | [optional] |
+| **type**         | [**SunburstWidgetLegendInlineAutomaticType**](SunburstWidgetLegendInlineAutomaticType.md) |                                                |            |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::SunburstWidgetLegendInlineAutomatic.new(
   type: null
 )
 ```
-

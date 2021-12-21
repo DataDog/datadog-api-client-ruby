@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **type** | [**SunburstWidgetLegendTableType**](SunburstWidgetLegendTableType.md) |  |  |
+| Name     | Type                                                                  | Description | Notes |
+| -------- | --------------------------------------------------------------------- | ----------- | ----- |
+| **type** | [**SunburstWidgetLegendTableType**](SunburstWidgetLegendTableType.md) |             |       |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::SunburstWidgetLegendTable.new(
   type: null
 )
 ```
-
