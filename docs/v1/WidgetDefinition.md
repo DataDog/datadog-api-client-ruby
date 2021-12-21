@@ -38,6 +38,7 @@ DatadogAPIClient::V1::WidgetDefinition.openapi_one_of
 #   :'ScatterPlotWidgetDefinition',
 #   :'ServiceMapWidgetDefinition',
 #   :'ServiceSummaryWidgetDefinition',
+#   :'SunburstWidgetDefinition',
 #   :'TableWidgetDefinition',
 #   :'TimeseriesWidgetDefinition',
 #   :'ToplistWidgetDefinition',
@@ -93,6 +94,7 @@ DatadogAPIClient::V1::WidgetDefinition.build(data_that_doesnt_match)
 - `ScatterPlotWidgetDefinition`
 - `ServiceMapWidgetDefinition`
 - `ServiceSummaryWidgetDefinition`
+- `SunburstWidgetDefinition`
 - `TableWidgetDefinition`
 - `TimeseriesWidgetDefinition`
 - `ToplistWidgetDefinition`
