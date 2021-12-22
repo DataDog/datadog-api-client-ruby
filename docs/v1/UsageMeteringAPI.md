@@ -5,6 +5,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | Method                                                                                                             | HTTP request                                       | Description                                      |
 | ------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------- | ------------------------------------------------ |
 | [**get_daily_custom_reports**](UsageMeteringAPI.md#get_daily_custom_reports)                                       | **GET** /api/v1/daily_custom_reports               | Get the list of available daily custom reports   |
+| [**get_hourly_usage_attribution**](UsageMeteringAPI.md#get_hourly_usage_attribution)                               | **GET** /api/v1/usage/hourly-attribution           | Get Hourly Usage Attribution                     |
 | [**get_incident_management**](UsageMeteringAPI.md#get_incident_management)                                         | **GET** /api/v1/usage/incident-management          | Get hourly usage for incident management         |
 | [**get_ingested_spans**](UsageMeteringAPI.md#get_ingested_spans)                                                   | **GET** /api/v1/usage/ingested-spans               | Get hourly usage for ingested spans              |
 | [**get_monthly_custom_reports**](UsageMeteringAPI.md#get_monthly_custom_reports)                                   | **GET** /api/v1/monthly_custom_reports             | Get the list of available monthly custom reports |
@@ -105,6 +106,80 @@ end
 ### Authorization
 
 [apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json;datetime-format=rfc3339, application/json
+
+## get_hourly_usage_attribution
+
+> <HourlyUsageAttributionResponse> get_hourly_usage_attribution(start_hr, usage_type, opts)
+
+Get Hourly Usage Attribution.
+
+### Examples
+
+```ruby
+require 'datadog_api_client'
+
+DatadogAPIClient::V1.configure do |config|
+  config.unstable_operations[:get_hourly_usage_attribution] = true
+end
+
+api_instance = DatadogAPIClient::V1::UsageMeteringAPI.new
+start_hr = Time.parse('2013-10-20T19:20:30+01:00') # Time | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
+usage_type = DatadogAPIClient::V1::HourlyUsageAttributionUsageType::API_USAGE # HourlyUsageAttributionUsageType | Usage type to retrieve.
+opts = {
+  end_hr: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
+  next_record_id: 'next_record_id_example', # String | List following results with a next_record_id provided in the previous query.
+  tag_breakdown_keys: 'tag_breakdown_keys_example' # String | Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.
+}
+
+begin
+  # Get Hourly Usage Attribution
+  result = api_instance.get_hourly_usage_attribution(start_hr, usage_type, opts)
+  p result
+rescue DatadogAPIClient::V1::APIError => e
+  puts "Error when calling UsageMeteringAPI->get_hourly_usage_attribution: #{e}"
+end
+```
+
+#### Using the get_hourly_usage_attribution_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HourlyUsageAttributionResponse>, Integer, Hash)> get_hourly_usage_attribution_with_http_info(start_hr, usage_type, opts)
+
+```ruby
+begin
+  # Get Hourly Usage Attribution
+  data, status_code, headers = api_instance.get_hourly_usage_attribution_with_http_info(start_hr, usage_type, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HourlyUsageAttributionResponse>
+rescue DatadogAPIClient::V1::APIError => e
+  puts "Error when calling UsageMeteringAPI->get_hourly_usage_attribution_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name                   | Type                                | Description                                                                                                           | Notes      |
+| ---------------------- | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **start_hr**           | **Time**                            | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      |            |
+| **usage_type**         | **HourlyUsageAttributionUsageType** | Usage type to retrieve.                                                                                               |            |
+| **end_hr**             | **Time**                            | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+| **next_record_id**     | **String**                          | List following results with a next_record_id provided in the previous query.                                          | [optional] |
+| **tag_breakdown_keys** | **String**                          | Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.  | [optional] |
+
+### Return type
+
+[**HourlyUsageAttributionResponse**](HourlyUsageAttributionResponse.md)
+
+### Authorization
+
+[AuthZ](README.md#AuthZ), [apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 

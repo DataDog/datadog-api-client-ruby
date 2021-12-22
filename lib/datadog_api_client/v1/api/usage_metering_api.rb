@@ -101,6 +101,96 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
+    # Get Hourly Usage Attribution
+    # Get Hourly Usage Attribution.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+    # @param usage_type [HourlyUsageAttributionUsageType] Usage type to retrieve.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+    # @option opts [String] :next_record_id List following results with a next_record_id provided in the previous query.
+    # @option opts [String] :tag_breakdown_keys Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.
+    # @return [HourlyUsageAttributionResponse]
+    def get_hourly_usage_attribution(start_hr, usage_type, opts = {})
+      data, _status_code, _headers = get_hourly_usage_attribution_with_http_info(start_hr, usage_type, opts)
+      data
+    end
+
+    # Get Hourly Usage Attribution
+    # Get Hourly Usage Attribution.
+    # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+    # @param usage_type [HourlyUsageAttributionUsageType] Usage type to retrieve.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+    # @option opts [String] :next_record_id List following results with a next_record_id provided in the previous query.
+    # @option opts [String] :tag_breakdown_keys Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.
+    # @return [Array<(HourlyUsageAttributionResponse, Integer, Hash)>] HourlyUsageAttributionResponse data, response status code and response headers
+    def get_hourly_usage_attribution_with_http_info(start_hr, usage_type, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_hourly_usage_attribution)
+        unstable_enabled = @api_client.config.unstable_operations[:get_hourly_usage_attribution]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_hourly_usage_attribution")
+        else
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_hourly_usage_attribution"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_hourly_usage_attribution ...'
+      end
+      # verify the required parameter 'start_hr' is set
+      if @api_client.config.client_side_validation && start_hr.nil?
+        fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_hourly_usage_attribution"
+      end
+      # verify the required parameter 'usage_type' is set
+      if @api_client.config.client_side_validation && usage_type.nil?
+        fail ArgumentError, "Missing the required parameter 'usage_type' when calling UsageMeteringAPI.get_hourly_usage_attribution"
+      end
+      # resource path
+      local_var_path = '/api/v1/usage/hourly-attribution'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'start_hr'] = start_hr
+      query_params[:'usage_type'] = usage_type
+      query_params[:'end_hr'] = opts[:'end_hr'] if !opts[:'end_hr'].nil?
+      query_params[:'next_record_id'] = opts[:'next_record_id'] if !opts[:'next_record_id'].nil?
+      query_params[:'tag_breakdown_keys'] = opts[:'tag_breakdown_keys'] if !opts[:'tag_breakdown_keys'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'HourlyUsageAttributionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_hourly_usage_attribution,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsageMeteringAPI#get_hourly_usage_attribution\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get hourly usage for incident management
     # Get hourly usage for incident management.
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
