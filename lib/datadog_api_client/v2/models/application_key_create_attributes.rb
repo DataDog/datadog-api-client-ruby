@@ -25,10 +25,14 @@ module DatadogAPIClient::V2
     # Name of the application key.
     attr_accessor :name
 
+    # Array of scopes to grant the application key. This feature is in private beta, please contact Datadog support to enable scopes for your application keys.
+    attr_accessor :scopes
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'name' => :'name'
+        :'name' => :'name',
+        :'scopes' => :'scopes'
       }
     end
 
@@ -40,13 +44,15 @@ module DatadogAPIClient::V2
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'name' => :'String'
+        :'name' => :'String',
+        :'scopes' => :'Array<String>'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'scopes'
       ])
     end
 
@@ -67,6 +73,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'scopes')
+        if (value = attributes[:'scopes']).is_a?(Array)
+          self.scopes = value
+        end
       end
     end
 
@@ -93,7 +105,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name
+          name == o.name &&
+          scopes == o.scopes
     end
 
     # @see the `==` method
@@ -105,7 +118,7 @@ module DatadogAPIClient::V2
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name].hash
+      [name, scopes].hash
     end
 
     # Builds the object from hash
