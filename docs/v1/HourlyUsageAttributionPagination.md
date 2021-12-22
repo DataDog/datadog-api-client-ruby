@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+| Name               | Type       | Description                                                                                                                        | Notes      |
+| ------------------ | ---------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------- |
 | **next_record_id** | **String** | The cursor to get the next results (if any). To make the next request, use the same parameters and add &#x60;next_record_id&#x60;. | [optional] |
 
 ## Example
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::HourlyUsageAttributionPagination.new(
   next_record_id: null
 )
 ```
-
