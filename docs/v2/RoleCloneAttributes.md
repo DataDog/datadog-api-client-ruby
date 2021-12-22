@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **name** | **String** | Name of the new role that is cloned. |  |
+| Name     | Type       | Description                          | Notes |
+| -------- | ---------- | ------------------------------------ | ----- |
+| **name** | **String** | Name of the new role that is cloned. |       |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V2::RoleCloneAttributes.new(
   name: cloned-role
 )
 ```
-
