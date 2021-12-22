@@ -12,7 +12,7 @@ body = DatadogAPIClient::V2::ApplicationKeyUpdateRequest.new({
     id: APPLICATION_KEY_DATA_ID,
     type: DatadogAPIClient::V2::ApplicationKeysType::APPLICATION_KEYS,
     attributes: DatadogAPIClient::V2::ApplicationKeyUpdateAttributes.new({
-      name: "Application Key for submitting metrics-updated",
+      name: "Application Key for managing dashboards-updated",
     }),
   }),
 })
