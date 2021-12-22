@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **pagination** | [**HourlyUsageAttributionPagination**](HourlyUsageAttributionPagination.md) |  | [optional] |
+| Name           | Type                                                                        | Description | Notes      |
+| -------------- | --------------------------------------------------------------------------- | ----------- | ---------- |
+| **pagination** | [**HourlyUsageAttributionPagination**](HourlyUsageAttributionPagination.md) |             | [optional] |
 
 ## Example
 
@@ -15,4 +15,3 @@ instance = DatadogAPIClient::V1::HourlyUsageAttributionMetadata.new(
   pagination: null
 )
 ```
-
