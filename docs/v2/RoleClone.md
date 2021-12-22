@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **attributes** | [**RoleCloneAttributes**](RoleCloneAttributes.md) |  |  |
-| **type** | [**RolesType**](RolesType.md) |  | [default to &#39;roles&#39;] |
+| Name           | Type                                              | Description | Notes                        |
+| -------------- | ------------------------------------------------- | ----------- | ---------------------------- |
+| **attributes** | [**RoleCloneAttributes**](RoleCloneAttributes.md) |             |                              |
+| **type**       | [**RolesType**](RolesType.md)                     |             | [default to &#39;roles&#39;] |
 
 ## Example
 
@@ -17,4 +17,3 @@ instance = DatadogAPIClient::V2::RoleClone.new(
   type: null
 )
 ```
-
