@@ -81,7 +81,7 @@ module APIWorld
             ret += num.year
           end
         end
-        return ret.iso8601 if iso
+        return ret.rfc3339(3) if iso
         return ret.to_i
       end
       return nil

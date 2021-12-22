@@ -1,0 +1,50 @@
+http_interactions:
+- recorded_at: Wed, 22 Dec 2021 21:22:28 GMT
+  request:
+    body: null
+    headers:
+      Cache-Control:
+      - no-cache
+      Connection:
+      - close
+      Content-Length:
+      - '862'
+      Content-Security-Policy:
+      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Dec 2021 21:22:29 GMT
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15724800;
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Ratelimit-Limit:
+      - '1'
+      X-Ratelimit-Period:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '0'
+      X-Ratelimit-Reset:
+      - '31'
+    method: GET
+    uri: https://api.datadoghq.com/api/v1/usage/hourly-attribution?start_hr=2021-12-19T21%3A22%3A28.553Z&usage_type=infra_host_usage
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"usage":[{"org_name":"DD Integration Tests (321813)","public_id":"fasjyydbcgwwc2uc","hour":"2021-12-19T21:00:00+00:00","tag_config_source":"DD
+        Integration Tests (321813):::project","tags":null,"total_usage_sum":17,"updated_at":"2021-12-20T17","usage_type":"infra_host_usage"},{"org_name":"DD
+        Integration Tests (321813)","public_id":"fasjyydbcgwwc2uc","hour":"2021-12-19T22:00:00+00:00","tag_config_source":"DD
+        Integration Tests (321813):::project","tags":null,"total_usage_sum":17,"updated_at":"2021-12-20T17","usage_type":"infra_host_usage"},{"org_name":"DD
+        Integration Tests (321813)","public_id":"fasjyydbcgwwc2uc","hour":"2021-12-19T23:00:00+00:00","tag_config_source":"DD
+        Integration Tests (321813):::project","tags":null,"total_usage_sum":17,"updated_at":"2021-12-20T17","usage_type":"infra_host_usage"}],"metadata":{"pagination":{"next_record_id":null}}}'
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0
