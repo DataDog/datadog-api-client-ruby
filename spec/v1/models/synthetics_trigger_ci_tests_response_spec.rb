@@ -28,6 +28,12 @@ describe DatadogAPIClient::V1::SyntheticsTriggerCITestsResponse do
       expect(instance).to be_instance_of(DatadogAPIClient::V1::SyntheticsTriggerCITestsResponse)
     end
   end
+  describe 'test attribute "batch_id"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "locations"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

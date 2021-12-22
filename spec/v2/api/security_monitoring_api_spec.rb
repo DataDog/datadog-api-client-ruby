@@ -35,6 +35,18 @@ describe 'SecurityMonitoringAPI' do
     end
   end
 
+  # unit tests for create_security_filter
+  # Create a security filter
+  # Create a security filter.  See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/) for more examples.
+  # @param body The definition of the new security filter.
+  # @param [Hash] opts the optional parameters
+  # @return [SecurityFilterResponse]
+  describe 'create_security_filter test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for create_security_monitoring_rule
   # Create a detection rule
   # Create a detection rule.
@@ -42,6 +54,18 @@ describe 'SecurityMonitoringAPI' do
   # @param [Hash] opts the optional parameters
   # @return [SecurityMonitoringRuleResponse]
   describe 'create_security_monitoring_rule test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for delete_security_filter
+  # Delete a security filter
+  # Delete a specific security filter.
+  # @param security_filter_id The ID of the security filter.
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'delete_security_filter test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -59,6 +83,18 @@ describe 'SecurityMonitoringAPI' do
     end
   end
 
+  # unit tests for get_security_filter
+  # Get a security filter
+  # Get the details of a specific security filter.  See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/) for more examples.
+  # @param security_filter_id The ID of the security filter.
+  # @param [Hash] opts the optional parameters
+  # @return [SecurityFilterResponse]
+  describe 'get_security_filter test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_security_monitoring_rule
   # Get a rule&#39;s details
   # Get a rule&#39;s details.
@@ -66,6 +102,17 @@ describe 'SecurityMonitoringAPI' do
   # @param [Hash] opts the optional parameters
   # @return [SecurityMonitoringRuleResponse]
   describe 'get_security_monitoring_rule test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for list_security_filters
+  # Get all security filters
+  # Get the list of configured security filters with their definitions.
+  # @param [Hash] opts the optional parameters
+  # @return [SecurityFiltersResponse]
+  describe 'list_security_filters test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -108,6 +155,19 @@ describe 'SecurityMonitoringAPI' do
   # @option opts [SecurityMonitoringSignalListRequest] :body 
   # @return [SecurityMonitoringSignalsListResponse]
   describe 'search_security_monitoring_signals test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for update_security_filter
+  # Update a security filter
+  # Update a specific security filter. Returns the security filter object when the request is successful.
+  # @param security_filter_id The ID of the security filter.
+  # @param body New definition of the security filter.
+  # @param [Hash] opts the optional parameters
+  # @return [SecurityFilterResponse]
+  describe 'update_security_filter test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

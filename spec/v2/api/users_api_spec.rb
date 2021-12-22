@@ -35,6 +35,18 @@ describe 'UsersAPI' do
     end
   end
 
+  # unit tests for create_service_account
+  # Create a service account
+  # Create a service account for your organization.
+  # @param body 
+  # @param [Hash] opts the optional parameters
+  # @return [UserResponse]
+  describe 'create_service_account test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for create_user
   # Create a user
   # Create a user for your organization.

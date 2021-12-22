@@ -37,7 +37,7 @@ describe 'ServiceLevelObjectiveCorrectionsAPI' do
 
   # unit tests for create_slo_correction
   # Create an SLO correction
-  # Create an SLO Correction
+  # Create an SLO Correction.
   # @param body Create an SLO Correction
   # @param [Hash] opts the optional parameters
   # @return [SLOCorrectionResponse]
@@ -48,9 +48,9 @@ describe 'ServiceLevelObjectiveCorrectionsAPI' do
   end
 
   # unit tests for delete_slo_correction
-  # Delete an SLO Correction
-  # Permanently delete the specified SLO Correction object
-  # @param slo_correction_id The ID of the SLO correction object
+  # Delete an SLO correction
+  # Permanently delete the specified SLO correction object.
+  # @param slo_correction_id The ID of the SLO correction object.
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'delete_slo_correction test' do
@@ -61,8 +61,8 @@ describe 'ServiceLevelObjectiveCorrectionsAPI' do
 
   # unit tests for get_slo_correction
   # Get an SLO correction for an SLO
-  # Get an SLO Correction
-  # @param slo_correction_id The ID of the SLO correction object
+  # Get an SLO correction.
+  # @param slo_correction_id The ID of the SLO correction object.
   # @param [Hash] opts the optional parameters
   # @return [SLOCorrectionResponse]
   describe 'get_slo_correction test' do
@@ -73,7 +73,7 @@ describe 'ServiceLevelObjectiveCorrectionsAPI' do
 
   # unit tests for list_slo_correction
   # Get all SLO corrections
-  # Get all Service Level Objective Corrections
+  # Get all Service Level Objective corrections.
   # @param [Hash] opts the optional parameters
   # @return [SLOCorrectionListResponse]
   describe 'list_slo_correction test' do
@@ -83,9 +83,9 @@ describe 'ServiceLevelObjectiveCorrectionsAPI' do
   end
 
   # unit tests for update_slo_correction
-  # Update an SLO Correction
-  # Update the specified SLO correction object object
-  # @param slo_correction_id The ID of the SLO correction object
+  # Update an SLO correction
+  # Update the specified SLO correction object object.
+  # @param slo_correction_id The ID of the SLO correction object.
   # @param body The edited SLO correction object.
   # @param [Hash] opts the optional parameters
   # @return [SLOCorrectionResponse]

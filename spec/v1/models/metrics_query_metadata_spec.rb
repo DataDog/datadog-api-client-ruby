@@ -76,6 +76,12 @@ describe DatadogAPIClient::V1::MetricsQueryMetadata do
     end
   end
 
+  describe 'test attribute "query_index"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "scope"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -83,6 +89,12 @@ describe DatadogAPIClient::V1::MetricsQueryMetadata do
   end
 
   describe 'test attribute "start"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "tag_set"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -62,7 +62,7 @@ describe 'AWSIntegrationAPI' do
   # unit tests for create_new_aws_external_id
   # Generate a new external ID
   # Generate a new AWS external ID for a given AWS account ID and role name pair.
-  # @param body Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://github.com/DataDog/documentation/blob/master/integrations/amazon_web_services/#installation).
+  # @param body Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://docs.datadoghq.com/integrations/amazon_web_services/#setup).
   # @param [Hash] opts the optional parameters
   # @return [AWSAccountCreateResponse]
   describe 'create_new_aws_external_id test' do

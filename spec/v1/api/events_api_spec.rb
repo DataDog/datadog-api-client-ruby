@@ -35,6 +35,18 @@ describe 'EventsAPI' do
     end
   end
 
+  # unit tests for create_event
+  # Post an event
+  # This endpoint allows you to post events to the stream. Tag them, set priority and event aggregate them with other events.
+  # @param body Event request object
+  # @param [Hash] opts the optional parameters
+  # @return [EventCreateResponse]
+  describe 'create_event test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_event
   # Get an event
   # This endpoint allows you to query for event details.  **Note**: If the event you’re querying contains markdown formatting of any kind, you may see characters such as &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output.
@@ -49,14 +61,16 @@ describe 'EventsAPI' do
 
   # unit tests for list_events
   # Query the event stream
-  # The event stream can be queried and filtered by time, priority, sources and tags.  **Notes**: - If the event you’re querying contains markdown formatting of any kind, you may see characters such as &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output.  - This endpoint returns a maximum of &#x60;1000&#x60; most recent results. To return additional results, identify the last timestamp of the last result and set that as the &#x60;end&#x60; query time to paginate the results.
+  # The event stream can be queried and filtered by time, priority, sources and tags.  **Notes**: - If the event you’re querying contains markdown formatting of any kind, you may see characters such as &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output.  - This endpoint returns a maximum of &#x60;1000&#x60; most recent results. To return additional results, identify the last timestamp of the last result and set that as the &#x60;end&#x60; query time to paginate the results. You can also use the page parameter to specify which set of &#x60;1000&#x60; results to return.
   # @param start POSIX timestamp.
   # @param _end POSIX timestamp.
   # @param [Hash] opts the optional parameters
   # @option opts [EventPriority] :priority Priority of your events, either &#x60;low&#x60; or &#x60;normal&#x60;.
   # @option opts [String] :sources A comma separated string of sources.
   # @option opts [String] :tags A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope.
-  # @option opts [Boolean] :unaggregated Set unaggregated to &#x60;true&#x60; to return all events within the specified [&#x60;start&#x60;,&#x60;end&#x60;] timeframe. Otherwise if an event is aggregated to a parent event with a timestamp outside of the timeframe, it won&#39;t be available in the output.
+  # @option opts [Boolean] :unaggregated Set unaggregated to &#x60;true&#x60; to return all events within the specified [&#x60;start&#x60;,&#x60;end&#x60;] timeframe. Otherwise if an event is aggregated to a parent event with a timestamp outside of the timeframe, it won&#39;t be available in the output. Aggregated events with &#x60;is_aggregate&#x3D;true&#x60; in the response will still be returned unless exclude_aggregate is set to &#x60;true.&#x60;
+  # @option opts [Boolean] :exclude_aggregate Set &#x60;exclude_aggregate&#x60; to &#x60;true&#x60; to only return unaggregated events where &#x60;is_aggregate&#x3D;false&#x60; in the response. If the &#x60;exclude_aggregate&#x60; parameter is set to &#x60;true&#x60;, then the unaggregated parameter is ignored and will be &#x60;true&#x60; by default.
+  # @option opts [Integer] :page By default 1000 results are returned per request. Set page to the number of the page to return with &#x60;0&#x60; being the first page. The page parameter can only be used when either unaggregated or exclude_aggregate is set to &#x60;true.&#x60;
   # @return [EventListResponse]
   describe 'list_events test' do
     it 'should work' do

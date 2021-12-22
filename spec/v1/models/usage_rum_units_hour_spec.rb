@@ -28,25 +28,7 @@ describe DatadogAPIClient::V1::UsageRumUnitsHour do
       expect(instance).to be_instance_of(DatadogAPIClient::V1::UsageRumUnitsHour)
     end
   end
-  describe 'test attribute "browser_rum_lite_session_count"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "browser_rum_replay_session_count"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
   describe 'test attribute "browser_rum_units"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "mobile_rum_lite_session_count"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

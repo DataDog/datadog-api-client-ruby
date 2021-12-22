@@ -28,6 +28,12 @@ describe DatadogAPIClient::V2::MetricTagConfigurationUpdateAttributes do
       expect(instance).to be_instance_of(DatadogAPIClient::V2::MetricTagConfigurationUpdateAttributes)
     end
   end
+  describe 'test attribute "aggregations"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "include_percentiles"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

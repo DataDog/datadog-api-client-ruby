@@ -108,6 +108,19 @@ describe 'KeyManagementAPI' do
     end
   end
 
+  # unit tests for get_application_key
+  # Get an application key
+  # Get an application key for your org.
+  # @param app_key_id The ID of the application key.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :include Resource path for related resources to include in the response. Only &#x60;owned_by&#x60; is supported.
+  # @return [ApplicationKeyResponse]
+  describe 'get_application_key test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_current_user_application_key
   # Get one application key owned by current user
   # Get an application key owned by current user

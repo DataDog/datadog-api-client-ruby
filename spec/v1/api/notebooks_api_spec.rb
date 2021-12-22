@@ -79,10 +79,12 @@ describe 'NotebooksAPI' do
   # @option opts [String] :exclude_author_handle Return notebooks not created by the given &#x60;author_handle&#x60;.
   # @option opts [Integer] :start The index of the first notebook you want returned.
   # @option opts [Integer] :count The number of notebooks to be returned.
-  # @option opts [String] :sort_field Sort by field &#x60;modified&#x60; or &#x60;name&#x60;.
+  # @option opts [String] :sort_field Sort by field &#x60;modified&#x60;, &#x60;name&#x60;, or &#x60;created&#x60;.
   # @option opts [String] :sort_dir Sort by direction &#x60;asc&#x60; or &#x60;desc&#x60;.
   # @option opts [String] :query Return only notebooks with &#x60;query&#x60; string in notebook name or author handle.
   # @option opts [Boolean] :include_cells Value of &#x60;false&#x60; excludes the &#x60;cells&#x60; and global &#x60;time&#x60; for each notebook.
+  # @option opts [Boolean] :is_template True value returns only template notebooks. Default is false (returns only non-template notebooks).
+  # @option opts [String] :type If type is provided, returns only notebooks with that metadata type. Default does not have type filtering.
   # @return [NotebooksResponse]
   describe 'list_notebooks test' do
     it 'should work' do
