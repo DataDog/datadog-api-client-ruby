@@ -55,6 +55,7 @@
 | **profiling_host_count_top99p_sum**                  | **Integer**                                              | Shows the 99th percentile of all profiled hosts over all hours in the current months for all organizations.                                                         | [optional] |
 | **rehydrated_indexed_events_agg_sum**                | **Integer**                                              | Shows the sum of all rehydrated logs indexed over all hours in the current months for all organizations (data available as of December 1, 2020).                    | [optional] |
 | **rehydrated_ingested_bytes_agg_sum**                | **Integer**                                              | Shows the sum of all rehydrated logs bytes ingested over all hours in the current months for all organizations (data available as of December 1, 2020).             | [optional] |
+| **rum_browser_and_mobile_session_count**             | **Integer**                                              | Shows the sum of all mobile sessions and all browser lite and legacy sessions over all hours in the current month for all organizations.                            | [optional] |
 | **rum_session_count_agg_sum**                        | **Integer**                                              | Shows the sum of all browser RUM Sessions over all hours in the current months for all organizations.                                                               | [optional] |
 | **rum_total_session_count_agg_sum**                  | **Integer**                                              | Shows the sum of RUM Sessions (browser and mobile) over all hours in the current months for all organizations.                                                      | [optional] |
 | **rum_units_agg_sum**                                | **Integer**                                              | Shows the sum of all browser and mobile RUM units over all hours in the current months for all organizations.                                                       | [optional] |
@@ -125,6 +126,7 @@ instance = DatadogAPIClient::V1::UsageSummaryResponse.new(
   profiling_host_count_top99p_sum: null,
   rehydrated_indexed_events_agg_sum: null,
   rehydrated_ingested_bytes_agg_sum: null,
+  rum_browser_and_mobile_session_count: null,
   rum_session_count_agg_sum: null,
   rum_total_session_count_agg_sum: null,
   rum_units_agg_sum: null,
