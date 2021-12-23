@@ -28,6 +28,12 @@ describe DatadogAPIClient::V1::SyntheticsAPIStep do
       expect(instance).to be_instance_of(DatadogAPIClient::V1::SyntheticsAPIStep)
     end
   end
+  describe 'test attribute "allow_failure"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "assertions"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -35,6 +41,12 @@ describe DatadogAPIClient::V1::SyntheticsAPIStep do
   end
 
   describe 'test attribute "extracted_values"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "is_critical"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

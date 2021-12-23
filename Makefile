@@ -1,5 +1,6 @@
 .PHONY: all
 all: .generator .env
+	@rm -rf ./lib/v1 ./lib/v2 ./spec/v1/api ./spec/v1/models ./spec/v2/api ./spec/v2/models
 	@docker-compose -f docker-compose.generator.yaml up
 	@mkdir -p docs/v1 docs/v2 spec/v1 spec/v2
 	@cp -r v1/lib/datadog_api_client ./lib/

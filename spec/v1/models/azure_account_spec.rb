@@ -28,6 +28,12 @@ describe DatadogAPIClient::V1::AzureAccount do
       expect(instance).to be_instance_of(DatadogAPIClient::V1::AzureAccount)
     end
   end
+  describe 'test attribute "automute"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "client_id"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

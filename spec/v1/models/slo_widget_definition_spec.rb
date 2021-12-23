@@ -28,6 +28,12 @@ describe DatadogAPIClient::V1::SLOWidgetDefinition do
       expect(instance).to be_instance_of(DatadogAPIClient::V1::SLOWidgetDefinition)
     end
   end
+  describe 'test attribute "global_time_target"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "show_error_budget"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

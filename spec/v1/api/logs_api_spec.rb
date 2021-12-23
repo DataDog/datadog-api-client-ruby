@@ -47,4 +47,18 @@ describe 'LogsAPI' do
     end
   end
 
+  # unit tests for submit_log
+  # Send logs
+  # Send your logs to your Datadog platform over HTTP. Limits per HTTP request are:  - Maximum content size per payload (uncompressed): 5MB - Maximum size for a single log: 1MB - Maximum array size if sending multiple logs in an array: 1000 entries  Any log exceeding 1MB is accepted and truncated by Datadog: - For a single log request, the API truncates the log at 1MB and returns a 2xx. - For a multi-logs request, the API processes all logs, truncates only logs larger than 1MB, and returns a 2xx.  Datadog recommends sending your logs compressed. Add the &#x60;Content-Encoding: gzip&#x60; header to the request when sending compressed logs.  The status codes answered by the HTTP API are: - 200: OK - 400: Bad request (likely an issue in the payload formatting) - 403: Permission issue (likely using an invalid API Key) - 413: Payload too large (batch is above 5MB uncompressed) - 5xx: Internal error, request should be retried after some time
+  # @param body Log to send (JSON format).
+  # @param [Hash] opts the optional parameters
+  # @option opts [ContentEncoding] :content_encoding HTTP header used to compress the media-type.
+  # @option opts [String] :ddtags Log tags can be passed as query parameters with &#x60;text/plain&#x60; content type.
+  # @return [Object]
+  describe 'submit_log test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
 end

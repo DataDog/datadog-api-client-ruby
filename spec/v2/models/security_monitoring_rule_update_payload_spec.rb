@@ -40,6 +40,12 @@ describe DatadogAPIClient::V2::SecurityMonitoringRuleUpdatePayload do
     end
   end
 
+  describe 'test attribute "has_extended_title"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "is_enabled"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -71,6 +77,12 @@ describe DatadogAPIClient::V2::SecurityMonitoringRuleUpdatePayload do
   end
 
   describe 'test attribute "tags"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "version"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

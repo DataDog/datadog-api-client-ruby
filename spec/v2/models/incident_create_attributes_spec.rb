@@ -40,7 +40,7 @@ describe DatadogAPIClient::V2::IncidentCreateAttributes do
     end
   end
 
-  describe 'test attribute "initial_timeline_cells"' do
+  describe 'test attribute "initial_cells"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

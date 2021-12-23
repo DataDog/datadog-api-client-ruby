@@ -34,7 +34,7 @@ describe DatadogAPIClient::V1::UsageNetworkFlowsHour do
     end
   end
 
-  describe 'test attribute "indexed_event_count"' do
+  describe 'test attribute "indexed_events_count"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -28,6 +28,12 @@ describe DatadogAPIClient::V1::SyntheticsAPITestResultShortResult do
       expect(instance).to be_instance_of(DatadogAPIClient::V1::SyntheticsAPITestResultShortResult)
     end
   end
+  describe 'test attribute "passed"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "timings"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

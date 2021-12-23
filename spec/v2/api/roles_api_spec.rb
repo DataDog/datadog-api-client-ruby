@@ -61,6 +61,19 @@ describe 'RolesAPI' do
     end
   end
 
+  # unit tests for clone_role
+  # Create a new role by cloning an existing role
+  # Clone an existing role
+  # @param role_id The ID of the role.
+  # @param body 
+  # @param [Hash] opts the optional parameters
+  # @return [RoleResponse]
+  describe 'clone_role test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for create_role
   # Create role
   # Create a new role for your organization.

@@ -28,6 +28,12 @@ describe DatadogAPIClient::V1::DashboardTemplateVariable do
       expect(instance).to be_instance_of(DatadogAPIClient::V1::DashboardTemplateVariable)
     end
   end
+  describe 'test attribute "available_values"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "default"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

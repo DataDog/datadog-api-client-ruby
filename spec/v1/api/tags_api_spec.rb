@@ -54,7 +54,7 @@ describe 'TagsAPI' do
   # This endpoint allows you to remove all user-assigned tags for a single host.
   # @param host_name This endpoint allows you to remove all user-assigned tags for a single host.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :source The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
+  # @option opts [String] :source The source of the tags (for example chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
   # @return [nil]
   describe 'delete_host_tags test' do
     it 'should work' do
@@ -93,7 +93,7 @@ describe 'TagsAPI' do
   # @param host_name This endpoint allows you to update/replace all in an integration source with those supplied in the request.
   # @param body Add tags to host
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :source The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value)
+  # @option opts [String] :source The source of the tags (for example chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value)
   # @return [HostTags]
   describe 'update_host_tags test' do
     it 'should work' do

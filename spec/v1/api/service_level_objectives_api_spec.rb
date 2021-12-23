@@ -64,7 +64,7 @@ describe 'ServiceLevelObjectivesAPI' do
   # Permanently delete the specified service level objective object.  If an SLO is used in a dashboard, the &#x60;DELETE /v1/slo/&#x60; endpoint returns a 409 conflict error because the SLO is referenced in a dashboard.
   # @param slo_id The ID of the service level objective.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :force Delete the monitor even if it&#39;s referenced by other resources (e.g. SLO, composite monitor).
+  # @option opts [String] :force Delete the monitor even if it&#39;s referenced by other resources (for example SLO, composite monitor).
   # @return [SLODeleteResponse]
   describe 'delete_slo test' do
     it 'should work' do
@@ -89,8 +89,21 @@ describe 'ServiceLevelObjectivesAPI' do
   # Get a service level objective object.
   # @param slo_id The ID of the service level objective object.
   # @param [Hash] opts the optional parameters
+  # @option opts [Boolean] :with_configured_alert_ids Get the IDs of SLO monitors that reference this SLO.
   # @return [SLOResponse]
   describe 'get_slo test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_slo_corrections
+  # Get Corrections For an SLO
+  # Get corrections applied to an SLO
+  # @param slo_id The ID of the service level objective object.
+  # @param [Hash] opts the optional parameters
+  # @return [SLOCorrectionListResponse]
+  describe 'get_slo_corrections test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -103,6 +116,8 @@ describe 'ServiceLevelObjectivesAPI' do
   # @param from_ts The &#x60;from&#x60; timestamp for the query window in epoch seconds.
   # @param to_ts The &#x60;to&#x60; timestamp for the query window in epoch seconds.
   # @param [Hash] opts the optional parameters
+  # @option opts [Float] :target The SLO target. If &#x60;target&#x60; is passed in, the response will include the remaining error budget and a timeframe value of &#x60;custom&#x60;.
+  # @option opts [Boolean] :apply_correction Defaults to &#x60;true&#x60;. If any SLO corrections are applied and this parameter is set to &#x60;false&#x60;, then the corrections will not be applied and the SLI values will not be affected.
   # @return [SLOHistoryResponse]
   describe 'get_slo_history test' do
     it 'should work' do
@@ -118,6 +133,8 @@ describe 'ServiceLevelObjectivesAPI' do
   # @option opts [String] :query The query string to filter results based on SLO names.
   # @option opts [String] :tags_query The query string to filter results based on a single SLO tag.
   # @option opts [String] :metrics_query The query string to filter results based on SLO numerator and denominator.
+  # @option opts [Integer] :limit The number of SLOs to return in the response.
+  # @option opts [Integer] :offset The specific offset to use as the beginning of the returned response.
   # @return [SLOListResponse]
   describe 'list_slos test' do
     it 'should work' do

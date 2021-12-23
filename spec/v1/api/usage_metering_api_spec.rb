@@ -50,6 +50,22 @@ describe 'UsageMeteringAPI' do
     end
   end
 
+  # unit tests for get_hourly_usage_attribution
+  # Get Hourly Usage Attribution
+  # Get Hourly Usage Attribution.
+  # @param start_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+  # @param usage_type Usage type to retrieve.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+  # @option opts [String] :next_record_id List following results with a next_record_id provided in the previous query.
+  # @option opts [String] :tag_breakdown_keys Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.
+  # @return [HourlyUsageAttributionResponse]
+  describe 'get_hourly_usage_attribution test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_incident_management
   # Get hourly usage for incident management
   # Get hourly usage for incident management.
@@ -94,7 +110,7 @@ describe 'UsageMeteringAPI' do
   # unit tests for get_specified_daily_custom_reports
   # Get specified daily custom reports
   # Get specified daily custom reports.
-  # @param report_id The specified ID to search results for.
+  # @param report_id Date of the report in the format &#x60;YYYY-MM-DD&#x60;.
   # @param [Hash] opts the optional parameters
   # @return [UsageSpecifiedCustomReportsResponse]
   describe 'get_specified_daily_custom_reports test' do
@@ -106,23 +122,10 @@ describe 'UsageMeteringAPI' do
   # unit tests for get_specified_monthly_custom_reports
   # Get specified monthly custom reports
   # Get specified monthly custom reports.
-  # @param report_id The specified ID to search results for.
+  # @param report_id Date of the report in the format &#x60;YYYY-MM-DD&#x60;.
   # @param [Hash] opts the optional parameters
   # @return [UsageSpecifiedCustomReportsResponse]
   describe 'get_specified_monthly_custom_reports test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for get_tracing_without_limits
-  # Get hourly usage for tracing without limits
-  # Get hourly usage for tracing without limits.  **Note** This endpoint has been renamed to &#x60;/api/v1/usage/ingested-spans&#x60;.
-  # @param start_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
-  # @param [Hash] opts the optional parameters
-  # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
-  # @return [UsageTracingWithoutLimitsResponse]
-  describe 'get_tracing_without_limits test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -145,13 +148,27 @@ describe 'UsageMeteringAPI' do
   # Get Usage Attribution
   # Get Usage Attribution.
   # @param start_month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
-  # @param fields The specified field to search results for.
+  # @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage types.
   # @param [Hash] opts the optional parameters
   # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
   # @option opts [UsageSortDirection] :sort_direction The direction to sort by: &#x60;[desc, asc]&#x60;.
   # @option opts [UsageAttributionSort] :sort_name The field to sort by.
+  # @option opts [Boolean] :include_descendants Include child org usage in the response. Defaults to false.
   # @return [UsageAttributionResponse]
   describe 'get_usage_attribution test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_usage_audit_logs
+  # Get hourly usage for audit logs
+  # Get hourly usage for audit logs.
+  # @param start_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+  # @return [UsageAuditLogsResponse]
+  describe 'get_usage_audit_logs test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -169,14 +186,40 @@ describe 'UsageMeteringAPI' do
     end
   end
 
-  # unit tests for get_usage_compliance_monitoring
-  # Get hourly usage for Compliance Monitoring
-  # Get hourly usage for Compliance Monitoring.
+  # unit tests for get_usage_cloud_security_posture_management
+  # Get hourly usage for CSPM
+  # Get hourly usage for Cloud Security Posture Management (CSPM).
   # @param start_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
   # @param [Hash] opts the optional parameters
   # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
-  # @return [UsageComplianceResponse]
-  describe 'get_usage_compliance_monitoring test' do
+  # @return [UsageCloudSecurityPostureManagementResponse]
+  describe 'get_usage_cloud_security_posture_management test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_usage_cws
+  # Get hourly usage for Cloud Workload Security
+  # Get hourly usage for Cloud Workload Security.
+  # @param start_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+  # @return [UsageCWSResponse]
+  describe 'get_usage_cws test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_usage_dbm
+  # Get hourly usage for Database Monitoring
+  # Get hourly usage for Database Monitoring
+  # @param start_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+  # @return [UsageDBMResponse]
+  describe 'get_usage_dbm test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -274,6 +317,19 @@ describe 'UsageMeteringAPI' do
     end
   end
 
+  # unit tests for get_usage_logs_by_retention
+  # Get hourly logs usage by retention
+  # Get hourly usage for indexed logs by retention period.
+  # @param start_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+  # @return [UsageLogsByRetentionResponse]
+  describe 'get_usage_logs_by_retention test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_usage_network_flows
   # Get hourly usage for Network Flows
   # Get hourly usage for network flows.
@@ -322,6 +378,32 @@ describe 'UsageMeteringAPI' do
   # @option opts [String] :type RUM type: &#x60;[browser, mobile]&#x60;. Defaults to &#x60;browser&#x60;.
   # @return [UsageRumSessionsResponse]
   describe 'get_usage_rum_sessions test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_usage_rum_units
+  # Get hourly usage for RUM Units
+  # Get hourly usage for [RUM](https://docs.datadoghq.com/real_user_monitoring/) Units.
+  # @param start_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+  # @return [UsageRumUnitsResponse]
+  describe 'get_usage_rum_units test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_usage_sds
+  # Get hourly usage for Sensitive Data Scanner
+  # Get hourly usage for Sensitive Data Scanner.
+  # @param start_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+  # @return [UsageSDSResponse]
+  describe 'get_usage_sds test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -407,28 +489,16 @@ describe 'UsageMeteringAPI' do
   end
 
   # unit tests for get_usage_top_avg_metrics
-  # Get top custom metrics by hourly average
-  # Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use the month parameter to get a month-to-date data resolution or use the day parameter to get a daily resolution. One of the two is required, and only one of the two is allowed.
+  # Get all custom metrics by hourly average
+  # Get all [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use the month parameter to get a month-to-date data resolution or use the day parameter to get a daily resolution. One of the two is required, and only one of the two is allowed.
   # @param [Hash] opts the optional parameters
   # @option opts [Time] :month Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour. (Either month or day should be specified, but not both)
   # @option opts [Time] :day Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD] for usage beginning at this hour. (Either month or day should be specified, but not both)
   # @option opts [Array<String>] :names Comma-separated list of metric names.
   # @option opts [Integer] :limit Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified.
+  # @option opts [String] :next_record_id List following results with a next_record_id provided in the previous query.
   # @return [UsageTopAvgMetricsResponse]
   describe 'get_usage_top_avg_metrics test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for get_usage_trace
-  # Get hourly usage for Trace Search
-  # Get hourly usage for trace search.  **Note** This endpoint has been renamed to &#x60;/api/v1/usage/indexed-spans&#x60;.
-  # @param start_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
-  # @param [Hash] opts the optional parameters
-  # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
-  # @return [UsageTraceResponse]
-  describe 'get_usage_trace test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

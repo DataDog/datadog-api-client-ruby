@@ -95,6 +95,18 @@ describe 'DowntimesAPI' do
     end
   end
 
+  # unit tests for list_monitor_downtimes
+  # Get all downtimes for a monitor
+  # Get all active downtimes for the specified monitor.
+  # @param monitor_id The id of the monitor
+  # @param [Hash] opts the optional parameters
+  # @return [Array<Downtime>]
+  describe 'list_monitor_downtimes test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for update_downtime
   # Update a downtime
   # Update a single downtime by &#x60;downtime_id&#x60;.

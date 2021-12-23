@@ -28,7 +28,7 @@ describe DatadogAPIClient::V2::ApplicationKeyRelationships do
       expect(instance).to be_instance_of(DatadogAPIClient::V2::ApplicationKeyRelationships)
     end
   end
-  describe 'test attribute "created_by"' do
+  describe 'test attribute "owned_by"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -12,10 +12,6 @@ body = DatadogAPIClient::V2::SecurityMonitoringRuleCreatePayload.new({
       group_by_fields: [],
       distinct_fields: [],
       metric: "",
-      agent_rule: DatadogAPIClient::V2::SecurityMonitoringRuntimeAgentRule.new({
-        agent_rule_id: "kernel_module_unlink_2",
-        expression: "(open.flags & ((O_CREAT|O_RDWR|O_WRONLY|O_TRUNC)) > 0)",
-      }),
     }),
   ],
   filters: [],

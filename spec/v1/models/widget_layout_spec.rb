@@ -34,6 +34,12 @@ describe DatadogAPIClient::V1::WidgetLayout do
     end
   end
 
+  describe 'test attribute "is_column_break"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "width"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

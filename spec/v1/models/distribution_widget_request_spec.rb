@@ -34,6 +34,12 @@ describe DatadogAPIClient::V1::DistributionWidgetRequest do
     end
   end
 
+  describe 'test attribute "apm_stats_query"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "event_query"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -53,6 +59,12 @@ describe DatadogAPIClient::V1::DistributionWidgetRequest do
   end
 
   describe 'test attribute "process_query"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "profile_metrics_query"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

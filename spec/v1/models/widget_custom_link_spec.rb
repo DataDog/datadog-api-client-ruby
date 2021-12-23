@@ -28,6 +28,12 @@ describe DatadogAPIClient::V1::WidgetCustomLink do
       expect(instance).to be_instance_of(DatadogAPIClient::V1::WidgetCustomLink)
     end
   end
+  describe 'test attribute "is_hidden"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "label"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -35,6 +41,12 @@ describe DatadogAPIClient::V1::WidgetCustomLink do
   end
 
   describe 'test attribute "link"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "override_label"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

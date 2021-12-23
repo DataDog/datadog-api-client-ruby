@@ -28,6 +28,12 @@ describe DatadogAPIClient::V1::ScatterPlotWidgetDefinitionRequests do
       expect(instance).to be_instance_of(DatadogAPIClient::V1::ScatterPlotWidgetDefinitionRequests)
     end
   end
+  describe 'test attribute "table"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "x"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

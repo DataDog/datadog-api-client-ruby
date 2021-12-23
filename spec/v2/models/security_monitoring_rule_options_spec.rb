@@ -28,6 +28,12 @@ describe DatadogAPIClient::V2::SecurityMonitoringRuleOptions do
       expect(instance).to be_instance_of(DatadogAPIClient::V2::SecurityMonitoringRuleOptions)
     end
   end
+  describe 'test attribute "detection_method"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "evaluation_window"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -41,6 +47,12 @@ describe DatadogAPIClient::V2::SecurityMonitoringRuleOptions do
   end
 
   describe 'test attribute "max_signal_duration"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "new_value_options"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

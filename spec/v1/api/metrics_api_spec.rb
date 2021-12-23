@@ -87,6 +87,19 @@ describe 'MetricsAPI' do
     end
   end
 
+  # unit tests for submit_metrics
+  # Submit metrics
+  # The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards. The maximum payload size is 3.2 megabytes (3200000 bytes). Compressed payloads must have a decompressed size of less than 62 megabytes (62914560 bytes).  If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect:  - 64 bits for the timestamp - 32 bits for the value - 20 bytes for the metric names - 50 bytes for the timeseries - The full payload is approximately 100 bytes. However, with the DogStatsD API, compression is applied, which reduces the payload size.
+  # @param body 
+  # @param [Hash] opts the optional parameters
+  # @option opts [MetricContentEncoding] :content_encoding HTTP header used to compress the media-type.
+  # @return [IntakePayloadAccepted]
+  describe 'submit_metrics test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for update_metric_metadata
   # Edit metric metadata
   # Edit metadata of a specific metric. Find out more about [supported types](https://docs.datadoghq.com/developers/metrics).

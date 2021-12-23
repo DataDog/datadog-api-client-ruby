@@ -1,11 +1,10 @@
 http_interactions:
-- recorded_at: Mon, 16 Aug 2021 07:49:00 GMT
+- recorded_at: Wed, 22 Dec 2021 16:20:11 GMT
   request:
     body:
       encoding: UTF-8
       string: '{"cases":[{"condition":"a > 0","name":"","notifications":[],"status":"info"}],"filters":[],"isEnabled":true,"message":"Test
-        rule","name":"Test-Create_a_detection_rule_with_type_workload_security_returns_OK_response-1629100140","options":{"evaluationWindow":900,"keepAlive":3600,"maxSignalDuration":86400},"queries":[{"agentRule":{"agentRuleId":"kernel_module_unlink_2","expression":"(open.flags
-        & ((O_CREAT|O_RDWR|O_WRONLY|O_TRUNC)) > 0)"},"aggregation":"count","distinctFields":[],"groupByFields":[],"metric":"","query":"@test:true"}],"tags":[],"type":"workload_security"}'
+        rule","name":"Test-Create_a_detection_rule_with_type_workload_security_returns_OK_response-1640190011","options":{"evaluationWindow":900,"keepAlive":3600,"maxSignalDuration":86400},"queries":[{"aggregation":"count","distinctFields":[],"groupByFields":[],"metric":"","query":"@test:true"}],"tags":[],"type":"workload_security"}'
     headers:
       Cache-Control:
       - no-cache
@@ -14,13 +13,13 @@ http_interactions:
       Content-Disposition:
       - inline
       Content-Length:
-      - '901'
+      - '635'
       Content-Security-Policy:
       - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
       - application/json;charset=utf-8
       Date:
-      - Mon, 16 Aug 2021 07:49:00 GMT
+      - Wed, 22 Dec 2021 16:20:12 GMT
       Pragma:
       - no-cache
       Strict-Transport-Security:
@@ -32,27 +31,25 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Ratelimit-Limit:
-      - '600'
+      - '1000'
       X-Ratelimit-Period:
-      - '60'
+      - '10'
       X-Ratelimit-Remaining:
-      - '599'
+      - '999'
       X-Ratelimit-Reset:
-      - '60'
+      - '8'
     method: POST
     uri: https://api.datadoghq.com/api/v2/security_monitoring/rules
   response:
     body:
       encoding: UTF-8
       string: '{"creationAuthorId":1445416,"tags":[],"isEnabled":true,"hasExtendedTitle":false,"message":"Test
-        rule","options":{"detectionMethod":"threshold","evaluationWindow":900,"maxSignalDuration":86400,"keepAlive":3600},"version":1,"createdAt":1629100140907,"filters":[],"queries":[{"distinctFields":[],"name":"","metric":"","aggregation":"count","groupByFields":[],"query":"@agent.rule_id:(Test_Create_a_detection_rule_with_type_workload_security_returns_OK_response_1629100140_kernel_module_unlink_2
-        OR kernel_module_unlink_2)","agentRule":{"expression":"(open.flags & ((O_CREAT|O_RDWR|O_WRONLY|O_TRUNC))
-        > 0)","agentRuleId":"kernel_module_unlink_2"}}],"isDeleted":false,"cases":[{"status":"info","notifications":[],"name":"","condition":"a
-        > 0"}],"type":"workload_security","id":"csl-lpm-o3j","isDefault":false,"name":"Test-Create_a_detection_rule_with_type_workload_security_returns_OK_response-1629100140"}'
+        rule","options":{"detectionMethod":"threshold","evaluationWindow":900,"maxSignalDuration":86400,"keepAlive":3600},"version":1,"createdAt":1640190012032,"filters":[],"queries":[{"distinctFields":[],"name":"","metric":"","aggregation":"count","groupByFields":[],"query":"@test:true"}],"isDeleted":false,"cases":[{"status":"info","notifications":[],"name":"","condition":"a
+        > 0"}],"type":"workload_security","id":"h4i-5nf-xci","isDefault":false,"name":"Test-Create_a_detection_rule_with_type_workload_security_returns_OK_response-1640190011"}'
     status:
       code: 200
       message: OK
-- recorded_at: Mon, 16 Aug 2021 07:49:00 GMT
+- recorded_at: Wed, 22 Dec 2021 16:20:11 GMT
   request:
     body: null
     headers:
@@ -62,30 +59,30 @@ http_interactions:
       - close
       Content-Disposition:
       - inline
-      Content-Length:
-      - '0'
       Content-Security-Policy:
       - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Date:
-      - Mon, 16 Aug 2021 07:49:01 GMT
+      - Wed, 22 Dec 2021 16:20:12 GMT
       Pragma:
       - no-cache
       Strict-Transport-Security:
       - max-age=15724800;
+      Vary:
+      - Accept-Encoding
       X-Content-Type-Options:
       - nosniff
       X-Frame-Options:
       - SAMEORIGIN
       X-Ratelimit-Limit:
-      - '600'
+      - '1000'
       X-Ratelimit-Period:
-      - '60'
+      - '10'
       X-Ratelimit-Remaining:
-      - '598'
+      - '998'
       X-Ratelimit-Reset:
-      - '59'
+      - '8'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/rules/csl-lpm-o3j
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/rules/h4i-5nf-xci
   response:
     body:
       encoding: UTF-8

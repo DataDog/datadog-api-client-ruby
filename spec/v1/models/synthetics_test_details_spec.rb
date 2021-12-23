@@ -34,6 +34,12 @@ describe DatadogAPIClient::V1::SyntheticsTestDetails do
     end
   end
 
+  describe 'test attribute "creator"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "locations"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

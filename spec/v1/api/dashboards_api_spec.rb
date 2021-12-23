@@ -59,6 +59,18 @@ describe 'DashboardsAPI' do
     end
   end
 
+  # unit tests for delete_dashboards
+  # Delete dashboards
+  # Delete dashboards using the specified IDs. If there are any failures, no dashboards will be deleted (partial success is not allowed).
+  # @param body Delete dashboards request body.
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'delete_dashboards test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_dashboard
   # Get a dashboard
   # Get a dashboard using the specified ID.
@@ -75,8 +87,21 @@ describe 'DashboardsAPI' do
   # Get all dashboards
   # Get all dashboards.  **Note**: This query will only return custom created or cloned dashboards. This query will not return preset dashboards.
   # @param [Hash] opts the optional parameters
+  # @option opts [Boolean] :filter_shared When &#x60;true&#x60;, this query only returns shared custom created or cloned dashboards.
   # @return [DashboardSummary]
   describe 'list_dashboards test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for restore_dashboards
+  # Restore deleted dashboards
+  # Restore dashboards using the specified IDs. If there are any failures, no dashboards will be restored (partial success is not allowed).
+  # @param body Restore dashboards request body.
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'restore_dashboards test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

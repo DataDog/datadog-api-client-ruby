@@ -83,18 +83,6 @@ describe 'SyntheticsAPI' do
     end
   end
 
-  # unit tests for create_test
-  # Create a test
-  # Create a Synthetic test.
-  # @param body Details of the test to create.
-  # @param [Hash] opts the optional parameters
-  # @return [SyntheticsTestDetails]
-  describe 'create_test test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
   # unit tests for delete_global_variable
   # Delete a global variable
   # Delete a Synthetics global variable.
@@ -157,12 +145,12 @@ describe 'SyntheticsAPI' do
   end
 
   # unit tests for get_api_test_latest_results
-  # Get the test&#39;s latest results summaries (API)
+  # Get an API test&#39;s latest results summaries
   # Get the last 50 test results summaries for a given Synthetics API test.
   # @param public_id The public ID of the test for which to search results for.
   # @param [Hash] opts the optional parameters
-  # @option opts [Integer] :from_ts Timestamp from which to start querying results.
-  # @option opts [Integer] :to_ts Timestamp up to which to query results.
+  # @option opts [Integer] :from_ts Timestamp in milliseconds from which to start querying results.
+  # @option opts [Integer] :to_ts Timestamp in milliseconds up to which to query results.
   # @option opts [Array<String>] :probe_dc Locations for which to query results.
   # @return [SyntheticsGetAPITestLatestResultsResponse]
   describe 'get_api_test_latest_results test' do
@@ -172,7 +160,7 @@ describe 'SyntheticsAPI' do
   end
 
   # unit tests for get_api_test_result
-  # Get a test result (API)
+  # Get an API test result
   # Get a specific full result from a given (API) Synthetic test.
   # @param public_id The public ID of the API test to which the target result belongs.
   # @param result_id The ID of the result to get.
@@ -185,11 +173,11 @@ describe 'SyntheticsAPI' do
   end
 
   # unit tests for get_browser_test
-  # Get a test configuration (browser)
+  # Get a browser test
   # Get the detailed configuration (including steps) associated with a Synthetic browser test.
   # @param public_id The public ID of the test to get details from.
   # @param [Hash] opts the optional parameters
-  # @return [SyntheticsTestDetails]
+  # @return [SyntheticsBrowserTest]
   describe 'get_browser_test test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -197,12 +185,12 @@ describe 'SyntheticsAPI' do
   end
 
   # unit tests for get_browser_test_latest_results
-  # Get the test&#39;s latest results summaries (browser)
+  # Get a browser test&#39;s latest results summaries
   # Get the last 50 test results summaries for a given Synthetics Browser test.
   # @param public_id The public ID of the browser test for which to search results for.
   # @param [Hash] opts the optional parameters
-  # @option opts [Integer] :from_ts Timestamp from which to start querying results.
-  # @option opts [Integer] :to_ts Timestamp up to which to query results.
+  # @option opts [Integer] :from_ts Timestamp in milliseconds from which to start querying results.
+  # @option opts [Integer] :to_ts Timestamp in milliseconds up to which to query results.
   # @option opts [Array<String>] :probe_dc Locations for which to query results.
   # @return [SyntheticsGetBrowserTestLatestResultsResponse]
   describe 'get_browser_test_latest_results test' do
@@ -212,7 +200,7 @@ describe 'SyntheticsAPI' do
   end
 
   # unit tests for get_browser_test_result
-  # Get a test result (browser)
+  # Get a browser test result
   # Get a specific full result from a given (browser) Synthetic test.
   # @param public_id The public ID of the browser test to which the target result belongs.
   # @param result_id The ID of the result to get.
@@ -248,13 +236,36 @@ describe 'SyntheticsAPI' do
     end
   end
 
+  # unit tests for get_synthetics_ci_batch
+  # Get details of batch
+  # Get a batch&#39;s updated details.
+  # @param batch_id The ID of the batch.
+  # @param [Hash] opts the optional parameters
+  # @return [SyntheticsBatchDetails]
+  describe 'get_synthetics_ci_batch test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_test
-  # Get a test configuration (API)
+  # Get a test configuration
   # Get the detailed configuration associated with a Synthetics test.
   # @param public_id The public ID of the test to get details from.
   # @param [Hash] opts the optional parameters
   # @return [SyntheticsTestDetails]
   describe 'get_test test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for list_global_variables
+  # Get all global variables
+  # Get the list of all Synthetics global variables.
+  # @param [Hash] opts the optional parameters
+  # @return [SyntheticsListGlobalVariablesResponse]
+  describe 'list_global_variables test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -283,12 +294,24 @@ describe 'SyntheticsAPI' do
   end
 
   # unit tests for trigger_ci_tests
-  # Trigger some Synthetics tests for CI
+  # Trigger tests from CI/CD pipelines
   # Trigger a set of Synthetics tests for continuous integration.
   # @param body Details of the test to trigger.
   # @param [Hash] opts the optional parameters
   # @return [SyntheticsTriggerCITestsResponse]
   describe 'trigger_ci_tests test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for trigger_tests
+  # Trigger Synthetics tests
+  # Trigger a set of Synthetics tests.
+  # @param body The identifiers of the tests to trigger.
+  # @param [Hash] opts the optional parameters
+  # @return [SyntheticsTriggerCITestsResponse]
+  describe 'trigger_tests test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -328,19 +351,6 @@ describe 'SyntheticsAPI' do
   # @param [Hash] opts the optional parameters
   # @return [SyntheticsPrivateLocation]
   describe 'update_private_location test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for update_test
-  # Edit a test
-  # Edit the configuration of a Synthetic test.
-  # @param public_id The public ID of the test to get details from.
-  # @param body New test details to be saved.
-  # @param [Hash] opts the optional parameters
-  # @return [SyntheticsTestDetails]
-  describe 'update_test test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
