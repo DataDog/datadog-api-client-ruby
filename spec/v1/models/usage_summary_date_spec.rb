@@ -292,6 +292,12 @@ describe DatadogAPIClient::V1::UsageSummaryDate do
     end
   end
 
+  describe 'test attribute "rum_browser_and_mobile_session_count"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "rum_session_count_sum"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

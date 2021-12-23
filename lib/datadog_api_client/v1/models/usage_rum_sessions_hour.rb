@@ -25,6 +25,12 @@ module DatadogAPIClient::V1
     # The hour for the usage.
     attr_accessor :hour
 
+    # The organization name.
+    attr_accessor :org_name
+
+    # The organization public ID.
+    attr_accessor :public_id
+
     # Contains the number of RUM Sessions.
     attr_accessor :session_count
 
@@ -38,6 +44,8 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'hour' => :'hour',
+        :'org_name' => :'org_name',
+        :'public_id' => :'public_id',
         :'session_count' => :'session_count',
         :'session_count_android' => :'session_count_android',
         :'session_count_ios' => :'session_count_ios'
@@ -53,6 +61,8 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'hour' => :'Time',
+        :'org_name' => :'String',
+        :'public_id' => :'String',
         :'session_count' => :'Integer',
         :'session_count_android' => :'Integer',
         :'session_count_ios' => :'Integer'
@@ -82,6 +92,14 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'hour')
         self.hour = attributes[:'hour']
+      end
+
+      if attributes.key?(:'org_name')
+        self.org_name = attributes[:'org_name']
+      end
+
+      if attributes.key?(:'public_id')
+        self.public_id = attributes[:'public_id']
       end
 
       if attributes.key?(:'session_count')
@@ -116,6 +134,8 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           hour == o.hour &&
+          org_name == o.org_name &&
+          public_id == o.public_id &&
           session_count == o.session_count &&
           session_count_android == o.session_count_android &&
           session_count_ios == o.session_count_ios
@@ -130,7 +150,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [hour, session_count, session_count_android, session_count_ios].hash
+      [hour, org_name, public_id, session_count, session_count_android, session_count_ios].hash
     end
 
     # Builds the object from hash

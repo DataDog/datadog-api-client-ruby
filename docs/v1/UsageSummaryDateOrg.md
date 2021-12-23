@@ -49,6 +49,7 @@
 | **opentelemetry_host_top99p**                    | **Integer** | Shows the 99th percentile of all hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for the given org. | [optional] |
 | **profiling_host_top99p**                        | **Integer** | Shows the 99th percentile of all profiled hosts over all hours in the current date for the given org.                                                         | [optional] |
 | **public_id**                                    | **String**  | The organization public id.                                                                                                                                   | [optional] |
+| **rum_browser_and_mobile_session_count**         | **Integer** | Shows the sum of all mobile sessions and all browser lite and legacy sessions over all hours in the current date for the given org.                           | [optional] |
 | **rum_session_count_sum**                        | **Integer** | Shows the sum of all browser RUM Sessions over all hours in the current date for the given org.                                                               | [optional] |
 | **rum_total_session_count_sum**                  | **Integer** | Shows the sum of RUM Sessions (browser and mobile) over all hours in the current date for the given org.                                                      | [optional] |
 | **rum_units_sum**                                | **Integer** | Shows the sum of all browser and mobile RUM units over all hours in the current date for the given org.                                                       | [optional] |
@@ -111,6 +112,7 @@ instance = DatadogAPIClient::V1::UsageSummaryDateOrg.new(
   opentelemetry_host_top99p: null,
   profiling_host_top99p: null,
   public_id: null,
+  rum_browser_and_mobile_session_count: null,
   rum_session_count_sum: null,
   rum_total_session_count_sum: null,
   rum_units_sum: null,
