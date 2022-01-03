@@ -5,6 +5,7 @@
 | Name                          | Type                                                                                   | Description                                                                                                                                                               | Notes                        |
 | ----------------------------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
 | **author_handle**             | **String**                                                                             | Identifier of the dashboard author.                                                                                                                                       | [optional][readonly]         |
+| **author_name**               | **String**                                                                             | Name of the dashboard author.                                                                                                                                             | [optional][readonly]         |
 | **created_at**                | **Time**                                                                               | Creation date of the dashboard.                                                                                                                                           | [optional][readonly]         |
 | **description**               | **String**                                                                             | Description of the dashboard.                                                                                                                                             | [optional]                   |
 | **id**                        | **String**                                                                             | ID of the dashboard.                                                                                                                                                      | [optional][readonly]         |
@@ -27,6 +28,7 @@ require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::Dashboard.new(
   author_handle: test@datadoghq.com,
+  author_name: John Doe,
   created_at: null,
   description: null,
   id: 123-abc-456,
