@@ -5,14 +5,8 @@ http_interactions:
       encoding: UTF-8
       string: '[{"ddtags":"host:TestSendlogsreturnsResponsefromserveralways200emptyJSONresponse1618413148","message":"Test-Send_logs_returns_Response_from_server_always_200_empty_JSON_response-1618413148"}]'
     headers:
-      Connection:
-      - close
-      Content-Length:
-      - '2'
       Content-Type:
       - application/json
-      Date:
-      - Wed, 14 Apr 2021 15:12:29 GMT
     method: POST
     uri: https://http-intake.logs.datadoghq.com/v1/input
   response:

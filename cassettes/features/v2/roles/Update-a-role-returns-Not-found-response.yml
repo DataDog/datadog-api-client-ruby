@@ -5,36 +5,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"attributes":{"name":"updated"},"id":"00000000-dead-beef-dead-ffffffffffff","type":"roles"}}'
     headers:
-      Cache-Control:
-      - no-cache
-      Connection:
-      - close
-      Content-Length:
-      - '75'
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
       - application/json
-      Date:
-      - Tue, 19 Oct 2021 14:57:48 GMT
-      Pragma:
-      - no-cache
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Vary:
-      - Accept-Encoding
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Ratelimit-Limit:
-      - '500'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Remaining:
-      - '492'
-      X-Ratelimit-Reset:
-      - '12'
     method: PATCH
     uri: https://api.datadoghq.com/api/v2/roles/00000000-dead-beef-dead-ffffffffffff
   response:

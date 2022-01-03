@@ -6,36 +6,8 @@ http_interactions:
       string: '{"cases":[{"condition":"a > 0","name":"","notifications":[],"status":"info"}],"filters":[],"isEnabled":true,"message":"Test
         rule","name":"Test-Delete_an_existing_rule_returns_OK_response-1618572735","options":{"evaluationWindow":900,"keepAlive":3600,"maxSignalDuration":86400},"queries":[{"aggregation":"count","distinctFields":[],"groupByFields":[],"metric":"","query":"@test:true"}],"tags":[],"type":"log_detection"}'
     headers:
-      Cache-Control:
-      - no-cache
-      Connection:
-      - close
-      Content-Disposition:
-      - inline
-      Content-Length:
-      - '603'
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
       - application/json;charset=utf-8
-      Date:
-      - Thu, 19 Aug 2021 07:50:25 GMT
-      Pragma:
-      - no-cache
-      Vary:
-      - Accept-Encoding
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Ratelimit-Limit:
-      - '600'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Remaining:
-      - '597'
-      X-Ratelimit-Reset:
-      - '35'
     method: POST
     uri: https://api.datadoghq.com/api/v2/security_monitoring/rules
   response:
@@ -50,33 +22,7 @@ http_interactions:
 - recorded_at: Fri, 16 Apr 2021 11:32:15 GMT
   request:
     body: null
-    headers:
-      Cache-Control:
-      - no-cache
-      Connection:
-      - close
-      Content-Disposition:
-      - inline
-      Content-Length:
-      - '0'
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      Date:
-      - Thu, 19 Aug 2021 07:50:25 GMT
-      Pragma:
-      - no-cache
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Ratelimit-Limit:
-      - '600'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Remaining:
-      - '596'
-      X-Ratelimit-Reset:
-      - '35'
+    headers: {}
     method: DELETE
     uri: https://api.datadoghq.com/api/v2/security_monitoring/rules/zpf-hj4-sl6
   response:
@@ -90,34 +36,8 @@ http_interactions:
   request:
     body: null
     headers:
-      Cache-Control:
-      - no-cache
-      Connection:
-      - close
-      Content-Length:
-      - '59'
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
       - application/json
-      Date:
-      - Thu, 19 Aug 2021 07:50:25 GMT
-      Pragma:
-      - no-cache
-      Vary:
-      - Accept-Encoding
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Ratelimit-Limit:
-      - '600'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Remaining:
-      - '595'
-      X-Ratelimit-Reset:
-      - '35'
     method: DELETE
     uri: https://api.datadoghq.com/api/v2/security_monitoring/rules/zpf-hj4-sl6
   response:

@@ -5,26 +5,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"end":1634659063,"message":"Test-Schedule_a_downtime_with_mutually_exclusive_until_occurrences_and_until_date_properties-1634655463","recurrence":{"period":1,"type":"weeks","until_date":1636469863,"until_occurrences":3,"week_days":["Mon","Tue","Wed","Thu","Fri"]},"scope":["*"],"start":1634655463,"timezone":"Etc/UTC"}'
     headers:
-      Cache-Control:
-      - no-cache
-      Connection:
-      - close
-      Content-Length:
-      - '84'
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
       - application/json
-      Date:
-      - Tue, 19 Oct 2021 14:57:43 GMT
-      Pragma:
-      - no-cache
-      Strict-Transport-Security:
-      - max-age=15724800;
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
     method: POST
     uri: https://api.datadoghq.com/api/v1/downtime
   response:

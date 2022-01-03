@@ -5,28 +5,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"name":"Test-Delete_a_webhook_returns_OK_response-1628785715","url":"http://example.com/webhook"}'
     headers:
-      Cache-Control:
-      - no-cache
-      Connection:
-      - close
-      Content-Length:
-      - '372'
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
       - application/json
-      Date:
-      - Thu, 12 Aug 2021 16:28:35 GMT
-      Location:
-      - https://app.datadoghq.com/api/v1/integration/webhooks/configuration/webhooks/Test-Delete_a_webhook_returns_OK_response-1628785715
-      Pragma:
-      - no-cache
-      Strict-Transport-Security:
-      - max-age=15724800;
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
     method: POST
     uri: https://api.datadoghq.com/api/v1/integration/webhooks/configuration/webhooks
   response:
@@ -43,24 +23,8 @@ http_interactions:
   request:
     body: null
     headers:
-      Cache-Control:
-      - no-cache
-      Connection:
-      - close
-      Content-Length:
-      - '2'
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
       - application/json
-      Date:
-      - Thu, 12 Aug 2021 16:28:36 GMT
-      Pragma:
-      - no-cache
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
     method: DELETE
     uri: https://api.datadoghq.com/api/v1/integration/webhooks/configuration/webhooks/Test-Delete_a_webhook_returns_OK_response-1628785715
   response:
@@ -74,26 +38,8 @@ http_interactions:
   request:
     body: null
     headers:
-      Cache-Control:
-      - no-cache
-      Connection:
-      - close
-      Content-Length:
-      - '38'
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
       - application/json
-      Date:
-      - Thu, 12 Aug 2021 16:28:36 GMT
-      Pragma:
-      - no-cache
-      Strict-Transport-Security:
-      - max-age=15724800;
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
     method: DELETE
     uri: https://api.datadoghq.com/api/v1/integration/webhooks/configuration/webhooks/Test-Delete_a_webhook_returns_OK_response-1628785715
   response:

@@ -5,28 +5,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"name":"Not found"}'
     headers:
-      Cache-Control:
-      - no-cache
-      Connection:
-      - close
-      Content-Length:
-      - '57'
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
       - application/json
-      Date:
-      - Fri, 01 Oct 2021 08:28:31 GMT
-      Pragma:
-      - no-cache
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Vary:
-      - Accept-Encoding
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
     method: PUT
     uri: https://api.datadoghq.com/api/v1/dashboard/lists/manual/0
   response:

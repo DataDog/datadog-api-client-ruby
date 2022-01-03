@@ -6,30 +6,8 @@ http_interactions:
       string: '{"data":{"attributes":{"email":"Test-List_all_users_returns_OK_response-1618491779@datadoghq.com","title":"user
         title"},"type":"users"}}'
     headers:
-      Cache-Control:
-      - no-cache
-      Connection:
-      - close
-      Content-Length:
-      - '672'
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
       - application/json
-      Date:
-      - Thu, 15 Apr 2021 13:03:00 GMT
-      Pragma:
-      - no-cache
-      Strict-Transport-Security:
-      - max-age=15724800;
-      X-Content-Type-Options:
-      - nosniff
-      X-Dd-Debug:
-      - JpIJLwIH2nFlZOC+u71rq7aAOL43MLZN3MUsL+gpYHdZz5QLUOG8Jysf8kVK6tPU
-      X-Dd-Version:
-      - '35.4318655'
-      X-Frame-Options:
-      - SAMEORIGIN
     method: POST
     uri: https://api.datadoghq.com/api/v2/users
   response:
@@ -44,32 +22,8 @@ http_interactions:
   request:
     body: null
     headers:
-      Cache-Control:
-      - no-cache
-      Connection:
-      - close
-      Content-Length:
-      - '738'
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
       - application/json
-      Date:
-      - Thu, 15 Apr 2021 13:03:06 GMT
-      Pragma:
-      - no-cache
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Vary:
-      - Accept-Encoding
-      X-Content-Type-Options:
-      - nosniff
-      X-Dd-Debug:
-      - L3ULR3HwCWYmEqCWGz2Yob3chcH4pjowBacBXkncP7o+/uPqKt9yGEYf/g1AJPzQ
-      X-Dd-Version:
-      - '35.4318655'
-      X-Frame-Options:
-      - SAMEORIGIN
     method: GET
     uri: https://api.datadoghq.com/api/v2/users?filter=test-list_all_users_returns_ok_response-1618491779%40datadoghq.com
   response:
@@ -84,30 +38,8 @@ http_interactions:
   request:
     body: null
     headers:
-      Cache-Control:
-      - no-cache
-      Connection:
-      - close
-      Content-Length:
-      - '0'
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
       - application/json
-      Date:
-      - Thu, 15 Apr 2021 13:03:07 GMT
-      Pragma:
-      - no-cache
-      Strict-Transport-Security:
-      - max-age=15724800;
-      X-Content-Type-Options:
-      - nosniff
-      X-Dd-Debug:
-      - dPySkcOzIZtKyMKDAAzuysY3gNGGj6RtYogGuSb76E8mPvoqzREyRp6lPYm91hQU
-      X-Dd-Version:
-      - '35.4318655'
-      X-Frame-Options:
-      - SAMEORIGIN
     method: DELETE
     uri: https://api.datadoghq.com/api/v2/users/e7e3ea38-9dea-11eb-9df5-da7ad0900002
   response:

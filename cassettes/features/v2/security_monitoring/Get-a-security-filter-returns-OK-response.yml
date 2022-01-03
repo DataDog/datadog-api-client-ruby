@@ -6,34 +6,8 @@ http_interactions:
       string: '{"data":{"attributes":{"exclusion_filters":[{"name":"Exclude logs from
         staging","query":"source:staging"}],"filtered_data_type":"logs","is_enabled":true,"name":"Test-Get_a_security_filter_returns_OK_response-1620751633","query":"service:TestGetasecurityfilterreturnsOKresponse1620751633"},"type":"security_filters"}}'
     headers:
-      Cache-Control:
-      - no-cache
-      Connection:
-      - close
-      Content-Disposition:
-      - inline
-      Content-Length:
-      - '366'
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
       - application/json;charset=utf-8
-      Date:
-      - Wed, 12 May 2021 07:50:05 GMT
-      Pragma:
-      - no-cache
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Vary:
-      - Accept-Encoding
-      X-Content-Type-Options:
-      - nosniff
-      X-Dd-Debug:
-      - 25u1gDlL724DHllbjFT4BhOLorBTilh+aah2uWAUEjFC/+rjczJdiyWrV/HwLwe/
-      X-Dd-Version:
-      - '35.4512853'
-      X-Frame-Options:
-      - SAMEORIGIN
     method: POST
     uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters
   response:
@@ -48,34 +22,8 @@ http_interactions:
   request:
     body: null
     headers:
-      Cache-Control:
-      - no-cache
-      Connection:
-      - close
-      Content-Disposition:
-      - inline
-      Content-Length:
-      - '366'
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
       - application/json;charset=utf-8
-      Date:
-      - Wed, 12 May 2021 07:50:05 GMT
-      Pragma:
-      - no-cache
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Vary:
-      - Accept-Encoding
-      X-Content-Type-Options:
-      - nosniff
-      X-Dd-Debug:
-      - mNzaoDhdDKO7t4QSrAe5X7pHd0bJND187D+vRbwoluXouE2m1UaQQX0RGCvRpLVE
-      X-Dd-Version:
-      - '35.4512853'
-      X-Frame-Options:
-      - SAMEORIGIN
     method: GET
     uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters/8ez-cdr-dy8
   response:
@@ -89,31 +37,7 @@ http_interactions:
 - recorded_at: Tue, 11 May 2021 16:47:13 GMT
   request:
     body: null
-    headers:
-      Cache-Control:
-      - no-cache
-      Connection:
-      - close
-      Content-Disposition:
-      - inline
-      Content-Length:
-      - '0'
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      Date:
-      - Wed, 12 May 2021 07:50:05 GMT
-      Pragma:
-      - no-cache
-      Strict-Transport-Security:
-      - max-age=15724800;
-      X-Content-Type-Options:
-      - nosniff
-      X-Dd-Debug:
-      - bgHykj7A9bfZx0Y5ZO3swhhp5tGUSNJHqFWR868+qg087CYrDOd5hQslC+noiEtH
-      X-Dd-Version:
-      - '35.4512853'
-      X-Frame-Options:
-      - SAMEORIGIN
+    headers: {}
     method: DELETE
     uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters/8ez-cdr-dy8
   response:

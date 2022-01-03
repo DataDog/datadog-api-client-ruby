@@ -5,28 +5,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"cases":[{"status":"info"}],"isEnabled":true,"message":"Test rule","name":"Test-Create_a_detection_rule_returns_Bad_Request_response-1618473262","options":{},"queries":[{"query":""}],"tags":[]}'
     headers:
-      Cache-Control:
-      - no-cache
-      Connection:
-      - close
-      Content-Length:
-      - '29'
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
       - application/json
-      Date:
-      - Thu, 15 Apr 2021 07:54:22 GMT
-      Pragma:
-      - no-cache
-      Strict-Transport-Security:
-      - max-age=15724800;
-      X-Content-Type-Options:
-      - nosniff
-      X-Dd-Version:
-      - '35.4316747'
-      X-Frame-Options:
-      - SAMEORIGIN
     method: POST
     uri: https://api.datadoghq.com/api/v2/security_monitoring/rules
   response:

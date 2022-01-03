@@ -6,28 +6,8 @@ http_interactions:
       string: '{"title":"Test-Create_a_new_dashboard_with_sunburst_widget_and_metrics_data-1639987466","widgets":[{"definition":{"title":"","title_size":"16","title_align":"left","type":"sunburst","requests":[{"response_format":"scalar","formulas":[{"formula":"query1"}],"queries":[{"query":"sum:system.mem.used{*}
         by {service}","data_source":"metrics","name":"query1","aggregator":"sum"}]}]},"layout":{"x":0,"y":0,"width":4,"height":4}}],"layout_type":"ordered"}'
     headers:
-      Cache-Control:
-      - no-cache
-      Connection:
-      - close
-      Content-Length:
-      - '848'
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
       - application/json
-      Date:
-      - Mon, 20 Dec 2021 08:04:27 GMT
-      Pragma:
-      - no-cache
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Vary:
-      - Accept-Encoding
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
     method: POST
     uri: https://api.datadoghq.com/api/v1/dashboard
   response:
@@ -42,28 +22,8 @@ http_interactions:
   request:
     body: null
     headers:
-      Cache-Control:
-      - no-cache
-      Connection:
-      - close
-      Content-Length:
-      - '38'
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
       - application/json
-      Date:
-      - Mon, 20 Dec 2021 08:04:27 GMT
-      Pragma:
-      - no-cache
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Vary:
-      - Accept-Encoding
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
     method: DELETE
     uri: https://api.datadoghq.com/api/v1/dashboard/mf6-iqg-ndj
   response:

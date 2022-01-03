@@ -5,36 +5,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"type":"metric","name":"Test-Create_an_SLO_correction_with_rrule_returns_OK_response-1639743385","thresholds":[{"timeframe":"7d","target":95,"warning":98}],"query":{"numerator":"sum:httpservice.hits{code:2xx}.as_count()","denominator":"sum:httpservice.hits{!code:3xx}.as_count()"}}'
     headers:
-      Cache-Control:
-      - no-cache
-      Connection:
-      - close
-      Content-Length:
-      - '586'
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
       - application/json
-      Date:
-      - Fri, 17 Dec 2021 12:16:25 GMT
-      Pragma:
-      - no-cache
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Vary:
-      - Accept-Encoding
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Ratelimit-Limit:
-      - '500'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Remaining:
-      - '491'
-      X-Ratelimit-Reset:
-      - '35'
     method: POST
     uri: https://api.datadoghq.com/api/v1/slo
   response:
@@ -50,36 +22,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"attributes":{"category":"Scheduled Maintenance","description":"Test-Create_an_SLO_correction_with_rrule_returns_OK_response-1639743385","slo_id":"46be908d1c20577181e3813c64b21f8b","start":1639743385,"duration":3600,"rrule":"FREQ=DAILY;INTERVAL=10;COUNT=5","timezone":"UTC"},"type":"correction"}}'
     headers:
-      Cache-Control:
-      - no-cache
-      Connection:
-      - close
-      Content-Length:
-      - '715'
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
       - application/json
-      Date:
-      - Fri, 17 Dec 2021 12:16:25 GMT
-      Pragma:
-      - no-cache
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Vary:
-      - Accept-Encoding
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Ratelimit-Limit:
-      - '12000'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Remaining:
-      - '11995'
-      X-Ratelimit-Reset:
-      - '35'
     method: POST
     uri: https://api.datadoghq.com/api/v1/slo/correction
   response:
@@ -93,33 +37,7 @@ http_interactions:
 - recorded_at: Fri, 17 Dec 2021 12:16:25 GMT
   request:
     body: null
-    headers:
-      Cache-Control:
-      - no-cache
-      Connection:
-      - close
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      Date:
-      - Fri, 17 Dec 2021 12:16:25 GMT
-      Pragma:
-      - no-cache
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Vary:
-      - Accept-Encoding
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Ratelimit-Limit:
-      - '12000'
-      X-Ratelimit-Period:
-      - '60'
-      X-Ratelimit-Remaining:
-      - '11993'
-      X-Ratelimit-Reset:
-      - '35'
+    headers: {}
     method: DELETE
     uri: https://api.datadoghq.com/api/v1/slo/correction/27b98c58-5f33-11ec-ae1f-da7ad0900002
   response:
@@ -133,36 +51,8 @@ http_interactions:
   request:
     body: null
     headers:
-      Cache-Control:
-      - no-cache
-      Connection:
-      - close
-      Content-Length:
-      - '58'
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
       - application/json
-      Date:
-      - Fri, 17 Dec 2021 12:16:25 GMT
-      Pragma:
-      - no-cache
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Vary:
-      - Accept-Encoding
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Ratelimit-Limit:
-      - '3000'
-      X-Ratelimit-Period:
-      - '10'
-      X-Ratelimit-Remaining:
-      - '2999'
-      X-Ratelimit-Reset:
-      - '5'
     method: DELETE
     uri: https://api.datadoghq.com/api/v1/slo/46be908d1c20577181e3813c64b21f8b
   response:
