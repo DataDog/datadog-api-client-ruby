@@ -5,36 +5,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"attributes":{"name":"Test-Edit_an_application_key_returns_OK_response-1639757120"},"type":"application_keys"}}'
     headers:
-      Cache-Control:
-      - no-cache
-      Connection:
-      - close
-      Content-Length:
-      - '375'
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
       - application/json
-      Date:
-      - Fri, 17 Dec 2021 16:05:20 GMT
-      Pragma:
-      - no-cache
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Vary:
-      - Accept-Encoding
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Ratelimit-Limit:
-      - '400'
-      X-Ratelimit-Period:
-      - '3600'
-      X-Ratelimit-Remaining:
-      - '388'
-      X-Ratelimit-Reset:
-      - '3280'
     method: POST
     uri: https://api.datadoghq.com/api/v2/current_user/application_keys
   response:
@@ -50,36 +22,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"id":"82a1a46d-7acc-4fcd-a448-c5993752640a","type":"application_keys","attributes":{"name":"Test-Edit_an_application_key_returns_OK_response-1639757120-updated"}}}'
     headers:
-      Cache-Control:
-      - no-cache
-      Connection:
-      - close
-      Content-Length:
-      - '334'
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
       - application/json
-      Date:
-      - Fri, 17 Dec 2021 16:05:20 GMT
-      Pragma:
-      - no-cache
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Vary:
-      - Accept-Encoding
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Ratelimit-Limit:
-      - '400'
-      X-Ratelimit-Period:
-      - '3600'
-      X-Ratelimit-Remaining:
-      - '387'
-      X-Ratelimit-Reset:
-      - '3280'
     method: PATCH
     uri: https://api.datadoghq.com/api/v2/application_keys/82a1a46d-7acc-4fcd-a448-c5993752640a
   response:
@@ -92,33 +36,7 @@ http_interactions:
 - recorded_at: Fri, 17 Dec 2021 16:05:20 GMT
   request:
     body: null
-    headers:
-      Cache-Control:
-      - no-cache
-      Connection:
-      - close
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      Date:
-      - Fri, 17 Dec 2021 16:05:21 GMT
-      Pragma:
-      - no-cache
-      Strict-Transport-Security:
-      - max-age=15724800;
-      Vary:
-      - Accept-Encoding
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Ratelimit-Limit:
-      - '400'
-      X-Ratelimit-Period:
-      - '3600'
-      X-Ratelimit-Remaining:
-      - '386'
-      X-Ratelimit-Reset:
-      - '3279'
+    headers: {}
     method: DELETE
     uri: https://api.datadoghq.com/api/v2/current_user/application_keys/82a1a46d-7acc-4fcd-a448-c5993752640a
   response:

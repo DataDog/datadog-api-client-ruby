@@ -6,22 +6,8 @@ http_interactions:
       string: '{"date_happened":1,"tags":["test:TestPostaneventinthepastreturnsBadRequestresponse1638045281"],"text":"A
         text message.","title":"Test-Post_an_event_in_the_past_returns_Bad_Request_response-1638045281"}'
     headers:
-      Connection:
-      - close
-      Content-Length:
-      - '41'
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
       - text/plain; charset=utf-8
-      Date:
-      - Sat, 27 Nov 2021 20:34:41 GMT
-      Strict-Transport-Security:
-      - max-age=15724800;
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
     method: POST
     uri: https://api.datadoghq.com/api/v1/events
   response:

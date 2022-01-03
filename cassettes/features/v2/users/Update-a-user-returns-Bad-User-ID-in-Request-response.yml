@@ -6,26 +6,8 @@ http_interactions:
       string: '{"data":{"attributes":{"email":"Test-Update_a_user_returns_Bad_User_ID_in_Request_response-1634655468@datadoghq.com","title":"user
         title"},"type":"users"}}'
     headers:
-      Cache-Control:
-      - no-cache
-      Connection:
-      - close
-      Content-Length:
-      - '710'
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
       - application/json
-      Date:
-      - Tue, 19 Oct 2021 14:57:48 GMT
-      Pragma:
-      - no-cache
-      Strict-Transport-Security:
-      - max-age=15724800;
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
     method: POST
     uri: https://api.datadoghq.com/api/v2/users
   response:
@@ -42,26 +24,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"attributes":{"disabled":true,"name":"updated"},"id":"00000000-mismatch-body-id-ffffffffffff","type":"users"}}'
     headers:
-      Cache-Control:
-      - no-cache
-      Connection:
-      - close
-      Content-Length:
-      - '63'
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
       Content-Type:
       - application/json
-      Date:
-      - Tue, 19 Oct 2021 14:57:48 GMT
-      Pragma:
-      - no-cache
-      Strict-Transport-Security:
-      - max-age=15724800;
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
     method: PATCH
     uri: https://api.datadoghq.com/api/v2/users/ecc80030-30ec-11ec-925a-da7ad0900002
   response:
@@ -74,25 +38,7 @@ http_interactions:
 - recorded_at: Tue, 19 Oct 2021 14:57:48 GMT
   request:
     body: null
-    headers:
-      Cache-Control:
-      - no-cache
-      Connection:
-      - close
-      Content-Length:
-      - '0'
-      Content-Security-Policy:
-      - frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report
-      Date:
-      - Tue, 19 Oct 2021 14:57:49 GMT
-      Pragma:
-      - no-cache
-      Strict-Transport-Security:
-      - max-age=15724800;
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
+    headers: {}
     method: DELETE
     uri: https://api.datadoghq.com/api/v2/users/ecc80030-30ec-11ec-925a-da7ad0900002
   response:
