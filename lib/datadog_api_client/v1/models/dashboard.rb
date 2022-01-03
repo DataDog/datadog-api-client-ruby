@@ -25,6 +25,9 @@ module DatadogAPIClient::V1
     # Identifier of the dashboard author.
     attr_accessor :author_handle
 
+    # Name of the dashboard author.
+    attr_accessor :author_name
+
     # Creation date of the dashboard.
     attr_accessor :created_at
 
@@ -69,6 +72,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'author_handle' => :'author_handle',
+        :'author_name' => :'author_name',
         :'created_at' => :'created_at',
         :'description' => :'description',
         :'id' => :'id',
@@ -95,6 +99,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'author_handle' => :'String',
+        :'author_name' => :'String',
         :'created_at' => :'Time',
         :'description' => :'String',
         :'id' => :'String',
@@ -115,6 +120,7 @@ module DatadogAPIClient::V1
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'author_name',
         :'description',
         :'notify_list',
         :'template_variable_presets',
@@ -139,6 +145,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'author_handle')
         self.author_handle = attributes[:'author_handle']
+      end
+
+      if attributes.key?(:'author_name')
+        self.author_name = attributes[:'author_name']
       end
 
       if attributes.key?(:'created_at')
@@ -244,6 +254,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           author_handle == o.author_handle &&
+          author_name == o.author_name &&
           created_at == o.created_at &&
           description == o.description &&
           id == o.id &&
@@ -269,7 +280,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [author_handle, created_at, description, id, is_read_only, layout_type, modified_at, notify_list, reflow_type, restricted_roles, template_variable_presets, template_variables, title, url, widgets].hash
+      [author_handle, author_name, created_at, description, id, is_read_only, layout_type, modified_at, notify_list, reflow_type, restricted_roles, template_variable_presets, template_variables, title, url, widgets].hash
     end
 
     # Builds the object from hash
