@@ -39,6 +39,8 @@ module DatadogAPIClient::V1
 
     attr_accessor :request
 
+    attr_accessor :_retry
+
     attr_accessor :subtype
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -50,6 +52,7 @@ module DatadogAPIClient::V1
         :'is_critical' => :'isCritical',
         :'name' => :'name',
         :'request' => :'request',
+        :'_retry' => :'retry',
         :'subtype' => :'subtype'
       }
     end
@@ -68,6 +71,7 @@ module DatadogAPIClient::V1
         :'is_critical' => :'Boolean',
         :'name' => :'String',
         :'request' => :'SyntheticsTestRequest',
+        :'_retry' => :'SyntheticsTestOptionsRetry',
         :'subtype' => :'SyntheticsAPIStepSubtype'
       }
     end
@@ -121,6 +125,10 @@ module DatadogAPIClient::V1
         self.request = attributes[:'request']
       end
 
+      if attributes.key?(:'_retry')
+        self._retry = attributes[:'_retry']
+      end
+
       if attributes.key?(:'subtype')
         self.subtype = attributes[:'subtype']
       end
@@ -150,6 +158,7 @@ module DatadogAPIClient::V1
           is_critical == o.is_critical &&
           name == o.name &&
           request == o.request &&
+          _retry == o._retry &&
           subtype == o.subtype
     end
 
@@ -162,7 +171,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [allow_failure, assertions, extracted_values, is_critical, name, request, subtype].hash
+      [allow_failure, assertions, extracted_values, is_critical, name, request, _retry, subtype].hash
     end
 
     # Builds the object from hash

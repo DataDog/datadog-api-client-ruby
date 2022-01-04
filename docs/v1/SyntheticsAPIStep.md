@@ -10,6 +10,7 @@
 | **is_critical**      | **Boolean**                                                              | Determines whether or not to consider the entire test as failed if this step fails. Can be used only if &#x60;allowFailure&#x60; is &#x60;true&#x60;. | [optional] |
 | **name**             | **String**                                                               | The name of the step.                                                                                                                                 | [optional] |
 | **request**          | [**SyntheticsTestRequest**](SyntheticsTestRequest.md)                    |                                                                                                                                                       | [optional] |
+| **\_retry**          | [**SyntheticsTestOptionsRetry**](SyntheticsTestOptionsRetry.md)          |                                                                                                                                                       | [optional] |
 | **subtype**          | [**SyntheticsAPIStepSubtype**](SyntheticsAPIStepSubtype.md)              |                                                                                                                                                       | [optional] |
 
 ## Example
@@ -24,6 +25,7 @@ instance = DatadogAPIClient::V1::SyntheticsAPIStep.new(
   is_critical: null,
   name: null,
   request: null,
+  _retry: null,
   subtype: null
 )
 ```

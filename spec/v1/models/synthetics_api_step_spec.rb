@@ -64,6 +64,12 @@ describe DatadogAPIClient::V1::SyntheticsAPIStep do
     end
   end
 
+  describe 'test attribute "_retry"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "subtype"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
