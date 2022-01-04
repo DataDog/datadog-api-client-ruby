@@ -25,17 +25,25 @@ module DatadogAPIClient::V1
     # Maximum amount of records to be returned.
     attr_accessor :limit
 
-    # The cursor to use to get the next results, if any. To make the next request, use the same parameters with the addition of this next_record_id.
-    attr_accessor :next_record_id
+    # Records to be skipped before beginning to return.
+    attr_accessor :offset
 
-    # Total number of records. (deprecated after May 1st, 2021)
+    # Direction to sort by.
+    attr_accessor :sort_direction
+
+    # Field to sort by.
+    attr_accessor :sort_name
+
+    # Total number of records.
     attr_accessor :total_number_of_records
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'limit' => :'limit',
-        :'next_record_id' => :'next_record_id',
+        :'offset' => :'offset',
+        :'sort_direction' => :'sort_direction',
+        :'sort_name' => :'sort_name',
         :'total_number_of_records' => :'total_number_of_records'
       }
     end
@@ -49,7 +57,9 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'limit' => :'Integer',
-        :'next_record_id' => :'String',
+        :'offset' => :'Integer',
+        :'sort_direction' => :'String',
+        :'sort_name' => :'String',
         :'total_number_of_records' => :'Integer'
       }
     end
@@ -79,8 +89,16 @@ module DatadogAPIClient::V1
         self.limit = attributes[:'limit']
       end
 
-      if attributes.key?(:'next_record_id')
-        self.next_record_id = attributes[:'next_record_id']
+      if attributes.key?(:'offset')
+        self.offset = attributes[:'offset']
+      end
+
+      if attributes.key?(:'sort_direction')
+        self.sort_direction = attributes[:'sort_direction']
+      end
+
+      if attributes.key?(:'sort_name')
+        self.sort_name = attributes[:'sort_name']
       end
 
       if attributes.key?(:'total_number_of_records')
@@ -107,7 +125,9 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           limit == o.limit &&
-          next_record_id == o.next_record_id &&
+          offset == o.offset &&
+          sort_direction == o.sort_direction &&
+          sort_name == o.sort_name &&
           total_number_of_records == o.total_number_of_records
     end
 
@@ -120,7 +140,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [limit, next_record_id, total_number_of_records].hash
+      [limit, offset, sort_direction, sort_name, total_number_of_records].hash
     end
 
     # Builds the object from hash
