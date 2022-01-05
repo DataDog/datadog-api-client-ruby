@@ -74,6 +74,7 @@ module DatadogAPIClient::V1
       Set.new([
         :'until_date',
         :'until_occurrences',
+        :'week_days'
       ])
     end
 
