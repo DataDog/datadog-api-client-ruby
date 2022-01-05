@@ -7,7 +7,6 @@ class Object
           index = part.to_i
           result = result[index]
         else
-          part = part.snakecase
           case result
           when Hash
             result = result[part.to_sym] rescue result[part]
