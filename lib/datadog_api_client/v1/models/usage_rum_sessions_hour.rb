@@ -31,7 +31,10 @@ module DatadogAPIClient::V1
     # The organization public ID.
     attr_accessor :public_id
 
-    # Contains the number of RUM Sessions.
+    # Contains the number of RUM Replay Sessions (data available beginning November 1, 2021).
+    attr_accessor :replay_session_count
+
+    # Contains the number of browser RUM Lite Sessions.
     attr_accessor :session_count
 
     # Contains the number of mobile RUM Sessions on Android (data available beginning December 1, 2020).
@@ -46,6 +49,7 @@ module DatadogAPIClient::V1
         :'hour' => :'hour',
         :'org_name' => :'org_name',
         :'public_id' => :'public_id',
+        :'replay_session_count' => :'replay_session_count',
         :'session_count' => :'session_count',
         :'session_count_android' => :'session_count_android',
         :'session_count_ios' => :'session_count_ios'
@@ -63,6 +67,7 @@ module DatadogAPIClient::V1
         :'hour' => :'Time',
         :'org_name' => :'String',
         :'public_id' => :'String',
+        :'replay_session_count' => :'Integer',
         :'session_count' => :'Integer',
         :'session_count_android' => :'Integer',
         :'session_count_ios' => :'Integer'
@@ -102,6 +107,10 @@ module DatadogAPIClient::V1
         self.public_id = attributes[:'public_id']
       end
 
+      if attributes.key?(:'replay_session_count')
+        self.replay_session_count = attributes[:'replay_session_count']
+      end
+
       if attributes.key?(:'session_count')
         self.session_count = attributes[:'session_count']
       end
@@ -136,6 +145,7 @@ module DatadogAPIClient::V1
           hour == o.hour &&
           org_name == o.org_name &&
           public_id == o.public_id &&
+          replay_session_count == o.replay_session_count &&
           session_count == o.session_count &&
           session_count_android == o.session_count_android &&
           session_count_ios == o.session_count_ios
@@ -150,7 +160,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [hour, org_name, public_id, session_count, session_count_android, session_count_ios].hash
+      [hour, org_name, public_id, replay_session_count, session_count, session_count_android, session_count_ios].hash
     end
 
     # Builds the object from hash
