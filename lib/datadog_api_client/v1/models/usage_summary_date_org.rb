@@ -160,7 +160,7 @@ module DatadogAPIClient::V1
     # Shows the sum of all mobile sessions and all browser lite and legacy sessions over all hours in the current date for the given org.
     attr_accessor :rum_browser_and_mobile_session_count
 
-    # Shows the sum of all browser RUM Sessions over all hours in the current date for the given org.
+    # Shows the sum of all browser RUM Lite Sessions over all hours in the current date for the given org.
     attr_accessor :rum_session_count_sum
 
     # Shows the sum of RUM Sessions (browser and mobile) over all hours in the current date for the given org.
