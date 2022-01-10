@@ -376,6 +376,7 @@ All URIs are relative to *https://api.datadoghq.com*
 - [DatadogAPIClient::V1::HostMapWidgetDefinitionStyle](HostMapWidgetDefinitionStyle.md)
 - [DatadogAPIClient::V1::HostMapWidgetDefinitionType](HostMapWidgetDefinitionType.md)
 - [DatadogAPIClient::V1::HostMeta](HostMeta.md)
+- [DatadogAPIClient::V1::HostMetaInstallMethod](HostMetaInstallMethod.md)
 - [DatadogAPIClient::V1::HostMetrics](HostMetrics.md)
 - [DatadogAPIClient::V1::HostMuteResponse](HostMuteResponse.md)
 - [DatadogAPIClient::V1::HostMuteSettings](HostMuteSettings.md)
