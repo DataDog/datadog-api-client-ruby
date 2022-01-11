@@ -70,7 +70,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -160,7 +160,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -237,7 +237,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -314,7 +314,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -393,7 +393,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -420,6 +420,102 @@ module DatadogAPIClient::V1
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: UsageMeteringAPI#get_monthly_custom_reports\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get Monthly Usage Attribution
+    # Get Monthly Usage Attribution.
+    # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
+    # @param fields [MonthlyUsageAttributionSupportedMetrics] Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage types.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
+    # @option opts [UsageSortDirection] :sort_direction The direction to sort by: &#x60;[desc, asc]&#x60;. (default to 'desc')
+    # @option opts [MonthlyUsageAttributionSupportedMetrics] :sort_name The field to sort by.
+    # @option opts [String] :tag_breakdown_keys Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.
+    # @option opts [String] :next_record_id List following results with a next_record_id provided in the previous query.
+    # @return [MonthlyUsageAttributionResponse]
+    def get_monthly_usage_attribution(start_month, fields, opts = {})
+      data, _status_code, _headers = get_monthly_usage_attribution_with_http_info(start_month, fields, opts)
+      data
+    end
+
+    # Get Monthly Usage Attribution
+    # Get Monthly Usage Attribution.
+    # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
+    # @param fields [MonthlyUsageAttributionSupportedMetrics] Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage types.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
+    # @option opts [UsageSortDirection] :sort_direction The direction to sort by: &#x60;[desc, asc]&#x60;.
+    # @option opts [MonthlyUsageAttributionSupportedMetrics] :sort_name The field to sort by.
+    # @option opts [String] :tag_breakdown_keys Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.
+    # @option opts [String] :next_record_id List following results with a next_record_id provided in the previous query.
+    # @return [Array<(MonthlyUsageAttributionResponse, Integer, Hash)>] MonthlyUsageAttributionResponse data, response status code and response headers
+    def get_monthly_usage_attribution_with_http_info(start_month, fields, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_monthly_usage_attribution)
+        unstable_enabled = @api_client.config.unstable_operations[:get_monthly_usage_attribution]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_monthly_usage_attribution")
+        else
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_monthly_usage_attribution"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_monthly_usage_attribution ...'
+      end
+      # verify the required parameter 'start_month' is set
+      if @api_client.config.client_side_validation && start_month.nil?
+        fail ArgumentError, "Missing the required parameter 'start_month' when calling UsageMeteringAPI.get_monthly_usage_attribution"
+      end
+      # verify the required parameter 'fields' is set
+      if @api_client.config.client_side_validation && fields.nil?
+        fail ArgumentError, "Missing the required parameter 'fields' when calling UsageMeteringAPI.get_monthly_usage_attribution"
+      end
+      # resource path
+      local_var_path = '/api/v1/usage/monthly-attribution'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'start_month'] = start_month
+      query_params[:'fields'] = fields
+      query_params[:'end_month'] = opts[:'end_month'] if !opts[:'end_month'].nil?
+      query_params[:'sort_direction'] = opts[:'sort_direction'] if !opts[:'sort_direction'].nil?
+      query_params[:'sort_name'] = opts[:'sort_name'] if !opts[:'sort_name'].nil?
+      query_params[:'tag_breakdown_keys'] = opts[:'tag_breakdown_keys'] if !opts[:'tag_breakdown_keys'].nil?
+      query_params[:'next_record_id'] = opts[:'next_record_id'] if !opts[:'next_record_id'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MonthlyUsageAttributionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :get_monthly_usage_attribution,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsageMeteringAPI#get_monthly_usage_attribution\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -466,7 +562,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -539,7 +635,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -616,7 +712,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -709,7 +805,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -786,7 +882,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -856,7 +952,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -933,7 +1029,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -1010,7 +1106,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -1087,7 +1183,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -1164,7 +1260,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -1241,7 +1337,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -1318,7 +1414,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -1395,7 +1491,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -1472,7 +1568,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -1549,7 +1645,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -1629,7 +1725,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -1706,7 +1802,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -1783,7 +1879,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -1860,7 +1956,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -1937,7 +2033,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -2017,7 +2113,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -2094,7 +2190,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -2171,7 +2267,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -2248,7 +2344,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -2328,7 +2424,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -2405,7 +2501,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -2482,7 +2578,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -2559,7 +2655,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -2636,7 +2732,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -2726,7 +2822,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339', 'application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
 
       # form parameters
       form_params = opts[:form_params] || {}
