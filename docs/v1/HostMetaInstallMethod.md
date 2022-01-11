@@ -2,11 +2,11 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **installer_version** | **String** | The installer version. | [optional] |
-| **tool** | **String** | Tool used to install the agent. | [optional] |
-| **tool_version** | **String** | The tool version. | [optional] |
+| Name                  | Type       | Description                     | Notes      |
+| --------------------- | ---------- | ------------------------------- | ---------- |
+| **installer_version** | **String** | The installer version.          | [optional] |
+| **tool**              | **String** | Tool used to install the agent. | [optional] |
+| **tool_version**      | **String** | The tool version.               | [optional] |
 
 ## Example
 
@@ -19,4 +19,3 @@ instance = DatadogAPIClient::V1::HostMetaInstallMethod.new(
   tool_version: install_script
 )
 ```
-
