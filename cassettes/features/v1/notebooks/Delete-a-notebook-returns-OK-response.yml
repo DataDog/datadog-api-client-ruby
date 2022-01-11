@@ -1,10 +1,10 @@
 http_interactions:
-- recorded_at: Tue, 11 May 2021 09:42:54 GMT
+- recorded_at: Mon, 10 Jan 2022 14:56:18 GMT
   request:
     body:
       encoding: UTF-8
       string: '{"data":{"attributes":{"cells":[{"attributes":{"definition":{"text":"#
-        Test-Delete_a_notebook_returns_OK_response-1620726174 notebook text","type":"markdown"}},"type":"notebook_cells"}],"name":"Test-Delete_a_notebook_returns_OK_response-1620726174","time":{"live_span":"1h"}},"type":"notebooks"}}'
+        Test-Delete_a_notebook_returns_OK_response-1641826578 notebook text","type":"markdown"}},"type":"notebook_cells"}],"name":"Test-Delete_a_notebook_returns_OK_response-1641826578","time":{"live_span":"1h"}},"type":"notebooks"}}'
     headers:
       Content-Type:
       - application/json
@@ -13,19 +13,17 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"notebooks","id":774055,"attributes":{"name":"Test-Delete_a_notebook_returns_OK_response-1620726174","cells":[{"attributes":{"definition":{"text":"#
-        Test-Delete_a_notebook_returns_OK_response-1620726174 notebook text","type":"markdown"}},"type":"notebook_cells","id":"j6gwpoqh"}],"time":{"live_span":"1h"},"status":"published","modified":"2021-05-11T09:42:54.457909+00:00","created":"2021-05-11T09:42:54.457909+00:00","author":{"name":null,"handle":"frog@datadoghq.com","email":"frog@datadoghq.com","icon":"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro","title":null,"verified":true,"disabled":false,"status":"Active"}}}}'
+      string: '{"data":{"type":"notebooks","id":1779491,"attributes":{"name":"Test-Delete_a_notebook_returns_OK_response-1641826578","cells":[{"attributes":{"definition":{"text":"#
+        Test-Delete_a_notebook_returns_OK_response-1641826578 notebook text","type":"markdown"}},"type":"notebook_cells","id":"uwyokkao"}],"time":{"live_span":"1h"},"metadata":{"is_favorite":false,"is_template":false,"type":null,"take_snapshots":false},"template_variables":[],"status":"published","modified":"2022-01-10T14:56:18.518824+00:00","created":"2022-01-10T14:56:18.518824+00:00","author":{"name":null,"handle":"frog@datadoghq.com","email":"frog@datadoghq.com","icon":"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro","title":null,"verified":true,"disabled":false,"status":"Active"}}}}'
     status:
       code: 200
       message: OK
-- recorded_at: Tue, 11 May 2021 09:42:54 GMT
+- recorded_at: Mon, 10 Jan 2022 14:56:18 GMT
   request:
     body: null
-    headers:
-      Content-Type:
-      - application/json
+    headers: {}
     method: DELETE
-    uri: https://api.datadoghq.com/api/v1/notebooks/774055
+    uri: https://api.datadoghq.com/api/v1/notebooks/1779491
   response:
     body:
       encoding: UTF-8
@@ -33,14 +31,14 @@ http_interactions:
     status:
       code: 204
       message: No Content
-- recorded_at: Tue, 11 May 2021 09:42:54 GMT
+- recorded_at: Mon, 10 Jan 2022 14:56:18 GMT
   request:
     body: null
     headers:
       Content-Type:
       - application/json
     method: DELETE
-    uri: https://api.datadoghq.com/api/v1/notebooks/774055
+    uri: https://api.datadoghq.com/api/v1/notebooks/1779491
   response:
     body:
       encoding: UTF-8

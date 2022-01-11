@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Thu, 15 Apr 2021 13:01:14 GMT
+- recorded_at: Thu, 06 Jan 2022 00:50:57 GMT
   request:
     body: null
     headers:
@@ -10,7 +10,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"errors": ["Monitor not found"]}'
+      string: '{"errors":["Monitor not found"]}'
     status:
       code: 404
       message: Not Found

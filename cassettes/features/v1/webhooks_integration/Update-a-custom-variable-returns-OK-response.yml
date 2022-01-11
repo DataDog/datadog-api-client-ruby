@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Thu, 12 Aug 2021 16:28:38 GMT
+- recorded_at: Thu, 06 Jan 2022 00:51:26 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"is_secret":false,"name":"TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1628785718","value":"variable-value"}'
+      string: '{"is_secret":false,"name":"TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1641430286","value":"variable-value"}'
     headers:
       Content-Type:
       - application/json
@@ -12,11 +12,11 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"is_secret":false,"name":"TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1628785718","value":"variable-value"}'
+      string: '{"is_secret":false,"name":"TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1641430286","value":"variable-value"}'
     status:
       code: 201
       message: Created
-- recorded_at: Thu, 12 Aug 2021 16:28:38 GMT
+- recorded_at: Thu, 06 Jan 2022 00:51:26 GMT
   request:
     body:
       encoding: UTF-8
@@ -25,22 +25,22 @@ http_interactions:
       Content-Type:
       - application/json
     method: PUT
-    uri: https://api.datadoghq.com/api/v1/integration/webhooks/configuration/custom-variables/TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1628785718
+    uri: https://api.datadoghq.com/api/v1/integration/webhooks/configuration/custom-variables/TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1641430286
   response:
     body:
       encoding: UTF-8
-      string: '{"is_secret":false,"name":"TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1628785718","value":"variable-updated"}'
+      string: '{"is_secret":false,"name":"TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1641430286","value":"variable-updated"}'
     status:
       code: 200
       message: OK
-- recorded_at: Thu, 12 Aug 2021 16:28:38 GMT
+- recorded_at: Thu, 06 Jan 2022 00:51:26 GMT
   request:
     body: null
     headers:
       Content-Type:
       - application/json
     method: DELETE
-    uri: https://api.datadoghq.com/api/v1/integration/webhooks/configuration/custom-variables/TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1628785718
+    uri: https://api.datadoghq.com/api/v1/integration/webhooks/configuration/custom-variables/TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1641430286
   response:
     body:
       encoding: UTF-8

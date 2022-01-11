@@ -1,10 +1,10 @@
 http_interactions:
-- recorded_at: Tue, 11 May 2021 09:42:55 GMT
+- recorded_at: Mon, 10 Jan 2022 15:50:21 GMT
   request:
     body:
       encoding: UTF-8
       string: '{"data":{"attributes":{"cells":[{"attributes":{"definition":{"text":"#
-        Test-Get_a_notebook_returns_OK_response-1620726175 notebook text","type":"markdown"}},"type":"notebook_cells"}],"name":"Test-Get_a_notebook_returns_OK_response-1620726175","time":{"live_span":"1h"}},"type":"notebooks"}}'
+        Test-Get_a_notebook_returns_OK_response-1641829821 notebook text","type":"markdown"}},"type":"notebook_cells"}],"name":"Test-Get_a_notebook_returns_OK_response-1641829821","time":{"live_span":"1h"}},"type":"notebooks"}}'
     headers:
       Content-Type:
       - application/json
@@ -13,35 +13,33 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"notebooks","id":774056,"attributes":{"name":"Test-Get_a_notebook_returns_OK_response-1620726175","cells":[{"attributes":{"definition":{"text":"#
-        Test-Get_a_notebook_returns_OK_response-1620726175 notebook text","type":"markdown"}},"type":"notebook_cells","id":"avx0umk1"}],"time":{"live_span":"1h"},"status":"published","modified":"2021-05-11T09:42:55.675039+00:00","created":"2021-05-11T09:42:55.675039+00:00","author":{"name":null,"handle":"frog@datadoghq.com","email":"frog@datadoghq.com","icon":"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro","title":null,"verified":true,"disabled":false,"status":"Active"}}}}'
+      string: '{"data":{"type":"notebooks","id":1779977,"attributes":{"name":"Test-Get_a_notebook_returns_OK_response-1641829821","cells":[{"attributes":{"definition":{"text":"#
+        Test-Get_a_notebook_returns_OK_response-1641829821 notebook text","type":"markdown"}},"type":"notebook_cells","id":"jv3xmpp3"}],"time":{"live_span":"1h"},"metadata":{"is_favorite":false,"is_template":false,"type":null,"take_snapshots":false},"template_variables":[],"status":"published","modified":"2022-01-10T15:50:22.101502+00:00","created":"2022-01-10T15:50:22.101502+00:00","author":{"name":null,"handle":"frog@datadoghq.com","email":"frog@datadoghq.com","icon":"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro","title":null,"verified":true,"disabled":false,"status":"Active"}}}}'
     status:
       code: 200
       message: OK
-- recorded_at: Tue, 11 May 2021 09:42:55 GMT
+- recorded_at: Mon, 10 Jan 2022 15:50:21 GMT
   request:
     body: null
     headers:
       Content-Type:
       - application/json
     method: GET
-    uri: https://api.datadoghq.com/api/v1/notebooks/774056
+    uri: https://api.datadoghq.com/api/v1/notebooks/1779977
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"notebooks","id":774056,"attributes":{"name":"Test-Get_a_notebook_returns_OK_response-1620726175","cells":[{"attributes":{"definition":{"text":"#
-        Test-Get_a_notebook_returns_OK_response-1620726175 notebook text","type":"markdown"}},"type":"notebook_cells","id":"avx0umk1"}],"time":{"live_span":"1h"},"status":"published","modified":"2021-05-11T09:42:55.675039+00:00","created":"2021-05-11T09:42:55.675039+00:00","author":{"name":null,"handle":"frog@datadoghq.com","email":"frog@datadoghq.com","icon":"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro","title":null,"verified":true,"disabled":false,"status":"Active"}}}}'
+      string: '{"data":{"type":"notebooks","id":1779977,"attributes":{"name":"Test-Get_a_notebook_returns_OK_response-1641829821","cells":[{"attributes":{"definition":{"text":"#
+        Test-Get_a_notebook_returns_OK_response-1641829821 notebook text","type":"markdown"}},"type":"notebook_cells","id":"jv3xmpp3"}],"time":{"live_span":"1h"},"metadata":{"is_favorite":false,"is_template":false,"type":null,"take_snapshots":false},"template_variables":[],"status":"published","modified":"2022-01-10T15:50:22.101502+00:00","created":"2022-01-10T15:50:22.101502+00:00","author":{"name":null,"handle":"frog@datadoghq.com","email":"frog@datadoghq.com","icon":"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro","title":null,"verified":true,"disabled":false,"status":"Active"}}}}'
     status:
       code: 200
       message: OK
-- recorded_at: Tue, 11 May 2021 09:42:55 GMT
+- recorded_at: Mon, 10 Jan 2022 15:50:21 GMT
   request:
     body: null
-    headers:
-      Content-Type:
-      - application/json
+    headers: {}
     method: DELETE
-    uri: https://api.datadoghq.com/api/v1/notebooks/774056
+    uri: https://api.datadoghq.com/api/v1/notebooks/1779977
   response:
     body:
       encoding: UTF-8

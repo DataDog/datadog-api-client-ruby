@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Tue, 25 May 2021 10:23:20 GMT
+- recorded_at: Thu, 06 Jan 2022 00:50:59 GMT
   request:
     body: null
     headers:
@@ -10,7 +10,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"errors": ["Query parsing error: ''notastatus'' is not a valid monitor
+      string: '{"errors":["Query parsing error: ''notastatus'' is not a valid monitor
         status"]}'
     status:
       code: 400
