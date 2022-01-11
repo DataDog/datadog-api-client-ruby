@@ -676,7 +676,9 @@ opts = {
   end_month: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage ending this month.
   sort_direction: DatadogAPIClient::V1::UsageSortDirection::DESC, # UsageSortDirection | The direction to sort by: `[desc, asc]`.
   sort_name: DatadogAPIClient::V1::UsageAttributionSort::API_PERCENTAGE, # UsageAttributionSort | The field to sort by.
-  include_descendants: true # Boolean | Include child org usage in the response. Defaults to false.
+  include_descendants: true, # Boolean | Include child org usage in the response. Defaults to false.
+  offset: 789, # Integer | Number of records to skip before beginning to return.
+  limit: 789 # Integer | Maximum number of records to be returned.
 }
 
 begin
@@ -716,6 +718,8 @@ end
 | **sort_direction**      | **UsageSortDirection**               | The direction to sort by: &#x60;[desc, asc]&#x60;.                                                                                     | [optional][default to &#39;desc&#39;]                    |
 | **sort_name**           | **UsageAttributionSort**             | The field to sort by.                                                                                                                  | [optional][default to &#39;custom_timeseries_usage&#39;] |
 | **include_descendants** | **Boolean**                          | Include child org usage in the response. Defaults to false.                                                                            | [optional][default to false]                             |
+| **offset**              | **Integer**                          | Number of records to skip before beginning to return.                                                                                  | [optional][default to 0]                                 |
+| **limit**               | **Integer**                          | Maximum number of records to be returned.                                                                                              | [optional][default to 5000]                              |
 
 ### Return type
 
