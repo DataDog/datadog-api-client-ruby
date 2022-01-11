@@ -172,6 +172,8 @@ describe 'UsageMeteringAPI' do
   # @option opts [UsageSortDirection] :sort_direction The direction to sort by: &#x60;[desc, asc]&#x60;.
   # @option opts [UsageAttributionSort] :sort_name The field to sort by.
   # @option opts [Boolean] :include_descendants Include child org usage in the response. Defaults to false.
+  # @option opts [Integer] :offset Number of records to skip before beginning to return.
+  # @option opts [Integer] :limit Maximum number of records to be returned.
   # @return [UsageAttributionResponse]
   describe 'get_usage_attribution test' do
     it 'should work' do
