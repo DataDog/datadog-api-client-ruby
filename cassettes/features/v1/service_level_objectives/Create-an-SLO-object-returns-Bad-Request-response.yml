@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Wed, 14 Apr 2021 15:12:34 GMT
+- recorded_at: Thu, 06 Jan 2022 00:51:10 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"name":"Test-Create_an_SLO_object_returns_Bad_Request_response-1618413154","thresholds":[{"target":95,"target_display":"95.0","timeframe":"7d","warning":98,"warning_display":"98.0"}],"type":"monitor"}'
+      string: '{"name":"Test-Create_an_SLO_object_returns_Bad_Request_response-1641430270","thresholds":[{"target":95,"target_display":"95.0","timeframe":"7d","warning":98,"warning_display":"98.0"}],"type":"monitor"}'
     headers:
       Content-Type:
       - application/json
@@ -12,7 +12,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"errors": ["Invalid payload: must specify monitor_ids or monitor_search"]}'
+      string: '{"errors":["Invalid payload: must specify monitor_ids"]}'
     status:
       code: 400
       message: Bad Request

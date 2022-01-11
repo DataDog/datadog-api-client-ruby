@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Tue, 19 Oct 2021 14:57:43 GMT
+- recorded_at: Mon, 10 Jan 2022 15:50:14 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"end":1634659063,"message":"Test-Schedule_a_downtime_with_until_occurrences-1634655463","recurrence":{"period":1,"type":"weeks","until_occurrences":3,"week_days":["Mon","Tue","Wed","Thu","Fri"]},"scope":["*"],"start":1634655463,"timezone":"Etc/UTC"}'
+      string: '{"end":1641833414,"message":"Test-Schedule_a_downtime_with_until_occurrences-1641829814","recurrence":{"period":1,"type":"weeks","until_occurrences":3,"week_days":["Mon","Tue","Wed","Thu","Fri"]},"scope":["*"],"start":1641829814,"timezone":"Etc/UTC"}'
     headers:
       Content-Type:
       - application/json
@@ -12,16 +12,16 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"recurrence":{"until_date":null,"until_occurrences":3,"week_days":["Mon","Tue","Wed","Thu","Fri"],"type":"weeks","period":1},"end":1634659063,"monitor_tags":["*"],"child_id":null,"canceled":null,"monitor_id":null,"created":1634655463,"org_id":321813,"modified":1634655463,"disabled":false,"start":1634655463,"creator_id":1445416,"parent_id":null,"timezone":"Etc/UTC","active":true,"scope":["*"],"message":"Test-Schedule_a_downtime_with_until_occurrences-1634655463","downtime_type":0,"id":1511004136,"updater_id":null}'
+      string: '{"recurrence":{"until_date":null,"until_occurrences":3,"week_days":["Mon","Tue","Wed","Thu","Fri"],"type":"weeks","period":1},"end":1641833414,"monitor_tags":["*"],"child_id":null,"canceled":null,"monitor_id":null,"created":1641829815,"org_id":321813,"modified":1641829815,"disabled":false,"start":1641829814,"creator_id":1445416,"parent_id":null,"timezone":"Etc/UTC","active":true,"scope":["*"],"message":"Test-Schedule_a_downtime_with_until_occurrences-1641829814","downtime_type":0,"id":1672791269,"updater_id":null}'
     status:
       code: 200
       message: OK
-- recorded_at: Tue, 19 Oct 2021 14:57:43 GMT
+- recorded_at: Mon, 10 Jan 2022 15:50:14 GMT
   request:
     body: null
     headers: {}
     method: DELETE
-    uri: https://api.datadoghq.com/api/v1/downtime/1511004136
+    uri: https://api.datadoghq.com/api/v1/downtime/1672791269
   response:
     body:
       encoding: UTF-8

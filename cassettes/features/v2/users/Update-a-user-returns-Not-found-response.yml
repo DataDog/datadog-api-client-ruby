@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Tue, 19 Oct 2021 14:57:49 GMT
+- recorded_at: Thu, 06 Jan 2022 00:52:36 GMT
   request:
     body:
       encoding: UTF-8
@@ -12,7 +12,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"errors": ["00000000-dead-beef-dead-ffffffffffff not found"]}'
+      string: '{"errors":["00000000-dead-beef-dead-ffffffffffff not found"]}'
     status:
       code: 404
       message: Not Found

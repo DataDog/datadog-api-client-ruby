@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Fri, 01 Oct 2021 08:28:30 GMT
+- recorded_at: Thu, 06 Jan 2022 00:50:21 GMT
   request:
     body: null
     headers:
@@ -10,7 +10,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"errors": ["Manual Dashboard List with id 0 not found"]}'
+      string: '{"errors":["Manual Dashboard List with id 0 not found"]}'
     status:
       code: 404
       message: Not Found

@@ -1,16 +1,16 @@
 http_interactions:
-- recorded_at: Thu, 15 Apr 2021 13:01:20 GMT
+- recorded_at: Thu, 06 Jan 2022 00:51:10 GMT
   request:
     body: null
     headers:
       Content-Type:
       - application/json
     method: DELETE
-    uri: https://api.datadoghq.com/api/v1/slo/testdeleteansloreturnsnotfoundresponse1618491680
+    uri: https://api.datadoghq.com/api/v1/slo/testdeleteansloreturnsnotfoundresponse1641430270
   response:
     body:
       encoding: UTF-8
-      string: '{"errors": ["SLO not found: testdeleteansloreturnsnotfoundresponse1618491680
+      string: '{"errors":["SLO not found: testdeleteansloreturnsnotfoundresponse1641430270
         not found"]}'
     status:
       code: 404
