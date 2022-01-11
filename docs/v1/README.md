@@ -196,6 +196,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | _DatadogAPIClient::V1::UsageMeteringAPI_                    | [**get_incident_management**](UsageMeteringAPI.md#get_incident_management)                                               | **GET** /api/v1/usage/incident-management                                                          | Get hourly usage for incident management         |
 | _DatadogAPIClient::V1::UsageMeteringAPI_                    | [**get_ingested_spans**](UsageMeteringAPI.md#get_ingested_spans)                                                         | **GET** /api/v1/usage/ingested-spans                                                               | Get hourly usage for ingested spans              |
 | _DatadogAPIClient::V1::UsageMeteringAPI_                    | [**get_monthly_custom_reports**](UsageMeteringAPI.md#get_monthly_custom_reports)                                         | **GET** /api/v1/monthly_custom_reports                                                             | Get the list of available monthly custom reports |
+| _DatadogAPIClient::V1::UsageMeteringAPI_                    | [**get_monthly_usage_attribution**](UsageMeteringAPI.md#get_monthly_usage_attribution)                                   | **GET** /api/v1/usage/monthly-attribution                                                          | Get Monthly Usage Attribution                    |
 | _DatadogAPIClient::V1::UsageMeteringAPI_                    | [**get_specified_daily_custom_reports**](UsageMeteringAPI.md#get_specified_daily_custom_reports)                         | **GET** /api/v1/daily_custom_reports/{report_id}                                                   | Get specified daily custom reports               |
 | _DatadogAPIClient::V1::UsageMeteringAPI_                    | [**get_specified_monthly_custom_reports**](UsageMeteringAPI.md#get_specified_monthly_custom_reports)                     | **GET** /api/v1/monthly_custom_reports/{report_id}                                                 | Get specified monthly custom reports             |
 | _DatadogAPIClient::V1::UsageMeteringAPI_                    | [**get_usage_analyzed_logs**](UsageMeteringAPI.md#get_usage_analyzed_logs)                                               | **GET** /api/v1/usage/analyzed_logs                                                                | Get hourly usage for analyzed logs               |
@@ -504,6 +505,12 @@ All URIs are relative to *https://api.datadoghq.com*
 - [DatadogAPIClient::V1::MonitorThresholds](MonitorThresholds.md)
 - [DatadogAPIClient::V1::MonitorType](MonitorType.md)
 - [DatadogAPIClient::V1::MonitorUpdateRequest](MonitorUpdateRequest.md)
+- [DatadogAPIClient::V1::MonthlyUsageAttributionBody](MonthlyUsageAttributionBody.md)
+- [DatadogAPIClient::V1::MonthlyUsageAttributionMetadata](MonthlyUsageAttributionMetadata.md)
+- [DatadogAPIClient::V1::MonthlyUsageAttributionPagination](MonthlyUsageAttributionPagination.md)
+- [DatadogAPIClient::V1::MonthlyUsageAttributionResponse](MonthlyUsageAttributionResponse.md)
+- [DatadogAPIClient::V1::MonthlyUsageAttributionSupportedMetrics](MonthlyUsageAttributionSupportedMetrics.md)
+- [DatadogAPIClient::V1::MonthlyUsageAttributionValues](MonthlyUsageAttributionValues.md)
 - [DatadogAPIClient::V1::NoteWidgetDefinition](NoteWidgetDefinition.md)
 - [DatadogAPIClient::V1::NoteWidgetDefinitionType](NoteWidgetDefinitionType.md)
 - [DatadogAPIClient::V1::NotebookAbsoluteTime](NotebookAbsoluteTime.md)

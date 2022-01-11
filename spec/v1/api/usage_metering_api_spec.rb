@@ -107,6 +107,24 @@ describe 'UsageMeteringAPI' do
     end
   end
 
+  # unit tests for get_monthly_usage_attribution
+  # Get Monthly Usage Attribution
+  # Get Monthly Usage Attribution.
+  # @param start_month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
+  # @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage types.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
+  # @option opts [UsageSortDirection] :sort_direction The direction to sort by: &#x60;[desc, asc]&#x60;.
+  # @option opts [MonthlyUsageAttributionSupportedMetrics] :sort_name The field to sort by.
+  # @option opts [String] :tag_breakdown_keys Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.
+  # @option opts [String] :next_record_id List following results with a next_record_id provided in the previous query.
+  # @return [MonthlyUsageAttributionResponse]
+  describe 'get_monthly_usage_attribution test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_specified_daily_custom_reports
   # Get specified daily custom reports
   # Get specified daily custom reports.

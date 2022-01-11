@@ -179,6 +179,7 @@ module DatadogAPIClient::V1
             get_daily_custom_reports: false,
             get_hourly_usage_attribution: false,
             get_monthly_custom_reports: false,
+            get_monthly_usage_attribution: false,
             get_specified_daily_custom_reports: false,
             get_specified_monthly_custom_reports: false,
             get_usage_attribution: false,

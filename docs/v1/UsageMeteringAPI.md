@@ -9,6 +9,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**get_incident_management**](UsageMeteringAPI.md#get_incident_management)                                         | **GET** /api/v1/usage/incident-management          | Get hourly usage for incident management         |
 | [**get_ingested_spans**](UsageMeteringAPI.md#get_ingested_spans)                                                   | **GET** /api/v1/usage/ingested-spans               | Get hourly usage for ingested spans              |
 | [**get_monthly_custom_reports**](UsageMeteringAPI.md#get_monthly_custom_reports)                                   | **GET** /api/v1/monthly_custom_reports             | Get the list of available monthly custom reports |
+| [**get_monthly_usage_attribution**](UsageMeteringAPI.md#get_monthly_usage_attribution)                             | **GET** /api/v1/usage/monthly-attribution          | Get Monthly Usage Attribution                    |
 | [**get_specified_daily_custom_reports**](UsageMeteringAPI.md#get_specified_daily_custom_reports)                   | **GET** /api/v1/daily_custom_reports/{report_id}   | Get specified daily custom reports               |
 | [**get_specified_monthly_custom_reports**](UsageMeteringAPI.md#get_specified_monthly_custom_reports)               | **GET** /api/v1/monthly_custom_reports/{report_id} | Get specified monthly custom reports             |
 | [**get_usage_analyzed_logs**](UsageMeteringAPI.md#get_usage_analyzed_logs)                                         | **GET** /api/v1/usage/analyzed_logs                | Get hourly usage for analyzed logs               |
@@ -110,7 +111,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_hourly_usage_attribution
 
@@ -184,7 +185,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_incident_management
 
@@ -247,7 +248,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_ingested_spans
 
@@ -310,7 +311,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_monthly_custom_reports
 
@@ -382,7 +383,85 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
+
+## get_monthly_usage_attribution
+
+> <MonthlyUsageAttributionResponse> get_monthly_usage_attribution(start_month, fields, opts)
+
+Get Monthly Usage Attribution.
+
+### Examples
+
+```ruby
+require 'datadog_api_client'
+
+DatadogAPIClient::V1.configure do |config|
+  config.unstable_operations[:get_monthly_usage_attribution] = true
+end
+
+api_instance = DatadogAPIClient::V1::UsageMeteringAPI.new
+start_month = Time.parse('2013-10-20T19:20:30+01:00') # Time | Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage beginning in this month. Maximum of 15 months ago.
+fields = DatadogAPIClient::V1::MonthlyUsageAttributionSupportedMetrics::API_USAGE # MonthlyUsageAttributionSupportedMetrics | Comma-separated list of usage types to return, or `*` for all usage types.
+opts = {
+  end_month: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage ending this month.
+  sort_direction: DatadogAPIClient::V1::UsageSortDirection::DESC, # UsageSortDirection | The direction to sort by: `[desc, asc]`.
+  sort_name: DatadogAPIClient::V1::MonthlyUsageAttributionSupportedMetrics::API_USAGE, # MonthlyUsageAttributionSupportedMetrics | The field to sort by.
+  tag_breakdown_keys: 'tag_breakdown_keys_example', # String | Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.
+  next_record_id: 'next_record_id_example' # String | List following results with a next_record_id provided in the previous query.
+}
+
+begin
+  # Get Monthly Usage Attribution
+  result = api_instance.get_monthly_usage_attribution(start_month, fields, opts)
+  p result
+rescue DatadogAPIClient::V1::APIError => e
+  puts "Error when calling UsageMeteringAPI->get_monthly_usage_attribution: #{e}"
+end
+```
+
+#### Using the get_monthly_usage_attribution_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MonthlyUsageAttributionResponse>, Integer, Hash)> get_monthly_usage_attribution_with_http_info(start_month, fields, opts)
+
+```ruby
+begin
+  # Get Monthly Usage Attribution
+  data, status_code, headers = api_instance.get_monthly_usage_attribution_with_http_info(start_month, fields, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MonthlyUsageAttributionResponse>
+rescue DatadogAPIClient::V1::APIError => e
+  puts "Error when calling UsageMeteringAPI->get_monthly_usage_attribution_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name                   | Type                                        | Description                                                                                                                            | Notes                                 |
+| ---------------------- | ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| **start_month**        | **Time**                                    | Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago. |                                       |
+| **fields**             | **MonthlyUsageAttributionSupportedMetrics** | Comma-separated list of usage types to return, or &#x60;\*&#x60; for all usage types.                                                  |                                       |
+| **end_month**          | **Time**                                    | Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.                                 | [optional]                            |
+| **sort_direction**     | **UsageSortDirection**                      | The direction to sort by: &#x60;[desc, asc]&#x60;.                                                                                     | [optional][default to &#39;desc&#39;] |
+| **sort_name**          | **MonthlyUsageAttributionSupportedMetrics** | The field to sort by.                                                                                                                  | [optional]                            |
+| **tag_breakdown_keys** | **String**                                  | Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.                   | [optional]                            |
+| **next_record_id**     | **String**                                  | List following results with a next_record_id provided in the previous query.                                                           | [optional]                            |
+
+### Return type
+
+[**MonthlyUsageAttributionResponse**](MonthlyUsageAttributionResponse.md)
+
+### Authorization
+
+[AuthZ](README.md#AuthZ), [apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_specified_daily_custom_reports
 
@@ -446,7 +525,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_specified_monthly_custom_reports
 
@@ -510,7 +589,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_usage_analyzed_logs
 
@@ -573,7 +652,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_usage_attribution
 
@@ -649,7 +728,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_usage_audit_logs
 
@@ -712,7 +791,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_usage_billable_summary
 
@@ -773,7 +852,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_usage_cloud_security_posture_management
 
@@ -836,7 +915,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_usage_cws
 
@@ -899,7 +978,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_usage_dbm
 
@@ -962,7 +1041,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_usage_fargate
 
@@ -1025,7 +1104,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_usage_hosts
 
@@ -1088,7 +1167,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_usage_indexed_spans
 
@@ -1151,7 +1230,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_usage_internet_of_things
 
@@ -1214,7 +1293,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_usage_lambda
 
@@ -1277,7 +1356,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_usage_logs
 
@@ -1340,7 +1419,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_usage_logs_by_index
 
@@ -1405,7 +1484,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_usage_logs_by_retention
 
@@ -1468,7 +1547,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_usage_network_flows
 
@@ -1531,7 +1610,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_usage_network_hosts
 
@@ -1594,7 +1673,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_usage_profiling
 
@@ -1657,7 +1736,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_usage_rum_sessions
 
@@ -1722,7 +1801,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_usage_rum_units
 
@@ -1785,7 +1864,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_usage_sds
 
@@ -1848,7 +1927,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_usage_snmp
 
@@ -1911,7 +1990,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_usage_summary
 
@@ -1976,7 +2055,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_usage_synthetics
 
@@ -2039,7 +2118,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_usage_synthetics_api
 
@@ -2102,7 +2181,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_usage_synthetics_browser
 
@@ -2165,7 +2244,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_usage_timeseries
 
@@ -2228,7 +2307,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ## get_usage_top_avg_metrics
 
@@ -2297,4 +2376,4 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
