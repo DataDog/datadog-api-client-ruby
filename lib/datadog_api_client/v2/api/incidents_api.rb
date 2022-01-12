@@ -99,7 +99,7 @@ module DatadogAPIClient::V2
 
     # Delete an existing incident
     # Deletes an existing incident from the users organization.
-    # @param incident_id [String] The UUID the incident.
+    # @param incident_id [String] The UUID of the incident.
     # @param [Hash] opts the optional parameters
     # @return [nil]
     def delete_incident(incident_id, opts = {})
@@ -109,7 +109,7 @@ module DatadogAPIClient::V2
 
     # Delete an existing incident
     # Deletes an existing incident from the users organization.
-    # @param incident_id [String] The UUID the incident.
+    # @param incident_id [String] The UUID of the incident.
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_incident_with_http_info(incident_id, opts = {})
@@ -172,7 +172,7 @@ module DatadogAPIClient::V2
 
     # Get the details of an incident
     # Get the details of an incident by `incident_id`.
-    # @param incident_id [String] The UUID the incident.
+    # @param incident_id [String] The UUID of the incident.
     # @param [Hash] opts the optional parameters
     # @option opts [Array<IncidentRelatedObject>] :include Specifies which types of related objects should be included in the response.
     # @return [IncidentResponse]
@@ -183,7 +183,7 @@ module DatadogAPIClient::V2
 
     # Get the details of an incident
     # Get the details of an incident by &#x60;incident_id&#x60;.
-    # @param incident_id [String] The UUID the incident.
+    # @param incident_id [String] The UUID of the incident.
     # @param [Hash] opts the optional parameters
     # @option opts [Array<IncidentRelatedObject>] :include Specifies which types of related objects should be included in the response.
     # @return [Array<(IncidentResponse, Integer, Hash)>] IncidentResponse data, response status code and response headers
@@ -324,7 +324,7 @@ module DatadogAPIClient::V2
 
     # Update an existing incident
     # Updates an incident. Provide only the attributes that should be updated as this request is a partial update.
-    # @param incident_id [String] The UUID the incident.
+    # @param incident_id [String] The UUID of the incident.
     # @param body [IncidentUpdateRequest] Incident Payload.
     # @param [Hash] opts the optional parameters
     # @return [IncidentResponse]
@@ -335,7 +335,7 @@ module DatadogAPIClient::V2
 
     # Update an existing incident
     # Updates an incident. Provide only the attributes that should be updated as this request is a partial update.
-    # @param incident_id [String] The UUID the incident.
+    # @param incident_id [String] The UUID of the incident.
     # @param body [IncidentUpdateRequest] Incident Payload.
     # @param [Hash] opts the optional parameters
     # @return [Array<(IncidentResponse, Integer, Hash)>] IncidentResponse data, response status code and response headers

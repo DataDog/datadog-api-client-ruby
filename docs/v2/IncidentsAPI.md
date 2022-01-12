@@ -90,7 +90,7 @@ DatadogAPIClient::V2.configure do |config|
 end
 
 api_instance = DatadogAPIClient::V2::IncidentsAPI.new
-incident_id = 'incident_id_example' # String | The UUID the incident.
+incident_id = 'incident_id_example' # String | The UUID of the incident.
 
 begin
   # Delete an existing incident
@@ -120,9 +120,9 @@ end
 
 ### Parameters
 
-| Name            | Type       | Description            | Notes |
-| --------------- | ---------- | ---------------------- | ----- |
-| **incident_id** | **String** | The UUID the incident. |       |
+| Name            | Type       | Description               | Notes |
+| --------------- | ---------- | ------------------------- | ----- |
+| **incident_id** | **String** | The UUID of the incident. |       |
 
 ### Return type
 
@@ -153,7 +153,7 @@ DatadogAPIClient::V2.configure do |config|
 end
 
 api_instance = DatadogAPIClient::V2::IncidentsAPI.new
-incident_id = 'incident_id_example' # String | The UUID the incident.
+incident_id = 'incident_id_example' # String | The UUID of the incident.
 opts = {
   include: [DatadogAPIClient::V2::IncidentRelatedObject::USERS] # Array<IncidentRelatedObject> | Specifies which types of related objects should be included in the response.
 }
@@ -189,7 +189,7 @@ end
 
 | Name            | Type                                   | Description                                                                  | Notes      |
 | --------------- | -------------------------------------- | ---------------------------------------------------------------------------- | ---------- |
-| **incident_id** | **String**                             | The UUID the incident.                                                       |            |
+| **incident_id** | **String**                             | The UUID of the incident.                                                    |            |
 | **include**     | **Array&lt;IncidentRelatedObject&gt;** | Specifies which types of related objects should be included in the response. | [optional] |
 
 ### Return type
@@ -291,7 +291,7 @@ DatadogAPIClient::V2.configure do |config|
 end
 
 api_instance = DatadogAPIClient::V2::IncidentsAPI.new
-incident_id = 'incident_id_example' # String | The UUID the incident.
+incident_id = 'incident_id_example' # String | The UUID of the incident.
 body = DatadogAPIClient::V2::IncidentUpdateRequest.new({data: DatadogAPIClient::V2::IncidentUpdateData.new({id: '00000000-0000-0000-0000-000000000000', type: DatadogAPIClient::V2::IncidentType::INCIDENTS})}) # IncidentUpdateRequest | Incident Payload.
 
 begin
@@ -323,10 +323,10 @@ end
 
 ### Parameters
 
-| Name            | Type                                                  | Description            | Notes |
-| --------------- | ----------------------------------------------------- | ---------------------- | ----- |
-| **incident_id** | **String**                                            | The UUID the incident. |       |
-| **body**        | [**IncidentUpdateRequest**](IncidentUpdateRequest.md) | Incident Payload.      |       |
+| Name            | Type                                                  | Description               | Notes |
+| --------------- | ----------------------------------------------------- | ------------------------- | ----- |
+| **incident_id** | **String**                                            | The UUID of the incident. |       |
+| **body**        | [**IncidentUpdateRequest**](IncidentUpdateRequest.md) | Incident Payload.         |       |
 
 ### Return type
 
