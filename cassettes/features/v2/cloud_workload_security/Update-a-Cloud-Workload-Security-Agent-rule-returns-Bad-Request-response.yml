@@ -1,0 +1,55 @@
+http_interactions:
+- recorded_at: Tue, 11 Jan 2022 18:11:41 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"description":"My Agent rule","enabled":true,"expression":"exec.file.name
+        == \"sh\"","name":"testupdateacloudworkloadsecurityagentrulereturnsbadrequestresponse1641924701"},"type":"agent_rule"}}'
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/cloud_workload_security/agent_rules
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"category":"Process Activity","name":"testupdateacloudworkloadsecurityagentrulereturnsbadrequestresponse1641924701","creator":{"handle":"frog@datadoghq.com","name":null},"description":"My
+        Agent rule","enabled":true,"defaultRule":false,"version":1,"updater":{"handle":"frog@datadoghq.com","name":null},"updateDate":1641924701807,"creationDate":1641924701807,"expression":"exec.file.name
+        == \"sh\""},"type":"agent_rule","id":"dhc-tmb-os1"}}'
+    status:
+      code: 200
+      message: OK
+- recorded_at: Tue, 11 Jan 2022 18:11:41 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"description":"Test Agent rule","enabled":true,"expression":"open.file.path
+        = sh"},"type":"agent_rule"}}'
+    headers:
+      Content-Type:
+      - application/json
+    method: PATCH
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/cloud_workload_security/agent_rules/dhc-tmb-os1
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["input_validation_error(Field ''expression'' is invalid:
+        rule `testupdateacloudworkloadsecurityagentrulereturnsbadrequestresponse1641924701`
+        definition error: syntax error: 1:18: unexpected token \"sh\" (expected \"~\"))"]}'
+    status:
+      code: 400
+      message: Bad Request
+- recorded_at: Tue, 11 Jan 2022 18:11:41 GMT
+  request:
+    body: null
+    headers: {}
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/cloud_workload_security/agent_rules/dhc-tmb-os1
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0
