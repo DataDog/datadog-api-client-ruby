@@ -30,7 +30,7 @@ module DatadogAPIClient::V1
     # Unique identifier of the global variable.
     attr_accessor :id
 
-    # Name of the global variable.
+    # Name of the global variable. Unique across Synthetics global variables.
     attr_accessor :name
 
     attr_accessor :parse_test_options
