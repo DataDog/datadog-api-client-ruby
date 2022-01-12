@@ -1,0 +1,55 @@
+http_interactions:
+- recorded_at: Tue, 11 Jan 2022 18:11:43 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"description":"My Agent rule","enabled":true,"expression":"exec.file.name
+        == \"sh\"","name":"testupdateacloudworkloadsecurityagentrulereturnsokresponse1641924703"},"type":"agent_rule"}}'
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/cloud_workload_security/agent_rules
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"category":"Process Activity","name":"testupdateacloudworkloadsecurityagentrulereturnsokresponse1641924703","creator":{"handle":"frog@datadoghq.com","name":null},"description":"My
+        Agent rule","enabled":true,"defaultRule":false,"version":1,"updater":{"handle":"frog@datadoghq.com","name":null},"updateDate":1641924703522,"creationDate":1641924703522,"expression":"exec.file.name
+        == \"sh\""},"type":"agent_rule","id":"q6i-5md-xld"}}'
+    status:
+      code: 200
+      message: OK
+- recorded_at: Tue, 11 Jan 2022 18:11:43 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"description":"Test Agent rule","enabled":true,"expression":"exec.file.name
+        == \"sh\""},"type":"agent_rule"}}'
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+    method: PATCH
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/cloud_workload_security/agent_rules/q6i-5md-xld
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"category":"Process Activity","name":"testupdateacloudworkloadsecurityagentrulereturnsokresponse1641924703","creator":{"handle":"frog@datadoghq.com","name":null},"description":"Test
+        Agent rule","enabled":true,"defaultRule":false,"version":2,"updater":{"handle":"frog@datadoghq.com","name":null},"updateDate":1641924703969,"creationDate":1641924703522,"expression":"exec.file.name
+        == \"sh\""},"type":"agent_rule","id":"q6i-5md-xld"}}'
+    status:
+      code: 200
+      message: OK
+- recorded_at: Tue, 11 Jan 2022 18:11:43 GMT
+  request:
+    body: null
+    headers: {}
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/cloud_workload_security/agent_rules/q6i-5md-xld
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0
