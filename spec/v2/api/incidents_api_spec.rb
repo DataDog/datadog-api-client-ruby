@@ -50,7 +50,7 @@ describe 'IncidentsAPI' do
   # unit tests for delete_incident
   # Delete an existing incident
   # Deletes an existing incident from the users organization.
-  # @param incident_id The UUID the incident.
+  # @param incident_id The UUID of the incident.
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'delete_incident test' do
@@ -62,7 +62,7 @@ describe 'IncidentsAPI' do
   # unit tests for get_incident
   # Get the details of an incident
   # Get the details of an incident by &#x60;incident_id&#x60;.
-  # @param incident_id The UUID the incident.
+  # @param incident_id The UUID of the incident.
   # @param [Hash] opts the optional parameters
   # @option opts [Array<IncidentRelatedObject>] :include Specifies which types of related objects should be included in the response.
   # @return [IncidentResponse]
@@ -89,7 +89,7 @@ describe 'IncidentsAPI' do
   # unit tests for update_incident
   # Update an existing incident
   # Updates an incident. Provide only the attributes that should be updated as this request is a partial update.
-  # @param incident_id The UUID the incident.
+  # @param incident_id The UUID of the incident.
   # @param body Incident Payload.
   # @param [Hash] opts the optional parameters
   # @return [IncidentResponse]
