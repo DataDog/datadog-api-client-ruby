@@ -7,3 +7,4 @@ coverage/
 examples/
 datadog_api_client-*.gem
 vendor/
+.generator/lib
