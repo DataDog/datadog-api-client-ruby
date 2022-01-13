@@ -22,13 +22,24 @@ module DatadogAPIClient::V1
     # whether the object has unparsed attributes
     attr_accessor :_unparsed
 
+    # List of formulas that operate on queries. **This feature is currently in beta.**
+    attr_accessor :formulas
+
     # The widget metrics query.
     attr_accessor :q
+
+    # List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
+    attr_accessor :queries
+
+    attr_accessor :response_format
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'q' => :'q'
+        :'formulas' => :'formulas',
+        :'q' => :'q',
+        :'queries' => :'queries',
+        :'response_format' => :'response_format'
       }
     end
 
@@ -40,7 +51,10 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'q' => :'String'
+        :'formulas' => :'Array<WidgetFormula>',
+        :'q' => :'String',
+        :'queries' => :'Array<FormulaAndFunctionQueryDefinition>',
+        :'response_format' => :'FormulaAndFunctionResponseFormat'
       }
     end
 
@@ -65,8 +79,24 @@ module DatadogAPIClient::V1
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'formulas')
+        if (value = attributes[:'formulas']).is_a?(Array)
+          self.formulas = value
+        end
+      end
+
       if attributes.key?(:'q')
         self.q = attributes[:'q']
+      end
+
+      if attributes.key?(:'queries')
+        if (value = attributes[:'queries']).is_a?(Array)
+          self.queries = value
+        end
+      end
+
+      if attributes.key?(:'response_format')
+        self.response_format = attributes[:'response_format']
       end
     end
 
@@ -88,7 +118,10 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          q == o.q
+          formulas == o.formulas &&
+          q == o.q &&
+          queries == o.queries &&
+          response_format == o.response_format
     end
 
     # @see the `==` method
@@ -100,7 +133,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [q].hash
+      [formulas, q, queries, response_format].hash
     end
 
     # Builds the object from hash

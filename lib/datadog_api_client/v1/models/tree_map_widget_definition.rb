@@ -121,14 +121,6 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @color_by.nil?
-        invalid_properties.push('invalid value for "color_by", color_by cannot be nil.')
-      end
-
-      if @group_by.nil?
-        invalid_properties.push('invalid value for "group_by", group_by cannot be nil.')
-      end
-
       if @requests.nil?
         invalid_properties.push('invalid value for "requests", requests cannot be nil.')
       end
@@ -141,10 +133,6 @@ module DatadogAPIClient::V1
         invalid_properties.push('invalid value for "requests", number of items must be greater than or equal to 1.')
       end
 
-      if @size_by.nil?
-        invalid_properties.push('invalid value for "size_by", size_by cannot be nil.')
-      end
-
       if @type.nil?
         invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
@@ -155,12 +143,9 @@ module DatadogAPIClient::V1
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @color_by.nil?
-      return false if @group_by.nil?
       return false if @requests.nil?
       return false if @requests.length > 1
       return false if @requests.length < 1
-      return false if @size_by.nil?
       return false if @type.nil?
       true
     end
