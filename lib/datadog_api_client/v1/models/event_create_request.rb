@@ -36,12 +36,6 @@ module DatadogAPIClient::V1
     # Host name to associate with the event. Any tags associated with the host are also applied to this event.
     attr_accessor :host
 
-    # Integer ID of the event.
-    attr_accessor :id
-
-    # Payload of the event.
-    attr_accessor :payload
-
     attr_accessor :priority
 
     # ID of the parent event. Must be sent as an integer (that is no quotes).
@@ -59,9 +53,6 @@ module DatadogAPIClient::V1
     # The event title.
     attr_accessor :title
 
-    # URL of the event.
-    attr_accessor :url
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -70,15 +61,12 @@ module DatadogAPIClient::V1
         :'date_happened' => :'date_happened',
         :'device_name' => :'device_name',
         :'host' => :'host',
-        :'id' => :'id',
-        :'payload' => :'payload',
         :'priority' => :'priority',
         :'related_event_id' => :'related_event_id',
         :'source_type_name' => :'source_type_name',
         :'tags' => :'tags',
         :'text' => :'text',
-        :'title' => :'title',
-        :'url' => :'url'
+        :'title' => :'title'
       }
     end
 
@@ -95,15 +83,12 @@ module DatadogAPIClient::V1
         :'date_happened' => :'Integer',
         :'device_name' => :'String',
         :'host' => :'String',
-        :'id' => :'Integer',
-        :'payload' => :'String',
         :'priority' => :'EventPriority',
         :'related_event_id' => :'Integer',
         :'source_type_name' => :'String',
         :'tags' => :'Array<String>',
         :'text' => :'String',
-        :'title' => :'String',
-        :'url' => :'String'
+        :'title' => :'String'
       }
     end
 
@@ -148,14 +133,6 @@ module DatadogAPIClient::V1
         self.host = attributes[:'host']
       end
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'payload')
-        self.payload = attributes[:'payload']
-      end
-
       if attributes.key?(:'priority')
         self.priority = attributes[:'priority']
       end
@@ -180,10 +157,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'title')
         self.title = attributes[:'title']
-      end
-
-      if attributes.key?(:'url')
-        self.url = attributes[:'url']
       end
     end
 
@@ -254,15 +227,12 @@ module DatadogAPIClient::V1
           date_happened == o.date_happened &&
           device_name == o.device_name &&
           host == o.host &&
-          id == o.id &&
-          payload == o.payload &&
           priority == o.priority &&
           related_event_id == o.related_event_id &&
           source_type_name == o.source_type_name &&
           tags == o.tags &&
           text == o.text &&
-          title == o.title &&
-          url == o.url
+          title == o.title
     end
 
     # @see the `==` method
@@ -274,7 +244,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aggregation_key, alert_type, date_happened, device_name, host, id, payload, priority, related_event_id, source_type_name, tags, text, title, url].hash
+      [aggregation_key, alert_type, date_happened, device_name, host, priority, related_event_id, source_type_name, tags, text, title].hash
     end
 
     # Builds the object from hash
