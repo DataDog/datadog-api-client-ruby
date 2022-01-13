@@ -2,14 +2,14 @@
 
 ## Properties
 
-| Name         | Type                                                              | Description                       | Notes                          |
-| ------------ | ----------------------------------------------------------------- | --------------------------------- | ------------------------------ |
-| **color_by** | [**TreeMapColorBy**](TreeMapColorBy.md)                           |                                   | [default to &#39;user&#39;]    |
-| **group_by** | [**TreeMapGroupBy**](TreeMapGroupBy.md)                           |                                   |                                |
-| **requests** | [**Array&lt;TreeMapWidgetRequest&gt;**](TreeMapWidgetRequest.md)  | List of top list widget requests. |                                |
-| **size_by**  | [**TreeMapSizeBy**](TreeMapSizeBy.md)                             |                                   |                                |
-| **title**    | **String**                                                        | Title of your widget.             | [optional]                     |
-| **type**     | [**TreeMapWidgetDefinitionType**](TreeMapWidgetDefinitionType.md) |                                   | [default to &#39;treemap&#39;] |
+| Name         | Type                                                              | Description                       | Notes                                 |
+| ------------ | ----------------------------------------------------------------- | --------------------------------- | ------------------------------------- |
+| **color_by** | [**TreeMapColorBy**](TreeMapColorBy.md)                           |                                   | [optional][default to &#39;user&#39;] |
+| **group_by** | [**TreeMapGroupBy**](TreeMapGroupBy.md)                           |                                   | [optional]                            |
+| **requests** | [**Array&lt;TreeMapWidgetRequest&gt;**](TreeMapWidgetRequest.md)  | List of top list widget requests. |                                       |
+| **size_by**  | [**TreeMapSizeBy**](TreeMapSizeBy.md)                             |                                   | [optional]                            |
+| **title**    | **String**                                                        | Title of your widget.             | [optional]                            |
+| **type**     | [**TreeMapWidgetDefinitionType**](TreeMapWidgetDefinitionType.md) |                                   | [default to &#39;treemap&#39;]        |
 
 ## Example
 
