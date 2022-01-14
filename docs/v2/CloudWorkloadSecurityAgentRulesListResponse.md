@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name     | Type                                                                                                     | Description                    | Notes      |
-| -------- | -------------------------------------------------------------------------------------------------------- | ------------------------------ | ---------- |
-| **data** | [**Array&lt;CloudWorkloadSecurityAgentRuleAttributes&gt;**](CloudWorkloadSecurityAgentRuleAttributes.md) | A list of Agent rules objects. | [optional] |
+| Name     | Type                                                                                         | Description                    | Notes      |
+| -------- | -------------------------------------------------------------------------------------------- | ------------------------------ | ---------- |
+| **data** | [**Array&lt;CloudWorkloadSecurityAgentRuleData&gt;**](CloudWorkloadSecurityAgentRuleData.md) | A list of Agent rules objects. | [optional] |
 
 ## Example
 
