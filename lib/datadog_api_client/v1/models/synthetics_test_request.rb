@@ -61,6 +61,8 @@ module DatadogAPIClient::V1
     # Port to use when performing the test.
     attr_accessor :port
 
+    attr_accessor :proxy
+
     # Query to use for the test.
     attr_accessor :query
 
@@ -93,6 +95,7 @@ module DatadogAPIClient::V1
         :'no_saving_response_body' => :'noSavingResponseBody',
         :'number_of_packets' => :'numberOfPackets',
         :'port' => :'port',
+        :'proxy' => :'proxy',
         :'query' => :'query',
         :'servername' => :'servername',
         :'should_track_hops' => :'shouldTrackHops',
@@ -123,6 +126,7 @@ module DatadogAPIClient::V1
         :'no_saving_response_body' => :'Boolean',
         :'number_of_packets' => :'Integer',
         :'port' => :'Integer',
+        :'proxy' => :'SyntheticsTestRequestProxy',
         :'query' => :'Object',
         :'servername' => :'String',
         :'should_track_hops' => :'Boolean',
@@ -208,6 +212,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'port')
         self.port = attributes[:'port']
+      end
+
+      if attributes.key?(:'proxy')
+        self.proxy = attributes[:'proxy']
       end
 
       if attributes.key?(:'query')
@@ -311,6 +319,7 @@ module DatadogAPIClient::V1
           no_saving_response_body == o.no_saving_response_body &&
           number_of_packets == o.number_of_packets &&
           port == o.port &&
+          proxy == o.proxy &&
           query == o.query &&
           servername == o.servername &&
           should_track_hops == o.should_track_hops &&
@@ -327,7 +336,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [allow_insecure, basic_auth, body, certificate, dns_server, dns_server_port, follow_redirects, headers, host, message, method, no_saving_response_body, number_of_packets, port, query, servername, should_track_hops, timeout, url].hash
+      [allow_insecure, basic_auth, body, certificate, dns_server, dns_server_port, follow_redirects, headers, host, message, method, no_saving_response_body, number_of_packets, port, proxy, query, servername, should_track_hops, timeout, url].hash
     end
 
     # Builds the object from hash
