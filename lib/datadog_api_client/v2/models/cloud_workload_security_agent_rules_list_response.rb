@@ -40,7 +40,7 @@ module DatadogAPIClient::V2
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'data' => :'Array<CloudWorkloadSecurityAgentRuleAttributes>'
+        :'data' => :'Array<CloudWorkloadSecurityAgentRuleData>'
       }
     end
 
