@@ -23,6 +23,7 @@ module DatadogAPIClient::V2
     SUM = "sum".freeze
     MAX = "max".freeze
     NEW_VALUE = "new_value".freeze
+    NONE = "none".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

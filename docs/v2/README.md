@@ -448,6 +448,7 @@ All URIs are relative to *https://api.datadoghq.com*
 - [DatadogAPIClient::V2::SecurityMonitoringRuleQueryCreate](SecurityMonitoringRuleQueryCreate.md)
 - [DatadogAPIClient::V2::SecurityMonitoringRuleResponse](SecurityMonitoringRuleResponse.md)
 - [DatadogAPIClient::V2::SecurityMonitoringRuleSeverity](SecurityMonitoringRuleSeverity.md)
+- [DatadogAPIClient::V2::SecurityMonitoringRuleThirdPartyOptions](SecurityMonitoringRuleThirdPartyOptions.md)
 - [DatadogAPIClient::V2::SecurityMonitoringRuleTypeCreate](SecurityMonitoringRuleTypeCreate.md)
 - [DatadogAPIClient::V2::SecurityMonitoringRuleTypeRead](SecurityMonitoringRuleTypeRead.md)
 - [DatadogAPIClient::V2::SecurityMonitoringRuleUpdatePayload](SecurityMonitoringRuleUpdatePayload.md)

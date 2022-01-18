@@ -17,32 +17,37 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Options on rules.
-  class SecurityMonitoringRuleOptions
+  # Options for third-party rules.
+  class SecurityMonitoringRuleThirdPartyOptions
     # whether the object has unparsed attributes
     attr_accessor :_unparsed
 
-    attr_accessor :detection_method
+    # Notification targets for the root query.
+    attr_accessor :default_notifications
 
-    attr_accessor :evaluation_window
+    attr_accessor :default_status
 
-    attr_accessor :keep_alive
+    # (Optional): the name of an attribute to override the first seen value of the third party signal.
+    attr_accessor :first_seen_override
 
-    attr_accessor :max_signal_duration
+    # (Optional): the name of an attribute to override the last seen value of the third party signal.
+    attr_accessor :last_seen_override
 
-    attr_accessor :new_value_options
+    # Root query of the rule.
+    attr_accessor :root_query
 
-    attr_accessor :third_party_rule_options
+    # Optional mapping of the third-party signal ID.
+    attr_accessor :signal_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'detection_method' => :'detectionMethod',
-        :'evaluation_window' => :'evaluationWindow',
-        :'keep_alive' => :'keepAlive',
-        :'max_signal_duration' => :'maxSignalDuration',
-        :'new_value_options' => :'newValueOptions',
-        :'third_party_rule_options' => :'thirdPartyRuleOptions'
+        :'default_notifications' => :'defaultNotifications',
+        :'default_status' => :'defaultStatus',
+        :'first_seen_override' => :'firstSeenOverride',
+        :'last_seen_override' => :'lastSeenOverride',
+        :'root_query' => :'rootQuery',
+        :'signal_id' => :'signalId'
       }
     end
 
@@ -54,12 +59,12 @@ module DatadogAPIClient::V2
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'detection_method' => :'SecurityMonitoringRuleDetectionMethod',
-        :'evaluation_window' => :'SecurityMonitoringRuleEvaluationWindow',
-        :'keep_alive' => :'SecurityMonitoringRuleKeepAlive',
-        :'max_signal_duration' => :'SecurityMonitoringRuleMaxSignalDuration',
-        :'new_value_options' => :'SecurityMonitoringRuleNewValueOptions',
-        :'third_party_rule_options' => :'SecurityMonitoringRuleThirdPartyOptions'
+        :'default_notifications' => :'Array<String>',
+        :'default_status' => :'SecurityMonitoringRuleSeverity',
+        :'first_seen_override' => :'String',
+        :'last_seen_override' => :'String',
+        :'root_query' => :'String',
+        :'signal_id' => :'String'
       }
     end
 
@@ -73,39 +78,41 @@ module DatadogAPIClient::V2
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringRuleOptions` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringRuleThirdPartyOptions` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::SecurityMonitoringRuleOptions`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::SecurityMonitoringRuleThirdPartyOptions`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'detection_method')
-        self.detection_method = attributes[:'detection_method']
+      if attributes.key?(:'default_notifications')
+        if (value = attributes[:'default_notifications']).is_a?(Array)
+          self.default_notifications = value
+        end
       end
 
-      if attributes.key?(:'evaluation_window')
-        self.evaluation_window = attributes[:'evaluation_window']
+      if attributes.key?(:'default_status')
+        self.default_status = attributes[:'default_status']
       end
 
-      if attributes.key?(:'keep_alive')
-        self.keep_alive = attributes[:'keep_alive']
+      if attributes.key?(:'first_seen_override')
+        self.first_seen_override = attributes[:'first_seen_override']
       end
 
-      if attributes.key?(:'max_signal_duration')
-        self.max_signal_duration = attributes[:'max_signal_duration']
+      if attributes.key?(:'last_seen_override')
+        self.last_seen_override = attributes[:'last_seen_override']
       end
 
-      if attributes.key?(:'new_value_options')
-        self.new_value_options = attributes[:'new_value_options']
+      if attributes.key?(:'root_query')
+        self.root_query = attributes[:'root_query']
       end
 
-      if attributes.key?(:'third_party_rule_options')
-        self.third_party_rule_options = attributes[:'third_party_rule_options']
+      if attributes.key?(:'signal_id')
+        self.signal_id = attributes[:'signal_id']
       end
     end
 
@@ -127,12 +134,12 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          detection_method == o.detection_method &&
-          evaluation_window == o.evaluation_window &&
-          keep_alive == o.keep_alive &&
-          max_signal_duration == o.max_signal_duration &&
-          new_value_options == o.new_value_options &&
-          third_party_rule_options == o.third_party_rule_options
+          default_notifications == o.default_notifications &&
+          default_status == o.default_status &&
+          first_seen_override == o.first_seen_override &&
+          last_seen_override == o.last_seen_override &&
+          root_query == o.root_query &&
+          signal_id == o.signal_id
     end
 
     # @see the `==` method
@@ -144,7 +151,7 @@ module DatadogAPIClient::V2
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [detection_method, evaluation_window, keep_alive, max_signal_duration, new_value_options, third_party_rule_options].hash
+      [default_notifications, default_status, first_seen_override, last_seen_override, root_query, signal_id].hash
     end
 
     # Builds the object from hash

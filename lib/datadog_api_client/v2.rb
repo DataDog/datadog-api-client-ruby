@@ -328,6 +328,7 @@ require 'datadog_api_client/v2/models/security_monitoring_rule_query_aggregation
 require 'datadog_api_client/v2/models/security_monitoring_rule_query_create'
 require 'datadog_api_client/v2/models/security_monitoring_rule_response'
 require 'datadog_api_client/v2/models/security_monitoring_rule_severity'
+require 'datadog_api_client/v2/models/security_monitoring_rule_third_party_options'
 require 'datadog_api_client/v2/models/security_monitoring_rule_type_create'
 require 'datadog_api_client/v2/models/security_monitoring_rule_type_read'
 require 'datadog_api_client/v2/models/security_monitoring_rule_update_payload'

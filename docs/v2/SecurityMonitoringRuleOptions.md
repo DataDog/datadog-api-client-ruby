@@ -2,13 +2,14 @@
 
 ## Properties
 
-| Name                    | Type                                                                                      | Description | Notes      |
-| ----------------------- | ----------------------------------------------------------------------------------------- | ----------- | ---------- |
-| **detection_method**    | [**SecurityMonitoringRuleDetectionMethod**](SecurityMonitoringRuleDetectionMethod.md)     |             | [optional] |
-| **evaluation_window**   | [**SecurityMonitoringRuleEvaluationWindow**](SecurityMonitoringRuleEvaluationWindow.md)   |             | [optional] |
-| **keep_alive**          | [**SecurityMonitoringRuleKeepAlive**](SecurityMonitoringRuleKeepAlive.md)                 |             | [optional] |
-| **max_signal_duration** | [**SecurityMonitoringRuleMaxSignalDuration**](SecurityMonitoringRuleMaxSignalDuration.md) |             | [optional] |
-| **new_value_options**   | [**SecurityMonitoringRuleNewValueOptions**](SecurityMonitoringRuleNewValueOptions.md)     |             | [optional] |
+| Name                         | Type                                                                                      | Description | Notes      |
+| ---------------------------- | ----------------------------------------------------------------------------------------- | ----------- | ---------- |
+| **detection_method**         | [**SecurityMonitoringRuleDetectionMethod**](SecurityMonitoringRuleDetectionMethod.md)     |             | [optional] |
+| **evaluation_window**        | [**SecurityMonitoringRuleEvaluationWindow**](SecurityMonitoringRuleEvaluationWindow.md)   |             | [optional] |
+| **keep_alive**               | [**SecurityMonitoringRuleKeepAlive**](SecurityMonitoringRuleKeepAlive.md)                 |             | [optional] |
+| **max_signal_duration**      | [**SecurityMonitoringRuleMaxSignalDuration**](SecurityMonitoringRuleMaxSignalDuration.md) |             | [optional] |
+| **new_value_options**        | [**SecurityMonitoringRuleNewValueOptions**](SecurityMonitoringRuleNewValueOptions.md)     |             | [optional] |
+| **third_party_rule_options** | [**SecurityMonitoringRuleThirdPartyOptions**](SecurityMonitoringRuleThirdPartyOptions.md) |             | [optional] |
 
 ## Example
 
@@ -20,6 +21,7 @@ instance = DatadogAPIClient::V2::SecurityMonitoringRuleOptions.new(
   evaluation_window: null,
   keep_alive: null,
   max_signal_duration: null,
-  new_value_options: null
+  new_value_options: null,
+  third_party_rule_options: null
 )
 ```
