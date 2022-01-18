@@ -161,7 +161,7 @@ Create a Synthetic API test.
 ```ruby
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
-body = DatadogAPIClient::V1::SyntheticsAPITest.new # SyntheticsAPITest | Details of the test to create.
+body = DatadogAPIClient::V1::SyntheticsAPITest.new({config: DatadogAPIClient::V1::SyntheticsAPITestConfig.new, locations: ['locations_example'], name: 'Example test name', options: DatadogAPIClient::V1::SyntheticsTestOptions.new, type: DatadogAPIClient::V1::SyntheticsAPITestType::API}) # SyntheticsAPITest | Details of the test to create.
 
 begin
   # Create an API test
@@ -220,7 +220,7 @@ Create a Synthetic browser test.
 ```ruby
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
-body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({message: 'message_example'}) # SyntheticsBrowserTest | Details of the test to create.
+body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({config: DatadogAPIClient::V1::SyntheticsBrowserTestConfig.new({assertions: [DatadogAPIClient::V1::SyntheticsAssertionJSONPathTarget.new({operator: DatadogAPIClient::V1::SyntheticsAssertionJSONPathOperator::VALIDATES_JSON_PATH, type: DatadogAPIClient::V1::SyntheticsAssertionType::BODY})], request: DatadogAPIClient::V1::SyntheticsTestRequest.new}), locations: ['locations_example'], name: 'Example test name', options: DatadogAPIClient::V1::SyntheticsTestOptions.new, type: DatadogAPIClient::V1::SyntheticsBrowserTestType::BROWSER}) # SyntheticsBrowserTest | Details of the test to create.
 
 begin
   # Create a browser test
@@ -1415,7 +1415,7 @@ Edit the configuration of a Synthetic API test.
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
 public_id = 'public_id_example' # String | The public ID of the test to get details from.
-body = DatadogAPIClient::V1::SyntheticsAPITest.new # SyntheticsAPITest | New test details to be saved.
+body = DatadogAPIClient::V1::SyntheticsAPITest.new({config: DatadogAPIClient::V1::SyntheticsAPITestConfig.new, locations: ['locations_example'], name: 'Example test name', options: DatadogAPIClient::V1::SyntheticsTestOptions.new, type: DatadogAPIClient::V1::SyntheticsAPITestType::API}) # SyntheticsAPITest | New test details to be saved.
 
 begin
   # Edit an API test
@@ -1476,7 +1476,7 @@ Edit the configuration of a Synthetic browser test.
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
 public_id = 'public_id_example' # String | The public ID of the test to get details from.
-body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({message: 'message_example'}) # SyntheticsBrowserTest | New test details to be saved.
+body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({config: DatadogAPIClient::V1::SyntheticsBrowserTestConfig.new({assertions: [DatadogAPIClient::V1::SyntheticsAssertionJSONPathTarget.new({operator: DatadogAPIClient::V1::SyntheticsAssertionJSONPathOperator::VALIDATES_JSON_PATH, type: DatadogAPIClient::V1::SyntheticsAssertionType::BODY})], request: DatadogAPIClient::V1::SyntheticsTestRequest.new}), locations: ['locations_example'], name: 'Example test name', options: DatadogAPIClient::V1::SyntheticsTestOptions.new, type: DatadogAPIClient::V1::SyntheticsBrowserTestType::BROWSER}) # SyntheticsBrowserTest | New test details to be saved.
 
 begin
   # Edit a browser test
