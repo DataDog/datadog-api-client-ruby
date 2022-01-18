@@ -168,8 +168,24 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @message.nil?
-        invalid_properties.push('invalid value for "message", message cannot be nil.')
+      if @config.nil?
+        invalid_properties.push('invalid value for "config", config cannot be nil.')
+      end
+
+      if @locations.nil?
+        invalid_properties.push('invalid value for "locations", locations cannot be nil.')
+      end
+
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
+      if @options.nil?
+        invalid_properties.push('invalid value for "options", options cannot be nil.')
+      end
+
+      if @type.nil?
+        invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
 
       invalid_properties
@@ -178,7 +194,11 @@ module DatadogAPIClient::V1
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @message.nil?
+      return false if @config.nil?
+      return false if @locations.nil?
+      return false if @name.nil?
+      return false if @options.nil?
+      return false if @type.nil?
       true
     end
 
