@@ -88,6 +88,7 @@ describe 'DashboardsAPI' do
   # Get all dashboards.  **Note**: This query will only return custom created or cloned dashboards. This query will not return preset dashboards.
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :filter_shared When &#x60;true&#x60;, this query only returns shared custom created or cloned dashboards.
+  # @option opts [Boolean] :filter_deleted When &#x60;true&#x60;, this query returns only deleted custom-created or cloned dashboards. This parameter is incompatible with &#x60;filter[shared]&#x60;.
   # @return [DashboardSummary]
   describe 'list_dashboards test' do
     it 'should work' do

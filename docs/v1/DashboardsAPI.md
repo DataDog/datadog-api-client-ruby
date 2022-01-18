@@ -263,7 +263,8 @@ This query will not return preset dashboards.
 require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::DashboardsAPI.new
 opts = {
-  filter_shared: true # Boolean | When `true`, this query only returns shared custom created or cloned dashboards.
+  filter_shared: true, # Boolean | When `true`, this query only returns shared custom created or cloned dashboards.
+  filter_deleted: true # Boolean | When `true`, this query returns only deleted custom-created or cloned dashboards. This parameter is incompatible with `filter[shared]`.
 }
 
 begin
@@ -295,9 +296,10 @@ end
 
 ### Parameters
 
-| Name              | Type        | Description                                                                                | Notes      |
-| ----------------- | ----------- | ------------------------------------------------------------------------------------------ | ---------- |
-| **filter_shared** | **Boolean** | When &#x60;true&#x60;, this query only returns shared custom created or cloned dashboards. | [optional] |
+| Name               | Type        | Description                                                                                                                                                 | Notes      |
+| ------------------ | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **filter_shared**  | **Boolean** | When &#x60;true&#x60;, this query only returns shared custom created or cloned dashboards.                                                                  | [optional] |
+| **filter_deleted** | **Boolean** | When &#x60;true&#x60;, this query returns only deleted custom-created or cloned dashboards. This parameter is incompatible with &#x60;filter[shared]&#x60;. | [optional] |
 
 ### Return type
 
