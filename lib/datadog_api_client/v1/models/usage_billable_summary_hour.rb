@@ -68,12 +68,12 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'billing_plan' => :'String',
-        :'end_date' => :'Time',
+        :'end_date' => :'Date',
         :'num_orgs' => :'Integer',
         :'org_name' => :'String',
         :'public_id' => :'String',
         :'ratio_in_month' => :'Float',
-        :'start_date' => :'Time',
+        :'start_date' => :'Date',
         :'usage' => :'UsageBillableSummaryKeys'
       }
     end
