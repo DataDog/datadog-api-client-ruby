@@ -2,19 +2,19 @@
 
 ## Properties
 
-| Name           | Type                                                                | Description                                    | Notes                                |
-| -------------- | ------------------------------------------------------------------- | ---------------------------------------------- | ------------------------------------ |
-| **config**     | [**SyntheticsAPITestConfig**](SyntheticsAPITestConfig.md)           |                                                | [optional]                           |
-| **locations**  | **Array&lt;String&gt;**                                             | Array of locations used to run the test.       | [optional]                           |
-| **message**    | **String**                                                          | Notification message associated with the test. | [optional]                           |
-| **monitor_id** | **Integer**                                                         | The associated monitor ID.                     | [optional][readonly]                 |
-| **name**       | **String**                                                          | Name of the test.                              | [optional]                           |
-| **options**    | [**SyntheticsTestOptions**](SyntheticsTestOptions.md)               |                                                | [optional]                           |
-| **public_id**  | **String**                                                          | The public ID for the test.                    | [optional][readonly]                 |
-| **status**     | [**SyntheticsTestPauseStatus**](SyntheticsTestPauseStatus.md)       |                                                | [optional]                           |
-| **subtype**    | [**SyntheticsTestDetailsSubType**](SyntheticsTestDetailsSubType.md) |                                                | [optional]                           |
-| **tags**       | **Array&lt;String&gt;**                                             | Array of tags attached to the test.            | [optional]                           |
-| **type**       | [**SyntheticsAPITestType**](SyntheticsAPITestType.md)               |                                                | [optional][default to &#39;api&#39;] |
+| Name           | Type                                                                | Description                                    | Notes                      |
+| -------------- | ------------------------------------------------------------------- | ---------------------------------------------- | -------------------------- |
+| **config**     | [**SyntheticsAPITestConfig**](SyntheticsAPITestConfig.md)           |                                                |                            |
+| **locations**  | **Array&lt;String&gt;**                                             | Array of locations used to run the test.       |                            |
+| **message**    | **String**                                                          | Notification message associated with the test. | [optional]                 |
+| **monitor_id** | **Integer**                                                         | The associated monitor ID.                     | [optional][readonly]       |
+| **name**       | **String**                                                          | Name of the test.                              |                            |
+| **options**    | [**SyntheticsTestOptions**](SyntheticsTestOptions.md)               |                                                |                            |
+| **public_id**  | **String**                                                          | The public ID for the test.                    | [optional][readonly]       |
+| **status**     | [**SyntheticsTestPauseStatus**](SyntheticsTestPauseStatus.md)       |                                                | [optional]                 |
+| **subtype**    | [**SyntheticsTestDetailsSubType**](SyntheticsTestDetailsSubType.md) |                                                | [optional]                 |
+| **tags**       | **Array&lt;String&gt;**                                             | Array of tags attached to the test.            | [optional]                 |
+| **type**       | [**SyntheticsAPITestType**](SyntheticsAPITestType.md)               |                                                | [default to &#39;api&#39;] |
 
 ## Example
 
@@ -26,7 +26,7 @@ instance = DatadogAPIClient::V1::SyntheticsAPITest.new(
   locations: [&quot;aws:eu-west-3&quot;],
   message: Notification message,
   monitor_id: 12345678,
-  name: Test name,
+  name: Example test name,
   options: null,
   public_id: 123-abc-456,
   status: null,
