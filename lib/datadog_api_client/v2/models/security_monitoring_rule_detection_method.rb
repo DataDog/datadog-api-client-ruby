@@ -21,6 +21,7 @@ module DatadogAPIClient::V2
     THRESHOLD = "threshold".freeze
     NEW_VALUE = "new_value".freeze
     ANOMALY_DETECTION = "anomaly_detection".freeze
+    NO_DATA = "no_data".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
