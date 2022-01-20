@@ -169,6 +169,8 @@ module DatadogAPIClient::V2
       @compress = true
       @logger = defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
       @unstable_operations = {
+            list_security_monitoring_signals: false,
+            search_security_monitoring_signals: false,
             create_incident_service: false,
             delete_incident_service: false,
             get_incident_service: false,
@@ -189,8 +191,6 @@ module DatadogAPIClient::V2
             list_tag_configuration_by_name: false,
             list_tag_configurations: false,
             update_tag_configuration: false,
-            list_security_monitoring_signals: false,
-            search_security_monitoring_signals: false,
       }
       @server_variables[:site] = ENV['DD_SITE'] if ENV.key? 'DD_SITE'
       @api_key['apiKeyAuth'] = ENV['DD_API_KEY'] if ENV.key? 'DD_API_KEY'

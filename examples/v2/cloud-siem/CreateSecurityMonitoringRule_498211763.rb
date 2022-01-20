@@ -1,10 +1,10 @@
-# Create a detection rule returns "OK" response
+# Create a detection rule with type 'workload_security' returns "OK" response
 
 require "datadog_api_client"
-api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
+api_instance = DatadogAPIClient::V2::CloudSIEMAPI.new
 
 body = DatadogAPIClient::V2::SecurityMonitoringRuleCreatePayload.new({
-  name: "Example-Create_a_detection_rule_returns_OK_response",
+  name: "Example-Create_a_detection_rule_with_type_workload_security_returns_OK_response",
   queries: [
     DatadogAPIClient::V2::SecurityMonitoringRuleQueryCreate.new({
       query: "@test:true",
@@ -31,5 +31,6 @@ body = DatadogAPIClient::V2::SecurityMonitoringRuleCreatePayload.new({
   message: "Test rule",
   tags: [],
   is_enabled: true,
+  type: DatadogAPIClient::V2::SecurityMonitoringRuleTypeCreate::WORKLOAD_SECURITY,
 })
 p api_instance.create_security_monitoring_rule(body)

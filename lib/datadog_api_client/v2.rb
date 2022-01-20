@@ -369,6 +369,7 @@ require 'datadog_api_client/v2/models/users_response'
 require 'datadog_api_client/v2/models/users_type'
 
 # APIs
+require 'datadog_api_client/v2/api/cloud_siem_api'
 require 'datadog_api_client/v2/api/cloud_workload_security_api'
 require 'datadog_api_client/v2/api/dashboard_lists_api'
 require 'datadog_api_client/v2/api/incident_services_api'
@@ -381,7 +382,6 @@ require 'datadog_api_client/v2/api/logs_metrics_api'
 require 'datadog_api_client/v2/api/metrics_api'
 require 'datadog_api_client/v2/api/processes_api'
 require 'datadog_api_client/v2/api/roles_api'
-require 'datadog_api_client/v2/api/security_monitoring_api'
 require 'datadog_api_client/v2/api/service_accounts_api'
 require 'datadog_api_client/v2/api/users_api'
 

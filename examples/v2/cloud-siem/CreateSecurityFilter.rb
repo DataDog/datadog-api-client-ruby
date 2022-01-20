@@ -1,7 +1,7 @@
 # Create a security filter returns "OK" response
 
 require "datadog_api_client"
-api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
+api_instance = DatadogAPIClient::V2::CloudSIEMAPI.new
 
 body = DatadogAPIClient::V2::SecurityFilterCreateRequest.new({
   data: DatadogAPIClient::V2::SecurityFilterCreateData.new({
