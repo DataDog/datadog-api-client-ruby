@@ -71,7 +71,7 @@ jobs:
         env:
           CI: "true"
           DD_AGENT_HOST: localhost
-          DD_ENV: prod
+          DD_ENV: ci
           DD_SERVICE: datadog-api-client-ruby
           DD_TAGS: "team:integration-tools-and-libraries"
           DD_TEST_CLIENT_API_KEY: ${{ secrets.DD_CLIENT_API_KEY }}
