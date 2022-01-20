@@ -5,8 +5,8 @@ api_instance = DatadogAPIClient::V1::LogsAPI.new
 
 body = [
   DatadogAPIClient::V1::HTTPLogItem.new({
-    message: "Example-Send_gzip_logs_returns_Response_from_server_always_200_empty_JSON_response",
-    ddtags: "host:ExampleSendgziplogsreturnsResponsefromserveralways200emptyJSONresponse",
+    message: "Test-Example-Send_gzip_logs_returns_Response_from_server_always_200_empty_JSON_response",
+    ddtags: "host:TestExampleSendgziplogsreturnsResponsefromserveralways200emptyJSONresponse",
   }),
 ]
 opts = {

@@ -4,7 +4,7 @@ require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::DashboardsAPI.new
 
 body = DatadogAPIClient::V1::Dashboard.new({
-  title: "Example-Create_a_new_dashboard_with_distribution_widget_and_apm_stats_data",
+  title: "Test-Example-Create_a_new_dashboard_with_distribution_widget_and_apm_stats_data",
   widgets: [
     DatadogAPIClient::V1::Widget.new({
       definition: DatadogAPIClient::V1::DistributionWidgetDefinition.new({

@@ -5,7 +5,7 @@ api_instance = DatadogAPIClient::V1::DashboardsAPI.new
 
 body = DatadogAPIClient::V1::Dashboard.new({
   layout_type: DatadogAPIClient::V1::DashboardLayoutType::ORDERED,
-  title: "Example-Create_a_new_dashboard_with_an_audit_logs_query with Audit Logs Query",
+  title: "Test-Example-Create_a_new_dashboard_with_an_audit_logs_query with Audit Logs Query",
   widgets: [
     DatadogAPIClient::V1::Widget.new({
       definition: DatadogAPIClient::V1::TimeseriesWidgetDefinition.new({

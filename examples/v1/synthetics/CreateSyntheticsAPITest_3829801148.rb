@@ -28,14 +28,14 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
     "aws:us-east-2",
   ],
   message: "BDD test payload: synthetics_api_test_udp_payload.json",
-  name: "Example-Create_an_API_test_with_UDP_subtype_returns_OK_Returns_the_created_test_details_response",
+  name: "Test-Example-Create_an_API_test_with_UDP_subtype_returns_OK_Returns_the_created_test_details_response",
   options: DatadogAPIClient::V1::SyntheticsTestOptions.new({
     accept_self_signed: false,
     allow_insecure: true,
     follow_redirects: true,
     min_failure_duration: 10,
     min_location_failed: 1,
-    monitor_name: "Example-Create_an_API_test_with_UDP_subtype_returns_OK_Returns_the_created_test_details_response",
+    monitor_name: "Test-Example-Create_an_API_test_with_UDP_subtype_returns_OK_Returns_the_created_test_details_response",
     monitor_priority: 5,
     _retry: DatadogAPIClient::V1::SyntheticsTestOptionsRetry.new({
       count: 3,

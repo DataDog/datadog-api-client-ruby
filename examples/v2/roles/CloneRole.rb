@@ -9,7 +9,7 @@ ROLE_DATA_ID = ENV["ROLE_DATA_ID"]
 body = DatadogAPIClient::V2::RoleCloneRequest.new({
   data: DatadogAPIClient::V2::RoleClone.new({
     attributes: DatadogAPIClient::V2::RoleCloneAttributes.new({
-      name: "Example-Create_a_new_role_by_cloning_an_existing_role_returns_OK_response clone",
+      name: "Test-Example-Create_a_new_role_by_cloning_an_existing_role_returns_OK_response clone",
     }),
     type: DatadogAPIClient::V2::RolesType::ROLES,
   }),

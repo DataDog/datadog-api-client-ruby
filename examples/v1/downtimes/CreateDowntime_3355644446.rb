@@ -7,11 +7,11 @@ api_instance = DatadogAPIClient::V1::DowntimesAPI.new
 MONITOR_ID = ENV["MONITOR_ID"]
 
 body = DatadogAPIClient::V1::Downtime.new({
-  message: "Example-Schedule_a_monitor_downtime_returns_OK_response",
+  message: "Test-Example-Schedule_a_monitor_downtime_returns_OK_response",
   start: Time.now.to_i,
   timezone: "Etc/UTC",
   scope: [
-    "test:examplescheduleamonitordowntimereturnsokresponse",
+    "test:testexamplescheduleamonitordowntimereturnsokresponse",
   ],
   monitor_id: MONITOR_ID.to_i,
 })

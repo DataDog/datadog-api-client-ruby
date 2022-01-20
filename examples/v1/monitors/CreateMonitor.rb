@@ -7,12 +7,12 @@ api_instance = DatadogAPIClient::V1::MonitorsAPI.new
 ROLE_DATA_ID = ENV["ROLE_DATA_ID"]
 
 body = DatadogAPIClient::V1::Monitor.new({
-  name: "Example-Create_a_monitor_returns_OK_response",
+  name: "Test-Example-Create_a_monitor_returns_OK_response",
   type: DatadogAPIClient::V1::MonitorType::LOG_ALERT,
   query: 'logs("service:foo AND type:error").index("main").rollup("count").by("source").last("5m") > 2',
   message: "some message Notify: @hipchat-channel",
   tags: [
-    "test:examplecreateamonitorreturnsokresponse",
+    "test:testexamplecreateamonitorreturnsokresponse",
     "env:ci",
   ],
   priority: 3,

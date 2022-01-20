@@ -4,12 +4,12 @@ require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::MonitorsAPI.new
 
 body = DatadogAPIClient::V1::Monitor.new({
-  name: "Example-Create_a_ci_pipelines_monitor_returns_OK_response",
+  name: "Test-Example-Create_a_ci_pipelines_monitor_returns_OK_response",
   type: DatadogAPIClient::V1::MonitorType::CI_PIPELINES_ALERT,
   query: 'ci-pipelines("ci_level:pipeline @git.branch:staging* @ci.status:error").rollup("count").by("@git.branch,@ci.pipeline.name").last("5m") >= 1',
   message: "some message Notify: @hipchat-channel",
   tags: [
-    "test:examplecreateacipipelinesmonitorreturnsokresponse",
+    "test:testexamplecreateacipipelinesmonitorreturnsokresponse",
     "env:ci",
   ],
   priority: 3,

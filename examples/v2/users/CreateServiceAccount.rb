@@ -11,7 +11,7 @@ body = DatadogAPIClient::V2::ServiceAccountCreateRequest.new({
     type: DatadogAPIClient::V2::UsersType::USERS,
     attributes: DatadogAPIClient::V2::ServiceAccountCreateAttributes.new({
       name: "Test API Client",
-      email: "Example-Create_a_service_account_returns_OK_response@datadoghq.com",
+      email: "Test-Example-Create_a_service_account_returns_OK_response@datadoghq.com",
       service_account: true,
     }),
     relationships: DatadogAPIClient::V2::UserRelationships.new({

@@ -10,7 +10,7 @@ body = DatadogAPIClient::V2::IncidentServiceCreateRequest.new({
   data: DatadogAPIClient::V2::IncidentServiceCreateData.new({
     type: DatadogAPIClient::V2::IncidentServiceType::SERVICES,
     attributes: DatadogAPIClient::V2::IncidentServiceCreateAttributes.new({
-      name: "Example-Create_a_new_incident_service_returns_CREATED_response",
+      name: "Test-Example-Create_a_new_incident_service_returns_CREATED_response",
     }),
   }),
 })

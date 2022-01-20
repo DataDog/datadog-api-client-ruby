@@ -15,7 +15,7 @@ body = DatadogAPIClient::V1::MetricsPayload.new({
         ],
       ],
       tags: [
-        "test:ExampleSubmitdeflatemetricsreturnsPayloadacceptedresponse",
+        "test:TestExampleSubmitdeflatemetricsreturnsPayloadacceptedresponse",
       ],
     }),
   ],

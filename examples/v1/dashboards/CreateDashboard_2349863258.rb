@@ -4,7 +4,7 @@ require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::DashboardsAPI.new
 
 body = DatadogAPIClient::V1::Dashboard.new({
-  title: "Example-Create_a_new_dashboard_with_query_value_widget",
+  title: "Test-Example-Create_a_new_dashboard_with_query_value_widget",
   description: "",
   widgets: [
     DatadogAPIClient::V1::Widget.new({

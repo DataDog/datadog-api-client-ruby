@@ -4,11 +4,11 @@ require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::DowntimesAPI.new
 
 body = DatadogAPIClient::V1::Downtime.new({
-  message: "Example-Schedule_a_downtime_returns_OK_response",
+  message: "Test-Example-Schedule_a_downtime_returns_OK_response",
   start: Time.now.to_i,
   timezone: "Etc/UTC",
   scope: [
-    "test:examplescheduleadowntimereturnsokresponse",
+    "test:testexamplescheduleadowntimereturnsokresponse",
   ],
   recurrence: DatadogAPIClient::V1::DowntimeRecurrence.new({
     type: "weeks",

@@ -4,12 +4,12 @@ require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::MonitorsAPI.new
 
 body = DatadogAPIClient::V1::Monitor.new({
-  name: "Example-Validate_a_monitor_returns_OK_response",
+  name: "Test-Example-Validate_a_monitor_returns_OK_response",
   type: DatadogAPIClient::V1::MonitorType::LOG_ALERT,
   query: 'logs("service:foo AND type:error").index("main").rollup("count").by("source").last("5m") > 2',
   message: "some message Notify: @hipchat-channel",
   tags: [
-    "test:examplevalidateamonitorreturnsokresponse",
+    "test:testexamplevalidateamonitorreturnsokresponse",
     "env:ci",
   ],
   priority: 3,

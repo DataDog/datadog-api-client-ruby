@@ -7,6 +7,6 @@ api_instance = DatadogAPIClient::V1::DowntimesAPI.new
 DOWNTIME_ID = ENV["DOWNTIME_ID"]
 
 body = DatadogAPIClient::V1::Downtime.new({
-  message: "Example-Update_a_downtime_returns_OK_response-updated",
+  message: "Test-Example-Update_a_downtime_returns_OK_response-updated",
 })
 p api_instance.update_downtime(DOWNTIME_ID.to_i, body)

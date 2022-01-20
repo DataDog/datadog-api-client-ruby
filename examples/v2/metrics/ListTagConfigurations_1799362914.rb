@@ -6,6 +6,6 @@ DatadogAPIClient::V2.configure do |config|
 end
 api_instance = DatadogAPIClient::V2::MetricsAPI.new
 opts = {
-  filter_tags: "ExampleListtagconfigurationswithatagfilterreturnsSuccessresponse",
+  filter_tags: "TestExampleListtagconfigurationswithatagfilterreturnsSuccessresponse",
 }
 p api_instance.list_tag_configurations(opts)

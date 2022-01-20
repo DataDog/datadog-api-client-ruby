@@ -24,7 +24,7 @@ body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({
     "aws:us-east-2",
   ],
   message: "Test message",
-  name: "Example-Create_a_browser_test_returns_OK_Returns_the_created_test_details_response",
+  name: "Test-Example-Create_a_browser_test_returns_OK_Returns_the_created_test_details_response",
   options: DatadogAPIClient::V1::SyntheticsTestOptions.new({
     accept_self_signed: false,
     allow_insecure: true,

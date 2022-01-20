@@ -4,7 +4,7 @@ require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::DashboardsAPI.new
 
 body = DatadogAPIClient::V1::Dashboard.new({
-  title: "Example-Create_a_new_dashboard_with_formulas_and_functions_scatterplot_widget",
+  title: "Test-Example-Create_a_new_dashboard_with_formulas_and_functions_scatterplot_widget",
   widgets: [
     DatadogAPIClient::V1::Widget.new({
       id: 5346764334358972,

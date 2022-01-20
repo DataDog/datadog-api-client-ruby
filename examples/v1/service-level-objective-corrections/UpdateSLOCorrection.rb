@@ -13,7 +13,7 @@ body = DatadogAPIClient::V1::SLOCorrectionUpdateRequest.new({
   data: DatadogAPIClient::V1::SLOCorrectionUpdateData.new({
     attributes: DatadogAPIClient::V1::SLOCorrectionUpdateRequestAttributes.new({
       category: DatadogAPIClient::V1::SLOCorrectionCategory::DEPLOYMENT,
-      description: "Example-Update_an_SLO_correction_returns_OK_response",
+      description: "Test-Example-Update_an_SLO_correction_returns_OK_response",
       _end: (Time.now + 1 * 3600).to_i,
       start: Time.now.to_i,
       timezone: "UTC",

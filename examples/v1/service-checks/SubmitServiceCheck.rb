@@ -9,7 +9,7 @@ body = [
     host_name: "host",
     status: DatadogAPIClient::V1::ServiceCheckStatus::OK,
     tags: [
-      "test:ExampleSubmitaServiceCheckreturnsPayloadacceptedresponse",
+      "test:TestExampleSubmitaServiceCheckreturnsPayloadacceptedresponse",
     ],
   }),
 ]

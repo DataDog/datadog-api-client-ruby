@@ -4,7 +4,7 @@ require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::DashboardsAPI.new
 
 body = DatadogAPIClient::V1::Dashboard.new({
-  title: "Example-Create_a_new_dashboard_with_a_formulas_and_functions_treemap_widget",
+  title: "Test-Example-Create_a_new_dashboard_with_a_formulas_and_functions_treemap_widget",
   widgets: [
     DatadogAPIClient::V1::Widget.new({
       definition: DatadogAPIClient::V1::TreeMapWidgetDefinition.new({
