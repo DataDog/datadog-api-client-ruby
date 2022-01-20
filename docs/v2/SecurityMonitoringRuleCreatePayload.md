@@ -26,7 +26,7 @@ instance = DatadogAPIClient::V2::SecurityMonitoringRuleCreatePayload.new(
   has_extended_title: true,
   is_enabled: true,
   message: ,
-  name: My security monitoring rule.,
+  name: My Cloud SIEM rule.,
   options: null,
   queries: [],
   tags: [&quot;env:prod&quot;,&quot;team:security&quot;],
