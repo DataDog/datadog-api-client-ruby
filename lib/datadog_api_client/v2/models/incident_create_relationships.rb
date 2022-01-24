@@ -22,12 +22,12 @@ module DatadogAPIClient::V2
     # whether the object has unparsed attributes
     attr_accessor :_unparsed
 
-    attr_accessor :commander
+    attr_accessor :commander_user
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'commander' => :'commander'
+        :'commander_user' => :'commander_user'
       }
     end
 
@@ -39,7 +39,7 @@ module DatadogAPIClient::V2
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'commander' => :'RelationshipToUser'
+        :'commander_user' => :'NullableRelationshipToUser'
       }
     end
 
@@ -64,8 +64,8 @@ module DatadogAPIClient::V2
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'commander')
-        self.commander = attributes[:'commander']
+      if attributes.key?(:'commander_user')
+        self.commander_user = attributes[:'commander_user']
       end
     end
 
@@ -73,8 +73,8 @@ module DatadogAPIClient::V2
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @commander.nil?
-        invalid_properties.push('invalid value for "commander", commander cannot be nil.')
+      if @commander_user.nil?
+        invalid_properties.push('invalid value for "commander_user", commander_user cannot be nil.')
       end
 
       invalid_properties
@@ -83,7 +83,7 @@ module DatadogAPIClient::V2
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @commander.nil?
+      return false if @commander_user.nil?
       true
     end
 
@@ -92,7 +92,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          commander == o.commander
+          commander_user == o.commander_user
     end
 
     # @see the `==` method
@@ -104,7 +104,7 @@ module DatadogAPIClient::V2
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [commander].hash
+      [commander_user].hash
     end
 
     # Builds the object from hash

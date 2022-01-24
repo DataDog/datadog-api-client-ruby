@@ -2,9 +2,9 @@
 
 ## Properties
 
-| Name          | Type                                            | Description | Notes |
-| ------------- | ----------------------------------------------- | ----------- | ----- |
-| **commander** | [**RelationshipToUser**](RelationshipToUser.md) |             |       |
+| Name               | Type                                                            | Description | Notes |
+| ------------------ | --------------------------------------------------------------- | ----------- | ----- |
+| **commander_user** | [**NullableRelationshipToUser**](NullableRelationshipToUser.md) |             |       |
 
 ## Example
 
@@ -12,6 +12,6 @@
 require 'datadog_api_client/v2'
 
 instance = DatadogAPIClient::V2::IncidentCreateRelationships.new(
-  commander: null
+  commander_user: null
 )
 ```

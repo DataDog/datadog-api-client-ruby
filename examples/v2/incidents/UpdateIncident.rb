@@ -15,12 +15,12 @@ body = DatadogAPIClient::V2::IncidentUpdateRequest.new({
     id: INCIDENT_DATA_ID,
     type: DatadogAPIClient::V2::IncidentType::INCIDENTS,
     attributes: DatadogAPIClient::V2::IncidentUpdateAttributes.new({
-      fields: DatadogAPIClient::V2::IncidentUpdateAttributesFields.new({
+      fields: {
         state: DatadogAPIClient::V2::IncidentFieldAttributesSingleValue.new({
           type: DatadogAPIClient::V2::IncidentFieldAttributesSingleValueType::DROPDOWN,
           value: "resolved",
         }),
-      }),
+      },
       title: "A test incident title-updated",
     }),
   }),

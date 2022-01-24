@@ -356,6 +356,7 @@ All URIs are relative to *https://api.datadoghq.com*
 - [DatadogAPIClient::V2::MetricVolumesResponse](MetricVolumesResponse.md)
 - [DatadogAPIClient::V2::MetricsAndMetricTagConfigurations](MetricsAndMetricTagConfigurations.md)
 - [DatadogAPIClient::V2::MetricsAndMetricTagConfigurationsResponse](MetricsAndMetricTagConfigurationsResponse.md)
+- [DatadogAPIClient::V2::NullableRelationshipToUser](NullableRelationshipToUser.md)
 - [DatadogAPIClient::V2::Organization](Organization.md)
 - [DatadogAPIClient::V2::OrganizationAttributes](OrganizationAttributes.md)
 - [DatadogAPIClient::V2::OrganizationsType](OrganizationsType.md)
