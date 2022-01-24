@@ -118,6 +118,18 @@ describe DatadogAPIClient::V1::UsageSummaryDate do
     end
   end
 
+  describe 'test attribute "cspm_aas_host_top99p"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "cspm_azure_host_top99p"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "cspm_container_avg"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

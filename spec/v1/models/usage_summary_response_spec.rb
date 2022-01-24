@@ -124,6 +124,18 @@ describe DatadogAPIClient::V1::UsageSummaryResponse do
     end
   end
 
+  describe 'test attribute "cspm_aas_host_top99p_sum"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "cspm_azure_host_top99p_sum"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "cspm_container_avg_sum"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

@@ -28,6 +28,24 @@ describe DatadogAPIClient::V1::UsageCloudSecurityPostureManagementHour do
       expect(instance).to be_instance_of(DatadogAPIClient::V1::UsageCloudSecurityPostureManagementHour)
     end
   end
+  describe 'test attribute "aas_host_count"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "azure_host_count"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "compliance_host_count"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "container_count"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

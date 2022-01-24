@@ -19,6 +19,8 @@
 | **browser_rum_units_sum**                        | **Integer**                                                    | Shows the sum of all browser RUM units over all hours in the current date for all organizations.                                                                  | [optional] |
 | **container_avg**                                | **Integer**                                                    | Shows the average of all distinct containers over all hours in the current date for all organizations.                                                            | [optional] |
 | **container_hwm**                                | **Integer**                                                    | Shows the high-water mark of all distinct containers over all hours in the current date for all organizations.                                                    | [optional] |
+| **cspm_aas_host_top99p**                         | **Integer**                                                    | Shows the 99th percentile of all Cloud Security Posture Management Azure app services hosts over all hours in the current date for all organizations.             | [optional] |
+| **cspm_azure_host_top99p**                       | **Integer**                                                    | Shows the 99th percentile of all Cloud Security Posture Management Azure hosts over all hours in the current date for all organizations.                          | [optional] |
 | **cspm_container_avg**                           | **Integer**                                                    | Shows the average number of Cloud Security Posture Management containers over all hours in the current date for all organizations.                                | [optional] |
 | **cspm_container_hwm**                           | **Integer**                                                    | Shows the high-water mark of Cloud Security Posture Management containers over all hours in the current date for all organizations.                               | [optional] |
 | **cspm_host_top99p**                             | **Integer**                                                    | Shows the 99th percentile of all Cloud Security Posture Management hosts over all hours in the current date for all organizations.                                | [optional] |
@@ -81,6 +83,8 @@ instance = DatadogAPIClient::V1::UsageSummaryDate.new(
   browser_rum_units_sum: null,
   container_avg: null,
   container_hwm: null,
+  cspm_aas_host_top99p: null,
+  cspm_azure_host_top99p: null,
   cspm_container_avg: null,
   cspm_container_hwm: null,
   cspm_host_top99p: null,

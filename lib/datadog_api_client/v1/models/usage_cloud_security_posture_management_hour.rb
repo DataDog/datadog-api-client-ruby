@@ -22,6 +22,15 @@ module DatadogAPIClient::V1
     # whether the object has unparsed attributes
     attr_accessor :_unparsed
 
+    # The number of Cloud Security Posture Management Azure app services hosts during a given hour.
+    attr_accessor :aas_host_count
+
+    # The number of Cloud Security Posture Management Azure hosts during a given hour.
+    attr_accessor :azure_host_count
+
+    # The number of Cloud Security Posture Management hosts during a given hour.
+    attr_accessor :compliance_host_count
+
     # The total number of Cloud Security Posture Management containers during a given hour.
     attr_accessor :container_count
 
@@ -40,6 +49,9 @@ module DatadogAPIClient::V1
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'aas_host_count' => :'aas_host_count',
+        :'azure_host_count' => :'azure_host_count',
+        :'compliance_host_count' => :'compliance_host_count',
         :'container_count' => :'container_count',
         :'host_count' => :'host_count',
         :'hour' => :'hour',
@@ -56,8 +68,11 @@ module DatadogAPIClient::V1
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'container_count' => :'Integer',
-        :'host_count' => :'Integer',
+        :'aas_host_count' => :'Float',
+        :'azure_host_count' => :'Float',
+        :'compliance_host_count' => :'Float',
+        :'container_count' => :'Float',
+        :'host_count' => :'Float',
         :'hour' => :'Time',
         :'org_name' => :'String',
         :'public_id' => :'String'
@@ -67,6 +82,11 @@ module DatadogAPIClient::V1
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'aas_host_count',
+        :'azure_host_count',
+        :'compliance_host_count',
+        :'container_count',
+        :'host_count',
       ])
     end
 
@@ -84,6 +104,18 @@ module DatadogAPIClient::V1
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'aas_host_count')
+        self.aas_host_count = attributes[:'aas_host_count']
+      end
+
+      if attributes.key?(:'azure_host_count')
+        self.azure_host_count = attributes[:'azure_host_count']
+      end
+
+      if attributes.key?(:'compliance_host_count')
+        self.compliance_host_count = attributes[:'compliance_host_count']
+      end
 
       if attributes.key?(:'container_count')
         self.container_count = attributes[:'container_count']
@@ -124,6 +156,9 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          aas_host_count == o.aas_host_count &&
+          azure_host_count == o.azure_host_count &&
+          compliance_host_count == o.compliance_host_count &&
           container_count == o.container_count &&
           host_count == o.host_count &&
           hour == o.hour &&
@@ -140,7 +175,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [container_count, host_count, hour, org_name, public_id].hash
+      [aas_host_count, azure_host_count, compliance_host_count, container_count, host_count, hour, org_name, public_id].hash
     end
 
     # Builds the object from hash
