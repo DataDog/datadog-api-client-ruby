@@ -1,5 +1,35 @@
 # CHANGELOG
 
+## 1.6.0 / 2022-01-25
+
+* [Added] Add `filter[deleted]` parameter for searching recently deleted dashboards. See [#693](https://github.com/DataDog/datadog-api-client-ruby/pull/693).
+* [Added] Add support for authentication and proxy options in Synthetics. See [#656](https://github.com/DataDog/datadog-api-client-ruby/pull/656).
+* [Added] Support formulas and functions in Treemap Widget. See [#688](https://github.com/DataDog/datadog-api-client-ruby/pull/688).
+* [Added] Add Cloud Workload Security Agent Rules API. See [#677](https://github.com/DataDog/datadog-api-client-ruby/pull/677).
+* [Added] Add `offset` and `limit` parameters to usage listing endpoint. See [#680](https://github.com/DataDog/datadog-api-client-ruby/pull/680).
+* [Added] Add monthly usage attribution API spec. See [#668](https://github.com/DataDog/datadog-api-client-ruby/pull/668).
+* [Added] Add missing hosts metadata fields. See [#661](https://github.com/DataDog/datadog-api-client-ruby/pull/661).
+* [Added] Add `replay_session_count ` and update documentation for `rum_session_count`. See [#679](https://github.com/DataDog/datadog-api-client-ruby/pull/679).
+* [Added] Add retry options for a step in Synthetics multistep test. See [#671](https://github.com/DataDog/datadog-api-client-ruby/pull/671).
+* [Added] Document `author_name` in dashboard response. See [#669](https://github.com/DataDog/datadog-api-client-ruby/pull/669).
+* [Added] Add organization metadata for RUM sessions usage and expose `rum_browser_and_mobile_session_count`. See [#662](https://github.com/DataDog/datadog-api-client-ruby/pull/662).
+* [Added] Add endpoint to retrieve hourly usage attribution. See [#640](https://github.com/DataDog/datadog-api-client-ruby/pull/640).
+* [Added] Add support for scoped application keys. See [#619](https://github.com/DataDog/datadog-api-client-ruby/pull/619).
+* [Added] Add endpoint for cloning roles. See [#648](https://github.com/DataDog/datadog-api-client-ruby/pull/648).
+* [Added] Add organization metadata for audit logs, CWS, CSPM, DBM. See [#652](https://github.com/DataDog/datadog-api-client-ruby/pull/652).
+* [Added] Add `ci-pipelines alert` to monitors enum. See [#647](https://github.com/DataDog/datadog-api-client-ruby/pull/647).
+* [Added] Add support for sunburst widget in dashboard. See [#651](https://github.com/DataDog/datadog-api-client-ruby/pull/651).
+* [Fixed] Clarify required fields for `SyntheticsAPIStep`, `SyntheticsAPITest`, and `SyntheticsBrowserTest`. See [#573](https://github.com/DataDog/datadog-api-client-ruby/pull/573).
+* [Fixed] Fixes to Cloud Workload Security API. See [#691](https://github.com/DataDog/datadog-api-client-ruby/pull/691).
+* [Fixed] Make downtime weekdays nullable. See [#673](https://github.com/DataDog/datadog-api-client-ruby/pull/673).
+* [Fixed] Fix a typo in an incident field attribute description. See [#629](https://github.com/DataDog/datadog-api-client-ruby/pull/629).
+* [Fixed] Fix `SecurityMonitoringSignal.attributes.tags` type. See [#632](https://github.com/DataDog/datadog-api-client-ruby/pull/632).
+* [Changed] Add CSPM usage fields and change properties to nullable doubles. See [#700](https://github.com/DataDog/datadog-api-client-ruby/pull/700).
+* [Changed] Remove read only fields in `EventCreateRequest`. See [#689](https://github.com/DataDog/datadog-api-client-ruby/pull/689).
+* [Changed] Change pagination arguments for querying usage attribution. See [#667](https://github.com/DataDog/datadog-api-client-ruby/pull/667).
+* [Deprecated] Remove session counts from RUM units response. See [#643](https://github.com/DataDog/datadog-api-client-ruby/pull/643).
+* [Removed] Remove deprecated AgentRule field in Security Rules API for CWS. See [#660](https://github.com/DataDog/datadog-api-client-ruby/pull/660).
+
 ## 1.5.0 / 2021-12-09
 
 * [Added] Add Limit Note for Hourly Requests. See [#614](https://github.com/DataDog/datadog-api-client-ruby/pull/614).
