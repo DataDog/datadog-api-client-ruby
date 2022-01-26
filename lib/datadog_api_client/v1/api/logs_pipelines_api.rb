@@ -224,7 +224,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'LogsPipeline'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_logs_pipeline,
@@ -291,7 +291,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'LogsPipelinesOrder'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_logs_pipeline_order,
@@ -358,7 +358,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Array<LogsPipeline>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :list_logs_pipelines,
