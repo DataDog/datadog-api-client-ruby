@@ -234,7 +234,11 @@ When('the request is sent') do
     # If we have an exception, make a stub response object to use for assertions
     # Instead of finding the response class of the method, we use the fact that all
     # responses returned have the `1` element set to the response code
-    @response = [JSON.parse(e.response_body, :symbolize_names => true), e.code, nil]
+    begin
+        @response = JSON.parse(e.response_body, :symbolize_names => true)
+    rescue JSON::ParserError
+        @response = [e.response_body, e.code, nil]
+    end
   end
 
   if @response[1].between?(200, 299)  then
