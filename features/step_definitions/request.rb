@@ -235,7 +235,7 @@ When('the request is sent') do
     # Instead of finding the response class of the method, we use the fact that all
     # responses returned have the `1` element set to the response code
     begin
-        @response = JSON.parse(e.response_body, :symbolize_names => true)
+        @response = [JSON.parse(e.response_body, :symbolize_names => true), e.code, nil]
     rescue JSON::ParserError
         @response = [e.response_body, e.code, nil]
     end
