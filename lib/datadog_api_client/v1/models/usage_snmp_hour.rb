@@ -25,6 +25,12 @@ module DatadogAPIClient::V1
     # The hour for the usage.
     attr_accessor :hour
 
+    # The organization name.
+    attr_accessor :org_name
+
+    # The organization public ID.
+    attr_accessor :public_id
+
     # Contains the number of SNMP devices.
     attr_accessor :snmp_devices
 
@@ -32,6 +38,8 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'hour' => :'hour',
+        :'org_name' => :'org_name',
+        :'public_id' => :'public_id',
         :'snmp_devices' => :'snmp_devices'
       }
     end
@@ -45,6 +53,8 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'hour' => :'Time',
+        :'org_name' => :'String',
+        :'public_id' => :'String',
         :'snmp_devices' => :'Integer'
       }
     end
@@ -74,6 +84,14 @@ module DatadogAPIClient::V1
         self.hour = attributes[:'hour']
       end
 
+      if attributes.key?(:'org_name')
+        self.org_name = attributes[:'org_name']
+      end
+
+      if attributes.key?(:'public_id')
+        self.public_id = attributes[:'public_id']
+      end
+
       if attributes.key?(:'snmp_devices')
         self.snmp_devices = attributes[:'snmp_devices']
       end
@@ -98,6 +116,8 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           hour == o.hour &&
+          org_name == o.org_name &&
+          public_id == o.public_id &&
           snmp_devices == o.snmp_devices
     end
 
@@ -110,7 +130,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [hour, snmp_devices].hash
+      [hour, org_name, public_id, snmp_devices].hash
     end
 
     # Builds the object from hash

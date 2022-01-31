@@ -1,0 +1,17 @@
+http_interactions:
+- recorded_at: Mon, 31 Jan 2022 09:34:27 GMT
+  request:
+    body: null
+    headers:
+      Content-Type:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v1/usage/iot?start_hr=2022-01-28T09%3A34%3A27.865Z&end_hr=2022-01-26T09%3A34%3A27.865Z
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors": ["start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]"]}'
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0

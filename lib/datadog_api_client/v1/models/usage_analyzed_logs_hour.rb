@@ -28,11 +28,19 @@ module DatadogAPIClient::V1
     # The hour for the usage.
     attr_accessor :hour
 
+    # The organization name.
+    attr_accessor :org_name
+
+    # The organization public ID.
+    attr_accessor :public_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'analyzed_logs' => :'analyzed_logs',
-        :'hour' => :'hour'
+        :'hour' => :'hour',
+        :'org_name' => :'org_name',
+        :'public_id' => :'public_id'
       }
     end
 
@@ -45,7 +53,9 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'analyzed_logs' => :'Integer',
-        :'hour' => :'Time'
+        :'hour' => :'Time',
+        :'org_name' => :'String',
+        :'public_id' => :'String'
       }
     end
 
@@ -77,6 +87,14 @@ module DatadogAPIClient::V1
       if attributes.key?(:'hour')
         self.hour = attributes[:'hour']
       end
+
+      if attributes.key?(:'org_name')
+        self.org_name = attributes[:'org_name']
+      end
+
+      if attributes.key?(:'public_id')
+        self.public_id = attributes[:'public_id']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -98,7 +116,9 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           analyzed_logs == o.analyzed_logs &&
-          hour == o.hour
+          hour == o.hour &&
+          org_name == o.org_name &&
+          public_id == o.public_id
     end
 
     # @see the `==` method
@@ -110,7 +130,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [analyzed_logs, hour].hash
+      [analyzed_logs, hour, org_name, public_id].hash
     end
 
     # Builds the object from hash

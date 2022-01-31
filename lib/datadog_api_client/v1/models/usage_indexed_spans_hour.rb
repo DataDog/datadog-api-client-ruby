@@ -28,11 +28,19 @@ module DatadogAPIClient::V1
     # Contains the number of spans indexed.
     attr_accessor :indexed_events_count
 
+    # The organization name.
+    attr_accessor :org_name
+
+    # The organization public ID.
+    attr_accessor :public_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'hour' => :'hour',
-        :'indexed_events_count' => :'indexed_events_count'
+        :'indexed_events_count' => :'indexed_events_count',
+        :'org_name' => :'org_name',
+        :'public_id' => :'public_id'
       }
     end
 
@@ -45,7 +53,9 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'hour' => :'Time',
-        :'indexed_events_count' => :'Integer'
+        :'indexed_events_count' => :'Integer',
+        :'org_name' => :'String',
+        :'public_id' => :'String'
       }
     end
 
@@ -77,6 +87,14 @@ module DatadogAPIClient::V1
       if attributes.key?(:'indexed_events_count')
         self.indexed_events_count = attributes[:'indexed_events_count']
       end
+
+      if attributes.key?(:'org_name')
+        self.org_name = attributes[:'org_name']
+      end
+
+      if attributes.key?(:'public_id')
+        self.public_id = attributes[:'public_id']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -98,7 +116,9 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           hour == o.hour &&
-          indexed_events_count == o.indexed_events_count
+          indexed_events_count == o.indexed_events_count &&
+          org_name == o.org_name &&
+          public_id == o.public_id
     end
 
     # @see the `==` method
@@ -110,7 +130,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [hour, indexed_events_count].hash
+      [hour, indexed_events_count, org_name, public_id].hash
     end
 
     # Builds the object from hash
