@@ -127,7 +127,7 @@ config = DatadogAPIClient::V1::Configuration.new
 config.compress = false
 client = DatadogAPIClient::V1::APIClient.new(config)
 ```
-
+ 
 ### Enable requests logging
 
 If you want to enable requests logging, set the `debugging` flag
@@ -143,7 +143,9 @@ client = DatadogAPIClient::V1::APIClient.new(config)
 
 If you are interested in general documentation for all public Datadog API endpoints, checkout the [general documentation site](api docs).
 
+<!-- FIXME create gh-pages with generated documentation
 Developer documentation for supported endpoints and models is divided based on API version prefix to [`v1`](/docs/v1/README.md) and [`v2`](/docs/v2/README.md).
+-->
 
 For contributing, checkout the [contribution guidelines](contribution docs) and [development guide][development docs].
 
