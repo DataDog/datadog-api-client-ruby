@@ -8,5 +8,5 @@ cd ${0%/*}
 VERSIONS=(${VERSIONS//,/ })
 
 for version in "${VERSIONS[@]}"; do
-    ls docs/$version/*API.md | grep -v IPPrefixesAPI.md | xargs -n1 ./extract-code-blocks.awk -v output="${OUTPUT}/$version"
+    cp -Rn examples/generated/${version} ${OUTPUT}/${version}
 done
