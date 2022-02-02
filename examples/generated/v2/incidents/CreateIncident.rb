@@ -1,11 +1,11 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 
 DatadogAPIClient::V2.configure do |config|
   config.unstable_operations[:create_incident] = true
 end
 
 api_instance = DatadogAPIClient::V2::IncidentsAPI.new
-body = DatadogAPIClient::V2::IncidentCreateRequest.new({data: DatadogAPIClient::V2::IncidentCreateData.new({attributes: DatadogAPIClient::V2::IncidentCreateAttributes.new({customer_impacted: false, title: 'A test incident title'}), type: DatadogAPIClient::V2::IncidentType::INCIDENTS})}) # IncidentCreateRequest | Incident payload.
+body = DatadogAPIClient::V2::IncidentCreateRequest.new({ data: DatadogAPIClient::V2::IncidentCreateData.new({ attributes: DatadogAPIClient::V2::IncidentCreateAttributes.new({ customer_impacted: false, title: "A test incident title" }), type: DatadogAPIClient::V2::IncidentType::INCIDENTS }) }) # IncidentCreateRequest | Incident payload.
 
 begin
   # Create an incident

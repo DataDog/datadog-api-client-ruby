@@ -1,4 +1,4 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::EventsAPI.new
 event_id = 789 # Integer | The ID of the event.
 
