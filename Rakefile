@@ -6,7 +6,7 @@ require 'yard'
 Cucumber::Rake::Task.new(:features)
 
 YARD::Rake::YardocTask.new(:docs) do |t|
-  t.files   = ['lib/**/*.rb', 'README.md']
+  t.files   = ['lib/**/*.rb', 'README.md', 'CHANGELOG.md', 'CONTRIBUTING.md', 'DEVELOPMENT.md', 'RELEASING.md']
   t.options += ['--title', "datadog-api-client #{DatadogAPIClient::VERSION} documentation"]
   t.options += ['--markup', 'markdown']
   t.options += ['--markup-provider', 'redcarpet']
