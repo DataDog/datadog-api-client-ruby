@@ -24,12 +24,9 @@ module DatadogAPIClient::V1
 
     attr_accessor :cert
 
-    attr_accessor :error_code
-
-    # The API test error message.
-    attr_accessor :error_message
-
     attr_accessor :event_type
+
+    attr_accessor :failure
 
     # The API test HTTP status code.
     attr_accessor :http_status_code
@@ -52,9 +49,8 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'cert' => :'cert',
-        :'error_code' => :'errorCode',
-        :'error_message' => :'errorMessage',
         :'event_type' => :'eventType',
+        :'failure' => :'failure',
         :'http_status_code' => :'httpStatusCode',
         :'request_headers' => :'requestHeaders',
         :'response_body' => :'responseBody',
@@ -73,9 +69,8 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'cert' => :'SyntheticsSSLCertificate',
-        :'error_code' => :'SyntheticsErrorCode',
-        :'error_message' => :'String',
         :'event_type' => :'SyntheticsTestProcessStatus',
+        :'failure' => :'SyntheticsApiTestResultFailure',
         :'http_status_code' => :'Integer',
         :'request_headers' => :'Hash<String, Object>',
         :'response_body' => :'String',
@@ -110,16 +105,12 @@ module DatadogAPIClient::V1
         self.cert = attributes[:'cert']
       end
 
-      if attributes.key?(:'error_code')
-        self.error_code = attributes[:'error_code']
-      end
-
-      if attributes.key?(:'error_message')
-        self.error_message = attributes[:'error_message']
-      end
-
       if attributes.key?(:'event_type')
         self.event_type = attributes[:'event_type']
+      end
+
+      if attributes.key?(:'failure')
+        self.failure = attributes[:'failure']
       end
 
       if attributes.key?(:'http_status_code')
@@ -170,9 +161,8 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           cert == o.cert &&
-          error_code == o.error_code &&
-          error_message == o.error_message &&
           event_type == o.event_type &&
+          failure == o.failure &&
           http_status_code == o.http_status_code &&
           request_headers == o.request_headers &&
           response_body == o.response_body &&
@@ -190,7 +180,7 @@ module DatadogAPIClient::V1
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cert, error_code, error_message, event_type, http_status_code, request_headers, response_body, response_headers, response_size, timings].hash
+      [cert, event_type, failure, http_status_code, request_headers, response_body, response_headers, response_size, timings].hash
     end
 
     # Builds the object from hash

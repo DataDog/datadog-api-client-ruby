@@ -2,18 +2,17 @@
 
 ## Properties
 
-| Name                 | Type                                                              | Description                                   | Notes      |
-| -------------------- | ----------------------------------------------------------------- | --------------------------------------------- | ---------- |
-| **cert**             | [**SyntheticsSSLCertificate**](SyntheticsSSLCertificate.md)       |                                               | [optional] |
-| **error_code**       | [**SyntheticsErrorCode**](SyntheticsErrorCode.md)                 |                                               | [optional] |
-| **error_message**    | **String**                                                        | The API test error message.                   | [optional] |
-| **event_type**       | [**SyntheticsTestProcessStatus**](SyntheticsTestProcessStatus.md) |                                               | [optional] |
-| **http_status_code** | **Integer**                                                       | The API test HTTP status code.                | [optional] |
-| **request_headers**  | **Hash&lt;String, Object&gt;**                                    | Request header object used for the API test.  | [optional] |
-| **response_body**    | **String**                                                        | Response body returned for the API test.      | [optional] |
-| **response_headers** | **Hash&lt;String, Object&gt;**                                    | Response headers returned for the API test.   | [optional] |
-| **response_size**    | **Integer**                                                       | Global size in byte of the API test response. | [optional] |
-| **timings**          | [**SyntheticsTiming**](SyntheticsTiming.md)                       |                                               | [optional] |
+| Name                 | Type                                                                    | Description                                   | Notes      |
+| -------------------- | ----------------------------------------------------------------------- | --------------------------------------------- | ---------- |
+| **cert**             | [**SyntheticsSSLCertificate**](SyntheticsSSLCertificate.md)             |                                               | [optional] |
+| **event_type**       | [**SyntheticsTestProcessStatus**](SyntheticsTestProcessStatus.md)       |                                               | [optional] |
+| **failure**          | [**SyntheticsApiTestResultFailure**](SyntheticsApiTestResultFailure.md) |                                               | [optional] |
+| **http_status_code** | **Integer**                                                             | The API test HTTP status code.                | [optional] |
+| **request_headers**  | **Hash&lt;String, Object&gt;**                                          | Request header object used for the API test.  | [optional] |
+| **response_body**    | **String**                                                              | Response body returned for the API test.      | [optional] |
+| **response_headers** | **Hash&lt;String, Object&gt;**                                          | Response headers returned for the API test.   | [optional] |
+| **response_size**    | **Integer**                                                             | Global size in byte of the API test response. | [optional] |
+| **timings**          | [**SyntheticsTiming**](SyntheticsTiming.md)                             |                                               | [optional] |
 
 ## Example
 
@@ -22,9 +21,8 @@ require 'datadog_api_client/v1'
 
 instance = DatadogAPIClient::V1::SyntheticsAPITestResultData.new(
   cert: null,
-  error_code: null,
-  error_message: null,
   event_type: null,
+  failure: null,
   http_status_code: null,
   request_headers: null,
   response_body: null,
