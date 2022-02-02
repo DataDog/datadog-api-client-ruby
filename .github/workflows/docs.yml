@@ -30,6 +30,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: .yardoc
+          key: yardoc-${{ secrets.CACHE_VERSION }}
 
       - name: Install
         run: bundler install
