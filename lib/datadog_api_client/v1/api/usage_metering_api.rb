@@ -82,7 +82,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'UsageCustomReportsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_daily_custom_reports,
@@ -405,7 +405,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'UsageCustomReportsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_monthly_custom_reports,
@@ -574,7 +574,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'UsageSpecifiedCustomReportsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_specified_daily_custom_reports,
@@ -647,7 +647,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'UsageSpecifiedCustomReportsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_specified_monthly_custom_reports,
@@ -900,7 +900,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'UsageAuditLogsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_usage_audit_logs,
@@ -1047,7 +1047,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'UsageCloudSecurityPostureManagementResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_usage_cloud_security_posture_management,
@@ -1201,7 +1201,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'UsageDBMResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_usage_dbm,
@@ -1820,7 +1820,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'UsageLogsByRetentionResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_usage_logs_by_retention,
@@ -2285,7 +2285,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'UsageSDSResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_usage_sds,

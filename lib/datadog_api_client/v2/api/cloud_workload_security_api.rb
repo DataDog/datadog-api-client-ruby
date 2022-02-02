@@ -78,7 +78,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'CloudWorkloadSecurityAgentRuleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :create_cloud_workload_security_agent_rule,
@@ -151,7 +151,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :delete_cloud_workload_security_agent_rule,
@@ -291,7 +291,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'CloudWorkloadSecurityAgentRuleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_cloud_workload_security_agent_rule,
@@ -358,7 +358,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'CloudWorkloadSecurityAgentRulesListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :list_cloud_workload_security_agent_rules,
@@ -439,7 +439,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'CloudWorkloadSecurityAgentRuleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :update_cloud_workload_security_agent_rule,

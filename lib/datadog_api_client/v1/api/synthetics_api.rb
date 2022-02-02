@@ -78,7 +78,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsGlobalVariable'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :create_global_variable,
@@ -153,7 +153,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsPrivateLocationCreationResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :create_private_location,
@@ -449,7 +449,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :delete_private_location,
@@ -605,7 +605,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsGlobalVariable'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :edit_global_variable,
@@ -1219,7 +1219,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsPrivateLocation'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_private_location,
@@ -1292,7 +1292,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsBatchDetails'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_synthetics_ci_batch,
@@ -1365,7 +1365,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsTestDetails'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_test,
@@ -1641,7 +1641,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsTriggerCITestsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :trigger_ci_tests,
@@ -1716,7 +1716,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsTriggerCITestsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :trigger_tests,
@@ -1959,7 +1959,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsPrivateLocation'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :update_private_location,
