@@ -1,6 +1,6 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::LogsAPI.new
-body = DatadogAPIClient::V2::LogsAggregateRequest.new # LogsAggregateRequest |
+body = DatadogAPIClient::V2::LogsAggregateRequest.new # LogsAggregateRequest | 
 
 begin
   # Aggregate events

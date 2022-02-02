@@ -1,6 +1,6 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::KeyManagementAPI.new
-key = "key_example" # String | The specific APP key you are working with.
+key = 'key_example' # String | The specific APP key you are working with.
 
 begin
   # Delete an application key

@@ -1,8 +1,8 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::ServiceLevelObjectivesAPI.new
-slo_id = "slo_id_example" # String | The ID of the service level objective object.
+slo_id = 'slo_id_example' # String | The ID of the service level objective object.
 opts = {
-  with_configured_alert_ids: true, # Boolean | Get the IDs of SLO monitors that reference this SLO.
+  with_configured_alert_ids: true # Boolean | Get the IDs of SLO monitors that reference this SLO.
 }
 
 begin

@@ -1,6 +1,6 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::WebhooksIntegrationAPI.new
-custom_variable_name = "custom_variable_name_example" # String | The name of the custom variable.
+custom_variable_name = 'custom_variable_name_example' # String | The name of the custom variable.
 body = DatadogAPIClient::V1::WebhooksIntegrationCustomVariableUpdateRequest.new # WebhooksIntegrationCustomVariableUpdateRequest | Update an existing custom variable request body.
 
 begin
