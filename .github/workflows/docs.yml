@@ -32,7 +32,7 @@ jobs:
           path: |
             .yardoc
             doc
-          key: yardoc-${{ secrets.CACHE_VERSION }}
+          key: yardoc
 
       - name: Install
         run: bundler install
