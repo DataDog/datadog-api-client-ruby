@@ -224,7 +224,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'NotebookResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :get_notebook,
@@ -321,7 +321,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'NotebooksResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :list_notebooks,
