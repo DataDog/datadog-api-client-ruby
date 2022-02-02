@@ -1,6 +1,8 @@
 .bundle
 .env
+.yardoc
 Gemfile.lock
+doc/
 failed.txt
 rerun.txt
 coverage/
