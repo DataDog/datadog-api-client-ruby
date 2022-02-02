@@ -14,10 +14,12 @@ group :development, :test do
   gem 'vcr'
   gem 'rubocop'
   gem 'reek'
+  gem 'redcarpet'
   gem 'rspec-expectations'
   gem 'rufo'
   gem 'simplecov'
   gem 'solargraph'
   gem 'timecop'
+  gem 'yard', '~> 0.9'
   gem 'webmock'
 end
