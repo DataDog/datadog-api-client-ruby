@@ -11,4 +11,5 @@ YARD::Rake::YardocTask.new(:docs) do |t|
   t.options += ['--private']
   t.options += ['--markup', 'markdown']
   t.options += ['--markup-provider', 'redcarpet']
+  t.options += ['--use-cache']
 end
