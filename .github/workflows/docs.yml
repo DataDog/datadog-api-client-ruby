@@ -29,7 +29,9 @@ jobs:
       - name: Cache yardoc
         uses: actions/cache@v2
         with:
-          path: .yardoc
+          path: |
+            .yardoc
+            doc
           key: yardoc-${{ secrets.CACHE_VERSION }}
 
       - name: Install
