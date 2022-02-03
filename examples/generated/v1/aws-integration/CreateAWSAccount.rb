@@ -1,4 +1,4 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::AWSIntegrationAPI.new
 body = DatadogAPIClient::V1::AWSAccount.new # AWSAccount | AWS Request Object
 

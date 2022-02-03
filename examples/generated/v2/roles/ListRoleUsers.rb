@@ -1,11 +1,11 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::RolesAPI.new
-role_id = 'role_id_example' # String | The ID of the role.
+role_id = "role_id_example" # String | The ID of the role.
 opts = {
   page_size: 10, # Integer | Size for a given page.
   page_number: 0, # Integer | Specific page number to return.
-  sort: 'sort_example', # String | User attribute to order results by. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example `sort=-name`. Options: `name`, `email`, `status`.
-  filter: 'filter_example' # String | Filter all users by the given string. Defaults to no filtering.
+  sort: "sort_example", # String | User attribute to order results by. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example `sort=-name`. Options: `name`, `email`, `status`.
+  filter: "filter_example", # String | Filter all users by the given string. Defaults to no filtering.
 }
 
 begin

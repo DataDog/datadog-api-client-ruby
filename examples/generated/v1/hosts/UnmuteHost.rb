@@ -1,6 +1,6 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::HostsAPI.new
-host_name = 'host_name_example' # String | Name of the host to unmute.
+host_name = "host_name_example" # String | Name of the host to unmute.
 
 begin
   # Unmute a host
