@@ -22,18 +22,21 @@ module DatadogAPIClient::V2
     MEASURE = "measure".freeze
 
     # Builds the enum from string
-    # @param [String] The enum value in the form of the string
+    # @param value [String] The enum value in the form of the string
     # @return [String] The enum value
+    # @!visibility private
     def self.build_from_hash(value)
       new.build_from_hash(value)
     end
 
     # Builds the enum from string
-    # @param [String] The enum value in the form of the string
+    # @param value [String] The enum value in the form of the string
     # @return [String] The enum value
+    # @!visibility private
     def build_from_hash(value)
       constantValues = LogsAggregateSortType.constants.select { |c| LogsAggregateSortType::const_get(c) == value }
       constantValues.empty? ? DatadogAPIClient::V2::UnparsedObject.new(value) : value
     end
   end
+
 end

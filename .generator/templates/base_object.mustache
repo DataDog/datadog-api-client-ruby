@@ -1,13 +1,15 @@
     # Builds the object from hash
-    # @param [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
+    # @!visibility private
     def self.build_from_hash(attributes)
       new.build_from_hash(attributes)
     end
 
     # Builds the object from hash
-    # @param [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
+    # @!visibility private
     def build_from_hash(attributes)
       return nil unless attributes.is_a?(Hash)
       {{#parent}}
@@ -31,9 +33,10 @@
     end
 
     # Deserializes the data based on type
-    # @param string type Data type
-    # @param string value Value to be deserialized
+    # @param type [string] Data type
+    # @param value [string] Value to be deserialized
     # @return [Object] Deserialized data
+    # @!visibility private
     def _deserialize(type, value)
       case type.to_sym
       when :Time
@@ -82,18 +85,21 @@
 
     # Returns the string representation of the object
     # @return [String] String presentation of the object
+    # @!visibility private
     def to_s
       to_hash.to_s
     end
 
     # to_body is an alias to to_hash (backward compatibility)
     # @return [Hash] Returns the object in the form of hash
+    # @!visibility private
     def to_body
       to_hash
     end
 
     # Returns the object in the form of hash
     # @return [Hash] Returns the object in the form of hash
+    # @!visibility private
     def to_hash
       hash = {{^parent}}{}{{/parent}}{{#parent}}super{{/parent}}
       self.class.attribute_map.each_pair do |attr, param|
@@ -110,8 +116,9 @@
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param [Object] value Any valid value
+    # @param value [Object] value Any valid value
     # @return [Hash] Returns the value in the form of hash
+    # @!visibility private
     def _to_hash(value)
       if value.is_a?(Array)
         value.compact.map { |v| _to_hash(v) }
