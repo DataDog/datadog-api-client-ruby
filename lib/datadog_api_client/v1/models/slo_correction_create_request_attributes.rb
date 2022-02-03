@@ -19,10 +19,11 @@ require 'time'
 module DatadogAPIClient::V1
   # The attribute object associated with the SLO correction to be created.
   class SLOCorrectionCreateRequestAttributes
-    # Whether the object has unparsed attributes
+    # whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
+    # Category the SLO correction belongs to.
     attr_accessor :category
 
     # Description of the correction being made.
@@ -34,7 +35,8 @@ module DatadogAPIClient::V1
     # Ending time of the correction in epoch seconds.
     attr_accessor :_end
 
-    # The recurrence rules as defined in the iCalendar RFC 5545. The supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
+    # The recurrence rules as defined in the iCalendar RFC 5545. The supported rules for SLO corrections
+    # are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
     attr_accessor :rrule
 
     # ID of the SLO that this correction will be applied to.
@@ -43,7 +45,7 @@ module DatadogAPIClient::V1
     # Starting time of the correction in epoch seconds.
     attr_accessor :start
 
-    # The timezone to display in the UI for the correction times (defaults to \"UTC\").
+    # The timezone to display in the UI for the correction times (defaults to "UTC").
     attr_accessor :timezone
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -90,7 +92,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SLOCorrectionCreateRequestAttributes` initialize method"
@@ -138,18 +141,16 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @category.nil?
         invalid_properties.push('invalid value for "category", category cannot be nil.')
       end
-
       if @slo_id.nil?
         invalid_properties.push('invalid value for "slo_id", slo_id cannot be nil.')
       end
-
       if @start.nil?
         invalid_properties.push('invalid value for "start", start cannot be nil.')
       end
@@ -198,7 +199,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -206,7 +207,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -312,7 +313,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -328,7 +329,6 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
 
 end

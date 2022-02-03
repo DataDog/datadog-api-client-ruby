@@ -22,6 +22,7 @@ module DatadogAPIClient::V1
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Create a Slack integration channel
     # Add a channel to your Datadog-Slack integration.
     # @param account_name [String] Your Slack account name.
@@ -62,7 +63,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'body' when calling SlackIntegrationAPI.create_slack_integration_channel"
       end
       # resource path
-      local_var_path = '/api/v1/integration/slack/configuration/accounts/{account_name}/channels'.sub('{' + 'account_name' + '}', CGI.escape(account_name.to_s))
+      local_var_path = '/api/v1/integration/slack/configuration/accounts/{account_name}/channels'.sub('{account_name}', CGI.escape(account_name.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -143,7 +144,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'channel_name' when calling SlackIntegrationAPI.get_slack_integration_channel"
       end
       # resource path
-      local_var_path = '/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}'.sub('{' + 'account_name' + '}', CGI.escape(account_name.to_s)).sub('{' + 'channel_name' + '}', CGI.escape(channel_name.to_s))
+      local_var_path = '/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}'.sub('{account_name}', CGI.escape(account_name.to_s).gsub('%2F', '/')).sub('{channel_name}', CGI.escape(channel_name.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -216,7 +217,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'account_name' when calling SlackIntegrationAPI.get_slack_integration_channels"
       end
       # resource path
-      local_var_path = '/api/v1/integration/slack/configuration/accounts/{account_name}/channels'.sub('{' + 'account_name' + '}', CGI.escape(account_name.to_s))
+      local_var_path = '/api/v1/integration/slack/configuration/accounts/{account_name}/channels'.sub('{account_name}', CGI.escape(account_name.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -295,7 +296,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'channel_name' when calling SlackIntegrationAPI.remove_slack_integration_channel"
       end
       # resource path
-      local_var_path = '/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}'.sub('{' + 'account_name' + '}', CGI.escape(account_name.to_s)).sub('{' + 'channel_name' + '}', CGI.escape(channel_name.to_s))
+      local_var_path = '/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}'.sub('{account_name}', CGI.escape(account_name.to_s).gsub('%2F', '/')).sub('{channel_name}', CGI.escape(channel_name.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -303,7 +304,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -380,7 +381,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'body' when calling SlackIntegrationAPI.update_slack_integration_channel"
       end
       # resource path
-      local_var_path = '/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}'.sub('{' + 'account_name' + '}', CGI.escape(account_name.to_s)).sub('{' + 'channel_name' + '}', CGI.escape(channel_name.to_s))
+      local_var_path = '/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}'.sub('{account_name}', CGI.escape(account_name.to_s).gsub('%2F', '/')).sub('{channel_name}', CGI.escape(channel_name.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}

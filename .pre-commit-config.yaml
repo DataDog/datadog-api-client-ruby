@@ -3,7 +3,7 @@ repos:
   hooks:
   - id: generate
     name: Generate
-    language: node
+    language: system
     entry: make
     files: '^(\.generator/.*|\.pre-commit-config\.yaml|Makefile)'
     pass_filenames: false
@@ -20,12 +20,12 @@ repos:
       # When updating the version of prettier, make sure to check the  pre-commit file
       # And keep the `entry` here up to date https://github.com/pre-commit/mirrors-prettier/blob/master/.pre-commit-hooks.yaml
       - prettier@2.5.1
-  - id: openapi-generator
-    name: OpenAPI-generator
-    language: node
-    entry: bash -c "cd .generator && openapi-generator-cli generate"
+  - id: generator
+    name: generator
+    language: python
+    entry: bash -c "cd .generator && poetry install && poetry run python -m generator -i ./schemas/v1/openapi.yaml -o ../lib/ && poetry run python -m generator -i schemas/v2/openapi.yaml -o ../lib/"
     files: "^.generator/.*"
     stages: [manual]
     pass_filenames: false
     additional_dependencies:
-      - "@openapitools/openapi-generator-cli"
+      - "poetry"

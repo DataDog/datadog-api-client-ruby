@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Property of the Synthetics Test Response to use for a Synthetics global variable.
   class SyntheticsGlobalVariableParseTestOptionsType
     HTTP_BODY = "http_body".freeze
     HTTP_HEADER = "http_header".freeze
@@ -38,5 +39,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

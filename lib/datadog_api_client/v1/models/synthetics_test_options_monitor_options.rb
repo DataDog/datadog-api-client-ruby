@@ -17,13 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Object containing the options for a Synthetic test as a monitor (for example, renotification).
+  # Object containing the options for a Synthetic test as a monitor
+  # (for example, renotification).
   class SyntheticsTestOptionsMonitorOptions
-    # Whether the object has unparsed attributes
+    # whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Time interval before renotifying if the test is still failing (in minutes).
+    # Time interval before renotifying if the test is still failing
+    # (in minutes).
     attr_accessor :renotify_interval
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -56,7 +58,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsTestOptionsMonitorOptions` initialize method"
@@ -76,17 +79,10 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@renotify_interval.nil? && @renotify_interval > 1440
-        invalid_properties.push('invalid value for "renotify_interval", must be smaller than or equal to 1440.')
-      end
-
-      if !@renotify_interval.nil? && @renotify_interval < 0
-        invalid_properties.push('invalid value for "renotify_interval", must be greater than or equal to 0.')
-      end
 
       invalid_properties
     end
@@ -95,23 +91,7 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if !@renotify_interval.nil? && @renotify_interval > 1440
-      return false if !@renotify_interval.nil? && @renotify_interval < 0
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param renotify_interval [Object] renotify_interval Value to be assigned
-    def renotify_interval=(renotify_interval)
-      if !renotify_interval.nil? && renotify_interval > 1440
-        fail ArgumentError, 'invalid value for "renotify_interval", must be smaller than or equal to 1440.'
-      end
-
-      if !renotify_interval.nil? && renotify_interval < 0
-        fail ArgumentError, 'invalid value for "renotify_interval", must be greater than or equal to 0.'
-      end
-
-      @renotify_interval = renotify_interval
     end
 
     # Checks equality by comparing each attribute.
@@ -138,7 +118,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -146,7 +126,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -252,7 +232,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -268,7 +248,6 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
 
 end

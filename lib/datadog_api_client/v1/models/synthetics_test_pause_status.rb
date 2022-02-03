@@ -17,6 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Define whether you want to start (`live`) or pause (`paused`) a
+  # Synthetic test.
   class SyntheticsTestPauseStatus
     LIVE = "live".freeze
     PAUSED = "paused".freeze
@@ -38,5 +40,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

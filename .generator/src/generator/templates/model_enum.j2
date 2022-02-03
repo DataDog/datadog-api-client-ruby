@@ -1,0 +1,22 @@
+  class {{ name }}
+{%- for index, value in enumerate(model.enum) %}
+    {{ model["x-enum-varnames"][index] or value.upper() }} = {{ value|format_value(quotes='"') }}.freeze
+{%- endfor %}
+
+    # Builds the enum from string
+    # @param value [String] The enum value in the form of the string
+    # @return [String] The enum value
+    # @!visibility private
+    def self.build_from_hash(value)
+      new.build_from_hash(value)
+    end
+
+    # Builds the enum from string
+    # @param value [String] The enum value in the form of the string
+    # @return [String] The enum value
+    # @!visibility private
+    def build_from_hash(value)
+      constantValues = {{ name }}.constants.select { |c| {{ name }}::const_get(c) == value }
+      constantValues.empty? ? {{ config.moduleName }}::UnparsedObject.new(value) : value
+    end
+  end

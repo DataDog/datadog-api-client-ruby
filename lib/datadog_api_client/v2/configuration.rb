@@ -169,28 +169,28 @@ module DatadogAPIClient::V2
       @compress = true
       @logger = defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
       @unstable_operations = {
-            create_incident_service: false,
-            delete_incident_service: false,
-            get_incident_service: false,
-            list_incident_services: false,
-            update_incident_service: false,
-            create_incident_team: false,
-            delete_incident_team: false,
-            get_incident_team: false,
-            list_incident_teams: false,
-            update_incident_team: false,
+            list_incidents: false,
             create_incident: false,
             delete_incident: false,
             get_incident: false,
-            list_incidents: false,
             update_incident: false,
-            create_tag_configuration: false,
+            list_tag_configurations: false,
             delete_tag_configuration: false,
             list_tag_configuration_by_name: false,
-            list_tag_configurations: false,
             update_tag_configuration: false,
+            create_tag_configuration: false,
             list_security_monitoring_signals: false,
             search_security_monitoring_signals: false,
+            list_incident_services: false,
+            create_incident_service: false,
+            delete_incident_service: false,
+            get_incident_service: false,
+            update_incident_service: false,
+            list_incident_teams: false,
+            create_incident_team: false,
+            delete_incident_team: false,
+            get_incident_team: false,
+            update_incident_team: false,
       }
       @server_variables[:site] = ENV['DD_SITE'] if ENV.key? 'DD_SITE'
       @api_key['apiKeyAuth'] = ENV['DD_API_KEY'] if ENV.key? 'DD_API_KEY'
@@ -284,49 +284,49 @@ module DatadogAPIClient::V2
           description: "No description provided",
           variables: {
             site: {
-                description: "The regional site for Datadog customers.",
-                default_value: "datadoghq.com",
-                enum_values: [
-                  "datadoghq.com",
-                  "us3.datadoghq.com",
-                  "us5.datadoghq.com",
-                  "datadoghq.eu",
-                  "ddog-gov.com"
-                ]
-              },
+              description: "The regional site for Datadog customers.",
+              default_value: "datadoghq.com",
+              enum_values: [
+                "datadoghq.com",
+                "us3.datadoghq.com",
+                "us5.datadoghq.com",
+                "datadoghq.eu",
+                "ddog-gov.com"
+              ]
+            },
             subdomain: {
-                description: "The subdomain where the API is deployed.",
-                default_value: "api",
-              }
+              description: "The subdomain where the API is deployed.",
+              default_value: "api",
             }
+          }
         },
         {
           url: "{protocol}://{name}",
           description: "No description provided",
           variables: {
             name: {
-                description: "Full site DNS name.",
-                default_value: "api.datadoghq.com",
-              },
+              description: "Full site DNS name.",
+              default_value: "api.datadoghq.com",
+            },
             protocol: {
-                description: "The protocol for accessing the API.",
-                default_value: "https",
-              }
+              description: "The protocol for accessing the API.",
+              default_value: "https",
             }
+          }
         },
         {
           url: "https://{subdomain}.{site}",
           description: "No description provided",
           variables: {
             site: {
-                description: "Any Datadog deployment.",
-                default_value: "datadoghq.com",
-              },
+              description: "Any Datadog deployment.",
+              default_value: "datadoghq.com",
+            },
             subdomain: {
-                description: "The subdomain where the API is deployed.",
-                default_value: "api",
-              }
+              description: "The subdomain where the API is deployed.",
+              default_value: "api",
             }
+          }
         }
       ]
     end
@@ -335,10 +335,10 @@ module DatadogAPIClient::V2
       {
         submit_log: [
           {
-          url: "https://{subdomain}.{site}",
-          description: "No description provided",
-          variables: {
-            site: {
+            url: "https://{subdomain}.{site}",
+            description: "No description provided",
+            variables: {
+              site: {
                 description: "The regional site for customers.",
                 default_value: "datadoghq.com",
                 enum_values: [
@@ -349,40 +349,40 @@ module DatadogAPIClient::V2
                   "ddog-gov.com"
                 ]
               },
-            subdomain: {
+              subdomain: {
                 description: "The subdomain where the API is deployed.",
                 default_value: "http-intake.logs",
               }
             }
           },
           {
-          url: "{protocol}://{name}",
-          description: "No description provided",
-          variables: {
-            name: {
+            url: "{protocol}://{name}",
+            description: "No description provided",
+            variables: {
+              name: {
                 description: "Full site DNS name.",
                 default_value: "http-intake.logs.datadoghq.com",
               },
-            protocol: {
+              protocol: {
                 description: "The protocol for accessing the API.",
                 default_value: "https",
               }
             }
           },
           {
-          url: "https://{subdomain}.{site}",
-          description: "No description provided",
-          variables: {
-            site: {
+            url: "https://{subdomain}.{site}",
+            description: "No description provided",
+            variables: {
+              site: {
                 description: "Any Datadog deployment.",
                 default_value: "datadoghq.com",
               },
-            subdomain: {
+              subdomain: {
                 description: "The subdomain where the API is deployed.",
                 default_value: "http-intake.logs",
               }
             }
-          }
+          }  
         ],
       }
     end

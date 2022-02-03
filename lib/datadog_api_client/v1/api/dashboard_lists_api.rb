@@ -22,6 +22,7 @@ module DatadogAPIClient::V1
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Create a dashboard list
     # Create an empty dashboard list.
     # @param body [DashboardList] Create a dashboard list request body.
@@ -78,7 +79,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'DashboardList'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_dashboard_list,
@@ -131,7 +132,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'list_id' when calling DashboardListsAPI.delete_dashboard_list"
       end
       # resource path
-      local_var_path = '/api/v1/dashboard/lists/manual/{list_id}'.sub('{' + 'list_id' + '}', CGI.escape(list_id.to_s))
+      local_var_path = '/api/v1/dashboard/lists/manual/{list_id}'.sub('{list_id}', CGI.escape(list_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -151,7 +152,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'DashboardListDeleteResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_dashboard_list,
@@ -181,7 +182,7 @@ module DatadogAPIClient::V1
     end
 
     # Get a dashboard list
-    # Fetch an existing dashboard list&#39;s definition.
+    # Fetch an existing dashboard list's definition.
     # @param list_id [Integer] ID of the dashboard list to fetch.
     # @param [Hash] opts the optional parameters
     # @return [Array<(DashboardList, Integer, Hash)>] DashboardList data, response status code and response headers
@@ -204,7 +205,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'list_id' when calling DashboardListsAPI.get_dashboard_list"
       end
       # resource path
-      local_var_path = '/api/v1/dashboard/lists/manual/{list_id}'.sub('{' + 'list_id' + '}', CGI.escape(list_id.to_s))
+      local_var_path = '/api/v1/dashboard/lists/manual/{list_id}'.sub('{list_id}', CGI.escape(list_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -224,7 +225,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'DashboardList'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_dashboard_list,
@@ -291,7 +292,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'DashboardListListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_dashboard_lists,
@@ -350,7 +351,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'body' when calling DashboardListsAPI.update_dashboard_list"
       end
       # resource path
-      local_var_path = '/api/v1/dashboard/lists/manual/{list_id}'.sub('{' + 'list_id' + '}', CGI.escape(list_id.to_s))
+      local_var_path = '/api/v1/dashboard/lists/manual/{list_id}'.sub('{list_id}', CGI.escape(list_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -372,7 +373,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'DashboardList'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_dashboard_list,

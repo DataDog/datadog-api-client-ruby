@@ -17,6 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # The timeframe of the threshold associated with this error
+  # or "all" if all thresholds are affected.
   class SLOErrorTimeframe
     SEVEN_DAYS = "7d".freeze
     THIRTY_DAYS = "30d".freeze
@@ -40,5 +42,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

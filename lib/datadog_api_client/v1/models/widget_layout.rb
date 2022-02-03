@@ -19,14 +19,15 @@ require 'time'
 module DatadogAPIClient::V1
   # The layout for a widget on a `free` or **new dashboard layout** dashboard.
   class WidgetLayout
-    # Whether the object has unparsed attributes
+    # whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
     # The height of the widget. Should be a non-negative integer.
     attr_accessor :height
 
-    # Whether the widget should be the first one on the second column in high density or not. **Note**: Only for the **new dashboard layout** and only one widget in the dashboard should have this property set to `true`.
+    # Whether the widget should be the first one on the second column in high density or not.
+    # **Note**: Only for the **new dashboard layout** and only one widget in the dashboard should have this property set to `true`.
     attr_accessor :is_column_break
 
     # The width of the widget. Should be a non-negative integer.
@@ -76,7 +77,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::WidgetLayout` initialize method"
@@ -112,40 +114,21 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @height.nil?
         invalid_properties.push('invalid value for "height", height cannot be nil.')
       end
-
-      if @height < 0
-        invalid_properties.push('invalid value for "height", must be greater than or equal to 0.')
-      end
-
       if @width.nil?
         invalid_properties.push('invalid value for "width", width cannot be nil.')
       end
-
-      if @width < 0
-        invalid_properties.push('invalid value for "width", must be greater than or equal to 0.')
-      end
-
       if @x.nil?
         invalid_properties.push('invalid value for "x", x cannot be nil.')
       end
-
-      if @x < 0
-        invalid_properties.push('invalid value for "x", must be greater than or equal to 0.')
-      end
-
       if @y.nil?
         invalid_properties.push('invalid value for "y", y cannot be nil.')
-      end
-
-      if @y < 0
-        invalid_properties.push('invalid value for "y", must be greater than or equal to 0.')
       end
 
       invalid_properties
@@ -156,70 +139,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @height.nil?
-      return false if @height < 0
       return false if @width.nil?
-      return false if @width < 0
       return false if @x.nil?
-      return false if @x < 0
       return false if @y.nil?
-      return false if @y < 0
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param height [Object] height Value to be assigned
-    def height=(height)
-      if height.nil?
-        fail ArgumentError, 'height cannot be nil'
-      end
-
-      if height < 0
-        fail ArgumentError, 'invalid value for "height", must be greater than or equal to 0.'
-      end
-
-      @height = height
-    end
-
-    # Custom attribute writer method with validation
-    # @param width [Object] width Value to be assigned
-    def width=(width)
-      if width.nil?
-        fail ArgumentError, 'width cannot be nil'
-      end
-
-      if width < 0
-        fail ArgumentError, 'invalid value for "width", must be greater than or equal to 0.'
-      end
-
-      @width = width
-    end
-
-    # Custom attribute writer method with validation
-    # @param x [Object] x Value to be assigned
-    def x=(x)
-      if x.nil?
-        fail ArgumentError, 'x cannot be nil'
-      end
-
-      if x < 0
-        fail ArgumentError, 'invalid value for "x", must be greater than or equal to 0.'
-      end
-
-      @x = x
-    end
-
-    # Custom attribute writer method with validation
-    # @param y [Object] y Value to be assigned
-    def y=(y)
-      if y.nil?
-        fail ArgumentError, 'y cannot be nil'
-      end
-
-      if y < 0
-        fail ArgumentError, 'invalid value for "y", must be greater than or equal to 0.'
-      end
-
-      @y = y
     end
 
     # Checks equality by comparing each attribute.
@@ -250,7 +173,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -258,7 +181,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -364,7 +287,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -380,7 +303,6 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
 
 end

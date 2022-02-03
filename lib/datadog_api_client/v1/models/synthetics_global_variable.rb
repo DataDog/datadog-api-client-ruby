@@ -19,10 +19,11 @@ require 'time'
 module DatadogAPIClient::V1
   # Synthetics global variable.
   class SyntheticsGlobalVariable
-    # Whether the object has unparsed attributes
+    # whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
+    # Attributes of the global variable.
     attr_accessor :attributes
 
     # Description of the global variable.
@@ -34,6 +35,7 @@ module DatadogAPIClient::V1
     # Name of the global variable. Unique across Synthetics global variables.
     attr_accessor :name
 
+    # Parser options to use for retrieving a Synthetics global variable from a Synthetics Test. Used in conjunction with `parse_test_public_id`.
     attr_accessor :parse_test_options
 
     # A Synthetic test ID to use as a test to generate the variable value.
@@ -42,6 +44,7 @@ module DatadogAPIClient::V1
     # Tags of the global variable.
     attr_accessor :tags
 
+    # Value of the global variable.
     attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -88,7 +91,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsGlobalVariable` initialize method"
@@ -138,22 +142,19 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @description.nil?
         invalid_properties.push('invalid value for "description", description cannot be nil.')
       end
-
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
-
       if @tags.nil?
         invalid_properties.push('invalid value for "tags", tags cannot be nil.')
       end
-
       if @value.nil?
         invalid_properties.push('invalid value for "value", value cannot be nil.')
       end
@@ -203,7 +204,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -211,7 +212,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -317,7 +318,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -333,7 +334,6 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
 
 end

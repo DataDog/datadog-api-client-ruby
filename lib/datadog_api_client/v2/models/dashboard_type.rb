@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
+  # The type of the dashboard.
   class DashboardType
     CUSTOM_TIMEBOARD = "custom_timeboard".freeze
     CUSTOM_SCREENBOARD = "custom_screenboard".freeze
@@ -41,5 +42,4 @@ module DatadogAPIClient::V2
       constantValues.empty? ? DatadogAPIClient::V2::UnparsedObject.new(value) : value
     end
   end
-
 end

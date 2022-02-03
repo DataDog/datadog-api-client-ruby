@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Status of a Synthetic test.
   class SyntheticsTestProcessStatus
     NOT_SCHEDULED = "not_scheduled".freeze
     SCHEDULED = "scheduled".freeze
@@ -41,5 +42,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

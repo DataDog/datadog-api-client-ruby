@@ -19,22 +19,26 @@ require 'time'
 module DatadogAPIClient::V1
   # The treemap visualization found on the Host Dashboards comes from the output of `ps auxww`. This is not continuously run on your hosts. Instead, it’s run once on Agent start/restart. The treemap is only supported for process data on a single host dashboard — this may not be reused in other dashboards or for other metrics.
   class TreeMapWidgetDefinition
-    # Whether the object has unparsed attributes
+    # whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
+    # The attribute used to determine color in the widget.
     attr_accessor :color_by
 
+    # The attribute used to group elements in the widget.
     attr_accessor :group_by
 
     # List of top list widget requests.
     attr_accessor :requests
 
+    # The attribute used to determine size in the widget.
     attr_accessor :size_by
 
     # Title of your widget.
     attr_accessor :title
 
+    # Type of the treemap widget.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -77,7 +81,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::TreeMapWidgetDefinition` initialize method"
@@ -123,22 +128,13 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @requests.nil?
         invalid_properties.push('invalid value for "requests", requests cannot be nil.')
       end
-
-      if @requests.length > 1
-        invalid_properties.push('invalid value for "requests", number of items must be less than or equal to 1.')
-      end
-
-      if @requests.length < 1
-        invalid_properties.push('invalid value for "requests", number of items must be greater than or equal to 1.')
-      end
-
       if @type.nil?
         invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
@@ -151,28 +147,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @requests.nil?
-      return false if @requests.length > 1
-      return false if @requests.length < 1
       return false if @type.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param requests [Object] requests Value to be assigned
-    def requests=(requests)
-      if requests.nil?
-        fail ArgumentError, 'requests cannot be nil'
-      end
-
-      if requests.length > 1
-        fail ArgumentError, 'invalid value for "requests", number of items must be less than or equal to 1.'
-      end
-
-      if requests.length < 1
-        fail ArgumentError, 'invalid value for "requests", number of items must be greater than or equal to 1.'
-      end
-
-      @requests = requests
     end
 
     # Checks equality by comparing each attribute.
@@ -204,7 +180,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -212,7 +188,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -318,7 +294,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -334,7 +310,6 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
 
 end

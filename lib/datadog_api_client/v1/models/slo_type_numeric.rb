@@ -17,6 +17,9 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # A numeric representation of the type of the service level objective (`0` for
+  # monitor, `1` for metric). Always included in service level objective responses.
+  # Ignored in create/update requests.
   class SLOTypeNumeric
     MONITOR = 0.freeze
     METRIC = 1.freeze
@@ -38,5 +41,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

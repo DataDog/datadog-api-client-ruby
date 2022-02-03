@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Aggregator used for the request.
   class WidgetAggregator
     AVERAGE = "avg".freeze
     LAST = "last".freeze
@@ -42,5 +43,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

@@ -22,8 +22,16 @@ module DatadogAPIClient::V1
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Check that an AWS Lambda Function exists
-    # Test if permissions are present to add a log-forwarding triggers for the given services and AWS account. The input is the same as for Enable an AWS service log collection. Subsequent requests will always repeat the above, so this endpoint can be polled intermittently instead of blocking.  - Returns a status of 'created' when it's checking if the Lambda exists in the account. - Returns a status of 'waiting' while checking. - Returns a status of 'checked and ok' if the Lambda exists. - Returns a status of 'error' if the Lambda does not exist.
+    # Test if permissions are present to add a log-forwarding triggers for the given services and AWS account. The input
+    # is the same as for Enable an AWS service log collection. Subsequent requests will always repeat the above, so this
+    # endpoint can be polled intermittently instead of blocking.
+    # 
+    # - Returns a status of 'created' when it's checking if the Lambda exists in the account.
+    # - Returns a status of 'waiting' while checking.
+    # - Returns a status of 'checked and ok' if the Lambda exists.
+    # - Returns a status of 'error' if the Lambda does not exist.
     # @param body [AWSAccountAndLambdaRequest] Check AWS Log Lambda Async request body.
     # @param [Hash] opts the optional parameters
     # @return [AWSLogsAsyncResponse]
@@ -33,7 +41,14 @@ module DatadogAPIClient::V1
     end
 
     # Check that an AWS Lambda Function exists
-    # Test if permissions are present to add a log-forwarding triggers for the given services and AWS account. The input is the same as for Enable an AWS service log collection. Subsequent requests will always repeat the above, so this endpoint can be polled intermittently instead of blocking.  - Returns a status of &#39;created&#39; when it&#39;s checking if the Lambda exists in the account. - Returns a status of &#39;waiting&#39; while checking. - Returns a status of &#39;checked and ok&#39; if the Lambda exists. - Returns a status of &#39;error&#39; if the Lambda does not exist.
+    # Test if permissions are present to add a log-forwarding triggers for the given services and AWS account. The input
+    # is the same as for Enable an AWS service log collection. Subsequent requests will always repeat the above, so this
+    # endpoint can be polled intermittently instead of blocking.
+    # 
+    # - Returns a status of 'created' when it's checking if the Lambda exists in the account.
+    # - Returns a status of 'waiting' while checking.
+    # - Returns a status of 'checked and ok' if the Lambda exists.
+    # - Returns a status of 'error' if the Lambda does not exist.
     # @param body [AWSAccountAndLambdaRequest] Check AWS Log Lambda Async request body.
     # @param [Hash] opts the optional parameters
     # @return [Array<(AWSLogsAsyncResponse, Integer, Hash)>] AWSLogsAsyncResponse data, response status code and response headers
@@ -78,7 +93,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'AWSLogsAsyncResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :check_aws_logs_lambda_async,
@@ -98,7 +113,16 @@ module DatadogAPIClient::V1
     end
 
     # Check permissions for log services
-    # Test if permissions are present to add log-forwarding triggers for the given services and AWS account. Input is the same as for `EnableAWSLogServices`. Done async, so can be repeatedly polled in a non-blocking fashion until the async request completes.  - Returns a status of `created` when it's checking if the permissions exists   in the AWS account. - Returns a status of `waiting` while checking. - Returns a status of `checked and ok` if the Lambda exists. - Returns a status of `error` if the Lambda does not exist.
+    # Test if permissions are present to add log-forwarding triggers for the
+    # given services and AWS account. Input is the same as for `EnableAWSLogServices`.
+    # Done async, so can be repeatedly polled in a non-blocking fashion until
+    # the async request completes.
+    # 
+    # - Returns a status of `created` when it's checking if the permissions exists
+    #   in the AWS account.
+    # - Returns a status of `waiting` while checking.
+    # - Returns a status of `checked and ok` if the Lambda exists.
+    # - Returns a status of `error` if the Lambda does not exist.
     # @param body [AWSLogsServicesRequest] Check AWS Logs Async Services request body.
     # @param [Hash] opts the optional parameters
     # @return [AWSLogsAsyncResponse]
@@ -108,7 +132,16 @@ module DatadogAPIClient::V1
     end
 
     # Check permissions for log services
-    # Test if permissions are present to add log-forwarding triggers for the given services and AWS account. Input is the same as for &#x60;EnableAWSLogServices&#x60;. Done async, so can be repeatedly polled in a non-blocking fashion until the async request completes.  - Returns a status of &#x60;created&#x60; when it&#39;s checking if the permissions exists   in the AWS account. - Returns a status of &#x60;waiting&#x60; while checking. - Returns a status of &#x60;checked and ok&#x60; if the Lambda exists. - Returns a status of &#x60;error&#x60; if the Lambda does not exist.
+    # Test if permissions are present to add log-forwarding triggers for the
+    # given services and AWS account. Input is the same as for `EnableAWSLogServices`.
+    # Done async, so can be repeatedly polled in a non-blocking fashion until
+    # the async request completes.
+    # 
+    # - Returns a status of `created` when it's checking if the permissions exists
+    #   in the AWS account.
+    # - Returns a status of `waiting` while checking.
+    # - Returns a status of `checked and ok` if the Lambda exists.
+    # - Returns a status of `error` if the Lambda does not exist.
     # @param body [AWSLogsServicesRequest] Check AWS Logs Async Services request body.
     # @param [Hash] opts the optional parameters
     # @return [Array<(AWSLogsAsyncResponse, Integer, Hash)>] AWSLogsAsyncResponse data, response status code and response headers
@@ -333,7 +366,7 @@ module DatadogAPIClient::V1
     end
 
     # Enable an AWS Logs integration
-    # Enable automatic log collection for a list of services. This should be run after running &#x60;CreateAWSLambdaARN&#x60; to save the configuration.
+    # Enable automatic log collection for a list of services. This should be run after running `CreateAWSLambdaARN` to save the configuration.
     # @param body [AWSLogsServicesRequest] Enable AWS Log Services request body.
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers

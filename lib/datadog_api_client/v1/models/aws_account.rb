@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Returns the AWS account associated with this integration.
   class AWSAccount
-    # Whether the object has unparsed attributes
+    # whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
@@ -29,7 +29,9 @@ module DatadogAPIClient::V1
     # Your AWS Account ID without dashes.
     attr_accessor :account_id
 
-    # An object, (in the form `{\"namespace1\":true/false, \"namespace2\":true/false}`), that enables or disables metric collection for specific AWS namespaces for this AWS account only.
+    # An object, (in the form `{"namespace1":true/false, "namespace2":true/false}`),
+    # that enables or disables metric collection for specific AWS namespaces for this
+    # AWS account only.
     attr_accessor :account_specific_namespace_rules
 
     # Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general `resource_collection`.
@@ -38,10 +40,16 @@ module DatadogAPIClient::V1
     # An array of AWS regions to exclude from metrics collection.
     attr_accessor :excluded_regions
 
-    # The array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. For example, `env:production,instance-type:c1.*,!region:us-east-1`
+    # The array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2.
+    # Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used.
+    # Only hosts that match one of the defined tags
+    # will be imported into Datadog. The rest will be ignored.
+    # Host matching a given tag can also be excluded by adding `!` before the tag.
+    # For example, `env:production,instance-type:c1.*,!region:us-east-1`
     attr_accessor :filter_tags
 
-    # Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
+    # Array of tags (in the form `key:value`) to add to all hosts
+    # and metrics reporting through this integration.
     attr_accessor :host_tags
 
     # Whether Datadog collects metrics for this AWS account.
@@ -106,7 +114,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::AWSAccount` initialize method"
@@ -129,9 +138,7 @@ module DatadogAPIClient::V1
       end
 
       if attributes.key?(:'account_specific_namespace_rules')
-        if (value = attributes[:'account_specific_namespace_rules']).is_a?(Hash)
-          self.account_specific_namespace_rules = value
-        end
+        self.account_specific_namespace_rules = attributes[:'account_specific_namespace_rules']
       end
 
       if attributes.key?(:'cspm_resource_collection_enabled')
@@ -180,10 +187,11 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
+
       invalid_properties
     end
 
@@ -228,7 +236,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -236,7 +244,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -342,7 +350,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -358,7 +366,6 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
 
 end

@@ -17,12 +17,16 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # A `metric` based SLO history response.  This is not included in responses for `monitor` based SLOs.
+  # A `metric` based SLO history response.
+  # 
+  # This is not included in responses for `monitor` based SLOs.
   class SLOHistoryMetrics
-    # Whether the object has unparsed attributes
+    # whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
+    # A representation of `metric` based SLO time series for the provided queries.
+    # This is the same response type from `batch_query` endpoint.
     attr_accessor :denominator
 
     # The aggregated query interval for the series data. It's implicit based on the query time window.
@@ -31,6 +35,8 @@ module DatadogAPIClient::V1
     # Optional message if there are specific query issues/warnings.
     attr_accessor :message
 
+    # A representation of `metric` based SLO time series for the provided queries.
+    # This is the same response type from `batch_query` endpoint.
     attr_accessor :numerator
 
     # The combined numerator and denominator query CSV.
@@ -89,7 +95,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SLOHistoryMetrics` initialize method"
@@ -139,34 +146,28 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @denominator.nil?
         invalid_properties.push('invalid value for "denominator", denominator cannot be nil.')
       end
-
       if @interval.nil?
         invalid_properties.push('invalid value for "interval", interval cannot be nil.')
       end
-
       if @numerator.nil?
         invalid_properties.push('invalid value for "numerator", numerator cannot be nil.')
       end
-
       if @query.nil?
         invalid_properties.push('invalid value for "query", query cannot be nil.')
       end
-
       if @res_type.nil?
         invalid_properties.push('invalid value for "res_type", res_type cannot be nil.')
       end
-
       if @resp_version.nil?
         invalid_properties.push('invalid value for "resp_version", resp_version cannot be nil.')
       end
-
       if @times.nil?
         invalid_properties.push('invalid value for "times", times cannot be nil.')
       end
@@ -219,7 +220,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -227,7 +228,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -333,7 +334,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -349,7 +350,6 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
 
 end

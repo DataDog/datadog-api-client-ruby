@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Execution rule for a Synthetics test.
   class SyntheticsTestExecutionRule
     BLOCKING = "blocking".freeze
     NON_BLOCKING = "non_blocking".freeze
@@ -39,5 +40,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

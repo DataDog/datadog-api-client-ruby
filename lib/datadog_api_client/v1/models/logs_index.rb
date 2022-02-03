@@ -19,25 +19,30 @@ require 'time'
 module DatadogAPIClient::V1
   # Object describing a Datadog Log index.
   class LogsIndex
-    # Whether the object has unparsed attributes
+    # whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
     # The number of log events you can send in this index per day before you are rate-limited.
     attr_accessor :daily_limit
 
-    # An array of exclusion objects. The logs are tested against the query of each filter, following the order of the array. Only the first matching active exclusion matters, others (if any) are ignored.
+    # An array of exclusion objects. The logs are tested against the query of each filter,
+    # following the order of the array. Only the first matching active exclusion matters,
+    # others (if any) are ignored.
     attr_accessor :exclusion_filters
 
+    # Filter for logs.
     attr_accessor :filter
 
-    # A boolean stating if the index is rate limited, meaning more logs than the daily limit have been sent. Rate limit is reset every-day at 2pm UTC.
+    # A boolean stating if the index is rate limited, meaning more logs than the daily limit have been sent.
+    # Rate limit is reset every-day at 2pm UTC.
     attr_accessor :is_rate_limited
 
     # The name of the index.
     attr_accessor :name
 
-    # The number of days before logs are deleted from this index. Available values depend on retention plans specified in your organization's contract/subscriptions.
+    # The number of days before logs are deleted from this index. Available values depend on
+    # retention plans specified in your organization's contract/subscriptions.
     attr_accessor :num_retention_days
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -80,7 +85,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::LogsIndex` initialize method"
@@ -122,14 +128,13 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @filter.nil?
         invalid_properties.push('invalid value for "filter", filter cannot be nil.')
       end
-
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
@@ -175,7 +180,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -183,7 +188,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -289,7 +294,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -305,7 +310,6 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
 
 end

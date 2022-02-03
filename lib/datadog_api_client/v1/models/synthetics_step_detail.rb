@@ -19,13 +19,14 @@ require 'time'
 module DatadogAPIClient::V1
   # Object describing a step for a Synthetic test.
   class SyntheticsStepDetail
-    # Whether the object has unparsed attributes
+    # whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
     # Array of errors collected for a browser test.
     attr_accessor :browser_errors
 
+    # Type of assertion to apply in an API test.
     attr_accessor :check_type
 
     # Description of the test.
@@ -37,6 +38,7 @@ module DatadogAPIClient::V1
     # Error returned by the test.
     attr_accessor :error
 
+    # Navigate between different tabs for your browser test.
     attr_accessor :playing_tab
 
     # Whether or not screenshots where collected by the test.
@@ -51,12 +53,14 @@ module DatadogAPIClient::V1
     # The step ID.
     attr_accessor :step_id
 
-    # If this steps include a sub-test. [Subtests documentation](https://docs.datadoghq.com/synthetics/browser_tests/advanced_options/#subtests).
+    # If this steps include a sub-test.
+    # [Subtests documentation](https://docs.datadoghq.com/synthetics/browser_tests/advanced_options/#subtests).
     attr_accessor :sub_test_step_details
 
     # Time before starting the step.
     attr_accessor :time_to_interactive
 
+    # Step type used in your Synthetic test.
     attr_accessor :type
 
     # URL to perform the step against.
@@ -129,12 +133,12 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_nullable
       Set.new([
-        :'value',
       ])
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsStepDetail` initialize method"
@@ -226,10 +230,11 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
+
       invalid_properties
     end
 
@@ -280,7 +285,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -288,7 +293,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -394,7 +399,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -410,7 +415,6 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
 
 end

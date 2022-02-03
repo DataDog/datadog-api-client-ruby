@@ -17,6 +17,9 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Reflow type for a **new dashboard layout** dashboard. Set this only when layout type is 'ordered'.
+  # If set to 'fixed', the dashboard expects all widgets to have a layout, and if it's set to 'auto',
+  # widgets should not have layouts.
   class DashboardReflowType
     AUTO = "auto".freeze
     FIXED = "fixed".freeze
@@ -38,5 +41,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

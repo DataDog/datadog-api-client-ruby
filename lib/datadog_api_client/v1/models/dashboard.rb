@@ -17,9 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # A dashboard is Datadog’s tool for visually tracking, analyzing, and displaying key performance metrics, which enable you to monitor the health of your infrastructure.
+  # A dashboard is Datadog’s tool for visually tracking, analyzing, and displaying
+  # key performance metrics, which enable you to monitor the health of your infrastructure.
   class Dashboard
-    # Whether the object has unparsed attributes
+    # whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
@@ -41,6 +42,7 @@ module DatadogAPIClient::V1
     # Whether this dashboard is read-only. If True, only the author and admins can make changes to it. Prefer using `restricted_roles` to manage write authorization.
     attr_accessor :is_read_only
 
+    # Layout type of the dashboard.
     attr_accessor :layout_type
 
     # Modification date of the dashboard.
@@ -49,6 +51,9 @@ module DatadogAPIClient::V1
     # List of handles of users to notify when changes are made to this dashboard.
     attr_accessor :notify_list
 
+    # Reflow type for a **new dashboard layout** dashboard. Set this only when layout type is 'ordered'.
+    # If set to 'fixed', the dashboard expects all widgets to have a layout, and if it's set to 'auto',
+    # widgets should not have layouts.
     attr_accessor :reflow_type
 
     # A list of role identifiers. Only the author and users associated with at least one of these roles can edit this dashboard.
@@ -129,12 +134,13 @@ module DatadogAPIClient::V1
         :'description',
         :'notify_list',
         :'template_variable_presets',
-        :'template_variables',
+        :'template_variables'
       ])
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::Dashboard` initialize method"
@@ -226,18 +232,16 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @layout_type.nil?
         invalid_properties.push('invalid value for "layout_type", layout_type cannot be nil.')
       end
-
       if @title.nil?
         invalid_properties.push('invalid value for "title", title cannot be nil.')
       end
-
       if @widgets.nil?
         invalid_properties.push('invalid value for "widgets", widgets cannot be nil.')
       end
@@ -294,7 +298,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -302,7 +306,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -408,7 +412,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -424,7 +428,6 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
 
 end

@@ -19,19 +19,24 @@ require 'time'
 module DatadogAPIClient::V1
   # Object containing an event response.
   class EventCreateResponse
-    # Whether the object has unparsed attributes
+    # whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
+    # If an alert event is enabled, set its type.
+    # For example, `error`, `warning`, `info`, `success`, `user_update`,
+    # `recommendation`, and `snapshot`.
     attr_accessor :alert_type
 
-    # POSIX timestamp of the event. Must be sent as an integer (that is no quotes). Limited to events no older than 7 days.
+    # POSIX timestamp of the event. Must be sent as an integer (that is no quotes).
+    # Limited to events no older than 7 days.
     attr_accessor :date_happened
 
     # A device name.
     attr_accessor :device_name
 
-    # Host name to associate with the event. Any tags associated with the host are also applied to this event.
+    # Host name to associate with the event.
+    # Any tags associated with the host are also applied to this event.
     attr_accessor :host
 
     # Integer ID of the event.
@@ -40,12 +45,14 @@ module DatadogAPIClient::V1
     # Payload of the event.
     attr_accessor :payload
 
+    # The priority of the event. For example, `normal` or `low`.
     attr_accessor :priority
 
     # ID of the parent event. Must be sent as an integer (that is no quotes).
     attr_accessor :related_event_id
 
-    # The type of event being posted. Option examples include nagios, hudson, jenkins, my_apps, chef, puppet, git, bitbucket, etc. A complete list of source attribute values [available here](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
+    # The type of event being posted. Option examples include nagios, hudson, jenkins, my_apps, chef, puppet, git, bitbucket, etc.
+    # A complete list of source attribute values [available here](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
     attr_accessor :source_type_name
 
     # A status.
@@ -54,7 +61,8 @@ module DatadogAPIClient::V1
     # A list of tags to apply to the event.
     attr_accessor :tags
 
-    # The body of the event. Limited to 4000 characters. The text supports markdown. Use `msg_text` with the Datadog Ruby library.
+    # The body of the event. Limited to 4000 characters. The text supports markdown.
+    # Use `msg_text` with the Datadog Ruby library.
     attr_accessor :text
 
     # The event title. Limited to 100 characters. Use `msg_title` with the Datadog Ruby library.
@@ -119,7 +127,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::EventCreateResponse` initialize method"
@@ -193,17 +202,10 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@text.nil? && @text.to_s.length > 4000
-        invalid_properties.push('invalid value for "text", the character length must be smaller than or equal to 4000.')
-      end
-
-      if !@title.nil? && @title.to_s.length > 100
-        invalid_properties.push('invalid value for "title", the character length must be smaller than or equal to 100.')
-      end
 
       invalid_properties
     end
@@ -212,29 +214,7 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if !@text.nil? && @text.to_s.length > 4000
-      return false if !@title.nil? && @title.to_s.length > 100
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param text [Object] text Value to be assigned
-    def text=(text)
-      if !text.nil? && text.to_s.length > 4000
-        fail ArgumentError, 'invalid value for "text", the character length must be smaller than or equal to 4000.'
-      end
-
-      @text = text
-    end
-
-    # Custom attribute writer method with validation
-    # @param title [Object] title Value to be assigned
-    def title=(title)
-      if !title.nil? && title.to_s.length > 100
-        fail ArgumentError, 'invalid value for "title", the character length must be smaller than or equal to 100.'
-      end
-
-      @title = title
     end
 
     # Checks equality by comparing each attribute.
@@ -274,7 +254,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -282,7 +262,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -388,7 +368,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -404,7 +384,6 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
 
 end

@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Aggregation methods for event platform queries.
   class MonitorFormulaAndFunctionEventAggregation
     COUNT = "count".freeze
     CARDINALITY = "cardinality".freeze
@@ -48,5 +49,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

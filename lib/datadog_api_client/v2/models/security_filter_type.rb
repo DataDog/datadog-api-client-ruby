@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
+  # The type of the resource. The value should always be `security_filters`.
   class SecurityFilterType
     SECURITY_FILTERS = "security_filters".freeze
 
@@ -37,5 +38,4 @@ module DatadogAPIClient::V2
       constantValues.empty? ? DatadogAPIClient::V2::UnparsedObject.new(value) : value
     end
   end
-
 end

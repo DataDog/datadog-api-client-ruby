@@ -17,46 +17,74 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # A service level objective object includes a service level indicator, thresholds for one or more timeframes, and metadata (`name`, `description`, `tags`, etc.).
+  # A service level objective object includes a service level indicator, thresholds
+  # for one or more timeframes, and metadata (`name`, `description`, `tags`, etc.).
   class ServiceLevelObjective
-    # Whether the object has unparsed attributes
+    # whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Creation timestamp (UNIX time in seconds)  Always included in service level objective responses.
+    # Creation timestamp (UNIX time in seconds)
+    # 
+    # Always included in service level objective responses.
     attr_accessor :created_at
 
+    # Object describing the creator of the shared element.
     attr_accessor :creator
 
-    # A user-defined description of the service level objective.  Always included in service level objective responses (but may be `null`). Optional in create/update requests.
+    # A user-defined description of the service level objective.
+    # 
+    # Always included in service level objective responses (but may be `null`).
+    # Optional in create/update requests.
     attr_accessor :description
 
-    # A list of (up to 20) monitor groups that narrow the scope of a monitor service level objective.  Included in service level objective responses if it is not empty. Optional in create/update requests for monitor service level objectives, but may only be used when then length of the `monitor_ids` field is one.
+    # A list of (up to 20) monitor groups that narrow the scope of a monitor service level objective.
+    # 
+    # Included in service level objective responses if it is not empty. Optional in
+    # create/update requests for monitor service level objectives, but may only be
+    # used when then length of the `monitor_ids` field is one.
     attr_accessor :groups
 
-    # A unique identifier for the service level objective object.  Always included in service level objective responses.
+    # A unique identifier for the service level objective object.
+    # 
+    # Always included in service level objective responses.
     attr_accessor :id
 
-    # Modification timestamp (UNIX time in seconds)  Always included in service level objective responses.
+    # Modification timestamp (UNIX time in seconds)
+    # 
+    # Always included in service level objective responses.
     attr_accessor :modified_at
 
-    # A list of monitor ids that defines the scope of a monitor service level objective. **Required if type is `monitor`**.
+    # A list of monitor ids that defines the scope of a monitor service level
+    # objective. **Required if type is `monitor`**.
     attr_accessor :monitor_ids
 
-    # The union of monitor tags for all monitors referenced by the `monitor_ids` field. Always included in service level objective responses for monitor service level objectives (but may be empty). Ignored in create/update requests. Does not affect which monitors are included in the service level objective (that is determined entirely by the `monitor_ids` field).
+    # The union of monitor tags for all monitors referenced by the `monitor_ids`
+    # field.
+    # Always included in service level objective responses for monitor service level
+    # objectives (but may be empty). Ignored in create/update requests. Does not
+    # affect which monitors are included in the service level objective (that is
+    # determined entirely by the `monitor_ids` field).
     attr_accessor :monitor_tags
 
     # The name of the service level objective object.
     attr_accessor :name
 
+    # A metric SLI query. **Required if type is `metric`**. Note that Datadog only allows the sum by aggregator
+    # to be used because this will sum up all request counts instead of averaging them, or taking the max or
+    # min of all of those requests.
     attr_accessor :query
 
-    # A list of tags associated with this service level objective. Always included in service level objective responses (but may be empty). Optional in create/update requests.
+    # A list of tags associated with this service level objective.
+    # Always included in service level objective responses (but may be empty).
+    # Optional in create/update requests.
     attr_accessor :tags
 
-    # The thresholds (timeframes and associated targets) for this service level objective object.
+    # The thresholds (timeframes and associated targets) for this service level
+    # objective object.
     attr_accessor :thresholds
 
+    # The type of the service level objective.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -109,12 +137,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_nullable
       Set.new([
-        :'description',
+        :'description'
       ])
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::ServiceLevelObjective` initialize method"
@@ -192,18 +221,16 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
-
       if @thresholds.nil?
         invalid_properties.push('invalid value for "thresholds", thresholds cannot be nil.')
       end
-
       if @type.nil?
         invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
@@ -257,7 +284,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -265,7 +292,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -371,7 +398,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -387,7 +414,6 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
 
 end

@@ -19,13 +19,14 @@ require 'time'
 module DatadogAPIClient::V1
   # Test configuration for Synthetics CI
   class SyntheticsCITest
-    # Whether the object has unparsed attributes
+    # whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
     # Disable certificate checks in API tests.
     attr_accessor :allow_insecure_certificates
 
+    # Object to handle basic authentication when performing the test.
     attr_accessor :basic_auth
 
     # Body to include in the test.
@@ -49,11 +50,13 @@ module DatadogAPIClient::V1
     # Array of locations used to run the test.
     attr_accessor :locations
 
+    # Metadata for the Synthetics tests run.
     attr_accessor :metadata
 
     # The public ID of the Synthetics test to trigger.
     attr_accessor :public_id
 
+    # Object describing the retry strategy to apply to a Synthetic test.
     attr_accessor :_retry
 
     # Starting URL for the browser test.
@@ -118,7 +121,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsCITest` initialize method"
@@ -163,9 +167,7 @@ module DatadogAPIClient::V1
       end
 
       if attributes.key?(:'headers')
-        if (value = attributes[:'headers']).is_a?(Hash)
-          self.headers = value
-        end
+        self.headers = attributes[:'headers']
       end
 
       if attributes.key?(:'locations')
@@ -191,15 +193,13 @@ module DatadogAPIClient::V1
       end
 
       if attributes.key?(:'variables')
-        if (value = attributes[:'variables']).is_a?(Hash)
-          self.variables = value
-        end
+        self.variables = attributes[:'variables']
       end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @public_id.nil?
@@ -254,7 +254,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -262,7 +262,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -368,7 +368,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -384,7 +384,6 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
 
 end

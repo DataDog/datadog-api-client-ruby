@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # JSON object containing all log attributes and their associated values.
   class LogContent
-    # Whether the object has unparsed attributes
+    # whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
@@ -29,10 +29,14 @@ module DatadogAPIClient::V1
     # Name of the machine from where the logs are being sent.
     attr_accessor :host
 
-    # The message [reserved attribute](https://docs.datadoghq.com/logs/log_collection/#reserved-attributes) of your log. By default, Datadog ingests the value of the message attribute as the body of the log entry. That value is then highlighted and displayed in the Logstream, where it is indexed for full text search.
+    # The message [reserved attribute](https://docs.datadoghq.com/logs/log_collection/#reserved-attributes)
+    # of your log. By default, Datadog ingests the value of the message attribute as the body of the log entry.
+    # That value is then highlighted and displayed in the Logstream, where it is indexed for full text search.
     attr_accessor :message
 
-    # The name of the application or service generating the log events. It is used to switch from Logs to APM, so make sure you define the same value when you use both products.
+    # The name of the application or service generating the log events.
+    # It is used to switch from Logs to APM, so make sure you define the same
+    # value when you use both products.
     attr_accessor :service
 
     # Array of tags associated with your log.
@@ -81,7 +85,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::LogContent` initialize method"
@@ -96,9 +101,7 @@ module DatadogAPIClient::V1
       }
 
       if attributes.key?(:'attributes')
-        if (value = attributes[:'attributes']).is_a?(Hash)
-          self.attributes = value
-        end
+        self.attributes = attributes[:'attributes']
       end
 
       if attributes.key?(:'host')
@@ -114,9 +117,7 @@ module DatadogAPIClient::V1
       end
 
       if attributes.key?(:'tags')
-        if (value = attributes[:'tags']).is_a?(Array)
-          self.tags = value
-        end
+        self.tags = attributes[:'tags']
       end
 
       if attributes.key?(:'timestamp')
@@ -125,10 +126,11 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
+
       invalid_properties
     end
 
@@ -168,7 +170,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -176,7 +178,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -282,7 +284,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -298,7 +300,6 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
 
 end

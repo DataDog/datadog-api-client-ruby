@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The heat map visualization shows metrics aggregated across many tags, such as hosts. The more hosts that have a particular value, the darker that square is.
   class HeatMapWidgetDefinition
-    # Whether the object has unparsed attributes
+    # whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
@@ -29,7 +29,7 @@ module DatadogAPIClient::V1
     # List of widget events.
     attr_accessor :events
 
-    # Available legend sizes for a widget. Should be one of \"0\", \"2\", \"4\", \"8\", \"16\", or \"auto\".
+    # Available legend sizes for a widget. Should be one of "0", "2", "4", "8", "16", or "auto".
     attr_accessor :legend_size
 
     # List of widget types.
@@ -38,18 +38,22 @@ module DatadogAPIClient::V1
     # Whether or not to display the legend on this widget.
     attr_accessor :show_legend
 
+    # Time setting for the widget.
     attr_accessor :time
 
     # Title of the widget.
     attr_accessor :title
 
+    # How to align the text on the widget.
     attr_accessor :title_align
 
     # Size of the title.
     attr_accessor :title_size
 
+    # Type of the heat map widget.
     attr_accessor :type
 
+    # Axis controls for the widget.
     attr_accessor :yaxis
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -102,7 +106,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::HeatMapWidgetDefinition` initialize method"
@@ -170,22 +175,13 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @requests.nil?
         invalid_properties.push('invalid value for "requests", requests cannot be nil.')
       end
-
-      if @requests.length > 1
-        invalid_properties.push('invalid value for "requests", number of items must be less than or equal to 1.')
-      end
-
-      if @requests.length < 1
-        invalid_properties.push('invalid value for "requests", number of items must be greater than or equal to 1.')
-      end
-
       if @type.nil?
         invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
@@ -198,28 +194,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @requests.nil?
-      return false if @requests.length > 1
-      return false if @requests.length < 1
       return false if @type.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param requests [Object] requests Value to be assigned
-    def requests=(requests)
-      if requests.nil?
-        fail ArgumentError, 'requests cannot be nil'
-      end
-
-      if requests.length > 1
-        fail ArgumentError, 'invalid value for "requests", number of items must be less than or equal to 1.'
-      end
-
-      if requests.length < 1
-        fail ArgumentError, 'invalid value for "requests", number of items must be greater than or equal to 1.'
-      end
-
-      @requests = requests
     end
 
     # Checks equality by comparing each attribute.
@@ -256,7 +232,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -264,7 +240,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -370,7 +346,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -386,7 +362,6 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
 
 end

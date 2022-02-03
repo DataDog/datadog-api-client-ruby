@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Step type used in your Synthetic test.
   class SyntheticsStepType
     ASSERT_CURRENT_URL = "assertCurrentUrl".freeze
     ASSERT_ELEMENT_ATTRIBUTE = "assertElementAttribute".freeze
@@ -61,5 +62,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

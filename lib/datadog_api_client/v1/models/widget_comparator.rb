@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Comparator to apply.
   class WidgetComparator
     GREATER_THAN = ">".freeze
     GREATER_THAN_OR_EQUAL_TO = ">=".freeze
@@ -40,5 +41,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

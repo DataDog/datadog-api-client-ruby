@@ -19,28 +19,35 @@ require 'time'
 module DatadogAPIClient::V1
   # Updated top list widget.
   class ToplistWidgetRequest
-    # Whether the object has unparsed attributes
+    # whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
+    # The log query.
     attr_accessor :apm_query
 
+    # The log query.
     attr_accessor :audit_query
 
     # List of conditional formats.
     attr_accessor :conditional_formats
 
+    # The log query.
     attr_accessor :event_query
 
     # List of formulas that operate on queries. **This feature is currently in beta.**
     attr_accessor :formulas
 
+    # The log query.
     attr_accessor :log_query
 
+    # The log query.
     attr_accessor :network_query
 
+    # The process query to use in the widget.
     attr_accessor :process_query
 
+    # The log query.
     attr_accessor :profile_metrics_query
 
     # Widget query.
@@ -49,12 +56,16 @@ module DatadogAPIClient::V1
     # List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
     attr_accessor :queries
 
+    # Timeseries or Scalar response. **This feature is currently in beta.**
     attr_accessor :response_format
 
+    # The log query.
     attr_accessor :rum_query
 
+    # The log query.
     attr_accessor :security_query
 
+    # Define request widget style.
     attr_accessor :style
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -115,7 +126,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::ToplistWidgetRequest` initialize method"
@@ -197,13 +209,10 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@conditional_formats.nil? && @conditional_formats.length < 1
-        invalid_properties.push('invalid value for "conditional_formats", number of items must be greater than or equal to 1.')
-      end
 
       invalid_properties
     end
@@ -212,18 +221,7 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if !@conditional_formats.nil? && @conditional_formats.length < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param conditional_formats [Object] conditional_formats Value to be assigned
-    def conditional_formats=(conditional_formats)
-      if !conditional_formats.nil? && conditional_formats.length < 1
-        fail ArgumentError, 'invalid value for "conditional_formats", number of items must be greater than or equal to 1.'
-      end
-
-      @conditional_formats = conditional_formats
     end
 
     # Checks equality by comparing each attribute.
@@ -264,7 +262,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -272,7 +270,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -378,7 +376,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -394,7 +392,6 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
 
 end

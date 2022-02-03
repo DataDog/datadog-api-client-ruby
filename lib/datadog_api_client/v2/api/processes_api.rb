@@ -22,15 +22,16 @@ module DatadogAPIClient::V2
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Get all processes
     # Get all processes for your organization.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :search String to search processes by.
     # @option opts [String] :tags Comma-separated list of tags to filter processes by.
-    # @option opts [Integer] :from Unix timestamp (number of seconds since epoch) of the start of the query window. If not provided, the start of the query window will be 15 minutes before the &#x60;to&#x60; timestamp. If neither &#x60;from&#x60; nor &#x60;to&#x60; are provided, the query window will be &#x60;[now - 15m, now]&#x60;.
-    # @option opts [Integer] :to Unix timestamp (number of seconds since epoch) of the end of the query window. If not provided, the end of the query window will be 15 minutes after the &#x60;from&#x60; timestamp. If neither &#x60;from&#x60; nor &#x60;to&#x60; are provided, the query window will be &#x60;[now - 15m, now]&#x60;.
-    # @option opts [Integer] :page_limit Maximum number of results returned. (default to 1000)
-    # @option opts [String] :page_cursor String to query the next page of results. This key is provided with each valid response from the API in &#x60;meta.page.after&#x60;.
+    # @option opts [Integer] :from Unix timestamp (number of seconds since epoch) of the start of the query window. If not provided, the start of the query window will be 15 minutes before the `to` timestamp. If neither `from` nor `to` are provided, the query window will be `[now - 15m, now]`.
+    # @option opts [Integer] :to Unix timestamp (number of seconds since epoch) of the end of the query window. If not provided, the end of the query window will be 15 minutes after the `from` timestamp. If neither `from` nor `to` are provided, the query window will be `[now - 15m, now]`.
+    # @option opts [Integer] :page_limit Maximum number of results returned.
+    # @option opts [String] :page_cursor String to query the next page of results. This key is provided with each valid response from the API in `meta.page.after`.
     # @return [ProcessSummariesResponse]
     def list_processes(opts = {})
       data, _status_code, _headers = list_processes_with_http_info(opts)
@@ -42,10 +43,10 @@ module DatadogAPIClient::V2
     # @param [Hash] opts the optional parameters
     # @option opts [String] :search String to search processes by.
     # @option opts [String] :tags Comma-separated list of tags to filter processes by.
-    # @option opts [Integer] :from Unix timestamp (number of seconds since epoch) of the start of the query window. If not provided, the start of the query window will be 15 minutes before the &#x60;to&#x60; timestamp. If neither &#x60;from&#x60; nor &#x60;to&#x60; are provided, the query window will be &#x60;[now - 15m, now]&#x60;.
-    # @option opts [Integer] :to Unix timestamp (number of seconds since epoch) of the end of the query window. If not provided, the end of the query window will be 15 minutes after the &#x60;from&#x60; timestamp. If neither &#x60;from&#x60; nor &#x60;to&#x60; are provided, the query window will be &#x60;[now - 15m, now]&#x60;.
+    # @option opts [Integer] :from Unix timestamp (number of seconds since epoch) of the start of the query window. If not provided, the start of the query window will be 15 minutes before the `to` timestamp. If neither `from` nor `to` are provided, the query window will be `[now - 15m, now]`.
+    # @option opts [Integer] :to Unix timestamp (number of seconds since epoch) of the end of the query window. If not provided, the end of the query window will be 15 minutes after the `from` timestamp. If neither `from` nor `to` are provided, the query window will be `[now - 15m, now]`.
     # @option opts [Integer] :page_limit Maximum number of results returned.
-    # @option opts [String] :page_cursor String to query the next page of results. This key is provided with each valid response from the API in &#x60;meta.page.after&#x60;.
+    # @option opts [String] :page_cursor String to query the next page of results. This key is provided with each valid response from the API in `meta.page.after`.
     # @return [Array<(ProcessSummariesResponse, Integer, Hash)>] ProcessSummariesResponse data, response status code and response headers
     def list_processes_with_http_info(opts = {})
 
@@ -61,14 +62,6 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProcessesAPI.list_processes ...'
       end
-      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 10000
-        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling ProcessesAPI.list_processes, must be smaller than or equal to 10000.'
-      end
-
-      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling ProcessesAPI.list_processes, must be greater than or equal to 1.'
-      end
-
       # resource path
       local_var_path = '/api/v2/processes'
 
@@ -96,7 +89,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ProcessSummariesResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_processes,

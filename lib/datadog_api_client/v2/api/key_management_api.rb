@@ -22,6 +22,7 @@ module DatadogAPIClient::V2
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Create an API key
     # Create an API key.
     # @param body [APIKeyCreateRequest] 
@@ -206,7 +207,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'api_key_id' when calling KeyManagementAPI.delete_api_key"
       end
       # resource path
-      local_var_path = '/api/v2/api_keys/{api_key_id}'.sub('{' + 'api_key_id' + '}', CGI.escape(api_key_id.to_s))
+      local_var_path = '/api/v2/api_keys/{api_key_id}'.sub('{api_key_id}', CGI.escape(api_key_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -214,7 +215,7 @@ module DatadogAPIClient::V2
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -279,7 +280,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'app_key_id' when calling KeyManagementAPI.delete_application_key"
       end
       # resource path
-      local_var_path = '/api/v2/application_keys/{app_key_id}'.sub('{' + 'app_key_id' + '}', CGI.escape(app_key_id.to_s))
+      local_var_path = '/api/v2/application_keys/{app_key_id}'.sub('{app_key_id}', CGI.escape(app_key_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -287,7 +288,7 @@ module DatadogAPIClient::V2
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -352,7 +353,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'app_key_id' when calling KeyManagementAPI.delete_current_user_application_key"
       end
       # resource path
-      local_var_path = '/api/v2/current_user/application_keys/{app_key_id}'.sub('{' + 'app_key_id' + '}', CGI.escape(app_key_id.to_s))
+      local_var_path = '/api/v2/current_user/application_keys/{app_key_id}'.sub('{app_key_id}', CGI.escape(app_key_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -360,7 +361,7 @@ module DatadogAPIClient::V2
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -395,7 +396,7 @@ module DatadogAPIClient::V2
     # Get an API key.
     # @param api_key_id [String] The ID of the API key.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :include Comma separated list of resource paths for related resources to include in the response. Supported resource paths are &#x60;created_by&#x60; and &#x60;modified_by&#x60;.
+    # @option opts [String] :include Comma separated list of resource paths for related resources to include in the response. Supported resource paths are `created_by` and `modified_by`.
     # @return [APIKeyResponse]
     def get_api_key(api_key_id, opts = {})
       data, _status_code, _headers = get_api_key_with_http_info(api_key_id, opts)
@@ -406,7 +407,7 @@ module DatadogAPIClient::V2
     # Get an API key.
     # @param api_key_id [String] The ID of the API key.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :include Comma separated list of resource paths for related resources to include in the response. Supported resource paths are &#x60;created_by&#x60; and &#x60;modified_by&#x60;.
+    # @option opts [String] :include Comma separated list of resource paths for related resources to include in the response. Supported resource paths are `created_by` and `modified_by`.
     # @return [Array<(APIKeyResponse, Integer, Hash)>] APIKeyResponse data, response status code and response headers
     def get_api_key_with_http_info(api_key_id, opts = {})
 
@@ -427,7 +428,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'api_key_id' when calling KeyManagementAPI.get_api_key"
       end
       # resource path
-      local_var_path = '/api/v2/api_keys/{api_key_id}'.sub('{' + 'api_key_id' + '}', CGI.escape(api_key_id.to_s))
+      local_var_path = '/api/v2/api_keys/{api_key_id}'.sub('{api_key_id}', CGI.escape(api_key_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -471,7 +472,7 @@ module DatadogAPIClient::V2
     # Get an application key for your org.
     # @param app_key_id [String] The ID of the application key.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :include Resource path for related resources to include in the response. Only &#x60;owned_by&#x60; is supported.
+    # @option opts [String] :include Resource path for related resources to include in the response. Only `owned_by` is supported.
     # @return [ApplicationKeyResponse]
     def get_application_key(app_key_id, opts = {})
       data, _status_code, _headers = get_application_key_with_http_info(app_key_id, opts)
@@ -482,7 +483,7 @@ module DatadogAPIClient::V2
     # Get an application key for your org.
     # @param app_key_id [String] The ID of the application key.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :include Resource path for related resources to include in the response. Only &#x60;owned_by&#x60; is supported.
+    # @option opts [String] :include Resource path for related resources to include in the response. Only `owned_by` is supported.
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def get_application_key_with_http_info(app_key_id, opts = {})
 
@@ -503,7 +504,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'app_key_id' when calling KeyManagementAPI.get_application_key"
       end
       # resource path
-      local_var_path = '/api/v2/application_keys/{app_key_id}'.sub('{' + 'app_key_id' + '}', CGI.escape(app_key_id.to_s))
+      local_var_path = '/api/v2/application_keys/{app_key_id}'.sub('{app_key_id}', CGI.escape(app_key_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -577,7 +578,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'app_key_id' when calling KeyManagementAPI.get_current_user_application_key"
       end
       # resource path
-      local_var_path = '/api/v2/current_user/application_keys/{app_key_id}'.sub('{' + 'app_key_id' + '}', CGI.escape(app_key_id.to_s))
+      local_var_path = '/api/v2/current_user/application_keys/{app_key_id}'.sub('{app_key_id}', CGI.escape(app_key_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -619,15 +620,15 @@ module DatadogAPIClient::V2
     # Get all API keys
     # List all API keys available for your account.
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. (default to 10)
-    # @option opts [Integer] :page_number Specific page number to return. (default to 0)
-    # @option opts [APIKeysSort] :sort API key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. (default to 'name')
+    # @option opts [Integer] :page_size Size for a given page.
+    # @option opts [Integer] :page_number Specific page number to return.
+    # @option opts [APIKeysSort] :sort API key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
     # @option opts [String] :filter Filter API keys by the specified string.
     # @option opts [String] :filter_created_at_start Only include API keys created on or after the specified date.
     # @option opts [String] :filter_created_at_end Only include API keys created on or before the specified date.
     # @option opts [String] :filter_modified_at_start Only include API keys modified on or after the specified date.
     # @option opts [String] :filter_modified_at_end Only include API keys modified on or before the specified date.
-    # @option opts [String] :include Comma separated list of resource paths for related resources to include in the response. Supported resource paths are &#x60;created_by&#x60; and &#x60;modified_by&#x60;.
+    # @option opts [String] :include Comma separated list of resource paths for related resources to include in the response. Supported resource paths are `created_by` and `modified_by`.
     # @return [APIKeysResponse]
     def list_api_keys(opts = {})
       data, _status_code, _headers = list_api_keys_with_http_info(opts)
@@ -645,7 +646,7 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_created_at_end Only include API keys created on or before the specified date.
     # @option opts [String] :filter_modified_at_start Only include API keys modified on or after the specified date.
     # @option opts [String] :filter_modified_at_end Only include API keys modified on or before the specified date.
-    # @option opts [String] :include Comma separated list of resource paths for related resources to include in the response. Supported resource paths are &#x60;created_by&#x60; and &#x60;modified_by&#x60;.
+    # @option opts [String] :include Comma separated list of resource paths for related resources to include in the response. Supported resource paths are `created_by` and `modified_by`.
     # @return [Array<(APIKeysResponse, Integer, Hash)>] APIKeysResponse data, response status code and response headers
     def list_api_keys_with_http_info(opts = {})
 
@@ -713,9 +714,9 @@ module DatadogAPIClient::V2
     # Get all application keys
     # List all application keys available for your org
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. (default to 10)
-    # @option opts [Integer] :page_number Specific page number to return. (default to 0)
-    # @option opts [ApplicationKeysSort] :sort Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. (default to 'name')
+    # @option opts [Integer] :page_size Size for a given page.
+    # @option opts [Integer] :page_number Specific page number to return.
+    # @option opts [ApplicationKeysSort] :sort Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
     # @option opts [String] :filter Filter application keys by the specified string.
     # @option opts [String] :filter_created_at_start Only include application keys created on or after the specified date.
     # @option opts [String] :filter_created_at_end Only include application keys created on or before the specified date.
@@ -798,9 +799,9 @@ module DatadogAPIClient::V2
     # Get all application keys owned by current user
     # List all application keys available for current user
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. (default to 10)
-    # @option opts [Integer] :page_number Specific page number to return. (default to 0)
-    # @option opts [ApplicationKeysSort] :sort Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. (default to 'name')
+    # @option opts [Integer] :page_size Size for a given page.
+    # @option opts [Integer] :page_number Specific page number to return.
+    # @option opts [ApplicationKeysSort] :sort Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
     # @option opts [String] :filter Filter application keys by the specified string.
     # @option opts [String] :filter_created_at_start Only include application keys created on or after the specified date.
     # @option opts [String] :filter_created_at_end Only include application keys created on or before the specified date.
@@ -920,7 +921,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'body' when calling KeyManagementAPI.update_api_key"
       end
       # resource path
-      local_var_path = '/api/v2/api_keys/{api_key_id}'.sub('{' + 'api_key_id' + '}', CGI.escape(api_key_id.to_s))
+      local_var_path = '/api/v2/api_keys/{api_key_id}'.sub('{api_key_id}', CGI.escape(api_key_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1001,7 +1002,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'body' when calling KeyManagementAPI.update_application_key"
       end
       # resource path
-      local_var_path = '/api/v2/application_keys/{app_key_id}'.sub('{' + 'app_key_id' + '}', CGI.escape(app_key_id.to_s))
+      local_var_path = '/api/v2/application_keys/{app_key_id}'.sub('{app_key_id}', CGI.escape(app_key_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1082,7 +1083,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'body' when calling KeyManagementAPI.update_current_user_application_key"
       end
       # resource path
-      local_var_path = '/api/v2/current_user/application_keys/{app_key_id}'.sub('{' + 'app_key_id' + '}', CGI.escape(app_key_id.to_s))
+      local_var_path = '/api/v2/current_user/application_keys/{app_key_id}'.sub('{app_key_id}', CGI.escape(app_key_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}

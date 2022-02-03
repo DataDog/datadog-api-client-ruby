@@ -22,6 +22,7 @@ module DatadogAPIClient::V1
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Create an SLO correction
     # Create an SLO Correction.
     # @param body [SLOCorrectionCreateRequest] Create an SLO Correction
@@ -131,7 +132,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'slo_correction_id' when calling ServiceLevelObjectiveCorrectionsAPI.delete_slo_correction"
       end
       # resource path
-      local_var_path = '/api/v1/slo/correction/{slo_correction_id}'.sub('{' + 'slo_correction_id' + '}', CGI.escape(slo_correction_id.to_s))
+      local_var_path = '/api/v1/slo/correction/{slo_correction_id}'.sub('{slo_correction_id}', CGI.escape(slo_correction_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -139,7 +140,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -204,7 +205,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'slo_correction_id' when calling ServiceLevelObjectiveCorrectionsAPI.get_slo_correction"
       end
       # resource path
-      local_var_path = '/api/v1/slo/correction/{slo_correction_id}'.sub('{' + 'slo_correction_id' + '}', CGI.escape(slo_correction_id.to_s))
+      local_var_path = '/api/v1/slo/correction/{slo_correction_id}'.sub('{slo_correction_id}', CGI.escape(slo_correction_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -350,7 +351,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'body' when calling ServiceLevelObjectiveCorrectionsAPI.update_slo_correction"
       end
       # resource path
-      local_var_path = '/api/v1/slo/correction/{slo_correction_id}'.sub('{' + 'slo_correction_id' + '}', CGI.escape(slo_correction_id.to_s))
+      local_var_path = '/api/v1/slo/correction/{slo_correction_id}'.sub('{slo_correction_id}', CGI.escape(slo_correction_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}

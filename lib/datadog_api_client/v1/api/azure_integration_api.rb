@@ -22,8 +22,15 @@ module DatadogAPIClient::V1
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Create an Azure integration
-    # Create a Datadog-Azure integration.  Using the `POST` method updates your integration configuration by adding your new configuration to the existing one in your Datadog organization.  Using the `PUT` method updates your integration configuration by replacing your current configuration with the new one sent to your Datadog organization.
+    # Create a Datadog-Azure integration.
+    # 
+    # Using the `POST` method updates your integration configuration by adding your new
+    # configuration to the existing one in your Datadog organization.
+    # 
+    # Using the `PUT` method updates your integration configuration by replacing your
+    # current configuration with the new one sent to your Datadog organization.
     # @param body [AzureAccount] Create a Datadog-Azure integration for your Datadog account request body.
     # @param [Hash] opts the optional parameters
     # @return [Object]
@@ -33,7 +40,13 @@ module DatadogAPIClient::V1
     end
 
     # Create an Azure integration
-    # Create a Datadog-Azure integration.  Using the &#x60;POST&#x60; method updates your integration configuration by adding your new configuration to the existing one in your Datadog organization.  Using the &#x60;PUT&#x60; method updates your integration configuration by replacing your current configuration with the new one sent to your Datadog organization.
+    # Create a Datadog-Azure integration.
+    # 
+    # Using the `POST` method updates your integration configuration by adding your new
+    # configuration to the existing one in your Datadog organization.
+    # 
+    # Using the `PUT` method updates your integration configuration by replacing your
+    # current configuration with the new one sent to your Datadog organization.
     # @param body [AzureAccount] Create a Datadog-Azure integration for your Datadog account request body.
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
@@ -241,7 +254,7 @@ module DatadogAPIClient::V1
 
     # Update Azure integration host filters
     # Update the defined list of host filters for a given Datadog-Azure integration.
-    # @param body [AzureAccount] Update a Datadog-Azure integration&#39;s host filters request body.
+    # @param body [AzureAccount] Update a Datadog-Azure integration's host filters request body.
     # @param [Hash] opts the optional parameters
     # @return [Object]
     def update_azure_host_filters(body, opts = {})
@@ -251,7 +264,7 @@ module DatadogAPIClient::V1
 
     # Update Azure integration host filters
     # Update the defined list of host filters for a given Datadog-Azure integration.
-    # @param body [AzureAccount] Update a Datadog-Azure integration&#39;s host filters request body.
+    # @param body [AzureAccount] Update a Datadog-Azure integration's host filters request body.
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def update_azure_host_filters_with_http_info(body, opts = {})
@@ -315,7 +328,9 @@ module DatadogAPIClient::V1
     end
 
     # Update an Azure integration
-    # Update a Datadog-Azure integration. Requires an existing `tenant_name` and `client_id`. Any other fields supplied will overwrite existing values. To overwrite `tenant_name` or `client_id`, use `new_tenant_name` and `new_client_id`. To leave a field unchanged, do not supply that field in the payload.
+    # Update a Datadog-Azure integration. Requires an existing `tenant_name` and `client_id`.
+    # Any other fields supplied will overwrite existing values. To overwrite `tenant_name` or `client_id`,
+    # use `new_tenant_name` and `new_client_id`. To leave a field unchanged, do not supply that field in the payload.
     # @param body [AzureAccount] Update a Datadog-Azure integration request body.
     # @param [Hash] opts the optional parameters
     # @return [Object]
@@ -325,7 +340,9 @@ module DatadogAPIClient::V1
     end
 
     # Update an Azure integration
-    # Update a Datadog-Azure integration. Requires an existing &#x60;tenant_name&#x60; and &#x60;client_id&#x60;. Any other fields supplied will overwrite existing values. To overwrite &#x60;tenant_name&#x60; or &#x60;client_id&#x60;, use &#x60;new_tenant_name&#x60; and &#x60;new_client_id&#x60;. To leave a field unchanged, do not supply that field in the payload.
+    # Update a Datadog-Azure integration. Requires an existing `tenant_name` and `client_id`.
+    # Any other fields supplied will overwrite existing values. To overwrite `tenant_name` or `client_id`,
+    # use `new_tenant_name` and `new_client_id`. To leave a field unchanged, do not supply that field in the payload.
     # @param body [AzureAccount] Update a Datadog-Azure integration request body.
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers

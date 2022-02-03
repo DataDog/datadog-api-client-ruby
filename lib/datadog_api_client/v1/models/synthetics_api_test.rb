@@ -19,10 +19,11 @@ require 'time'
 module DatadogAPIClient::V1
   # Object containing details about a Synthetic API test.
   class SyntheticsAPITest
-    # Whether the object has unparsed attributes
+    # whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
+    # Configuration object for a Synthetic API test.
     attr_accessor :config
 
     # Array of locations used to run the test.
@@ -37,18 +38,24 @@ module DatadogAPIClient::V1
     # Name of the test.
     attr_accessor :name
 
+    # Object describing the extra options for a Synthetic test.
     attr_accessor :options
 
     # The public ID for the test.
     attr_accessor :public_id
 
+    # Define whether you want to start (`live`) or pause (`paused`) a
+    # Synthetic test.
     attr_accessor :status
 
+    # The subtype of the Synthetic API test, `http`, `ssl`, `tcp`,
+    # `dns`, `icmp`, `udp`, `websocket` or `multi`.
     attr_accessor :subtype
 
     # Array of tags attached to the test.
     attr_accessor :tags
 
+    # Type of the Synthetic test, `api`.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -101,7 +108,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsAPITest` initialize method"
@@ -167,26 +175,22 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @config.nil?
         invalid_properties.push('invalid value for "config", config cannot be nil.')
       end
-
       if @locations.nil?
         invalid_properties.push('invalid value for "locations", locations cannot be nil.')
       end
-
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
-
       if @options.nil?
         invalid_properties.push('invalid value for "options", options cannot be nil.')
       end
-
       if @type.nil?
         invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
@@ -240,7 +244,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -248,7 +252,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -354,7 +358,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -370,7 +374,6 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
 
 end

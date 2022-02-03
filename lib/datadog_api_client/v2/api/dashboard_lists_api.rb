@@ -22,6 +22,7 @@ module DatadogAPIClient::V2
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Add Items to a Dashboard List
     # Add dashboards to an existing dashboard list.
     # @param dashboard_list_id [Integer] ID of the dashboard list to add items to.
@@ -62,7 +63,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'body' when calling DashboardListsAPI.create_dashboard_list_items"
       end
       # resource path
-      local_var_path = '/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards'.sub('{' + 'dashboard_list_id' + '}', CGI.escape(dashboard_list_id.to_s))
+      local_var_path = '/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards'.sub('{dashboard_list_id}', CGI.escape(dashboard_list_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -143,7 +144,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'body' when calling DashboardListsAPI.delete_dashboard_list_items"
       end
       # resource path
-      local_var_path = '/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards'.sub('{' + 'dashboard_list_id' + '}', CGI.escape(dashboard_list_id.to_s))
+      local_var_path = '/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards'.sub('{dashboard_list_id}', CGI.escape(dashboard_list_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -218,7 +219,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'dashboard_list_id' when calling DashboardListsAPI.get_dashboard_list_items"
       end
       # resource path
-      local_var_path = '/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards'.sub('{' + 'dashboard_list_id' + '}', CGI.escape(dashboard_list_id.to_s))
+      local_var_path = '/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards'.sub('{dashboard_list_id}', CGI.escape(dashboard_list_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -238,7 +239,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'DashboardListItems'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_dashboard_list_items,
@@ -297,7 +298,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'body' when calling DashboardListsAPI.update_dashboard_list_items"
       end
       # resource path
-      local_var_path = '/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards'.sub('{' + 'dashboard_list_id' + '}', CGI.escape(dashboard_list_id.to_s))
+      local_var_path = '/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards'.sub('{dashboard_list_id}', CGI.escape(dashboard_list_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}

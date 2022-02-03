@@ -22,6 +22,7 @@ module DatadogAPIClient::V1
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Create a GCP integration
     # Create a Datadog-GCP integration.
     # @param body [GCPAccount] Create a Datadog-GCP integration.
@@ -240,7 +241,10 @@ module DatadogAPIClient::V1
     end
 
     # Update a GCP integration
-    # Update a Datadog-GCP integrations host_filters and/or auto-mute. Requires a `project_id` and `client_email`, however these fields cannot be updated. If you need to update these fields, delete and use the create (`POST`) endpoint. The unspecified fields will keep their original values.
+    # Update a Datadog-GCP integrations host_filters and/or auto-mute.
+    # Requires a `project_id` and `client_email`, however these fields cannot be updated.
+    # If you need to update these fields, delete and use the create (`POST`) endpoint.
+    # The unspecified fields will keep their original values.
     # @param body [GCPAccount] Update a Datadog-GCP integration.
     # @param [Hash] opts the optional parameters
     # @return [Object]
@@ -250,7 +254,10 @@ module DatadogAPIClient::V1
     end
 
     # Update a GCP integration
-    # Update a Datadog-GCP integrations host_filters and/or auto-mute. Requires a &#x60;project_id&#x60; and &#x60;client_email&#x60;, however these fields cannot be updated. If you need to update these fields, delete and use the create (&#x60;POST&#x60;) endpoint. The unspecified fields will keep their original values.
+    # Update a Datadog-GCP integrations host_filters and/or auto-mute.
+    # Requires a `project_id` and `client_email`, however these fields cannot be updated.
+    # If you need to update these fields, delete and use the create (`POST`) endpoint.
+    # The unspecified fields will keep their original values.
     # @param body [GCPAccount] Update a Datadog-GCP integration.
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers

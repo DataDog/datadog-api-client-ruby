@@ -22,8 +22,12 @@ module DatadogAPIClient::V1
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Create an AWS integration
-    # Create a Datadog-Amazon Web Services integration. Using the `POST` method updates your integration configuration by adding your new configuration to the existing one in your Datadog organization. A unique AWS Account ID for role based authentication.
+    # Create a Datadog-Amazon Web Services integration.
+    # Using the `POST` method updates your integration configuration
+    # by adding your new configuration to the existing one in your Datadog organization.
+    # A unique AWS Account ID for role based authentication.
     # @param body [AWSAccount] AWS Request Object
     # @param [Hash] opts the optional parameters
     # @return [AWSAccountCreateResponse]
@@ -33,7 +37,10 @@ module DatadogAPIClient::V1
     end
 
     # Create an AWS integration
-    # Create a Datadog-Amazon Web Services integration. Using the &#x60;POST&#x60; method updates your integration configuration by adding your new configuration to the existing one in your Datadog organization. A unique AWS Account ID for role based authentication.
+    # Create a Datadog-Amazon Web Services integration.
+    # Using the `POST` method updates your integration configuration
+    # by adding your new configuration to the existing one in your Datadog organization.
+    # A unique AWS Account ID for role based authentication.
     # @param body [AWSAccount] AWS Request Object
     # @param [Hash] opts the optional parameters
     # @return [Array<(AWSAccountCreateResponse, Integer, Hash)>] AWSAccountCreateResponse data, response status code and response headers
@@ -99,7 +106,7 @@ module DatadogAPIClient::V1
 
     # Set an AWS tag filter
     # Set an AWS tag filter.
-    # @param body [AWSTagFilterCreateRequest] Set an AWS tag filter using an &#x60;aws_account_identifier&#x60;, &#x60;namespace&#x60;, and filtering string. Namespace options are &#x60;application_elb&#x60;, &#x60;elb&#x60;, &#x60;lambda&#x60;, &#x60;network_elb&#x60;, &#x60;rds&#x60;, &#x60;sqs&#x60;, and &#x60;custom&#x60;.
+    # @param body [AWSTagFilterCreateRequest] Set an AWS tag filter using an `aws_account_identifier`, `namespace`, and filtering string. Namespace options are `application_elb`, `elb`, `lambda`, `network_elb`, `rds`, `sqs`, and `custom`.
     # @param [Hash] opts the optional parameters
     # @return [Object]
     def create_aws_tag_filter(body, opts = {})
@@ -109,7 +116,7 @@ module DatadogAPIClient::V1
 
     # Set an AWS tag filter
     # Set an AWS tag filter.
-    # @param body [AWSTagFilterCreateRequest] Set an AWS tag filter using an &#x60;aws_account_identifier&#x60;, &#x60;namespace&#x60;, and filtering string. Namespace options are &#x60;application_elb&#x60;, &#x60;elb&#x60;, &#x60;lambda&#x60;, &#x60;network_elb&#x60;, &#x60;rds&#x60;, &#x60;sqs&#x60;, and &#x60;custom&#x60;.
+    # @param body [AWSTagFilterCreateRequest] Set an AWS tag filter using an `aws_account_identifier`, `namespace`, and filtering string. Namespace options are `application_elb`, `elb`, `lambda`, `network_elb`, `rds`, `sqs`, and `custom`.
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def create_aws_tag_filter_with_http_info(body, opts = {})
@@ -258,7 +265,7 @@ module DatadogAPIClient::V1
     end
 
     # Delete an AWS integration
-    # Delete a Datadog-AWS integration matching the specified &#x60;account_id&#x60; and &#x60;role_name parameters&#x60;.
+    # Delete a Datadog-AWS integration matching the specified `account_id` and `role_name parameters`.
     # @param body [AWSAccountDeleteRequest] AWS request object
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
@@ -324,7 +331,7 @@ module DatadogAPIClient::V1
 
     # Delete a tag filtering entry
     # Delete a tag filtering entry.
-    # @param body [AWSTagFilterDeleteRequest] Delete a tag filtering entry for a given AWS account and &#x60;dd-aws&#x60; namespace.
+    # @param body [AWSTagFilterDeleteRequest] Delete a tag filtering entry for a given AWS account and `dd-aws` namespace.
     # @param [Hash] opts the optional parameters
     # @return [Object]
     def delete_aws_tag_filter(body, opts = {})
@@ -334,7 +341,7 @@ module DatadogAPIClient::V1
 
     # Delete a tag filtering entry
     # Delete a tag filtering entry.
-    # @param body [AWSTagFilterDeleteRequest] Delete a tag filtering entry for a given AWS account and &#x60;dd-aws&#x60; namespace.
+    # @param body [AWSTagFilterDeleteRequest] Delete a tag filtering entry for a given AWS account and `dd-aws` namespace.
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def delete_aws_tag_filter_with_http_info(body, opts = {})
@@ -467,9 +474,9 @@ module DatadogAPIClient::V1
     # List all AWS integrations
     # List all Datadog-AWS integrations available in your Datadog organization.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :account_id Only return AWS accounts that matches this &#x60;account_id&#x60;.
+    # @option opts [String] :account_id Only return AWS accounts that matches this `account_id`.
     # @option opts [String] :role_name Only return AWS accounts that matches this role_name.
-    # @option opts [String] :access_key_id Only return AWS accounts that matches this &#x60;access_key_id&#x60;.
+    # @option opts [String] :access_key_id Only return AWS accounts that matches this `access_key_id`.
     # @return [AWSAccountListResponse]
     def list_aws_accounts(opts = {})
       data, _status_code, _headers = list_aws_accounts_with_http_info(opts)
@@ -479,9 +486,9 @@ module DatadogAPIClient::V1
     # List all AWS integrations
     # List all Datadog-AWS integrations available in your Datadog organization.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :account_id Only return AWS accounts that matches this &#x60;account_id&#x60;.
+    # @option opts [String] :account_id Only return AWS accounts that matches this `account_id`.
     # @option opts [String] :role_name Only return AWS accounts that matches this role_name.
-    # @option opts [String] :access_key_id Only return AWS accounts that matches this &#x60;access_key_id&#x60;.
+    # @option opts [String] :access_key_id Only return AWS accounts that matches this `access_key_id`.
     # @return [Array<(AWSAccountListResponse, Integer, Hash)>] AWSAccountListResponse data, response status code and response headers
     def list_aws_accounts_with_http_info(opts = {})
 
@@ -542,7 +549,7 @@ module DatadogAPIClient::V1
 
     # Get all AWS tag filters
     # Get all AWS tag filters.
-    # @param account_id [String] Only return AWS filters that matches this &#x60;account_id&#x60;.
+    # @param account_id [String] Only return AWS filters that matches this `account_id`.
     # @param [Hash] opts the optional parameters
     # @return [AWSTagFilterListResponse]
     def list_aws_tag_filters(account_id, opts = {})
@@ -552,7 +559,7 @@ module DatadogAPIClient::V1
 
     # Get all AWS tag filters
     # Get all AWS tag filters.
-    # @param account_id [String] Only return AWS filters that matches this &#x60;account_id&#x60;.
+    # @param account_id [String] Only return AWS filters that matches this `account_id`.
     # @param [Hash] opts the optional parameters
     # @return [Array<(AWSTagFilterListResponse, Integer, Hash)>] AWSTagFilterListResponse data, response status code and response headers
     def list_aws_tag_filters_with_http_info(account_id, opts = {})
@@ -618,9 +625,9 @@ module DatadogAPIClient::V1
     # Update a Datadog-Amazon Web Services integration.
     # @param body [AWSAccount] AWS request object
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :account_id Only return AWS accounts that matches this &#x60;account_id&#x60;.
-    # @option opts [String] :role_name Only return AWS accounts that match this &#x60;role_name&#x60;. Required if &#x60;account_id&#x60; is specified.
-    # @option opts [String] :access_key_id Only return AWS accounts that matches this &#x60;access_key_id&#x60;. Required if none of the other two options are specified.
+    # @option opts [String] :account_id Only return AWS accounts that matches this `account_id`.
+    # @option opts [String] :role_name Only return AWS accounts that match this `role_name`. Required if `account_id` is specified.
+    # @option opts [String] :access_key_id Only return AWS accounts that matches this `access_key_id`. Required if none of the other two options are specified.
     # @return [Object]
     def update_aws_account(body, opts = {})
       data, _status_code, _headers = update_aws_account_with_http_info(body, opts)
@@ -631,9 +638,9 @@ module DatadogAPIClient::V1
     # Update a Datadog-Amazon Web Services integration.
     # @param body [AWSAccount] AWS request object
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :account_id Only return AWS accounts that matches this &#x60;account_id&#x60;.
-    # @option opts [String] :role_name Only return AWS accounts that match this &#x60;role_name&#x60;. Required if &#x60;account_id&#x60; is specified.
-    # @option opts [String] :access_key_id Only return AWS accounts that matches this &#x60;access_key_id&#x60;. Required if none of the other two options are specified.
+    # @option opts [String] :account_id Only return AWS accounts that matches this `account_id`.
+    # @option opts [String] :role_name Only return AWS accounts that match this `role_name`. Required if `account_id` is specified.
+    # @option opts [String] :access_key_id Only return AWS accounts that matches this `access_key_id`. Required if none of the other two options are specified.
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def update_aws_account_with_http_info(body, opts = {})
 

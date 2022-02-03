@@ -19,20 +19,23 @@ require 'time'
 module DatadogAPIClient::V1
   # The data attributes of a notebook.
   class NotebookUpdateDataAttributes
-    # Whether the object has unparsed attributes
+    # whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
     # List of cells to display in the notebook.
     attr_accessor :cells
 
+    # Metadata associated with the notebook.
     attr_accessor :metadata
 
     # The name of the notebook.
     attr_accessor :name
 
+    # Publication status of the notebook. For now, always "published".
     attr_accessor :status
 
+    # Notebook global timeframe.
     attr_accessor :time
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -73,7 +76,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::NotebookUpdateDataAttributes` initialize method"
@@ -113,26 +117,16 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @cells.nil?
         invalid_properties.push('invalid value for "cells", cells cannot be nil.')
       end
-
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
-
-      if @name.to_s.length > 80
-        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 80.')
-      end
-
-      if @name.to_s.length < 0
-        invalid_properties.push('invalid value for "name", the character length must be great than or equal to 0.')
-      end
-
       if @time.nil?
         invalid_properties.push('invalid value for "time", time cannot be nil.')
       end
@@ -146,28 +140,8 @@ module DatadogAPIClient::V1
     def valid?
       return false if @cells.nil?
       return false if @name.nil?
-      return false if @name.to_s.length > 80
-      return false if @name.to_s.length < 0
       return false if @time.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param name [Object] name Value to be assigned
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'name cannot be nil'
-      end
-
-      if name.to_s.length > 80
-        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 80.'
-      end
-
-      if name.to_s.length < 0
-        fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 0.'
-      end
-
-      @name = name
     end
 
     # Checks equality by comparing each attribute.
@@ -198,7 +172,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -206,7 +180,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -312,7 +286,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -328,7 +302,6 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
 
 end

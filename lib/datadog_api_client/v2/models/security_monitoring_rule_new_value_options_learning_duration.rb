@@ -17,6 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
+  # The duration in days during which values are learned, and after which signals will be generated for values that
+  # weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned.
   class SecurityMonitoringRuleNewValueOptionsLearningDuration
     ZERO_DAYS = 0.freeze
     ONE_DAY = 1.freeze
@@ -39,5 +41,4 @@ module DatadogAPIClient::V2
       constantValues.empty? ? DatadogAPIClient::V2::UnparsedObject.new(value) : value
     end
   end
-
 end

@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Assertion operator to apply.
   class SyntheticsAssertionOperator
     CONTAINS = "contains".freeze
     DOES_NOT_CONTAIN = "doesNotContain".freeze
@@ -49,5 +50,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

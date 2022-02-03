@@ -19,26 +19,35 @@ require 'time'
 module DatadogAPIClient::V1
   # An object defining the recurrence of the downtime.
   class DowntimeRecurrence
-    # Whether the object has unparsed attributes
+    # whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
-    # How often to repeat as an integer. For example, to repeat every 3 days, select a type of `days` and a period of `3`.
+    # How often to repeat as an integer.
+    # For example, to repeat every 3 days, select a type of `days` and a period of `3`.
     attr_accessor :period
 
-    # The `RRULE` standard for defining recurring events (**requires to set \"type\" to rrule**) For example, to have a recurring event on the first day of each month, set the type to `rrule` and set the `FREQ` to `MONTHLY` and `BYMONTHDAY` to `1`. Most common `rrule` options from the [iCalendar Spec](https://tools.ietf.org/html/rfc5545) are supported.  **Note**: Attributes specifying the duration in `RRULE` are not supported (for example, `DTSTART`, `DTEND`, `DURATION`). More examples available in this [downtime guide](https://docs.datadoghq.com/monitors/guide/suppress-alert-with-downtimes/?tab=api)
+    # The `RRULE` standard for defining recurring events (**requires to set "type" to rrule**)
+    # For example, to have a recurring event on the first day of each month, set the type to `rrule` and set the `FREQ` to `MONTHLY` and `BYMONTHDAY` to `1`.
+    # Most common `rrule` options from the [iCalendar Spec](https://tools.ietf.org/html/rfc5545) are supported.
+    # 
+    # **Note**: Attributes specifying the duration in `RRULE` are not supported (for example, `DTSTART`, `DTEND`, `DURATION`).
+    # More examples available in this [downtime guide](https://docs.datadoghq.com/monitors/guide/suppress-alert-with-downtimes/?tab=api)
     attr_accessor :rrule
 
     # The type of recurrence. Choose from `days`, `weeks`, `months`, `years`, `rrule`.
     attr_accessor :type
 
-    # The date at which the recurrence should end as a POSIX timestamp. `until_occurences` and `until_date` are mutually exclusive.
+    # The date at which the recurrence should end as a POSIX timestamp.
+    # `until_occurences` and `until_date` are mutually exclusive.
     attr_accessor :until_date
 
-    # How many times the downtime is rescheduled. `until_occurences` and `until_date` are mutually exclusive.
+    # How many times the downtime is rescheduled.
+    # `until_occurences` and `until_date` are mutually exclusive.
     attr_accessor :until_occurrences
 
-    # A list of week days to repeat on. Choose from `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat` or `Sun`. Only applicable when type is weeks. First letter must be capitalized.
+    # A list of week days to repeat on. Choose from `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat` or `Sun`.
+    # Only applicable when type is weeks. First letter must be capitalized.
     attr_accessor :week_days
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -84,7 +93,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::DowntimeRecurrence` initialize method"
@@ -126,17 +136,10 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@period.nil? && @period > 2147483647
-        invalid_properties.push('invalid value for "period", must be smaller than or equal to 2147483647.')
-      end
-
-      if !@until_occurrences.nil? && @until_occurrences > 2147483647
-        invalid_properties.push('invalid value for "until_occurrences", must be smaller than or equal to 2147483647.')
-      end
 
       invalid_properties
     end
@@ -145,29 +148,7 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if !@period.nil? && @period > 2147483647
-      return false if !@until_occurrences.nil? && @until_occurrences > 2147483647
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param period [Object] period Value to be assigned
-    def period=(period)
-      if !period.nil? && period > 2147483647
-        fail ArgumentError, 'invalid value for "period", must be smaller than or equal to 2147483647.'
-      end
-
-      @period = period
-    end
-
-    # Custom attribute writer method with validation
-    # @param until_occurrences [Object] until_occurrences Value to be assigned
-    def until_occurrences=(until_occurrences)
-      if !until_occurrences.nil? && until_occurrences > 2147483647
-        fail ArgumentError, 'invalid value for "until_occurrences", must be smaller than or equal to 2147483647.'
-      end
-
-      @until_occurrences = until_occurrences
     end
 
     # Checks equality by comparing each attribute.
@@ -199,7 +180,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -207,7 +188,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -313,7 +294,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -329,7 +310,6 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
 
 end

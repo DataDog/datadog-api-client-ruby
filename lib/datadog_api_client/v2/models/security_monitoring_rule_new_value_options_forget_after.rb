@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
+  # The duration in days after which a learned value is forgotten.
   class SecurityMonitoringRuleNewValueOptionsForgetAfter
     ONE_DAY = 1.freeze
     TWO_DAYS = 2.freeze
@@ -42,5 +43,4 @@ module DatadogAPIClient::V2
       constantValues.empty? ? DatadogAPIClient::V2::UnparsedObject.new(value) : value
     end
   end
-
 end

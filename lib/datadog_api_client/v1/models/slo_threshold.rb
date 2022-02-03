@@ -19,22 +19,32 @@ require 'time'
 module DatadogAPIClient::V1
   # SLO thresholds (target and optionally warning) for a single time window.
   class SLOThreshold
-    # Whether the object has unparsed attributes
+    # whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The target value for the service level indicator within the corresponding timeframe.
+    # The target value for the service level indicator within the corresponding
+    # timeframe.
     attr_accessor :target
 
-    # A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (for example `98.00`).  Always included in service level objective responses. Ignored in create/update requests.
+    # A string representation of the target that indicates its precision.
+    # It uses trailing zeros to show significant decimal places (for example `98.00`).
+    # 
+    # Always included in service level objective responses. Ignored in
+    # create/update requests.
     attr_accessor :target_display
 
+    # The SLO time window options.
     attr_accessor :timeframe
 
     # The warning value for the service level objective.
     attr_accessor :warning
 
-    # A string representation of the warning target (see the description of the `target_display` field for details).  Included in service level objective responses if a warning target exists. Ignored in create/update requests.
+    # A string representation of the warning target (see the description of
+    # the `target_display` field for details).
+    # 
+    # Included in service level objective responses if a warning target exists.
+    # Ignored in create/update requests.
     attr_accessor :warning_display
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -75,7 +85,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SLOThreshold` initialize method"
@@ -111,14 +122,13 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @target.nil?
         invalid_properties.push('invalid value for "target", target cannot be nil.')
       end
-
       if @timeframe.nil?
         invalid_properties.push('invalid value for "timeframe", timeframe cannot be nil.')
       end
@@ -163,7 +173,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -171,7 +181,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -277,7 +287,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -293,7 +303,6 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
 
 end

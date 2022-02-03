@@ -22,6 +22,7 @@ module DatadogAPIClient::V1
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Get metric metadata
     # Get metadata about a specific metric.
     # @param metric_name [String] Name of the metric for which to get metadata.
@@ -56,7 +57,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'metric_name' when calling MetricsAPI.get_metric_metadata"
       end
       # resource path
-      local_var_path = '/api/v1/metrics/{metric_name}'.sub('{' + 'metric_name' + '}', CGI.escape(metric_name.to_s))
+      local_var_path = '/api/v1/metrics/{metric_name}'.sub('{metric_name}', CGI.escape(metric_name.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -76,7 +77,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'MetricMetadata'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_metric_metadata,
@@ -156,7 +157,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'MetricsListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_active_metrics,
@@ -177,7 +178,7 @@ module DatadogAPIClient::V1
 
     # Search metrics
     # Search for metrics from the last 24 hours in Datadog.
-    # @param q [String] Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60;.
+    # @param q [String] Query string to search metrics upon. Must be prefixed with `metrics:`.
     # @param [Hash] opts the optional parameters
     # @return [MetricSearchResponse]
     def list_metrics(q, opts = {})
@@ -187,7 +188,7 @@ module DatadogAPIClient::V1
 
     # Search metrics
     # Search for metrics from the last 24 hours in Datadog.
-    # @param q [String] Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60;.
+    # @param q [String] Query string to search metrics upon. Must be prefixed with `metrics:`.
     # @param [Hash] opts the optional parameters
     # @return [Array<(MetricSearchResponse, Integer, Hash)>] MetricSearchResponse data, response status code and response headers
     def list_metrics_with_http_info(q, opts = {})
@@ -230,7 +231,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'MetricSearchResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_metrics,
@@ -318,7 +319,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'MetricsQueryResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :query_metrics,
@@ -338,7 +339,17 @@ module DatadogAPIClient::V1
     end
 
     # Submit metrics
-    # The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards. The maximum payload size is 3.2 megabytes (3200000 bytes). Compressed payloads must have a decompressed size of less than 62 megabytes (62914560 bytes).  If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect:  - 64 bits for the timestamp - 32 bits for the value - 20 bytes for the metric names - 50 bytes for the timeseries - The full payload is approximately 100 bytes. However, with the DogStatsD API, compression is applied, which reduces the payload size.
+    # The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards.
+    # The maximum payload size is 3.2 megabytes (3200000 bytes). Compressed payloads must have a decompressed size of less than 62 megabytes (62914560 bytes).
+    # 
+    # If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect:
+    # 
+    # - 64 bits for the timestamp
+    # - 32 bits for the value
+    # - 20 bytes for the metric names
+    # - 50 bytes for the timeseries
+    # - The full payload is approximately 100 bytes. However, with the DogStatsD API,
+    # compression is applied, which reduces the payload size.
     # @param body [MetricsPayload] 
     # @param [Hash] opts the optional parameters
     # @option opts [MetricContentEncoding] :content_encoding HTTP header used to compress the media-type.
@@ -349,7 +360,17 @@ module DatadogAPIClient::V1
     end
 
     # Submit metrics
-    # The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards. The maximum payload size is 3.2 megabytes (3200000 bytes). Compressed payloads must have a decompressed size of less than 62 megabytes (62914560 bytes).  If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect:  - 64 bits for the timestamp - 32 bits for the value - 20 bytes for the metric names - 50 bytes for the timeseries - The full payload is approximately 100 bytes. However, with the DogStatsD API, compression is applied, which reduces the payload size.
+    # The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards.
+    # The maximum payload size is 3.2 megabytes (3200000 bytes). Compressed payloads must have a decompressed size of less than 62 megabytes (62914560 bytes).
+    # 
+    # If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect:
+    # 
+    # - 64 bits for the timestamp
+    # - 32 bits for the value
+    # - 20 bytes for the metric names
+    # - 50 bytes for the timeseries
+    # - The full payload is approximately 100 bytes. However, with the DogStatsD API,
+    # compression is applied, which reduces the payload size.
     # @param body [MetricsPayload] 
     # @param [Hash] opts the optional parameters
     # @option opts [MetricContentEncoding] :content_encoding HTTP header used to compress the media-type.
@@ -384,7 +405,6 @@ module DatadogAPIClient::V1
       header_params['Accept'] = @api_client.select_header_accept(['text/json', 'application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['text/json'])
-      header_params['Content-Encoding'] = opts[:'content_encoding'] if !opts[:'content_encoding'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -455,7 +475,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'body' when calling MetricsAPI.update_metric_metadata"
       end
       # resource path
-      local_var_path = '/api/v1/metrics/{metric_name}'.sub('{' + 'metric_name' + '}', CGI.escape(metric_name.to_s))
+      local_var_path = '/api/v1/metrics/{metric_name}'.sub('{metric_name}', CGI.escape(metric_name.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}

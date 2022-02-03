@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Navigate between different tabs for your browser test.
   class SyntheticsPlayingTab
     MAIN_TAB = -1.freeze
     NEW_TAB = 0.freeze
@@ -41,5 +42,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

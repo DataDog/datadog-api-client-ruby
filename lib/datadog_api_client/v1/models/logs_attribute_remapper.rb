@@ -17,9 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The remapper processor remaps any source attribute(s) or tag to another target attribute or tag. Constraints on the tag/attribute name are explained in the [Tag Best Practice documentation](https://docs.datadoghq.com/logs/guide/log-parsing-best-practice). Some additional constraints are applied as `:` or `,` are not allowed in the target tag/attribute name.
+  # The remapper processor remaps any source attribute(s) or tag to another target attribute or tag.
+  # Constraints on the tag/attribute name are explained in the [Tag Best Practice documentation](https://docs.datadoghq.com/logs/guide/log-parsing-best-practice).
+  # Some additional constraints are applied as `:` or `,` are not allowed in the target tag/attribute name.
   class LogsAttributeRemapper
-    # Whether the object has unparsed attributes
+    # whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
@@ -44,11 +46,15 @@ module DatadogAPIClient::V1
     # Final attribute or tag name to remap the sources to.
     attr_accessor :target
 
+    # If the `target_type` of the remapper is `attribute`, try to cast the value to a new specific type.
+    # If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types.
+    # If the `target_type` is `tag`, this parameter may not be specified.
     attr_accessor :target_format
 
     # Defines if the final attribute or tag name is from log `attribute` or `tag`.
     attr_accessor :target_type
 
+    # Type of logs attribute remapper.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -99,7 +105,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::LogsAttributeRemapper` initialize method"
@@ -169,18 +176,16 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @sources.nil?
         invalid_properties.push('invalid value for "sources", sources cannot be nil.')
       end
-
       if @target.nil?
         invalid_properties.push('invalid value for "target", target cannot be nil.')
       end
-
       if @type.nil?
         invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
@@ -231,7 +236,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -239,7 +244,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -345,7 +350,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -361,7 +366,6 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
 
 end

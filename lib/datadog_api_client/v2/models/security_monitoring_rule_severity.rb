@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
+  # Severity of the Security Signal.
   class SecurityMonitoringRuleSeverity
     INFO = "info".freeze
     LOW = "low".freeze
@@ -41,5 +42,4 @@ module DatadogAPIClient::V2
       constantValues.empty? ? DatadogAPIClient::V2::UnparsedObject.new(value) : value
     end
   end
-
 end

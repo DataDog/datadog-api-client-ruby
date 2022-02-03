@@ -19,17 +19,21 @@ require 'time'
 module DatadogAPIClient::V1
   # A JSON array of settings.
   class OrganizationSettings
-    # Whether the object has unparsed attributes
+    # whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
     # Whether or not the organization users can share widgets outside of Datadog.
     attr_accessor :private_widget_share
 
+    # Set the boolean property enabled to enable or disable single sign on with SAML.
+    # See the SAML documentation for more information about all SAML settings.
     attr_accessor :saml
 
+    # The access role of the user. Options are **st** (standard user), **adm** (admin user), or **ro** (read-only user).
     attr_accessor :saml_autocreate_access_role
 
+    # Has two properties, `enabled` (boolean) and `domains`, which is a list of domains without the @ symbol.
     attr_accessor :saml_autocreate_users_domains
 
     # Whether or not SAML can be enabled for this organization.
@@ -38,6 +42,7 @@ module DatadogAPIClient::V1
     # Identity provider endpoint for SAML authentication.
     attr_accessor :saml_idp_endpoint
 
+    # Has one property enabled (boolean).
     attr_accessor :saml_idp_initiated_login
 
     # Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
@@ -46,6 +51,7 @@ module DatadogAPIClient::V1
     # URL for SAML logging.
     attr_accessor :saml_login_url
 
+    # Has one property enabled (boolean).
     attr_accessor :saml_strict_mode
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -96,7 +102,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::OrganizationSettings` initialize method"
@@ -154,10 +161,11 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
+
       invalid_properties
     end
 
@@ -201,7 +209,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -209,7 +217,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -315,7 +323,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -331,7 +339,6 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
 
 end

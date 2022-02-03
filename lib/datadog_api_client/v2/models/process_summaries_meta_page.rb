@@ -19,11 +19,12 @@ require 'time'
 module DatadogAPIClient::V2
   # Paging attributes.
   class ProcessSummariesMetaPage
-    # Whether the object has unparsed attributes
+    # whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The cursor used to get the next results, if any. To make the next request, use the same parameters with the addition of the `page[cursor]`.
+    # The cursor used to get the next results, if any. To make the next request, use the same
+    # parameters with the addition of the `page[cursor]`.
     attr_accessor :after
 
     # Number of results returned.
@@ -61,7 +62,8 @@ module DatadogAPIClient::V2
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ProcessSummariesMetaPage` initialize method"
@@ -85,17 +87,10 @@ module DatadogAPIClient::V2
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@size.nil? && @size > 10000
-        invalid_properties.push('invalid value for "size", must be smaller than or equal to 10000.')
-      end
-
-      if !@size.nil? && @size < 0
-        invalid_properties.push('invalid value for "size", must be greater than or equal to 0.')
-      end
 
       invalid_properties
     end
@@ -104,23 +99,7 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if !@size.nil? && @size > 10000
-      return false if !@size.nil? && @size < 0
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param size [Object] size Value to be assigned
-    def size=(size)
-      if !size.nil? && size > 10000
-        fail ArgumentError, 'invalid value for "size", must be smaller than or equal to 10000.'
-      end
-
-      if !size.nil? && size < 0
-        fail ArgumentError, 'invalid value for "size", must be greater than or equal to 0.'
-      end
-
-      @size = size
     end
 
     # Checks equality by comparing each attribute.
@@ -148,7 +127,7 @@ module DatadogAPIClient::V2
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -156,7 +135,7 @@ module DatadogAPIClient::V2
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -262,7 +241,7 @@ module DatadogAPIClient::V2
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -278,7 +257,6 @@ module DatadogAPIClient::V2
         value
       end
     end
-
   end
 
 end

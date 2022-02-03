@@ -22,8 +22,10 @@ module DatadogAPIClient::V1
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Add tags to a host
-    # This endpoint allows you to add new tags to a host, optionally specifying where these tags come from.
+    # This endpoint allows you to add new tags to a host,
+    # optionally specifying where these tags come from.
     # @param host_name [String] This endpoint allows you to add new tags to a host, optionally specifying where the tags came from.
     # @param body [HostTags] Update host tags request body.
     # @param [Hash] opts the optional parameters
@@ -35,7 +37,8 @@ module DatadogAPIClient::V1
     end
 
     # Add tags to a host
-    # This endpoint allows you to add new tags to a host, optionally specifying where these tags come from.
+    # This endpoint allows you to add new tags to a host,
+    # optionally specifying where these tags come from.
     # @param host_name [String] This endpoint allows you to add new tags to a host, optionally specifying where the tags came from.
     # @param body [HostTags] Update host tags request body.
     # @param [Hash] opts the optional parameters
@@ -64,7 +67,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'body' when calling TagsAPI.create_host_tags"
       end
       # resource path
-      local_var_path = '/api/v1/tags/hosts/{host_name}'.sub('{' + 'host_name' + '}', CGI.escape(host_name.to_s))
+      local_var_path = '/api/v1/tags/hosts/{host_name}'.sub('{host_name}', CGI.escape(host_name.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -107,7 +110,8 @@ module DatadogAPIClient::V1
     end
 
     # Remove host tags
-    # This endpoint allows you to remove all user-assigned tags for a single host.
+    # This endpoint allows you to remove all user-assigned tags
+    # for a single host.
     # @param host_name [String] This endpoint allows you to remove all user-assigned tags for a single host.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :source The source of the tags (for example chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
@@ -118,7 +122,8 @@ module DatadogAPIClient::V1
     end
 
     # Remove host tags
-    # This endpoint allows you to remove all user-assigned tags for a single host.
+    # This endpoint allows you to remove all user-assigned tags
+    # for a single host.
     # @param host_name [String] This endpoint allows you to remove all user-assigned tags for a single host.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :source The source of the tags (for example chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
@@ -142,7 +147,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'host_name' when calling TagsAPI.delete_host_tags"
       end
       # resource path
-      local_var_path = '/api/v1/tags/hosts/{host_name}'.sub('{' + 'host_name' + '}', CGI.escape(host_name.to_s))
+      local_var_path = '/api/v1/tags/hosts/{host_name}'.sub('{host_name}', CGI.escape(host_name.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -151,7 +156,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -218,7 +223,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'host_name' when calling TagsAPI.get_host_tags"
       end
       # resource path
-      local_var_path = '/api/v1/tags/hosts/{host_name}'.sub('{' + 'host_name' + '}', CGI.escape(host_name.to_s))
+      local_var_path = '/api/v1/tags/hosts/{host_name}'.sub('{host_name}', CGI.escape(host_name.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -309,7 +314,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'TagToHosts'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_host_tags,
@@ -329,7 +334,8 @@ module DatadogAPIClient::V1
     end
 
     # Update host tags
-    # This endpoint allows you to update/replace all tags in an integration source with those supplied in the request.
+    # This endpoint allows you to update/replace all tags in
+    # an integration source with those supplied in the request.
     # @param host_name [String] This endpoint allows you to update/replace all in an integration source with those supplied in the request.
     # @param body [HostTags] Add tags to host
     # @param [Hash] opts the optional parameters
@@ -341,7 +347,8 @@ module DatadogAPIClient::V1
     end
 
     # Update host tags
-    # This endpoint allows you to update/replace all tags in an integration source with those supplied in the request.
+    # This endpoint allows you to update/replace all tags in
+    # an integration source with those supplied in the request.
     # @param host_name [String] This endpoint allows you to update/replace all in an integration source with those supplied in the request.
     # @param body [HostTags] Add tags to host
     # @param [Hash] opts the optional parameters
@@ -370,7 +377,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'body' when calling TagsAPI.update_host_tags"
       end
       # resource path
-      local_var_path = '/api/v1/tags/hosts/{host_name}'.sub('{' + 'host_name' + '}', CGI.escape(host_name.to_s))
+      local_var_path = '/api/v1/tags/hosts/{host_name}'.sub('{host_name}', CGI.escape(host_name.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}

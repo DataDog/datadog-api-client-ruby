@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Metadata type of the notebook.
   class NotebookMetadataType
     POSTMORTEM = "postmortem".freeze
     RUNBOOK = "runbook".freeze
@@ -41,5 +42,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

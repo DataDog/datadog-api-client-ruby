@@ -19,18 +19,20 @@ require 'time'
 module DatadogAPIClient::V1
   # Object describing the Synthetic test request.
   class SyntheticsTestRequest
-    # Whether the object has unparsed attributes
+    # whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
     # Allows loading insecure content for an HTTP request in a multistep test step.
     attr_accessor :allow_insecure
 
+    # Object to handle basic authentication when performing the test.
     attr_accessor :basic_auth
 
     # Body to include in the test.
     attr_accessor :body
 
+    # Client certificate to use when performing the test request.
     attr_accessor :certificate
 
     # DNS server to use for DNS tests.
@@ -51,6 +53,7 @@ module DatadogAPIClient::V1
     # Message to send for UDP or WebSocket tests.
     attr_accessor :message
 
+    # The HTTP method.
     attr_accessor :method
 
     # Determines whether or not to save the response body.
@@ -62,12 +65,15 @@ module DatadogAPIClient::V1
     # Port to use when performing the test.
     attr_accessor :port
 
+    # The proxy to perform the test.
     attr_accessor :proxy
 
     # Query to use for the test.
     attr_accessor :query
 
-    # For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
+    # For SSL tests, it specifies on which server you want to initiate the TLS handshake,
+    # allowing the server to present one of multiple possible certificates on
+    # the same IP address and TCP port number.
     attr_accessor :servername
 
     # Turns on a traceroute probe to discover all gateways along the path to the host destination.
@@ -147,7 +153,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsTestRequest` initialize method"
@@ -190,9 +197,7 @@ module DatadogAPIClient::V1
       end
 
       if attributes.key?(:'headers')
-        if (value = attributes[:'headers']).is_a?(Hash)
-          self.headers = value
-        end
+        self.headers = attributes[:'headers']
       end
 
       if attributes.key?(:'host')
@@ -245,25 +250,10 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@dns_server_port.nil? && @dns_server_port > 65535
-        invalid_properties.push('invalid value for "dns_server_port", must be smaller than or equal to 65535.')
-      end
-
-      if !@dns_server_port.nil? && @dns_server_port < 1
-        invalid_properties.push('invalid value for "dns_server_port", must be greater than or equal to 1.')
-      end
-
-      if !@number_of_packets.nil? && @number_of_packets > 10
-        invalid_properties.push('invalid value for "number_of_packets", must be smaller than or equal to 10.')
-      end
-
-      if !@number_of_packets.nil? && @number_of_packets < 0
-        invalid_properties.push('invalid value for "number_of_packets", must be greater than or equal to 0.')
-      end
 
       invalid_properties
     end
@@ -272,39 +262,7 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if !@dns_server_port.nil? && @dns_server_port > 65535
-      return false if !@dns_server_port.nil? && @dns_server_port < 1
-      return false if !@number_of_packets.nil? && @number_of_packets > 10
-      return false if !@number_of_packets.nil? && @number_of_packets < 0
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param dns_server_port [Object] dns_server_port Value to be assigned
-    def dns_server_port=(dns_server_port)
-      if !dns_server_port.nil? && dns_server_port > 65535
-        fail ArgumentError, 'invalid value for "dns_server_port", must be smaller than or equal to 65535.'
-      end
-
-      if !dns_server_port.nil? && dns_server_port < 1
-        fail ArgumentError, 'invalid value for "dns_server_port", must be greater than or equal to 1.'
-      end
-
-      @dns_server_port = dns_server_port
-    end
-
-    # Custom attribute writer method with validation
-    # @param number_of_packets [Object] number_of_packets Value to be assigned
-    def number_of_packets=(number_of_packets)
-      if !number_of_packets.nil? && number_of_packets > 10
-        fail ArgumentError, 'invalid value for "number_of_packets", must be smaller than or equal to 10.'
-      end
-
-      if !number_of_packets.nil? && number_of_packets < 0
-        fail ArgumentError, 'invalid value for "number_of_packets", must be greater than or equal to 0.'
-      end
-
-      @number_of_packets = number_of_packets
     end
 
     # Checks equality by comparing each attribute.
@@ -350,7 +308,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -358,7 +316,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -464,7 +422,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -480,7 +438,6 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
 
 end

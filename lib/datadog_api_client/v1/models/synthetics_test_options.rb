@@ -19,11 +19,12 @@ require 'time'
 module DatadogAPIClient::V1
   # Object describing the extra options for a Synthetic test.
   class SyntheticsTestOptions
-    # Whether the object has unparsed attributes
+    # whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
-    # For SSL test, whether or not the test should allow self signed certificates.
+    # For SSL test, whether or not the test should allow self signed
+    # certificates.
     attr_accessor :accept_self_signed
 
     # Allows loading insecure content for an HTTP request.
@@ -41,12 +42,15 @@ module DatadogAPIClient::V1
     # Minimum amount of time in failure required to trigger an alert.
     attr_accessor :min_failure_duration
 
-    # Minimum number of locations in failure required to trigger an alert.
+    # Minimum number of locations in failure required to trigger
+    # an alert.
     attr_accessor :min_location_failed
 
     # The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
     attr_accessor :monitor_name
 
+    # Object containing the options for a Synthetic test as a monitor
+    # (for example, renotification).
     attr_accessor :monitor_options
 
     # Integer from 1 (high) to 5 (low) indicating alert severity.
@@ -55,6 +59,7 @@ module DatadogAPIClient::V1
     # Prevents saving screenshots of the steps.
     attr_accessor :no_screenshot
 
+    # Object describing the retry strategy to apply to a Synthetic test.
     attr_accessor :_retry
 
     # The frequency at which to run the Synthetic test (in seconds).
@@ -114,7 +119,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsTestOptions` initialize method"
@@ -184,25 +190,10 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@monitor_priority.nil? && @monitor_priority > 5
-        invalid_properties.push('invalid value for "monitor_priority", must be smaller than or equal to 5.')
-      end
-
-      if !@monitor_priority.nil? && @monitor_priority < 1
-        invalid_properties.push('invalid value for "monitor_priority", must be greater than or equal to 1.')
-      end
-
-      if !@tick_every.nil? && @tick_every > 604800
-        invalid_properties.push('invalid value for "tick_every", must be smaller than or equal to 604800.')
-      end
-
-      if !@tick_every.nil? && @tick_every < 30
-        invalid_properties.push('invalid value for "tick_every", must be greater than or equal to 30.')
-      end
 
       invalid_properties
     end
@@ -211,39 +202,7 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if !@monitor_priority.nil? && @monitor_priority > 5
-      return false if !@monitor_priority.nil? && @monitor_priority < 1
-      return false if !@tick_every.nil? && @tick_every > 604800
-      return false if !@tick_every.nil? && @tick_every < 30
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param monitor_priority [Object] monitor_priority Value to be assigned
-    def monitor_priority=(monitor_priority)
-      if !monitor_priority.nil? && monitor_priority > 5
-        fail ArgumentError, 'invalid value for "monitor_priority", must be smaller than or equal to 5.'
-      end
-
-      if !monitor_priority.nil? && monitor_priority < 1
-        fail ArgumentError, 'invalid value for "monitor_priority", must be greater than or equal to 1.'
-      end
-
-      @monitor_priority = monitor_priority
-    end
-
-    # Custom attribute writer method with validation
-    # @param tick_every [Object] tick_every Value to be assigned
-    def tick_every=(tick_every)
-      if !tick_every.nil? && tick_every > 604800
-        fail ArgumentError, 'invalid value for "tick_every", must be smaller than or equal to 604800.'
-      end
-
-      if !tick_every.nil? && tick_every < 30
-        fail ArgumentError, 'invalid value for "tick_every", must be greater than or equal to 30.'
-      end
-
-      @tick_every = tick_every
     end
 
     # Checks equality by comparing each attribute.
@@ -282,7 +241,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -290,7 +249,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -396,7 +355,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -412,7 +371,6 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
 
 end

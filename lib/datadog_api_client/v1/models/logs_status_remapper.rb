@@ -17,9 +17,26 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Use this Processor if you want to assign some attributes as the official status.  Each incoming status value is mapped as follows.    - Integers from 0 to 7 map to the Syslog severity standards   - Strings beginning with `emerg` or f (case-insensitive) map to `emerg` (0)   - Strings beginning with `a` (case-insensitive) map to `alert` (1)   - Strings beginning with `c` (case-insensitive) map to `critical` (2)   - Strings beginning with `err` (case-insensitive) map to `error` (3)   - Strings beginning with `w` (case-insensitive) map to `warning` (4)   - Strings beginning with `n` (case-insensitive) map to `notice` (5)   - Strings beginning with `i` (case-insensitive) map to `info` (6)   - Strings beginning with `d`, `trace` or `verbose` (case-insensitive) map to `debug` (7)   - Strings beginning with `o` or matching `OK` or `Success` (case-insensitive) map to OK   - All others map to `info` (6)    **Note:** If multiple log status remapper processors can be applied to a given log,   only the first one (according to the pipelines order) is taken into account.
+  # Use this Processor if you want to assign some attributes as the official status.
+  # 
+  # Each incoming status value is mapped as follows.
+  # 
+  #   - Integers from 0 to 7 map to the Syslog severity standards
+  #   - Strings beginning with `emerg` or f (case-insensitive) map to `emerg` (0)
+  #   - Strings beginning with `a` (case-insensitive) map to `alert` (1)
+  #   - Strings beginning with `c` (case-insensitive) map to `critical` (2)
+  #   - Strings beginning with `err` (case-insensitive) map to `error` (3)
+  #   - Strings beginning with `w` (case-insensitive) map to `warning` (4)
+  #   - Strings beginning with `n` (case-insensitive) map to `notice` (5)
+  #   - Strings beginning with `i` (case-insensitive) map to `info` (6)
+  #   - Strings beginning with `d`, `trace` or `verbose` (case-insensitive) map to `debug` (7)
+  #   - Strings beginning with `o` or matching `OK` or `Success` (case-insensitive) map to OK
+  #   - All others map to `info` (6)
+  # 
+  #   **Note:** If multiple log status remapper processors can be applied to a given log,
+  #   only the first one (according to the pipelines order) is taken into account.
   class LogsStatusRemapper
-    # Whether the object has unparsed attributes
+    # whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
@@ -32,6 +49,7 @@ module DatadogAPIClient::V1
     # Array of source attributes.
     attr_accessor :sources
 
+    # Type of logs status remapper.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -70,7 +88,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::LogsStatusRemapper` initialize method"
@@ -108,14 +127,13 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @sources.nil?
         invalid_properties.push('invalid value for "sources", sources cannot be nil.')
       end
-
       if @type.nil?
         invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
@@ -159,7 +177,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -167,7 +185,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -273,7 +291,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -289,7 +307,6 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
 
 end

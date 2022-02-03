@@ -22,6 +22,7 @@ module DatadogAPIClient::V1
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Create an API key
     # Creates an API key with a given name.
     # @param body [ApiKey] 
@@ -206,7 +207,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'key' when calling KeyManagementAPI.delete_api_key"
       end
       # resource path
-      local_var_path = '/api/v1/api_key/{key}'.sub('{' + 'key' + '}', CGI.escape(key.to_s))
+      local_var_path = '/api/v1/api_key/{key}'.sub('{key}', CGI.escape(key.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -279,7 +280,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'key' when calling KeyManagementAPI.delete_application_key"
       end
       # resource path
-      local_var_path = '/api/v1/application_key/{key}'.sub('{' + 'key' + '}', CGI.escape(key.to_s))
+      local_var_path = '/api/v1/application_key/{key}'.sub('{key}', CGI.escape(key.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -352,7 +353,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'key' when calling KeyManagementAPI.get_api_key"
       end
       # resource path
-      local_var_path = '/api/v1/api_key/{key}'.sub('{' + 'key' + '}', CGI.escape(key.to_s))
+      local_var_path = '/api/v1/api_key/{key}'.sub('{key}', CGI.escape(key.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -425,7 +426,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'key' when calling KeyManagementAPI.get_application_key"
       end
       # resource path
-      local_var_path = '/api/v1/application_key/{key}'.sub('{' + 'key' + '}', CGI.escape(key.to_s))
+      local_var_path = '/api/v1/application_key/{key}'.sub('{key}', CGI.escape(key.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -638,7 +639,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'body' when calling KeyManagementAPI.update_api_key"
       end
       # resource path
-      local_var_path = '/api/v1/api_key/{key}'.sub('{' + 'key' + '}', CGI.escape(key.to_s))
+      local_var_path = '/api/v1/api_key/{key}'.sub('{key}', CGI.escape(key.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -719,7 +720,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'body' when calling KeyManagementAPI.update_application_key"
       end
       # resource path
-      local_var_path = '/api/v1/application_key/{key}'.sub('{' + 'key' + '}', CGI.escape(key.to_s))
+      local_var_path = '/api/v1/application_key/{key}'.sub('{key}', CGI.escape(key.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}

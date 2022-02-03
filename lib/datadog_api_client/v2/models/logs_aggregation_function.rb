@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
+  # An aggregation function
   class LogsAggregationFunction
     COUNT = "count".freeze
     CARDINALITY = "cardinality".freeze
@@ -47,5 +48,4 @@ module DatadogAPIClient::V2
       constantValues.empty? ? DatadogAPIClient::V2::UnparsedObject.new(value) : value
     end
   end
-
 end

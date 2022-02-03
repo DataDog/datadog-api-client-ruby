@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Supported products for hourly usage attribution requests.
   class HourlyUsageAttributionUsageType
     API_USAGE = "api_usage".freeze
     APM_HOST_USAGE = "apm_host_usage".freeze
@@ -50,5 +51,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

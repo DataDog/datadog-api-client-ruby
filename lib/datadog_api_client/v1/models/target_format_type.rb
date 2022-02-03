@@ -17,6 +17,9 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # If the `target_type` of the remapper is `attribute`, try to cast the value to a new specific type.
+  # If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types.
+  # If the `target_type` is `tag`, this parameter may not be specified.
   class TargetFormatType
     AUTO = "auto".freeze
     STRING = "string".freeze
@@ -40,5 +43,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

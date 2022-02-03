@@ -22,6 +22,7 @@ module DatadogAPIClient::V1
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # List IP Ranges
     # Get information about Datadog IP ranges.
     # @param [Hash] opts the optional parameters

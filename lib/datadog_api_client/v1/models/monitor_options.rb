@@ -19,10 +19,11 @@ require 'time'
 module DatadogAPIClient::V1
   # List of options associated with your monitor.
   class MonitorOptions
-    # Whether the object has unparsed attributes
+    # whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
+    # Type of aggregation performed in the monitor query.
     attr_accessor :aggregation
 
     # IDs of the device the Synthetics monitor is running on.
@@ -31,16 +32,25 @@ module DatadogAPIClient::V1
     # Whether or not to send a log sample when the log monitor triggers.
     attr_accessor :enable_logs_sample
 
-    # We recommend using the [is_renotify](https://docs.datadoghq.com/monitors/notify/?tab=is_alert#renotify), block in the original message instead. A message to include with a re-notification. Supports the `@username` notification we allow elsewhere. Not applicable if `renotify_interval` is `None`.
+    # We recommend using the [is_renotify](https://docs.datadoghq.com/monitors/notify/?tab=is_alert#renotify),
+    # block in the original message instead.
+    # A message to include with a re-notification. Supports the `@username` notification we allow elsewhere.
+    # Not applicable if `renotify_interval` is `None`.
     attr_accessor :escalation_message
 
-    # Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the value is set to `300` (5min), the timeframe is set to `last_5m` and the time is 7:00, the monitor evaluates data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor always has data during evaluation.
+    # Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the value is set to `300` (5min),
+    # the timeframe is set to `last_5m` and the time is 7:00, the monitor evaluates data from 6:50 to 6:55.
+    # This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor always has data during evaluation.
     attr_accessor :evaluation_delay
 
     # Whether the log alert monitor triggers a single alert or multiple alerts when any group breaches a threshold.
     attr_accessor :groupby_simple_monitor
 
-    # A Boolean indicating whether notifications from this monitor automatically inserts its triggering tags into the title.  **Examples** - If `True`, `[Triggered on {host:h1}] Monitor Title` - If `False`, `[Triggered] Monitor Title`
+    # A Boolean indicating whether notifications from this monitor automatically inserts its triggering tags into the title.
+    # 
+    # **Examples**
+    # - If `True`, `[Triggered on {host:h1}] Monitor Title`
+    # - If `False`, `[Triggered] Monitor Title`
     attr_accessor :include_tags
 
     # Whether or not the monitor is locked (only editable by creator and admins).
@@ -49,16 +59,28 @@ module DatadogAPIClient::V1
     # How long the test should be in failure before alerting (integer, number of seconds, max 7200).
     attr_accessor :min_failure_duration
 
-    # The minimum number of locations in failure at the same time during at least one moment in the `min_failure_duration` period (`min_location_failed` and `min_failure_duration` are part of the advanced alerting rules - integer, >= 1).
+    # The minimum number of locations in failure at the same time during
+    # at least one moment in the `min_failure_duration` period (`min_location_failed` and `min_failure_duration`
+    # are part of the advanced alerting rules - integer, >= 1).
     attr_accessor :min_location_failed
 
-    # Time (in seconds) to skip evaluations for new groups.  For example, this option can be used to skip evaluations for new hosts while they initialize.  Must be a non negative integer.
+    # Time (in seconds) to skip evaluations for new groups.
+    # 
+    # For example, this option can be used to skip evaluations for new hosts while they initialize.
+    # 
+    # Must be a non negative integer.
     attr_accessor :new_group_delay
 
-    # Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non negative integer.  Use new_group_delay instead.
+    # Time (in seconds) to allow a host to boot and applications
+    # to fully start before starting the evaluation of monitor results.
+    # Should be a non negative integer.
+    # 
+    # Use new_group_delay instead.
     attr_accessor :new_host_delay
 
-    # The number of minutes before a monitor notifies after data stops reporting. Datadog recommends at least 2x the monitor timeframe for query alerts or 2 minutes for service checks. If omitted, 2x the evaluation timeframe is used for query alerts, and 24 hours is used for service checks.
+    # The number of minutes before a monitor notifies after data stops reporting.
+    # Datadog recommends at least 2x the monitor timeframe for query alerts or 2 minutes for service checks.
+    # If omitted, 2x the evaluation timeframe is used for query alerts, and 24 hours is used for service checks.
     attr_accessor :no_data_timeframe
 
     # A Boolean indicating whether tagged users is notified on changes to this monitor.
@@ -67,7 +89,8 @@ module DatadogAPIClient::V1
     # A Boolean indicating whether this monitor notifies when data stops reporting.
     attr_accessor :notify_no_data
 
-    # The number of minutes after the last notification before a monitor re-notifies on the current status. It only re-notifies if it’s not resolved.
+    # The number of minutes after the last notification before a monitor re-notifies on the current status.
+    # It only re-notifies if it’s not resolved.
     attr_accessor :renotify_interval
 
     # The number of times re-notification messages should be sent on the current status at the provided re-notification interval.
@@ -76,7 +99,9 @@ module DatadogAPIClient::V1
     # The types of monitor statuses for which re-notification messages are sent.
     attr_accessor :renotify_statuses
 
-    # A Boolean indicating whether this monitor needs a full window of data before it’s evaluated. We highly recommend you set this to `false` for sparse metrics, otherwise some evaluations are skipped. Default is false.
+    # A Boolean indicating whether this monitor needs a full window of data before it’s evaluated.
+    # We highly recommend you set this to `false` for sparse metrics,
+    # otherwise some evaluations are skipped. Default is false.
     attr_accessor :require_full_window
 
     # Information about the downtime applied to the monitor.
@@ -85,8 +110,10 @@ module DatadogAPIClient::V1
     # ID of the corresponding Synthetic check.
     attr_accessor :synthetics_check_id
 
+    # Alerting time window options.
     attr_accessor :threshold_windows
 
+    # List of the different monitor threshold available.
     attr_accessor :thresholds
 
     # The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
@@ -179,12 +206,13 @@ module DatadogAPIClient::V1
         :'renotify_occurrences',
         :'renotify_statuses',
         :'synthetics_check_id',
-        :'timeout_h',
+        :'timeout_h'
       ])
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::MonitorOptions` initialize method"
@@ -276,6 +304,8 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'renotify_interval')
         self.renotify_interval = attributes[:'renotify_interval']
+      else
+        self.renotify_interval = 'none'
       end
 
       if attributes.key?(:'renotify_occurrences')
@@ -293,9 +323,7 @@ module DatadogAPIClient::V1
       end
 
       if attributes.key?(:'silenced')
-        if (value = attributes[:'silenced']).is_a?(Hash)
-          self.silenced = value
-        end
+        self.silenced = attributes[:'silenced']
       end
 
       if attributes.key?(:'synthetics_check_id')
@@ -312,6 +340,8 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'timeout_h')
         self.timeout_h = attributes[:'timeout_h']
+      else
+        self.timeout_h = 'none'
       end
 
       if attributes.key?(:'variables')
@@ -322,17 +352,10 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@min_failure_duration.nil? && @min_failure_duration > 7200
-        invalid_properties.push('invalid value for "min_failure_duration", must be smaller than or equal to 7200.')
-      end
-
-      if !@min_failure_duration.nil? && @min_failure_duration < 0
-        invalid_properties.push('invalid value for "min_failure_duration", must be greater than or equal to 0.')
-      end
 
       invalid_properties
     end
@@ -341,23 +364,7 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if !@min_failure_duration.nil? && @min_failure_duration > 7200
-      return false if !@min_failure_duration.nil? && @min_failure_duration < 0
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param min_failure_duration [Object] min_failure_duration Value to be assigned
-    def min_failure_duration=(min_failure_duration)
-      if !min_failure_duration.nil? && min_failure_duration > 7200
-        fail ArgumentError, 'invalid value for "min_failure_duration", must be smaller than or equal to 7200.'
-      end
-
-      if !min_failure_duration.nil? && min_failure_duration < 0
-        fail ArgumentError, 'invalid value for "min_failure_duration", must be greater than or equal to 0.'
-      end
-
-      @min_failure_duration = min_failure_duration
     end
 
     # Checks equality by comparing each attribute.
@@ -408,7 +415,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -416,7 +423,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -522,7 +529,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -538,7 +545,6 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
 
 end

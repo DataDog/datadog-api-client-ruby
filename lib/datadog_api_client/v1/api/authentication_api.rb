@@ -22,6 +22,7 @@ module DatadogAPIClient::V1
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Validate API key
     # Check if the API key (not the APP key) is valid. If invalid, a 403 is returned.
     # @param [Hash] opts the optional parameters
@@ -70,7 +71,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'AuthenticationValidationResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :validate,

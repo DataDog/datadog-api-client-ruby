@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Type of parser for a Synthetics global variable from a synthetics test.
   class SyntheticsGlobalVariableParserType
     RAW = "raw".freeze
     JSON_PATH = "json_path".freeze
@@ -40,5 +41,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

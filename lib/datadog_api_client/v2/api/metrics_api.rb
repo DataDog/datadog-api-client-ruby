@@ -22,8 +22,12 @@ module DatadogAPIClient::V2
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Create a tag configuration
-    # Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any distribution metric or configure custom aggregations on any count, rate, or gauge metric. Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
+    # Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric.
+    # Optionally, include percentile aggregations on any distribution metric or configure custom aggregations
+    # on any count, rate, or gauge metric.
+    # Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
     # @param metric_name [String] The name of the metric.
     # @param body [MetricTagConfigurationCreateRequest] 
     # @param [Hash] opts the optional parameters
@@ -34,7 +38,10 @@ module DatadogAPIClient::V2
     end
 
     # Create a tag configuration
-    # Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any distribution metric or configure custom aggregations on any count, rate, or gauge metric. Can only be used with application keys of users with the &#x60;Manage Tags for Metrics&#x60; permission.
+    # Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric.
+    # Optionally, include percentile aggregations on any distribution metric or configure custom aggregations
+    # on any count, rate, or gauge metric.
+    # Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
     # @param metric_name [String] The name of the metric.
     # @param body [MetricTagConfigurationCreateRequest] 
     # @param [Hash] opts the optional parameters
@@ -62,7 +69,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'body' when calling MetricsAPI.create_tag_configuration"
       end
       # resource path
-      local_var_path = '/api/v2/metrics/{metric_name}/tags'.sub('{' + 'metric_name' + '}', CGI.escape(metric_name.to_s))
+      local_var_path = '/api/v2/metrics/{metric_name}/tags'.sub('{metric_name}', CGI.escape(metric_name.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -104,7 +111,8 @@ module DatadogAPIClient::V2
     end
 
     # Delete a tag configuration
-    # Deletes a metric's tag configuration. Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
+    # Deletes a metric's tag configuration. Can only be used with application
+    # keys from users with the `Manage Tags for Metrics` permission.
     # @param metric_name [String] The name of the metric.
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -114,7 +122,8 @@ module DatadogAPIClient::V2
     end
 
     # Delete a tag configuration
-    # Deletes a metric&#39;s tag configuration. Can only be used with application keys from users with the &#x60;Manage Tags for Metrics&#x60; permission.
+    # Deletes a metric's tag configuration. Can only be used with application
+    # keys from users with the `Manage Tags for Metrics` permission.
     # @param metric_name [String] The name of the metric.
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -137,7 +146,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'metric_name' when calling MetricsAPI.delete_tag_configuration"
       end
       # resource path
-      local_var_path = '/api/v2/metrics/{metric_name}/tags'.sub('{' + 'metric_name' + '}', CGI.escape(metric_name.to_s))
+      local_var_path = '/api/v2/metrics/{metric_name}/tags'.sub('{metric_name}', CGI.escape(metric_name.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -145,7 +154,7 @@ module DatadogAPIClient::V2
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -210,7 +219,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'metric_name' when calling MetricsAPI.list_tag_configuration_by_name"
       end
       # resource path
-      local_var_path = '/api/v2/metrics/{metric_name}/tags'.sub('{' + 'metric_name' + '}', CGI.escape(metric_name.to_s))
+      local_var_path = '/api/v2/metrics/{metric_name}/tags'.sub('{metric_name}', CGI.escape(metric_name.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -250,11 +259,12 @@ module DatadogAPIClient::V2
     end
 
     # List tag configurations
-    # Returns all configured count/gauge/rate/distribution metric names (with additional filters if specified).
+    # Returns all configured count/gauge/rate/distribution metric names
+    # (with additional filters if specified).
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :filter_configured Filter metrics that have configured tags.
     # @option opts [String] :filter_tags_configured Filter tag configurations by configured tags.
-    # @option opts [MetricTagConfigurationMetricTypes] :filter_metric_type Filter tag configurations by metric type. (default to 'gauge')
+    # @option opts [MetricTagConfigurationMetricTypes] :filter_metric_type Filter tag configurations by metric type.
     # @option opts [Boolean] :filter_include_percentiles Filter distributions with additional percentile aggregations enabled or disabled.
     # @option opts [String] :filter_tags Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
     # @option opts [Integer] :window_seconds The number of seconds of look back (from now) to apply to a filter[tag] query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days).
@@ -265,7 +275,8 @@ module DatadogAPIClient::V2
     end
 
     # List tag configurations
-    # Returns all configured count/gauge/rate/distribution metric names (with additional filters if specified).
+    # Returns all configured count/gauge/rate/distribution metric names
+    # (with additional filters if specified).
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :filter_configured Filter metrics that have configured tags.
     # @option opts [String] :filter_tags_configured Filter tag configurations by configured tags.
@@ -315,7 +326,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'MetricsAndMetricTagConfigurationsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_tag_configurations,
@@ -368,7 +379,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'metric_name' when calling MetricsAPI.list_tags_by_metric_name"
       end
       # resource path
-      local_var_path = '/api/v2/metrics/{metric_name}/all-tags'.sub('{' + 'metric_name' + '}', CGI.escape(metric_name.to_s))
+      local_var_path = '/api/v2/metrics/{metric_name}/all-tags'.sub('{metric_name}', CGI.escape(metric_name.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -388,7 +399,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'MetricAllTagsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_tags_by_metric_name,
@@ -408,7 +419,11 @@ module DatadogAPIClient::V2
     end
 
     # List distinct metric volumes by metric name
-    # View distinct metrics volumes for the given metric name.  Custom distribution metrics will return both ingested and indexed custom metric volumes. For Metrics without Limits&trade; beta customers, all metrics will return both ingested/indexed volumes. Custom metrics generated in-app from other products will return `null` for ingested volumes.
+    # View distinct metrics volumes for the given metric name.
+    # 
+    # Custom distribution metrics will return both ingested and indexed custom metric volumes.
+    # For Metrics without Limits&trade; beta customers, all metrics will return both ingested/indexed volumes.
+    # Custom metrics generated in-app from other products will return `null` for ingested volumes.
     # @param metric_name [String] The name of the metric.
     # @param [Hash] opts the optional parameters
     # @return [MetricVolumesResponse]
@@ -418,7 +433,11 @@ module DatadogAPIClient::V2
     end
 
     # List distinct metric volumes by metric name
-    # View distinct metrics volumes for the given metric name.  Custom distribution metrics will return both ingested and indexed custom metric volumes. For Metrics without Limits&amp;trade; beta customers, all metrics will return both ingested/indexed volumes. Custom metrics generated in-app from other products will return &#x60;null&#x60; for ingested volumes.
+    # View distinct metrics volumes for the given metric name.
+    # 
+    # Custom distribution metrics will return both ingested and indexed custom metric volumes.
+    # For Metrics without Limits&trade; beta customers, all metrics will return both ingested/indexed volumes.
+    # Custom metrics generated in-app from other products will return `null` for ingested volumes.
     # @param metric_name [String] The name of the metric.
     # @param [Hash] opts the optional parameters
     # @return [Array<(MetricVolumesResponse, Integer, Hash)>] MetricVolumesResponse data, response status code and response headers
@@ -441,7 +460,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'metric_name' when calling MetricsAPI.list_volumes_by_metric_name"
       end
       # resource path
-      local_var_path = '/api/v2/metrics/{metric_name}/volumes'.sub('{' + 'metric_name' + '}', CGI.escape(metric_name.to_s))
+      local_var_path = '/api/v2/metrics/{metric_name}/volumes'.sub('{metric_name}', CGI.escape(metric_name.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -461,7 +480,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'MetricVolumesResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_volumes_by_metric_name,
@@ -481,7 +500,9 @@ module DatadogAPIClient::V2
     end
 
     # Update a tag configuration
-    # Update the tag configuration of a metric or percentile aggregations of a distribution metric or custom aggregations of a count, rate, or gauge metric. Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
+    # Update the tag configuration of a metric or percentile aggregations of a distribution metric or custom aggregations
+    # of a count, rate, or gauge metric.
+    # Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
     # @param metric_name [String] The name of the metric.
     # @param body [MetricTagConfigurationUpdateRequest] 
     # @param [Hash] opts the optional parameters
@@ -492,7 +513,9 @@ module DatadogAPIClient::V2
     end
 
     # Update a tag configuration
-    # Update the tag configuration of a metric or percentile aggregations of a distribution metric or custom aggregations of a count, rate, or gauge metric. Can only be used with application keys from users with the &#x60;Manage Tags for Metrics&#x60; permission.
+    # Update the tag configuration of a metric or percentile aggregations of a distribution metric or custom aggregations
+    # of a count, rate, or gauge metric.
+    # Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
     # @param metric_name [String] The name of the metric.
     # @param body [MetricTagConfigurationUpdateRequest] 
     # @param [Hash] opts the optional parameters
@@ -520,7 +543,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'body' when calling MetricsAPI.update_tag_configuration"
       end
       # resource path
-      local_var_path = '/api/v2/metrics/{metric_name}/tags'.sub('{' + 'metric_name' + '}', CGI.escape(metric_name.to_s))
+      local_var_path = '/api/v2/metrics/{metric_name}/tags'.sub('{metric_name}', CGI.escape(metric_name.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}

@@ -22,8 +22,12 @@ module DatadogAPIClient::V2
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Create a security filter
-    # Create a security filter.  See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/) for more examples.
+    # Create a security filter.
+    # 
+    # See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/)
+    # for more examples.
     # @param body [SecurityFilterCreateRequest] The definition of the new security filter.
     # @param [Hash] opts the optional parameters
     # @return [SecurityFilterResponse]
@@ -33,7 +37,10 @@ module DatadogAPIClient::V2
     end
 
     # Create a security filter
-    # Create a security filter.  See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/) for more examples.
+    # Create a security filter.
+    # 
+    # See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/)
+    # for more examples.
     # @param body [SecurityFilterCreateRequest] The definition of the new security filter.
     # @param [Hash] opts the optional parameters
     # @return [Array<(SecurityFilterResponse, Integer, Hash)>] SecurityFilterResponse data, response status code and response headers
@@ -78,7 +85,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SecurityFilterResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_security_filter,
@@ -153,7 +160,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SecurityMonitoringRuleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_security_monitoring_rule,
@@ -206,7 +213,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'security_filter_id' when calling SecurityMonitoringAPI.delete_security_filter"
       end
       # resource path
-      local_var_path = '/api/v2/security_monitoring/configuration/security_filters/{security_filter_id}'.sub('{' + 'security_filter_id' + '}', CGI.escape(security_filter_id.to_s))
+      local_var_path = '/api/v2/security_monitoring/configuration/security_filters/{security_filter_id}'.sub('{security_filter_id}', CGI.escape(security_filter_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -214,7 +221,7 @@ module DatadogAPIClient::V2
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -226,7 +233,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_security_filter,
@@ -279,7 +286,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'rule_id' when calling SecurityMonitoringAPI.delete_security_monitoring_rule"
       end
       # resource path
-      local_var_path = '/api/v2/security_monitoring/rules/{rule_id}'.sub('{' + 'rule_id' + '}', CGI.escape(rule_id.to_s))
+      local_var_path = '/api/v2/security_monitoring/rules/{rule_id}'.sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -287,7 +294,7 @@ module DatadogAPIClient::V2
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -299,7 +306,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_security_monitoring_rule,
@@ -319,7 +326,10 @@ module DatadogAPIClient::V2
     end
 
     # Get a security filter
-    # Get the details of a specific security filter.  See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/) for more examples.
+    # Get the details of a specific security filter.
+    # 
+    # See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/)
+    # for more examples.
     # @param security_filter_id [String] The ID of the security filter.
     # @param [Hash] opts the optional parameters
     # @return [SecurityFilterResponse]
@@ -329,7 +339,10 @@ module DatadogAPIClient::V2
     end
 
     # Get a security filter
-    # Get the details of a specific security filter.  See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/) for more examples.
+    # Get the details of a specific security filter.
+    # 
+    # See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/)
+    # for more examples.
     # @param security_filter_id [String] The ID of the security filter.
     # @param [Hash] opts the optional parameters
     # @return [Array<(SecurityFilterResponse, Integer, Hash)>] SecurityFilterResponse data, response status code and response headers
@@ -352,7 +365,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'security_filter_id' when calling SecurityMonitoringAPI.get_security_filter"
       end
       # resource path
-      local_var_path = '/api/v2/security_monitoring/configuration/security_filters/{security_filter_id}'.sub('{' + 'security_filter_id' + '}', CGI.escape(security_filter_id.to_s))
+      local_var_path = '/api/v2/security_monitoring/configuration/security_filters/{security_filter_id}'.sub('{security_filter_id}', CGI.escape(security_filter_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -372,7 +385,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SecurityFilterResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_security_filter,
@@ -401,8 +414,8 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get a rule&#39;s details
-    # Get a rule&#39;s details.
+    # Get a rule's details
+    # Get a rule's details.
     # @param rule_id [String] The ID of the rule.
     # @param [Hash] opts the optional parameters
     # @return [Array<(SecurityMonitoringRuleResponse, Integer, Hash)>] SecurityMonitoringRuleResponse data, response status code and response headers
@@ -425,7 +438,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'rule_id' when calling SecurityMonitoringAPI.get_security_monitoring_rule"
       end
       # resource path
-      local_var_path = '/api/v2/security_monitoring/rules/{rule_id}'.sub('{' + 'rule_id' + '}', CGI.escape(rule_id.to_s))
+      local_var_path = '/api/v2/security_monitoring/rules/{rule_id}'.sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -445,7 +458,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SecurityMonitoringRuleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_security_monitoring_rule,
@@ -512,7 +525,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SecurityFiltersResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_security_filters,
@@ -534,8 +547,8 @@ module DatadogAPIClient::V2
     # List rules
     # List rules.
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. (default to 10)
-    # @option opts [Integer] :page_number Specific page number to return. (default to 0)
+    # @option opts [Integer] :page_size Size for a given page.
+    # @option opts [Integer] :page_number Specific page number to return.
     # @return [SecurityMonitoringListRulesResponse]
     def list_security_monitoring_rules(opts = {})
       data, _status_code, _headers = list_security_monitoring_rules_with_http_info(opts)
@@ -585,7 +598,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SecurityMonitoringListRulesResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_security_monitoring_rules,
@@ -605,14 +618,16 @@ module DatadogAPIClient::V2
     end
 
     # Get a quick list of security signals
-    # The list endpoint returns security signals that match a search query. Both this endpoint and the POST endpoint can be used interchangeably when listing security signals.
+    # The list endpoint returns security signals that match a search query.
+    # Both this endpoint and the POST endpoint can be used interchangeably when listing
+    # security signals.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter_query The search query for security signals.
     # @option opts [Time] :filter_from The minimum timestamp for requested security signals.
     # @option opts [Time] :filter_to The maximum timestamp for requested security signals.
     # @option opts [SecurityMonitoringSignalsSort] :sort The order of the security signals in results.
     # @option opts [String] :page_cursor A list of results using the cursor provided in the previous query.
-    # @option opts [Integer] :page_limit The maximum number of security signals in the response. (default to 10)
+    # @option opts [Integer] :page_limit The maximum number of security signals in the response.
     # @return [SecurityMonitoringSignalsListResponse]
     def list_security_monitoring_signals(opts = {})
       data, _status_code, _headers = list_security_monitoring_signals_with_http_info(opts)
@@ -620,7 +635,9 @@ module DatadogAPIClient::V2
     end
 
     # Get a quick list of security signals
-    # The list endpoint returns security signals that match a search query. Both this endpoint and the POST endpoint can be used interchangeably when listing security signals.
+    # The list endpoint returns security signals that match a search query.
+    # Both this endpoint and the POST endpoint can be used interchangeably when listing
+    # security signals.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter_query The search query for security signals.
     # @option opts [Time] :filter_from The minimum timestamp for requested security signals.
@@ -643,10 +660,6 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_security_monitoring_signals ...'
       end
-      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 1000
-        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling SecurityMonitoringAPI.list_security_monitoring_signals, must be smaller than or equal to 1000.'
-      end
-
       # resource path
       local_var_path = '/api/v2/security_monitoring/signals'
 
@@ -674,7 +687,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SecurityMonitoringSignalsListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_security_monitoring_signals,
@@ -694,7 +707,9 @@ module DatadogAPIClient::V2
     end
 
     # Get a list of security signals
-    # Returns security signals that match a search query. Both this endpoint and the GET endpoint can be used interchangeably for listing security signals.
+    # Returns security signals that match a search query.
+    # Both this endpoint and the GET endpoint can be used interchangeably for listing
+    # security signals.
     # @param [Hash] opts the optional parameters
     # @option opts [SecurityMonitoringSignalListRequest] :body 
     # @return [SecurityMonitoringSignalsListResponse]
@@ -704,7 +719,9 @@ module DatadogAPIClient::V2
     end
 
     # Get a list of security signals
-    # Returns security signals that match a search query. Both this endpoint and the GET endpoint can be used interchangeably for listing security signals.
+    # Returns security signals that match a search query.
+    # Both this endpoint and the GET endpoint can be used interchangeably for listing
+    # security signals.
     # @param [Hash] opts the optional parameters
     # @option opts [SecurityMonitoringSignalListRequest] :body 
     # @return [Array<(SecurityMonitoringSignalsListResponse, Integer, Hash)>] SecurityMonitoringSignalsListResponse data, response status code and response headers
@@ -745,7 +762,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SecurityMonitoringSignalsListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :search_security_monitoring_signals,
@@ -765,7 +782,8 @@ module DatadogAPIClient::V2
     end
 
     # Update a security filter
-    # Update a specific security filter. Returns the security filter object when the request is successful.
+    # Update a specific security filter.
+    # Returns the security filter object when the request is successful.
     # @param security_filter_id [String] The ID of the security filter.
     # @param body [SecurityFilterUpdateRequest] New definition of the security filter.
     # @param [Hash] opts the optional parameters
@@ -776,7 +794,8 @@ module DatadogAPIClient::V2
     end
 
     # Update a security filter
-    # Update a specific security filter. Returns the security filter object when the request is successful.
+    # Update a specific security filter.
+    # Returns the security filter object when the request is successful.
     # @param security_filter_id [String] The ID of the security filter.
     # @param body [SecurityFilterUpdateRequest] New definition of the security filter.
     # @param [Hash] opts the optional parameters
@@ -804,7 +823,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.update_security_filter"
       end
       # resource path
-      local_var_path = '/api/v2/security_monitoring/configuration/security_filters/{security_filter_id}'.sub('{' + 'security_filter_id' + '}', CGI.escape(security_filter_id.to_s))
+      local_var_path = '/api/v2/security_monitoring/configuration/security_filters/{security_filter_id}'.sub('{security_filter_id}', CGI.escape(security_filter_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -826,7 +845,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SecurityFilterResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_security_filter,
@@ -846,7 +865,9 @@ module DatadogAPIClient::V2
     end
 
     # Update an existing rule
-    # Update an existing rule. When updating `cases`, `queries` or `options`, the whole field must be included. For example, when modifying a query all queries must be included. Default rules can only be updated to be enabled and to change notifications.
+    # Update an existing rule. When updating `cases`, `queries` or `options`, the whole field
+    # must be included. For example, when modifying a query all queries must be included.
+    # Default rules can only be updated to be enabled and to change notifications.
     # @param rule_id [String] The ID of the rule.
     # @param body [SecurityMonitoringRuleUpdatePayload] 
     # @param [Hash] opts the optional parameters
@@ -857,7 +878,9 @@ module DatadogAPIClient::V2
     end
 
     # Update an existing rule
-    # Update an existing rule. When updating &#x60;cases&#x60;, &#x60;queries&#x60; or &#x60;options&#x60;, the whole field must be included. For example, when modifying a query all queries must be included. Default rules can only be updated to be enabled and to change notifications.
+    # Update an existing rule. When updating `cases`, `queries` or `options`, the whole field
+    # must be included. For example, when modifying a query all queries must be included.
+    # Default rules can only be updated to be enabled and to change notifications.
     # @param rule_id [String] The ID of the rule.
     # @param body [SecurityMonitoringRuleUpdatePayload] 
     # @param [Hash] opts the optional parameters
@@ -885,7 +908,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.update_security_monitoring_rule"
       end
       # resource path
-      local_var_path = '/api/v2/security_monitoring/rules/{rule_id}'.sub('{' + 'rule_id' + '}', CGI.escape(rule_id.to_s))
+      local_var_path = '/api/v2/security_monitoring/rules/{rule_id}'.sub('{rule_id}', CGI.escape(rule_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -907,7 +930,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'SecurityMonitoringRuleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_security_monitoring_rule,
