@@ -2,7 +2,8 @@
   # {{{.}}}
   {{/description}}
   class {{classname}}{{#parent}} < {{{.}}}{{/parent}}
-    # whether the object has unparsed attributes
+    # Whether the object has unparsed attributes
+    # @!visibility private
     attr_accessor :_unparsed
 
   {{#vars}}
@@ -37,6 +38,7 @@
 
 {{/hasEnums}}
     # Attribute mapping from ruby-style variable name to JSON key.
+    # @!visibility private
     def self.attribute_map
       {
         {{#vars}}
@@ -46,6 +48,7 @@
     end
 
     # Returns all the JSON keys this model knows about{{#parent}}, including the ones defined in its parent(s){{/parent}}
+    # @!visibility private
     def self.acceptable_attributes
       {{^parent}}
       attribute_map.values
@@ -56,6 +59,7 @@
     end
 
     # Attribute type mapping.
+    # @!visibility private
     def self.openapi_types
       {
         {{#vars}}
@@ -65,6 +69,7 @@
     end
 
     # List of attributes with nullable: true
+    # @!visibility private
     def self.openapi_nullable
       Set.new([
         {{#vars}}
@@ -111,7 +116,7 @@
     {{/propertyName}}
     {{/discriminator}}
     # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `{{{moduleName}}}::{{{classname}}}` initialize method"
@@ -154,6 +159,7 @@
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
+    # @!visibility private
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = {{^parent}}Array.new{{/parent}}{{#parent}}super{{/parent}}
@@ -217,6 +223,7 @@
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
+    # @!visibility private
     def valid?
       {{#vars}}
       {{^isNullable}}
@@ -277,7 +284,7 @@
     {{#isEnum}}
     {{^isContainer}}
     # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] {{{name}}} Object to be assigned
+    # @param {{{name}}} [Object] {{{name}}} Object to be assigned
     def {{{name}}}=({{{name}}})
       validator = EnumAttributeValidator.new('{{{dataType}}}', [{{#allowableValues}}{{#enumVars}}{{{value}}}{{^-last}}, {{/-last}}{{/enumVars}}{{/allowableValues}}])
       unless validator.valid?({{{name}}})
@@ -291,7 +298,7 @@
     {{^isEnum}}
     {{#hasValidation}}
     # Custom attribute writer method with validation
-    # @param [Object] {{{name}}} Value to be assigned
+    # @param {{{name}}} [Object] {{{name}}} Value to be assigned
     def {{{name}}}=({{{name}}})
       {{^isNullable}}
       {{#required}}
@@ -351,7 +358,8 @@
     {{/isEnum}}
     {{/vars}}
     # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
+    # @param o [Object] Object to be compared
+    # @!visibility private
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class{{#vars}} &&
@@ -359,13 +367,15 @@
     end
 
     # @see the `==` method
-    # @param [Object] Object to be compared
+    # @param o [Object] Object to be compared
+    # @!visibility private
     def eql?(o)
       self == o
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
+    # @!visibility private
     def hash
       [{{#vars}}{{name}}{{^-last}}, {{/-last}}{{/vars}}].hash
     end

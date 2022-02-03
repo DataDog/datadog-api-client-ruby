@@ -19,7 +19,8 @@ require 'time'
 module DatadogAPIClient::V1
   # Object representing an event.
   class EventCreateRequest
-    # whether the object has unparsed attributes
+    # Whether the object has unparsed attributes
+    # @!visibility private
     attr_accessor :_unparsed
 
     # An arbitrary string to use for aggregation. Limited to 100 characters. If you specify a key, all events using that key are grouped together in the Event Stream.
@@ -54,6 +55,7 @@ module DatadogAPIClient::V1
     attr_accessor :title
 
     # Attribute mapping from ruby-style variable name to JSON key.
+    # @!visibility private
     def self.attribute_map
       {
         :'aggregation_key' => :'aggregation_key',
@@ -71,11 +73,13 @@ module DatadogAPIClient::V1
     end
 
     # Returns all the JSON keys this model knows about
+    # @!visibility private
     def self.acceptable_attributes
       attribute_map.values
     end
 
     # Attribute type mapping.
+    # @!visibility private
     def self.openapi_types
       {
         :'aggregation_key' => :'String',
@@ -93,13 +97,14 @@ module DatadogAPIClient::V1
     end
 
     # List of attributes with nullable: true
+    # @!visibility private
     def self.openapi_nullable
       Set.new([
       ])
     end
 
     # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::EventCreateRequest` initialize method"
@@ -161,6 +166,7 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
+    # @!visibility private
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
@@ -185,6 +191,7 @@ module DatadogAPIClient::V1
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
+    # @!visibility private
     def valid?
       return false if !@aggregation_key.nil? && @aggregation_key.to_s.length > 100
       return false if @text.nil?
@@ -194,7 +201,7 @@ module DatadogAPIClient::V1
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] aggregation_key Value to be assigned
+    # @param aggregation_key [Object] aggregation_key Value to be assigned
     def aggregation_key=(aggregation_key)
       if !aggregation_key.nil? && aggregation_key.to_s.length > 100
         fail ArgumentError, 'invalid value for "aggregation_key", the character length must be smaller than or equal to 100.'
@@ -204,7 +211,7 @@ module DatadogAPIClient::V1
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] text Value to be assigned
+    # @param text [Object] text Value to be assigned
     def text=(text)
       if text.nil?
         fail ArgumentError, 'text cannot be nil'
@@ -218,7 +225,8 @@ module DatadogAPIClient::V1
     end
 
     # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
+    # @param o [Object] Object to be compared
+    # @!visibility private
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
@@ -236,27 +244,31 @@ module DatadogAPIClient::V1
     end
 
     # @see the `==` method
-    # @param [Object] Object to be compared
+    # @param o [Object] Object to be compared
+    # @!visibility private
     def eql?(o)
       self == o
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
+    # @!visibility private
     def hash
       [aggregation_key, alert_type, date_happened, device_name, host, priority, related_event_id, source_type_name, tags, text, title].hash
     end
 
     # Builds the object from hash
-    # @param [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
+    # @!visibility private
     def self.build_from_hash(attributes)
       new.build_from_hash(attributes)
     end
 
     # Builds the object from hash
-    # @param [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
+    # @!visibility private
     def build_from_hash(attributes)
       return nil unless attributes.is_a?(Hash)
       self.class.openapi_types.each_pair do |key, type|
@@ -277,9 +289,10 @@ module DatadogAPIClient::V1
     end
 
     # Deserializes the data based on type
-    # @param string type Data type
-    # @param string value Value to be deserialized
+    # @param type [string] Data type
+    # @param value [string] Value to be deserialized
     # @return [Object] Deserialized data
+    # @!visibility private
     def _deserialize(type, value)
       case type.to_sym
       when :Time
@@ -328,18 +341,21 @@ module DatadogAPIClient::V1
 
     # Returns the string representation of the object
     # @return [String] String presentation of the object
+    # @!visibility private
     def to_s
       to_hash.to_s
     end
 
     # to_body is an alias to to_hash (backward compatibility)
     # @return [Hash] Returns the object in the form of hash
+    # @!visibility private
     def to_body
       to_hash
     end
 
     # Returns the object in the form of hash
     # @return [Hash] Returns the object in the form of hash
+    # @!visibility private
     def to_hash
       hash = {}
       self.class.attribute_map.each_pair do |attr, param|
@@ -356,8 +372,9 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param [Object] value Any valid value
+    # @param value [Object] value Any valid value
     # @return [Hash] Returns the value in the form of hash
+    # @!visibility private
     def _to_hash(value)
       if value.is_a?(Array)
         value.compact.map { |v| _to_hash(v) }

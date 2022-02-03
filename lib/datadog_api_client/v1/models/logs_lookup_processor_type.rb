@@ -21,18 +21,21 @@ module DatadogAPIClient::V1
     LOOKUP_PROCESSOR = "lookup-processor".freeze
 
     # Builds the enum from string
-    # @param [String] The enum value in the form of the string
+    # @param value [String] The enum value in the form of the string
     # @return [String] The enum value
+    # @!visibility private
     def self.build_from_hash(value)
       new.build_from_hash(value)
     end
 
     # Builds the enum from string
-    # @param [String] The enum value in the form of the string
+    # @param value [String] The enum value in the form of the string
     # @return [String] The enum value
+    # @!visibility private
     def build_from_hash(value)
       constantValues = LogsLookupProcessorType.constants.select { |c| LogsLookupProcessorType::const_get(c) == value }
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
+
 end

@@ -53,18 +53,21 @@ module DatadogAPIClient::V1
     UPLOAD_FILES_NAME = "UPLOAD_FILES_NAME".freeze
 
     # Builds the enum from string
-    # @param [String] The enum value in the form of the string
+    # @param value [String] The enum value in the form of the string
     # @return [String] The enum value
+    # @!visibility private
     def self.build_from_hash(value)
       new.build_from_hash(value)
     end
 
     # Builds the enum from string
-    # @param [String] The enum value in the form of the string
+    # @param value [String] The enum value in the form of the string
     # @return [String] The enum value
+    # @!visibility private
     def build_from_hash(value)
       constantValues = SyntheticsBrowserTestFailureCode.constants.select { |c| SyntheticsBrowserTestFailureCode::const_get(c) == value }
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
+
 end
