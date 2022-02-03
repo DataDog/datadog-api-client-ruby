@@ -1,6 +1,6 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
-location_id = "location_id_example" # String | The ID of the private location.
+location_id = 'location_id_example' # String | The ID of the private location.
 
 begin
   # Delete a private location

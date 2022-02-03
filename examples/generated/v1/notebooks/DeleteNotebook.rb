@@ -1,4 +1,4 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::NotebooksAPI.new
 notebook_id = 789 # Integer | Unique ID, assigned when you create the notebook.
 

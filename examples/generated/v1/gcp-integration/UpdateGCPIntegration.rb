@@ -1,4 +1,4 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::GCPIntegrationAPI.new
 body = DatadogAPIClient::V1::GCPAccount.new # GCPAccount | Update a Datadog-GCP integration.
 

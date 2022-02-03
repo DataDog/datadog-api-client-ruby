@@ -1,6 +1,6 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
-body = DatadogAPIClient::V1::SyntheticsPrivateLocation.new({ description: "Description of private location", name: "New private location", tags: ["team:front"] }) # SyntheticsPrivateLocation | Details of the private location to create.
+body = DatadogAPIClient::V1::SyntheticsPrivateLocation.new({description: 'Description of private location', name: 'New private location', tags: ['team:front']}) # SyntheticsPrivateLocation | Details of the private location to create.
 
 begin
   # Create a private location

@@ -1,6 +1,6 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::LogsMetricsAPI.new
-metric_id = "metric_id_example" # String | The name of the log-based metric.
+metric_id = 'metric_id_example' # String | The name of the log-based metric.
 
 begin
   # Get a log-based metric

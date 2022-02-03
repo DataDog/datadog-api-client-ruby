@@ -1,4 +1,4 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::MonitorsAPI.new
 monitor_ids = [3.56] # Array<Integer> | The IDs of the monitor to check.
 
