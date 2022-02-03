@@ -92,6 +92,9 @@ module DatadogAPIClient::V1
     # The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
     attr_accessor :timeout_h
 
+    # List of requests that can be used in the monitor query. **This feature is currently in beta.**
+    attr_accessor :variables
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
@@ -119,7 +122,8 @@ module DatadogAPIClient::V1
         :'synthetics_check_id' => :'synthetics_check_id',
         :'threshold_windows' => :'threshold_windows',
         :'thresholds' => :'thresholds',
-        :'timeout_h' => :'timeout_h'
+        :'timeout_h' => :'timeout_h',
+        :'variables' => :'variables'
       }
     end
 
@@ -156,7 +160,8 @@ module DatadogAPIClient::V1
         :'synthetics_check_id' => :'String',
         :'threshold_windows' => :'MonitorThresholdWindowOptions',
         :'thresholds' => :'MonitorThresholds',
-        :'timeout_h' => :'Integer'
+        :'timeout_h' => :'Integer',
+        :'variables' => :'Array<MonitorFormulaAndFunctionQueryDefinition>'
       }
     end
 
@@ -174,7 +179,7 @@ module DatadogAPIClient::V1
         :'renotify_occurrences',
         :'renotify_statuses',
         :'synthetics_check_id',
-        :'timeout_h'
+        :'timeout_h',
       ])
     end
 
@@ -308,6 +313,12 @@ module DatadogAPIClient::V1
       if attributes.key?(:'timeout_h')
         self.timeout_h = attributes[:'timeout_h']
       end
+
+      if attributes.key?(:'variables')
+        if (value = attributes[:'variables']).is_a?(Array)
+          self.variables = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -378,7 +389,8 @@ module DatadogAPIClient::V1
           synthetics_check_id == o.synthetics_check_id &&
           threshold_windows == o.threshold_windows &&
           thresholds == o.thresholds &&
-          timeout_h == o.timeout_h
+          timeout_h == o.timeout_h &&
+          variables == o.variables
     end
 
     # @see the `==` method
@@ -392,7 +404,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation, device_ids, enable_logs_sample, escalation_message, evaluation_delay, groupby_simple_monitor, include_tags, locked, min_failure_duration, min_location_failed, new_group_delay, new_host_delay, no_data_timeframe, notify_audit, notify_no_data, renotify_interval, renotify_occurrences, renotify_statuses, require_full_window, silenced, synthetics_check_id, threshold_windows, thresholds, timeout_h].hash
+      [aggregation, device_ids, enable_logs_sample, escalation_message, evaluation_delay, groupby_simple_monitor, include_tags, locked, min_failure_duration, min_location_failed, new_group_delay, new_host_delay, no_data_timeframe, notify_audit, notify_no_data, renotify_interval, renotify_occurrences, renotify_statuses, require_full_window, silenced, synthetics_check_id, threshold_windows, thresholds, timeout_h, variables].hash
     end
 
     # Builds the object from hash
