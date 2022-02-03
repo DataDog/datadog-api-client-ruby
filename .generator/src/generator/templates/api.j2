@@ -63,7 +63,7 @@ module {{ config.moduleName }}
 
 {%- for name, parameter in operation|parameters %}
   {%- if parameter.required %}
-    {%- if not parameter.isNullable %}
+    {%- if not parameter.nullable %}
       # verify the required parameter '{{ name|attribute_name }}' is set
       if @api_client.config.client_side_validation && {{ name|attribute_name }}.nil?
         fail ArgumentError, "Missing the required parameter '{{ name|attribute_name }}' when calling {{classname}}.{{ operation.operationId|snake_case }}"
@@ -90,53 +90,51 @@ module {{ config.moduleName }}
       {%- endif %}
     {%- endif %}
 
-  {%- endif %}{#
-      {{#hasValidation}}
-      {{#maxLength}}
-      if @api_client.config.client_side_validation && {{^required}}!opts[:'{{ name|attribute_name }}'].nil? && {{/required}}{{#required}}{{ name|attribute_name }}{{/required}}{{^required}}opts[:'{{ name|attribute_name }}']{{/required}}.to_s.length > {{{maxLength}}}
-        fail ArgumentError, 'invalid value for "{{#required}}{{ name|attribute_name }}{{/required}}{{^required}}opts[:"{{ name|attribute_name }}"]{{/required}}" when calling {{classname}}.{{ operation.operationId }}, the character length must be smaller than or equal to {{{maxLength}}}.'
+  {%- endif %}
+  {%- if parameter.maxLength is defined %}
+      if @api_client.config.client_side_validation && {% if not parameter.required %}!opts[:'{{ name|attribute_name }}'].nil? && {% endif %}{% if parameter.required %}{{ name|attribute_name }}{% else %}opts[:'{{ name|attribute_name }}']{% endif %}.to_s.length > {{ parameter.maxLength }}
+        fail ArgumentError, 'invalid value for "{% if parameter.required %}{{ name|attribute_name }}{% else %}opts[:"{{ name|attribute_name }}"]{% endif %}" when calling {{classname}}.{{ operation.operationId }}, the character length must be smaller than or equal to {{ parameter.maxLength }}.'
       end
 
-      {{/maxLength}}
-      {{#minLength}}
-      if @api_client.config.client_side_validation && {{^required}}!opts[:'{{ name|attribute_name }}'].nil? && {{/required}}{{#required}}{{ name|attribute_name }}{{/required}}{{^required}}opts[:'{{ name|attribute_name }}']{{/required}}.to_s.length < {{{minLength}}}
-        fail ArgumentError, 'invalid value for "{{#required}}{{ name|attribute_name }}{{/required}}{{^required}}opts[:"{{ name|attribute_name }}"]{{/required}}" when calling {{classname}}.{{ operation.operationId }}, the character length must be great than or equal to {{{minLength}}}.'
+  {%- endif %}
+  {%- if parameter.minLength is defined %}
+      if @api_client.config.client_side_validation && {% if not parameter.required %}!opts[:'{{ name|attribute_name }}'].nil? && {% endif %}{% if parameter.required %}{{ name|attribute_name }}{% else %}opts[:'{{ name|attribute_name }}']{% endif %}.to_s.length < {{ parameter.minLength }}
+        fail ArgumentError, 'invalid value for "{% if parameter.required %}{{ name|attribute_name }}{% else %}opts[:"{{ name|attribute_name }}"]{% endif %}" when calling {{classname}}.{{ operation.operationId }}, the character length must be great than or equal to {{ parameter.minLength }}.'
       end
 
-      {{/minLength}}
-      {{#maximum}}
-      if @api_client.config.client_side_validation && {{^required}}!opts[:'{{ name|attribute_name }}'].nil? && {{/required}}{{#required}}{{ name|attribute_name }}{{/required}}{{^required}}opts[:'{{ name|attribute_name }}']{{/required}} >{{#exclusiveMaximum}}={{/exclusiveMaximum}} {{{maximum}}}
-        fail ArgumentError, 'invalid value for "{{#required}}{{ name|attribute_name }}{{/required}}{{^required}}opts[:"{{ name|attribute_name }}"]{{/required}}" when calling {{classname}}.{{ operation.operationId }}, must be smaller than {{^exclusiveMaximum}}or equal to {{/exclusiveMaximum}}{{{maximum}}}.'
+  {%- endif %}
+  {%- if parameter.maximum is defined %}
+      if @api_client.config.client_side_validation && {% if not parameter.required %}!opts[:'{{ name|attribute_name }}'].nil? && {% endif %}{% if parameter.required %}{{ name|attribute_name }}{% else %}opts[:'{{ name|attribute_name }}']{% endif %} >{% if parameter.exclusiveMaximum %}={% endif %} {{ parameter.maximum }}
+        fail ArgumentError, 'invalid value for "{% if parameter.required %}{{ name|attribute_name }}{% else %}opts[:"{{ name|attribute_name }}"]{% endif %}" when calling {{classname}}.{{ operation.operationId }}, must be smaller than {% if not parameter.exclusiveMaximum %}or equal to {% endif %}{{ parameter.maximum }}.'
       end
 
-      {{/maximum}}
-      {{#minimum}}
-      if @api_client.config.client_side_validation && {{^required}}!opts[:'{{ name|attribute_name }}'].nil? && {{/required}}{{#required}}{{ name|attribute_name }}{{/required}}{{^required}}opts[:'{{ name|attribute_name }}']{{/required}} <{{#exclusiveMinimum}}={{/exclusiveMinimum}} {{{minimum}}}
-        fail ArgumentError, 'invalid value for "{{#required}}{{ name|attribute_name }}{{/required}}{{^required}}opts[:"{{ name|attribute_name }}"]{{/required}}" when calling {{classname}}.{{ operation.operationId }}, must be greater than {{^exclusiveMinimum}}or equal to {{/exclusiveMinimum}}{{{minimum}}}.'
+  {%- endif %}
+  {%- if parameter.minimum is defined %}
+      if @api_client.config.client_side_validation && {% if not parameter.required %}!opts[:'{{ name|attribute_name }}'].nil? && {% endif %}{% if parameter.required %}{{ name|attribute_name }}{% else %}opts[:'{{ name|attribute_name }}']{% endif %} <{% if parameter.exclusiveMinimum %}={% endif %} {{ parameter.minimum }}
+        fail ArgumentError, 'invalid value for "{% if parameter.required %}{{ name|attribute_name }}{% else %}opts[:"{{ name|attribute_name }}"]{% endif %}" when calling {{classname}}.{{ operation.operationId }}, must be greater than {% if not parameter.exclusiveMinimum %}or equal to {% endif %}{{ parameter.minimum }}.'
       end
 
-      {{/minimum}}
-      {{#pattern}}
-      pattern = Regexp.new({{{pattern}}})
-      if @api_client.config.client_side_validation && {{^required}}!opts[:'{{ name|attribute_name }}'].nil? && {{/required}}{{#required}}{{ name|attribute_name }}{{/required}}{{^required}}opts[:'{{ name|attribute_name }}']{{/required}} !~ pattern
-        fail ArgumentError, "invalid value for '{{#required}}{{ name|attribute_name }}{{/required}}{{^required}}opts[:\"{{ name|attribute_name }}\"]{{/required}}' when calling {{classname}}.{{ operation.operationId }}, must conform to the pattern #{pattern}."
+  {%- endif %}
+  {%- if parameter.pattern is defined %}
+      pattern = Regexp.new({{ parameter.pattern }})
+      if @api_client.config.client_side_validation && {% if not parameter.required %}!opts[:'{{ name|attribute_name }}'].nil? && {% endif %}{% if parameter.required %}{{ name|attribute_name }}{% else %}opts[:'{{ name|attribute_name }}']{% endif %} !~ pattern
+        fail ArgumentError, "invalid value for '{% if parameter.required %}{{ name|attribute_name }}{% else %}opts[:\"{{ name|attribute_name }}\"]{% endif %}' when calling {{classname}}.{{ operation.operationId }}, must conform to the pattern #{pattern}."
       end
 
-      {{/pattern}}
-      {{#maxItems}}
-      if @api_client.config.client_side_validation && {{^required}}!opts[:'{{ name|attribute_name }}'].nil? && {{/required}}{{#required}}{{ name|attribute_name }}{{/required}}{{^required}}opts[:'{{ name|attribute_name }}']{{/required}}.length > {{{maxItems}}}
-        fail ArgumentError, 'invalid value for "{{#required}}{{ name|attribute_name }}{{/required}}{{^required}}opts[:"{{ name|attribute_name }}"]{{/required}}" when calling {{classname}}.{{ operation.operationId }}, number of items must be less than or equal to {{{maxItems}}}.'
+  {%- endif %}
+  {%- if parameter.maxItems is defined %}
+      if @api_client.config.client_side_validation && {% if not parameter.required %}!opts[:'{{ name|attribute_name }}'].nil? && {% endif %}{% if parameter.required %}{{ name|attribute_name }}{% else %}opts[:'{{ name|attribute_name }}']{% endif %}.length > {{ parameter.maxItems }}
+        fail ArgumentError, 'invalid value for "{% if parameter.required %}{{ name|attribute_name }}{% else %}opts[:"{{ name|attribute_name }}"]{% endif %}" when calling {{classname}}.{{ operation.operationId }}, number of items must be less than or equal to {{ parameter.maxItems }}.'
       end
 
-      {{/maxItems}}
-      {{#minItems}}
-      if @api_client.config.client_side_validation && {{^required}}!opts[:'{{ name|attribute_name }}'].nil? && {{/required}}{{#required}}{{ name|attribute_name }}{{/required}}{{^required}}opts[:'{{ name|attribute_name }}']{{/required}}.length < {{{minItems}}}
-        fail ArgumentError, 'invalid value for "{{#required}}{{ name|attribute_name }}{{/required}}{{^required}}opts[:"{{ name|attribute_name }}"]{{/required}}" when calling {{classname}}.{{ operation.operationId }}, number of items must be greater than or equal to {{{minItems}}}.'
+      {%- endif %}
+  {%- if parameter.minItems is defined %}
+      if @api_client.config.client_side_validation && {% if not parameter.required %}!opts[:'{{ name|attribute_name }}'].nil? && {% endif %}{% if parameter.required %}{{ name|attribute_name }}{% else %}opts[:'{{ name|attribute_name }}']{% endif %}.length < {{ parameter.minItems }}
+        fail ArgumentError, 'invalid value for "{% if parameter.required %}{{ name|attribute_name }}{% else %}opts[:"{{ name|attribute_name }}"]{% endif %}" when calling {{classname}}.{{ operation.operationId }}, number of items must be greater than or equal to {{ parameter.minItems }}.'
       end
 
-      {{/minItems}}
-      {{/hasValidation}}
-#}{%- endfor %}
+  {%- endif %}
+{%- endfor %}
       # resource path
       local_var_path = '{{ path }}'{% for parameter in operation.parameters if parameter.in == "path" %}.sub('{{ '{' }}{{ parameter.name }}{{ '}'}}', CGI.escape({{ parameter.name }}.to_s).gsub('%2F', '/')){% endfor %}
 
