@@ -162,7 +162,7 @@ module {{ config.moduleName }}
       {%- for name, parameter in operation|parameters if parameter.in == "header" and parameter.required %}
       header_params['{{ name }}'] = {% if parameter|collection_format %}@api_client.build_collection_param({{ name|attribute_name }}, :{{ parameter|collection_format }}){% else %}{ name|attribute_name }}{% endif %}
       {%- endfor %}
-      {%- for name, parameter in operation|parameters if parameter.in == "header" and parameter.required %}
+      {%- for name, parameter in operation|parameters if parameter.in == "header" and not parameter.required %}
       header_params['{{ name }}'] = {% if parameter|collection_format %}@api_client.build_collection_param(opts[:'{{ name|attribute_name }}'], :{{ parameter|collection_format }}){% else %}opts[:'{{ name|attribute_name }}']{% endif %} if !opts[:'{{ name|attribute_name }}'].nil?
       {%- endfor %}
 
@@ -171,7 +171,7 @@ module {{ config.moduleName }}
       {%- for name, parameter in operation|parameters if parameter.in == "form" and parameter.required %}
       form_params['{{baseName}}'] = {% if parameter|collection_format %}@api_client.build_collection_param({{ name|attribute_name }}, :{{ parameter|collection_format }}){% else %}{ name|attribute_name }}{% endif %}
       {%- endfor %}
-      {%- for name, parameter in operation|parameters if parameter.in == "form" and parameter.required %}
+      {%- for name, parameter in operation|parameters if parameter.in == "form" and not parameter.required %}
       form_params['{{baseName}}'] = {% if parameter|collection_format %}@api_client.build_collection_param(opts[:'{{ name|attribute_name }}'], :{{ parameter|collection_format }}){% else %}opts[:'{{ name|attribute_name }}']{% endif %} if !opts[:'{{ name|attribute_name }}'].nil?
       {%- endfor %}
 

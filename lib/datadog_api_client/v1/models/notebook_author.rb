@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Attributes of user object returned by the API.
   class NotebookAuthor
-    # whether the object has unparsed attributes
+    # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
@@ -93,7 +93,7 @@ module DatadogAPIClient::V1
     def self.openapi_nullable
       Set.new([
         :'name',
-        :'title'
+        :'title',
       ])
     end
 
@@ -206,7 +206,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)

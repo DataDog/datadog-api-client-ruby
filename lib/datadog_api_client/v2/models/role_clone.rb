@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Data for the clone role request.
   class RoleClone
-    # whether the object has unparsed attributes
+    # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
@@ -144,7 +144,7 @@ module DatadogAPIClient::V2
     end
 
     # Builds the object from hash
-    # @param [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)

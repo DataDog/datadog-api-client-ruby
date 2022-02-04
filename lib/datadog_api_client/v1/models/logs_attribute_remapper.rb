@@ -21,7 +21,7 @@ module DatadogAPIClient::V1
   # Constraints on the tag/attribute name are explained in the [Tag Best Practice documentation](https://docs.datadoghq.com/logs/guide/log-parsing-best-practice).
   # Some additional constraints are applied as `:` or `,` are not allowed in the target tag/attribute name.
   class LogsAttributeRemapper
-    # whether the object has unparsed attributes
+    # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
@@ -244,7 +244,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)

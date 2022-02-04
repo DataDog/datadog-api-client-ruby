@@ -31,7 +31,7 @@ module DatadogAPIClient::V1
   # - If the target attribute already exists, it is overwritten by the result of the template.
   # - Results of the template cannot exceed 256 characters.
   class LogsStringBuilderProcessor
-    # whether the object has unparsed attributes
+    # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
@@ -205,7 +205,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)

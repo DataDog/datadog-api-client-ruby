@@ -22,7 +22,7 @@ module DatadogAPIClient::V1
   # Downtime settings, which can be scheduled with start and end times,
   # prevent all alerting related to specified Datadog tags.
   class Downtime
-    # whether the object has unparsed attributes
+    # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
@@ -153,7 +153,7 @@ module DatadogAPIClient::V1
         :'monitor_id',
         :'parent_id',
         :'recurrence',
-        :'updater_id'
+        :'updater_id',
       ])
     end
 
@@ -310,7 +310,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)

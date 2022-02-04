@@ -24,7 +24,7 @@ module DatadogAPIClient::V1
   # 
   #   2. Use the Trace remapper processor to define a log attribute as its associated trace ID.
   class LogsTraceRemapper
-    # whether the object has unparsed attributes
+    # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
@@ -171,7 +171,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)

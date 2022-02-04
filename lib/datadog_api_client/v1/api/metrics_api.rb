@@ -405,6 +405,7 @@ module DatadogAPIClient::V1
       header_params['Accept'] = @api_client.select_header_accept(['text/json', 'application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['text/json'])
+      header_params['Content-Encoding'] = opts[:'content_encoding'] if !opts[:'content_encoding'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}

@@ -20,7 +20,7 @@ module DatadogAPIClient::V1
   # Set the boolean property enabled to enable or disable single sign on with SAML.
   # See the SAML documentation for more information about all SAML settings.
   class OrganizationSettingsSaml
-    # whether the object has unparsed attributes
+    # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
@@ -125,7 +125,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)

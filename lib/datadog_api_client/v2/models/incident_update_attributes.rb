@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The incident's attributes for an update request.
   class IncidentUpdateAttributes
-    # whether the object has unparsed attributes
+    # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
@@ -95,7 +95,7 @@ module DatadogAPIClient::V2
         :'customer_impact_end',
         :'customer_impact_start',
         :'detected',
-        :'resolved'
+        :'resolved',
       ])
     end
 
@@ -210,7 +210,7 @@ module DatadogAPIClient::V2
     end
 
     # Builds the object from hash
-    # @param [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)

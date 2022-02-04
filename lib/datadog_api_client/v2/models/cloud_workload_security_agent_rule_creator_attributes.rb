@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The attributes of the user who created the Agent rule.
   class CloudWorkloadSecurityAgentRuleCreatorAttributes
-    # whether the object has unparsed attributes
+    # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
@@ -134,7 +134,7 @@ module DatadogAPIClient::V2
     end
 
     # Builds the object from hash
-    # @param [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)

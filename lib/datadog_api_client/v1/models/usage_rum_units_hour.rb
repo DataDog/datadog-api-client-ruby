@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Number of RUM Units used for each hour for a given organization (data available as of November 1, 2021).
   class UsageRumUnitsHour
-    # whether the object has unparsed attributes
+    # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
@@ -72,7 +72,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_nullable
       Set.new([
-        :'rum_units'
+        :'rum_units',
       ])
     end
 
@@ -165,7 +165,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)

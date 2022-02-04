@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Cloud Security Posture Management usage for a given organization for a given hour.
   class UsageCloudSecurityPostureManagementHour
-    # whether the object has unparsed attributes
+    # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
@@ -91,7 +91,7 @@ module DatadogAPIClient::V1
         :'azure_host_count',
         :'compliance_host_count',
         :'container_count',
-        :'host_count'
+        :'host_count',
       ])
     end
 
@@ -199,7 +199,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)

@@ -20,7 +20,7 @@ module DatadogAPIClient::V2
   # The response object with all security signals matching the request
   # and pagination information.
   class SecurityMonitoringSignalsListResponse
-    # whether the object has unparsed attributes
+    # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
@@ -147,7 +147,7 @@ module DatadogAPIClient::V2
     end
 
     # Builds the object from hash
-    # @param [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)

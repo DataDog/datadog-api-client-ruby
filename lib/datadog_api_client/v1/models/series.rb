@@ -20,7 +20,7 @@ module DatadogAPIClient::V1
   # A metric to submit to Datadog.
   # See [Datadog metrics](https://docs.datadoghq.com/developers/metrics/#custom-metrics-properties).
   class Series
-    # whether the object has unparsed attributes
+    # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
@@ -78,7 +78,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_nullable
       Set.new([
-        :'interval'
+        :'interval',
       ])
     end
 
@@ -190,7 +190,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)

@@ -31,7 +31,7 @@ module DatadogAPIClient::V1
   # - The names of the categories must be unique.
   # - Once defined in the Category Processor, you can map categories to log status using the Log Status Remapper.
   class LogsCategoryProcessor
-    # whether the object has unparsed attributes
+    # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
@@ -195,7 +195,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)

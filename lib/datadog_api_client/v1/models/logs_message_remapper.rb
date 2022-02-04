@@ -24,7 +24,7 @@ module DatadogAPIClient::V1
   # **Note:** If multiple log message remapper processors can be applied to a given log,
   # only the first one (according to the pipeline order) is taken into account.
   class LogsMessageRemapper
-    # whether the object has unparsed attributes
+    # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
@@ -175,7 +175,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)

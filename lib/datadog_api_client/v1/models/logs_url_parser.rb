@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # This processor extracts query parameters and other important parameters from a URL.
   class LogsURLParser
-    # whether the object has unparsed attributes
+    # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
@@ -77,7 +77,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_nullable
       Set.new([
-        :'normalize_ending_slashes'
+        :'normalize_ending_slashes',
       ])
     end
 
@@ -199,7 +199,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)

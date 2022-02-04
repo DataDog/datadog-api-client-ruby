@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Global hourly report of all data billed by Datadog for a given organization.
   class UsageSummaryDateOrg
-    # whether the object has unparsed attributes
+    # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
@@ -694,7 +694,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)

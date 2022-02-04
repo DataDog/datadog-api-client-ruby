@@ -24,7 +24,7 @@ module DatadogAPIClient::V1
   # if the MAC address that just attempted to connect to the production
   # environment belongs to your list of stolen machines.
   class LogsLookupProcessor
-    # whether the object has unparsed attributes
+    # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
@@ -213,7 +213,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)

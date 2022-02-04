@@ -20,7 +20,7 @@ module DatadogAPIClient::V1
   # A dashboard is Datadog’s tool for visually tracking, analyzing, and displaying
   # key performance metrics, which enable you to monitor the health of your infrastructure.
   class Dashboard
-    # whether the object has unparsed attributes
+    # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
@@ -134,7 +134,7 @@ module DatadogAPIClient::V1
         :'description',
         :'notify_list',
         :'template_variable_presets',
-        :'template_variables'
+        :'template_variables',
       ])
     end
 
@@ -306,7 +306,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
