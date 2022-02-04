@@ -267,5 +267,4 @@ module DatadogAPIClient::V2
       end
     end
   end
-
 end
