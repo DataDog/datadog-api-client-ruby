@@ -61,6 +61,10 @@ def snake_case(value):
     return PATTERN_DOUBLE_UNDERSCORE.sub("_", s1)
 
 
+def block_comment(comment, prefix="#"):
+    return "\n".join(f"{prefix} {line}".rstrip() for line in comment.split("\n"))
+
+
 def camel_case(value):
     return "".join(x.title() for x in snake_case(value).split("_"))
 

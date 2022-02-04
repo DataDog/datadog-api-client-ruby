@@ -25,7 +25,7 @@ module DatadogAPIClient::V1
 
     # Create a user
     # Create a user for your organization.
-    # 
+    #
     # **Note**: Users can only be created with the admin access role
     # if application keys belong to administrators.
     # @param body [User] User object that needs to be created.
@@ -38,7 +38,7 @@ module DatadogAPIClient::V1
 
     # Create a user
     # Create a user for your organization.
-    # 
+    #
     # **Note**: Users can only be created with the admin access role
     # if application keys belong to administrators.
     # @param body [User] User object that needs to be created.
@@ -106,7 +106,7 @@ module DatadogAPIClient::V1
 
     # Disable a user
     # Delete a user from an organization.
-    # 
+    #
     # **Note**: This endpoint can only be used with application keys belonging to
     # administrators.
     # @param user_handle [String] The handle of the user.
@@ -119,7 +119,7 @@ module DatadogAPIClient::V1
 
     # Disable a user
     # Delete a user from an organization.
-    # 
+    #
     # **Note**: This endpoint can only be used with application keys belonging to
     # administrators.
     # @param user_handle [String] The handle of the user.
@@ -325,7 +325,7 @@ module DatadogAPIClient::V1
 
     # Update a user
     # Update a user information.
-    # 
+    #
     # **Note**: It can only be used with application keys belonging to administrators.
     # @param user_handle [String] The ID of the user.
     # @param body [User] Description of the update.
@@ -338,7 +338,7 @@ module DatadogAPIClient::V1
 
     # Update a user
     # Update a user information.
-    # 
+    #
     # **Note**: It can only be used with application keys belonging to administrators.
     # @param user_handle [String] The ID of the user.
     # @param body [User] Description of the update.

@@ -25,12 +25,12 @@ module DatadogAPIClient::V1
 
     # Create a child organization
     # Create a child organization.
-    # 
+    #
     # This endpoint requires the
     # [multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/)
     # feature and must be enabled by
     # [contacting support](https://docs.datadoghq.com/help/).
-    # 
+    #
     # Once a new child organization is created, you can interact with it
     # by using the `org.public_id`, `api_key.key`, and
     # `application_key.hash` provided in the response.
@@ -44,12 +44,12 @@ module DatadogAPIClient::V1
 
     # Create a child organization
     # Create a child organization.
-    # 
+    #
     # This endpoint requires the
     # [multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/)
     # feature and must be enabled by
     # [contacting support](https://docs.datadoghq.com/help/).
-    # 
+    #
     # Once a new child organization is created, you can interact with it
     # by using the `org.public_id`, `api_key.key`, and
     # `application_key.hash` provided in the response.
@@ -340,9 +340,9 @@ module DatadogAPIClient::V1
     # Upload IdP metadata
     # There are a couple of options for updating the Identity Provider (IdP)
     # metadata from your SAML IdP.
-    # 
+    #
     # * **Multipart Form-Data**: Post the IdP metadata file using a form post.
-    # 
+    #
     # * **XML Body:** Post the IdP metadata file as the body of the request.
     # @param public_id [String] The `public_id` of the organization you are operating with
     # @param idp_file [File] The path to the XML metadata file you wish to upload.
@@ -356,9 +356,9 @@ module DatadogAPIClient::V1
     # Upload IdP metadata
     # There are a couple of options for updating the Identity Provider (IdP)
     # metadata from your SAML IdP.
-    # 
+    #
     # * **Multipart Form-Data**: Post the IdP metadata file using a form post.
-    # 
+    #
     # * **XML Body:** Post the IdP metadata file as the body of the request.
     # @param public_id [String] The `public_id` of the organization you are operating with
     # @param idp_file [File] The path to the XML metadata file you wish to upload.

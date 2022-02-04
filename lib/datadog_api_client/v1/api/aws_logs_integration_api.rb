@@ -27,7 +27,7 @@ module DatadogAPIClient::V1
     # Test if permissions are present to add a log-forwarding triggers for the given services and AWS account. The input
     # is the same as for Enable an AWS service log collection. Subsequent requests will always repeat the above, so this
     # endpoint can be polled intermittently instead of blocking.
-    # 
+    #
     # - Returns a status of 'created' when it's checking if the Lambda exists in the account.
     # - Returns a status of 'waiting' while checking.
     # - Returns a status of 'checked and ok' if the Lambda exists.
@@ -44,7 +44,7 @@ module DatadogAPIClient::V1
     # Test if permissions are present to add a log-forwarding triggers for the given services and AWS account. The input
     # is the same as for Enable an AWS service log collection. Subsequent requests will always repeat the above, so this
     # endpoint can be polled intermittently instead of blocking.
-    # 
+    #
     # - Returns a status of 'created' when it's checking if the Lambda exists in the account.
     # - Returns a status of 'waiting' while checking.
     # - Returns a status of 'checked and ok' if the Lambda exists.
@@ -117,7 +117,7 @@ module DatadogAPIClient::V1
     # given services and AWS account. Input is the same as for `EnableAWSLogServices`.
     # Done async, so can be repeatedly polled in a non-blocking fashion until
     # the async request completes.
-    # 
+    #
     # - Returns a status of `created` when it's checking if the permissions exists
     #   in the AWS account.
     # - Returns a status of `waiting` while checking.
@@ -136,7 +136,7 @@ module DatadogAPIClient::V1
     # given services and AWS account. Input is the same as for `EnableAWSLogServices`.
     # Done async, so can be repeatedly polled in a non-blocking fashion until
     # the async request completes.
-    # 
+    #
     # - Returns a status of `created` when it's checking if the permissions exists
     #   in the AWS account.
     # - Returns a status of `waiting` while checking.

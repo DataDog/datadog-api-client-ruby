@@ -341,9 +341,9 @@ module DatadogAPIClient::V1
     # Submit metrics
     # The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards.
     # The maximum payload size is 3.2 megabytes (3200000 bytes). Compressed payloads must have a decompressed size of less than 62 megabytes (62914560 bytes).
-    # 
+    #
     # If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect:
-    # 
+    #
     # - 64 bits for the timestamp
     # - 32 bits for the value
     # - 20 bytes for the metric names
@@ -362,9 +362,9 @@ module DatadogAPIClient::V1
     # Submit metrics
     # The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards.
     # The maximum payload size is 3.2 megabytes (3200000 bytes). Compressed payloads must have a decompressed size of less than 62 megabytes (62914560 bytes).
-    # 
+    #
     # If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect:
-    # 
+    #
     # - 64 bits for the timestamp
     # - 32 bits for the value
     # - 20 bytes for the metric names

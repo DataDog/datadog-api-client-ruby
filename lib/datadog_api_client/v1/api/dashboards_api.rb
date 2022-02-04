@@ -323,7 +323,7 @@ module DatadogAPIClient::V1
 
     # Get all dashboards
     # Get all dashboards.
-    # 
+    #
     # **Note**: This query will only return custom created or cloned dashboards.
     # This query will not return preset dashboards.
     # @param opts [Hash] the optional parameters
@@ -337,7 +337,7 @@ module DatadogAPIClient::V1
 
     # Get all dashboards
     # Get all dashboards.
-    # 
+    #
     # **Note**: This query will only return custom created or cloned dashboards.
     # This query will not return preset dashboards.
     # @param opts [Hash] the optional parameters

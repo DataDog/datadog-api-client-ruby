@@ -310,7 +310,7 @@ module DatadogAPIClient::V1
     # Update an index
     # Update an index as identified by its name.
     # Returns the Index object passed in the request body when the request is successful.
-    # 
+    #
     # Using the `PUT` method updates your index’s configuration by **replacing**
     # your current configuration with the new one sent to your Datadog organization.
     # @param name [String] Name of the log index.
@@ -325,7 +325,7 @@ module DatadogAPIClient::V1
     # Update an index
     # Update an index as identified by its name.
     # Returns the Index object passed in the request body when the request is successful.
-    # 
+    #
     # Using the `PUT` method updates your index’s configuration by **replacing**
     # your current configuration with the new one sent to your Datadog organization.
     # @param name [String] Name of the log index.

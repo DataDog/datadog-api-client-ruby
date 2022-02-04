@@ -37,14 +37,15 @@ def cli(input, output):
 
     env.filters["accept_headers"] = openapi.accept_headers
     env.filters["attribute_name"] = formatter.attribute_name
+    env.filters["block_comment"] = formatter.block_comment
     env.filters["camel_case"] = formatter.camel_case
     env.filters["collection_format"] = openapi.collection_format
-    env.filters["format_value"] = formatter.format_value
     env.filters["format_server"] = openapi.format_server
+    env.filters["format_value"] = formatter.format_value
+    env.filters["parameter_schema"] = openapi.parameter_schema
     env.filters["parameters"] = openapi.parameters
     env.filters["return_type"] = openapi.return_type
     env.filters["snake_case"] = formatter.snake_case
-    env.filters["parameter_schema"] = openapi.parameter_schema
 
     env.globals["config"] = config
     env.globals["enumerate"] = enumerate

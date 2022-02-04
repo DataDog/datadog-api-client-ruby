@@ -394,7 +394,7 @@ module DatadogAPIClient::V1
 
     # Get a custom variable
     # Shows the content of the custom variable with the name `<CUSTOM_VARIABLE_NAME>`.
-    # 
+    #
     # If the custom variable is secret, the value does not return in the
     # response payload.
     # @param custom_variable_name [String] The name of the custom variable.
@@ -407,7 +407,7 @@ module DatadogAPIClient::V1
 
     # Get a custom variable
     # Shows the content of the custom variable with the name `<CUSTOM_VARIABLE_NAME>`.
-    # 
+    #
     # If the custom variable is secret, the value does not return in the
     # response payload.
     # @param custom_variable_name [String] The name of the custom variable.

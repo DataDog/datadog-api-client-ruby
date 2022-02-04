@@ -25,10 +25,10 @@ module DatadogAPIClient::V1
 
     # Create an Azure integration
     # Create a Datadog-Azure integration.
-    # 
+    #
     # Using the `POST` method updates your integration configuration by adding your new
     # configuration to the existing one in your Datadog organization.
-    # 
+    #
     # Using the `PUT` method updates your integration configuration by replacing your
     # current configuration with the new one sent to your Datadog organization.
     # @param body [AzureAccount] Create a Datadog-Azure integration for your Datadog account request body.
@@ -41,10 +41,10 @@ module DatadogAPIClient::V1
 
     # Create an Azure integration
     # Create a Datadog-Azure integration.
-    # 
+    #
     # Using the `POST` method updates your integration configuration by adding your new
     # configuration to the existing one in your Datadog organization.
-    # 
+    #
     # Using the `PUT` method updates your integration configuration by replacing your
     # current configuration with the new one sent to your Datadog organization.
     # @param body [AzureAccount] Create a Datadog-Azure integration for your Datadog account request body.

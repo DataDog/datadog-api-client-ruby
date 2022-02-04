@@ -17,9 +17,9 @@ module {{ config.moduleName }}
     {%- set httpMethod = method.upper() %}
     {%- set returnType = operation|return_type %}
 
-    # {{ operation.summary.rstrip()|replace('\n', '\n# ')|indent(4) }}
+    {{ operation.summary|block_comment|indent(4) }}
     {%- if operation.description %}
-    # {{ operation.description.rstrip()|replace('\n', '\n# ')|indent(4) }}
+    {{ operation.description|block_comment|indent(4) }}
     {%- endif %}
     {%- for name, parameter in operation|parameters if parameter.required %}
     # @param {{ name|attribute_name }} [{{ get_type_for_parameter(parameter) }}] {{ parameter.get("description", "").replace('\n', ' ') }}
@@ -34,9 +34,9 @@ module {{ config.moduleName }}
       {% if returnType %}data{% else %}nil{% endif %}
     end
 
-    # {{ operation.summary.rstrip()|replace('\n', '\n# ')|indent(4) }}
+    {{ operation.summary|block_comment|indent(4) }}
     {%- if operation.description %}
-    # {{ operation.description.rstrip()|replace('\n', '\n# ')|indent(4) }}
+    {{ operation.description|block_comment|indent(4) }}
     {%- endif %}
     {%- for name, parameter in operation|parameters if parameter.required %}
     # @param {{ name|attribute_name }} [{{ get_type_for_parameter(parameter) }}] {{ parameter.get("description", "").replace('\n', ' ') }}

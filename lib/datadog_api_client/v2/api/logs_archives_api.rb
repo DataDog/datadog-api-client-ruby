@@ -617,7 +617,7 @@ module DatadogAPIClient::V2
 
     # Update an archive
     # Update a given archive configuration.
-    # 
+    #
     # **Note**: Using this method updates your archive configuration by **replacing**
     # your current configuration with the new one sent to your Datadog organization.
     # @param archive_id [String] The ID of the archive.
@@ -631,7 +631,7 @@ module DatadogAPIClient::V2
 
     # Update an archive
     # Update a given archive configuration.
-    # 
+    #
     # **Note**: Using this method updates your archive configuration by **replacing**
     # your current configuration with the new one sent to your Datadog organization.
     # @param archive_id [String] The ID of the archive.
@@ -705,7 +705,7 @@ module DatadogAPIClient::V2
     # Update archive order
     # Update the order of your archives. Since logs are processed sequentially, reordering an archive may change
     # the structure and content of the data processed by other archives.
-    # 
+    #
     # **Note**: Using the `PUT` method updates your archive's order by replacing the current order
     # with the new one.
     # @param body [LogsArchiveOrder] An object containing the new ordered list of archive IDs.
@@ -719,7 +719,7 @@ module DatadogAPIClient::V2
     # Update archive order
     # Update the order of your archives. Since logs are processed sequentially, reordering an archive may change
     # the structure and content of the data processed by other archives.
-    # 
+    #
     # **Note**: Using the `PUT` method updates your archive's order by replacing the current order
     # with the new one.
     # @param body [LogsArchiveOrder] An object containing the new ordered list of archive IDs.
