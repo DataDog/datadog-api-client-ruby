@@ -58,6 +58,14 @@ module DatadogAPIClient::V1
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_daily_custom_reports ...'
       end
+      allowable_values = ['desc', 'asc']
+      if @api_client.config.client_side_validation && opts[:'sort_dir'] && !allowable_values.include?(opts[:'sort_dir'])
+        fail ArgumentError, "invalid value for \"sort_dir\", must be one of #{allowable_values}"
+      end
+      allowable_values = ['computed_on', 'size', 'start_date', 'end_date']
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
       # resource path
       local_var_path = '/api/v1/daily_custom_reports'
 
@@ -146,6 +154,11 @@ module DatadogAPIClient::V1
       # verify the required parameter 'usage_type' is set
       if @api_client.config.client_side_validation && usage_type.nil?
         fail ArgumentError, "Missing the required parameter 'usage_type' when calling UsageMeteringAPI.get_hourly_usage_attribution"
+      end
+      # verify enum value
+      allowable_values = ['api_usage', 'apm_host_usage', 'browser_usage', 'container_usage', 'custom_timeseries_usage', 'fargate_usage', 'functions_usage', 'indexed_logs_usage', 'infra_host_usage', 'invocations_usage', 'npm_host_usage', 'profiled_container_usage', 'profiled_host_usage', 'snmp_usage']
+      if @api_client.config.client_side_validation && !allowable_values.include?(usage_type)
+        fail ArgumentError, "invalid value for \"usage_type\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/api/v1/usage/hourly-attribution'
@@ -381,6 +394,14 @@ module DatadogAPIClient::V1
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_monthly_custom_reports ...'
       end
+      allowable_values = ['desc', 'asc']
+      if @api_client.config.client_side_validation && opts[:'sort_dir'] && !allowable_values.include?(opts[:'sort_dir'])
+        fail ArgumentError, "invalid value for \"sort_dir\", must be one of #{allowable_values}"
+      end
+      allowable_values = ['computed_on', 'size', 'start_date', 'end_date']
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
       # resource path
       local_var_path = '/api/v1/monthly_custom_reports'
 
@@ -473,6 +494,19 @@ module DatadogAPIClient::V1
       # verify the required parameter 'fields' is set
       if @api_client.config.client_side_validation && fields.nil?
         fail ArgumentError, "Missing the required parameter 'fields' when calling UsageMeteringAPI.get_monthly_usage_attribution"
+      end
+      # verify enum value
+      allowable_values = ['api_usage', 'api_percentage', 'apm_host_usage', 'apm_host_percentage', 'browser_usage', 'browser_percentage', 'container_usage', 'container_percentage', 'custom_timeseries_usage', 'custom_timeseries_percentage', 'fargate_usage', 'fargate_percentage', 'functions_usage', 'functions_percentage', 'indexed_logs_usage', 'indexed_logs_percentage', 'infra_host_usage', 'infra_host_percentage', 'invocations_usage', 'invocations_percentage', 'npm_host_usage', 'npm_host_percentage', 'profiled_container_usage', 'profiled_container_percentage', 'profiled_host_usage', 'profiled_host_percentage', 'snmp_usage', 'snmp_percentage', '*']
+      if @api_client.config.client_side_validation && !allowable_values.include?(fields)
+        fail ArgumentError, "invalid value for \"fields\", must be one of #{allowable_values}"
+      end
+      allowable_values = ['desc', 'asc']
+      if @api_client.config.client_side_validation && opts[:'sort_direction'] && !allowable_values.include?(opts[:'sort_direction'])
+        fail ArgumentError, "invalid value for \"sort_direction\", must be one of #{allowable_values}"
+      end
+      allowable_values = ['api_usage', 'api_percentage', 'apm_host_usage', 'apm_host_percentage', 'browser_usage', 'browser_percentage', 'container_usage', 'container_percentage', 'custom_timeseries_usage', 'custom_timeseries_percentage', 'fargate_usage', 'fargate_percentage', 'functions_usage', 'functions_percentage', 'indexed_logs_usage', 'indexed_logs_percentage', 'infra_host_usage', 'infra_host_percentage', 'invocations_usage', 'invocations_percentage', 'npm_host_usage', 'npm_host_percentage', 'profiled_container_usage', 'profiled_container_percentage', 'profiled_host_usage', 'profiled_host_percentage', 'snmp_usage', 'snmp_percentage', '*']
+      if @api_client.config.client_side_validation && opts[:'sort_name'] && !allowable_values.include?(opts[:'sort_name'])
+        fail ArgumentError, "invalid value for \"sort_name\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/api/v1/usage/monthly-attribution'
@@ -794,6 +828,19 @@ module DatadogAPIClient::V1
       # verify the required parameter 'fields' is set
       if @api_client.config.client_side_validation && fields.nil?
         fail ArgumentError, "Missing the required parameter 'fields' when calling UsageMeteringAPI.get_usage_attribution"
+      end
+      # verify enum value
+      allowable_values = ['custom_timeseries_usage', 'container_usage', 'snmp_percentage', 'apm_host_usage', 'browser_usage', 'npm_host_percentage', 'infra_host_usage', 'custom_timeseries_percentage', 'container_percentage', 'lambda_usage', 'api_usage', 'apm_host_percentage', 'infra_host_percentage', 'snmp_usage', 'browser_percentage', 'api_percentage', 'lambda_percentage', 'npm_host_usage', 'lambda_functions_usage', 'lambda_functions_percentage', 'lambda_invocations_usage', 'lambda_invocations_percentage', 'fargate_usage', 'fargate_percentage', 'profiled_host_usage', 'profiled_host_percentage', 'profiled_container_usage', 'profiled_container_percentage', 'dbm_hosts_usage', 'dbm_hosts_percentage', 'dbm_queries_usage', 'dbm_queries_percentage', 'estimated_indexed_logs_usage', 'estimated_indexed_logs_percentage', '*']
+      if @api_client.config.client_side_validation && !allowable_values.include?(fields)
+        fail ArgumentError, "invalid value for \"fields\", must be one of #{allowable_values}"
+      end
+      allowable_values = ['desc', 'asc']
+      if @api_client.config.client_side_validation && opts[:'sort_direction'] && !allowable_values.include?(opts[:'sort_direction'])
+        fail ArgumentError, "invalid value for \"sort_direction\", must be one of #{allowable_values}"
+      end
+      allowable_values = ['api_percentage', 'snmp_usage', 'apm_host_usage', 'api_usage', 'container_usage', 'custom_timeseries_percentage', 'container_percentage', 'apm_host_percentage', 'npm_host_percentage', 'browser_percentage', 'browser_usage', 'infra_host_percentage', 'snmp_percentage', 'npm_host_usage', 'infra_host_usage', 'custom_timeseries_usage', 'lambda_functions_usage', 'lambda_functions_percentage', 'lambda_invocations_usage', 'lambda_invocations_percentage', 'lambda_usage', 'lambda_percentage']
+      if @api_client.config.client_side_validation && opts[:'sort_name'] && !allowable_values.include?(opts[:'sort_name'])
+        fail ArgumentError, "invalid value for \"sort_name\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/api/v1/usage/attribution'
@@ -2806,6 +2853,12 @@ module DatadogAPIClient::V1
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_top_avg_metrics ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 5000
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UsageMeteringAPI.GetUsageTopAvgMetrics, must be smaller than or equal to 5000.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UsageMeteringAPI.GetUsageTopAvgMetrics, must be greater than or equal to 1.'
       end
       # resource path
       local_var_path = '/api/v1/usage/top_avg_metrics'

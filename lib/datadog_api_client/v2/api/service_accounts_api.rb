@@ -307,6 +307,10 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && service_account_id.nil?
         fail ArgumentError, "Missing the required parameter 'service_account_id' when calling ServiceAccountsAPI.list_service_account_application_keys"
       end
+      allowable_values = ['created_at', '-created_at', 'last4', '-last4', 'name', '-name']
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
       # resource path
       local_var_path = '/api/v2/service_accounts/{service_account_id}/application_keys'.sub('{service_account_id}', CGI.escape(service_account_id.to_s).gsub('%2F', '/'))
 

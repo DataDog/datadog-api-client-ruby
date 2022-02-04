@@ -246,6 +246,13 @@ module DatadogAPIClient::V1
       if @api_client.config.client_side_validation && _end.nil?
         fail ArgumentError, "Missing the required parameter '_end' when calling EventsAPI.list_events"
       end
+      allowable_values = ['normal', 'low']
+      if @api_client.config.client_side_validation && opts[:'priority'] && !allowable_values.include?(opts[:'priority'])
+        fail ArgumentError, "invalid value for \"priority\", must be one of #{allowable_values}"
+      end
+      if @api_client.config.client_side_validation && !opts[:'page'].nil? && opts[:'page'] > 2147483647
+        fail ArgumentError, 'invalid value for "opts[:"page"]" when calling EventsAPI.ListEvents, must be smaller than or equal to 2147483647.'
+      end
       # resource path
       local_var_path = '/api/v1/events'
 

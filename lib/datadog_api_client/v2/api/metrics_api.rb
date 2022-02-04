@@ -299,6 +299,10 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsAPI.list_tag_configurations ...'
       end
+      allowable_values = ['gauge', 'count', 'rate', 'distribution']
+      if @api_client.config.client_side_validation && opts[:'filter_metric_type'] && !allowable_values.include?(opts[:'filter_metric_type'])
+        fail ArgumentError, "invalid value for \"filter_metric_type\", must be one of #{allowable_values}"
+      end
       # resource path
       local_var_path = '/api/v2/metrics'
 

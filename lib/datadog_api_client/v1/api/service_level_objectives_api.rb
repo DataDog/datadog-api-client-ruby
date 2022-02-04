@@ -551,6 +551,12 @@ module DatadogAPIClient::V1
       if @api_client.config.client_side_validation && to_ts.nil?
         fail ArgumentError, "Missing the required parameter 'to_ts' when calling ServiceLevelObjectivesAPI.get_slo_history"
       end
+      if @api_client.config.client_side_validation && !opts[:'target'].nil? && opts[:'target'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"target"]" when calling ServiceLevelObjectivesAPI.GetSLOHistory, must be smaller than or equal to 100.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'target'].nil? && opts[:'target'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"target"]" when calling ServiceLevelObjectivesAPI.GetSLOHistory, must be greater than or equal to 0.'
+      end
       # resource path
       local_var_path = '/api/v1/slo/{slo_id}/history'.sub('{slo_id}', CGI.escape(slo_id.to_s).gsub('%2F', '/'))
 

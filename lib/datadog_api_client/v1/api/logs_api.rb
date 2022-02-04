@@ -183,6 +183,10 @@ module DatadogAPIClient::V1
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsAPI.submit_log ...'
       end
+      allowable_values = ['gzip', 'deflate']
+      if @api_client.config.client_side_validation && opts[:'content_encoding'] && !allowable_values.include?(opts[:'content_encoding'])
+        fail ArgumentError, "invalid value for \"content_encoding\", must be one of #{allowable_values}"
+      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling LogsAPI.submit_log"

@@ -585,6 +585,10 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsersAPI.list_users ...'
       end
+      allowable_values = ['asc', 'desc']
+      if @api_client.config.client_side_validation && opts[:'sort_dir'] && !allowable_values.include?(opts[:'sort_dir'])
+        fail ArgumentError, "invalid value for \"sort_dir\", must be one of #{allowable_values}"
+      end
       # resource path
       local_var_path = '/api/v2/users'
 

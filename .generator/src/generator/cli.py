@@ -44,6 +44,7 @@ def cli(input, output):
     env.filters["parameters"] = openapi.parameters
     env.filters["return_type"] = openapi.return_type
     env.filters["snake_case"] = formatter.snake_case
+    env.filters["parameter_schema"] = openapi.parameter_schema
 
     env.globals["config"] = config
     env.globals["enumerate"] = enumerate

@@ -250,6 +250,13 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsAPI.list_logs_get ...'
       end
+      allowable_values = ['timestamp', '-timestamp']
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling LogsAPI.ListLogsGet, must be smaller than or equal to 1000.'
+      end
       # resource path
       local_var_path = '/api/v2/logs/events'
 
@@ -373,6 +380,10 @@ module DatadogAPIClient::V2
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsAPI.submit_log ...'
+      end
+      allowable_values = ['gzip', 'deflate']
+      if @api_client.config.client_side_validation && opts[:'content_encoding'] && !allowable_values.include?(opts[:'content_encoding'])
+        fail ArgumentError, "invalid value for \"content_encoding\", must be one of #{allowable_values}"
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?

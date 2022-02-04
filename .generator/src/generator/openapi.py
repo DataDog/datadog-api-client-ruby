@@ -225,6 +225,16 @@ def parameters(operation):
         yield name, operation["requestBody"]
 
 
+def parameter_schema(parameter):
+    if "schema" in parameter:
+        return parameter["schema"]
+    if "content" in parameter:
+        for content in parameter.get("content", {}).values():
+            if "schema" in content:
+                return content["schema"]
+    raise ValueError(f"Unknown schema for parameter {parameter}")
+
+
 def return_type(operation):
     for response in operation.get("responses", {}).values():
         for content in response.get("content", {}).values():

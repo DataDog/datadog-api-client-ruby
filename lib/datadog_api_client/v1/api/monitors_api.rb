@@ -61,7 +61,7 @@ module DatadogAPIClient::V1
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'monitor_ids'] = @api_client.build_collection_param(monitor_ids, :csv)
+      query_params[:'monitor_ids'] = monitor_ids
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -682,6 +682,9 @@ module DatadogAPIClient::V1
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MonitorsAPI.list_monitors ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling MonitorsAPI.ListMonitors, must be smaller than or equal to 1000.'
       end
       # resource path
       local_var_path = '/api/v1/monitor'

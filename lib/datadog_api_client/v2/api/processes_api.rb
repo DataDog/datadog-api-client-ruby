@@ -62,6 +62,12 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProcessesAPI.list_processes ...'
       end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 10000
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling ProcessesAPI.ListProcesses, must be smaller than or equal to 10000.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling ProcessesAPI.ListProcesses, must be greater than or equal to 1.'
+      end
       # resource path
       local_var_path = '/api/v2/processes'
 

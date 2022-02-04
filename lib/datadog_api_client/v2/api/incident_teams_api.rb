@@ -208,6 +208,10 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && team_id.nil?
         fail ArgumentError, "Missing the required parameter 'team_id' when calling IncidentTeamsAPI.get_incident_team"
       end
+      allowable_values = ['users']
+      if @api_client.config.client_side_validation && opts[:'include'] && !allowable_values.include?(opts[:'include'])
+        fail ArgumentError, "invalid value for \"include\", must be one of #{allowable_values}"
+      end
       # resource path
       local_var_path = '/api/v2/teams/{team_id}'.sub('{team_id}', CGI.escape(team_id.to_s).gsub('%2F', '/'))
 
@@ -283,6 +287,10 @@ module DatadogAPIClient::V2
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: IncidentTeamsAPI.list_incident_teams ...'
+      end
+      allowable_values = ['users']
+      if @api_client.config.client_side_validation && opts[:'include'] && !allowable_values.include?(opts[:'include'])
+        fail ArgumentError, "invalid value for \"include\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/api/v2/teams'

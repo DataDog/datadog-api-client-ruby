@@ -662,6 +662,10 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.list_api_keys ...'
       end
+      allowable_values = ['created_at', '-created_at', 'last4', '-last4', 'modified_at', '-modified_at', 'name', '-name']
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
       # resource path
       local_var_path = '/api/v2/api_keys'
 
@@ -750,6 +754,10 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.list_application_keys ...'
       end
+      allowable_values = ['created_at', '-created_at', 'last4', '-last4', 'name', '-name']
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
       # resource path
       local_var_path = '/api/v2/application_keys'
 
@@ -834,6 +842,10 @@ module DatadogAPIClient::V2
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.list_current_user_application_keys ...'
+      end
+      allowable_values = ['created_at', '-created_at', 'last4', '-last4', 'name', '-name']
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/api/v2/current_user/application_keys'

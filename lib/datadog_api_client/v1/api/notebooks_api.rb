@@ -298,16 +298,16 @@ module DatadogAPIClient::V1
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'author_handle'] = @api_client.build_collection_param(opts[:'author_handle'], :multi) if !opts[:'author_handle'].nil?
-      query_params[:'exclude_author_handle'] = @api_client.build_collection_param(opts[:'exclude_author_handle'], :multi) if !opts[:'exclude_author_handle'].nil?
-      query_params[:'start'] = @api_client.build_collection_param(opts[:'start'], :multi) if !opts[:'start'].nil?
-      query_params[:'count'] = @api_client.build_collection_param(opts[:'count'], :multi) if !opts[:'count'].nil?
-      query_params[:'sort_field'] = @api_client.build_collection_param(opts[:'sort_field'], :multi) if !opts[:'sort_field'].nil?
-      query_params[:'sort_dir'] = @api_client.build_collection_param(opts[:'sort_dir'], :multi) if !opts[:'sort_dir'].nil?
-      query_params[:'query'] = @api_client.build_collection_param(opts[:'query'], :multi) if !opts[:'query'].nil?
-      query_params[:'include_cells'] = @api_client.build_collection_param(opts[:'include_cells'], :multi) if !opts[:'include_cells'].nil?
-      query_params[:'is_template'] = @api_client.build_collection_param(opts[:'is_template'], :multi) if !opts[:'is_template'].nil?
-      query_params[:'type'] = @api_client.build_collection_param(opts[:'type'], :multi) if !opts[:'type'].nil?
+      query_params[:'author_handle'] = opts[:'author_handle'] if !opts[:'author_handle'].nil?
+      query_params[:'exclude_author_handle'] = opts[:'exclude_author_handle'] if !opts[:'exclude_author_handle'].nil?
+      query_params[:'start'] = opts[:'start'] if !opts[:'start'].nil?
+      query_params[:'count'] = opts[:'count'] if !opts[:'count'].nil?
+      query_params[:'sort_field'] = opts[:'sort_field'] if !opts[:'sort_field'].nil?
+      query_params[:'sort_dir'] = opts[:'sort_dir'] if !opts[:'sort_dir'].nil?
+      query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
+      query_params[:'include_cells'] = opts[:'include_cells'] if !opts[:'include_cells'].nil?
+      query_params[:'is_template'] = opts[:'is_template'] if !opts[:'is_template'].nil?
+      query_params[:'type'] = opts[:'type'] if !opts[:'type'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
