@@ -27,7 +27,7 @@ module DatadogAPIClient::V1
     # Check if an SLO can be safely deleted. For example,
     # assure an SLO can be deleted without disrupting a dashboard.
     # @param ids [String] A comma separated list of the IDs of the service level objectives objects.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [CheckCanDeleteSLOResponse]
     def check_can_delete_slo(ids, opts = {})
       data, _status_code, _headers = check_can_delete_slo_with_http_info(ids, opts)
@@ -38,7 +38,7 @@ module DatadogAPIClient::V1
     # Check if an SLO can be safely deleted. For example,
     # assure an SLO can be deleted without disrupting a dashboard.
     # @param ids [String] A comma separated list of the IDs of the service level objectives objects.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(CheckCanDeleteSLOResponse, Integer, Hash)>] CheckCanDeleteSLOResponse data, response status code and response headers
     def check_can_delete_slo_with_http_info(ids, opts = {})
 
@@ -102,7 +102,7 @@ module DatadogAPIClient::V1
     # Create an SLO object
     # Create a service level objective object.
     # @param body [ServiceLevelObjectiveRequest] Service level objective request object.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SLOListResponse]
     def create_slo(body, opts = {})
       data, _status_code, _headers = create_slo_with_http_info(body, opts)
@@ -112,7 +112,7 @@ module DatadogAPIClient::V1
     # Create an SLO object
     # Create a service level objective object.
     # @param body [ServiceLevelObjectiveRequest] Service level objective request object.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SLOListResponse, Integer, Hash)>] SLOListResponse data, response status code and response headers
     def create_slo_with_http_info(body, opts = {})
 
@@ -180,7 +180,7 @@ module DatadogAPIClient::V1
     # If an SLO is used in a dashboard, the `DELETE /v1/slo/` endpoint returns
     # a 409 conflict error because the SLO is referenced in a dashboard.
     # @param slo_id [String] The ID of the service level objective.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :force Delete the monitor even if it's referenced by other resources (for example SLO, composite monitor).
     # @return [SLODeleteResponse]
     def delete_slo(slo_id, opts = {})
@@ -194,7 +194,7 @@ module DatadogAPIClient::V1
     # If an SLO is used in a dashboard, the `DELETE /v1/slo/` endpoint returns
     # a 409 conflict error because the SLO is referenced in a dashboard.
     # @param slo_id [String] The ID of the service level objective.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :force Delete the monitor even if it's referenced by other resources (for example SLO, composite monitor).
     # @return [Array<(SLODeleteResponse, Integer, Hash)>] SLODeleteResponse data, response status code and response headers
     def delete_slo_with_http_info(slo_id, opts = {})
@@ -263,7 +263,7 @@ module DatadogAPIClient::V1
     # service level objective objects. If all thresholds are deleted, the service level
     # objective object is deleted as well.
     # @param body [Hash<String, Array<SLOTimeframe>>] Delete multiple service level objective objects request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SLOBulkDeleteResponse]
     def delete_slo_timeframe_in_bulk(body, opts = {})
       data, _status_code, _headers = delete_slo_timeframe_in_bulk_with_http_info(body, opts)
@@ -277,7 +277,7 @@ module DatadogAPIClient::V1
     # service level objective objects. If all thresholds are deleted, the service level
     # objective object is deleted as well.
     # @param body [Hash<String, Array<SLOTimeframe>>] Delete multiple service level objective objects request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SLOBulkDeleteResponse, Integer, Hash)>] SLOBulkDeleteResponse data, response status code and response headers
     def delete_slo_timeframe_in_bulk_with_http_info(body, opts = {})
 
@@ -342,7 +342,7 @@ module DatadogAPIClient::V1
     # Get an SLO's details
     # Get a service level objective object.
     # @param slo_id [String] The ID of the service level objective object.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [Boolean] :with_configured_alert_ids Get the IDs of SLO monitors that reference this SLO.
     # @return [SLOResponse]
     def get_slo(slo_id, opts = {})
@@ -353,7 +353,7 @@ module DatadogAPIClient::V1
     # Get an SLO's details
     # Get a service level objective object.
     # @param slo_id [String] The ID of the service level objective object.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [Boolean] :with_configured_alert_ids Get the IDs of SLO monitors that reference this SLO.
     # @return [Array<(SLOResponse, Integer, Hash)>] SLOResponse data, response status code and response headers
     def get_slo_with_http_info(slo_id, opts = {})
@@ -418,7 +418,7 @@ module DatadogAPIClient::V1
     # Get Corrections For an SLO
     # Get corrections applied to an SLO
     # @param slo_id [String] The ID of the service level objective object.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SLOCorrectionListResponse]
     def get_slo_corrections(slo_id, opts = {})
       data, _status_code, _headers = get_slo_corrections_with_http_info(slo_id, opts)
@@ -428,7 +428,7 @@ module DatadogAPIClient::V1
     # Get Corrections For an SLO
     # Get corrections applied to an SLO
     # @param slo_id [String] The ID of the service level objective object.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SLOCorrectionListResponse, Integer, Hash)>] SLOCorrectionListResponse data, response status code and response headers
     def get_slo_corrections_with_http_info(slo_id, opts = {})
 
@@ -500,7 +500,7 @@ module DatadogAPIClient::V1
     # @param slo_id [String] The ID of the service level objective object.
     # @param from_ts [Integer] The `from` timestamp for the query window in epoch seconds.
     # @param to_ts [Integer] The `to` timestamp for the query window in epoch seconds.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [Float] :target The SLO target. If `target` is passed in, the response will include the remaining error budget and a timeframe value of `custom`.
     # @option opts [Boolean] :apply_correction Defaults to `true`. If any SLO corrections are applied and this parameter is set to `false`, then the corrections will not be applied and the SLI values will not be affected.
     # @return [SLOHistoryResponse]
@@ -521,7 +521,7 @@ module DatadogAPIClient::V1
     # @param slo_id [String] The ID of the service level objective object.
     # @param from_ts [Integer] The `from` timestamp for the query window in epoch seconds.
     # @param to_ts [Integer] The `to` timestamp for the query window in epoch seconds.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [Float] :target The SLO target. If `target` is passed in, the response will include the remaining error budget and a timeframe value of `custom`.
     # @option opts [Boolean] :apply_correction Defaults to `true`. If any SLO corrections are applied and this parameter is set to `false`, then the corrections will not be applied and the SLI values will not be affected.
     # @return [Array<(SLOHistoryResponse, Integer, Hash)>] SLOHistoryResponse data, response status code and response headers
@@ -552,10 +552,10 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'to_ts' when calling ServiceLevelObjectivesAPI.get_slo_history"
       end
       if @api_client.config.client_side_validation && !opts[:'target'].nil? && opts[:'target'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"target"]" when calling ServiceLevelObjectivesAPI.GetSLOHistory, must be smaller than or equal to 100.'
+        fail ArgumentError, 'invalid value for "opts[:"target"]" when calling ServiceLevelObjectivesAPI.get_slo_history, must be smaller than or equal to 100.'
       end
       if @api_client.config.client_side_validation && !opts[:'target'].nil? && opts[:'target'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"target"]" when calling ServiceLevelObjectivesAPI.GetSLOHistory, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"target"]" when calling ServiceLevelObjectivesAPI.get_slo_history, must be greater than or equal to 0.'
       end
       # resource path
       local_var_path = '/api/v1/slo/{slo_id}/history'.sub('{slo_id}', CGI.escape(slo_id.to_s).gsub('%2F', '/'))
@@ -603,7 +603,7 @@ module DatadogAPIClient::V1
 
     # Get all SLOs
     # Get a list of service level objective objects for your organization.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :ids A comma separated list of the IDs of the service level objectives objects.
     # @option opts [String] :query The query string to filter results based on SLO names.
     # @option opts [String] :tags_query The query string to filter results based on a single SLO tag.
@@ -618,7 +618,7 @@ module DatadogAPIClient::V1
 
     # Get all SLOs
     # Get a list of service level objective objects for your organization.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :ids A comma separated list of the IDs of the service level objectives objects.
     # @option opts [String] :query The query string to filter results based on SLO names.
     # @option opts [String] :tags_query The query string to filter results based on a single SLO tag.
@@ -690,7 +690,7 @@ module DatadogAPIClient::V1
     # Update the specified service level objective object.
     # @param slo_id [String] The ID of the service level objective object.
     # @param body [ServiceLevelObjective] The edited service level objective request object.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SLOListResponse]
     def update_slo(slo_id, body, opts = {})
       data, _status_code, _headers = update_slo_with_http_info(slo_id, body, opts)
@@ -701,7 +701,7 @@ module DatadogAPIClient::V1
     # Update the specified service level objective object.
     # @param slo_id [String] The ID of the service level objective object.
     # @param body [ServiceLevelObjective] The edited service level objective request object.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SLOListResponse, Integer, Hash)>] SLOListResponse data, response status code and response headers
     def update_slo_with_http_info(slo_id, body, opts = {})
 

@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     # Create a new service object
     # Create a new service object in the PagerDuty integration.
     # @param body [PagerDutyService] Create a new service object request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [PagerDutyServiceName]
     def create_pager_duty_integration_service(body, opts = {})
       data, _status_code, _headers = create_pager_duty_integration_service_with_http_info(body, opts)
@@ -36,7 +36,7 @@ module DatadogAPIClient::V1
     # Create a new service object
     # Create a new service object in the PagerDuty integration.
     # @param body [PagerDutyService] Create a new service object request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(PagerDutyServiceName, Integer, Hash)>] PagerDutyServiceName data, response status code and response headers
     def create_pager_duty_integration_service_with_http_info(body, opts = {})
 
@@ -101,7 +101,7 @@ module DatadogAPIClient::V1
     # Delete a single service object
     # Delete a single service object in the Datadog-PagerDuty integration.
     # @param service_name [String] The service name
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [nil]
     def delete_pager_duty_integration_service(service_name, opts = {})
       delete_pager_duty_integration_service_with_http_info(service_name, opts)
@@ -111,7 +111,7 @@ module DatadogAPIClient::V1
     # Delete a single service object
     # Delete a single service object in the Datadog-PagerDuty integration.
     # @param service_name [String] The service name
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_pager_duty_integration_service_with_http_info(service_name, opts = {})
 
@@ -174,7 +174,7 @@ module DatadogAPIClient::V1
     # Get a single service object
     # Get service name in the Datadog-PagerDuty integration.
     # @param service_name [String] The service name.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [PagerDutyServiceName]
     def get_pager_duty_integration_service(service_name, opts = {})
       data, _status_code, _headers = get_pager_duty_integration_service_with_http_info(service_name, opts)
@@ -184,7 +184,7 @@ module DatadogAPIClient::V1
     # Get a single service object
     # Get service name in the Datadog-PagerDuty integration.
     # @param service_name [String] The service name.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(PagerDutyServiceName, Integer, Hash)>] PagerDutyServiceName data, response status code and response headers
     def get_pager_duty_integration_service_with_http_info(service_name, opts = {})
 
@@ -248,7 +248,7 @@ module DatadogAPIClient::V1
     # Update a single service object in the Datadog-PagerDuty integration.
     # @param service_name [String] The service name
     # @param body [PagerDutyServiceKey] Update an existing service object request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [nil]
     def update_pager_duty_integration_service(service_name, body, opts = {})
       update_pager_duty_integration_service_with_http_info(service_name, body, opts)
@@ -259,7 +259,7 @@ module DatadogAPIClient::V1
     # Update a single service object in the Datadog-PagerDuty integration.
     # @param service_name [String] The service name
     # @param body [PagerDutyServiceKey] Update an existing service object request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def update_pager_duty_integration_service_with_http_info(service_name, body, opts = {})
 

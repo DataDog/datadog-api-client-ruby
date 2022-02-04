@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     # Create a notebook
     # Create a notebook using the specified options.
     # @param body [NotebookCreateRequest] The JSON description of the notebook you want to create.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [NotebookResponse]
     def create_notebook(body, opts = {})
       data, _status_code, _headers = create_notebook_with_http_info(body, opts)
@@ -36,7 +36,7 @@ module DatadogAPIClient::V1
     # Create a notebook
     # Create a notebook using the specified options.
     # @param body [NotebookCreateRequest] The JSON description of the notebook you want to create.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(NotebookResponse, Integer, Hash)>] NotebookResponse data, response status code and response headers
     def create_notebook_with_http_info(body, opts = {})
 
@@ -101,7 +101,7 @@ module DatadogAPIClient::V1
     # Delete a notebook
     # Delete a notebook using the specified ID.
     # @param notebook_id [Integer] Unique ID, assigned when you create the notebook.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [nil]
     def delete_notebook(notebook_id, opts = {})
       delete_notebook_with_http_info(notebook_id, opts)
@@ -111,7 +111,7 @@ module DatadogAPIClient::V1
     # Delete a notebook
     # Delete a notebook using the specified ID.
     # @param notebook_id [Integer] Unique ID, assigned when you create the notebook.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_notebook_with_http_info(notebook_id, opts = {})
 
@@ -174,7 +174,7 @@ module DatadogAPIClient::V1
     # Get a notebook
     # Get a notebook using the specified notebook ID.
     # @param notebook_id [Integer] Unique ID, assigned when you create the notebook.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [NotebookResponse]
     def get_notebook(notebook_id, opts = {})
       data, _status_code, _headers = get_notebook_with_http_info(notebook_id, opts)
@@ -184,7 +184,7 @@ module DatadogAPIClient::V1
     # Get a notebook
     # Get a notebook using the specified notebook ID.
     # @param notebook_id [Integer] Unique ID, assigned when you create the notebook.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(NotebookResponse, Integer, Hash)>] NotebookResponse data, response status code and response headers
     def get_notebook_with_http_info(notebook_id, opts = {})
 
@@ -247,7 +247,7 @@ module DatadogAPIClient::V1
     # Get all notebooks
     # Get all notebooks. This can also be used to search for notebooks with a particular `query` in the notebook
     # `name` or author `handle`.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :author_handle Return notebooks created by the given `author_handle`.
     # @option opts [String] :exclude_author_handle Return notebooks not created by the given `author_handle`.
     # @option opts [Integer] :start The index of the first notebook you want returned.
@@ -267,7 +267,7 @@ module DatadogAPIClient::V1
     # Get all notebooks
     # Get all notebooks. This can also be used to search for notebooks with a particular `query` in the notebook
     # `name` or author `handle`.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :author_handle Return notebooks created by the given `author_handle`.
     # @option opts [String] :exclude_author_handle Return notebooks not created by the given `author_handle`.
     # @option opts [Integer] :start The index of the first notebook you want returned.
@@ -347,7 +347,7 @@ module DatadogAPIClient::V1
     # Update a notebook using the specified ID.
     # @param notebook_id [Integer] Unique ID, assigned when you create the notebook.
     # @param body [NotebookUpdateRequest] Update notebook request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [NotebookResponse]
     def update_notebook(notebook_id, body, opts = {})
       data, _status_code, _headers = update_notebook_with_http_info(notebook_id, body, opts)
@@ -358,7 +358,7 @@ module DatadogAPIClient::V1
     # Update a notebook using the specified ID.
     # @param notebook_id [Integer] Unique ID, assigned when you create the notebook.
     # @param body [NotebookUpdateRequest] Update notebook request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(NotebookResponse, Integer, Hash)>] NotebookResponse data, response status code and response headers
     def update_notebook_with_http_info(notebook_id, body, opts = {})
 

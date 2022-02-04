@@ -28,7 +28,7 @@ module DatadogAPIClient::V1
     # optionally specifying where these tags come from.
     # @param host_name [String] This endpoint allows you to add new tags to a host, optionally specifying where the tags came from.
     # @param body [HostTags] Update host tags request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :source The source of the tags. [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
     # @return [HostTags]
     def create_host_tags(host_name, body, opts = {})
@@ -41,7 +41,7 @@ module DatadogAPIClient::V1
     # optionally specifying where these tags come from.
     # @param host_name [String] This endpoint allows you to add new tags to a host, optionally specifying where the tags came from.
     # @param body [HostTags] Update host tags request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :source The source of the tags. [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
     # @return [Array<(HostTags, Integer, Hash)>] HostTags data, response status code and response headers
     def create_host_tags_with_http_info(host_name, body, opts = {})
@@ -113,7 +113,7 @@ module DatadogAPIClient::V1
     # This endpoint allows you to remove all user-assigned tags
     # for a single host.
     # @param host_name [String] This endpoint allows you to remove all user-assigned tags for a single host.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :source The source of the tags (for example chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
     # @return [nil]
     def delete_host_tags(host_name, opts = {})
@@ -125,7 +125,7 @@ module DatadogAPIClient::V1
     # This endpoint allows you to remove all user-assigned tags
     # for a single host.
     # @param host_name [String] This endpoint allows you to remove all user-assigned tags for a single host.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :source The source of the tags (for example chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_host_tags_with_http_info(host_name, opts = {})
@@ -190,7 +190,7 @@ module DatadogAPIClient::V1
     # Get host tags
     # Return the list of tags that apply to a given host.
     # @param host_name [String] When specified, filters list of tags to those tags with the specified source.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :source Source to filter.
     # @return [HostTags]
     def get_host_tags(host_name, opts = {})
@@ -201,7 +201,7 @@ module DatadogAPIClient::V1
     # Get host tags
     # Return the list of tags that apply to a given host.
     # @param host_name [String] When specified, filters list of tags to those tags with the specified source.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :source Source to filter.
     # @return [Array<(HostTags, Integer, Hash)>] HostTags data, response status code and response headers
     def get_host_tags_with_http_info(host_name, opts = {})
@@ -265,7 +265,7 @@ module DatadogAPIClient::V1
 
     # Get Tags
     # Return a mapping of tags to hosts for your whole infrastructure.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :source When specified, filters host list to those tags with the specified source.
     # @return [TagToHosts]
     def list_host_tags(opts = {})
@@ -275,7 +275,7 @@ module DatadogAPIClient::V1
 
     # Get Tags
     # Return a mapping of tags to hosts for your whole infrastructure.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :source When specified, filters host list to those tags with the specified source.
     # @return [Array<(TagToHosts, Integer, Hash)>] TagToHosts data, response status code and response headers
     def list_host_tags_with_http_info(opts = {})
@@ -338,7 +338,7 @@ module DatadogAPIClient::V1
     # an integration source with those supplied in the request.
     # @param host_name [String] This endpoint allows you to update/replace all in an integration source with those supplied in the request.
     # @param body [HostTags] Add tags to host
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :source The source of the tags (for example chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value)
     # @return [HostTags]
     def update_host_tags(host_name, body, opts = {})
@@ -351,7 +351,7 @@ module DatadogAPIClient::V1
     # an integration source with those supplied in the request.
     # @param host_name [String] This endpoint allows you to update/replace all in an integration source with those supplied in the request.
     # @param body [HostTags] Add tags to host
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :source The source of the tags (for example chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value)
     # @return [Array<(HostTags, Integer, Hash)>] HostTags data, response status code and response headers
     def update_host_tags_with_http_info(host_name, body, opts = {})

@@ -29,7 +29,7 @@ module DatadogAPIClient::V2
     # See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/)
     # for more examples.
     # @param body [SecurityFilterCreateRequest] The definition of the new security filter.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SecurityFilterResponse]
     def create_security_filter(body, opts = {})
       data, _status_code, _headers = create_security_filter_with_http_info(body, opts)
@@ -42,7 +42,7 @@ module DatadogAPIClient::V2
     # See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/)
     # for more examples.
     # @param body [SecurityFilterCreateRequest] The definition of the new security filter.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityFilterResponse, Integer, Hash)>] SecurityFilterResponse data, response status code and response headers
     def create_security_filter_with_http_info(body, opts = {})
 
@@ -107,7 +107,7 @@ module DatadogAPIClient::V2
     # Create a detection rule
     # Create a detection rule.
     # @param body [SecurityMonitoringRuleCreatePayload] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SecurityMonitoringRuleResponse]
     def create_security_monitoring_rule(body, opts = {})
       data, _status_code, _headers = create_security_monitoring_rule_with_http_info(body, opts)
@@ -117,7 +117,7 @@ module DatadogAPIClient::V2
     # Create a detection rule
     # Create a detection rule.
     # @param body [SecurityMonitoringRuleCreatePayload] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringRuleResponse, Integer, Hash)>] SecurityMonitoringRuleResponse data, response status code and response headers
     def create_security_monitoring_rule_with_http_info(body, opts = {})
 
@@ -182,7 +182,7 @@ module DatadogAPIClient::V2
     # Delete a security filter
     # Delete a specific security filter.
     # @param security_filter_id [String] The ID of the security filter.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [nil]
     def delete_security_filter(security_filter_id, opts = {})
       delete_security_filter_with_http_info(security_filter_id, opts)
@@ -192,7 +192,7 @@ module DatadogAPIClient::V2
     # Delete a security filter
     # Delete a specific security filter.
     # @param security_filter_id [String] The ID of the security filter.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_security_filter_with_http_info(security_filter_id, opts = {})
 
@@ -255,7 +255,7 @@ module DatadogAPIClient::V2
     # Delete an existing rule
     # Delete an existing rule. Default rules cannot be deleted.
     # @param rule_id [String] The ID of the rule.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [nil]
     def delete_security_monitoring_rule(rule_id, opts = {})
       delete_security_monitoring_rule_with_http_info(rule_id, opts)
@@ -265,7 +265,7 @@ module DatadogAPIClient::V2
     # Delete an existing rule
     # Delete an existing rule. Default rules cannot be deleted.
     # @param rule_id [String] The ID of the rule.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_security_monitoring_rule_with_http_info(rule_id, opts = {})
 
@@ -331,7 +331,7 @@ module DatadogAPIClient::V2
     # See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/)
     # for more examples.
     # @param security_filter_id [String] The ID of the security filter.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SecurityFilterResponse]
     def get_security_filter(security_filter_id, opts = {})
       data, _status_code, _headers = get_security_filter_with_http_info(security_filter_id, opts)
@@ -344,7 +344,7 @@ module DatadogAPIClient::V2
     # See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/)
     # for more examples.
     # @param security_filter_id [String] The ID of the security filter.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityFilterResponse, Integer, Hash)>] SecurityFilterResponse data, response status code and response headers
     def get_security_filter_with_http_info(security_filter_id, opts = {})
 
@@ -407,7 +407,7 @@ module DatadogAPIClient::V2
     # Get a rule's details
     # Get a rule's details.
     # @param rule_id [String] The ID of the rule.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SecurityMonitoringRuleResponse]
     def get_security_monitoring_rule(rule_id, opts = {})
       data, _status_code, _headers = get_security_monitoring_rule_with_http_info(rule_id, opts)
@@ -417,7 +417,7 @@ module DatadogAPIClient::V2
     # Get a rule's details
     # Get a rule's details.
     # @param rule_id [String] The ID of the rule.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringRuleResponse, Integer, Hash)>] SecurityMonitoringRuleResponse data, response status code and response headers
     def get_security_monitoring_rule_with_http_info(rule_id, opts = {})
 
@@ -479,7 +479,7 @@ module DatadogAPIClient::V2
 
     # Get all security filters
     # Get the list of configured security filters with their definitions.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SecurityFiltersResponse]
     def list_security_filters(opts = {})
       data, _status_code, _headers = list_security_filters_with_http_info(opts)
@@ -488,7 +488,7 @@ module DatadogAPIClient::V2
 
     # Get all security filters
     # Get the list of configured security filters with their definitions.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityFiltersResponse, Integer, Hash)>] SecurityFiltersResponse data, response status code and response headers
     def list_security_filters_with_http_info(opts = {})
 
@@ -546,7 +546,7 @@ module DatadogAPIClient::V2
 
     # List rules
     # List rules.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Size for a given page.
     # @option opts [Integer] :page_number Specific page number to return.
     # @return [SecurityMonitoringListRulesResponse]
@@ -557,7 +557,7 @@ module DatadogAPIClient::V2
 
     # List rules
     # List rules.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Size for a given page.
     # @option opts [Integer] :page_number Specific page number to return.
     # @return [Array<(SecurityMonitoringListRulesResponse, Integer, Hash)>] SecurityMonitoringListRulesResponse data, response status code and response headers
@@ -621,7 +621,7 @@ module DatadogAPIClient::V2
     # The list endpoint returns security signals that match a search query.
     # Both this endpoint and the POST endpoint can be used interchangeably when listing
     # security signals.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :filter_query The search query for security signals.
     # @option opts [Time] :filter_from The minimum timestamp for requested security signals.
     # @option opts [Time] :filter_to The maximum timestamp for requested security signals.
@@ -638,7 +638,7 @@ module DatadogAPIClient::V2
     # The list endpoint returns security signals that match a search query.
     # Both this endpoint and the POST endpoint can be used interchangeably when listing
     # security signals.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :filter_query The search query for security signals.
     # @option opts [Time] :filter_from The minimum timestamp for requested security signals.
     # @option opts [Time] :filter_to The maximum timestamp for requested security signals.
@@ -665,7 +665,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end
       if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 1000
-        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling SecurityMonitoringAPI.ListSecurityMonitoringSignals, must be smaller than or equal to 1000.'
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling SecurityMonitoringAPI.list_security_monitoring_signals, must be smaller than or equal to 1000.'
       end
       # resource path
       local_var_path = '/api/v2/security_monitoring/signals'
@@ -717,7 +717,7 @@ module DatadogAPIClient::V2
     # Returns security signals that match a search query.
     # Both this endpoint and the GET endpoint can be used interchangeably for listing
     # security signals.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [SecurityMonitoringSignalListRequest] :body 
     # @return [SecurityMonitoringSignalsListResponse]
     def search_security_monitoring_signals(opts = {})
@@ -729,7 +729,7 @@ module DatadogAPIClient::V2
     # Returns security signals that match a search query.
     # Both this endpoint and the GET endpoint can be used interchangeably for listing
     # security signals.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [SecurityMonitoringSignalListRequest] :body 
     # @return [Array<(SecurityMonitoringSignalsListResponse, Integer, Hash)>] SecurityMonitoringSignalsListResponse data, response status code and response headers
     def search_security_monitoring_signals_with_http_info(opts = {})
@@ -793,7 +793,7 @@ module DatadogAPIClient::V2
     # Returns the security filter object when the request is successful.
     # @param security_filter_id [String] The ID of the security filter.
     # @param body [SecurityFilterUpdateRequest] New definition of the security filter.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SecurityFilterResponse]
     def update_security_filter(security_filter_id, body, opts = {})
       data, _status_code, _headers = update_security_filter_with_http_info(security_filter_id, body, opts)
@@ -805,7 +805,7 @@ module DatadogAPIClient::V2
     # Returns the security filter object when the request is successful.
     # @param security_filter_id [String] The ID of the security filter.
     # @param body [SecurityFilterUpdateRequest] New definition of the security filter.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityFilterResponse, Integer, Hash)>] SecurityFilterResponse data, response status code and response headers
     def update_security_filter_with_http_info(security_filter_id, body, opts = {})
 
@@ -877,7 +877,7 @@ module DatadogAPIClient::V2
     # Default rules can only be updated to be enabled and to change notifications.
     # @param rule_id [String] The ID of the rule.
     # @param body [SecurityMonitoringRuleUpdatePayload] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SecurityMonitoringRuleResponse]
     def update_security_monitoring_rule(rule_id, body, opts = {})
       data, _status_code, _headers = update_security_monitoring_rule_with_http_info(rule_id, body, opts)
@@ -890,7 +890,7 @@ module DatadogAPIClient::V2
     # Default rules can only be updated to be enabled and to change notifications.
     # @param rule_id [String] The ID of the rule.
     # @param body [SecurityMonitoringRuleUpdatePayload] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringRuleResponse, Integer, Hash)>] SecurityMonitoringRuleResponse data, response status code and response headers
     def update_security_monitoring_rule_with_http_info(rule_id, body, opts = {})
 

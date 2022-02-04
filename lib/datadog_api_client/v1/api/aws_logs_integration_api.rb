@@ -33,7 +33,7 @@ module DatadogAPIClient::V1
     # - Returns a status of 'checked and ok' if the Lambda exists.
     # - Returns a status of 'error' if the Lambda does not exist.
     # @param body [AWSAccountAndLambdaRequest] Check AWS Log Lambda Async request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [AWSLogsAsyncResponse]
     def check_aws_logs_lambda_async(body, opts = {})
       data, _status_code, _headers = check_aws_logs_lambda_async_with_http_info(body, opts)
@@ -50,7 +50,7 @@ module DatadogAPIClient::V1
     # - Returns a status of 'checked and ok' if the Lambda exists.
     # - Returns a status of 'error' if the Lambda does not exist.
     # @param body [AWSAccountAndLambdaRequest] Check AWS Log Lambda Async request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(AWSLogsAsyncResponse, Integer, Hash)>] AWSLogsAsyncResponse data, response status code and response headers
     def check_aws_logs_lambda_async_with_http_info(body, opts = {})
 
@@ -124,7 +124,7 @@ module DatadogAPIClient::V1
     # - Returns a status of `checked and ok` if the Lambda exists.
     # - Returns a status of `error` if the Lambda does not exist.
     # @param body [AWSLogsServicesRequest] Check AWS Logs Async Services request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [AWSLogsAsyncResponse]
     def check_aws_logs_services_async(body, opts = {})
       data, _status_code, _headers = check_aws_logs_services_async_with_http_info(body, opts)
@@ -143,7 +143,7 @@ module DatadogAPIClient::V1
     # - Returns a status of `checked and ok` if the Lambda exists.
     # - Returns a status of `error` if the Lambda does not exist.
     # @param body [AWSLogsServicesRequest] Check AWS Logs Async Services request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(AWSLogsAsyncResponse, Integer, Hash)>] AWSLogsAsyncResponse data, response status code and response headers
     def check_aws_logs_services_async_with_http_info(body, opts = {})
 
@@ -208,7 +208,7 @@ module DatadogAPIClient::V1
     # Add AWS Log Lambda ARN
     # Attach the Lambda ARN of the Lambda created for the Datadog-AWS log collection to your AWS account ID to enable log collection.
     # @param body [AWSAccountAndLambdaRequest] AWS Log Lambda Async request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Object]
     def create_aws_lambda_arn(body, opts = {})
       data, _status_code, _headers = create_aws_lambda_arn_with_http_info(body, opts)
@@ -218,7 +218,7 @@ module DatadogAPIClient::V1
     # Add AWS Log Lambda ARN
     # Attach the Lambda ARN of the Lambda created for the Datadog-AWS log collection to your AWS account ID to enable log collection.
     # @param body [AWSAccountAndLambdaRequest] AWS Log Lambda Async request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def create_aws_lambda_arn_with_http_info(body, opts = {})
 
@@ -283,7 +283,7 @@ module DatadogAPIClient::V1
     # Delete an AWS Logs integration
     # Delete a Datadog-AWS logs configuration by removing the specific Lambda ARN associated with a given AWS account.
     # @param body [AWSAccountAndLambdaRequest] Delete AWS Lambda ARN request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Object]
     def delete_aws_lambda_arn(body, opts = {})
       data, _status_code, _headers = delete_aws_lambda_arn_with_http_info(body, opts)
@@ -293,7 +293,7 @@ module DatadogAPIClient::V1
     # Delete an AWS Logs integration
     # Delete a Datadog-AWS logs configuration by removing the specific Lambda ARN associated with a given AWS account.
     # @param body [AWSAccountAndLambdaRequest] Delete AWS Lambda ARN request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def delete_aws_lambda_arn_with_http_info(body, opts = {})
 
@@ -358,7 +358,7 @@ module DatadogAPIClient::V1
     # Enable an AWS Logs integration
     # Enable automatic log collection for a list of services. This should be run after running `CreateAWSLambdaARN` to save the configuration.
     # @param body [AWSLogsServicesRequest] Enable AWS Log Services request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Object]
     def enable_aws_log_services(body, opts = {})
       data, _status_code, _headers = enable_aws_log_services_with_http_info(body, opts)
@@ -368,7 +368,7 @@ module DatadogAPIClient::V1
     # Enable an AWS Logs integration
     # Enable automatic log collection for a list of services. This should be run after running `CreateAWSLambdaARN` to save the configuration.
     # @param body [AWSLogsServicesRequest] Enable AWS Log Services request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def enable_aws_log_services_with_http_info(body, opts = {})
 
@@ -432,7 +432,7 @@ module DatadogAPIClient::V1
 
     # List all AWS Logs integrations
     # List all Datadog-AWS Logs integrations configured in your Datadog account.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<AWSLogsListResponse>]
     def list_aws_logs_integrations(opts = {})
       data, _status_code, _headers = list_aws_logs_integrations_with_http_info(opts)
@@ -441,7 +441,7 @@ module DatadogAPIClient::V1
 
     # List all AWS Logs integrations
     # List all Datadog-AWS Logs integrations configured in your Datadog account.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(Array<AWSLogsListResponse>, Integer, Hash)>] Array<AWSLogsListResponse> data, response status code and response headers
     def list_aws_logs_integrations_with_http_info(opts = {})
 
@@ -499,7 +499,7 @@ module DatadogAPIClient::V1
 
     # Get list of AWS log ready services
     # Get the list of current AWS services that Datadog offers automatic log collection. Use returned service IDs with the services parameter for the Enable an AWS service log collection API endpoint.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<AWSLogsListServicesResponse>]
     def list_aws_logs_services(opts = {})
       data, _status_code, _headers = list_aws_logs_services_with_http_info(opts)
@@ -508,7 +508,7 @@ module DatadogAPIClient::V1
 
     # Get list of AWS log ready services
     # Get the list of current AWS services that Datadog offers automatic log collection. Use returned service IDs with the services parameter for the Enable an AWS service log collection API endpoint.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(Array<AWSLogsListServicesResponse>, Integer, Hash)>] Array<AWSLogsListServicesResponse> data, response status code and response headers
     def list_aws_logs_services_with_http_info(opts = {})
 

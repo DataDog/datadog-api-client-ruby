@@ -35,7 +35,7 @@ module DatadogAPIClient::V1
     # by using the `org.public_id`, `api_key.key`, and
     # `application_key.hash` provided in the response.
     # @param body [OrganizationCreateBody] Organization object that needs to be created
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [OrganizationCreateResponse]
     def create_child_org(body, opts = {})
       data, _status_code, _headers = create_child_org_with_http_info(body, opts)
@@ -54,7 +54,7 @@ module DatadogAPIClient::V1
     # by using the `org.public_id`, `api_key.key`, and
     # `application_key.hash` provided in the response.
     # @param body [OrganizationCreateBody] Organization object that needs to be created
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(OrganizationCreateResponse, Integer, Hash)>] OrganizationCreateResponse data, response status code and response headers
     def create_child_org_with_http_info(body, opts = {})
 
@@ -119,7 +119,7 @@ module DatadogAPIClient::V1
     # Get organization information
     # Get organization information.
     # @param public_id [String] The `public_id` of the organization you are operating within.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [OrganizationResponse]
     def get_org(public_id, opts = {})
       data, _status_code, _headers = get_org_with_http_info(public_id, opts)
@@ -129,7 +129,7 @@ module DatadogAPIClient::V1
     # Get organization information
     # Get organization information.
     # @param public_id [String] The `public_id` of the organization you are operating within.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(OrganizationResponse, Integer, Hash)>] OrganizationResponse data, response status code and response headers
     def get_org_with_http_info(public_id, opts = {})
 
@@ -191,7 +191,7 @@ module DatadogAPIClient::V1
 
     # List your managed organizations
     # List your managed organizations.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [OrganizationListResponse]
     def list_orgs(opts = {})
       data, _status_code, _headers = list_orgs_with_http_info(opts)
@@ -200,7 +200,7 @@ module DatadogAPIClient::V1
 
     # List your managed organizations
     # List your managed organizations.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(OrganizationListResponse, Integer, Hash)>] OrganizationListResponse data, response status code and response headers
     def list_orgs_with_http_info(opts = {})
 
@@ -260,7 +260,7 @@ module DatadogAPIClient::V1
     # Update your organization.
     # @param public_id [String] The `public_id` of the organization you are operating within.
     # @param body [Organization] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [OrganizationResponse]
     def update_org(public_id, body, opts = {})
       data, _status_code, _headers = update_org_with_http_info(public_id, body, opts)
@@ -271,7 +271,7 @@ module DatadogAPIClient::V1
     # Update your organization.
     # @param public_id [String] The `public_id` of the organization you are operating within.
     # @param body [Organization] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(OrganizationResponse, Integer, Hash)>] OrganizationResponse data, response status code and response headers
     def update_org_with_http_info(public_id, body, opts = {})
 
@@ -345,11 +345,11 @@ module DatadogAPIClient::V1
     # 
     # * **XML Body:** Post the IdP metadata file as the body of the request.
     # @param public_id [String] The `public_id` of the organization you are operating with
-    # @param body [IdpFormData] 
-    # @param [Hash] opts the optional parameters
+    # @param idp_file [File] The path to the XML metadata file you wish to upload.
+    # @param opts [Hash] the optional parameters
     # @return [IdpResponse]
-    def upload_id_p_for_org(public_id, body, opts = {})
-      data, _status_code, _headers = upload_id_p_for_org_with_http_info(public_id, body, opts)
+    def upload_id_p_for_org(public_id, idp_file, opts = {})
+      data, _status_code, _headers = upload_id_p_for_org_with_http_info(public_id, idp_file, opts)
       data
     end
 
@@ -361,10 +361,10 @@ module DatadogAPIClient::V1
     # 
     # * **XML Body:** Post the IdP metadata file as the body of the request.
     # @param public_id [String] The `public_id` of the organization you are operating with
-    # @param body [IdpFormData] 
-    # @param [Hash] opts the optional parameters
+    # @param idp_file [File] The path to the XML metadata file you wish to upload.
+    # @param opts [Hash] the optional parameters
     # @return [Array<(IdpResponse, Integer, Hash)>] IdpResponse data, response status code and response headers
-    def upload_id_p_for_org_with_http_info(public_id, body, opts = {})
+    def upload_id_p_for_org_with_http_info(public_id, idp_file, opts = {})
 
       if @api_client.config.unstable_operations.has_key?(:upload_id_p_for_org)
         unstable_enabled = @api_client.config.unstable_operations[:upload_id_p_for_org]
@@ -382,9 +382,9 @@ module DatadogAPIClient::V1
       if @api_client.config.client_side_validation && public_id.nil?
         fail ArgumentError, "Missing the required parameter 'public_id' when calling OrganizationsAPI.upload_id_p_for_org"
       end
-      # verify the required parameter 'body' is set
-      if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling OrganizationsAPI.upload_id_p_for_org"
+      # verify the required parameter 'idp_file' is set
+      if @api_client.config.client_side_validation && idp_file.nil?
+        fail ArgumentError, "Missing the required parameter 'idp_file' when calling OrganizationsAPI.upload_id_p_for_org"
       end
       # resource path
       local_var_path = '/api/v1/org/{public_id}/idp_metadata'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/'))
@@ -401,6 +401,7 @@ module DatadogAPIClient::V1
 
       # form parameters
       form_params = opts[:form_params] || {}
+      form_params['idp_file'] = idp_file
 
       # http body (model)
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)

@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     # Check if a monitor can be deleted
     # Check if the given monitors can be deleted.
     # @param monitor_ids [Array<Integer>] The IDs of the monitor to check.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [CheckCanDeleteMonitorResponse]
     def check_can_delete_monitor(monitor_ids, opts = {})
       data, _status_code, _headers = check_can_delete_monitor_with_http_info(monitor_ids, opts)
@@ -36,7 +36,7 @@ module DatadogAPIClient::V1
     # Check if a monitor can be deleted
     # Check if the given monitors can be deleted.
     # @param monitor_ids [Array<Integer>] The IDs of the monitor to check.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(CheckCanDeleteMonitorResponse, Integer, Hash)>] CheckCanDeleteMonitorResponse data, response status code and response headers
     def check_can_delete_monitor_with_http_info(monitor_ids, opts = {})
 
@@ -258,7 +258,7 @@ module DatadogAPIClient::V1
     # 
     # **NOTE** Only available in closed beta on US1, EU, US3 and US5.
     # @param body [Monitor] Create a monitor request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Monitor]
     def create_monitor(body, opts = {})
       data, _status_code, _headers = create_monitor_with_http_info(body, opts)
@@ -426,7 +426,7 @@ module DatadogAPIClient::V1
     # 
     # **NOTE** Only available in closed beta on US1, EU, US3 and US5.
     # @param body [Monitor] Create a monitor request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(Monitor, Integer, Hash)>] Monitor data, response status code and response headers
     def create_monitor_with_http_info(body, opts = {})
 
@@ -491,7 +491,7 @@ module DatadogAPIClient::V1
     # Delete a monitor
     # Delete the specified monitor
     # @param monitor_id [Integer] The ID of the monitor.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :force Delete the monitor even if it's referenced by other resources (for example SLO, composite monitor).
     # @return [DeletedMonitor]
     def delete_monitor(monitor_id, opts = {})
@@ -502,7 +502,7 @@ module DatadogAPIClient::V1
     # Delete a monitor
     # Delete the specified monitor
     # @param monitor_id [Integer] The ID of the monitor.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :force Delete the monitor even if it's referenced by other resources (for example SLO, composite monitor).
     # @return [Array<(DeletedMonitor, Integer, Hash)>] DeletedMonitor data, response status code and response headers
     def delete_monitor_with_http_info(monitor_id, opts = {})
@@ -567,7 +567,7 @@ module DatadogAPIClient::V1
     # Get a monitor's details
     # Get details about the specified monitor from your organization.
     # @param monitor_id [Integer] The ID of the monitor
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :group_states When specified, shows additional information about the group states. Choose one or more from `all`, `alert`, `warn`, and `no data`.
     # @return [Monitor]
     def get_monitor(monitor_id, opts = {})
@@ -578,7 +578,7 @@ module DatadogAPIClient::V1
     # Get a monitor's details
     # Get details about the specified monitor from your organization.
     # @param monitor_id [Integer] The ID of the monitor
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :group_states When specified, shows additional information about the group states. Choose one or more from `all`, `alert`, `warn`, and `no data`.
     # @return [Array<(Monitor, Integer, Hash)>] Monitor data, response status code and response headers
     def get_monitor_with_http_info(monitor_id, opts = {})
@@ -642,7 +642,7 @@ module DatadogAPIClient::V1
 
     # Get all monitor details
     # Get details about the specified monitor from your organization.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :group_states When specified, shows additional information about the group states. Choose one or more from `all`, `alert`, `warn`, and `no data`.
     # @option opts [String] :name A string to filter monitors by name.
     # @option opts [String] :tags A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope. For example, `host:host0`.
@@ -659,7 +659,7 @@ module DatadogAPIClient::V1
 
     # Get all monitor details
     # Get details about the specified monitor from your organization.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :group_states When specified, shows additional information about the group states. Choose one or more from `all`, `alert`, `warn`, and `no data`.
     # @option opts [String] :name A string to filter monitors by name.
     # @option opts [String] :tags A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope. For example, `host:host0`.
@@ -684,7 +684,7 @@ module DatadogAPIClient::V1
         @api_client.config.logger.debug 'Calling API: MonitorsAPI.list_monitors ...'
       end
       if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 1000
-        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling MonitorsAPI.ListMonitors, must be smaller than or equal to 1000.'
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling MonitorsAPI.list_monitors, must be smaller than or equal to 1000.'
       end
       # resource path
       local_var_path = '/api/v1/monitor'
@@ -736,7 +736,7 @@ module DatadogAPIClient::V1
 
     # Monitors group search
     # Search and filter your monitor groups details.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :query After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance `query="type:metric status:alert"`.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage/#find-the-monitors
     # @option opts [Integer] :page Page to start paginating from.
     # @option opts [Integer] :per_page Number of monitors to return per page.
@@ -749,7 +749,7 @@ module DatadogAPIClient::V1
 
     # Monitors group search
     # Search and filter your monitor groups details.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :query After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance `query="type:metric status:alert"`.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage/#find-the-monitors
     # @option opts [Integer] :page Page to start paginating from.
     # @option opts [Integer] :per_page Number of monitors to return per page.
@@ -815,7 +815,7 @@ module DatadogAPIClient::V1
 
     # Monitors search
     # Search and filter your monitors details.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :query After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance `query="type:metric status:alert"`.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage/#find-the-monitors
     # @option opts [Integer] :page Page to start paginating from.
     # @option opts [Integer] :per_page Number of monitors to return per page.
@@ -828,7 +828,7 @@ module DatadogAPIClient::V1
 
     # Monitors search
     # Search and filter your monitors details.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :query After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance `query="type:metric status:alert"`.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage/#find-the-monitors
     # @option opts [Integer] :page Page to start paginating from.
     # @option opts [Integer] :per_page Number of monitors to return per page.
@@ -896,7 +896,7 @@ module DatadogAPIClient::V1
     # Edit the specified monitor.
     # @param monitor_id [Integer] The ID of the monitor.
     # @param body [MonitorUpdateRequest] Edit a monitor request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Monitor]
     def update_monitor(monitor_id, body, opts = {})
       data, _status_code, _headers = update_monitor_with_http_info(monitor_id, body, opts)
@@ -907,7 +907,7 @@ module DatadogAPIClient::V1
     # Edit the specified monitor.
     # @param monitor_id [Integer] The ID of the monitor.
     # @param body [MonitorUpdateRequest] Edit a monitor request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(Monitor, Integer, Hash)>] Monitor data, response status code and response headers
     def update_monitor_with_http_info(monitor_id, body, opts = {})
 
@@ -976,7 +976,7 @@ module DatadogAPIClient::V1
     # Validate a monitor
     # Validate the monitor provided in the request.
     # @param body [Monitor] Monitor request object
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Object]
     def validate_monitor(body, opts = {})
       data, _status_code, _headers = validate_monitor_with_http_info(body, opts)
@@ -986,7 +986,7 @@ module DatadogAPIClient::V1
     # Validate a monitor
     # Validate the monitor provided in the request.
     # @param body [Monitor] Monitor request object
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def validate_monitor_with_http_info(body, opts = {})
 

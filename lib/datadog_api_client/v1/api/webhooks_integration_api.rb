@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     # Create a webhooks integration
     # Creates an endpoint with the name `<WEBHOOK_NAME>`.
     # @param body [WebhooksIntegration] Create a webhooks integration request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [WebhooksIntegration]
     def create_webhooks_integration(body, opts = {})
       data, _status_code, _headers = create_webhooks_integration_with_http_info(body, opts)
@@ -36,7 +36,7 @@ module DatadogAPIClient::V1
     # Create a webhooks integration
     # Creates an endpoint with the name `<WEBHOOK_NAME>`.
     # @param body [WebhooksIntegration] Create a webhooks integration request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(WebhooksIntegration, Integer, Hash)>] WebhooksIntegration data, response status code and response headers
     def create_webhooks_integration_with_http_info(body, opts = {})
 
@@ -101,7 +101,7 @@ module DatadogAPIClient::V1
     # Create a custom variable
     # Creates an endpoint with the name `<CUSTOM_VARIABLE_NAME>`.
     # @param body [WebhooksIntegrationCustomVariable] Define a custom variable request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [WebhooksIntegrationCustomVariableResponse]
     def create_webhooks_integration_custom_variable(body, opts = {})
       data, _status_code, _headers = create_webhooks_integration_custom_variable_with_http_info(body, opts)
@@ -111,7 +111,7 @@ module DatadogAPIClient::V1
     # Create a custom variable
     # Creates an endpoint with the name `<CUSTOM_VARIABLE_NAME>`.
     # @param body [WebhooksIntegrationCustomVariable] Define a custom variable request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(WebhooksIntegrationCustomVariableResponse, Integer, Hash)>] WebhooksIntegrationCustomVariableResponse data, response status code and response headers
     def create_webhooks_integration_custom_variable_with_http_info(body, opts = {})
 
@@ -176,7 +176,7 @@ module DatadogAPIClient::V1
     # Delete a webhook
     # Deletes the endpoint with the name `<WEBHOOK NAME>`.
     # @param webhook_name [String] The name of the webhook.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [nil]
     def delete_webhooks_integration(webhook_name, opts = {})
       delete_webhooks_integration_with_http_info(webhook_name, opts)
@@ -186,7 +186,7 @@ module DatadogAPIClient::V1
     # Delete a webhook
     # Deletes the endpoint with the name `<WEBHOOK NAME>`.
     # @param webhook_name [String] The name of the webhook.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_webhooks_integration_with_http_info(webhook_name, opts = {})
 
@@ -249,7 +249,7 @@ module DatadogAPIClient::V1
     # Delete a custom variable
     # Deletes the endpoint with the name `<CUSTOM_VARIABLE_NAME>`.
     # @param custom_variable_name [String] The name of the custom variable.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [nil]
     def delete_webhooks_integration_custom_variable(custom_variable_name, opts = {})
       delete_webhooks_integration_custom_variable_with_http_info(custom_variable_name, opts)
@@ -259,7 +259,7 @@ module DatadogAPIClient::V1
     # Delete a custom variable
     # Deletes the endpoint with the name `<CUSTOM_VARIABLE_NAME>`.
     # @param custom_variable_name [String] The name of the custom variable.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_webhooks_integration_custom_variable_with_http_info(custom_variable_name, opts = {})
 
@@ -322,7 +322,7 @@ module DatadogAPIClient::V1
     # Get a webhook integration
     # Gets the content of the webhook with the name `<WEBHOOK_NAME>`.
     # @param webhook_name [String] The name of the webhook.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [WebhooksIntegration]
     def get_webhooks_integration(webhook_name, opts = {})
       data, _status_code, _headers = get_webhooks_integration_with_http_info(webhook_name, opts)
@@ -332,7 +332,7 @@ module DatadogAPIClient::V1
     # Get a webhook integration
     # Gets the content of the webhook with the name `<WEBHOOK_NAME>`.
     # @param webhook_name [String] The name of the webhook.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(WebhooksIntegration, Integer, Hash)>] WebhooksIntegration data, response status code and response headers
     def get_webhooks_integration_with_http_info(webhook_name, opts = {})
 
@@ -398,7 +398,7 @@ module DatadogAPIClient::V1
     # If the custom variable is secret, the value does not return in the
     # response payload.
     # @param custom_variable_name [String] The name of the custom variable.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [WebhooksIntegrationCustomVariableResponse]
     def get_webhooks_integration_custom_variable(custom_variable_name, opts = {})
       data, _status_code, _headers = get_webhooks_integration_custom_variable_with_http_info(custom_variable_name, opts)
@@ -411,7 +411,7 @@ module DatadogAPIClient::V1
     # If the custom variable is secret, the value does not return in the
     # response payload.
     # @param custom_variable_name [String] The name of the custom variable.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(WebhooksIntegrationCustomVariableResponse, Integer, Hash)>] WebhooksIntegrationCustomVariableResponse data, response status code and response headers
     def get_webhooks_integration_custom_variable_with_http_info(custom_variable_name, opts = {})
 
@@ -475,7 +475,7 @@ module DatadogAPIClient::V1
     # Updates the endpoint with the name `<WEBHOOK_NAME>`.
     # @param webhook_name [String] The name of the webhook.
     # @param body [WebhooksIntegrationUpdateRequest] Update an existing Datadog-Webhooks integration.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [WebhooksIntegration]
     def update_webhooks_integration(webhook_name, body, opts = {})
       data, _status_code, _headers = update_webhooks_integration_with_http_info(webhook_name, body, opts)
@@ -486,7 +486,7 @@ module DatadogAPIClient::V1
     # Updates the endpoint with the name `<WEBHOOK_NAME>`.
     # @param webhook_name [String] The name of the webhook.
     # @param body [WebhooksIntegrationUpdateRequest] Update an existing Datadog-Webhooks integration.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(WebhooksIntegration, Integer, Hash)>] WebhooksIntegration data, response status code and response headers
     def update_webhooks_integration_with_http_info(webhook_name, body, opts = {})
 
@@ -556,7 +556,7 @@ module DatadogAPIClient::V1
     # Updates the endpoint with the name `<CUSTOM_VARIABLE_NAME>`.
     # @param custom_variable_name [String] The name of the custom variable.
     # @param body [WebhooksIntegrationCustomVariableUpdateRequest] Update an existing custom variable request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [WebhooksIntegrationCustomVariableResponse]
     def update_webhooks_integration_custom_variable(custom_variable_name, body, opts = {})
       data, _status_code, _headers = update_webhooks_integration_custom_variable_with_http_info(custom_variable_name, body, opts)
@@ -567,7 +567,7 @@ module DatadogAPIClient::V1
     # Updates the endpoint with the name `<CUSTOM_VARIABLE_NAME>`.
     # @param custom_variable_name [String] The name of the custom variable.
     # @param body [WebhooksIntegrationCustomVariableUpdateRequest] Update an existing custom variable request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(WebhooksIntegrationCustomVariableResponse, Integer, Hash)>] WebhooksIntegrationCustomVariableResponse data, response status code and response headers
     def update_webhooks_integration_custom_variable_with_http_info(custom_variable_name, body, opts = {})
 

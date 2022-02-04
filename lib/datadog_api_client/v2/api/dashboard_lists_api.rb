@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # Add dashboards to an existing dashboard list.
     # @param dashboard_list_id [Integer] ID of the dashboard list to add items to.
     # @param body [DashboardListAddItemsRequest] Dashboards to add to the dashboard list.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [DashboardListAddItemsResponse]
     def create_dashboard_list_items(dashboard_list_id, body, opts = {})
       data, _status_code, _headers = create_dashboard_list_items_with_http_info(dashboard_list_id, body, opts)
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # Add dashboards to an existing dashboard list.
     # @param dashboard_list_id [Integer] ID of the dashboard list to add items to.
     # @param body [DashboardListAddItemsRequest] Dashboards to add to the dashboard list.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(DashboardListAddItemsResponse, Integer, Hash)>] DashboardListAddItemsResponse data, response status code and response headers
     def create_dashboard_list_items_with_http_info(dashboard_list_id, body, opts = {})
 
@@ -108,7 +108,7 @@ module DatadogAPIClient::V2
     # Delete dashboards from an existing dashboard list.
     # @param dashboard_list_id [Integer] ID of the dashboard list to delete items from.
     # @param body [DashboardListDeleteItemsRequest] Dashboards to delete from the dashboard list.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [DashboardListDeleteItemsResponse]
     def delete_dashboard_list_items(dashboard_list_id, body, opts = {})
       data, _status_code, _headers = delete_dashboard_list_items_with_http_info(dashboard_list_id, body, opts)
@@ -119,7 +119,7 @@ module DatadogAPIClient::V2
     # Delete dashboards from an existing dashboard list.
     # @param dashboard_list_id [Integer] ID of the dashboard list to delete items from.
     # @param body [DashboardListDeleteItemsRequest] Dashboards to delete from the dashboard list.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(DashboardListDeleteItemsResponse, Integer, Hash)>] DashboardListDeleteItemsResponse data, response status code and response headers
     def delete_dashboard_list_items_with_http_info(dashboard_list_id, body, opts = {})
 
@@ -188,7 +188,7 @@ module DatadogAPIClient::V2
     # Get items of a Dashboard List
     # Fetch the dashboard list’s dashboard definitions.
     # @param dashboard_list_id [Integer] ID of the dashboard list to get items from.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [DashboardListItems]
     def get_dashboard_list_items(dashboard_list_id, opts = {})
       data, _status_code, _headers = get_dashboard_list_items_with_http_info(dashboard_list_id, opts)
@@ -198,7 +198,7 @@ module DatadogAPIClient::V2
     # Get items of a Dashboard List
     # Fetch the dashboard list’s dashboard definitions.
     # @param dashboard_list_id [Integer] ID of the dashboard list to get items from.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(DashboardListItems, Integer, Hash)>] DashboardListItems data, response status code and response headers
     def get_dashboard_list_items_with_http_info(dashboard_list_id, opts = {})
 
@@ -262,7 +262,7 @@ module DatadogAPIClient::V2
     # Update dashboards of an existing dashboard list.
     # @param dashboard_list_id [Integer] ID of the dashboard list to update items from.
     # @param body [DashboardListUpdateItemsRequest] New dashboards of the dashboard list.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [DashboardListUpdateItemsResponse]
     def update_dashboard_list_items(dashboard_list_id, body, opts = {})
       data, _status_code, _headers = update_dashboard_list_items_with_http_info(dashboard_list_id, body, opts)
@@ -273,7 +273,7 @@ module DatadogAPIClient::V2
     # Update dashboards of an existing dashboard list.
     # @param dashboard_list_id [Integer] ID of the dashboard list to update items from.
     # @param body [DashboardListUpdateItemsRequest] New dashboards of the dashboard list.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(DashboardListUpdateItemsResponse, Integer, Hash)>] DashboardListUpdateItemsResponse data, response status code and response headers
     def update_dashboard_list_items_with_http_info(dashboard_list_id, body, opts = {})
 

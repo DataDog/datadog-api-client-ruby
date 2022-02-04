@@ -25,7 +25,7 @@ module DatadogAPIClient::V2
 
     # Get all processes
     # Get all processes for your organization.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :search String to search processes by.
     # @option opts [String] :tags Comma-separated list of tags to filter processes by.
     # @option opts [Integer] :from Unix timestamp (number of seconds since epoch) of the start of the query window. If not provided, the start of the query window will be 15 minutes before the `to` timestamp. If neither `from` nor `to` are provided, the query window will be `[now - 15m, now]`.
@@ -40,7 +40,7 @@ module DatadogAPIClient::V2
 
     # Get all processes
     # Get all processes for your organization.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :search String to search processes by.
     # @option opts [String] :tags Comma-separated list of tags to filter processes by.
     # @option opts [Integer] :from Unix timestamp (number of seconds since epoch) of the start of the query window. If not provided, the start of the query window will be 15 minutes before the `to` timestamp. If neither `from` nor `to` are provided, the query window will be `[now - 15m, now]`.
@@ -63,10 +63,10 @@ module DatadogAPIClient::V2
         @api_client.config.logger.debug 'Calling API: ProcessesAPI.list_processes ...'
       end
       if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 10000
-        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling ProcessesAPI.ListProcesses, must be smaller than or equal to 10000.'
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling ProcessesAPI.list_processes, must be smaller than or equal to 10000.'
       end
       if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling ProcessesAPI.ListProcesses, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling ProcessesAPI.list_processes, must be greater than or equal to 1.'
       end
       # resource path
       local_var_path = '/api/v2/processes'

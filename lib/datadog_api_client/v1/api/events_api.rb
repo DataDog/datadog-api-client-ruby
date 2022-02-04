@@ -27,7 +27,7 @@ module DatadogAPIClient::V1
     # This endpoint allows you to post events to the stream.
     # Tag them, set priority and event aggregate them with other events.
     # @param body [EventCreateRequest] Event request object
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [EventCreateResponse]
     def create_event(body, opts = {})
       data, _status_code, _headers = create_event_with_http_info(body, opts)
@@ -38,7 +38,7 @@ module DatadogAPIClient::V1
     # This endpoint allows you to post events to the stream.
     # Tag them, set priority and event aggregate them with other events.
     # @param body [EventCreateRequest] Event request object
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(EventCreateResponse, Integer, Hash)>] EventCreateResponse data, response status code and response headers
     def create_event_with_http_info(body, opts = {})
 
@@ -106,7 +106,7 @@ module DatadogAPIClient::V1
     # **Note**: If the event you’re querying contains markdown formatting of any kind,
     # you may see characters such as `%`,`\`,`n` in your output.
     # @param event_id [Integer] The ID of the event.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [EventResponse]
     def get_event(event_id, opts = {})
       data, _status_code, _headers = get_event_with_http_info(event_id, opts)
@@ -119,7 +119,7 @@ module DatadogAPIClient::V1
     # **Note**: If the event you’re querying contains markdown formatting of any kind,
     # you may see characters such as `%`,`\`,`n` in your output.
     # @param event_id [Integer] The ID of the event.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(EventResponse, Integer, Hash)>] EventResponse data, response status code and response headers
     def get_event_with_http_info(event_id, opts = {})
 
@@ -191,7 +191,7 @@ module DatadogAPIClient::V1
     # paginate the results. You can also use the page parameter to specify which set of `1000` results to return.
     # @param start [Integer] POSIX timestamp.
     # @param _end [Integer] POSIX timestamp.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [EventPriority] :priority Priority of your events, either `low` or `normal`.
     # @option opts [String] :sources A comma separated string of sources.
     # @option opts [String] :tags A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope.
@@ -216,7 +216,7 @@ module DatadogAPIClient::V1
     # paginate the results. You can also use the page parameter to specify which set of `1000` results to return.
     # @param start [Integer] POSIX timestamp.
     # @param _end [Integer] POSIX timestamp.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [EventPriority] :priority Priority of your events, either `low` or `normal`.
     # @option opts [String] :sources A comma separated string of sources.
     # @option opts [String] :tags A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope.
@@ -251,7 +251,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "invalid value for \"priority\", must be one of #{allowable_values}"
       end
       if @api_client.config.client_side_validation && !opts[:'page'].nil? && opts[:'page'] > 2147483647
-        fail ArgumentError, 'invalid value for "opts[:"page"]" when calling EventsAPI.ListEvents, must be smaller than or equal to 2147483647.'
+        fail ArgumentError, 'invalid value for "opts[:"page"]" when calling EventsAPI.list_events, must be smaller than or equal to 2147483647.'
       end
       # resource path
       local_var_path = '/api/v1/events'

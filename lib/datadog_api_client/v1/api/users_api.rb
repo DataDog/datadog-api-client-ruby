@@ -29,7 +29,7 @@ module DatadogAPIClient::V1
     # **Note**: Users can only be created with the admin access role
     # if application keys belong to administrators.
     # @param body [User] User object that needs to be created.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [UserResponse]
     def create_user(body, opts = {})
       data, _status_code, _headers = create_user_with_http_info(body, opts)
@@ -42,7 +42,7 @@ module DatadogAPIClient::V1
     # **Note**: Users can only be created with the admin access role
     # if application keys belong to administrators.
     # @param body [User] User object that needs to be created.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(UserResponse, Integer, Hash)>] UserResponse data, response status code and response headers
     def create_user_with_http_info(body, opts = {})
 
@@ -110,7 +110,7 @@ module DatadogAPIClient::V1
     # **Note**: This endpoint can only be used with application keys belonging to
     # administrators.
     # @param user_handle [String] The handle of the user.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [UserDisableResponse]
     def disable_user(user_handle, opts = {})
       data, _status_code, _headers = disable_user_with_http_info(user_handle, opts)
@@ -123,7 +123,7 @@ module DatadogAPIClient::V1
     # **Note**: This endpoint can only be used with application keys belonging to
     # administrators.
     # @param user_handle [String] The handle of the user.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(UserDisableResponse, Integer, Hash)>] UserDisableResponse data, response status code and response headers
     def disable_user_with_http_info(user_handle, opts = {})
 
@@ -186,7 +186,7 @@ module DatadogAPIClient::V1
     # Get user details
     # Get a user's details.
     # @param user_handle [String] The ID of the user.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [UserResponse]
     def get_user(user_handle, opts = {})
       data, _status_code, _headers = get_user_with_http_info(user_handle, opts)
@@ -196,7 +196,7 @@ module DatadogAPIClient::V1
     # Get user details
     # Get a user's details.
     # @param user_handle [String] The ID of the user.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(UserResponse, Integer, Hash)>] UserResponse data, response status code and response headers
     def get_user_with_http_info(user_handle, opts = {})
 
@@ -258,7 +258,7 @@ module DatadogAPIClient::V1
 
     # List all users
     # List all users for your organization.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [UserListResponse]
     def list_users(opts = {})
       data, _status_code, _headers = list_users_with_http_info(opts)
@@ -267,7 +267,7 @@ module DatadogAPIClient::V1
 
     # List all users
     # List all users for your organization.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(UserListResponse, Integer, Hash)>] UserListResponse data, response status code and response headers
     def list_users_with_http_info(opts = {})
 
@@ -329,7 +329,7 @@ module DatadogAPIClient::V1
     # **Note**: It can only be used with application keys belonging to administrators.
     # @param user_handle [String] The ID of the user.
     # @param body [User] Description of the update.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [UserResponse]
     def update_user(user_handle, body, opts = {})
       data, _status_code, _headers = update_user_with_http_info(user_handle, body, opts)
@@ -342,7 +342,7 @@ module DatadogAPIClient::V1
     # **Note**: It can only be used with application keys belonging to administrators.
     # @param user_handle [String] The ID of the user.
     # @param body [User] Description of the update.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(UserResponse, Integer, Hash)>] UserResponse data, response status code and response headers
     def update_user_with_http_info(user_handle, body, opts = {})
 

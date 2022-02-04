@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     # Get metric metadata
     # Get metadata about a specific metric.
     # @param metric_name [String] Name of the metric for which to get metadata.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [MetricMetadata]
     def get_metric_metadata(metric_name, opts = {})
       data, _status_code, _headers = get_metric_metadata_with_http_info(metric_name, opts)
@@ -36,7 +36,7 @@ module DatadogAPIClient::V1
     # Get metric metadata
     # Get metadata about a specific metric.
     # @param metric_name [String] Name of the metric for which to get metadata.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(MetricMetadata, Integer, Hash)>] MetricMetadata data, response status code and response headers
     def get_metric_metadata_with_http_info(metric_name, opts = {})
 
@@ -99,7 +99,7 @@ module DatadogAPIClient::V1
     # Get active metrics list
     # Get the list of actively reporting metrics from a given time until now.
     # @param from [Integer] Seconds since the Unix epoch.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :host Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag.
     # @option opts [String] :tag_filter Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
     # @return [MetricsListResponse]
@@ -111,7 +111,7 @@ module DatadogAPIClient::V1
     # Get active metrics list
     # Get the list of actively reporting metrics from a given time until now.
     # @param from [Integer] Seconds since the Unix epoch.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :host Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag.
     # @option opts [String] :tag_filter Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
     # @return [Array<(MetricsListResponse, Integer, Hash)>] MetricsListResponse data, response status code and response headers
@@ -179,7 +179,7 @@ module DatadogAPIClient::V1
     # Search metrics
     # Search for metrics from the last 24 hours in Datadog.
     # @param q [String] Query string to search metrics upon. Must be prefixed with `metrics:`.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [MetricSearchResponse]
     def list_metrics(q, opts = {})
       data, _status_code, _headers = list_metrics_with_http_info(q, opts)
@@ -189,7 +189,7 @@ module DatadogAPIClient::V1
     # Search metrics
     # Search for metrics from the last 24 hours in Datadog.
     # @param q [String] Query string to search metrics upon. Must be prefixed with `metrics:`.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(MetricSearchResponse, Integer, Hash)>] MetricSearchResponse data, response status code and response headers
     def list_metrics_with_http_info(q, opts = {})
 
@@ -255,7 +255,7 @@ module DatadogAPIClient::V1
     # @param from [Integer] Start of the queried time period, seconds since the Unix epoch.
     # @param to [Integer] End of the queried time period, seconds since the Unix epoch.
     # @param query [String] Query string.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [MetricsQueryResponse]
     def query_metrics(from, to, query, opts = {})
       data, _status_code, _headers = query_metrics_with_http_info(from, to, query, opts)
@@ -267,7 +267,7 @@ module DatadogAPIClient::V1
     # @param from [Integer] Start of the queried time period, seconds since the Unix epoch.
     # @param to [Integer] End of the queried time period, seconds since the Unix epoch.
     # @param query [String] Query string.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(MetricsQueryResponse, Integer, Hash)>] MetricsQueryResponse data, response status code and response headers
     def query_metrics_with_http_info(from, to, query, opts = {})
 
@@ -351,7 +351,7 @@ module DatadogAPIClient::V1
     # - The full payload is approximately 100 bytes. However, with the DogStatsD API,
     # compression is applied, which reduces the payload size.
     # @param body [MetricsPayload] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [MetricContentEncoding] :content_encoding HTTP header used to compress the media-type.
     # @return [IntakePayloadAccepted]
     def submit_metrics(body, opts = {})
@@ -372,7 +372,7 @@ module DatadogAPIClient::V1
     # - The full payload is approximately 100 bytes. However, with the DogStatsD API,
     # compression is applied, which reduces the payload size.
     # @param body [MetricsPayload] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [MetricContentEncoding] :content_encoding HTTP header used to compress the media-type.
     # @return [Array<(IntakePayloadAccepted, Integer, Hash)>] IntakePayloadAccepted data, response status code and response headers
     def submit_metrics_with_http_info(body, opts = {})
@@ -444,7 +444,7 @@ module DatadogAPIClient::V1
     # Edit metadata of a specific metric. Find out more about [supported types](https://docs.datadoghq.com/developers/metrics).
     # @param metric_name [String] Name of the metric for which to edit metadata.
     # @param body [MetricMetadata] New metadata.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [MetricMetadata]
     def update_metric_metadata(metric_name, body, opts = {})
       data, _status_code, _headers = update_metric_metadata_with_http_info(metric_name, body, opts)
@@ -455,7 +455,7 @@ module DatadogAPIClient::V1
     # Edit metadata of a specific metric. Find out more about [supported types](https://docs.datadoghq.com/developers/metrics).
     # @param metric_name [String] Name of the metric for which to edit metadata.
     # @param body [MetricMetadata] New metadata.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(MetricMetadata, Integer, Hash)>] MetricMetadata data, response status code and response headers
     def update_metric_metadata_with_http_info(metric_name, body, opts = {})
 

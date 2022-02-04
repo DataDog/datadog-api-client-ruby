@@ -34,7 +34,7 @@ module DatadogAPIClient::V1
     # [1]: /logs/guide/collect-multiple-logs-with-pagination
     # [2]: https://docs.datadoghq.com/logs/archives
     # @param body [LogsListRequest] Logs filter
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [LogsListResponse]
     def list_logs(body, opts = {})
       data, _status_code, _headers = list_logs_with_http_info(body, opts)
@@ -52,7 +52,7 @@ module DatadogAPIClient::V1
     # [1]: /logs/guide/collect-multiple-logs-with-pagination
     # [2]: https://docs.datadoghq.com/logs/archives
     # @param body [LogsListRequest] Logs filter
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(LogsListResponse, Integer, Hash)>] LogsListResponse data, response status code and response headers
     def list_logs_with_http_info(body, opts = {})
 
@@ -135,7 +135,7 @@ module DatadogAPIClient::V1
     # - 413: Payload too large (batch is above 5MB uncompressed)
     # - 5xx: Internal error, request should be retried after some time
     # @param body [Array<HTTPLogItem>] Log to send (JSON format).
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [ContentEncoding] :content_encoding HTTP header used to compress the media-type.
     # @option opts [String] :ddtags Log tags can be passed as query parameters with `text/plain` content type.
     # @return [Object]
@@ -165,7 +165,7 @@ module DatadogAPIClient::V1
     # - 413: Payload too large (batch is above 5MB uncompressed)
     # - 5xx: Internal error, request should be retried after some time
     # @param body [Array<HTTPLogItem>] Log to send (JSON format).
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [ContentEncoding] :content_encoding HTTP header used to compress the media-type.
     # @option opts [String] :ddtags Log tags can be passed as query parameters with `text/plain` content type.
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers

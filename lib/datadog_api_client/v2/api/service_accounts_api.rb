@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
     # Create an application key for this service account.
     # @param service_account_id [String] The ID of the service account.
     # @param body [ApplicationKeyCreateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [ApplicationKeyResponse]
     def create_service_account_application_key(service_account_id, body, opts = {})
       data, _status_code, _headers = create_service_account_application_key_with_http_info(service_account_id, body, opts)
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     # Create an application key for this service account.
     # @param service_account_id [String] The ID of the service account.
     # @param body [ApplicationKeyCreateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def create_service_account_application_key_with_http_info(service_account_id, body, opts = {})
 
@@ -108,7 +108,7 @@ module DatadogAPIClient::V2
     # Delete an application key owned by this service account.
     # @param service_account_id [String] The ID of the service account.
     # @param app_key_id [String] The ID of the application key.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [nil]
     def delete_service_account_application_key(service_account_id, app_key_id, opts = {})
       delete_service_account_application_key_with_http_info(service_account_id, app_key_id, opts)
@@ -119,7 +119,7 @@ module DatadogAPIClient::V2
     # Delete an application key owned by this service account.
     # @param service_account_id [String] The ID of the service account.
     # @param app_key_id [String] The ID of the application key.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_service_account_application_key_with_http_info(service_account_id, app_key_id, opts = {})
 
@@ -187,7 +187,7 @@ module DatadogAPIClient::V2
     # Get an application key owned by this service account.
     # @param service_account_id [String] The ID of the service account.
     # @param app_key_id [String] The ID of the application key.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [PartialApplicationKeyResponse]
     def get_service_account_application_key(service_account_id, app_key_id, opts = {})
       data, _status_code, _headers = get_service_account_application_key_with_http_info(service_account_id, app_key_id, opts)
@@ -198,7 +198,7 @@ module DatadogAPIClient::V2
     # Get an application key owned by this service account.
     # @param service_account_id [String] The ID of the service account.
     # @param app_key_id [String] The ID of the application key.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(PartialApplicationKeyResponse, Integer, Hash)>] PartialApplicationKeyResponse data, response status code and response headers
     def get_service_account_application_key_with_http_info(service_account_id, app_key_id, opts = {})
 
@@ -265,7 +265,7 @@ module DatadogAPIClient::V2
     # List application keys for this service account
     # List all application keys available for this service account.
     # @param service_account_id [String] The ID of the service account.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Size for a given page.
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [ApplicationKeysSort] :sort Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
@@ -281,7 +281,7 @@ module DatadogAPIClient::V2
     # List application keys for this service account
     # List all application keys available for this service account.
     # @param service_account_id [String] The ID of the service account.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Size for a given page.
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [ApplicationKeysSort] :sort Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
@@ -362,7 +362,7 @@ module DatadogAPIClient::V2
     # @param service_account_id [String] The ID of the service account.
     # @param app_key_id [String] The ID of the application key.
     # @param body [ApplicationKeyUpdateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [PartialApplicationKeyResponse]
     def update_service_account_application_key(service_account_id, app_key_id, body, opts = {})
       data, _status_code, _headers = update_service_account_application_key_with_http_info(service_account_id, app_key_id, body, opts)
@@ -374,7 +374,7 @@ module DatadogAPIClient::V2
     # @param service_account_id [String] The ID of the service account.
     # @param app_key_id [String] The ID of the application key.
     # @param body [ApplicationKeyUpdateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(PartialApplicationKeyResponse, Integer, Hash)>] PartialApplicationKeyResponse data, response status code and response headers
     def update_service_account_application_key_with_http_info(service_account_id, app_key_id, body, opts = {})
 

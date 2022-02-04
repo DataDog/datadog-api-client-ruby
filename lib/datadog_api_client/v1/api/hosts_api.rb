@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     # Get the total number of active hosts
     # This endpoint returns the total number of active and up hosts in your Datadog account.
     # Active means the host has reported in the past hour, and up means it has reported in the past two hours.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [Integer] :from Number of seconds from which you want to get total number of active hosts.
     # @return [HostTotals]
     def get_host_totals(opts = {})
@@ -37,7 +37,7 @@ module DatadogAPIClient::V1
     # Get the total number of active hosts
     # This endpoint returns the total number of active and up hosts in your Datadog account.
     # Active means the host has reported in the past hour, and up means it has reported in the past two hours.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [Integer] :from Number of seconds from which you want to get total number of active hosts.
     # @return [Array<(HostTotals, Integer, Hash)>] HostTotals data, response status code and response headers
     def get_host_totals_with_http_info(opts = {})
@@ -100,7 +100,7 @@ module DatadogAPIClient::V1
     # Hosts live within the past 3 hours are included by default.
     # Retention is 7 days.
     # Results are paginated with a max of 1000 results at a time.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :filter String to filter search results.
     # @option opts [String] :sort_field Sort hosts by this field.
     # @option opts [String] :sort_dir Direction of sort. Options include `asc` and `desc`.
@@ -120,7 +120,7 @@ module DatadogAPIClient::V1
     # Hosts live within the past 3 hours are included by default.
     # Retention is 7 days.
     # Results are paginated with a max of 1000 results at a time.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :filter String to filter search results.
     # @option opts [String] :sort_field Sort hosts by this field.
     # @option opts [String] :sort_dir Direction of sort. Options include `asc` and `desc`.
@@ -196,7 +196,7 @@ module DatadogAPIClient::V1
     # Mute a host.
     # @param host_name [String] Name of the host to mute.
     # @param body [HostMuteSettings] Mute a host request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [HostMuteResponse]
     def mute_host(host_name, body, opts = {})
       data, _status_code, _headers = mute_host_with_http_info(host_name, body, opts)
@@ -207,7 +207,7 @@ module DatadogAPIClient::V1
     # Mute a host.
     # @param host_name [String] Name of the host to mute.
     # @param body [HostMuteSettings] Mute a host request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(HostMuteResponse, Integer, Hash)>] HostMuteResponse data, response status code and response headers
     def mute_host_with_http_info(host_name, body, opts = {})
 
@@ -276,7 +276,7 @@ module DatadogAPIClient::V1
     # Unmute a host
     # Unmutes a host. This endpoint takes no JSON arguments.
     # @param host_name [String] Name of the host to unmute.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [HostMuteResponse]
     def unmute_host(host_name, opts = {})
       data, _status_code, _headers = unmute_host_with_http_info(host_name, opts)
@@ -286,7 +286,7 @@ module DatadogAPIClient::V1
     # Unmute a host
     # Unmutes a host. This endpoint takes no JSON arguments.
     # @param host_name [String] Name of the host to unmute.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(HostMuteResponse, Integer, Hash)>] HostMuteResponse data, response status code and response headers
     def unmute_host_with_http_info(host_name, opts = {})
 

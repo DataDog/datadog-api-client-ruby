@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     # Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
     # @param metric_name [String] The name of the metric.
     # @param body [MetricTagConfigurationCreateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [MetricTagConfigurationResponse]
     def create_tag_configuration(metric_name, body, opts = {})
       data, _status_code, _headers = create_tag_configuration_with_http_info(metric_name, body, opts)
@@ -44,7 +44,7 @@ module DatadogAPIClient::V2
     # Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
     # @param metric_name [String] The name of the metric.
     # @param body [MetricTagConfigurationCreateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(MetricTagConfigurationResponse, Integer, Hash)>] MetricTagConfigurationResponse data, response status code and response headers
     def create_tag_configuration_with_http_info(metric_name, body, opts = {})
 
@@ -114,7 +114,7 @@ module DatadogAPIClient::V2
     # Deletes a metric's tag configuration. Can only be used with application
     # keys from users with the `Manage Tags for Metrics` permission.
     # @param metric_name [String] The name of the metric.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [nil]
     def delete_tag_configuration(metric_name, opts = {})
       delete_tag_configuration_with_http_info(metric_name, opts)
@@ -125,7 +125,7 @@ module DatadogAPIClient::V2
     # Deletes a metric's tag configuration. Can only be used with application
     # keys from users with the `Manage Tags for Metrics` permission.
     # @param metric_name [String] The name of the metric.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_tag_configuration_with_http_info(metric_name, opts = {})
 
@@ -188,7 +188,7 @@ module DatadogAPIClient::V2
     # List tag configuration by name
     # Returns the tag configuration for the given metric name.
     # @param metric_name [String] The name of the metric.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [MetricTagConfigurationResponse]
     def list_tag_configuration_by_name(metric_name, opts = {})
       data, _status_code, _headers = list_tag_configuration_by_name_with_http_info(metric_name, opts)
@@ -198,7 +198,7 @@ module DatadogAPIClient::V2
     # List tag configuration by name
     # Returns the tag configuration for the given metric name.
     # @param metric_name [String] The name of the metric.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(MetricTagConfigurationResponse, Integer, Hash)>] MetricTagConfigurationResponse data, response status code and response headers
     def list_tag_configuration_by_name_with_http_info(metric_name, opts = {})
 
@@ -261,7 +261,7 @@ module DatadogAPIClient::V2
     # List tag configurations
     # Returns all configured count/gauge/rate/distribution metric names
     # (with additional filters if specified).
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [Boolean] :filter_configured Filter metrics that have configured tags.
     # @option opts [String] :filter_tags_configured Filter tag configurations by configured tags.
     # @option opts [MetricTagConfigurationMetricTypes] :filter_metric_type Filter tag configurations by metric type.
@@ -277,7 +277,7 @@ module DatadogAPIClient::V2
     # List tag configurations
     # Returns all configured count/gauge/rate/distribution metric names
     # (with additional filters if specified).
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [Boolean] :filter_configured Filter metrics that have configured tags.
     # @option opts [String] :filter_tags_configured Filter tag configurations by configured tags.
     # @option opts [MetricTagConfigurationMetricTypes] :filter_metric_type Filter tag configurations by metric type.
@@ -352,7 +352,7 @@ module DatadogAPIClient::V2
     # List tags by metric name
     # View indexed tag key-value pairs for a given metric name.
     # @param metric_name [String] The name of the metric.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [MetricAllTagsResponse]
     def list_tags_by_metric_name(metric_name, opts = {})
       data, _status_code, _headers = list_tags_by_metric_name_with_http_info(metric_name, opts)
@@ -362,7 +362,7 @@ module DatadogAPIClient::V2
     # List tags by metric name
     # View indexed tag key-value pairs for a given metric name.
     # @param metric_name [String] The name of the metric.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(MetricAllTagsResponse, Integer, Hash)>] MetricAllTagsResponse data, response status code and response headers
     def list_tags_by_metric_name_with_http_info(metric_name, opts = {})
 
@@ -429,7 +429,7 @@ module DatadogAPIClient::V2
     # For Metrics without Limits&trade; beta customers, all metrics will return both ingested/indexed volumes.
     # Custom metrics generated in-app from other products will return `null` for ingested volumes.
     # @param metric_name [String] The name of the metric.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [MetricVolumesResponse]
     def list_volumes_by_metric_name(metric_name, opts = {})
       data, _status_code, _headers = list_volumes_by_metric_name_with_http_info(metric_name, opts)
@@ -443,7 +443,7 @@ module DatadogAPIClient::V2
     # For Metrics without Limits&trade; beta customers, all metrics will return both ingested/indexed volumes.
     # Custom metrics generated in-app from other products will return `null` for ingested volumes.
     # @param metric_name [String] The name of the metric.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(MetricVolumesResponse, Integer, Hash)>] MetricVolumesResponse data, response status code and response headers
     def list_volumes_by_metric_name_with_http_info(metric_name, opts = {})
 
@@ -509,7 +509,7 @@ module DatadogAPIClient::V2
     # Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
     # @param metric_name [String] The name of the metric.
     # @param body [MetricTagConfigurationUpdateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [MetricTagConfigurationResponse]
     def update_tag_configuration(metric_name, body, opts = {})
       data, _status_code, _headers = update_tag_configuration_with_http_info(metric_name, body, opts)
@@ -522,7 +522,7 @@ module DatadogAPIClient::V2
     # Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
     # @param metric_name [String] The name of the metric.
     # @param body [MetricTagConfigurationUpdateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(MetricTagConfigurationResponse, Integer, Hash)>] MetricTagConfigurationResponse data, response status code and response headers
     def update_tag_configuration_with_http_info(metric_name, body, opts = {})
 

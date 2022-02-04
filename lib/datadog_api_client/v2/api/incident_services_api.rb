@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     # Create a new incident service
     # Creates a new incident service.
     # @param body [IncidentServiceCreateRequest] Incident Service Payload.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [IncidentServiceResponse]
     def create_incident_service(body, opts = {})
       data, _status_code, _headers = create_incident_service_with_http_info(body, opts)
@@ -36,7 +36,7 @@ module DatadogAPIClient::V2
     # Create a new incident service
     # Creates a new incident service.
     # @param body [IncidentServiceCreateRequest] Incident Service Payload.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(IncidentServiceResponse, Integer, Hash)>] IncidentServiceResponse data, response status code and response headers
     def create_incident_service_with_http_info(body, opts = {})
 
@@ -101,7 +101,7 @@ module DatadogAPIClient::V2
     # Delete an existing incident service
     # Deletes an existing incident service.
     # @param service_id [String] The ID of the incident service.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [nil]
     def delete_incident_service(service_id, opts = {})
       delete_incident_service_with_http_info(service_id, opts)
@@ -111,7 +111,7 @@ module DatadogAPIClient::V2
     # Delete an existing incident service
     # Deletes an existing incident service.
     # @param service_id [String] The ID of the incident service.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_incident_service_with_http_info(service_id, opts = {})
 
@@ -175,7 +175,7 @@ module DatadogAPIClient::V2
     # Get details of an incident service. If the `include[users]` query parameter is provided,
     # the included attribute will contain the users related to these incident services.
     # @param service_id [String] The ID of the incident service.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [IncidentRelatedObject] :include Specifies which types of related objects should be included in the response.
     # @return [IncidentServiceResponse]
     def get_incident_service(service_id, opts = {})
@@ -187,7 +187,7 @@ module DatadogAPIClient::V2
     # Get details of an incident service. If the `include[users]` query parameter is provided,
     # the included attribute will contain the users related to these incident services.
     # @param service_id [String] The ID of the incident service.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [IncidentRelatedObject] :include Specifies which types of related objects should be included in the response.
     # @return [Array<(IncidentServiceResponse, Integer, Hash)>] IncidentServiceResponse data, response status code and response headers
     def get_incident_service_with_http_info(service_id, opts = {})
@@ -255,7 +255,7 @@ module DatadogAPIClient::V2
 
     # Get a list of all incident services
     # Get all incident services uploaded for the requesting user's organization. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident services.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [IncidentRelatedObject] :include Specifies which types of related objects should be included in the response.
     # @option opts [Integer] :page_size Size for a given page.
     # @option opts [Integer] :page_offset Specific offset to use as the beginning of the returned page.
@@ -268,7 +268,7 @@ module DatadogAPIClient::V2
 
     # Get a list of all incident services
     # Get all incident services uploaded for the requesting user's organization. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident services.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [IncidentRelatedObject] :include Specifies which types of related objects should be included in the response.
     # @option opts [Integer] :page_size Size for a given page.
     # @option opts [Integer] :page_offset Specific offset to use as the beginning of the returned page.
@@ -340,7 +340,7 @@ module DatadogAPIClient::V2
     # Updates an existing incident service. Only provide the attributes which should be updated as this request is a partial update.
     # @param service_id [String] The ID of the incident service.
     # @param body [IncidentServiceUpdateRequest] Incident Service Payload.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [IncidentServiceResponse]
     def update_incident_service(service_id, body, opts = {})
       data, _status_code, _headers = update_incident_service_with_http_info(service_id, body, opts)
@@ -351,7 +351,7 @@ module DatadogAPIClient::V2
     # Updates an existing incident service. Only provide the attributes which should be updated as this request is a partial update.
     # @param service_id [String] The ID of the incident service.
     # @param body [IncidentServiceUpdateRequest] Incident Service Payload.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(IncidentServiceResponse, Integer, Hash)>] IncidentServiceResponse data, response status code and response headers
     def update_incident_service_with_http_info(service_id, body, opts = {})
 

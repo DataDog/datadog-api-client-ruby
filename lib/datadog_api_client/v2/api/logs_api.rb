@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     # Aggregate events
     # The API endpoint to aggregate events into buckets and compute metrics and timeseries.
     # @param body [LogsAggregateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [LogsAggregateResponse]
     def aggregate_logs(body, opts = {})
       data, _status_code, _headers = aggregate_logs_with_http_info(body, opts)
@@ -36,7 +36,7 @@ module DatadogAPIClient::V2
     # Aggregate events
     # The API endpoint to aggregate events into buckets and compute metrics and timeseries.
     # @param body [LogsAggregateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(LogsAggregateResponse, Integer, Hash)>] LogsAggregateResponse data, response status code and response headers
     def aggregate_logs_with_http_info(body, opts = {})
 
@@ -110,7 +110,7 @@ module DatadogAPIClient::V2
     # 
     # [1]: /logs/guide/collect-multiple-logs-with-pagination
     # [2]: https://docs.datadoghq.com/logs/archives
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [LogsListRequest] :body 
     # @return [LogsListResponse]
     def list_logs(opts = {})
@@ -130,7 +130,7 @@ module DatadogAPIClient::V2
     # 
     # [1]: /logs/guide/collect-multiple-logs-with-pagination
     # [2]: https://docs.datadoghq.com/logs/archives
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [LogsListRequest] :body 
     # @return [Array<(LogsListResponse, Integer, Hash)>] LogsListResponse data, response status code and response headers
     def list_logs_with_http_info(opts = {})
@@ -201,7 +201,7 @@ module DatadogAPIClient::V2
     # 
     # [1]: /logs/guide/collect-multiple-logs-with-pagination
     # [2]: https://docs.datadoghq.com/logs/archives
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :filter_query Search query following logs syntax.
     # @option opts [String] :filter_index For customers with multiple indexes, the indexes to search Defaults to '*' which means all indexes
     # @option opts [Time] :filter_from Minimum timestamp for requested logs.
@@ -227,7 +227,7 @@ module DatadogAPIClient::V2
     # 
     # [1]: /logs/guide/collect-multiple-logs-with-pagination
     # [2]: https://docs.datadoghq.com/logs/archives
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :filter_query Search query following logs syntax.
     # @option opts [String] :filter_index For customers with multiple indexes, the indexes to search Defaults to '*' which means all indexes
     # @option opts [Time] :filter_from Minimum timestamp for requested logs.
@@ -255,7 +255,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end
       if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 1000
-        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling LogsAPI.ListLogsGet, must be smaller than or equal to 1000.'
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling LogsAPI.list_logs_get, must be smaller than or equal to 1000.'
       end
       # resource path
       local_var_path = '/api/v2/logs/events'
@@ -329,7 +329,7 @@ module DatadogAPIClient::V2
     # - 500: Internal Server Error, the server encountered an unexpected condition that prevented it from fulfilling the request, request should be retried after some time
     # - 503: Service Unavailable, the server is not ready to handle the request probably because it is overloaded, request should be retried after some time
     # @param body [Array<HTTPLogItem>] Log to send (JSON format).
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [ContentEncoding] :content_encoding HTTP header used to compress the media-type.
     # @option opts [String] :ddtags Log tags can be passed as query parameters with `text/plain` content type.
     # @return [Object]
@@ -363,7 +363,7 @@ module DatadogAPIClient::V2
     # - 500: Internal Server Error, the server encountered an unexpected condition that prevented it from fulfilling the request, request should be retried after some time
     # - 503: Service Unavailable, the server is not ready to handle the request probably because it is overloaded, request should be retried after some time
     # @param body [Array<HTTPLogItem>] Log to send (JSON format).
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [ContentEncoding] :content_encoding HTTP header used to compress the media-type.
     # @option opts [String] :ddtags Log tags can be passed as query parameters with `text/plain` content type.
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers

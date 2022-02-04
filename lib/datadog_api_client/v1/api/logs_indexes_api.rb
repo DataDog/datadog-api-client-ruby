@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     # Create an index
     # Creates a new index. Returns the Index object passed in the request body when the request is successful.
     # @param body [LogsIndex] Object containing the new index.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [LogsIndex]
     def create_logs_index(body, opts = {})
       data, _status_code, _headers = create_logs_index_with_http_info(body, opts)
@@ -36,7 +36,7 @@ module DatadogAPIClient::V1
     # Create an index
     # Creates a new index. Returns the Index object passed in the request body when the request is successful.
     # @param body [LogsIndex] Object containing the new index.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(LogsIndex, Integer, Hash)>] LogsIndex data, response status code and response headers
     def create_logs_index_with_http_info(body, opts = {})
 
@@ -101,7 +101,7 @@ module DatadogAPIClient::V1
     # Get an index
     # Get one log index from your organization. This endpoint takes no JSON arguments.
     # @param name [String] Name of the log index.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [LogsIndex]
     def get_logs_index(name, opts = {})
       data, _status_code, _headers = get_logs_index_with_http_info(name, opts)
@@ -111,7 +111,7 @@ module DatadogAPIClient::V1
     # Get an index
     # Get one log index from your organization. This endpoint takes no JSON arguments.
     # @param name [String] Name of the log index.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(LogsIndex, Integer, Hash)>] LogsIndex data, response status code and response headers
     def get_logs_index_with_http_info(name, opts = {})
 
@@ -173,7 +173,7 @@ module DatadogAPIClient::V1
 
     # Get indexes order
     # Get the current order of your log indexes. This endpoint takes no JSON arguments.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [LogsIndexesOrder]
     def get_logs_index_order(opts = {})
       data, _status_code, _headers = get_logs_index_order_with_http_info(opts)
@@ -182,7 +182,7 @@ module DatadogAPIClient::V1
 
     # Get indexes order
     # Get the current order of your log indexes. This endpoint takes no JSON arguments.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(LogsIndexesOrder, Integer, Hash)>] LogsIndexesOrder data, response status code and response headers
     def get_logs_index_order_with_http_info(opts = {})
 
@@ -241,7 +241,7 @@ module DatadogAPIClient::V1
     # Get all indexes
     # The Index object describes the configuration of a log index.
     # This endpoint returns an array of the `LogIndex` objects of your organization.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [LogsIndexListResponse]
     def list_log_indexes(opts = {})
       data, _status_code, _headers = list_log_indexes_with_http_info(opts)
@@ -251,7 +251,7 @@ module DatadogAPIClient::V1
     # Get all indexes
     # The Index object describes the configuration of a log index.
     # This endpoint returns an array of the `LogIndex` objects of your organization.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(LogsIndexListResponse, Integer, Hash)>] LogsIndexListResponse data, response status code and response headers
     def list_log_indexes_with_http_info(opts = {})
 
@@ -315,7 +315,7 @@ module DatadogAPIClient::V1
     # your current configuration with the new one sent to your Datadog organization.
     # @param name [String] Name of the log index.
     # @param body [LogsIndexUpdateRequest] Object containing the new `LogsIndexUpdateRequest`.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [LogsIndex]
     def update_logs_index(name, body, opts = {})
       data, _status_code, _headers = update_logs_index_with_http_info(name, body, opts)
@@ -330,7 +330,7 @@ module DatadogAPIClient::V1
     # your current configuration with the new one sent to your Datadog organization.
     # @param name [String] Name of the log index.
     # @param body [LogsIndexUpdateRequest] Object containing the new `LogsIndexUpdateRequest`.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(LogsIndex, Integer, Hash)>] LogsIndex data, response status code and response headers
     def update_logs_index_with_http_info(name, body, opts = {})
 
@@ -400,7 +400,7 @@ module DatadogAPIClient::V1
     # This endpoint updates the index order of your organization.
     # It returns the index order object passed in the request body when the request is successful.
     # @param body [LogsIndexesOrder] Object containing the new ordered list of index names
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [LogsIndexesOrder]
     def update_logs_index_order(body, opts = {})
       data, _status_code, _headers = update_logs_index_order_with_http_info(body, opts)
@@ -411,7 +411,7 @@ module DatadogAPIClient::V1
     # This endpoint updates the index order of your organization.
     # It returns the index order object passed in the request body when the request is successful.
     # @param body [LogsIndexesOrder] Object containing the new ordered list of index names
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(LogsIndexesOrder, Integer, Hash)>] LogsIndexesOrder data, response status code and response headers
     def update_logs_index_order_with_http_info(body, opts = {})
 

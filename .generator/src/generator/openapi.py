@@ -221,8 +221,19 @@ def parameters(operation):
             yield content["name"], content
 
     if "requestBody" in operation:
-        name = operation.get("x-codegen-request-body-name", "body")
-        yield name, operation["requestBody"]
+        if "multipart/form-data" in operation["requestBody"]["content"]:
+            parent = operation["requestBody"]["content"]["multipart/form-data"]["schema"]
+            for name, schema in parent["properties"].items():
+                yield name, {
+                    "in": "form",
+                    "schema": schema,
+                    "name": name,
+                    "description": schema.get("description"),
+                    "required": name in parent.get("required", []),
+                }
+        else:
+            name = operation.get("x-codegen-request-body-name", "body")
+            yield name, operation["requestBody"]
 
 
 def parameter_schema(parameter):

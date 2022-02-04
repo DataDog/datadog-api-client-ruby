@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     # Create an API key
     # Create an API key.
     # @param body [APIKeyCreateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [APIKeyResponse]
     def create_api_key(body, opts = {})
       data, _status_code, _headers = create_api_key_with_http_info(body, opts)
@@ -36,7 +36,7 @@ module DatadogAPIClient::V2
     # Create an API key
     # Create an API key.
     # @param body [APIKeyCreateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(APIKeyResponse, Integer, Hash)>] APIKeyResponse data, response status code and response headers
     def create_api_key_with_http_info(body, opts = {})
 
@@ -101,7 +101,7 @@ module DatadogAPIClient::V2
     # Create an application key for current user
     # Create an application key for current user
     # @param body [ApplicationKeyCreateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [ApplicationKeyResponse]
     def create_current_user_application_key(body, opts = {})
       data, _status_code, _headers = create_current_user_application_key_with_http_info(body, opts)
@@ -111,7 +111,7 @@ module DatadogAPIClient::V2
     # Create an application key for current user
     # Create an application key for current user
     # @param body [ApplicationKeyCreateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def create_current_user_application_key_with_http_info(body, opts = {})
 
@@ -176,7 +176,7 @@ module DatadogAPIClient::V2
     # Delete an API key
     # Delete an API key.
     # @param api_key_id [String] The ID of the API key.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [nil]
     def delete_api_key(api_key_id, opts = {})
       delete_api_key_with_http_info(api_key_id, opts)
@@ -186,7 +186,7 @@ module DatadogAPIClient::V2
     # Delete an API key
     # Delete an API key.
     # @param api_key_id [String] The ID of the API key.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_api_key_with_http_info(api_key_id, opts = {})
 
@@ -249,7 +249,7 @@ module DatadogAPIClient::V2
     # Delete an application key
     # Delete an application key
     # @param app_key_id [String] The ID of the application key.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [nil]
     def delete_application_key(app_key_id, opts = {})
       delete_application_key_with_http_info(app_key_id, opts)
@@ -259,7 +259,7 @@ module DatadogAPIClient::V2
     # Delete an application key
     # Delete an application key
     # @param app_key_id [String] The ID of the application key.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_application_key_with_http_info(app_key_id, opts = {})
 
@@ -322,7 +322,7 @@ module DatadogAPIClient::V2
     # Delete an application key owned by current user
     # Delete an application key owned by current user
     # @param app_key_id [String] The ID of the application key.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [nil]
     def delete_current_user_application_key(app_key_id, opts = {})
       delete_current_user_application_key_with_http_info(app_key_id, opts)
@@ -332,7 +332,7 @@ module DatadogAPIClient::V2
     # Delete an application key owned by current user
     # Delete an application key owned by current user
     # @param app_key_id [String] The ID of the application key.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_current_user_application_key_with_http_info(app_key_id, opts = {})
 
@@ -395,7 +395,7 @@ module DatadogAPIClient::V2
     # Get API key
     # Get an API key.
     # @param api_key_id [String] The ID of the API key.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :include Comma separated list of resource paths for related resources to include in the response. Supported resource paths are `created_by` and `modified_by`.
     # @return [APIKeyResponse]
     def get_api_key(api_key_id, opts = {})
@@ -406,7 +406,7 @@ module DatadogAPIClient::V2
     # Get API key
     # Get an API key.
     # @param api_key_id [String] The ID of the API key.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :include Comma separated list of resource paths for related resources to include in the response. Supported resource paths are `created_by` and `modified_by`.
     # @return [Array<(APIKeyResponse, Integer, Hash)>] APIKeyResponse data, response status code and response headers
     def get_api_key_with_http_info(api_key_id, opts = {})
@@ -471,7 +471,7 @@ module DatadogAPIClient::V2
     # Get an application key
     # Get an application key for your org.
     # @param app_key_id [String] The ID of the application key.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :include Resource path for related resources to include in the response. Only `owned_by` is supported.
     # @return [ApplicationKeyResponse]
     def get_application_key(app_key_id, opts = {})
@@ -482,7 +482,7 @@ module DatadogAPIClient::V2
     # Get an application key
     # Get an application key for your org.
     # @param app_key_id [String] The ID of the application key.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :include Resource path for related resources to include in the response. Only `owned_by` is supported.
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def get_application_key_with_http_info(app_key_id, opts = {})
@@ -547,7 +547,7 @@ module DatadogAPIClient::V2
     # Get one application key owned by current user
     # Get an application key owned by current user
     # @param app_key_id [String] The ID of the application key.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [ApplicationKeyResponse]
     def get_current_user_application_key(app_key_id, opts = {})
       data, _status_code, _headers = get_current_user_application_key_with_http_info(app_key_id, opts)
@@ -557,7 +557,7 @@ module DatadogAPIClient::V2
     # Get one application key owned by current user
     # Get an application key owned by current user
     # @param app_key_id [String] The ID of the application key.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def get_current_user_application_key_with_http_info(app_key_id, opts = {})
 
@@ -619,7 +619,7 @@ module DatadogAPIClient::V2
 
     # Get all API keys
     # List all API keys available for your account.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Size for a given page.
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [APIKeysSort] :sort API key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
@@ -637,7 +637,7 @@ module DatadogAPIClient::V2
 
     # Get all API keys
     # List all API keys available for your account.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Size for a given page.
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [APIKeysSort] :sort API key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
@@ -717,7 +717,7 @@ module DatadogAPIClient::V2
 
     # Get all application keys
     # List all application keys available for your org
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Size for a given page.
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [ApplicationKeysSort] :sort Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
@@ -732,7 +732,7 @@ module DatadogAPIClient::V2
 
     # Get all application keys
     # List all application keys available for your org
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Size for a given page.
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [ApplicationKeysSort] :sort Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
@@ -806,7 +806,7 @@ module DatadogAPIClient::V2
 
     # Get all application keys owned by current user
     # List all application keys available for current user
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Size for a given page.
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [ApplicationKeysSort] :sort Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
@@ -821,7 +821,7 @@ module DatadogAPIClient::V2
 
     # Get all application keys owned by current user
     # List all application keys available for current user
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Size for a given page.
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [ApplicationKeysSort] :sort Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
@@ -897,7 +897,7 @@ module DatadogAPIClient::V2
     # Update an API key.
     # @param api_key_id [String] The ID of the API key.
     # @param body [APIKeyUpdateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [APIKeyResponse]
     def update_api_key(api_key_id, body, opts = {})
       data, _status_code, _headers = update_api_key_with_http_info(api_key_id, body, opts)
@@ -908,7 +908,7 @@ module DatadogAPIClient::V2
     # Update an API key.
     # @param api_key_id [String] The ID of the API key.
     # @param body [APIKeyUpdateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(APIKeyResponse, Integer, Hash)>] APIKeyResponse data, response status code and response headers
     def update_api_key_with_http_info(api_key_id, body, opts = {})
 
@@ -978,7 +978,7 @@ module DatadogAPIClient::V2
     # Edit an application key
     # @param app_key_id [String] The ID of the application key.
     # @param body [ApplicationKeyUpdateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [ApplicationKeyResponse]
     def update_application_key(app_key_id, body, opts = {})
       data, _status_code, _headers = update_application_key_with_http_info(app_key_id, body, opts)
@@ -989,7 +989,7 @@ module DatadogAPIClient::V2
     # Edit an application key
     # @param app_key_id [String] The ID of the application key.
     # @param body [ApplicationKeyUpdateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def update_application_key_with_http_info(app_key_id, body, opts = {})
 
@@ -1059,7 +1059,7 @@ module DatadogAPIClient::V2
     # Edit an application key owned by current user
     # @param app_key_id [String] The ID of the application key.
     # @param body [ApplicationKeyUpdateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [ApplicationKeyResponse]
     def update_current_user_application_key(app_key_id, body, opts = {})
       data, _status_code, _headers = update_current_user_application_key_with_http_info(app_key_id, body, opts)
@@ -1070,7 +1070,7 @@ module DatadogAPIClient::V2
     # Edit an application key owned by current user
     # @param app_key_id [String] The ID of the application key.
     # @param body [ApplicationKeyUpdateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def update_current_user_application_key_with_http_info(app_key_id, body, opts = {})
 

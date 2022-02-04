@@ -28,7 +28,7 @@ module DatadogAPIClient::V1
     # **Note**: When a snapshot is created, there is some delay before it is available.
     # @param start [Integer] The POSIX timestamp of the start of the query.
     # @param _end [Integer] The POSIX timestamp of the end of the query.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :metric_query The metric query.
     # @option opts [String] :event_query A query that adds event bands to the graph.
     # @option opts [String] :graph_def A JSON document defining the graph. `graph_def` can be used instead of `metric_query`. The JSON document uses the [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be formatted to a single line then URL encoded.
@@ -44,7 +44,7 @@ module DatadogAPIClient::V1
     # **Note**: When a snapshot is created, there is some delay before it is available.
     # @param start [Integer] The POSIX timestamp of the start of the query.
     # @param _end [Integer] The POSIX timestamp of the end of the query.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :metric_query The metric query.
     # @option opts [String] :event_query A query that adds event bands to the graph.
     # @option opts [String] :graph_def A JSON document defining the graph. `graph_def` can be used instead of `metric_query`. The JSON document uses the [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be formatted to a single line then URL encoded.
