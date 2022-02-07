@@ -130,34 +130,6 @@ module DatadogAPIClient::V2
       true
     end
 
-    # Custom attribute writer method with validation
-    # @param detection_method [Object] Object to be assigned
-    # @!visibility private
-    def detection_method=(detection_method)
-      @detection_method = detection_method
-    end
-
-    # Custom attribute writer method with validation
-    # @param evaluation_window [Object] Object to be assigned
-    # @!visibility private
-    def evaluation_window=(evaluation_window)
-      @evaluation_window = evaluation_window
-    end
-
-    # Custom attribute writer method with validation
-    # @param keep_alive [Object] Object to be assigned
-    # @!visibility private
-    def keep_alive=(keep_alive)
-      @keep_alive = keep_alive
-    end
-
-    # Custom attribute writer method with validation
-    # @param max_signal_duration [Object] Object to be assigned
-    # @!visibility private
-    def max_signal_duration=(max_signal_duration)
-      @max_signal_duration = max_signal_duration
-    end
-
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

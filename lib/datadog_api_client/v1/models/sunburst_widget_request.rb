@@ -203,13 +203,6 @@ module DatadogAPIClient::V1
       true
     end
 
-    # Custom attribute writer method with validation
-    # @param response_format [Object] Object to be assigned
-    # @!visibility private
-    def response_format=(response_format)
-      @response_format = response_format
-    end
-
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

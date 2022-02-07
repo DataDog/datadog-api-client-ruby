@@ -91,13 +91,6 @@ module DatadogAPIClient::V1
       true
     end
 
-    # Custom attribute writer method with validation
-    # @param live_span [Object] Object to be assigned
-    # @!visibility private
-    def live_span=(live_span)
-      @live_span = live_span
-    end
-
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

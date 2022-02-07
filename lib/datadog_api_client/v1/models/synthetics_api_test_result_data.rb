@@ -164,13 +164,6 @@ module DatadogAPIClient::V1
       true
     end
 
-    # Custom attribute writer method with validation
-    # @param event_type [Object] Object to be assigned
-    # @!visibility private
-    def event_type=(event_type)
-      @event_type = event_type
-    end
-
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

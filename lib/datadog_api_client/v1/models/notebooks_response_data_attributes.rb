@@ -186,13 +186,6 @@ module DatadogAPIClient::V1
       @name = name
     end
 
-    # Custom attribute writer method with validation
-    # @param status [Object] Object to be assigned
-    # @!visibility private
-    def status=(status)
-      @status = status
-    end
-
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

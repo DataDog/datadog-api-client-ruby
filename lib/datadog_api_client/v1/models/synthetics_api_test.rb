@@ -250,20 +250,6 @@ module DatadogAPIClient::V1
     end
 
     # Custom attribute writer method with validation
-    # @param status [Object] Object to be assigned
-    # @!visibility private
-    def status=(status)
-      @status = status
-    end
-
-    # Custom attribute writer method with validation
-    # @param subtype [Object] Object to be assigned
-    # @!visibility private
-    def subtype=(subtype)
-      @subtype = subtype
-    end
-
-    # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)

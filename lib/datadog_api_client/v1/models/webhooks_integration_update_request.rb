@@ -138,13 +138,6 @@ module DatadogAPIClient::V1
       true
     end
 
-    # Custom attribute writer method with validation
-    # @param encode_as [Object] Object to be assigned
-    # @!visibility private
-    def encode_as=(encode_as)
-      @encode_as = encode_as
-    end
-
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

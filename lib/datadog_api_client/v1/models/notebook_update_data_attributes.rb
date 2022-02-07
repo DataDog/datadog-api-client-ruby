@@ -178,13 +178,6 @@ module DatadogAPIClient::V1
     end
 
     # Custom attribute writer method with validation
-    # @param status [Object] Object to be assigned
-    # @!visibility private
-    def status=(status)
-      @status = status
-    end
-
-    # Custom attribute writer method with validation
     # @param time [Object] Object to be assigned
     # @!visibility private
     def time=(time)

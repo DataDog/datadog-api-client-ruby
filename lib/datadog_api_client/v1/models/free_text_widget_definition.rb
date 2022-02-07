@@ -148,13 +148,6 @@ module DatadogAPIClient::V1
     end
 
     # Custom attribute writer method with validation
-    # @param text_align [Object] Object to be assigned
-    # @!visibility private
-    def text_align=(text_align)
-      @text_align = text_align
-    end
-
-    # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)

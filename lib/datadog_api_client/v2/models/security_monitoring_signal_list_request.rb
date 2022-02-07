@@ -109,13 +109,6 @@ module DatadogAPIClient::V2
       true
     end
 
-    # Custom attribute writer method with validation
-    # @param sort [Object] Object to be assigned
-    # @!visibility private
-    def sort=(sort)
-      @sort = sort
-    end
-
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

@@ -131,13 +131,6 @@ module DatadogAPIClient::V1
     end
 
     # Custom attribute writer method with validation
-    # @param aggregator [Object] Object to be assigned
-    # @!visibility private
-    def aggregator=(aggregator)
-      @aggregator = aggregator
-    end
-
-    # Custom attribute writer method with validation
     # @param data_source [Object] Object to be assigned
     # @!visibility private
     def data_source=(data_source)

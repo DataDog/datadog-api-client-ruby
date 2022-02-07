@@ -242,13 +242,6 @@ module DatadogAPIClient::V1
     end
 
     # Custom attribute writer method with validation
-    # @param legend_layout [Object] Object to be assigned
-    # @!visibility private
-    def legend_layout=(legend_layout)
-      @legend_layout = legend_layout
-    end
-
-    # Custom attribute writer method with validation
     # @param requests [Object] Object to be assigned
     # @!visibility private
     def requests=(requests)
@@ -259,13 +252,6 @@ module DatadogAPIClient::V1
         fail ArgumentError, 'invalid value for "requests", number of items must be greater than or equal to 1.'
       end
       @requests = requests
-    end
-
-    # Custom attribute writer method with validation
-    # @param title_align [Object] Object to be assigned
-    # @!visibility private
-    def title_align=(title_align)
-      @title_align = title_align
     end
 
     # Custom attribute writer method with validation

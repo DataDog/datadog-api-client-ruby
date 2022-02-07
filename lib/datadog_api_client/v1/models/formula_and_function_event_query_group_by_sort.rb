@@ -125,13 +125,6 @@ module DatadogAPIClient::V1
       @aggregation = aggregation
     end
 
-    # Custom attribute writer method with validation
-    # @param order [Object] Object to be assigned
-    # @!visibility private
-    def order=(order)
-      @order = order
-    end
-
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

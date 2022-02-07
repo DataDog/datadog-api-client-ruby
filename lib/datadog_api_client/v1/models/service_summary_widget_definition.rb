@@ -245,13 +245,6 @@ module DatadogAPIClient::V1
     end
 
     # Custom attribute writer method with validation
-    # @param display_format [Object] Object to be assigned
-    # @!visibility private
-    def display_format=(display_format)
-      @display_format = display_format
-    end
-
-    # Custom attribute writer method with validation
     # @param env [Object] Object to be assigned
     # @!visibility private
     def env=(env)
@@ -272,13 +265,6 @@ module DatadogAPIClient::V1
     end
 
     # Custom attribute writer method with validation
-    # @param size_format [Object] Object to be assigned
-    # @!visibility private
-    def size_format=(size_format)
-      @size_format = size_format
-    end
-
-    # Custom attribute writer method with validation
     # @param span_name [Object] Object to be assigned
     # @!visibility private
     def span_name=(span_name)
@@ -286,13 +272,6 @@ module DatadogAPIClient::V1
         fail ArgumentError, 'invalid value for "span_name", span_name cannot be nil.'
       end
       @span_name = span_name
-    end
-
-    # Custom attribute writer method with validation
-    # @param title_align [Object] Object to be assigned
-    # @!visibility private
-    def title_align=(title_align)
-      @title_align = title_align
     end
 
     # Custom attribute writer method with validation

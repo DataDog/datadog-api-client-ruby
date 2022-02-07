@@ -146,13 +146,6 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param aggregation [Object] Object to be assigned
-    # @!visibility private
-    def aggregation=(aggregation)
-      @aggregation = aggregation
-    end
-
-    # Custom attribute writer method with validation
     # @param query [Object] Object to be assigned
     # @!visibility private
     def query=(query)

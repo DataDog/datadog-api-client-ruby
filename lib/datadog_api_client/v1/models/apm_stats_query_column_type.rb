@@ -123,13 +123,6 @@ module DatadogAPIClient::V1
     end
 
     # Custom attribute writer method with validation
-    # @param cell_display_mode [Object] Object to be assigned
-    # @!visibility private
-    def cell_display_mode=(cell_display_mode)
-      @cell_display_mode = cell_display_mode
-    end
-
-    # Custom attribute writer method with validation
     # @param name [Object] Object to be assigned
     # @!visibility private
     def name=(name)
@@ -137,13 +130,6 @@ module DatadogAPIClient::V1
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
       @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param order [Object] Object to be assigned
-    # @!visibility private
-    def order=(order)
-      @order = order
     end
 
     # Checks equality by comparing each attribute.

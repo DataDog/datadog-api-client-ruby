@@ -160,13 +160,6 @@ module DatadogAPIClient::V1
     end
 
     # Custom attribute writer method with validation
-    # @param sort [Object] Object to be assigned
-    # @!visibility private
-    def sort=(sort)
-      @sort = sort
-    end
-
-    # Custom attribute writer method with validation
     # @param time [Object] Object to be assigned
     # @!visibility private
     def time=(time)

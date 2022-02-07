@@ -175,13 +175,6 @@ module DatadogAPIClient::V1
       true
     end
 
-    # Custom attribute writer method with validation
-    # @param saml_autocreate_access_role [Object] Object to be assigned
-    # @!visibility private
-    def saml_autocreate_access_role=(saml_autocreate_access_role)
-      @saml_autocreate_access_role = saml_autocreate_access_role
-    end
-
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

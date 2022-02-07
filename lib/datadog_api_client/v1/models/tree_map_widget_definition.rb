@@ -159,20 +159,6 @@ module DatadogAPIClient::V1
     end
 
     # Custom attribute writer method with validation
-    # @param color_by [Object] Object to be assigned
-    # @!visibility private
-    def color_by=(color_by)
-      @color_by = color_by
-    end
-
-    # Custom attribute writer method with validation
-    # @param group_by [Object] Object to be assigned
-    # @!visibility private
-    def group_by=(group_by)
-      @group_by = group_by
-    end
-
-    # Custom attribute writer method with validation
     # @param requests [Object] Object to be assigned
     # @!visibility private
     def requests=(requests)
@@ -186,13 +172,6 @@ module DatadogAPIClient::V1
         fail ArgumentError, 'invalid value for "requests", number of items must be greater than or equal to 1.'
       end
       @requests = requests
-    end
-
-    # Custom attribute writer method with validation
-    # @param size_by [Object] Object to be assigned
-    # @!visibility private
-    def size_by=(size_by)
-      @size_by = size_by
     end
 
     # Custom attribute writer method with validation

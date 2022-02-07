@@ -134,13 +134,6 @@ module DatadogAPIClient::V1
     end
 
     # Custom attribute writer method with validation
-    # @param cell_display_mode [Object] Object to be assigned
-    # @!visibility private
-    def cell_display_mode=(cell_display_mode)
-      @cell_display_mode = cell_display_mode
-    end
-
-    # Custom attribute writer method with validation
     # @param formula [Object] Object to be assigned
     # @!visibility private
     def formula=(formula)

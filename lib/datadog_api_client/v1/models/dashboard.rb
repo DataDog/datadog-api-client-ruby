@@ -269,13 +269,6 @@ module DatadogAPIClient::V1
     end
 
     # Custom attribute writer method with validation
-    # @param reflow_type [Object] Object to be assigned
-    # @!visibility private
-    def reflow_type=(reflow_type)
-      @reflow_type = reflow_type
-    end
-
-    # Custom attribute writer method with validation
     # @param title [Object] Object to be assigned
     # @!visibility private
     def title=(title)

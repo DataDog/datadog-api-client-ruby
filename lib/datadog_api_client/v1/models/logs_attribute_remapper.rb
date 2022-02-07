@@ -223,13 +223,6 @@ module DatadogAPIClient::V1
     end
 
     # Custom attribute writer method with validation
-    # @param target_format [Object] Object to be assigned
-    # @!visibility private
-    def target_format=(target_format)
-      @target_format = target_format
-    end
-
-    # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)

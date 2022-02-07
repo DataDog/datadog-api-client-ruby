@@ -118,13 +118,6 @@ module DatadogAPIClient::V1
       true
     end
 
-    # Custom attribute writer method with validation
-    # @param metric_category [Object] Object to be assigned
-    # @!visibility private
-    def metric_category=(metric_category)
-      @metric_category = metric_category
-    end
-
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

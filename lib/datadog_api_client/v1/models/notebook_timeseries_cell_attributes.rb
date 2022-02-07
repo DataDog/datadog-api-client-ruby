@@ -133,13 +133,6 @@ module DatadogAPIClient::V1
       @definition = definition
     end
 
-    # Custom attribute writer method with validation
-    # @param graph_size [Object] Object to be assigned
-    # @!visibility private
-    def graph_size=(graph_size)
-      @graph_size = graph_size
-    end
-
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

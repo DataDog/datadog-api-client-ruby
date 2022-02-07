@@ -240,13 +240,6 @@ module DatadogAPIClient::V1
     end
 
     # Custom attribute writer method with validation
-    # @param overall_state [Object] Object to be assigned
-    # @!visibility private
-    def overall_state=(overall_state)
-      @overall_state = overall_state
-    end
-
-    # Custom attribute writer method with validation
     # @param priority [Object] Object to be assigned
     # @!visibility private
     def priority=(priority)
@@ -257,13 +250,6 @@ module DatadogAPIClient::V1
         fail ArgumentError, 'invalid value for "priority", must be greater than or equal to 1.'
       end
       @priority = priority
-    end
-
-    # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
-    # @!visibility private
-    def type=(type)
-      @type = type
     end
 
     # Checks equality by comparing each attribute.

@@ -172,34 +172,6 @@ module DatadogAPIClient::V1
       true
     end
 
-    # Custom attribute writer method with validation
-    # @param device [Object] Object to be assigned
-    # @!visibility private
-    def device=(device)
-      @device = device
-    end
-
-    # Custom attribute writer method with validation
-    # @param execution_rule [Object] Object to be assigned
-    # @!visibility private
-    def execution_rule=(execution_rule)
-      @execution_rule = execution_rule
-    end
-
-    # Custom attribute writer method with validation
-    # @param status [Object] Object to be assigned
-    # @!visibility private
-    def status=(status)
-      @status = status
-    end
-
-    # Custom attribute writer method with validation
-    # @param test_type [Object] Object to be assigned
-    # @!visibility private
-    def test_type=(test_type)
-      @test_type = test_type
-    end
-
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

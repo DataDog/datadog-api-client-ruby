@@ -294,13 +294,6 @@ module DatadogAPIClient::V1
     end
 
     # Custom attribute writer method with validation
-    # @param method [Object] Object to be assigned
-    # @!visibility private
-    def method=(method)
-      @method = method
-    end
-
-    # Custom attribute writer method with validation
     # @param number_of_packets [Object] Object to be assigned
     # @!visibility private
     def number_of_packets=(number_of_packets)

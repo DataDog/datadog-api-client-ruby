@@ -109,20 +109,6 @@ module DatadogAPIClient::V1
       true
     end
 
-    # Custom attribute writer method with validation
-    # @param line_type [Object] Object to be assigned
-    # @!visibility private
-    def line_type=(line_type)
-      @line_type = line_type
-    end
-
-    # Custom attribute writer method with validation
-    # @param line_width [Object] Object to be assigned
-    # @!visibility private
-    def line_width=(line_width)
-      @line_width = line_width
-    end
-
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

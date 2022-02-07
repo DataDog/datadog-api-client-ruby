@@ -146,13 +146,6 @@ module DatadogAPIClient::V1
     end
 
     # Custom attribute writer method with validation
-    # @param encode_as [Object] Object to be assigned
-    # @!visibility private
-    def encode_as=(encode_as)
-      @encode_as = encode_as
-    end
-
-    # Custom attribute writer method with validation
     # @param name [Object] Object to be assigned
     # @!visibility private
     def name=(name)

@@ -214,20 +214,6 @@ module DatadogAPIClient::V1
     end
 
     # Custom attribute writer method with validation
-    # @param alert_type [Object] Object to be assigned
-    # @!visibility private
-    def alert_type=(alert_type)
-      @alert_type = alert_type
-    end
-
-    # Custom attribute writer method with validation
-    # @param priority [Object] Object to be assigned
-    # @!visibility private
-    def priority=(priority)
-      @priority = priority
-    end
-
-    # Custom attribute writer method with validation
     # @param text [Object] Object to be assigned
     # @!visibility private
     def text=(text)

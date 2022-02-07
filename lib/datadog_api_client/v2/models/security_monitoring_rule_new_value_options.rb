@@ -101,20 +101,6 @@ module DatadogAPIClient::V2
       true
     end
 
-    # Custom attribute writer method with validation
-    # @param forget_after [Object] Object to be assigned
-    # @!visibility private
-    def forget_after=(forget_after)
-      @forget_after = forget_after
-    end
-
-    # Custom attribute writer method with validation
-    # @param learning_duration [Object] Object to be assigned
-    # @!visibility private
-    def learning_duration=(learning_duration)
-      @learning_duration = learning_duration
-    end
-
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

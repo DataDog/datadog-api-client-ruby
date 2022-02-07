@@ -100,13 +100,6 @@ module DatadogAPIClient::V2
       true
     end
 
-    # Custom attribute writer method with validation
-    # @param action [Object] Object to be assigned
-    # @!visibility private
-    def action=(action)
-      @action = action
-    end
-
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

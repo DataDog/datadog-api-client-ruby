@@ -264,13 +264,6 @@ module DatadogAPIClient::V2
       @queries = queries
     end
 
-    # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
-    # @!visibility private
-    def type=(type)
-      @type = type
-    end
-
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

@@ -100,13 +100,6 @@ module DatadogAPIClient::V2
       true
     end
 
-    # Custom attribute writer method with validation
-    # @param aggregation_type [Object] Object to be assigned
-    # @!visibility private
-    def aggregation_type=(aggregation_type)
-      @aggregation_type = aggregation_type
-    end
-
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

@@ -250,13 +250,6 @@ module DatadogAPIClient::V1
     end
 
     # Custom attribute writer method with validation
-    # @param overall_state [Object] Object to be assigned
-    # @!visibility private
-    def overall_state=(overall_state)
-      @overall_state = overall_state
-    end
-
-    # Custom attribute writer method with validation
     # @param priority [Object] Object to be assigned
     # @!visibility private
     def priority=(priority)

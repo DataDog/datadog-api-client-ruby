@@ -189,20 +189,6 @@ module DatadogAPIClient::V1
       true
     end
 
-    # Custom attribute writer method with validation
-    # @param type [Object] Object to be assigned
-    # @!visibility private
-    def type=(type)
-      @type = type
-    end
-
-    # Custom attribute writer method with validation
-    # @param type_id [Object] Object to be assigned
-    # @!visibility private
-    def type_id=(type_id)
-      @type_id = type_id
-    end
-
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

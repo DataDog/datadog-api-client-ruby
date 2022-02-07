@@ -248,41 +248,6 @@ module DatadogAPIClient::V1
       true
     end
 
-    # Custom attribute writer method with validation
-    # @param change_type [Object] Object to be assigned
-    # @!visibility private
-    def change_type=(change_type)
-      @change_type = change_type
-    end
-
-    # Custom attribute writer method with validation
-    # @param compare_to [Object] Object to be assigned
-    # @!visibility private
-    def compare_to=(compare_to)
-      @compare_to = compare_to
-    end
-
-    # Custom attribute writer method with validation
-    # @param order_by [Object] Object to be assigned
-    # @!visibility private
-    def order_by=(order_by)
-      @order_by = order_by
-    end
-
-    # Custom attribute writer method with validation
-    # @param order_dir [Object] Object to be assigned
-    # @!visibility private
-    def order_dir=(order_dir)
-      @order_dir = order_dir
-    end
-
-    # Custom attribute writer method with validation
-    # @param response_format [Object] Object to be assigned
-    # @!visibility private
-    def response_format=(response_format)
-      @response_format = response_format
-    end
-
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

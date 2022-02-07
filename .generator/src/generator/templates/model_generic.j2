@@ -174,9 +174,10 @@
       definition.minimum is defined or
       definition.pattern is defined or
       definition.maxItems is defined or
-      definition.minItems is defined or
-      definition.enum is defined
-    ) %}
+      definition.minItems is defined 
+    ) %}{# FIXME add validation for enum
+     or
+      definition.enum is defined #}
     {%- if has_validation %}
 
     # Custom attribute writer method with validation

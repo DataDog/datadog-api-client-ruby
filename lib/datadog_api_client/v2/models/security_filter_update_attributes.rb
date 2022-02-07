@@ -143,13 +143,6 @@ module DatadogAPIClient::V2
     end
 
     # Custom attribute writer method with validation
-    # @param filtered_data_type [Object] Object to be assigned
-    # @!visibility private
-    def filtered_data_type=(filtered_data_type)
-      @filtered_data_type = filtered_data_type
-    end
-
-    # Custom attribute writer method with validation
     # @param version [Object] Object to be assigned
     # @!visibility private
     def version=(version)

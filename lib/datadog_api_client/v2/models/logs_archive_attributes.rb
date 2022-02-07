@@ -170,13 +170,6 @@ module DatadogAPIClient::V2
       @query = query
     end
 
-    # Custom attribute writer method with validation
-    # @param state [Object] Object to be assigned
-    # @!visibility private
-    def state=(state)
-      @state = state
-    end
-
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

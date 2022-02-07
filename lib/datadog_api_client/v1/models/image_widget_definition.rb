@@ -180,27 +180,6 @@ module DatadogAPIClient::V1
     end
 
     # Custom attribute writer method with validation
-    # @param horizontal_align [Object] Object to be assigned
-    # @!visibility private
-    def horizontal_align=(horizontal_align)
-      @horizontal_align = horizontal_align
-    end
-
-    # Custom attribute writer method with validation
-    # @param margin [Object] Object to be assigned
-    # @!visibility private
-    def margin=(margin)
-      @margin = margin
-    end
-
-    # Custom attribute writer method with validation
-    # @param sizing [Object] Object to be assigned
-    # @!visibility private
-    def sizing=(sizing)
-      @sizing = sizing
-    end
-
-    # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
@@ -218,13 +197,6 @@ module DatadogAPIClient::V1
         fail ArgumentError, 'invalid value for "url", url cannot be nil.'
       end
       @url = url
-    end
-
-    # Custom attribute writer method with validation
-    # @param vertical_align [Object] Object to be assigned
-    # @!visibility private
-    def vertical_align=(vertical_align)
-      @vertical_align = vertical_align
     end
 
     # Checks equality by comparing each attribute.

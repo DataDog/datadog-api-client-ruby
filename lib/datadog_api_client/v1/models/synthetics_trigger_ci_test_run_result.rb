@@ -118,13 +118,6 @@ module DatadogAPIClient::V1
       true
     end
 
-    # Custom attribute writer method with validation
-    # @param device [Object] Object to be assigned
-    # @!visibility private
-    def device=(device)
-      @device = device
-    end
-
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

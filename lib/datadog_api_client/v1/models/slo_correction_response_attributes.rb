@@ -194,13 +194,6 @@ module DatadogAPIClient::V1
       true
     end
 
-    # Custom attribute writer method with validation
-    # @param category [Object] Object to be assigned
-    # @!visibility private
-    def category=(category)
-      @category = category
-    end
-
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

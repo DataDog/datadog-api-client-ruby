@@ -180,13 +180,6 @@ module DatadogAPIClient::V1
     end
 
     # Custom attribute writer method with validation
-    # @param aggregator [Object] Object to be assigned
-    # @!visibility private
-    def aggregator=(aggregator)
-      @aggregator = aggregator
-    end
-
-    # Custom attribute writer method with validation
     # @param data_source [Object] Object to be assigned
     # @!visibility private
     def data_source=(data_source)
@@ -214,13 +207,6 @@ module DatadogAPIClient::V1
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
       @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param sort [Object] Object to be assigned
-    # @!visibility private
-    def sort=(sort)
-      @sort = sort
     end
 
     # Checks equality by comparing each attribute.
