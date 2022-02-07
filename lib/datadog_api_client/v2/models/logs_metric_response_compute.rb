@@ -104,10 +104,6 @@ module DatadogAPIClient::V2
     # @param aggregation_type [Object] Object to be assigned
     # @!visibility private
     def aggregation_type=(aggregation_type)
-      validator = DatadogAPIClient::V2::EnumAttributeValidator.new('LogsMetricResponseComputeAggregationType', ['count', 'distribution'])
-      unless validator.valid?(aggregation_type)
-        fail ArgumentError, "invalid value for \"aggregation_type\", must be one of #{validator.allowable_values}."
-      end
       @aggregation_type = aggregation_type
     end
 

@@ -149,10 +149,6 @@ module DatadogAPIClient::V1
     # @param encode_as [Object] Object to be assigned
     # @!visibility private
     def encode_as=(encode_as)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WebhooksIntegrationEncoding', ['json', 'form'])
-      unless validator.valid?(encode_as)
-        fail ArgumentError, "invalid value for \"encode_as\", must be one of #{validator.allowable_values}."
-      end
       @encode_as = encode_as
     end
 
@@ -160,7 +156,7 @@ module DatadogAPIClient::V1
     # @param name [Object] Object to be assigned
     # @!visibility private
     def name=(name)
-      if @name.nil?
+      if name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
       @name = name
@@ -170,7 +166,7 @@ module DatadogAPIClient::V1
     # @param url [Object] Object to be assigned
     # @!visibility private
     def url=(url)
-      if @url.nil?
+      if url.nil?
         fail ArgumentError, 'invalid value for "url", url cannot be nil.'
       end
       @url = url

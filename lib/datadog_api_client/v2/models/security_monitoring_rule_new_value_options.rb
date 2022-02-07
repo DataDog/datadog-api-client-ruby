@@ -105,10 +105,6 @@ module DatadogAPIClient::V2
     # @param forget_after [Object] Object to be assigned
     # @!visibility private
     def forget_after=(forget_after)
-      validator = DatadogAPIClient::V2::EnumAttributeValidator.new('SecurityMonitoringRuleNewValueOptionsForgetAfter', [1, 2, 7, 14, 21, 28])
-      unless validator.valid?(forget_after)
-        fail ArgumentError, "invalid value for \"forget_after\", must be one of #{validator.allowable_values}."
-      end
       @forget_after = forget_after
     end
 
@@ -116,10 +112,6 @@ module DatadogAPIClient::V2
     # @param learning_duration [Object] Object to be assigned
     # @!visibility private
     def learning_duration=(learning_duration)
-      validator = DatadogAPIClient::V2::EnumAttributeValidator.new('SecurityMonitoringRuleNewValueOptionsLearningDuration', [0, 1, 7])
-      unless validator.valid?(learning_duration)
-        fail ArgumentError, "invalid value for \"learning_duration\", must be one of #{validator.allowable_values}."
-      end
       @learning_duration = learning_duration
     end
 

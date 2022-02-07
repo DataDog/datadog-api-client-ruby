@@ -114,7 +114,7 @@ module DatadogAPIClient::V1
     # @param denominator [Object] Object to be assigned
     # @!visibility private
     def denominator=(denominator)
-      if @denominator.nil?
+      if denominator.nil?
         fail ArgumentError, 'invalid value for "denominator", denominator cannot be nil.'
       end
       @denominator = denominator
@@ -124,7 +124,7 @@ module DatadogAPIClient::V1
     # @param numerator [Object] Object to be assigned
     # @!visibility private
     def numerator=(numerator)
-      if @numerator.nil?
+      if numerator.nil?
         fail ArgumentError, 'invalid value for "numerator", numerator cannot be nil.'
       end
       @numerator = numerator

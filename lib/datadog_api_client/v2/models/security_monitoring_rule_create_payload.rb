@@ -208,7 +208,7 @@ module DatadogAPIClient::V2
     # @param cases [Object] Object to be assigned
     # @!visibility private
     def cases=(cases)
-      if @cases.nil?
+      if cases.nil?
         fail ArgumentError, 'invalid value for "cases", cases cannot be nil.'
       end
       @cases = cases
@@ -218,7 +218,7 @@ module DatadogAPIClient::V2
     # @param is_enabled [Object] Object to be assigned
     # @!visibility private
     def is_enabled=(is_enabled)
-      if @is_enabled.nil?
+      if is_enabled.nil?
         fail ArgumentError, 'invalid value for "is_enabled", is_enabled cannot be nil.'
       end
       @is_enabled = is_enabled
@@ -228,7 +228,7 @@ module DatadogAPIClient::V2
     # @param message [Object] Object to be assigned
     # @!visibility private
     def message=(message)
-      if @message.nil?
+      if message.nil?
         fail ArgumentError, 'invalid value for "message", message cannot be nil.'
       end
       @message = message
@@ -238,7 +238,7 @@ module DatadogAPIClient::V2
     # @param name [Object] Object to be assigned
     # @!visibility private
     def name=(name)
-      if @name.nil?
+      if name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
       @name = name
@@ -248,7 +248,7 @@ module DatadogAPIClient::V2
     # @param options [Object] Object to be assigned
     # @!visibility private
     def options=(options)
-      if @options.nil?
+      if options.nil?
         fail ArgumentError, 'invalid value for "options", options cannot be nil.'
       end
       @options = options
@@ -258,7 +258,7 @@ module DatadogAPIClient::V2
     # @param queries [Object] Object to be assigned
     # @!visibility private
     def queries=(queries)
-      if @queries.nil?
+      if queries.nil?
         fail ArgumentError, 'invalid value for "queries", queries cannot be nil.'
       end
       @queries = queries
@@ -268,10 +268,6 @@ module DatadogAPIClient::V2
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = DatadogAPIClient::V2::EnumAttributeValidator.new('SecurityMonitoringRuleTypeCreate', ['log_detection', 'workload_security'])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
-      end
       @type = type
     end
 

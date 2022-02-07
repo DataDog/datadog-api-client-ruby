@@ -127,7 +127,7 @@ module DatadogAPIClient::V1
     # @param columns [Object] Object to be assigned
     # @!visibility private
     def columns=(columns)
-      if @columns.nil?
+      if columns.nil?
         fail ArgumentError, 'invalid value for "columns", columns cannot be nil.'
       end
       @columns = columns
@@ -137,7 +137,7 @@ module DatadogAPIClient::V1
     # @param query [Object] Object to be assigned
     # @!visibility private
     def query=(query)
-      if @query.nil?
+      if query.nil?
         fail ArgumentError, 'invalid value for "query", query cannot be nil.'
       end
       @query = query
@@ -147,11 +147,7 @@ module DatadogAPIClient::V1
     # @param response_format [Object] Object to be assigned
     # @!visibility private
     def response_format=(response_format)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('ListStreamResponseFormat', ['event_list'])
-      unless validator.valid?(response_format)
-        fail ArgumentError, "invalid value for \"response_format\", must be one of #{validator.allowable_values}."
-      end
-      if @response_format.nil?
+      if response_format.nil?
         fail ArgumentError, 'invalid value for "response_format", response_format cannot be nil.'
       end
       @response_format = response_format

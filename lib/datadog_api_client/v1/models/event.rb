@@ -217,10 +217,6 @@ module DatadogAPIClient::V1
     # @param alert_type [Object] Object to be assigned
     # @!visibility private
     def alert_type=(alert_type)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('EventAlertType', ['error', 'warning', 'info', 'success', 'user_update', 'recommendation', 'snapshot'])
-      unless validator.valid?(alert_type)
-        fail ArgumentError, "invalid value for \"alert_type\", must be one of #{validator.allowable_values}."
-      end
       @alert_type = alert_type
     end
 
@@ -228,10 +224,6 @@ module DatadogAPIClient::V1
     # @param priority [Object] Object to be assigned
     # @!visibility private
     def priority=(priority)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('EventPriority', ['normal', 'low'])
-      unless validator.valid?(priority)
-        fail ArgumentError, "invalid value for \"priority\", must be one of #{validator.allowable_values}."
-      end
       @priority = priority
     end
 

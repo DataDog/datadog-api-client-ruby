@@ -99,7 +99,7 @@ module DatadogAPIClient::V1
     # @param message [Object] Object to be assigned
     # @!visibility private
     def message=(message)
-      if @message.nil?
+      if message.nil?
         fail ArgumentError, 'invalid value for "message", message cannot be nil.'
       end
       @message = message

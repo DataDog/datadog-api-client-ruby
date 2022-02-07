@@ -156,7 +156,7 @@ module DatadogAPIClient::V1
     # @param compute [Object] Object to be assigned
     # @!visibility private
     def compute=(compute)
-      if @compute.nil?
+      if compute.nil?
         fail ArgumentError, 'invalid value for "compute", compute cannot be nil.'
       end
       @compute = compute
@@ -166,11 +166,7 @@ module DatadogAPIClient::V1
     # @param data_source [Object] Object to be assigned
     # @!visibility private
     def data_source=(data_source)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('MonitorFormulaAndFunctionEventsDataSource', ['rum'])
-      unless validator.valid?(data_source)
-        fail ArgumentError, "invalid value for \"data_source\", must be one of #{validator.allowable_values}."
-      end
-      if @data_source.nil?
+      if data_source.nil?
         fail ArgumentError, 'invalid value for "data_source", data_source cannot be nil.'
       end
       @data_source = data_source
@@ -180,7 +176,7 @@ module DatadogAPIClient::V1
     # @param name [Object] Object to be assigned
     # @!visibility private
     def name=(name)
-      if @name.nil?
+      if name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
       @name = name

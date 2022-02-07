@@ -153,7 +153,7 @@ module DatadogAPIClient::V1
     # @param sources [Object] Object to be assigned
     # @!visibility private
     def sources=(sources)
-      if @sources.nil?
+      if sources.nil?
         fail ArgumentError, 'invalid value for "sources", sources cannot be nil.'
       end
       @sources = sources
@@ -163,11 +163,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('LogsStatusRemapperType', ['status-remapper'])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
-      end
-      if @type.nil?
+      if type.nil?
         fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
       @type = type

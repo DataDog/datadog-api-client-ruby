@@ -112,7 +112,7 @@ module DatadogAPIClient::V2
     # @param account_id [Object] Object to be assigned
     # @!visibility private
     def account_id=(account_id)
-      if @account_id.nil?
+      if account_id.nil?
         fail ArgumentError, 'invalid value for "account_id", account_id cannot be nil.'
       end
       @account_id = account_id
@@ -122,7 +122,7 @@ module DatadogAPIClient::V2
     # @param role_name [Object] Object to be assigned
     # @!visibility private
     def role_name=(role_name)
-      if @role_name.nil?
+      if role_name.nil?
         fail ArgumentError, 'invalid value for "role_name", role_name cannot be nil.'
       end
       @role_name = role_name

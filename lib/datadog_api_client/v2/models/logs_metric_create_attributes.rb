@@ -119,7 +119,7 @@ module DatadogAPIClient::V2
     # @param compute [Object] Object to be assigned
     # @!visibility private
     def compute=(compute)
-      if @compute.nil?
+      if compute.nil?
         fail ArgumentError, 'invalid value for "compute", compute cannot be nil.'
       end
       @compute = compute

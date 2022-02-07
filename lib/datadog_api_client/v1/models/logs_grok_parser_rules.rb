@@ -110,7 +110,7 @@ module DatadogAPIClient::V1
     # @param match_rules [Object] Object to be assigned
     # @!visibility private
     def match_rules=(match_rules)
-      if @match_rules.nil?
+      if match_rules.nil?
         fail ArgumentError, 'invalid value for "match_rules", match_rules cannot be nil.'
       end
       @match_rules = match_rules

@@ -122,7 +122,7 @@ module DatadogAPIClient::V1
     # @param is_secret [Object] Object to be assigned
     # @!visibility private
     def is_secret=(is_secret)
-      if @is_secret.nil?
+      if is_secret.nil?
         fail ArgumentError, 'invalid value for "is_secret", is_secret cannot be nil.'
       end
       @is_secret = is_secret
@@ -132,7 +132,7 @@ module DatadogAPIClient::V1
     # @param name [Object] Object to be assigned
     # @!visibility private
     def name=(name)
-      if @name.nil?
+      if name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
       @name = name

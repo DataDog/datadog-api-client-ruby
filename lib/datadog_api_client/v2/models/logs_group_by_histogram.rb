@@ -128,7 +128,7 @@ module DatadogAPIClient::V2
     # @param interval [Object] Object to be assigned
     # @!visibility private
     def interval=(interval)
-      if @interval.nil?
+      if interval.nil?
         fail ArgumentError, 'invalid value for "interval", interval cannot be nil.'
       end
       @interval = interval
@@ -138,7 +138,7 @@ module DatadogAPIClient::V2
     # @param max [Object] Object to be assigned
     # @!visibility private
     def max=(max)
-      if @max.nil?
+      if max.nil?
         fail ArgumentError, 'invalid value for "max", max cannot be nil.'
       end
       @max = max
@@ -148,7 +148,7 @@ module DatadogAPIClient::V2
     # @param min [Object] Object to be assigned
     # @!visibility private
     def min=(min)
-      if @min.nil?
+      if min.nil?
         fail ArgumentError, 'invalid value for "min", min cannot be nil.'
       end
       @min = min

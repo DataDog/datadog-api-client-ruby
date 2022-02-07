@@ -99,7 +99,7 @@ module DatadogAPIClient::V2
     # @param user [Object] Object to be assigned
     # @!visibility private
     def user=(user)
-      if @user.nil?
+      if user.nil?
         fail ArgumentError, 'invalid value for "user", user cannot be nil.'
       end
       @user = user

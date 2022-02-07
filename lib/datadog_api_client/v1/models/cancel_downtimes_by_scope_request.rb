@@ -101,7 +101,7 @@ module DatadogAPIClient::V1
     # @param scope [Object] Object to be assigned
     # @!visibility private
     def scope=(scope)
-      if @scope.nil?
+      if scope.nil?
         fail ArgumentError, 'invalid value for "scope", scope cannot be nil.'
       end
       @scope = scope

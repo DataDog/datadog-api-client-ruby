@@ -145,7 +145,7 @@ module DatadogAPIClient::V1
     # @param description [Object] Object to be assigned
     # @!visibility private
     def description=(description)
-      if @description.nil?
+      if description.nil?
         fail ArgumentError, 'invalid value for "description", description cannot be nil.'
       end
       @description = description
@@ -155,7 +155,7 @@ module DatadogAPIClient::V1
     # @param name [Object] Object to be assigned
     # @!visibility private
     def name=(name)
-      if @name.nil?
+      if name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
       @name = name
@@ -165,7 +165,7 @@ module DatadogAPIClient::V1
     # @param tags [Object] Object to be assigned
     # @!visibility private
     def tags=(tags)
-      if @tags.nil?
+      if tags.nil?
         fail ArgumentError, 'invalid value for "tags", tags cannot be nil.'
       end
       @tags = tags

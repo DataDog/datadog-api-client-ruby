@@ -171,11 +171,7 @@ module DatadogAPIClient::V1
     # @param category [Object] Object to be assigned
     # @!visibility private
     def category=(category)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SLOCorrectionCategory', ['Scheduled Maintenance', 'Outside Business Hours', 'Deployment', 'Other'])
-      unless validator.valid?(category)
-        fail ArgumentError, "invalid value for \"category\", must be one of #{validator.allowable_values}."
-      end
-      if @category.nil?
+      if category.nil?
         fail ArgumentError, 'invalid value for "category", category cannot be nil.'
       end
       @category = category
@@ -185,7 +181,7 @@ module DatadogAPIClient::V1
     # @param slo_id [Object] Object to be assigned
     # @!visibility private
     def slo_id=(slo_id)
-      if @slo_id.nil?
+      if slo_id.nil?
         fail ArgumentError, 'invalid value for "slo_id", slo_id cannot be nil.'
       end
       @slo_id = slo_id
@@ -195,7 +191,7 @@ module DatadogAPIClient::V1
     # @param start [Object] Object to be assigned
     # @!visibility private
     def start=(start)
-      if @start.nil?
+      if start.nil?
         fail ArgumentError, 'invalid value for "start", start cannot be nil.'
       end
       @start = start

@@ -142,10 +142,6 @@ module DatadogAPIClient::V1
     # @param encode_as [Object] Object to be assigned
     # @!visibility private
     def encode_as=(encode_as)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WebhooksIntegrationEncoding', ['json', 'form'])
-      unless validator.valid?(encode_as)
-        fail ArgumentError, "invalid value for \"encode_as\", must be one of #{validator.allowable_values}."
-      end
       @encode_as = encode_as
     end
 

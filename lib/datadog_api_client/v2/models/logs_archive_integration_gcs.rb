@@ -112,7 +112,7 @@ module DatadogAPIClient::V2
     # @param client_email [Object] Object to be assigned
     # @!visibility private
     def client_email=(client_email)
-      if @client_email.nil?
+      if client_email.nil?
         fail ArgumentError, 'invalid value for "client_email", client_email cannot be nil.'
       end
       @client_email = client_email
@@ -122,7 +122,7 @@ module DatadogAPIClient::V2
     # @param project_id [Object] Object to be assigned
     # @!visibility private
     def project_id=(project_id)
-      if @project_id.nil?
+      if project_id.nil?
         fail ArgumentError, 'invalid value for "project_id", project_id cannot be nil.'
       end
       @project_id = project_id

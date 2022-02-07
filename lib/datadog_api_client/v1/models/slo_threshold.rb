@@ -148,7 +148,7 @@ module DatadogAPIClient::V1
     # @param target [Object] Object to be assigned
     # @!visibility private
     def target=(target)
-      if @target.nil?
+      if target.nil?
         fail ArgumentError, 'invalid value for "target", target cannot be nil.'
       end
       @target = target
@@ -158,11 +158,7 @@ module DatadogAPIClient::V1
     # @param timeframe [Object] Object to be assigned
     # @!visibility private
     def timeframe=(timeframe)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SLOTimeframe', ['7d', '30d', '90d', 'custom'])
-      unless validator.valid?(timeframe)
-        fail ArgumentError, "invalid value for \"timeframe\", must be one of #{validator.allowable_values}."
-      end
-      if @timeframe.nil?
+      if timeframe.nil?
         fail ArgumentError, 'invalid value for "timeframe", timeframe cannot be nil.'
       end
       @timeframe = timeframe

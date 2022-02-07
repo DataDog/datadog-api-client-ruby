@@ -131,10 +131,6 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SyntheticsStepType', ['assertCurrentUrl', 'assertElementAttribute', 'assertElementContent', 'assertElementPresent', 'assertEmail', 'assertFileDownload', 'assertFromJavascript', 'assertPageContains', 'assertPageLacks', 'click', 'extractFromJavascript', 'extractVariable', 'goToEmailLink', 'goToUrl', 'goToUrlAndMeasureTti', 'hover', 'playSubTest', 'pressKey', 'refresh', 'runApiTest', 'scroll', 'selectOption', 'typeText', 'uploadFiles', 'wait'])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
-      end
       @type = type
     end
 

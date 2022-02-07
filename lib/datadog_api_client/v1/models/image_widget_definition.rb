@@ -183,10 +183,6 @@ module DatadogAPIClient::V1
     # @param horizontal_align [Object] Object to be assigned
     # @!visibility private
     def horizontal_align=(horizontal_align)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetHorizontalAlign', ['center', 'left', 'right'])
-      unless validator.valid?(horizontal_align)
-        fail ArgumentError, "invalid value for \"horizontal_align\", must be one of #{validator.allowable_values}."
-      end
       @horizontal_align = horizontal_align
     end
 
@@ -194,10 +190,6 @@ module DatadogAPIClient::V1
     # @param margin [Object] Object to be assigned
     # @!visibility private
     def margin=(margin)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetMargin', ['sm', 'md', 'lg', 'small', 'large'])
-      unless validator.valid?(margin)
-        fail ArgumentError, "invalid value for \"margin\", must be one of #{validator.allowable_values}."
-      end
       @margin = margin
     end
 
@@ -205,10 +197,6 @@ module DatadogAPIClient::V1
     # @param sizing [Object] Object to be assigned
     # @!visibility private
     def sizing=(sizing)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetImageSizing', ['fill', 'contain', 'cover', 'none', 'scale-down', 'zoom', 'fit', 'center'])
-      unless validator.valid?(sizing)
-        fail ArgumentError, "invalid value for \"sizing\", must be one of #{validator.allowable_values}."
-      end
       @sizing = sizing
     end
 
@@ -216,11 +204,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('ImageWidgetDefinitionType', ['image'])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
-      end
-      if @type.nil?
+      if type.nil?
         fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
       @type = type
@@ -230,7 +214,7 @@ module DatadogAPIClient::V1
     # @param url [Object] Object to be assigned
     # @!visibility private
     def url=(url)
-      if @url.nil?
+      if url.nil?
         fail ArgumentError, 'invalid value for "url", url cannot be nil.'
       end
       @url = url
@@ -240,10 +224,6 @@ module DatadogAPIClient::V1
     # @param vertical_align [Object] Object to be assigned
     # @!visibility private
     def vertical_align=(vertical_align)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetVerticalAlign', ['center', 'top', 'bottom'])
-      unless validator.valid?(vertical_align)
-        fail ArgumentError, "invalid value for \"vertical_align\", must be one of #{validator.allowable_values}."
-      end
       @vertical_align = vertical_align
     end
 

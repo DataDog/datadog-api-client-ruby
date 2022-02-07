@@ -169,10 +169,6 @@ module DatadogAPIClient::V1
     # @param event_size [Object] Object to be assigned
     # @!visibility private
     def event_size=(event_size)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetEventSize', ['s', 'l'])
-      unless validator.valid?(event_size)
-        fail ArgumentError, "invalid value for \"event_size\", must be one of #{validator.allowable_values}."
-      end
       @event_size = event_size
     end
 
@@ -180,7 +176,7 @@ module DatadogAPIClient::V1
     # @param query [Object] Object to be assigned
     # @!visibility private
     def query=(query)
-      if @query.nil?
+      if query.nil?
         fail ArgumentError, 'invalid value for "query", query cannot be nil.'
       end
       @query = query
@@ -190,10 +186,6 @@ module DatadogAPIClient::V1
     # @param title_align [Object] Object to be assigned
     # @!visibility private
     def title_align=(title_align)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
-      unless validator.valid?(title_align)
-        fail ArgumentError, "invalid value for \"title_align\", must be one of #{validator.allowable_values}."
-      end
       @title_align = title_align
     end
 
@@ -201,11 +193,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('EventStreamWidgetDefinitionType', ['event_stream'])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
-      end
-      if @type.nil?
+      if type.nil?
         fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
       @type = type

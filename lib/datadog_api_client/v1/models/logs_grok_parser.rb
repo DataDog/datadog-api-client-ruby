@@ -165,7 +165,7 @@ module DatadogAPIClient::V1
     # @param grok [Object] Object to be assigned
     # @!visibility private
     def grok=(grok)
-      if @grok.nil?
+      if grok.nil?
         fail ArgumentError, 'invalid value for "grok", grok cannot be nil.'
       end
       @grok = grok
@@ -185,7 +185,7 @@ module DatadogAPIClient::V1
     # @param source [Object] Object to be assigned
     # @!visibility private
     def source=(source)
-      if @source.nil?
+      if source.nil?
         fail ArgumentError, 'invalid value for "source", source cannot be nil.'
       end
       @source = source
@@ -195,11 +195,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('LogsGrokParserType', ['grok-parser'])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
-      end
-      if @type.nil?
+      if type.nil?
         fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
       @type = type

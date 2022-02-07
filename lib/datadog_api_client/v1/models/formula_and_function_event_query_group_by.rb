@@ -117,7 +117,7 @@ module DatadogAPIClient::V1
     # @param facet [Object] Object to be assigned
     # @!visibility private
     def facet=(facet)
-      if @facet.nil?
+      if facet.nil?
         fail ArgumentError, 'invalid value for "facet", facet cannot be nil.'
       end
       @facet = facet

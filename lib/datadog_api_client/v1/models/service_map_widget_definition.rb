@@ -171,7 +171,7 @@ module DatadogAPIClient::V1
     # @param filters [Object] Object to be assigned
     # @!visibility private
     def filters=(filters)
-      if @filters.nil?
+      if filters.nil?
         fail ArgumentError, 'invalid value for "filters", filters cannot be nil.'
       end
       if filters.length < 1
@@ -184,7 +184,7 @@ module DatadogAPIClient::V1
     # @param service [Object] Object to be assigned
     # @!visibility private
     def service=(service)
-      if @service.nil?
+      if service.nil?
         fail ArgumentError, 'invalid value for "service", service cannot be nil.'
       end
       @service = service
@@ -194,10 +194,6 @@ module DatadogAPIClient::V1
     # @param title_align [Object] Object to be assigned
     # @!visibility private
     def title_align=(title_align)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
-      unless validator.valid?(title_align)
-        fail ArgumentError, "invalid value for \"title_align\", must be one of #{validator.allowable_values}."
-      end
       @title_align = title_align
     end
 
@@ -205,11 +201,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('ServiceMapWidgetDefinitionType', ['servicemap'])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
-      end
-      if @type.nil?
+      if type.nil?
         fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
       @type = type

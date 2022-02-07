@@ -176,11 +176,7 @@ module DatadogAPIClient::V1
     # @param layout_type [Object] Object to be assigned
     # @!visibility private
     def layout_type=(layout_type)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetLayoutType', ['ordered'])
-      unless validator.valid?(layout_type)
-        fail ArgumentError, "invalid value for \"layout_type\", must be one of #{validator.allowable_values}."
-      end
-      if @layout_type.nil?
+      if layout_type.nil?
         fail ArgumentError, 'invalid value for "layout_type", layout_type cannot be nil.'
       end
       @layout_type = layout_type
@@ -190,10 +186,6 @@ module DatadogAPIClient::V1
     # @param title_align [Object] Object to be assigned
     # @!visibility private
     def title_align=(title_align)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
-      unless validator.valid?(title_align)
-        fail ArgumentError, "invalid value for \"title_align\", must be one of #{validator.allowable_values}."
-      end
       @title_align = title_align
     end
 
@@ -201,11 +193,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('GroupWidgetDefinitionType', ['group'])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
-      end
-      if @type.nil?
+      if type.nil?
         fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
       @type = type
@@ -215,7 +203,7 @@ module DatadogAPIClient::V1
     # @param widgets [Object] Object to be assigned
     # @!visibility private
     def widgets=(widgets)
-      if @widgets.nil?
+      if widgets.nil?
         fail ArgumentError, 'invalid value for "widgets", widgets cannot be nil.'
       end
       @widgets = widgets

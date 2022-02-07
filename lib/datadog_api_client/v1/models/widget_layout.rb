@@ -164,7 +164,7 @@ module DatadogAPIClient::V1
     # @param height [Object] Object to be assigned
     # @!visibility private
     def height=(height)
-      if @height.nil?
+      if height.nil?
         fail ArgumentError, 'invalid value for "height", height cannot be nil.'
       end
       if height < 0
@@ -177,7 +177,7 @@ module DatadogAPIClient::V1
     # @param width [Object] Object to be assigned
     # @!visibility private
     def width=(width)
-      if @width.nil?
+      if width.nil?
         fail ArgumentError, 'invalid value for "width", width cannot be nil.'
       end
       if width < 0
@@ -190,7 +190,7 @@ module DatadogAPIClient::V1
     # @param x [Object] Object to be assigned
     # @!visibility private
     def x=(x)
-      if @x.nil?
+      if x.nil?
         fail ArgumentError, 'invalid value for "x", x cannot be nil.'
       end
       if x < 0
@@ -203,7 +203,7 @@ module DatadogAPIClient::V1
     # @param y [Object] Object to be assigned
     # @!visibility private
     def y=(y)
-      if @y.nil?
+      if y.nil?
         fail ArgumentError, 'invalid value for "y", y cannot be nil.'
       end
       if y < 0

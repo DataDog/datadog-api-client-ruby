@@ -149,10 +149,6 @@ module DatadogAPIClient::V2
     # @param aggregation [Object] Object to be assigned
     # @!visibility private
     def aggregation=(aggregation)
-      validator = DatadogAPIClient::V2::EnumAttributeValidator.new('SecurityMonitoringRuleQueryAggregation', ['count', 'cardinality', 'sum', 'max', 'new_value'])
-      unless validator.valid?(aggregation)
-        fail ArgumentError, "invalid value for \"aggregation\", must be one of #{validator.allowable_values}."
-      end
       @aggregation = aggregation
     end
 
@@ -160,7 +156,7 @@ module DatadogAPIClient::V2
     # @param query [Object] Object to be assigned
     # @!visibility private
     def query=(query)
-      if @query.nil?
+      if query.nil?
         fail ArgumentError, 'invalid value for "query", query cannot be nil.'
       end
       @query = query

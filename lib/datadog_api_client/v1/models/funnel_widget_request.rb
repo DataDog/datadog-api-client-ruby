@@ -112,7 +112,7 @@ module DatadogAPIClient::V1
     # @param query [Object] Object to be assigned
     # @!visibility private
     def query=(query)
-      if @query.nil?
+      if query.nil?
         fail ArgumentError, 'invalid value for "query", query cannot be nil.'
       end
       @query = query
@@ -122,11 +122,7 @@ module DatadogAPIClient::V1
     # @param request_type [Object] Object to be assigned
     # @!visibility private
     def request_type=(request_type)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('FunnelRequestType', ['funnel'])
-      unless validator.valid?(request_type)
-        fail ArgumentError, "invalid value for \"request_type\", must be one of #{validator.allowable_values}."
-      end
-      if @request_type.nil?
+      if request_type.nil?
         fail ArgumentError, 'invalid value for "request_type", request_type cannot be nil.'
       end
       @request_type = request_type

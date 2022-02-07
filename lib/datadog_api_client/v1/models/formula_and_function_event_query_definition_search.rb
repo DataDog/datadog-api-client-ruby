@@ -99,7 +99,7 @@ module DatadogAPIClient::V1
     # @param query [Object] Object to be assigned
     # @!visibility private
     def query=(query)
-      if @query.nil?
+      if query.nil?
         fail ArgumentError, 'invalid value for "query", query cannot be nil.'
       end
       @query = query

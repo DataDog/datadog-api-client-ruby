@@ -262,11 +262,7 @@ module DatadogAPIClient::V1
     # @param layout_type [Object] Object to be assigned
     # @!visibility private
     def layout_type=(layout_type)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('DashboardLayoutType', ['ordered', 'free'])
-      unless validator.valid?(layout_type)
-        fail ArgumentError, "invalid value for \"layout_type\", must be one of #{validator.allowable_values}."
-      end
-      if @layout_type.nil?
+      if layout_type.nil?
         fail ArgumentError, 'invalid value for "layout_type", layout_type cannot be nil.'
       end
       @layout_type = layout_type
@@ -276,10 +272,6 @@ module DatadogAPIClient::V1
     # @param reflow_type [Object] Object to be assigned
     # @!visibility private
     def reflow_type=(reflow_type)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('DashboardReflowType', ['auto', 'fixed'])
-      unless validator.valid?(reflow_type)
-        fail ArgumentError, "invalid value for \"reflow_type\", must be one of #{validator.allowable_values}."
-      end
       @reflow_type = reflow_type
     end
 
@@ -287,7 +279,7 @@ module DatadogAPIClient::V1
     # @param title [Object] Object to be assigned
     # @!visibility private
     def title=(title)
-      if @title.nil?
+      if title.nil?
         fail ArgumentError, 'invalid value for "title", title cannot be nil.'
       end
       @title = title
@@ -297,7 +289,7 @@ module DatadogAPIClient::V1
     # @param widgets [Object] Object to be assigned
     # @!visibility private
     def widgets=(widgets)
-      if @widgets.nil?
+      if widgets.nil?
         fail ArgumentError, 'invalid value for "widgets", widgets cannot be nil.'
       end
       @widgets = widgets

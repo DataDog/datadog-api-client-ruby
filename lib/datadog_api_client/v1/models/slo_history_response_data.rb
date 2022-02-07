@@ -193,10 +193,6 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SLOType', ['metric', 'monitor'])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
-      end
       @type = type
     end
 
@@ -204,10 +200,6 @@ module DatadogAPIClient::V1
     # @param type_id [Object] Object to be assigned
     # @!visibility private
     def type_id=(type_id)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SLOTypeNumeric', [0, 1])
-      unless validator.valid?(type_id)
-        fail ArgumentError, "invalid value for \"type_id\", must be one of #{validator.allowable_values}."
-      end
       @type_id = type_id
     end
 

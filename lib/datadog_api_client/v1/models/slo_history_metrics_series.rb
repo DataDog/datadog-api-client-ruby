@@ -137,7 +137,7 @@ module DatadogAPIClient::V1
     # @param count [Object] Object to be assigned
     # @!visibility private
     def count=(count)
-      if @count.nil?
+      if count.nil?
         fail ArgumentError, 'invalid value for "count", count cannot be nil.'
       end
       @count = count
@@ -147,7 +147,7 @@ module DatadogAPIClient::V1
     # @param sum [Object] Object to be assigned
     # @!visibility private
     def sum=(sum)
-      if @sum.nil?
+      if sum.nil?
         fail ArgumentError, 'invalid value for "sum", sum cannot be nil.'
       end
       @sum = sum
@@ -157,7 +157,7 @@ module DatadogAPIClient::V1
     # @param values [Object] Object to be assigned
     # @!visibility private
     def values=(values)
-      if @values.nil?
+      if values.nil?
         fail ArgumentError, 'invalid value for "values", values cannot be nil.'
       end
       @values = values

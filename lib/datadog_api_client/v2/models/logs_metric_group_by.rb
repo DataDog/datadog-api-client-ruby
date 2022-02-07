@@ -108,7 +108,7 @@ module DatadogAPIClient::V2
     # @param path [Object] Object to be assigned
     # @!visibility private
     def path=(path)
-      if @path.nil?
+      if path.nil?
         fail ArgumentError, 'invalid value for "path", path cannot be nil.'
       end
       @path = path

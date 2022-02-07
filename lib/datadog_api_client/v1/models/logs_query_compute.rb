@@ -117,7 +117,7 @@ module DatadogAPIClient::V1
     # @param aggregation [Object] Object to be assigned
     # @!visibility private
     def aggregation=(aggregation)
-      if @aggregation.nil?
+      if aggregation.nil?
         fail ArgumentError, 'invalid value for "aggregation", aggregation cannot be nil.'
       end
       @aggregation = aggregation

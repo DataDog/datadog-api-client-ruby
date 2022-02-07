@@ -145,7 +145,7 @@ module DatadogAPIClient::V1
     # @param filter [Object] Object to be assigned
     # @!visibility private
     def filter=(filter)
-      if @filter.nil?
+      if filter.nil?
         fail ArgumentError, 'invalid value for "filter", filter cannot be nil.'
       end
       @filter = filter

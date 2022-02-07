@@ -121,11 +121,7 @@ module DatadogAPIClient::V1
     # @param dimension [Object] Object to be assigned
     # @!visibility private
     def dimension=(dimension)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('ScatterplotDimension', ['x', 'y', 'radius', 'color'])
-      unless validator.valid?(dimension)
-        fail ArgumentError, "invalid value for \"dimension\", must be one of #{validator.allowable_values}."
-      end
-      if @dimension.nil?
+      if dimension.nil?
         fail ArgumentError, 'invalid value for "dimension", dimension cannot be nil.'
       end
       @dimension = dimension
@@ -135,7 +131,7 @@ module DatadogAPIClient::V1
     # @param formula [Object] Object to be assigned
     # @!visibility private
     def formula=(formula)
-      if @formula.nil?
+      if formula.nil?
         fail ArgumentError, 'invalid value for "formula", formula cannot be nil.'
       end
       @formula = formula

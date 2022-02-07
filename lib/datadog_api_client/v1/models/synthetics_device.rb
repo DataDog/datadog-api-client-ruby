@@ -147,7 +147,7 @@ module DatadogAPIClient::V1
     # @param height [Object] Object to be assigned
     # @!visibility private
     def height=(height)
-      if @height.nil?
+      if height.nil?
         fail ArgumentError, 'invalid value for "height", height cannot be nil.'
       end
       @height = height
@@ -157,11 +157,7 @@ module DatadogAPIClient::V1
     # @param id [Object] Object to be assigned
     # @!visibility private
     def id=(id)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SyntheticsDeviceID', ['laptop_large', 'tablet', 'mobile_small', 'chrome.laptop_large', 'chrome.tablet', 'chrome.mobile_small', 'firefox.laptop_large', 'firefox.tablet', 'firefox.mobile_small', 'edge.laptop_large', 'edge.tablet', 'edge.mobile_small'])
-      unless validator.valid?(id)
-        fail ArgumentError, "invalid value for \"id\", must be one of #{validator.allowable_values}."
-      end
-      if @id.nil?
+      if id.nil?
         fail ArgumentError, 'invalid value for "id", id cannot be nil.'
       end
       @id = id
@@ -171,7 +167,7 @@ module DatadogAPIClient::V1
     # @param name [Object] Object to be assigned
     # @!visibility private
     def name=(name)
-      if @name.nil?
+      if name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
       @name = name
@@ -181,7 +177,7 @@ module DatadogAPIClient::V1
     # @param width [Object] Object to be assigned
     # @!visibility private
     def width=(width)
-      if @width.nil?
+      if width.nil?
         fail ArgumentError, 'invalid value for "width", width cannot be nil.'
       end
       @width = width

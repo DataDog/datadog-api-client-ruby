@@ -127,7 +127,7 @@ module DatadogAPIClient::V1
     # @param id [Object] Object to be assigned
     # @!visibility private
     def id=(id)
-      if @id.nil?
+      if id.nil?
         fail ArgumentError, 'invalid value for "id", id cannot be nil.'
       end
       @id = id
@@ -137,7 +137,7 @@ module DatadogAPIClient::V1
     # @param message [Object] Object to be assigned
     # @!visibility private
     def message=(message)
-      if @message.nil?
+      if message.nil?
         fail ArgumentError, 'invalid value for "message", message cannot be nil.'
       end
       @message = message
@@ -147,11 +147,7 @@ module DatadogAPIClient::V1
     # @param timeframe [Object] Object to be assigned
     # @!visibility private
     def timeframe=(timeframe)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SLOErrorTimeframe', ['7d', '30d', '90d', 'all'])
-      unless validator.valid?(timeframe)
-        fail ArgumentError, "invalid value for \"timeframe\", must be one of #{validator.allowable_values}."
-      end
-      if @timeframe.nil?
+      if timeframe.nil?
         fail ArgumentError, 'invalid value for "timeframe", timeframe cannot be nil.'
       end
       @timeframe = timeframe

@@ -214,7 +214,7 @@ module DatadogAPIClient::V1
     # @param config [Object] Object to be assigned
     # @!visibility private
     def config=(config)
-      if @config.nil?
+      if config.nil?
         fail ArgumentError, 'invalid value for "config", config cannot be nil.'
       end
       @config = config
@@ -224,7 +224,7 @@ module DatadogAPIClient::V1
     # @param locations [Object] Object to be assigned
     # @!visibility private
     def locations=(locations)
-      if @locations.nil?
+      if locations.nil?
         fail ArgumentError, 'invalid value for "locations", locations cannot be nil.'
       end
       @locations = locations
@@ -234,7 +234,7 @@ module DatadogAPIClient::V1
     # @param name [Object] Object to be assigned
     # @!visibility private
     def name=(name)
-      if @name.nil?
+      if name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
       @name = name
@@ -244,7 +244,7 @@ module DatadogAPIClient::V1
     # @param options [Object] Object to be assigned
     # @!visibility private
     def options=(options)
-      if @options.nil?
+      if options.nil?
         fail ArgumentError, 'invalid value for "options", options cannot be nil.'
       end
       @options = options
@@ -254,10 +254,6 @@ module DatadogAPIClient::V1
     # @param status [Object] Object to be assigned
     # @!visibility private
     def status=(status)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SyntheticsTestPauseStatus', ['live', 'paused'])
-      unless validator.valid?(status)
-        fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
-      end
       @status = status
     end
 
@@ -265,11 +261,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SyntheticsBrowserTestType', ['browser'])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
-      end
-      if @type.nil?
+      if type.nil?
         fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
       @type = type

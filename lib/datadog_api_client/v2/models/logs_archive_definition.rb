@@ -119,7 +119,7 @@ module DatadogAPIClient::V2
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      if @type.nil?
+      if type.nil?
         fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
       @type = type

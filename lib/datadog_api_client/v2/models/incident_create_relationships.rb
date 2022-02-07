@@ -99,7 +99,7 @@ module DatadogAPIClient::V2
     # @param commander [Object] Object to be assigned
     # @!visibility private
     def commander=(commander)
-      if @commander.nil?
+      if commander.nil?
         fail ArgumentError, 'invalid value for "commander", commander cannot be nil.'
       end
       @commander = commander

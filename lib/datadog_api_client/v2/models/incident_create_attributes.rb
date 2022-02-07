@@ -143,7 +143,7 @@ module DatadogAPIClient::V2
     # @param customer_impacted [Object] Object to be assigned
     # @!visibility private
     def customer_impacted=(customer_impacted)
-      if @customer_impacted.nil?
+      if customer_impacted.nil?
         fail ArgumentError, 'invalid value for "customer_impacted", customer_impacted cannot be nil.'
       end
       @customer_impacted = customer_impacted
@@ -153,7 +153,7 @@ module DatadogAPIClient::V2
     # @param title [Object] Object to be assigned
     # @!visibility private
     def title=(title)
-      if @title.nil?
+      if title.nil?
         fail ArgumentError, 'invalid value for "title", title cannot be nil.'
       end
       @title = title

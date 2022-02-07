@@ -134,7 +134,7 @@ module DatadogAPIClient::V1
     # @param description [Object] Object to be assigned
     # @!visibility private
     def description=(description)
-      if @description.nil?
+      if description.nil?
         fail ArgumentError, 'invalid value for "description", description cannot be nil.'
       end
       @description = description
@@ -144,7 +144,7 @@ module DatadogAPIClient::V1
     # @param name [Object] Object to be assigned
     # @!visibility private
     def name=(name)
-      if @name.nil?
+      if name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
       @name = name
@@ -154,11 +154,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SyntheticsBrowserErrorType', ['network', 'js'])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
-      end
-      if @type.nil?
+      if type.nil?
         fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
       @type = type

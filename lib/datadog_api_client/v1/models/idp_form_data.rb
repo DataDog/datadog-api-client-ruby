@@ -99,7 +99,7 @@ module DatadogAPIClient::V1
     # @param idp_file [Object] Object to be assigned
     # @!visibility private
     def idp_file=(idp_file)
-      if @idp_file.nil?
+      if idp_file.nil?
         fail ArgumentError, 'invalid value for "idp_file", idp_file cannot be nil.'
       end
       @idp_file = idp_file

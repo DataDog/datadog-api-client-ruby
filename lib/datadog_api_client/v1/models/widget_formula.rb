@@ -137,10 +137,6 @@ module DatadogAPIClient::V1
     # @param cell_display_mode [Object] Object to be assigned
     # @!visibility private
     def cell_display_mode=(cell_display_mode)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('TableWidgetCellDisplayMode', ['number', 'bar'])
-      unless validator.valid?(cell_display_mode)
-        fail ArgumentError, "invalid value for \"cell_display_mode\", must be one of #{validator.allowable_values}."
-      end
       @cell_display_mode = cell_display_mode
     end
 
@@ -148,7 +144,7 @@ module DatadogAPIClient::V1
     # @param formula [Object] Object to be assigned
     # @!visibility private
     def formula=(formula)
-      if @formula.nil?
+      if formula.nil?
         fail ArgumentError, 'invalid value for "formula", formula cannot be nil.'
       end
       @formula = formula

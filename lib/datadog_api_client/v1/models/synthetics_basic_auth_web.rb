@@ -127,7 +127,7 @@ module DatadogAPIClient::V1
     # @param password [Object] Object to be assigned
     # @!visibility private
     def password=(password)
-      if @password.nil?
+      if password.nil?
         fail ArgumentError, 'invalid value for "password", password cannot be nil.'
       end
       @password = password
@@ -137,11 +137,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SyntheticsBasicAuthWebType', ['web'])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
-      end
-      if @type.nil?
+      if type.nil?
         fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
       @type = type
@@ -151,7 +147,7 @@ module DatadogAPIClient::V1
     # @param username [Object] Object to be assigned
     # @!visibility private
     def username=(username)
-      if @username.nil?
+      if username.nil?
         fail ArgumentError, 'invalid value for "username", username cannot be nil.'
       end
       @username = username

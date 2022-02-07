@@ -130,7 +130,7 @@ module DatadogAPIClient::V1
     # @param value [Object] Object to be assigned
     # @!visibility private
     def value=(value)
-      if @value.nil?
+      if value.nil?
         fail ArgumentError, 'invalid value for "value", value cannot be nil.'
       end
       @value = value

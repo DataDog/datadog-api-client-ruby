@@ -101,7 +101,7 @@ module DatadogAPIClient::V1
     # @param tests [Object] Object to be assigned
     # @!visibility private
     def tests=(tests)
-      if @tests.nil?
+      if tests.nil?
         fail ArgumentError, 'invalid value for "tests", tests cannot be nil.'
       end
       @tests = tests

@@ -116,7 +116,7 @@ module DatadogAPIClient::V1
     # @param code [Object] Object to be assigned
     # @!visibility private
     def code=(code)
-      if @code.nil?
+      if code.nil?
         fail ArgumentError, 'invalid value for "code", code cannot be nil.'
       end
       if code > 2147483647
@@ -129,7 +129,7 @@ module DatadogAPIClient::V1
     # @param message [Object] Object to be assigned
     # @!visibility private
     def message=(message)
-      if @message.nil?
+      if message.nil?
         fail ArgumentError, 'invalid value for "message", message cannot be nil.'
       end
       @message = message

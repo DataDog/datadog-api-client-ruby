@@ -181,7 +181,7 @@ module DatadogAPIClient::V1
     # @param assertions [Object] Object to be assigned
     # @!visibility private
     def assertions=(assertions)
-      if @assertions.nil?
+      if assertions.nil?
         fail ArgumentError, 'invalid value for "assertions", assertions cannot be nil.'
       end
       @assertions = assertions
@@ -191,7 +191,7 @@ module DatadogAPIClient::V1
     # @param name [Object] Object to be assigned
     # @!visibility private
     def name=(name)
-      if @name.nil?
+      if name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
       @name = name
@@ -201,7 +201,7 @@ module DatadogAPIClient::V1
     # @param request [Object] Object to be assigned
     # @!visibility private
     def request=(request)
-      if @request.nil?
+      if request.nil?
         fail ArgumentError, 'invalid value for "request", request cannot be nil.'
       end
       @request = request
@@ -211,11 +211,7 @@ module DatadogAPIClient::V1
     # @param subtype [Object] Object to be assigned
     # @!visibility private
     def subtype=(subtype)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SyntheticsAPIStepSubtype', ['http'])
-      unless validator.valid?(subtype)
-        fail ArgumentError, "invalid value for \"subtype\", must be one of #{validator.allowable_values}."
-      end
-      if @subtype.nil?
+      if subtype.nil?
         fail ArgumentError, 'invalid value for "subtype", subtype cannot be nil.'
       end
       @subtype = subtype

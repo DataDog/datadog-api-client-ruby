@@ -151,10 +151,6 @@ module DatadogAPIClient::V1
     # @param access_role [Object] Object to be assigned
     # @!visibility private
     def access_role=(access_role)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('AccessRole', ['st', 'adm', 'ro', 'ERROR'])
-      unless validator.valid?(access_role)
-        fail ArgumentError, "invalid value for \"access_role\", must be one of #{validator.allowable_values}."
-      end
       @access_role = access_role
     end
 

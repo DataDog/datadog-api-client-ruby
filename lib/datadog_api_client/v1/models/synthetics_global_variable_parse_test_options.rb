@@ -121,7 +121,7 @@ module DatadogAPIClient::V1
     # @param parser [Object] Object to be assigned
     # @!visibility private
     def parser=(parser)
-      if @parser.nil?
+      if parser.nil?
         fail ArgumentError, 'invalid value for "parser", parser cannot be nil.'
       end
       @parser = parser
@@ -131,11 +131,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SyntheticsGlobalVariableParseTestOptionsType', ['http_body', 'http_header'])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
-      end
-      if @type.nil?
+      if type.nil?
         fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
       @type = type

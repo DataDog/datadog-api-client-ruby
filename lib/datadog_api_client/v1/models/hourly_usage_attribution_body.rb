@@ -158,10 +158,6 @@ module DatadogAPIClient::V1
     # @param usage_type [Object] Object to be assigned
     # @!visibility private
     def usage_type=(usage_type)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('HourlyUsageAttributionUsageType', ['api_usage', 'apm_host_usage', 'browser_usage', 'container_usage', 'custom_timeseries_usage', 'fargate_usage', 'functions_usage', 'indexed_logs_usage', 'infra_host_usage', 'invocations_usage', 'npm_host_usage', 'profiled_container_usage', 'profiled_host_usage', 'snmp_usage'])
-      unless validator.valid?(usage_type)
-        fail ArgumentError, "invalid value for \"usage_type\", must be one of #{validator.allowable_values}."
-      end
       @usage_type = usage_type
     end
 

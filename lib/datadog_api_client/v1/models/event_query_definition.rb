@@ -112,7 +112,7 @@ module DatadogAPIClient::V1
     # @param search [Object] Object to be assigned
     # @!visibility private
     def search=(search)
-      if @search.nil?
+      if search.nil?
         fail ArgumentError, 'invalid value for "search", search cannot be nil.'
       end
       @search = search
@@ -122,7 +122,7 @@ module DatadogAPIClient::V1
     # @param tags_execution [Object] Object to be assigned
     # @!visibility private
     def tags_execution=(tags_execution)
-      if @tags_execution.nil?
+      if tags_execution.nil?
         fail ArgumentError, 'invalid value for "tags_execution", tags_execution cannot be nil.'
       end
       @tags_execution = tags_execution

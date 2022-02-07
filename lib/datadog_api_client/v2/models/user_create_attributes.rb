@@ -117,7 +117,7 @@ module DatadogAPIClient::V2
     # @param email [Object] Object to be assigned
     # @!visibility private
     def email=(email)
-      if @email.nil?
+      if email.nil?
         fail ArgumentError, 'invalid value for "email", email cannot be nil.'
       end
       @email = email

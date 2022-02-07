@@ -168,10 +168,6 @@ module DatadogAPIClient::V1
     # @param event_type [Object] Object to be assigned
     # @!visibility private
     def event_type=(event_type)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SyntheticsTestProcessStatus', ['not_scheduled', 'scheduled', 'started', 'finished', 'finished_with_error'])
-      unless validator.valid?(event_type)
-        fail ArgumentError, "invalid value for \"event_type\", must be one of #{validator.allowable_values}."
-      end
       @event_type = event_type
     end
 

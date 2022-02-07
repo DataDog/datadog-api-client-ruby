@@ -101,7 +101,7 @@ module DatadogAPIClient::V1
     # @param series [Object] Object to be assigned
     # @!visibility private
     def series=(series)
-      if @series.nil?
+      if series.nil?
         fail ArgumentError, 'invalid value for "series", series cannot be nil.'
       end
       @series = series

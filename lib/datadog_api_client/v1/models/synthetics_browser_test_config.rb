@@ -147,7 +147,7 @@ module DatadogAPIClient::V1
     # @param assertions [Object] Object to be assigned
     # @!visibility private
     def assertions=(assertions)
-      if @assertions.nil?
+      if assertions.nil?
         fail ArgumentError, 'invalid value for "assertions", assertions cannot be nil.'
       end
       @assertions = assertions
@@ -157,7 +157,7 @@ module DatadogAPIClient::V1
     # @param request [Object] Object to be assigned
     # @!visibility private
     def request=(request)
-      if @request.nil?
+      if request.nil?
         fail ArgumentError, 'invalid value for "request", request cannot be nil.'
       end
       @request = request

@@ -108,7 +108,7 @@ module DatadogAPIClient::V1
     # @param data [Object] Object to be assigned
     # @!visibility private
     def data=(data)
-      if @data.nil?
+      if data.nil?
         fail ArgumentError, 'invalid value for "data", data cannot be nil.'
       end
       @data = data

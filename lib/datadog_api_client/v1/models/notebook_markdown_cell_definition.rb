@@ -114,7 +114,7 @@ module DatadogAPIClient::V1
     # @param text [Object] Object to be assigned
     # @!visibility private
     def text=(text)
-      if @text.nil?
+      if text.nil?
         fail ArgumentError, 'invalid value for "text", text cannot be nil.'
       end
       @text = text
@@ -124,11 +124,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('NotebookMarkdownCellDefinitionType', ['markdown'])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
-      end
-      if @type.nil?
+      if type.nil?
         fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
       @type = type

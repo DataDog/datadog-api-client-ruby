@@ -130,7 +130,7 @@ module DatadogAPIClient::V2
     # @param email [Object] Object to be assigned
     # @!visibility private
     def email=(email)
-      if @email.nil?
+      if email.nil?
         fail ArgumentError, 'invalid value for "email", email cannot be nil.'
       end
       @email = email
@@ -140,7 +140,7 @@ module DatadogAPIClient::V2
     # @param service_account [Object] Object to be assigned
     # @!visibility private
     def service_account=(service_account)
-      if @service_account.nil?
+      if service_account.nil?
         fail ArgumentError, 'invalid value for "service_account", service_account cannot be nil.'
       end
       @service_account = service_account

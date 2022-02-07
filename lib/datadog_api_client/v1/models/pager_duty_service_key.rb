@@ -99,7 +99,7 @@ module DatadogAPIClient::V1
     # @param service_key [Object] Object to be assigned
     # @!visibility private
     def service_key=(service_key)
-      if @service_key.nil?
+      if service_key.nil?
         fail ArgumentError, 'invalid value for "service_key", service_key cannot be nil.'
       end
       @service_key = service_key

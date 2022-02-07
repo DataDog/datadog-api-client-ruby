@@ -213,10 +213,6 @@ module DatadogAPIClient::V1
     # @param message_display [Object] Object to be assigned
     # @!visibility private
     def message_display=(message_display)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetMessageDisplay', ['inline', 'expanded-md', 'expanded-lg'])
-      unless validator.valid?(message_display)
-        fail ArgumentError, "invalid value for \"message_display\", must be one of #{validator.allowable_values}."
-      end
       @message_display = message_display
     end
 
@@ -224,10 +220,6 @@ module DatadogAPIClient::V1
     # @param title_align [Object] Object to be assigned
     # @!visibility private
     def title_align=(title_align)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
-      unless validator.valid?(title_align)
-        fail ArgumentError, "invalid value for \"title_align\", must be one of #{validator.allowable_values}."
-      end
       @title_align = title_align
     end
 
@@ -235,11 +227,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('LogStreamWidgetDefinitionType', ['log_stream'])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
-      end
-      if @type.nil?
+      if type.nil?
         fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
       @type = type

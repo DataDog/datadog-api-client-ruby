@@ -156,11 +156,7 @@ module DatadogAPIClient::V2
     # @param metric_type [Object] Object to be assigned
     # @!visibility private
     def metric_type=(metric_type)
-      validator = DatadogAPIClient::V2::EnumAttributeValidator.new('MetricTagConfigurationMetricTypes', ['gauge', 'count', 'rate', 'distribution'])
-      unless validator.valid?(metric_type)
-        fail ArgumentError, "invalid value for \"metric_type\", must be one of #{validator.allowable_values}."
-      end
-      if @metric_type.nil?
+      if metric_type.nil?
         fail ArgumentError, 'invalid value for "metric_type", metric_type cannot be nil.'
       end
       @metric_type = metric_type
@@ -170,7 +166,7 @@ module DatadogAPIClient::V2
     # @param tags [Object] Object to be assigned
     # @!visibility private
     def tags=(tags)
-      if @tags.nil?
+      if tags.nil?
         fail ArgumentError, 'invalid value for "tags", tags cannot be nil.'
       end
       @tags = tags

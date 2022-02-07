@@ -171,7 +171,7 @@ module DatadogAPIClient::V1
     # @param env [Object] Object to be assigned
     # @!visibility private
     def env=(env)
-      if @env.nil?
+      if env.nil?
         fail ArgumentError, 'invalid value for "env", env cannot be nil.'
       end
       @env = env
@@ -181,7 +181,7 @@ module DatadogAPIClient::V1
     # @param name [Object] Object to be assigned
     # @!visibility private
     def name=(name)
-      if @name.nil?
+      if name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
       @name = name
@@ -191,7 +191,7 @@ module DatadogAPIClient::V1
     # @param primary_tag [Object] Object to be assigned
     # @!visibility private
     def primary_tag=(primary_tag)
-      if @primary_tag.nil?
+      if primary_tag.nil?
         fail ArgumentError, 'invalid value for "primary_tag", primary_tag cannot be nil.'
       end
       @primary_tag = primary_tag
@@ -201,11 +201,7 @@ module DatadogAPIClient::V1
     # @param row_type [Object] Object to be assigned
     # @!visibility private
     def row_type=(row_type)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('ApmStatsQueryRowType', ['service', 'resource', 'span'])
-      unless validator.valid?(row_type)
-        fail ArgumentError, "invalid value for \"row_type\", must be one of #{validator.allowable_values}."
-      end
-      if @row_type.nil?
+      if row_type.nil?
         fail ArgumentError, 'invalid value for "row_type", row_type cannot be nil.'
       end
       @row_type = row_type
@@ -215,7 +211,7 @@ module DatadogAPIClient::V1
     # @param service [Object] Object to be assigned
     # @!visibility private
     def service=(service)
-      if @service.nil?
+      if service.nil?
         fail ArgumentError, 'invalid value for "service", service cannot be nil.'
       end
       @service = service

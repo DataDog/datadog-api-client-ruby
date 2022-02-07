@@ -156,7 +156,7 @@ module DatadogAPIClient::V1
     # @param metric [Object] Object to be assigned
     # @!visibility private
     def metric=(metric)
-      if @metric.nil?
+      if metric.nil?
         fail ArgumentError, 'invalid value for "metric", metric cannot be nil.'
       end
       @metric = metric
@@ -166,7 +166,7 @@ module DatadogAPIClient::V1
     # @param points [Object] Object to be assigned
     # @!visibility private
     def points=(points)
-      if @points.nil?
+      if points.nil?
         fail ArgumentError, 'invalid value for "points", points cannot be nil.'
       end
       @points = points

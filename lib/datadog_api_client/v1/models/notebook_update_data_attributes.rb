@@ -155,7 +155,7 @@ module DatadogAPIClient::V1
     # @param cells [Object] Object to be assigned
     # @!visibility private
     def cells=(cells)
-      if @cells.nil?
+      if cells.nil?
         fail ArgumentError, 'invalid value for "cells", cells cannot be nil.'
       end
       @cells = cells
@@ -165,7 +165,7 @@ module DatadogAPIClient::V1
     # @param name [Object] Object to be assigned
     # @!visibility private
     def name=(name)
-      if @name.nil?
+      if name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
       if name.to_s.length > 80
@@ -181,10 +181,6 @@ module DatadogAPIClient::V1
     # @param status [Object] Object to be assigned
     # @!visibility private
     def status=(status)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('NotebookStatus', ['published'])
-      unless validator.valid?(status)
-        fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
-      end
       @status = status
     end
 
@@ -192,7 +188,7 @@ module DatadogAPIClient::V1
     # @param time [Object] Object to be assigned
     # @!visibility private
     def time=(time)
-      if @time.nil?
+      if time.nil?
         fail ArgumentError, 'invalid value for "time", time cannot be nil.'
       end
       @time = time

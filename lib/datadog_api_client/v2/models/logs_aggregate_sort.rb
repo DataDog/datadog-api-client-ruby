@@ -124,10 +124,6 @@ module DatadogAPIClient::V2
     # @param aggregation [Object] Object to be assigned
     # @!visibility private
     def aggregation=(aggregation)
-      validator = DatadogAPIClient::V2::EnumAttributeValidator.new('LogsAggregationFunction', ['count', 'cardinality', 'pc75', 'pc90', 'pc95', 'pc98', 'pc99', 'sum', 'min', 'max', 'avg'])
-      unless validator.valid?(aggregation)
-        fail ArgumentError, "invalid value for \"aggregation\", must be one of #{validator.allowable_values}."
-      end
       @aggregation = aggregation
     end
 
@@ -135,10 +131,6 @@ module DatadogAPIClient::V2
     # @param order [Object] Object to be assigned
     # @!visibility private
     def order=(order)
-      validator = DatadogAPIClient::V2::EnumAttributeValidator.new('LogsSortOrder', ['asc', 'desc'])
-      unless validator.valid?(order)
-        fail ArgumentError, "invalid value for \"order\", must be one of #{validator.allowable_values}."
-      end
       @order = order
     end
 
@@ -146,10 +138,6 @@ module DatadogAPIClient::V2
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = DatadogAPIClient::V2::EnumAttributeValidator.new('LogsAggregateSortType', ['alphabetical', 'measure'])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
-      end
       @type = type
     end
 

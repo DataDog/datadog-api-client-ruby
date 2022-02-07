@@ -158,7 +158,7 @@ module DatadogAPIClient::V1
     # @param check [Object] Object to be assigned
     # @!visibility private
     def check=(check)
-      if @check.nil?
+      if check.nil?
         fail ArgumentError, 'invalid value for "check", check cannot be nil.'
       end
       @check = check
@@ -168,7 +168,7 @@ module DatadogAPIClient::V1
     # @param host_name [Object] Object to be assigned
     # @!visibility private
     def host_name=(host_name)
-      if @host_name.nil?
+      if host_name.nil?
         fail ArgumentError, 'invalid value for "host_name", host_name cannot be nil.'
       end
       @host_name = host_name
@@ -178,11 +178,7 @@ module DatadogAPIClient::V1
     # @param status [Object] Object to be assigned
     # @!visibility private
     def status=(status)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('ServiceCheckStatus', [0, 1, 2, 3])
-      unless validator.valid?(status)
-        fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
-      end
-      if @status.nil?
+      if status.nil?
         fail ArgumentError, 'invalid value for "status", status cannot be nil.'
       end
       @status = status
@@ -192,7 +188,7 @@ module DatadogAPIClient::V1
     # @param tags [Object] Object to be assigned
     # @!visibility private
     def tags=(tags)
-      if @tags.nil?
+      if tags.nil?
         fail ArgumentError, 'invalid value for "tags", tags cannot be nil.'
       end
       @tags = tags

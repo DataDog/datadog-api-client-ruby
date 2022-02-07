@@ -163,7 +163,7 @@ module DatadogAPIClient::V1
     # @param requests [Object] Object to be assigned
     # @!visibility private
     def requests=(requests)
-      if @requests.nil?
+      if requests.nil?
         fail ArgumentError, 'invalid value for "requests", requests cannot be nil.'
       end
       @requests = requests
@@ -173,10 +173,6 @@ module DatadogAPIClient::V1
     # @param title_align [Object] Object to be assigned
     # @!visibility private
     def title_align=(title_align)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
-      unless validator.valid?(title_align)
-        fail ArgumentError, "invalid value for \"title_align\", must be one of #{validator.allowable_values}."
-      end
       @title_align = title_align
     end
 
@@ -184,11 +180,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('ToplistWidgetDefinitionType', ['toplist'])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
-      end
-      if @type.nil?
+      if type.nil?
         fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
       @type = type

@@ -153,7 +153,7 @@ module DatadogAPIClient::V2
     # @param exclusion_filters [Object] Object to be assigned
     # @!visibility private
     def exclusion_filters=(exclusion_filters)
-      if @exclusion_filters.nil?
+      if exclusion_filters.nil?
         fail ArgumentError, 'invalid value for "exclusion_filters", exclusion_filters cannot be nil.'
       end
       @exclusion_filters = exclusion_filters
@@ -163,11 +163,7 @@ module DatadogAPIClient::V2
     # @param filtered_data_type [Object] Object to be assigned
     # @!visibility private
     def filtered_data_type=(filtered_data_type)
-      validator = DatadogAPIClient::V2::EnumAttributeValidator.new('SecurityFilterFilteredDataType', ['logs'])
-      unless validator.valid?(filtered_data_type)
-        fail ArgumentError, "invalid value for \"filtered_data_type\", must be one of #{validator.allowable_values}."
-      end
-      if @filtered_data_type.nil?
+      if filtered_data_type.nil?
         fail ArgumentError, 'invalid value for "filtered_data_type", filtered_data_type cannot be nil.'
       end
       @filtered_data_type = filtered_data_type
@@ -177,7 +173,7 @@ module DatadogAPIClient::V2
     # @param is_enabled [Object] Object to be assigned
     # @!visibility private
     def is_enabled=(is_enabled)
-      if @is_enabled.nil?
+      if is_enabled.nil?
         fail ArgumentError, 'invalid value for "is_enabled", is_enabled cannot be nil.'
       end
       @is_enabled = is_enabled
@@ -187,7 +183,7 @@ module DatadogAPIClient::V2
     # @param name [Object] Object to be assigned
     # @!visibility private
     def name=(name)
-      if @name.nil?
+      if name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
       @name = name
@@ -197,7 +193,7 @@ module DatadogAPIClient::V2
     # @param query [Object] Object to be assigned
     # @!visibility private
     def query=(query)
-      if @query.nil?
+      if query.nil?
         fail ArgumentError, 'invalid value for "query", query cannot be nil.'
       end
       @query = query

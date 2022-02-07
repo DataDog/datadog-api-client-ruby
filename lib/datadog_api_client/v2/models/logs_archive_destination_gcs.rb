@@ -136,7 +136,7 @@ module DatadogAPIClient::V2
     # @param bucket [Object] Object to be assigned
     # @!visibility private
     def bucket=(bucket)
-      if @bucket.nil?
+      if bucket.nil?
         fail ArgumentError, 'invalid value for "bucket", bucket cannot be nil.'
       end
       @bucket = bucket
@@ -146,7 +146,7 @@ module DatadogAPIClient::V2
     # @param integration [Object] Object to be assigned
     # @!visibility private
     def integration=(integration)
-      if @integration.nil?
+      if integration.nil?
         fail ArgumentError, 'invalid value for "integration", integration cannot be nil.'
       end
       @integration = integration
@@ -156,11 +156,7 @@ module DatadogAPIClient::V2
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = DatadogAPIClient::V2::EnumAttributeValidator.new('LogsArchiveDestinationGCSType', ['gcs'])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
-      end
-      if @type.nil?
+      if type.nil?
         fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
       @type = type

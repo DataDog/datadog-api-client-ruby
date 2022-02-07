@@ -114,7 +114,7 @@ module DatadogAPIClient::V1
     # @param account_id [Object] Object to be assigned
     # @!visibility private
     def account_id=(account_id)
-      if @account_id.nil?
+      if account_id.nil?
         fail ArgumentError, 'invalid value for "account_id", account_id cannot be nil.'
       end
       @account_id = account_id
@@ -124,7 +124,7 @@ module DatadogAPIClient::V1
     # @param services [Object] Object to be assigned
     # @!visibility private
     def services=(services)
-      if @services.nil?
+      if services.nil?
         fail ArgumentError, 'invalid value for "services", services cannot be nil.'
       end
       @services = services

@@ -154,7 +154,7 @@ module DatadogAPIClient::V1
     # @param access_key [Object] Object to be assigned
     # @!visibility private
     def access_key=(access_key)
-      if @access_key.nil?
+      if access_key.nil?
         fail ArgumentError, 'invalid value for "access_key", access_key cannot be nil.'
       end
       @access_key = access_key
@@ -164,7 +164,7 @@ module DatadogAPIClient::V1
     # @param secret_key [Object] Object to be assigned
     # @!visibility private
     def secret_key=(secret_key)
-      if @secret_key.nil?
+      if secret_key.nil?
         fail ArgumentError, 'invalid value for "secret_key", secret_key cannot be nil.'
       end
       @secret_key = secret_key
@@ -174,11 +174,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SyntheticsBasicAuthSigv4Type', ['sigv4'])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
-      end
-      if @type.nil?
+      if type.nil?
         fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
       @type = type

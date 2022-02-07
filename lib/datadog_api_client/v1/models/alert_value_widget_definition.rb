@@ -168,7 +168,7 @@ module DatadogAPIClient::V1
     # @param alert_id [Object] Object to be assigned
     # @!visibility private
     def alert_id=(alert_id)
-      if @alert_id.nil?
+      if alert_id.nil?
         fail ArgumentError, 'invalid value for "alert_id", alert_id cannot be nil.'
       end
       @alert_id = alert_id
@@ -178,10 +178,6 @@ module DatadogAPIClient::V1
     # @param text_align [Object] Object to be assigned
     # @!visibility private
     def text_align=(text_align)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
-      unless validator.valid?(text_align)
-        fail ArgumentError, "invalid value for \"text_align\", must be one of #{validator.allowable_values}."
-      end
       @text_align = text_align
     end
 
@@ -189,10 +185,6 @@ module DatadogAPIClient::V1
     # @param title_align [Object] Object to be assigned
     # @!visibility private
     def title_align=(title_align)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
-      unless validator.valid?(title_align)
-        fail ArgumentError, "invalid value for \"title_align\", must be one of #{validator.allowable_values}."
-      end
       @title_align = title_align
     end
 
@@ -200,11 +192,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('AlertValueWidgetDefinitionType', ['alert_value'])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
-      end
-      if @type.nil?
+      if type.nil?
         fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
       @type = type

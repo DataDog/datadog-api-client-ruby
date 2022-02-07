@@ -213,10 +213,6 @@ module DatadogAPIClient::V1
     # @param color_preference [Object] Object to be assigned
     # @!visibility private
     def color_preference=(color_preference)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetColorPreference', ['background', 'text'])
-      unless validator.valid?(color_preference)
-        fail ArgumentError, "invalid value for \"color_preference\", must be one of #{validator.allowable_values}."
-      end
       @color_preference = color_preference
     end
 
@@ -224,10 +220,6 @@ module DatadogAPIClient::V1
     # @param display_format [Object] Object to be assigned
     # @!visibility private
     def display_format=(display_format)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetMonitorSummaryDisplayFormat', ['counts', 'countsAndList', 'list'])
-      unless validator.valid?(display_format)
-        fail ArgumentError, "invalid value for \"display_format\", must be one of #{validator.allowable_values}."
-      end
       @display_format = display_format
     end
 
@@ -235,7 +227,7 @@ module DatadogAPIClient::V1
     # @param query [Object] Object to be assigned
     # @!visibility private
     def query=(query)
-      if @query.nil?
+      if query.nil?
         fail ArgumentError, 'invalid value for "query", query cannot be nil.'
       end
       @query = query
@@ -245,10 +237,6 @@ module DatadogAPIClient::V1
     # @param sort [Object] Object to be assigned
     # @!visibility private
     def sort=(sort)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetMonitorSummarySort', ['name', 'group', 'status', 'tags', 'triggered', 'group,asc', 'group,desc', 'name,asc', 'name,desc', 'status,asc', 'status,desc', 'tags,asc', 'tags,desc', 'triggered,asc', 'triggered,desc'])
-      unless validator.valid?(sort)
-        fail ArgumentError, "invalid value for \"sort\", must be one of #{validator.allowable_values}."
-      end
       @sort = sort
     end
 
@@ -256,10 +244,6 @@ module DatadogAPIClient::V1
     # @param summary_type [Object] Object to be assigned
     # @!visibility private
     def summary_type=(summary_type)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetSummaryType', ['monitors', 'groups', 'combined'])
-      unless validator.valid?(summary_type)
-        fail ArgumentError, "invalid value for \"summary_type\", must be one of #{validator.allowable_values}."
-      end
       @summary_type = summary_type
     end
 
@@ -267,10 +251,6 @@ module DatadogAPIClient::V1
     # @param title_align [Object] Object to be assigned
     # @!visibility private
     def title_align=(title_align)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
-      unless validator.valid?(title_align)
-        fail ArgumentError, "invalid value for \"title_align\", must be one of #{validator.allowable_values}."
-      end
       @title_align = title_align
     end
 
@@ -278,11 +258,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('MonitorSummaryWidgetDefinitionType', ['manage_status'])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
-      end
-      if @type.nil?
+      if type.nil?
         fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
       @type = type

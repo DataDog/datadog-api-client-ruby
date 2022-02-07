@@ -108,7 +108,7 @@ module DatadogAPIClient::V1
     # @param expression [Object] Object to be assigned
     # @!visibility private
     def expression=(expression)
-      if @expression.nil?
+      if expression.nil?
         fail ArgumentError, 'invalid value for "expression", expression cannot be nil.'
       end
       @expression = expression

@@ -192,7 +192,7 @@ module DatadogAPIClient::V1
     # @param denominator [Object] Object to be assigned
     # @!visibility private
     def denominator=(denominator)
-      if @denominator.nil?
+      if denominator.nil?
         fail ArgumentError, 'invalid value for "denominator", denominator cannot be nil.'
       end
       @denominator = denominator
@@ -202,7 +202,7 @@ module DatadogAPIClient::V1
     # @param interval [Object] Object to be assigned
     # @!visibility private
     def interval=(interval)
-      if @interval.nil?
+      if interval.nil?
         fail ArgumentError, 'invalid value for "interval", interval cannot be nil.'
       end
       @interval = interval
@@ -212,7 +212,7 @@ module DatadogAPIClient::V1
     # @param numerator [Object] Object to be assigned
     # @!visibility private
     def numerator=(numerator)
-      if @numerator.nil?
+      if numerator.nil?
         fail ArgumentError, 'invalid value for "numerator", numerator cannot be nil.'
       end
       @numerator = numerator
@@ -222,7 +222,7 @@ module DatadogAPIClient::V1
     # @param query [Object] Object to be assigned
     # @!visibility private
     def query=(query)
-      if @query.nil?
+      if query.nil?
         fail ArgumentError, 'invalid value for "query", query cannot be nil.'
       end
       @query = query
@@ -232,7 +232,7 @@ module DatadogAPIClient::V1
     # @param res_type [Object] Object to be assigned
     # @!visibility private
     def res_type=(res_type)
-      if @res_type.nil?
+      if res_type.nil?
         fail ArgumentError, 'invalid value for "res_type", res_type cannot be nil.'
       end
       @res_type = res_type
@@ -242,7 +242,7 @@ module DatadogAPIClient::V1
     # @param resp_version [Object] Object to be assigned
     # @!visibility private
     def resp_version=(resp_version)
-      if @resp_version.nil?
+      if resp_version.nil?
         fail ArgumentError, 'invalid value for "resp_version", resp_version cannot be nil.'
       end
       @resp_version = resp_version
@@ -252,7 +252,7 @@ module DatadogAPIClient::V1
     # @param times [Object] Object to be assigned
     # @!visibility private
     def times=(times)
-      if @times.nil?
+      if times.nil?
         fail ArgumentError, 'invalid value for "times", times cannot be nil.'
       end
       @times = times

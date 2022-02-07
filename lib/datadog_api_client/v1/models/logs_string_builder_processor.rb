@@ -171,7 +171,7 @@ module DatadogAPIClient::V1
     # @param target [Object] Object to be assigned
     # @!visibility private
     def target=(target)
-      if @target.nil?
+      if target.nil?
         fail ArgumentError, 'invalid value for "target", target cannot be nil.'
       end
       @target = target
@@ -181,7 +181,7 @@ module DatadogAPIClient::V1
     # @param template [Object] Object to be assigned
     # @!visibility private
     def template=(template)
-      if @template.nil?
+      if template.nil?
         fail ArgumentError, 'invalid value for "template", template cannot be nil.'
       end
       @template = template
@@ -191,11 +191,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('LogsStringBuilderProcessorType', ['string-builder-processor'])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
-      end
-      if @type.nil?
+      if type.nil?
         fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
       @type = type

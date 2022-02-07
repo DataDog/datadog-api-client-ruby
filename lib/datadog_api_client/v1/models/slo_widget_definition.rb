@@ -190,10 +190,6 @@ module DatadogAPIClient::V1
     # @param title_align [Object] Object to be assigned
     # @!visibility private
     def title_align=(title_align)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
-      unless validator.valid?(title_align)
-        fail ArgumentError, "invalid value for \"title_align\", must be one of #{validator.allowable_values}."
-      end
       @title_align = title_align
     end
 
@@ -201,11 +197,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SLOWidgetDefinitionType', ['slo'])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
-      end
-      if @type.nil?
+      if type.nil?
         fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
       @type = type
@@ -215,10 +207,6 @@ module DatadogAPIClient::V1
     # @param view_mode [Object] Object to be assigned
     # @!visibility private
     def view_mode=(view_mode)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetViewMode', ['overall', 'component', 'both'])
-      unless validator.valid?(view_mode)
-        fail ArgumentError, "invalid value for \"view_mode\", must be one of #{validator.allowable_values}."
-      end
       @view_mode = view_mode
     end
 
@@ -226,7 +214,7 @@ module DatadogAPIClient::V1
     # @param view_type [Object] Object to be assigned
     # @!visibility private
     def view_type=(view_type)
-      if @view_type.nil?
+      if view_type.nil?
         fail ArgumentError, 'invalid value for "view_type", view_type cannot be nil.'
       end
       @view_type = view_type

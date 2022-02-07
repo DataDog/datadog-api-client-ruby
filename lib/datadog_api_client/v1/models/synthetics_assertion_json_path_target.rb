@@ -130,11 +130,7 @@ module DatadogAPIClient::V1
     # @param operator [Object] Object to be assigned
     # @!visibility private
     def operator=(operator)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SyntheticsAssertionJSONPathOperator', ['validatesJSONPath'])
-      unless validator.valid?(operator)
-        fail ArgumentError, "invalid value for \"operator\", must be one of #{validator.allowable_values}."
-      end
-      if @operator.nil?
+      if operator.nil?
         fail ArgumentError, 'invalid value for "operator", operator cannot be nil.'
       end
       @operator = operator
@@ -144,11 +140,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SyntheticsAssertionType', ['body', 'header', 'statusCode', 'certificate', 'responseTime', 'property', 'recordEvery', 'recordSome', 'tlsVersion', 'minTlsVersion', 'latency', 'packetLossPercentage', 'packetsReceived', 'networkHop', 'receivedMessage'])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
-      end
-      if @type.nil?
+      if type.nil?
         fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
       @type = type

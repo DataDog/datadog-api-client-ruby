@@ -106,10 +106,6 @@ module DatadogAPIClient::V1
     # @param order [Object] Object to be assigned
     # @!visibility private
     def order=(order)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('QuerySortOrder', ['asc', 'desc'])
-      unless validator.valid?(order)
-        fail ArgumentError, "invalid value for \"order\", must be one of #{validator.allowable_values}."
-      end
       @order = order
     end
 

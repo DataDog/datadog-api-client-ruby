@@ -108,7 +108,7 @@ module DatadogAPIClient::V1
     # @param url [Object] Object to be assigned
     # @!visibility private
     def url=(url)
-      if @url.nil?
+      if url.nil?
         fail ArgumentError, 'invalid value for "url", url cannot be nil.'
       end
       @url = url

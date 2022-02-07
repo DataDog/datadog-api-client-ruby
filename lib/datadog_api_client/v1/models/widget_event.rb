@@ -111,7 +111,7 @@ module DatadogAPIClient::V1
     # @param q [Object] Object to be assigned
     # @!visibility private
     def q=(q)
-      if @q.nil?
+      if q.nil?
         fail ArgumentError, 'invalid value for "q", q cannot be nil.'
       end
       @q = q

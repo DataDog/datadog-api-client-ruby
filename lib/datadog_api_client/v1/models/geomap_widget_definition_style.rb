@@ -112,7 +112,7 @@ module DatadogAPIClient::V1
     # @param palette [Object] Object to be assigned
     # @!visibility private
     def palette=(palette)
-      if @palette.nil?
+      if palette.nil?
         fail ArgumentError, 'invalid value for "palette", palette cannot be nil.'
       end
       @palette = palette
@@ -122,7 +122,7 @@ module DatadogAPIClient::V1
     # @param palette_flip [Object] Object to be assigned
     # @!visibility private
     def palette_flip=(palette_flip)
-      if @palette_flip.nil?
+      if palette_flip.nil?
         fail ArgumentError, 'invalid value for "palette_flip", palette_flip cannot be nil.'
       end
       @palette_flip = palette_flip

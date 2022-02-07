@@ -166,7 +166,6 @@
 
 {%- for attr, definition in model.get("properties", {}).items() %}
     {%- set required = attr in model.get("required", []) %}
-    {%- set collection = definition.get("type") == "array" or "items" in definition %}
     {%- set has_validation = (
       (not definition.nullable and required) or
       definition.maxLength is defined or
@@ -176,7 +175,7 @@
       definition.pattern is defined or
       definition.maxItems is defined or
       definition.minItems is defined or
-      (not collection and definition.enum is defined)
+      definition.enum is defined
     ) %}
     {%- if has_validation %}
 
@@ -184,14 +183,14 @@
     # @param {{ attr|attribute_name }} [Object] Object to be assigned
     # @!visibility private
     def {{ attr|attribute_name }}=({{ attr|attribute_name }})
-      {%- if not collection and definition.enum is defined %}
+      {%- if False and definition.enum is defined %}
       validator = {{ config.moduleName }}::EnumAttributeValidator.new('{{ get_name(definition) }}', [{% for value in definition.enum %}{{ value|format_value }}{%- if not loop.last %}, {% endif %}{% endfor %}])
       unless validator.valid?({{ attr|attribute_name }})
         fail ArgumentError, "invalid value for \"{{ attr|attribute_name }}\", must be one of #{validator.allowable_values}."
       end
       {%- endif %}
       {%- if not definition.nullable and required %}
-      if @{{ attr|attribute_name }}.nil?
+      if {{ attr|attribute_name }}.nil?
         fail ArgumentError, 'invalid value for "{{ attr|attribute_name }}", {{ attr|attribute_name }} cannot be nil.'
       end
       {%- endif %}

@@ -101,7 +101,7 @@ module DatadogAPIClient::V2
     # @param errors [Object] Object to be assigned
     # @!visibility private
     def errors=(errors)
-      if @errors.nil?
+      if errors.nil?
         fail ArgumentError, 'invalid value for "errors", errors cannot be nil.'
       end
       @errors = errors

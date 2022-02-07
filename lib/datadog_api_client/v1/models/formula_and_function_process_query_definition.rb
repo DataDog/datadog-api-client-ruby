@@ -183,10 +183,6 @@ module DatadogAPIClient::V1
     # @param aggregator [Object] Object to be assigned
     # @!visibility private
     def aggregator=(aggregator)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('FormulaAndFunctionMetricAggregation', ['avg', 'min', 'max', 'sum', 'last', 'area', 'l2norm', 'percentile'])
-      unless validator.valid?(aggregator)
-        fail ArgumentError, "invalid value for \"aggregator\", must be one of #{validator.allowable_values}."
-      end
       @aggregator = aggregator
     end
 
@@ -194,11 +190,7 @@ module DatadogAPIClient::V1
     # @param data_source [Object] Object to be assigned
     # @!visibility private
     def data_source=(data_source)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('FormulaAndFunctionProcessQueryDataSource', ['process', 'container'])
-      unless validator.valid?(data_source)
-        fail ArgumentError, "invalid value for \"data_source\", must be one of #{validator.allowable_values}."
-      end
-      if @data_source.nil?
+      if data_source.nil?
         fail ArgumentError, 'invalid value for "data_source", data_source cannot be nil.'
       end
       @data_source = data_source
@@ -208,7 +200,7 @@ module DatadogAPIClient::V1
     # @param metric [Object] Object to be assigned
     # @!visibility private
     def metric=(metric)
-      if @metric.nil?
+      if metric.nil?
         fail ArgumentError, 'invalid value for "metric", metric cannot be nil.'
       end
       @metric = metric
@@ -218,7 +210,7 @@ module DatadogAPIClient::V1
     # @param name [Object] Object to be assigned
     # @!visibility private
     def name=(name)
-      if @name.nil?
+      if name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
       @name = name
@@ -228,10 +220,6 @@ module DatadogAPIClient::V1
     # @param sort [Object] Object to be assigned
     # @!visibility private
     def sort=(sort)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('QuerySortOrder', ['asc', 'desc'])
-      unless validator.valid?(sort)
-        fail ArgumentError, "invalid value for \"sort\", must be one of #{validator.allowable_values}."
-      end
       @sort = sort
     end
 

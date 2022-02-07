@@ -248,10 +248,6 @@ module DatadogAPIClient::V1
     # @param display_format [Object] Object to be assigned
     # @!visibility private
     def display_format=(display_format)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetServiceSummaryDisplayFormat', ['one_column', 'two_column', 'three_column'])
-      unless validator.valid?(display_format)
-        fail ArgumentError, "invalid value for \"display_format\", must be one of #{validator.allowable_values}."
-      end
       @display_format = display_format
     end
 
@@ -259,7 +255,7 @@ module DatadogAPIClient::V1
     # @param env [Object] Object to be assigned
     # @!visibility private
     def env=(env)
-      if @env.nil?
+      if env.nil?
         fail ArgumentError, 'invalid value for "env", env cannot be nil.'
       end
       @env = env
@@ -269,7 +265,7 @@ module DatadogAPIClient::V1
     # @param service [Object] Object to be assigned
     # @!visibility private
     def service=(service)
-      if @service.nil?
+      if service.nil?
         fail ArgumentError, 'invalid value for "service", service cannot be nil.'
       end
       @service = service
@@ -279,10 +275,6 @@ module DatadogAPIClient::V1
     # @param size_format [Object] Object to be assigned
     # @!visibility private
     def size_format=(size_format)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetSizeFormat', ['small', 'medium', 'large'])
-      unless validator.valid?(size_format)
-        fail ArgumentError, "invalid value for \"size_format\", must be one of #{validator.allowable_values}."
-      end
       @size_format = size_format
     end
 
@@ -290,7 +282,7 @@ module DatadogAPIClient::V1
     # @param span_name [Object] Object to be assigned
     # @!visibility private
     def span_name=(span_name)
-      if @span_name.nil?
+      if span_name.nil?
         fail ArgumentError, 'invalid value for "span_name", span_name cannot be nil.'
       end
       @span_name = span_name
@@ -300,10 +292,6 @@ module DatadogAPIClient::V1
     # @param title_align [Object] Object to be assigned
     # @!visibility private
     def title_align=(title_align)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
-      unless validator.valid?(title_align)
-        fail ArgumentError, "invalid value for \"title_align\", must be one of #{validator.allowable_values}."
-      end
       @title_align = title_align
     end
 
@@ -311,11 +299,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('ServiceSummaryWidgetDefinitionType', ['trace_service'])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
-      end
-      if @type.nil?
+      if type.nil?
         fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
       @type = type

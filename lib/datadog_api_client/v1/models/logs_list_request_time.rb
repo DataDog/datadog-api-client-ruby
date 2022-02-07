@@ -122,7 +122,7 @@ module DatadogAPIClient::V1
     # @param from [Object] Object to be assigned
     # @!visibility private
     def from=(from)
-      if @from.nil?
+      if from.nil?
         fail ArgumentError, 'invalid value for "from", from cannot be nil.'
       end
       @from = from
@@ -132,7 +132,7 @@ module DatadogAPIClient::V1
     # @param to [Object] Object to be assigned
     # @!visibility private
     def to=(to)
-      if @to.nil?
+      if to.nil?
         fail ArgumentError, 'invalid value for "to", to cannot be nil.'
       end
       @to = to

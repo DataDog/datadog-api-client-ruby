@@ -179,10 +179,6 @@ module DatadogAPIClient::V1
     # @param saml_autocreate_access_role [Object] Object to be assigned
     # @!visibility private
     def saml_autocreate_access_role=(saml_autocreate_access_role)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('AccessRole', ['st', 'adm', 'ro', 'ERROR'])
-      unless validator.valid?(saml_autocreate_access_role)
-        fail ArgumentError, "invalid value for \"saml_autocreate_access_role\", must be one of #{validator.allowable_values}."
-      end
       @saml_autocreate_access_role = saml_autocreate_access_role
     end
 

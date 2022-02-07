@@ -104,10 +104,6 @@ module DatadogAPIClient::V2
     # @param action [Object] Object to be assigned
     # @!visibility private
     def action=(action)
-      validator = DatadogAPIClient::V2::EnumAttributeValidator.new('SecurityMonitoringFilterAction', ['require', 'suppress'])
-      unless validator.valid?(action)
-        fail ArgumentError, "invalid value for \"action\", must be one of #{validator.allowable_values}."
-      end
       @action = action
     end
 

@@ -108,7 +108,7 @@ module DatadogAPIClient::V1
     # @param public_id [Object] Object to be assigned
     # @!visibility private
     def public_id=(public_id)
-      if @public_id.nil?
+      if public_id.nil?
         fail ArgumentError, 'invalid value for "public_id", public_id cannot be nil.'
       end
       @public_id = public_id

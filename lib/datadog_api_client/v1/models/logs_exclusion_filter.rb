@@ -110,7 +110,7 @@ module DatadogAPIClient::V1
     # @param sample_rate [Object] Object to be assigned
     # @!visibility private
     def sample_rate=(sample_rate)
-      if @sample_rate.nil?
+      if sample_rate.nil?
         fail ArgumentError, 'invalid value for "sample_rate", sample_rate cannot be nil.'
       end
       @sample_rate = sample_rate

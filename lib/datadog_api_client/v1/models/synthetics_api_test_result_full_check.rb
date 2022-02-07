@@ -99,7 +99,7 @@ module DatadogAPIClient::V1
     # @param config [Object] Object to be assigned
     # @!visibility private
     def config=(config)
-      if @config.nil?
+      if config.nil?
         fail ArgumentError, 'invalid value for "config", config cannot be nil.'
       end
       @config = config

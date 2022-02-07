@@ -104,10 +104,6 @@ module DatadogAPIClient::V1
     # @param namespace [Object] Object to be assigned
     # @!visibility private
     def namespace=(namespace)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('AWSNamespace', ['elb', 'application_elb', 'sqs', 'rds', 'custom', 'network_elb', 'lambda'])
-      unless validator.valid?(namespace)
-        fail ArgumentError, "invalid value for \"namespace\", must be one of #{validator.allowable_values}."
-      end
       @namespace = namespace
     end
 

@@ -163,10 +163,6 @@ module DatadogAPIClient::V1
     # @param sort [Object] Object to be assigned
     # @!visibility private
     def sort=(sort)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('LogsSort', ['asc', 'desc'])
-      unless validator.valid?(sort)
-        fail ArgumentError, "invalid value for \"sort\", must be one of #{validator.allowable_values}."
-      end
       @sort = sort
     end
 
@@ -174,7 +170,7 @@ module DatadogAPIClient::V1
     # @param time [Object] Object to be assigned
     # @!visibility private
     def time=(time)
-      if @time.nil?
+      if time.nil?
         fail ArgumentError, 'invalid value for "time", time cannot be nil.'
       end
       @time = time

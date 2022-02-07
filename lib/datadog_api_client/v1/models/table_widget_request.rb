@@ -265,10 +265,6 @@ module DatadogAPIClient::V1
     # @param aggregator [Object] Object to be assigned
     # @!visibility private
     def aggregator=(aggregator)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetAggregator', ['avg', 'last', 'max', 'min', 'sum', 'percentile'])
-      unless validator.valid?(aggregator)
-        fail ArgumentError, "invalid value for \"aggregator\", must be one of #{validator.allowable_values}."
-      end
       @aggregator = aggregator
     end
 
@@ -276,10 +272,6 @@ module DatadogAPIClient::V1
     # @param order [Object] Object to be assigned
     # @!visibility private
     def order=(order)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetSort', ['asc', 'desc'])
-      unless validator.valid?(order)
-        fail ArgumentError, "invalid value for \"order\", must be one of #{validator.allowable_values}."
-      end
       @order = order
     end
 
@@ -287,10 +279,6 @@ module DatadogAPIClient::V1
     # @param response_format [Object] Object to be assigned
     # @!visibility private
     def response_format=(response_format)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('FormulaAndFunctionResponseFormat', ['timeseries', 'scalar'])
-      unless validator.valid?(response_format)
-        fail ArgumentError, "invalid value for \"response_format\", must be one of #{validator.allowable_values}."
-      end
       @response_format = response_format
     end
 

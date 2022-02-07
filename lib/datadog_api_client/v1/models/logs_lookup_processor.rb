@@ -178,7 +178,7 @@ module DatadogAPIClient::V1
     # @param lookup_table [Object] Object to be assigned
     # @!visibility private
     def lookup_table=(lookup_table)
-      if @lookup_table.nil?
+      if lookup_table.nil?
         fail ArgumentError, 'invalid value for "lookup_table", lookup_table cannot be nil.'
       end
       @lookup_table = lookup_table
@@ -188,7 +188,7 @@ module DatadogAPIClient::V1
     # @param source [Object] Object to be assigned
     # @!visibility private
     def source=(source)
-      if @source.nil?
+      if source.nil?
         fail ArgumentError, 'invalid value for "source", source cannot be nil.'
       end
       @source = source
@@ -198,7 +198,7 @@ module DatadogAPIClient::V1
     # @param target [Object] Object to be assigned
     # @!visibility private
     def target=(target)
-      if @target.nil?
+      if target.nil?
         fail ArgumentError, 'invalid value for "target", target cannot be nil.'
       end
       @target = target
@@ -208,11 +208,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('LogsLookupProcessorType', ['lookup-processor'])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
-      end
-      if @type.nil?
+      if type.nil?
         fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
       @type = type

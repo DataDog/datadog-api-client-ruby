@@ -158,7 +158,7 @@ module DatadogAPIClient::V2
     # @param container [Object] Object to be assigned
     # @!visibility private
     def container=(container)
-      if @container.nil?
+      if container.nil?
         fail ArgumentError, 'invalid value for "container", container cannot be nil.'
       end
       @container = container
@@ -168,7 +168,7 @@ module DatadogAPIClient::V2
     # @param integration [Object] Object to be assigned
     # @!visibility private
     def integration=(integration)
-      if @integration.nil?
+      if integration.nil?
         fail ArgumentError, 'invalid value for "integration", integration cannot be nil.'
       end
       @integration = integration
@@ -178,7 +178,7 @@ module DatadogAPIClient::V2
     # @param storage_account [Object] Object to be assigned
     # @!visibility private
     def storage_account=(storage_account)
-      if @storage_account.nil?
+      if storage_account.nil?
         fail ArgumentError, 'invalid value for "storage_account", storage_account cannot be nil.'
       end
       @storage_account = storage_account
@@ -188,11 +188,7 @@ module DatadogAPIClient::V2
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = DatadogAPIClient::V2::EnumAttributeValidator.new('LogsArchiveDestinationAzureType', ['azure'])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
-      end
-      if @type.nil?
+      if type.nil?
         fail ArgumentError, 'invalid value for "type", type cannot be nil.'
       end
       @type = type

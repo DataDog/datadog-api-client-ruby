@@ -112,7 +112,7 @@ module DatadogAPIClient::V1
     # @param field [Object] Object to be assigned
     # @!visibility private
     def field=(field)
-      if @field.nil?
+      if field.nil?
         fail ArgumentError, 'invalid value for "field", field cannot be nil.'
       end
       @field = field
@@ -122,11 +122,7 @@ module DatadogAPIClient::V1
     # @param width [Object] Object to be assigned
     # @!visibility private
     def width=(width)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('ListStreamColumnWidth', ['auto', 'compact', 'full'])
-      unless validator.valid?(width)
-        fail ArgumentError, "invalid value for \"width\", must be one of #{validator.allowable_values}."
-      end
-      if @width.nil?
+      if width.nil?
         fail ArgumentError, 'invalid value for "width", width cannot be nil.'
       end
       @width = width

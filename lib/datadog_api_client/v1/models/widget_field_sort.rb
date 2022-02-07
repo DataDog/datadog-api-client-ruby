@@ -112,7 +112,7 @@ module DatadogAPIClient::V1
     # @param column [Object] Object to be assigned
     # @!visibility private
     def column=(column)
-      if @column.nil?
+      if column.nil?
         fail ArgumentError, 'invalid value for "column", column cannot be nil.'
       end
       @column = column
@@ -122,11 +122,7 @@ module DatadogAPIClient::V1
     # @param order [Object] Object to be assigned
     # @!visibility private
     def order=(order)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetSort', ['asc', 'desc'])
-      unless validator.valid?(order)
-        fail ArgumentError, "invalid value for \"order\", must be one of #{validator.allowable_values}."
-      end
-      if @order.nil?
+      if order.nil?
         fail ArgumentError, 'invalid value for "order", order cannot be nil.'
       end
       @order = order

@@ -99,7 +99,7 @@ module DatadogAPIClient::V1
     # @param focus [Object] Object to be assigned
     # @!visibility private
     def focus=(focus)
-      if @focus.nil?
+      if focus.nil?
         fail ArgumentError, 'invalid value for "focus", focus cannot be nil.'
       end
       @focus = focus

@@ -122,7 +122,7 @@ module DatadogAPIClient::V1
     # @param definition [Object] Object to be assigned
     # @!visibility private
     def definition=(definition)
-      if @definition.nil?
+      if definition.nil?
         fail ArgumentError, 'invalid value for "definition", definition cannot be nil.'
       end
       @definition = definition

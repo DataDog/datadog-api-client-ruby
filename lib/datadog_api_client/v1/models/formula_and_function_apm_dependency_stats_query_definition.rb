@@ -204,11 +204,7 @@ module DatadogAPIClient::V1
     # @param data_source [Object] Object to be assigned
     # @!visibility private
     def data_source=(data_source)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('FormulaAndFunctionApmDependencyStatsDataSource', ['apm_dependency_stats'])
-      unless validator.valid?(data_source)
-        fail ArgumentError, "invalid value for \"data_source\", must be one of #{validator.allowable_values}."
-      end
-      if @data_source.nil?
+      if data_source.nil?
         fail ArgumentError, 'invalid value for "data_source", data_source cannot be nil.'
       end
       @data_source = data_source
@@ -218,7 +214,7 @@ module DatadogAPIClient::V1
     # @param env [Object] Object to be assigned
     # @!visibility private
     def env=(env)
-      if @env.nil?
+      if env.nil?
         fail ArgumentError, 'invalid value for "env", env cannot be nil.'
       end
       @env = env
@@ -228,7 +224,7 @@ module DatadogAPIClient::V1
     # @param name [Object] Object to be assigned
     # @!visibility private
     def name=(name)
-      if @name.nil?
+      if name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
       @name = name
@@ -238,7 +234,7 @@ module DatadogAPIClient::V1
     # @param operation_name [Object] Object to be assigned
     # @!visibility private
     def operation_name=(operation_name)
-      if @operation_name.nil?
+      if operation_name.nil?
         fail ArgumentError, 'invalid value for "operation_name", operation_name cannot be nil.'
       end
       @operation_name = operation_name
@@ -248,7 +244,7 @@ module DatadogAPIClient::V1
     # @param resource_name [Object] Object to be assigned
     # @!visibility private
     def resource_name=(resource_name)
-      if @resource_name.nil?
+      if resource_name.nil?
         fail ArgumentError, 'invalid value for "resource_name", resource_name cannot be nil.'
       end
       @resource_name = resource_name
@@ -258,7 +254,7 @@ module DatadogAPIClient::V1
     # @param service [Object] Object to be assigned
     # @!visibility private
     def service=(service)
-      if @service.nil?
+      if service.nil?
         fail ArgumentError, 'invalid value for "service", service cannot be nil.'
       end
       @service = service
@@ -268,11 +264,7 @@ module DatadogAPIClient::V1
     # @param stat [Object] Object to be assigned
     # @!visibility private
     def stat=(stat)
-      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('FormulaAndFunctionApmDependencyStatName', ['avg_duration', 'avg_root_duration', 'avg_spans_per_trace', 'error_rate', 'pct_exec_time', 'pct_of_traces', 'total_traces_count'])
-      unless validator.valid?(stat)
-        fail ArgumentError, "invalid value for \"stat\", must be one of #{validator.allowable_values}."
-      end
-      if @stat.nil?
+      if stat.nil?
         fail ArgumentError, 'invalid value for "stat", stat cannot be nil.'
       end
       @stat = stat
