@@ -23,9 +23,7 @@ repos:
   - id: generator
     name: generator
     language: python
-    entry: bash -c "cd .generator && poetry install && poetry run python -m generator -i ./schemas/v1/openapi.yaml -o ../lib/ && poetry run python -m generator -i schemas/v2/openapi.yaml -o ../lib/"
+    entry: bash -c "cd .generator && python -m pip install . && python -m generator -i ./schemas/v1/openapi.yaml -o ../lib/ && poetry run python -m generator -i schemas/v2/openapi.yaml -o ../lib/"
     files: "^.generator/.*"
     stages: [manual]
     pass_filenames: false
-    additional_dependencies:
-      - "poetry"
