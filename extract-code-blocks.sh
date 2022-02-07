@@ -8,5 +8,5 @@ cd ${0%/*}
 VERSIONS=(${VERSIONS//,/ })
 
 for version in "${VERSIONS[@]}"; do
-    cp -Rn examples/generated/${version} ${OUTPUT}/${version}
+    cp -Rn examples/generated/${version} ${OUTPUT}/
 done
