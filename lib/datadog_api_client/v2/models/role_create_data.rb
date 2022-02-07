@@ -112,7 +112,27 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @attributes.nil?
+      return false if @attributes.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param attributes [Object] Object to be assigned
+    def attributes=(attributes)
+      if @attributes.nil?
+        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
+      end
+      @attributes = attributes
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('RolesType', ['roles'])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.

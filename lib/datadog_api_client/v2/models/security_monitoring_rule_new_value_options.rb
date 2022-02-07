@@ -101,6 +101,26 @@ module DatadogAPIClient::V2
       true
     end
 
+    # Custom attribute writer method with validation
+    # @param forget_after [Object] Object to be assigned
+    def forget_after=(forget_after)
+      validator = EnumAttributeValidator.new('SecurityMonitoringRuleNewValueOptionsForgetAfter', [1, 2, 7, 14, 21, 28])
+      unless validator.valid?(forget_after)
+        fail ArgumentError, "invalid value for \"forget_after\", must be one of #{validator.allowable_values}."
+      end
+      @forget_after = forget_after
+    end
+
+    # Custom attribute writer method with validation
+    # @param learning_duration [Object] Object to be assigned
+    def learning_duration=(learning_duration)
+      validator = EnumAttributeValidator.new('SecurityMonitoringRuleNewValueOptionsLearningDuration', [0, 1, 7])
+      unless validator.valid?(learning_duration)
+        fail ArgumentError, "invalid value for \"learning_duration\", must be one of #{validator.allowable_values}."
+      end
+      @learning_duration = learning_duration
+    end
+
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

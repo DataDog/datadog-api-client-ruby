@@ -255,7 +255,17 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @title.nil?
+      return false if @title.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param title [Object] Object to be assigned
+    def title=(title)
+      if @title.nil?
+        fail ArgumentError, 'invalid value for "title", title cannot be nil.'
+      end
+      @title = title
     end
 
     # Checks equality by comparing each attribute.

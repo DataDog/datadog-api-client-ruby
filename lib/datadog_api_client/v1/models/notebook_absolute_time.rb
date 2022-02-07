@@ -114,7 +114,27 @@ module DatadogAPIClient::V1
     def valid?
       return false if @_end.nil?
       return false if @start.nil?
+      return false if @_end.nil?
+      return false if @start.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param _end [Object] Object to be assigned
+    def _end=(_end)
+      if @_end.nil?
+        fail ArgumentError, 'invalid value for "_end", _end cannot be nil.'
+      end
+      @_end = _end
+    end
+
+    # Custom attribute writer method with validation
+    # @param start [Object] Object to be assigned
+    def start=(start)
+      if @start.nil?
+        fail ArgumentError, 'invalid value for "start", start cannot be nil.'
+      end
+      @start = start
     end
 
     # Checks equality by comparing each attribute.

@@ -118,6 +118,16 @@ module DatadogAPIClient::V1
       true
     end
 
+    # Custom attribute writer method with validation
+    # @param metric_category [Object] Object to be assigned
+    def metric_category=(metric_category)
+      validator = EnumAttributeValidator.new('UsageMetricCategory', ['standard', 'custom'])
+      unless validator.valid?(metric_category)
+        fail ArgumentError, "invalid value for \"metric_category\", must be one of #{validator.allowable_values}."
+      end
+      @metric_category = metric_category
+    end
+
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

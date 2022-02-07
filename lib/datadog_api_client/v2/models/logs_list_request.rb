@@ -119,6 +119,16 @@ module DatadogAPIClient::V2
       true
     end
 
+    # Custom attribute writer method with validation
+    # @param sort [Object] Object to be assigned
+    def sort=(sort)
+      validator = EnumAttributeValidator.new('LogsSort', ['timestamp', '-timestamp'])
+      unless validator.valid?(sort)
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{validator.allowable_values}."
+      end
+      @sort = sort
+    end
+
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

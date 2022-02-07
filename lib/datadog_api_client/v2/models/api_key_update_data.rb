@@ -120,7 +120,41 @@ module DatadogAPIClient::V2
       return false if @attributes.nil?
       return false if @id.nil?
       return false if @type.nil?
+      return false if @attributes.nil?
+      return false if @id.nil?
+      return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param attributes [Object] Object to be assigned
+    def attributes=(attributes)
+      if @attributes.nil?
+        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
+      end
+      @attributes = attributes
+    end
+
+    # Custom attribute writer method with validation
+    # @param id [Object] Object to be assigned
+    def id=(id)
+      if @id.nil?
+        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+      end
+      @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('APIKeysType', ['api_keys'])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      if @type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.

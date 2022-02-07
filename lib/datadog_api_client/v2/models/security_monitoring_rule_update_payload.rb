@@ -180,7 +180,17 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if !@version.nil? && @version > 2147483647
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param version [Object] Object to be assigned
+    def version=(version)
+      if !@version.nil? && @version > 2147483647
+        fail ArgumentError, 'invalid value for "version", must be smaller than or equal to 2147483647.'
+      end
+      @version = version
     end
 
     # Checks equality by comparing each attribute.

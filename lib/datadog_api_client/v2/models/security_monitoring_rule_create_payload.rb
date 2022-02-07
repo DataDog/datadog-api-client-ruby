@@ -201,7 +201,77 @@ module DatadogAPIClient::V2
       return false if @name.nil?
       return false if @options.nil?
       return false if @queries.nil?
+      return false if @cases.nil?
+      return false if @is_enabled.nil?
+      return false if @message.nil?
+      return false if @name.nil?
+      return false if @options.nil?
+      return false if @queries.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param cases [Object] Object to be assigned
+    def cases=(cases)
+      if @cases.nil?
+        fail ArgumentError, 'invalid value for "cases", cases cannot be nil.'
+      end
+      @cases = cases
+    end
+
+    # Custom attribute writer method with validation
+    # @param is_enabled [Object] Object to be assigned
+    def is_enabled=(is_enabled)
+      if @is_enabled.nil?
+        fail ArgumentError, 'invalid value for "is_enabled", is_enabled cannot be nil.'
+      end
+      @is_enabled = is_enabled
+    end
+
+    # Custom attribute writer method with validation
+    # @param message [Object] Object to be assigned
+    def message=(message)
+      if @message.nil?
+        fail ArgumentError, 'invalid value for "message", message cannot be nil.'
+      end
+      @message = message
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    def name=(name)
+      if @name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param options [Object] Object to be assigned
+    def options=(options)
+      if @options.nil?
+        fail ArgumentError, 'invalid value for "options", options cannot be nil.'
+      end
+      @options = options
+    end
+
+    # Custom attribute writer method with validation
+    # @param queries [Object] Object to be assigned
+    def queries=(queries)
+      if @queries.nil?
+        fail ArgumentError, 'invalid value for "queries", queries cannot be nil.'
+      end
+      @queries = queries
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('SecurityMonitoringRuleTypeCreate', ['log_detection', 'workload_security'])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.

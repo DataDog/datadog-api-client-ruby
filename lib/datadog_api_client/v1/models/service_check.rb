@@ -151,7 +151,51 @@ module DatadogAPIClient::V1
       return false if @host_name.nil?
       return false if @status.nil?
       return false if @tags.nil?
+      return false if @check.nil?
+      return false if @host_name.nil?
+      return false if @status.nil?
+      return false if @tags.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param check [Object] Object to be assigned
+    def check=(check)
+      if @check.nil?
+        fail ArgumentError, 'invalid value for "check", check cannot be nil.'
+      end
+      @check = check
+    end
+
+    # Custom attribute writer method with validation
+    # @param host_name [Object] Object to be assigned
+    def host_name=(host_name)
+      if @host_name.nil?
+        fail ArgumentError, 'invalid value for "host_name", host_name cannot be nil.'
+      end
+      @host_name = host_name
+    end
+
+    # Custom attribute writer method with validation
+    # @param status [Object] Object to be assigned
+    def status=(status)
+      validator = EnumAttributeValidator.new('ServiceCheckStatus', [0, 1, 2, 3])
+      unless validator.valid?(status)
+        fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
+      end
+      if @status.nil?
+        fail ArgumentError, 'invalid value for "status", status cannot be nil.'
+      end
+      @status = status
+    end
+
+    # Custom attribute writer method with validation
+    # @param tags [Object] Object to be assigned
+    def tags=(tags)
+      if @tags.nil?
+        fail ArgumentError, 'invalid value for "tags", tags cannot be nil.'
+      end
+      @tags = tags
     end
 
     # Checks equality by comparing each attribute.

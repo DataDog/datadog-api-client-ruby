@@ -198,7 +198,41 @@ module DatadogAPIClient::V2
     def valid?
       return false if @id.nil?
       return false if @type.nil?
+      return false if @id.nil?
+      return false if !@popularity.nil? && @popularity > 5
+      return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param id [Object] Object to be assigned
+    def id=(id)
+      if @id.nil?
+        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+      end
+      @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param popularity [Object] Object to be assigned
+    def popularity=(popularity)
+      if !@popularity.nil? && @popularity > 5
+        fail ArgumentError, 'invalid value for "popularity", must be smaller than or equal to 5.'
+      end
+      @popularity = popularity
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('DashboardType', ['custom_timeboard', 'custom_screenboard', 'integration_screenboard', 'integration_timeboard', 'host_timeboard'])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      if @type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.

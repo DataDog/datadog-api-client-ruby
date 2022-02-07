@@ -91,6 +91,16 @@ module DatadogAPIClient::V1
       true
     end
 
+    # Custom attribute writer method with validation
+    # @param live_span [Object] Object to be assigned
+    def live_span=(live_span)
+      validator = EnumAttributeValidator.new('WidgetLiveSpan', ['1m', '5m', '10m', '15m', '30m', '1h', '4h', '1d', '2d', '1w', '1mo', '3mo', '6mo', '1y', 'alert'])
+      unless validator.valid?(live_span)
+        fail ArgumentError, "invalid value for \"live_span\", must be one of #{validator.allowable_values}."
+      end
+      @live_span = live_span
+    end
+
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

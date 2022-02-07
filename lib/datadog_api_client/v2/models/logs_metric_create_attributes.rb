@@ -112,7 +112,17 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @compute.nil?
+      return false if @compute.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param compute [Object] Object to be assigned
+    def compute=(compute)
+      if @compute.nil?
+        fail ArgumentError, 'invalid value for "compute", compute cannot be nil.'
+      end
+      @compute = compute
     end
 
     # Checks equality by comparing each attribute.

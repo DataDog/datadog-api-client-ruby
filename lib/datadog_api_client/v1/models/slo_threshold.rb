@@ -141,7 +141,31 @@ module DatadogAPIClient::V1
     def valid?
       return false if @target.nil?
       return false if @timeframe.nil?
+      return false if @target.nil?
+      return false if @timeframe.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param target [Object] Object to be assigned
+    def target=(target)
+      if @target.nil?
+        fail ArgumentError, 'invalid value for "target", target cannot be nil.'
+      end
+      @target = target
+    end
+
+    # Custom attribute writer method with validation
+    # @param timeframe [Object] Object to be assigned
+    def timeframe=(timeframe)
+      validator = EnumAttributeValidator.new('SLOTimeframe', ['7d', '30d', '90d', 'custom'])
+      unless validator.valid?(timeframe)
+        fail ArgumentError, "invalid value for \"timeframe\", must be one of #{validator.allowable_values}."
+      end
+      if @timeframe.nil?
+        fail ArgumentError, 'invalid value for "timeframe", timeframe cannot be nil.'
+      end
+      @timeframe = timeframe
     end
 
     # Checks equality by comparing each attribute.

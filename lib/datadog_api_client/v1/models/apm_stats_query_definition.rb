@@ -164,7 +164,61 @@ module DatadogAPIClient::V1
       return false if @primary_tag.nil?
       return false if @row_type.nil?
       return false if @service.nil?
+      return false if @env.nil?
+      return false if @name.nil?
+      return false if @primary_tag.nil?
+      return false if @row_type.nil?
+      return false if @service.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param env [Object] Object to be assigned
+    def env=(env)
+      if @env.nil?
+        fail ArgumentError, 'invalid value for "env", env cannot be nil.'
+      end
+      @env = env
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    def name=(name)
+      if @name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param primary_tag [Object] Object to be assigned
+    def primary_tag=(primary_tag)
+      if @primary_tag.nil?
+        fail ArgumentError, 'invalid value for "primary_tag", primary_tag cannot be nil.'
+      end
+      @primary_tag = primary_tag
+    end
+
+    # Custom attribute writer method with validation
+    # @param row_type [Object] Object to be assigned
+    def row_type=(row_type)
+      validator = EnumAttributeValidator.new('ApmStatsQueryRowType', ['service', 'resource', 'span'])
+      unless validator.valid?(row_type)
+        fail ArgumentError, "invalid value for \"row_type\", must be one of #{validator.allowable_values}."
+      end
+      if @row_type.nil?
+        fail ArgumentError, 'invalid value for "row_type", row_type cannot be nil.'
+      end
+      @row_type = row_type
+    end
+
+    # Custom attribute writer method with validation
+    # @param service [Object] Object to be assigned
+    def service=(service)
+      if @service.nil?
+        fail ArgumentError, 'invalid value for "service", service cannot be nil.'
+      end
+      @service = service
     end
 
     # Checks equality by comparing each attribute.

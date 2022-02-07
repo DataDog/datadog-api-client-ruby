@@ -109,7 +109,27 @@ module DatadogAPIClient::V1
     def valid?
       return false if @keys.nil?
       return false if @tags.nil?
+      return false if @keys.nil?
+      return false if @tags.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param keys [Object] Object to be assigned
+    def keys=(keys)
+      if @keys.nil?
+        fail ArgumentError, 'invalid value for "keys", keys cannot be nil.'
+      end
+      @keys = keys
+    end
+
+    # Custom attribute writer method with validation
+    # @param tags [Object] Object to be assigned
+    def tags=(tags)
+      if @tags.nil?
+        fail ArgumentError, 'invalid value for "tags", tags cannot be nil.'
+      end
+      @tags = tags
     end
 
     # Checks equality by comparing each attribute.

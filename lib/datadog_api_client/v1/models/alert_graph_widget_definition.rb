@@ -156,7 +156,55 @@ module DatadogAPIClient::V1
       return false if @alert_id.nil?
       return false if @type.nil?
       return false if @viz_type.nil?
+      return false if @alert_id.nil?
+      return false if @type.nil?
+      return false if @viz_type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param alert_id [Object] Object to be assigned
+    def alert_id=(alert_id)
+      if @alert_id.nil?
+        fail ArgumentError, 'invalid value for "alert_id", alert_id cannot be nil.'
+      end
+      @alert_id = alert_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param title_align [Object] Object to be assigned
+    def title_align=(title_align)
+      validator = EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
+      unless validator.valid?(title_align)
+        fail ArgumentError, "invalid value for \"title_align\", must be one of #{validator.allowable_values}."
+      end
+      @title_align = title_align
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('AlertGraphWidgetDefinitionType', ['alert_graph'])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      if @type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
+    end
+
+    # Custom attribute writer method with validation
+    # @param viz_type [Object] Object to be assigned
+    def viz_type=(viz_type)
+      validator = EnumAttributeValidator.new('WidgetVizType', ['timeseries', 'toplist'])
+      unless validator.valid?(viz_type)
+        fail ArgumentError, "invalid value for \"viz_type\", must be one of #{validator.allowable_values}."
+      end
+      if @viz_type.nil?
+        fail ArgumentError, 'invalid value for "viz_type", viz_type cannot be nil.'
+      end
+      @viz_type = viz_type
     end
 
     # Checks equality by comparing each attribute.

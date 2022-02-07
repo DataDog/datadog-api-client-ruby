@@ -105,7 +105,35 @@ module DatadogAPIClient::V2
     def valid?
       return false if @space.nil?
       return false if @time.nil?
+      return false if @space.nil?
+      return false if @time.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param space [Object] Object to be assigned
+    def space=(space)
+      validator = EnumAttributeValidator.new('MetricCustomSpaceAggregation', ['avg', 'max', 'min', 'sum'])
+      unless validator.valid?(space)
+        fail ArgumentError, "invalid value for \"space\", must be one of #{validator.allowable_values}."
+      end
+      if @space.nil?
+        fail ArgumentError, 'invalid value for "space", space cannot be nil.'
+      end
+      @space = space
+    end
+
+    # Custom attribute writer method with validation
+    # @param time [Object] Object to be assigned
+    def time=(time)
+      validator = EnumAttributeValidator.new('MetricCustomTimeAggregation', ['avg', 'count', 'max', 'min', 'sum'])
+      unless validator.valid?(time)
+        fail ArgumentError, "invalid value for \"time\", must be one of #{validator.allowable_values}."
+      end
+      if @time.nil?
+        fail ArgumentError, 'invalid value for "time", time cannot be nil.'
+      end
+      @time = time
     end
 
     # Checks equality by comparing each attribute.

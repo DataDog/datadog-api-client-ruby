@@ -105,7 +105,27 @@ module DatadogAPIClient::V1
     def valid?
       return false if @palette.nil?
       return false if @palette_flip.nil?
+      return false if @palette.nil?
+      return false if @palette_flip.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param palette [Object] Object to be assigned
+    def palette=(palette)
+      if @palette.nil?
+        fail ArgumentError, 'invalid value for "palette", palette cannot be nil.'
+      end
+      @palette = palette
+    end
+
+    # Custom attribute writer method with validation
+    # @param palette_flip [Object] Object to be assigned
+    def palette_flip=(palette_flip)
+      if @palette_flip.nil?
+        fail ArgumentError, 'invalid value for "palette_flip", palette_flip cannot be nil.'
+      end
+      @palette_flip = palette_flip
     end
 
     # Checks equality by comparing each attribute.

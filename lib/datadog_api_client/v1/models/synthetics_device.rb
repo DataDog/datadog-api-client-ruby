@@ -140,7 +140,51 @@ module DatadogAPIClient::V1
       return false if @id.nil?
       return false if @name.nil?
       return false if @width.nil?
+      return false if @height.nil?
+      return false if @id.nil?
+      return false if @name.nil?
+      return false if @width.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param height [Object] Object to be assigned
+    def height=(height)
+      if @height.nil?
+        fail ArgumentError, 'invalid value for "height", height cannot be nil.'
+      end
+      @height = height
+    end
+
+    # Custom attribute writer method with validation
+    # @param id [Object] Object to be assigned
+    def id=(id)
+      validator = EnumAttributeValidator.new('SyntheticsDeviceID', ['laptop_large', 'tablet', 'mobile_small', 'chrome.laptop_large', 'chrome.tablet', 'chrome.mobile_small', 'firefox.laptop_large', 'firefox.tablet', 'firefox.mobile_small', 'edge.laptop_large', 'edge.tablet', 'edge.mobile_small'])
+      unless validator.valid?(id)
+        fail ArgumentError, "invalid value for \"id\", must be one of #{validator.allowable_values}."
+      end
+      if @id.nil?
+        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+      end
+      @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    def name=(name)
+      if @name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param width [Object] Object to be assigned
+    def width=(width)
+      if @width.nil?
+        fail ArgumentError, 'invalid value for "width", width cannot be nil.'
+      end
+      @width = width
     end
 
     # Checks equality by comparing each attribute.

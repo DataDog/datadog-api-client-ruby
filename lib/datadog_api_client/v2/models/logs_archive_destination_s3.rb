@@ -129,7 +129,41 @@ module DatadogAPIClient::V2
       return false if @bucket.nil?
       return false if @integration.nil?
       return false if @type.nil?
+      return false if @bucket.nil?
+      return false if @integration.nil?
+      return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param bucket [Object] Object to be assigned
+    def bucket=(bucket)
+      if @bucket.nil?
+        fail ArgumentError, 'invalid value for "bucket", bucket cannot be nil.'
+      end
+      @bucket = bucket
+    end
+
+    # Custom attribute writer method with validation
+    # @param integration [Object] Object to be assigned
+    def integration=(integration)
+      if @integration.nil?
+        fail ArgumentError, 'invalid value for "integration", integration cannot be nil.'
+      end
+      @integration = integration
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('LogsArchiveDestinationS3Type', ['s3'])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      if @type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.

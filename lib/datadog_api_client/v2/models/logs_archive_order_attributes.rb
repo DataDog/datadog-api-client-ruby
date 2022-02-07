@@ -95,7 +95,17 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @archive_ids.nil?
+      return false if @archive_ids.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param archive_ids [Object] Object to be assigned
+    def archive_ids=(archive_ids)
+      if @archive_ids.nil?
+        fail ArgumentError, 'invalid value for "archive_ids", archive_ids cannot be nil.'
+      end
+      @archive_ids = archive_ids
     end
 
     # Checks equality by comparing each attribute.

@@ -104,7 +104,21 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if !@size.nil? && @size > 10000
+      return false if !@size.nil? && @size < 0
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param size [Object] Object to be assigned
+    def size=(size)
+      if !@size.nil? && @size > 10000
+        fail ArgumentError, 'invalid value for "size", must be smaller than or equal to 10000.'
+      end
+      if !@size.nil? && @size < 0
+        fail ArgumentError, 'invalid value for "size", must be greater than or equal to 0.'
+      end
+      @size = size
     end
 
     # Checks equality by comparing each attribute.

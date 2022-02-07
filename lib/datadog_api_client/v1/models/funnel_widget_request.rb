@@ -105,7 +105,31 @@ module DatadogAPIClient::V1
     def valid?
       return false if @query.nil?
       return false if @request_type.nil?
+      return false if @query.nil?
+      return false if @request_type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param query [Object] Object to be assigned
+    def query=(query)
+      if @query.nil?
+        fail ArgumentError, 'invalid value for "query", query cannot be nil.'
+      end
+      @query = query
+    end
+
+    # Custom attribute writer method with validation
+    # @param request_type [Object] Object to be assigned
+    def request_type=(request_type)
+      validator = EnumAttributeValidator.new('FunnelRequestType', ['funnel'])
+      unless validator.valid?(request_type)
+        fail ArgumentError, "invalid value for \"request_type\", must be one of #{validator.allowable_values}."
+      end
+      if @request_type.nil?
+        fail ArgumentError, 'invalid value for "request_type", request_type cannot be nil.'
+      end
+      @request_type = request_type
     end
 
     # Checks equality by comparing each attribute.

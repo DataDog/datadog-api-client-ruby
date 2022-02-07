@@ -130,7 +130,27 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @formula.nil?
+      return false if @formula.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param cell_display_mode [Object] Object to be assigned
+    def cell_display_mode=(cell_display_mode)
+      validator = EnumAttributeValidator.new('TableWidgetCellDisplayMode', ['number', 'bar'])
+      unless validator.valid?(cell_display_mode)
+        fail ArgumentError, "invalid value for \"cell_display_mode\", must be one of #{validator.allowable_values}."
+      end
+      @cell_display_mode = cell_display_mode
+    end
+
+    # Custom attribute writer method with validation
+    # @param formula [Object] Object to be assigned
+    def formula=(formula)
+      if @formula.nil?
+        fail ArgumentError, 'invalid value for "formula", formula cannot be nil.'
+      end
+      @formula = formula
     end
 
     # Checks equality by comparing each attribute.

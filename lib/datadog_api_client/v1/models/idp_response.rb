@@ -92,7 +92,17 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @message.nil?
+      return false if @message.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param message [Object] Object to be assigned
+    def message=(message)
+      if @message.nil?
+        fail ArgumentError, 'invalid value for "message", message cannot be nil.'
+      end
+      @message = message
     end
 
     # Checks equality by comparing each attribute.

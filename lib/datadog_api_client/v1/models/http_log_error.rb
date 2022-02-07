@@ -108,7 +108,31 @@ module DatadogAPIClient::V1
     def valid?
       return false if @code.nil?
       return false if @message.nil?
+      return false if @code.nil?
+      return false if @code > 2147483647
+      return false if @message.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param code [Object] Object to be assigned
+    def code=(code)
+      if @code.nil?
+        fail ArgumentError, 'invalid value for "code", code cannot be nil.'
+      end
+      if @code > 2147483647
+        fail ArgumentError, 'invalid value for "code", must be smaller than or equal to 2147483647.'
+      end
+      @code = code
+    end
+
+    # Custom attribute writer method with validation
+    # @param message [Object] Object to be assigned
+    def message=(message)
+      if @message.nil?
+        fail ArgumentError, 'invalid value for "message", message cannot be nil.'
+      end
+      @message = message
     end
 
     # Checks equality by comparing each attribute.

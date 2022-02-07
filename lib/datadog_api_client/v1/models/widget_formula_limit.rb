@@ -102,6 +102,16 @@ module DatadogAPIClient::V1
       true
     end
 
+    # Custom attribute writer method with validation
+    # @param order [Object] Object to be assigned
+    def order=(order)
+      validator = EnumAttributeValidator.new('QuerySortOrder', ['asc', 'desc'])
+      unless validator.valid?(order)
+        fail ArgumentError, "invalid value for \"order\", must be one of #{validator.allowable_values}."
+      end
+      @order = order
+    end
+
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

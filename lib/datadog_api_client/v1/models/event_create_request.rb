@@ -202,7 +202,61 @@ module DatadogAPIClient::V1
     def valid?
       return false if @text.nil?
       return false if @title.nil?
+      return false if !@aggregation_key.nil? && @aggregation_key.to_s.length > 100
+      return false if @text.nil?
+      return false if @text.to_s.length > 4000
+      return false if @title.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param aggregation_key [Object] Object to be assigned
+    def aggregation_key=(aggregation_key)
+      if !@aggregation_key.nil? && @aggregation_key.to_s.length > 100
+        fail ArgumentError, 'invalid value for "aggregation_key", the character length must be smaller than or equal to 100.'
+      end
+      @aggregation_key = aggregation_key
+    end
+
+    # Custom attribute writer method with validation
+    # @param alert_type [Object] Object to be assigned
+    def alert_type=(alert_type)
+      validator = EnumAttributeValidator.new('EventAlertType', ['error', 'warning', 'info', 'success', 'user_update', 'recommendation', 'snapshot'])
+      unless validator.valid?(alert_type)
+        fail ArgumentError, "invalid value for \"alert_type\", must be one of #{validator.allowable_values}."
+      end
+      @alert_type = alert_type
+    end
+
+    # Custom attribute writer method with validation
+    # @param priority [Object] Object to be assigned
+    def priority=(priority)
+      validator = EnumAttributeValidator.new('EventPriority', ['normal', 'low'])
+      unless validator.valid?(priority)
+        fail ArgumentError, "invalid value for \"priority\", must be one of #{validator.allowable_values}."
+      end
+      @priority = priority
+    end
+
+    # Custom attribute writer method with validation
+    # @param text [Object] Object to be assigned
+    def text=(text)
+      if @text.nil?
+        fail ArgumentError, 'invalid value for "text", text cannot be nil.'
+      end
+      if @text.to_s.length > 4000
+        fail ArgumentError, 'invalid value for "text", the character length must be smaller than or equal to 4000.'
+      end
+      @text = text
+    end
+
+    # Custom attribute writer method with validation
+    # @param title [Object] Object to be assigned
+    def title=(title)
+      if @title.nil?
+        fail ArgumentError, 'invalid value for "title", title cannot be nil.'
+      end
+      @title = title
     end
 
     # Checks equality by comparing each attribute.

@@ -148,7 +148,37 @@ module DatadogAPIClient::V2
       return false if @destination.nil?
       return false if @name.nil?
       return false if @query.nil?
+      return false if @name.nil?
+      return false if @query.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    def name=(name)
+      if @name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param query [Object] Object to be assigned
+    def query=(query)
+      if @query.nil?
+        fail ArgumentError, 'invalid value for "query", query cannot be nil.'
+      end
+      @query = query
+    end
+
+    # Custom attribute writer method with validation
+    # @param state [Object] Object to be assigned
+    def state=(state)
+      validator = EnumAttributeValidator.new('LogsArchiveState', ['UNKNOWN', 'WORKING', 'FAILING', 'WORKING_AUTH_LEGACY'])
+      unless validator.valid?(state)
+        fail ArgumentError, "invalid value for \"state\", must be one of #{validator.allowable_values}."
+      end
+      @state = state
     end
 
     # Checks equality by comparing each attribute.

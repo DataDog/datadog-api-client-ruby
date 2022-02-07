@@ -211,6 +211,26 @@ module DatadogAPIClient::V1
       true
     end
 
+    # Custom attribute writer method with validation
+    # @param status [Object] Object to be assigned
+    def status=(status)
+      validator = EnumAttributeValidator.new('MonitorOverallStates', ['Alert', 'Ignored', 'No Data', 'OK', 'Skipped', 'Unknown', 'Warn'])
+      unless validator.valid?(status)
+        fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
+      end
+      @status = status
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('MonitorType', ['composite', 'event alert', 'log alert', 'metric alert', 'process alert', 'query alert', 'rum alert', 'service check', 'synthetics alert', 'trace-analytics alert', 'slo alert', 'event-v2 alert', 'audit alert', 'ci-pipelines alert'])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      @type = type
+    end
+
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

@@ -191,7 +191,69 @@ module DatadogAPIClient::V1
       return false if @style.nil?
       return false if @type.nil?
       return false if @view.nil?
+      return false if @requests.nil?
+      return false if @requests.length > 1
+      return false if @requests.length < 1
+      return false if @style.nil?
+      return false if @type.nil?
+      return false if @view.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param requests [Object] Object to be assigned
+    def requests=(requests)
+      if @requests.nil?
+        fail ArgumentError, 'invalid value for "requests", requests cannot be nil.'
+      end
+      if @requests.length > 1
+        fail ArgumentError, 'invalid value for "requests", number of items must be less than or equal to 1.'
+      end
+      if @requests.length < 1
+        fail ArgumentError, 'invalid value for "requests", number of items must be greater than or equal to 1.'
+      end
+      @requests = requests
+    end
+
+    # Custom attribute writer method with validation
+    # @param style [Object] Object to be assigned
+    def style=(style)
+      if @style.nil?
+        fail ArgumentError, 'invalid value for "style", style cannot be nil.'
+      end
+      @style = style
+    end
+
+    # Custom attribute writer method with validation
+    # @param title_align [Object] Object to be assigned
+    def title_align=(title_align)
+      validator = EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
+      unless validator.valid?(title_align)
+        fail ArgumentError, "invalid value for \"title_align\", must be one of #{validator.allowable_values}."
+      end
+      @title_align = title_align
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('GeomapWidgetDefinitionType', ['geomap'])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      if @type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
+    end
+
+    # Custom attribute writer method with validation
+    # @param view [Object] Object to be assigned
+    def view=(view)
+      if @view.nil?
+        fail ArgumentError, 'invalid value for "view", view cannot be nil.'
+      end
+      @view = view
     end
 
     # Checks equality by comparing each attribute.

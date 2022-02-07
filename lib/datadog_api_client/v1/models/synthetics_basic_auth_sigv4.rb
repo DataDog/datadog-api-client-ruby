@@ -147,7 +147,41 @@ module DatadogAPIClient::V1
       return false if @access_key.nil?
       return false if @secret_key.nil?
       return false if @type.nil?
+      return false if @access_key.nil?
+      return false if @secret_key.nil?
+      return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param access_key [Object] Object to be assigned
+    def access_key=(access_key)
+      if @access_key.nil?
+        fail ArgumentError, 'invalid value for "access_key", access_key cannot be nil.'
+      end
+      @access_key = access_key
+    end
+
+    # Custom attribute writer method with validation
+    # @param secret_key [Object] Object to be assigned
+    def secret_key=(secret_key)
+      if @secret_key.nil?
+        fail ArgumentError, 'invalid value for "secret_key", secret_key cannot be nil.'
+      end
+      @secret_key = secret_key
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('SyntheticsBasicAuthSigv4Type', ['sigv4'])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      if @type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.

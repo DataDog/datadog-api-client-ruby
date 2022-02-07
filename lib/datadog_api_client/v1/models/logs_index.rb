@@ -147,7 +147,27 @@ module DatadogAPIClient::V1
     def valid?
       return false if @filter.nil?
       return false if @name.nil?
+      return false if @filter.nil?
+      return false if @name.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param filter [Object] Object to be assigned
+    def filter=(filter)
+      if @filter.nil?
+        fail ArgumentError, 'invalid value for "filter", filter cannot be nil.'
+      end
+      @filter = filter
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    def name=(name)
+      if @name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      @name = name
     end
 
     # Checks equality by comparing each attribute.

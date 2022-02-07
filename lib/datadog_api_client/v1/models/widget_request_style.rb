@@ -109,6 +109,26 @@ module DatadogAPIClient::V1
       true
     end
 
+    # Custom attribute writer method with validation
+    # @param line_type [Object] Object to be assigned
+    def line_type=(line_type)
+      validator = EnumAttributeValidator.new('WidgetLineType', ['dashed', 'dotted', 'solid'])
+      unless validator.valid?(line_type)
+        fail ArgumentError, "invalid value for \"line_type\", must be one of #{validator.allowable_values}."
+      end
+      @line_type = line_type
+    end
+
+    # Custom attribute writer method with validation
+    # @param line_width [Object] Object to be assigned
+    def line_width=(line_width)
+      validator = EnumAttributeValidator.new('WidgetLineWidth', ['normal', 'thick', 'thin'])
+      unless validator.valid?(line_width)
+        fail ArgumentError, "invalid value for \"line_width\", must be one of #{validator.allowable_values}."
+      end
+      @line_width = line_width
+    end
+
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

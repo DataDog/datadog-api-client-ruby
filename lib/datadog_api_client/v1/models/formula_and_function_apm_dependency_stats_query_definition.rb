@@ -197,7 +197,85 @@ module DatadogAPIClient::V1
       return false if @resource_name.nil?
       return false if @service.nil?
       return false if @stat.nil?
+      return false if @data_source.nil?
+      return false if @env.nil?
+      return false if @name.nil?
+      return false if @operation_name.nil?
+      return false if @resource_name.nil?
+      return false if @service.nil?
+      return false if @stat.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param data_source [Object] Object to be assigned
+    def data_source=(data_source)
+      validator = EnumAttributeValidator.new('FormulaAndFunctionApmDependencyStatsDataSource', ['apm_dependency_stats'])
+      unless validator.valid?(data_source)
+        fail ArgumentError, "invalid value for \"data_source\", must be one of #{validator.allowable_values}."
+      end
+      if @data_source.nil?
+        fail ArgumentError, 'invalid value for "data_source", data_source cannot be nil.'
+      end
+      @data_source = data_source
+    end
+
+    # Custom attribute writer method with validation
+    # @param env [Object] Object to be assigned
+    def env=(env)
+      if @env.nil?
+        fail ArgumentError, 'invalid value for "env", env cannot be nil.'
+      end
+      @env = env
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    def name=(name)
+      if @name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param operation_name [Object] Object to be assigned
+    def operation_name=(operation_name)
+      if @operation_name.nil?
+        fail ArgumentError, 'invalid value for "operation_name", operation_name cannot be nil.'
+      end
+      @operation_name = operation_name
+    end
+
+    # Custom attribute writer method with validation
+    # @param resource_name [Object] Object to be assigned
+    def resource_name=(resource_name)
+      if @resource_name.nil?
+        fail ArgumentError, 'invalid value for "resource_name", resource_name cannot be nil.'
+      end
+      @resource_name = resource_name
+    end
+
+    # Custom attribute writer method with validation
+    # @param service [Object] Object to be assigned
+    def service=(service)
+      if @service.nil?
+        fail ArgumentError, 'invalid value for "service", service cannot be nil.'
+      end
+      @service = service
+    end
+
+    # Custom attribute writer method with validation
+    # @param stat [Object] Object to be assigned
+    def stat=(stat)
+      validator = EnumAttributeValidator.new('FormulaAndFunctionApmDependencyStatName', ['avg_duration', 'avg_root_duration', 'avg_spans_per_trace', 'error_rate', 'pct_exec_time', 'pct_of_traces', 'total_traces_count'])
+      unless validator.valid?(stat)
+        fail ArgumentError, "invalid value for \"stat\", must be one of #{validator.allowable_values}."
+      end
+      if @stat.nil?
+        fail ArgumentError, 'invalid value for "stat", stat cannot be nil.'
+      end
+      @stat = stat
     end
 
     # Checks equality by comparing each attribute.

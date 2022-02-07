@@ -105,7 +105,27 @@ module DatadogAPIClient::V1
     def valid?
       return false if @facet.nil?
       return false if @value.nil?
+      return false if @facet.nil?
+      return false if @value.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param facet [Object] Object to be assigned
+    def facet=(facet)
+      if @facet.nil?
+        fail ArgumentError, 'invalid value for "facet", facet cannot be nil.'
+      end
+      @facet = facet
+    end
+
+    # Custom attribute writer method with validation
+    # @param value [Object] Object to be assigned
+    def value=(value)
+      if @value.nil?
+        fail ArgumentError, 'invalid value for "value", value cannot be nil.'
+      end
+      @value = value
     end
 
     # Checks equality by comparing each attribute.

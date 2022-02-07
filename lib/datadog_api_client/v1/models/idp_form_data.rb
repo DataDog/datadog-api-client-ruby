@@ -92,7 +92,17 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @idp_file.nil?
+      return false if @idp_file.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param idp_file [Object] Object to be assigned
+    def idp_file=(idp_file)
+      if @idp_file.nil?
+        fail ArgumentError, 'invalid value for "idp_file", idp_file cannot be nil.'
+      end
+      @idp_file = idp_file
     end
 
     # Checks equality by comparing each attribute.

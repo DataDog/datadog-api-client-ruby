@@ -122,7 +122,41 @@ module DatadogAPIClient::V1
       return false if @data_source.nil?
       return false if @query_string.nil?
       return false if @steps.nil?
+      return false if @data_source.nil?
+      return false if @query_string.nil?
+      return false if @steps.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param data_source [Object] Object to be assigned
+    def data_source=(data_source)
+      validator = EnumAttributeValidator.new('FunnelSource', ['rum'])
+      unless validator.valid?(data_source)
+        fail ArgumentError, "invalid value for \"data_source\", must be one of #{validator.allowable_values}."
+      end
+      if @data_source.nil?
+        fail ArgumentError, 'invalid value for "data_source", data_source cannot be nil.'
+      end
+      @data_source = data_source
+    end
+
+    # Custom attribute writer method with validation
+    # @param query_string [Object] Object to be assigned
+    def query_string=(query_string)
+      if @query_string.nil?
+        fail ArgumentError, 'invalid value for "query_string", query_string cannot be nil.'
+      end
+      @query_string = query_string
+    end
+
+    # Custom attribute writer method with validation
+    # @param steps [Object] Object to be assigned
+    def steps=(steps)
+      if @steps.nil?
+        fail ArgumentError, 'invalid value for "steps", steps cannot be nil.'
+      end
+      @steps = steps
     end
 
     # Checks equality by comparing each attribute.

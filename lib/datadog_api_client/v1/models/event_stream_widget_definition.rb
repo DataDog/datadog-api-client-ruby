@@ -162,7 +162,51 @@ module DatadogAPIClient::V1
     def valid?
       return false if @query.nil?
       return false if @type.nil?
+      return false if @query.nil?
+      return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param event_size [Object] Object to be assigned
+    def event_size=(event_size)
+      validator = EnumAttributeValidator.new('WidgetEventSize', ['s', 'l'])
+      unless validator.valid?(event_size)
+        fail ArgumentError, "invalid value for \"event_size\", must be one of #{validator.allowable_values}."
+      end
+      @event_size = event_size
+    end
+
+    # Custom attribute writer method with validation
+    # @param query [Object] Object to be assigned
+    def query=(query)
+      if @query.nil?
+        fail ArgumentError, 'invalid value for "query", query cannot be nil.'
+      end
+      @query = query
+    end
+
+    # Custom attribute writer method with validation
+    # @param title_align [Object] Object to be assigned
+    def title_align=(title_align)
+      validator = EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
+      unless validator.valid?(title_align)
+        fail ArgumentError, "invalid value for \"title_align\", must be one of #{validator.allowable_values}."
+      end
+      @title_align = title_align
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('EventStreamWidgetDefinitionType', ['event_stream'])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      if @type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.

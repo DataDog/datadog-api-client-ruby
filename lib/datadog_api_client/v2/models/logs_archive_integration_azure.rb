@@ -105,7 +105,27 @@ module DatadogAPIClient::V2
     def valid?
       return false if @client_id.nil?
       return false if @tenant_id.nil?
+      return false if @client_id.nil?
+      return false if @tenant_id.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param client_id [Object] Object to be assigned
+    def client_id=(client_id)
+      if @client_id.nil?
+        fail ArgumentError, 'invalid value for "client_id", client_id cannot be nil.'
+      end
+      @client_id = client_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param tenant_id [Object] Object to be assigned
+    def tenant_id=(tenant_id)
+      if @tenant_id.nil?
+        fail ArgumentError, 'invalid value for "tenant_id", tenant_id cannot be nil.'
+      end
+      @tenant_id = tenant_id
     end
 
     # Checks equality by comparing each attribute.

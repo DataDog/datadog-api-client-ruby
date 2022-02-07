@@ -206,7 +206,81 @@ module DatadogAPIClient::V1
     def valid?
       return false if @query.nil?
       return false if @type.nil?
+      return false if @query.nil?
+      return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param color_preference [Object] Object to be assigned
+    def color_preference=(color_preference)
+      validator = EnumAttributeValidator.new('WidgetColorPreference', ['background', 'text'])
+      unless validator.valid?(color_preference)
+        fail ArgumentError, "invalid value for \"color_preference\", must be one of #{validator.allowable_values}."
+      end
+      @color_preference = color_preference
+    end
+
+    # Custom attribute writer method with validation
+    # @param display_format [Object] Object to be assigned
+    def display_format=(display_format)
+      validator = EnumAttributeValidator.new('WidgetMonitorSummaryDisplayFormat', ['counts', 'countsAndList', 'list'])
+      unless validator.valid?(display_format)
+        fail ArgumentError, "invalid value for \"display_format\", must be one of #{validator.allowable_values}."
+      end
+      @display_format = display_format
+    end
+
+    # Custom attribute writer method with validation
+    # @param query [Object] Object to be assigned
+    def query=(query)
+      if @query.nil?
+        fail ArgumentError, 'invalid value for "query", query cannot be nil.'
+      end
+      @query = query
+    end
+
+    # Custom attribute writer method with validation
+    # @param sort [Object] Object to be assigned
+    def sort=(sort)
+      validator = EnumAttributeValidator.new('WidgetMonitorSummarySort', ['name', 'group', 'status', 'tags', 'triggered', 'group,asc', 'group,desc', 'name,asc', 'name,desc', 'status,asc', 'status,desc', 'tags,asc', 'tags,desc', 'triggered,asc', 'triggered,desc'])
+      unless validator.valid?(sort)
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{validator.allowable_values}."
+      end
+      @sort = sort
+    end
+
+    # Custom attribute writer method with validation
+    # @param summary_type [Object] Object to be assigned
+    def summary_type=(summary_type)
+      validator = EnumAttributeValidator.new('WidgetSummaryType', ['monitors', 'groups', 'combined'])
+      unless validator.valid?(summary_type)
+        fail ArgumentError, "invalid value for \"summary_type\", must be one of #{validator.allowable_values}."
+      end
+      @summary_type = summary_type
+    end
+
+    # Custom attribute writer method with validation
+    # @param title_align [Object] Object to be assigned
+    def title_align=(title_align)
+      validator = EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
+      unless validator.valid?(title_align)
+        fail ArgumentError, "invalid value for \"title_align\", must be one of #{validator.allowable_values}."
+      end
+      @title_align = title_align
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('MonitorSummaryWidgetDefinitionType', ['manage_status'])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      if @type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.

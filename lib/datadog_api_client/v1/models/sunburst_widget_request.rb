@@ -203,6 +203,16 @@ module DatadogAPIClient::V1
       true
     end
 
+    # Custom attribute writer method with validation
+    # @param response_format [Object] Object to be assigned
+    def response_format=(response_format)
+      validator = EnumAttributeValidator.new('FormulaAndFunctionResponseFormat', ['timeseries', 'scalar'])
+      unless validator.valid?(response_format)
+        fail ArgumentError, "invalid value for \"response_format\", must be one of #{validator.allowable_values}."
+      end
+      @response_format = response_format
+    end
+
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

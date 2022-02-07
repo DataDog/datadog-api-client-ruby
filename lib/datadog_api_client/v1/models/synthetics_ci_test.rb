@@ -213,7 +213,17 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @public_id.nil?
+      return false if @public_id.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param public_id [Object] Object to be assigned
+    def public_id=(public_id)
+      if @public_id.nil?
+        fail ArgumentError, 'invalid value for "public_id", public_id cannot be nil.'
+      end
+      @public_id = public_id
     end
 
     # Checks equality by comparing each attribute.

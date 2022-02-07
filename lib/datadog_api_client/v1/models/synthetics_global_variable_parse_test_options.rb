@@ -114,7 +114,31 @@ module DatadogAPIClient::V1
     def valid?
       return false if @parser.nil?
       return false if @type.nil?
+      return false if @parser.nil?
+      return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param parser [Object] Object to be assigned
+    def parser=(parser)
+      if @parser.nil?
+        fail ArgumentError, 'invalid value for "parser", parser cannot be nil.'
+      end
+      @parser = parser
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('SyntheticsGlobalVariableParseTestOptionsType', ['http_body', 'http_header'])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      if @type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.

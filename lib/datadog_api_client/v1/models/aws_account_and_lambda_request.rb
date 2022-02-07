@@ -105,7 +105,27 @@ module DatadogAPIClient::V1
     def valid?
       return false if @account_id.nil?
       return false if @lambda_arn.nil?
+      return false if @account_id.nil?
+      return false if @lambda_arn.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param account_id [Object] Object to be assigned
+    def account_id=(account_id)
+      if @account_id.nil?
+        fail ArgumentError, 'invalid value for "account_id", account_id cannot be nil.'
+      end
+      @account_id = account_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param lambda_arn [Object] Object to be assigned
+    def lambda_arn=(lambda_arn)
+      if @lambda_arn.nil?
+        fail ArgumentError, 'invalid value for "lambda_arn", lambda_arn cannot be nil.'
+      end
+      @lambda_arn = lambda_arn
     end
 
     # Checks equality by comparing each attribute.

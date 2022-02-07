@@ -119,7 +119,37 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @name.nil?
+      return false if @name.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param cell_display_mode [Object] Object to be assigned
+    def cell_display_mode=(cell_display_mode)
+      validator = EnumAttributeValidator.new('TableWidgetCellDisplayMode', ['number', 'bar'])
+      unless validator.valid?(cell_display_mode)
+        fail ArgumentError, "invalid value for \"cell_display_mode\", must be one of #{validator.allowable_values}."
+      end
+      @cell_display_mode = cell_display_mode
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    def name=(name)
+      if @name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param order [Object] Object to be assigned
+    def order=(order)
+      validator = EnumAttributeValidator.new('WidgetSort', ['asc', 'desc'])
+      unless validator.valid?(order)
+        fail ArgumentError, "invalid value for \"order\", must be one of #{validator.allowable_values}."
+      end
+      @order = order
     end
 
     # Checks equality by comparing each attribute.

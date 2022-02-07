@@ -151,7 +151,51 @@ module DatadogAPIClient::V2
       return false if @integration.nil?
       return false if @storage_account.nil?
       return false if @type.nil?
+      return false if @container.nil?
+      return false if @integration.nil?
+      return false if @storage_account.nil?
+      return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param container [Object] Object to be assigned
+    def container=(container)
+      if @container.nil?
+        fail ArgumentError, 'invalid value for "container", container cannot be nil.'
+      end
+      @container = container
+    end
+
+    # Custom attribute writer method with validation
+    # @param integration [Object] Object to be assigned
+    def integration=(integration)
+      if @integration.nil?
+        fail ArgumentError, 'invalid value for "integration", integration cannot be nil.'
+      end
+      @integration = integration
+    end
+
+    # Custom attribute writer method with validation
+    # @param storage_account [Object] Object to be assigned
+    def storage_account=(storage_account)
+      if @storage_account.nil?
+        fail ArgumentError, 'invalid value for "storage_account", storage_account cannot be nil.'
+      end
+      @storage_account = storage_account
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('LogsArchiveDestinationAzureType', ['azure'])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      if @type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.

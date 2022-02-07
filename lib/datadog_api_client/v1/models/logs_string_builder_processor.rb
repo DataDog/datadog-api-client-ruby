@@ -164,7 +164,41 @@ module DatadogAPIClient::V1
       return false if @target.nil?
       return false if @template.nil?
       return false if @type.nil?
+      return false if @target.nil?
+      return false if @template.nil?
+      return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param target [Object] Object to be assigned
+    def target=(target)
+      if @target.nil?
+        fail ArgumentError, 'invalid value for "target", target cannot be nil.'
+      end
+      @target = target
+    end
+
+    # Custom attribute writer method with validation
+    # @param template [Object] Object to be assigned
+    def template=(template)
+      if @template.nil?
+        fail ArgumentError, 'invalid value for "template", template cannot be nil.'
+      end
+      @template = template
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('LogsStringBuilderProcessorType', ['string-builder-processor'])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      if @type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.

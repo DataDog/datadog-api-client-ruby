@@ -146,6 +146,16 @@ module DatadogAPIClient::V1
       true
     end
 
+    # Custom attribute writer method with validation
+    # @param category [Object] Object to be assigned
+    def category=(category)
+      validator = EnumAttributeValidator.new('SLOCorrectionCategory', ['Scheduled Maintenance', 'Outside Business Hours', 'Deployment', 'Other'])
+      unless validator.valid?(category)
+        fail ArgumentError, "invalid value for \"category\", must be one of #{validator.allowable_values}."
+      end
+      @category = category
+    end
+
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

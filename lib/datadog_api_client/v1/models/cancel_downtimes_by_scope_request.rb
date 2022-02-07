@@ -94,7 +94,17 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @scope.nil?
+      return false if @scope.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param scope [Object] Object to be assigned
+    def scope=(scope)
+      if @scope.nil?
+        fail ArgumentError, 'invalid value for "scope", scope cannot be nil.'
+      end
+      @scope = scope
     end
 
     # Checks equality by comparing each attribute.

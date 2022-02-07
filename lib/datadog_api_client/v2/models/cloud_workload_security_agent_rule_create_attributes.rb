@@ -123,7 +123,27 @@ module DatadogAPIClient::V2
     def valid?
       return false if @expression.nil?
       return false if @name.nil?
+      return false if @expression.nil?
+      return false if @name.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param expression [Object] Object to be assigned
+    def expression=(expression)
+      if @expression.nil?
+        fail ArgumentError, 'invalid value for "expression", expression cannot be nil.'
+      end
+      @expression = expression
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    def name=(name)
+      if @name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      @name = name
     end
 
     # Checks equality by comparing each attribute.

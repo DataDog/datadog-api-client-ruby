@@ -94,7 +94,17 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @series.nil?
+      return false if @series.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param series [Object] Object to be assigned
+    def series=(series)
+      if @series.nil?
+        fail ArgumentError, 'invalid value for "series", series cannot be nil.'
+      end
+      @series = series
     end
 
     # Checks equality by comparing each attribute.

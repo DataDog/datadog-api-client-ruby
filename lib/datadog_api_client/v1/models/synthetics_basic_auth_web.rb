@@ -120,7 +120,41 @@ module DatadogAPIClient::V1
       return false if @password.nil?
       return false if @type.nil?
       return false if @username.nil?
+      return false if @password.nil?
+      return false if @type.nil?
+      return false if @username.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param password [Object] Object to be assigned
+    def password=(password)
+      if @password.nil?
+        fail ArgumentError, 'invalid value for "password", password cannot be nil.'
+      end
+      @password = password
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('SyntheticsBasicAuthWebType', ['web'])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      if @type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
+    end
+
+    # Custom attribute writer method with validation
+    # @param username [Object] Object to be assigned
+    def username=(username)
+      if @username.nil?
+        fail ArgumentError, 'invalid value for "username", username cannot be nil.'
+      end
+      @username = username
     end
 
     # Checks equality by comparing each attribute.

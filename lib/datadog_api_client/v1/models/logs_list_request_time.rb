@@ -115,7 +115,27 @@ module DatadogAPIClient::V1
     def valid?
       return false if @from.nil?
       return false if @to.nil?
+      return false if @from.nil?
+      return false if @to.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param from [Object] Object to be assigned
+    def from=(from)
+      if @from.nil?
+        fail ArgumentError, 'invalid value for "from", from cannot be nil.'
+      end
+      @from = from
+    end
+
+    # Custom attribute writer method with validation
+    # @param to [Object] Object to be assigned
+    def to=(to)
+      if @to.nil?
+        fail ArgumentError, 'invalid value for "to", to cannot be nil.'
+      end
+      @to = to
     end
 
     # Checks equality by comparing each attribute.

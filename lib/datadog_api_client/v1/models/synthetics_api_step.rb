@@ -174,7 +174,51 @@ module DatadogAPIClient::V1
       return false if @name.nil?
       return false if @request.nil?
       return false if @subtype.nil?
+      return false if @assertions.nil?
+      return false if @name.nil?
+      return false if @request.nil?
+      return false if @subtype.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param assertions [Object] Object to be assigned
+    def assertions=(assertions)
+      if @assertions.nil?
+        fail ArgumentError, 'invalid value for "assertions", assertions cannot be nil.'
+      end
+      @assertions = assertions
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    def name=(name)
+      if @name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param request [Object] Object to be assigned
+    def request=(request)
+      if @request.nil?
+        fail ArgumentError, 'invalid value for "request", request cannot be nil.'
+      end
+      @request = request
+    end
+
+    # Custom attribute writer method with validation
+    # @param subtype [Object] Object to be assigned
+    def subtype=(subtype)
+      validator = EnumAttributeValidator.new('SyntheticsAPIStepSubtype', ['http'])
+      unless validator.valid?(subtype)
+        fail ArgumentError, "invalid value for \"subtype\", must be one of #{validator.allowable_values}."
+      end
+      if @subtype.nil?
+        fail ArgumentError, 'invalid value for "subtype", subtype cannot be nil.'
+      end
+      @subtype = subtype
     end
 
     # Checks equality by comparing each attribute.

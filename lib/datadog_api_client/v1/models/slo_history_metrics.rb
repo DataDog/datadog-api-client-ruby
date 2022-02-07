@@ -185,7 +185,77 @@ module DatadogAPIClient::V1
       return false if @res_type.nil?
       return false if @resp_version.nil?
       return false if @times.nil?
+      return false if @denominator.nil?
+      return false if @interval.nil?
+      return false if @numerator.nil?
+      return false if @query.nil?
+      return false if @res_type.nil?
+      return false if @resp_version.nil?
+      return false if @times.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param denominator [Object] Object to be assigned
+    def denominator=(denominator)
+      if @denominator.nil?
+        fail ArgumentError, 'invalid value for "denominator", denominator cannot be nil.'
+      end
+      @denominator = denominator
+    end
+
+    # Custom attribute writer method with validation
+    # @param interval [Object] Object to be assigned
+    def interval=(interval)
+      if @interval.nil?
+        fail ArgumentError, 'invalid value for "interval", interval cannot be nil.'
+      end
+      @interval = interval
+    end
+
+    # Custom attribute writer method with validation
+    # @param numerator [Object] Object to be assigned
+    def numerator=(numerator)
+      if @numerator.nil?
+        fail ArgumentError, 'invalid value for "numerator", numerator cannot be nil.'
+      end
+      @numerator = numerator
+    end
+
+    # Custom attribute writer method with validation
+    # @param query [Object] Object to be assigned
+    def query=(query)
+      if @query.nil?
+        fail ArgumentError, 'invalid value for "query", query cannot be nil.'
+      end
+      @query = query
+    end
+
+    # Custom attribute writer method with validation
+    # @param res_type [Object] Object to be assigned
+    def res_type=(res_type)
+      if @res_type.nil?
+        fail ArgumentError, 'invalid value for "res_type", res_type cannot be nil.'
+      end
+      @res_type = res_type
+    end
+
+    # Custom attribute writer method with validation
+    # @param resp_version [Object] Object to be assigned
+    def resp_version=(resp_version)
+      if @resp_version.nil?
+        fail ArgumentError, 'invalid value for "resp_version", resp_version cannot be nil.'
+      end
+      @resp_version = resp_version
+    end
+
+    # Custom attribute writer method with validation
+    # @param times [Object] Object to be assigned
+    def times=(times)
+      if @times.nil?
+        fail ArgumentError, 'invalid value for "times", times cannot be nil.'
+      end
+      @times = times
     end
 
     # Checks equality by comparing each attribute.

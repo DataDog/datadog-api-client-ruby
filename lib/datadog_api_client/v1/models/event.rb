@@ -209,7 +209,37 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if !@text.nil? && @text.to_s.length > 4000
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param alert_type [Object] Object to be assigned
+    def alert_type=(alert_type)
+      validator = EnumAttributeValidator.new('EventAlertType', ['error', 'warning', 'info', 'success', 'user_update', 'recommendation', 'snapshot'])
+      unless validator.valid?(alert_type)
+        fail ArgumentError, "invalid value for \"alert_type\", must be one of #{validator.allowable_values}."
+      end
+      @alert_type = alert_type
+    end
+
+    # Custom attribute writer method with validation
+    # @param priority [Object] Object to be assigned
+    def priority=(priority)
+      validator = EnumAttributeValidator.new('EventPriority', ['normal', 'low'])
+      unless validator.valid?(priority)
+        fail ArgumentError, "invalid value for \"priority\", must be one of #{validator.allowable_values}."
+      end
+      @priority = priority
+    end
+
+    # Custom attribute writer method with validation
+    # @param text [Object] Object to be assigned
+    def text=(text)
+      if !@text.nil? && @text.to_s.length > 4000
+        fail ArgumentError, 'invalid value for "text", the character length must be smaller than or equal to 4000.'
+      end
+      @text = text
     end
 
     # Checks equality by comparing each attribute.

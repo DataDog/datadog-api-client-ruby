@@ -101,7 +101,17 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @url.nil?
+      return false if @url.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param url [Object] Object to be assigned
+    def url=(url)
+      if @url.nil?
+        fail ArgumentError, 'invalid value for "url", url cannot be nil.'
+      end
+      @url = url
     end
 
     # Checks equality by comparing each attribute.

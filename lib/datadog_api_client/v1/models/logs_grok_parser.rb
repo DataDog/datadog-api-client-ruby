@@ -157,7 +157,51 @@ module DatadogAPIClient::V1
       return false if @grok.nil?
       return false if @source.nil?
       return false if @type.nil?
+      return false if @grok.nil?
+      return false if !@samples.nil? && @samples.length > 5
+      return false if @source.nil?
+      return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param grok [Object] Object to be assigned
+    def grok=(grok)
+      if @grok.nil?
+        fail ArgumentError, 'invalid value for "grok", grok cannot be nil.'
+      end
+      @grok = grok
+    end
+
+    # Custom attribute writer method with validation
+    # @param samples [Object] Object to be assigned
+    def samples=(samples)
+      if !@samples.nil? && @samples.length > 5
+        fail ArgumentError, 'invalid value for "samples", number of items must be less than or equal to 5.'
+      end
+      @samples = samples
+    end
+
+    # Custom attribute writer method with validation
+    # @param source [Object] Object to be assigned
+    def source=(source)
+      if @source.nil?
+        fail ArgumentError, 'invalid value for "source", source cannot be nil.'
+      end
+      @source = source
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('LogsGrokParserType', ['grok-parser'])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      if @type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.

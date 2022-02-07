@@ -241,7 +241,81 @@ module DatadogAPIClient::V1
       return false if @service.nil?
       return false if @span_name.nil?
       return false if @type.nil?
+      return false if @env.nil?
+      return false if @service.nil?
+      return false if @span_name.nil?
+      return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param display_format [Object] Object to be assigned
+    def display_format=(display_format)
+      validator = EnumAttributeValidator.new('WidgetServiceSummaryDisplayFormat', ['one_column', 'two_column', 'three_column'])
+      unless validator.valid?(display_format)
+        fail ArgumentError, "invalid value for \"display_format\", must be one of #{validator.allowable_values}."
+      end
+      @display_format = display_format
+    end
+
+    # Custom attribute writer method with validation
+    # @param env [Object] Object to be assigned
+    def env=(env)
+      if @env.nil?
+        fail ArgumentError, 'invalid value for "env", env cannot be nil.'
+      end
+      @env = env
+    end
+
+    # Custom attribute writer method with validation
+    # @param service [Object] Object to be assigned
+    def service=(service)
+      if @service.nil?
+        fail ArgumentError, 'invalid value for "service", service cannot be nil.'
+      end
+      @service = service
+    end
+
+    # Custom attribute writer method with validation
+    # @param size_format [Object] Object to be assigned
+    def size_format=(size_format)
+      validator = EnumAttributeValidator.new('WidgetSizeFormat', ['small', 'medium', 'large'])
+      unless validator.valid?(size_format)
+        fail ArgumentError, "invalid value for \"size_format\", must be one of #{validator.allowable_values}."
+      end
+      @size_format = size_format
+    end
+
+    # Custom attribute writer method with validation
+    # @param span_name [Object] Object to be assigned
+    def span_name=(span_name)
+      if @span_name.nil?
+        fail ArgumentError, 'invalid value for "span_name", span_name cannot be nil.'
+      end
+      @span_name = span_name
+    end
+
+    # Custom attribute writer method with validation
+    # @param title_align [Object] Object to be assigned
+    def title_align=(title_align)
+      validator = EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
+      unless validator.valid?(title_align)
+        fail ArgumentError, "invalid value for \"title_align\", must be one of #{validator.allowable_values}."
+      end
+      @title_align = title_align
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('ServiceSummaryWidgetDefinitionType', ['trace_service'])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      if @type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.

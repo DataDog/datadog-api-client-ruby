@@ -105,7 +105,27 @@ module DatadogAPIClient::V2
     def valid?
       return false if @account_id.nil?
       return false if @role_name.nil?
+      return false if @account_id.nil?
+      return false if @role_name.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param account_id [Object] Object to be assigned
+    def account_id=(account_id)
+      if @account_id.nil?
+        fail ArgumentError, 'invalid value for "account_id", account_id cannot be nil.'
+      end
+      @account_id = account_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param role_name [Object] Object to be assigned
+    def role_name=(role_name)
+      if @role_name.nil?
+        fail ArgumentError, 'invalid value for "role_name", role_name cannot be nil.'
+      end
+      @role_name = role_name
     end
 
     # Checks equality by comparing each attribute.

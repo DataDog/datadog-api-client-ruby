@@ -130,6 +130,16 @@ module DatadogAPIClient::V1
       true
     end
 
+    # Custom attribute writer method with validation
+    # @param status [Object] Object to be assigned
+    def status=(status)
+      validator = EnumAttributeValidator.new('SyntheticsTestMonitorStatus', [0, 1, 2])
+      unless validator.valid?(status)
+        fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
+      end
+      @status = status
+    end
+
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

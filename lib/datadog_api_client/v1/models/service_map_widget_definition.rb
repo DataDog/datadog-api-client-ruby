@@ -163,7 +163,55 @@ module DatadogAPIClient::V1
       return false if @filters.nil?
       return false if @service.nil?
       return false if @type.nil?
+      return false if @filters.nil?
+      return false if @filters.length < 1
+      return false if @service.nil?
+      return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param filters [Object] Object to be assigned
+    def filters=(filters)
+      if @filters.nil?
+        fail ArgumentError, 'invalid value for "filters", filters cannot be nil.'
+      end
+      if @filters.length < 1
+        fail ArgumentError, 'invalid value for "filters", number of items must be greater than or equal to 1.'
+      end
+      @filters = filters
+    end
+
+    # Custom attribute writer method with validation
+    # @param service [Object] Object to be assigned
+    def service=(service)
+      if @service.nil?
+        fail ArgumentError, 'invalid value for "service", service cannot be nil.'
+      end
+      @service = service
+    end
+
+    # Custom attribute writer method with validation
+    # @param title_align [Object] Object to be assigned
+    def title_align=(title_align)
+      validator = EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
+      unless validator.valid?(title_align)
+        fail ArgumentError, "invalid value for \"title_align\", must be one of #{validator.allowable_values}."
+      end
+      @title_align = title_align
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('ServiceMapWidgetDefinitionType', ['servicemap'])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      if @type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.

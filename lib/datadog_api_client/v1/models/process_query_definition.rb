@@ -124,7 +124,27 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @metric.nil?
+      return false if !@limit.nil? && @limit < 0
+      return false if @metric.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param limit [Object] Object to be assigned
+    def limit=(limit)
+      if !@limit.nil? && @limit < 0
+        fail ArgumentError, 'invalid value for "limit", must be greater than or equal to 0.'
+      end
+      @limit = limit
+    end
+
+    # Custom attribute writer method with validation
+    # @param metric [Object] Object to be assigned
+    def metric=(metric)
+      if @metric.nil?
+        fail ArgumentError, 'invalid value for "metric", metric cannot be nil.'
+      end
+      @metric = metric
     end
 
     # Checks equality by comparing each attribute.

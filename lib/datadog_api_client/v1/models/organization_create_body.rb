@@ -113,7 +113,21 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @name.nil?
+      return false if @name.nil?
+      return false if @name > 32
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    def name=(name)
+      if @name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      if @name > 32
+        fail ArgumentError, 'invalid value for "name", must be smaller than or equal to 32.'
+      end
+      @name = name
     end
 
     # Checks equality by comparing each attribute.

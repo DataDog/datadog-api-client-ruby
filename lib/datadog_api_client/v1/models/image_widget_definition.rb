@@ -176,7 +176,71 @@ module DatadogAPIClient::V1
     def valid?
       return false if @type.nil?
       return false if @url.nil?
+      return false if @type.nil?
+      return false if @url.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param horizontal_align [Object] Object to be assigned
+    def horizontal_align=(horizontal_align)
+      validator = EnumAttributeValidator.new('WidgetHorizontalAlign', ['center', 'left', 'right'])
+      unless validator.valid?(horizontal_align)
+        fail ArgumentError, "invalid value for \"horizontal_align\", must be one of #{validator.allowable_values}."
+      end
+      @horizontal_align = horizontal_align
+    end
+
+    # Custom attribute writer method with validation
+    # @param margin [Object] Object to be assigned
+    def margin=(margin)
+      validator = EnumAttributeValidator.new('WidgetMargin', ['sm', 'md', 'lg', 'small', 'large'])
+      unless validator.valid?(margin)
+        fail ArgumentError, "invalid value for \"margin\", must be one of #{validator.allowable_values}."
+      end
+      @margin = margin
+    end
+
+    # Custom attribute writer method with validation
+    # @param sizing [Object] Object to be assigned
+    def sizing=(sizing)
+      validator = EnumAttributeValidator.new('WidgetImageSizing', ['fill', 'contain', 'cover', 'none', 'scale-down', 'zoom', 'fit', 'center'])
+      unless validator.valid?(sizing)
+        fail ArgumentError, "invalid value for \"sizing\", must be one of #{validator.allowable_values}."
+      end
+      @sizing = sizing
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('ImageWidgetDefinitionType', ['image'])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      if @type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
+    end
+
+    # Custom attribute writer method with validation
+    # @param url [Object] Object to be assigned
+    def url=(url)
+      if @url.nil?
+        fail ArgumentError, 'invalid value for "url", url cannot be nil.'
+      end
+      @url = url
+    end
+
+    # Custom attribute writer method with validation
+    # @param vertical_align [Object] Object to be assigned
+    def vertical_align=(vertical_align)
+      validator = EnumAttributeValidator.new('WidgetVerticalAlign', ['center', 'top', 'bottom'])
+      unless validator.valid?(vertical_align)
+        fail ArgumentError, "invalid value for \"vertical_align\", must be one of #{validator.allowable_values}."
+      end
+      @vertical_align = vertical_align
     end
 
     # Checks equality by comparing each attribute.

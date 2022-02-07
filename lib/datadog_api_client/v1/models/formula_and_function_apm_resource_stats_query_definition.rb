@@ -191,7 +191,65 @@ module DatadogAPIClient::V1
       return false if @name.nil?
       return false if @service.nil?
       return false if @stat.nil?
+      return false if @data_source.nil?
+      return false if @env.nil?
+      return false if @name.nil?
+      return false if @service.nil?
+      return false if @stat.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param data_source [Object] Object to be assigned
+    def data_source=(data_source)
+      validator = EnumAttributeValidator.new('FormulaAndFunctionApmResourceStatsDataSource', ['apm_resource_stats'])
+      unless validator.valid?(data_source)
+        fail ArgumentError, "invalid value for \"data_source\", must be one of #{validator.allowable_values}."
+      end
+      if @data_source.nil?
+        fail ArgumentError, 'invalid value for "data_source", data_source cannot be nil.'
+      end
+      @data_source = data_source
+    end
+
+    # Custom attribute writer method with validation
+    # @param env [Object] Object to be assigned
+    def env=(env)
+      if @env.nil?
+        fail ArgumentError, 'invalid value for "env", env cannot be nil.'
+      end
+      @env = env
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    def name=(name)
+      if @name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param service [Object] Object to be assigned
+    def service=(service)
+      if @service.nil?
+        fail ArgumentError, 'invalid value for "service", service cannot be nil.'
+      end
+      @service = service
+    end
+
+    # Custom attribute writer method with validation
+    # @param stat [Object] Object to be assigned
+    def stat=(stat)
+      validator = EnumAttributeValidator.new('FormulaAndFunctionApmResourceStatName', ['errors', 'error_rate', 'hits', 'latency_avg', 'latency_max', 'latency_p50', 'latency_p75', 'latency_p90', 'latency_p95', 'latency_p99'])
+      unless validator.valid?(stat)
+        fail ArgumentError, "invalid value for \"stat\", must be one of #{validator.allowable_values}."
+      end
+      if @stat.nil?
+        fail ArgumentError, 'invalid value for "stat", stat cannot be nil.'
+      end
+      @stat = stat
     end
 
     # Checks equality by comparing each attribute.

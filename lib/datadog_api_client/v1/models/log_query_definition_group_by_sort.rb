@@ -114,7 +114,31 @@ module DatadogAPIClient::V1
     def valid?
       return false if @aggregation.nil?
       return false if @order.nil?
+      return false if @aggregation.nil?
+      return false if @order.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param aggregation [Object] Object to be assigned
+    def aggregation=(aggregation)
+      if @aggregation.nil?
+        fail ArgumentError, 'invalid value for "aggregation", aggregation cannot be nil.'
+      end
+      @aggregation = aggregation
+    end
+
+    # Custom attribute writer method with validation
+    # @param order [Object] Object to be assigned
+    def order=(order)
+      validator = EnumAttributeValidator.new('WidgetSort', ['asc', 'desc'])
+      unless validator.valid?(order)
+        fail ArgumentError, "invalid value for \"order\", must be one of #{validator.allowable_values}."
+      end
+      if @order.nil?
+        fail ArgumentError, 'invalid value for "order", order cannot be nil.'
+      end
+      @order = order
     end
 
     # Checks equality by comparing each attribute.

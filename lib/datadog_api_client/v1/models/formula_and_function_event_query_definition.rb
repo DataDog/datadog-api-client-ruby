@@ -149,7 +149,41 @@ module DatadogAPIClient::V1
       return false if @compute.nil?
       return false if @data_source.nil?
       return false if @name.nil?
+      return false if @compute.nil?
+      return false if @data_source.nil?
+      return false if @name.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param compute [Object] Object to be assigned
+    def compute=(compute)
+      if @compute.nil?
+        fail ArgumentError, 'invalid value for "compute", compute cannot be nil.'
+      end
+      @compute = compute
+    end
+
+    # Custom attribute writer method with validation
+    # @param data_source [Object] Object to be assigned
+    def data_source=(data_source)
+      validator = EnumAttributeValidator.new('FormulaAndFunctionEventsDataSource', ['logs', 'spans', 'network', 'rum', 'security_signals', 'profiles', 'audit', 'events'])
+      unless validator.valid?(data_source)
+        fail ArgumentError, "invalid value for \"data_source\", must be one of #{validator.allowable_values}."
+      end
+      if @data_source.nil?
+        fail ArgumentError, 'invalid value for "data_source", data_source cannot be nil.'
+      end
+      @data_source = data_source
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    def name=(name)
+      if @name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      @name = name
     end
 
     # Checks equality by comparing each attribute.

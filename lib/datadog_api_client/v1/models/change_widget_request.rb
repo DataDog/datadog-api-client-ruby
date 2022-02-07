@@ -248,6 +248,56 @@ module DatadogAPIClient::V1
       true
     end
 
+    # Custom attribute writer method with validation
+    # @param change_type [Object] Object to be assigned
+    def change_type=(change_type)
+      validator = EnumAttributeValidator.new('WidgetChangeType', ['absolute', 'relative'])
+      unless validator.valid?(change_type)
+        fail ArgumentError, "invalid value for \"change_type\", must be one of #{validator.allowable_values}."
+      end
+      @change_type = change_type
+    end
+
+    # Custom attribute writer method with validation
+    # @param compare_to [Object] Object to be assigned
+    def compare_to=(compare_to)
+      validator = EnumAttributeValidator.new('WidgetCompareTo', ['hour_before', 'day_before', 'week_before', 'month_before'])
+      unless validator.valid?(compare_to)
+        fail ArgumentError, "invalid value for \"compare_to\", must be one of #{validator.allowable_values}."
+      end
+      @compare_to = compare_to
+    end
+
+    # Custom attribute writer method with validation
+    # @param order_by [Object] Object to be assigned
+    def order_by=(order_by)
+      validator = EnumAttributeValidator.new('WidgetOrderBy', ['change', 'name', 'present', 'past'])
+      unless validator.valid?(order_by)
+        fail ArgumentError, "invalid value for \"order_by\", must be one of #{validator.allowable_values}."
+      end
+      @order_by = order_by
+    end
+
+    # Custom attribute writer method with validation
+    # @param order_dir [Object] Object to be assigned
+    def order_dir=(order_dir)
+      validator = EnumAttributeValidator.new('WidgetSort', ['asc', 'desc'])
+      unless validator.valid?(order_dir)
+        fail ArgumentError, "invalid value for \"order_dir\", must be one of #{validator.allowable_values}."
+      end
+      @order_dir = order_dir
+    end
+
+    # Custom attribute writer method with validation
+    # @param response_format [Object] Object to be assigned
+    def response_format=(response_format)
+      validator = EnumAttributeValidator.new('FormulaAndFunctionResponseFormat', ['timeseries', 'scalar'])
+      unless validator.valid?(response_format)
+        fail ArgumentError, "invalid value for \"response_format\", must be one of #{validator.allowable_values}."
+      end
+      @response_format = response_format
+    end
+
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

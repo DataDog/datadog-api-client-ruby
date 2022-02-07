@@ -244,6 +244,36 @@ module DatadogAPIClient::V1
       true
     end
 
+    # Custom attribute writer method with validation
+    # @param check_type [Object] Object to be assigned
+    def check_type=(check_type)
+      validator = EnumAttributeValidator.new('SyntheticsCheckType', ['equals', 'notEquals', 'contains', 'notContains', 'startsWith', 'notStartsWith', 'greater', 'lower', 'greaterEquals', 'lowerEquals', 'matchRegex', 'between', 'isEmpty', 'notIsEmpty'])
+      unless validator.valid?(check_type)
+        fail ArgumentError, "invalid value for \"check_type\", must be one of #{validator.allowable_values}."
+      end
+      @check_type = check_type
+    end
+
+    # Custom attribute writer method with validation
+    # @param playing_tab [Object] Object to be assigned
+    def playing_tab=(playing_tab)
+      validator = EnumAttributeValidator.new('SyntheticsPlayingTab', [-1, 0, 1, 2, 3])
+      unless validator.valid?(playing_tab)
+        fail ArgumentError, "invalid value for \"playing_tab\", must be one of #{validator.allowable_values}."
+      end
+      @playing_tab = playing_tab
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('SyntheticsStepType', ['assertCurrentUrl', 'assertElementAttribute', 'assertElementContent', 'assertElementPresent', 'assertEmail', 'assertFileDownload', 'assertFromJavascript', 'assertPageContains', 'assertPageLacks', 'click', 'extractFromJavascript', 'extractVariable', 'goToEmailLink', 'goToUrl', 'goToUrlAndMeasureTti', 'hover', 'playSubTest', 'pressKey', 'refresh', 'runApiTest', 'scroll', 'selectOption', 'typeText', 'uploadFiles', 'wait'])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      @type = type
+    end
+
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

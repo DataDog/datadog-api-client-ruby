@@ -273,7 +273,45 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if !@dns_server_port.nil? && @dns_server_port > 65535
+      return false if !@dns_server_port.nil? && @dns_server_port < 1
+      return false if !@number_of_packets.nil? && @number_of_packets > 10
+      return false if !@number_of_packets.nil? && @number_of_packets < 0
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param dns_server_port [Object] Object to be assigned
+    def dns_server_port=(dns_server_port)
+      if !@dns_server_port.nil? && @dns_server_port > 65535
+        fail ArgumentError, 'invalid value for "dns_server_port", must be smaller than or equal to 65535.'
+      end
+      if !@dns_server_port.nil? && @dns_server_port < 1
+        fail ArgumentError, 'invalid value for "dns_server_port", must be greater than or equal to 1.'
+      end
+      @dns_server_port = dns_server_port
+    end
+
+    # Custom attribute writer method with validation
+    # @param method [Object] Object to be assigned
+    def method=(method)
+      validator = EnumAttributeValidator.new('HTTPMethod', ['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'HEAD', 'OPTIONS'])
+      unless validator.valid?(method)
+        fail ArgumentError, "invalid value for \"method\", must be one of #{validator.allowable_values}."
+      end
+      @method = method
+    end
+
+    # Custom attribute writer method with validation
+    # @param number_of_packets [Object] Object to be assigned
+    def number_of_packets=(number_of_packets)
+      if !@number_of_packets.nil? && @number_of_packets > 10
+        fail ArgumentError, 'invalid value for "number_of_packets", must be smaller than or equal to 10.'
+      end
+      if !@number_of_packets.nil? && @number_of_packets < 0
+        fail ArgumentError, 'invalid value for "number_of_packets", must be greater than or equal to 0.'
+      end
+      @number_of_packets = number_of_packets
     end
 
     # Checks equality by comparing each attribute.

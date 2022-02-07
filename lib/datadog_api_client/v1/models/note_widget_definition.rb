@@ -181,7 +181,61 @@ module DatadogAPIClient::V1
     def valid?
       return false if @content.nil?
       return false if @type.nil?
+      return false if @content.nil?
+      return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param content [Object] Object to be assigned
+    def content=(content)
+      if @content.nil?
+        fail ArgumentError, 'invalid value for "content", content cannot be nil.'
+      end
+      @content = content
+    end
+
+    # Custom attribute writer method with validation
+    # @param text_align [Object] Object to be assigned
+    def text_align=(text_align)
+      validator = EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
+      unless validator.valid?(text_align)
+        fail ArgumentError, "invalid value for \"text_align\", must be one of #{validator.allowable_values}."
+      end
+      @text_align = text_align
+    end
+
+    # Custom attribute writer method with validation
+    # @param tick_edge [Object] Object to be assigned
+    def tick_edge=(tick_edge)
+      validator = EnumAttributeValidator.new('WidgetTickEdge', ['bottom', 'left', 'right', 'top'])
+      unless validator.valid?(tick_edge)
+        fail ArgumentError, "invalid value for \"tick_edge\", must be one of #{validator.allowable_values}."
+      end
+      @tick_edge = tick_edge
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('NoteWidgetDefinitionType', ['note'])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      if @type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
+    end
+
+    # Custom attribute writer method with validation
+    # @param vertical_align [Object] Object to be assigned
+    def vertical_align=(vertical_align)
+      validator = EnumAttributeValidator.new('WidgetVerticalAlign', ['center', 'top', 'bottom'])
+      unless validator.valid?(vertical_align)
+        fail ArgumentError, "invalid value for \"vertical_align\", must be one of #{validator.allowable_values}."
+      end
+      @vertical_align = vertical_align
     end
 
     # Checks equality by comparing each attribute.

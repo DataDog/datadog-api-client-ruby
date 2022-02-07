@@ -115,7 +115,27 @@ module DatadogAPIClient::V1
     def valid?
       return false if @is_secret.nil?
       return false if @name.nil?
+      return false if @is_secret.nil?
+      return false if @name.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param is_secret [Object] Object to be assigned
+    def is_secret=(is_secret)
+      if @is_secret.nil?
+        fail ArgumentError, 'invalid value for "is_secret", is_secret cannot be nil.'
+      end
+      @is_secret = is_secret
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    def name=(name)
+      if @name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      @name = name
     end
 
     # Checks equality by comparing each attribute.

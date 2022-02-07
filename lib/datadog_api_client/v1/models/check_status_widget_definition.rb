@@ -187,7 +187,55 @@ module DatadogAPIClient::V1
       return false if @check.nil?
       return false if @grouping.nil?
       return false if @type.nil?
+      return false if @check.nil?
+      return false if @grouping.nil?
+      return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param check [Object] Object to be assigned
+    def check=(check)
+      if @check.nil?
+        fail ArgumentError, 'invalid value for "check", check cannot be nil.'
+      end
+      @check = check
+    end
+
+    # Custom attribute writer method with validation
+    # @param grouping [Object] Object to be assigned
+    def grouping=(grouping)
+      validator = EnumAttributeValidator.new('WidgetGrouping', ['check', 'cluster'])
+      unless validator.valid?(grouping)
+        fail ArgumentError, "invalid value for \"grouping\", must be one of #{validator.allowable_values}."
+      end
+      if @grouping.nil?
+        fail ArgumentError, 'invalid value for "grouping", grouping cannot be nil.'
+      end
+      @grouping = grouping
+    end
+
+    # Custom attribute writer method with validation
+    # @param title_align [Object] Object to be assigned
+    def title_align=(title_align)
+      validator = EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
+      unless validator.valid?(title_align)
+        fail ArgumentError, "invalid value for \"title_align\", must be one of #{validator.allowable_values}."
+      end
+      @title_align = title_align
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('CheckStatusWidgetDefinitionType', ['check_status'])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      if @type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.

@@ -164,7 +164,41 @@ module DatadogAPIClient::V1
       return false if @category.nil?
       return false if @slo_id.nil?
       return false if @start.nil?
+      return false if @category.nil?
+      return false if @slo_id.nil?
+      return false if @start.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param category [Object] Object to be assigned
+    def category=(category)
+      validator = EnumAttributeValidator.new('SLOCorrectionCategory', ['Scheduled Maintenance', 'Outside Business Hours', 'Deployment', 'Other'])
+      unless validator.valid?(category)
+        fail ArgumentError, "invalid value for \"category\", must be one of #{validator.allowable_values}."
+      end
+      if @category.nil?
+        fail ArgumentError, 'invalid value for "category", category cannot be nil.'
+      end
+      @category = category
+    end
+
+    # Custom attribute writer method with validation
+    # @param slo_id [Object] Object to be assigned
+    def slo_id=(slo_id)
+      if @slo_id.nil?
+        fail ArgumentError, 'invalid value for "slo_id", slo_id cannot be nil.'
+      end
+      @slo_id = slo_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param start [Object] Object to be assigned
+    def start=(start)
+      if @start.nil?
+        fail ArgumentError, 'invalid value for "start", start cannot be nil.'
+      end
+      @start = start
     end
 
     # Checks equality by comparing each attribute.

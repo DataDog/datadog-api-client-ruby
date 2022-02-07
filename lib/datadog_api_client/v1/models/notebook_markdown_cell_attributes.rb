@@ -92,7 +92,17 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @definition.nil?
+      return false if @definition.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param definition [Object] Object to be assigned
+    def definition=(definition)
+      if @definition.nil?
+        fail ArgumentError, 'invalid value for "definition", definition cannot be nil.'
+      end
+      @definition = definition
     end
 
     # Checks equality by comparing each attribute.

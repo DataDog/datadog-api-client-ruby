@@ -153,7 +153,63 @@ module DatadogAPIClient::V1
       return false if @width.nil?
       return false if @x.nil?
       return false if @y.nil?
+      return false if @height.nil?
+      return false if @height < 0
+      return false if @width.nil?
+      return false if @width < 0
+      return false if @x.nil?
+      return false if @x < 0
+      return false if @y.nil?
+      return false if @y < 0
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param height [Object] Object to be assigned
+    def height=(height)
+      if @height.nil?
+        fail ArgumentError, 'invalid value for "height", height cannot be nil.'
+      end
+      if @height < 0
+        fail ArgumentError, 'invalid value for "height", must be greater than or equal to 0.'
+      end
+      @height = height
+    end
+
+    # Custom attribute writer method with validation
+    # @param width [Object] Object to be assigned
+    def width=(width)
+      if @width.nil?
+        fail ArgumentError, 'invalid value for "width", width cannot be nil.'
+      end
+      if @width < 0
+        fail ArgumentError, 'invalid value for "width", must be greater than or equal to 0.'
+      end
+      @width = width
+    end
+
+    # Custom attribute writer method with validation
+    # @param x [Object] Object to be assigned
+    def x=(x)
+      if @x.nil?
+        fail ArgumentError, 'invalid value for "x", x cannot be nil.'
+      end
+      if @x < 0
+        fail ArgumentError, 'invalid value for "x", must be greater than or equal to 0.'
+      end
+      @x = x
+    end
+
+    # Custom attribute writer method with validation
+    # @param y [Object] Object to be assigned
+    def y=(y)
+      if @y.nil?
+        fail ArgumentError, 'invalid value for "y", y cannot be nil.'
+      end
+      if @y < 0
+        fail ArgumentError, 'invalid value for "y", must be greater than or equal to 0.'
+      end
+      @y = y
     end
 
     # Checks equality by comparing each attribute.

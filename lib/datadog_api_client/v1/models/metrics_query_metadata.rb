@@ -211,7 +211,21 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if !@unit.nil? && @unit.length > 2
+      return false if !@unit.nil? && @unit.length < 2
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param unit [Object] Object to be assigned
+    def unit=(unit)
+      if !@unit.nil? && @unit.length > 2
+        fail ArgumentError, 'invalid value for "unit", number of items must be less than or equal to 2.'
+      end
+      if !@unit.nil? && @unit.length < 2
+        fail ArgumentError, 'invalid value for "unit", number of items must be greater than or equal to 2.'
+      end
+      @unit = unit
     end
 
     # Checks equality by comparing each attribute.

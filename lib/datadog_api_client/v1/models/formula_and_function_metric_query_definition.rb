@@ -127,7 +127,51 @@ module DatadogAPIClient::V1
       return false if @data_source.nil?
       return false if @name.nil?
       return false if @query.nil?
+      return false if @data_source.nil?
+      return false if @name.nil?
+      return false if @query.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param aggregator [Object] Object to be assigned
+    def aggregator=(aggregator)
+      validator = EnumAttributeValidator.new('FormulaAndFunctionMetricAggregation', ['avg', 'min', 'max', 'sum', 'last', 'area', 'l2norm', 'percentile'])
+      unless validator.valid?(aggregator)
+        fail ArgumentError, "invalid value for \"aggregator\", must be one of #{validator.allowable_values}."
+      end
+      @aggregator = aggregator
+    end
+
+    # Custom attribute writer method with validation
+    # @param data_source [Object] Object to be assigned
+    def data_source=(data_source)
+      validator = EnumAttributeValidator.new('FormulaAndFunctionMetricDataSource', ['metrics'])
+      unless validator.valid?(data_source)
+        fail ArgumentError, "invalid value for \"data_source\", must be one of #{validator.allowable_values}."
+      end
+      if @data_source.nil?
+        fail ArgumentError, 'invalid value for "data_source", data_source cannot be nil.'
+      end
+      @data_source = data_source
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    def name=(name)
+      if @name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param query [Object] Object to be assigned
+    def query=(query)
+      if @query.nil?
+        fail ArgumentError, 'invalid value for "query", query cannot be nil.'
+      end
+      @query = query
     end
 
     # Checks equality by comparing each attribute.

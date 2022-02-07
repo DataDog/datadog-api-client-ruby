@@ -103,7 +103,17 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @match_rules.nil?
+      return false if @match_rules.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param match_rules [Object] Object to be assigned
+    def match_rules=(match_rules)
+      if @match_rules.nil?
+        fail ArgumentError, 'invalid value for "match_rules", match_rules cannot be nil.'
+      end
+      @match_rules = match_rules
     end
 
     # Checks equality by comparing each attribute.

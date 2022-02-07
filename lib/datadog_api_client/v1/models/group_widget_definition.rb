@@ -169,7 +169,55 @@ module DatadogAPIClient::V1
       return false if @layout_type.nil?
       return false if @type.nil?
       return false if @widgets.nil?
+      return false if @layout_type.nil?
+      return false if @type.nil?
+      return false if @widgets.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param layout_type [Object] Object to be assigned
+    def layout_type=(layout_type)
+      validator = EnumAttributeValidator.new('WidgetLayoutType', ['ordered'])
+      unless validator.valid?(layout_type)
+        fail ArgumentError, "invalid value for \"layout_type\", must be one of #{validator.allowable_values}."
+      end
+      if @layout_type.nil?
+        fail ArgumentError, 'invalid value for "layout_type", layout_type cannot be nil.'
+      end
+      @layout_type = layout_type
+    end
+
+    # Custom attribute writer method with validation
+    # @param title_align [Object] Object to be assigned
+    def title_align=(title_align)
+      validator = EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
+      unless validator.valid?(title_align)
+        fail ArgumentError, "invalid value for \"title_align\", must be one of #{validator.allowable_values}."
+      end
+      @title_align = title_align
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('GroupWidgetDefinitionType', ['group'])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      if @type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
+    end
+
+    # Custom attribute writer method with validation
+    # @param widgets [Object] Object to be assigned
+    def widgets=(widgets)
+      if @widgets.nil?
+        fail ArgumentError, 'invalid value for "widgets", widgets cannot be nil.'
+      end
+      @widgets = widgets
     end
 
     # Checks equality by comparing each attribute.

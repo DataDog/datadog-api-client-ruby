@@ -100,6 +100,16 @@ module DatadogAPIClient::V1
       true
     end
 
+    # Custom attribute writer method with validation
+    # @param namespace [Object] Object to be assigned
+    def namespace=(namespace)
+      validator = EnumAttributeValidator.new('AWSNamespace', ['elb', 'application_elb', 'sqs', 'rds', 'custom', 'network_elb', 'lambda'])
+      unless validator.valid?(namespace)
+        fail ArgumentError, "invalid value for \"namespace\", must be one of #{validator.allowable_values}."
+      end
+      @namespace = namespace
+    end
+
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

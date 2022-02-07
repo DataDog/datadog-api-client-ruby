@@ -142,7 +142,27 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @query.nil?
+      return false if @query.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param aggregation [Object] Object to be assigned
+    def aggregation=(aggregation)
+      validator = EnumAttributeValidator.new('SecurityMonitoringRuleQueryAggregation', ['count', 'cardinality', 'sum', 'max', 'new_value'])
+      unless validator.valid?(aggregation)
+        fail ArgumentError, "invalid value for \"aggregation\", must be one of #{validator.allowable_values}."
+      end
+      @aggregation = aggregation
+    end
+
+    # Custom attribute writer method with validation
+    # @param query [Object] Object to be assigned
+    def query=(query)
+      if @query.nil?
+        fail ArgumentError, 'invalid value for "query", query cannot be nil.'
+      end
+      @query = query
     end
 
     # Checks equality by comparing each attribute.

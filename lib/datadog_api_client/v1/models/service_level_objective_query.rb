@@ -107,7 +107,27 @@ module DatadogAPIClient::V1
     def valid?
       return false if @denominator.nil?
       return false if @numerator.nil?
+      return false if @denominator.nil?
+      return false if @numerator.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param denominator [Object] Object to be assigned
+    def denominator=(denominator)
+      if @denominator.nil?
+        fail ArgumentError, 'invalid value for "denominator", denominator cannot be nil.'
+      end
+      @denominator = denominator
+    end
+
+    # Custom attribute writer method with validation
+    # @param numerator [Object] Object to be assigned
+    def numerator=(numerator)
+      if @numerator.nil?
+        fail ArgumentError, 'invalid value for "numerator", numerator cannot be nil.'
+      end
+      @numerator = numerator
     end
 
     # Checks equality by comparing each attribute.

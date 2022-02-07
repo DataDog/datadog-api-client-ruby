@@ -96,7 +96,17 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @index_names.nil?
+      return false if @index_names.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param index_names [Object] Object to be assigned
+    def index_names=(index_names)
+      if @index_names.nil?
+        fail ArgumentError, 'invalid value for "index_names", index_names cannot be nil.'
+      end
+      @index_names = index_names
     end
 
     # Checks equality by comparing each attribute.

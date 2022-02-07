@@ -122,7 +122,31 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @aggregation.nil?
+      return false if @aggregation.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param aggregation [Object] Object to be assigned
+    def aggregation=(aggregation)
+      validator = EnumAttributeValidator.new('LogsAggregationFunction', ['count', 'cardinality', 'pc75', 'pc90', 'pc95', 'pc98', 'pc99', 'sum', 'min', 'max', 'avg'])
+      unless validator.valid?(aggregation)
+        fail ArgumentError, "invalid value for \"aggregation\", must be one of #{validator.allowable_values}."
+      end
+      if @aggregation.nil?
+        fail ArgumentError, 'invalid value for "aggregation", aggregation cannot be nil.'
+      end
+      @aggregation = aggregation
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('LogsComputeType', ['timeseries', 'total'])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.

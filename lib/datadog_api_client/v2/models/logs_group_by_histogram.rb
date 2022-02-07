@@ -121,7 +121,37 @@ module DatadogAPIClient::V2
       return false if @interval.nil?
       return false if @max.nil?
       return false if @min.nil?
+      return false if @interval.nil?
+      return false if @max.nil?
+      return false if @min.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param interval [Object] Object to be assigned
+    def interval=(interval)
+      if @interval.nil?
+        fail ArgumentError, 'invalid value for "interval", interval cannot be nil.'
+      end
+      @interval = interval
+    end
+
+    # Custom attribute writer method with validation
+    # @param max [Object] Object to be assigned
+    def max=(max)
+      if @max.nil?
+        fail ArgumentError, 'invalid value for "max", max cannot be nil.'
+      end
+      @max = max
+    end
+
+    # Custom attribute writer method with validation
+    # @param min [Object] Object to be assigned
+    def min=(min)
+      if @min.nil?
+        fail ArgumentError, 'invalid value for "min", min cannot be nil.'
+      end
+      @min = min
     end
 
     # Checks equality by comparing each attribute.

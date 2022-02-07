@@ -130,6 +130,46 @@ module DatadogAPIClient::V2
       true
     end
 
+    # Custom attribute writer method with validation
+    # @param detection_method [Object] Object to be assigned
+    def detection_method=(detection_method)
+      validator = EnumAttributeValidator.new('SecurityMonitoringRuleDetectionMethod', ['threshold', 'new_value', 'anomaly_detection'])
+      unless validator.valid?(detection_method)
+        fail ArgumentError, "invalid value for \"detection_method\", must be one of #{validator.allowable_values}."
+      end
+      @detection_method = detection_method
+    end
+
+    # Custom attribute writer method with validation
+    # @param evaluation_window [Object] Object to be assigned
+    def evaluation_window=(evaluation_window)
+      validator = EnumAttributeValidator.new('SecurityMonitoringRuleEvaluationWindow', [0, 60, 300, 600, 900, 1800, 3600, 7200])
+      unless validator.valid?(evaluation_window)
+        fail ArgumentError, "invalid value for \"evaluation_window\", must be one of #{validator.allowable_values}."
+      end
+      @evaluation_window = evaluation_window
+    end
+
+    # Custom attribute writer method with validation
+    # @param keep_alive [Object] Object to be assigned
+    def keep_alive=(keep_alive)
+      validator = EnumAttributeValidator.new('SecurityMonitoringRuleKeepAlive', [0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600])
+      unless validator.valid?(keep_alive)
+        fail ArgumentError, "invalid value for \"keep_alive\", must be one of #{validator.allowable_values}."
+      end
+      @keep_alive = keep_alive
+    end
+
+    # Custom attribute writer method with validation
+    # @param max_signal_duration [Object] Object to be assigned
+    def max_signal_duration=(max_signal_duration)
+      validator = EnumAttributeValidator.new('SecurityMonitoringRuleMaxSignalDuration', [0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600, 43200, 86400])
+      unless validator.valid?(max_signal_duration)
+        fail ArgumentError, "invalid value for \"max_signal_duration\", must be one of #{validator.allowable_values}."
+      end
+      @max_signal_duration = max_signal_duration
+    end
+
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

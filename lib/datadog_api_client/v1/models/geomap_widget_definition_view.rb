@@ -92,7 +92,17 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @focus.nil?
+      return false if @focus.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param focus [Object] Object to be assigned
+    def focus=(focus)
+      if @focus.nil?
+        fail ArgumentError, 'invalid value for "focus", focus cannot be nil.'
+      end
+      @focus = focus
     end
 
     # Checks equality by comparing each attribute.

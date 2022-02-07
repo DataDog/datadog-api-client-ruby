@@ -146,7 +146,61 @@ module DatadogAPIClient::V2
       return false if @is_enabled.nil?
       return false if @name.nil?
       return false if @query.nil?
+      return false if @exclusion_filters.nil?
+      return false if @filtered_data_type.nil?
+      return false if @is_enabled.nil?
+      return false if @name.nil?
+      return false if @query.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param exclusion_filters [Object] Object to be assigned
+    def exclusion_filters=(exclusion_filters)
+      if @exclusion_filters.nil?
+        fail ArgumentError, 'invalid value for "exclusion_filters", exclusion_filters cannot be nil.'
+      end
+      @exclusion_filters = exclusion_filters
+    end
+
+    # Custom attribute writer method with validation
+    # @param filtered_data_type [Object] Object to be assigned
+    def filtered_data_type=(filtered_data_type)
+      validator = EnumAttributeValidator.new('SecurityFilterFilteredDataType', ['logs'])
+      unless validator.valid?(filtered_data_type)
+        fail ArgumentError, "invalid value for \"filtered_data_type\", must be one of #{validator.allowable_values}."
+      end
+      if @filtered_data_type.nil?
+        fail ArgumentError, 'invalid value for "filtered_data_type", filtered_data_type cannot be nil.'
+      end
+      @filtered_data_type = filtered_data_type
+    end
+
+    # Custom attribute writer method with validation
+    # @param is_enabled [Object] Object to be assigned
+    def is_enabled=(is_enabled)
+      if @is_enabled.nil?
+        fail ArgumentError, 'invalid value for "is_enabled", is_enabled cannot be nil.'
+      end
+      @is_enabled = is_enabled
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    def name=(name)
+      if @name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param query [Object] Object to be assigned
+    def query=(query)
+      if @query.nil?
+        fail ArgumentError, 'invalid value for "query", query cannot be nil.'
+      end
+      @query = query
     end
 
     # Checks equality by comparing each attribute.

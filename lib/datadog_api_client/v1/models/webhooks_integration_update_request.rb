@@ -138,6 +138,16 @@ module DatadogAPIClient::V1
       true
     end
 
+    # Custom attribute writer method with validation
+    # @param encode_as [Object] Object to be assigned
+    def encode_as=(encode_as)
+      validator = EnumAttributeValidator.new('WebhooksIntegrationEncoding', ['json', 'form'])
+      unless validator.valid?(encode_as)
+        fail ArgumentError, "invalid value for \"encode_as\", must be one of #{validator.allowable_values}."
+      end
+      @encode_as = encode_as
+    end
+
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

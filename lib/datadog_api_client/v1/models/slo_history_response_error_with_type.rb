@@ -105,7 +105,27 @@ module DatadogAPIClient::V1
     def valid?
       return false if @error_message.nil?
       return false if @error_type.nil?
+      return false if @error_message.nil?
+      return false if @error_type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param error_message [Object] Object to be assigned
+    def error_message=(error_message)
+      if @error_message.nil?
+        fail ArgumentError, 'invalid value for "error_message", error_message cannot be nil.'
+      end
+      @error_message = error_message
+    end
+
+    # Custom attribute writer method with validation
+    # @param error_type [Object] Object to be assigned
+    def error_type=(error_type)
+      if @error_type.nil?
+        fail ArgumentError, 'invalid value for "error_type", error_type cannot be nil.'
+      end
+      @error_type = error_type
     end
 
     # Checks equality by comparing each attribute.

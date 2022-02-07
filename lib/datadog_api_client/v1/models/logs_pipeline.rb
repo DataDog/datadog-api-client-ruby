@@ -152,7 +152,17 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @name.nil?
+      return false if @name.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    def name=(name)
+      if @name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      @name = name
     end
 
     # Checks equality by comparing each attribute.

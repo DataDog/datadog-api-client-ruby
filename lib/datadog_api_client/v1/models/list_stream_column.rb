@@ -105,7 +105,31 @@ module DatadogAPIClient::V1
     def valid?
       return false if @field.nil?
       return false if @width.nil?
+      return false if @field.nil?
+      return false if @width.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param field [Object] Object to be assigned
+    def field=(field)
+      if @field.nil?
+        fail ArgumentError, 'invalid value for "field", field cannot be nil.'
+      end
+      @field = field
+    end
+
+    # Custom attribute writer method with validation
+    # @param width [Object] Object to be assigned
+    def width=(width)
+      validator = EnumAttributeValidator.new('ListStreamColumnWidth', ['auto', 'compact', 'full'])
+      unless validator.valid?(width)
+        fail ArgumentError, "invalid value for \"width\", must be one of #{validator.allowable_values}."
+      end
+      if @width.nil?
+        fail ArgumentError, 'invalid value for "width", width cannot be nil.'
+      end
+      @width = width
     end
 
     # Checks equality by comparing each attribute.

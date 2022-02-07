@@ -169,7 +169,47 @@ module DatadogAPIClient::V1
       return false if @name.nil?
       return false if @tags.nil?
       return false if @value.nil?
+      return false if @description.nil?
+      return false if @name.nil?
+      return false if @tags.nil?
+      return false if @value.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param description [Object] Object to be assigned
+    def description=(description)
+      if @description.nil?
+        fail ArgumentError, 'invalid value for "description", description cannot be nil.'
+      end
+      @description = description
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    def name=(name)
+      if @name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param tags [Object] Object to be assigned
+    def tags=(tags)
+      if @tags.nil?
+        fail ArgumentError, 'invalid value for "tags", tags cannot be nil.'
+      end
+      @tags = tags
+    end
+
+    # Custom attribute writer method with validation
+    # @param value [Object] Object to be assigned
+    def value=(value)
+      if @value.nil?
+        fail ArgumentError, 'invalid value for "value", value cannot be nil.'
+      end
+      @value = value
     end
 
     # Checks equality by comparing each attribute.

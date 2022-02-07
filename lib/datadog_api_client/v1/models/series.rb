@@ -149,7 +149,27 @@ module DatadogAPIClient::V1
     def valid?
       return false if @metric.nil?
       return false if @points.nil?
+      return false if @metric.nil?
+      return false if @points.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param metric [Object] Object to be assigned
+    def metric=(metric)
+      if @metric.nil?
+        fail ArgumentError, 'invalid value for "metric", metric cannot be nil.'
+      end
+      @metric = metric
+    end
+
+    # Custom attribute writer method with validation
+    # @param points [Object] Object to be assigned
+    def points=(points)
+      if @points.nil?
+        fail ArgumentError, 'invalid value for "points", points cannot be nil.'
+      end
+      @points = points
     end
 
     # Checks equality by comparing each attribute.

@@ -92,7 +92,17 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @config.nil?
+      return false if @config.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param config [Object] Object to be assigned
+    def config=(config)
+      if @config.nil?
+        fail ArgumentError, 'invalid value for "config", config cannot be nil.'
+      end
+      @config = config
     end
 
     # Checks equality by comparing each attribute.

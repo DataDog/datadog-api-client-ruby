@@ -105,7 +105,27 @@ module DatadogAPIClient::V1
     def valid?
       return false if @search.nil?
       return false if @tags_execution.nil?
+      return false if @search.nil?
+      return false if @tags_execution.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param search [Object] Object to be assigned
+    def search=(search)
+      if @search.nil?
+        fail ArgumentError, 'invalid value for "search", search cannot be nil.'
+      end
+      @search = search
+    end
+
+    # Custom attribute writer method with validation
+    # @param tags_execution [Object] Object to be assigned
+    def tags_execution=(tags_execution)
+      if @tags_execution.nil?
+        fail ArgumentError, 'invalid value for "tags_execution", tags_execution cannot be nil.'
+      end
+      @tags_execution = tags_execution
     end
 
     # Checks equality by comparing each attribute.

@@ -118,7 +118,31 @@ module DatadogAPIClient::V2
     def valid?
       return false if @cell_type.nil?
       return false if @content.nil?
+      return false if @cell_type.nil?
+      return false if @content.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param cell_type [Object] Object to be assigned
+    def cell_type=(cell_type)
+      validator = EnumAttributeValidator.new('IncidentTimelineCellMarkdownContentType', ['markdown'])
+      unless validator.valid?(cell_type)
+        fail ArgumentError, "invalid value for \"cell_type\", must be one of #{validator.allowable_values}."
+      end
+      if @cell_type.nil?
+        fail ArgumentError, 'invalid value for "cell_type", cell_type cannot be nil.'
+      end
+      @cell_type = cell_type
+    end
+
+    # Custom attribute writer method with validation
+    # @param content [Object] Object to be assigned
+    def content=(content)
+      if @content.nil?
+        fail ArgumentError, 'invalid value for "content", content cannot be nil.'
+      end
+      @content = content
     end
 
     # Checks equality by comparing each attribute.

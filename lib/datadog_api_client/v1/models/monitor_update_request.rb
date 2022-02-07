@@ -234,7 +234,41 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if !@priority.nil? && @priority > 5
+      return false if !@priority.nil? && @priority < 1
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param overall_state [Object] Object to be assigned
+    def overall_state=(overall_state)
+      validator = EnumAttributeValidator.new('MonitorOverallStates', ['Alert', 'Ignored', 'No Data', 'OK', 'Skipped', 'Unknown', 'Warn'])
+      unless validator.valid?(overall_state)
+        fail ArgumentError, "invalid value for \"overall_state\", must be one of #{validator.allowable_values}."
+      end
+      @overall_state = overall_state
+    end
+
+    # Custom attribute writer method with validation
+    # @param priority [Object] Object to be assigned
+    def priority=(priority)
+      if !@priority.nil? && @priority > 5
+        fail ArgumentError, 'invalid value for "priority", must be smaller than or equal to 5.'
+      end
+      if !@priority.nil? && @priority < 1
+        fail ArgumentError, 'invalid value for "priority", must be greater than or equal to 1.'
+      end
+      @priority = priority
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('MonitorType', ['composite', 'event alert', 'log alert', 'metric alert', 'process alert', 'query alert', 'rum alert', 'service check', 'synthetics alert', 'trace-analytics alert', 'slo alert', 'event-v2 alert', 'audit alert', 'ci-pipelines alert'])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.

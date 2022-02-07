@@ -103,7 +103,17 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @sample_rate.nil?
+      return false if @sample_rate.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param sample_rate [Object] Object to be assigned
+    def sample_rate=(sample_rate)
+      if @sample_rate.nil?
+        fail ArgumentError, 'invalid value for "sample_rate", sample_rate cannot be nil.'
+      end
+      @sample_rate = sample_rate
     end
 
     # Checks equality by comparing each attribute.

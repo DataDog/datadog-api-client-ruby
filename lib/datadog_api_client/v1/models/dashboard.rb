@@ -255,7 +255,51 @@ module DatadogAPIClient::V1
       return false if @layout_type.nil?
       return false if @title.nil?
       return false if @widgets.nil?
+      return false if @layout_type.nil?
+      return false if @title.nil?
+      return false if @widgets.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param layout_type [Object] Object to be assigned
+    def layout_type=(layout_type)
+      validator = EnumAttributeValidator.new('DashboardLayoutType', ['ordered', 'free'])
+      unless validator.valid?(layout_type)
+        fail ArgumentError, "invalid value for \"layout_type\", must be one of #{validator.allowable_values}."
+      end
+      if @layout_type.nil?
+        fail ArgumentError, 'invalid value for "layout_type", layout_type cannot be nil.'
+      end
+      @layout_type = layout_type
+    end
+
+    # Custom attribute writer method with validation
+    # @param reflow_type [Object] Object to be assigned
+    def reflow_type=(reflow_type)
+      validator = EnumAttributeValidator.new('DashboardReflowType', ['auto', 'fixed'])
+      unless validator.valid?(reflow_type)
+        fail ArgumentError, "invalid value for \"reflow_type\", must be one of #{validator.allowable_values}."
+      end
+      @reflow_type = reflow_type
+    end
+
+    # Custom attribute writer method with validation
+    # @param title [Object] Object to be assigned
+    def title=(title)
+      if @title.nil?
+        fail ArgumentError, 'invalid value for "title", title cannot be nil.'
+      end
+      @title = title
+    end
+
+    # Custom attribute writer method with validation
+    # @param widgets [Object] Object to be assigned
+    def widgets=(widgets)
+      if @widgets.nil?
+        fail ArgumentError, 'invalid value for "widgets", widgets cannot be nil.'
+      end
+      @widgets = widgets
     end
 
     # Checks equality by comparing each attribute.

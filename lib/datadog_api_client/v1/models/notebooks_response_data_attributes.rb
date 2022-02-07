@@ -165,7 +165,35 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @name.nil?
+      return false if @name.nil?
+      return false if @name.to_s.length > 80
+      return false if @name.to_s.length < 0
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    def name=(name)
+      if @name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      if @name.to_s.length > 80
+        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 80.'
+      end
+      if @name.to_s.length < 0
+        fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 0.'
+      end
+      @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param status [Object] Object to be assigned
+    def status=(status)
+      validator = EnumAttributeValidator.new('NotebookStatus', ['published'])
+      unless validator.valid?(status)
+        fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
+      end
+      @status = status
     end
 
     # Checks equality by comparing each attribute.

@@ -189,6 +189,26 @@ module DatadogAPIClient::V1
       true
     end
 
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('SLOType', ['metric', 'monitor'])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      @type = type
+    end
+
+    # Custom attribute writer method with validation
+    # @param type_id [Object] Object to be assigned
+    def type_id=(type_id)
+      validator = EnumAttributeValidator.new('SLOTypeNumeric', [0, 1])
+      unless validator.valid?(type_id)
+        fail ArgumentError, "invalid value for \"type_id\", must be one of #{validator.allowable_values}."
+      end
+      @type_id = type_id
+    end
+
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

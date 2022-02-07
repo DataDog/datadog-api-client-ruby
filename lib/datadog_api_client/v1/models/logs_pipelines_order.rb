@@ -95,7 +95,17 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @pipeline_ids.nil?
+      return false if @pipeline_ids.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param pipeline_ids [Object] Object to be assigned
+    def pipeline_ids=(pipeline_ids)
+      if @pipeline_ids.nil?
+        fail ArgumentError, 'invalid value for "pipeline_ids", pipeline_ids cannot be nil.'
+      end
+      @pipeline_ids = pipeline_ids
     end
 
     # Checks equality by comparing each attribute.

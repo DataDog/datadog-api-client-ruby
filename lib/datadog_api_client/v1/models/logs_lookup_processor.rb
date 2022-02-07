@@ -171,7 +171,51 @@ module DatadogAPIClient::V1
       return false if @source.nil?
       return false if @target.nil?
       return false if @type.nil?
+      return false if @lookup_table.nil?
+      return false if @source.nil?
+      return false if @target.nil?
+      return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param lookup_table [Object] Object to be assigned
+    def lookup_table=(lookup_table)
+      if @lookup_table.nil?
+        fail ArgumentError, 'invalid value for "lookup_table", lookup_table cannot be nil.'
+      end
+      @lookup_table = lookup_table
+    end
+
+    # Custom attribute writer method with validation
+    # @param source [Object] Object to be assigned
+    def source=(source)
+      if @source.nil?
+        fail ArgumentError, 'invalid value for "source", source cannot be nil.'
+      end
+      @source = source
+    end
+
+    # Custom attribute writer method with validation
+    # @param target [Object] Object to be assigned
+    def target=(target)
+      if @target.nil?
+        fail ArgumentError, 'invalid value for "target", target cannot be nil.'
+      end
+      @target = target
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('LogsLookupProcessorType', ['lookup-processor'])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      if @type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.

@@ -130,7 +130,37 @@ module DatadogAPIClient::V1
       return false if @count.nil?
       return false if @sum.nil?
       return false if @values.nil?
+      return false if @count.nil?
+      return false if @sum.nil?
+      return false if @values.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param count [Object] Object to be assigned
+    def count=(count)
+      if @count.nil?
+        fail ArgumentError, 'invalid value for "count", count cannot be nil.'
+      end
+      @count = count
+    end
+
+    # Custom attribute writer method with validation
+    # @param sum [Object] Object to be assigned
+    def sum=(sum)
+      if @sum.nil?
+        fail ArgumentError, 'invalid value for "sum", sum cannot be nil.'
+      end
+      @sum = sum
+    end
+
+    # Custom attribute writer method with validation
+    # @param values [Object] Object to be assigned
+    def values=(values)
+      if @values.nil?
+        fail ArgumentError, 'invalid value for "values", values cannot be nil.'
+      end
+      @values = values
     end
 
     # Checks equality by comparing each attribute.

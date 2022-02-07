@@ -123,7 +123,35 @@ module DatadogAPIClient::V1
     def valid?
       return false if @operator.nil?
       return false if @type.nil?
+      return false if @operator.nil?
+      return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param operator [Object] Object to be assigned
+    def operator=(operator)
+      validator = EnumAttributeValidator.new('SyntheticsAssertionJSONPathOperator', ['validatesJSONPath'])
+      unless validator.valid?(operator)
+        fail ArgumentError, "invalid value for \"operator\", must be one of #{validator.allowable_values}."
+      end
+      if @operator.nil?
+        fail ArgumentError, 'invalid value for "operator", operator cannot be nil.'
+      end
+      @operator = operator
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('SyntheticsAssertionType', ['body', 'header', 'statusCode', 'certificate', 'responseTime', 'property', 'recordEvery', 'recordSome', 'tlsVersion', 'minTlsVersion', 'latency', 'packetLossPercentage', 'packetsReceived', 'networkHop', 'receivedMessage'])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      if @type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.

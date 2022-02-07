@@ -147,6 +147,16 @@ module DatadogAPIClient::V1
       true
     end
 
+    # Custom attribute writer method with validation
+    # @param access_role [Object] Object to be assigned
+    def access_role=(access_role)
+      validator = EnumAttributeValidator.new('AccessRole', ['st', 'adm', 'ro', 'ERROR'])
+      unless validator.valid?(access_role)
+        fail ArgumentError, "invalid value for \"access_role\", must be one of #{validator.allowable_values}."
+      end
+      @access_role = access_role
+    end
+
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

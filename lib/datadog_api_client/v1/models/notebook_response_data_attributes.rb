@@ -173,7 +173,55 @@ module DatadogAPIClient::V1
       return false if @cells.nil?
       return false if @name.nil?
       return false if @time.nil?
+      return false if @cells.nil?
+      return false if @name.nil?
+      return false if @name.to_s.length > 80
+      return false if @name.to_s.length < 0
+      return false if @time.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param cells [Object] Object to be assigned
+    def cells=(cells)
+      if @cells.nil?
+        fail ArgumentError, 'invalid value for "cells", cells cannot be nil.'
+      end
+      @cells = cells
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    def name=(name)
+      if @name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      if @name.to_s.length > 80
+        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 80.'
+      end
+      if @name.to_s.length < 0
+        fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 0.'
+      end
+      @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param status [Object] Object to be assigned
+    def status=(status)
+      validator = EnumAttributeValidator.new('NotebookStatus', ['published'])
+      unless validator.valid?(status)
+        fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
+      end
+      @status = status
+    end
+
+    # Custom attribute writer method with validation
+    # @param time [Object] Object to be assigned
+    def time=(time)
+      if @time.nil?
+        fail ArgumentError, 'invalid value for "time", time cannot be nil.'
+      end
+      @time = time
     end
 
     # Checks equality by comparing each attribute.

@@ -110,7 +110,21 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @aggregation.nil?
+      return false if @aggregation.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param aggregation [Object] Object to be assigned
+    def aggregation=(aggregation)
+      validator = EnumAttributeValidator.new('MonitorFormulaAndFunctionEventAggregation', ['count', 'cardinality', 'median', 'pc75', 'pc90', 'pc95', 'pc98', 'pc99', 'sum', 'min', 'max', 'avg'])
+      unless validator.valid?(aggregation)
+        fail ArgumentError, "invalid value for \"aggregation\", must be one of #{validator.allowable_values}."
+      end
+      if @aggregation.nil?
+        fail ArgumentError, 'invalid value for "aggregation", aggregation cannot be nil.'
+      end
+      @aggregation = aggregation
     end
 
     # Checks equality by comparing each attribute.

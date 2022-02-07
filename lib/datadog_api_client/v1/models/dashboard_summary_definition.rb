@@ -164,6 +164,16 @@ module DatadogAPIClient::V1
       true
     end
 
+    # Custom attribute writer method with validation
+    # @param layout_type [Object] Object to be assigned
+    def layout_type=(layout_type)
+      validator = EnumAttributeValidator.new('DashboardLayoutType', ['ordered', 'free'])
+      unless validator.valid?(layout_type)
+        fail ArgumentError, "invalid value for \"layout_type\", must be one of #{validator.allowable_values}."
+      end
+      @layout_type = layout_type
+    end
+
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

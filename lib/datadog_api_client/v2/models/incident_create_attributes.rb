@@ -136,7 +136,27 @@ module DatadogAPIClient::V2
     def valid?
       return false if @customer_impacted.nil?
       return false if @title.nil?
+      return false if @customer_impacted.nil?
+      return false if @title.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param customer_impacted [Object] Object to be assigned
+    def customer_impacted=(customer_impacted)
+      if @customer_impacted.nil?
+        fail ArgumentError, 'invalid value for "customer_impacted", customer_impacted cannot be nil.'
+      end
+      @customer_impacted = customer_impacted
+    end
+
+    # Custom attribute writer method with validation
+    # @param title [Object] Object to be assigned
+    def title=(title)
+      if @title.nil?
+        fail ArgumentError, 'invalid value for "title", title cannot be nil.'
+      end
+      @title = title
     end
 
     # Checks equality by comparing each attribute.

@@ -199,7 +199,51 @@ module DatadogAPIClient::V1
       return false if @sources.nil?
       return false if @target.nil?
       return false if @type.nil?
+      return false if @sources.nil?
+      return false if @target.nil?
+      return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param sources [Object] Object to be assigned
+    def sources=(sources)
+      if @sources.nil?
+        fail ArgumentError, 'invalid value for "sources", sources cannot be nil.'
+      end
+      @sources = sources
+    end
+
+    # Custom attribute writer method with validation
+    # @param target [Object] Object to be assigned
+    def target=(target)
+      if @target.nil?
+        fail ArgumentError, 'invalid value for "target", target cannot be nil.'
+      end
+      @target = target
+    end
+
+    # Custom attribute writer method with validation
+    # @param target_format [Object] Object to be assigned
+    def target_format=(target_format)
+      validator = EnumAttributeValidator.new('TargetFormatType', ['auto', 'string', 'integer', 'double'])
+      unless validator.valid?(target_format)
+        fail ArgumentError, "invalid value for \"target_format\", must be one of #{validator.allowable_values}."
+      end
+      @target_format = target_format
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('LogsAttributeRemapperType', ['attribute-remapper'])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      if @type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.

@@ -172,7 +172,45 @@ module DatadogAPIClient::V1
       return false if @comparator.nil?
       return false if @palette.nil?
       return false if @value.nil?
+      return false if @comparator.nil?
+      return false if @palette.nil?
+      return false if @value.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param comparator [Object] Object to be assigned
+    def comparator=(comparator)
+      validator = EnumAttributeValidator.new('WidgetComparator', ['>', '>=', '<', '<='])
+      unless validator.valid?(comparator)
+        fail ArgumentError, "invalid value for \"comparator\", must be one of #{validator.allowable_values}."
+      end
+      if @comparator.nil?
+        fail ArgumentError, 'invalid value for "comparator", comparator cannot be nil.'
+      end
+      @comparator = comparator
+    end
+
+    # Custom attribute writer method with validation
+    # @param palette [Object] Object to be assigned
+    def palette=(palette)
+      validator = EnumAttributeValidator.new('WidgetPalette', ['blue', 'custom_bg', 'custom_image', 'custom_text', 'gray_on_white', 'grey', 'green', 'orange', 'red', 'red_on_white', 'white_on_gray', 'white_on_green', 'green_on_white', 'white_on_red', 'white_on_yellow', 'yellow_on_white', 'black_on_light_yellow', 'black_on_light_green', 'black_on_light_red'])
+      unless validator.valid?(palette)
+        fail ArgumentError, "invalid value for \"palette\", must be one of #{validator.allowable_values}."
+      end
+      if @palette.nil?
+        fail ArgumentError, 'invalid value for "palette", palette cannot be nil.'
+      end
+      @palette = palette
+    end
+
+    # Custom attribute writer method with validation
+    # @param value [Object] Object to be assigned
+    def value=(value)
+      if @value.nil?
+        fail ArgumentError, 'invalid value for "value", value cannot be nil.'
+      end
+      @value = value
     end
 
     # Checks equality by comparing each attribute.

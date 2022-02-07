@@ -207,6 +207,36 @@ module DatadogAPIClient::V1
       true
     end
 
+    # Custom attribute writer method with validation
+    # @param status [Object] Object to be assigned
+    def status=(status)
+      validator = EnumAttributeValidator.new('SyntheticsTestPauseStatus', ['live', 'paused'])
+      unless validator.valid?(status)
+        fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
+      end
+      @status = status
+    end
+
+    # Custom attribute writer method with validation
+    # @param subtype [Object] Object to be assigned
+    def subtype=(subtype)
+      validator = EnumAttributeValidator.new('SyntheticsTestDetailsSubType', ['http', 'ssl', 'tcp', 'dns', 'multi', 'icmp', 'udp', 'websocket'])
+      unless validator.valid?(subtype)
+        fail ArgumentError, "invalid value for \"subtype\", must be one of #{validator.allowable_values}."
+      end
+      @subtype = subtype
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('SyntheticsTestDetailsType', ['api', 'browser'])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      @type = type
+    end
+
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private

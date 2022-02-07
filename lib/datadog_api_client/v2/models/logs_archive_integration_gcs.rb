@@ -105,7 +105,27 @@ module DatadogAPIClient::V2
     def valid?
       return false if @client_email.nil?
       return false if @project_id.nil?
+      return false if @client_email.nil?
+      return false if @project_id.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param client_email [Object] Object to be assigned
+    def client_email=(client_email)
+      if @client_email.nil?
+        fail ArgumentError, 'invalid value for "client_email", client_email cannot be nil.'
+      end
+      @client_email = client_email
+    end
+
+    # Custom attribute writer method with validation
+    # @param project_id [Object] Object to be assigned
+    def project_id=(project_id)
+      if @project_id.nil?
+        fail ArgumentError, 'invalid value for "project_id", project_id cannot be nil.'
+      end
+      @project_id = project_id
     end
 
     # Checks equality by comparing each attribute.

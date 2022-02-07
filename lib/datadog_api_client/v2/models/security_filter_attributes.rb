@@ -147,7 +147,27 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if !@version.nil? && @version > 2147483647
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param filtered_data_type [Object] Object to be assigned
+    def filtered_data_type=(filtered_data_type)
+      validator = EnumAttributeValidator.new('SecurityFilterFilteredDataType', ['logs'])
+      unless validator.valid?(filtered_data_type)
+        fail ArgumentError, "invalid value for \"filtered_data_type\", must be one of #{validator.allowable_values}."
+      end
+      @filtered_data_type = filtered_data_type
+    end
+
+    # Custom attribute writer method with validation
+    # @param version [Object] Object to be assigned
+    def version=(version)
+      if !@version.nil? && @version > 2147483647
+        fail ArgumentError, 'invalid value for "version", must be smaller than or equal to 2147483647.'
+      end
+      @version = version
     end
 
     # Checks equality by comparing each attribute.

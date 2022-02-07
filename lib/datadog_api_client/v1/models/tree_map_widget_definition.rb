@@ -153,7 +153,69 @@ module DatadogAPIClient::V1
     def valid?
       return false if @requests.nil?
       return false if @type.nil?
+      return false if @requests.nil?
+      return false if @requests.length > 1
+      return false if @requests.length < 1
+      return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param color_by [Object] Object to be assigned
+    def color_by=(color_by)
+      validator = EnumAttributeValidator.new('TreeMapColorBy', ['user'])
+      unless validator.valid?(color_by)
+        fail ArgumentError, "invalid value for \"color_by\", must be one of #{validator.allowable_values}."
+      end
+      @color_by = color_by
+    end
+
+    # Custom attribute writer method with validation
+    # @param group_by [Object] Object to be assigned
+    def group_by=(group_by)
+      validator = EnumAttributeValidator.new('TreeMapGroupBy', ['user', 'family', 'process'])
+      unless validator.valid?(group_by)
+        fail ArgumentError, "invalid value for \"group_by\", must be one of #{validator.allowable_values}."
+      end
+      @group_by = group_by
+    end
+
+    # Custom attribute writer method with validation
+    # @param requests [Object] Object to be assigned
+    def requests=(requests)
+      if @requests.nil?
+        fail ArgumentError, 'invalid value for "requests", requests cannot be nil.'
+      end
+      if @requests.length > 1
+        fail ArgumentError, 'invalid value for "requests", number of items must be less than or equal to 1.'
+      end
+      if @requests.length < 1
+        fail ArgumentError, 'invalid value for "requests", number of items must be greater than or equal to 1.'
+      end
+      @requests = requests
+    end
+
+    # Custom attribute writer method with validation
+    # @param size_by [Object] Object to be assigned
+    def size_by=(size_by)
+      validator = EnumAttributeValidator.new('TreeMapSizeBy', ['pct_cpu', 'pct_mem'])
+      unless validator.valid?(size_by)
+        fail ArgumentError, "invalid value for \"size_by\", must be one of #{validator.allowable_values}."
+      end
+      @size_by = size_by
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('TreeMapWidgetDefinitionType', ['treemap'])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      if @type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.
