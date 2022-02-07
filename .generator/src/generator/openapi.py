@@ -267,26 +267,23 @@ def accept_headers(operation):
     return seen
 
 
-def collection_format(schema):
+def collection_format(parameter):
     in_to_style = {
         "query": "form",
         "path": "simple",
         "header": "simple",
         "cookie": "form",
     }
+    schema = parameter_schema(parameter)
     matrix = {
         ("form", False): "csv",
         ("form", True): "multi",
         # TODO add more cases from https://swagger.io/specification/#parameter-style
     }
-    if (
-        "style" in schema
-        or "explode" in schema
-        and (schema.get("type") == "array" or "items" in schema)
-    ):
-        in_ = schema.get("in", "query")
-        style = schema.get("style", in_to_style[in_])
-        explode = schema.get("explode", True if style == "form" else False)
+    if (schema.get("type") == "array" or "items" in schema):
+        in_ = parameter.get("in", "query")
+        style = parameter.get("style", in_to_style[in_])
+        explode = parameter.get("explode", True if style == "form" else False)
         return matrix.get((style, explode), "multi")
 
 

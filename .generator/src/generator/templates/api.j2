@@ -69,7 +69,7 @@ module {{ config.moduleName }}
       if @api_client.config.client_side_validation && {{ name|attribute_name }}.nil?
         fail ArgumentError, "Missing the required parameter '{{ name|attribute_name }}' when calling {{classname}}.{{ operation.operationId|snake_case }}"
       end
-      {%- if schema.enum is defined and not schema|collection_format %}
+      {%- if schema.enum is defined and not parameter|collection_format %}
       # verify enum value
       allowable_values = [{% for value in schema.enum %}{{ value|format_value }}{%- if not loop.last %}, {% endif %}{% endfor %}]
       if @api_client.config.client_side_validation && !allowable_values.include?({{ name|attribute_name }})
@@ -80,7 +80,7 @@ module {{ config.moduleName }}
   {%- else %}
     {%- if schema.enum is defined %}
       allowable_values = [{% for value in schema.enum %}{{ value|format_value }}{%- if not loop.last %}, {% endif %}{% endfor %}]
-      {%- if schema|collection_format %}
+      {%- if parameter|collection_format %}
       if @api_client.config.client_side_validation && opts[:'{{ name|attribute_name }}'] && !opts[:'{{ name|attribute_name }}'].all? { |item| allowable_values.include?(item) }
         fail ArgumentError, "invalid value for \"{{ name|attribute_name }}\", must include one of #{allowable_values}"
       end
@@ -142,11 +142,11 @@ module {{ config.moduleName }}
       # query parameters
       query_params = opts[:query_params] || {}
       {%- for name, parameter in operation|parameters if parameter.in == "query" and parameter.required %}
-      {%- set collection = parameter|parameter_schema|collection_format %}
+      {%- set collection = parameter|collection_format %}
       query_params[:'{{ name }}'] = {% if collection %}@api_client.build_collection_param({{ name|attribute_name }}, :{{ collection }}){% else %}{{ name|attribute_name }}{% endif %}
       {%- endfor %}
       {%- for name, parameter in operation|parameters if parameter.in == "query" and not parameter.required %}
-      {%- set collection = parameter|parameter_schema|collection_format %}
+      {%- set collection = parameter|collection_format %}
       query_params[:'{{ name }}'] = {% if collection %}@api_client.build_collection_param(opts[:'{{ name|attribute_name }}'], :{{ collection }}){% else %}opts[:'{{ name|attribute_name }}']{% endif %} if !opts[:'{{ name|attribute_name }}'].nil?
       {%- endfor %}
 
@@ -163,22 +163,22 @@ module {{ config.moduleName }}
       {%- endif %}
 
       {%- for name, parameter in operation|parameters if parameter.in == "header" and parameter.required %}
-      {%- set collection = parameter|parameter_schema|collection_format %}
+      {%- set collection = parameter|collection_format %}
       header_params['{{ name }}'] = {% if collection %}@api_client.build_collection_param({{ name|attribute_name }}, :{{ collection }}){% else %}{ name|attribute_name }}{% endif %}
       {%- endfor %}
       {%- for name, parameter in operation|parameters if parameter.in == "header" and not parameter.required %}
-      {%- set collection = parameter|parameter_schema|collection_format %}
+      {%- set collection = parameter|collection_format %}
       header_params['{{ name }}'] = {% if collection %}@api_client.build_collection_param(opts[:'{{ name|attribute_name }}'], :{{ collection }}){% else %}opts[:'{{ name|attribute_name }}']{% endif %} if !opts[:'{{ name|attribute_name }}'].nil?
       {%- endfor %}
 
       # form parameters
       form_params = opts[:form_params] || {}
       {%- for name, parameter in operation|parameters if parameter.in == "form" and parameter.required %}
-      {%- set collection = parameter|parameter_schema|collection_format %}
+      {%- set collection = parameter|collection_format %}
       form_params['{{ name }}'] = {% if collection %}@api_client.build_collection_param({{ name|attribute_name }}, :{{ collection }}){% else %}{{ name|attribute_name }}{% endif %}
       {%- endfor %}
       {%- for name, parameter in operation|parameters if parameter.in == "form" and not parameter.required %}
-      {%- set collection = parameter|parameter_schema|collection_format %}
+      {%- set collection = parameter|collection_format %}
       form_params['{{ name }}'] = {% if collection %}@api_client.build_collection_param(opts[:'{{ name|attribute_name }}'], :{{ collection }}){% else %}opts[:'{{ name|attribute_name }}']{% endif %} if !opts[:'{{ name|attribute_name }}'].nil?
       {%- endfor %}
 

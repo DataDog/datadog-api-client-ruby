@@ -746,7 +746,7 @@ module DatadogAPIClient::V1
       query_params = opts[:query_params] || {}
       query_params[:'from_ts'] = opts[:'from_ts'] if !opts[:'from_ts'].nil?
       query_params[:'to_ts'] = opts[:'to_ts'] if !opts[:'to_ts'].nil?
-      query_params[:'probe_dc'] = opts[:'probe_dc'] if !opts[:'probe_dc'].nil?
+      query_params[:'probe_dc'] = @api_client.build_collection_param(opts[:'probe_dc'], :multi) if !opts[:'probe_dc'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -982,7 +982,7 @@ module DatadogAPIClient::V1
       query_params = opts[:query_params] || {}
       query_params[:'from_ts'] = opts[:'from_ts'] if !opts[:'from_ts'].nil?
       query_params[:'to_ts'] = opts[:'to_ts'] if !opts[:'to_ts'].nil?
-      query_params[:'probe_dc'] = opts[:'probe_dc'] if !opts[:'probe_dc'].nil?
+      query_params[:'probe_dc'] = @api_client.build_collection_param(opts[:'probe_dc'], :multi) if !opts[:'probe_dc'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

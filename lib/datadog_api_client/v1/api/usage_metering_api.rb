@@ -1774,7 +1774,7 @@ module DatadogAPIClient::V1
       query_params = opts[:query_params] || {}
       query_params[:'start_hr'] = start_hr
       query_params[:'end_hr'] = opts[:'end_hr'] if !opts[:'end_hr'].nil?
-      query_params[:'index_name'] = opts[:'index_name'] if !opts[:'index_name'].nil?
+      query_params[:'index_name'] = @api_client.build_collection_param(opts[:'index_name'], :multi) if !opts[:'index_name'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -2867,7 +2867,7 @@ module DatadogAPIClient::V1
       query_params = opts[:query_params] || {}
       query_params[:'month'] = opts[:'month'] if !opts[:'month'].nil?
       query_params[:'day'] = opts[:'day'] if !opts[:'day'].nil?
-      query_params[:'names'] = opts[:'names'] if !opts[:'names'].nil?
+      query_params[:'names'] = @api_client.build_collection_param(opts[:'names'], :multi) if !opts[:'names'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'next_record_id'] = opts[:'next_record_id'] if !opts[:'next_record_id'].nil?
 
