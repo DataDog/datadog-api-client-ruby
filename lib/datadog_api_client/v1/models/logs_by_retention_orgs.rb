@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Indexed logs usage summary for each organization.
+    # # Indexed logs usage summary for each organization.
     attr_accessor :usage
 
     # Attribute mapping from ruby-style variable name to JSON key.

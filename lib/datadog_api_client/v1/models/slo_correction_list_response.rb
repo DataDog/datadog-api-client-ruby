@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The list of of SLO corrections objects.
+    # # The list of of SLO corrections objects.
     attr_accessor :data
 
-    # Object describing meta attributes of response.
+    # # Object describing meta attributes of response.
     attr_accessor :meta
 
     # Attribute mapping from ruby-style variable name to JSON key.

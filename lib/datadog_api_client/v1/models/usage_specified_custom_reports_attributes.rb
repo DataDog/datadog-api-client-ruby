@@ -23,22 +23,22 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The date the specified custom report was computed.
+    # # The date the specified custom report was computed.
     attr_accessor :computed_on
 
-    # The ending date of specified custom report.
+    # # The ending date of specified custom report.
     attr_accessor :end_date
 
-    # A downloadable file for the specified custom reporting file.
+    # # A downloadable file for the specified custom reporting file.
     attr_accessor :location
 
-    # size
+    # # size
     attr_accessor :size
 
-    # The starting date of specified custom report.
+    # # The starting date of specified custom report.
     attr_accessor :start_date
 
-    # A list of tags to apply to specified custom reports.
+    # # A list of tags to apply to specified custom reports.
     attr_accessor :tags
 
     # Attribute mapping from ruby-style variable name to JSON key.

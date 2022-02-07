@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The aggregate type.
+    # # The aggregate type.
     attr_accessor :agg_type
 
-    # The field.
+    # # The field.
     attr_accessor :field
 
-    # The value for a given field.
+    # # The value for a given field.
     attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.

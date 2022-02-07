@@ -23,43 +23,43 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The `from` timestamp in epoch seconds.
+    # # The `from` timestamp in epoch seconds.
     attr_accessor :from_ts
 
-    # For `metric` based SLOs where the query includes a group-by clause, this represents the list of grouping parameters.
-    # 
+    # # For `metric` based SLOs where the query includes a group-by clause, this represents the list of grouping parameters.
+    #
     # This is not included in responses for `monitor` based SLOs.
     attr_accessor :group_by
 
-    # For grouped SLOs, this represents SLI data for specific groups.
-    # 
+    # # For grouped SLOs, this represents SLI data for specific groups.
+    #
     # This is not included in the responses for `metric` based SLOs.
     attr_accessor :groups
 
-    # For multi-monitor SLOs, this represents SLI data for specific monitors.
-    # 
+    # # For multi-monitor SLOs, this represents SLI data for specific monitors.
+    #
     # This is not included in the responses for `metric` based SLOs.
     attr_accessor :monitors
 
-    # An object that holds an SLI value and its associated data. It can represent an SLO's overall SLI value.
+    # # An object that holds an SLI value and its associated data. It can represent an SLO's overall SLI value.
     # This can also represent the SLI value for a specific monitor in multi-monitor SLOs, or a group in grouped SLOs.
     attr_accessor :overall
 
-    # A `metric` based SLO history response.
-    # 
+    # # A `metric` based SLO history response.
+    #
     # This is not included in responses for `monitor` based SLOs.
     attr_accessor :series
 
-    # mapping of string timeframe to the SLO threshold.
+    # # mapping of string timeframe to the SLO threshold.
     attr_accessor :thresholds
 
-    # The `to` timestamp in epoch seconds.
+    # # The `to` timestamp in epoch seconds.
     attr_accessor :to_ts
 
-    # The type of the service level objective.
+    # # The type of the service level objective.
     attr_accessor :type
 
-    # A numeric representation of the type of the service level objective (`0` for
+    # # A numeric representation of the type of the service level objective (`0` for
     # monitor, `1` for metric). Always included in service level objective responses.
     # Ignored in create/update requests.
     attr_accessor :type_id

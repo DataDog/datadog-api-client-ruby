@@ -23,14 +23,14 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Array of logs matching the request and the `nextLogId` if sent.
+    # # Array of logs matching the request and the `nextLogId` if sent.
     attr_accessor :logs
 
-    # Hash identifier of the next log to return in the list.
+    # # Hash identifier of the next log to return in the list.
     # This parameter is used for the pagination feature.
     attr_accessor :next_log_id
 
-    # Status of the response.
+    # # Status of the response.
     attr_accessor :status
 
     # Attribute mapping from ruby-style variable name to JSON key.

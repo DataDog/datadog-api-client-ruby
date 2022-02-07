@@ -23,23 +23,23 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The name of the facet to use (required)
+    # # The name of the facet to use (required)
     attr_accessor :facet
 
-    # Used to perform a histogram computation (only for measure facets).
+    # # Used to perform a histogram computation (only for measure facets).
     # Note: At most 100 buckets are allowed, the number of buckets is (max - min)/interval.
     attr_accessor :histogram
 
-    # The maximum buckets to return for this group by
+    # # The maximum buckets to return for this group by
     attr_accessor :limit
 
-    # The value to use for logs that don't have the facet used to group by
+    # # The value to use for logs that don't have the facet used to group by
     attr_accessor :missing
 
-    # A sort rule
+    # # A sort rule
     attr_accessor :sort
 
-    # A resulting object to put the given computes in over all the matching records.
+    # # A resulting object to put the given computes in over all the matching records.
     attr_accessor :total
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,16 +23,16 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The email of the user.
+    # # The email of the user.
     attr_accessor :email
 
-    # The name of the user.
+    # # The name of the user.
     attr_accessor :name
 
-    # Whether the user is a service account. Must be true.
+    # # Whether the user is a service account. Must be true.
     attr_accessor :service_account
 
-    # The title of the user.
+    # # The title of the user.
     attr_accessor :title
 
     # Attribute mapping from ruby-style variable name to JSON key.

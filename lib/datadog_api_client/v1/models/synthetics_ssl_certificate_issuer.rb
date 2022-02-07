@@ -23,22 +23,22 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Country Name that issued the certificate.
+    # # Country Name that issued the certificate.
     attr_accessor :c
 
-    # Common Name that issued certificate.
+    # # Common Name that issued certificate.
     attr_accessor :cn
 
-    # Locality that issued the certificate.
+    # # Locality that issued the certificate.
     attr_accessor :l
 
-    # Organization that issued the certificate.
+    # # Organization that issued the certificate.
     attr_accessor :o
 
-    # Organizational Unit that issued the certificate.
+    # # Organizational Unit that issued the certificate.
     attr_accessor :ou
 
-    # State Or Province Name that issued the certificate.
+    # # State Or Province Name that issued the certificate.
     attr_accessor :st
 
     # Attribute mapping from ruby-style variable name to JSON key.

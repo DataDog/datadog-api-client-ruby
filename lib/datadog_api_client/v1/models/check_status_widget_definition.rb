@@ -23,34 +23,34 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Name of the check to use in the widget.
+    # # Name of the check to use in the widget.
     attr_accessor :check
 
-    # Group reporting a single check.
+    # # Group reporting a single check.
     attr_accessor :group
 
-    # List of tag prefixes to group by in the case of a cluster check.
+    # # List of tag prefixes to group by in the case of a cluster check.
     attr_accessor :group_by
 
-    # The kind of grouping to use.
+    # # The kind of grouping to use.
     attr_accessor :grouping
 
-    # List of tags used to filter the groups reporting a cluster check.
+    # # List of tags used to filter the groups reporting a cluster check.
     attr_accessor :tags
 
-    # Time setting for the widget.
+    # # Time setting for the widget.
     attr_accessor :time
 
-    # Title of the widget.
+    # # Title of the widget.
     attr_accessor :title
 
-    # How to align the text on the widget.
+    # # How to align the text on the widget.
     attr_accessor :title_align
 
-    # Size of the title.
+    # # Size of the title.
     attr_accessor :title_size
 
-    # Type of the check status widget.
+    # # Type of the check status widget.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

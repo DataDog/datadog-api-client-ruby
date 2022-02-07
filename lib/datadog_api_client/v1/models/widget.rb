@@ -28,13 +28,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # [Definition of the widget](https://docs.datadoghq.com/dashboards/widgets/).
+    # # [Definition of the widget](https://docs.datadoghq.com/dashboards/widgets/).
     attr_accessor :definition
 
-    # ID of the widget.
+    # # ID of the widget.
     attr_accessor :id
 
-    # The layout for a widget on a `free` or **new dashboard layout** dashboard.
+    # # The layout for a widget on a `free` or **new dashboard layout** dashboard.
     attr_accessor :layout
 
     # Attribute mapping from ruby-style variable name to JSON key.

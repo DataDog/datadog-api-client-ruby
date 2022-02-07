@@ -23,19 +23,19 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Get average number of container agents for that hour.
+    # # Get average number of container agents for that hour.
     attr_accessor :avg_container_agent_count
 
-    # Contains the total number of profiled hosts reporting during a given hour.
+    # # Contains the total number of profiled hosts reporting during a given hour.
     attr_accessor :host_count
 
-    # The hour for the usage.
+    # # The hour for the usage.
     attr_accessor :hour
 
-    # The organization name.
+    # # The organization name.
     attr_accessor :org_name
 
-    # The organization public ID.
+    # # The organization public ID.
     attr_accessor :public_id
 
     # Attribute mapping from ruby-style variable name to JSON key.

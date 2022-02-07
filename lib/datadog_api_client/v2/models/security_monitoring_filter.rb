@@ -23,10 +23,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The type of filtering action.
+    # # The type of filtering action.
     attr_accessor :action
 
-    # Query for selecting logs to apply the filtering action.
+    # # Query for selecting logs to apply the filtering action.
     attr_accessor :query
 
     # Attribute mapping from ruby-style variable name to JSON key.

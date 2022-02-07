@@ -23,16 +23,16 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The device ID.
+    # # The device ID.
     attr_accessor :device
 
-    # The location ID of the test run.
+    # # The location ID of the test run.
     attr_accessor :location
 
-    # The public ID of the Synthetics test.
+    # # The public ID of the Synthetics test.
     attr_accessor :public_id
 
-    # ID of the result.
+    # # ID of the result.
     attr_accessor :result_id
 
     # Attribute mapping from ruby-style variable name to JSON key.

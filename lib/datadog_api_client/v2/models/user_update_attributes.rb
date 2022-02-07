@@ -23,13 +23,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # If the user is enabled or disabled.
+    # # If the user is enabled or disabled.
     attr_accessor :disabled
 
-    # The email of the user.
+    # # The email of the user.
     attr_accessor :email
 
-    # The name of the user.
+    # # The name of the user.
     attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,29 +23,29 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Determines whether or not to continue with test if this step fails.
+    # # Determines whether or not to continue with test if this step fails.
     attr_accessor :allow_failure
 
-    # Array of assertions used for the test.
+    # # Array of assertions used for the test.
     attr_accessor :assertions
 
-    # Array of values to parse and save as variables from the response.
+    # # Array of values to parse and save as variables from the response.
     attr_accessor :extracted_values
 
-    # Determines whether or not to consider the entire test as failed if this step fails.
+    # # Determines whether or not to consider the entire test as failed if this step fails.
     # Can be used only if `allowFailure` is `true`.
     attr_accessor :is_critical
 
-    # The name of the step.
+    # # The name of the step.
     attr_accessor :name
 
-    # Object describing the Synthetic test request.
+    # # Object describing the Synthetic test request.
     attr_accessor :request
 
-    # Object describing the retry strategy to apply to a Synthetic test.
+    # # Object describing the retry strategy to apply to a Synthetic test.
     attr_accessor :_retry
 
-    # The subtype of the Synthetic multistep API test step, currently only supporting `http`.
+    # # The subtype of the Synthetic multistep API test step, currently only supporting `http`.
     attr_accessor :subtype
 
     # Attribute mapping from ruby-style variable name to JSON key.

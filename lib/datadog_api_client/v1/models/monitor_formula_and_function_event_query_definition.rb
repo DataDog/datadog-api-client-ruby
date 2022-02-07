@@ -23,22 +23,22 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Compute options.
+    # # Compute options.
     attr_accessor :compute
 
-    # Data source for event platform-based queries.
+    # # Data source for event platform-based queries.
     attr_accessor :data_source
 
-    # Group by options.
+    # # Group by options.
     attr_accessor :group_by
 
-    # An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
+    # # An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
     attr_accessor :indexes
 
-    # Name of the query for use in formulas.
+    # # Name of the query for use in formulas.
     attr_accessor :name
 
-    # Search options.
+    # # Search options.
     attr_accessor :search
 
     # Attribute mapping from ruby-style variable name to JSON key.

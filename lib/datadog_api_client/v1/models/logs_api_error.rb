@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Code identifying the error
+    # # Code identifying the error
     attr_accessor :code
 
-    # Additional error details
+    # # Additional error details
     attr_accessor :details
 
-    # Error message
+    # # Error message
     attr_accessor :message
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Description of the CI pipeline.
+    # # Description of the CI pipeline.
     attr_accessor :pipeline
 
-    # Description of the CI provider.
+    # # Description of the CI provider.
     attr_accessor :provider
 
     # Attribute mapping from ruby-style variable name to JSON key.

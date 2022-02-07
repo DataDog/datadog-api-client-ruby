@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The subscription type. Types available are `trial`, `free`, and `pro`.
+    # # The subscription type. Types available are `trial`, `free`, and `pro`.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

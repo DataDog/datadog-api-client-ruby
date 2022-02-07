@@ -23,29 +23,29 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Silence monitors for expected Azure VM shutdowns.
+    # # Silence monitors for expected Azure VM shutdowns.
     attr_accessor :automute
 
-    # Your Azure web application ID.
+    # # Your Azure web application ID.
     attr_accessor :client_id
 
-    # Your Azure web application secret key.
+    # # Your Azure web application secret key.
     attr_accessor :client_secret
 
-    # Errors in your configuration.
+    # # Errors in your configuration.
     attr_accessor :errors
 
-    # Limit the Azure instances that are pulled into Datadog by using tags.
+    # # Limit the Azure instances that are pulled into Datadog by using tags.
     # Only hosts that match one of the defined tags are imported into Datadog.
     attr_accessor :host_filters
 
-    # Your New Azure web application ID.
+    # # Your New Azure web application ID.
     attr_accessor :new_client_id
 
-    # Your New Azure Active Directory ID.
+    # # Your New Azure Active Directory ID.
     attr_accessor :new_tenant_name
 
-    # Your Azure Active Directory ID.
+    # # Your Azure Active Directory ID.
     attr_accessor :tenant_name
 
     # Attribute mapping from ruby-style variable name to JSON key.

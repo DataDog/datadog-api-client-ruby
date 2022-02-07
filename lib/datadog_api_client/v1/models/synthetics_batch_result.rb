@@ -23,34 +23,34 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The device ID.
+    # # The device ID.
     attr_accessor :device
 
-    # Total duration in millisecond of the test.
+    # # Total duration in millisecond of the test.
     attr_accessor :duration
 
-    # Execution rule for a Synthetics test.
+    # # Execution rule for a Synthetics test.
     attr_accessor :execution_rule
 
-    # Name of the location.
+    # # Name of the location.
     attr_accessor :location
 
-    # The ID of the result to get.
+    # # The ID of the result to get.
     attr_accessor :result_id
 
-    # Total duration in millisecond of the test.
+    # # Total duration in millisecond of the test.
     attr_accessor :retries
 
-    # Determines whether or not the batch has passed, failed, or is in progress.
+    # # Determines whether or not the batch has passed, failed, or is in progress.
     attr_accessor :status
 
-    # Name of the test.
+    # # Name of the test.
     attr_accessor :test_name
 
-    # The public ID of the Synthetic test.
+    # # The public ID of the Synthetic test.
     attr_accessor :test_public_id
 
-    # Type of the Synthetic test, either `api` or `browser`.
+    # # Type of the Synthetic test, either `api` or `browser`.
     attr_accessor :test_type
 
     # Attribute mapping from ruby-style variable name to JSON key.

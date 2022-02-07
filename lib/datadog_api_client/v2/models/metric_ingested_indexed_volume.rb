@@ -23,13 +23,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Object containing the definition of a metric's ingested and indexed volume.
+    # # Object containing the definition of a metric's ingested and indexed volume.
     attr_accessor :attributes
 
-    # The metric name for this resource.
+    # # The metric name for this resource.
     attr_accessor :id
 
-    # The metric ingested and indexed volume type.
+    # # The metric ingested and indexed volume type.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

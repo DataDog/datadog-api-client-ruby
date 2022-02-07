@@ -23,30 +23,30 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # How often to repeat as an integer.
+    # # How often to repeat as an integer.
     # For example, to repeat every 3 days, select a type of `days` and a period of `3`.
     attr_accessor :period
 
-    # The `RRULE` standard for defining recurring events (**requires to set "type" to rrule**)
+    # # The `RRULE` standard for defining recurring events (**requires to set "type" to rrule**)
     # For example, to have a recurring event on the first day of each month, set the type to `rrule` and set the `FREQ` to `MONTHLY` and `BYMONTHDAY` to `1`.
     # Most common `rrule` options from the [iCalendar Spec](https://tools.ietf.org/html/rfc5545) are supported.
-    # 
+    #
     # **Note**: Attributes specifying the duration in `RRULE` are not supported (for example, `DTSTART`, `DTEND`, `DURATION`).
     # More examples available in this [downtime guide](https://docs.datadoghq.com/monitors/guide/suppress-alert-with-downtimes/?tab=api)
     attr_accessor :rrule
 
-    # The type of recurrence. Choose from `days`, `weeks`, `months`, `years`, `rrule`.
+    # # The type of recurrence. Choose from `days`, `weeks`, `months`, `years`, `rrule`.
     attr_accessor :type
 
-    # The date at which the recurrence should end as a POSIX timestamp.
+    # # The date at which the recurrence should end as a POSIX timestamp.
     # `until_occurences` and `until_date` are mutually exclusive.
     attr_accessor :until_date
 
-    # How many times the downtime is rescheduled.
+    # # How many times the downtime is rescheduled.
     # `until_occurences` and `until_date` are mutually exclusive.
     attr_accessor :until_occurrences
 
-    # A list of week days to repeat on. Choose from `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat` or `Sun`.
+    # # A list of week days to repeat on. Choose from `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat` or `Sun`.
     # Only applicable when type is weeks. First letter must be capitalized.
     attr_accessor :week_days
 

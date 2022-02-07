@@ -23,14 +23,14 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # An array of service level objective objects.
+    # # An array of service level objective objects.
     attr_accessor :data
 
-    # An array of error messages. Each endpoint documents how/whether this field is
+    # # An array of error messages. Each endpoint documents how/whether this field is
     # used.
     attr_accessor :errors
 
-    # The metadata object containing additional information about the list of SLOs.
+    # # The metadata object containing additional information about the list of SLOs.
     attr_accessor :metadata
 
     # Attribute mapping from ruby-style variable name to JSON key.

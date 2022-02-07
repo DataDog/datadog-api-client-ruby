@@ -35,23 +35,23 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Whether or not the processor is enabled.
+    # # Whether or not the processor is enabled.
     attr_accessor :is_enabled
 
-    # If true, it replaces all missing attributes of `template` by an empty string.
+    # # If true, it replaces all missing attributes of `template` by an empty string.
     # If `false` (default), skips the operation for missing attributes.
     attr_accessor :is_replace_missing
 
-    # Name of the processor.
+    # # Name of the processor.
     attr_accessor :name
 
-    # The name of the attribute that contains the result of the template.
+    # # The name of the attribute that contains the result of the template.
     attr_accessor :target
 
-    # A formula with one or more attributes and raw text.
+    # # A formula with one or more attributes and raw text.
     attr_accessor :template
 
-    # Type of logs string builder processor.
+    # # Type of logs string builder processor.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

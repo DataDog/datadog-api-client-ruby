@@ -23,31 +23,31 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The aggregation methods available for metrics queries.
+    # # The aggregation methods available for metrics queries.
     attr_accessor :aggregator
 
-    # Data sources that rely on the process backend.
+    # # Data sources that rely on the process backend.
     attr_accessor :data_source
 
-    # Whether to normalize the CPU percentages.
+    # # Whether to normalize the CPU percentages.
     attr_accessor :is_normalized_cpu
 
-    # Number of hits to return.
+    # # Number of hits to return.
     attr_accessor :limit
 
-    # Process metric name.
+    # # Process metric name.
     attr_accessor :metric
 
-    # Name of query for use in formulas.
+    # # Name of query for use in formulas.
     attr_accessor :name
 
-    # Direction of sort.
+    # # Direction of sort.
     attr_accessor :sort
 
-    # An array of tags to filter by.
+    # # An array of tags to filter by.
     attr_accessor :tag_filters
 
-    # Text to use as filter.
+    # # Text to use as filter.
     attr_accessor :text_filter
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,13 +23,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The minimum timestamp for requested security signals.
+    # # The minimum timestamp for requested security signals.
     attr_accessor :from
 
-    # Search query for listing security signals.
+    # # Search query for listing security signals.
     attr_accessor :query
 
-    # The maximum timestamp for requested security signals.
+    # # The maximum timestamp for requested security signals.
     attr_accessor :to
 
     # Attribute mapping from ruby-style variable name to JSON key.

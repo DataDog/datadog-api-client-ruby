@@ -23,40 +23,40 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Type of browser device used for the browser test.
+    # # Type of browser device used for the browser test.
     attr_accessor :browser_type
 
-    # Browser version used for the browser test.
+    # # Browser version used for the browser test.
     attr_accessor :browser_version
 
-    # Object describing the device used to perform the Synthetic test.
+    # # Object describing the device used to perform the Synthetic test.
     attr_accessor :device
 
-    # Global duration in second of the browser test.
+    # # Global duration in second of the browser test.
     attr_accessor :duration
 
-    # Error returned for the browser test.
+    # # Error returned for the browser test.
     attr_accessor :error
 
-    # The browser test failure details.
+    # # The browser test failure details.
     attr_accessor :failure
 
-    # Whether or not the browser test was conducted.
+    # # Whether or not the browser test was conducted.
     attr_accessor :passed
 
-    # The amount of email received during the browser test.
+    # # The amount of email received during the browser test.
     attr_accessor :received_email_count
 
-    # Starting URL for the browser test.
+    # # Starting URL for the browser test.
     attr_accessor :start_url
 
-    # Array containing the different browser test steps.
+    # # Array containing the different browser test steps.
     attr_accessor :step_details
 
-    # Whether or not a thumbnail is associated with the browser test.
+    # # Whether or not a thumbnail is associated with the browser test.
     attr_accessor :thumbnails_bucket_key
 
-    # Time in second to wait before the browser test starts after
+    # # Time in second to wait before the browser test starts after
     # reaching the start URL.
     attr_accessor :time_to_interactive
 

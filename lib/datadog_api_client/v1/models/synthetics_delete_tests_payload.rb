@@ -24,7 +24,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # An array of Synthetic test IDs you want to delete.
+    # # An array of Synthetic test IDs you want to delete.
     attr_accessor :public_ids
 
     # Attribute mapping from ruby-style variable name to JSON key.

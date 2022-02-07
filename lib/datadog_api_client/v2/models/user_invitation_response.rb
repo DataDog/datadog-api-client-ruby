@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Object of a user invitation returned by the API.
+    # # Object of a user invitation returned by the API.
     attr_accessor :data
 
     # Attribute mapping from ruby-style variable name to JSON key.

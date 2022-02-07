@@ -23,10 +23,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The type of aggregation to use.
+    # # The type of aggregation to use.
     attr_accessor :aggregation_type
 
-    # The path to the value the log-based metric will aggregate on (only used if the aggregation type is a "distribution").
+    # # The path to the value the log-based metric will aggregate on (only used if the aggregation type is a "distribution").
     attr_accessor :path
 
     # Attribute mapping from ruby-style variable name to JSON key.

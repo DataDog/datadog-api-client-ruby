@@ -23,49 +23,49 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Aggregator used for the request.
+    # # Aggregator used for the request.
     attr_accessor :aggregator
 
-    # The log query.
+    # # The log query.
     attr_accessor :apm_query
 
-    # The log query.
+    # # The log query.
     attr_accessor :audit_query
 
-    # List of conditional formats.
+    # # List of conditional formats.
     attr_accessor :conditional_formats
 
-    # The log query.
+    # # The log query.
     attr_accessor :event_query
 
-    # List of formulas that operate on queries. **This feature is currently in beta.**
+    # # List of formulas that operate on queries. **This feature is currently in beta.**
     attr_accessor :formulas
 
-    # The log query.
+    # # The log query.
     attr_accessor :log_query
 
-    # The log query.
+    # # The log query.
     attr_accessor :network_query
 
-    # The process query to use in the widget.
+    # # The process query to use in the widget.
     attr_accessor :process_query
 
-    # The log query.
+    # # The log query.
     attr_accessor :profile_metrics_query
 
-    # TODO.
+    # # TODO.
     attr_accessor :q
 
-    # List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
+    # # List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
     attr_accessor :queries
 
-    # Timeseries or Scalar response. **This feature is currently in beta.**
+    # # Timeseries or Scalar response. **This feature is currently in beta.**
     attr_accessor :response_format
 
-    # The log query.
+    # # The log query.
     attr_accessor :rum_query
 
-    # The log query.
+    # # The log query.
     attr_accessor :security_query
 
     # Attribute mapping from ruby-style variable name to JSON key.

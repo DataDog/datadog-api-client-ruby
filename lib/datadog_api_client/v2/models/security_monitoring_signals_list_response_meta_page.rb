@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The cursor used to get the next results, if any. To make the next request, use the same
+    # # The cursor used to get the next results, if any. To make the next request, use the same
     # parameters with the addition of the `page[cursor]`.
     attr_accessor :after
 

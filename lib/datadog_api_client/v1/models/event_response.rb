@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Object representing an event.
+    # # Object representing an event.
     attr_accessor :event
 
-    # A status.
+    # # A status.
     attr_accessor :status
 
     # Attribute mapping from ruby-style variable name to JSON key.

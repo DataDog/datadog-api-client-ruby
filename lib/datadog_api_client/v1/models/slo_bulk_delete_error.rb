@@ -23,14 +23,14 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The ID of the service level objective object associated with
+    # # The ID of the service level objective object associated with
     # this error.
     attr_accessor :id
 
-    # The error message.
+    # # The error message.
     attr_accessor :message
 
-    # The timeframe of the threshold associated with this error
+    # # The timeframe of the threshold associated with this error
     # or "all" if all thresholds are affected.
     attr_accessor :timeframe
 

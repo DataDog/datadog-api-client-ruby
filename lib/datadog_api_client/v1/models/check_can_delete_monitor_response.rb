@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Wrapper object with the list of monitor IDs.
+    # # Wrapper object with the list of monitor IDs.
     attr_accessor :data
 
-    # A mapping of Monitor ID to strings denoting where it's used.
+    # # A mapping of Monitor ID to strings denoting where it's used.
     attr_accessor :errors
 
     # Attribute mapping from ruby-style variable name to JSON key.

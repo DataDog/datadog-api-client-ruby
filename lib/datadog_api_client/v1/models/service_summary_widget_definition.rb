@@ -23,52 +23,52 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Number of columns to display.
+    # # Number of columns to display.
     attr_accessor :display_format
 
-    # APM environment.
+    # # APM environment.
     attr_accessor :env
 
-    # APM service.
+    # # APM service.
     attr_accessor :service
 
-    # Whether to show the latency breakdown or not.
+    # # Whether to show the latency breakdown or not.
     attr_accessor :show_breakdown
 
-    # Whether to show the latency distribution or not.
+    # # Whether to show the latency distribution or not.
     attr_accessor :show_distribution
 
-    # Whether to show the error metrics or not.
+    # # Whether to show the error metrics or not.
     attr_accessor :show_errors
 
-    # Whether to show the hits metrics or not.
+    # # Whether to show the hits metrics or not.
     attr_accessor :show_hits
 
-    # Whether to show the latency metrics or not.
+    # # Whether to show the latency metrics or not.
     attr_accessor :show_latency
 
-    # Whether to show the resource list or not.
+    # # Whether to show the resource list or not.
     attr_accessor :show_resource_list
 
-    # Size of the widget.
+    # # Size of the widget.
     attr_accessor :size_format
 
-    # APM span name.
+    # # APM span name.
     attr_accessor :span_name
 
-    # Time setting for the widget.
+    # # Time setting for the widget.
     attr_accessor :time
 
-    # Title of the widget.
+    # # Title of the widget.
     attr_accessor :title
 
-    # How to align the text on the widget.
+    # # How to align the text on the widget.
     attr_accessor :title_align
 
-    # Size of the title.
+    # # Size of the title.
     attr_accessor :title_size
 
-    # Type of the service summary widget.
+    # # Type of the service summary widget.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

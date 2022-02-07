@@ -23,19 +23,19 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # A flag indicating whether the incident caused customer impact.
+    # # A flag indicating whether the incident caused customer impact.
     attr_accessor :customer_impacted
 
-    # A condensed view of the user-defined fields for which to create initial selections.
+    # # A condensed view of the user-defined fields for which to create initial selections.
     attr_accessor :fields
 
-    # An array of initial timeline cells to be placed at the beginning of the incident timeline.
+    # # An array of initial timeline cells to be placed at the beginning of the incident timeline.
     attr_accessor :initial_cells
 
-    # Notification handles that will be notified of the incident at creation.
+    # # Notification handles that will be notified of the incident at creation.
     attr_accessor :notification_handles
 
-    # The title of the incident, which summarizes what happened.
+    # # The title of the incident, which summarizes what happened.
     attr_accessor :title
 
     # Attribute mapping from ruby-style variable name to JSON key.

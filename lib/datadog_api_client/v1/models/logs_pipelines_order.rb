@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Ordered Array of `<PIPELINE_ID>` strings, the order of pipeline IDs in the array
+    # # Ordered Array of `<PIPELINE_ID>` strings, the order of pipeline IDs in the array
     # define the overall Pipelines order for Datadog.
     attr_accessor :pipeline_ids
 

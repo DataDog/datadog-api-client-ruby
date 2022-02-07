@@ -26,16 +26,16 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Whether or not the processor is enabled.
+    # # Whether or not the processor is enabled.
     attr_accessor :is_enabled
 
-    # Name of the processor.
+    # # Name of the processor.
     attr_accessor :name
 
-    # Array of source attributes.
+    # # Array of source attributes.
     attr_accessor :sources
 
-    # Type of logs service remapper.
+    # # Type of logs service remapper.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

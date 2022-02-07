@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The link for the next set of results. **Note**: The request can also be made using the
+    # # The link for the next set of results. **Note**: The request can also be made using the
     # POST endpoint.
     attr_accessor :_next
 

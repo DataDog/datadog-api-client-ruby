@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Describes if the test run has passed or failed.
+    # # Describes if the test run has passed or failed.
     attr_accessor :passed
 
-    # Object containing all metrics and their values collected for a Synthetic API test.
+    # # Object containing all metrics and their values collected for a Synthetic API test.
     # Learn more about those metrics in [Synthetics documentation](https://docs.datadoghq.com/synthetics/#metrics).
     attr_accessor :timings
 

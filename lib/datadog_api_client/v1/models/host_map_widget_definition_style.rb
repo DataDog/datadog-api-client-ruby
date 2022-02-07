@@ -23,16 +23,16 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Max value to use to color the map.
+    # # Max value to use to color the map.
     attr_accessor :fill_max
 
-    # Min value to use to color the map.
+    # # Min value to use to color the map.
     attr_accessor :fill_min
 
-    # Color palette to apply to the widget.
+    # # Color palette to apply to the widget.
     attr_accessor :palette
 
-    # Whether to flip the palette tones.
+    # # Whether to flip the palette tones.
     attr_accessor :palette_flip
 
     # Attribute mapping from ruby-style variable name to JSON key.

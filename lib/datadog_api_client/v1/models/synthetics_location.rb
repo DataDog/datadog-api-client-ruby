@@ -24,10 +24,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Unique identifier of the location.
+    # # Unique identifier of the location.
     attr_accessor :id
 
-    # Name of the location.
+    # # Name of the location.
     attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.

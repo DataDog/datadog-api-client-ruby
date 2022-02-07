@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Updated funnel widget.
+    # # Updated funnel widget.
     attr_accessor :query
 
-    # Widget request type.
+    # # Widget request type.
     attr_accessor :request_type
 
     # Attribute mapping from ruby-style variable name to JSON key.

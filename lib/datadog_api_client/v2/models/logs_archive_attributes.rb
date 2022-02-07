@@ -23,23 +23,23 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # An archive's destination.
+    # # An archive's destination.
     attr_accessor :destination
 
-    # To store the tags in the archive, set the value "true".
+    # # To store the tags in the archive, set the value "true".
     # If it is set to "false", the tags will be deleted when the logs are sent to the archive.
     attr_accessor :include_tags
 
-    # The archive name.
+    # # The archive name.
     attr_accessor :name
 
-    # The archive query/filter. Logs matching this query are included in the archive.
+    # # The archive query/filter. Logs matching this query are included in the archive.
     attr_accessor :query
 
-    # An array of tags to add to rehydrated logs from an archive.
+    # # An array of tags to add to rehydrated logs from an archive.
     attr_accessor :rehydration_tags
 
-    # The state of the archive.
+    # # The state of the archive.
     attr_accessor :state
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,10 +23,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Array containing the list of rules.
+    # # Array containing the list of rules.
     attr_accessor :data
 
-    # Object describing meta attributes of response.
+    # # Object describing meta attributes of response.
     attr_accessor :meta
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # An array of tag filters.
+    # # An array of tag filters.
     attr_accessor :filters
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,16 +23,16 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # An aggregation function
+    # # An aggregation function
     attr_accessor :aggregation
 
-    # The metric to sort by (only used for `type=measure`)
+    # # The metric to sort by (only used for `type=measure`)
     attr_accessor :metric
 
-    # The order to use, ascending or descending
+    # # The order to use, ascending or descending
     attr_accessor :order
 
-    # The type of sorting algorithm
+    # # The type of sorting algorithm
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

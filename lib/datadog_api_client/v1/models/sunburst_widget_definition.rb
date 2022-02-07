@@ -23,31 +23,31 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # List of custom links.
+    # # List of custom links.
     attr_accessor :custom_links
 
-    # Show the total value in this widget.
+    # # Show the total value in this widget.
     attr_accessor :hide_total
 
-    # Configuration of the legend.
+    # # Configuration of the legend.
     attr_accessor :legend
 
-    # List of sunburst widget requests.
+    # # List of sunburst widget requests.
     attr_accessor :requests
 
-    # Time setting for the widget.
+    # # Time setting for the widget.
     attr_accessor :time
 
-    # Title of your widget.
+    # # Title of your widget.
     attr_accessor :title
 
-    # How to align the text on the widget.
+    # # How to align the text on the widget.
     attr_accessor :title_align
 
-    # Size of the title.
+    # # Size of the title.
     attr_accessor :title_size
 
-    # Type of the Sunburst widget.
+    # # Type of the Sunburst widget.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

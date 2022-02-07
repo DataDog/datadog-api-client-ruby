@@ -4,7 +4,7 @@
     attr_accessor :_unparsed
 {%- for attr, definition in model.get("properties", {}).items() %}
 
-    # {{ definition.description|replace('\n', '\n# ')|indent(4) }}
+    # {{ definition.description|block_comment|indent(4) }}
     attr_accessor :{{ attr|attribute_name }}
 {%- endfor %}
 

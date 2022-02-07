@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Scatterplot request containing formulas and functions.
+    # # Scatterplot request containing formulas and functions.
     attr_accessor :table
 
-    # Updated scatter plot.
+    # # Updated scatter plot.
     attr_accessor :x
 
-    # Updated scatter plot.
+    # # Updated scatter plot.
     attr_accessor :y
 
     # Attribute mapping from ruby-style variable name to JSON key.

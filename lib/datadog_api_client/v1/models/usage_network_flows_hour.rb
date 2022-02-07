@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The hour for the usage.
+    # # The hour for the usage.
     attr_accessor :hour
 
-    # Contains the number of netflow events indexed.
+    # # Contains the number of netflow events indexed.
     attr_accessor :indexed_events_count
 
     # Attribute mapping from ruby-style variable name to JSON key.

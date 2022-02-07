@@ -23,60 +23,60 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Timestamp when the incident was created.
+    # # Timestamp when the incident was created.
     attr_accessor :created
 
-    # Length of the incident's customer impact in seconds.
+    # # Length of the incident's customer impact in seconds.
     # Equals the difference between `customer_impact_start` and `customer_impact_end`.
     attr_accessor :customer_impact_duration
 
-    # Timestamp when customers were no longer impacted by the incident.
+    # # Timestamp when customers were no longer impacted by the incident.
     attr_accessor :customer_impact_end
 
-    # A summary of the impact customers experienced during the incident.
+    # # A summary of the impact customers experienced during the incident.
     attr_accessor :customer_impact_scope
 
-    # Timestamp when customers began being impacted by the incident.
+    # # Timestamp when customers began being impacted by the incident.
     attr_accessor :customer_impact_start
 
-    # A flag indicating whether the incident caused customer impact.
+    # # A flag indicating whether the incident caused customer impact.
     attr_accessor :customer_impacted
 
-    # Timestamp when the incident was detected.
+    # # Timestamp when the incident was detected.
     attr_accessor :detected
 
-    # A condensed view of the user-defined fields attached to incidents.
+    # # A condensed view of the user-defined fields attached to incidents.
     attr_accessor :fields
 
-    # Timestamp when the incident was last modified.
+    # # Timestamp when the incident was last modified.
     attr_accessor :modified
 
-    # Notification handles that will be notified of the incident during update.
+    # # Notification handles that will be notified of the incident during update.
     attr_accessor :notification_handles
 
-    # The UUID of the postmortem object attached to the incident.
+    # # The UUID of the postmortem object attached to the incident.
     attr_accessor :postmortem_id
 
-    # The monotonically increasing integer ID for the incident.
+    # # The monotonically increasing integer ID for the incident.
     attr_accessor :public_id
 
-    # Timestamp when the incident's state was set to resolved.
+    # # Timestamp when the incident's state was set to resolved.
     attr_accessor :resolved
 
-    # The amount of time in seconds to detect the incident.
+    # # The amount of time in seconds to detect the incident.
     # Equals the difference between `customer_impact_start` and `detected`.
     attr_accessor :time_to_detect
 
-    # The amount of time in seconds to call incident after detection. Equals the difference of `detected` and `created`.
+    # # The amount of time in seconds to call incident after detection. Equals the difference of `detected` and `created`.
     attr_accessor :time_to_internal_response
 
-    # The amount of time in seconds to resolve customer impact after detecting the issue. Equals the difference between `customer_impact_end` and `detected`.
+    # # The amount of time in seconds to resolve customer impact after detecting the issue. Equals the difference between `customer_impact_end` and `detected`.
     attr_accessor :time_to_repair
 
-    # The amount of time in seconds to resolve the incident after it was created. Equals the difference between `created` and `resolved`.
+    # # The amount of time in seconds to resolve the incident after it was created. Equals the difference between `created` and `resolved`.
     attr_accessor :time_to_resolve
 
-    # The title of the incident, which summarizes what happened.
+    # # The title of the incident, which summarizes what happened.
     attr_accessor :title
 
     # Attribute mapping from ruby-style variable name to JSON key.

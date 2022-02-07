@@ -23,16 +23,16 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The hour for the usage.
+    # # The hour for the usage.
     attr_accessor :hour
 
-    # The total number of IoT devices during a given hour.
+    # # The total number of IoT devices during a given hour.
     attr_accessor :iot_device_count
 
-    # The organization name.
+    # # The organization name.
     attr_accessor :org_name
 
-    # The organization public ID.
+    # # The organization public ID.
     attr_accessor :public_id
 
     # Attribute mapping from ruby-style variable name to JSON key.

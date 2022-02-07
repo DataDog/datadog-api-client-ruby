@@ -23,11 +23,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # A list of queryable aggregation combinations for a count, rate, or gauge metric.
+    # # A list of queryable aggregation combinations for a count, rate, or gauge metric.
     # By default, count and rate metrics require the (time: sum, space: sum) aggregation and
     # Gauge metrics require the (time: avg, space: avg) aggregation.
     # Additional time & space combinations are also available:
-    # 
+    #
     # - time: avg, space: avg
     # - time: avg, space: max
     # - time: avg, space: min
@@ -37,24 +37,24 @@ module DatadogAPIClient::V2
     # - time: min, space: min
     # - time: sum, space: avg
     # - time: sum, space: sum
-    # 
+    #
     # Can only be applied to metrics that have a `metric_type` of `count`, `rate`, or `gauge`.
     attr_accessor :aggregations
 
-    # Timestamp when the tag configuration was created.
+    # # Timestamp when the tag configuration was created.
     attr_accessor :created_at
 
-    # Toggle to turn on/off percentile aggregations for distribution metrics.
+    # # Toggle to turn on/off percentile aggregations for distribution metrics.
     # Only present when the `metric_type` is `distribution`.
     attr_accessor :include_percentiles
 
-    # The metric's type.
+    # # The metric's type.
     attr_accessor :metric_type
 
-    # Timestamp when the tag configuration was last modified.
+    # # Timestamp when the tag configuration was last modified.
     attr_accessor :modified_at
 
-    # List of tag keys on which to group.
+    # # List of tag keys on which to group.
     attr_accessor :tags
 
     # Attribute mapping from ruby-style variable name to JSON key.

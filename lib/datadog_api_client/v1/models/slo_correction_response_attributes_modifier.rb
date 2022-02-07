@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Email of the Modifier.
+    # # Email of the Modifier.
     attr_accessor :email
 
-    # Handle of the Modifier.
+    # # Handle of the Modifier.
     attr_accessor :handle
 
-    # Name of the Modifier.
+    # # Name of the Modifier.
     attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.

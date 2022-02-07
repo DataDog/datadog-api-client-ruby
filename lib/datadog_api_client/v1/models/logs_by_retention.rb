@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Indexed logs usage summary for each organization for each retention period with usage.
+    # # Indexed logs usage summary for each organization for each retention period with usage.
     attr_accessor :orgs
 
-    # Aggregated index logs usage for each retention period with usage.
+    # # Aggregated index logs usage for each retention period with usage.
     attr_accessor :usage
 
-    # Object containing a summary of indexed logs usage by retention period for a single month.
+    # # Object containing a summary of indexed logs usage by retention period for a single month.
     attr_accessor :usage_by_month
 
     # Attribute mapping from ruby-style variable name to JSON key.

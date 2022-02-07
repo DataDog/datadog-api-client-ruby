@@ -23,16 +23,16 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # A user-assigned alias for the column.
+    # # A user-assigned alias for the column.
     attr_accessor :_alias
 
-    # Define a display mode for the table cell.
+    # # Define a display mode for the table cell.
     attr_accessor :cell_display_mode
 
-    # Column name.
+    # # Column name.
     attr_accessor :name
 
-    # Widget sorting methods.
+    # # Widget sorting methods.
     attr_accessor :order
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # List of indexed tag value pairs.
+    # # List of indexed tag value pairs.
     attr_accessor :tags
 
     # Attribute mapping from ruby-style variable name to JSON key.

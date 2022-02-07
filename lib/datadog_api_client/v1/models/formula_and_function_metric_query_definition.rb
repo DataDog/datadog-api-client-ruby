@@ -23,16 +23,16 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The aggregation methods available for metrics queries.
+    # # The aggregation methods available for metrics queries.
     attr_accessor :aggregator
 
-    # Data source for metrics queries.
+    # # Data source for metrics queries.
     attr_accessor :data_source
 
-    # Name of the query for use in formulas.
+    # # Name of the query for use in formulas.
     attr_accessor :name
 
-    # Metrics query definition.
+    # # Metrics query definition.
     attr_accessor :query
 
     # Attribute mapping from ruby-style variable name to JSON key.

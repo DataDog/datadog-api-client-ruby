@@ -23,25 +23,25 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # List of custom links.
+    # # List of custom links.
     attr_accessor :custom_links
 
-    # List of top list widget requests.
+    # # List of top list widget requests.
     attr_accessor :requests
 
-    # Time setting for the widget.
+    # # Time setting for the widget.
     attr_accessor :time
 
-    # Title of your widget.
+    # # Title of your widget.
     attr_accessor :title
 
-    # How to align the text on the widget.
+    # # How to align the text on the widget.
     attr_accessor :title_align
 
-    # Size of the title.
+    # # Size of the title.
     attr_accessor :title_size
 
-    # Type of the top list widget.
+    # # Type of the top list widget.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

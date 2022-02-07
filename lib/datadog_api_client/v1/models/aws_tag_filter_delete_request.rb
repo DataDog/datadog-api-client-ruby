@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The unique identifier of your AWS account.
+    # # The unique identifier of your AWS account.
     attr_accessor :account_id
 
-    # The namespace associated with the tag filter entry.
+    # # The namespace associated with the tag filter entry.
     attr_accessor :namespace
 
     # Attribute mapping from ruby-style variable name to JSON key.

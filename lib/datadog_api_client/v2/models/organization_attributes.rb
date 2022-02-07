@@ -23,28 +23,28 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Creation time of the organization.
+    # # Creation time of the organization.
     attr_accessor :created_at
 
-    # Description of the organization.
+    # # Description of the organization.
     attr_accessor :description
 
-    # Whether or not the organization is disabled.
+    # # Whether or not the organization is disabled.
     attr_accessor :disabled
 
-    # Time of last organization modification.
+    # # Time of last organization modification.
     attr_accessor :modified_at
 
-    # Name of the organization.
+    # # Name of the organization.
     attr_accessor :name
 
-    # Public ID of the organization.
+    # # Public ID of the organization.
     attr_accessor :public_id
 
-    # Sharing type of the organization.
+    # # Sharing type of the organization.
     attr_accessor :sharing
 
-    # URL of the site that this organization exists at.
+    # # URL of the site that this organization exists at.
     attr_accessor :url
 
     # Attribute mapping from ruby-style variable name to JSON key.

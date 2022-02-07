@@ -23,34 +23,34 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Background color of the note.
+    # # Background color of the note.
     attr_accessor :background_color
 
-    # Content of the note.
+    # # Content of the note.
     attr_accessor :content
 
-    # Size of the text.
+    # # Size of the text.
     attr_accessor :font_size
 
-    # Whether to add padding or not.
+    # # Whether to add padding or not.
     attr_accessor :has_padding
 
-    # Whether to show a tick or not.
+    # # Whether to show a tick or not.
     attr_accessor :show_tick
 
-    # How to align the text on the widget.
+    # # How to align the text on the widget.
     attr_accessor :text_align
 
-    # Define how you want to align the text on the widget.
+    # # Define how you want to align the text on the widget.
     attr_accessor :tick_edge
 
-    # Where to position the tick on an edge.
+    # # Where to position the tick on an edge.
     attr_accessor :tick_pos
 
-    # Type of the note widget.
+    # # Type of the note widget.
     attr_accessor :type
 
-    # Vertical alignment.
+    # # Vertical alignment.
     attr_accessor :vertical_align
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # AWS external_id.
+    # # AWS external_id.
     attr_accessor :external_id
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,34 +23,34 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Defined global time target.
+    # # Defined global time target.
     attr_accessor :global_time_target
 
-    # Defined error budget.
+    # # Defined error budget.
     attr_accessor :show_error_budget
 
-    # ID of the SLO displayed.
+    # # ID of the SLO displayed.
     attr_accessor :slo_id
 
-    # Times being monitored.
+    # # Times being monitored.
     attr_accessor :time_windows
 
-    # Title of the widget.
+    # # Title of the widget.
     attr_accessor :title
 
-    # How to align the text on the widget.
+    # # How to align the text on the widget.
     attr_accessor :title_align
 
-    # Size of the title.
+    # # Size of the title.
     attr_accessor :title_size
 
-    # Type of the SLO widget.
+    # # Type of the SLO widget.
     attr_accessor :type
 
-    # Define how you want the SLO to be displayed.
+    # # Define how you want the SLO to be displayed.
     attr_accessor :view_mode
 
-    # Type of view displayed by the widget.
+    # # Type of view displayed by the widget.
     attr_accessor :view_type
 
     # Attribute mapping from ruby-style variable name to JSON key.

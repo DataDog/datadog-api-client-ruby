@@ -23,13 +23,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Attributes for a process summary.
+    # # Attributes for a process summary.
     attr_accessor :attributes
 
-    # Process ID.
+    # # Process ID.
     attr_accessor :id
 
-    # Type of process summary.
+    # # Type of process summary.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

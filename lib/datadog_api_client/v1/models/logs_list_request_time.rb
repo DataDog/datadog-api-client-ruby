@@ -23,14 +23,14 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Minimum timestamp for requested logs.
+    # # Minimum timestamp for requested logs.
     attr_accessor :from
 
-    # Timezone can be specified both as an offset (for example "UTC+03:00")
+    # # Timezone can be specified both as an offset (for example "UTC+03:00")
     # or a regional zone (for example "Europe/Paris").
     attr_accessor :timezone
 
-    # Maximum timestamp for requested logs.
+    # # Maximum timestamp for requested logs.
     attr_accessor :to
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The available timeframes depend on the widget you are using.
+    # # The available timeframes depend on the widget you are using.
     attr_accessor :live_span
 
     # Attribute mapping from ruby-style variable name to JSON key.

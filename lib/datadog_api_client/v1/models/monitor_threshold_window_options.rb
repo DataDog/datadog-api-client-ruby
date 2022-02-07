@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Describes how long an anomalous metric must be normal before the alert recovers.
+    # # Describes how long an anomalous metric must be normal before the alert recovers.
     attr_accessor :recovery_window
 
-    # Describes how long a metric must be anomalous before an alert triggers.
+    # # Describes how long a metric must be anomalous before an alert triggers.
     attr_accessor :trigger_window
 
     # Attribute mapping from ruby-style variable name to JSON key.

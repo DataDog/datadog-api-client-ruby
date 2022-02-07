@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Object to update a user.
+    # # Object to update a user.
     attr_accessor :data
 
     # Attribute mapping from ruby-style variable name to JSON key.

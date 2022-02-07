@@ -23,10 +23,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Incident Team data from a response.
+    # # Incident Team data from a response.
     attr_accessor :data
 
-    # Included objects from relationships.
+    # # Included objects from relationships.
     attr_accessor :included
 
     # Attribute mapping from ruby-style variable name to JSON key.

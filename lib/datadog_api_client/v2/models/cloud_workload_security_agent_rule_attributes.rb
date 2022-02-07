@@ -23,37 +23,37 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The category of the Agent rule.
+    # # The category of the Agent rule.
     attr_accessor :category
 
-    # When the Agent rule was created, timestamp in milliseconds.
+    # # When the Agent rule was created, timestamp in milliseconds.
     attr_accessor :creation_date
 
-    # The attributes of the user who created the Agent rule.
+    # # The attributes of the user who created the Agent rule.
     attr_accessor :creator
 
-    # Whether the rule is included by default.
+    # # Whether the rule is included by default.
     attr_accessor :default_rule
 
-    # The description of the Agent rule.
+    # # The description of the Agent rule.
     attr_accessor :description
 
-    # Whether the Agent rule is enabled.
+    # # Whether the Agent rule is enabled.
     attr_accessor :enabled
 
-    # The SECL expression of the Agent rule.
+    # # The SECL expression of the Agent rule.
     attr_accessor :expression
 
-    # The name of the Agent rule.
+    # # The name of the Agent rule.
     attr_accessor :name
 
-    # When the Agent rule was last updated, timestamp in milliseconds.
+    # # When the Agent rule was last updated, timestamp in milliseconds.
     attr_accessor :updated_at
 
-    # The attributes of the user who last updated the Agent rule.
+    # # The attributes of the user who last updated the Agent rule.
     attr_accessor :updater
 
-    # The version of the Agent rule.
+    # # The version of the Agent rule.
     attr_accessor :version
 
     # Attribute mapping from ruby-style variable name to JSON key.

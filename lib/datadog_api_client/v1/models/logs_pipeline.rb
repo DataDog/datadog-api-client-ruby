@@ -27,25 +27,25 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Filter for logs.
+    # # Filter for logs.
     attr_accessor :filter
 
-    # ID of the pipeline.
+    # # ID of the pipeline.
     attr_accessor :id
 
-    # Whether or not the pipeline is enabled.
+    # # Whether or not the pipeline is enabled.
     attr_accessor :is_enabled
 
-    # Whether or not the pipeline can be edited.
+    # # Whether or not the pipeline can be edited.
     attr_accessor :is_read_only
 
-    # Name of the pipeline.
+    # # Name of the pipeline.
     attr_accessor :name
 
-    # Ordered list of processors in this pipeline.
+    # # Ordered list of processors in this pipeline.
     attr_accessor :processors
 
-    # Type of pipeline.
+    # # Type of pipeline.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

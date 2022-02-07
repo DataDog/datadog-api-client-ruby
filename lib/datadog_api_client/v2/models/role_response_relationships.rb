@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Relationship to multiple permissions objects.
+    # # Relationship to multiple permissions objects.
     attr_accessor :permissions
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Incident Service payload for create requests.
+    # # Incident Service payload for create requests.
     attr_accessor :data
 
     # Attribute mapping from ruby-style variable name to JSON key.

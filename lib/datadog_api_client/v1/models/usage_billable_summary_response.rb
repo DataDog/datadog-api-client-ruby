@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # An array of objects regarding usage of billable summary.
+    # # An array of objects regarding usage of billable summary.
     attr_accessor :usage
 
     # Attribute mapping from ruby-style variable name to JSON key.

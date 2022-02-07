@@ -23,10 +23,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Total count.
+    # # Total count.
     attr_accessor :total_count
 
-    # Total count of elements matched by the filter.
+    # # Total count of elements matched by the filter.
     attr_accessor :total_filtered_count
 
     # Attribute mapping from ruby-style variable name to JSON key.

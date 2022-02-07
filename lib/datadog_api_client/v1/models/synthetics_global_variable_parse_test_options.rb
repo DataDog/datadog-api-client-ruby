@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # When type is `http_header`, name of the header to use to extract the value.
+    # # When type is `http_header`, name of the header to use to extract the value.
     attr_accessor :field
 
-    # Details of the parser to use for the global variable.
+    # # Details of the parser to use for the global variable.
     attr_accessor :parser
 
-    # Property of the Synthetics Test Response to use for a Synthetics global variable.
+    # # Property of the Synthetics Test Response to use for a Synthetics global variable.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

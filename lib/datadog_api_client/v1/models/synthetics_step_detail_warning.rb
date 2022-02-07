@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Message for the warning.
+    # # Message for the warning.
     attr_accessor :message
 
-    # User locator used.
+    # # User locator used.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

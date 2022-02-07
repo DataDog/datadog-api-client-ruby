@@ -23,34 +23,34 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Aggregator used for the request.
+    # # Aggregator used for the request.
     attr_accessor :aggregator
 
-    # The log query.
+    # # The log query.
     attr_accessor :apm_query
 
-    # The log query.
+    # # The log query.
     attr_accessor :event_query
 
-    # The log query.
+    # # The log query.
     attr_accessor :log_query
 
-    # The log query.
+    # # The log query.
     attr_accessor :network_query
 
-    # The process query to use in the widget.
+    # # The process query to use in the widget.
     attr_accessor :process_query
 
-    # The log query.
+    # # The log query.
     attr_accessor :profile_metrics_query
 
-    # Query definition.
+    # # Query definition.
     attr_accessor :q
 
-    # The log query.
+    # # The log query.
     attr_accessor :rum_query
 
-    # The log query.
+    # # The log query.
     attr_accessor :security_query
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,13 +23,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Type of the Markdown timeline cell.
+    # # Type of the Markdown timeline cell.
     attr_accessor :cell_type
 
-    # The Markdown timeline cell contents.
+    # # The Markdown timeline cell contents.
     attr_accessor :content
 
-    # A flag indicating whether the timeline cell is important and should be highlighted.
+    # # A flag indicating whether the timeline cell is important and should be highlighted.
     attr_accessor :important
 
     # Attribute mapping from ruby-style variable name to JSON key.

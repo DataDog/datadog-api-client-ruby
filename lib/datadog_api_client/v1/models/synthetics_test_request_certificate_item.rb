@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Content of the certificate or key.
+    # # Content of the certificate or key.
     attr_accessor :content
 
-    # File name for the certificate or key.
+    # # File name for the certificate or key.
     attr_accessor :filename
 
-    # Date of update of the certificate or key, ISO format.
+    # # Date of update of the certificate or key, ISO format.
     attr_accessor :updated_at
 
     # Attribute mapping from ruby-style variable name to JSON key.

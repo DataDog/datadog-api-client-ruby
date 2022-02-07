@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Event facet.
+    # # Event facet.
     attr_accessor :facet
 
-    # Number of groups to return.
+    # # Number of groups to return.
     attr_accessor :limit
 
-    # Options for sorting group by results.
+    # # Options for sorting group by results.
     attr_accessor :sort
 
     # Attribute mapping from ruby-style variable name to JSON key.

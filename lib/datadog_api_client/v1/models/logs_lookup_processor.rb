@@ -28,27 +28,27 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Value to set the target attribute if the source value is not found in the list.
+    # # Value to set the target attribute if the source value is not found in the list.
     attr_accessor :default_lookup
 
-    # Whether or not the processor is enabled.
+    # # Whether or not the processor is enabled.
     attr_accessor :is_enabled
 
-    # Mapping table of values for the source attribute and their associated target attribute values,
+    # # Mapping table of values for the source attribute and their associated target attribute values,
     # formatted as `["source_key1,target_value1", "source_key2,target_value2"]`
     attr_accessor :lookup_table
 
-    # Name of the processor.
+    # # Name of the processor.
     attr_accessor :name
 
-    # Source attribute used to perform the lookup.
+    # # Source attribute used to perform the lookup.
     attr_accessor :source
 
-    # Name of the attribute that contains the corresponding value in the mapping list
+    # # Name of the attribute that contains the corresponding value in the mapping list
     # or the `default_lookup` if not found in the mapping list.
     attr_accessor :target
 
-    # Type of logs lookup processor.
+    # # Type of logs lookup processor.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

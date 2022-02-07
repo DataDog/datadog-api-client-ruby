@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # An array of service level objective objects.
+    # # An array of service level objective objects.
     attr_accessor :data
 
-    # A mapping of SLO id to it's current usages.
+    # # A mapping of SLO id to it's current usages.
     attr_accessor :errors
 
     # Attribute mapping from ruby-style variable name to JSON key.

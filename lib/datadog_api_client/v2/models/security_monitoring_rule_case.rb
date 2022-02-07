@@ -23,17 +23,17 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated
+    # # A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated
     # based on the event counts in the previously defined queries.
     attr_accessor :condition
 
-    # Name of the case.
+    # # Name of the case.
     attr_accessor :name
 
-    # Notification targets for each rule case.
+    # # Notification targets for each rule case.
     attr_accessor :notifications
 
-    # Severity of the Security Signal.
+    # # Severity of the Security Signal.
     attr_accessor :status
 
     # Attribute mapping from ruby-style variable name to JSON key.

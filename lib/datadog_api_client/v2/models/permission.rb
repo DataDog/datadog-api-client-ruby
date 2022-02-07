@@ -23,13 +23,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Attributes of a permission.
+    # # Attributes of a permission.
     attr_accessor :attributes
 
-    # ID of the permission.
+    # # ID of the permission.
     attr_accessor :id
 
-    # Permissions resource type.
+    # # Permissions resource type.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

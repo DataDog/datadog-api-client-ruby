@@ -23,31 +23,31 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Message indicating the errors if status is not `ok`.
+    # # Message indicating the errors if status is not `ok`.
     attr_accessor :error
 
-    # Start of requested time window, milliseconds since Unix epoch.
+    # # Start of requested time window, milliseconds since Unix epoch.
     attr_accessor :from_date
 
-    # List of tag keys on which to group.
+    # # List of tag keys on which to group.
     attr_accessor :group_by
 
-    # Message indicating `success` if status is `ok`.
+    # # Message indicating `success` if status is `ok`.
     attr_accessor :message
 
-    # Query string
+    # # Query string
     attr_accessor :query
 
-    # Type of response.
+    # # Type of response.
     attr_accessor :res_type
 
-    # List of timeseries queried.
+    # # List of timeseries queried.
     attr_accessor :series
 
-    # Status of the query.
+    # # Status of the query.
     attr_accessor :status
 
-    # End of requested time window, milliseconds since Unix epoch.
+    # # End of requested time window, milliseconds since Unix epoch.
     attr_accessor :to_date
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,16 +23,16 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The timeseries visualization allows you to display the evolution of one or more metrics, log events, or Indexed Spans over time.
+    # # The timeseries visualization allows you to display the evolution of one or more metrics, log events, or Indexed Spans over time.
     attr_accessor :definition
 
-    # The size of the graph.
+    # # The size of the graph.
     attr_accessor :graph_size
 
-    # Object describing how to split the graph to display multiple visualizations per request.
+    # # Object describing how to split the graph to display multiple visualizations per request.
     attr_accessor :split_by
 
-    # Timeframe for the notebook cell. When 'null', the notebook global time is used.
+    # # Timeframe for the notebook cell. When 'null', the notebook global time is used.
     attr_accessor :time
 
     # Attribute mapping from ruby-style variable name to JSON key.

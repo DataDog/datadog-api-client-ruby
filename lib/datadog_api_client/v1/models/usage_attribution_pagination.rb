@@ -23,19 +23,19 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Maximum amount of records to be returned.
+    # # Maximum amount of records to be returned.
     attr_accessor :limit
 
-    # Records to be skipped before beginning to return.
+    # # Records to be skipped before beginning to return.
     attr_accessor :offset
 
-    # Direction to sort by.
+    # # Direction to sort by.
     attr_accessor :sort_direction
 
-    # Field to sort by.
+    # # Field to sort by.
     attr_accessor :sort_name
 
-    # Total number of records.
+    # # Total number of records.
     attr_accessor :total_number_of_records
 
     # Attribute mapping from ruby-style variable name to JSON key.

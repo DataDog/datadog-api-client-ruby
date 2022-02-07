@@ -23,28 +23,28 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Object describing the creator of the shared element.
+    # # Object describing the creator of the shared element.
     attr_accessor :author
 
-    # Date of creation of the dashboard list.
+    # # Date of creation of the dashboard list.
     attr_accessor :created
 
-    # The number of dashboards in the list.
+    # # The number of dashboards in the list.
     attr_accessor :dashboard_count
 
-    # The ID of the dashboard list.
+    # # The ID of the dashboard list.
     attr_accessor :id
 
-    # Whether or not the list is in the favorites.
+    # # Whether or not the list is in the favorites.
     attr_accessor :is_favorite
 
-    # Date of last edition of the dashboard list.
+    # # Date of last edition of the dashboard list.
     attr_accessor :modified
 
-    # The name of the dashboard list.
+    # # The name of the dashboard list.
     attr_accessor :name
 
-    # The type of dashboard list.
+    # # The type of dashboard list.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

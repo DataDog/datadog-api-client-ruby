@@ -23,19 +23,19 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # List of cells to display in the notebook.
+    # # List of cells to display in the notebook.
     attr_accessor :cells
 
-    # Metadata associated with the notebook.
+    # # Metadata associated with the notebook.
     attr_accessor :metadata
 
-    # The name of the notebook.
+    # # The name of the notebook.
     attr_accessor :name
 
-    # Publication status of the notebook. For now, always "published".
+    # # Publication status of the notebook. For now, always "published".
     attr_accessor :status
 
-    # Notebook global timeframe.
+    # # Notebook global timeframe.
     attr_accessor :time
 
     # Attribute mapping from ruby-style variable name to JSON key.

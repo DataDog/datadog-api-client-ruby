@@ -23,19 +23,19 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Unit family, allows for conversion between units of the same family, for scaling.
+    # # Unit family, allows for conversion between units of the same family, for scaling.
     attr_accessor :family
 
-    # Unit name
+    # # Unit name
     attr_accessor :name
 
-    # Plural form of the unit name.
+    # # Plural form of the unit name.
     attr_accessor :plural
 
-    # Factor for scaling between units of the same family.
+    # # Factor for scaling between units of the same family.
     attr_accessor :scale_factor
 
-    # Abbreviation of the unit.
+    # # Abbreviation of the unit.
     attr_accessor :short_name
 
     # Attribute mapping from ruby-style variable name to JSON key.

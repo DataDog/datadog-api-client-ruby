@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Key value in returned object.
+    # # Key value in returned object.
     attr_accessor :id
 
-    # Name of service available for configuration with Datadog logs.
+    # # Name of service available for configuration with Datadog logs.
     attr_accessor :label
 
     # Attribute mapping from ruby-style variable name to JSON key.

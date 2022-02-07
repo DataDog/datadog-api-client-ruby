@@ -23,10 +23,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # A unique identifier that represents the integration metadata.
+    # # A unique identifier that represents the integration metadata.
     attr_accessor :id
 
-    # Integration metadata resource type.
+    # # Integration metadata resource type.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

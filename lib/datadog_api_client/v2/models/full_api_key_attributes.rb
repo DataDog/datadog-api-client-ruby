@@ -23,19 +23,19 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Creation date of the API key.
+    # # Creation date of the API key.
     attr_accessor :created_at
 
-    # The API key.
+    # # The API key.
     attr_accessor :key
 
-    # The last four characters of the API key.
+    # # The last four characters of the API key.
     attr_accessor :last4
 
-    # Date the API key was last modified.
+    # # Date the API key was last modified.
     attr_accessor :modified_at
 
-    # Name of the API key.
+    # # Name of the API key.
     attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.

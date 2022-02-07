@@ -23,10 +23,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The log-based metric filter. Logs matching this filter will be aggregated in this metric.
+    # # The log-based metric filter. Logs matching this filter will be aggregated in this metric.
     attr_accessor :filter
 
-    # The rules for the group by.
+    # # The rules for the group by.
     attr_accessor :group_by
 
     # Attribute mapping from ruby-style variable name to JSON key.

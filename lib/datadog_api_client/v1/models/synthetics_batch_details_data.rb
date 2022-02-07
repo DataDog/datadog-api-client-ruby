@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Metadata for the Synthetics tests run.
+    # # Metadata for the Synthetics tests run.
     attr_accessor :metadata
 
-    # List of results for the batch.
+    # # List of results for the batch.
     attr_accessor :results
 
-    # Determines whether or not the batch has passed, failed, or is in progress.
+    # # Determines whether or not the batch has passed, failed, or is in progress.
     attr_accessor :status
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,16 +23,16 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The incident's attributes for an update request.
+    # # The incident's attributes for an update request.
     attr_accessor :attributes
 
-    # The team's ID.
+    # # The team's ID.
     attr_accessor :id
 
-    # The incident's relationships for an update request.
+    # # The incident's relationships for an update request.
     attr_accessor :relationships
 
-    # Incident resource type.
+    # # Incident resource type.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

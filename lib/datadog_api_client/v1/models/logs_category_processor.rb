@@ -35,20 +35,20 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Array of filters to match or not a log and their
+    # # Array of filters to match or not a log and their
     # corresponding `name`to assign a custom value to the log.
     attr_accessor :categories
 
-    # Whether or not the processor is enabled.
+    # # Whether or not the processor is enabled.
     attr_accessor :is_enabled
 
-    # Name of the processor.
+    # # Name of the processor.
     attr_accessor :name
 
-    # Name of the target attribute which value is defined by the matching category.
+    # # Name of the target attribute which value is defined by the matching category.
     attr_accessor :target
 
-    # Type of logs category processor.
+    # # Type of logs category processor.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

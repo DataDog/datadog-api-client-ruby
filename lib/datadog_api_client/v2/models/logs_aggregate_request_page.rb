@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The returned paging point to use to get the next results
+    # # The returned paging point to use to get the next results
     attr_accessor :cursor
 
     # Attribute mapping from ruby-style variable name to JSON key.

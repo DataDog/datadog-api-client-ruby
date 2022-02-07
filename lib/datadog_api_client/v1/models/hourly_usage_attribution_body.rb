@@ -23,28 +23,28 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The hour for the usage.
+    # # The hour for the usage.
     attr_accessor :hour
 
-    # The name of the organization.
+    # # The name of the organization.
     attr_accessor :org_name
 
-    # The organization public ID.
+    # # The organization public ID.
     attr_accessor :public_id
 
-    # The source of the usage attribution tag configuration and the selected tags in the format of `<source_org_name>:::<selected tag 1>///<selected tag 2>///<selected tag 3>`.
+    # # The source of the usage attribution tag configuration and the selected tags in the format of `<source_org_name>:::<selected tag 1>///<selected tag 2>///<selected tag 3>`.
     attr_accessor :tag_config_source
 
-    # Usage Summary by tag name.
+    # # Usage Summary by tag name.
     attr_accessor :tags
 
-    # Total product usage for the given tags within the hour.
+    # # Total product usage for the given tags within the hour.
     attr_accessor :total_usage_sum
 
-    # Shows the most recent hour in the current month for all organizations where usages are calculated.
+    # # Shows the most recent hour in the current month for all organizations where usages are calculated.
     attr_accessor :updated_at
 
-    # Supported products for hourly usage attribution requests.
+    # # Supported products for hourly usage attribution requests.
     attr_accessor :usage_type
 
     # Attribute mapping from ruby-style variable name to JSON key.

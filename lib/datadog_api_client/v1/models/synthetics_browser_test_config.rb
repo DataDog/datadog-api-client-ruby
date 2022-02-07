@@ -23,19 +23,19 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Array of assertions used for the test.
+    # # Array of assertions used for the test.
     attr_accessor :assertions
 
-    # Array of variables used for the test.
+    # # Array of variables used for the test.
     attr_accessor :config_variables
 
-    # Object describing the Synthetic test request.
+    # # Object describing the Synthetic test request.
     attr_accessor :request
 
-    # Cookies to be used for the request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+    # # Cookies to be used for the request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
     attr_accessor :set_cookie
 
-    # Array of variables used for the test steps.
+    # # Array of variables used for the test steps.
     attr_accessor :variables
 
     # Attribute mapping from ruby-style variable name to JSON key.

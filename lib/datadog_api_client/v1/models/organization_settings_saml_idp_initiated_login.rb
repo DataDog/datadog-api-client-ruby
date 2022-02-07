@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Whether SAML IdP initiated login is enabled, learn more
+    # # Whether SAML IdP initiated login is enabled, learn more
     # in the [SAML documentation](https://docs.datadoghq.com/account_management/saml/#idp-initiated-login).
     attr_accessor :enabled
 

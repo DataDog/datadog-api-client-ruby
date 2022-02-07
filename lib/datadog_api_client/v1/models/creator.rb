@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Email of the creator.
+    # # Email of the creator.
     attr_accessor :email
 
-    # Handle of the creator.
+    # # Handle of the creator.
     attr_accessor :handle
 
-    # Name of the creator.
+    # # Name of the creator.
     attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.

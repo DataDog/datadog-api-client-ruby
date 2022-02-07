@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Array of users.
+    # # Array of users.
     attr_accessor :users
 
     # Attribute mapping from ruby-style variable name to JSON key.

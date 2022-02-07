@@ -23,19 +23,19 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The average profiled task count for Fargate Profiling.
+    # # The average profiled task count for Fargate Profiling.
     attr_accessor :avg_profiled_fargate_tasks
 
-    # The hour for the usage.
+    # # The hour for the usage.
     attr_accessor :hour
 
-    # The organization name.
+    # # The organization name.
     attr_accessor :org_name
 
-    # The organization public ID.
+    # # The organization public ID.
     attr_accessor :public_id
 
-    # The number of Fargate tasks run.
+    # # The number of Fargate tasks run.
     attr_accessor :tasks_count
 
     # Attribute mapping from ruby-style variable name to JSON key.

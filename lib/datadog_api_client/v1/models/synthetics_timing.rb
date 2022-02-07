@@ -24,31 +24,31 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The duration in millisecond of the DNS lookup.
+    # # The duration in millisecond of the DNS lookup.
     attr_accessor :dns
 
-    # The time in millisecond to download the response.
+    # # The time in millisecond to download the response.
     attr_accessor :download
 
-    # The time in millisecond to first byte.
+    # # The time in millisecond to first byte.
     attr_accessor :first_byte
 
-    # The duration in millisecond of the TLS handshake.
+    # # The duration in millisecond of the TLS handshake.
     attr_accessor :handshake
 
-    # The time in millisecond spent during redirections.
+    # # The time in millisecond spent during redirections.
     attr_accessor :redirect
 
-    # The duration in millisecond of the TLS handshake.
+    # # The duration in millisecond of the TLS handshake.
     attr_accessor :ssl
 
-    # Time in millisecond to establish the TCP connection.
+    # # Time in millisecond to establish the TCP connection.
     attr_accessor :tcp
 
-    # The overall time in millisecond the request took to be processed.
+    # # The overall time in millisecond the request took to be processed.
     attr_accessor :total
 
-    # Time spent in millisecond waiting for a response.
+    # # Time spent in millisecond waiting for a response.
     attr_accessor :wait
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Dictionary where the keys are groups (comma separated lists of tags) and the values are
+    # # Dictionary where the keys are groups (comma separated lists of tags) and the values are
     # the list of groups your monitor is broken down on.
     attr_accessor :groups
 

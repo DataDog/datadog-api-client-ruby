@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Array of Synthetic global variables.
+    # # Array of Synthetic global variables.
     attr_accessor :variables
 
     # Attribute mapping from ruby-style variable name to JSON key.

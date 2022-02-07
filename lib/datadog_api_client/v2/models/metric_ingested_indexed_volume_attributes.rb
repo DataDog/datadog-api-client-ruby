@@ -23,10 +23,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Indexed volume for the given metric.
+    # # Indexed volume for the given metric.
     attr_accessor :indexed_volume
 
-    # Ingested volume for the given metric.
+    # # Ingested volume for the given metric.
     attr_accessor :ingested_volume
 
     # Attribute mapping from ruby-style variable name to JSON key.

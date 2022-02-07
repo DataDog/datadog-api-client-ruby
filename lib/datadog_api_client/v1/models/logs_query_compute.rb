@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The aggregation method.
+    # # The aggregation method.
     attr_accessor :aggregation
 
-    # Facet name.
+    # # Facet name.
     attr_accessor :facet
 
-    # Define a time interval in seconds.
+    # # Define a time interval in seconds.
     attr_accessor :interval
 
     # Attribute mapping from ruby-style variable name to JSON key.

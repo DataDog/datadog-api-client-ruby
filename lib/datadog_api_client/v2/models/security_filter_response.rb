@@ -23,10 +23,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The security filter's properties.
+    # # The security filter's properties.
     attr_accessor :data
 
-    # Optional metadata associated to the response.
+    # # Optional metadata associated to the response.
     attr_accessor :meta
 
     # Attribute mapping from ruby-style variable name to JSON key.

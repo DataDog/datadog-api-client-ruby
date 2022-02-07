@@ -26,67 +26,67 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # If a scheduled downtime currently exists.
+    # # If a scheduled downtime currently exists.
     attr_accessor :active
 
-    # The downtime object definition of the active child for the original parent recurring downtime. This
+    # # The downtime object definition of the active child for the original parent recurring downtime. This
     # field will only exist on recurring downtimes.
     attr_accessor :active_child
 
-    # If a scheduled downtime is canceled.
+    # # If a scheduled downtime is canceled.
     attr_accessor :canceled
 
-    # User ID of the downtime creator.
+    # # User ID of the downtime creator.
     attr_accessor :creator_id
 
-    # If a downtime has been disabled.
+    # # If a downtime has been disabled.
     attr_accessor :disabled
 
-    # `0` for a downtime applied on `*` or all,
+    # # `0` for a downtime applied on `*` or all,
     # `1` when the downtime is only scoped to hosts,
     # or `2` when the downtime is scoped to anything but hosts.
     attr_accessor :downtime_type
 
-    # POSIX timestamp to end the downtime. If not provided,
+    # # POSIX timestamp to end the downtime. If not provided,
     # the downtime is in effect indefinitely until you cancel it.
     attr_accessor :_end
 
-    # The downtime ID.
+    # # The downtime ID.
     attr_accessor :id
 
-    # A message to include with notifications for this downtime.
+    # # A message to include with notifications for this downtime.
     # Email notifications can be sent to specific users by using the same `@username` notation as events.
     attr_accessor :message
 
-    # A single monitor to which the downtime applies.
+    # # A single monitor to which the downtime applies.
     # If not provided, the downtime applies to all monitors.
     attr_accessor :monitor_id
 
-    # A comma-separated list of monitor tags. For example, tags that are applied directly to monitors,
+    # # A comma-separated list of monitor tags. For example, tags that are applied directly to monitors,
     # not tags that are used in monitor queries (which are filtered by the scope parameter), to which the downtime applies.
     # The resulting downtime applies to monitors that match ALL provided monitor tags.
     # For example, `service:postgres` **AND** `team:frontend`.
     attr_accessor :monitor_tags
 
-    # ID of the parent Downtime.
+    # # ID of the parent Downtime.
     attr_accessor :parent_id
 
-    # An object defining the recurrence of the downtime.
+    # # An object defining the recurrence of the downtime.
     attr_accessor :recurrence
 
-    # The scope(s) to which the downtime applies. For example, `host:app2`.
+    # # The scope(s) to which the downtime applies. For example, `host:app2`.
     # Provide multiple scopes as a comma-separated list like `env:dev,env:prod`.
     # The resulting downtime applies to sources that matches ALL provided scopes (`env:dev` **AND** `env:prod`).
     attr_accessor :scope
 
-    # POSIX timestamp to start the downtime.
+    # # POSIX timestamp to start the downtime.
     # If not provided, the downtime starts the moment it is created.
     attr_accessor :start
 
-    # The timezone in which to display the downtime's start and end times in Datadog applications.
+    # # The timezone in which to display the downtime's start and end times in Datadog applications.
     attr_accessor :timezone
 
-    # ID of the last user that updated the downtime.
+    # # ID of the last user that updated the downtime.
     attr_accessor :updater_id
 
     # Attribute mapping from ruby-style variable name to JSON key.

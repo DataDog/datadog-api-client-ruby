@@ -24,28 +24,28 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Available legend sizes for a widget. Should be one of "0", "2", "4", "8", "16", or "auto".
+    # # Available legend sizes for a widget. Should be one of "0", "2", "4", "8", "16", or "auto".
     attr_accessor :legend_size
 
-    # Request payload used to query items.
+    # # Request payload used to query items.
     attr_accessor :requests
 
-    # Whether or not to display the legend on this widget.
+    # # Whether or not to display the legend on this widget.
     attr_accessor :show_legend
 
-    # Time setting for the widget.
+    # # Time setting for the widget.
     attr_accessor :time
 
-    # Title of the widget.
+    # # Title of the widget.
     attr_accessor :title
 
-    # How to align the text on the widget.
+    # # How to align the text on the widget.
     attr_accessor :title_align
 
-    # Size of the title.
+    # # Size of the title.
     attr_accessor :title_size
 
-    # Type of the list stream widget.
+    # # Type of the list stream widget.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,10 +23,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The time value for this point
+    # # The time value for this point
     attr_accessor :time
 
-    # The value for this point
+    # # The value for this point
     attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.

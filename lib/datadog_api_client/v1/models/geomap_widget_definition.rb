@@ -23,34 +23,34 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # A list of custom links.
+    # # A list of custom links.
     attr_accessor :custom_links
 
-    # Array of one request object to display in the widget. The request must contain a `group-by` tag whose value is a country ISO code.
-    # 
+    # # Array of one request object to display in the widget. The request must contain a `group-by` tag whose value is a country ISO code.
+    #
     # See the [Request JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json)
     # for information about building the `REQUEST_SCHEMA`.
     attr_accessor :requests
 
-    # The style to apply to the widget.
+    # # The style to apply to the widget.
     attr_accessor :style
 
-    # Time setting for the widget.
+    # # Time setting for the widget.
     attr_accessor :time
 
-    # The title of your widget.
+    # # The title of your widget.
     attr_accessor :title
 
-    # How to align the text on the widget.
+    # # How to align the text on the widget.
     attr_accessor :title_align
 
-    # The size of the title.
+    # # The size of the title.
     attr_accessor :title_size
 
-    # Type of the geomap widget.
+    # # Type of the geomap widget.
     attr_accessor :type
 
-    # The view of the world that the map should render.
+    # # The view of the world that the map should render.
     attr_accessor :view
 
     # Attribute mapping from ruby-style variable name to JSON key.

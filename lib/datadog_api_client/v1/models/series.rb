@@ -24,22 +24,22 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The name of the host that produced the metric.
+    # # The name of the host that produced the metric.
     attr_accessor :host
 
-    # If the type of the metric is rate or count, define the corresponding interval.
+    # # If the type of the metric is rate or count, define the corresponding interval.
     attr_accessor :interval
 
-    # The name of the timeseries.
+    # # The name of the timeseries.
     attr_accessor :metric
 
-    # Points relating to a metric. All points must be tuples with timestamp and a scalar value (cannot be a string). Timestamps should be in POSIX time in seconds, and cannot be more than ten minutes in the future or more than one hour in the past.
+    # # Points relating to a metric. All points must be tuples with timestamp and a scalar value (cannot be a string). Timestamps should be in POSIX time in seconds, and cannot be more than ten minutes in the future or more than one hour in the past.
     attr_accessor :points
 
-    # A list of tags associated with the metric.
+    # # A list of tags associated with the metric.
     attr_accessor :tags
 
-    # The type of the metric either `count`, `gauge`, or `rate`.
+    # # The type of the metric either `count`, `gauge`, or `rate`.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

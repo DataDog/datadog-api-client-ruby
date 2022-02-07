@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # A list of tags to apply to the host.
+    # # A list of tags to apply to the host.
     attr_accessor :tags
 
     # Attribute mapping from ruby-style variable name to JSON key.

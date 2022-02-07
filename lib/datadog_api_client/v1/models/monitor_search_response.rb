@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The counts of monitors per different criteria.
+    # # The counts of monitors per different criteria.
     attr_accessor :counts
 
-    # Metadata about the response.
+    # # Metadata about the response.
     attr_accessor :metadata
 
-    # The list of found monitors.
+    # # The list of found monitors.
     attr_accessor :monitors
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Branch name.
+    # # Branch name.
     attr_accessor :branch
 
-    # The commit SHA.
+    # # The commit SHA.
     attr_accessor :commit_sha
 
     # Attribute mapping from ruby-style variable name to JSON key.

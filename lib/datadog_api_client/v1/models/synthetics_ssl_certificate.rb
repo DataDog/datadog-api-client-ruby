@@ -23,40 +23,40 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Cipher used for the connection.
+    # # Cipher used for the connection.
     attr_accessor :cipher
 
-    # Exponent associated to the certificate.
+    # # Exponent associated to the certificate.
     attr_accessor :exponent
 
-    # Array of extensions and details used for the certificate.
+    # # Array of extensions and details used for the certificate.
     attr_accessor :ext_key_usage
 
-    # MD5 digest of the DER-encoded Certificate information.
+    # # MD5 digest of the DER-encoded Certificate information.
     attr_accessor :fingerprint
 
-    # SHA-1 digest of the DER-encoded Certificate information.
+    # # SHA-1 digest of the DER-encoded Certificate information.
     attr_accessor :fingerprint256
 
-    # Object describing the issuer of a SSL certificate.
+    # # Object describing the issuer of a SSL certificate.
     attr_accessor :issuer
 
-    # Modulus associated to the SSL certificate private key.
+    # # Modulus associated to the SSL certificate private key.
     attr_accessor :modulus
 
-    # TLS protocol used for the test.
+    # # TLS protocol used for the test.
     attr_accessor :protocol
 
-    # Serial Number assigned by Symantec to the SSL certificate.
+    # # Serial Number assigned by Symantec to the SSL certificate.
     attr_accessor :serial_number
 
-    # Object describing the SSL certificate used for the test.
+    # # Object describing the SSL certificate used for the test.
     attr_accessor :subject
 
-    # Date from which the SSL certificate is valid.
+    # # Date from which the SSL certificate is valid.
     attr_accessor :valid_from
 
-    # Date until which the SSL certificate is valid.
+    # # Date until which the SSL certificate is valid.
     attr_accessor :valid_to
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,19 +23,19 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Relationship to user.
+    # # Relationship to user.
     attr_accessor :commander_user
 
-    # Relationship to user.
+    # # Relationship to user.
     attr_accessor :created_by_user
 
-    # A relationship reference for multiple integration metadata objects.
+    # # A relationship reference for multiple integration metadata objects.
     attr_accessor :integrations
 
-    # Relationship to user.
+    # # Relationship to user.
     attr_accessor :last_modified_by_user
 
-    # A relationship reference for postmortems.
+    # # A relationship reference for postmortems.
     attr_accessor :postmortem
 
     # Attribute mapping from ruby-style variable name to JSON key.

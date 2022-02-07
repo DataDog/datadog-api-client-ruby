@@ -24,14 +24,14 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The bin size of the histogram buckets
+    # # The bin size of the histogram buckets
     attr_accessor :interval
 
-    # The maximum value for the measure used in the histogram
+    # # The maximum value for the measure used in the histogram
     # (values greater than this one are filtered out)
     attr_accessor :max
 
-    # The minimum value for the measure used in the histogram
+    # # The minimum value for the measure used in the histogram
     # (values smaller than this one are filtered out)
     attr_accessor :min
 

@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Facet path for the column
+    # # Facet path for the column
     attr_accessor :column
 
-    # Widget sorting methods.
+    # # Widget sorting methods.
     attr_accessor :order
 
     # Attribute mapping from ruby-style variable name to JSON key.

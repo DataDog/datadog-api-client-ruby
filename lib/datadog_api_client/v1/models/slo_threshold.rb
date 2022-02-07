@@ -23,26 +23,26 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The target value for the service level indicator within the corresponding
+    # # The target value for the service level indicator within the corresponding
     # timeframe.
     attr_accessor :target
 
-    # A string representation of the target that indicates its precision.
+    # # A string representation of the target that indicates its precision.
     # It uses trailing zeros to show significant decimal places (for example `98.00`).
-    # 
+    #
     # Always included in service level objective responses. Ignored in
     # create/update requests.
     attr_accessor :target_display
 
-    # The SLO time window options.
+    # # The SLO time window options.
     attr_accessor :timeframe
 
-    # The warning value for the service level objective.
+    # # The warning value for the service level objective.
     attr_accessor :warning
 
-    # A string representation of the warning target (see the description of
+    # # A string representation of the warning target (see the description of
     # the `target_display` field for details).
-    # 
+    #
     # Included in service level objective responses if a warning target exists.
     # Ignored in create/update requests.
     attr_accessor :warning_display

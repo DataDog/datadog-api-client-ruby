@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The attribute object associated with the SLO correction.
+    # # The attribute object associated with the SLO correction.
     attr_accessor :attributes
 
-    # The ID of the SLO correction.
+    # # The ID of the SLO correction.
     attr_accessor :id
 
-    # SLO correction resource type.
+    # # SLO correction resource type.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

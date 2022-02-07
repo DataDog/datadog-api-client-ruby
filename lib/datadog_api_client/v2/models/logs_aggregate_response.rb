@@ -23,10 +23,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The query results
+    # # The query results
     attr_accessor :data
 
-    # The metadata associated with a request
+    # # The metadata associated with a request
     attr_accessor :meta
 
     # Attribute mapping from ruby-style variable name to JSON key.

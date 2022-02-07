@@ -23,10 +23,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # A space aggregation for use in query.
+    # # A space aggregation for use in query.
     attr_accessor :space
 
-    # A time aggregation for use in query.
+    # # A time aggregation for use in query.
     attr_accessor :time
 
     # Attribute mapping from ruby-style variable name to JSON key.

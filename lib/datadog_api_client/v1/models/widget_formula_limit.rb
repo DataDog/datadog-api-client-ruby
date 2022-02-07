@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Number of results to return.
+    # # Number of results to return.
     attr_accessor :count
 
-    # Direction of sort.
+    # # Direction of sort.
     attr_accessor :order
 
     # Attribute mapping from ruby-style variable name to JSON key.

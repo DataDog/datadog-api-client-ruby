@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Array with the number of hourly Synthetics test run for a given organization.
+    # # Array with the number of hourly Synthetics test run for a given organization.
     attr_accessor :usage
 
     # Attribute mapping from ruby-style variable name to JSON key.

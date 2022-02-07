@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The month for the usage.
+    # # The month for the usage.
     attr_accessor :date
 
-    # Indexed logs usage for each active retention for the month.
+    # # Indexed logs usage for each active retention for the month.
     attr_accessor :usage
 
     # Attribute mapping from ruby-style variable name to JSON key.

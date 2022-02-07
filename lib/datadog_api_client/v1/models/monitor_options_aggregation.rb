@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Group to break down the monitor on.
+    # # Group to break down the monitor on.
     attr_accessor :group_by
 
-    # Metric name used in the monitor.
+    # # Metric name used in the monitor.
     attr_accessor :metric
 
-    # Metric type used in the monitor.
+    # # Metric type used in the monitor.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,55 +23,55 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Cases for generating signals.
+    # # Cases for generating signals.
     attr_accessor :cases
 
-    # When the rule was created, timestamp in milliseconds.
+    # # When the rule was created, timestamp in milliseconds.
     attr_accessor :created_at
 
-    # User ID of the user who created the rule.
+    # # User ID of the user who created the rule.
     attr_accessor :creation_author_id
 
-    # Additional queries to filter matched events before they are processed.
+    # # Additional queries to filter matched events before they are processed.
     attr_accessor :filters
 
-    # Whether the notifications include the triggering group-by values in their title.
+    # # Whether the notifications include the triggering group-by values in their title.
     attr_accessor :has_extended_title
 
-    # The ID of the rule.
+    # # The ID of the rule.
     attr_accessor :id
 
-    # Whether the rule is included by default.
+    # # Whether the rule is included by default.
     attr_accessor :is_default
 
-    # Whether the rule has been deleted.
+    # # Whether the rule has been deleted.
     attr_accessor :is_deleted
 
-    # Whether the rule is enabled.
+    # # Whether the rule is enabled.
     attr_accessor :is_enabled
 
-    # Message for generated signals.
+    # # Message for generated signals.
     attr_accessor :message
 
-    # The name of the rule.
+    # # The name of the rule.
     attr_accessor :name
 
-    # Options on rules.
+    # # Options on rules.
     attr_accessor :options
 
-    # Queries for selecting logs which are part of the rule.
+    # # Queries for selecting logs which are part of the rule.
     attr_accessor :queries
 
-    # Tags for generated signals.
+    # # Tags for generated signals.
     attr_accessor :tags
 
-    # The rule type.
+    # # The rule type.
     attr_accessor :type
 
-    # User ID of the user who updated the rule.
+    # # User ID of the user who updated the rule.
     attr_accessor :update_author_id
 
-    # The version of the rule.
+    # # The version of the rule.
     attr_accessor :version
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,33 +23,33 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Whether to display a background or not.
+    # # Whether to display a background or not.
     attr_accessor :has_background
 
-    # Whether to display a border or not.
+    # # Whether to display a border or not.
     attr_accessor :has_border
 
-    # Horizontal alignment.
+    # # Horizontal alignment.
     attr_accessor :horizontal_align
 
-    # Size of the margins around the image.
+    # # Size of the margins around the image.
     # **Note**: `small` and `large` values are deprecated.
     attr_accessor :margin
 
-    # How to size the image on the widget. The values are based on the image `object-fit` CSS properties.
+    # # How to size the image on the widget. The values are based on the image `object-fit` CSS properties.
     # **Note**: `zoom`, `fit` and `center` values are deprecated.
     attr_accessor :sizing
 
-    # Type of the image widget.
+    # # Type of the image widget.
     attr_accessor :type
 
-    # URL of the image.
+    # # URL of the image.
     attr_accessor :url
 
-    # URL of the image in dark mode.
+    # # URL of the image in dark mode.
     attr_accessor :url_dark_theme
 
-    # Vertical alignment.
+    # # Vertical alignment.
     attr_accessor :vertical_align
 
     # Attribute mapping from ruby-style variable name to JSON key.

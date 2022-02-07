@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Timestamp of the latest browser test run.
+    # # Timestamp of the latest browser test run.
     attr_accessor :last_timestamp_fetched
 
-    # Result of the latest browser test run.
+    # # Result of the latest browser test run.
     attr_accessor :results
 
     # Attribute mapping from ruby-style variable name to JSON key.

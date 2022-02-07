@@ -23,128 +23,128 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The percentage of synthetic API test usage by tag(s).
+    # # The percentage of synthetic API test usage by tag(s).
     attr_accessor :api_percentage
 
-    # The synthetic API test usage by tag(s).
+    # # The synthetic API test usage by tag(s).
     attr_accessor :api_usage
 
-    # The percentage of APM host usage by tag(s).
+    # # The percentage of APM host usage by tag(s).
     attr_accessor :apm_host_percentage
 
-    # The APM host usage by tag(s).
+    # # The APM host usage by tag(s).
     attr_accessor :apm_host_usage
 
-    # The percentage of synthetic browser test usage by tag(s).
+    # # The percentage of synthetic browser test usage by tag(s).
     attr_accessor :browser_percentage
 
-    # The synthetic browser test usage by tag(s).
+    # # The synthetic browser test usage by tag(s).
     attr_accessor :browser_usage
 
-    # The percentage of container usage by tag(s).
+    # # The percentage of container usage by tag(s).
     attr_accessor :container_percentage
 
-    # The container usage by tag(s).
+    # # The container usage by tag(s).
     attr_accessor :container_usage
 
-    # The percentage of Cloud Security Posture Management container usage by tag(s)
+    # # The percentage of Cloud Security Posture Management container usage by tag(s)
     attr_accessor :cspm_container_percentage
 
-    # The Cloud Security Posture Management container usage by tag(s)
+    # # The Cloud Security Posture Management container usage by tag(s)
     attr_accessor :cspm_container_usage
 
-    # The percentage of Cloud Security Posture Management host usage by tag(s)
+    # # The percentage of Cloud Security Posture Management host usage by tag(s)
     attr_accessor :cspm_host_percentage
 
-    # The Cloud Security Posture Management host usage by tag(s)
+    # # The Cloud Security Posture Management host usage by tag(s)
     attr_accessor :cspm_host_usage
 
-    # The percentage of custom metrics usage by tag(s).
+    # # The percentage of custom metrics usage by tag(s).
     attr_accessor :custom_timeseries_percentage
 
-    # The custom metrics usage by tag(s).
+    # # The custom metrics usage by tag(s).
     attr_accessor :custom_timeseries_usage
 
-    # The percentage of Cloud Workload Security container usage by tag(s)
+    # # The percentage of Cloud Workload Security container usage by tag(s)
     attr_accessor :cws_container_percentage
 
-    # The Cloud Workload Security container usage by tag(s)
+    # # The Cloud Workload Security container usage by tag(s)
     attr_accessor :cws_container_usage
 
-    # The percentage of Cloud Workload Security host usage by tag(s)
+    # # The percentage of Cloud Workload Security host usage by tag(s)
     attr_accessor :cws_host_percentage
 
-    # The Cloud Workload Security host usage by tag(s)
+    # # The Cloud Workload Security host usage by tag(s)
     attr_accessor :cws_host_usage
 
-    # The percentage of Database Monitoring host usage by tag(s).
+    # # The percentage of Database Monitoring host usage by tag(s).
     attr_accessor :dbm_hosts_percentage
 
-    # The Database Monitoring host usage by tag(s).
+    # # The Database Monitoring host usage by tag(s).
     attr_accessor :dbm_hosts_usage
 
-    # The percentage of Database Monitoring normalized queries usage by tag(s).
+    # # The percentage of Database Monitoring normalized queries usage by tag(s).
     attr_accessor :dbm_queries_percentage
 
-    # The Database Monitoring normalized queries usage by tag(s).
+    # # The Database Monitoring normalized queries usage by tag(s).
     attr_accessor :dbm_queries_usage
 
-    # The percentage of estimated live indexed logs usage by tag(s). Note this field is in private beta.
+    # # The percentage of estimated live indexed logs usage by tag(s). Note this field is in private beta.
     attr_accessor :estimated_indexed_logs_percentage
 
-    # The estimated live indexed logs usage by tag(s). Note this field is in private beta.
+    # # The estimated live indexed logs usage by tag(s). Note this field is in private beta.
     attr_accessor :estimated_indexed_logs_usage
 
-    # The percentage of infrastructure host usage by tag(s).
+    # # The percentage of infrastructure host usage by tag(s).
     attr_accessor :infra_host_percentage
 
-    # The infrastructure host usage by tag(s).
+    # # The infrastructure host usage by tag(s).
     attr_accessor :infra_host_usage
 
-    # The percentage of Lambda function usage by tag(s).
+    # # The percentage of Lambda function usage by tag(s).
     attr_accessor :lambda_functions_percentage
 
-    # The Lambda function usage by tag(s).
+    # # The Lambda function usage by tag(s).
     attr_accessor :lambda_functions_usage
 
-    # The percentage of Lambda invocation usage by tag(s).
+    # # The percentage of Lambda invocation usage by tag(s).
     attr_accessor :lambda_invocations_percentage
 
-    # The Lambda invocation usage by tag(s).
+    # # The Lambda invocation usage by tag(s).
     attr_accessor :lambda_invocations_usage
 
-    # The percentage of Lambda function usage by tag(s).
-    # 
+    # # The percentage of Lambda function usage by tag(s).
+    #
     # **Note** this field is deprecated. Use lambda_functions_percentage instead.
     attr_accessor :lambda_percentage
 
-    # The Lambda function usage by tag(s).
-    # 
+    # # The Lambda function usage by tag(s).
+    #
     # **Note** this field is deprecated. Use lambda_functions_usage instead.
     attr_accessor :lambda_usage
 
-    # The percentage of network host usage by tag(s).
+    # # The percentage of network host usage by tag(s).
     attr_accessor :npm_host_percentage
 
-    # The network host usage by tag(s).
+    # # The network host usage by tag(s).
     attr_accessor :npm_host_usage
 
-    # The percentage of profiled containers usage by tag(s).
+    # # The percentage of profiled containers usage by tag(s).
     attr_accessor :profiled_container_percentage
 
-    # The profiled container usage by tag(s).
+    # # The profiled container usage by tag(s).
     attr_accessor :profiled_container_usage
 
-    # The percentage of profiled hosts usage by tag(s).
+    # # The percentage of profiled hosts usage by tag(s).
     attr_accessor :profiled_hosts_percentage
 
-    # The profiled host usage by tag(s).
+    # # The profiled host usage by tag(s).
     attr_accessor :profiled_hosts_usage
 
-    # The percentage of network device usage by tag(s).
+    # # The percentage of network device usage by tag(s).
     attr_accessor :snmp_percentage
 
-    # The network device usage by tag(s).
+    # # The network device usage by tag(s).
     attr_accessor :snmp_usage
 
     # Attribute mapping from ruby-style variable name to JSON key.

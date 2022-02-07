@@ -23,52 +23,52 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Timestamp of the monitor creation.
+    # # Timestamp of the monitor creation.
     attr_accessor :created
 
-    # Object describing the creator of the shared element.
+    # # Object describing the creator of the shared element.
     attr_accessor :creator
 
-    # Whether or not the monitor is deleted. (Always `null`)
+    # # Whether or not the monitor is deleted. (Always `null`)
     attr_accessor :deleted
 
-    # ID of this monitor.
+    # # ID of this monitor.
     attr_accessor :id
 
-    # A message to include with notifications for this monitor.
+    # # A message to include with notifications for this monitor.
     attr_accessor :message
 
-    # Last timestamp when the monitor was edited.
+    # # Last timestamp when the monitor was edited.
     attr_accessor :modified
 
-    # Whether or not the monitor is broken down on different groups.
+    # # Whether or not the monitor is broken down on different groups.
     attr_accessor :multi
 
-    # The monitor name.
+    # # The monitor name.
     attr_accessor :name
 
-    # List of options associated with your monitor.
+    # # List of options associated with your monitor.
     attr_accessor :options
 
-    # The different states your monitor can be in.
+    # # The different states your monitor can be in.
     attr_accessor :overall_state
 
-    # Integer from 1 (high) to 5 (low) indicating alert severity.
+    # # Integer from 1 (high) to 5 (low) indicating alert severity.
     attr_accessor :priority
 
-    # The monitor query.
+    # # The monitor query.
     attr_accessor :query
 
-    # A list of role identifiers that can be pulled from the Roles API. Cannot be used with `locked` option.
+    # # A list of role identifiers that can be pulled from the Roles API. Cannot be used with `locked` option.
     attr_accessor :restricted_roles
 
-    # Wrapper object with the different monitor states.
+    # # Wrapper object with the different monitor states.
     attr_accessor :state
 
-    # Tags associated to your monitor.
+    # # Tags associated to your monitor.
     attr_accessor :tags
 
-    # The type of the monitor. For more information about `type`, see the [monitor options](https://docs.datadoghq.com/monitors/guide/monitor_api_options/) docs.
+    # # The type of the monitor. For more information about `type`, see the [monitor options](https://docs.datadoghq.com/monitors/guide/monitor_api_options/) docs.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

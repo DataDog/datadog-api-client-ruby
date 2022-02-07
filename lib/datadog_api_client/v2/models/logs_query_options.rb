@@ -24,10 +24,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The time offset (in seconds) to apply to the query.
+    # # The time offset (in seconds) to apply to the query.
     attr_accessor :time_offset
 
-    # The timezone can be specified both as an offset, for example: "UTC+03:00".
+    # # The timezone can be specified both as an offset, for example: "UTC+03:00".
     attr_accessor :timezone
 
     # Attribute mapping from ruby-style variable name to JSON key.

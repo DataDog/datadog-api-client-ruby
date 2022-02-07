@@ -23,34 +23,34 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # List of groups used for colors.
+    # # List of groups used for colors.
     attr_accessor :color_by_groups
 
-    # List of custom links.
+    # # List of custom links.
     attr_accessor :custom_links
 
-    # Widget definition.
+    # # Widget definition.
     attr_accessor :requests
 
-    # Time setting for the widget.
+    # # Time setting for the widget.
     attr_accessor :time
 
-    # Title of your widget.
+    # # Title of your widget.
     attr_accessor :title
 
-    # How to align the text on the widget.
+    # # How to align the text on the widget.
     attr_accessor :title_align
 
-    # Size of the title.
+    # # Size of the title.
     attr_accessor :title_size
 
-    # Type of the scatter plot widget.
+    # # Type of the scatter plot widget.
     attr_accessor :type
 
-    # Axis controls for the widget.
+    # # Axis controls for the widget.
     attr_accessor :xaxis
 
-    # Axis controls for the widget.
+    # # Axis controls for the widget.
     attr_accessor :yaxis
 
     # Attribute mapping from ruby-style variable name to JSON key.

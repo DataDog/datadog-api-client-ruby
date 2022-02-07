@@ -23,11 +23,11 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Default query is `*`, meaning all logs flowing in the index would be excluded.
+    # # Default query is `*`, meaning all logs flowing in the index would be excluded.
     # Scope down exclusion filter to only a subset of logs with a log query.
     attr_accessor :query
 
-    # Sample rate to apply to logs going through this exclusion filter,
+    # # Sample rate to apply to logs going through this exclusion filter,
     # a value of 1.0 excludes all logs matching the query.
     attr_accessor :sample_rate
 

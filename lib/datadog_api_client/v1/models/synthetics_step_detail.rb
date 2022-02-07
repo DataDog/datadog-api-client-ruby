@@ -23,56 +23,56 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Array of errors collected for a browser test.
+    # # Array of errors collected for a browser test.
     attr_accessor :browser_errors
 
-    # Type of assertion to apply in an API test.
+    # # Type of assertion to apply in an API test.
     attr_accessor :check_type
 
-    # Description of the test.
+    # # Description of the test.
     attr_accessor :description
 
-    # Total duration in millisecond of the test.
+    # # Total duration in millisecond of the test.
     attr_accessor :duration
 
-    # Error returned by the test.
+    # # Error returned by the test.
     attr_accessor :error
 
-    # Navigate between different tabs for your browser test.
+    # # Navigate between different tabs for your browser test.
     attr_accessor :playing_tab
 
-    # Whether or not screenshots where collected by the test.
+    # # Whether or not screenshots where collected by the test.
     attr_accessor :screenshot_bucket_key
 
-    # Whether or not to skip this step.
+    # # Whether or not to skip this step.
     attr_accessor :skipped
 
-    # Whether or not snapshots where collected by the test.
+    # # Whether or not snapshots where collected by the test.
     attr_accessor :snapshot_bucket_key
 
-    # The step ID.
+    # # The step ID.
     attr_accessor :step_id
 
-    # If this steps include a sub-test.
+    # # If this steps include a sub-test.
     # [Subtests documentation](https://docs.datadoghq.com/synthetics/browser_tests/advanced_options/#subtests).
     attr_accessor :sub_test_step_details
 
-    # Time before starting the step.
+    # # Time before starting the step.
     attr_accessor :time_to_interactive
 
-    # Step type used in your Synthetic test.
+    # # Step type used in your Synthetic test.
     attr_accessor :type
 
-    # URL to perform the step against.
+    # # URL to perform the step against.
     attr_accessor :url
 
-    # Value for the step.
+    # # Value for the step.
     attr_accessor :value
 
-    # Array of Core Web Vitals metrics for the step.
+    # # Array of Core Web Vitals metrics for the step.
     attr_accessor :vitals_metrics
 
-    # Warning collected that didn't failed the step.
+    # # Warning collected that didn't failed the step.
     attr_accessor :warnings
 
     # Attribute mapping from ruby-style variable name to JSON key.

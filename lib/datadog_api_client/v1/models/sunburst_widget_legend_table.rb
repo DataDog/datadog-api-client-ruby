@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Whether or not to show a table legend.
+    # # Whether or not to show a table legend.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

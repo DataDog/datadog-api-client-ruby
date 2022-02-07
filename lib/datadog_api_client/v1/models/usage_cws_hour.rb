@@ -23,19 +23,19 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The total number of Cloud Workload Security container hours from the start of the given hour’s month until the given hour.
+    # # The total number of Cloud Workload Security container hours from the start of the given hour’s month until the given hour.
     attr_accessor :cws_container_count
 
-    # The total number of Cloud Workload Security host hours from the start of the given hour’s month until the given hour.
+    # # The total number of Cloud Workload Security host hours from the start of the given hour’s month until the given hour.
     attr_accessor :cws_host_count
 
-    # The hour for the usage.
+    # # The hour for the usage.
     attr_accessor :hour
 
-    # The organization name.
+    # # The organization name.
     attr_accessor :org_name
 
-    # The organization public ID.
+    # # The organization public ID.
     attr_accessor :public_id
 
     # Attribute mapping from ruby-style variable name to JSON key.

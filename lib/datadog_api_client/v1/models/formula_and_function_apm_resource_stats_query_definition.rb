@@ -23,34 +23,34 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Data source for APM resource stats queries.
+    # # Data source for APM resource stats queries.
     attr_accessor :data_source
 
-    # APM environment.
+    # # APM environment.
     attr_accessor :env
 
-    # Array of fields to group results by.
+    # # Array of fields to group results by.
     attr_accessor :group_by
 
-    # Name of this query to use in formulas.
+    # # Name of this query to use in formulas.
     attr_accessor :name
 
-    # Name of operation on service.
+    # # Name of operation on service.
     attr_accessor :operation_name
 
-    # Name of the second primary tag used within APM. Required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog
+    # # Name of the second primary tag used within APM. Required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog
     attr_accessor :primary_tag_name
 
-    # Value of the second primary tag by which to filter APM data. `primary_tag_name` must also be specified.
+    # # Value of the second primary tag by which to filter APM data. `primary_tag_name` must also be specified.
     attr_accessor :primary_tag_value
 
-    # APM resource name.
+    # # APM resource name.
     attr_accessor :resource_name
 
-    # APM service name.
+    # # APM service name.
     attr_accessor :service
 
-    # APM resource stat name.
+    # # APM resource stat name.
     attr_accessor :stat
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,28 +23,28 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Process command line.
+    # # Process command line.
     attr_accessor :cmdline
 
-    # Host running the process.
+    # # Host running the process.
     attr_accessor :host
 
-    # Process ID.
+    # # Process ID.
     attr_accessor :pid
 
-    # Parent process ID.
+    # # Parent process ID.
     attr_accessor :ppid
 
-    # Time the process was started.
+    # # Time the process was started.
     attr_accessor :start
 
-    # List of tags associated with the process.
+    # # List of tags associated with the process.
     attr_accessor :tags
 
-    # Time the process was seen.
+    # # Time the process was seen.
     attr_accessor :timestamp
 
-    # Process owner.
+    # # Process owner.
     attr_accessor :user
 
     # Attribute mapping from ruby-style variable name to JSON key.

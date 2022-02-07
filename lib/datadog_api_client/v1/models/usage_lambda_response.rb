@@ -24,7 +24,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Get hourly usage for Lambda.
+    # # Get hourly usage for Lambda.
     attr_accessor :usage
 
     # Attribute mapping from ruby-style variable name to JSON key.

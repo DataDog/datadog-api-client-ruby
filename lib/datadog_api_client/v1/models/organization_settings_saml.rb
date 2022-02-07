@@ -24,7 +24,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Whether or not SAML is enabled for this organization.
+    # # Whether or not SAML is enabled for this organization.
     attr_accessor :enabled
 
     # Attribute mapping from ruby-style variable name to JSON key.

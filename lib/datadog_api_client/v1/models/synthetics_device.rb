@@ -23,19 +23,19 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Screen height of the device.
+    # # Screen height of the device.
     attr_accessor :height
 
-    # The device ID.
+    # # The device ID.
     attr_accessor :id
 
-    # Whether or not the device is a mobile.
+    # # Whether or not the device is a mobile.
     attr_accessor :is_mobile
 
-    # The device name.
+    # # The device name.
     attr_accessor :name
 
-    # Screen width of the device.
+    # # Screen width of the device.
     attr_accessor :width
 
     # Attribute mapping from ruby-style variable name to JSON key.

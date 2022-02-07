@@ -23,16 +23,16 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The hour for the usage.
+    # # The hour for the usage.
     attr_accessor :hour
 
-    # Contains the number of custom metrics that are inputs for aggregations (metric configured is custom).
+    # # Contains the number of custom metrics that are inputs for aggregations (metric configured is custom).
     attr_accessor :num_custom_input_timeseries
 
-    # Contains the number of custom metrics that are outputs for aggregations (metric configured is custom).
+    # # Contains the number of custom metrics that are outputs for aggregations (metric configured is custom).
     attr_accessor :num_custom_output_timeseries
 
-    # Contains sum of non-aggregation custom metrics and custom metrics that are outputs for aggregations.
+    # # Contains sum of non-aggregation custom metrics and custom metrics that are outputs for aggregations.
     attr_accessor :num_custom_timeseries
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Get hourly usage for indexed logs by retention period.
+    # # Get hourly usage for indexed logs by retention period.
     attr_accessor :usage
 
     # Attribute mapping from ruby-style variable name to JSON key.

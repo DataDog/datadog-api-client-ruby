@@ -23,10 +23,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The path to the value the log-based metric will be aggregated over.
+    # # The path to the value the log-based metric will be aggregated over.
     attr_accessor :path
 
-    # Eventual name of the tag that gets created. By default, the path attribute is used as the tag name.
+    # # Eventual name of the tag that gets created. By default, the path attribute is used as the tag name.
     attr_accessor :tag_name
 
     # Attribute mapping from ruby-style variable name to JSON key.

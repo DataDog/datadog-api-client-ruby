@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The JSON path to assert.
+    # # The JSON path to assert.
     attr_accessor :json_path
 
-    # The specific operator to use on the path.
+    # # The specific operator to use on the path.
     attr_accessor :operator
 
-    # The path target value to compare to.
+    # # The path target value to compare to.
     attr_accessor :target_value
 
     # Attribute mapping from ruby-style variable name to JSON key.

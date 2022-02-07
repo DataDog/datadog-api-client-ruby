@@ -23,10 +23,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # A client email.
+    # # A client email.
     attr_accessor :client_email
 
-    # A project ID.
+    # # A project ID.
     attr_accessor :project_id
 
     # Attribute mapping from ruby-style variable name to JSON key.

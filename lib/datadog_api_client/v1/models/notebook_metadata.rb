@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Whether or not the notebook is a template.
+    # # Whether or not the notebook is a template.
     attr_accessor :is_template
 
-    # Whether or not the notebook takes snapshot image backups of the notebook's fixed-time graphs.
+    # # Whether or not the notebook takes snapshot image backups of the notebook's fixed-time graphs.
     attr_accessor :take_snapshots
 
-    # Metadata type of the notebook.
+    # # Metadata type of the notebook.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,13 +23,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The object describing a security filter.
+    # # The object describing a security filter.
     attr_accessor :attributes
 
-    # The ID of the security filter.
+    # # The ID of the security filter.
     attr_accessor :id
 
-    # The type of the resource. The value should always be `security_filters`.
+    # # The type of the resource. The value should always be `security_filters`.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,22 +23,22 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The family of metric unit, for example `bytes` is the family for `kibibyte`, `byte`, and `bit` units.
+    # # The family of metric unit, for example `bytes` is the family for `kibibyte`, `byte`, and `bit` units.
     attr_accessor :family
 
-    # The ID of the metric unit.
+    # # The ID of the metric unit.
     attr_accessor :id
 
-    # The unit of the metric, for instance `byte`.
+    # # The unit of the metric, for instance `byte`.
     attr_accessor :name
 
-    # The plural Unit of metric, for instance `bytes`.
+    # # The plural Unit of metric, for instance `bytes`.
     attr_accessor :plural
 
-    # The scale factor of metric unit, for instance `1.0`.
+    # # The scale factor of metric unit, for instance `1.0`.
     attr_accessor :scale_factor
 
-    # A shorter and abbreviated version of the metric unit, for instance `B`.
+    # # A shorter and abbreviated version of the metric unit, for instance `B`.
     attr_accessor :short_name
 
     # Attribute mapping from ruby-style variable name to JSON key.

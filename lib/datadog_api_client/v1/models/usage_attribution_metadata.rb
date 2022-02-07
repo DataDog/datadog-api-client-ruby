@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # An array of available aggregates.
+    # # An array of available aggregates.
     attr_accessor :aggregates
 
-    # The metadata for the current pagination.
+    # # The metadata for the current pagination.
     attr_accessor :pagination
 
     # Attribute mapping from ruby-style variable name to JSON key.

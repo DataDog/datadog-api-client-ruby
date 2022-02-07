@@ -23,13 +23,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Timestamp of when the incident service was created.
+    # # Timestamp of when the incident service was created.
     attr_accessor :created
 
-    # Timestamp of when the incident service was modified.
+    # # Timestamp of when the incident service was modified.
     attr_accessor :modified
 
-    # Name of the incident service.
+    # # Name of the incident service.
     attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.

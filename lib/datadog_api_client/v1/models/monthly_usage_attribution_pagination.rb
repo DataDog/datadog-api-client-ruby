@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The cursor to use to get the next results, if any. To make the next request, use the same parameters with the addition of the `next_record_id`.
+    # # The cursor to use to get the next results, if any. To make the next request, use the same parameters with the addition of the `next_record_id`.
     attr_accessor :next_record_id
 
     # Attribute mapping from ruby-style variable name to JSON key.

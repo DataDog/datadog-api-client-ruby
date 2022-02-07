@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # An array of available custom reports.
+    # # An array of available custom reports.
     attr_accessor :data
 
-    # The object containing document metadata.
+    # # The object containing document metadata.
     attr_accessor :meta
 
     # Attribute mapping from ruby-style variable name to JSON key.

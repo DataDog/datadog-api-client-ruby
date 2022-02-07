@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The response containing attributes for custom reports.
+    # # The response containing attributes for custom reports.
     attr_accessor :attributes
 
-    # The date for specified custom reports.
+    # # The date for specified custom reports.
     attr_accessor :id
 
-    # The type of reports.
+    # # The type of reports.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

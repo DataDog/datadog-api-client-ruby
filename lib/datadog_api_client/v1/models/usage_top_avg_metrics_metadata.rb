@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The day value from the user request that contains the returned usage data. (If day was used the request)
+    # # The day value from the user request that contains the returned usage data. (If day was used the request)
     attr_accessor :day
 
-    # The month value from the user request that contains the returned usage data. (If month was used the request)
+    # # The month value from the user request that contains the returned usage data. (If month was used the request)
     attr_accessor :month
 
-    # The metadata for the current pagination.
+    # # The metadata for the current pagination.
     attr_accessor :pagination
 
     # Attribute mapping from ruby-style variable name to JSON key.

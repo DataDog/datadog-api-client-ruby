@@ -23,16 +23,16 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The minimum time for the requested logs, supports date math and regular timestamps (milliseconds).
+    # # The minimum time for the requested logs, supports date math and regular timestamps (milliseconds).
     attr_accessor :from
 
-    # For customers with multiple indexes, the indexes to search. Defaults to ['*'] which means all indexes.
+    # # For customers with multiple indexes, the indexes to search. Defaults to ['*'] which means all indexes.
     attr_accessor :indexes
 
-    # The search query - following the log search syntax.
+    # # The search query - following the log search syntax.
     attr_accessor :query
 
-    # The maximum time for the requested logs, supports date math and regular timestamps (milliseconds).
+    # # The maximum time for the requested logs, supports date math and regular timestamps (milliseconds).
     attr_accessor :to
 
     # Attribute mapping from ruby-style variable name to JSON key.

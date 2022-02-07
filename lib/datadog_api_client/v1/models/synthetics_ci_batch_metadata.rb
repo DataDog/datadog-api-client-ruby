@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Description of the CI provider.
+    # # Description of the CI provider.
     attr_accessor :ci
 
-    # Git information.
+    # # Git information.
     attr_accessor :git
 
     # Attribute mapping from ruby-style variable name to JSON key.

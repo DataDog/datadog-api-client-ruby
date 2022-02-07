@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The object containing information about the pages of the list of SLOs.
+    # # The object containing information about the pages of the list of SLOs.
     attr_accessor :page
 
     # Attribute mapping from ruby-style variable name to JSON key.

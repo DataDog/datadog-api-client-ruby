@@ -23,25 +23,25 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Object describing the API test configuration.
+    # # Object describing the API test configuration.
     attr_accessor :check
 
-    # When the API test was conducted.
+    # # When the API test was conducted.
     attr_accessor :check_time
 
-    # Version of the API test used.
+    # # Version of the API test used.
     attr_accessor :check_version
 
-    # Locations for which to query the API test results.
+    # # Locations for which to query the API test results.
     attr_accessor :probe_dc
 
-    # Object containing results for your Synthetic API test.
+    # # Object containing results for your Synthetic API test.
     attr_accessor :result
 
-    # ID of the API test result.
+    # # ID of the API test result.
     attr_accessor :result_id
 
-    # The status of your Synthetic monitor.
+    # # The status of your Synthetic monitor.
     # * `O` for not triggered
     # * `1` for triggered
     # * `2` for no data

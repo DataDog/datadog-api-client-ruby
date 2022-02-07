@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Facet name.
+    # # Facet name.
     attr_accessor :facet
 
-    # Maximum number of items in the group.
+    # # Maximum number of items in the group.
     attr_accessor :limit
 
-    # Define a sorting method.
+    # # Define a sorting method.
     attr_accessor :sort
 
     # Attribute mapping from ruby-style variable name to JSON key.

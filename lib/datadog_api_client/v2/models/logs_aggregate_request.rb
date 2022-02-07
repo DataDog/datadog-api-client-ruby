@@ -23,20 +23,20 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The list of metrics or timeseries to compute for the retrieved buckets.
+    # # The list of metrics or timeseries to compute for the retrieved buckets.
     attr_accessor :compute
 
-    # The search and filter query settings
+    # # The search and filter query settings
     attr_accessor :filter
 
-    # The rules for the group by
+    # # The rules for the group by
     attr_accessor :group_by
 
-    # Global query options that are used during the query.
+    # # Global query options that are used during the query.
     # Note: You should only supply timezone or time offset but not both otherwise the query will fail.
     attr_accessor :options
 
-    # Paging settings
+    # # Paging settings
     attr_accessor :page
 
     # Attribute mapping from ruby-style variable name to JSON key.

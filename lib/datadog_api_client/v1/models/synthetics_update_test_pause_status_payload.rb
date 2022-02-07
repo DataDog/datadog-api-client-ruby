@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Define whether you want to start (`live`) or pause (`paused`) a
+    # # Define whether you want to start (`live`) or pause (`paused`) a
     # Synthetic test.
     attr_accessor :new_status
 

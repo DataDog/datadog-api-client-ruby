@@ -23,22 +23,22 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Exclusion filters to exclude some logs from the security filter.
+    # # Exclusion filters to exclude some logs from the security filter.
     attr_accessor :exclusion_filters
 
-    # The filtered data type.
+    # # The filtered data type.
     attr_accessor :filtered_data_type
 
-    # Whether the security filter is enabled.
+    # # Whether the security filter is enabled.
     attr_accessor :is_enabled
 
-    # The name of the security filter.
+    # # The name of the security filter.
     attr_accessor :name
 
-    # The query of the security filter.
+    # # The query of the security filter.
     attr_accessor :query
 
-    # The version of the security filter to update.
+    # # The version of the security filter to update.
     attr_accessor :version
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,16 +23,16 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Description of the error.
+    # # Description of the error.
     attr_accessor :description
 
-    # Name of the error.
+    # # Name of the error.
     attr_accessor :name
 
-    # Status Code of the error.
+    # # Status Code of the error.
     attr_accessor :status
 
-    # Error type returned by a browser test.
+    # # Error type returned by a browser test.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

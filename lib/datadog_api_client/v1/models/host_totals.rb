@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Total number of active host (UP and ???) reporting to Datadog.
+    # # Total number of active host (UP and ???) reporting to Datadog.
     attr_accessor :total_active
 
-    # Number of host that are UP and reporting to Datadog.
+    # # Number of host that are UP and reporting to Datadog.
     attr_accessor :total_up
 
     # Attribute mapping from ruby-style variable name to JSON key.

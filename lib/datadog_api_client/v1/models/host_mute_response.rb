@@ -23,16 +23,16 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Action applied to the hosts.
+    # # Action applied to the hosts.
     attr_accessor :action
 
-    # POSIX timestamp in seconds when the host is unmuted.
+    # # POSIX timestamp in seconds when the host is unmuted.
     attr_accessor :_end
 
-    # The host name.
+    # # The host name.
     attr_accessor :hostname
 
-    # Message associated with the mute.
+    # # Message associated with the mute.
     attr_accessor :message
 
     # Attribute mapping from ruby-style variable name to JSON key.

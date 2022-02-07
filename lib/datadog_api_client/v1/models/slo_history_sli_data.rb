@@ -24,41 +24,41 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # A mapping of threshold `timeframe` to the remaining error budget.
+    # # A mapping of threshold `timeframe` to the remaining error budget.
     attr_accessor :error_budget_remaining
 
-    # An array of error objects returned while querying the history data for the service level objective.
+    # # An array of error objects returned while querying the history data for the service level objective.
     attr_accessor :errors
 
-    # For groups in a grouped SLO, this is the group name.
+    # # For groups in a grouped SLO, this is the group name.
     attr_accessor :group
 
-    # For `monitor` based SLOs, this includes the aggregated history as arrays that include time series and uptime data where `0=monitor` is in `OK` state and `1=monitor` is in `alert` state.
+    # # For `monitor` based SLOs, this includes the aggregated history as arrays that include time series and uptime data where `0=monitor` is in `OK` state and `1=monitor` is in `alert` state.
     attr_accessor :history
 
-    # For `monitor` based SLOs, this is the last modified timestamp in epoch seconds of the monitor.
+    # # For `monitor` based SLOs, this is the last modified timestamp in epoch seconds of the monitor.
     attr_accessor :monitor_modified
 
-    # For `monitor` based SLOs, this describes the type of monitor.
+    # # For `monitor` based SLOs, this describes the type of monitor.
     attr_accessor :monitor_type
 
-    # For groups in a grouped SLO, this is the group name. For monitors in a multi-monitor SLO, this is the monitor name.
+    # # For groups in a grouped SLO, this is the group name. For monitors in a multi-monitor SLO, this is the monitor name.
     attr_accessor :name
 
-    # A mapping of threshold `timeframe` to number of accurate decimals, regardless of the from && to timestamp.
+    # # A mapping of threshold `timeframe` to number of accurate decimals, regardless of the from && to timestamp.
     attr_accessor :precision
 
-    # For `monitor` based SLOs, when `true` this indicates that a replay is in progress to give an accurate uptime
+    # # For `monitor` based SLOs, when `true` this indicates that a replay is in progress to give an accurate uptime
     # calculation.
     attr_accessor :preview
 
-    # The current SLI value of the SLO over the history window.
+    # # The current SLI value of the SLO over the history window.
     attr_accessor :sli_value
 
-    # The amount of decimal places the SLI value is accurate to for the given from `&&` to timestamp.
+    # # The amount of decimal places the SLI value is accurate to for the given from `&&` to timestamp.
     attr_accessor :span_precision
 
-    # Use `sli_value` instead.
+    # # Use `sli_value` instead.
     attr_accessor :uptime
 
     # Attribute mapping from ruby-style variable name to JSON key.

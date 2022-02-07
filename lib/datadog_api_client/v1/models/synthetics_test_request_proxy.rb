@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Headers to include when performing the test.
+    # # Headers to include when performing the test.
     attr_accessor :headers
 
-    # URL of the proxy to perform the test.
+    # # URL of the proxy to perform the test.
     attr_accessor :url
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,19 +23,19 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Example for the variable.
+    # # Example for the variable.
     attr_accessor :example
 
-    # ID of the variable for global variables.
+    # # ID of the variable for global variables.
     attr_accessor :id
 
-    # Name of the variable.
+    # # Name of the variable.
     attr_accessor :name
 
-    # Pattern of the variable.
+    # # Pattern of the variable.
     attr_accessor :pattern
 
-    # Type of the configuration variable.
+    # # Type of the configuration variable.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,10 +23,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The exclusion filter name.
+    # # The exclusion filter name.
     attr_accessor :name
 
-    # The exclusion filter query.
+    # # The exclusion filter query.
     attr_accessor :query
 
     # Attribute mapping from ruby-style variable name to JSON key.

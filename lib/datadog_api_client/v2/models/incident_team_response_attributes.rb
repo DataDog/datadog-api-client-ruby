@@ -23,13 +23,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Timestamp of when the incident team was created.
+    # # Timestamp of when the incident team was created.
     attr_accessor :created
 
-    # Timestamp of when the incident team was modified.
+    # # Timestamp of when the incident team was modified.
     attr_accessor :modified
 
-    # Name of the incident team.
+    # # Name of the incident team.
     attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.

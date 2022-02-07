@@ -23,13 +23,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # An array of incidents.
+    # # An array of incidents.
     attr_accessor :data
 
-    # Included related resources that the user requested.
+    # # Included related resources that the user requested.
     attr_accessor :included
 
-    # The metadata object containing pagination metadata.
+    # # The metadata object containing pagination metadata.
     attr_accessor :meta
 
     # Attribute mapping from ruby-style variable name to JSON key.

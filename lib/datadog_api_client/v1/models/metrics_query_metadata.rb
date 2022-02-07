@@ -23,43 +23,43 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Aggregation type.
+    # # Aggregation type.
     attr_accessor :aggr
 
-    # Display name of the metric.
+    # # Display name of the metric.
     attr_accessor :display_name
 
-    # End of the time window, milliseconds since Unix epoch.
+    # # End of the time window, milliseconds since Unix epoch.
     attr_accessor :_end
 
-    # Metric expression.
+    # # Metric expression.
     attr_accessor :expression
 
-    # Number of seconds between data samples.
+    # # Number of seconds between data samples.
     attr_accessor :interval
 
-    # Number of data samples.
+    # # Number of data samples.
     attr_accessor :length
 
-    # Metric name.
+    # # Metric name.
     attr_accessor :metric
 
-    # List of points of the time series.
+    # # List of points of the time series.
     attr_accessor :pointlist
 
-    # The index of the series' query within the request.
+    # # The index of the series' query within the request.
     attr_accessor :query_index
 
-    # Metric scope, comma separated list of tags.
+    # # Metric scope, comma separated list of tags.
     attr_accessor :scope
 
-    # Start of the time window, milliseconds since Unix epoch.
+    # # Start of the time window, milliseconds since Unix epoch.
     attr_accessor :start
 
-    # Unique tags identifying this series.
+    # # Unique tags identifying this series.
     attr_accessor :tag_set
 
-    # Detailed information about the metric unit.
+    # # Detailed information about the metric unit.
     # First element describes the "primary unit" (for example, `bytes` in `bytes per second`),
     # second describes the "per unit" (for example, `second` in `bytes per second`).
     attr_accessor :unit

@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
+    # # Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
     attr_accessor :config
 
-    # Object containing information about the private location to create.
+    # # Object containing information about the private location to create.
     attr_accessor :private_location
 
-    # Public key for the result encryption.
+    # # Public key for the result encryption.
     attr_accessor :result_encryption
 
     # Attribute mapping from ruby-style variable name to JSON key.

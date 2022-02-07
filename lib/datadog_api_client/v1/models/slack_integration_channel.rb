@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Configuration options for what is shown in an alert event message.
+    # # Configuration options for what is shown in an alert event message.
     attr_accessor :display
 
-    # Your channel name.
+    # # Your channel name.
     attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.

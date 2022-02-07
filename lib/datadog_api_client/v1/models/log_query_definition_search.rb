@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Search value to apply.
+    # # Search value to apply.
     attr_accessor :query
 
     # Attribute mapping from ruby-style variable name to JSON key.

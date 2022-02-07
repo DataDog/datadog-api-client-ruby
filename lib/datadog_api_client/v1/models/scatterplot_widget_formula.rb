@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Expression alias.
+    # # Expression alias.
     attr_accessor :_alias
 
-    # Dimension of the Scatterplot.
+    # # Dimension of the Scatterplot.
     attr_accessor :dimension
 
-    # String expression built from queries, formulas, and functions.
+    # # String expression built from queries, formulas, and functions.
     attr_accessor :formula
 
     # Attribute mapping from ruby-style variable name to JSON key.

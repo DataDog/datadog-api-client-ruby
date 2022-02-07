@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # List of match rules for the grok parser, separated by a new line.
+    # # List of match rules for the grok parser, separated by a new line.
     attr_accessor :match_rules
 
-    # List of support rules for the grok parser, separated by a new line.
+    # # List of support rules for the grok parser, separated by a new line.
     attr_accessor :support_rules
 
     # Attribute mapping from ruby-style variable name to JSON key.

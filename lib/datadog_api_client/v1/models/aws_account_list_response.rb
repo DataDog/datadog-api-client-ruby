@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # List of enabled AWS accounts.
+    # # List of enabled AWS accounts.
     attr_accessor :accounts
 
     # Attribute mapping from ruby-style variable name to JSON key.

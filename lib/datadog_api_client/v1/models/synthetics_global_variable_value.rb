@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Determines if the value of the variable is hidden.
+    # # Determines if the value of the variable is hidden.
     attr_accessor :secure
 
-    # Value of the global variable. When reading a global variable,
+    # # Value of the global variable. When reading a global variable,
     # the value will not be present if the variable is hidden with the `secure` property.
     attr_accessor :value
 

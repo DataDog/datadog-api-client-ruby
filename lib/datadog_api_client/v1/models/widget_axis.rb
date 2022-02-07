@@ -23,19 +23,19 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # True includes zero.
+    # # True includes zero.
     attr_accessor :include_zero
 
-    # The label of the axis to display on the graph.
+    # # The label of the axis to display on the graph.
     attr_accessor :label
 
-    # Specifies the maximum value to show on the y-axis. It takes a number, or auto for default behavior.
+    # # Specifies the maximum value to show on the y-axis. It takes a number, or auto for default behavior.
     attr_accessor :max
 
-    # Specifies minimum value to show on the y-axis. It takes a number, or auto for default behavior.
+    # # Specifies minimum value to show on the y-axis. It takes a number, or auto for default behavior.
     attr_accessor :min
 
-    # Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, `pow##` (for example `pow2`, `pow0.5` etc.).
+    # # Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, `pow##` (for example `pow2`, `pow0.5` etc.).
     attr_accessor :scale
 
     # Attribute mapping from ruby-style variable name to JSON key.

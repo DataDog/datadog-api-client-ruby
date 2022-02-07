@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # List of dashboards to update the dashboard list to.
+    # # List of dashboards to update the dashboard list to.
     attr_accessor :dashboards
 
     # Attribute mapping from ruby-style variable name to JSON key.

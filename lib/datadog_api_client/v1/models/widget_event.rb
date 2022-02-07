@@ -26,10 +26,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Query definition.
+    # # Query definition.
     attr_accessor :q
 
-    # The execution method for multi-value filters.
+    # # The execution method for multi-value filters.
     attr_accessor :tags_execution
 
     # Attribute mapping from ruby-style variable name to JSON key.

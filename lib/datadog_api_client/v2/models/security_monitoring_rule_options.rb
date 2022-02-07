@@ -23,22 +23,22 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The detection method.
+    # # The detection method.
     attr_accessor :detection_method
 
-    # A time window is specified to match when at least one of the cases matches true. This is a sliding window
+    # # A time window is specified to match when at least one of the cases matches true. This is a sliding window
     # and evaluates in real time.
     attr_accessor :evaluation_window
 
-    # Once a signal is generated, the signal will remain “open” if a case is matched at least once within
+    # # Once a signal is generated, the signal will remain “open” if a case is matched at least once within
     # this keep alive window.
     attr_accessor :keep_alive
 
-    # A signal will “close” regardless of the query being matched once the time exceeds the maximum duration.
+    # # A signal will “close” regardless of the query being matched once the time exceeds the maximum duration.
     # This time is calculated from the first seen timestamp.
     attr_accessor :max_signal_duration
 
-    # Options on new value rules.
+    # # Options on new value rules.
     attr_accessor :new_value_options
 
     # Attribute mapping from ruby-style variable name to JSON key.

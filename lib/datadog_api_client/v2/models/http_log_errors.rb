@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Structured errors.
+    # # Structured errors.
     attr_accessor :errors
 
     # Attribute mapping from ruby-style variable name to JSON key.

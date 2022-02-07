@@ -23,28 +23,28 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The billing plan.
+    # # The billing plan.
     attr_accessor :billing_plan
 
-    # Shows the last date of usage.
+    # # Shows the last date of usage.
     attr_accessor :end_date
 
-    # The number of organizations.
+    # # The number of organizations.
     attr_accessor :num_orgs
 
-    # The organization name.
+    # # The organization name.
     attr_accessor :org_name
 
-    # The organization public ID.
+    # # The organization public ID.
     attr_accessor :public_id
 
-    # Shows usage aggregation for a billing period.
+    # # Shows usage aggregation for a billing period.
     attr_accessor :ratio_in_month
 
-    # Shows the first date of usage.
+    # # Shows the first date of usage.
     attr_accessor :start_date
 
-    # Response with aggregated usage types.
+    # # Response with aggregated usage types.
     attr_accessor :usage
 
     # Attribute mapping from ruby-style variable name to JSON key.

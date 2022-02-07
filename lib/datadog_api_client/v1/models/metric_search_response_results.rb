@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # List of metrics that match the search query.
+    # # List of metrics that match the search query.
     attr_accessor :metrics
 
     # Attribute mapping from ruby-style variable name to JSON key.

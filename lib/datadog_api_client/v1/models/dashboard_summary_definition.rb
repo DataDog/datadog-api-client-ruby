@@ -23,31 +23,31 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Identifier of the dashboard author.
+    # # Identifier of the dashboard author.
     attr_accessor :author_handle
 
-    # Creation date of the dashboard.
+    # # Creation date of the dashboard.
     attr_accessor :created_at
 
-    # Description of the dashboard.
+    # # Description of the dashboard.
     attr_accessor :description
 
-    # Dashboard identifier.
+    # # Dashboard identifier.
     attr_accessor :id
 
-    # Whether this dashboard is read-only. If True, only the author and admins can make changes to it.
+    # # Whether this dashboard is read-only. If True, only the author and admins can make changes to it.
     attr_accessor :is_read_only
 
-    # Layout type of the dashboard.
+    # # Layout type of the dashboard.
     attr_accessor :layout_type
 
-    # Modification date of the dashboard.
+    # # Modification date of the dashboard.
     attr_accessor :modified_at
 
-    # Title of the dashboard.
+    # # Title of the dashboard.
     attr_accessor :title
 
-    # URL of the dashboard.
+    # # URL of the dashboard.
     attr_accessor :url
 
     # Attribute mapping from ruby-style variable name to JSON key.

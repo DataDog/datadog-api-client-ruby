@@ -23,13 +23,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The index of the first element in the next page of results. Equal to page size added to the current offset.
+    # # The index of the first element in the next page of results. Equal to page size added to the current offset.
     attr_accessor :next_offset
 
-    # The index of the first element in the results.
+    # # The index of the first element in the results.
     attr_accessor :offset
 
-    # Maximum size of pages to return.
+    # # Maximum size of pages to return.
     attr_accessor :size
 
     # Attribute mapping from ruby-style variable name to JSON key.

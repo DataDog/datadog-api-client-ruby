@@ -23,13 +23,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The incident service's attributes for a create request.
+    # # The incident service's attributes for a create request.
     attr_accessor :attributes
 
-    # The incident service's relationships.
+    # # The incident service's relationships.
     attr_accessor :relationships
 
-    # Incident service resource type.
+    # # Incident service resource type.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

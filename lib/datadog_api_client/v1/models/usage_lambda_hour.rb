@@ -24,13 +24,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Contains the number of different functions for each region and AWS account.
+    # # Contains the number of different functions for each region and AWS account.
     attr_accessor :func_count
 
-    # The hour for the usage.
+    # # The hour for the usage.
     attr_accessor :hour
 
-    # Contains the sum of invocations of all functions.
+    # # Contains the sum of invocations of all functions.
     attr_accessor :invocations_sum
 
     # Attribute mapping from ruby-style variable name to JSON key.

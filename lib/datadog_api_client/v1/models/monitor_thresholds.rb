@@ -23,22 +23,22 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The monitor `CRITICAL` threshold.
+    # # The monitor `CRITICAL` threshold.
     attr_accessor :critical
 
-    # The monitor `CRITICAL` recovery threshold.
+    # # The monitor `CRITICAL` recovery threshold.
     attr_accessor :critical_recovery
 
-    # The monitor `OK` threshold.
+    # # The monitor `OK` threshold.
     attr_accessor :ok
 
-    # The monitor UNKNOWN threshold.
+    # # The monitor UNKNOWN threshold.
     attr_accessor :unknown
 
-    # The monitor `WARNING` threshold.
+    # # The monitor `WARNING` threshold.
     attr_accessor :warning
 
-    # The monitor `WARNING` recovery threshold.
+    # # The monitor `WARNING` recovery threshold.
     attr_accessor :warning_recovery
 
     # Attribute mapping from ruby-style variable name to JSON key.

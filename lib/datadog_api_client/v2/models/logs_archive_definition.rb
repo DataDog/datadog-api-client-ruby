@@ -23,13 +23,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The attributes associated with the archive.
+    # # The attributes associated with the archive.
     attr_accessor :attributes
 
-    # The archive ID.
+    # # The archive ID.
     attr_accessor :id
 
-    # The type of the resource. The value should always be archives.
+    # # The type of the resource. The value should always be archives.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

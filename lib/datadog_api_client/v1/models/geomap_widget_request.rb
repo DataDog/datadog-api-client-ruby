@@ -23,25 +23,25 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # List of formulas that operate on queries. **This feature is currently in beta.**
+    # # List of formulas that operate on queries. **This feature is currently in beta.**
     attr_accessor :formulas
 
-    # The log query.
+    # # The log query.
     attr_accessor :log_query
 
-    # The widget metrics query.
+    # # The widget metrics query.
     attr_accessor :q
 
-    # List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
+    # # List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
     attr_accessor :queries
 
-    # Timeseries or Scalar response. **This feature is currently in beta.**
+    # # Timeseries or Scalar response. **This feature is currently in beta.**
     attr_accessor :response_format
 
-    # The log query.
+    # # The log query.
     attr_accessor :rum_query
 
-    # The log query.
+    # # The log query.
     attr_accessor :security_query
 
     # Attribute mapping from ruby-style variable name to JSON key.

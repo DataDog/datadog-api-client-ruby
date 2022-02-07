@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Get hourly usage for RUM Units.
+    # # Get hourly usage for RUM Units.
     attr_accessor :usage
 
     # Attribute mapping from ruby-style variable name to JSON key.

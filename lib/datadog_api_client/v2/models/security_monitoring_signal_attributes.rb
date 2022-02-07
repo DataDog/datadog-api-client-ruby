@@ -24,16 +24,16 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # A JSON object of attributes in the security signal.
+    # # A JSON object of attributes in the security signal.
     attr_accessor :attributes
 
-    # The message in the security signal defined by the rule that generated the signal.
+    # # The message in the security signal defined by the rule that generated the signal.
     attr_accessor :message
 
-    # An array of tags associated with the security signal.
+    # # An array of tags associated with the security signal.
     attr_accessor :tags
 
-    # The timestamp of the security signal.
+    # # The timestamp of the security signal.
     attr_accessor :timestamp
 
     # Attribute mapping from ruby-style variable name to JSON key.

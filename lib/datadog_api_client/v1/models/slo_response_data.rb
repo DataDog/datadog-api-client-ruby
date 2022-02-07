@@ -24,45 +24,45 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # A list of SLO monitors IDs that reference this SLO. This field is returned only when `with_configured_alert_ids` parameter is true in query.
+    # # A list of SLO monitors IDs that reference this SLO. This field is returned only when `with_configured_alert_ids` parameter is true in query.
     attr_accessor :configured_alert_ids
 
-    # Creation timestamp (UNIX time in seconds)
-    # 
+    # # Creation timestamp (UNIX time in seconds)
+    #
     # Always included in service level objective responses.
     attr_accessor :created_at
 
-    # Object describing the creator of the shared element.
+    # # Object describing the creator of the shared element.
     attr_accessor :creator
 
-    # A user-defined description of the service level objective.
-    # 
+    # # A user-defined description of the service level objective.
+    #
     # Always included in service level objective responses (but may be `null`).
     # Optional in create/update requests.
     attr_accessor :description
 
-    # A list of (up to 20) monitor groups that narrow the scope of a monitor service level objective.
-    # 
+    # # A list of (up to 20) monitor groups that narrow the scope of a monitor service level objective.
+    #
     # Included in service level objective responses if it is not empty. Optional in
     # create/update requests for monitor service level objectives, but may only be
     # used when then length of the `monitor_ids` field is one.
     attr_accessor :groups
 
-    # A unique identifier for the service level objective object.
-    # 
+    # # A unique identifier for the service level objective object.
+    #
     # Always included in service level objective responses.
     attr_accessor :id
 
-    # Modification timestamp (UNIX time in seconds)
-    # 
+    # # Modification timestamp (UNIX time in seconds)
+    #
     # Always included in service level objective responses.
     attr_accessor :modified_at
 
-    # A list of monitor ids that defines the scope of a monitor service level
+    # # A list of monitor ids that defines the scope of a monitor service level
     # objective. **Required if type is `monitor`**.
     attr_accessor :monitor_ids
 
-    # The union of monitor tags for all monitors referenced by the `monitor_ids`
+    # # The union of monitor tags for all monitors referenced by the `monitor_ids`
     # field.
     # Always included in service level objective responses for monitor service level
     # objectives (but may be empty). Ignored in create/update requests. Does not
@@ -70,24 +70,24 @@ module DatadogAPIClient::V1
     # determined entirely by the `monitor_ids` field).
     attr_accessor :monitor_tags
 
-    # The name of the service level objective object.
+    # # The name of the service level objective object.
     attr_accessor :name
 
-    # A metric SLI query. **Required if type is `metric`**. Note that Datadog only allows the sum by aggregator
+    # # A metric SLI query. **Required if type is `metric`**. Note that Datadog only allows the sum by aggregator
     # to be used because this will sum up all request counts instead of averaging them, or taking the max or
     # min of all of those requests.
     attr_accessor :query
 
-    # A list of tags associated with this service level objective.
+    # # A list of tags associated with this service level objective.
     # Always included in service level objective responses (but may be empty).
     # Optional in create/update requests.
     attr_accessor :tags
 
-    # The thresholds (timeframes and associated targets) for this service level
+    # # The thresholds (timeframes and associated targets) for this service level
     # objective object.
     attr_accessor :thresholds
 
-    # The type of the service level objective.
+    # # The type of the service level objective.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

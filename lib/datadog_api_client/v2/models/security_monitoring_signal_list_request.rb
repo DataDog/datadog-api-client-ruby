@@ -23,13 +23,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Search filters for listing security signals.
+    # # Search filters for listing security signals.
     attr_accessor :filter
 
-    # The paging attributes for listing security signals.
+    # # The paging attributes for listing security signals.
     attr_accessor :page
 
-    # The sort parameters used for querying security signals.
+    # # The sort parameters used for querying security signals.
     attr_accessor :sort
 
     # Attribute mapping from ruby-style variable name to JSON key.

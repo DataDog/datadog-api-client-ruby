@@ -23,16 +23,16 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Total logs indexed with this retention period during a given hour.
+    # # Total logs indexed with this retention period during a given hour.
     attr_accessor :indexed_events_count
 
-    # Live logs indexed with this retention period during a given hour.
+    # # Live logs indexed with this retention period during a given hour.
     attr_accessor :live_indexed_events_count
 
-    # Rehydrated logs indexed with this retention period during a given hour.
+    # # Rehydrated logs indexed with this retention period during a given hour.
     attr_accessor :rehydrated_indexed_events_count
 
-    # The retention period in days or "custom" for all custom retention usage.
+    # # The retention period in days or "custom" for all custom retention usage.
     attr_accessor :retention
 
     # Attribute mapping from ruby-style variable name to JSON key.

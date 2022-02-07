@@ -23,10 +23,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Name of the application key.
+    # # Name of the application key.
     attr_accessor :name
 
-    # Array of scopes to grant the application key. This feature is in private beta, please contact Datadog support to enable scopes for your application keys.
+    # # Array of scopes to grant the application key. This feature is in private beta, please contact Datadog support to enable scopes for your application keys.
     attr_accessor :scopes
 
     # Attribute mapping from ruby-style variable name to JSON key.

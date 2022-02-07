@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # An array of of SLO IDs that can be safely deleted.
+    # # An array of of SLO IDs that can be safely deleted.
     attr_accessor :ok
 
     # Attribute mapping from ruby-style variable name to JSON key.

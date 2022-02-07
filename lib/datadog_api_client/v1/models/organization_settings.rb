@@ -23,35 +23,35 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Whether or not the organization users can share widgets outside of Datadog.
+    # # Whether or not the organization users can share widgets outside of Datadog.
     attr_accessor :private_widget_share
 
-    # Set the boolean property enabled to enable or disable single sign on with SAML.
+    # # Set the boolean property enabled to enable or disable single sign on with SAML.
     # See the SAML documentation for more information about all SAML settings.
     attr_accessor :saml
 
-    # The access role of the user. Options are **st** (standard user), **adm** (admin user), or **ro** (read-only user).
+    # # The access role of the user. Options are **st** (standard user), **adm** (admin user), or **ro** (read-only user).
     attr_accessor :saml_autocreate_access_role
 
-    # Has two properties, `enabled` (boolean) and `domains`, which is a list of domains without the @ symbol.
+    # # Has two properties, `enabled` (boolean) and `domains`, which is a list of domains without the @ symbol.
     attr_accessor :saml_autocreate_users_domains
 
-    # Whether or not SAML can be enabled for this organization.
+    # # Whether or not SAML can be enabled for this organization.
     attr_accessor :saml_can_be_enabled
 
-    # Identity provider endpoint for SAML authentication.
+    # # Identity provider endpoint for SAML authentication.
     attr_accessor :saml_idp_endpoint
 
-    # Has one property enabled (boolean).
+    # # Has one property enabled (boolean).
     attr_accessor :saml_idp_initiated_login
 
-    # Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+    # # Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
     attr_accessor :saml_idp_metadata_uploaded
 
-    # URL for SAML logging.
+    # # URL for SAML logging.
     attr_accessor :saml_login_url
 
-    # Has one property enabled (boolean).
+    # # Has one property enabled (boolean).
     attr_accessor :saml_strict_mode
 
     # Attribute mapping from ruby-style variable name to JSON key.
