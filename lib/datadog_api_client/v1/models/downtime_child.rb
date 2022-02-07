@@ -238,13 +238,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
-      if @creator_id > 2147483647
+      if !@creator_id.nil? && @creator_id > 2147483647
         invalid_properties.push('invalid value for "creator_id", must be smaller than or equal to 2147483647.')
       end
-      if @downtime_type > 2147483647
+      if !@downtime_type.nil? && @downtime_type > 2147483647
         invalid_properties.push('invalid value for "downtime_type", must be smaller than or equal to 2147483647.')
       end
-      if @updater_id > 2147483647
+      if !@updater_id.nil? && @updater_id > 2147483647
         invalid_properties.push('invalid value for "updater_id", must be smaller than or equal to 2147483647.')
       end
       invalid_properties

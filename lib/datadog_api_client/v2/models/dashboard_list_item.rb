@@ -183,7 +183,7 @@ module DatadogAPIClient::V2
       if @id.nil?
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
-      if @popularity > 5
+      if !@popularity.nil? && @popularity > 5
         invalid_properties.push('invalid value for "popularity", must be smaller than or equal to 5.')
       end
       if @type.nil?

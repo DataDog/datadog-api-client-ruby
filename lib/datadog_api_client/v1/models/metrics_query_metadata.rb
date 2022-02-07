@@ -198,10 +198,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
-      if @unit.length > 2
+      if !@unit.nil? && @unit.length > 2
         invalid_properties.push('invalid value for "unit", number of items must be less than or equal to 2.')
       end
-      if @unit.length < 2
+      if !@unit.nil? && @unit.length < 2
         invalid_properties.push('invalid value for "unit", number of items must be greater than or equal to 2.')
       end
       invalid_properties

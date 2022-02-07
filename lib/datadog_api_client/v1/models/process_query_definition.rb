@@ -110,7 +110,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
-      if @limit < 0
+      if !@limit.nil? && @limit < 0
         invalid_properties.push('invalid value for "limit", must be greater than or equal to 0.')
       end
       if @metric.nil?

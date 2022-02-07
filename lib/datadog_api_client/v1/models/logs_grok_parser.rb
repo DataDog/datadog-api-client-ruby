@@ -138,7 +138,7 @@ module DatadogAPIClient::V1
       if @grok.nil?
         invalid_properties.push('invalid value for "grok", grok cannot be nil.')
       end
-      if @samples.length > 5
+      if !@samples.nil? && @samples.length > 5
         invalid_properties.push('invalid value for "samples", number of items must be less than or equal to 5.')
       end
       if @source.nil?

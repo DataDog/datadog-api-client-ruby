@@ -93,7 +93,7 @@ module DatadogAPIClient::V1
       if @code.nil?
         invalid_properties.push('invalid value for "code", code cannot be nil.')
       end
-      if !@code.nil? && @code > 2147483647
+      if @code > 2147483647
         invalid_properties.push('invalid value for "code", must be smaller than or equal to 2147483647.')
       end
       if @message.nil?

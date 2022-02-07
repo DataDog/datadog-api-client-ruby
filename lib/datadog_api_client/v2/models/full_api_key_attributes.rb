@@ -117,10 +117,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
-      if @last4.to_s.length > 4
+      if !@last4.nil? && @last4.to_s.length > 4
         invalid_properties.push('invalid value for "last4", the character length must be smaller than or equal to 4.')
       end
-      if @last4.to_s.length < 4
+      if !@last4.nil? && @last4.to_s.length < 4
         invalid_properties.push('invalid value for "last4", the character length must be great than or equal to 4.')
       end
       invalid_properties

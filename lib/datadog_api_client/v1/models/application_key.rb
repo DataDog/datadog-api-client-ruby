@@ -99,10 +99,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
-      if @hash.to_s.length > 40
+      if !@hash.nil? && @hash.to_s.length > 40
         invalid_properties.push('invalid value for "hash", the character length must be smaller than or equal to 40.')
       end
-      if @hash.to_s.length < 40
+      if !@hash.nil? && @hash.to_s.length < 40
         invalid_properties.push('invalid value for "hash", the character length must be great than or equal to 40.')
       end
       invalid_properties

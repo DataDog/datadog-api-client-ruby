@@ -83,10 +83,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
-      if @renotify_interval > 1440
+      if !@renotify_interval.nil? && @renotify_interval > 1440
         invalid_properties.push('invalid value for "renotify_interval", must be smaller than or equal to 1440.')
       end
-      if @renotify_interval < 0
+      if !@renotify_interval.nil? && @renotify_interval < 0
         invalid_properties.push('invalid value for "renotify_interval", must be greater than or equal to 0.')
       end
       invalid_properties
