@@ -23,16 +23,16 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Creation time of the role.
+    # Creation time of the role.
     attr_accessor :created_at
 
-    # # Time of last role modification.
+    # Time of last role modification.
     attr_accessor :modified_at
 
-    # # Name of the role.
+    # Name of the role.
     attr_accessor :name
 
-    # # Number of users with that role.
+    # Number of users with that role.
     attr_accessor :user_count
 
     # Attribute mapping from ruby-style variable name to JSON key.

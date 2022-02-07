@@ -23,17 +23,17 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The search and filter query settings
+    # The search and filter query settings
     attr_accessor :filter
 
-    # # Global query options that are used during the query.
+    # Global query options that are used during the query.
     # Note: You should only supply timezone or time offset but not both otherwise the query will fail.
     attr_accessor :options
 
-    # # Paging attributes for listing logs.
+    # Paging attributes for listing logs.
     attr_accessor :page
 
-    # # Sort parameters when querying logs.
+    # Sort parameters when querying logs.
     attr_accessor :sort
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -25,36 +25,36 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Whether or not the processor is enabled.
+    # Whether or not the processor is enabled.
     attr_accessor :is_enabled
 
-    # # Name of the processor.
+    # Name of the processor.
     attr_accessor :name
 
-    # # Override or not the target element if already set,
+    # Override or not the target element if already set,
     attr_accessor :override_on_conflict
 
-    # # Remove or preserve the remapped source element.
+    # Remove or preserve the remapped source element.
     attr_accessor :preserve_source
 
-    # # Defines if the sources are from log `attribute` or `tag`.
+    # Defines if the sources are from log `attribute` or `tag`.
     attr_accessor :source_type
 
-    # # Array of source attributes.
+    # Array of source attributes.
     attr_accessor :sources
 
-    # # Final attribute or tag name to remap the sources to.
+    # Final attribute or tag name to remap the sources to.
     attr_accessor :target
 
-    # # If the `target_type` of the remapper is `attribute`, try to cast the value to a new specific type.
+    # If the `target_type` of the remapper is `attribute`, try to cast the value to a new specific type.
     # If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types.
     # If the `target_type` is `tag`, this parameter may not be specified.
     attr_accessor :target_format
 
-    # # Defines if the final attribute or tag name is from log `attribute` or `tag`.
+    # Defines if the final attribute or tag name is from log `attribute` or `tag`.
     attr_accessor :target_type
 
-    # # Type of logs attribute remapper.
+    # Type of logs attribute remapper.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

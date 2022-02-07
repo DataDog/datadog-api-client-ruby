@@ -24,54 +24,54 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Identifier of the dashboard author.
+    # Identifier of the dashboard author.
     attr_accessor :author_handle
 
-    # # Name of the dashboard author.
+    # Name of the dashboard author.
     attr_accessor :author_name
 
-    # # Creation date of the dashboard.
+    # Creation date of the dashboard.
     attr_accessor :created_at
 
-    # # Description of the dashboard.
+    # Description of the dashboard.
     attr_accessor :description
 
-    # # ID of the dashboard.
+    # ID of the dashboard.
     attr_accessor :id
 
-    # # Whether this dashboard is read-only. If True, only the author and admins can make changes to it. Prefer using `restricted_roles` to manage write authorization.
+    # Whether this dashboard is read-only. If True, only the author and admins can make changes to it. Prefer using `restricted_roles` to manage write authorization.
     attr_accessor :is_read_only
 
-    # # Layout type of the dashboard.
+    # Layout type of the dashboard.
     attr_accessor :layout_type
 
-    # # Modification date of the dashboard.
+    # Modification date of the dashboard.
     attr_accessor :modified_at
 
-    # # List of handles of users to notify when changes are made to this dashboard.
+    # List of handles of users to notify when changes are made to this dashboard.
     attr_accessor :notify_list
 
-    # # Reflow type for a **new dashboard layout** dashboard. Set this only when layout type is 'ordered'.
+    # Reflow type for a **new dashboard layout** dashboard. Set this only when layout type is 'ordered'.
     # If set to 'fixed', the dashboard expects all widgets to have a layout, and if it's set to 'auto',
     # widgets should not have layouts.
     attr_accessor :reflow_type
 
-    # # A list of role identifiers. Only the author and users associated with at least one of these roles can edit this dashboard.
+    # A list of role identifiers. Only the author and users associated with at least one of these roles can edit this dashboard.
     attr_accessor :restricted_roles
 
-    # # Array of template variables saved views.
+    # Array of template variables saved views.
     attr_accessor :template_variable_presets
 
-    # # List of template variables for this dashboard.
+    # List of template variables for this dashboard.
     attr_accessor :template_variables
 
-    # # Title of the dashboard.
+    # Title of the dashboard.
     attr_accessor :title
 
-    # # The URL of the dashboard.
+    # The URL of the dashboard.
     attr_accessor :url
 
-    # # List of widgets to display on the dashboard.
+    # List of widgets to display on the dashboard.
     attr_accessor :widgets
 
     # Attribute mapping from ruby-style variable name to JSON key.

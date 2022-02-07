@@ -23,37 +23,37 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # List of custom links.
+    # List of custom links.
     attr_accessor :custom_links
 
-    # # List of widget events.
+    # List of widget events.
     attr_accessor :events
 
-    # # Available legend sizes for a widget. Should be one of "0", "2", "4", "8", "16", or "auto".
+    # Available legend sizes for a widget. Should be one of "0", "2", "4", "8", "16", or "auto".
     attr_accessor :legend_size
 
-    # # List of widget types.
+    # List of widget types.
     attr_accessor :requests
 
-    # # Whether or not to display the legend on this widget.
+    # Whether or not to display the legend on this widget.
     attr_accessor :show_legend
 
-    # # Time setting for the widget.
+    # Time setting for the widget.
     attr_accessor :time
 
-    # # Title of the widget.
+    # Title of the widget.
     attr_accessor :title
 
-    # # How to align the text on the widget.
+    # How to align the text on the widget.
     attr_accessor :title_align
 
-    # # Size of the title.
+    # Size of the title.
     attr_accessor :title_size
 
-    # # Type of the heat map widget.
+    # Type of the heat map widget.
     attr_accessor :type
 
-    # # Axis controls for the widget.
+    # Axis controls for the widget.
     attr_accessor :yaxis
 
     # Attribute mapping from ruby-style variable name to JSON key.

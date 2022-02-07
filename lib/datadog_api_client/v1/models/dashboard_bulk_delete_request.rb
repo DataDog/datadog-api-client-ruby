@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # List of dashboard bulk action request data objects.
+    # List of dashboard bulk action request data objects.
     attr_accessor :data
 
     # Attribute mapping from ruby-style variable name to JSON key.

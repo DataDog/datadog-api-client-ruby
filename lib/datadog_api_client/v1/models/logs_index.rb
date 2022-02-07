@@ -23,25 +23,25 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The number of log events you can send in this index per day before you are rate-limited.
+    # The number of log events you can send in this index per day before you are rate-limited.
     attr_accessor :daily_limit
 
-    # # An array of exclusion objects. The logs are tested against the query of each filter,
+    # An array of exclusion objects. The logs are tested against the query of each filter,
     # following the order of the array. Only the first matching active exclusion matters,
     # others (if any) are ignored.
     attr_accessor :exclusion_filters
 
-    # # Filter for logs.
+    # Filter for logs.
     attr_accessor :filter
 
-    # # A boolean stating if the index is rate limited, meaning more logs than the daily limit have been sent.
+    # A boolean stating if the index is rate limited, meaning more logs than the daily limit have been sent.
     # Rate limit is reset every-day at 2pm UTC.
     attr_accessor :is_rate_limited
 
-    # # The name of the index.
+    # The name of the index.
     attr_accessor :name
 
-    # # The number of days before logs are deleted from this index. Available values depend on
+    # The number of days before logs are deleted from this index. Available values depend on
     # retention plans specified in your organization's contract/subscriptions.
     attr_accessor :num_retention_days
 

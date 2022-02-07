@@ -23,13 +23,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # A unique code for this type of warning
+    # A unique code for this type of warning
     attr_accessor :code
 
-    # # A detailed explanation of this specific warning
+    # A detailed explanation of this specific warning
     attr_accessor :detail
 
-    # # A short human-readable summary of the warning
+    # A short human-readable summary of the warning
     attr_accessor :title
 
     # Attribute mapping from ruby-style variable name to JSON key.

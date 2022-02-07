@@ -23,40 +23,40 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Creator of the object.
+    # Creator of the object.
     attr_accessor :author
 
-    # # Date of creation of the dashboard.
+    # Date of creation of the dashboard.
     attr_accessor :created
 
-    # # URL to the icon of the dashboard.
+    # URL to the icon of the dashboard.
     attr_accessor :icon
 
-    # # ID of the dashboard.
+    # ID of the dashboard.
     attr_accessor :id
 
-    # # Whether or not the dashboard is in the favorites.
+    # Whether or not the dashboard is in the favorites.
     attr_accessor :is_favorite
 
-    # # Whether or not the dashboard is read only.
+    # Whether or not the dashboard is read only.
     attr_accessor :is_read_only
 
-    # # Whether the dashboard is publicly shared or not.
+    # Whether the dashboard is publicly shared or not.
     attr_accessor :is_shared
 
-    # # Date of last edition of the dashboard.
+    # Date of last edition of the dashboard.
     attr_accessor :modified
 
-    # # Popularity of the dashboard.
+    # Popularity of the dashboard.
     attr_accessor :popularity
 
-    # # Title of the dashboard.
+    # Title of the dashboard.
     attr_accessor :title
 
-    # # The type of the dashboard.
+    # The type of the dashboard.
     attr_accessor :type
 
-    # # URL path to the dashboard.
+    # URL path to the dashboard.
     attr_accessor :url
 
     # Attribute mapping from ruby-style variable name to JSON key.

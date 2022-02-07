@@ -23,19 +23,19 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Object describing the device used to perform the Synthetic test.
+    # Object describing the device used to perform the Synthetic test.
     attr_accessor :device
 
-    # # Length in second of the browser test run.
+    # Length in second of the browser test run.
     attr_accessor :duration
 
-    # # Amount of errors collected for a single browser test run.
+    # Amount of errors collected for a single browser test run.
     attr_accessor :error_count
 
-    # # Amount of browser test steps completed before failing.
+    # Amount of browser test steps completed before failing.
     attr_accessor :step_count_completed
 
-    # # Total amount of browser test steps.
+    # Total amount of browser test steps.
     attr_accessor :step_count_total
 
     # Attribute mapping from ruby-style variable name to JSON key.

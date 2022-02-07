@@ -23,16 +23,16 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Datadog API key.
+    # Datadog API key.
     attr_accessor :api_key
 
-    # # An application key with its associated metadata.
+    # An application key with its associated metadata.
     attr_accessor :application_key
 
-    # # Create, edit, and manage organizations.
+    # Create, edit, and manage organizations.
     attr_accessor :org
 
-    # # Create, edit, and disable users.
+    # Create, edit, and disable users.
     attr_accessor :user
 
     # Attribute mapping from ruby-style variable name to JSON key.

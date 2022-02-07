@@ -23,19 +23,19 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Expression alias.
+    # Expression alias.
     attr_accessor :_alias
 
-    # # Define a display mode for the table cell.
+    # Define a display mode for the table cell.
     attr_accessor :cell_display_mode
 
-    # # List of conditional formats.
+    # List of conditional formats.
     attr_accessor :conditional_formats
 
-    # # String expression built from queries, formulas, and functions.
+    # String expression built from queries, formulas, and functions.
     attr_accessor :formula
 
-    # # Options for limiting results returned.
+    # Options for limiting results returned.
     attr_accessor :limit
 
     # Attribute mapping from ruby-style variable name to JSON key.

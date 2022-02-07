@@ -23,25 +23,25 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Query to filter the event timeline with.
+    # Query to filter the event timeline with.
     attr_accessor :query
 
-    # # The execution method for multi-value filters. Can be either and or or.
+    # The execution method for multi-value filters. Can be either and or or.
     attr_accessor :tags_execution
 
-    # # Time setting for the widget.
+    # Time setting for the widget.
     attr_accessor :time
 
-    # # Title of the widget.
+    # Title of the widget.
     attr_accessor :title
 
-    # # How to align the text on the widget.
+    # How to align the text on the widget.
     attr_accessor :title_align
 
-    # # Size of the title.
+    # Size of the title.
     attr_accessor :title_size
 
-    # # Type of the event timeline widget.
+    # Type of the event timeline widget.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

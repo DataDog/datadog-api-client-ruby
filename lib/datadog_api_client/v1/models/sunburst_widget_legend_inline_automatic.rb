@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Whether to hide the percentages of the groups.
+    # Whether to hide the percentages of the groups.
     attr_accessor :hide_percent
 
-    # # Whether to hide the values of the groups.
+    # Whether to hide the values of the groups.
     attr_accessor :hide_value
 
-    # # Whether to show the legend inline or let it be automatically generated.
+    # Whether to show the legend inline or let it be automatically generated.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

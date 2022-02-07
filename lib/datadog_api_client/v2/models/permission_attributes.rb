@@ -23,25 +23,25 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Creation time of the permission.
+    # Creation time of the permission.
     attr_accessor :created
 
-    # # Description of the permission.
+    # Description of the permission.
     attr_accessor :description
 
-    # # Displayed name for the permission.
+    # Displayed name for the permission.
     attr_accessor :display_name
 
-    # # Display type.
+    # Display type.
     attr_accessor :display_type
 
-    # # Name of the permission group.
+    # Name of the permission group.
     attr_accessor :group_name
 
-    # # Name of the permission.
+    # Name of the permission.
     attr_accessor :name
 
-    # # Whether or not the permission is restricted.
+    # Whether or not the permission is restricted.
     attr_accessor :restricted
 
     # Attribute mapping from ruby-style variable name to JSON key.

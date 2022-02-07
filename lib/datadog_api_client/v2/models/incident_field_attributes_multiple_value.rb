@@ -23,10 +23,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Type of the multiple value field definitions.
+    # Type of the multiple value field definitions.
     attr_accessor :type
 
-    # # The multiple values selected for this field.
+    # The multiple values selected for this field.
     attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.

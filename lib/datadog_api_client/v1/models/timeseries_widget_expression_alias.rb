@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Expression alias.
+    # Expression alias.
     attr_accessor :alias_name
 
-    # # Expression name.
+    # Expression name.
     attr_accessor :expression
 
     # Attribute mapping from ruby-style variable name to JSON key.

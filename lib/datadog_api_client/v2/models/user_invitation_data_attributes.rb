@@ -23,16 +23,16 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Creation time of the user invitation.
+    # Creation time of the user invitation.
     attr_accessor :created_at
 
-    # # Time of invitation expiration.
+    # Time of invitation expiration.
     attr_accessor :expires_at
 
-    # # Type of invitation.
+    # Type of invitation.
     attr_accessor :invite_type
 
-    # # UUID of the user invitation.
+    # UUID of the user invitation.
     attr_accessor :uuid
 
     # Attribute mapping from ruby-style variable name to JSON key.

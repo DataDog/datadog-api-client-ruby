@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The object containing page total count for specified ID.
+    # The object containing page total count for specified ID.
     attr_accessor :page
 
     # Attribute mapping from ruby-style variable name to JSON key.

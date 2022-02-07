@@ -23,19 +23,19 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The time elapsed in milliseconds
+    # The time elapsed in milliseconds
     attr_accessor :elapsed
 
-    # # Paging attributes.
+    # Paging attributes.
     attr_accessor :page
 
-    # # The identifier of the request
+    # The identifier of the request
     attr_accessor :request_id
 
-    # # The status of the response
+    # The status of the response
     attr_accessor :status
 
-    # # A list of warnings (non fatal errors) encountered, partial results might be returned if
+    # A list of warnings (non fatal errors) encountered, partial results might be returned if
     # warnings are present in the response.
     attr_accessor :warnings
 

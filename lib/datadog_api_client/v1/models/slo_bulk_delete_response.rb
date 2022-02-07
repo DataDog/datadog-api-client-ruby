@@ -28,10 +28,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # An array of service level objective objects.
+    # An array of service level objective objects.
     attr_accessor :data
 
-    # # Array of errors object returned.
+    # Array of errors object returned.
     attr_accessor :errors
 
     # Attribute mapping from ruby-style variable name to JSON key.

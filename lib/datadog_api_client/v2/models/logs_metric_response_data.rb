@@ -23,13 +23,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The object describing a Datadog log-based metric.
+    # The object describing a Datadog log-based metric.
     attr_accessor :attributes
 
-    # # The name of the log-based metric.
+    # The name of the log-based metric.
     attr_accessor :id
 
-    # # The type of the resource. The value should always be logs_metrics.
+    # The type of the resource. The value should always be logs_metrics.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

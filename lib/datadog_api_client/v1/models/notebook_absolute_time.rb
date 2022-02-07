@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The end time.
+    # The end time.
     attr_accessor :_end
 
-    # # Indicates whether the timeframe should be shifted to end at the current time.
+    # Indicates whether the timeframe should be shifted to end at the current time.
     attr_accessor :live
 
-    # # The start time.
+    # The start time.
     attr_accessor :start
 
     # Attribute mapping from ruby-style variable name to JSON key.

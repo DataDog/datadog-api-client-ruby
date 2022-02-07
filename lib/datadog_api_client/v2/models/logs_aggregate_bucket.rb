@@ -23,10 +23,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The key, value pairs for each group by
+    # The key, value pairs for each group by
     attr_accessor :by
 
-    # # A map of the metric name -> value for regular compute or list of values for a timeseries
+    # A map of the metric name -> value for regular compute or list of values for a timeseries
     attr_accessor :computes
 
     # Attribute mapping from ruby-style variable name to JSON key.

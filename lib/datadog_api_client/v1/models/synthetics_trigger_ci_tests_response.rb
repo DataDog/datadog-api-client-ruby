@@ -23,16 +23,16 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The public ID of the batch triggered.
+    # The public ID of the batch triggered.
     attr_accessor :batch_id
 
-    # # List of Synthetics locations.
+    # List of Synthetics locations.
     attr_accessor :locations
 
-    # # Information about the tests runs.
+    # Information about the tests runs.
     attr_accessor :results
 
-    # # The public IDs of the Synthetics test triggered.
+    # The public IDs of the Synthetics test triggered.
     attr_accessor :triggered_check_ids
 
     # Attribute mapping from ruby-style variable name to JSON key.

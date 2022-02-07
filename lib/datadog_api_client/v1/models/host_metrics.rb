@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The percent of CPU used (everything but idle).
+    # The percent of CPU used (everything but idle).
     attr_accessor :cpu
 
-    # # The percent of CPU spent waiting on the IO (not reported for all platforms).
+    # The percent of CPU spent waiting on the IO (not reported for all platforms).
     attr_accessor :iowait
 
-    # # The system load over the last 15 minutes.
+    # The system load over the last 15 minutes.
     attr_accessor :load
 
     # Attribute mapping from ruby-style variable name to JSON key.

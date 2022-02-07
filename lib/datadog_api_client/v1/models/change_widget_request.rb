@@ -23,58 +23,58 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The log query.
+    # The log query.
     attr_accessor :apm_query
 
-    # # Show the absolute or the relative change.
+    # Show the absolute or the relative change.
     attr_accessor :change_type
 
-    # # Timeframe used for the change comparison.
+    # Timeframe used for the change comparison.
     attr_accessor :compare_to
 
-    # # The log query.
+    # The log query.
     attr_accessor :event_query
 
-    # # List of formulas that operate on queries. **This feature is currently in beta.**
+    # List of formulas that operate on queries. **This feature is currently in beta.**
     attr_accessor :formulas
 
-    # # Whether to show increase as good.
+    # Whether to show increase as good.
     attr_accessor :increase_good
 
-    # # The log query.
+    # The log query.
     attr_accessor :log_query
 
-    # # The log query.
+    # The log query.
     attr_accessor :network_query
 
-    # # What to order by.
+    # What to order by.
     attr_accessor :order_by
 
-    # # Widget sorting methods.
+    # Widget sorting methods.
     attr_accessor :order_dir
 
-    # # The process query to use in the widget.
+    # The process query to use in the widget.
     attr_accessor :process_query
 
-    # # The log query.
+    # The log query.
     attr_accessor :profile_metrics_query
 
-    # # Query definition.
+    # Query definition.
     attr_accessor :q
 
-    # # List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
+    # List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
     attr_accessor :queries
 
-    # # Timeseries or Scalar response. **This feature is currently in beta.**
+    # Timeseries or Scalar response. **This feature is currently in beta.**
     attr_accessor :response_format
 
-    # # The log query.
+    # The log query.
     attr_accessor :rum_query
 
-    # # The log query.
+    # The log query.
     attr_accessor :security_query
 
-    # # Whether to show the present value.
+    # Whether to show the present value.
     attr_accessor :show_present
 
     # Attribute mapping from ruby-style variable name to JSON key.

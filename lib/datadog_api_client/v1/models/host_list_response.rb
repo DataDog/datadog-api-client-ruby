@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Array of hosts.
+    # Array of hosts.
     attr_accessor :host_list
 
-    # # Number of host matching the query.
+    # Number of host matching the query.
     attr_accessor :total_matching
 
-    # # Number of host returned.
+    # Number of host returned.
     attr_accessor :total_returned
 
     # Attribute mapping from ruby-style variable name to JSON key.

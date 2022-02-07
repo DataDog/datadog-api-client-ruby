@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Fingerprint for the encryption key.
+    # Fingerprint for the encryption key.
     attr_accessor :id
 
-    # # Public key for result encryption.
+    # Public key for result encryption.
     attr_accessor :key
 
     # Attribute mapping from ruby-style variable name to JSON key.

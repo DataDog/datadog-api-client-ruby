@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The email address that received the notification.
+    # The email address that received the notification.
     attr_accessor :handle
 
-    # # The username receiving the notification
+    # The username receiving the notification
     attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.

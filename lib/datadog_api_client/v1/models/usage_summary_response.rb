@@ -23,202 +23,202 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Shows the 99th percentile of all agent hosts over all hours in the current months for all organizations.
+    # Shows the 99th percentile of all agent hosts over all hours in the current months for all organizations.
     attr_accessor :agent_host_top99p_sum
 
-    # # Shows the 99th percentile of all Azure app services using APM over all hours in the current months all organizations.
+    # Shows the 99th percentile of all Azure app services using APM over all hours in the current months all organizations.
     attr_accessor :apm_azure_app_service_host_top99p_sum
 
-    # # Shows the 99th percentile of all distinct APM hosts over all hours in the current months for all organizations.
+    # Shows the 99th percentile of all distinct APM hosts over all hours in the current months for all organizations.
     attr_accessor :apm_host_top99p_sum
 
-    # # Shows the sum of all audit logs lines indexed over all hours in the current months for all organizations.
+    # Shows the sum of all audit logs lines indexed over all hours in the current months for all organizations.
     attr_accessor :audit_logs_lines_indexed_agg_sum
 
-    # # Shows the average of all profiled Fargate tasks over all hours in the current months for all organizations.
+    # Shows the average of all profiled Fargate tasks over all hours in the current months for all organizations.
     attr_accessor :avg_profiled_fargate_tasks_sum
 
-    # # Shows the 99th percentile of all AWS hosts over all hours in the current months for all organizations.
+    # Shows the 99th percentile of all AWS hosts over all hours in the current months for all organizations.
     attr_accessor :aws_host_top99p_sum
 
-    # # Shows the average of the number of functions that executed 1 or more times each hour in the current months for all organizations.
+    # Shows the average of the number of functions that executed 1 or more times each hour in the current months for all organizations.
     attr_accessor :aws_lambda_func_count
 
-    # # Shows the sum of all AWS Lambda invocations over all hours in the current months for all organizations.
+    # Shows the sum of all AWS Lambda invocations over all hours in the current months for all organizations.
     attr_accessor :aws_lambda_invocations_sum
 
-    # # Shows the 99th percentile of all Azure app services over all hours in the current months for all organizations.
+    # Shows the 99th percentile of all Azure app services over all hours in the current months for all organizations.
     attr_accessor :azure_app_service_top99p_sum
 
-    # # Shows the 99th percentile of all Azure hosts over all hours in the current months for all organizations.
+    # Shows the 99th percentile of all Azure hosts over all hours in the current months for all organizations.
     attr_accessor :azure_host_top99p_sum
 
-    # # Shows the sum of all log bytes ingested over all hours in the current months for all organizations.
+    # Shows the sum of all log bytes ingested over all hours in the current months for all organizations.
     attr_accessor :billable_ingested_bytes_agg_sum
 
-    # # Shows the sum of all browser lite sessions over all hours in the current months for all organizations.
+    # Shows the sum of all browser lite sessions over all hours in the current months for all organizations.
     attr_accessor :browser_rum_lite_session_count_agg_sum
 
-    # # Shows the sum of all browser replay sessions over all hours in the current months for all organizations.
+    # Shows the sum of all browser replay sessions over all hours in the current months for all organizations.
     attr_accessor :browser_rum_replay_session_count_agg_sum
 
-    # # Shows the sum of all browser RUM units over all hours in the current months for all organizations.
+    # Shows the sum of all browser RUM units over all hours in the current months for all organizations.
     attr_accessor :browser_rum_units_agg_sum
 
-    # # Shows the average of all distinct containers over all hours in the current months for all organizations.
+    # Shows the average of all distinct containers over all hours in the current months for all organizations.
     attr_accessor :container_avg_sum
 
-    # # Shows the sum of the high-water marks of all distinct containers over all hours in the current months for all organizations.
+    # Shows the sum of the high-water marks of all distinct containers over all hours in the current months for all organizations.
     attr_accessor :container_hwm_sum
 
-    # # Shows the 99th percentile of all Cloud Security Posture Management Azure app services hosts over all hours in the current months for all organizations.
+    # Shows the 99th percentile of all Cloud Security Posture Management Azure app services hosts over all hours in the current months for all organizations.
     attr_accessor :cspm_aas_host_top99p_sum
 
-    # # Shows the 99th percentile of all Cloud Security Posture Management Azure hosts over all hours in the current months for all organizations.
+    # Shows the 99th percentile of all Cloud Security Posture Management Azure hosts over all hours in the current months for all organizations.
     attr_accessor :cspm_azure_host_top99p_sum
 
-    # # Shows the average number of Cloud Security Posture Management containers over all hours in the current months for all organizations.
+    # Shows the average number of Cloud Security Posture Management containers over all hours in the current months for all organizations.
     attr_accessor :cspm_container_avg_sum
 
-    # # Shows the sum of the the high-water marks of Cloud Security Posture Management containers over all hours in the current months for all organizations.
+    # Shows the sum of the the high-water marks of Cloud Security Posture Management containers over all hours in the current months for all organizations.
     attr_accessor :cspm_container_hwm_sum
 
-    # # Shows the 99th percentile of all Cloud Security Posture Management hosts over all hours in the current months for all organizations.
+    # Shows the 99th percentile of all Cloud Security Posture Management hosts over all hours in the current months for all organizations.
     attr_accessor :cspm_host_top99p_sum
 
-    # # Shows the average number of distinct custom metrics over all hours in the current months for all organizations.
+    # Shows the average number of distinct custom metrics over all hours in the current months for all organizations.
     attr_accessor :custom_ts_sum
 
-    # # Shows the average of all distinct Cloud Workload Security containers over all hours in the current months for all organizations.
+    # Shows the average of all distinct Cloud Workload Security containers over all hours in the current months for all organizations.
     attr_accessor :cws_containers_avg_sum
 
-    # # Shows the 99th percentile of all Cloud Workload Security hosts over all hours in the current months for all organizations.
+    # Shows the 99th percentile of all Cloud Workload Security hosts over all hours in the current months for all organizations.
     attr_accessor :cws_host_top99p_sum
 
-    # # Shows the 99th percentile of all Database Monitoring hosts over all hours in the current month for all organizations.
+    # Shows the 99th percentile of all Database Monitoring hosts over all hours in the current month for all organizations.
     attr_accessor :dbm_host_top99p_sum
 
-    # # Shows the average of all distinct Database Monitoring Normalized Queries over all hours in the current month for all organizations.
+    # Shows the average of all distinct Database Monitoring Normalized Queries over all hours in the current month for all organizations.
     attr_accessor :dbm_queries_avg_sum
 
-    # # Shows the last date of usage in the current months for all organizations.
+    # Shows the last date of usage in the current months for all organizations.
     attr_accessor :end_date
 
-    # # Shows the average of all Fargate tasks over all hours in the current months for all organizations.
+    # Shows the average of all Fargate tasks over all hours in the current months for all organizations.
     attr_accessor :fargate_tasks_count_avg_sum
 
-    # # Shows the sum of the high-water marks of all Fargate tasks over all hours in the current months for all organizations.
+    # Shows the sum of the high-water marks of all Fargate tasks over all hours in the current months for all organizations.
     attr_accessor :fargate_tasks_count_hwm_sum
 
-    # # Shows the 99th percentile of all GCP hosts over all hours in the current months for all organizations.
+    # Shows the 99th percentile of all GCP hosts over all hours in the current months for all organizations.
     attr_accessor :gcp_host_top99p_sum
 
-    # # Shows the 99th percentile of all Heroku dynos over all hours in the current months for all organizations.
+    # Shows the 99th percentile of all Heroku dynos over all hours in the current months for all organizations.
     attr_accessor :heroku_host_top99p_sum
 
-    # # Shows sum of the the high-water marks of incident management monthly active users in the current months for all organizations.
+    # Shows sum of the the high-water marks of incident management monthly active users in the current months for all organizations.
     attr_accessor :incident_management_monthly_active_users_hwm_sum
 
-    # # Shows the sum of all log events indexed over all hours in the current months for all organizations.
+    # Shows the sum of all log events indexed over all hours in the current months for all organizations.
     attr_accessor :indexed_events_count_agg_sum
 
-    # # Shows the 99th percentile of all distinct infrastructure hosts over all hours in the current months for all organizations.
+    # Shows the 99th percentile of all distinct infrastructure hosts over all hours in the current months for all organizations.
     attr_accessor :infra_host_top99p_sum
 
-    # # Shows the sum of all log bytes ingested over all hours in the current months for all organizations.
+    # Shows the sum of all log bytes ingested over all hours in the current months for all organizations.
     attr_accessor :ingested_events_bytes_agg_sum
 
-    # # Shows the sum of all IoT devices over all hours in the current months for all organizations.
+    # Shows the sum of all IoT devices over all hours in the current months for all organizations.
     attr_accessor :iot_device_agg_sum
 
-    # # Shows the 99th percentile of all IoT devices over all hours in the current months of all organizations.
+    # Shows the 99th percentile of all IoT devices over all hours in the current months of all organizations.
     attr_accessor :iot_device_top99p_sum
 
-    # # Shows the the most recent hour in the current months for all organizations for which all usages were calculated.
+    # Shows the the most recent hour in the current months for all organizations for which all usages were calculated.
     attr_accessor :last_updated
 
-    # # Shows the sum of all live logs indexed over all hours in the current months for all organizations (data available as of December 1, 2020).
+    # Shows the sum of all live logs indexed over all hours in the current months for all organizations (data available as of December 1, 2020).
     attr_accessor :live_indexed_events_agg_sum
 
-    # # Shows the sum of all live logs bytes ingested over all hours in the current months for all organizations (data available as of December 1, 2020).
+    # Shows the sum of all live logs bytes ingested over all hours in the current months for all organizations (data available as of December 1, 2020).
     attr_accessor :live_ingested_bytes_agg_sum
 
-    # # Object containing logs usage data broken down by retention period.
+    # Object containing logs usage data broken down by retention period.
     attr_accessor :logs_by_retention
 
-    # # Shows the sum of all mobile lite sessions over all hours in the current months for all organizations.
+    # Shows the sum of all mobile lite sessions over all hours in the current months for all organizations.
     attr_accessor :mobile_rum_lite_session_count_agg_sum
 
-    # # Shows the sum of all mobile RUM Sessions over all hours in the current months for all organizations.
+    # Shows the sum of all mobile RUM Sessions over all hours in the current months for all organizations.
     attr_accessor :mobile_rum_session_count_agg_sum
 
-    # # Shows the sum of all mobile RUM Sessions on Android over all hours in the current months for all organizations.
+    # Shows the sum of all mobile RUM Sessions on Android over all hours in the current months for all organizations.
     attr_accessor :mobile_rum_session_count_android_agg_sum
 
-    # # Shows the sum of all mobile RUM Sessions on iOS over all hours in the current months for all organizations.
+    # Shows the sum of all mobile RUM Sessions on iOS over all hours in the current months for all organizations.
     attr_accessor :mobile_rum_session_count_ios_agg_sum
 
-    # # Shows the sum of all mobile RUM units over all hours in the current months for all organizations.
+    # Shows the sum of all mobile RUM units over all hours in the current months for all organizations.
     attr_accessor :mobile_rum_units_agg_sum
 
-    # # Shows the sum of all Network flows indexed over all hours in the current months for all organizations.
+    # Shows the sum of all Network flows indexed over all hours in the current months for all organizations.
     attr_accessor :netflow_indexed_events_count_agg_sum
 
-    # # Shows the 99th percentile of all distinct Networks hosts over all hours in the current months for all organizations.
+    # Shows the 99th percentile of all distinct Networks hosts over all hours in the current months for all organizations.
     attr_accessor :npm_host_top99p_sum
 
-    # # Shows the 99th percentile of all hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current months for all organizations.
+    # Shows the 99th percentile of all hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current months for all organizations.
     attr_accessor :opentelemetry_host_top99p_sum
 
-    # # Shows the average number of profiled containers over all hours in the current months for all organizations.
+    # Shows the average number of profiled containers over all hours in the current months for all organizations.
     attr_accessor :profiling_container_agent_count_avg
 
-    # # Shows the 99th percentile of all profiled hosts over all hours in the current months for all organizations.
+    # Shows the 99th percentile of all profiled hosts over all hours in the current months for all organizations.
     attr_accessor :profiling_host_count_top99p_sum
 
-    # # Shows the sum of all rehydrated logs indexed over all hours in the current months for all organizations (data available as of December 1, 2020).
+    # Shows the sum of all rehydrated logs indexed over all hours in the current months for all organizations (data available as of December 1, 2020).
     attr_accessor :rehydrated_indexed_events_agg_sum
 
-    # # Shows the sum of all rehydrated logs bytes ingested over all hours in the current months for all organizations (data available as of December 1, 2020).
+    # Shows the sum of all rehydrated logs bytes ingested over all hours in the current months for all organizations (data available as of December 1, 2020).
     attr_accessor :rehydrated_ingested_bytes_agg_sum
 
-    # # Shows the sum of all mobile sessions and all browser lite and legacy sessions over all hours in the current month for all organizations.
+    # Shows the sum of all mobile sessions and all browser lite and legacy sessions over all hours in the current month for all organizations.
     attr_accessor :rum_browser_and_mobile_session_count
 
-    # # Shows the sum of all browser RUM Lite Sessions over all hours in the current months for all organizations.
+    # Shows the sum of all browser RUM Lite Sessions over all hours in the current months for all organizations.
     attr_accessor :rum_session_count_agg_sum
 
-    # # Shows the sum of RUM Sessions (browser and mobile) over all hours in the current months for all organizations.
+    # Shows the sum of RUM Sessions (browser and mobile) over all hours in the current months for all organizations.
     attr_accessor :rum_total_session_count_agg_sum
 
-    # # Shows the sum of all browser and mobile RUM units over all hours in the current months for all organizations.
+    # Shows the sum of all browser and mobile RUM units over all hours in the current months for all organizations.
     attr_accessor :rum_units_agg_sum
 
-    # # Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all hours in the current month for all organizations.
+    # Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all hours in the current month for all organizations.
     attr_accessor :sds_logs_scanned_bytes_sum
 
-    # # Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner over all hours in the current month for all organizations.
+    # Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner over all hours in the current month for all organizations.
     attr_accessor :sds_total_scanned_bytes_sum
 
-    # # Shows the first date of usage in the current months for all organizations.
+    # Shows the first date of usage in the current months for all organizations.
     attr_accessor :start_date
 
-    # # Shows the sum of all Synthetic browser tests over all hours in the current months for all organizations.
+    # Shows the sum of all Synthetic browser tests over all hours in the current months for all organizations.
     attr_accessor :synthetics_browser_check_calls_count_agg_sum
 
-    # # Shows the sum of all Synthetic API tests over all hours in the current months for all organizations.
+    # Shows the sum of all Synthetic API tests over all hours in the current months for all organizations.
     attr_accessor :synthetics_check_calls_count_agg_sum
 
-    # # Shows the sum of all Indexed Spans indexed over all hours in the current months for all organizations.
+    # Shows the sum of all Indexed Spans indexed over all hours in the current months for all organizations.
     attr_accessor :trace_search_indexed_events_count_agg_sum
 
-    # # Shows the sum of all tracing without limits bytes ingested over all hours in the current months for all organizations.
+    # Shows the sum of all tracing without limits bytes ingested over all hours in the current months for all organizations.
     attr_accessor :twol_ingested_events_bytes_agg_sum
 
-    # # An array of objects regarding hourly usage.
+    # An array of objects regarding hourly usage.
     attr_accessor :usage
 
-    # # Shows the 99th percentile of all vSphere hosts over all hours in the current months for all organizations.
+    # Shows the 99th percentile of all vSphere hosts over all hours in the current months for all organizations.
     attr_accessor :vsphere_host_top99p_sum
 
     # Attribute mapping from ruby-style variable name to JSON key.

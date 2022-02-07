@@ -23,17 +23,17 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # An aggregation function
+    # An aggregation function
     attr_accessor :aggregation
 
-    # # The time buckets' size (only used for type=timeseries)
+    # The time buckets' size (only used for type=timeseries)
     # Defaults to a resolution of 150 points
     attr_accessor :interval
 
-    # # The metric to use
+    # The metric to use
     attr_accessor :metric
 
-    # # The type of compute
+    # The type of compute
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

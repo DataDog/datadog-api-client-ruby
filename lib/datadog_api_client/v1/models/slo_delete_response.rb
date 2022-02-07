@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # An array containing the ID of the deleted service level objective object.
+    # An array containing the ID of the deleted service level objective object.
     attr_accessor :data
 
-    # # An dictionary containing the ID of the SLO as key and a deletion error as value.
+    # An dictionary containing the ID of the SLO as key and a deletion error as value.
     attr_accessor :errors
 
     # Attribute mapping from ruby-style variable name to JSON key.

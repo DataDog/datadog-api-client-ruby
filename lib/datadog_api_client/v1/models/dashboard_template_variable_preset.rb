@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The name of the variable.
+    # The name of the variable.
     attr_accessor :name
 
-    # # List of variables.
+    # List of variables.
     attr_accessor :template_variables
 
     # Attribute mapping from ruby-style variable name to JSON key.

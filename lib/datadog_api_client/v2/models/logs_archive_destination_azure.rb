@@ -23,22 +23,22 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The container where the archive will be stored.
+    # The container where the archive will be stored.
     attr_accessor :container
 
-    # # The Azure archive's integration destination.
+    # The Azure archive's integration destination.
     attr_accessor :integration
 
-    # # The archive path.
+    # The archive path.
     attr_accessor :path
 
-    # # The region where the archive will be stored.
+    # The region where the archive will be stored.
     attr_accessor :region
 
-    # # The associated storage account.
+    # The associated storage account.
     attr_accessor :storage_account
 
-    # # Type of the Azure archive destination.
+    # Type of the Azure archive destination.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

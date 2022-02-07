@@ -23,16 +23,16 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Array of assertions used for the test. Required for single API tests.
+    # Array of assertions used for the test. Required for single API tests.
     attr_accessor :assertions
 
-    # # Array of variables used for the test.
+    # Array of variables used for the test.
     attr_accessor :config_variables
 
-    # # Object describing the Synthetic test request.
+    # Object describing the Synthetic test request.
     attr_accessor :request
 
-    # # Browser tests only - array of variables used for the test steps.
+    # Browser tests only - array of variables used for the test steps.
     attr_accessor :variables
 
     # Attribute mapping from ruby-style variable name to JSON key.

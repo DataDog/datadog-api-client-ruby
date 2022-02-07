@@ -23,41 +23,41 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Category the SLO correction belongs to.
+    # Category the SLO correction belongs to.
     attr_accessor :category
 
-    # # The epoch timestamp of when the correction was created at
+    # The epoch timestamp of when the correction was created at
     attr_accessor :created_at
 
-    # # Object describing the creator of the shared element.
+    # Object describing the creator of the shared element.
     attr_accessor :creator
 
-    # # Description of the correction being made.
+    # Description of the correction being made.
     attr_accessor :description
 
-    # # Length of time (in seconds) for a specified `rrule` recurring SLO correction.
+    # Length of time (in seconds) for a specified `rrule` recurring SLO correction.
     attr_accessor :duration
 
-    # # Ending time of the correction in epoch seconds.
+    # Ending time of the correction in epoch seconds.
     attr_accessor :_end
 
-    # # The epoch timestamp of when the correction was modified at
+    # The epoch timestamp of when the correction was modified at
     attr_accessor :modified_at
 
-    # # Modifier of the object.
+    # Modifier of the object.
     attr_accessor :modifier
 
-    # # The recurrence rules as defined in the iCalendar RFC 5545. The supported rules for SLO corrections
+    # The recurrence rules as defined in the iCalendar RFC 5545. The supported rules for SLO corrections
     # are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
     attr_accessor :rrule
 
-    # # ID of the SLO that this correction will be applied to.
+    # ID of the SLO that this correction will be applied to.
     attr_accessor :slo_id
 
-    # # Starting time of the correction in epoch seconds.
+    # Starting time of the correction in epoch seconds.
     attr_accessor :start
 
-    # # The timezone to display in the UI for the correction times (defaults to "UTC").
+    # The timezone to display in the UI for the correction times (defaults to "UTC").
     attr_accessor :timezone
 
     # Attribute mapping from ruby-style variable name to JSON key.

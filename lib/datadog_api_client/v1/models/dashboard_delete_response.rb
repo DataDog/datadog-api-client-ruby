@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # ID of the deleted dashboard.
+    # ID of the deleted dashboard.
     attr_accessor :deleted_dashboard_id
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # ID of downtimes that were canceled.
+    # ID of downtimes that were canceled.
     attr_accessor :cancelled_ids
 
     # Attribute mapping from ruby-style variable name to JSON key.

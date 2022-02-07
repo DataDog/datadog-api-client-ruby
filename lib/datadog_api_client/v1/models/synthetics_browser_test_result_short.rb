@@ -23,19 +23,19 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Last time the browser test was performed.
+    # Last time the browser test was performed.
     attr_accessor :check_time
 
-    # # Location from which the Browser test was performed.
+    # Location from which the Browser test was performed.
     attr_accessor :probe_dc
 
-    # # Object with the result of the last browser test run.
+    # Object with the result of the last browser test run.
     attr_accessor :result
 
-    # # ID of the browser test result.
+    # ID of the browser test result.
     attr_accessor :result_id
 
-    # # The status of your Synthetic monitor.
+    # The status of your Synthetic monitor.
     # * `O` for not triggered
     # * `1` for triggered
     # * `2` for no data

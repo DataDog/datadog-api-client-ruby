@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Object for a single Agent rule.
+    # Object for a single Agent rule.
     attr_accessor :data
 
     # Attribute mapping from ruby-style variable name to JSON key.

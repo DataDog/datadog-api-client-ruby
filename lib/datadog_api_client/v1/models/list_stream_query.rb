@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Source from which to query items to display in the stream.
+    # Source from which to query items to display in the stream.
     attr_accessor :data_source
 
-    # # List of indexes.
+    # List of indexes.
     attr_accessor :indexes
 
-    # # Widget query.
+    # Widget query.
     attr_accessor :query_string
 
     # Attribute mapping from ruby-style variable name to JSON key.

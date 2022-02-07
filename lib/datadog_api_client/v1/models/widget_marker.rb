@@ -23,20 +23,20 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Combination of:
+    # Combination of:
     #   - A severity error, warning, ok, or info
     #   - A line type: dashed, solid, or bold
     # In this case of a Distribution widget, this can be set to be `x_axis_percentile`.
     #
     attr_accessor :display_type
 
-    # # Label to display over the marker.
+    # Label to display over the marker.
     attr_accessor :label
 
-    # # Timestamp for the widget.
+    # Timestamp for the widget.
     attr_accessor :time
 
-    # # Value to apply. Can be a single value y = 15 or a range of values 0 < y < 10.
+    # Value to apply. Can be a single value y = 15 or a range of values 0 < y < 10.
     attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.

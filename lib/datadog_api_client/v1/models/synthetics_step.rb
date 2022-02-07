@@ -23,19 +23,19 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # A boolean set to allow this step to fail.
+    # A boolean set to allow this step to fail.
     attr_accessor :allow_failure
 
-    # # The name of the step.
+    # The name of the step.
     attr_accessor :name
 
-    # # The parameters of the step.
+    # The parameters of the step.
     attr_accessor :params
 
-    # # The time before declaring a step failed.
+    # The time before declaring a step failed.
     attr_accessor :timeout
 
-    # # Step type used in your Synthetic test.
+    # Step type used in your Synthetic test.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

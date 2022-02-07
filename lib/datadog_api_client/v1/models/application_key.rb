@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Hash of an application key.
+    # Hash of an application key.
     attr_accessor :hash
 
-    # # Name of an application key.
+    # Name of an application key.
     attr_accessor :name
 
-    # # Owner of an application key.
+    # Owner of an application key.
     attr_accessor :owner
 
     # Attribute mapping from ruby-style variable name to JSON key.

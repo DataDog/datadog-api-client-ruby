@@ -23,10 +23,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The attributes associated with the archive order.
+    # The attributes associated with the archive order.
     attr_accessor :attributes
 
-    # # Type of the archive order definition.
+    # Type of the archive order definition.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

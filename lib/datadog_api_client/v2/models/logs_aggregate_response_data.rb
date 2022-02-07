@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The list of matching buckets, one item per bucket
+    # The list of matching buckets, one item per bucket
     attr_accessor :buckets
 
     # Attribute mapping from ruby-style variable name to JSON key.

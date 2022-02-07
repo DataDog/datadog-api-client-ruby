@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Pagination properties.
+    # Pagination properties.
     attr_accessor :pagination
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,49 +23,49 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # List of custom links.
+    # List of custom links.
     attr_accessor :custom_links
 
-    # # List of widget events.
+    # List of widget events.
     attr_accessor :events
 
-    # # Columns displayed in the legend.
+    # Columns displayed in the legend.
     attr_accessor :legend_columns
 
-    # # Layout of the legend.
+    # Layout of the legend.
     attr_accessor :legend_layout
 
-    # # Available legend sizes for a widget. Should be one of "0", "2", "4", "8", "16", or "auto".
+    # Available legend sizes for a widget. Should be one of "0", "2", "4", "8", "16", or "auto".
     attr_accessor :legend_size
 
-    # # List of markers.
+    # List of markers.
     attr_accessor :markers
 
-    # # List of timeseries widget requests.
+    # List of timeseries widget requests.
     attr_accessor :requests
 
-    # # Axis controls for the widget.
+    # Axis controls for the widget.
     attr_accessor :right_yaxis
 
-    # # (screenboard only) Show the legend for this widget.
+    # (screenboard only) Show the legend for this widget.
     attr_accessor :show_legend
 
-    # # Time setting for the widget.
+    # Time setting for the widget.
     attr_accessor :time
 
-    # # Title of your widget.
+    # Title of your widget.
     attr_accessor :title
 
-    # # How to align the text on the widget.
+    # How to align the text on the widget.
     attr_accessor :title_align
 
-    # # Size of the title.
+    # Size of the title.
     attr_accessor :title_size
 
-    # # Type of the timeseries widget.
+    # Type of the timeseries widget.
     attr_accessor :type
 
-    # # Axis controls for the widget.
+    # Axis controls for the widget.
     attr_accessor :yaxis
 
     # Attribute mapping from ruby-style variable name to JSON key.

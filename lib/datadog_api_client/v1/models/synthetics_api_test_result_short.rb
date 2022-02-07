@@ -23,19 +23,19 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Last time the API test was performed.
+    # Last time the API test was performed.
     attr_accessor :check_time
 
-    # # Location from which the API test was performed.
+    # Location from which the API test was performed.
     attr_accessor :probe_dc
 
-    # # Result of the last API test run.
+    # Result of the last API test run.
     attr_accessor :result
 
-    # # ID of the API test result.
+    # ID of the API test result.
     attr_accessor :result_id
 
-    # # The status of your Synthetic monitor.
+    # The status of your Synthetic monitor.
     # * `O` for not triggered
     # * `1` for triggered
     # * `2` for no data

@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # An ordered array of `<ARCHIVE_ID>` strings, the order of archive IDs in the array
+    # An ordered array of `<ARCHIVE_ID>` strings, the order of archive IDs in the array
     # define the overall archives order for Datadog.
     attr_accessor :archive_ids
 

@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Filter for logs.
+    # Filter for logs.
     attr_accessor :filter
 
-    # # Value to assign to the target attribute.
+    # Value to assign to the target attribute.
     attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.

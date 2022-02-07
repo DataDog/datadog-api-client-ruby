@@ -23,25 +23,25 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The hour for the usage.
+    # The hour for the usage.
     attr_accessor :hour
 
-    # # The organization name.
+    # The organization name.
     attr_accessor :org_name
 
-    # # The organization public ID.
+    # The organization public ID.
     attr_accessor :public_id
 
-    # # Contains the number of RUM Replay Sessions (data available beginning November 1, 2021).
+    # Contains the number of RUM Replay Sessions (data available beginning November 1, 2021).
     attr_accessor :replay_session_count
 
-    # # Contains the number of browser RUM Lite Sessions.
+    # Contains the number of browser RUM Lite Sessions.
     attr_accessor :session_count
 
-    # # Contains the number of mobile RUM Sessions on Android (data available beginning December 1, 2020).
+    # Contains the number of mobile RUM Sessions on Android (data available beginning December 1, 2020).
     attr_accessor :session_count_android
 
-    # # Contains the number of mobile RUM Sessions on iOS (data available beginning December 1, 2020).
+    # Contains the number of mobile RUM Sessions on iOS (data available beginning December 1, 2020).
     attr_accessor :session_count_ios
 
     # Attribute mapping from ruby-style variable name to JSON key.

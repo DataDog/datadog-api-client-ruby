@@ -23,16 +23,16 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Assertion operator to apply.
+    # Assertion operator to apply.
     attr_accessor :operator
 
-    # # The associated assertion property.
+    # The associated assertion property.
     attr_accessor :property
 
-    # # Composed target for `validatesJSONPath` operator.
+    # Composed target for `validatesJSONPath` operator.
     attr_accessor :target
 
-    # # Type of the assertion.
+    # Type of the assertion.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

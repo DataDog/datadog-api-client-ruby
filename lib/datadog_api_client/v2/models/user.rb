@@ -23,16 +23,16 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Attributes of user object returned by the API.
+    # Attributes of user object returned by the API.
     attr_accessor :attributes
 
-    # # ID of the user.
+    # ID of the user.
     attr_accessor :id
 
-    # # Relationships of the user object returned by the API.
+    # Relationships of the user object returned by the API.
     attr_accessor :relationships
 
-    # # Users resource type.
+    # Users resource type.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

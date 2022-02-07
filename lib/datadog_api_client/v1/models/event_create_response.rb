@@ -23,52 +23,52 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # If an alert event is enabled, set its type.
+    # If an alert event is enabled, set its type.
     # For example, `error`, `warning`, `info`, `success`, `user_update`,
     # `recommendation`, and `snapshot`.
     attr_accessor :alert_type
 
-    # # POSIX timestamp of the event. Must be sent as an integer (that is no quotes).
+    # POSIX timestamp of the event. Must be sent as an integer (that is no quotes).
     # Limited to events no older than 7 days.
     attr_accessor :date_happened
 
-    # # A device name.
+    # A device name.
     attr_accessor :device_name
 
-    # # Host name to associate with the event.
+    # Host name to associate with the event.
     # Any tags associated with the host are also applied to this event.
     attr_accessor :host
 
-    # # Integer ID of the event.
+    # Integer ID of the event.
     attr_accessor :id
 
-    # # Payload of the event.
+    # Payload of the event.
     attr_accessor :payload
 
-    # # The priority of the event. For example, `normal` or `low`.
+    # The priority of the event. For example, `normal` or `low`.
     attr_accessor :priority
 
-    # # ID of the parent event. Must be sent as an integer (that is no quotes).
+    # ID of the parent event. Must be sent as an integer (that is no quotes).
     attr_accessor :related_event_id
 
-    # # The type of event being posted. Option examples include nagios, hudson, jenkins, my_apps, chef, puppet, git, bitbucket, etc.
+    # The type of event being posted. Option examples include nagios, hudson, jenkins, my_apps, chef, puppet, git, bitbucket, etc.
     # A complete list of source attribute values [available here](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
     attr_accessor :source_type_name
 
-    # # A status.
+    # A status.
     attr_accessor :status
 
-    # # A list of tags to apply to the event.
+    # A list of tags to apply to the event.
     attr_accessor :tags
 
-    # # The body of the event. Limited to 4000 characters. The text supports markdown.
+    # The body of the event. Limited to 4000 characters. The text supports markdown.
     # Use `msg_text` with the Datadog Ruby library.
     attr_accessor :text
 
-    # # The event title. Limited to 100 characters. Use `msg_title` with the Datadog Ruby library.
+    # The event title. Limited to 100 characters. Use `msg_title` with the Datadog Ruby library.
     attr_accessor :title
 
-    # # URL of the event.
+    # URL of the event.
     attr_accessor :url
 
     # Attribute mapping from ruby-style variable name to JSON key.

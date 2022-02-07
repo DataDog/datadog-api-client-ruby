@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Get hourly usage for Synthetics API tests.
+    # Get hourly usage for Synthetics API tests.
     attr_accessor :usage
 
     # Attribute mapping from ruby-style variable name to JSON key.

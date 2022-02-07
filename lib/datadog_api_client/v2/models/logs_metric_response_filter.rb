@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The search query - following the log search syntax.
+    # The search query - following the log search syntax.
     attr_accessor :query
 
     # Attribute mapping from ruby-style variable name to JSON key.

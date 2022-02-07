@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Array of objects containing a deleted Synthetic test ID with
+    # Array of objects containing a deleted Synthetic test ID with
     # the associated deletion timestamp.
     attr_accessor :deleted_tests
 

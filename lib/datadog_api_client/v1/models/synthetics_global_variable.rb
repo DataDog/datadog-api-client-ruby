@@ -23,28 +23,28 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Attributes of the global variable.
+    # Attributes of the global variable.
     attr_accessor :attributes
 
-    # # Description of the global variable.
+    # Description of the global variable.
     attr_accessor :description
 
-    # # Unique identifier of the global variable.
+    # Unique identifier of the global variable.
     attr_accessor :id
 
-    # # Name of the global variable. Unique across Synthetics global variables.
+    # Name of the global variable. Unique across Synthetics global variables.
     attr_accessor :name
 
-    # # Parser options to use for retrieving a Synthetics global variable from a Synthetics Test. Used in conjunction with `parse_test_public_id`.
+    # Parser options to use for retrieving a Synthetics global variable from a Synthetics Test. Used in conjunction with `parse_test_public_id`.
     attr_accessor :parse_test_options
 
-    # # A Synthetic test ID to use as a test to generate the variable value.
+    # A Synthetic test ID to use as a test to generate the variable value.
     attr_accessor :parse_test_public_id
 
-    # # Tags of the global variable.
+    # Tags of the global variable.
     attr_accessor :tags
 
-    # # Value of the global variable.
+    # Value of the global variable.
     attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.

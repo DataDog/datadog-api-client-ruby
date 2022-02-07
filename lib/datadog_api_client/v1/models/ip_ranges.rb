@@ -23,31 +23,31 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Available prefix information for the Agent endpoints.
+    # Available prefix information for the Agent endpoints.
     attr_accessor :agents
 
-    # # Available prefix information for the API endpoints.
+    # Available prefix information for the API endpoints.
     attr_accessor :api
 
-    # # Available prefix information for the APM endpoints.
+    # Available prefix information for the APM endpoints.
     attr_accessor :apm
 
-    # # Available prefix information for the Logs endpoints.
+    # Available prefix information for the Logs endpoints.
     attr_accessor :logs
 
-    # # Date when last updated, in the form `YYYY-MM-DD-hh-mm-ss`.
+    # Date when last updated, in the form `YYYY-MM-DD-hh-mm-ss`.
     attr_accessor :modified
 
-    # # Available prefix information for the Process endpoints.
+    # Available prefix information for the Process endpoints.
     attr_accessor :process
 
-    # # Available prefix information for the Synthetics endpoints.
+    # Available prefix information for the Synthetics endpoints.
     attr_accessor :synthetics
 
-    # # Version of the IP list.
+    # Version of the IP list.
     attr_accessor :version
 
-    # # Available prefix information for the Webhook endpoints.
+    # Available prefix information for the Webhook endpoints.
     attr_accessor :webhooks
 
     # Attribute mapping from ruby-style variable name to JSON key.

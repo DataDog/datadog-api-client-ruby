@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Error code that can be returned by a Synthetic test.
+    # Error code that can be returned by a Synthetic test.
     attr_accessor :code
 
-    # # The browser test error message.
+    # The browser test error message.
     attr_accessor :message
 
     # Attribute mapping from ruby-style variable name to JSON key.

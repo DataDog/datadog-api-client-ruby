@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The installer version.
+    # The installer version.
     attr_accessor :installer_version
 
-    # # Tool used to install the agent.
+    # Tool used to install the agent.
     attr_accessor :tool
 
-    # # The tool version.
+    # The tool version.
     attr_accessor :tool_version
 
     # Attribute mapping from ruby-style variable name to JSON key.

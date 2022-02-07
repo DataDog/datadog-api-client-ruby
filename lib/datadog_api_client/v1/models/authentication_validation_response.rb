@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Return `true` if the authentication response is valid.
+    # Return `true` if the authentication response is valid.
     attr_accessor :valid
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,13 +23,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Array of returned users.
+    # Array of returned users.
     attr_accessor :data
 
-    # # Array of objects related to the users.
+    # Array of objects related to the users.
     attr_accessor :included
 
-    # # Object describing meta attributes of response.
+    # Object describing meta attributes of response.
     attr_accessor :meta
 
     # Attribute mapping from ruby-style variable name to JSON key.

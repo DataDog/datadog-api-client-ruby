@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Create, edit, and disable users.
+    # Create, edit, and disable users.
     attr_accessor :user
 
     # Attribute mapping from ruby-style variable name to JSON key.

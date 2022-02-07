@@ -23,14 +23,14 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The object containing all signal attributes and their
+    # The object containing all signal attributes and their
     # associated values.
     attr_accessor :attributes
 
-    # # The unique ID of the security signal.
+    # The unique ID of the security signal.
     attr_accessor :id
 
-    # # The type of event.
+    # The type of event.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

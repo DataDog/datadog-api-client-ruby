@@ -24,10 +24,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Deletion timestamp of the Synthetic test ID.
+    # Deletion timestamp of the Synthetic test ID.
     attr_accessor :deleted_at
 
-    # # The Synthetic test ID deleted.
+    # The Synthetic test ID deleted.
     attr_accessor :public_id
 
     # Attribute mapping from ruby-style variable name to JSON key.

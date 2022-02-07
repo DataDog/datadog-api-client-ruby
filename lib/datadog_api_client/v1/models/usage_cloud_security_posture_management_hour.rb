@@ -23,28 +23,28 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The number of Cloud Security Posture Management Azure app services hosts during a given hour.
+    # The number of Cloud Security Posture Management Azure app services hosts during a given hour.
     attr_accessor :aas_host_count
 
-    # # The number of Cloud Security Posture Management Azure hosts during a given hour.
+    # The number of Cloud Security Posture Management Azure hosts during a given hour.
     attr_accessor :azure_host_count
 
-    # # The number of Cloud Security Posture Management hosts during a given hour.
+    # The number of Cloud Security Posture Management hosts during a given hour.
     attr_accessor :compliance_host_count
 
-    # # The total number of Cloud Security Posture Management containers during a given hour.
+    # The total number of Cloud Security Posture Management containers during a given hour.
     attr_accessor :container_count
 
-    # # The total number of Cloud Security Posture Management hosts during a given hour.
+    # The total number of Cloud Security Posture Management hosts during a given hour.
     attr_accessor :host_count
 
-    # # The hour for the usage.
+    # The hour for the usage.
     attr_accessor :hour
 
-    # # The organization name.
+    # The organization name.
     attr_accessor :org_name
 
-    # # The organization public ID.
+    # The organization public ID.
     attr_accessor :public_id
 
     # Attribute mapping from ruby-style variable name to JSON key.

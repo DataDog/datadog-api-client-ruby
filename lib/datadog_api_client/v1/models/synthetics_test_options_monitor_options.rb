@@ -24,7 +24,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Time interval before renotifying if the test is still failing
+    # Time interval before renotifying if the test is still failing
     # (in minutes).
     attr_accessor :renotify_interval
 

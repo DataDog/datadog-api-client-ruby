@@ -23,10 +23,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The account ID for the integration.
+    # The account ID for the integration.
     attr_accessor :account_id
 
-    # # The path of the integration.
+    # The path of the integration.
     attr_accessor :role_name
 
     # Attribute mapping from ruby-style variable name to JSON key.

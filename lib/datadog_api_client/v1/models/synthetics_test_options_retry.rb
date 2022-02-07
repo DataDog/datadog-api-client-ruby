@@ -23,11 +23,11 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Number of times a test needs to be retried before marking a
+    # Number of times a test needs to be retried before marking a
     # location as failed. Defaults to 0.
     attr_accessor :count
 
-    # # Time interval between retries (in milliseconds). Defaults to
+    # Time interval between retries (in milliseconds). Defaults to
     # 300ms.
     attr_accessor :interval
 

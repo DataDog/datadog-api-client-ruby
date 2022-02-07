@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The facet of the step.
+    # The facet of the step.
     attr_accessor :facet
 
-    # # The value of the step.
+    # The value of the step.
     attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.

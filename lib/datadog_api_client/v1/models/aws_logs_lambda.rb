@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Available ARN IDs.
+    # Available ARN IDs.
     attr_accessor :arn
 
     # Attribute mapping from ruby-style variable name to JSON key.

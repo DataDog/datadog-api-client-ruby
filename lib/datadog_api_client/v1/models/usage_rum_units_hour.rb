@@ -23,19 +23,19 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The number of browser RUM units.
+    # The number of browser RUM units.
     attr_accessor :browser_rum_units
 
-    # # The number of mobile RUM units.
+    # The number of mobile RUM units.
     attr_accessor :mobile_rum_units
 
-    # # The organization name.
+    # The organization name.
     attr_accessor :org_name
 
-    # # The organization public ID.
+    # The organization public ID.
     attr_accessor :public_id
 
-    # # Total RUM units across mobile and browser RUM.
+    # Total RUM units across mobile and browser RUM.
     attr_accessor :rum_units
 
     # Attribute mapping from ruby-style variable name to JSON key.

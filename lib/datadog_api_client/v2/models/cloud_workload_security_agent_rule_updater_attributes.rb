@@ -23,10 +23,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The handle of the user.
+    # The handle of the user.
     attr_accessor :handle
 
-    # # The name of the user.
+    # The name of the user.
     attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.

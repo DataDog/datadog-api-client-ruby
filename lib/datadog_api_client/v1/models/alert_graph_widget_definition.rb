@@ -23,25 +23,25 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # ID of the alert to use in the widget.
+    # ID of the alert to use in the widget.
     attr_accessor :alert_id
 
-    # # Time setting for the widget.
+    # Time setting for the widget.
     attr_accessor :time
 
-    # # The title of the widget.
+    # The title of the widget.
     attr_accessor :title
 
-    # # How to align the text on the widget.
+    # How to align the text on the widget.
     attr_accessor :title_align
 
-    # # Size of the title.
+    # Size of the title.
     attr_accessor :title_size
 
-    # # Type of the alert graph widget.
+    # Type of the alert graph widget.
     attr_accessor :type
 
-    # # Whether to display the Alert Graph as a timeseries or a top list.
+    # Whether to display the Alert Graph as a timeseries or a top list.
     attr_accessor :viz_type
 
     # Attribute mapping from ruby-style variable name to JSON key.

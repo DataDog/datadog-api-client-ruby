@@ -23,14 +23,14 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The attributes of a notebook cell in update cell request. Valid cell types are `markdown`, `timeseries`, `toplist`, `heatmap`, `distribution`,
+    # The attributes of a notebook cell in update cell request. Valid cell types are `markdown`, `timeseries`, `toplist`, `heatmap`, `distribution`,
     # `log_stream`. [More information on each graph visualization type.](https://docs.datadoghq.com/dashboards/widgets/)
     attr_accessor :attributes
 
-    # # Notebook cell ID.
+    # Notebook cell ID.
     attr_accessor :id
 
-    # # Type of the Notebook Cell resource.
+    # Type of the Notebook Cell resource.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,19 +23,19 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Define computation for a log query.
+    # Define computation for a log query.
     attr_accessor :compute
 
-    # # List of tag prefixes to group by in the case of a cluster check.
+    # List of tag prefixes to group by in the case of a cluster check.
     attr_accessor :group_by
 
-    # # A coma separated-list of index names. Use "*" query all indexes at once. [Multiple Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes)
+    # A coma separated-list of index names. Use "*" query all indexes at once. [Multiple Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes)
     attr_accessor :index
 
-    # # This field is mutually exclusive with `compute`.
+    # This field is mutually exclusive with `compute`.
     attr_accessor :multi_compute
 
-    # # The query being made on the logs.
+    # The query being made on the logs.
     attr_accessor :search
 
     # Attribute mapping from ruby-style variable name to JSON key.

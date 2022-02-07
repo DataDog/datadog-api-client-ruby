@@ -23,66 +23,66 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Allows loading insecure content for an HTTP request in a multistep test step.
+    # Allows loading insecure content for an HTTP request in a multistep test step.
     attr_accessor :allow_insecure
 
-    # # Object to handle basic authentication when performing the test.
+    # Object to handle basic authentication when performing the test.
     attr_accessor :basic_auth
 
-    # # Body to include in the test.
+    # Body to include in the test.
     attr_accessor :body
 
-    # # Client certificate to use when performing the test request.
+    # Client certificate to use when performing the test request.
     attr_accessor :certificate
 
-    # # DNS server to use for DNS tests.
+    # DNS server to use for DNS tests.
     attr_accessor :dns_server
 
-    # # DNS server port to use for DNS tests.
+    # DNS server port to use for DNS tests.
     attr_accessor :dns_server_port
 
-    # # Specifies whether or not the request follows redirects.
+    # Specifies whether or not the request follows redirects.
     attr_accessor :follow_redirects
 
-    # # Headers to include when performing the test.
+    # Headers to include when performing the test.
     attr_accessor :headers
 
-    # # Host name to perform the test with.
+    # Host name to perform the test with.
     attr_accessor :host
 
-    # # Message to send for UDP or WebSocket tests.
+    # Message to send for UDP or WebSocket tests.
     attr_accessor :message
 
-    # # The HTTP method.
+    # The HTTP method.
     attr_accessor :method
 
-    # # Determines whether or not to save the response body.
+    # Determines whether or not to save the response body.
     attr_accessor :no_saving_response_body
 
-    # # Number of pings to use per test.
+    # Number of pings to use per test.
     attr_accessor :number_of_packets
 
-    # # Port to use when performing the test.
+    # Port to use when performing the test.
     attr_accessor :port
 
-    # # The proxy to perform the test.
+    # The proxy to perform the test.
     attr_accessor :proxy
 
-    # # Query to use for the test.
+    # Query to use for the test.
     attr_accessor :query
 
-    # # For SSL tests, it specifies on which server you want to initiate the TLS handshake,
+    # For SSL tests, it specifies on which server you want to initiate the TLS handshake,
     # allowing the server to present one of multiple possible certificates on
     # the same IP address and TCP port number.
     attr_accessor :servername
 
-    # # Turns on a traceroute probe to discover all gateways along the path to the host destination.
+    # Turns on a traceroute probe to discover all gateways along the path to the host destination.
     attr_accessor :should_track_hops
 
-    # # Timeout in seconds for the test.
+    # Timeout in seconds for the test.
     attr_accessor :timeout
 
-    # # URL to perform the test with.
+    # URL to perform the test with.
     attr_accessor :url
 
     # Attribute mapping from ruby-style variable name to JSON key.

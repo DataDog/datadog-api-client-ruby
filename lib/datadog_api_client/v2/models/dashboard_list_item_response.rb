@@ -23,10 +23,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # ID of the dashboard.
+    # ID of the dashboard.
     attr_accessor :id
 
-    # # The type of the dashboard.
+    # The type of the dashboard.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

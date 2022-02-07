@@ -23,22 +23,22 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The check.
+    # The check.
     attr_accessor :check
 
-    # # The host name correlated with the check.
+    # The host name correlated with the check.
     attr_accessor :host_name
 
-    # # Message containing check status.
+    # Message containing check status.
     attr_accessor :message
 
-    # # The status of a service check.
+    # The status of a service check.
     attr_accessor :status
 
-    # # Tags related to a check.
+    # Tags related to a check.
     attr_accessor :tags
 
-    # # Time of check.
+    # Time of check.
     attr_accessor :timestamp
 
     # Attribute mapping from ruby-style variable name to JSON key.

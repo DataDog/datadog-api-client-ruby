@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # URL of the pipeline.
+    # URL of the pipeline.
     attr_accessor :url
 
     # Attribute mapping from ruby-style variable name to JSON key.

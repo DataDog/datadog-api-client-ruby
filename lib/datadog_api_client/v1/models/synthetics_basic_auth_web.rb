@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Password to use for the basic authentication.
+    # Password to use for the basic authentication.
     attr_accessor :password
 
-    # # The type of basic authentication to use when performing the test.
+    # The type of basic authentication to use when performing the test.
     attr_accessor :type
 
-    # # Username to use for the basic authentication.
+    # Username to use for the basic authentication.
     attr_accessor :username
 
     # Attribute mapping from ruby-style variable name to JSON key.

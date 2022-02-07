@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # List of domains where the SAML automated user creation is enabled.
+    # List of domains where the SAML automated user creation is enabled.
     attr_accessor :domains
 
-    # # Whether or not the automated user creation based on SAML domain is enabled.
+    # Whether or not the automated user creation based on SAML domain is enabled.
     attr_accessor :enabled
 
     # Attribute mapping from ruby-style variable name to JSON key.

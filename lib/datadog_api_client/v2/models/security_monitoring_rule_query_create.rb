@@ -23,23 +23,23 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The aggregation type.
+    # The aggregation type.
     attr_accessor :aggregation
 
-    # # Field for which the cardinality is measured. Sent as an array.
+    # Field for which the cardinality is measured. Sent as an array.
     attr_accessor :distinct_fields
 
-    # # Fields to group by.
+    # Fields to group by.
     attr_accessor :group_by_fields
 
-    # # The target field to aggregate over when using the sum or max
+    # The target field to aggregate over when using the sum or max
     # aggregations.
     attr_accessor :metric
 
-    # # Name of the query.
+    # Name of the query.
     attr_accessor :name
 
-    # # Query to run on logs.
+    # Query to run on logs.
     attr_accessor :query
 
     # Attribute mapping from ruby-style variable name to JSON key.

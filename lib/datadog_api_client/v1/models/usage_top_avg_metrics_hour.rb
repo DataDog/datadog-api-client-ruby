@@ -23,16 +23,16 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Average number of timeseries per hour in which the metric occurs.
+    # Average number of timeseries per hour in which the metric occurs.
     attr_accessor :avg_metric_hour
 
-    # # Maximum number of timeseries per hour in which the metric occurs.
+    # Maximum number of timeseries per hour in which the metric occurs.
     attr_accessor :max_metric_hour
 
-    # # Contains the metric category.
+    # Contains the metric category.
     attr_accessor :metric_category
 
-    # # Contains the custom metric name.
+    # Contains the custom metric name.
     attr_accessor :metric_name
 
     # Attribute mapping from ruby-style variable name to JSON key.

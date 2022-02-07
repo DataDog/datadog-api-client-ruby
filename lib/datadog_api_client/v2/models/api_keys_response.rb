@@ -23,10 +23,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Array of API keys.
+    # Array of API keys.
     attr_accessor :data
 
-    # # Array of objects related to the API key.
+    # Array of objects related to the API key.
     attr_accessor :included
 
     # Attribute mapping from ruby-style variable name to JSON key.

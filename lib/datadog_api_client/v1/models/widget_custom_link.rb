@@ -23,16 +23,16 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The flag for toggling context menu link visibility.
+    # The flag for toggling context menu link visibility.
     attr_accessor :is_hidden
 
-    # # The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
+    # The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
     attr_accessor :label
 
-    # # The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
+    # The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
     attr_accessor :link
 
-    # # The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
+    # The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
     attr_accessor :override_label
 
     # Attribute mapping from ruby-style variable name to JSON key.

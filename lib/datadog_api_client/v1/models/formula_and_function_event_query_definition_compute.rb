@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Aggregation methods for event platform queries.
+    # Aggregation methods for event platform queries.
     attr_accessor :aggregation
 
-    # # A time interval in milliseconds.
+    # A time interval in milliseconds.
     attr_accessor :interval
 
-    # # Measurable attribute to compute.
+    # Measurable attribute to compute.
     attr_accessor :metric
 
     # Attribute mapping from ruby-style variable name to JSON key.

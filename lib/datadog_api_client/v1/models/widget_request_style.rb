@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Type of lines displayed.
+    # Type of lines displayed.
     attr_accessor :line_type
 
-    # # Width of line displayed.
+    # Width of line displayed.
     attr_accessor :line_width
 
-    # # Color palette to apply to the widget.
+    # Color palette to apply to the widget.
     attr_accessor :palette
 
     # Attribute mapping from ruby-style variable name to JSON key.

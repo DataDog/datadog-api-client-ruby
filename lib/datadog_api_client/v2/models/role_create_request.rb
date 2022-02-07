@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Data related to the creation of a role.
+    # Data related to the creation of a role.
     attr_accessor :data
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The new security filter properties.
+    # The new security filter properties.
     attr_accessor :data
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,43 +23,43 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Which color to use on the widget.
+    # Which color to use on the widget.
     attr_accessor :color_preference
 
-    # # The number of monitors to display.
+    # The number of monitors to display.
     attr_accessor :count
 
-    # # What to display on the widget.
+    # What to display on the widget.
     attr_accessor :display_format
 
-    # # Whether to show counts of 0 or not.
+    # Whether to show counts of 0 or not.
     attr_accessor :hide_zero_counts
 
-    # # Query to filter the monitors with.
+    # Query to filter the monitors with.
     attr_accessor :query
 
-    # # Whether to show the time that has elapsed since the monitor/group triggered.
+    # Whether to show the time that has elapsed since the monitor/group triggered.
     attr_accessor :show_last_triggered
 
-    # # Widget sorting methods.
+    # Widget sorting methods.
     attr_accessor :sort
 
-    # # The start of the list. Typically 0.
+    # The start of the list. Typically 0.
     attr_accessor :start
 
-    # # Which summary type should be used.
+    # Which summary type should be used.
     attr_accessor :summary_type
 
-    # # Title of the widget.
+    # Title of the widget.
     attr_accessor :title
 
-    # # How to align the text on the widget.
+    # How to align the text on the widget.
     attr_accessor :title_align
 
-    # # Size of the title.
+    # Size of the title.
     attr_accessor :title_size
 
-    # # Type of the monitor summary widget.
+    # Type of the monitor summary widget.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

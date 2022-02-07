@@ -23,28 +23,28 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # ID of the alert to use in the widget.
+    # ID of the alert to use in the widget.
     attr_accessor :alert_id
 
-    # # Number of decimal to show. If not defined, will use the raw value.
+    # Number of decimal to show. If not defined, will use the raw value.
     attr_accessor :precision
 
-    # # How to align the text on the widget.
+    # How to align the text on the widget.
     attr_accessor :text_align
 
-    # # Title of the widget.
+    # Title of the widget.
     attr_accessor :title
 
-    # # How to align the text on the widget.
+    # How to align the text on the widget.
     attr_accessor :title_align
 
-    # # Size of value in the widget.
+    # Size of value in the widget.
     attr_accessor :title_size
 
-    # # Type of the alert value widget.
+    # Type of the alert value widget.
     attr_accessor :type
 
-    # # Unit to display with the value.
+    # Unit to display with the value.
     attr_accessor :unit
 
     # Attribute mapping from ruby-style variable name to JSON key.

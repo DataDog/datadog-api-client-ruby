@@ -23,25 +23,25 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM].
+    # Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM].
     attr_accessor :month
 
-    # # The name of the organization.
+    # The name of the organization.
     attr_accessor :org_name
 
-    # # The organization public ID.
+    # The organization public ID.
     attr_accessor :public_id
 
-    # # The source of the usage attribution tag configuration and the selected tags in the format `<source_org_name>:<selected tag 1>-<selected tag 2>-<selected tag 3>`.
+    # The source of the usage attribution tag configuration and the selected tags in the format `<source_org_name>:<selected tag 1>-<selected tag 2>-<selected tag 3>`.
     attr_accessor :tag_config_source
 
-    # # Usage Summary by tag name.
+    # Usage Summary by tag name.
     attr_accessor :tags
 
-    # # Shows the the most recent hour in the current months for all organizations for which all usages were calculated.
+    # Shows the the most recent hour in the current months for all organizations for which all usages were calculated.
     attr_accessor :updated_at
 
-    # # Fields in Usage Summary by tag(s).
+    # Fields in Usage Summary by tag(s).
     attr_accessor :values
 
     # Attribute mapping from ruby-style variable name to JSON key.

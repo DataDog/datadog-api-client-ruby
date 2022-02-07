@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Array of Log index configurations.
+    # Array of Log index configurations.
     attr_accessor :indexes
 
     # Attribute mapping from ruby-style variable name to JSON key.

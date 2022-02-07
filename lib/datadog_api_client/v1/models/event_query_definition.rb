@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The query being made on the event.
+    # The query being made on the event.
     attr_accessor :search
 
-    # # The execution method for multi-value filters. Can be either and or or.
+    # The execution method for multi-value filters. Can be either and or or.
     attr_accessor :tags_execution
 
     # Attribute mapping from ruby-style variable name to JSON key.

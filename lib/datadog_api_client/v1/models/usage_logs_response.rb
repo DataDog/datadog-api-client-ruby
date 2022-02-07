@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # An array of objects regarding hourly usage of logs.
+    # An array of objects regarding hourly usage of logs.
     attr_accessor :usage
 
     # Attribute mapping from ruby-style variable name to JSON key.

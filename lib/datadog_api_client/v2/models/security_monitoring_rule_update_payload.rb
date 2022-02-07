@@ -23,34 +23,34 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Cases for generating signals.
+    # Cases for generating signals.
     attr_accessor :cases
 
-    # # Additional queries to filter matched events before they are processed.
+    # Additional queries to filter matched events before they are processed.
     attr_accessor :filters
 
-    # # Whether the notifications include the triggering group-by values in their title.
+    # Whether the notifications include the triggering group-by values in their title.
     attr_accessor :has_extended_title
 
-    # # Whether the rule is enabled.
+    # Whether the rule is enabled.
     attr_accessor :is_enabled
 
-    # # Message for generated signals.
+    # Message for generated signals.
     attr_accessor :message
 
-    # # Name of the rule.
+    # Name of the rule.
     attr_accessor :name
 
-    # # Options on rules.
+    # Options on rules.
     attr_accessor :options
 
-    # # Queries for selecting logs which are part of the rule.
+    # Queries for selecting logs which are part of the rule.
     attr_accessor :queries
 
-    # # Tags for generated signals.
+    # Tags for generated signals.
     attr_accessor :tags
 
-    # # The version of the rule being updated.
+    # The version of the rule being updated.
     attr_accessor :version
 
     # Attribute mapping from ruby-style variable name to JSON key.

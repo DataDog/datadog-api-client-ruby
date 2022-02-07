@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # A JSON array of billing type.
+    # A JSON array of billing type.
     attr_accessor :billing
 
-    # # The name of the new child-organization, limited to 32 characters.
+    # The name of the new child-organization, limited to 32 characters.
     attr_accessor :name
 
-    # # Subscription definition.
+    # Subscription definition.
     attr_accessor :subscription
 
     # Attribute mapping from ruby-style variable name to JSON key.

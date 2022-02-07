@@ -23,22 +23,22 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Query aggregator function.
+    # Query aggregator function.
     attr_accessor :aggr
 
-    # # Query expression.
+    # Query expression.
     attr_accessor :expression
 
-    # # Query metric used.
+    # Query metric used.
     attr_accessor :metric
 
-    # # Query index from original combined query.
+    # Query index from original combined query.
     attr_accessor :query_index
 
-    # # Query scope.
+    # Query scope.
     attr_accessor :scope
 
-    # # An array of metric units that contains up to two unit objects.
+    # An array of metric units that contains up to two unit objects.
     # For example, bytes represents one unit object and bytes per second represents two unit objects.
     # If a metric query only has one unit object, the second array element is null.
     attr_accessor :unit

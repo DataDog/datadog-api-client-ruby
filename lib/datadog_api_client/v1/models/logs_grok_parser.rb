@@ -24,22 +24,22 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Set of rules for the grok parser.
+    # Set of rules for the grok parser.
     attr_accessor :grok
 
-    # # Whether or not the processor is enabled.
+    # Whether or not the processor is enabled.
     attr_accessor :is_enabled
 
-    # # Name of the processor.
+    # Name of the processor.
     attr_accessor :name
 
-    # # List of sample logs to test this grok parser.
+    # List of sample logs to test this grok parser.
     attr_accessor :samples
 
-    # # Name of the log attribute to parse.
+    # Name of the log attribute to parse.
     attr_accessor :source
 
-    # # Type of logs grok parser.
+    # Type of logs grok parser.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

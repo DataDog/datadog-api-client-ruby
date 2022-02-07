@@ -23,16 +23,16 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The bucket where the archive will be stored.
+    # The bucket where the archive will be stored.
     attr_accessor :bucket
 
-    # # The S3 Archive's integration destination.
+    # The S3 Archive's integration destination.
     attr_accessor :integration
 
-    # # The archive path.
+    # The archive path.
     attr_accessor :path
 
-    # # Type of the S3 archive destination.
+    # Type of the S3 archive destination.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

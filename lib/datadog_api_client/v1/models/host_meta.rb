@@ -23,49 +23,49 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # A list of Agent checks running on the host.
+    # A list of Agent checks running on the host.
     attr_accessor :agent_checks
 
-    # # The Datadog Agent version.
+    # The Datadog Agent version.
     attr_accessor :agent_version
 
-    # # The number of cores.
+    # The number of cores.
     attr_accessor :cpu_cores
 
-    # # An array of Mac versions.
+    # An array of Mac versions.
     attr_accessor :fbsd_v
 
-    # # JSON string containing system information.
+    # JSON string containing system information.
     attr_accessor :gohai
 
-    # # Agent install method.
+    # Agent install method.
     attr_accessor :install_method
 
-    # # An array of Mac versions.
+    # An array of Mac versions.
     attr_accessor :mac_v
 
-    # # The machine architecture.
+    # The machine architecture.
     attr_accessor :machine
 
-    # # Array of Unix versions.
+    # Array of Unix versions.
     attr_accessor :nix_v
 
-    # # The OS platform.
+    # The OS platform.
     attr_accessor :platform
 
-    # # The processor.
+    # The processor.
     attr_accessor :processor
 
-    # # The Python version.
+    # The Python version.
     attr_accessor :python_v
 
-    # # The socket fqdn.
+    # The socket fqdn.
     attr_accessor :socket_fqdn
 
-    # # The socket hostname.
+    # The socket hostname.
     attr_accessor :socket_hostname
 
-    # # An array of Windows versions.
+    # An array of Windows versions.
     attr_accessor :win_v
 
     # Attribute mapping from ruby-style variable name to JSON key.

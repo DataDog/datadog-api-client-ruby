@@ -23,25 +23,25 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # List of custom links.
+    # List of custom links.
     attr_accessor :custom_links
 
-    # # Your environment and primary tag (or * if enabled for your account).
+    # Your environment and primary tag (or * if enabled for your account).
     attr_accessor :filters
 
-    # # The ID of the service you want to map.
+    # The ID of the service you want to map.
     attr_accessor :service
 
-    # # The title of your widget.
+    # The title of your widget.
     attr_accessor :title
 
-    # # How to align the text on the widget.
+    # How to align the text on the widget.
     attr_accessor :title_align
 
-    # # Size of the title.
+    # Size of the title.
     attr_accessor :title_size
 
-    # # Type of the service map widget.
+    # Type of the service map widget.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

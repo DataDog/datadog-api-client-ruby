@@ -23,10 +23,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # A list of results using the cursor provided in the previous query.
+    # A list of results using the cursor provided in the previous query.
     attr_accessor :cursor
 
-    # # The maximum number of security signals in the response.
+    # The maximum number of security signals in the response.
     attr_accessor :limit
 
     # Attribute mapping from ruby-style variable name to JSON key.

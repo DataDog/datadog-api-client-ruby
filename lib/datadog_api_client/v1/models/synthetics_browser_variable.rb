@@ -24,19 +24,19 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Example for the variable.
+    # Example for the variable.
     attr_accessor :example
 
-    # # ID for the variable. Global variables require an ID.
+    # ID for the variable. Global variables require an ID.
     attr_accessor :id
 
-    # # Name of the variable.
+    # Name of the variable.
     attr_accessor :name
 
-    # # Pattern of the variable.
+    # Pattern of the variable.
     attr_accessor :pattern
 
-    # # Type of browser test variable.
+    # Type of browser test variable.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

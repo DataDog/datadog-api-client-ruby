@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The data attributes of a notebook.
+    # The data attributes of a notebook.
     attr_accessor :attributes
 
-    # # Type of the Notebook resource.
+    # Type of the Notebook resource.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Authentication part of the secrets.
+    # Authentication part of the secrets.
     attr_accessor :authentication
 
-    # # Private key for the private location.
+    # Private key for the private location.
     attr_accessor :config_decryption
 
     # Attribute mapping from ruby-style variable name to JSON key.

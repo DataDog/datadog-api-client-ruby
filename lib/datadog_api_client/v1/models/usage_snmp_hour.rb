@@ -23,16 +23,16 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The hour for the usage.
+    # The hour for the usage.
     attr_accessor :hour
 
-    # # The organization name.
+    # The organization name.
     attr_accessor :org_name
 
-    # # The organization public ID.
+    # The organization public ID.
     attr_accessor :public_id
 
-    # # Contains the number of SNMP devices.
+    # Contains the number of SNMP devices.
     attr_accessor :snmp_devices
 
     # Attribute mapping from ruby-style variable name to JSON key.

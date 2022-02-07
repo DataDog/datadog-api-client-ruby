@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The type of billing. Only `parent_billing` is supported.
+    # The type of billing. Only `parent_billing` is supported.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

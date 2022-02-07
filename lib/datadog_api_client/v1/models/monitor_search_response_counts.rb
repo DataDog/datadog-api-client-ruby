@@ -23,16 +23,16 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Search facets.
+    # Search facets.
     attr_accessor :muted
 
-    # # Search facets.
+    # Search facets.
     attr_accessor :status
 
-    # # Search facets.
+    # Search facets.
     attr_accessor :tag
 
-    # # Search facets.
+    # Search facets.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

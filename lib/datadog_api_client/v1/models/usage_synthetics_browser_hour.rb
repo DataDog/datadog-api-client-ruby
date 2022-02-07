@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Contains the number of Synthetics Browser tests run.
+    # Contains the number of Synthetics Browser tests run.
     attr_accessor :browser_check_calls_count
 
-    # # The hour for the usage.
+    # The hour for the usage.
     attr_accessor :hour
 
     # Attribute mapping from ruby-style variable name to JSON key.

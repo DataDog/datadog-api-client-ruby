@@ -23,10 +23,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Array of process summary objects.
+    # Array of process summary objects.
     attr_accessor :data
 
-    # # Response metadata object.
+    # Response metadata object.
     attr_accessor :meta
 
     # Attribute mapping from ruby-style variable name to JSON key.

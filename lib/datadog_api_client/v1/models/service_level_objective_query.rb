@@ -25,10 +25,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # A Datadog metric query for total (valid) events.
+    # A Datadog metric query for total (valid) events.
     attr_accessor :denominator
 
-    # # A Datadog metric query for good events.
+    # A Datadog metric query for good events.
     attr_accessor :numerator
 
     # Attribute mapping from ruby-style variable name to JSON key.

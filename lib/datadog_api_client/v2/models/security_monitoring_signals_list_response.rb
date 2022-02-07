@@ -24,13 +24,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # An array of security signals matching the request.
+    # An array of security signals matching the request.
     attr_accessor :data
 
-    # # Links attributes.
+    # Links attributes.
     attr_accessor :links
 
-    # # Meta attributes.
+    # Meta attributes.
     attr_accessor :meta
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,10 +23,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Update an existing Cloud Workload Security Agent rule.
+    # Update an existing Cloud Workload Security Agent rule.
     attr_accessor :attributes
 
-    # # The type of the resource. The value should always be `agent_rule`.
+    # The type of the resource. The value should always be `agent_rule`.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

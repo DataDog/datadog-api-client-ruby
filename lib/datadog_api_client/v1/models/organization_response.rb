@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Create, edit, and manage organizations.
+    # Create, edit, and manage organizations.
     attr_accessor :org
 
     # Attribute mapping from ruby-style variable name to JSON key.

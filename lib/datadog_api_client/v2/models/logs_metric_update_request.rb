@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The new log-based metric properties.
+    # The new log-based metric properties.
     attr_accessor :data
 
     # Attribute mapping from ruby-style variable name to JSON key.

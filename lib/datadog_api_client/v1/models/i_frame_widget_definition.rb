@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Type of the iframe widget.
+    # Type of the iframe widget.
     attr_accessor :type
 
-    # # URL of the iframe.
+    # URL of the iframe.
     attr_accessor :url
 
     # Attribute mapping from ruby-style variable name to JSON key.

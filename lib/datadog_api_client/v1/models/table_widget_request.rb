@@ -23,61 +23,61 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Aggregator used for the request.
+    # Aggregator used for the request.
     attr_accessor :aggregator
 
-    # # The column name (defaults to the metric name).
+    # The column name (defaults to the metric name).
     attr_accessor :_alias
 
-    # # The log query.
+    # The log query.
     attr_accessor :apm_query
 
-    # # The APM stats query for table and distributions widgets.
+    # The APM stats query for table and distributions widgets.
     attr_accessor :apm_stats_query
 
-    # # A list of display modes for each table cell.
+    # A list of display modes for each table cell.
     attr_accessor :cell_display_mode
 
-    # # List of conditional formats.
+    # List of conditional formats.
     attr_accessor :conditional_formats
 
-    # # The log query.
+    # The log query.
     attr_accessor :event_query
 
-    # # List of formulas that operate on queries. **This feature is currently in beta.**
+    # List of formulas that operate on queries. **This feature is currently in beta.**
     attr_accessor :formulas
 
-    # # For metric queries, the number of lines to show in the table. Only one request should have this property.
+    # For metric queries, the number of lines to show in the table. Only one request should have this property.
     attr_accessor :limit
 
-    # # The log query.
+    # The log query.
     attr_accessor :log_query
 
-    # # The log query.
+    # The log query.
     attr_accessor :network_query
 
-    # # Widget sorting methods.
+    # Widget sorting methods.
     attr_accessor :order
 
-    # # The process query to use in the widget.
+    # The process query to use in the widget.
     attr_accessor :process_query
 
-    # # The log query.
+    # The log query.
     attr_accessor :profile_metrics_query
 
-    # # Query definition.
+    # Query definition.
     attr_accessor :q
 
-    # # List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
+    # List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
     attr_accessor :queries
 
-    # # Timeseries or Scalar response. **This feature is currently in beta.**
+    # Timeseries or Scalar response. **This feature is currently in beta.**
     attr_accessor :response_format
 
-    # # The log query.
+    # The log query.
     attr_accessor :rum_query
 
-    # # The log query.
+    # The log query.
     attr_accessor :security_query
 
     # Attribute mapping from ruby-style variable name to JSON key.

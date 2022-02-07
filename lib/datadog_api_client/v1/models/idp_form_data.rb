@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The path to the XML metadata file you wish to upload.
+    # The path to the XML metadata file you wish to upload.
     attr_accessor :idp_file
 
     # Attribute mapping from ruby-style variable name to JSON key.

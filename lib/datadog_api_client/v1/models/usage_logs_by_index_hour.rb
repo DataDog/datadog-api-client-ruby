@@ -23,19 +23,19 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The total number of indexed logs for the queried hour.
+    # The total number of indexed logs for the queried hour.
     attr_accessor :event_count
 
-    # # The hour for the usage.
+    # The hour for the usage.
     attr_accessor :hour
 
-    # # The index ID for this usage.
+    # The index ID for this usage.
     attr_accessor :index_id
 
-    # # The user specified name for this index ID.
+    # The user specified name for this index ID.
     attr_accessor :index_name
 
-    # # The retention period (in days) for this index ID.
+    # The retention period (in days) for this index ID.
     attr_accessor :retention
 
     # Attribute mapping from ruby-style variable name to JSON key.

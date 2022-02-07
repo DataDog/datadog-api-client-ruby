@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # List of notebook definitions.
+    # List of notebook definitions.
     attr_accessor :data
 
-    # # Searches metadata returned by the API.
+    # Searches metadata returned by the API.
     attr_accessor :meta
 
     # Attribute mapping from ruby-style variable name to JSON key.

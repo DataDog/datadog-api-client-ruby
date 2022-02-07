@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Aggregation methods for event platform queries.
+    # Aggregation methods for event platform queries.
     attr_accessor :aggregation
 
-    # # Metric used for sorting group by results.
+    # Metric used for sorting group by results.
     attr_accessor :metric
 
-    # # Direction of sort.
+    # Direction of sort.
     attr_accessor :order
 
     # Attribute mapping from ruby-style variable name to JSON key.

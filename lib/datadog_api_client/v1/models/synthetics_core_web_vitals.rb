@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Cumulative Layout Shift.
+    # Cumulative Layout Shift.
     attr_accessor :cls
 
-    # # Largest Contentful Paint in milliseconds.
+    # Largest Contentful Paint in milliseconds.
     attr_accessor :lcp
 
-    # # URL attached to the metrics.
+    # URL attached to the metrics.
     attr_accessor :url
 
     # Attribute mapping from ruby-style variable name to JSON key.

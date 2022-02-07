@@ -23,37 +23,37 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The log query.
+    # The log query.
     attr_accessor :apm_query
 
-    # # The APM stats query for table and distributions widgets.
+    # The APM stats query for table and distributions widgets.
     attr_accessor :apm_stats_query
 
-    # # The log query.
+    # The log query.
     attr_accessor :event_query
 
-    # # The log query.
+    # The log query.
     attr_accessor :log_query
 
-    # # The log query.
+    # The log query.
     attr_accessor :network_query
 
-    # # The process query to use in the widget.
+    # The process query to use in the widget.
     attr_accessor :process_query
 
-    # # The log query.
+    # The log query.
     attr_accessor :profile_metrics_query
 
-    # # Widget query.
+    # Widget query.
     attr_accessor :q
 
-    # # The log query.
+    # The log query.
     attr_accessor :rum_query
 
-    # # The log query.
+    # The log query.
     attr_accessor :security_query
 
-    # # Widget style definition.
+    # Widget style definition.
     attr_accessor :style
 
     # Attribute mapping from ruby-style variable name to JSON key.

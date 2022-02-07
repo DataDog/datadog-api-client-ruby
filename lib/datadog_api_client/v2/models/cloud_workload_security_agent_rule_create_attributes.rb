@@ -23,16 +23,16 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The description of the Agent rule.
+    # The description of the Agent rule.
     attr_accessor :description
 
-    # # Whether the Agent rule is enabled.
+    # Whether the Agent rule is enabled.
     attr_accessor :enabled
 
-    # # The SECL expression of the Agent rule.
+    # The SECL expression of the Agent rule.
     attr_accessor :expression
 
-    # # The name of the Agent rule.
+    # The name of the Agent rule.
     attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.

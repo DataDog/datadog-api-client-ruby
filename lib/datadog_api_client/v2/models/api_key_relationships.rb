@@ -23,10 +23,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Relationship to user.
+    # Relationship to user.
     attr_accessor :created_by
 
-    # # Relationship to user.
+    # Relationship to user.
     attr_accessor :modified_by
 
     # Attribute mapping from ruby-style variable name to JSON key.

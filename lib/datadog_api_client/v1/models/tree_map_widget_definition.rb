@@ -23,22 +23,22 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The attribute used to determine color in the widget.
+    # The attribute used to determine color in the widget.
     attr_accessor :color_by
 
-    # # The attribute used to group elements in the widget.
+    # The attribute used to group elements in the widget.
     attr_accessor :group_by
 
-    # # List of top list widget requests.
+    # List of top list widget requests.
     attr_accessor :requests
 
-    # # The attribute used to determine size in the widget.
+    # The attribute used to determine size in the widget.
     attr_accessor :size_by
 
-    # # Title of your widget.
+    # Title of your widget.
     attr_accessor :title
 
-    # # Type of the treemap widget.
+    # Type of the treemap widget.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

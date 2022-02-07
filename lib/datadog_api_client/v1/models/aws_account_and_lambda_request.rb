@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Your AWS Account ID without dashes.
+    # Your AWS Account ID without dashes.
     attr_accessor :account_id
 
-    # # ARN of the Datadog Lambda created during the Datadog-Amazon Web services Log collection setup.
+    # ARN of the Datadog Lambda created during the Datadog-Amazon Web services Log collection setup.
     attr_accessor :lambda_arn
 
     # Attribute mapping from ruby-style variable name to JSON key.

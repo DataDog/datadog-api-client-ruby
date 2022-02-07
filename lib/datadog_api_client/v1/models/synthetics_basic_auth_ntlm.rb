@@ -23,19 +23,19 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Domain for the authentication to use when performing the test.
+    # Domain for the authentication to use when performing the test.
     attr_accessor :domain
 
-    # # Password for the authentication to use when performing the test.
+    # Password for the authentication to use when performing the test.
     attr_accessor :password
 
-    # # The type of authentication to use when performing the test.
+    # The type of authentication to use when performing the test.
     attr_accessor :type
 
-    # # Username for the authentication to use when performing the test.
+    # Username for the authentication to use when performing the test.
     attr_accessor :username
 
-    # # Workstation for the authentication to use when performing the test.
+    # Workstation for the authentication to use when performing the test.
     attr_accessor :workstation
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,20 +23,20 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The height of the widget. Should be a non-negative integer.
+    # The height of the widget. Should be a non-negative integer.
     attr_accessor :height
 
-    # # Whether the widget should be the first one on the second column in high density or not.
+    # Whether the widget should be the first one on the second column in high density or not.
     # **Note**: Only for the **new dashboard layout** and only one widget in the dashboard should have this property set to `true`.
     attr_accessor :is_column_break
 
-    # # The width of the widget. Should be a non-negative integer.
+    # The width of the widget. Should be a non-negative integer.
     attr_accessor :width
 
-    # # The position of the widget on the x (horizontal) axis. Should be a non-negative integer.
+    # The position of the widget on the x (horizontal) axis. Should be a non-negative integer.
     attr_accessor :x
 
-    # # The position of the widget on the y (vertical) axis. Should be a non-negative integer.
+    # The position of the widget on the y (vertical) axis. Should be a non-negative integer.
     attr_accessor :y
 
     # Attribute mapping from ruby-style variable name to JSON key.

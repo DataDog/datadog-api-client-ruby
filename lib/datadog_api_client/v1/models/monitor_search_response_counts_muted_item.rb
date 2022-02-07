@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The number of found monitors with the listed value.
+    # The number of found monitors with the listed value.
     attr_accessor :count
 
-    # # The facet value.
+    # The facet value.
     attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.

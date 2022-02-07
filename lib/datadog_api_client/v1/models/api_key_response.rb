@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Datadog API key.
+    # Datadog API key.
     attr_accessor :api_key
 
     # Attribute mapping from ruby-style variable name to JSON key.

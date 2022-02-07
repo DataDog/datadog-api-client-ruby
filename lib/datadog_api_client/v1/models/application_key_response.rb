@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # An application key with its associated metadata.
+    # An application key with its associated metadata.
     attr_accessor :application_key
 
     # Attribute mapping from ruby-style variable name to JSON key.

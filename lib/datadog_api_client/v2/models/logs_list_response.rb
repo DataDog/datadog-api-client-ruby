@@ -23,13 +23,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Array of logs matching the request.
+    # Array of logs matching the request.
     attr_accessor :data
 
-    # # Links attributes.
+    # Links attributes.
     attr_accessor :links
 
-    # # The metadata associated with a request
+    # The metadata associated with a request
     attr_accessor :meta
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -24,19 +24,19 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Whether or not the processor is enabled.
+    # Whether or not the processor is enabled.
     attr_accessor :is_enabled
 
-    # # Name of the processor.
+    # Name of the processor.
     attr_accessor :name
 
-    # # Array of source attributes.
+    # Array of source attributes.
     attr_accessor :sources
 
-    # # Name of the parent attribute that contains all the extracted details from the `sources`.
+    # Name of the parent attribute that contains all the extracted details from the `sources`.
     attr_accessor :target
 
-    # # Type of GeoIP parser.
+    # Type of GeoIP parser.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

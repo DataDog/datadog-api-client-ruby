@@ -23,10 +23,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # ID of the organization.
+    # ID of the organization.
     attr_accessor :id
 
-    # # Organizations resource type.
+    # Organizations resource type.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # List of Synthetics locations.
+    # List of Synthetics locations.
     attr_accessor :locations
 
     # Attribute mapping from ruby-style variable name to JSON key.

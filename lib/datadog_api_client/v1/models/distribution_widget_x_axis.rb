@@ -23,16 +23,16 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # True includes zero.
+    # True includes zero.
     attr_accessor :include_zero
 
-    # # Specifies maximum value to show on the x-axis. It takes a number, percentile (p90 === 90th percentile), or auto for default behavior.
+    # Specifies maximum value to show on the x-axis. It takes a number, percentile (p90 === 90th percentile), or auto for default behavior.
     attr_accessor :max
 
-    # # Specifies minimum value to show on the x-axis. It takes a number, percentile (p90 === 90th percentile), or auto for default behavior.
+    # Specifies minimum value to show on the x-axis. It takes a number, percentile (p90 === 90th percentile), or auto for default behavior.
     attr_accessor :min
 
-    # # Specifies the scale type. Possible values are `linear`.
+    # Specifies the scale type. Possible values are `linear`.
     attr_accessor :scale
 
     # Attribute mapping from ruby-style variable name to JSON key.

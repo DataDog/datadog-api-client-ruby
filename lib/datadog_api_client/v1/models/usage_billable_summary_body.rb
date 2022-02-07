@@ -23,25 +23,25 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The total account usage.
+    # The total account usage.
     attr_accessor :account_billable_usage
 
-    # # Elapsed usage hours for some billable product.
+    # Elapsed usage hours for some billable product.
     attr_accessor :elapsed_usage_hours
 
-    # # The first billable hour for the org.
+    # The first billable hour for the org.
     attr_accessor :first_billable_usage_hour
 
-    # # The last billable hour for the org.
+    # The last billable hour for the org.
     attr_accessor :last_billable_usage_hour
 
-    # # The number of units used within the billable timeframe.
+    # The number of units used within the billable timeframe.
     attr_accessor :org_billable_usage
 
-    # # The percentage of account usage the org represents.
+    # The percentage of account usage the org represents.
     attr_accessor :percentage_in_account
 
-    # # Units pertaining to the usage.
+    # Units pertaining to the usage.
     attr_accessor :usage_unit
 
     # Attribute mapping from ruby-style variable name to JSON key.

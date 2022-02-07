@@ -23,13 +23,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # JSON object containing all log attributes and their associated values.
+    # JSON object containing all log attributes and their associated values.
     attr_accessor :attributes
 
-    # # Unique ID of the Log.
+    # Unique ID of the Log.
     attr_accessor :id
 
-    # # Type of the event.
+    # Type of the event.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

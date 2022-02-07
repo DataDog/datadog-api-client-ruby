@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Possible response objects for a metric's volume.
+    # Possible response objects for a metric's volume.
     attr_accessor :data
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,103 +23,103 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Type of aggregation performed in the monitor query.
+    # Type of aggregation performed in the monitor query.
     attr_accessor :aggregation
 
-    # # IDs of the device the Synthetics monitor is running on.
+    # IDs of the device the Synthetics monitor is running on.
     attr_accessor :device_ids
 
-    # # Whether or not to send a log sample when the log monitor triggers.
+    # Whether or not to send a log sample when the log monitor triggers.
     attr_accessor :enable_logs_sample
 
-    # # We recommend using the [is_renotify](https://docs.datadoghq.com/monitors/notify/?tab=is_alert#renotify),
+    # We recommend using the [is_renotify](https://docs.datadoghq.com/monitors/notify/?tab=is_alert#renotify),
     # block in the original message instead.
     # A message to include with a re-notification. Supports the `@username` notification we allow elsewhere.
     # Not applicable if `renotify_interval` is `None`.
     attr_accessor :escalation_message
 
-    # # Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the value is set to `300` (5min),
+    # Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the value is set to `300` (5min),
     # the timeframe is set to `last_5m` and the time is 7:00, the monitor evaluates data from 6:50 to 6:55.
     # This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor always has data during evaluation.
     attr_accessor :evaluation_delay
 
-    # # Whether the log alert monitor triggers a single alert or multiple alerts when any group breaches a threshold.
+    # Whether the log alert monitor triggers a single alert or multiple alerts when any group breaches a threshold.
     attr_accessor :groupby_simple_monitor
 
-    # # A Boolean indicating whether notifications from this monitor automatically inserts its triggering tags into the title.
+    # A Boolean indicating whether notifications from this monitor automatically inserts its triggering tags into the title.
     #
     # **Examples**
     # - If `True`, `[Triggered on {host:h1}] Monitor Title`
     # - If `False`, `[Triggered] Monitor Title`
     attr_accessor :include_tags
 
-    # # Whether or not the monitor is locked (only editable by creator and admins).
+    # Whether or not the monitor is locked (only editable by creator and admins).
     attr_accessor :locked
 
-    # # How long the test should be in failure before alerting (integer, number of seconds, max 7200).
+    # How long the test should be in failure before alerting (integer, number of seconds, max 7200).
     attr_accessor :min_failure_duration
 
-    # # The minimum number of locations in failure at the same time during
+    # The minimum number of locations in failure at the same time during
     # at least one moment in the `min_failure_duration` period (`min_location_failed` and `min_failure_duration`
     # are part of the advanced alerting rules - integer, >= 1).
     attr_accessor :min_location_failed
 
-    # # Time (in seconds) to skip evaluations for new groups.
+    # Time (in seconds) to skip evaluations for new groups.
     #
     # For example, this option can be used to skip evaluations for new hosts while they initialize.
     #
     # Must be a non negative integer.
     attr_accessor :new_group_delay
 
-    # # Time (in seconds) to allow a host to boot and applications
+    # Time (in seconds) to allow a host to boot and applications
     # to fully start before starting the evaluation of monitor results.
     # Should be a non negative integer.
     #
     # Use new_group_delay instead.
     attr_accessor :new_host_delay
 
-    # # The number of minutes before a monitor notifies after data stops reporting.
+    # The number of minutes before a monitor notifies after data stops reporting.
     # Datadog recommends at least 2x the monitor timeframe for query alerts or 2 minutes for service checks.
     # If omitted, 2x the evaluation timeframe is used for query alerts, and 24 hours is used for service checks.
     attr_accessor :no_data_timeframe
 
-    # # A Boolean indicating whether tagged users is notified on changes to this monitor.
+    # A Boolean indicating whether tagged users is notified on changes to this monitor.
     attr_accessor :notify_audit
 
-    # # A Boolean indicating whether this monitor notifies when data stops reporting.
+    # A Boolean indicating whether this monitor notifies when data stops reporting.
     attr_accessor :notify_no_data
 
-    # # The number of minutes after the last notification before a monitor re-notifies on the current status.
+    # The number of minutes after the last notification before a monitor re-notifies on the current status.
     # It only re-notifies if it’s not resolved.
     attr_accessor :renotify_interval
 
-    # # The number of times re-notification messages should be sent on the current status at the provided re-notification interval.
+    # The number of times re-notification messages should be sent on the current status at the provided re-notification interval.
     attr_accessor :renotify_occurrences
 
-    # # The types of monitor statuses for which re-notification messages are sent.
+    # The types of monitor statuses for which re-notification messages are sent.
     attr_accessor :renotify_statuses
 
-    # # A Boolean indicating whether this monitor needs a full window of data before it’s evaluated.
+    # A Boolean indicating whether this monitor needs a full window of data before it’s evaluated.
     # We highly recommend you set this to `false` for sparse metrics,
     # otherwise some evaluations are skipped. Default is false.
     attr_accessor :require_full_window
 
-    # # Information about the downtime applied to the monitor.
+    # Information about the downtime applied to the monitor.
     attr_accessor :silenced
 
-    # # ID of the corresponding Synthetic check.
+    # ID of the corresponding Synthetic check.
     attr_accessor :synthetics_check_id
 
-    # # Alerting time window options.
+    # Alerting time window options.
     attr_accessor :threshold_windows
 
-    # # List of the different monitor threshold available.
+    # List of the different monitor threshold available.
     attr_accessor :thresholds
 
-    # # The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
+    # The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
     attr_accessor :timeout_h
 
-    # # List of requests that can be used in the monitor query. **This feature is currently in beta.**
+    # List of requests that can be used in the monitor query. **This feature is currently in beta.**
     attr_accessor :variables
 
     # Attribute mapping from ruby-style variable name to JSON key.

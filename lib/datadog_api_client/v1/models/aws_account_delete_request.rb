@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
+    # Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
     attr_accessor :access_key_id
 
-    # # Your AWS Account ID without dashes.
+    # Your AWS Account ID without dashes.
     attr_accessor :account_id
 
-    # # Your Datadog role delegation name.
+    # Your Datadog role delegation name.
     attr_accessor :role_name
 
     # Attribute mapping from ruby-style variable name to JSON key.

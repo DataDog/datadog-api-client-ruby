@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Your service key in PagerDuty.
+    # Your service key in PagerDuty.
     attr_accessor :service_key
 
-    # # Your service name associated with a service key in PagerDuty.
+    # Your service name associated with a service key in PagerDuty.
     attr_accessor :service_name
 
     # Attribute mapping from ruby-style variable name to JSON key.

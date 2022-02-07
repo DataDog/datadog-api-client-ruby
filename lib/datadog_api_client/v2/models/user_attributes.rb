@@ -23,37 +23,37 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Creation time of the user.
+    # Creation time of the user.
     attr_accessor :created_at
 
-    # # Whether the user is disabled.
+    # Whether the user is disabled.
     attr_accessor :disabled
 
-    # # Email of the user.
+    # Email of the user.
     attr_accessor :email
 
-    # # Handle of the user.
+    # Handle of the user.
     attr_accessor :handle
 
-    # # URL of the user's icon.
+    # URL of the user's icon.
     attr_accessor :icon
 
-    # # Time that the user was last modified.
+    # Time that the user was last modified.
     attr_accessor :modified_at
 
-    # # Name of the user.
+    # Name of the user.
     attr_accessor :name
 
-    # # Whether the user is a service account.
+    # Whether the user is a service account.
     attr_accessor :service_account
 
-    # # Status of the user.
+    # Status of the user.
     attr_accessor :status
 
-    # # Title of the user.
+    # Title of the user.
     attr_accessor :title
 
-    # # Whether the user is verified.
+    # Whether the user is verified.
     attr_accessor :verified
 
     # Attribute mapping from ruby-style variable name to JSON key.

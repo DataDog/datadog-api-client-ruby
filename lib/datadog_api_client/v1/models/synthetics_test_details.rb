@@ -23,45 +23,45 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Configuration object for a Synthetic test.
+    # Configuration object for a Synthetic test.
     attr_accessor :config
 
-    # # Object describing the creator of the shared element.
+    # Object describing the creator of the shared element.
     attr_accessor :creator
 
-    # # Array of locations used to run the test.
+    # Array of locations used to run the test.
     attr_accessor :locations
 
-    # # Notification message associated with the test.
+    # Notification message associated with the test.
     attr_accessor :message
 
-    # # The associated monitor ID.
+    # The associated monitor ID.
     attr_accessor :monitor_id
 
-    # # Name of the test.
+    # Name of the test.
     attr_accessor :name
 
-    # # Object describing the extra options for a Synthetic test.
+    # Object describing the extra options for a Synthetic test.
     attr_accessor :options
 
-    # # The test public ID.
+    # The test public ID.
     attr_accessor :public_id
 
-    # # Define whether you want to start (`live`) or pause (`paused`) a
+    # Define whether you want to start (`live`) or pause (`paused`) a
     # Synthetic test.
     attr_accessor :status
 
-    # # For browser test, the steps of the test.
+    # For browser test, the steps of the test.
     attr_accessor :steps
 
-    # # The subtype of the Synthetic API test, `http`, `ssl`, `tcp`,
+    # The subtype of the Synthetic API test, `http`, `ssl`, `tcp`,
     # `dns`, `icmp`, `udp`, `websocket` or `multi`.
     attr_accessor :subtype
 
-    # # Array of tags attached to the test.
+    # Array of tags attached to the test.
     attr_accessor :tags
 
-    # # Type of the Synthetic test, either `api` or `browser`.
+    # Type of the Synthetic test, either `api` or `browser`.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

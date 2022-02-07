@@ -23,16 +23,16 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Show the main body of the alert event.
+    # Show the main body of the alert event.
     attr_accessor :message
 
-    # # Show the list of @-handles in the alert event.
+    # Show the list of @-handles in the alert event.
     attr_accessor :notified
 
-    # # Show the alert event's snapshot image.
+    # Show the alert event's snapshot image.
     attr_accessor :snapshot
 
-    # # Show the scopes on which the monitor alerted.
+    # Show the scopes on which the monitor alerted.
     attr_accessor :tags
 
     # Attribute mapping from ruby-style variable name to JSON key.

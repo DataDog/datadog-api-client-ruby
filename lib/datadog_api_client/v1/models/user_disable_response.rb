@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Information pertaining to a user disabled for a given organization.
+    # Information pertaining to a user disabled for a given organization.
     attr_accessor :message
 
     # Attribute mapping from ruby-style variable name to JSON key.

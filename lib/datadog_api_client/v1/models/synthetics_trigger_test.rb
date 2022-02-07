@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Metadata for the Synthetics tests run.
+    # Metadata for the Synthetics tests run.
     attr_accessor :metadata
 
-    # # The public ID of the Synthetics test to trigger.
+    # The public ID of the Synthetics test to trigger.
     attr_accessor :public_id
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,88 +23,88 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The percentage of synthetic API test usage by tag(s).
+    # The percentage of synthetic API test usage by tag(s).
     attr_accessor :api_percentage
 
-    # # The synthetic API test usage by tag(s).
+    # The synthetic API test usage by tag(s).
     attr_accessor :api_usage
 
-    # # The percentage of APM host usage by tag(s).
+    # The percentage of APM host usage by tag(s).
     attr_accessor :apm_host_percentage
 
-    # # The APM host usage by tag(s).
+    # The APM host usage by tag(s).
     attr_accessor :apm_host_usage
 
-    # # The percentage of synthetic browser test usage by tag(s).
+    # The percentage of synthetic browser test usage by tag(s).
     attr_accessor :browser_percentage
 
-    # # The synthetic browser test usage by tag(s).
+    # The synthetic browser test usage by tag(s).
     attr_accessor :browser_usage
 
-    # # The percentage of container usage by tag(s).
+    # The percentage of container usage by tag(s).
     attr_accessor :container_percentage
 
-    # # The container usage by tag(s).
+    # The container usage by tag(s).
     attr_accessor :container_usage
 
-    # # The percentage of custom metrics usage by tag(s).
+    # The percentage of custom metrics usage by tag(s).
     attr_accessor :custom_timeseries_percentage
 
-    # # The custom metrics usage by tag(s).
+    # The custom metrics usage by tag(s).
     attr_accessor :custom_timeseries_usage
 
-    # # The percentage of Fargate usage by tags.
+    # The percentage of Fargate usage by tags.
     attr_accessor :fargate_percentage
 
-    # # The Fargate usage by tags.
+    # The Fargate usage by tags.
     attr_accessor :fargate_usage
 
-    # # The percentage of Lambda function usage by tag(s).
+    # The percentage of Lambda function usage by tag(s).
     attr_accessor :functions_percentage
 
-    # # The Lambda function usage by tag(s).
+    # The Lambda function usage by tag(s).
     attr_accessor :functions_usage
 
-    # # The percentage of indexed logs usage by tags.
+    # The percentage of indexed logs usage by tags.
     attr_accessor :indexed_logs_percentage
 
-    # # The indexed logs usage by tags.
+    # The indexed logs usage by tags.
     attr_accessor :indexed_logs_usage
 
-    # # The percentage of infrastructure host usage by tag(s).
+    # The percentage of infrastructure host usage by tag(s).
     attr_accessor :infra_host_percentage
 
-    # # The infrastructure host usage by tag(s).
+    # The infrastructure host usage by tag(s).
     attr_accessor :infra_host_usage
 
-    # # The percentage of Lambda invocation usage by tag(s).
+    # The percentage of Lambda invocation usage by tag(s).
     attr_accessor :invocations_percentage
 
-    # # The Lambda invocation usage by tag(s).
+    # The Lambda invocation usage by tag(s).
     attr_accessor :invocations_usage
 
-    # # The percentage of network host usage by tag(s).
+    # The percentage of network host usage by tag(s).
     attr_accessor :npm_host_percentage
 
-    # # The network host usage by tag(s).
+    # The network host usage by tag(s).
     attr_accessor :npm_host_usage
 
-    # # The percentage of profiled container usage by tag(s).
+    # The percentage of profiled container usage by tag(s).
     attr_accessor :profiled_container_percentage
 
-    # # The profiled container usage by tag(s).
+    # The profiled container usage by tag(s).
     attr_accessor :profiled_container_usage
 
-    # # The percentage of profiled hosts usage by tag(s).
+    # The percentage of profiled hosts usage by tag(s).
     attr_accessor :profiled_host_percentage
 
-    # # The profiled hosts usage by tag(s).
+    # The profiled hosts usage by tag(s).
     attr_accessor :profiled_host_usage
 
-    # # The percentage of network device usage by tag(s).
+    # The percentage of network device usage by tag(s).
     attr_accessor :snmp_percentage
 
-    # # The network device usage by tag(s).
+    # The network device usage by tag(s).
     attr_accessor :snmp_usage
 
     # Attribute mapping from ruby-style variable name to JSON key.

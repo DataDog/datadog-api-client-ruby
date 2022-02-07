@@ -23,22 +23,22 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Latest timestamp the monitor was in NO_DATA state.
+    # Latest timestamp the monitor was in NO_DATA state.
     attr_accessor :last_nodata_ts
 
-    # # Latest timestamp of the notification sent for this monitor group.
+    # Latest timestamp of the notification sent for this monitor group.
     attr_accessor :last_notified_ts
 
-    # # Latest timestamp the monitor group was resolved.
+    # Latest timestamp the monitor group was resolved.
     attr_accessor :last_resolved_ts
 
-    # # Latest timestamp the monitor group triggered.
+    # Latest timestamp the monitor group triggered.
     attr_accessor :last_triggered_ts
 
-    # # The name of the monitor.
+    # The name of the monitor.
     attr_accessor :name
 
-    # # The different states your monitor can be in.
+    # The different states your monitor can be in.
     attr_accessor :status
 
     # Attribute mapping from ruby-style variable name to JSON key.

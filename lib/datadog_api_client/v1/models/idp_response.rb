@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Identity provider response.
+    # Identity provider response.
     attr_accessor :message
 
     # Attribute mapping from ruby-style variable name to JSON key.

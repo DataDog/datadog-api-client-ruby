@@ -23,37 +23,37 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Whether to use auto-scaling or not.
+    # Whether to use auto-scaling or not.
     attr_accessor :autoscale
 
-    # # List of custom links.
+    # List of custom links.
     attr_accessor :custom_links
 
-    # # Display a unit of your choice on the widget.
+    # Display a unit of your choice on the widget.
     attr_accessor :custom_unit
 
-    # # Number of decimals to show. If not defined, the widget uses the raw value.
+    # Number of decimals to show. If not defined, the widget uses the raw value.
     attr_accessor :precision
 
-    # # Widget definition.
+    # Widget definition.
     attr_accessor :requests
 
-    # # How to align the text on the widget.
+    # How to align the text on the widget.
     attr_accessor :text_align
 
-    # # Time setting for the widget.
+    # Time setting for the widget.
     attr_accessor :time
 
-    # # Title of your widget.
+    # Title of your widget.
     attr_accessor :title
 
-    # # How to align the text on the widget.
+    # How to align the text on the widget.
     attr_accessor :title_align
 
-    # # Size of the title.
+    # Size of the title.
     attr_accessor :title_size
 
-    # # Type of the query value widget.
+    # Type of the query value widget.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

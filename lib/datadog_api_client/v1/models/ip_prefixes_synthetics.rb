@@ -23,16 +23,16 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # List of IPv4 prefixes.
+    # List of IPv4 prefixes.
     attr_accessor :prefixes_ipv4
 
-    # # List of IPv4 prefixes by location.
+    # List of IPv4 prefixes by location.
     attr_accessor :prefixes_ipv4_by_location
 
-    # # List of IPv6 prefixes.
+    # List of IPv6 prefixes.
     attr_accessor :prefixes_ipv6
 
-    # # List of IPv6 prefixes by location.
+    # List of IPv6 prefixes by location.
     attr_accessor :prefixes_ipv6_by_location
 
     # Attribute mapping from ruby-style variable name to JSON key.

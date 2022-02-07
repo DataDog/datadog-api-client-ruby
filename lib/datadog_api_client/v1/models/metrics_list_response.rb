@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Time when the metrics were active, seconds since the Unix epoch.
+    # Time when the metrics were active, seconds since the Unix epoch.
     attr_accessor :from
 
-    # # List of metric names.
+    # List of metric names.
     attr_accessor :metrics
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # POSIX timestamp in seconds when the host is unmuted. If omitted, the host remains muted until explicitly unmuted.
+    # POSIX timestamp in seconds when the host is unmuted. If omitted, the host remains muted until explicitly unmuted.
     attr_accessor :_end
 
-    # # Message to associate with the muting of this host.
+    # Message to associate with the muting of this host.
     attr_accessor :message
 
-    # # If true and the host is already muted, replaces existing host mute settings.
+    # If true and the host is already muted, replaces existing host mute settings.
     attr_accessor :override
 
     # Attribute mapping from ruby-style variable name to JSON key.

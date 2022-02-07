@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # List of role identifiers that can be pulled from the Roles API.
+    # List of role identifiers that can be pulled from the Roles API.
     attr_accessor :restricted_roles
 
     # Attribute mapping from ruby-style variable name to JSON key.

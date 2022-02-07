@@ -23,10 +23,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The duration in days after which a learned value is forgotten.
+    # The duration in days after which a learned value is forgotten.
     attr_accessor :forget_after
 
-    # # The duration in days during which values are learned, and after which signals will be generated for values that
+    # The duration in days during which values are learned, and after which signals will be generated for values that
     # weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned.
     attr_accessor :learning_duration
 

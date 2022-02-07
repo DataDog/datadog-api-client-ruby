@@ -23,16 +23,16 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The list of values that the template variable drop-down is limited to.
+    # The list of values that the template variable drop-down is limited to.
     attr_accessor :available_values
 
-    # # The default value for the template variable on dashboard load.
+    # The default value for the template variable on dashboard load.
     attr_accessor :default
 
-    # # The name of the variable.
+    # The name of the variable.
     attr_accessor :name
 
-    # # The tag prefix associated with the variable. Only tags with this prefix appear in the variable drop-down.
+    # The tag prefix associated with the variable. Only tags with this prefix appear in the variable drop-down.
     attr_accessor :prefix
 
     # Attribute mapping from ruby-style variable name to JSON key.

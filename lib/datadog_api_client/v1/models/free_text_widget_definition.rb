@@ -23,19 +23,19 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Color of the text.
+    # Color of the text.
     attr_accessor :color
 
-    # # Size of the text.
+    # Size of the text.
     attr_accessor :font_size
 
-    # # Text to display.
+    # Text to display.
     attr_accessor :text
 
-    # # How to align the text on the widget.
+    # How to align the text on the widget.
     attr_accessor :text_align
 
-    # # Type of the free text widget.
+    # Type of the free text widget.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

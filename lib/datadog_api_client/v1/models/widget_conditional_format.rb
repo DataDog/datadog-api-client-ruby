@@ -23,31 +23,31 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Comparator to apply.
+    # Comparator to apply.
     attr_accessor :comparator
 
-    # # Color palette to apply to the background, same values available as palette.
+    # Color palette to apply to the background, same values available as palette.
     attr_accessor :custom_bg_color
 
-    # # Color palette to apply to the foreground, same values available as palette.
+    # Color palette to apply to the foreground, same values available as palette.
     attr_accessor :custom_fg_color
 
-    # # True hides values.
+    # True hides values.
     attr_accessor :hide_value
 
-    # # Displays an image as the background.
+    # Displays an image as the background.
     attr_accessor :image_url
 
-    # # Metric from the request to correlate this conditional format with.
+    # Metric from the request to correlate this conditional format with.
     attr_accessor :metric
 
-    # # Color palette to apply.
+    # Color palette to apply.
     attr_accessor :palette
 
-    # # Defines the displayed timeframe.
+    # Defines the displayed timeframe.
     attr_accessor :timeframe
 
-    # # Value for the comparator.
+    # Value for the comparator.
     attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.

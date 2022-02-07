@@ -23,16 +23,16 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # List of processes.
+    # List of processes.
     attr_accessor :filter_by
 
-    # # Max number of items in the filter list.
+    # Max number of items in the filter list.
     attr_accessor :limit
 
-    # # Your chosen metric.
+    # Your chosen metric.
     attr_accessor :metric
 
-    # # Your chosen search term.
+    # Your chosen search term.
     attr_accessor :search_by
 
     # Attribute mapping from ruby-style variable name to JSON key.

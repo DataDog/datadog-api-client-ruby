@@ -23,46 +23,46 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # For SSL test, whether or not the test should allow self signed
+    # For SSL test, whether or not the test should allow self signed
     # certificates.
     attr_accessor :accept_self_signed
 
-    # # Allows loading insecure content for an HTTP request.
+    # Allows loading insecure content for an HTTP request.
     attr_accessor :allow_insecure
 
-    # # For browser test, array with the different device IDs used to run the test.
+    # For browser test, array with the different device IDs used to run the test.
     attr_accessor :device_ids
 
-    # # Whether or not to disable CORS mechanism.
+    # Whether or not to disable CORS mechanism.
     attr_accessor :disable_cors
 
-    # # For API HTTP test, whether or not the test should follow redirects.
+    # For API HTTP test, whether or not the test should follow redirects.
     attr_accessor :follow_redirects
 
-    # # Minimum amount of time in failure required to trigger an alert.
+    # Minimum amount of time in failure required to trigger an alert.
     attr_accessor :min_failure_duration
 
-    # # Minimum number of locations in failure required to trigger
+    # Minimum number of locations in failure required to trigger
     # an alert.
     attr_accessor :min_location_failed
 
-    # # The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+    # The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
     attr_accessor :monitor_name
 
-    # # Object containing the options for a Synthetic test as a monitor
+    # Object containing the options for a Synthetic test as a monitor
     # (for example, renotification).
     attr_accessor :monitor_options
 
-    # # Integer from 1 (high) to 5 (low) indicating alert severity.
+    # Integer from 1 (high) to 5 (low) indicating alert severity.
     attr_accessor :monitor_priority
 
-    # # Prevents saving screenshots of the steps.
+    # Prevents saving screenshots of the steps.
     attr_accessor :no_screenshot
 
-    # # Object describing the retry strategy to apply to a Synthetic test.
+    # Object describing the retry strategy to apply to a Synthetic test.
     attr_accessor :_retry
 
-    # # The frequency at which to run the Synthetic test (in seconds).
+    # The frequency at which to run the Synthetic test (in seconds).
     attr_accessor :tick_every
 
     # Attribute mapping from ruby-style variable name to JSON key.

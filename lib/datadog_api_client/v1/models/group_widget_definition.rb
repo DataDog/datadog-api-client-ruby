@@ -23,28 +23,28 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Background color of the group title.
+    # Background color of the group title.
     attr_accessor :background_color
 
-    # # URL of image to display as a banner for the group.
+    # URL of image to display as a banner for the group.
     attr_accessor :banner_img
 
-    # # Layout type of the group.
+    # Layout type of the group.
     attr_accessor :layout_type
 
-    # # Whether to show the title or not.
+    # Whether to show the title or not.
     attr_accessor :show_title
 
-    # # Title of the widget.
+    # Title of the widget.
     attr_accessor :title
 
-    # # How to align the text on the widget.
+    # How to align the text on the widget.
     attr_accessor :title_align
 
-    # # Type of the group widget.
+    # Type of the group widget.
     attr_accessor :type
 
-    # # List of widget groups.
+    # List of widget groups.
     attr_accessor :widgets
 
     # Attribute mapping from ruby-style variable name to JSON key.

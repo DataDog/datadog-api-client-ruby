@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The filter query.
+    # The filter query.
     attr_accessor :query
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,10 +23,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # A unique identifier that represents the user.
+    # A unique identifier that represents the user.
     attr_accessor :id
 
-    # # Users resource type.
+    # Users resource type.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

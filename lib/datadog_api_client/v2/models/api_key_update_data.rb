@@ -23,13 +23,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Attributes used to update an API Key.
+    # Attributes used to update an API Key.
     attr_accessor :attributes
 
-    # # ID of the API key.
+    # ID of the API key.
     attr_accessor :id
 
-    # # API Keys resource type.
+    # API Keys resource type.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

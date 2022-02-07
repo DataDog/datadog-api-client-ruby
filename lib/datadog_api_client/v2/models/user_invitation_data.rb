@@ -23,10 +23,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Relationships data for user invitation.
+    # Relationships data for user invitation.
     attr_accessor :relationships
 
-    # # User invitations type.
+    # User invitations type.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Distinct volume for the given metric.
+    # Distinct volume for the given metric.
     attr_accessor :distinct_volume
 
     # Attribute mapping from ruby-style variable name to JSON key.

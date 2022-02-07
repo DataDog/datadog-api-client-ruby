@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Updated host map.
+    # Updated host map.
     attr_accessor :fill
 
-    # # Updated host map.
+    # Updated host map.
     attr_accessor :size
 
     # Attribute mapping from ruby-style variable name to JSON key.

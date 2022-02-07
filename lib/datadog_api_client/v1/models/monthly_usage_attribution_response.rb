@@ -23,10 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The object containing document metadata.
+    # The object containing document metadata.
     attr_accessor :metadata
 
-    # # Get Usage Summary by tag(s).
+    # Get Usage Summary by tag(s).
     attr_accessor :usage
 
     # Attribute mapping from ruby-style variable name to JSON key.

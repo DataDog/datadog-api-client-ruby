@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Wrapper object that contains the details of a batch.
+    # Wrapper object that contains the details of a batch.
     attr_accessor :data
 
     # Attribute mapping from ruby-style variable name to JSON key.

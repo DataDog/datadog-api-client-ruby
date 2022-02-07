@@ -23,13 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The Log Stream displays a log flow matching the defined query. Only available on FREE layout dashboards.
+    # The Log Stream displays a log flow matching the defined query. Only available on FREE layout dashboards.
     attr_accessor :definition
 
-    # # The size of the graph.
+    # The size of the graph.
     attr_accessor :graph_size
 
-    # # Timeframe for the notebook cell. When 'null', the notebook global time is used.
+    # Timeframe for the notebook cell. When 'null', the notebook global time is used.
     attr_accessor :time
 
     # Attribute mapping from ruby-style variable name to JSON key.

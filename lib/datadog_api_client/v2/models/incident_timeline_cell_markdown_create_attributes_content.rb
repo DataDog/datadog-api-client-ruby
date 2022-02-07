@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # The Markdown content of the cell.
+    # The Markdown content of the cell.
     attr_accessor :content
 
     # Attribute mapping from ruby-style variable name to JSON key.

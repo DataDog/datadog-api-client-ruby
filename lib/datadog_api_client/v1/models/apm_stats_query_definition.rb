@@ -23,25 +23,25 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Column properties used by the front end for display.
+    # Column properties used by the front end for display.
     attr_accessor :columns
 
-    # # Environment name.
+    # Environment name.
     attr_accessor :env
 
-    # # Operation name associated with service.
+    # Operation name associated with service.
     attr_accessor :name
 
-    # # The organization's host group name and value.
+    # The organization's host group name and value.
     attr_accessor :primary_tag
 
-    # # Resource name.
+    # Resource name.
     attr_accessor :resource
 
-    # # The level of detail for the request.
+    # The level of detail for the request.
     attr_accessor :row_type
 
-    # # Service name.
+    # Service name.
     attr_accessor :service
 
     # Attribute mapping from ruby-style variable name to JSON key.

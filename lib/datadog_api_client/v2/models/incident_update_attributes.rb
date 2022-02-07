@@ -23,31 +23,31 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # # Timestamp when customers were no longer impacted by the incident.
+    # Timestamp when customers were no longer impacted by the incident.
     attr_accessor :customer_impact_end
 
-    # # A summary of the impact customers experienced during the incident.
+    # A summary of the impact customers experienced during the incident.
     attr_accessor :customer_impact_scope
 
-    # # Timestamp when customers began being impacted by the incident.
+    # Timestamp when customers began being impacted by the incident.
     attr_accessor :customer_impact_start
 
-    # # A flag indicating whether the incident caused customer impact.
+    # A flag indicating whether the incident caused customer impact.
     attr_accessor :customer_impacted
 
-    # # Timestamp when the incident was detected.
+    # Timestamp when the incident was detected.
     attr_accessor :detected
 
-    # # A condensed view of the user-defined fields for which to update selections.
+    # A condensed view of the user-defined fields for which to update selections.
     attr_accessor :fields
 
-    # # Notification handles that will be notified of the incident during update.
+    # Notification handles that will be notified of the incident during update.
     attr_accessor :notification_handles
 
-    # # Timestamp when the incident's state was set to resolved.
+    # Timestamp when the incident's state was set to resolved.
     attr_accessor :resolved
 
-    # # The title of the incident, which summarizes what happened.
+    # The title of the incident, which summarizes what happened.
     attr_accessor :title
 
     # Attribute mapping from ruby-style variable name to JSON key.
