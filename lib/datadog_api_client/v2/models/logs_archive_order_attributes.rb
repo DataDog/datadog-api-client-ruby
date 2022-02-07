@@ -95,7 +95,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @archive_ids.nil?
-      return false if @archive_ids.nil?
       true
     end
 

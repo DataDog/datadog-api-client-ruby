@@ -187,9 +187,6 @@ module DatadogAPIClient::V1
       return false if @check.nil?
       return false if @grouping.nil?
       return false if @type.nil?
-      return false if @check.nil?
-      return false if @grouping.nil?
-      return false if @type.nil?
       true
     end
 

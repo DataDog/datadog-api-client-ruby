@@ -127,9 +127,6 @@ module DatadogAPIClient::V1
       return false if @operator.nil?
       return false if @target.nil?
       return false if @type.nil?
-      return false if @operator.nil?
-      return false if @target.nil?
-      return false if @type.nil?
       true
     end
 

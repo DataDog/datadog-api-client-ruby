@@ -94,7 +94,6 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @errors.nil?
-      return false if @errors.nil?
       true
     end
 

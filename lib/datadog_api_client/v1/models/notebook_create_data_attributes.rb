@@ -145,9 +145,6 @@ module DatadogAPIClient::V1
     def valid?
       return false if @cells.nil?
       return false if @name.nil?
-      return false if @time.nil?
-      return false if @cells.nil?
-      return false if @name.nil?
       return false if @name.to_s.length > 80
       return false if @name.to_s.length < 0
       return false if @time.nil?

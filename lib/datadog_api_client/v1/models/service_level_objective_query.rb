@@ -107,8 +107,6 @@ module DatadogAPIClient::V1
     def valid?
       return false if @denominator.nil?
       return false if @numerator.nil?
-      return false if @denominator.nil?
-      return false if @numerator.nil?
       true
     end
 

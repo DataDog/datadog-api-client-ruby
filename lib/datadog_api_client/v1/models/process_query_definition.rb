@@ -123,7 +123,6 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @metric.nil?
       return false if !@limit.nil? && @limit < 0
       return false if @metric.nil?
       true

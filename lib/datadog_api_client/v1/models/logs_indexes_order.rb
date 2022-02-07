@@ -96,7 +96,6 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @index_names.nil?
-      return false if @index_names.nil?
       true
     end
 

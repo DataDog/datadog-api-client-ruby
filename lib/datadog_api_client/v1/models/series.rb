@@ -149,8 +149,6 @@ module DatadogAPIClient::V1
     def valid?
       return false if @metric.nil?
       return false if @points.nil?
-      return false if @metric.nil?
-      return false if @points.nil?
       true
     end
 

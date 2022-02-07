@@ -105,8 +105,6 @@ module DatadogAPIClient::V1
     def valid?
       return false if @error_message.nil?
       return false if @error_type.nil?
-      return false if @error_message.nil?
-      return false if @error_type.nil?
       true
     end
 

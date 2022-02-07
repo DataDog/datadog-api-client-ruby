@@ -120,9 +120,6 @@ module DatadogAPIClient::V1
       return false if @password.nil?
       return false if @type.nil?
       return false if @username.nil?
-      return false if @password.nil?
-      return false if @type.nil?
-      return false if @username.nil?
       true
     end
 

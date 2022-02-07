@@ -105,8 +105,6 @@ module DatadogAPIClient::V2
     def valid?
       return false if @client_id.nil?
       return false if @tenant_id.nil?
-      return false if @client_id.nil?
-      return false if @tenant_id.nil?
       true
     end
 

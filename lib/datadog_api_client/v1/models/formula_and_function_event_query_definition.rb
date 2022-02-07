@@ -149,9 +149,6 @@ module DatadogAPIClient::V1
       return false if @compute.nil?
       return false if @data_source.nil?
       return false if @name.nil?
-      return false if @compute.nil?
-      return false if @data_source.nil?
-      return false if @name.nil?
       true
     end
 

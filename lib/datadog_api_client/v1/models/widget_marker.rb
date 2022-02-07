@@ -123,7 +123,6 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @value.nil?
-      return false if @value.nil?
       true
     end
 

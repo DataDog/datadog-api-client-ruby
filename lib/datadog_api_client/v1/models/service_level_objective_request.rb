@@ -186,9 +186,6 @@ module DatadogAPIClient::V1
       return false if @name.nil?
       return false if @thresholds.nil?
       return false if @type.nil?
-      return false if @name.nil?
-      return false if @thresholds.nil?
-      return false if @type.nil?
       true
     end
 

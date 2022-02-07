@@ -123,8 +123,6 @@ module DatadogAPIClient::V1
     def valid?
       return false if @operator.nil?
       return false if @type.nil?
-      return false if @operator.nil?
-      return false if @type.nil?
       true
     end
 

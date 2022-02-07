@@ -145,9 +145,6 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @destination.nil?
-      return false if @name.nil?
-      return false if @query.nil?
       return false if @name.nil?
       return false if @query.nil?
       true

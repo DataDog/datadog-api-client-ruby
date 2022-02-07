@@ -123,8 +123,6 @@ module DatadogAPIClient::V2
     def valid?
       return false if @email.nil?
       return false if @service_account.nil?
-      return false if @email.nil?
-      return false if @service_account.nil?
       true
     end
 

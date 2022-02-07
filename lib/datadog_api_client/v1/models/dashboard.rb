@@ -255,9 +255,6 @@ module DatadogAPIClient::V1
       return false if @layout_type.nil?
       return false if @title.nil?
       return false if @widgets.nil?
-      return false if @layout_type.nil?
-      return false if @title.nil?
-      return false if @widgets.nil?
       true
     end
 

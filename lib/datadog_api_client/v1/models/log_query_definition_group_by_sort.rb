@@ -114,8 +114,6 @@ module DatadogAPIClient::V1
     def valid?
       return false if @aggregation.nil?
       return false if @order.nil?
-      return false if @aggregation.nil?
-      return false if @order.nil?
       true
     end
 

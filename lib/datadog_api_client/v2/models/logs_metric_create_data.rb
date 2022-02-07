@@ -120,9 +120,6 @@ module DatadogAPIClient::V2
       return false if @attributes.nil?
       return false if @id.nil?
       return false if @type.nil?
-      return false if @attributes.nil?
-      return false if @id.nil?
-      return false if @type.nil?
       true
     end
 

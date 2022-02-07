@@ -151,10 +151,6 @@ module DatadogAPIClient::V2
       return false if @integration.nil?
       return false if @storage_account.nil?
       return false if @type.nil?
-      return false if @container.nil?
-      return false if @integration.nil?
-      return false if @storage_account.nil?
-      return false if @type.nil?
       true
     end
 

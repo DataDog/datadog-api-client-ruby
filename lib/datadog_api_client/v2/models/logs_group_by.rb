@@ -142,7 +142,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @facet.nil?
-      return false if @facet.nil?
       true
     end
 

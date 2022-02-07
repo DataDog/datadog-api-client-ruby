@@ -92,7 +92,6 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @focus.nil?
-      return false if @focus.nil?
       true
     end
 

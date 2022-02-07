@@ -155,9 +155,6 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @grok.nil?
-      return false if @source.nil?
-      return false if @type.nil?
-      return false if @grok.nil?
       return false if !@samples.nil? && @samples.length > 5
       return false if @source.nil?
       return false if @type.nil?

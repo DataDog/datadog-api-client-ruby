@@ -103,7 +103,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @dashboards.nil?
-      return false if @dashboards.nil?
       true
     end
 

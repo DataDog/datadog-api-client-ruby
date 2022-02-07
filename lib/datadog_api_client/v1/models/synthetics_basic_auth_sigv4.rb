@@ -147,9 +147,6 @@ module DatadogAPIClient::V1
       return false if @access_key.nil?
       return false if @secret_key.nil?
       return false if @type.nil?
-      return false if @access_key.nil?
-      return false if @secret_key.nil?
-      return false if @type.nil?
       true
     end
 

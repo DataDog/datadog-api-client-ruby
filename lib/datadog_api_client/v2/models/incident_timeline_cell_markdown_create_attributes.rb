@@ -118,8 +118,6 @@ module DatadogAPIClient::V2
     def valid?
       return false if @cell_type.nil?
       return false if @content.nil?
-      return false if @cell_type.nil?
-      return false if @content.nil?
       true
     end
 

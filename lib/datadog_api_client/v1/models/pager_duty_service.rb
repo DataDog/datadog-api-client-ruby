@@ -105,8 +105,6 @@ module DatadogAPIClient::V1
     def valid?
       return false if @service_key.nil?
       return false if @service_name.nil?
-      return false if @service_key.nil?
-      return false if @service_name.nil?
       true
     end
 

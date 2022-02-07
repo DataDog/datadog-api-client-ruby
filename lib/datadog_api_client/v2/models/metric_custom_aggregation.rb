@@ -105,8 +105,6 @@ module DatadogAPIClient::V2
     def valid?
       return false if @space.nil?
       return false if @time.nil?
-      return false if @space.nil?
-      return false if @time.nil?
       true
     end
 

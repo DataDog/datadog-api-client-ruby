@@ -141,9 +141,6 @@ module DatadogAPIClient::V2
       return false if @destination.nil?
       return false if @name.nil?
       return false if @query.nil?
-      return false if @destination.nil?
-      return false if @name.nil?
-      return false if @query.nil?
       true
     end
 

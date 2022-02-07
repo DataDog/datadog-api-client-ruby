@@ -122,9 +122,6 @@ module DatadogAPIClient::V1
       return false if @data_source.nil?
       return false if @query_string.nil?
       return false if @steps.nil?
-      return false if @data_source.nil?
-      return false if @query_string.nil?
-      return false if @steps.nil?
       true
     end
 

@@ -129,9 +129,6 @@ module DatadogAPIClient::V2
       return false if @bucket.nil?
       return false if @integration.nil?
       return false if @type.nil?
-      return false if @bucket.nil?
-      return false if @integration.nil?
-      return false if @type.nil?
       true
     end
 

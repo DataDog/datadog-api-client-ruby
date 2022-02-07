@@ -151,10 +151,6 @@ module DatadogAPIClient::V1
       return false if @host_name.nil?
       return false if @status.nil?
       return false if @tags.nil?
-      return false if @check.nil?
-      return false if @host_name.nil?
-      return false if @status.nil?
-      return false if @tags.nil?
       true
     end
 

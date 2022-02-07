@@ -212,8 +212,6 @@ module DatadogAPIClient::V1
     def valid?
       return false if @requests.nil?
       return false if @type.nil?
-      return false if @requests.nil?
-      return false if @type.nil?
       true
     end
 

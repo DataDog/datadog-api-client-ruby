@@ -146,11 +146,6 @@ module DatadogAPIClient::V2
       return false if @is_enabled.nil?
       return false if @name.nil?
       return false if @query.nil?
-      return false if @exclusion_filters.nil?
-      return false if @filtered_data_type.nil?
-      return false if @is_enabled.nil?
-      return false if @name.nil?
-      return false if @query.nil?
       true
     end
 

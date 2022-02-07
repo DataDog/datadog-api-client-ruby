@@ -134,11 +134,6 @@
     # @!visibility private
     def valid?
 {%- for attr, definition in model.get("properties", {}).items() %}
-{%- if attr in model.get("required", []) %}
-      return false if @{{ attr|attribute_name }}.nil?
-{%- endif %}
-{%- endfor %}
-{%- for attr, definition in model.get("properties", {}).items() %}
       {%- set required = attr in model.get("required", []) %}
       {%- if not definition.nullable and required %}
       return false if @{{ attr|attribute_name }}.nil?

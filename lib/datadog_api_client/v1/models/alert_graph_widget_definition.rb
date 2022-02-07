@@ -156,9 +156,6 @@ module DatadogAPIClient::V1
       return false if @alert_id.nil?
       return false if @type.nil?
       return false if @viz_type.nil?
-      return false if @alert_id.nil?
-      return false if @type.nil?
-      return false if @viz_type.nil?
       true
     end
 

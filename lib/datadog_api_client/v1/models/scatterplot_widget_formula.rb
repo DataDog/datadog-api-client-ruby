@@ -114,8 +114,6 @@ module DatadogAPIClient::V1
     def valid?
       return false if @dimension.nil?
       return false if @formula.nil?
-      return false if @dimension.nil?
-      return false if @formula.nil?
       true
     end
 

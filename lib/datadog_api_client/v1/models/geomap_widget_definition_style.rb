@@ -105,8 +105,6 @@ module DatadogAPIClient::V1
     def valid?
       return false if @palette.nil?
       return false if @palette_flip.nil?
-      return false if @palette.nil?
-      return false if @palette_flip.nil?
       true
     end
 

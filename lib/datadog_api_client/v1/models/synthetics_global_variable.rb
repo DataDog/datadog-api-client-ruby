@@ -169,10 +169,6 @@ module DatadogAPIClient::V1
       return false if @name.nil?
       return false if @tags.nil?
       return false if @value.nil?
-      return false if @description.nil?
-      return false if @name.nil?
-      return false if @tags.nil?
-      return false if @value.nil?
       true
     end
 

@@ -242,8 +242,6 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @query.nil?
-      return false if @type.nil?
       return false if !@priority.nil? && @priority > 5
       return false if !@priority.nil? && @priority < 1
       return false if @query.nil?

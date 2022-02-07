@@ -118,8 +118,6 @@ module DatadogAPIClient::V1
     def valid?
       return false if @data_source.nil?
       return false if @query_string.nil?
-      return false if @data_source.nil?
-      return false if @query_string.nil?
       true
     end
 

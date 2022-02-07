@@ -185,13 +185,6 @@ module DatadogAPIClient::V1
       return false if @res_type.nil?
       return false if @resp_version.nil?
       return false if @times.nil?
-      return false if @denominator.nil?
-      return false if @interval.nil?
-      return false if @numerator.nil?
-      return false if @query.nil?
-      return false if @res_type.nil?
-      return false if @resp_version.nil?
-      return false if @times.nil?
       true
     end
 

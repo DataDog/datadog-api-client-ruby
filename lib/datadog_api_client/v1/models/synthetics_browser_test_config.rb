@@ -140,8 +140,6 @@ module DatadogAPIClient::V1
     def valid?
       return false if @assertions.nil?
       return false if @request.nil?
-      return false if @assertions.nil?
-      return false if @request.nil?
       true
     end
 

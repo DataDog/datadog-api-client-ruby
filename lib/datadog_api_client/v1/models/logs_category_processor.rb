@@ -155,9 +155,6 @@ module DatadogAPIClient::V1
       return false if @categories.nil?
       return false if @target.nil?
       return false if @type.nil?
-      return false if @categories.nil?
-      return false if @target.nil?
-      return false if @type.nil?
       true
     end
 

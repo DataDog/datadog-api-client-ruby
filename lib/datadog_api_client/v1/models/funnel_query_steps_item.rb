@@ -105,8 +105,6 @@ module DatadogAPIClient::V1
     def valid?
       return false if @facet.nil?
       return false if @value.nil?
-      return false if @facet.nil?
-      return false if @value.nil?
       true
     end
 

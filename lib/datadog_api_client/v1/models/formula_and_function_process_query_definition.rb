@@ -176,9 +176,6 @@ module DatadogAPIClient::V1
       return false if @data_source.nil?
       return false if @metric.nil?
       return false if @name.nil?
-      return false if @data_source.nil?
-      return false if @metric.nil?
-      return false if @name.nil?
       true
     end
 

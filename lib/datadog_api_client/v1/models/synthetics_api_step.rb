@@ -174,10 +174,6 @@ module DatadogAPIClient::V1
       return false if @name.nil?
       return false if @request.nil?
       return false if @subtype.nil?
-      return false if @assertions.nil?
-      return false if @name.nil?
-      return false if @request.nil?
-      return false if @subtype.nil?
       true
     end
 

@@ -105,8 +105,6 @@ module DatadogAPIClient::V1
     def valid?
       return false if @column.nil?
       return false if @order.nil?
-      return false if @column.nil?
-      return false if @order.nil?
       true
     end
 

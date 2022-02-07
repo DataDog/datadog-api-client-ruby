@@ -107,8 +107,6 @@ module DatadogAPIClient::V2
     def valid?
       return false if @relationships.nil?
       return false if @type.nil?
-      return false if @relationships.nil?
-      return false if @type.nil?
       true
     end
 

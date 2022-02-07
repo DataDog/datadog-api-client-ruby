@@ -103,7 +103,6 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @sample_rate.nil?
-      return false if @sample_rate.nil?
       true
     end
 

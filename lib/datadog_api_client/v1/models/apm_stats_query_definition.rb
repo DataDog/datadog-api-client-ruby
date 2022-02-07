@@ -164,11 +164,6 @@ module DatadogAPIClient::V1
       return false if @primary_tag.nil?
       return false if @row_type.nil?
       return false if @service.nil?
-      return false if @env.nil?
-      return false if @name.nil?
-      return false if @primary_tag.nil?
-      return false if @row_type.nil?
-      return false if @service.nil?
       true
     end
 

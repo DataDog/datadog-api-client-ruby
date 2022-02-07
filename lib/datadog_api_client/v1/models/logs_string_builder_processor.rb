@@ -164,9 +164,6 @@ module DatadogAPIClient::V1
       return false if @target.nil?
       return false if @template.nil?
       return false if @type.nil?
-      return false if @target.nil?
-      return false if @template.nil?
-      return false if @type.nil?
       true
     end
 

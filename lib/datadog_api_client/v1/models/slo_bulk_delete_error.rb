@@ -120,9 +120,6 @@ module DatadogAPIClient::V1
       return false if @id.nil?
       return false if @message.nil?
       return false if @timeframe.nil?
-      return false if @id.nil?
-      return false if @message.nil?
-      return false if @timeframe.nil?
       true
     end
 

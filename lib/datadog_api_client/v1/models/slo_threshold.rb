@@ -141,8 +141,6 @@ module DatadogAPIClient::V1
     def valid?
       return false if @target.nil?
       return false if @timeframe.nil?
-      return false if @target.nil?
-      return false if @timeframe.nil?
       true
     end
 

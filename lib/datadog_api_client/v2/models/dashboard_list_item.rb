@@ -197,8 +197,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @id.nil?
-      return false if @type.nil?
-      return false if @id.nil?
       return false if !@popularity.nil? && @popularity > 5
       return false if @type.nil?
       true

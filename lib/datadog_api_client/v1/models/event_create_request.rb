@@ -200,8 +200,6 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @text.nil?
-      return false if @title.nil?
       return false if !@aggregation_key.nil? && @aggregation_key.to_s.length > 100
       return false if @text.nil?
       return false if @text.to_s.length > 4000

@@ -107,8 +107,6 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @code.nil?
-      return false if @message.nil?
-      return false if @code.nil?
       return false if @code > 2147483647
       return false if @message.nil?
       true

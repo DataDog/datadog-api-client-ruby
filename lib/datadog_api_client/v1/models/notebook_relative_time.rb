@@ -92,7 +92,6 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @live_span.nil?
-      return false if @live_span.nil?
       true
     end
 

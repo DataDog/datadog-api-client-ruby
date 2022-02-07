@@ -150,10 +150,6 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @height.nil?
-      return false if @width.nil?
-      return false if @x.nil?
-      return false if @y.nil?
-      return false if @height.nil?
       return false if @height < 0
       return false if @width.nil?
       return false if @width < 0

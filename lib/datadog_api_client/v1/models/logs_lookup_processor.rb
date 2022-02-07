@@ -171,10 +171,6 @@ module DatadogAPIClient::V1
       return false if @source.nil?
       return false if @target.nil?
       return false if @type.nil?
-      return false if @lookup_table.nil?
-      return false if @source.nil?
-      return false if @target.nil?
-      return false if @type.nil?
       true
     end
 

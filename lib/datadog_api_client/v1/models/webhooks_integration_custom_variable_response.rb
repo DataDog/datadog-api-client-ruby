@@ -115,8 +115,6 @@ module DatadogAPIClient::V1
     def valid?
       return false if @is_secret.nil?
       return false if @name.nil?
-      return false if @is_secret.nil?
-      return false if @name.nil?
       true
     end
 

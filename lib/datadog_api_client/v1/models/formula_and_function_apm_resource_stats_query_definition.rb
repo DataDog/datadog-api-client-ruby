@@ -191,11 +191,6 @@ module DatadogAPIClient::V1
       return false if @name.nil?
       return false if @service.nil?
       return false if @stat.nil?
-      return false if @data_source.nil?
-      return false if @env.nil?
-      return false if @name.nil?
-      return false if @service.nil?
-      return false if @stat.nil?
       true
     end
 

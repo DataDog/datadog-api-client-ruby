@@ -172,9 +172,6 @@ module DatadogAPIClient::V1
       return false if @comparator.nil?
       return false if @palette.nil?
       return false if @value.nil?
-      return false if @comparator.nil?
-      return false if @palette.nil?
-      return false if @value.nil?
       true
     end
 

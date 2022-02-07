@@ -164,8 +164,6 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @requests.nil?
-      return false if @type.nil?
-      return false if @requests.nil?
       return false if @requests.length > 1
       return false if @requests.length < 1
       return false if @type.nil?

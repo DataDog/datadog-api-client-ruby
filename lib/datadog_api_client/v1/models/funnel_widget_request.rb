@@ -105,8 +105,6 @@ module DatadogAPIClient::V1
     def valid?
       return false if @query.nil?
       return false if @request_type.nil?
-      return false if @query.nil?
-      return false if @request_type.nil?
       true
     end
 

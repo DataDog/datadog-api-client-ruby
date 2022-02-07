@@ -120,9 +120,6 @@ module DatadogAPIClient::V1
       return false if @columns.nil?
       return false if @query.nil?
       return false if @response_format.nil?
-      return false if @columns.nil?
-      return false if @query.nil?
-      return false if @response_format.nil?
       true
     end
 

@@ -140,10 +140,6 @@ module DatadogAPIClient::V1
       return false if @id.nil?
       return false if @name.nil?
       return false if @width.nil?
-      return false if @height.nil?
-      return false if @id.nil?
-      return false if @name.nil?
-      return false if @width.nil?
       true
     end
 

@@ -241,10 +241,6 @@ module DatadogAPIClient::V1
       return false if @service.nil?
       return false if @span_name.nil?
       return false if @type.nil?
-      return false if @env.nil?
-      return false if @service.nil?
-      return false if @span_name.nil?
-      return false if @type.nil?
       true
     end
 

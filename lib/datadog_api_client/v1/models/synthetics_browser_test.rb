@@ -207,11 +207,6 @@ module DatadogAPIClient::V1
       return false if @name.nil?
       return false if @options.nil?
       return false if @type.nil?
-      return false if @config.nil?
-      return false if @locations.nil?
-      return false if @name.nil?
-      return false if @options.nil?
-      return false if @type.nil?
       true
     end
 

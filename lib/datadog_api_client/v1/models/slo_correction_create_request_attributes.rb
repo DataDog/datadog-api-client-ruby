@@ -164,9 +164,6 @@ module DatadogAPIClient::V1
       return false if @category.nil?
       return false if @slo_id.nil?
       return false if @start.nil?
-      return false if @category.nil?
-      return false if @slo_id.nil?
-      return false if @start.nil?
       true
     end
 

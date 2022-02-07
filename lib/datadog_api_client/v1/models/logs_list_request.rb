@@ -144,7 +144,6 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @time.nil?
       return false if !@limit.nil? && @limit > 1000
       return false if @time.nil?
       true

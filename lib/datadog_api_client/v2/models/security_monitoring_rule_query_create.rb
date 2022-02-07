@@ -142,7 +142,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @query.nil?
-      return false if @query.nil?
       true
     end
 

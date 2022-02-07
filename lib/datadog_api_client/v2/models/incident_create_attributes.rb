@@ -136,8 +136,6 @@ module DatadogAPIClient::V2
     def valid?
       return false if @customer_impacted.nil?
       return false if @title.nil?
-      return false if @customer_impacted.nil?
-      return false if @title.nil?
       true
     end
 

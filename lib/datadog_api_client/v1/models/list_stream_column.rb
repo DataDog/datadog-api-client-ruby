@@ -105,8 +105,6 @@ module DatadogAPIClient::V1
     def valid?
       return false if @field.nil?
       return false if @width.nil?
-      return false if @field.nil?
-      return false if @width.nil?
       true
     end
 

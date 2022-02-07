@@ -161,9 +161,6 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @filters.nil?
-      return false if @service.nil?
-      return false if @type.nil?
-      return false if @filters.nil?
       return false if @filters.length < 1
       return false if @service.nil?
       return false if @type.nil?

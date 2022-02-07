@@ -130,9 +130,6 @@ module DatadogAPIClient::V1
       return false if @count.nil?
       return false if @sum.nil?
       return false if @values.nil?
-      return false if @count.nil?
-      return false if @sum.nil?
-      return false if @values.nil?
       true
     end
 

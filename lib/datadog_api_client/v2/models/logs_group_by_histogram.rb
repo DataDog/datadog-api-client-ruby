@@ -121,9 +121,6 @@ module DatadogAPIClient::V2
       return false if @interval.nil?
       return false if @max.nil?
       return false if @min.nil?
-      return false if @interval.nil?
-      return false if @max.nil?
-      return false if @min.nil?
       true
     end
 

@@ -201,12 +201,6 @@ module DatadogAPIClient::V2
       return false if @name.nil?
       return false if @options.nil?
       return false if @queries.nil?
-      return false if @cases.nil?
-      return false if @is_enabled.nil?
-      return false if @message.nil?
-      return false if @name.nil?
-      return false if @options.nil?
-      return false if @queries.nil?
       true
     end
 

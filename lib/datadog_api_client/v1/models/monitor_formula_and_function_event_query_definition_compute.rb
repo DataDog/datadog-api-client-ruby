@@ -110,7 +110,6 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @aggregation.nil?
-      return false if @aggregation.nil?
       true
     end
 
