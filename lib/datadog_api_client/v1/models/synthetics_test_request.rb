@@ -254,7 +254,18 @@ module DatadogAPIClient::V1
     # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
-
+      if @dns_server_port > 65535
+        invalid_properties.push('invalid value for "dns_server_port", must be smaller than or equal to 65535.')
+      end
+      if @dns_server_port < 1
+        invalid_properties.push('invalid value for "dns_server_port", must be greater than or equal to 1.')
+      end
+      if @number_of_packets > 10
+        invalid_properties.push('invalid value for "number_of_packets", must be smaller than or equal to 10.')
+      end
+      if @number_of_packets < 0
+        invalid_properties.push('invalid value for "number_of_packets", must be greater than or equal to 0.')
+      end
       invalid_properties
     end
 

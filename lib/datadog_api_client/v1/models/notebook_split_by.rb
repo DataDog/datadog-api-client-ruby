@@ -100,7 +100,6 @@ module DatadogAPIClient::V1
       if @tags.nil?
         invalid_properties.push('invalid value for "tags", tags cannot be nil.')
       end
-
       invalid_properties
     end
 

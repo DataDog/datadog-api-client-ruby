@@ -84,7 +84,6 @@ module DatadogAPIClient::V1
       if @live_span.nil?
         invalid_properties.push('invalid value for "live_span", live_span cannot be nil.')
       end
-
       invalid_properties
     end
 

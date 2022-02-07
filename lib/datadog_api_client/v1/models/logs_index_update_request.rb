@@ -130,7 +130,6 @@ module DatadogAPIClient::V1
       if @filter.nil?
         invalid_properties.push('invalid value for "filter", filter cannot be nil.')
       end
-
       invalid_properties
     end
 

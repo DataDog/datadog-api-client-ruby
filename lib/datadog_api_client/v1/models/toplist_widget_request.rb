@@ -213,7 +213,9 @@ module DatadogAPIClient::V1
     # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
-
+      if @conditional_formats.length < 1
+        invalid_properties.push('invalid value for "conditional_formats", number of items must be greater than or equal to 1.')
+      end
       invalid_properties
     end
 

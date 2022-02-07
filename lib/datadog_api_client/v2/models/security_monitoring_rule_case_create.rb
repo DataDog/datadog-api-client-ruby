@@ -114,7 +114,6 @@ module DatadogAPIClient::V2
       if @status.nil?
         invalid_properties.push('invalid value for "status", status cannot be nil.')
       end
-
       invalid_properties
     end
 

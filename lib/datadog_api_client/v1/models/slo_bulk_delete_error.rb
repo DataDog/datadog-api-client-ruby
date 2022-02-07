@@ -110,7 +110,6 @@ module DatadogAPIClient::V1
       if @timeframe.nil?
         invalid_properties.push('invalid value for "timeframe", timeframe cannot be nil.')
       end
-
       invalid_properties
     end
 

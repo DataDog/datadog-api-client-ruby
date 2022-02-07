@@ -109,7 +109,6 @@ module DatadogAPIClient::V1
       if @query_string.nil?
         invalid_properties.push('invalid value for "query_string", query_string cannot be nil.')
       end
-
       invalid_properties
     end
 

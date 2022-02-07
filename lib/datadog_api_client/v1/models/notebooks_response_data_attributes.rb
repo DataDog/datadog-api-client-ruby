@@ -151,7 +151,12 @@ module DatadogAPIClient::V1
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
-
+      if !@name.nil? && @name.to_s.length > 80
+        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 80.')
+      end
+      if !@name.nil? && @name.to_s.length < 0
+        invalid_properties.push('invalid value for "name", the character length must be great than or equal to 0.')
+      end
       invalid_properties
     end
 

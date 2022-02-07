@@ -93,7 +93,6 @@ module DatadogAPIClient::V1
       if @public_id.nil?
         invalid_properties.push('invalid value for "public_id", public_id cannot be nil.')
       end
-
       invalid_properties
     end
 

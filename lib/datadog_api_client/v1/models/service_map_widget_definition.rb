@@ -144,13 +144,15 @@ module DatadogAPIClient::V1
       if @filters.nil?
         invalid_properties.push('invalid value for "filters", filters cannot be nil.')
       end
+      if !@filters.nil? && @filters.length < 1
+        invalid_properties.push('invalid value for "filters", number of items must be greater than or equal to 1.')
+      end
       if @service.nil?
         invalid_properties.push('invalid value for "service", service cannot be nil.')
       end
       if @type.nil?
         invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
-
       invalid_properties
     end
 

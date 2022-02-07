@@ -96,7 +96,6 @@ module DatadogAPIClient::V1
       if @request_type.nil?
         invalid_properties.push('invalid value for "request_type", request_type cannot be nil.')
       end
-
       invalid_properties
     end
 

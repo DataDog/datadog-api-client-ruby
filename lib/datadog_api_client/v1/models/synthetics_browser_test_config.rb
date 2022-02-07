@@ -131,7 +131,6 @@ module DatadogAPIClient::V1
       if @request.nil?
         invalid_properties.push('invalid value for "request", request cannot be nil.')
       end
-
       invalid_properties
     end
 

@@ -110,7 +110,6 @@ module DatadogAPIClient::V1
       if @username.nil?
         invalid_properties.push('invalid value for "username", username cannot be nil.')
       end
-
       invalid_properties
     end
 

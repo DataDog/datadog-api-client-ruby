@@ -121,16 +121,27 @@ module DatadogAPIClient::V1
       if @height.nil?
         invalid_properties.push('invalid value for "height", height cannot be nil.')
       end
+      if !@height.nil? && @height < 0
+        invalid_properties.push('invalid value for "height", must be greater than or equal to 0.')
+      end
       if @width.nil?
         invalid_properties.push('invalid value for "width", width cannot be nil.')
+      end
+      if !@width.nil? && @width < 0
+        invalid_properties.push('invalid value for "width", must be greater than or equal to 0.')
       end
       if @x.nil?
         invalid_properties.push('invalid value for "x", x cannot be nil.')
       end
+      if !@x.nil? && @x < 0
+        invalid_properties.push('invalid value for "x", must be greater than or equal to 0.')
+      end
       if @y.nil?
         invalid_properties.push('invalid value for "y", y cannot be nil.')
       end
-
+      if !@y.nil? && @y < 0
+        invalid_properties.push('invalid value for "y", must be greater than or equal to 0.')
+      end
       invalid_properties
     end
 

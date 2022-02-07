@@ -112,7 +112,6 @@ module DatadogAPIClient::V1
       if @steps.nil?
         invalid_properties.push('invalid value for "steps", steps cannot be nil.')
       end
-
       invalid_properties
     end
 

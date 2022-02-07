@@ -95,7 +95,6 @@ module DatadogAPIClient::V1
       if @match_rules.nil?
         invalid_properties.push('invalid value for "match_rules", match_rules cannot be nil.')
       end
-
       invalid_properties
     end
 

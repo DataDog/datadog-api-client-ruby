@@ -159,7 +159,6 @@ module DatadogAPIClient::V1
       if @widgets.nil?
         invalid_properties.push('invalid value for "widgets", widgets cannot be nil.')
       end
-
       invalid_properties
     end
 

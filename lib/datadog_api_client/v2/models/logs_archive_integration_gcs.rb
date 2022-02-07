@@ -96,7 +96,6 @@ module DatadogAPIClient::V2
       if @project_id.nil?
         invalid_properties.push('invalid value for "project_id", project_id cannot be nil.')
       end
-
       invalid_properties
     end
 

@@ -185,10 +185,15 @@ module DatadogAPIClient::V1
       if @requests.nil?
         invalid_properties.push('invalid value for "requests", requests cannot be nil.')
       end
+      if !@requests.nil? && @requests.length > 1
+        invalid_properties.push('invalid value for "requests", number of items must be less than or equal to 1.')
+      end
+      if !@requests.nil? && @requests.length < 1
+        invalid_properties.push('invalid value for "requests", number of items must be greater than or equal to 1.')
+      end
       if @type.nil?
         invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
-
       invalid_properties
     end
 

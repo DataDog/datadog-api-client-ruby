@@ -111,7 +111,6 @@ module DatadogAPIClient::V1
       if @type.nil?
         invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
-
       invalid_properties
     end
 

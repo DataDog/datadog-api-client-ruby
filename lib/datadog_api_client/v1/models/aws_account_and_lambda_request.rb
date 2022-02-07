@@ -96,7 +96,6 @@ module DatadogAPIClient::V1
       if @lambda_arn.nil?
         invalid_properties.push('invalid value for "lambda_arn", lambda_arn cannot be nil.')
       end
-
       invalid_properties
     end
 

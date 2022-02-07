@@ -128,7 +128,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
-
+      if @version > 2147483647
+        invalid_properties.push('invalid value for "version", must be smaller than or equal to 2147483647.')
+      end
       invalid_properties
     end
 

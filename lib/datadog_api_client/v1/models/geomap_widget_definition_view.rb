@@ -84,7 +84,6 @@ module DatadogAPIClient::V1
       if @focus.nil?
         invalid_properties.push('invalid value for "focus", focus cannot be nil.')
       end
-
       invalid_properties
     end
 

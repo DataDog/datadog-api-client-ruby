@@ -141,7 +141,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
-
       invalid_properties
     end
 

@@ -84,7 +84,6 @@ module DatadogAPIClient::V1
       if @idp_file.nil?
         invalid_properties.push('invalid value for "idp_file", idp_file cannot be nil.')
       end
-
       invalid_properties
     end
 

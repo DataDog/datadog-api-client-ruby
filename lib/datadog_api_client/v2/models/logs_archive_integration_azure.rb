@@ -96,7 +96,6 @@ module DatadogAPIClient::V2
       if @tenant_id.nil?
         invalid_properties.push('invalid value for "tenant_id", tenant_id cannot be nil.')
       end
-
       invalid_properties
     end
 

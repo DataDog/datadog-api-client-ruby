@@ -87,7 +87,6 @@ module DatadogAPIClient::V2
       if @archive_ids.nil?
         invalid_properties.push('invalid value for "archive_ids", archive_ids cannot be nil.')
       end
-
       invalid_properties
     end
 

@@ -95,7 +95,6 @@ module DatadogAPIClient::V2
       if @dashboards.nil?
         invalid_properties.push('invalid value for "dashboards", dashboards cannot be nil.')
       end
-
       invalid_properties
     end
 

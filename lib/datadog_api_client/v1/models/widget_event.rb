@@ -96,7 +96,6 @@ module DatadogAPIClient::V1
       if @q.nil?
         invalid_properties.push('invalid value for "q", q cannot be nil.')
       end
-
       invalid_properties
     end
 

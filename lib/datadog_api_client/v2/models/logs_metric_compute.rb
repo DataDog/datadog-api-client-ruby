@@ -93,7 +93,6 @@ module DatadogAPIClient::V2
       if @aggregation_type.nil?
         invalid_properties.push('invalid value for "aggregation_type", aggregation_type cannot be nil.')
       end
-
       invalid_properties
     end
 

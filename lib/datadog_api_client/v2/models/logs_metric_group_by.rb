@@ -93,7 +93,6 @@ module DatadogAPIClient::V2
       if @path.nil?
         invalid_properties.push('invalid value for "path", path cannot be nil.')
       end
-
       invalid_properties
     end
 

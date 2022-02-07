@@ -221,7 +221,12 @@ module DatadogAPIClient::V1
     # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
-
+      if @priority > 5
+        invalid_properties.push('invalid value for "priority", must be smaller than or equal to 5.')
+      end
+      if @priority < 1
+        invalid_properties.push('invalid value for "priority", must be greater than or equal to 1.')
+      end
       invalid_properties
     end
 

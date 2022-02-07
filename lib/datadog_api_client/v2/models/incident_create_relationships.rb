@@ -84,7 +84,6 @@ module DatadogAPIClient::V2
       if @commander.nil?
         invalid_properties.push('invalid value for "commander", commander cannot be nil.')
       end
-
       invalid_properties
     end
 

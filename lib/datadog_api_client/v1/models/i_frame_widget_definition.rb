@@ -98,7 +98,6 @@ module DatadogAPIClient::V1
       if @url.nil?
         invalid_properties.push('invalid value for "url", url cannot be nil.')
       end
-
       invalid_properties
     end
 

@@ -110,7 +110,6 @@ module DatadogAPIClient::V1
       if @response_format.nil?
         invalid_properties.push('invalid value for "response_format", response_format cannot be nil.')
       end
-
       invalid_properties
     end
 

@@ -86,7 +86,6 @@ module DatadogAPIClient::V1
       if @series.nil?
         invalid_properties.push('invalid value for "series", series cannot be nil.')
       end
-
       invalid_properties
     end
 

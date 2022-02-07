@@ -134,7 +134,6 @@ module DatadogAPIClient::V2
       if @facet.nil?
         invalid_properties.push('invalid value for "facet", facet cannot be nil.')
       end
-
       invalid_properties
     end
 

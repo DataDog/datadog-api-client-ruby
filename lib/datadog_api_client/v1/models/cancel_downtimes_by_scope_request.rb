@@ -86,7 +86,6 @@ module DatadogAPIClient::V1
       if @scope.nil?
         invalid_properties.push('invalid value for "scope", scope cannot be nil.')
       end
-
       invalid_properties
     end
 

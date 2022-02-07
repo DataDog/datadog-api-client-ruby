@@ -96,7 +96,6 @@ module DatadogAPIClient::V1
       if @palette_flip.nil?
         invalid_properties.push('invalid value for "palette_flip", palette_flip cannot be nil.')
       end
-
       invalid_properties
     end
 

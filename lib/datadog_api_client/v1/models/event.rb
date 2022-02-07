@@ -199,7 +199,9 @@ module DatadogAPIClient::V1
     # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
-
+      if @text.to_s.length > 4000
+        invalid_properties.push('invalid value for "text", the character length must be smaller than or equal to 4000.')
+      end
       invalid_properties
     end
 

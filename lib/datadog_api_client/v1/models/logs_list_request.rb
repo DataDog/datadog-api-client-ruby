@@ -131,10 +131,12 @@ module DatadogAPIClient::V1
     # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
+      if @limit > 1000
+        invalid_properties.push('invalid value for "limit", must be smaller than or equal to 1000.')
+      end
       if @time.nil?
         invalid_properties.push('invalid value for "time", time cannot be nil.')
       end
-
       invalid_properties
     end
 

@@ -171,7 +171,6 @@ module DatadogAPIClient::V1
       if @times.nil?
         invalid_properties.push('invalid value for "times", times cannot be nil.')
       end
-
       invalid_properties
     end
 

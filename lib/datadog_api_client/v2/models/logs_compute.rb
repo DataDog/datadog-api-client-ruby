@@ -114,7 +114,6 @@ module DatadogAPIClient::V2
       if @aggregation.nil?
         invalid_properties.push('invalid value for "aggregation", aggregation cannot be nil.')
       end
-
       invalid_properties
     end
 

@@ -95,7 +95,6 @@ module DatadogAPIClient::V1
       if @sample_rate.nil?
         invalid_properties.push('invalid value for "sample_rate", sample_rate cannot be nil.')
       end
-
       invalid_properties
     end
 

@@ -135,7 +135,9 @@ module DatadogAPIClient::V1
     # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
-
+      if @name > 32
+        invalid_properties.push('invalid value for "name", must be smaller than or equal to 32.')
+      end
       invalid_properties
     end
 

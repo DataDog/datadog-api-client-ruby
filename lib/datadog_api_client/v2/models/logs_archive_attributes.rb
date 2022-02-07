@@ -132,16 +132,12 @@ module DatadogAPIClient::V2
     # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
-      if @destination.nil?
-        invalid_properties.push('invalid value for "destination", destination cannot be nil.')
-      end
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
       if @query.nil?
         invalid_properties.push('invalid value for "query", query cannot be nil.')
       end
-
       invalid_properties
     end
 

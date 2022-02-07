@@ -194,7 +194,18 @@ module DatadogAPIClient::V1
     # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
-
+      if @monitor_priority > 5
+        invalid_properties.push('invalid value for "monitor_priority", must be smaller than or equal to 5.')
+      end
+      if @monitor_priority < 1
+        invalid_properties.push('invalid value for "monitor_priority", must be greater than or equal to 1.')
+      end
+      if @tick_every > 604800
+        invalid_properties.push('invalid value for "tick_every", must be smaller than or equal to 604800.')
+      end
+      if @tick_every < 30
+        invalid_properties.push('invalid value for "tick_every", must be greater than or equal to 30.')
+      end
       invalid_properties
     end
 

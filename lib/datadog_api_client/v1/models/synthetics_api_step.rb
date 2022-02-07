@@ -163,7 +163,6 @@ module DatadogAPIClient::V1
       if @subtype.nil?
         invalid_properties.push('invalid value for "subtype", subtype cannot be nil.')
       end
-
       invalid_properties
     end
 

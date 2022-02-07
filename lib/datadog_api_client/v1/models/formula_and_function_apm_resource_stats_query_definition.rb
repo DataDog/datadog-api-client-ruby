@@ -179,7 +179,6 @@ module DatadogAPIClient::V1
       if @stat.nil?
         invalid_properties.push('invalid value for "stat", stat cannot be nil.')
       end
-
       invalid_properties
     end
 

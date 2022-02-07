@@ -122,7 +122,6 @@ module DatadogAPIClient::V1
       if @formula.nil?
         invalid_properties.push('invalid value for "formula", formula cannot be nil.')
       end
-
       invalid_properties
     end
 

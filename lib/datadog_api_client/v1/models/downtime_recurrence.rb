@@ -140,7 +140,12 @@ module DatadogAPIClient::V1
     # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
-
+      if @period > 2147483647
+        invalid_properties.push('invalid value for "period", must be smaller than or equal to 2147483647.')
+      end
+      if @until_occurrences > 2147483647
+        invalid_properties.push('invalid value for "until_occurrences", must be smaller than or equal to 2147483647.')
+      end
       invalid_properties
     end
 

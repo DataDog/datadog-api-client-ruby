@@ -87,7 +87,6 @@ module DatadogAPIClient::V1
       if @pipeline_ids.nil?
         invalid_properties.push('invalid value for "pipeline_ids", pipeline_ids cannot be nil.')
       end
-
       invalid_properties
     end
 

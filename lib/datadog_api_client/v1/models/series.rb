@@ -140,7 +140,6 @@ module DatadogAPIClient::V1
       if @points.nil?
         invalid_properties.push('invalid value for "points", points cannot be nil.')
       end
-
       invalid_properties
     end
 

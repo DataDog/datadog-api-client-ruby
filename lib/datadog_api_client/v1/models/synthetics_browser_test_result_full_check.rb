@@ -84,7 +84,6 @@ module DatadogAPIClient::V1
       if @config.nil?
         invalid_properties.push('invalid value for "config", config cannot be nil.')
       end
-
       invalid_properties
     end
 

@@ -84,7 +84,6 @@ module DatadogAPIClient::V1
       if @message.nil?
         invalid_properties.push('invalid value for "message", message cannot be nil.')
       end
-
       invalid_properties
     end
 

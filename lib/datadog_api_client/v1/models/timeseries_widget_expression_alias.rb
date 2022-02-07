@@ -93,7 +93,6 @@ module DatadogAPIClient::V1
       if @expression.nil?
         invalid_properties.push('invalid value for "expression", expression cannot be nil.')
       end
-
       invalid_properties
     end
 
