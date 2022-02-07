@@ -122,7 +122,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = EnumAttributeValidator.new('SyntheticsGlobalVariableParseTestOptionsType', ['http_body', 'http_header'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SyntheticsGlobalVariableParseTestOptionsType', ['http_body', 'http_header'])
       unless validator.valid?(type)
         fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
       end

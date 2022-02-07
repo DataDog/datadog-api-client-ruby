@@ -253,7 +253,7 @@ module DatadogAPIClient::V1
     # @param status [Object] Object to be assigned
     # @!visibility private
     def status=(status)
-      validator = EnumAttributeValidator.new('SyntheticsTestPauseStatus', ['live', 'paused'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SyntheticsTestPauseStatus', ['live', 'paused'])
       unless validator.valid?(status)
         fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
       end
@@ -264,7 +264,7 @@ module DatadogAPIClient::V1
     # @param subtype [Object] Object to be assigned
     # @!visibility private
     def subtype=(subtype)
-      validator = EnumAttributeValidator.new('SyntheticsTestDetailsSubType', ['http', 'ssl', 'tcp', 'dns', 'multi', 'icmp', 'udp', 'websocket'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SyntheticsTestDetailsSubType', ['http', 'ssl', 'tcp', 'dns', 'multi', 'icmp', 'udp', 'websocket'])
       unless validator.valid?(subtype)
         fail ArgumentError, "invalid value for \"subtype\", must be one of #{validator.allowable_values}."
       end
@@ -275,7 +275,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = EnumAttributeValidator.new('SyntheticsAPITestType', ['api'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SyntheticsAPITestType', ['api'])
       unless validator.valid?(type)
         fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
       end

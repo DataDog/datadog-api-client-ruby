@@ -124,7 +124,7 @@ module DatadogAPIClient::V2
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = EnumAttributeValidator.new('LogsMetricType', ['logs_metrics'])
+      validator = DatadogAPIClient::V2::EnumAttributeValidator.new('LogsMetricType', ['logs_metrics'])
       unless validator.valid?(type)
         fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
       end

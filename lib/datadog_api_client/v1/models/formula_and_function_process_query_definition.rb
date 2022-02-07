@@ -183,7 +183,7 @@ module DatadogAPIClient::V1
     # @param aggregator [Object] Object to be assigned
     # @!visibility private
     def aggregator=(aggregator)
-      validator = EnumAttributeValidator.new('FormulaAndFunctionMetricAggregation', ['avg', 'min', 'max', 'sum', 'last', 'area', 'l2norm', 'percentile'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('FormulaAndFunctionMetricAggregation', ['avg', 'min', 'max', 'sum', 'last', 'area', 'l2norm', 'percentile'])
       unless validator.valid?(aggregator)
         fail ArgumentError, "invalid value for \"aggregator\", must be one of #{validator.allowable_values}."
       end
@@ -194,7 +194,7 @@ module DatadogAPIClient::V1
     # @param data_source [Object] Object to be assigned
     # @!visibility private
     def data_source=(data_source)
-      validator = EnumAttributeValidator.new('FormulaAndFunctionProcessQueryDataSource', ['process', 'container'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('FormulaAndFunctionProcessQueryDataSource', ['process', 'container'])
       unless validator.valid?(data_source)
         fail ArgumentError, "invalid value for \"data_source\", must be one of #{validator.allowable_values}."
       end
@@ -228,7 +228,7 @@ module DatadogAPIClient::V1
     # @param sort [Object] Object to be assigned
     # @!visibility private
     def sort=(sort)
-      validator = EnumAttributeValidator.new('QuerySortOrder', ['asc', 'desc'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('QuerySortOrder', ['asc', 'desc'])
       unless validator.valid?(sort)
         fail ArgumentError, "invalid value for \"sort\", must be one of #{validator.allowable_values}."
       end

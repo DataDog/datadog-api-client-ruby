@@ -147,7 +147,7 @@ module DatadogAPIClient::V1
     # @param response_format [Object] Object to be assigned
     # @!visibility private
     def response_format=(response_format)
-      validator = EnumAttributeValidator.new('ListStreamResponseFormat', ['event_list'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('ListStreamResponseFormat', ['event_list'])
       unless validator.valid?(response_format)
         fail ArgumentError, "invalid value for \"response_format\", must be one of #{validator.allowable_values}."
       end

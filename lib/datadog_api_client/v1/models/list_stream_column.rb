@@ -122,7 +122,7 @@ module DatadogAPIClient::V1
     # @param width [Object] Object to be assigned
     # @!visibility private
     def width=(width)
-      validator = EnumAttributeValidator.new('ListStreamColumnWidth', ['auto', 'compact', 'full'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('ListStreamColumnWidth', ['auto', 'compact', 'full'])
       unless validator.valid?(width)
         fail ArgumentError, "invalid value for \"width\", must be one of #{validator.allowable_values}."
       end

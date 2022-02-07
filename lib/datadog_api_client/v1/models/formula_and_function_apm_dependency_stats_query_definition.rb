@@ -204,7 +204,7 @@ module DatadogAPIClient::V1
     # @param data_source [Object] Object to be assigned
     # @!visibility private
     def data_source=(data_source)
-      validator = EnumAttributeValidator.new('FormulaAndFunctionApmDependencyStatsDataSource', ['apm_dependency_stats'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('FormulaAndFunctionApmDependencyStatsDataSource', ['apm_dependency_stats'])
       unless validator.valid?(data_source)
         fail ArgumentError, "invalid value for \"data_source\", must be one of #{validator.allowable_values}."
       end
@@ -268,7 +268,7 @@ module DatadogAPIClient::V1
     # @param stat [Object] Object to be assigned
     # @!visibility private
     def stat=(stat)
-      validator = EnumAttributeValidator.new('FormulaAndFunctionApmDependencyStatName', ['avg_duration', 'avg_root_duration', 'avg_spans_per_trace', 'error_rate', 'pct_exec_time', 'pct_of_traces', 'total_traces_count'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('FormulaAndFunctionApmDependencyStatName', ['avg_duration', 'avg_root_duration', 'avg_spans_per_trace', 'error_rate', 'pct_exec_time', 'pct_of_traces', 'total_traces_count'])
       unless validator.valid?(stat)
         fail ArgumentError, "invalid value for \"stat\", must be one of #{validator.allowable_values}."
       end

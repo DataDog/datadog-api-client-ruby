@@ -219,7 +219,7 @@ module DatadogAPIClient::V1
     # @param node_type [Object] Object to be assigned
     # @!visibility private
     def node_type=(node_type)
-      validator = EnumAttributeValidator.new('WidgetNodeType', ['host', 'container'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetNodeType', ['host', 'container'])
       unless validator.valid?(node_type)
         fail ArgumentError, "invalid value for \"node_type\", must be one of #{validator.allowable_values}."
       end
@@ -240,7 +240,7 @@ module DatadogAPIClient::V1
     # @param title_align [Object] Object to be assigned
     # @!visibility private
     def title_align=(title_align)
-      validator = EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
       unless validator.valid?(title_align)
         fail ArgumentError, "invalid value for \"title_align\", must be one of #{validator.allowable_values}."
       end
@@ -251,7 +251,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = EnumAttributeValidator.new('HostMapWidgetDefinitionType', ['hostmap'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('HostMapWidgetDefinitionType', ['hostmap'])
       unless validator.valid?(type)
         fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
       end

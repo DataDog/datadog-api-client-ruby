@@ -122,7 +122,7 @@ module DatadogAPIClient::V1
     # @param request_type [Object] Object to be assigned
     # @!visibility private
     def request_type=(request_type)
-      validator = EnumAttributeValidator.new('FunnelRequestType', ['funnel'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('FunnelRequestType', ['funnel'])
       unless validator.valid?(request_type)
         fail ArgumentError, "invalid value for \"request_type\", must be one of #{validator.allowable_values}."
       end

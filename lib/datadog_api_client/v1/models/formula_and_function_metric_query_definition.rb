@@ -134,7 +134,7 @@ module DatadogAPIClient::V1
     # @param aggregator [Object] Object to be assigned
     # @!visibility private
     def aggregator=(aggregator)
-      validator = EnumAttributeValidator.new('FormulaAndFunctionMetricAggregation', ['avg', 'min', 'max', 'sum', 'last', 'area', 'l2norm', 'percentile'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('FormulaAndFunctionMetricAggregation', ['avg', 'min', 'max', 'sum', 'last', 'area', 'l2norm', 'percentile'])
       unless validator.valid?(aggregator)
         fail ArgumentError, "invalid value for \"aggregator\", must be one of #{validator.allowable_values}."
       end
@@ -145,7 +145,7 @@ module DatadogAPIClient::V1
     # @param data_source [Object] Object to be assigned
     # @!visibility private
     def data_source=(data_source)
-      validator = EnumAttributeValidator.new('FormulaAndFunctionMetricDataSource', ['metrics'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('FormulaAndFunctionMetricDataSource', ['metrics'])
       unless validator.valid?(data_source)
         fail ArgumentError, "invalid value for \"data_source\", must be one of #{validator.allowable_values}."
       end

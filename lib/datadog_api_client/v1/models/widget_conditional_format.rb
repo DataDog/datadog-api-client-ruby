@@ -179,7 +179,7 @@ module DatadogAPIClient::V1
     # @param comparator [Object] Object to be assigned
     # @!visibility private
     def comparator=(comparator)
-      validator = EnumAttributeValidator.new('WidgetComparator', ['>', '>=', '<', '<='])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetComparator', ['>', '>=', '<', '<='])
       unless validator.valid?(comparator)
         fail ArgumentError, "invalid value for \"comparator\", must be one of #{validator.allowable_values}."
       end
@@ -193,7 +193,7 @@ module DatadogAPIClient::V1
     # @param palette [Object] Object to be assigned
     # @!visibility private
     def palette=(palette)
-      validator = EnumAttributeValidator.new('WidgetPalette', ['blue', 'custom_bg', 'custom_image', 'custom_text', 'gray_on_white', 'grey', 'green', 'orange', 'red', 'red_on_white', 'white_on_gray', 'white_on_green', 'green_on_white', 'white_on_red', 'white_on_yellow', 'yellow_on_white', 'black_on_light_yellow', 'black_on_light_green', 'black_on_light_red'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetPalette', ['blue', 'custom_bg', 'custom_image', 'custom_text', 'gray_on_white', 'grey', 'green', 'orange', 'red', 'red_on_white', 'white_on_gray', 'white_on_green', 'green_on_white', 'white_on_red', 'white_on_yellow', 'yellow_on_white', 'black_on_light_yellow', 'black_on_light_green', 'black_on_light_red'])
       unless validator.valid?(palette)
         fail ArgumentError, "invalid value for \"palette\", must be one of #{validator.allowable_values}."
       end

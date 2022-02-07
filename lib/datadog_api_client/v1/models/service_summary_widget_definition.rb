@@ -248,7 +248,7 @@ module DatadogAPIClient::V1
     # @param display_format [Object] Object to be assigned
     # @!visibility private
     def display_format=(display_format)
-      validator = EnumAttributeValidator.new('WidgetServiceSummaryDisplayFormat', ['one_column', 'two_column', 'three_column'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetServiceSummaryDisplayFormat', ['one_column', 'two_column', 'three_column'])
       unless validator.valid?(display_format)
         fail ArgumentError, "invalid value for \"display_format\", must be one of #{validator.allowable_values}."
       end
@@ -279,7 +279,7 @@ module DatadogAPIClient::V1
     # @param size_format [Object] Object to be assigned
     # @!visibility private
     def size_format=(size_format)
-      validator = EnumAttributeValidator.new('WidgetSizeFormat', ['small', 'medium', 'large'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetSizeFormat', ['small', 'medium', 'large'])
       unless validator.valid?(size_format)
         fail ArgumentError, "invalid value for \"size_format\", must be one of #{validator.allowable_values}."
       end
@@ -300,7 +300,7 @@ module DatadogAPIClient::V1
     # @param title_align [Object] Object to be assigned
     # @!visibility private
     def title_align=(title_align)
-      validator = EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
       unless validator.valid?(title_align)
         fail ArgumentError, "invalid value for \"title_align\", must be one of #{validator.allowable_values}."
       end
@@ -311,7 +311,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = EnumAttributeValidator.new('ServiceSummaryWidgetDefinitionType', ['trace_service'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('ServiceSummaryWidgetDefinitionType', ['trace_service'])
       unless validator.valid?(type)
         fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
       end

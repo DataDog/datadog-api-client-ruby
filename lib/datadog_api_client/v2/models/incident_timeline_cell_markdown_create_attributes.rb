@@ -125,7 +125,7 @@ module DatadogAPIClient::V2
     # @param cell_type [Object] Object to be assigned
     # @!visibility private
     def cell_type=(cell_type)
-      validator = EnumAttributeValidator.new('IncidentTimelineCellMarkdownContentType', ['markdown'])
+      validator = DatadogAPIClient::V2::EnumAttributeValidator.new('IncidentTimelineCellMarkdownContentType', ['markdown'])
       unless validator.valid?(cell_type)
         fail ArgumentError, "invalid value for \"cell_type\", must be one of #{validator.allowable_values}."
       end

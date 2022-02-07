@@ -245,7 +245,7 @@ module DatadogAPIClient::V1
     # @param legend_layout [Object] Object to be assigned
     # @!visibility private
     def legend_layout=(legend_layout)
-      validator = EnumAttributeValidator.new('TimeseriesWidgetLegendLayout', ['auto', 'horizontal', 'vertical'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('TimeseriesWidgetLegendLayout', ['auto', 'horizontal', 'vertical'])
       unless validator.valid?(legend_layout)
         fail ArgumentError, "invalid value for \"legend_layout\", must be one of #{validator.allowable_values}."
       end
@@ -269,7 +269,7 @@ module DatadogAPIClient::V1
     # @param title_align [Object] Object to be assigned
     # @!visibility private
     def title_align=(title_align)
-      validator = EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
       unless validator.valid?(title_align)
         fail ArgumentError, "invalid value for \"title_align\", must be one of #{validator.allowable_values}."
       end
@@ -280,7 +280,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = EnumAttributeValidator.new('TimeseriesWidgetDefinitionType', ['timeseries'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('TimeseriesWidgetDefinitionType', ['timeseries'])
       unless validator.valid?(type)
         fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
       end

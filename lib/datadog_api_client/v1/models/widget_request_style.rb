@@ -113,7 +113,7 @@ module DatadogAPIClient::V1
     # @param line_type [Object] Object to be assigned
     # @!visibility private
     def line_type=(line_type)
-      validator = EnumAttributeValidator.new('WidgetLineType', ['dashed', 'dotted', 'solid'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetLineType', ['dashed', 'dotted', 'solid'])
       unless validator.valid?(line_type)
         fail ArgumentError, "invalid value for \"line_type\", must be one of #{validator.allowable_values}."
       end
@@ -124,7 +124,7 @@ module DatadogAPIClient::V1
     # @param line_width [Object] Object to be assigned
     # @!visibility private
     def line_width=(line_width)
-      validator = EnumAttributeValidator.new('WidgetLineWidth', ['normal', 'thick', 'thin'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetLineWidth', ['normal', 'thick', 'thin'])
       unless validator.valid?(line_width)
         fail ArgumentError, "invalid value for \"line_width\", must be one of #{validator.allowable_values}."
       end

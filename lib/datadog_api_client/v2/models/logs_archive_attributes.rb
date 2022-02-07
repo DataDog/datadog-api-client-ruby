@@ -174,7 +174,7 @@ module DatadogAPIClient::V2
     # @param state [Object] Object to be assigned
     # @!visibility private
     def state=(state)
-      validator = EnumAttributeValidator.new('LogsArchiveState', ['UNKNOWN', 'WORKING', 'FAILING', 'WORKING_AUTH_LEGACY'])
+      validator = DatadogAPIClient::V2::EnumAttributeValidator.new('LogsArchiveState', ['UNKNOWN', 'WORKING', 'FAILING', 'WORKING_AUTH_LEGACY'])
       unless validator.valid?(state)
         fail ArgumentError, "invalid value for \"state\", must be one of #{validator.allowable_values}."
       end

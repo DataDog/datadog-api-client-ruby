@@ -162,7 +162,7 @@ module DatadogAPIClient::V1
     # @param color_by [Object] Object to be assigned
     # @!visibility private
     def color_by=(color_by)
-      validator = EnumAttributeValidator.new('TreeMapColorBy', ['user'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('TreeMapColorBy', ['user'])
       unless validator.valid?(color_by)
         fail ArgumentError, "invalid value for \"color_by\", must be one of #{validator.allowable_values}."
       end
@@ -173,7 +173,7 @@ module DatadogAPIClient::V1
     # @param group_by [Object] Object to be assigned
     # @!visibility private
     def group_by=(group_by)
-      validator = EnumAttributeValidator.new('TreeMapGroupBy', ['user', 'family', 'process'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('TreeMapGroupBy', ['user', 'family', 'process'])
       unless validator.valid?(group_by)
         fail ArgumentError, "invalid value for \"group_by\", must be one of #{validator.allowable_values}."
       end
@@ -200,7 +200,7 @@ module DatadogAPIClient::V1
     # @param size_by [Object] Object to be assigned
     # @!visibility private
     def size_by=(size_by)
-      validator = EnumAttributeValidator.new('TreeMapSizeBy', ['pct_cpu', 'pct_mem'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('TreeMapSizeBy', ['pct_cpu', 'pct_mem'])
       unless validator.valid?(size_by)
         fail ArgumentError, "invalid value for \"size_by\", must be one of #{validator.allowable_values}."
       end
@@ -211,7 +211,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = EnumAttributeValidator.new('TreeMapWidgetDefinitionType', ['treemap'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('TreeMapWidgetDefinitionType', ['treemap'])
       unless validator.valid?(type)
         fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
       end

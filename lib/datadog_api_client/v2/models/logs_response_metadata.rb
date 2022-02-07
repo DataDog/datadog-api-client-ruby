@@ -134,7 +134,7 @@ module DatadogAPIClient::V2
     # @param status [Object] Object to be assigned
     # @!visibility private
     def status=(status)
-      validator = EnumAttributeValidator.new('LogsAggregateResponseStatus', ['done', 'timeout'])
+      validator = DatadogAPIClient::V2::EnumAttributeValidator.new('LogsAggregateResponseStatus', ['done', 'timeout'])
       unless validator.valid?(status)
         fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
       end

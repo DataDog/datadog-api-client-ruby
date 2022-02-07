@@ -253,7 +253,7 @@ module DatadogAPIClient::V1
     # @param overall_state [Object] Object to be assigned
     # @!visibility private
     def overall_state=(overall_state)
-      validator = EnumAttributeValidator.new('MonitorOverallStates', ['Alert', 'Ignored', 'No Data', 'OK', 'Skipped', 'Unknown', 'Warn'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('MonitorOverallStates', ['Alert', 'Ignored', 'No Data', 'OK', 'Skipped', 'Unknown', 'Warn'])
       unless validator.valid?(overall_state)
         fail ArgumentError, "invalid value for \"overall_state\", must be one of #{validator.allowable_values}."
       end
@@ -287,7 +287,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = EnumAttributeValidator.new('MonitorType', ['composite', 'event alert', 'log alert', 'metric alert', 'process alert', 'query alert', 'rum alert', 'service check', 'synthetics alert', 'trace-analytics alert', 'slo alert', 'event-v2 alert', 'audit alert', 'ci-pipelines alert'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('MonitorType', ['composite', 'event alert', 'log alert', 'metric alert', 'process alert', 'query alert', 'rum alert', 'service check', 'synthetics alert', 'trace-analytics alert', 'slo alert', 'event-v2 alert', 'audit alert', 'ci-pipelines alert'])
       unless validator.valid?(type)
         fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
       end

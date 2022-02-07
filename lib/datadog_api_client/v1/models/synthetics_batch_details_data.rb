@@ -115,7 +115,7 @@ module DatadogAPIClient::V1
     # @param status [Object] Object to be assigned
     # @!visibility private
     def status=(status)
-      validator = EnumAttributeValidator.new('SyntheticsStatus', ['passed', 'skipped', 'failed'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SyntheticsStatus', ['passed', 'skipped', 'failed'])
       unless validator.valid?(status)
         fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
       end

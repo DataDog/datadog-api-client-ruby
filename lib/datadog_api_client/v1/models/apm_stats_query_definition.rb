@@ -201,7 +201,7 @@ module DatadogAPIClient::V1
     # @param row_type [Object] Object to be assigned
     # @!visibility private
     def row_type=(row_type)
-      validator = EnumAttributeValidator.new('ApmStatsQueryRowType', ['service', 'resource', 'span'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('ApmStatsQueryRowType', ['service', 'resource', 'span'])
       unless validator.valid?(row_type)
         fail ArgumentError, "invalid value for \"row_type\", must be one of #{validator.allowable_values}."
       end

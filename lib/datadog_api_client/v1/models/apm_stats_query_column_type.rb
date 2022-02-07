@@ -126,7 +126,7 @@ module DatadogAPIClient::V1
     # @param cell_display_mode [Object] Object to be assigned
     # @!visibility private
     def cell_display_mode=(cell_display_mode)
-      validator = EnumAttributeValidator.new('TableWidgetCellDisplayMode', ['number', 'bar'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('TableWidgetCellDisplayMode', ['number', 'bar'])
       unless validator.valid?(cell_display_mode)
         fail ArgumentError, "invalid value for \"cell_display_mode\", must be one of #{validator.allowable_values}."
       end
@@ -147,7 +147,7 @@ module DatadogAPIClient::V1
     # @param order [Object] Object to be assigned
     # @!visibility private
     def order=(order)
-      validator = EnumAttributeValidator.new('WidgetSort', ['asc', 'desc'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetSort', ['asc', 'desc'])
       unless validator.valid?(order)
         fail ArgumentError, "invalid value for \"order\", must be one of #{validator.allowable_values}."
       end

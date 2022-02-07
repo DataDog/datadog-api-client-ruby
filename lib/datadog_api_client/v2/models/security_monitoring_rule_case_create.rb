@@ -129,7 +129,7 @@ module DatadogAPIClient::V2
     # @param status [Object] Object to be assigned
     # @!visibility private
     def status=(status)
-      validator = EnumAttributeValidator.new('SecurityMonitoringRuleSeverity', ['info', 'low', 'medium', 'high', 'critical'])
+      validator = DatadogAPIClient::V2::EnumAttributeValidator.new('SecurityMonitoringRuleSeverity', ['info', 'low', 'medium', 'high', 'critical'])
       unless validator.valid?(status)
         fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
       end

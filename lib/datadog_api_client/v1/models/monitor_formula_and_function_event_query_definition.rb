@@ -166,7 +166,7 @@ module DatadogAPIClient::V1
     # @param data_source [Object] Object to be assigned
     # @!visibility private
     def data_source=(data_source)
-      validator = EnumAttributeValidator.new('MonitorFormulaAndFunctionEventsDataSource', ['rum'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('MonitorFormulaAndFunctionEventsDataSource', ['rum'])
       unless validator.valid?(data_source)
         fail ArgumentError, "invalid value for \"data_source\", must be one of #{validator.allowable_values}."
       end

@@ -195,7 +195,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = EnumAttributeValidator.new('LogsGrokParserType', ['grok-parser'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('LogsGrokParserType', ['grok-parser'])
       unless validator.valid?(type)
         fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
       end

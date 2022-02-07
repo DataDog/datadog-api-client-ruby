@@ -146,7 +146,7 @@ module DatadogAPIClient::V2
     # @param filtered_data_type [Object] Object to be assigned
     # @!visibility private
     def filtered_data_type=(filtered_data_type)
-      validator = EnumAttributeValidator.new('SecurityFilterFilteredDataType', ['logs'])
+      validator = DatadogAPIClient::V2::EnumAttributeValidator.new('SecurityFilterFilteredDataType', ['logs'])
       unless validator.valid?(filtered_data_type)
         fail ArgumentError, "invalid value for \"filtered_data_type\", must be one of #{validator.allowable_values}."
       end

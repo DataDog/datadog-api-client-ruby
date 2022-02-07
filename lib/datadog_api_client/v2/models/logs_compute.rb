@@ -129,7 +129,7 @@ module DatadogAPIClient::V2
     # @param aggregation [Object] Object to be assigned
     # @!visibility private
     def aggregation=(aggregation)
-      validator = EnumAttributeValidator.new('LogsAggregationFunction', ['count', 'cardinality', 'pc75', 'pc90', 'pc95', 'pc98', 'pc99', 'sum', 'min', 'max', 'avg'])
+      validator = DatadogAPIClient::V2::EnumAttributeValidator.new('LogsAggregationFunction', ['count', 'cardinality', 'pc75', 'pc90', 'pc95', 'pc98', 'pc99', 'sum', 'min', 'max', 'avg'])
       unless validator.valid?(aggregation)
         fail ArgumentError, "invalid value for \"aggregation\", must be one of #{validator.allowable_values}."
       end
@@ -143,7 +143,7 @@ module DatadogAPIClient::V2
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = EnumAttributeValidator.new('LogsComputeType', ['timeseries', 'total'])
+      validator = DatadogAPIClient::V2::EnumAttributeValidator.new('LogsComputeType', ['timeseries', 'total'])
       unless validator.valid?(type)
         fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
       end

@@ -128,7 +128,7 @@ module DatadogAPIClient::V1
     # @param graph_size [Object] Object to be assigned
     # @!visibility private
     def graph_size=(graph_size)
-      validator = EnumAttributeValidator.new('NotebookGraphSize', ['xs', 's', 'm', 'l', 'xl'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('NotebookGraphSize', ['xs', 's', 'm', 'l', 'xl'])
       unless validator.valid?(graph_size)
         fail ArgumentError, "invalid value for \"graph_size\", must be one of #{validator.allowable_values}."
       end

@@ -226,7 +226,7 @@ module DatadogAPIClient::V1
     # @param target_format [Object] Object to be assigned
     # @!visibility private
     def target_format=(target_format)
-      validator = EnumAttributeValidator.new('TargetFormatType', ['auto', 'string', 'integer', 'double'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('TargetFormatType', ['auto', 'string', 'integer', 'double'])
       unless validator.valid?(target_format)
         fail ArgumentError, "invalid value for \"target_format\", must be one of #{validator.allowable_values}."
       end
@@ -237,7 +237,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = EnumAttributeValidator.new('LogsAttributeRemapperType', ['attribute-remapper'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('LogsAttributeRemapperType', ['attribute-remapper'])
       unless validator.valid?(type)
         fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
       end

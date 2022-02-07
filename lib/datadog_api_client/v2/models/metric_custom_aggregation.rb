@@ -112,7 +112,7 @@ module DatadogAPIClient::V2
     # @param space [Object] Object to be assigned
     # @!visibility private
     def space=(space)
-      validator = EnumAttributeValidator.new('MetricCustomSpaceAggregation', ['avg', 'max', 'min', 'sum'])
+      validator = DatadogAPIClient::V2::EnumAttributeValidator.new('MetricCustomSpaceAggregation', ['avg', 'max', 'min', 'sum'])
       unless validator.valid?(space)
         fail ArgumentError, "invalid value for \"space\", must be one of #{validator.allowable_values}."
       end
@@ -126,7 +126,7 @@ module DatadogAPIClient::V2
     # @param time [Object] Object to be assigned
     # @!visibility private
     def time=(time)
-      validator = EnumAttributeValidator.new('MetricCustomTimeAggregation', ['avg', 'count', 'max', 'min', 'sum'])
+      validator = DatadogAPIClient::V2::EnumAttributeValidator.new('MetricCustomTimeAggregation', ['avg', 'count', 'max', 'min', 'sum'])
       unless validator.valid?(time)
         fail ArgumentError, "invalid value for \"time\", must be one of #{validator.allowable_values}."
       end

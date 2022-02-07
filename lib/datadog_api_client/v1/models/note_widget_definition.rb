@@ -198,7 +198,7 @@ module DatadogAPIClient::V1
     # @param text_align [Object] Object to be assigned
     # @!visibility private
     def text_align=(text_align)
-      validator = EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
       unless validator.valid?(text_align)
         fail ArgumentError, "invalid value for \"text_align\", must be one of #{validator.allowable_values}."
       end
@@ -209,7 +209,7 @@ module DatadogAPIClient::V1
     # @param tick_edge [Object] Object to be assigned
     # @!visibility private
     def tick_edge=(tick_edge)
-      validator = EnumAttributeValidator.new('WidgetTickEdge', ['bottom', 'left', 'right', 'top'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetTickEdge', ['bottom', 'left', 'right', 'top'])
       unless validator.valid?(tick_edge)
         fail ArgumentError, "invalid value for \"tick_edge\", must be one of #{validator.allowable_values}."
       end
@@ -220,7 +220,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = EnumAttributeValidator.new('NoteWidgetDefinitionType', ['note'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('NoteWidgetDefinitionType', ['note'])
       unless validator.valid?(type)
         fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
       end
@@ -234,7 +234,7 @@ module DatadogAPIClient::V1
     # @param vertical_align [Object] Object to be assigned
     # @!visibility private
     def vertical_align=(vertical_align)
-      validator = EnumAttributeValidator.new('WidgetVerticalAlign', ['center', 'top', 'bottom'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetVerticalAlign', ['center', 'top', 'bottom'])
       unless validator.valid?(vertical_align)
         fail ArgumentError, "invalid value for \"vertical_align\", must be one of #{validator.allowable_values}."
       end

@@ -262,7 +262,7 @@ module DatadogAPIClient::V1
     # @param layout_type [Object] Object to be assigned
     # @!visibility private
     def layout_type=(layout_type)
-      validator = EnumAttributeValidator.new('DashboardLayoutType', ['ordered', 'free'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('DashboardLayoutType', ['ordered', 'free'])
       unless validator.valid?(layout_type)
         fail ArgumentError, "invalid value for \"layout_type\", must be one of #{validator.allowable_values}."
       end
@@ -276,7 +276,7 @@ module DatadogAPIClient::V1
     # @param reflow_type [Object] Object to be assigned
     # @!visibility private
     def reflow_type=(reflow_type)
-      validator = EnumAttributeValidator.new('DashboardReflowType', ['auto', 'fixed'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('DashboardReflowType', ['auto', 'fixed'])
       unless validator.valid?(reflow_type)
         fail ArgumentError, "invalid value for \"reflow_type\", must be one of #{validator.allowable_values}."
       end

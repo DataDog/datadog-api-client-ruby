@@ -185,7 +185,7 @@
     # @!visibility private
     def {{ attr|attribute_name }}=({{ attr|attribute_name }})
       {%- if not collection and definition.enum is defined %}
-      validator = EnumAttributeValidator.new('{{ get_name(definition) }}', [{% for value in definition.enum %}{{ value|format_value }}{%- if not loop.last %}, {% endif %}{% endfor %}])
+      validator = {{ config.moduleName }}::EnumAttributeValidator.new('{{ get_name(definition) }}', [{% for value in definition.enum %}{{ value|format_value }}{%- if not loop.last %}, {% endif %}{% endfor %}])
       unless validator.valid?({{ attr|attribute_name }})
         fail ArgumentError, "invalid value for \"{{ attr|attribute_name }}\", must be one of #{validator.allowable_values}."
       end

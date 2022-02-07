@@ -121,7 +121,7 @@ module DatadogAPIClient::V1
     # @param dimension [Object] Object to be assigned
     # @!visibility private
     def dimension=(dimension)
-      validator = EnumAttributeValidator.new('ScatterplotDimension', ['x', 'y', 'radius', 'color'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('ScatterplotDimension', ['x', 'y', 'radius', 'color'])
       unless validator.valid?(dimension)
         fail ArgumentError, "invalid value for \"dimension\", must be one of #{validator.allowable_values}."
       end

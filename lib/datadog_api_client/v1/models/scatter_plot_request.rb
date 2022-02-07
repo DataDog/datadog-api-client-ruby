@@ -176,7 +176,7 @@ module DatadogAPIClient::V1
     # @param aggregator [Object] Object to be assigned
     # @!visibility private
     def aggregator=(aggregator)
-      validator = EnumAttributeValidator.new('ScatterplotWidgetAggregator', ['avg', 'last', 'max', 'min', 'sum'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('ScatterplotWidgetAggregator', ['avg', 'last', 'max', 'min', 'sum'])
       unless validator.valid?(aggregator)
         fail ArgumentError, "invalid value for \"aggregator\", must be one of #{validator.allowable_values}."
       end

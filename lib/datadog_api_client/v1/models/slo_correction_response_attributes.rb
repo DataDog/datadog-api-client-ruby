@@ -198,7 +198,7 @@ module DatadogAPIClient::V1
     # @param category [Object] Object to be assigned
     # @!visibility private
     def category=(category)
-      validator = EnumAttributeValidator.new('SLOCorrectionCategory', ['Scheduled Maintenance', 'Outside Business Hours', 'Deployment', 'Other'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SLOCorrectionCategory', ['Scheduled Maintenance', 'Outside Business Hours', 'Deployment', 'Other'])
       unless validator.valid?(category)
         fail ArgumentError, "invalid value for \"category\", must be one of #{validator.allowable_values}."
       end

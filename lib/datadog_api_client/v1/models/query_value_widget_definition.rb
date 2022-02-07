@@ -223,7 +223,7 @@ module DatadogAPIClient::V1
     # @param text_align [Object] Object to be assigned
     # @!visibility private
     def text_align=(text_align)
-      validator = EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
       unless validator.valid?(text_align)
         fail ArgumentError, "invalid value for \"text_align\", must be one of #{validator.allowable_values}."
       end
@@ -234,7 +234,7 @@ module DatadogAPIClient::V1
     # @param title_align [Object] Object to be assigned
     # @!visibility private
     def title_align=(title_align)
-      validator = EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
       unless validator.valid?(title_align)
         fail ArgumentError, "invalid value for \"title_align\", must be one of #{validator.allowable_values}."
       end
@@ -245,7 +245,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = EnumAttributeValidator.new('QueryValueWidgetDefinitionType', ['query_value'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('QueryValueWidgetDefinitionType', ['query_value'])
       unless validator.valid?(type)
         fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
       end

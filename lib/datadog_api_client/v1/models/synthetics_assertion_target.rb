@@ -134,7 +134,7 @@ module DatadogAPIClient::V1
     # @param operator [Object] Object to be assigned
     # @!visibility private
     def operator=(operator)
-      validator = EnumAttributeValidator.new('SyntheticsAssertionOperator', ['contains', 'doesNotContain', 'is', 'isNot', 'lessThan', 'lessThanOrEqual', 'moreThan', 'moreThanOrEqual', 'matches', 'doesNotMatch', 'validates', 'isInMoreThan', 'isInLessThan'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SyntheticsAssertionOperator', ['contains', 'doesNotContain', 'is', 'isNot', 'lessThan', 'lessThanOrEqual', 'moreThan', 'moreThanOrEqual', 'matches', 'doesNotMatch', 'validates', 'isInMoreThan', 'isInLessThan'])
       unless validator.valid?(operator)
         fail ArgumentError, "invalid value for \"operator\", must be one of #{validator.allowable_values}."
       end
@@ -158,7 +158,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = EnumAttributeValidator.new('SyntheticsAssertionType', ['body', 'header', 'statusCode', 'certificate', 'responseTime', 'property', 'recordEvery', 'recordSome', 'tlsVersion', 'minTlsVersion', 'latency', 'packetLossPercentage', 'packetsReceived', 'networkHop', 'receivedMessage'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SyntheticsAssertionType', ['body', 'header', 'statusCode', 'certificate', 'responseTime', 'property', 'recordEvery', 'recordSome', 'tlsVersion', 'minTlsVersion', 'latency', 'packetLossPercentage', 'packetsReceived', 'networkHop', 'receivedMessage'])
       unless validator.valid?(type)
         fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
       end

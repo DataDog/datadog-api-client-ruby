@@ -134,7 +134,7 @@ module DatadogAPIClient::V2
     # @param detection_method [Object] Object to be assigned
     # @!visibility private
     def detection_method=(detection_method)
-      validator = EnumAttributeValidator.new('SecurityMonitoringRuleDetectionMethod', ['threshold', 'new_value', 'anomaly_detection'])
+      validator = DatadogAPIClient::V2::EnumAttributeValidator.new('SecurityMonitoringRuleDetectionMethod', ['threshold', 'new_value', 'anomaly_detection'])
       unless validator.valid?(detection_method)
         fail ArgumentError, "invalid value for \"detection_method\", must be one of #{validator.allowable_values}."
       end
@@ -145,7 +145,7 @@ module DatadogAPIClient::V2
     # @param evaluation_window [Object] Object to be assigned
     # @!visibility private
     def evaluation_window=(evaluation_window)
-      validator = EnumAttributeValidator.new('SecurityMonitoringRuleEvaluationWindow', [0, 60, 300, 600, 900, 1800, 3600, 7200])
+      validator = DatadogAPIClient::V2::EnumAttributeValidator.new('SecurityMonitoringRuleEvaluationWindow', [0, 60, 300, 600, 900, 1800, 3600, 7200])
       unless validator.valid?(evaluation_window)
         fail ArgumentError, "invalid value for \"evaluation_window\", must be one of #{validator.allowable_values}."
       end
@@ -156,7 +156,7 @@ module DatadogAPIClient::V2
     # @param keep_alive [Object] Object to be assigned
     # @!visibility private
     def keep_alive=(keep_alive)
-      validator = EnumAttributeValidator.new('SecurityMonitoringRuleKeepAlive', [0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600])
+      validator = DatadogAPIClient::V2::EnumAttributeValidator.new('SecurityMonitoringRuleKeepAlive', [0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600])
       unless validator.valid?(keep_alive)
         fail ArgumentError, "invalid value for \"keep_alive\", must be one of #{validator.allowable_values}."
       end
@@ -167,7 +167,7 @@ module DatadogAPIClient::V2
     # @param max_signal_duration [Object] Object to be assigned
     # @!visibility private
     def max_signal_duration=(max_signal_duration)
-      validator = EnumAttributeValidator.new('SecurityMonitoringRuleMaxSignalDuration', [0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600, 43200, 86400])
+      validator = DatadogAPIClient::V2::EnumAttributeValidator.new('SecurityMonitoringRuleMaxSignalDuration', [0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600, 43200, 86400])
       unless validator.valid?(max_signal_duration)
         fail ArgumentError, "invalid value for \"max_signal_duration\", must be one of #{validator.allowable_values}."
       end

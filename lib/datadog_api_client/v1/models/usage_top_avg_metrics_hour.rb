@@ -122,7 +122,7 @@ module DatadogAPIClient::V1
     # @param metric_category [Object] Object to be assigned
     # @!visibility private
     def metric_category=(metric_category)
-      validator = EnumAttributeValidator.new('UsageMetricCategory', ['standard', 'custom'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('UsageMetricCategory', ['standard', 'custom'])
       unless validator.valid?(metric_category)
         fail ArgumentError, "invalid value for \"metric_category\", must be one of #{validator.allowable_values}."
       end

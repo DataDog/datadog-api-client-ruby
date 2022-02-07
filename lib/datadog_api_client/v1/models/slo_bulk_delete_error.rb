@@ -147,7 +147,7 @@ module DatadogAPIClient::V1
     # @param timeframe [Object] Object to be assigned
     # @!visibility private
     def timeframe=(timeframe)
-      validator = EnumAttributeValidator.new('SLOErrorTimeframe', ['7d', '30d', '90d', 'all'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SLOErrorTimeframe', ['7d', '30d', '90d', 'all'])
       unless validator.valid?(timeframe)
         fail ArgumentError, "invalid value for \"timeframe\", must be one of #{validator.allowable_values}."
       end

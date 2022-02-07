@@ -122,7 +122,7 @@ module DatadogAPIClient::V1
     # @param device [Object] Object to be assigned
     # @!visibility private
     def device=(device)
-      validator = EnumAttributeValidator.new('SyntheticsDeviceID', ['laptop_large', 'tablet', 'mobile_small', 'chrome.laptop_large', 'chrome.tablet', 'chrome.mobile_small', 'firefox.laptop_large', 'firefox.tablet', 'firefox.mobile_small', 'edge.laptop_large', 'edge.tablet', 'edge.mobile_small'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SyntheticsDeviceID', ['laptop_large', 'tablet', 'mobile_small', 'chrome.laptop_large', 'chrome.tablet', 'chrome.mobile_small', 'firefox.laptop_large', 'firefox.tablet', 'firefox.mobile_small', 'edge.laptop_large', 'edge.tablet', 'edge.mobile_small'])
       unless validator.valid?(device)
         fail ArgumentError, "invalid value for \"device\", must be one of #{validator.allowable_values}."
       end

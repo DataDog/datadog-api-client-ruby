@@ -211,7 +211,7 @@ module DatadogAPIClient::V1
     # @param subtype [Object] Object to be assigned
     # @!visibility private
     def subtype=(subtype)
-      validator = EnumAttributeValidator.new('SyntheticsAPIStepSubtype', ['http'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SyntheticsAPIStepSubtype', ['http'])
       unless validator.valid?(subtype)
         fail ArgumentError, "invalid value for \"subtype\", must be one of #{validator.allowable_values}."
       end

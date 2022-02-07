@@ -297,7 +297,7 @@ module DatadogAPIClient::V1
     # @param method [Object] Object to be assigned
     # @!visibility private
     def method=(method)
-      validator = EnumAttributeValidator.new('HTTPMethod', ['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'HEAD', 'OPTIONS'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('HTTPMethod', ['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'HEAD', 'OPTIONS'])
       unless validator.valid?(method)
         fail ArgumentError, "invalid value for \"method\", must be one of #{validator.allowable_values}."
       end

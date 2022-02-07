@@ -176,7 +176,7 @@ module DatadogAPIClient::V1
     # @param device [Object] Object to be assigned
     # @!visibility private
     def device=(device)
-      validator = EnumAttributeValidator.new('SyntheticsDeviceID', ['laptop_large', 'tablet', 'mobile_small', 'chrome.laptop_large', 'chrome.tablet', 'chrome.mobile_small', 'firefox.laptop_large', 'firefox.tablet', 'firefox.mobile_small', 'edge.laptop_large', 'edge.tablet', 'edge.mobile_small'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SyntheticsDeviceID', ['laptop_large', 'tablet', 'mobile_small', 'chrome.laptop_large', 'chrome.tablet', 'chrome.mobile_small', 'firefox.laptop_large', 'firefox.tablet', 'firefox.mobile_small', 'edge.laptop_large', 'edge.tablet', 'edge.mobile_small'])
       unless validator.valid?(device)
         fail ArgumentError, "invalid value for \"device\", must be one of #{validator.allowable_values}."
       end
@@ -187,7 +187,7 @@ module DatadogAPIClient::V1
     # @param execution_rule [Object] Object to be assigned
     # @!visibility private
     def execution_rule=(execution_rule)
-      validator = EnumAttributeValidator.new('SyntheticsTestExecutionRule', ['blocking', 'non_blocking', 'skipped'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SyntheticsTestExecutionRule', ['blocking', 'non_blocking', 'skipped'])
       unless validator.valid?(execution_rule)
         fail ArgumentError, "invalid value for \"execution_rule\", must be one of #{validator.allowable_values}."
       end
@@ -198,7 +198,7 @@ module DatadogAPIClient::V1
     # @param status [Object] Object to be assigned
     # @!visibility private
     def status=(status)
-      validator = EnumAttributeValidator.new('SyntheticsStatus', ['passed', 'skipped', 'failed'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SyntheticsStatus', ['passed', 'skipped', 'failed'])
       unless validator.valid?(status)
         fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
       end
@@ -209,7 +209,7 @@ module DatadogAPIClient::V1
     # @param test_type [Object] Object to be assigned
     # @!visibility private
     def test_type=(test_type)
-      validator = EnumAttributeValidator.new('SyntheticsTestDetailsType', ['api', 'browser'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('SyntheticsTestDetailsType', ['api', 'browser'])
       unless validator.valid?(test_type)
         fail ArgumentError, "invalid value for \"test_type\", must be one of #{validator.allowable_values}."
       end

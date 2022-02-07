@@ -172,7 +172,7 @@ module DatadogAPIClient::V1
     # @param has_search_bar [Object] Object to be assigned
     # @!visibility private
     def has_search_bar=(has_search_bar)
-      validator = EnumAttributeValidator.new('TableWidgetHasSearchBar', ['always', 'never', 'auto'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('TableWidgetHasSearchBar', ['always', 'never', 'auto'])
       unless validator.valid?(has_search_bar)
         fail ArgumentError, "invalid value for \"has_search_bar\", must be one of #{validator.allowable_values}."
       end
@@ -193,7 +193,7 @@ module DatadogAPIClient::V1
     # @param title_align [Object] Object to be assigned
     # @!visibility private
     def title_align=(title_align)
-      validator = EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
       unless validator.valid?(title_align)
         fail ArgumentError, "invalid value for \"title_align\", must be one of #{validator.allowable_values}."
       end
@@ -204,7 +204,7 @@ module DatadogAPIClient::V1
     # @param type [Object] Object to be assigned
     # @!visibility private
     def type=(type)
-      validator = EnumAttributeValidator.new('TableWidgetDefinitionType', ['query_table'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('TableWidgetDefinitionType', ['query_table'])
       unless validator.valid?(type)
         fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
       end

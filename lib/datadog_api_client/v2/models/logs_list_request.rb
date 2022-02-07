@@ -123,7 +123,7 @@ module DatadogAPIClient::V2
     # @param sort [Object] Object to be assigned
     # @!visibility private
     def sort=(sort)
-      validator = EnumAttributeValidator.new('LogsSort', ['timestamp', '-timestamp'])
+      validator = DatadogAPIClient::V2::EnumAttributeValidator.new('LogsSort', ['timestamp', '-timestamp'])
       unless validator.valid?(sort)
         fail ArgumentError, "invalid value for \"sort\", must be one of #{validator.allowable_values}."
       end

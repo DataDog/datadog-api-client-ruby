@@ -245,7 +245,7 @@ module DatadogAPIClient::V1
     # @param display_type [Object] Object to be assigned
     # @!visibility private
     def display_type=(display_type)
-      validator = EnumAttributeValidator.new('WidgetDisplayType', ['area', 'bars', 'line'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('WidgetDisplayType', ['area', 'bars', 'line'])
       unless validator.valid?(display_type)
         fail ArgumentError, "invalid value for \"display_type\", must be one of #{validator.allowable_values}."
       end
@@ -256,7 +256,7 @@ module DatadogAPIClient::V1
     # @param response_format [Object] Object to be assigned
     # @!visibility private
     def response_format=(response_format)
-      validator = EnumAttributeValidator.new('FormulaAndFunctionResponseFormat', ['timeseries', 'scalar'])
+      validator = DatadogAPIClient::V1::EnumAttributeValidator.new('FormulaAndFunctionResponseFormat', ['timeseries', 'scalar'])
       unless validator.valid?(response_format)
         fail ArgumentError, "invalid value for \"response_format\", must be one of #{validator.allowable_values}."
       end
