@@ -377,10 +377,10 @@ module DatadogAPIClient::V1
     # Custom attribute writer method with validation
     # @param min_failure_duration [Object] Object to be assigned
     def min_failure_duration=(min_failure_duration)
-      if !@min_failure_duration.nil? && @min_failure_duration > 7200
+      if !min_failure_duration.nil? && min_failure_duration > 7200
         fail ArgumentError, 'invalid value for "min_failure_duration", must be smaller than or equal to 7200.'
       end
-      if !@min_failure_duration.nil? && @min_failure_duration < 0
+      if !min_failure_duration.nil? && min_failure_duration < 0
         fail ArgumentError, 'invalid value for "min_failure_duration", must be greater than or equal to 0.'
       end
       @min_failure_duration = min_failure_duration

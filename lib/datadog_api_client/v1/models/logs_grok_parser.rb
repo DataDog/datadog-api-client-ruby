@@ -176,7 +176,7 @@ module DatadogAPIClient::V1
     # Custom attribute writer method with validation
     # @param samples [Object] Object to be assigned
     def samples=(samples)
-      if !@samples.nil? && @samples.length > 5
+      if !samples.nil? && samples.length > 5
         fail ArgumentError, 'invalid value for "samples", number of items must be less than or equal to 5.'
       end
       @samples = samples

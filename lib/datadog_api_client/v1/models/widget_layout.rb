@@ -170,7 +170,7 @@ module DatadogAPIClient::V1
       if @height.nil?
         fail ArgumentError, 'invalid value for "height", height cannot be nil.'
       end
-      if @height < 0
+      if height < 0
         fail ArgumentError, 'invalid value for "height", must be greater than or equal to 0.'
       end
       @height = height
@@ -182,7 +182,7 @@ module DatadogAPIClient::V1
       if @width.nil?
         fail ArgumentError, 'invalid value for "width", width cannot be nil.'
       end
-      if @width < 0
+      if width < 0
         fail ArgumentError, 'invalid value for "width", must be greater than or equal to 0.'
       end
       @width = width
@@ -194,7 +194,7 @@ module DatadogAPIClient::V1
       if @x.nil?
         fail ArgumentError, 'invalid value for "x", x cannot be nil.'
       end
-      if @x < 0
+      if x < 0
         fail ArgumentError, 'invalid value for "x", must be greater than or equal to 0.'
       end
       @x = x
@@ -206,7 +206,7 @@ module DatadogAPIClient::V1
       if @y.nil?
         fail ArgumentError, 'invalid value for "y", y cannot be nil.'
       end
-      if @y < 0
+      if y < 0
         fail ArgumentError, 'invalid value for "y", must be greater than or equal to 0.'
       end
       @y = y

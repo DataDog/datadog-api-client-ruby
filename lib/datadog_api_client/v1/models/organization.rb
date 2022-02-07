@@ -152,7 +152,7 @@ module DatadogAPIClient::V1
     # Custom attribute writer method with validation
     # @param name [Object] Object to be assigned
     def name=(name)
-      if !@name.nil? && @name > 32
+      if !name.nil? && name > 32
         fail ArgumentError, 'invalid value for "name", must be smaller than or equal to 32.'
       end
       @name = name

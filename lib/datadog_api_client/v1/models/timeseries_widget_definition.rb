@@ -259,7 +259,7 @@ module DatadogAPIClient::V1
       if @requests.nil?
         fail ArgumentError, 'invalid value for "requests", requests cannot be nil.'
       end
-      if @requests.length < 1
+      if requests.length < 1
         fail ArgumentError, 'invalid value for "requests", number of items must be greater than or equal to 1.'
       end
       @requests = requests

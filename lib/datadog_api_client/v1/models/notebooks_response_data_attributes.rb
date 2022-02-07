@@ -177,10 +177,10 @@ module DatadogAPIClient::V1
       if @name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
-      if @name.to_s.length > 80
+      if name.to_s.length > 80
         fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 80.'
       end
-      if @name.to_s.length < 0
+      if name.to_s.length < 0
         fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 0.'
       end
       @name = name

@@ -161,7 +161,7 @@ module DatadogAPIClient::V1
     # Custom attribute writer method with validation
     # @param period [Object] Object to be assigned
     def period=(period)
-      if !@period.nil? && @period > 2147483647
+      if !period.nil? && period > 2147483647
         fail ArgumentError, 'invalid value for "period", must be smaller than or equal to 2147483647.'
       end
       @period = period
@@ -170,7 +170,7 @@ module DatadogAPIClient::V1
     # Custom attribute writer method with validation
     # @param until_occurrences [Object] Object to be assigned
     def until_occurrences=(until_occurrences)
-      if !@until_occurrences.nil? && @until_occurrences > 2147483647
+      if !until_occurrences.nil? && until_occurrences > 2147483647
         fail ArgumentError, 'invalid value for "until_occurrences", must be smaller than or equal to 2147483647.'
       end
       @until_occurrences = until_occurrences

@@ -120,7 +120,7 @@ module DatadogAPIClient::V1
       if @code.nil?
         fail ArgumentError, 'invalid value for "code", code cannot be nil.'
       end
-      if @code > 2147483647
+      if code > 2147483647
         fail ArgumentError, 'invalid value for "code", must be smaller than or equal to 2147483647.'
       end
       @code = code

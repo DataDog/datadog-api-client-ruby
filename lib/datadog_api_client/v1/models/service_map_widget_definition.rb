@@ -176,7 +176,7 @@ module DatadogAPIClient::V1
       if @filters.nil?
         fail ArgumentError, 'invalid value for "filters", filters cannot be nil.'
       end
-      if @filters.length < 1
+      if filters.length < 1
         fail ArgumentError, 'invalid value for "filters", number of items must be greater than or equal to 1.'
       end
       @filters = filters

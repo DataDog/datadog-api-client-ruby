@@ -124,7 +124,7 @@ module DatadogAPIClient::V1
       if @name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
-      if @name > 32
+      if name > 32
         fail ArgumentError, 'invalid value for "name", must be smaller than or equal to 32.'
       end
       @name = name

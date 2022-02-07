@@ -223,10 +223,10 @@ module DatadogAPIClient::V1
     # Custom attribute writer method with validation
     # @param monitor_priority [Object] Object to be assigned
     def monitor_priority=(monitor_priority)
-      if !@monitor_priority.nil? && @monitor_priority > 5
+      if !monitor_priority.nil? && monitor_priority > 5
         fail ArgumentError, 'invalid value for "monitor_priority", must be smaller than or equal to 5.'
       end
-      if !@monitor_priority.nil? && @monitor_priority < 1
+      if !monitor_priority.nil? && monitor_priority < 1
         fail ArgumentError, 'invalid value for "monitor_priority", must be greater than or equal to 1.'
       end
       @monitor_priority = monitor_priority
@@ -235,10 +235,10 @@ module DatadogAPIClient::V1
     # Custom attribute writer method with validation
     # @param tick_every [Object] Object to be assigned
     def tick_every=(tick_every)
-      if !@tick_every.nil? && @tick_every > 604800
+      if !tick_every.nil? && tick_every > 604800
         fail ArgumentError, 'invalid value for "tick_every", must be smaller than or equal to 604800.'
       end
-      if !@tick_every.nil? && @tick_every < 30
+      if !tick_every.nil? && tick_every < 30
         fail ArgumentError, 'invalid value for "tick_every", must be greater than or equal to 30.'
       end
       @tick_every = tick_every

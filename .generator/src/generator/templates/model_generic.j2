@@ -200,38 +200,38 @@
       end
       {%- endif %}
       {%- if definition.maxLength is defined %}
-      if {% if not required %}!@{{ attr|attribute_name }}.nil? && {% endif %}@{{ attr|attribute_name }}.to_s.length > {{ definition.maxLength }}
+      if {% if not required %}!{{ attr|attribute_name }}.nil? && {% endif %}{{ attr|attribute_name }}.to_s.length > {{ definition.maxLength }}
         fail ArgumentError, 'invalid value for "{{ attr|attribute_name }}", the character length must be smaller than or equal to {{ definition.maxLength }}.'
       end
       {%- endif %}
       {%- if definition.minLength is defined %}
-      if {% if not required %}!@{{ attr|attribute_name }}.nil? && {% endif %}@{{ attr|attribute_name }}.to_s.length < {{ definition.minLength }}
+      if {% if not required %}!{{ attr|attribute_name }}.nil? && {% endif %}{{ attr|attribute_name }}.to_s.length < {{ definition.minLength }}
         fail ArgumentError, 'invalid value for "{{ attr|attribute_name }}", the character length must be great than or equal to {{ definition.minLength }}.'
       end
       {%- endif %}
       {%- if definition.maximum is defined %}
-      if {% if not required %}!@{{ attr|attribute_name }}.nil? && {% endif %}@{{ attr|attribute_name }} >{% if definition.exclusiveMaximum %}={% endif %} {{ definition.maximum }}
+      if {% if not required %}!{{ attr|attribute_name }}.nil? && {% endif %}{{ attr|attribute_name }} >{% if definition.exclusiveMaximum %}={% endif %} {{ definition.maximum }}
         fail ArgumentError, 'invalid value for "{{ attr|attribute_name }}", must be smaller than {% if not definition.exclusiveMaximum %}or equal to {% endif %}{{ definition.maximum }}.'
       end
       {%- endif %}
       {%- if definition.minimum is defined %}
-      if {% if not required %}!@{{ attr|attribute_name }}.nil? && {% endif %}@{{ attr|attribute_name }} <{% if definition.exclusiveMinimum %}={% endif %} {{ definition.minimum }}
+      if {% if not required %}!{{ attr|attribute_name }}.nil? && {% endif %}{{ attr|attribute_name }} <{% if definition.exclusiveMinimum %}={% endif %} {{ definition.minimum }}
         fail ArgumentError, 'invalid value for "{{ attr|attribute_name }}", must be greater than {% if not definition.exclusiveMinimum %}or equal to {% endif %}{{ definition.minimum }}.'
       end
       {%- endif %}
       {%- if definition.pattern is defined %}
       pattern = Regexp.new({{ definition.pattern }})
-      if {% if not required %}!@{{ attr|attribute_name }}.nil? && {% endif %}@{{ attr|attribute_name }} !~ pattern
+      if {% if not required %}!{{ attr|attribute_name }}.nil? && {% endif %}{{ attr|attribute_name }} !~ pattern
         fail ArgumentError, "invalid value for \"{{ attr|attribute_name }}\", must conform to the pattern #{pattern}."
       end
       {%- endif %}
       {%- if definition.maxItems is defined %}
-      if {% if not required %}!@{{ attr|attribute_name }}.nil? && {% endif %}@{{ attr|attribute_name }}.length > {{ definition.maxItems }}
+      if {% if not required %}!{{ attr|attribute_name }}.nil? && {% endif %}{{ attr|attribute_name }}.length > {{ definition.maxItems }}
         fail ArgumentError, 'invalid value for "{{ attr|attribute_name }}", number of items must be less than or equal to {{ definition.maxItems }}.'
       end
       {%- endif %}
       {%- if definition.minItems is defined %}
-      if {% if not required %}!@{{ attr|attribute_name }}.nil? && {% endif %}@{{ attr|attribute_name }}.length < {{ definition.minItems }}
+      if {% if not required %}!{{ attr|attribute_name }}.nil? && {% endif %}{{ attr|attribute_name }}.length < {{ definition.minItems }}
         fail ArgumentError, 'invalid value for "{{ attr|attribute_name }}", number of items must be greater than or equal to {{ definition.minItems }}.'
       end
       {%- endif %}

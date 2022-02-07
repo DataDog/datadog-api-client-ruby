@@ -129,10 +129,10 @@ module DatadogAPIClient::V1
     # Custom attribute writer method with validation
     # @param key [Object] Object to be assigned
     def key=(key)
-      if !@key.nil? && @key.to_s.length > 32
+      if !key.nil? && key.to_s.length > 32
         fail ArgumentError, 'invalid value for "key", the character length must be smaller than or equal to 32.'
       end
-      if !@key.nil? && @key.to_s.length < 32
+      if !key.nil? && key.to_s.length < 32
         fail ArgumentError, 'invalid value for "key", the character length must be great than or equal to 32.'
       end
       @key = key

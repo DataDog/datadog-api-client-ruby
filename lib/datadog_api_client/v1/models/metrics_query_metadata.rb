@@ -219,10 +219,10 @@ module DatadogAPIClient::V1
     # Custom attribute writer method with validation
     # @param unit [Object] Object to be assigned
     def unit=(unit)
-      if !@unit.nil? && @unit.length > 2
+      if !unit.nil? && unit.length > 2
         fail ArgumentError, 'invalid value for "unit", number of items must be less than or equal to 2.'
       end
-      if !@unit.nil? && @unit.length < 2
+      if !unit.nil? && unit.length < 2
         fail ArgumentError, 'invalid value for "unit", number of items must be greater than or equal to 2.'
       end
       @unit = unit

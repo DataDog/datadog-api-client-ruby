@@ -112,10 +112,10 @@ module DatadogAPIClient::V2
     # Custom attribute writer method with validation
     # @param size [Object] Object to be assigned
     def size=(size)
-      if !@size.nil? && @size > 10000
+      if !size.nil? && size > 10000
         fail ArgumentError, 'invalid value for "size", must be smaller than or equal to 10000.'
       end
-      if !@size.nil? && @size < 0
+      if !size.nil? && size < 0
         fail ArgumentError, 'invalid value for "size", must be greater than or equal to 0.'
       end
       @size = size

@@ -104,10 +104,10 @@ module DatadogAPIClient::V1
     # Custom attribute writer method with validation
     # @param renotify_interval [Object] Object to be assigned
     def renotify_interval=(renotify_interval)
-      if !@renotify_interval.nil? && @renotify_interval > 1440
+      if !renotify_interval.nil? && renotify_interval > 1440
         fail ArgumentError, 'invalid value for "renotify_interval", must be smaller than or equal to 1440.'
       end
-      if !@renotify_interval.nil? && @renotify_interval < 0
+      if !renotify_interval.nil? && renotify_interval < 0
         fail ArgumentError, 'invalid value for "renotify_interval", must be greater than or equal to 0.'
       end
       @renotify_interval = renotify_interval

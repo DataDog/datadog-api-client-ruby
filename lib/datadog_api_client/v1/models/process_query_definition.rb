@@ -132,7 +132,7 @@ module DatadogAPIClient::V1
     # Custom attribute writer method with validation
     # @param limit [Object] Object to be assigned
     def limit=(limit)
-      if !@limit.nil? && @limit < 0
+      if !limit.nil? && limit < 0
         fail ArgumentError, 'invalid value for "limit", must be greater than or equal to 0.'
       end
       @limit = limit

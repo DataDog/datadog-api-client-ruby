@@ -216,7 +216,7 @@ module DatadogAPIClient::V2
     # Custom attribute writer method with validation
     # @param popularity [Object] Object to be assigned
     def popularity=(popularity)
-      if !@popularity.nil? && @popularity > 5
+      if !popularity.nil? && popularity > 5
         fail ArgumentError, 'invalid value for "popularity", must be smaller than or equal to 5.'
       end
       @popularity = popularity

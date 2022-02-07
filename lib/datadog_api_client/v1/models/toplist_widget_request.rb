@@ -230,7 +230,7 @@ module DatadogAPIClient::V1
     # Custom attribute writer method with validation
     # @param conditional_formats [Object] Object to be assigned
     def conditional_formats=(conditional_formats)
-      if !@conditional_formats.nil? && @conditional_formats.length < 1
+      if !conditional_formats.nil? && conditional_formats.length < 1
         fail ArgumentError, 'invalid value for "conditional_formats", number of items must be greater than or equal to 1.'
       end
       @conditional_formats = conditional_formats

@@ -236,7 +236,7 @@ module DatadogAPIClient::V1
     # Custom attribute writer method with validation
     # @param text [Object] Object to be assigned
     def text=(text)
-      if !@text.nil? && @text.to_s.length > 4000
+      if !text.nil? && text.to_s.length > 4000
         fail ArgumentError, 'invalid value for "text", the character length must be smaller than or equal to 4000.'
       end
       @text = text

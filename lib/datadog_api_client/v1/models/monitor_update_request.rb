@@ -252,10 +252,10 @@ module DatadogAPIClient::V1
     # Custom attribute writer method with validation
     # @param priority [Object] Object to be assigned
     def priority=(priority)
-      if !@priority.nil? && @priority > 5
+      if !priority.nil? && priority > 5
         fail ArgumentError, 'invalid value for "priority", must be smaller than or equal to 5.'
       end
-      if !@priority.nil? && @priority < 1
+      if !priority.nil? && priority < 1
         fail ArgumentError, 'invalid value for "priority", must be greater than or equal to 1.'
       end
       @priority = priority

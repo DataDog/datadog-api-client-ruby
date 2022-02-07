@@ -212,7 +212,7 @@ module DatadogAPIClient::V1
     # Custom attribute writer method with validation
     # @param aggregation_key [Object] Object to be assigned
     def aggregation_key=(aggregation_key)
-      if !@aggregation_key.nil? && @aggregation_key.to_s.length > 100
+      if !aggregation_key.nil? && aggregation_key.to_s.length > 100
         fail ArgumentError, 'invalid value for "aggregation_key", the character length must be smaller than or equal to 100.'
       end
       @aggregation_key = aggregation_key
@@ -244,7 +244,7 @@ module DatadogAPIClient::V1
       if @text.nil?
         fail ArgumentError, 'invalid value for "text", text cannot be nil.'
       end
-      if @text.to_s.length > 4000
+      if text.to_s.length > 4000
         fail ArgumentError, 'invalid value for "text", the character length must be smaller than or equal to 4000.'
       end
       @text = text
