@@ -174,6 +174,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param device [Object] Object to be assigned
+    # @!visibility private
     def device=(device)
       validator = EnumAttributeValidator.new('SyntheticsDeviceID', ['laptop_large', 'tablet', 'mobile_small', 'chrome.laptop_large', 'chrome.tablet', 'chrome.mobile_small', 'firefox.laptop_large', 'firefox.tablet', 'firefox.mobile_small', 'edge.laptop_large', 'edge.tablet', 'edge.mobile_small'])
       unless validator.valid?(device)
@@ -184,6 +185,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param execution_rule [Object] Object to be assigned
+    # @!visibility private
     def execution_rule=(execution_rule)
       validator = EnumAttributeValidator.new('SyntheticsTestExecutionRule', ['blocking', 'non_blocking', 'skipped'])
       unless validator.valid?(execution_rule)
@@ -194,6 +196,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param status [Object] Object to be assigned
+    # @!visibility private
     def status=(status)
       validator = EnumAttributeValidator.new('SyntheticsStatus', ['passed', 'skipped', 'failed'])
       unless validator.valid?(status)
@@ -204,6 +207,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param test_type [Object] Object to be assigned
+    # @!visibility private
     def test_type=(test_type)
       validator = EnumAttributeValidator.new('SyntheticsTestDetailsType', ['api', 'browser'])
       unless validator.valid?(test_type)

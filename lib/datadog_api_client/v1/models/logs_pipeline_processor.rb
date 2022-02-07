@@ -143,6 +143,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('LogsPipelineProcessorType', ['pipeline'])
       unless validator.valid?(type)

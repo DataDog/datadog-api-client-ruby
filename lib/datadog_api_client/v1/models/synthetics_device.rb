@@ -145,6 +145,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param height [Object] Object to be assigned
+    # @!visibility private
     def height=(height)
       if @height.nil?
         fail ArgumentError, 'invalid value for "height", height cannot be nil.'
@@ -154,6 +155,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param id [Object] Object to be assigned
+    # @!visibility private
     def id=(id)
       validator = EnumAttributeValidator.new('SyntheticsDeviceID', ['laptop_large', 'tablet', 'mobile_small', 'chrome.laptop_large', 'chrome.tablet', 'chrome.mobile_small', 'firefox.laptop_large', 'firefox.tablet', 'firefox.mobile_small', 'edge.laptop_large', 'edge.tablet', 'edge.mobile_small'])
       unless validator.valid?(id)
@@ -167,6 +169,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param name [Object] Object to be assigned
+    # @!visibility private
     def name=(name)
       if @name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
@@ -176,6 +179,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param width [Object] Object to be assigned
+    # @!visibility private
     def width=(width)
       if @width.nil?
         fail ArgumentError, 'invalid value for "width", width cannot be nil.'

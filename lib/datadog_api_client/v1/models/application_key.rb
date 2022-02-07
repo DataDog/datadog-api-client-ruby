@@ -119,6 +119,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param hash [Object] Object to be assigned
+    # @!visibility private
     def hash=(hash)
       if !hash.nil? && hash.to_s.length > 40
         fail ArgumentError, 'invalid value for "hash", the character length must be smaller than or equal to 40.'

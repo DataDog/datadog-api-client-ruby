@@ -243,6 +243,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param legend_layout [Object] Object to be assigned
+    # @!visibility private
     def legend_layout=(legend_layout)
       validator = EnumAttributeValidator.new('TimeseriesWidgetLegendLayout', ['auto', 'horizontal', 'vertical'])
       unless validator.valid?(legend_layout)
@@ -253,6 +254,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param requests [Object] Object to be assigned
+    # @!visibility private
     def requests=(requests)
       if @requests.nil?
         fail ArgumentError, 'invalid value for "requests", requests cannot be nil.'
@@ -265,6 +267,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param title_align [Object] Object to be assigned
+    # @!visibility private
     def title_align=(title_align)
       validator = EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
       unless validator.valid?(title_align)
@@ -275,6 +278,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('TimeseriesWidgetDefinitionType', ['timeseries'])
       unless validator.valid?(type)

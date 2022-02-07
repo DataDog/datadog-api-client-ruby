@@ -114,6 +114,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param code [Object] Object to be assigned
+    # @!visibility private
     def code=(code)
       if @code.nil?
         fail ArgumentError, 'invalid value for "code", code cannot be nil.'
@@ -126,6 +127,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param message [Object] Object to be assigned
+    # @!visibility private
     def message=(message)
       if @message.nil?
         fail ArgumentError, 'invalid value for "message", message cannot be nil.'

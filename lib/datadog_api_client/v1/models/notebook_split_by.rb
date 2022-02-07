@@ -114,6 +114,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param keys [Object] Object to be assigned
+    # @!visibility private
     def keys=(keys)
       if @keys.nil?
         fail ArgumentError, 'invalid value for "keys", keys cannot be nil.'
@@ -123,6 +124,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param tags [Object] Object to be assigned
+    # @!visibility private
     def tags=(tags)
       if @tags.nil?
         fail ArgumentError, 'invalid value for "tags", tags cannot be nil.'

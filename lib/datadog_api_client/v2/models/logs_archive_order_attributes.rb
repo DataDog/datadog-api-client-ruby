@@ -100,6 +100,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param archive_ids [Object] Object to be assigned
+    # @!visibility private
     def archive_ids=(archive_ids)
       if @archive_ids.nil?
         fail ArgumentError, 'invalid value for "archive_ids", archive_ids cannot be nil.'

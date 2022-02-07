@@ -120,6 +120,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param from [Object] Object to be assigned
+    # @!visibility private
     def from=(from)
       if @from.nil?
         fail ArgumentError, 'invalid value for "from", from cannot be nil.'
@@ -129,6 +130,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param to [Object] Object to be assigned
+    # @!visibility private
     def to=(to)
       if @to.nil?
         fail ArgumentError, 'invalid value for "to", to cannot be nil.'

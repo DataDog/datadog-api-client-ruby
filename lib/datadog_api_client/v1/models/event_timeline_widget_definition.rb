@@ -157,6 +157,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param query [Object] Object to be assigned
+    # @!visibility private
     def query=(query)
       if @query.nil?
         fail ArgumentError, 'invalid value for "query", query cannot be nil.'
@@ -166,6 +167,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param title_align [Object] Object to be assigned
+    # @!visibility private
     def title_align=(title_align)
       validator = EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
       unless validator.valid?(title_align)
@@ -176,6 +178,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('EventTimelineWidgetDefinitionType', ['event_timeline'])
       unless validator.valid?(type)

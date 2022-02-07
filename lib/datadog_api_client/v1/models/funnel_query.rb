@@ -127,6 +127,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param data_source [Object] Object to be assigned
+    # @!visibility private
     def data_source=(data_source)
       validator = EnumAttributeValidator.new('FunnelSource', ['rum'])
       unless validator.valid?(data_source)
@@ -140,6 +141,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param query_string [Object] Object to be assigned
+    # @!visibility private
     def query_string=(query_string)
       if @query_string.nil?
         fail ArgumentError, 'invalid value for "query_string", query_string cannot be nil.'
@@ -149,6 +151,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param steps [Object] Object to be assigned
+    # @!visibility private
     def steps=(steps)
       if @steps.nil?
         fail ArgumentError, 'invalid value for "steps", steps cannot be nil.'

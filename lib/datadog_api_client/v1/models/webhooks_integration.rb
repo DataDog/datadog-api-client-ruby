@@ -147,6 +147,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param encode_as [Object] Object to be assigned
+    # @!visibility private
     def encode_as=(encode_as)
       validator = EnumAttributeValidator.new('WebhooksIntegrationEncoding', ['json', 'form'])
       unless validator.valid?(encode_as)
@@ -157,6 +158,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param name [Object] Object to be assigned
+    # @!visibility private
     def name=(name)
       if @name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
@@ -166,6 +168,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param url [Object] Object to be assigned
+    # @!visibility private
     def url=(url)
       if @url.nil?
         fail ArgumentError, 'invalid value for "url", url cannot be nil.'

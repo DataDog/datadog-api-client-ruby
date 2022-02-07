@@ -132,6 +132,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param status [Object] Object to be assigned
+    # @!visibility private
     def status=(status)
       validator = EnumAttributeValidator.new('LogsAggregateResponseStatus', ['done', 'timeout'])
       unless validator.valid?(status)

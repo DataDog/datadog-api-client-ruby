@@ -112,6 +112,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param denominator [Object] Object to be assigned
+    # @!visibility private
     def denominator=(denominator)
       if @denominator.nil?
         fail ArgumentError, 'invalid value for "denominator", denominator cannot be nil.'
@@ -121,6 +122,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param numerator [Object] Object to be assigned
+    # @!visibility private
     def numerator=(numerator)
       if @numerator.nil?
         fail ArgumentError, 'invalid value for "numerator", numerator cannot be nil.'

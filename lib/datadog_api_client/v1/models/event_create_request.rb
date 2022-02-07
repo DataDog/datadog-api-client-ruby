@@ -209,6 +209,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param aggregation_key [Object] Object to be assigned
+    # @!visibility private
     def aggregation_key=(aggregation_key)
       if !aggregation_key.nil? && aggregation_key.to_s.length > 100
         fail ArgumentError, 'invalid value for "aggregation_key", the character length must be smaller than or equal to 100.'
@@ -218,6 +219,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param alert_type [Object] Object to be assigned
+    # @!visibility private
     def alert_type=(alert_type)
       validator = EnumAttributeValidator.new('EventAlertType', ['error', 'warning', 'info', 'success', 'user_update', 'recommendation', 'snapshot'])
       unless validator.valid?(alert_type)
@@ -228,6 +230,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param priority [Object] Object to be assigned
+    # @!visibility private
     def priority=(priority)
       validator = EnumAttributeValidator.new('EventPriority', ['normal', 'low'])
       unless validator.valid?(priority)
@@ -238,6 +241,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param text [Object] Object to be assigned
+    # @!visibility private
     def text=(text)
       if @text.nil?
         fail ArgumentError, 'invalid value for "text", text cannot be nil.'
@@ -250,6 +254,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param title [Object] Object to be assigned
+    # @!visibility private
     def title=(title)
       if @title.nil?
         fail ArgumentError, 'invalid value for "title", title cannot be nil.'

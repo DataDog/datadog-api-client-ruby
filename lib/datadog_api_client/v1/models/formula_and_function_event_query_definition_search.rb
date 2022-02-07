@@ -97,6 +97,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param query [Object] Object to be assigned
+    # @!visibility private
     def query=(query)
       if @query.nil?
         fail ArgumentError, 'invalid value for "query", query cannot be nil.'

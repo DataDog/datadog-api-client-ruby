@@ -141,6 +141,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param sources [Object] Object to be assigned
+    # @!visibility private
     def sources=(sources)
       if @sources.nil?
         fail ArgumentError, 'invalid value for "sources", sources cannot be nil.'
@@ -150,6 +151,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('LogsMessageRemapperType', ['message-remapper'])
       unless validator.valid?(type)

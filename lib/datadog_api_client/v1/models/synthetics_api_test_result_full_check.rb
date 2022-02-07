@@ -97,6 +97,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param config [Object] Object to be assigned
+    # @!visibility private
     def config=(config)
       if @config.nil?
         fail ArgumentError, 'invalid value for "config", config cannot be nil.'

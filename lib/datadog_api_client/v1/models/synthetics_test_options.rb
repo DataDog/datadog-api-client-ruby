@@ -222,6 +222,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param monitor_priority [Object] Object to be assigned
+    # @!visibility private
     def monitor_priority=(monitor_priority)
       if !monitor_priority.nil? && monitor_priority > 5
         fail ArgumentError, 'invalid value for "monitor_priority", must be smaller than or equal to 5.'
@@ -234,6 +235,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param tick_every [Object] Object to be assigned
+    # @!visibility private
     def tick_every=(tick_every)
       if !tick_every.nil? && tick_every > 604800
         fail ArgumentError, 'invalid value for "tick_every", must be smaller than or equal to 604800.'

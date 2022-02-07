@@ -181,6 +181,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param horizontal_align [Object] Object to be assigned
+    # @!visibility private
     def horizontal_align=(horizontal_align)
       validator = EnumAttributeValidator.new('WidgetHorizontalAlign', ['center', 'left', 'right'])
       unless validator.valid?(horizontal_align)
@@ -191,6 +192,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param margin [Object] Object to be assigned
+    # @!visibility private
     def margin=(margin)
       validator = EnumAttributeValidator.new('WidgetMargin', ['sm', 'md', 'lg', 'small', 'large'])
       unless validator.valid?(margin)
@@ -201,6 +203,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param sizing [Object] Object to be assigned
+    # @!visibility private
     def sizing=(sizing)
       validator = EnumAttributeValidator.new('WidgetImageSizing', ['fill', 'contain', 'cover', 'none', 'scale-down', 'zoom', 'fit', 'center'])
       unless validator.valid?(sizing)
@@ -211,6 +214,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('ImageWidgetDefinitionType', ['image'])
       unless validator.valid?(type)
@@ -224,6 +228,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param url [Object] Object to be assigned
+    # @!visibility private
     def url=(url)
       if @url.nil?
         fail ArgumentError, 'invalid value for "url", url cannot be nil.'
@@ -233,6 +238,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param vertical_align [Object] Object to be assigned
+    # @!visibility private
     def vertical_align=(vertical_align)
       validator = EnumAttributeValidator.new('WidgetVerticalAlign', ['center', 'top', 'bottom'])
       unless validator.valid?(vertical_align)

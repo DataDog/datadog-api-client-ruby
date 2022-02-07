@@ -225,6 +225,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param aggregator [Object] Object to be assigned
+    # @!visibility private
     def aggregator=(aggregator)
       validator = EnumAttributeValidator.new('WidgetAggregator', ['avg', 'last', 'max', 'min', 'sum', 'percentile'])
       unless validator.valid?(aggregator)
@@ -235,6 +236,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param response_format [Object] Object to be assigned
+    # @!visibility private
     def response_format=(response_format)
       validator = EnumAttributeValidator.new('FormulaAndFunctionResponseFormat', ['timeseries', 'scalar'])
       unless validator.valid?(response_format)

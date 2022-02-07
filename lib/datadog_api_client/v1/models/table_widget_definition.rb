@@ -170,6 +170,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param has_search_bar [Object] Object to be assigned
+    # @!visibility private
     def has_search_bar=(has_search_bar)
       validator = EnumAttributeValidator.new('TableWidgetHasSearchBar', ['always', 'never', 'auto'])
       unless validator.valid?(has_search_bar)
@@ -180,6 +181,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param requests [Object] Object to be assigned
+    # @!visibility private
     def requests=(requests)
       if @requests.nil?
         fail ArgumentError, 'invalid value for "requests", requests cannot be nil.'
@@ -189,6 +191,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param title_align [Object] Object to be assigned
+    # @!visibility private
     def title_align=(title_align)
       validator = EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
       unless validator.valid?(title_align)
@@ -199,6 +202,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('TableWidgetDefinitionType', ['query_table'])
       unless validator.valid?(type)

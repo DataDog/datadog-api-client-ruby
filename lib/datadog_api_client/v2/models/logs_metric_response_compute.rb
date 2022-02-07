@@ -102,6 +102,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param aggregation_type [Object] Object to be assigned
+    # @!visibility private
     def aggregation_type=(aggregation_type)
       validator = EnumAttributeValidator.new('LogsMetricResponseComputeAggregationType', ['count', 'distribution'])
       unless validator.valid?(aggregation_type)

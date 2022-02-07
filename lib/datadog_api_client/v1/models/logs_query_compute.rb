@@ -115,6 +115,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param aggregation [Object] Object to be assigned
+    # @!visibility private
     def aggregation=(aggregation)
       if @aggregation.nil?
         fail ArgumentError, 'invalid value for "aggregation", aggregation cannot be nil.'

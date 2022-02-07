@@ -119,6 +119,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param _end [Object] Object to be assigned
+    # @!visibility private
     def _end=(_end)
       if @_end.nil?
         fail ArgumentError, 'invalid value for "_end", _end cannot be nil.'
@@ -128,6 +129,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param start [Object] Object to be assigned
+    # @!visibility private
     def start=(start)
       if @start.nil?
         fail ArgumentError, 'invalid value for "start", start cannot be nil.'

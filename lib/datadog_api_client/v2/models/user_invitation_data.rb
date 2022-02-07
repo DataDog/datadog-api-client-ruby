@@ -112,6 +112,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param relationships [Object] Object to be assigned
+    # @!visibility private
     def relationships=(relationships)
       if @relationships.nil?
         fail ArgumentError, 'invalid value for "relationships", relationships cannot be nil.'
@@ -121,6 +122,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('UserInvitationsType', ['user_invitations'])
       unless validator.valid?(type)

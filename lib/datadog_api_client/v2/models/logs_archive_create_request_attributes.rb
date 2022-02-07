@@ -146,6 +146,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param destination [Object] Object to be assigned
+    # @!visibility private
     def destination=(destination)
       if @destination.nil?
         fail ArgumentError, 'invalid value for "destination", destination cannot be nil.'
@@ -155,6 +156,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param name [Object] Object to be assigned
+    # @!visibility private
     def name=(name)
       if @name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
@@ -164,6 +166,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param query [Object] Object to be assigned
+    # @!visibility private
     def query=(query)
       if @query.nil?
         fail ArgumentError, 'invalid value for "query", query cannot be nil.'

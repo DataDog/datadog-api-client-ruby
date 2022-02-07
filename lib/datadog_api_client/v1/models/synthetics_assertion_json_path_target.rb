@@ -128,6 +128,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param operator [Object] Object to be assigned
+    # @!visibility private
     def operator=(operator)
       validator = EnumAttributeValidator.new('SyntheticsAssertionJSONPathOperator', ['validatesJSONPath'])
       unless validator.valid?(operator)
@@ -141,6 +142,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('SyntheticsAssertionType', ['body', 'header', 'statusCode', 'certificate', 'responseTime', 'property', 'recordEvery', 'recordSome', 'tlsVersion', 'minTlsVersion', 'latency', 'packetLossPercentage', 'packetsReceived', 'networkHop', 'receivedMessage'])
       unless validator.valid?(type)

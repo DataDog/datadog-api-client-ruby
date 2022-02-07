@@ -123,6 +123,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param cell_type [Object] Object to be assigned
+    # @!visibility private
     def cell_type=(cell_type)
       validator = EnumAttributeValidator.new('IncidentTimelineCellMarkdownContentType', ['markdown'])
       unless validator.valid?(cell_type)
@@ -136,6 +137,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param content [Object] Object to be assigned
+    # @!visibility private
     def content=(content)
       if @content.nil?
         fail ArgumentError, 'invalid value for "content", content cannot be nil.'

@@ -169,6 +169,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param target [Object] Object to be assigned
+    # @!visibility private
     def target=(target)
       if @target.nil?
         fail ArgumentError, 'invalid value for "target", target cannot be nil.'
@@ -178,6 +179,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param template [Object] Object to be assigned
+    # @!visibility private
     def template=(template)
       if @template.nil?
         fail ArgumentError, 'invalid value for "template", template cannot be nil.'
@@ -187,6 +189,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('LogsStringBuilderProcessorType', ['string-builder-processor'])
       unless validator.valid?(type)

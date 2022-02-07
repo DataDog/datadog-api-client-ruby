@@ -260,6 +260,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param title [Object] Object to be assigned
+    # @!visibility private
     def title=(title)
       if @title.nil?
         fail ArgumentError, 'invalid value for "title", title cannot be nil.'

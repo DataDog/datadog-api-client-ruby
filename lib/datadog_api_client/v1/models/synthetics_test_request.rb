@@ -282,6 +282,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param dns_server_port [Object] Object to be assigned
+    # @!visibility private
     def dns_server_port=(dns_server_port)
       if !dns_server_port.nil? && dns_server_port > 65535
         fail ArgumentError, 'invalid value for "dns_server_port", must be smaller than or equal to 65535.'
@@ -294,6 +295,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param method [Object] Object to be assigned
+    # @!visibility private
     def method=(method)
       validator = EnumAttributeValidator.new('HTTPMethod', ['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'HEAD', 'OPTIONS'])
       unless validator.valid?(method)
@@ -304,6 +306,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param number_of_packets [Object] Object to be assigned
+    # @!visibility private
     def number_of_packets=(number_of_packets)
       if !number_of_packets.nil? && number_of_packets > 10
         fail ArgumentError, 'invalid value for "number_of_packets", must be smaller than or equal to 10.'

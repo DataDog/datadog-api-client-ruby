@@ -160,6 +160,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param categories [Object] Object to be assigned
+    # @!visibility private
     def categories=(categories)
       if @categories.nil?
         fail ArgumentError, 'invalid value for "categories", categories cannot be nil.'
@@ -169,6 +170,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param target [Object] Object to be assigned
+    # @!visibility private
     def target=(target)
       if @target.nil?
         fail ArgumentError, 'invalid value for "target", target cannot be nil.'
@@ -178,6 +180,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('LogsCategoryProcessorType', ['category-processor'])
       unless validator.valid?(type)

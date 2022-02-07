@@ -211,6 +211,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param message_display [Object] Object to be assigned
+    # @!visibility private
     def message_display=(message_display)
       validator = EnumAttributeValidator.new('WidgetMessageDisplay', ['inline', 'expanded-md', 'expanded-lg'])
       unless validator.valid?(message_display)
@@ -221,6 +222,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param title_align [Object] Object to be assigned
+    # @!visibility private
     def title_align=(title_align)
       validator = EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
       unless validator.valid?(title_align)
@@ -231,6 +233,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('LogStreamWidgetDefinitionType', ['log_stream'])
       unless validator.valid?(type)

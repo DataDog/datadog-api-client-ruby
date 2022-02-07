@@ -211,6 +211,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param config [Object] Object to be assigned
+    # @!visibility private
     def config=(config)
       if @config.nil?
         fail ArgumentError, 'invalid value for "config", config cannot be nil.'
@@ -220,6 +221,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param locations [Object] Object to be assigned
+    # @!visibility private
     def locations=(locations)
       if @locations.nil?
         fail ArgumentError, 'invalid value for "locations", locations cannot be nil.'
@@ -229,6 +231,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param name [Object] Object to be assigned
+    # @!visibility private
     def name=(name)
       if @name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
@@ -238,6 +241,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param options [Object] Object to be assigned
+    # @!visibility private
     def options=(options)
       if @options.nil?
         fail ArgumentError, 'invalid value for "options", options cannot be nil.'
@@ -247,6 +251,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param status [Object] Object to be assigned
+    # @!visibility private
     def status=(status)
       validator = EnumAttributeValidator.new('SyntheticsTestPauseStatus', ['live', 'paused'])
       unless validator.valid?(status)
@@ -257,6 +262,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param subtype [Object] Object to be assigned
+    # @!visibility private
     def subtype=(subtype)
       validator = EnumAttributeValidator.new('SyntheticsTestDetailsSubType', ['http', 'ssl', 'tcp', 'dns', 'multi', 'icmp', 'udp', 'websocket'])
       unless validator.valid?(subtype)
@@ -267,6 +273,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('SyntheticsAPITestType', ['api'])
       unless validator.valid?(type)

@@ -196,6 +196,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param category [Object] Object to be assigned
+    # @!visibility private
     def category=(category)
       validator = EnumAttributeValidator.new('SLOCorrectionCategory', ['Scheduled Maintenance', 'Outside Business Hours', 'Deployment', 'Other'])
       unless validator.valid?(category)

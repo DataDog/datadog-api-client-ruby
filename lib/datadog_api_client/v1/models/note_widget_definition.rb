@@ -186,6 +186,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param content [Object] Object to be assigned
+    # @!visibility private
     def content=(content)
       if @content.nil?
         fail ArgumentError, 'invalid value for "content", content cannot be nil.'
@@ -195,6 +196,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param text_align [Object] Object to be assigned
+    # @!visibility private
     def text_align=(text_align)
       validator = EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
       unless validator.valid?(text_align)
@@ -205,6 +207,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param tick_edge [Object] Object to be assigned
+    # @!visibility private
     def tick_edge=(tick_edge)
       validator = EnumAttributeValidator.new('WidgetTickEdge', ['bottom', 'left', 'right', 'top'])
       unless validator.valid?(tick_edge)
@@ -215,6 +218,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('NoteWidgetDefinitionType', ['note'])
       unless validator.valid?(type)
@@ -228,6 +232,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param vertical_align [Object] Object to be assigned
+    # @!visibility private
     def vertical_align=(vertical_align)
       validator = EnumAttributeValidator.new('WidgetVerticalAlign', ['center', 'top', 'bottom'])
       unless validator.valid?(vertical_align)

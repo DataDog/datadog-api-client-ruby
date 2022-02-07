@@ -162,6 +162,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param height [Object] Object to be assigned
+    # @!visibility private
     def height=(height)
       if @height.nil?
         fail ArgumentError, 'invalid value for "height", height cannot be nil.'
@@ -174,6 +175,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param width [Object] Object to be assigned
+    # @!visibility private
     def width=(width)
       if @width.nil?
         fail ArgumentError, 'invalid value for "width", width cannot be nil.'
@@ -186,6 +188,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param x [Object] Object to be assigned
+    # @!visibility private
     def x=(x)
       if @x.nil?
         fail ArgumentError, 'invalid value for "x", x cannot be nil.'
@@ -198,6 +201,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param y [Object] Object to be assigned
+    # @!visibility private
     def y=(y)
       if @y.nil?
         fail ArgumentError, 'invalid value for "y", y cannot be nil.'

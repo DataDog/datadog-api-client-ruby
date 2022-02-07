@@ -120,6 +120,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param metric_category [Object] Object to be assigned
+    # @!visibility private
     def metric_category=(metric_category)
       validator = EnumAttributeValidator.new('UsageMetricCategory', ['standard', 'custom'])
       unless validator.valid?(metric_category)

@@ -246,6 +246,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param check_type [Object] Object to be assigned
+    # @!visibility private
     def check_type=(check_type)
       validator = EnumAttributeValidator.new('SyntheticsCheckType', ['equals', 'notEquals', 'contains', 'notContains', 'startsWith', 'notStartsWith', 'greater', 'lower', 'greaterEquals', 'lowerEquals', 'matchRegex', 'between', 'isEmpty', 'notIsEmpty'])
       unless validator.valid?(check_type)
@@ -256,6 +257,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param playing_tab [Object] Object to be assigned
+    # @!visibility private
     def playing_tab=(playing_tab)
       validator = EnumAttributeValidator.new('SyntheticsPlayingTab', [-1, 0, 1, 2, 3])
       unless validator.valid?(playing_tab)
@@ -266,6 +268,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('SyntheticsStepType', ['assertCurrentUrl', 'assertElementAttribute', 'assertElementContent', 'assertElementPresent', 'assertEmail', 'assertFileDownload', 'assertFromJavascript', 'assertPageContains', 'assertPageLacks', 'click', 'extractFromJavascript', 'extractVariable', 'goToEmailLink', 'goToUrl', 'goToUrlAndMeasureTti', 'hover', 'playSubTest', 'pressKey', 'refresh', 'runApiTest', 'scroll', 'selectOption', 'typeText', 'uploadFiles', 'wait'])
       unless validator.valid?(type)

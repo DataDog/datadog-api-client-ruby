@@ -119,6 +119,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param dimension [Object] Object to be assigned
+    # @!visibility private
     def dimension=(dimension)
       validator = EnumAttributeValidator.new('ScatterplotDimension', ['x', 'y', 'radius', 'color'])
       unless validator.valid?(dimension)
@@ -132,6 +133,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param formula [Object] Object to be assigned
+    # @!visibility private
     def formula=(formula)
       if @formula.nil?
         fail ArgumentError, 'invalid value for "formula", formula cannot be nil.'

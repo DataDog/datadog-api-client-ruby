@@ -151,6 +151,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param exclusion_filters [Object] Object to be assigned
+    # @!visibility private
     def exclusion_filters=(exclusion_filters)
       if @exclusion_filters.nil?
         fail ArgumentError, 'invalid value for "exclusion_filters", exclusion_filters cannot be nil.'
@@ -160,6 +161,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param filtered_data_type [Object] Object to be assigned
+    # @!visibility private
     def filtered_data_type=(filtered_data_type)
       validator = EnumAttributeValidator.new('SecurityFilterFilteredDataType', ['logs'])
       unless validator.valid?(filtered_data_type)
@@ -173,6 +175,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param is_enabled [Object] Object to be assigned
+    # @!visibility private
     def is_enabled=(is_enabled)
       if @is_enabled.nil?
         fail ArgumentError, 'invalid value for "is_enabled", is_enabled cannot be nil.'
@@ -182,6 +185,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param name [Object] Object to be assigned
+    # @!visibility private
     def name=(name)
       if @name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
@@ -191,6 +195,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param query [Object] Object to be assigned
+    # @!visibility private
     def query=(query)
       if @query.nil?
         fail ArgumentError, 'invalid value for "query", query cannot be nil.'

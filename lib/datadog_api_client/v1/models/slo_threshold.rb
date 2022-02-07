@@ -146,6 +146,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param target [Object] Object to be assigned
+    # @!visibility private
     def target=(target)
       if @target.nil?
         fail ArgumentError, 'invalid value for "target", target cannot be nil.'
@@ -155,6 +156,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param timeframe [Object] Object to be assigned
+    # @!visibility private
     def timeframe=(timeframe)
       validator = EnumAttributeValidator.new('SLOTimeframe', ['7d', '30d', '90d', 'custom'])
       unless validator.valid?(timeframe)

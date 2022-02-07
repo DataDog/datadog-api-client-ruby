@@ -132,6 +132,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param detection_method [Object] Object to be assigned
+    # @!visibility private
     def detection_method=(detection_method)
       validator = EnumAttributeValidator.new('SecurityMonitoringRuleDetectionMethod', ['threshold', 'new_value', 'anomaly_detection'])
       unless validator.valid?(detection_method)
@@ -142,6 +143,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param evaluation_window [Object] Object to be assigned
+    # @!visibility private
     def evaluation_window=(evaluation_window)
       validator = EnumAttributeValidator.new('SecurityMonitoringRuleEvaluationWindow', [0, 60, 300, 600, 900, 1800, 3600, 7200])
       unless validator.valid?(evaluation_window)
@@ -152,6 +154,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param keep_alive [Object] Object to be assigned
+    # @!visibility private
     def keep_alive=(keep_alive)
       validator = EnumAttributeValidator.new('SecurityMonitoringRuleKeepAlive', [0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600])
       unless validator.valid?(keep_alive)
@@ -162,6 +165,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param max_signal_duration [Object] Object to be assigned
+    # @!visibility private
     def max_signal_duration=(max_signal_duration)
       validator = EnumAttributeValidator.new('SecurityMonitoringRuleMaxSignalDuration', [0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600, 43200, 86400])
       unless validator.valid?(max_signal_duration)

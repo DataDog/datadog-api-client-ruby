@@ -145,6 +145,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param assertions [Object] Object to be assigned
+    # @!visibility private
     def assertions=(assertions)
       if @assertions.nil?
         fail ArgumentError, 'invalid value for "assertions", assertions cannot be nil.'
@@ -154,6 +155,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param request [Object] Object to be assigned
+    # @!visibility private
     def request=(request)
       if @request.nil?
         fail ArgumentError, 'invalid value for "request", request cannot be nil.'

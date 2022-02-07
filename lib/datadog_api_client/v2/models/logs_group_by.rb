@@ -147,6 +147,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param facet [Object] Object to be assigned
+    # @!visibility private
     def facet=(facet)
       if @facet.nil?
         fail ArgumentError, 'invalid value for "facet", facet cannot be nil.'

@@ -102,6 +102,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param action [Object] Object to be assigned
+    # @!visibility private
     def action=(action)
       validator = EnumAttributeValidator.new('SecurityMonitoringFilterAction', ['require', 'suppress'])
       unless validator.valid?(action)

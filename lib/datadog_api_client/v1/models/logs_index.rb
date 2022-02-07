@@ -152,6 +152,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param filter [Object] Object to be assigned
+    # @!visibility private
     def filter=(filter)
       if @filter.nil?
         fail ArgumentError, 'invalid value for "filter", filter cannot be nil.'
@@ -161,6 +162,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param name [Object] Object to be assigned
+    # @!visibility private
     def name=(name)
       if @name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'

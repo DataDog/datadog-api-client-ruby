@@ -115,6 +115,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param email [Object] Object to be assigned
+    # @!visibility private
     def email=(email)
       if @email.nil?
         fail ArgumentError, 'invalid value for "email", email cannot be nil.'

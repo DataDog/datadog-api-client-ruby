@@ -156,6 +156,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param container [Object] Object to be assigned
+    # @!visibility private
     def container=(container)
       if @container.nil?
         fail ArgumentError, 'invalid value for "container", container cannot be nil.'
@@ -165,6 +166,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param integration [Object] Object to be assigned
+    # @!visibility private
     def integration=(integration)
       if @integration.nil?
         fail ArgumentError, 'invalid value for "integration", integration cannot be nil.'
@@ -174,6 +176,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param storage_account [Object] Object to be assigned
+    # @!visibility private
     def storage_account=(storage_account)
       if @storage_account.nil?
         fail ArgumentError, 'invalid value for "storage_account", storage_account cannot be nil.'
@@ -183,6 +186,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('LogsArchiveDestinationAzureType', ['azure'])
       unless validator.valid?(type)

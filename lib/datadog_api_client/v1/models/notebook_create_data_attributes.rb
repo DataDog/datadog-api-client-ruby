@@ -153,6 +153,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param cells [Object] Object to be assigned
+    # @!visibility private
     def cells=(cells)
       if @cells.nil?
         fail ArgumentError, 'invalid value for "cells", cells cannot be nil.'
@@ -162,6 +163,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param name [Object] Object to be assigned
+    # @!visibility private
     def name=(name)
       if @name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
@@ -177,6 +179,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param status [Object] Object to be assigned
+    # @!visibility private
     def status=(status)
       validator = EnumAttributeValidator.new('NotebookStatus', ['published'])
       unless validator.valid?(status)
@@ -187,6 +190,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param time [Object] Object to be assigned
+    # @!visibility private
     def time=(time)
       if @time.nil?
         fail ArgumentError, 'invalid value for "time", time cannot be nil.'

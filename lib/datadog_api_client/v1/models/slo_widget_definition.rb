@@ -188,6 +188,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param title_align [Object] Object to be assigned
+    # @!visibility private
     def title_align=(title_align)
       validator = EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
       unless validator.valid?(title_align)
@@ -198,6 +199,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('SLOWidgetDefinitionType', ['slo'])
       unless validator.valid?(type)
@@ -211,6 +213,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param view_mode [Object] Object to be assigned
+    # @!visibility private
     def view_mode=(view_mode)
       validator = EnumAttributeValidator.new('WidgetViewMode', ['overall', 'component', 'both'])
       unless validator.valid?(view_mode)
@@ -221,6 +224,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param view_type [Object] Object to be assigned
+    # @!visibility private
     def view_type=(view_type)
       if @view_type.nil?
         fail ArgumentError, 'invalid value for "view_type", view_type cannot be nil.'

@@ -132,6 +132,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param aggregator [Object] Object to be assigned
+    # @!visibility private
     def aggregator=(aggregator)
       validator = EnumAttributeValidator.new('FormulaAndFunctionMetricAggregation', ['avg', 'min', 'max', 'sum', 'last', 'area', 'l2norm', 'percentile'])
       unless validator.valid?(aggregator)
@@ -142,6 +143,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param data_source [Object] Object to be assigned
+    # @!visibility private
     def data_source=(data_source)
       validator = EnumAttributeValidator.new('FormulaAndFunctionMetricDataSource', ['metrics'])
       unless validator.valid?(data_source)
@@ -155,6 +157,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param name [Object] Object to be assigned
+    # @!visibility private
     def name=(name)
       if @name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
@@ -164,6 +167,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param query [Object] Object to be assigned
+    # @!visibility private
     def query=(query)
       if @query.nil?
         fail ArgumentError, 'invalid value for "query", query cannot be nil.'

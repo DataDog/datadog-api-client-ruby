@@ -110,6 +110,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param facet [Object] Object to be assigned
+    # @!visibility private
     def facet=(facet)
       if @facet.nil?
         fail ArgumentError, 'invalid value for "facet", facet cannot be nil.'
@@ -119,6 +120,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param value [Object] Object to be assigned
+    # @!visibility private
     def value=(value)
       if @value.nil?
         fail ArgumentError, 'invalid value for "value", value cannot be nil.'

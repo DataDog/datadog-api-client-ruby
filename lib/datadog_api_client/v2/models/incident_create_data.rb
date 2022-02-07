@@ -121,6 +121,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param attributes [Object] Object to be assigned
+    # @!visibility private
     def attributes=(attributes)
       if @attributes.nil?
         fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
@@ -130,6 +131,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('IncidentType', ['incidents'])
       unless validator.valid?(type)

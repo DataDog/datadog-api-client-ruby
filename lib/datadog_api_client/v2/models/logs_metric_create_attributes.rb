@@ -117,6 +117,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param compute [Object] Object to be assigned
+    # @!visibility private
     def compute=(compute)
       if @compute.nil?
         fail ArgumentError, 'invalid value for "compute", compute cannot be nil.'

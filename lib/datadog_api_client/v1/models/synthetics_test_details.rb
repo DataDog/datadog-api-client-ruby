@@ -209,6 +209,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param status [Object] Object to be assigned
+    # @!visibility private
     def status=(status)
       validator = EnumAttributeValidator.new('SyntheticsTestPauseStatus', ['live', 'paused'])
       unless validator.valid?(status)
@@ -219,6 +220,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param subtype [Object] Object to be assigned
+    # @!visibility private
     def subtype=(subtype)
       validator = EnumAttributeValidator.new('SyntheticsTestDetailsSubType', ['http', 'ssl', 'tcp', 'dns', 'multi', 'icmp', 'udp', 'websocket'])
       unless validator.valid?(subtype)
@@ -229,6 +231,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('SyntheticsTestDetailsType', ['api', 'browser'])
       unless validator.valid?(type)

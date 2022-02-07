@@ -152,6 +152,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param access_key [Object] Object to be assigned
+    # @!visibility private
     def access_key=(access_key)
       if @access_key.nil?
         fail ArgumentError, 'invalid value for "access_key", access_key cannot be nil.'
@@ -161,6 +162,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param secret_key [Object] Object to be assigned
+    # @!visibility private
     def secret_key=(secret_key)
       if @secret_key.nil?
         fail ArgumentError, 'invalid value for "secret_key", secret_key cannot be nil.'
@@ -170,6 +172,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('SyntheticsBasicAuthSigv4Type', ['sigv4'])
       unless validator.valid?(type)

@@ -125,6 +125,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param id [Object] Object to be assigned
+    # @!visibility private
     def id=(id)
       if @id.nil?
         fail ArgumentError, 'invalid value for "id", id cannot be nil.'
@@ -134,6 +135,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param message [Object] Object to be assigned
+    # @!visibility private
     def message=(message)
       if @message.nil?
         fail ArgumentError, 'invalid value for "message", message cannot be nil.'
@@ -143,6 +145,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param timeframe [Object] Object to be assigned
+    # @!visibility private
     def timeframe=(timeframe)
       validator = EnumAttributeValidator.new('SLOErrorTimeframe', ['7d', '30d', '90d', 'all'])
       unless validator.valid?(timeframe)

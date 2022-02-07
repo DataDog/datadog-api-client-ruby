@@ -121,6 +121,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param id [Object] Object to be assigned
+    # @!visibility private
     def id=(id)
       if @id.nil?
         fail ArgumentError, 'invalid value for "id", id cannot be nil.'
@@ -130,6 +131,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('MetricTagConfigurationType', ['manage_tags'])
       unless validator.valid?(type)

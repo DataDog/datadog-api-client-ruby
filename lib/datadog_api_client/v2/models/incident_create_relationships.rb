@@ -97,6 +97,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param commander [Object] Object to be assigned
+    # @!visibility private
     def commander=(commander)
       if @commander.nil?
         fail ArgumentError, 'invalid value for "commander", commander cannot be nil.'

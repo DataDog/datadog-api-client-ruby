@@ -97,6 +97,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param user [Object] Object to be assigned
+    # @!visibility private
     def user=(user)
       if @user.nil?
         fail ArgumentError, 'invalid value for "user", user cannot be nil.'

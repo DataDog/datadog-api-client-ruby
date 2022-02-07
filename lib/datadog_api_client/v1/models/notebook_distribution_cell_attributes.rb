@@ -127,6 +127,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param definition [Object] Object to be assigned
+    # @!visibility private
     def definition=(definition)
       if @definition.nil?
         fail ArgumentError, 'invalid value for "definition", definition cannot be nil.'
@@ -136,6 +137,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param graph_size [Object] Object to be assigned
+    # @!visibility private
     def graph_size=(graph_size)
       validator = EnumAttributeValidator.new('NotebookGraphSize', ['xs', 's', 'm', 'l', 'xl'])
       unless validator.valid?(graph_size)

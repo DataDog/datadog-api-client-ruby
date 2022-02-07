@@ -250,6 +250,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param change_type [Object] Object to be assigned
+    # @!visibility private
     def change_type=(change_type)
       validator = EnumAttributeValidator.new('WidgetChangeType', ['absolute', 'relative'])
       unless validator.valid?(change_type)
@@ -260,6 +261,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param compare_to [Object] Object to be assigned
+    # @!visibility private
     def compare_to=(compare_to)
       validator = EnumAttributeValidator.new('WidgetCompareTo', ['hour_before', 'day_before', 'week_before', 'month_before'])
       unless validator.valid?(compare_to)
@@ -270,6 +272,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param order_by [Object] Object to be assigned
+    # @!visibility private
     def order_by=(order_by)
       validator = EnumAttributeValidator.new('WidgetOrderBy', ['change', 'name', 'present', 'past'])
       unless validator.valid?(order_by)
@@ -280,6 +283,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param order_dir [Object] Object to be assigned
+    # @!visibility private
     def order_dir=(order_dir)
       validator = EnumAttributeValidator.new('WidgetSort', ['asc', 'desc'])
       unless validator.valid?(order_dir)
@@ -290,6 +294,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param response_format [Object] Object to be assigned
+    # @!visibility private
     def response_format=(response_format)
       validator = EnumAttributeValidator.new('FormulaAndFunctionResponseFormat', ['timeseries', 'scalar'])
       unless validator.valid?(response_format)

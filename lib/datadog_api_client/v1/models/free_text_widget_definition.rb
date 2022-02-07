@@ -139,6 +139,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param text [Object] Object to be assigned
+    # @!visibility private
     def text=(text)
       if @text.nil?
         fail ArgumentError, 'invalid value for "text", text cannot be nil.'
@@ -148,6 +149,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param text_align [Object] Object to be assigned
+    # @!visibility private
     def text_align=(text_align)
       validator = EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
       unless validator.valid?(text_align)
@@ -158,6 +160,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('FreeTextWidgetDefinitionType', ['free_text'])
       unless validator.valid?(type)

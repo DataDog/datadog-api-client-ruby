@@ -108,6 +108,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param limit [Object] Object to be assigned
+    # @!visibility private
     def limit=(limit)
       if !limit.nil? && limit > 1000
         fail ArgumentError, 'invalid value for "limit", must be smaller than or equal to 1000.'

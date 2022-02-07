@@ -169,6 +169,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param env [Object] Object to be assigned
+    # @!visibility private
     def env=(env)
       if @env.nil?
         fail ArgumentError, 'invalid value for "env", env cannot be nil.'
@@ -178,6 +179,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param name [Object] Object to be assigned
+    # @!visibility private
     def name=(name)
       if @name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
@@ -187,6 +189,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param primary_tag [Object] Object to be assigned
+    # @!visibility private
     def primary_tag=(primary_tag)
       if @primary_tag.nil?
         fail ArgumentError, 'invalid value for "primary_tag", primary_tag cannot be nil.'
@@ -196,6 +199,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param row_type [Object] Object to be assigned
+    # @!visibility private
     def row_type=(row_type)
       validator = EnumAttributeValidator.new('ApmStatsQueryRowType', ['service', 'resource', 'span'])
       unless validator.valid?(row_type)
@@ -209,6 +213,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param service [Object] Object to be assigned
+    # @!visibility private
     def service=(service)
       if @service.nil?
         fail ArgumentError, 'invalid value for "service", service cannot be nil.'

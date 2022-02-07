@@ -154,6 +154,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param compute [Object] Object to be assigned
+    # @!visibility private
     def compute=(compute)
       if @compute.nil?
         fail ArgumentError, 'invalid value for "compute", compute cannot be nil.'
@@ -163,6 +164,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param data_source [Object] Object to be assigned
+    # @!visibility private
     def data_source=(data_source)
       validator = EnumAttributeValidator.new('MonitorFormulaAndFunctionEventsDataSource', ['rum'])
       unless validator.valid?(data_source)
@@ -176,6 +178,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param name [Object] Object to be assigned
+    # @!visibility private
     def name=(name)
       if @name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'

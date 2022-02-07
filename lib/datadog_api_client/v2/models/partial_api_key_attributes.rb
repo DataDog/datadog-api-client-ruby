@@ -128,6 +128,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param last4 [Object] Object to be assigned
+    # @!visibility private
     def last4=(last4)
       if !last4.nil? && last4.to_s.length > 4
         fail ArgumentError, 'invalid value for "last4", the character length must be smaller than or equal to 4.'

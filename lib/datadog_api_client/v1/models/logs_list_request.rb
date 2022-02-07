@@ -151,6 +151,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param limit [Object] Object to be assigned
+    # @!visibility private
     def limit=(limit)
       if !limit.nil? && limit > 1000
         fail ArgumentError, 'invalid value for "limit", must be smaller than or equal to 1000.'
@@ -160,6 +161,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param sort [Object] Object to be assigned
+    # @!visibility private
     def sort=(sort)
       validator = EnumAttributeValidator.new('LogsSort', ['asc', 'desc'])
       unless validator.valid?(sort)
@@ -170,6 +172,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param time [Object] Object to be assigned
+    # @!visibility private
     def time=(time)
       if @time.nil?
         fail ArgumentError, 'invalid value for "time", time cannot be nil.'

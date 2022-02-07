@@ -190,6 +190,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param denominator [Object] Object to be assigned
+    # @!visibility private
     def denominator=(denominator)
       if @denominator.nil?
         fail ArgumentError, 'invalid value for "denominator", denominator cannot be nil.'
@@ -199,6 +200,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param interval [Object] Object to be assigned
+    # @!visibility private
     def interval=(interval)
       if @interval.nil?
         fail ArgumentError, 'invalid value for "interval", interval cannot be nil.'
@@ -208,6 +210,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param numerator [Object] Object to be assigned
+    # @!visibility private
     def numerator=(numerator)
       if @numerator.nil?
         fail ArgumentError, 'invalid value for "numerator", numerator cannot be nil.'
@@ -217,6 +220,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param query [Object] Object to be assigned
+    # @!visibility private
     def query=(query)
       if @query.nil?
         fail ArgumentError, 'invalid value for "query", query cannot be nil.'
@@ -226,6 +230,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param res_type [Object] Object to be assigned
+    # @!visibility private
     def res_type=(res_type)
       if @res_type.nil?
         fail ArgumentError, 'invalid value for "res_type", res_type cannot be nil.'
@@ -235,6 +240,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param resp_version [Object] Object to be assigned
+    # @!visibility private
     def resp_version=(resp_version)
       if @resp_version.nil?
         fail ArgumentError, 'invalid value for "resp_version", resp_version cannot be nil.'
@@ -244,6 +250,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param times [Object] Object to be assigned
+    # @!visibility private
     def times=(times)
       if @times.nil?
         fail ArgumentError, 'invalid value for "times", times cannot be nil.'

@@ -127,6 +127,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param aggregation [Object] Object to be assigned
+    # @!visibility private
     def aggregation=(aggregation)
       validator = EnumAttributeValidator.new('LogsAggregationFunction', ['count', 'cardinality', 'pc75', 'pc90', 'pc95', 'pc98', 'pc99', 'sum', 'min', 'max', 'avg'])
       unless validator.valid?(aggregation)
@@ -140,6 +141,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('LogsComputeType', ['timeseries', 'total'])
       unless validator.valid?(type)

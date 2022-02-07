@@ -186,6 +186,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param version [Object] Object to be assigned
+    # @!visibility private
     def version=(version)
       if !version.nil? && version > 2147483647
         fail ArgumentError, 'invalid value for "version", must be smaller than or equal to 2147483647.'

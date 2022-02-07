@@ -177,6 +177,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param comparator [Object] Object to be assigned
+    # @!visibility private
     def comparator=(comparator)
       validator = EnumAttributeValidator.new('WidgetComparator', ['>', '>=', '<', '<='])
       unless validator.valid?(comparator)
@@ -190,6 +191,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param palette [Object] Object to be assigned
+    # @!visibility private
     def palette=(palette)
       validator = EnumAttributeValidator.new('WidgetPalette', ['blue', 'custom_bg', 'custom_image', 'custom_text', 'gray_on_white', 'grey', 'green', 'orange', 'red', 'red_on_white', 'white_on_gray', 'white_on_green', 'green_on_white', 'white_on_red', 'white_on_yellow', 'yellow_on_white', 'black_on_light_yellow', 'black_on_light_green', 'black_on_light_red'])
       unless validator.valid?(palette)
@@ -203,6 +205,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param value [Object] Object to be assigned
+    # @!visibility private
     def value=(value)
       if @value.nil?
         fail ArgumentError, 'invalid value for "value", value cannot be nil.'

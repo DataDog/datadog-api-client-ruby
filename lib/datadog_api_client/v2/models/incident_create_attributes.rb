@@ -141,6 +141,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param customer_impacted [Object] Object to be assigned
+    # @!visibility private
     def customer_impacted=(customer_impacted)
       if @customer_impacted.nil?
         fail ArgumentError, 'invalid value for "customer_impacted", customer_impacted cannot be nil.'
@@ -150,6 +151,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param title [Object] Object to be assigned
+    # @!visibility private
     def title=(title)
       if @title.nil?
         fail ArgumentError, 'invalid value for "title", title cannot be nil.'

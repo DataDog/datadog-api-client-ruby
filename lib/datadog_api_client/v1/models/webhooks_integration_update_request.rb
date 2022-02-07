@@ -140,6 +140,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param encode_as [Object] Object to be assigned
+    # @!visibility private
     def encode_as=(encode_as)
       validator = EnumAttributeValidator.new('WebhooksIntegrationEncoding', ['json', 'form'])
       unless validator.valid?(encode_as)

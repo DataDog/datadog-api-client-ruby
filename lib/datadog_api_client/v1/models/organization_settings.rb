@@ -177,6 +177,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param saml_autocreate_access_role [Object] Object to be assigned
+    # @!visibility private
     def saml_autocreate_access_role=(saml_autocreate_access_role)
       validator = EnumAttributeValidator.new('AccessRole', ['st', 'adm', 'ro', 'ERROR'])
       unless validator.valid?(saml_autocreate_access_role)

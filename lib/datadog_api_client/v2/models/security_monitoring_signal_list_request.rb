@@ -111,6 +111,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param sort [Object] Object to be assigned
+    # @!visibility private
     def sort=(sort)
       validator = EnumAttributeValidator.new('SecurityMonitoringSignalsSort', ['timestamp', '-timestamp'])
       unless validator.valid?(sort)

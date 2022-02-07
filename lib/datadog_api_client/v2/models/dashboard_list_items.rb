@@ -108,6 +108,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param dashboards [Object] Object to be assigned
+    # @!visibility private
     def dashboards=(dashboards)
       if @dashboards.nil?
         fail ArgumentError, 'invalid value for "dashboards", dashboards cannot be nil.'

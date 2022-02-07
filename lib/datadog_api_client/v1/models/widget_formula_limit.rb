@@ -104,6 +104,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param order [Object] Object to be assigned
+    # @!visibility private
     def order=(order)
       validator = EnumAttributeValidator.new('QuerySortOrder', ['asc', 'desc'])
       unless validator.valid?(order)

@@ -110,6 +110,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param search [Object] Object to be assigned
+    # @!visibility private
     def search=(search)
       if @search.nil?
         fail ArgumentError, 'invalid value for "search", search cannot be nil.'
@@ -119,6 +120,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param tags_execution [Object] Object to be assigned
+    # @!visibility private
     def tags_execution=(tags_execution)
       if @tags_execution.nil?
         fail ArgumentError, 'invalid value for "tags_execution", tags_execution cannot be nil.'

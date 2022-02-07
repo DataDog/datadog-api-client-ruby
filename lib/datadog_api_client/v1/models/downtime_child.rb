@@ -262,6 +262,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param creator_id [Object] Object to be assigned
+    # @!visibility private
     def creator_id=(creator_id)
       if !creator_id.nil? && creator_id > 2147483647
         fail ArgumentError, 'invalid value for "creator_id", must be smaller than or equal to 2147483647.'
@@ -271,6 +272,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param downtime_type [Object] Object to be assigned
+    # @!visibility private
     def downtime_type=(downtime_type)
       if !downtime_type.nil? && downtime_type > 2147483647
         fail ArgumentError, 'invalid value for "downtime_type", must be smaller than or equal to 2147483647.'
@@ -280,6 +282,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param updater_id [Object] Object to be assigned
+    # @!visibility private
     def updater_id=(updater_id)
       if !updater_id.nil? && updater_id > 2147483647
         fail ArgumentError, 'invalid value for "updater_id", must be smaller than or equal to 2147483647.'

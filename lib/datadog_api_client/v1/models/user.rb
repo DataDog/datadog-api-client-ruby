@@ -149,6 +149,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param access_role [Object] Object to be assigned
+    # @!visibility private
     def access_role=(access_role)
       validator = EnumAttributeValidator.new('AccessRole', ['st', 'adm', 'ro', 'ERROR'])
       unless validator.valid?(access_role)

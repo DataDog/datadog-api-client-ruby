@@ -110,6 +110,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param column [Object] Object to be assigned
+    # @!visibility private
     def column=(column)
       if @column.nil?
         fail ArgumentError, 'invalid value for "column", column cannot be nil.'
@@ -119,6 +120,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param order [Object] Object to be assigned
+    # @!visibility private
     def order=(order)
       validator = EnumAttributeValidator.new('WidgetSort', ['asc', 'desc'])
       unless validator.valid?(order)

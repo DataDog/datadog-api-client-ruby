@@ -160,6 +160,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param metric_type [Object] Object to be assigned
+    # @!visibility private
     def metric_type=(metric_type)
       validator = EnumAttributeValidator.new('MetricTagConfigurationMetricTypes', ['gauge', 'count', 'rate', 'distribution'])
       unless validator.valid?(metric_type)

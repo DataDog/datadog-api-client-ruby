@@ -128,6 +128,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param expression [Object] Object to be assigned
+    # @!visibility private
     def expression=(expression)
       if @expression.nil?
         fail ArgumentError, 'invalid value for "expression", expression cannot be nil.'
@@ -137,6 +138,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param name [Object] Object to be assigned
+    # @!visibility private
     def name=(name)
       if @name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'

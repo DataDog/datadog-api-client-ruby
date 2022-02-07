@@ -127,6 +127,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param status [Object] Object to be assigned
+    # @!visibility private
     def status=(status)
       validator = EnumAttributeValidator.new('SecurityMonitoringRuleSeverity', ['info', 'low', 'medium', 'high', 'critical'])
       unless validator.valid?(status)

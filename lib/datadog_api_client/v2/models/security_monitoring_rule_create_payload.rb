@@ -206,6 +206,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param cases [Object] Object to be assigned
+    # @!visibility private
     def cases=(cases)
       if @cases.nil?
         fail ArgumentError, 'invalid value for "cases", cases cannot be nil.'
@@ -215,6 +216,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param is_enabled [Object] Object to be assigned
+    # @!visibility private
     def is_enabled=(is_enabled)
       if @is_enabled.nil?
         fail ArgumentError, 'invalid value for "is_enabled", is_enabled cannot be nil.'
@@ -224,6 +226,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param message [Object] Object to be assigned
+    # @!visibility private
     def message=(message)
       if @message.nil?
         fail ArgumentError, 'invalid value for "message", message cannot be nil.'
@@ -233,6 +236,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param name [Object] Object to be assigned
+    # @!visibility private
     def name=(name)
       if @name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
@@ -242,6 +246,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param options [Object] Object to be assigned
+    # @!visibility private
     def options=(options)
       if @options.nil?
         fail ArgumentError, 'invalid value for "options", options cannot be nil.'
@@ -251,6 +256,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param queries [Object] Object to be assigned
+    # @!visibility private
     def queries=(queries)
       if @queries.nil?
         fail ArgumentError, 'invalid value for "queries", queries cannot be nil.'
@@ -260,6 +266,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('SecurityMonitoringRuleTypeCreate', ['log_detection', 'workload_security'])
       unless validator.valid?(type)

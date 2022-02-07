@@ -163,6 +163,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param grok [Object] Object to be assigned
+    # @!visibility private
     def grok=(grok)
       if @grok.nil?
         fail ArgumentError, 'invalid value for "grok", grok cannot be nil.'
@@ -172,6 +173,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param samples [Object] Object to be assigned
+    # @!visibility private
     def samples=(samples)
       if !samples.nil? && samples.length > 5
         fail ArgumentError, 'invalid value for "samples", number of items must be less than or equal to 5.'
@@ -181,6 +183,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param source [Object] Object to be assigned
+    # @!visibility private
     def source=(source)
       if @source.nil?
         fail ArgumentError, 'invalid value for "source", source cannot be nil.'
@@ -190,6 +193,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('LogsGrokParserType', ['grok-parser'])
       unless validator.valid?(type)

@@ -260,6 +260,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param layout_type [Object] Object to be assigned
+    # @!visibility private
     def layout_type=(layout_type)
       validator = EnumAttributeValidator.new('DashboardLayoutType', ['ordered', 'free'])
       unless validator.valid?(layout_type)
@@ -273,6 +274,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param reflow_type [Object] Object to be assigned
+    # @!visibility private
     def reflow_type=(reflow_type)
       validator = EnumAttributeValidator.new('DashboardReflowType', ['auto', 'fixed'])
       unless validator.valid?(reflow_type)
@@ -283,6 +285,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param title [Object] Object to be assigned
+    # @!visibility private
     def title=(title)
       if @title.nil?
         fail ArgumentError, 'invalid value for "title", title cannot be nil.'
@@ -292,6 +295,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param widgets [Object] Object to be assigned
+    # @!visibility private
     def widgets=(widgets)
       if @widgets.nil?
         fail ArgumentError, 'invalid value for "widgets", widgets cannot be nil.'

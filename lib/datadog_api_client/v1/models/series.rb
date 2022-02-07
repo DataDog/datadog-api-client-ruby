@@ -154,6 +154,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param metric [Object] Object to be assigned
+    # @!visibility private
     def metric=(metric)
       if @metric.nil?
         fail ArgumentError, 'invalid value for "metric", metric cannot be nil.'
@@ -163,6 +164,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param points [Object] Object to be assigned
+    # @!visibility private
     def points=(points)
       if @points.nil?
         fail ArgumentError, 'invalid value for "points", points cannot be nil.'

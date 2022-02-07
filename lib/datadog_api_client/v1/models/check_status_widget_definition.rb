@@ -192,6 +192,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param check [Object] Object to be assigned
+    # @!visibility private
     def check=(check)
       if @check.nil?
         fail ArgumentError, 'invalid value for "check", check cannot be nil.'
@@ -201,6 +202,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param grouping [Object] Object to be assigned
+    # @!visibility private
     def grouping=(grouping)
       validator = EnumAttributeValidator.new('WidgetGrouping', ['check', 'cluster'])
       unless validator.valid?(grouping)
@@ -214,6 +216,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param title_align [Object] Object to be assigned
+    # @!visibility private
     def title_align=(title_align)
       validator = EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
       unless validator.valid?(title_align)
@@ -224,6 +227,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('CheckStatusWidgetDefinitionType', ['check_status'])
       unless validator.valid?(type)

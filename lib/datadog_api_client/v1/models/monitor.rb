@@ -251,6 +251,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param overall_state [Object] Object to be assigned
+    # @!visibility private
     def overall_state=(overall_state)
       validator = EnumAttributeValidator.new('MonitorOverallStates', ['Alert', 'Ignored', 'No Data', 'OK', 'Skipped', 'Unknown', 'Warn'])
       unless validator.valid?(overall_state)
@@ -261,6 +262,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param priority [Object] Object to be assigned
+    # @!visibility private
     def priority=(priority)
       if !priority.nil? && priority > 5
         fail ArgumentError, 'invalid value for "priority", must be smaller than or equal to 5.'
@@ -273,6 +275,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param query [Object] Object to be assigned
+    # @!visibility private
     def query=(query)
       if @query.nil?
         fail ArgumentError, 'invalid value for "query", query cannot be nil.'
@@ -282,6 +285,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('MonitorType', ['composite', 'event alert', 'log alert', 'metric alert', 'process alert', 'query alert', 'rum alert', 'service check', 'synthetics alert', 'trace-analytics alert', 'slo alert', 'event-v2 alert', 'audit alert', 'ci-pipelines alert'])
       unless validator.valid?(type)

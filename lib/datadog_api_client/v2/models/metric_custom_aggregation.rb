@@ -110,6 +110,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param space [Object] Object to be assigned
+    # @!visibility private
     def space=(space)
       validator = EnumAttributeValidator.new('MetricCustomSpaceAggregation', ['avg', 'max', 'min', 'sum'])
       unless validator.valid?(space)
@@ -123,6 +124,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param time [Object] Object to be assigned
+    # @!visibility private
     def time=(time)
       validator = EnumAttributeValidator.new('MetricCustomTimeAggregation', ['avg', 'count', 'max', 'min', 'sum'])
       unless validator.valid?(time)

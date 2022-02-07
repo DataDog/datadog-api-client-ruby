@@ -97,6 +97,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param service_key [Object] Object to be assigned
+    # @!visibility private
     def service_key=(service_key)
       if @service_key.nil?
         fail ArgumentError, 'invalid value for "service_key", service_key cannot be nil.'

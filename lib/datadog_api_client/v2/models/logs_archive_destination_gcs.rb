@@ -134,6 +134,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param bucket [Object] Object to be assigned
+    # @!visibility private
     def bucket=(bucket)
       if @bucket.nil?
         fail ArgumentError, 'invalid value for "bucket", bucket cannot be nil.'
@@ -143,6 +144,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param integration [Object] Object to be assigned
+    # @!visibility private
     def integration=(integration)
       if @integration.nil?
         fail ArgumentError, 'invalid value for "integration", integration cannot be nil.'
@@ -152,6 +154,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('LogsArchiveDestinationGCSType', ['gcs'])
       unless validator.valid?(type)

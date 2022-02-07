@@ -105,6 +105,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('IncidentFieldAttributesSingleValueType', ['dropdown', 'textbox'])
       unless validator.valid?(type)

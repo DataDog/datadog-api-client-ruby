@@ -245,6 +245,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('SecurityMonitoringRuleTypeRead', ['log_detection', 'infrastructure_configuration', 'workload_security', 'cloud_configuration'])
       unless validator.valid?(type)

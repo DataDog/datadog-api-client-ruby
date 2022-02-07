@@ -126,6 +126,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param interval [Object] Object to be assigned
+    # @!visibility private
     def interval=(interval)
       if @interval.nil?
         fail ArgumentError, 'invalid value for "interval", interval cannot be nil.'
@@ -135,6 +136,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param max [Object] Object to be assigned
+    # @!visibility private
     def max=(max)
       if @max.nil?
         fail ArgumentError, 'invalid value for "max", max cannot be nil.'
@@ -144,6 +146,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param min [Object] Object to be assigned
+    # @!visibility private
     def min=(min)
       if @min.nil?
         fail ArgumentError, 'invalid value for "min", min cannot be nil.'

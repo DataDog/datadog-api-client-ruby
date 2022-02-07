@@ -124,6 +124,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param is_secret [Object] Object to be assigned
+    # @!visibility private
     def is_secret=(is_secret)
       if @is_secret.nil?
         fail ArgumentError, 'invalid value for "is_secret", is_secret cannot be nil.'
@@ -133,6 +134,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param name [Object] Object to be assigned
+    # @!visibility private
     def name=(name)
       if @name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
@@ -142,6 +144,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param value [Object] Object to be assigned
+    # @!visibility private
     def value=(value)
       if @value.nil?
         fail ArgumentError, 'invalid value for "value", value cannot be nil.'

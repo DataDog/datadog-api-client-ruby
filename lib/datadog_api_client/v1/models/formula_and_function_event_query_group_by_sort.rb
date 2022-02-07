@@ -117,6 +117,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param aggregation [Object] Object to be assigned
+    # @!visibility private
     def aggregation=(aggregation)
       validator = EnumAttributeValidator.new('FormulaAndFunctionEventAggregation', ['count', 'cardinality', 'median', 'pc75', 'pc90', 'pc95', 'pc98', 'pc99', 'sum', 'min', 'max', 'avg'])
       unless validator.valid?(aggregation)
@@ -130,6 +131,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param order [Object] Object to be assigned
+    # @!visibility private
     def order=(order)
       validator = EnumAttributeValidator.new('QuerySortOrder', ['asc', 'desc'])
       unless validator.valid?(order)

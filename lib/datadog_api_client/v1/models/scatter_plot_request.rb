@@ -174,6 +174,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param aggregator [Object] Object to be assigned
+    # @!visibility private
     def aggregator=(aggregator)
       validator = EnumAttributeValidator.new('ScatterplotWidgetAggregator', ['avg', 'last', 'max', 'min', 'sum'])
       unless validator.valid?(aggregator)

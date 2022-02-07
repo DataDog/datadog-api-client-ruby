@@ -202,6 +202,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param data_source [Object] Object to be assigned
+    # @!visibility private
     def data_source=(data_source)
       validator = EnumAttributeValidator.new('FormulaAndFunctionApmDependencyStatsDataSource', ['apm_dependency_stats'])
       unless validator.valid?(data_source)
@@ -215,6 +216,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param env [Object] Object to be assigned
+    # @!visibility private
     def env=(env)
       if @env.nil?
         fail ArgumentError, 'invalid value for "env", env cannot be nil.'
@@ -224,6 +226,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param name [Object] Object to be assigned
+    # @!visibility private
     def name=(name)
       if @name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
@@ -233,6 +236,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param operation_name [Object] Object to be assigned
+    # @!visibility private
     def operation_name=(operation_name)
       if @operation_name.nil?
         fail ArgumentError, 'invalid value for "operation_name", operation_name cannot be nil.'
@@ -242,6 +246,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param resource_name [Object] Object to be assigned
+    # @!visibility private
     def resource_name=(resource_name)
       if @resource_name.nil?
         fail ArgumentError, 'invalid value for "resource_name", resource_name cannot be nil.'
@@ -251,6 +256,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param service [Object] Object to be assigned
+    # @!visibility private
     def service=(service)
       if @service.nil?
         fail ArgumentError, 'invalid value for "service", service cannot be nil.'
@@ -260,6 +266,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param stat [Object] Object to be assigned
+    # @!visibility private
     def stat=(stat)
       validator = EnumAttributeValidator.new('FormulaAndFunctionApmDependencyStatName', ['avg_duration', 'avg_root_duration', 'avg_spans_per_trace', 'error_rate', 'pct_exec_time', 'pct_of_traces', 'total_traces_count'])
       unless validator.valid?(stat)

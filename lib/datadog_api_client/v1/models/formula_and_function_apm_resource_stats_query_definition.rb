@@ -196,6 +196,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param data_source [Object] Object to be assigned
+    # @!visibility private
     def data_source=(data_source)
       validator = EnumAttributeValidator.new('FormulaAndFunctionApmResourceStatsDataSource', ['apm_resource_stats'])
       unless validator.valid?(data_source)
@@ -209,6 +210,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param env [Object] Object to be assigned
+    # @!visibility private
     def env=(env)
       if @env.nil?
         fail ArgumentError, 'invalid value for "env", env cannot be nil.'
@@ -218,6 +220,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param name [Object] Object to be assigned
+    # @!visibility private
     def name=(name)
       if @name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
@@ -227,6 +230,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param service [Object] Object to be assigned
+    # @!visibility private
     def service=(service)
       if @service.nil?
         fail ArgumentError, 'invalid value for "service", service cannot be nil.'
@@ -236,6 +240,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param stat [Object] Object to be assigned
+    # @!visibility private
     def stat=(stat)
       validator = EnumAttributeValidator.new('FormulaAndFunctionApmResourceStatName', ['errors', 'error_rate', 'hits', 'latency_avg', 'latency_max', 'latency_p50', 'latency_p75', 'latency_p90', 'latency_p95', 'latency_p99'])
       unless validator.valid?(stat)

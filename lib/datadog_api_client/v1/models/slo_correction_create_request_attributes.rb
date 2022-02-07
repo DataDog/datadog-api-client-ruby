@@ -169,6 +169,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param category [Object] Object to be assigned
+    # @!visibility private
     def category=(category)
       validator = EnumAttributeValidator.new('SLOCorrectionCategory', ['Scheduled Maintenance', 'Outside Business Hours', 'Deployment', 'Other'])
       unless validator.valid?(category)
@@ -182,6 +183,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param slo_id [Object] Object to be assigned
+    # @!visibility private
     def slo_id=(slo_id)
       if @slo_id.nil?
         fail ArgumentError, 'invalid value for "slo_id", slo_id cannot be nil.'
@@ -191,6 +193,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param start [Object] Object to be assigned
+    # @!visibility private
     def start=(start)
       if @start.nil?
         fail ArgumentError, 'invalid value for "start", start cannot be nil.'

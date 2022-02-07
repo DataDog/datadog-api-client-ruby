@@ -246,6 +246,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param display_format [Object] Object to be assigned
+    # @!visibility private
     def display_format=(display_format)
       validator = EnumAttributeValidator.new('WidgetServiceSummaryDisplayFormat', ['one_column', 'two_column', 'three_column'])
       unless validator.valid?(display_format)
@@ -256,6 +257,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param env [Object] Object to be assigned
+    # @!visibility private
     def env=(env)
       if @env.nil?
         fail ArgumentError, 'invalid value for "env", env cannot be nil.'
@@ -265,6 +267,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param service [Object] Object to be assigned
+    # @!visibility private
     def service=(service)
       if @service.nil?
         fail ArgumentError, 'invalid value for "service", service cannot be nil.'
@@ -274,6 +277,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param size_format [Object] Object to be assigned
+    # @!visibility private
     def size_format=(size_format)
       validator = EnumAttributeValidator.new('WidgetSizeFormat', ['small', 'medium', 'large'])
       unless validator.valid?(size_format)
@@ -284,6 +288,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param span_name [Object] Object to be assigned
+    # @!visibility private
     def span_name=(span_name)
       if @span_name.nil?
         fail ArgumentError, 'invalid value for "span_name", span_name cannot be nil.'
@@ -293,6 +298,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param title_align [Object] Object to be assigned
+    # @!visibility private
     def title_align=(title_align)
       validator = EnumAttributeValidator.new('WidgetTextAlign', ['center', 'left', 'right'])
       unless validator.valid?(title_align)
@@ -303,6 +309,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('ServiceSummaryWidgetDefinitionType', ['trace_service'])
       unless validator.valid?(type)

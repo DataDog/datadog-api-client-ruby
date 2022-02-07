@@ -112,6 +112,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('IFrameWidgetDefinitionType', ['iframe'])
       unless validator.valid?(type)
@@ -125,6 +126,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param url [Object] Object to be assigned
+    # @!visibility private
     def url=(url)
       if @url.nil?
         fail ArgumentError, 'invalid value for "url", url cannot be nil.'

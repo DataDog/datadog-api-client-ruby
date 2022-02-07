@@ -229,6 +229,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param conditional_formats [Object] Object to be assigned
+    # @!visibility private
     def conditional_formats=(conditional_formats)
       if !conditional_formats.nil? && conditional_formats.length < 1
         fail ArgumentError, 'invalid value for "conditional_formats", number of items must be greater than or equal to 1.'
@@ -238,6 +239,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param response_format [Object] Object to be assigned
+    # @!visibility private
     def response_format=(response_format)
       validator = EnumAttributeValidator.new('FormulaAndFunctionResponseFormat', ['timeseries', 'scalar'])
       unless validator.valid?(response_format)

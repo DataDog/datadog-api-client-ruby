@@ -110,6 +110,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param query [Object] Object to be assigned
+    # @!visibility private
     def query=(query)
       if @query.nil?
         fail ArgumentError, 'invalid value for "query", query cannot be nil.'
@@ -119,6 +120,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param request_type [Object] Object to be assigned
+    # @!visibility private
     def request_type=(request_type)
       validator = EnumAttributeValidator.new('FunnelRequestType', ['funnel'])
       unless validator.valid?(request_type)

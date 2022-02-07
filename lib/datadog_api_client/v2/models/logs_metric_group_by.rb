@@ -106,6 +106,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param path [Object] Object to be assigned
+    # @!visibility private
     def path=(path)
       if @path.nil?
         fail ArgumentError, 'invalid value for "path", path cannot be nil.'

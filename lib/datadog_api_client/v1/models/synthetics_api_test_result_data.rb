@@ -166,6 +166,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param event_type [Object] Object to be assigned
+    # @!visibility private
     def event_type=(event_type)
       validator = EnumAttributeValidator.new('SyntheticsTestProcessStatus', ['not_scheduled', 'scheduled', 'started', 'finished', 'finished_with_error'])
       unless validator.valid?(event_type)

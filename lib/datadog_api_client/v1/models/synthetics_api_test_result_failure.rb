@@ -102,6 +102,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param code [Object] Object to be assigned
+    # @!visibility private
     def code=(code)
       validator = EnumAttributeValidator.new('SyntheticsApiTestFailureCode', ['BODY_TOO_LARGE', 'DENIED', 'TOO_MANY_REDIRECTS', 'AUTHENTICATION_ERROR', 'DECRYPTION', 'INVALID_CHAR_IN_HEADER', 'HEADER_TOO_LARGE', 'HEADERS_INCOMPATIBLE_CONTENT_LENGTH', 'INVALID_REQUEST', 'REQUIRES_UPDATE', 'UNESCAPED_CHARACTERS_IN_REQUEST_PATH', 'MALFORMED_RESPONSE', 'INCORRECT_ASSERTION', 'CONNREFUSED', 'CONNRESET', 'DNS', 'HOSTUNREACH', 'NETUNREACH', 'TIMEOUT', 'SSL', 'OCSP', 'INVALID_TEST', 'TUNNEL', 'WEBSOCKET', 'UNKNOWN', 'INTERNAL_ERROR'])
       unless validator.valid?(code)

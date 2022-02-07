@@ -125,6 +125,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param password [Object] Object to be assigned
+    # @!visibility private
     def password=(password)
       if @password.nil?
         fail ArgumentError, 'invalid value for "password", password cannot be nil.'
@@ -134,6 +135,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('SyntheticsBasicAuthWebType', ['web'])
       unless validator.valid?(type)
@@ -147,6 +149,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param username [Object] Object to be assigned
+    # @!visibility private
     def username=(username)
       if @username.nil?
         fail ArgumentError, 'invalid value for "username", username cannot be nil.'

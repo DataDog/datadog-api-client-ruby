@@ -191,6 +191,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('SLOType', ['metric', 'monitor'])
       unless validator.valid?(type)
@@ -201,6 +202,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param type_id [Object] Object to be assigned
+    # @!visibility private
     def type_id=(type_id)
       validator = EnumAttributeValidator.new('SLOTypeNumeric', [0, 1])
       unless validator.valid?(type_id)

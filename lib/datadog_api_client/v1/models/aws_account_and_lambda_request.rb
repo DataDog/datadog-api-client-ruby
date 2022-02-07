@@ -110,6 +110,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param account_id [Object] Object to be assigned
+    # @!visibility private
     def account_id=(account_id)
       if @account_id.nil?
         fail ArgumentError, 'invalid value for "account_id", account_id cannot be nil.'
@@ -119,6 +120,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param lambda_arn [Object] Object to be assigned
+    # @!visibility private
     def lambda_arn=(lambda_arn)
       if @lambda_arn.nil?
         fail ArgumentError, 'invalid value for "lambda_arn", lambda_arn cannot be nil.'

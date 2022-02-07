@@ -143,6 +143,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param aggregation [Object] Object to be assigned
+    # @!visibility private
     def aggregation=(aggregation)
       validator = EnumAttributeValidator.new('SecurityMonitoringRuleQueryAggregation', ['count', 'cardinality', 'sum', 'max', 'new_value'])
       unless validator.valid?(aggregation)

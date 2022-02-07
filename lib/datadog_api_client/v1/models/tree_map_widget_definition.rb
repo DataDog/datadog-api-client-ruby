@@ -160,6 +160,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param color_by [Object] Object to be assigned
+    # @!visibility private
     def color_by=(color_by)
       validator = EnumAttributeValidator.new('TreeMapColorBy', ['user'])
       unless validator.valid?(color_by)
@@ -170,6 +171,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param group_by [Object] Object to be assigned
+    # @!visibility private
     def group_by=(group_by)
       validator = EnumAttributeValidator.new('TreeMapGroupBy', ['user', 'family', 'process'])
       unless validator.valid?(group_by)
@@ -180,6 +182,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param requests [Object] Object to be assigned
+    # @!visibility private
     def requests=(requests)
       if @requests.nil?
         fail ArgumentError, 'invalid value for "requests", requests cannot be nil.'
@@ -195,6 +198,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param size_by [Object] Object to be assigned
+    # @!visibility private
     def size_by=(size_by)
       validator = EnumAttributeValidator.new('TreeMapSizeBy', ['pct_cpu', 'pct_mem'])
       unless validator.valid?(size_by)
@@ -205,6 +209,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('TreeMapWidgetDefinitionType', ['treemap'])
       unless validator.valid?(type)

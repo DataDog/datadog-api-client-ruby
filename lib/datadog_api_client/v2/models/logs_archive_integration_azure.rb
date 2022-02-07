@@ -110,6 +110,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param client_id [Object] Object to be assigned
+    # @!visibility private
     def client_id=(client_id)
       if @client_id.nil?
         fail ArgumentError, 'invalid value for "client_id", client_id cannot be nil.'
@@ -119,6 +120,7 @@ module DatadogAPIClient::V2
 
     # Custom attribute writer method with validation
     # @param tenant_id [Object] Object to be assigned
+    # @!visibility private
     def tenant_id=(tenant_id)
       if @tenant_id.nil?
         fail ArgumentError, 'invalid value for "tenant_id", tenant_id cannot be nil.'

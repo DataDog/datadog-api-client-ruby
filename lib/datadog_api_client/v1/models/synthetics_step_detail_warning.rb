@@ -110,6 +110,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param message [Object] Object to be assigned
+    # @!visibility private
     def message=(message)
       if @message.nil?
         fail ArgumentError, 'invalid value for "message", message cannot be nil.'
@@ -119,6 +120,7 @@ module DatadogAPIClient::V1
 
     # Custom attribute writer method with validation
     # @param type [Object] Object to be assigned
+    # @!visibility private
     def type=(type)
       validator = EnumAttributeValidator.new('SyntheticsWarningType', ['user_locator'])
       unless validator.valid?(type)
