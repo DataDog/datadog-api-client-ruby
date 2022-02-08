@@ -1,6 +1,6 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
-batch_id = 'batch_id_example' # String | The ID of the batch.
+batch_id = "batch_id_example" # String | The ID of the batch.
 
 begin
   # Get details of batch

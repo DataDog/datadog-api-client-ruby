@@ -1,7 +1,7 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::DowntimesAPI.new
 opts = {
-  current_only: true # Boolean | Only return downtimes that are active when the request is made.
+  current_only: true, # Boolean | Only return downtimes that are active when the request is made.
 }
 
 begin
