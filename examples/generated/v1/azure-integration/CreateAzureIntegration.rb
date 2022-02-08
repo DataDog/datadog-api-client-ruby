@@ -1,4 +1,4 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::AzureIntegrationAPI.new
 body = DatadogAPIClient::V1::AzureAccount.new # AzureAccount | Create a Datadog-Azure integration for your Datadog account request body.
 

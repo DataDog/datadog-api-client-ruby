@@ -1,7 +1,7 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::LogsArchivesAPI.new
-archive_id = "archive_id_example" # String | The ID of the archive.
-body = DatadogAPIClient::V2::RelationshipToRole.new # RelationshipToRole |
+archive_id = 'archive_id_example' # String | The ID of the archive.
+body = DatadogAPIClient::V2::RelationshipToRole.new # RelationshipToRole | 
 
 begin
   # Grant role to an archive

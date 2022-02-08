@@ -1,4 +1,4 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::DashboardListsAPI.new
 list_id = 789 # Integer | ID of the dashboard list to delete.
 

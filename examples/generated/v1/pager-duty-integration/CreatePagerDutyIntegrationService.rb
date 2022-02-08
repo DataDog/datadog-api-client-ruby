@@ -1,6 +1,6 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::PagerDutyIntegrationAPI.new
-body = DatadogAPIClient::V1::PagerDutyService.new({ service_key: "service_key_example", service_name: "service_name_example" }) # PagerDutyService | Create a new service object request body.
+body = DatadogAPIClient::V1::PagerDutyService.new({service_key: 'service_key_example', service_name: 'service_name_example'}) # PagerDutyService | Create a new service object request body.
 
 begin
   # Create a new service object
