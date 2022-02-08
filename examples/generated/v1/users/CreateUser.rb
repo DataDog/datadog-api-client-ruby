@@ -1,4 +1,4 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::UsersAPI.new
 body = DatadogAPIClient::V1::User.new # User | User object that needs to be created.
 
