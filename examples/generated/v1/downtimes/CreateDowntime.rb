@@ -1,4 +1,4 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::DowntimesAPI.new
 body = DatadogAPIClient::V1::Downtime.new # Downtime | Schedule a downtime request body.
 

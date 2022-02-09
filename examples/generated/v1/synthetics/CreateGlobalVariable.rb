@@ -1,6 +1,6 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
-body = DatadogAPIClient::V1::SyntheticsGlobalVariable.new({description: 'Example description', name: 'MY_VARIABLE', tags: ['tags_example'], value: DatadogAPIClient::V1::SyntheticsGlobalVariableValue.new}) # SyntheticsGlobalVariable | Details of the global variable to create.
+body = DatadogAPIClient::V1::SyntheticsGlobalVariable.new({ description: "Example description", name: "MY_VARIABLE", tags: ["tags_example"], value: DatadogAPIClient::V1::SyntheticsGlobalVariableValue.new }) # SyntheticsGlobalVariable | Details of the global variable to create.
 
 begin
   # Create a global variable

@@ -1,6 +1,6 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::MonitorsAPI.new
-body = DatadogAPIClient::V1::Monitor.new({query: 'avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100', type: DatadogAPIClient::V1::MonitorType::COMPOSITE}) # Monitor | Monitor request object
+body = DatadogAPIClient::V1::Monitor.new({ query: "avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100", type: DatadogAPIClient::V1::MonitorType::COMPOSITE }) # Monitor | Monitor request object
 
 begin
   # Validate a monitor
