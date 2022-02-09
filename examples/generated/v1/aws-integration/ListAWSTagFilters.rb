@@ -1,6 +1,6 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::AWSIntegrationAPI.new
-account_id = 'account_id_example' # String | Only return AWS filters that matches this `account_id`.
+account_id = "account_id_example" # String | Only return AWS filters that matches this `account_id`.
 
 begin
   # Get all AWS tag filters

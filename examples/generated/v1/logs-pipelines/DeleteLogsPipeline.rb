@@ -1,6 +1,6 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::LogsPipelinesAPI.new
-pipeline_id = 'pipeline_id_example' # String | ID of the pipeline to delete.
+pipeline_id = "pipeline_id_example" # String | ID of the pipeline to delete.
 
 begin
   # Delete a pipeline

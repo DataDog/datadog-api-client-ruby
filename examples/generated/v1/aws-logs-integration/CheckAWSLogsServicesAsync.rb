@@ -1,6 +1,6 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::AWSLogsIntegrationAPI.new
-body = DatadogAPIClient::V1::AWSLogsServicesRequest.new({account_id: '1234567', services: ['services_example']}) # AWSLogsServicesRequest | Check AWS Logs Async Services request body.
+body = DatadogAPIClient::V1::AWSLogsServicesRequest.new({ account_id: "1234567", services: ["services_example"] }) # AWSLogsServicesRequest | Check AWS Logs Async Services request body.
 
 begin
   # Check permissions for log services
