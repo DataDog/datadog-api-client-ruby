@@ -1,6 +1,6 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::MetricsAPI.new
-metric_name = 'dist.http.endpoint.request' # String | The name of the metric.
+metric_name = "dist.http.endpoint.request" # String | The name of the metric.
 
 begin
   # List tags by metric name

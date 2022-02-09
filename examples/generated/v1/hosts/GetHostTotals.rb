@@ -1,7 +1,7 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::HostsAPI.new
 opts = {
-  from: 789 # Integer | Number of seconds from which you want to get total number of active hosts.
+  from: 789, # Integer | Number of seconds from which you want to get total number of active hosts.
 }
 
 begin

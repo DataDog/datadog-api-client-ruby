@@ -1,8 +1,8 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
 opts = {
   page_size: 10, # Integer | Size for a given page.
-  page_number: 0 # Integer | Specific page number to return.
+  page_number: 0, # Integer | Specific page number to return.
 }
 
 begin
