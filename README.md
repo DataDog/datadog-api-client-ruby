@@ -152,5 +152,5 @@ For contributing, checkout the [development guide][development docs].
 support@datadoghq.com
 
 [api docs]: https://docs.datadoghq.com/api/
-[github pages ]: https://datadoghq.dev/datadog-api-client-ruby/
+[github pages]: https://datadoghq.dev/datadog-api-client-ruby/
 [development docs]: https://github.com/DataDog/datadog-api-client-ruby/blob/master/DEVELOPMENT.md
