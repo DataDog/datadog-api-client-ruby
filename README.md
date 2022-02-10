@@ -141,18 +141,16 @@ client = DatadogAPIClient::V1::APIClient.new(config)
 
 ## Documentation
 
-If you are interested in general documentation for all public Datadog API endpoints, checkout the [general documentation site](api docs).
+If you are interested in general documentation for all public Datadog API endpoints, checkout the [general documentation site][api docs].
 
-<!-- FIXME create gh-pages with generated documentation
-Developer documentation for supported endpoints and models is divided based on API version prefix to [`v1`](/docs/v1/README.md) and [`v2`](/docs/v2/README.md).
--->
+Developer documentation for supported endpoints and models is available in [Github pages][github pages].
 
-For contributing, checkout the [contribution guidelines](contribution docs) and [development guide][development docs].
+For contributing, checkout the [development guide][development docs].
 
 ## Author
 
 support@datadoghq.com
 
 [api docs]: https://docs.datadoghq.com/api/
-[contribution docs]: https://github.com/DataDog/datadog-api-client-ruby/blob/master/CONTRIBUTING.md
+[github pages ]: https://datadoghq.dev/datadog-api-client-ruby/
 [development docs]: https://github.com/DataDog/datadog-api-client-ruby/blob/master/DEVELOPMENT.md
