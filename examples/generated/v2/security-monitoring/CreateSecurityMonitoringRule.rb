@@ -1,6 +1,6 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
-body = DatadogAPIClient::V2::SecurityMonitoringRuleCreatePayload.new({ cases: [DatadogAPIClient::V2::SecurityMonitoringRuleCaseCreate.new({ status: DatadogAPIClient::V2::SecurityMonitoringRuleSeverity::INFO })], is_enabled: true, message: "message_example", name: "My security monitoring rule.", options: DatadogAPIClient::V2::SecurityMonitoringRuleOptions.new, queries: [DatadogAPIClient::V2::SecurityMonitoringRuleQueryCreate.new({ query: "a > 3" })] }) # SecurityMonitoringRuleCreatePayload |
+body = DatadogAPIClient::V2::SecurityMonitoringRuleCreatePayload.new({cases: [DatadogAPIClient::V2::SecurityMonitoringRuleCaseCreate.new({status: DatadogAPIClient::V2::SecurityMonitoringRuleSeverity::INFO})], is_enabled: true, message: 'message_example', name: 'My security monitoring rule.', options: DatadogAPIClient::V2::SecurityMonitoringRuleOptions.new, queries: [DatadogAPIClient::V2::SecurityMonitoringRuleQueryCreate.new({query: 'a > 3'})]}) # SecurityMonitoringRuleCreatePayload | 
 
 begin
   # Create a detection rule

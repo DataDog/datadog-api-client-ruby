@@ -1,6 +1,6 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::WebhooksIntegrationAPI.new
-body = DatadogAPIClient::V1::WebhooksIntegration.new({ name: "WEBHOOK_NAME", url: "https://example.com/webhook" }) # WebhooksIntegration | Create a webhooks integration request body.
+body = DatadogAPIClient::V1::WebhooksIntegration.new({name: 'WEBHOOK_NAME', url: 'https://example.com/webhook'}) # WebhooksIntegration | Create a webhooks integration request body.
 
 begin
   # Create a webhooks integration

@@ -1,6 +1,6 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::PagerDutyIntegrationAPI.new
-service_name = "service_name_example" # String | The service name
+service_name = 'service_name_example' # String | The service name
 
 begin
   # Delete a single service object

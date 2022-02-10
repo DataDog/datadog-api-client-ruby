@@ -1,6 +1,6 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::KeyManagementAPI.new
-body = DatadogAPIClient::V1::ApplicationKey.new # ApplicationKey |
+body = DatadogAPIClient::V1::ApplicationKey.new # ApplicationKey | 
 
 begin
   # Create an application key
