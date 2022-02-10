@@ -1,6 +1,6 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::RolesAPI.new
-role_id = 'role_id_example' # String | The ID of the role.
+role_id = "role_id_example" # String | The ID of the role.
 
 begin
   # Delete role

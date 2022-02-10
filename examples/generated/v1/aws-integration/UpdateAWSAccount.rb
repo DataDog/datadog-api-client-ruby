@@ -1,10 +1,10 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::AWSIntegrationAPI.new
 body = DatadogAPIClient::V1::AWSAccount.new # AWSAccount | AWS request object
 opts = {
-  account_id: 'account_id_example', # String | Only return AWS accounts that matches this `account_id`.
-  role_name: 'role_name_example', # String | Only return AWS accounts that match this `role_name`. Required if `account_id` is specified.
-  access_key_id: 'access_key_id_example' # String | Only return AWS accounts that matches this `access_key_id`. Required if none of the other two options are specified.
+  account_id: "account_id_example", # String | Only return AWS accounts that matches this `account_id`.
+  role_name: "role_name_example", # String | Only return AWS accounts that match this `role_name`. Required if `account_id` is specified.
+  access_key_id: "access_key_id_example", # String | Only return AWS accounts that matches this `access_key_id`. Required if none of the other two options are specified.
 }
 
 begin

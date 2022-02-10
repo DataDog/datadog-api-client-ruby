@@ -1,6 +1,6 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::KeyManagementAPI.new
-body = DatadogAPIClient::V2::ApplicationKeyCreateRequest.new({data: DatadogAPIClient::V2::ApplicationKeyCreateData.new({attributes: DatadogAPIClient::V2::ApplicationKeyCreateAttributes.new({name: 'Application Key for managing dashboards'}), type: DatadogAPIClient::V2::ApplicationKeysType::APPLICATION_KEYS})}) # ApplicationKeyCreateRequest | 
+body = DatadogAPIClient::V2::ApplicationKeyCreateRequest.new({ data: DatadogAPIClient::V2::ApplicationKeyCreateData.new({ attributes: DatadogAPIClient::V2::ApplicationKeyCreateAttributes.new({ name: "Application Key for managing dashboards" }), type: DatadogAPIClient::V2::ApplicationKeysType::APPLICATION_KEYS }) }) # ApplicationKeyCreateRequest |
 
 begin
   # Create an application key for current user

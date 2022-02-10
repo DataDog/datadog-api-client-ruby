@@ -1,6 +1,6 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::KeyManagementAPI.new
-api_key_id = 'api_key_id_example' # String | The ID of the API key.
+api_key_id = "api_key_id_example" # String | The ID of the API key.
 
 begin
   # Delete an API key

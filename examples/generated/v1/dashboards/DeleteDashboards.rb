@@ -1,6 +1,6 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::DashboardsAPI.new
-body = DatadogAPIClient::V1::DashboardBulkDeleteRequest.new({data: [DatadogAPIClient::V1::DashboardBulkActionData.new({id: '123-abc-456', type: DatadogAPIClient::V1::DashboardResourceType::DASHBOARD})]}) # DashboardBulkDeleteRequest | Delete dashboards request body.
+body = DatadogAPIClient::V1::DashboardBulkDeleteRequest.new({ data: [DatadogAPIClient::V1::DashboardBulkActionData.new({ id: "123-abc-456", type: DatadogAPIClient::V1::DashboardResourceType::DASHBOARD })] }) # DashboardBulkDeleteRequest | Delete dashboards request body.
 
 begin
   # Delete dashboards
