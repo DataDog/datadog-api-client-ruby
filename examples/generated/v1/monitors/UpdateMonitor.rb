@@ -1,4 +1,4 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::MonitorsAPI.new
 monitor_id = 789 # Integer | The ID of the monitor.
 body = DatadogAPIClient::V1::MonitorUpdateRequest.new # MonitorUpdateRequest | Edit a monitor request body.

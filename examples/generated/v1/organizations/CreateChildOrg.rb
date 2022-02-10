@@ -1,6 +1,6 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::OrganizationsAPI.new
-body = DatadogAPIClient::V1::OrganizationCreateBody.new({ name: "New child org" }) # OrganizationCreateBody | Organization object that needs to be created
+body = DatadogAPIClient::V1::OrganizationCreateBody.new({name: 'New child org'}) # OrganizationCreateBody | Organization object that needs to be created
 
 begin
   # Create a child organization
