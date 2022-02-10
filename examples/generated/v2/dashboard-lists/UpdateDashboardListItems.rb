@@ -1,4 +1,4 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::DashboardListsAPI.new
 dashboard_list_id = 789 # Integer | ID of the dashboard list to update items from.
 body = DatadogAPIClient::V2::DashboardListUpdateItemsRequest.new # DashboardListUpdateItemsRequest | New dashboards of the dashboard list.

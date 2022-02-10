@@ -1,6 +1,6 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
-public_id = "public_id_example" # String | The public ID of the Synthetic test to update.
+public_id = 'public_id_example' # String | The public ID of the Synthetic test to update.
 body = DatadogAPIClient::V1::SyntheticsUpdateTestPauseStatusPayload.new # SyntheticsUpdateTestPauseStatusPayload | Status to set the given Synthetic test to.
 
 begin
