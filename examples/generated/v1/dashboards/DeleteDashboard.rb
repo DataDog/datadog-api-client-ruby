@@ -1,6 +1,6 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::DashboardsAPI.new
-dashboard_id = "dashboard_id_example" # String | The ID of the dashboard.
+dashboard_id = 'dashboard_id_example' # String | The ID of the dashboard.
 
 begin
   # Delete a dashboard

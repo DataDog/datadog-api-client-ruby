@@ -1,6 +1,6 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::EventsAPI.new
-body = DatadogAPIClient::V1::EventCreateRequest.new({ text: "Oh boy!", title: "Did you hear the news today?" }) # EventCreateRequest | Event request object
+body = DatadogAPIClient::V1::EventCreateRequest.new({text: 'Oh boy!', title: 'Did you hear the news today?'}) # EventCreateRequest | Event request object
 
 begin
   # Post an event

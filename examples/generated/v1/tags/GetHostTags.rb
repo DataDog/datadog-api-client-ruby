@@ -1,8 +1,8 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::TagsAPI.new
-host_name = "host_name_example" # String | When specified, filters list of tags to those tags with the specified source.
+host_name = 'host_name_example' # String | When specified, filters list of tags to those tags with the specified source.
 opts = {
-  source: "source_example", # String | Source to filter.
+  source: 'source_example' # String | Source to filter.
 }
 
 begin

@@ -1,6 +1,6 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
-body = DatadogAPIClient::V1::SyntheticsAPITest.new({ config: DatadogAPIClient::V1::SyntheticsAPITestConfig.new, locations: ["locations_example"], name: "Example test name", options: DatadogAPIClient::V1::SyntheticsTestOptions.new, type: DatadogAPIClient::V1::SyntheticsAPITestType::API }) # SyntheticsAPITest | Details of the test to create.
+body = DatadogAPIClient::V1::SyntheticsAPITest.new({config: DatadogAPIClient::V1::SyntheticsAPITestConfig.new, locations: ['locations_example'], name: 'Example test name', options: DatadogAPIClient::V1::SyntheticsTestOptions.new, type: DatadogAPIClient::V1::SyntheticsAPITestType::API}) # SyntheticsAPITest | Details of the test to create.
 
 begin
   # Create an API test

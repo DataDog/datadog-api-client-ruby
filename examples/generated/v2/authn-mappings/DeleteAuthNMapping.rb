@@ -1,6 +1,6 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::AuthNMappingsAPI.new
-authn_mapping_id = "authn_mapping_id_example" # String | The UUID of the AuthN Mapping.
+authn_mapping_id = 'authn_mapping_id_example' # String | The UUID of the AuthN Mapping.
 
 begin
   # Delete an AuthN Mapping

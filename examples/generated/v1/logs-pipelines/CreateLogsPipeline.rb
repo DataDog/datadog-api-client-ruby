@@ -1,6 +1,6 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::LogsPipelinesAPI.new
-body = DatadogAPIClient::V1::LogsPipeline.new({ name: "name_example" }) # LogsPipeline | Definition of the new pipeline.
+body = DatadogAPIClient::V1::LogsPipeline.new({name: 'name_example'}) # LogsPipeline | Definition of the new pipeline.
 
 begin
   # Create a pipeline
