@@ -1,7 +1,7 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::AuthNMappingsAPI.new
-authn_mapping_id = 'authn_mapping_id_example' # String | The UUID of the AuthN Mapping.
-body = DatadogAPIClient::V2::AuthNMappingUpdateRequest.new({data: DatadogAPIClient::V2::AuthNMappingUpdateData.new({id: '3653d3c6-0c75-11ea-ad28-fb5701eabc7d', type: DatadogAPIClient::V2::AuthNMappingsType::AUTHN_MAPPINGS})}) # AuthNMappingUpdateRequest | 
+authn_mapping_id = "authn_mapping_id_example" # String | The UUID of the AuthN Mapping.
+body = DatadogAPIClient::V2::AuthNMappingUpdateRequest.new({ data: DatadogAPIClient::V2::AuthNMappingUpdateData.new({ id: "3653d3c6-0c75-11ea-ad28-fb5701eabc7d", type: DatadogAPIClient::V2::AuthNMappingsType::AUTHN_MAPPINGS }) }) # AuthNMappingUpdateRequest |
 
 begin
   # Edit an AuthN Mapping

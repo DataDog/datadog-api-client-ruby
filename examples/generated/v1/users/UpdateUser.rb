@@ -1,4 +1,4 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::UsersAPI.new
 user_handle = TODO # String | The ID of the user.
 body = DatadogAPIClient::V1::User.new # User | Description of the update.

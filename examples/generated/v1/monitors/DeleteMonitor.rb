@@ -1,8 +1,8 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::MonitorsAPI.new
 monitor_id = 789 # Integer | The ID of the monitor.
 opts = {
-  force: 'false' # String | Delete the monitor even if it's referenced by other resources (for example SLO, composite monitor).
+  force: "false", # String | Delete the monitor even if it's referenced by other resources (for example SLO, composite monitor).
 }
 
 begin
