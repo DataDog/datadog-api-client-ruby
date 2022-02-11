@@ -1,6 +1,6 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::SlackIntegrationAPI.new
-account_name = 'account_name_example' # String | Your Slack account name.
+account_name = "account_name_example" # String | Your Slack account name.
 
 begin
   # Get all channels in a Slack integration

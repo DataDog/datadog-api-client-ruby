@@ -1,11 +1,11 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 
 DatadogAPIClient::V2.configure do |config|
   config.unstable_operations[:list_tag_configuration_by_name] = true
 end
 
 api_instance = DatadogAPIClient::V2::MetricsAPI.new
-metric_name = 'dist.http.endpoint.request' # String | The name of the metric.
+metric_name = "dist.http.endpoint.request" # String | The name of the metric.
 
 begin
   # List tag configuration by name

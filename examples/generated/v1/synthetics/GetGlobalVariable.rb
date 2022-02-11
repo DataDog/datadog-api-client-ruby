@@ -1,6 +1,6 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
-variable_id = 'variable_id_example' # String | The ID of the global variable.
+variable_id = "variable_id_example" # String | The ID of the global variable.
 
 begin
   # Get a global variable

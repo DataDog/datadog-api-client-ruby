@@ -1,6 +1,6 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::ServiceLevelObjectivesAPI.new
-body = { key: [DatadogAPIClient::V1::SLOTimeframe::SEVEN_DAYS]} # Hash<String, Array<SLOTimeframe>> | Delete multiple service level objective objects request body.
+body = { key: [DatadogAPIClient::V1::SLOTimeframe::SEVEN_DAYS] } # Hash<String, Array<SLOTimeframe>> | Delete multiple service level objective objects request body.
 
 begin
   # Bulk Delete SLO Timeframes
