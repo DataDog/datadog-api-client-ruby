@@ -1,6 +1,6 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::KeyManagementAPI.new
-body = DatadogAPIClient::V2::APIKeyCreateRequest.new({ data: DatadogAPIClient::V2::APIKeyCreateData.new({ attributes: DatadogAPIClient::V2::APIKeyCreateAttributes.new({ name: "API Key for submitting metrics" }), type: DatadogAPIClient::V2::APIKeysType::API_KEYS }) }) # APIKeyCreateRequest |
+body = DatadogAPIClient::V2::APIKeyCreateRequest.new({data: DatadogAPIClient::V2::APIKeyCreateData.new({attributes: DatadogAPIClient::V2::APIKeyCreateAttributes.new({name: 'API Key for submitting metrics'}), type: DatadogAPIClient::V2::APIKeysType::API_KEYS})}) # APIKeyCreateRequest | 
 
 begin
   # Create an API key

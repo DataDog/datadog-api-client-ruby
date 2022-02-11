@@ -1,6 +1,6 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::ServiceLevelObjectivesAPI.new
-ids = "id1, id2, id3" # String | A comma separated list of the IDs of the service level objectives objects.
+ids = 'id1, id2, id3' # String | A comma separated list of the IDs of the service level objectives objects.
 
 begin
   # Check if SLOs can be safely deleted

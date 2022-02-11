@@ -1,6 +1,6 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
-rule_id = "rule_id_example" # String | The ID of the rule.
+rule_id = 'rule_id_example' # String | The ID of the rule.
 
 begin
   # Get a rule's details

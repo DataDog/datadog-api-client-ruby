@@ -1,6 +1,6 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::ServiceChecksAPI.new
-body = [DatadogAPIClient::V1::ServiceCheck.new({ check: "app.ok", host_name: "app.host1", status: DatadogAPIClient::V1::ServiceCheckStatus::OK, tags: ["tags_example"] })] # Array<ServiceCheck> | Service Check request body.
+body = [DatadogAPIClient::V1::ServiceCheck.new({check: 'app.ok', host_name: 'app.host1', status: DatadogAPIClient::V1::ServiceCheckStatus::OK, tags: ['tags_example']})] # Array<ServiceCheck> | Service Check request body.
 
 begin
   # Submit a Service Check

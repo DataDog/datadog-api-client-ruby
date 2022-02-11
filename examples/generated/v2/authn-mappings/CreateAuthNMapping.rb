@@ -1,6 +1,6 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V2::AuthNMappingsAPI.new
-body = DatadogAPIClient::V2::AuthNMappingCreateRequest.new({ data: DatadogAPIClient::V2::AuthNMappingCreateData.new({ type: DatadogAPIClient::V2::AuthNMappingsType::AUTHN_MAPPINGS }) }) # AuthNMappingCreateRequest |
+body = DatadogAPIClient::V2::AuthNMappingCreateRequest.new({data: DatadogAPIClient::V2::AuthNMappingCreateData.new({type: DatadogAPIClient::V2::AuthNMappingsType::AUTHN_MAPPINGS})}) # AuthNMappingCreateRequest | 
 
 begin
   # Create an AuthN Mapping

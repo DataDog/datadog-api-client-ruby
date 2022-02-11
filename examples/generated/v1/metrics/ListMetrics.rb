@@ -1,6 +1,6 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::MetricsAPI.new
-q = "q_example" # String | Query string to search metrics upon. Must be prefixed with `metrics:`.
+q = 'q_example' # String | Query string to search metrics upon. Must be prefixed with `metrics:`.
 
 begin
   # Search metrics

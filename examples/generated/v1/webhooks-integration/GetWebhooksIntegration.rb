@@ -1,6 +1,6 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::WebhooksIntegrationAPI.new
-webhook_name = "webhook_name_example" # String | The name of the webhook.
+webhook_name = 'webhook_name_example' # String | The name of the webhook.
 
 begin
   # Get a webhook integration
