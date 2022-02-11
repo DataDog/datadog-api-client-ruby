@@ -1,6 +1,6 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::DashboardListsAPI.new
-body = DatadogAPIClient::V1::DashboardList.new({name: 'My Dashboard'}) # DashboardList | Create a dashboard list request body.
+body = DatadogAPIClient::V1::DashboardList.new({ name: "My Dashboard" }) # DashboardList | Create a dashboard list request body.
 
 begin
   # Create a dashboard list

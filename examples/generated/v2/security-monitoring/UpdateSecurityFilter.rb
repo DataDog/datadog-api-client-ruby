@@ -1,7 +1,7 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
-security_filter_id = 'security_filter_id_example' # String | The ID of the security filter.
-body = DatadogAPIClient::V2::SecurityFilterUpdateRequest.new({data: DatadogAPIClient::V2::SecurityFilterUpdateData.new({attributes: DatadogAPIClient::V2::SecurityFilterUpdateAttributes.new, type: DatadogAPIClient::V2::SecurityFilterType::SECURITY_FILTERS})}) # SecurityFilterUpdateRequest | New definition of the security filter.
+security_filter_id = "security_filter_id_example" # String | The ID of the security filter.
+body = DatadogAPIClient::V2::SecurityFilterUpdateRequest.new({ data: DatadogAPIClient::V2::SecurityFilterUpdateData.new({ attributes: DatadogAPIClient::V2::SecurityFilterUpdateAttributes.new, type: DatadogAPIClient::V2::SecurityFilterType::SECURITY_FILTERS }) }) # SecurityFilterUpdateRequest | New definition of the security filter.
 
 begin
   # Update a security filter
