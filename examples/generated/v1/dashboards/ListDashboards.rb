@@ -1,8 +1,8 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::DashboardsAPI.new
 opts = {
   filter_shared: true, # Boolean | When `true`, this query only returns shared custom created or cloned dashboards.
-  filter_deleted: true, # Boolean | When `true`, this query returns only deleted custom-created or cloned dashboards. This parameter is incompatible with `filter[shared]`.
+  filter_deleted: true # Boolean | When `true`, this query returns only deleted custom-created or cloned dashboards. This parameter is incompatible with `filter[shared]`.
 }
 
 begin

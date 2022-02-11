@@ -1,6 +1,6 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::DowntimesAPI.new
-body = DatadogAPIClient::V1::CancelDowntimesByScopeRequest.new({ scope: "host:myserver" }) # CancelDowntimesByScopeRequest | Scope to cancel downtimes for.
+body = DatadogAPIClient::V1::CancelDowntimesByScopeRequest.new({scope: 'host:myserver'}) # CancelDowntimesByScopeRequest | Scope to cancel downtimes for.
 
 begin
   # Cancel downtimes by scope
