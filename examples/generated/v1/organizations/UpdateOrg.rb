@@ -1,7 +1,7 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::OrganizationsAPI.new
-public_id = 'abc123' # String | The `public_id` of the organization you are operating within.
-body = DatadogAPIClient::V1::Organization.new # Organization | 
+public_id = "abc123" # String | The `public_id` of the organization you are operating within.
+body = DatadogAPIClient::V1::Organization.new # Organization |
 
 begin
   # Update your organization

@@ -1,4 +1,4 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 
 DatadogAPIClient::V1.configure do |config|
   config.unstable_operations[:list_slo_correction] = true

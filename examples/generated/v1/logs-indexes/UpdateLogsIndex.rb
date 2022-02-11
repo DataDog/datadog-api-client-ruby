@@ -1,7 +1,7 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::LogsIndexesAPI.new
-name = 'name_example' # String | Name of the log index.
-body = DatadogAPIClient::V1::LogsIndexUpdateRequest.new({filter: DatadogAPIClient::V1::LogsFilter.new}) # LogsIndexUpdateRequest | Object containing the new `LogsIndexUpdateRequest`.
+name = "name_example" # String | Name of the log index.
+body = DatadogAPIClient::V1::LogsIndexUpdateRequest.new({ filter: DatadogAPIClient::V1::LogsFilter.new }) # LogsIndexUpdateRequest | Object containing the new `LogsIndexUpdateRequest`.
 
 begin
   # Update an index

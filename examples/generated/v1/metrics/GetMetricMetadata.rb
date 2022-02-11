@@ -1,6 +1,6 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::MetricsAPI.new
-metric_name = 'metric_name_example' # String | Name of the metric for which to get metadata.
+metric_name = "metric_name_example" # String | Name of the metric for which to get metadata.
 
 begin
   # Get metric metadata
