@@ -1,8 +1,8 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::MetricsAPI.new
 from = 789 # Integer | Start of the queried time period, seconds since the Unix epoch.
 to = 789 # Integer | End of the queried time period, seconds since the Unix epoch.
-query = "query_example" # String | Query string.
+query = 'query_example' # String | Query string.
 
 begin
   # Query timeseries points

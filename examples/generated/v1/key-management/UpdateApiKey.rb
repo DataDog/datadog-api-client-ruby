@@ -1,7 +1,7 @@
-require "datadog_api_client"
+require 'datadog_api_client'
 api_instance = DatadogAPIClient::V1::KeyManagementAPI.new
-key = "key_example" # String | The specific API key you are working with.
-body = DatadogAPIClient::V1::ApiKey.new # ApiKey |
+key = 'key_example' # String | The specific API key you are working with.
+body = DatadogAPIClient::V1::ApiKey.new # ApiKey | 
 
 begin
   # Edit an API key
