@@ -1,6 +1,6 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::WebhooksIntegrationAPI.new
-body = DatadogAPIClient::V1::WebhooksIntegrationCustomVariable.new({is_secret: true, name: 'CUSTOM_VARIABLE_NAME', value: 'CUSTOM_VARIABLE_VALUE'}) # WebhooksIntegrationCustomVariable | Define a custom variable request body.
+body = DatadogAPIClient::V1::WebhooksIntegrationCustomVariable.new({ is_secret: true, name: "CUSTOM_VARIABLE_NAME", value: "CUSTOM_VARIABLE_VALUE" }) # WebhooksIntegrationCustomVariable | Define a custom variable request body.
 
 begin
   # Create a custom variable
