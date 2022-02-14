@@ -17,27 +17,24 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Updated funnel widget.
-  class FunnelQuery
+  # The funnel step.
+  class FunnelStep
     # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
-    attr_accessor :data_source
+    # The facet of the step.
+    attr_accessor :facet
 
-    # The widget query.
-    attr_accessor :query_string
-
-    # List of funnel steps.
-    attr_accessor :steps
+    # The value of the step.
+    attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'data_source' => :'data_source',
-        :'query_string' => :'query_string',
-        :'steps' => :'steps'
+        :'facet' => :'facet',
+        :'value' => :'value'
       }
     end
 
@@ -51,9 +48,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'data_source' => :'FunnelSource',
-        :'query_string' => :'String',
-        :'steps' => :'Array<FunnelStep>'
+        :'facet' => :'String',
+        :'value' => :'String'
       }
     end
 
@@ -68,31 +64,23 @@ module DatadogAPIClient::V1
     # @param attributes [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::FunnelQuery` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::FunnelStep` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::FunnelQuery`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::FunnelStep`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'data_source')
-        self.data_source = attributes[:'data_source']
-      else
-        self.data_source = 'rum'
+      if attributes.key?(:'facet')
+        self.facet = attributes[:'facet']
       end
 
-      if attributes.key?(:'query_string')
-        self.query_string = attributes[:'query_string']
-      end
-
-      if attributes.key?(:'steps')
-        if (value = attributes[:'steps']).is_a?(Array)
-          self.steps = value
-        end
+      if attributes.key?(:'value')
+        self.value = attributes[:'value']
       end
     end
 
@@ -101,16 +89,12 @@ module DatadogAPIClient::V1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @data_source.nil?
-        invalid_properties.push('invalid value for "data_source", data_source cannot be nil.')
+      if @facet.nil?
+        invalid_properties.push('invalid value for "facet", facet cannot be nil.')
       end
 
-      if @query_string.nil?
-        invalid_properties.push('invalid value for "query_string", query_string cannot be nil.')
-      end
-
-      if @steps.nil?
-        invalid_properties.push('invalid value for "steps", steps cannot be nil.')
+      if @value.nil?
+        invalid_properties.push('invalid value for "value", value cannot be nil.')
       end
 
       invalid_properties
@@ -120,9 +104,8 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @data_source.nil?
-      return false if @query_string.nil?
-      return false if @steps.nil?
+      return false if @facet.nil?
+      return false if @value.nil?
       true
     end
 
@@ -132,9 +115,8 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data_source == o.data_source &&
-          query_string == o.query_string &&
-          steps == o.steps
+          facet == o.facet &&
+          value == o.value
     end
 
     # @see the `==` method
@@ -148,7 +130,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data_source, query_string, steps].hash
+      [facet, value].hash
     end
 
     # Builds the object from hash
