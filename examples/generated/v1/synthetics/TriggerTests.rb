@@ -1,6 +1,6 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
-body = DatadogAPIClient::V1::SyntheticsTriggerBody.new({tests: [DatadogAPIClient::V1::SyntheticsTriggerTest.new({public_id: 'aaa-aaa-aaa'})]}) # SyntheticsTriggerBody | The identifiers of the tests to trigger.
+body = DatadogAPIClient::V1::SyntheticsTriggerBody.new({ tests: [DatadogAPIClient::V1::SyntheticsTriggerTest.new({ public_id: "aaa-aaa-aaa" })] }) # SyntheticsTriggerBody | The identifiers of the tests to trigger.
 
 begin
   # Trigger Synthetics tests

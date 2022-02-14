@@ -1,8 +1,8 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::KeyManagementAPI.new
-app_key_id = 'app_key_id_example' # String | The ID of the application key.
+app_key_id = "app_key_id_example" # String | The ID of the application key.
 opts = {
-  include: 'owned_by' # String | Resource path for related resources to include in the response. Only `owned_by` is supported.
+  include: "owned_by", # String | Resource path for related resources to include in the response. Only `owned_by` is supported.
 }
 
 begin

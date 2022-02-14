@@ -1,7 +1,7 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::LogsAPI.new
 opts = {
-  body: DatadogAPIClient::V2::LogsListRequest.new # LogsListRequest | 
+  body: DatadogAPIClient::V2::LogsListRequest.new, # LogsListRequest |
 }
 
 begin
