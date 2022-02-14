@@ -1,6 +1,6 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::AWSLogsIntegrationAPI.new
-body = DatadogAPIClient::V1::AWSAccountAndLambdaRequest.new({account_id: '1234567', lambda_arn: 'arn:aws:lambda:us-east-1:1234567:function:LogsCollectionAPITest'}) # AWSAccountAndLambdaRequest | AWS Log Lambda Async request body.
+body = DatadogAPIClient::V1::AWSAccountAndLambdaRequest.new({ account_id: "1234567", lambda_arn: "arn:aws:lambda:us-east-1:1234567:function:LogsCollectionAPITest" }) # AWSAccountAndLambdaRequest | AWS Log Lambda Async request body.
 
 begin
   # Add AWS Log Lambda ARN

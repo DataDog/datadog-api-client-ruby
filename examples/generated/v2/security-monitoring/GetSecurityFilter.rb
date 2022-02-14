@@ -1,6 +1,6 @@
-require 'datadog_api_client'
+require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
-security_filter_id = 'security_filter_id_example' # String | The ID of the security filter.
+security_filter_id = "security_filter_id_example" # String | The ID of the security filter.
 
 begin
   # Get a security filter
