@@ -7,6 +7,12 @@ repos:
     entry: make
     files: '^(\.generator/.*|\.pre-commit-config\.yaml|Makefile)'
     pass_filenames: false
+  - id: format-examples
+    name: Format generated examples
+    language: system
+    entry: bundle exec rufo examples/generated
+    files: '^examples/generated'
+    pass_filenames: false
   - id: docs
     name: Format documentation
     stages: [manual]

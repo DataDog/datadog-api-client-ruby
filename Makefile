@@ -8,6 +8,7 @@ all: .generator .env
 	@rm lib/datadog_api_client/v*/version.rb
 	@ls v1/docs/*API.md | grep -v IPPrefixesAPI.md | xargs -n1 ./extract-code-blocks.awk -v output="examples/generated/v1"
 	@ls v2/docs/*API.md | grep -v IPPrefixesAPI.md | xargs -n1 ./extract-code-blocks.awk -v output="examples/generated/v2"
+	@pre-commit run --all-files --hook-stage=manual format-examples || true
 	@rm -rf v1 v2
 	@pre-commit run --all-files --hook-stage=manual docs || echo "modified files"
 
