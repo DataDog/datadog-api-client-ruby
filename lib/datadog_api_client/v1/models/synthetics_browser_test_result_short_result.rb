@@ -25,7 +25,7 @@ module DatadogAPIClient::V1
 
     attr_accessor :device
 
-    # Length in second of the browser test run.
+    # Length in milliseconds of the browser test run.
     attr_accessor :duration
 
     # Amount of errors collected for a single browser test run.
