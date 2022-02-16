@@ -46,5 +46,14 @@ body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({
     "testing:browser",
   ],
   type: DatadogAPIClient::V1::SyntheticsBrowserTestType::BROWSER,
+  steps: [
+    DatadogAPIClient::V1::SyntheticsStep.new({
+      allow_failure: false,
+      is_critical: true,
+      name: "Refresh page",
+      params: DatadogAPIClient::V1::SyntheticsStepParams.new({}),
+      type: DatadogAPIClient::V1::SyntheticsStepType::REFRESH,
+    }),
+  ],
 })
 p api_instance.create_synthetics_browser_test(body)

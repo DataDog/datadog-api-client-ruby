@@ -23,6 +23,91 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Configure tags for multiple metrics
+    # Create and define a list of queryable tag keys for a set of existing count, gauge, rate, and distribution metrics.
+    # Metrics are selected by passing a metric name prefix. Use the Delete method of this API path to remove tag configurations.
+    # Results can be sent to a set of account email addresses, just like the same operation in the Datadog web app.
+    # If multiple calls include the same metric, the last configuration applied (not by submit order) is used, do not
+    # expect deterministic ordering of concurrent calls.
+    # Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
+    # @param body [MetricBulkTagConfigCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [MetricBulkTagConfigResponse]
+    def create_bulk_tags_metrics_configuration(body, opts = {})
+      data, _status_code, _headers = create_bulk_tags_metrics_configuration_with_http_info(body, opts)
+      data
+    end
+
+    # Configure tags for multiple metrics
+    # Create and define a list of queryable tag keys for a set of existing count, gauge, rate, and distribution metrics.
+    # Metrics are selected by passing a metric name prefix. Use the Delete method of this API path to remove tag configurations.
+    # Results can be sent to a set of account email addresses, just like the same operation in the Datadog web app.
+    # If multiple calls include the same metric, the last configuration applied (not by submit order) is used, do not
+    # expect deterministic ordering of concurrent calls.
+    # Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
+    # @param body [MetricBulkTagConfigCreateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(MetricBulkTagConfigResponse, Integer, Hash)>] MetricBulkTagConfigResponse data, response status code and response headers
+    def create_bulk_tags_metrics_configuration_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:create_bulk_tags_metrics_configuration)
+        unstable_enabled = @api_client.config.unstable_operations[:create_bulk_tags_metrics_configuration]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_bulk_tags_metrics_configuration")
+        else
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_bulk_tags_metrics_configuration"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MetricsAPI.create_bulk_tags_metrics_configuration ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling MetricsAPI.create_bulk_tags_metrics_configuration"
+      end
+      # resource path
+      local_var_path = '/api/v2/metrics/config/bulk-tags'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MetricBulkTagConfigResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :create_bulk_tags_metrics_configuration,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MetricsAPI#create_bulk_tags_metrics_configuration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a tag configuration
     # Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric.
     # Optionally, include percentile aggregations on any distribution metric or configure custom aggregations
@@ -106,6 +191,87 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MetricsAPI#create_tag_configuration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Configure tags for multiple metrics
+    # Delete all custom lists of queryable tag keys for a set of existing count, gauge, rate, and distribution metrics.
+    # Metrics are selected by passing a metric name prefix.
+    # Results can be sent to a set of account email addresses, just like the same operation in the Datadog web app.
+    # Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
+    # @param body [MetricBulkTagConfigDeleteRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [MetricBulkTagConfigResponse]
+    def delete_bulk_tags_metrics_configuration(body, opts = {})
+      data, _status_code, _headers = delete_bulk_tags_metrics_configuration_with_http_info(body, opts)
+      data
+    end
+
+    # Configure tags for multiple metrics
+    # Delete all custom lists of queryable tag keys for a set of existing count, gauge, rate, and distribution metrics.
+    # Metrics are selected by passing a metric name prefix.
+    # Results can be sent to a set of account email addresses, just like the same operation in the Datadog web app.
+    # Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
+    # @param body [MetricBulkTagConfigDeleteRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(MetricBulkTagConfigResponse, Integer, Hash)>] MetricBulkTagConfigResponse data, response status code and response headers
+    def delete_bulk_tags_metrics_configuration_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:delete_bulk_tags_metrics_configuration)
+        unstable_enabled = @api_client.config.unstable_operations[:delete_bulk_tags_metrics_configuration]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_bulk_tags_metrics_configuration")
+        else
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_bulk_tags_metrics_configuration"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MetricsAPI.delete_bulk_tags_metrics_configuration ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling MetricsAPI.delete_bulk_tags_metrics_configuration"
+      end
+      # resource path
+      local_var_path = '/api/v2/metrics/config/bulk-tags'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MetricBulkTagConfigResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :delete_bulk_tags_metrics_configuration,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MetricsAPI#delete_bulk_tags_metrics_configuration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

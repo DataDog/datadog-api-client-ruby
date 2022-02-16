@@ -18,42 +18,42 @@ The following steps will help you quickly start interacting with Datadog APIs us
 
 1. Add the `datadog_api_client` gem to you Gemfile:
 
-    ```ruby
-    source 'https://rubygems.org'
-    gem 'datadog_api_client'
-    ```
+   ```ruby
+   source 'https://rubygems.org'
+   gem 'datadog_api_client'
+   ```
 
 2. Install the gem with `bundle install`
 
 3. (optional) You can configure site and [authentication](#authentication) using environment variables or code block:
 
-    ```ruby
-    DatadogAPIClient::V1.configure do |config|
-      config.server_variables[:site] = 'datadoghq.eu'
-    end
-    ```
+   ```ruby
+   DatadogAPIClient::V1.configure do |config|
+     config.server_variables[:site] = 'datadoghq.eu'
+   end
+   ```
 
 ### Build a gem
 
 1. Build the Ruby code into a gem:
 
-    ```shell
-    gem build datadog_api_client.gemspec
-    ```
+   ```shell
+   gem build datadog_api_client.gemspec
+   ```
 
 2. Install the gem locally:
 
-    ```shell
-    gem install ./datadog_api_client-*.gem
-    ```
+   ```shell
+   gem install ./datadog_api_client-*.gem
+   ```
 
 ### Install from Git
 
 1. Add the following in the Gemfile:
 
-    ```ruby
-    gem 'datadog_api_client', :git => 'https://github.com/DataDog/datadog-api-client-ruby.git'
-    ```
+   ```ruby
+   gem 'datadog_api_client', :git => 'https://github.com/DataDog/datadog-api-client-ruby.git'
+   ```
 
 2. Install the gem with `bundle install`
 
@@ -63,9 +63,9 @@ The following steps will help you quickly start interacting with Datadog APIs us
 
 2. Include the Ruby code directly using `-I` as follows:
 
-    ```shell
-    ruby -Ilib example.rb
-    ```
+   ```shell
+   ruby -Ilib example.rb
+   ```
 
 ## Getting Started
 
@@ -127,7 +127,7 @@ config = DatadogAPIClient::V1::Configuration.new
 config.compress = false
 client = DatadogAPIClient::V1::APIClient.new(config)
 ```
- 
+
 ### Enable requests logging
 
 If you want to enable requests logging, set the `debugging` flag

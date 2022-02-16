@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     # Object describing the device used to perform the Synthetic test.
     attr_accessor :device
 
-    # Length in second of the browser test run.
+    # Length in milliseconds of the browser test run.
     attr_accessor :duration
 
     # Amount of errors collected for a single browser test run.

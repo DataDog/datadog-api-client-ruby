@@ -54,7 +54,7 @@ module DatadogAPIClient::V1
       {
         :'data_source' => :'FunnelSource',
         :'query_string' => :'String',
-        :'steps' => :'Array<Object>'
+        :'steps' => :'Array<FunnelStep>'
       }
     end
 

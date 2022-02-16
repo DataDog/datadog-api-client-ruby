@@ -7,14 +7,22 @@ repos:
     entry: make
     files: '^(\.generator/.*|\.pre-commit-config\.yaml|Makefile)'
     pass_filenames: false
+  - id: format-examples
+    name: Format generated examples
+    language: ruby
+    additional_dependencies:
+      - rufo
+    entry: rufo examples/generated
+    files: '^examples/generated'
+    pass_filenames: false
   - id: docs
     name: Format documentation
     stages: [manual]
     language: node
     language_version: 14.12.0
-    entry: prettier --write --list-different --ignore-unknown docs
+    entry: prettier --write --list-different --ignore-unknown README.md
     "types": [text]
-    files: '^docs/'
+    files: 'README.md'
     pass_filenames: false
     additional_dependencies:
       # When updating the version of prettier, make sure to check the  pre-commit file

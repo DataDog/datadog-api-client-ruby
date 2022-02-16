@@ -54,7 +54,7 @@ module DatadogAPIClient::V2
       {
         :'data' => :'Array<IncidentTeamResponseData>',
         :'included' => :'Array<IncidentTeamIncludedItems>',
-        :'meta' => :'IncidentTeamsResponseMeta'
+        :'meta' => :'IncidentResponseMeta'
       }
     end
 

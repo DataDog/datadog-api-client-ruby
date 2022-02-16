@@ -22,10 +22,11 @@ module DatadogAPIClient::V2
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Create an AuthN Mapping
     # Create an AuthN Mapping.
     # @param body [AuthNMappingCreateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [AuthNMappingResponse]
     def create_auth_n_mapping(body, opts = {})
       data, _status_code, _headers = create_auth_n_mapping_with_http_info(body, opts)
@@ -35,7 +36,7 @@ module DatadogAPIClient::V2
     # Create an AuthN Mapping
     # Create an AuthN Mapping.
     # @param body [AuthNMappingCreateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(AuthNMappingResponse, Integer, Hash)>] AuthNMappingResponse data, response status code and response headers
     def create_auth_n_mapping_with_http_info(body, opts = {})
 
@@ -78,7 +79,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'AuthNMappingResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_auth_n_mapping,
@@ -100,7 +101,7 @@ module DatadogAPIClient::V2
     # Delete an AuthN Mapping
     # Delete an AuthN Mapping specified by AuthN Mapping UUID.
     # @param authn_mapping_id [String] The UUID of the AuthN Mapping.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [nil]
     def delete_auth_n_mapping(authn_mapping_id, opts = {})
       delete_auth_n_mapping_with_http_info(authn_mapping_id, opts)
@@ -110,7 +111,7 @@ module DatadogAPIClient::V2
     # Delete an AuthN Mapping
     # Delete an AuthN Mapping specified by AuthN Mapping UUID.
     # @param authn_mapping_id [String] The UUID of the AuthN Mapping.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_auth_n_mapping_with_http_info(authn_mapping_id, opts = {})
 
@@ -131,7 +132,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'authn_mapping_id' when calling AuthNMappingsAPI.delete_auth_n_mapping"
       end
       # resource path
-      local_var_path = '/api/v2/authn_mappings/{authn_mapping_id}'.sub('{' + 'authn_mapping_id' + '}', CGI.escape(authn_mapping_id.to_s))
+      local_var_path = '/api/v2/authn_mappings/{authn_mapping_id}'.sub('{authn_mapping_id}', CGI.escape(authn_mapping_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -139,7 +140,7 @@ module DatadogAPIClient::V2
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -151,7 +152,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_auth_n_mapping,
@@ -173,7 +174,7 @@ module DatadogAPIClient::V2
     # Get an AuthN Mapping by UUID
     # Get an AuthN Mapping specified by the AuthN Mapping UUID.
     # @param authn_mapping_id [String] The UUID of the AuthN Mapping.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [AuthNMappingResponse]
     def get_auth_n_mapping(authn_mapping_id, opts = {})
       data, _status_code, _headers = get_auth_n_mapping_with_http_info(authn_mapping_id, opts)
@@ -183,7 +184,7 @@ module DatadogAPIClient::V2
     # Get an AuthN Mapping by UUID
     # Get an AuthN Mapping specified by the AuthN Mapping UUID.
     # @param authn_mapping_id [String] The UUID of the AuthN Mapping.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(AuthNMappingResponse, Integer, Hash)>] AuthNMappingResponse data, response status code and response headers
     def get_auth_n_mapping_with_http_info(authn_mapping_id, opts = {})
 
@@ -204,7 +205,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'authn_mapping_id' when calling AuthNMappingsAPI.get_auth_n_mapping"
       end
       # resource path
-      local_var_path = '/api/v2/authn_mappings/{authn_mapping_id}'.sub('{' + 'authn_mapping_id' + '}', CGI.escape(authn_mapping_id.to_s))
+      local_var_path = '/api/v2/authn_mappings/{authn_mapping_id}'.sub('{authn_mapping_id}', CGI.escape(authn_mapping_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -224,7 +225,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'AuthNMappingResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_auth_n_mapping,
@@ -245,9 +246,9 @@ module DatadogAPIClient::V2
 
     # List all AuthN Mappings
     # List all AuthN Mappings in the org.
-    # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. (default to 10)
-    # @option opts [Integer] :page_number Specific page number to return. (default to 0)
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size Size for a given page.
+    # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [AuthNMappingsSort] :sort Sort AuthN Mappings depending on the given field.
     # @option opts [Array<String>] :include 
     # @option opts [String] :filter Filter all mappings by the given string.
@@ -259,7 +260,7 @@ module DatadogAPIClient::V2
 
     # List all AuthN Mappings
     # List all AuthN Mappings in the org.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Size for a given page.
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [AuthNMappingsSort] :sort Sort AuthN Mappings depending on the given field.
@@ -279,6 +280,10 @@ module DatadogAPIClient::V2
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AuthNMappingsAPI.list_auth_n_mappings ...'
+      end
+      allowable_values = ['created_at', '-created_at', 'role_id', '-role_id', 'saml_assertion_attribute_id', '-saml_assertion_attribute_id', 'role.name', '-role.name', 'saml_assertion_attribute.attribute_key', '-saml_assertion_attribute.attribute_key', 'saml_assertion_attribute.attribute_value', '-saml_assertion_attribute.attribute_value']
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/api/v2/authn_mappings'
@@ -306,7 +311,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'AuthNMappingsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_auth_n_mappings,
@@ -329,7 +334,7 @@ module DatadogAPIClient::V2
     # Edit an AuthN Mapping.
     # @param authn_mapping_id [String] The UUID of the AuthN Mapping.
     # @param body [AuthNMappingUpdateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [AuthNMappingResponse]
     def update_auth_n_mapping(authn_mapping_id, body, opts = {})
       data, _status_code, _headers = update_auth_n_mapping_with_http_info(authn_mapping_id, body, opts)
@@ -340,7 +345,7 @@ module DatadogAPIClient::V2
     # Edit an AuthN Mapping.
     # @param authn_mapping_id [String] The UUID of the AuthN Mapping.
     # @param body [AuthNMappingUpdateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(AuthNMappingResponse, Integer, Hash)>] AuthNMappingResponse data, response status code and response headers
     def update_auth_n_mapping_with_http_info(authn_mapping_id, body, opts = {})
 
@@ -365,7 +370,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'body' when calling AuthNMappingsAPI.update_auth_n_mapping"
       end
       # resource path
-      local_var_path = '/api/v2/authn_mappings/{authn_mapping_id}'.sub('{' + 'authn_mapping_id' + '}', CGI.escape(authn_mapping_id.to_s))
+      local_var_path = '/api/v2/authn_mappings/{authn_mapping_id}'.sub('{authn_mapping_id}', CGI.escape(authn_mapping_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -387,7 +392,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'AuthNMappingResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_auth_n_mapping,

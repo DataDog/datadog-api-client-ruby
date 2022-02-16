@@ -26,6 +26,9 @@ module DatadogAPIClient::V1
     # A boolean set to allow this step to fail.
     attr_accessor :allow_failure
 
+    # A boolean to use in addition to `allowFailure` to determine if the test should be marked as failed when the step fails.
+    attr_accessor :is_critical
+
     # The name of the step.
     attr_accessor :name
 
@@ -43,6 +46,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'allow_failure' => :'allowFailure',
+        :'is_critical' => :'isCritical',
         :'name' => :'name',
         :'params' => :'params',
         :'timeout' => :'timeout',
@@ -61,6 +65,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'allow_failure' => :'Boolean',
+        :'is_critical' => :'Boolean',
         :'name' => :'String',
         :'params' => :'Object',
         :'timeout' => :'Integer',
@@ -93,6 +98,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'allow_failure')
         self.allow_failure = attributes[:'allow_failure']
+      end
+
+      if attributes.key?(:'is_critical')
+        self.is_critical = attributes[:'is_critical']
       end
 
       if attributes.key?(:'name')
@@ -134,6 +143,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           allow_failure == o.allow_failure &&
+          is_critical == o.is_critical &&
           name == o.name &&
           params == o.params &&
           timeout == o.timeout &&
@@ -151,7 +161,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_failure, name, params, timeout, type].hash
+      [allow_failure, is_critical, name, params, timeout, type].hash
     end
 
     # Builds the object from hash
