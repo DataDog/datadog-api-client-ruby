@@ -40,6 +40,8 @@ module DatadogAPIClient::V1
     LAMBDA_INVOCATIONS_PERCENTAGE = "lambda_invocations_percentage".freeze
     LAMBDA_USAGE = "lambda_usage".freeze
     LAMBDA_PERCENTAGE = "lambda_percentage".freeze
+    ESTIMATED_INDEXED_LOGS_USAGE = "estimated_indexed_logs_usage".freeze
+    ESTIMATED_INDEXED_LOGS_PERCENTAGE = "estimated_indexed_logs_percentage".freeze
 
     # Builds the enum from string
     # @param value [String] The enum value in the form of the string

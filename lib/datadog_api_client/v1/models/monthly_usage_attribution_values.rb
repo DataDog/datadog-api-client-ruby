@@ -53,6 +53,12 @@ module DatadogAPIClient::V1
     # The custom metrics usage by tag(s).
     attr_accessor :custom_timeseries_usage
 
+    # The percentage of estimated live indexed logs usage by tag(s). This field is in private beta.
+    attr_accessor :estimated_indexed_logs_percentage
+
+    # The estimated live indexed logs usage by tag(s). This field is in private beta.
+    attr_accessor :estimated_indexed_logs_usage
+
     # The percentage of Fargate usage by tags.
     attr_accessor :fargate_percentage
 
@@ -121,6 +127,8 @@ module DatadogAPIClient::V1
         :'container_usage' => :'container_usage',
         :'custom_timeseries_percentage' => :'custom_timeseries_percentage',
         :'custom_timeseries_usage' => :'custom_timeseries_usage',
+        :'estimated_indexed_logs_percentage' => :'estimated_indexed_logs_percentage',
+        :'estimated_indexed_logs_usage' => :'estimated_indexed_logs_usage',
         :'fargate_percentage' => :'fargate_percentage',
         :'fargate_usage' => :'fargate_usage',
         :'functions_percentage' => :'functions_percentage',
@@ -162,6 +170,8 @@ module DatadogAPIClient::V1
         :'container_usage' => :'Float',
         :'custom_timeseries_percentage' => :'Float',
         :'custom_timeseries_usage' => :'Float',
+        :'estimated_indexed_logs_percentage' => :'Float',
+        :'estimated_indexed_logs_usage' => :'Float',
         :'fargate_percentage' => :'Float',
         :'fargate_usage' => :'Float',
         :'functions_percentage' => :'Float',
@@ -243,6 +253,14 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'custom_timeseries_usage')
         self.custom_timeseries_usage = attributes[:'custom_timeseries_usage']
+      end
+
+      if attributes.key?(:'estimated_indexed_logs_percentage')
+        self.estimated_indexed_logs_percentage = attributes[:'estimated_indexed_logs_percentage']
+      end
+
+      if attributes.key?(:'estimated_indexed_logs_usage')
+        self.estimated_indexed_logs_usage = attributes[:'estimated_indexed_logs_usage']
       end
 
       if attributes.key?(:'fargate_percentage')
@@ -349,6 +367,8 @@ module DatadogAPIClient::V1
           container_usage == o.container_usage &&
           custom_timeseries_percentage == o.custom_timeseries_percentage &&
           custom_timeseries_usage == o.custom_timeseries_usage &&
+          estimated_indexed_logs_percentage == o.estimated_indexed_logs_percentage &&
+          estimated_indexed_logs_usage == o.estimated_indexed_logs_usage &&
           fargate_percentage == o.fargate_percentage &&
           fargate_usage == o.fargate_usage &&
           functions_percentage == o.functions_percentage &&
@@ -380,7 +400,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [api_percentage, api_usage, apm_host_percentage, apm_host_usage, browser_percentage, browser_usage, container_percentage, container_usage, custom_timeseries_percentage, custom_timeseries_usage, fargate_percentage, fargate_usage, functions_percentage, functions_usage, indexed_logs_percentage, indexed_logs_usage, infra_host_percentage, infra_host_usage, invocations_percentage, invocations_usage, npm_host_percentage, npm_host_usage, profiled_container_percentage, profiled_container_usage, profiled_host_percentage, profiled_host_usage, snmp_percentage, snmp_usage].hash
+      [api_percentage, api_usage, apm_host_percentage, apm_host_usage, browser_percentage, browser_usage, container_percentage, container_usage, custom_timeseries_percentage, custom_timeseries_usage, estimated_indexed_logs_percentage, estimated_indexed_logs_usage, fargate_percentage, fargate_usage, functions_percentage, functions_usage, indexed_logs_percentage, indexed_logs_usage, infra_host_percentage, infra_host_usage, invocations_percentage, invocations_usage, npm_host_percentage, npm_host_usage, profiled_container_percentage, profiled_container_usage, profiled_host_percentage, profiled_host_usage, snmp_percentage, snmp_usage].hash
     end
 
     # Builds the object from hash
