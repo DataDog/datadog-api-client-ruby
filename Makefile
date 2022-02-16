@@ -1,6 +1,6 @@
 .PHONY: all
 all: .generator .env
-	@rm -rf ./lib/v1 ./lib/v2 ./examples/generated
+	@rm -rf ./lib/datadog_api_client/v1 ./lib/datadog_api_client/v2 ./examples/generated
 	@pre-commit run --all-files --hook-stage=manual openapi-generator || true
 	@mkdir -p spec/v1 spec/v2 examples/generated/v1 examples/generated/v2
 	@cp -R v1/lib/datadog_api_client ./lib/
