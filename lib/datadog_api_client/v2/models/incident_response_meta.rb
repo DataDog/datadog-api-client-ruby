@@ -17,28 +17,19 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Pagination properties.
-  class IncidentServicesResponseMetaPagination
+  # The metadata object containing pagination metadata.
+  class IncidentResponseMeta
     # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The index of the first element in the next page of results. Equal to page size added to the current offset.
-    attr_accessor :next_offset
-
-    # The index of the first element in the results.
-    attr_accessor :offset
-
-    # Maximum size of pages to return.
-    attr_accessor :size
+    attr_accessor :pagination
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'next_offset' => :'next_offset',
-        :'offset' => :'offset',
-        :'size' => :'size'
+        :'pagination' => :'pagination'
       }
     end
 
@@ -52,9 +43,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'next_offset' => :'Integer',
-        :'offset' => :'Integer',
-        :'size' => :'Integer'
+        :'pagination' => :'IncidentResponseMetaPagination'
       }
     end
 
@@ -69,27 +58,19 @@ module DatadogAPIClient::V2
     # @param attributes [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentServicesResponseMetaPagination` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentResponseMeta` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::IncidentServicesResponseMetaPagination`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::IncidentResponseMeta`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'next_offset')
-        self.next_offset = attributes[:'next_offset']
-      end
-
-      if attributes.key?(:'offset')
-        self.offset = attributes[:'offset']
-      end
-
-      if attributes.key?(:'size')
-        self.size = attributes[:'size']
+      if attributes.key?(:'pagination')
+        self.pagination = attributes[:'pagination']
       end
     end
 
@@ -114,9 +95,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          next_offset == o.next_offset &&
-          offset == o.offset &&
-          size == o.size
+          pagination == o.pagination
     end
 
     # @see the `==` method
@@ -130,7 +109,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [next_offset, offset, size].hash
+      [pagination].hash
     end
 
     # Builds the object from hash
