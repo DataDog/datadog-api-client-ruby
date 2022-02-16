@@ -23,6 +23,7 @@ module DatadogAPIClient::V1
     BROWSER_USAGE = "browser_usage".freeze
     CONTAINER_USAGE = "container_usage".freeze
     CUSTOM_TIMESERIES_USAGE = "custom_timeseries_usage".freeze
+    ESTIMATED_INDEXED_LOGS_USAGE = "estimated_indexed_logs_usage".freeze
     FARGATE_USAGE = "fargate_usage".freeze
     FUNCTIONS_USAGE = "functions_usage".freeze
     INDEXED_LOGS_USAGE = "indexed_logs_usage".freeze
