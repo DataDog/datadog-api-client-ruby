@@ -6,7 +6,7 @@ end
 
 api_instance = DatadogAPIClient::V2::IncidentsAPI.new
 incident_id = "incident_id_example" # String | The UUID of the incident.
-body = DatadogAPIClient::V2::IncidentUpdateRequest.new({ data: DatadogAPIClient::V2::IncidentUpdateData.new({ id: "00000000-0000-0000-0000-000000000000", type: DatadogAPIClient::V2::IncidentType::INCIDENTS }) }) # IncidentUpdateRequest | Incident Payload.
+body = DatadogAPIClient::V2::IncidentUpdateRequest.new({ data: DatadogAPIClient::V2::IncidentUpdateData.new({ id: "00000000-0000-0000-4567-000000000000", type: DatadogAPIClient::V2::IncidentType::INCIDENTS }) }) # IncidentUpdateRequest | Incident Payload.
 
 begin
   # Update an existing incident

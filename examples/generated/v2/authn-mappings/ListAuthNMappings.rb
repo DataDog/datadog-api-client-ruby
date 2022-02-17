@@ -4,7 +4,7 @@ opts = {
   page_size: 10, # Integer | Size for a given page.
   page_number: 0, # Integer | Specific page number to return.
   sort: DatadogAPIClient::V2::AuthNMappingsSort::CREATED_AT_ASCENDING, # AuthNMappingsSort | Sort AuthN Mappings depending on the given field.
-  include: ["inner_example"], # Array<String> |
+  include: ["inner_example"], # Array<String> | Include additional information in the response.
   filter: "filter_example", # String | Filter all mappings by the given string.
 }
 
