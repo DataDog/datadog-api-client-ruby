@@ -35,6 +35,12 @@ module DatadogAPIClient::V1
     # Contains sum of non-aggregation custom metrics and custom metrics that are outputs for aggregations.
     attr_accessor :num_custom_timeseries
 
+    # The organization name.
+    attr_accessor :org_name
+
+    # The organization public ID.
+    attr_accessor :public_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
@@ -42,7 +48,9 @@ module DatadogAPIClient::V1
         :'hour' => :'hour',
         :'num_custom_input_timeseries' => :'num_custom_input_timeseries',
         :'num_custom_output_timeseries' => :'num_custom_output_timeseries',
-        :'num_custom_timeseries' => :'num_custom_timeseries'
+        :'num_custom_timeseries' => :'num_custom_timeseries',
+        :'org_name' => :'org_name',
+        :'public_id' => :'public_id'
       }
     end
 
@@ -59,7 +67,9 @@ module DatadogAPIClient::V1
         :'hour' => :'Time',
         :'num_custom_input_timeseries' => :'Integer',
         :'num_custom_output_timeseries' => :'Integer',
-        :'num_custom_timeseries' => :'Integer'
+        :'num_custom_timeseries' => :'Integer',
+        :'org_name' => :'String',
+        :'public_id' => :'String'
       }
     end
 
@@ -100,6 +110,14 @@ module DatadogAPIClient::V1
       if attributes.key?(:'num_custom_timeseries')
         self.num_custom_timeseries = attributes[:'num_custom_timeseries']
       end
+
+      if attributes.key?(:'org_name')
+        self.org_name = attributes[:'org_name']
+      end
+
+      if attributes.key?(:'public_id')
+        self.public_id = attributes[:'public_id']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -126,7 +144,9 @@ module DatadogAPIClient::V1
           hour == o.hour &&
           num_custom_input_timeseries == o.num_custom_input_timeseries &&
           num_custom_output_timeseries == o.num_custom_output_timeseries &&
-          num_custom_timeseries == o.num_custom_timeseries
+          num_custom_timeseries == o.num_custom_timeseries &&
+          org_name == o.org_name &&
+          public_id == o.public_id
     end
 
     # @see the `==` method
@@ -140,7 +160,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [hour, num_custom_input_timeseries, num_custom_output_timeseries, num_custom_timeseries].hash
+      [hour, num_custom_input_timeseries, num_custom_output_timeseries, num_custom_timeseries, org_name, public_id].hash
     end
 
     # Builds the object from hash

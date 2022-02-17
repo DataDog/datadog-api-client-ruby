@@ -47,6 +47,12 @@ module DatadogAPIClient::V1
     # Contains the number of rehydrated log bytes ingested (data available as of December 1, 2020).
     attr_accessor :logs_rehydrated_ingested_bytes
 
+    # The organization name.
+    attr_accessor :org_name
+
+    # The organization public ID.
+    attr_accessor :public_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
@@ -58,7 +64,9 @@ module DatadogAPIClient::V1
         :'logs_live_indexed_count' => :'logs_live_indexed_count',
         :'logs_live_ingested_bytes' => :'logs_live_ingested_bytes',
         :'logs_rehydrated_indexed_count' => :'logs_rehydrated_indexed_count',
-        :'logs_rehydrated_ingested_bytes' => :'logs_rehydrated_ingested_bytes'
+        :'logs_rehydrated_ingested_bytes' => :'logs_rehydrated_ingested_bytes',
+        :'org_name' => :'org_name',
+        :'public_id' => :'public_id'
       }
     end
 
@@ -79,7 +87,9 @@ module DatadogAPIClient::V1
         :'logs_live_indexed_count' => :'Integer',
         :'logs_live_ingested_bytes' => :'Integer',
         :'logs_rehydrated_indexed_count' => :'Integer',
-        :'logs_rehydrated_ingested_bytes' => :'Integer'
+        :'logs_rehydrated_ingested_bytes' => :'Integer',
+        :'org_name' => :'String',
+        :'public_id' => :'String'
       }
     end
 
@@ -136,6 +146,14 @@ module DatadogAPIClient::V1
       if attributes.key?(:'logs_rehydrated_ingested_bytes')
         self.logs_rehydrated_ingested_bytes = attributes[:'logs_rehydrated_ingested_bytes']
       end
+
+      if attributes.key?(:'org_name')
+        self.org_name = attributes[:'org_name']
+      end
+
+      if attributes.key?(:'public_id')
+        self.public_id = attributes[:'public_id']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -166,7 +184,9 @@ module DatadogAPIClient::V1
           logs_live_indexed_count == o.logs_live_indexed_count &&
           logs_live_ingested_bytes == o.logs_live_ingested_bytes &&
           logs_rehydrated_indexed_count == o.logs_rehydrated_indexed_count &&
-          logs_rehydrated_ingested_bytes == o.logs_rehydrated_ingested_bytes
+          logs_rehydrated_ingested_bytes == o.logs_rehydrated_ingested_bytes &&
+          org_name == o.org_name &&
+          public_id == o.public_id
     end
 
     # @see the `==` method
@@ -180,7 +200,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [billable_ingested_bytes, hour, indexed_events_count, ingested_events_bytes, logs_live_indexed_count, logs_live_ingested_bytes, logs_rehydrated_indexed_count, logs_rehydrated_ingested_bytes].hash
+      [billable_ingested_bytes, hour, indexed_events_count, ingested_events_bytes, logs_live_indexed_count, logs_live_ingested_bytes, logs_rehydrated_indexed_count, logs_rehydrated_ingested_bytes, org_name, public_id].hash
     end
 
     # Builds the object from hash
