@@ -65,6 +65,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'target',
       ])
     end
 
@@ -109,10 +110,6 @@ module DatadogAPIClient::V1
         invalid_properties.push('invalid value for "operator", operator cannot be nil.')
       end
 
-      if @target.nil?
-        invalid_properties.push('invalid value for "target", target cannot be nil.')
-      end
-
       if @type.nil?
         invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
@@ -125,7 +122,6 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @operator.nil?
-      return false if @target.nil?
       return false if @type.nil?
       true
     end

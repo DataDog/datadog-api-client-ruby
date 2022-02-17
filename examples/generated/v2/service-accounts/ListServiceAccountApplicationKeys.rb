@@ -1,6 +1,6 @@
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::ServiceAccountsAPI.new
-service_account_id = "00000000-0000-0000-0000-000000000000" # String | The ID of the service account.
+service_account_id = "00000000-0000-1234-0000-000000000000" # String | The ID of the service account.
 opts = {
   page_size: 10, # Integer | Size for a given page.
   page_number: 0, # Integer | Specific page number to return.
