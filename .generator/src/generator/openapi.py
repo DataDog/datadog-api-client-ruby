@@ -29,7 +29,7 @@ def type_to_ruby(schema, alternative_name=None):
         if "enum" in schema:
             return name
         if (
-            "additionalProperties" not in schema
+            not schema.get("additionalProperties")
             and schema.get("type", "object") == "object"
         ):
             return name

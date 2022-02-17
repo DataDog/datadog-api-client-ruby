@@ -304,8 +304,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'renotify_interval')
         self.renotify_interval = attributes[:'renotify_interval']
-      else
-        self.renotify_interval = 'none'
       end
 
       if attributes.key?(:'renotify_occurrences')
@@ -340,8 +338,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'timeout_h')
         self.timeout_h = attributes[:'timeout_h']
-      else
-        self.timeout_h = 'none'
       end
 
       if attributes.key?(:'variables')

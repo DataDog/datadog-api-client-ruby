@@ -305,8 +305,6 @@ require 'datadog_api_client/v1/models/monthly_usage_attribution_supported_metric
 require 'datadog_api_client/v1/models/monthly_usage_attribution_values'
 require 'datadog_api_client/v1/models/notebook_absolute_time'
 require 'datadog_api_client/v1/models/notebook_author'
-require 'datadog_api_client/v1/models/notebook_cell_create_request'
-require 'datadog_api_client/v1/models/notebook_cell_create_request_attributes'
 require 'datadog_api_client/v1/models/notebook_cell_resource_type'
 require 'datadog_api_client/v1/models/notebook_cell_response'
 require 'datadog_api_client/v1/models/notebook_cell_response_attributes'
