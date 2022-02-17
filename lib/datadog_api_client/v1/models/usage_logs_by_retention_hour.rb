@@ -29,6 +29,12 @@ module DatadogAPIClient::V1
     # Live logs indexed with this retention period during a given hour.
     attr_accessor :live_indexed_events_count
 
+    # The organization name.
+    attr_accessor :org_name
+
+    # The organization public ID.
+    attr_accessor :public_id
+
     # Rehydrated logs indexed with this retention period during a given hour.
     attr_accessor :rehydrated_indexed_events_count
 
@@ -41,6 +47,8 @@ module DatadogAPIClient::V1
       {
         :'indexed_events_count' => :'indexed_events_count',
         :'live_indexed_events_count' => :'live_indexed_events_count',
+        :'org_name' => :'org_name',
+        :'public_id' => :'public_id',
         :'rehydrated_indexed_events_count' => :'rehydrated_indexed_events_count',
         :'retention' => :'retention'
       }
@@ -58,6 +66,8 @@ module DatadogAPIClient::V1
       {
         :'indexed_events_count' => :'Integer',
         :'live_indexed_events_count' => :'Integer',
+        :'org_name' => :'String',
+        :'public_id' => :'String',
         :'rehydrated_indexed_events_count' => :'Integer',
         :'retention' => :'String'
       }
@@ -93,6 +103,14 @@ module DatadogAPIClient::V1
         self.live_indexed_events_count = attributes[:'live_indexed_events_count']
       end
 
+      if attributes.key?(:'org_name')
+        self.org_name = attributes[:'org_name']
+      end
+
+      if attributes.key?(:'public_id')
+        self.public_id = attributes[:'public_id']
+      end
+
       if attributes.key?(:'rehydrated_indexed_events_count')
         self.rehydrated_indexed_events_count = attributes[:'rehydrated_indexed_events_count']
       end
@@ -125,6 +143,8 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           indexed_events_count == o.indexed_events_count &&
           live_indexed_events_count == o.live_indexed_events_count &&
+          org_name == o.org_name &&
+          public_id == o.public_id &&
           rehydrated_indexed_events_count == o.rehydrated_indexed_events_count &&
           retention == o.retention
     end
@@ -140,7 +160,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [indexed_events_count, live_indexed_events_count, rehydrated_indexed_events_count, retention].hash
+      [indexed_events_count, live_indexed_events_count, org_name, public_id, rehydrated_indexed_events_count, retention].hash
     end
 
     # Builds the object from hash

@@ -32,13 +32,21 @@ module DatadogAPIClient::V1
     # Contains the sum of invocations of all functions.
     attr_accessor :invocations_sum
 
+    # The organization name.
+    attr_accessor :org_name
+
+    # The organization public ID.
+    attr_accessor :public_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
         :'func_count' => :'func_count',
         :'hour' => :'hour',
-        :'invocations_sum' => :'invocations_sum'
+        :'invocations_sum' => :'invocations_sum',
+        :'org_name' => :'org_name',
+        :'public_id' => :'public_id'
       }
     end
 
@@ -54,7 +62,9 @@ module DatadogAPIClient::V1
       {
         :'func_count' => :'Integer',
         :'hour' => :'Time',
-        :'invocations_sum' => :'Integer'
+        :'invocations_sum' => :'Integer',
+        :'org_name' => :'String',
+        :'public_id' => :'String'
       }
     end
 
@@ -91,6 +101,14 @@ module DatadogAPIClient::V1
       if attributes.key?(:'invocations_sum')
         self.invocations_sum = attributes[:'invocations_sum']
       end
+
+      if attributes.key?(:'org_name')
+        self.org_name = attributes[:'org_name']
+      end
+
+      if attributes.key?(:'public_id')
+        self.public_id = attributes[:'public_id']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -116,7 +134,9 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           func_count == o.func_count &&
           hour == o.hour &&
-          invocations_sum == o.invocations_sum
+          invocations_sum == o.invocations_sum &&
+          org_name == o.org_name &&
+          public_id == o.public_id
     end
 
     # @see the `==` method
@@ -130,7 +150,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [func_count, hour, invocations_sum].hash
+      [func_count, hour, invocations_sum, org_name, public_id].hash
     end
 
     # Builds the object from hash
