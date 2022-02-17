@@ -62,6 +62,12 @@ module DatadogAPIClient::V1
     # Contains the total number of hosts reported by Datadog exporter for the OpenTelemetry Collector.
     attr_accessor :opentelemetry_host_count
 
+    # The organization name.
+    attr_accessor :org_name
+
+    # The organization public ID.
+    attr_accessor :public_id
+
     # Contains the total number of hosts that reported through vSphere integration (and were NOT running the Datadog Agent).
     attr_accessor :vsphere_host_count
 
@@ -82,6 +88,8 @@ module DatadogAPIClient::V1
         :'hour' => :'hour',
         :'infra_azure_app_service' => :'infra_azure_app_service',
         :'opentelemetry_host_count' => :'opentelemetry_host_count',
+        :'org_name' => :'org_name',
+        :'public_id' => :'public_id',
         :'vsphere_host_count' => :'vsphere_host_count'
       }
     end
@@ -109,6 +117,8 @@ module DatadogAPIClient::V1
         :'hour' => :'Time',
         :'infra_azure_app_service' => :'Integer',
         :'opentelemetry_host_count' => :'Integer',
+        :'org_name' => :'String',
+        :'public_id' => :'String',
         :'vsphere_host_count' => :'Integer'
       }
     end
@@ -187,6 +197,14 @@ module DatadogAPIClient::V1
         self.opentelemetry_host_count = attributes[:'opentelemetry_host_count']
       end
 
+      if attributes.key?(:'org_name')
+        self.org_name = attributes[:'org_name']
+      end
+
+      if attributes.key?(:'public_id')
+        self.public_id = attributes[:'public_id']
+      end
+
       if attributes.key?(:'vsphere_host_count')
         self.vsphere_host_count = attributes[:'vsphere_host_count']
       end
@@ -226,6 +244,8 @@ module DatadogAPIClient::V1
           hour == o.hour &&
           infra_azure_app_service == o.infra_azure_app_service &&
           opentelemetry_host_count == o.opentelemetry_host_count &&
+          org_name == o.org_name &&
+          public_id == o.public_id &&
           vsphere_host_count == o.vsphere_host_count
     end
 
@@ -240,7 +260,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [agent_host_count, alibaba_host_count, apm_azure_app_service_host_count, apm_host_count, aws_host_count, azure_host_count, container_count, gcp_host_count, heroku_host_count, host_count, hour, infra_azure_app_service, opentelemetry_host_count, vsphere_host_count].hash
+      [agent_host_count, alibaba_host_count, apm_azure_app_service_host_count, apm_host_count, aws_host_count, azure_host_count, container_count, gcp_host_count, heroku_host_count, host_count, hour, infra_azure_app_service, opentelemetry_host_count, org_name, public_id, vsphere_host_count].hash
     end
 
     # Builds the object from hash

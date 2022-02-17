@@ -35,6 +35,12 @@ module DatadogAPIClient::V1
     # The user specified name for this index ID.
     attr_accessor :index_name
 
+    # The organization name.
+    attr_accessor :org_name
+
+    # The organization public ID.
+    attr_accessor :public_id
+
     # The retention period (in days) for this index ID.
     attr_accessor :retention
 
@@ -46,6 +52,8 @@ module DatadogAPIClient::V1
         :'hour' => :'hour',
         :'index_id' => :'index_id',
         :'index_name' => :'index_name',
+        :'org_name' => :'org_name',
+        :'public_id' => :'public_id',
         :'retention' => :'retention'
       }
     end
@@ -64,6 +72,8 @@ module DatadogAPIClient::V1
         :'hour' => :'Time',
         :'index_id' => :'String',
         :'index_name' => :'String',
+        :'org_name' => :'String',
+        :'public_id' => :'String',
         :'retention' => :'Integer'
       }
     end
@@ -106,6 +116,14 @@ module DatadogAPIClient::V1
         self.index_name = attributes[:'index_name']
       end
 
+      if attributes.key?(:'org_name')
+        self.org_name = attributes[:'org_name']
+      end
+
+      if attributes.key?(:'public_id')
+        self.public_id = attributes[:'public_id']
+      end
+
       if attributes.key?(:'retention')
         self.retention = attributes[:'retention']
       end
@@ -136,6 +154,8 @@ module DatadogAPIClient::V1
           hour == o.hour &&
           index_id == o.index_id &&
           index_name == o.index_name &&
+          org_name == o.org_name &&
+          public_id == o.public_id &&
           retention == o.retention
     end
 
@@ -150,7 +170,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [event_count, hour, index_id, index_name, retention].hash
+      [event_count, hour, index_id, index_name, org_name, public_id, retention].hash
     end
 
     # Builds the object from hash
