@@ -7,7 +7,7 @@ gemspec
 group :development, :test do
   gem 'activesupport'
   gem 'cucumber'
-  gem 'ddtrace', '>=0.51.0'
+  gem 'ddtrace', '>=1.0.0.beta1'
   gem 'gem-release'
   gem 'github-markup'
   gem 'pry-byebug'
