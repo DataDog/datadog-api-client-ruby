@@ -40,8 +40,9 @@ jobs:
       - name: Bump Gem version
         run: |
           git switch -c "release/${RELEASE_TAG}"
+          bundle install
           bundle exec gem bump -v "${RELEASE_TAG}"
-          git push origin
+          git push -f --set-upstream origin "release/${RELEASE_TAG}"
         env:
           RELEASE_TAG: ${{ github.event.inputs.tag }}
 
@@ -49,6 +50,7 @@ jobs:
         uses: actions/github-script@v5
         env:
           RELEASE_TAG: ${{ github.event.inputs.tag }}
+          BASE: ${{ github.event.ref }}
         with:
           github-token: ${{ steps.get_token.outputs.token }}
           script: |
@@ -58,7 +60,7 @@ jobs:
               tag_name: process.env.RELEASE_TAG,
             });
             const today = new Date().toJSON().slice(0, 10);
-            const header = [`# Changelog\n\n## ${process.env.RELEASE_TAG} / ${today}\n`];
+            const header = [`# CHANGELOG\n\n## ${process.env.RELEASE_TAG} / ${today}\n`];
             const changes = header.concat(notes.body.split("\n").slice(3));
             const { data: content } = await github.rest.repos.getContent({
               owner: context.repo.owner,
@@ -74,12 +76,6 @@ jobs:
               repo: context.repo.repo,
               ref: `heads/release/${process.env.RELEASE_TAG}`,
             });
-            await github.rest.git.createRef({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: `refs/heads/release/${process.env.RELEASE_TAG}`,
-              sha: head.object.sha,
-            });
             const { data: commit } = await github.rest.repos.createOrUpdateFileContents({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -93,7 +89,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               head: `release/${process.env.RELEASE_TAG}`,
-              base: "master",
+              base: process.env.BASE,
               title: `Release ${process.env.RELEASE_TAG}`,
               body: "Update CHANGELOG",
             });
