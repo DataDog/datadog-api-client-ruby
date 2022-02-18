@@ -1,8 +1,6 @@
-name: Release
+name: Publish
 
 on:
-  workflow_dispatch:
-  pull_request:
   release:
     types:
       - published
@@ -14,10 +12,14 @@ jobs:
     if: github.event_name == 'workflow_dispatch' || (github.event_name == 'release' && github.event.action == 'published')
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.release.tag_name }}
+
       - name: Set up Ruby 2.6
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.6
+
       - run: bundle install
 
       - name: Publish to RubyGems
