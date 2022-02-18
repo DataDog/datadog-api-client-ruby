@@ -17,25 +17,23 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The incident's relationships for an update request.
-  class IncidentUpdateRelationships
+  # Relationship to user object.
+  class NullableRelationshipToUserData
     # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
-    attr_accessor :commander_user
+    # A unique identifier that represents the user.
+    attr_accessor :id
 
-    attr_accessor :integrations
-
-    attr_accessor :postmortem
+    attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'commander_user' => :'commander_user',
-        :'integrations' => :'integrations',
-        :'postmortem' => :'postmortem'
+        :'id' => :'id',
+        :'type' => :'type'
       }
     end
 
@@ -49,9 +47,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'commander_user' => :'NullableRelationshipToUser',
-        :'integrations' => :'RelationshipToIncidentIntegrationMetadatas',
-        :'postmortem' => :'RelationshipToIncidentPostmortem'
+        :'id' => :'String',
+        :'type' => :'UsersType'
       }
     end
 
@@ -66,27 +63,25 @@ module DatadogAPIClient::V2
     # @param attributes [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentUpdateRelationships` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::NullableRelationshipToUserData` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::IncidentUpdateRelationships`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::NullableRelationshipToUserData`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'commander_user')
-        self.commander_user = attributes[:'commander_user']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'integrations')
-        self.integrations = attributes[:'integrations']
-      end
-
-      if attributes.key?(:'postmortem')
-        self.postmortem = attributes[:'postmortem']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      else
+        self.type = 'users'
       end
     end
 
@@ -95,6 +90,14 @@ module DatadogAPIClient::V2
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @id.nil?
+        invalid_properties.push('invalid value for "id", id cannot be nil.')
+      end
+
+      if @type.nil?
+        invalid_properties.push('invalid value for "type", type cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -102,6 +105,8 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if @id.nil?
+      return false if @type.nil?
       true
     end
 
@@ -111,9 +116,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          commander_user == o.commander_user &&
-          integrations == o.integrations &&
-          postmortem == o.postmortem
+          id == o.id &&
+          type == o.type
     end
 
     # @see the `==` method
@@ -127,7 +131,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [commander_user, integrations, postmortem].hash
+      [id, type].hash
     end
 
     # Builds the object from hash
