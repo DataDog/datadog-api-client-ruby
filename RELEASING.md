@@ -18,27 +18,25 @@ This project does not have a strict release schedule. However, we would make a r
 * Make sure documentation is up-to-date.
 
 ## Release Process
+
+The release process is controlled and run by GitHub Actions.
 ### Prerequisite
-Install [bundler](https://bundler.io/) and setup your RubyGems credentials:
-1. Register an account on https://rubygems.org/
-1. *Datadog Admins only* - Be assigned to Datadog's RubyGems gems by an owner.
-1. Set a `~/.gem/credentials` file as the following:
-```
----
-:rubygems_api_key: $RUBYGEMS_APIKEY
-```
-1. Install [datadog_checks_dev](https://datadog-checks-base.readthedocs.io/en/latest/datadog_checks_dev.cli.html#installation) using Python 3.
-1. Install [gem-release](https://github.com/svenfuchs/gem-release#installation).
+
+1. Make sure you have `write_repo` access.
+1. Share your plan for the release with other maintainers to avoid conflicts during the release process.
 
 ### Update Changelog
-#### Commands
-1. See changes ready for release by running `ddev release show changes . --tag-prefix v --since <CURRENT_VERSION>` at the root of this project. Add any missing labels to PRs if needed.
-1. Bump the version. e.g. `gem bump -v 1.0.0`.
-1. Run `ddev release changelog . <NEW_VERSION> <CURRENT_VERSION> --no-semver` to update the `CHANGELOG.md` file at the root of this repository
-1. Commit the changes to the repository in a release branch. Do not merge yet.
 
-### Release
-1. Merge the PR to master.
-1. Create the release in the [Github releases page](https://github.com/DataDog/datadog-api-client-ruby/releases).
+1. Open [prepare release](https://github.com/DataDog/datadog-api-client-python/actions/workflows/prepare_release.yml) and click on `Run workflow` dropdown.
+1. Enter new version identifier in the `New version tag` input box (e.g. `v1.7.0`).
+1. Trigger the action by clicking on `Run workflow` button.
+### Review
+
+1. Review the generated pull-request for `release/<New version tag>` branch.
+1. If everything is fine, merge the pull-request.
+1. Check that the [release](https://github.com/DataDog/datadog-api-client-ruby/actions/workflows/release.yml) action created new release on GitHub.
+
+### Publish
+
 1. A github action will kick off that builds and publishes this tag to Ruby Gem. Check that the [Ruby Gem is published](https://rubygems.org/gems/datadog_api_client).
-1. Bump the version again to a dev version (e.g. `gem bump -v 1.0.1.dev`), open a PR and merge it to master.
+1. Bump the version to a dev version (e.g. `gem bump -v 1.7.1.dev`), open a PR and merge it to master.
