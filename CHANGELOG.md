@@ -1,5 +1,26 @@
 # CHANGELOG
 
+## v1.7.0 / 2022-02-18
+
+### Fixed
+* Add missing type to `CloudWorkloadSecurityAgentRuleAttributes` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/743
+* Add missing type to enum by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/746
+### Added
+* Add organization metadata to additional Usage API responses by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/712
+* Add support for formula and function in monitors by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/719
+* Add endpoint for managing SAML AuthN mappings by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/716
+* [Synthetics] Add `isCritical` to browser test steps by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/727
+* Add metrics bulk-config endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/722
+* Add support for "estimated usage attribution" by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/741
+* Add org metadata for all hourly usage endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/745
+### Changed
+* Add synthetics test result failure field by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/713
+* Fix funnel steps definition by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/734
+* Extract incident meta object by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/739
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-ruby/compare/v1.6.0...v1.7.0
+
 ## 1.6.0 / 2022-01-25
 
 * [Added] Add `filter[deleted]` parameter for searching recently deleted dashboards. See [#693](https://github.com/DataDog/datadog-api-client-ruby/pull/693).
