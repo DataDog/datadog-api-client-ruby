@@ -1,7 +1,7 @@
 require 'json'
 
 Around do |scenario, block|
-  current_span = Datadog.configuration[:cucumber][:tracer].active_span
+  current_span = Datadog::Tracing.active_span
   unless current_span.nil?
     codeowners = []
     scenario.tags.each do |tag|

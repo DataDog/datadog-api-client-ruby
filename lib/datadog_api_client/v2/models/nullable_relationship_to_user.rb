@@ -17,20 +17,20 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The relationships the incident will have with other resources once created.
-  class IncidentCreateRelationships
+  # Relationship to user.
+  class NullableRelationshipToUser
     # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Relationship to user.
-    attr_accessor :commander_user
+    # Relationship to user object.
+    attr_accessor :data
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'commander_user' => :'commander_user'
+        :'data' => :'data'
       }
     end
 
@@ -44,7 +44,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'commander_user' => :'NullableRelationshipToUser'
+        :'data' => :'NullableRelationshipToUserData'
       }
     end
 
@@ -52,6 +52,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'data',
       ])
     end
 
@@ -60,19 +61,19 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentCreateRelationships` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::NullableRelationshipToUser` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::IncidentCreateRelationships`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::NullableRelationshipToUser`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'commander_user')
-        self.commander_user = attributes[:'commander_user']
+      if attributes.key?(:'data')
+        self.data = attributes[:'data']
       end
     end
 
@@ -81,9 +82,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
-      if @commander_user.nil?
-        invalid_properties.push('invalid value for "commander_user", commander_user cannot be nil.')
-      end
       invalid_properties
     end
 
@@ -91,18 +89,7 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @commander_user.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param commander_user [Object] Object to be assigned
-    # @!visibility private
-    def commander_user=(commander_user)
-      if commander_user.nil?
-        fail ArgumentError, 'invalid value for "commander_user", commander_user cannot be nil.'
-      end
-      @commander_user = commander_user
     end
 
     # Checks equality by comparing each attribute.
@@ -111,7 +98,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          commander_user == o.commander_user
+          data == o.data
     end
 
     # @see the `==` method
@@ -125,7 +112,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [commander_user].hash
+      [data].hash
     end
 
     # Builds the object from hash

@@ -17,20 +17,24 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The relationships the incident will have with other resources once created.
-  class IncidentCreateRelationships
+  # Relationship to user object.
+  class NullableRelationshipToUserData
     # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Relationship to user.
-    attr_accessor :commander_user
+    # A unique identifier that represents the user.
+    attr_accessor :id
+
+    # Users resource type.
+    attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'commander_user' => :'commander_user'
+        :'id' => :'id',
+        :'type' => :'type'
       }
     end
 
@@ -44,7 +48,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'commander_user' => :'NullableRelationshipToUser'
+        :'id' => :'String',
+        :'type' => :'UsersType'
       }
     end
 
@@ -60,19 +65,25 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentCreateRelationships` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::NullableRelationshipToUserData` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::IncidentCreateRelationships`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::NullableRelationshipToUserData`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'commander_user')
-        self.commander_user = attributes[:'commander_user']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      else
+        self.type = 'users'
       end
     end
 
@@ -81,8 +92,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
-      if @commander_user.nil?
-        invalid_properties.push('invalid value for "commander_user", commander_user cannot be nil.')
+      if @id.nil?
+        invalid_properties.push('invalid value for "id", id cannot be nil.')
+      end
+      if @type.nil?
+        invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
       invalid_properties
     end
@@ -91,18 +105,29 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @commander_user.nil?
+      return false if @id.nil?
+      return false if @type.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param commander_user [Object] Object to be assigned
+    # @param id [Object] Object to be assigned
     # @!visibility private
-    def commander_user=(commander_user)
-      if commander_user.nil?
-        fail ArgumentError, 'invalid value for "commander_user", commander_user cannot be nil.'
+    def id=(id)
+      if id.nil?
+        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
       end
-      @commander_user = commander_user
+      @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    # @!visibility private
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.
@@ -111,7 +136,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          commander_user == o.commander_user
+          id == o.id &&
+          type == o.type
     end
 
     # @see the `==` method
@@ -125,7 +151,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [commander_user].hash
+      [id, type].hash
     end
 
     # Builds the object from hash

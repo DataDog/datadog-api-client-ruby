@@ -328,6 +328,7 @@ module DatadogAPIClient::V2
     # @param incident_id [String] The UUID of the incident.
     # @param body [IncidentUpdateRequest] Incident Payload.
     # @param opts [Hash] the optional parameters
+    # @option opts [Array<IncidentRelatedObject>] :include Specifies which types of related objects should be included in the response.
     # @return [IncidentResponse]
     def update_incident(incident_id, body, opts = {})
       data, _status_code, _headers = update_incident_with_http_info(incident_id, body, opts)
@@ -339,6 +340,7 @@ module DatadogAPIClient::V2
     # @param incident_id [String] The UUID of the incident.
     # @param body [IncidentUpdateRequest] Incident Payload.
     # @param opts [Hash] the optional parameters
+    # @option opts [Array<IncidentRelatedObject>] :include Specifies which types of related objects should be included in the response.
     # @return [Array<(IncidentResponse, Integer, Hash)>] IncidentResponse data, response status code and response headers
     def update_incident_with_http_info(incident_id, body, opts = {})
 
@@ -367,6 +369,7 @@ module DatadogAPIClient::V2
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'include'] = @api_client.build_collection_param(opts[:'include'], :csv) if !opts[:'include'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

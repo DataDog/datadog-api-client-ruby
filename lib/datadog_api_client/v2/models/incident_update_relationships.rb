@@ -26,14 +26,8 @@ module DatadogAPIClient::V2
     # Relationship to user.
     attr_accessor :commander_user
 
-    # Relationship to user.
-    attr_accessor :created_by_user
-
     # A relationship reference for multiple integration metadata objects.
     attr_accessor :integrations
-
-    # Relationship to user.
-    attr_accessor :last_modified_by_user
 
     # A relationship reference for postmortems.
     attr_accessor :postmortem
@@ -43,9 +37,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'commander_user' => :'commander_user',
-        :'created_by_user' => :'created_by_user',
         :'integrations' => :'integrations',
-        :'last_modified_by_user' => :'last_modified_by_user',
         :'postmortem' => :'postmortem'
       }
     end
@@ -60,10 +52,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'commander_user' => :'RelationshipToUser',
-        :'created_by_user' => :'RelationshipToUser',
+        :'commander_user' => :'NullableRelationshipToUser',
         :'integrations' => :'RelationshipToIncidentIntegrationMetadatas',
-        :'last_modified_by_user' => :'RelationshipToUser',
         :'postmortem' => :'RelationshipToIncidentPostmortem'
       }
     end
@@ -95,16 +85,8 @@ module DatadogAPIClient::V2
         self.commander_user = attributes[:'commander_user']
       end
 
-      if attributes.key?(:'created_by_user')
-        self.created_by_user = attributes[:'created_by_user']
-      end
-
       if attributes.key?(:'integrations')
         self.integrations = attributes[:'integrations']
-      end
-
-      if attributes.key?(:'last_modified_by_user')
-        self.last_modified_by_user = attributes[:'last_modified_by_user']
       end
 
       if attributes.key?(:'postmortem')
@@ -134,9 +116,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           commander_user == o.commander_user &&
-          created_by_user == o.created_by_user &&
           integrations == o.integrations &&
-          last_modified_by_user == o.last_modified_by_user &&
           postmortem == o.postmortem
     end
 
@@ -151,7 +131,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [commander_user, created_by_user, integrations, last_modified_by_user, postmortem].hash
+      [commander_user, integrations, postmortem].hash
     end
 
     # Builds the object from hash
