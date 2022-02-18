@@ -50,6 +50,7 @@ jobs:
         uses: actions/github-script@v5
         env:
           RELEASE_TAG: ${{ github.event.inputs.tag }}
+          BASE: ${{ github.event.ref }}
         with:
           github-token: ${{ steps.get_token.outputs.token }}
           script: |
@@ -88,7 +89,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               head: `release/${process.env.RELEASE_TAG}`,
-              base: "master",
+              base: process.env.BASE,
               title: `Release ${process.env.RELEASE_TAG}`,
               body: "Update CHANGELOG",
             });
