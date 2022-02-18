@@ -40,6 +40,7 @@ jobs:
       - name: Bump Gem version
         run: |
           git switch -c "release/${RELEASE_TAG}"
+          bundle install
           bundle exec gem bump -v "${RELEASE_TAG}"
           git push origin
         env:
