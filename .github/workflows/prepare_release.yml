@@ -42,7 +42,7 @@ jobs:
           git switch -c "release/${RELEASE_TAG}"
           bundle install
           bundle exec gem bump -v "${RELEASE_TAG}"
-          git push origin
+          git push -f --set-upstream origin "release/${RELEASE_TAG}"
         env:
           RELEASE_TAG: ${{ github.event.inputs.tag }}
 
