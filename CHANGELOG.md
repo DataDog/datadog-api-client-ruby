@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## v1.7.0 / 2022-02-18
+## 1.7.0 / 2022-02-18
 
 ### Fixed
 * Add missing type to `CloudWorkloadSecurityAgentRuleAttributes` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/743
