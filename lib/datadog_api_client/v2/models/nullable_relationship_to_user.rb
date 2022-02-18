@@ -17,25 +17,19 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The incident's relationships for an update request.
-  class IncidentUpdateRelationships
+  # Relationship to user.
+  class NullableRelationshipToUser
     # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
-    attr_accessor :commander_user
-
-    attr_accessor :integrations
-
-    attr_accessor :postmortem
+    attr_accessor :data
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'commander_user' => :'commander_user',
-        :'integrations' => :'integrations',
-        :'postmortem' => :'postmortem'
+        :'data' => :'data'
       }
     end
 
@@ -49,9 +43,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'commander_user' => :'NullableRelationshipToUser',
-        :'integrations' => :'RelationshipToIncidentIntegrationMetadatas',
-        :'postmortem' => :'RelationshipToIncidentPostmortem'
+        :'data' => :'NullableRelationshipToUserData'
       }
     end
 
@@ -59,6 +51,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'data'
       ])
     end
 
@@ -66,27 +59,19 @@ module DatadogAPIClient::V2
     # @param attributes [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentUpdateRelationships` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::NullableRelationshipToUser` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::IncidentUpdateRelationships`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::NullableRelationshipToUser`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'commander_user')
-        self.commander_user = attributes[:'commander_user']
-      end
-
-      if attributes.key?(:'integrations')
-        self.integrations = attributes[:'integrations']
-      end
-
-      if attributes.key?(:'postmortem')
-        self.postmortem = attributes[:'postmortem']
+      if attributes.key?(:'data')
+        self.data = attributes[:'data']
       end
     end
 
@@ -111,9 +96,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          commander_user == o.commander_user &&
-          integrations == o.integrations &&
-          postmortem == o.postmortem
+          data == o.data
     end
 
     # @see the `==` method
@@ -127,7 +110,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [commander_user, integrations, postmortem].hash
+      [data].hash
     end
 
     # Builds the object from hash

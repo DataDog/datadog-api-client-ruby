@@ -55,7 +55,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'commander_user' => :'RelationshipToUser',
+        :'commander_user' => :'NullableRelationshipToUser',
         :'created_by_user' => :'RelationshipToUser',
         :'integrations' => :'RelationshipToIncidentIntegrationMetadatas',
         :'last_modified_by_user' => :'RelationshipToUser',

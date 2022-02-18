@@ -15,16 +15,16 @@ body = DatadogAPIClient::V2::IncidentCreateRequest.new({
     attributes: DatadogAPIClient::V2::IncidentCreateAttributes.new({
       title: "Example-Create_an_incident_returns_CREATED_response",
       customer_impacted: false,
-      fields: DatadogAPIClient::V2::IncidentCreateAttributesFields.new({
+      fields: {
         state: DatadogAPIClient::V2::IncidentFieldAttributesSingleValue.new({
           type: DatadogAPIClient::V2::IncidentFieldAttributesSingleValueType::DROPDOWN,
           value: "resolved",
         }),
-      }),
+      },
     }),
     relationships: DatadogAPIClient::V2::IncidentCreateRelationships.new({
-      commander: DatadogAPIClient::V2::RelationshipToUser.new({
-        data: DatadogAPIClient::V2::RelationshipToUserData.new({
+      commander_user: DatadogAPIClient::V2::NullableRelationshipToUser.new({
+        data: DatadogAPIClient::V2::NullableRelationshipToUserData.new({
           type: DatadogAPIClient::V2::UsersType::USERS,
           id: USER_DATA_ID,
         }),
