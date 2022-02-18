@@ -75,12 +75,6 @@ jobs:
               repo: context.repo.repo,
               ref: `heads/release/${process.env.RELEASE_TAG}`,
             });
-            await github.rest.git.createRef({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: `refs/heads/release/${process.env.RELEASE_TAG}`,
-              sha: head.object.sha,
-            });
             const { data: commit } = await github.rest.repos.createOrUpdateFileContents({
               owner: context.repo.owner,
               repo: context.repo.repo,
