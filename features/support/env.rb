@@ -8,7 +8,7 @@ end
 
 require 'cucumber'
 require 'datadog_api_client'
-require 'datadog/ci'
+require 'ddtrace'
 require 'time'
 require 'timecop'
 require 'vcr'
@@ -16,9 +16,9 @@ require 'vcr'
 
 Datadog.configure do |c|
   c.time_now_provider = -> { Time.now_without_mock_time }
-  c.ci_mode.enabled = true
-  c.use :cucumber, {'operation_name': 'test'}
-  c.use :ethon, {}
+  c.ci.enabled = true
+  c.ci.instrument :cucumber, operation_name: 'test'
+  c.tracing.instrument :ethon
 end
 
 module RecordMode

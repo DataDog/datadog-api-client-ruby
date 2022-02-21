@@ -15,9 +15,9 @@ require 'datadog/ci'
 require 'webmock/rspec'
 
 Datadog.configure do |c|
-  c.ci_mode.enabled = true
-  c.use :ethon, {}
-  c.use :rspec, {}
+  c.ci.enabled = true
+  c.ci.instrument :rspec
+  c.tracing.instrument :ethon
 end
 
 
