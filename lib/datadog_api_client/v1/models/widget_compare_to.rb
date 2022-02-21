@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Timeframe used for the change comparison.
   class WidgetCompareTo
     HOUR_BEFORE = "hour_before".freeze
     DAY_BEFORE = "day_before".freeze
@@ -40,5 +41,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

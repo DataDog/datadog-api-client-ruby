@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Data source for APM dependency stats queries.
   class FormulaAndFunctionApmDependencyStatsDataSource
     APM_DEPENDENCY_STATS = "apm_dependency_stats".freeze
 
@@ -37,5 +38,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Type of lines displayed.
   class WidgetLineType
     DASHED = "dashed".freeze
     DOTTED = "dotted".freeze
@@ -39,5 +40,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

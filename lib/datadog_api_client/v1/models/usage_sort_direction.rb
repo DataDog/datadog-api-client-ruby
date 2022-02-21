@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # The direction to sort by.
   class UsageSortDirection
     DESC = "desc".freeze
     ASC = "asc".freeze
@@ -38,5 +39,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

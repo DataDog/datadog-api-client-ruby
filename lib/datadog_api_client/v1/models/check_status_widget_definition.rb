@@ -32,21 +32,25 @@ module DatadogAPIClient::V1
     # List of tag prefixes to group by in the case of a cluster check.
     attr_accessor :group_by
 
+    # The kind of grouping to use.
     attr_accessor :grouping
 
     # List of tags used to filter the groups reporting a cluster check.
     attr_accessor :tags
 
+    # Time setting for the widget.
     attr_accessor :time
 
     # Title of the widget.
     attr_accessor :title
 
+    # How to align the text on the widget.
     attr_accessor :title_align
 
     # Size of the title.
     attr_accessor :title_size
 
+    # Type of the check status widget.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -97,7 +101,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::CheckStatusWidgetDefinition` initialize method"
@@ -159,22 +164,19 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @check.nil?
         invalid_properties.push('invalid value for "check", check cannot be nil.')
       end
-
       if @grouping.nil?
         invalid_properties.push('invalid value for "grouping", grouping cannot be nil.')
       end
-
       if @type.nil?
         invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
-
       invalid_properties
     end
 
@@ -186,6 +188,36 @@ module DatadogAPIClient::V1
       return false if @grouping.nil?
       return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param check [Object] Object to be assigned
+    # @!visibility private
+    def check=(check)
+      if check.nil?
+        fail ArgumentError, 'invalid value for "check", check cannot be nil.'
+      end
+      @check = check
+    end
+
+    # Custom attribute writer method with validation
+    # @param grouping [Object] Object to be assigned
+    # @!visibility private
+    def grouping=(grouping)
+      if grouping.nil?
+        fail ArgumentError, 'invalid value for "grouping", grouping cannot be nil.'
+      end
+      @grouping = grouping
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    # @!visibility private
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.
@@ -221,7 +253,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -229,7 +261,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -335,7 +367,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -351,7 +383,5 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
-
 end

@@ -17,7 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Downtiming gives you greater control over monitor notifications by allowing you to globally exclude scopes from alerting. Downtime settings, which can be scheduled with start and end times, prevent all alerting related to specified Datadog tags.
+  # Downtiming gives you greater control over monitor notifications by
+  # allowing you to globally exclude scopes from alerting.
+  # Downtime settings, which can be scheduled with start and end times,
+  # prevent all alerting related to specified Datadog tags.
   class Downtime
     # Whether the object has unparsed attributes
     # @!visibility private
@@ -26,6 +29,8 @@ module DatadogAPIClient::V1
     # If a scheduled downtime currently exists.
     attr_accessor :active
 
+    # The downtime object definition of the active child for the original parent recurring downtime. This
+    # field will only exist on recurring downtimes.
     attr_accessor :active_child
 
     # If a scheduled downtime is canceled.
@@ -37,33 +42,45 @@ module DatadogAPIClient::V1
     # If a downtime has been disabled.
     attr_accessor :disabled
 
-    # `0` for a downtime applied on `*` or all, `1` when the downtime is only scoped to hosts, or `2` when the downtime is scoped to anything but hosts.
+    # `0` for a downtime applied on `*` or all,
+    # `1` when the downtime is only scoped to hosts,
+    # or `2` when the downtime is scoped to anything but hosts.
     attr_accessor :downtime_type
 
-    # POSIX timestamp to end the downtime. If not provided, the downtime is in effect indefinitely until you cancel it.
+    # POSIX timestamp to end the downtime. If not provided,
+    # the downtime is in effect indefinitely until you cancel it.
     attr_accessor :_end
 
     # The downtime ID.
     attr_accessor :id
 
-    # A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same `@username` notation as events.
+    # A message to include with notifications for this downtime.
+    # Email notifications can be sent to specific users by using the same `@username` notation as events.
     attr_accessor :message
 
-    # A single monitor to which the downtime applies. If not provided, the downtime applies to all monitors.
+    # A single monitor to which the downtime applies.
+    # If not provided, the downtime applies to all monitors.
     attr_accessor :monitor_id
 
-    # A comma-separated list of monitor tags. For example, tags that are applied directly to monitors, not tags that are used in monitor queries (which are filtered by the scope parameter), to which the downtime applies. The resulting downtime applies to monitors that match ALL provided monitor tags. For example, `service:postgres` **AND** `team:frontend`.
+    # A comma-separated list of monitor tags. For example, tags that are applied directly to monitors,
+    # not tags that are used in monitor queries (which are filtered by the scope parameter), to which the downtime applies.
+    # The resulting downtime applies to monitors that match ALL provided monitor tags.
+    # For example, `service:postgres` **AND** `team:frontend`.
     attr_accessor :monitor_tags
 
     # ID of the parent Downtime.
     attr_accessor :parent_id
 
+    # An object defining the recurrence of the downtime.
     attr_accessor :recurrence
 
-    # The scope(s) to which the downtime applies. For example, `host:app2`. Provide multiple scopes as a comma-separated list like `env:dev,env:prod`. The resulting downtime applies to sources that matches ALL provided scopes (`env:dev` **AND** `env:prod`).
+    # The scope(s) to which the downtime applies. For example, `host:app2`.
+    # Provide multiple scopes as a comma-separated list like `env:dev,env:prod`.
+    # The resulting downtime applies to sources that matches ALL provided scopes (`env:dev` **AND** `env:prod`).
     attr_accessor :scope
 
-    # POSIX timestamp to start the downtime. If not provided, the downtime starts the moment it is created.
+    # POSIX timestamp to start the downtime.
+    # If not provided, the downtime starts the moment it is created.
     attr_accessor :start
 
     # The timezone in which to display the downtime's start and end times in Datadog applications.
@@ -136,12 +153,13 @@ module DatadogAPIClient::V1
         :'monitor_id',
         :'parent_id',
         :'recurrence',
-        :'updater_id'
+        :'updater_id',
       ])
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::Downtime` initialize method"
@@ -229,22 +247,19 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if !@creator_id.nil? && @creator_id > 2147483647
         invalid_properties.push('invalid value for "creator_id", must be smaller than or equal to 2147483647.')
       end
-
       if !@downtime_type.nil? && @downtime_type > 2147483647
         invalid_properties.push('invalid value for "downtime_type", must be smaller than or equal to 2147483647.')
       end
-
       if !@updater_id.nil? && @updater_id > 2147483647
         invalid_properties.push('invalid value for "updater_id", must be smaller than or equal to 2147483647.')
       end
-
       invalid_properties
     end
 
@@ -259,32 +274,32 @@ module DatadogAPIClient::V1
     end
 
     # Custom attribute writer method with validation
-    # @param creator_id [Object] creator_id Value to be assigned
+    # @param creator_id [Object] Object to be assigned
+    # @!visibility private
     def creator_id=(creator_id)
       if !creator_id.nil? && creator_id > 2147483647
         fail ArgumentError, 'invalid value for "creator_id", must be smaller than or equal to 2147483647.'
       end
-
       @creator_id = creator_id
     end
 
     # Custom attribute writer method with validation
-    # @param downtime_type [Object] downtime_type Value to be assigned
+    # @param downtime_type [Object] Object to be assigned
+    # @!visibility private
     def downtime_type=(downtime_type)
       if !downtime_type.nil? && downtime_type > 2147483647
         fail ArgumentError, 'invalid value for "downtime_type", must be smaller than or equal to 2147483647.'
       end
-
       @downtime_type = downtime_type
     end
 
     # Custom attribute writer method with validation
-    # @param updater_id [Object] updater_id Value to be assigned
+    # @param updater_id [Object] Object to be assigned
+    # @!visibility private
     def updater_id=(updater_id)
       if !updater_id.nil? && updater_id > 2147483647
         fail ArgumentError, 'invalid value for "updater_id", must be smaller than or equal to 2147483647.'
       end
-
       @updater_id = updater_id
     end
 
@@ -328,7 +343,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -336,7 +351,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -442,7 +457,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -458,7 +473,5 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
-
 end

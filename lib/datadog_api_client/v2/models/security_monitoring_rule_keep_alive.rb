@@ -17,6 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
+  # Once a signal is generated, the signal will remain “open” if a case is matched at least once within
+  # this keep alive window.
   class SecurityMonitoringRuleKeepAlive
     ZERO_MINUTES = 0.freeze
     ONE_MINUTE = 60.freeze
@@ -46,5 +48,4 @@ module DatadogAPIClient::V2
       constantValues.empty? ? DatadogAPIClient::V2::UnparsedObject.new(value) : value
     end
   end
-
 end

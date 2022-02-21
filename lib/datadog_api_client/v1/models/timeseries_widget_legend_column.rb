@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Legend column.
   class TimeseriesWidgetLegendColumn
     VALUE = "value".freeze
     AVG = "avg".freeze
@@ -41,5 +42,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

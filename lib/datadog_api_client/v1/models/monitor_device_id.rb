@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # ID of the device the Synthetics monitor is running on. Same as `SyntheticsDeviceID`.
   class MonitorDeviceID
     LAPTOP_LARGE = "laptop_large".freeze
     TABLET = "tablet".freeze
@@ -45,5 +46,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

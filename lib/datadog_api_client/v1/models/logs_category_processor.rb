@@ -17,13 +17,26 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Use the Category Processor to add a new attribute (without spaces or special characters in the new attribute name) to a log matching a provided search query. Use categories to create groups for an analytical view. For example, URL groups, machine groups, environments, and response time buckets.  **Notes**:  - The syntax of the query is the one of Logs Explorer search bar.   The query can be done on any log attribute or tag, whether it is a facet or not.   Wildcards can also be used inside your query. - Once the log has matched one of the Processor queries, it stops.   Make sure they are properly ordered in case a log could match several queries. - The names of the categories must be unique. - Once defined in the Category Processor, you can map categories to log status using the Log Status Remapper.
+  # Use the Category Processor to add a new attribute (without spaces or special characters in the new attribute name)
+  # to a log matching a provided search query. Use categories to create groups for an analytical view.
+  # For example, URL groups, machine groups, environments, and response time buckets.
+  # 
+  # **Notes**:
+  # 
+  # - The syntax of the query is the one of Logs Explorer search bar.
+  #   The query can be done on any log attribute or tag, whether it is a facet or not.
+  #   Wildcards can also be used inside your query.
+  # - Once the log has matched one of the Processor queries, it stops.
+  #   Make sure they are properly ordered in case a log could match several queries.
+  # - The names of the categories must be unique.
+  # - Once defined in the Category Processor, you can map categories to log status using the Log Status Remapper.
   class LogsCategoryProcessor
     # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Array of filters to match or not a log and their corresponding `name`to assign a custom value to the log.
+    # Array of filters to match or not a log and their
+    # corresponding `name`to assign a custom value to the log.
     attr_accessor :categories
 
     # Whether or not the processor is enabled.
@@ -35,6 +48,7 @@ module DatadogAPIClient::V1
     # Name of the target attribute which value is defined by the matching category.
     attr_accessor :target
 
+    # Type of logs category processor.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -75,7 +89,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::LogsCategoryProcessor` initialize method"
@@ -117,22 +132,19 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @categories.nil?
         invalid_properties.push('invalid value for "categories", categories cannot be nil.')
       end
-
       if @target.nil?
         invalid_properties.push('invalid value for "target", target cannot be nil.')
       end
-
       if @type.nil?
         invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
-
       invalid_properties
     end
 
@@ -144,6 +156,36 @@ module DatadogAPIClient::V1
       return false if @target.nil?
       return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param categories [Object] Object to be assigned
+    # @!visibility private
+    def categories=(categories)
+      if categories.nil?
+        fail ArgumentError, 'invalid value for "categories", categories cannot be nil.'
+      end
+      @categories = categories
+    end
+
+    # Custom attribute writer method with validation
+    # @param target [Object] Object to be assigned
+    # @!visibility private
+    def target=(target)
+      if target.nil?
+        fail ArgumentError, 'invalid value for "target", target cannot be nil.'
+      end
+      @target = target
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    # @!visibility private
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.
@@ -174,7 +216,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -182,7 +224,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -288,7 +330,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -304,7 +346,5 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
-
 end

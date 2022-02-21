@@ -22,10 +22,20 @@ module DatadogAPIClient::V1
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Create a child organization
-    # Create a child organization.  This endpoint requires the [multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/) feature and must be enabled by [contacting support](https://docs.datadoghq.com/help/).  Once a new child organization is created, you can interact with it by using the `org.public_id`, `api_key.key`, and `application_key.hash` provided in the response.
+    # Create a child organization.
+    #
+    # This endpoint requires the
+    # [multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/)
+    # feature and must be enabled by
+    # [contacting support](https://docs.datadoghq.com/help/).
+    #
+    # Once a new child organization is created, you can interact with it
+    # by using the `org.public_id`, `api_key.key`, and
+    # `application_key.hash` provided in the response.
     # @param body [OrganizationCreateBody] Organization object that needs to be created
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [OrganizationCreateResponse]
     def create_child_org(body, opts = {})
       data, _status_code, _headers = create_child_org_with_http_info(body, opts)
@@ -33,9 +43,18 @@ module DatadogAPIClient::V1
     end
 
     # Create a child organization
-    # Create a child organization.  This endpoint requires the [multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/) feature and must be enabled by [contacting support](https://docs.datadoghq.com/help/).  Once a new child organization is created, you can interact with it by using the &#x60;org.public_id&#x60;, &#x60;api_key.key&#x60;, and &#x60;application_key.hash&#x60; provided in the response.
+    # Create a child organization.
+    #
+    # This endpoint requires the
+    # [multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/)
+    # feature and must be enabled by
+    # [contacting support](https://docs.datadoghq.com/help/).
+    #
+    # Once a new child organization is created, you can interact with it
+    # by using the `org.public_id`, `api_key.key`, and
+    # `application_key.hash` provided in the response.
     # @param body [OrganizationCreateBody] Organization object that needs to be created
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(OrganizationCreateResponse, Integer, Hash)>] OrganizationCreateResponse data, response status code and response headers
     def create_child_org_with_http_info(body, opts = {})
 
@@ -99,8 +118,8 @@ module DatadogAPIClient::V1
 
     # Get organization information
     # Get organization information.
-    # @param public_id [String] The &#x60;public_id&#x60; of the organization you are operating within.
-    # @param [Hash] opts the optional parameters
+    # @param public_id [String] The `public_id` of the organization you are operating within.
+    # @param opts [Hash] the optional parameters
     # @return [OrganizationResponse]
     def get_org(public_id, opts = {})
       data, _status_code, _headers = get_org_with_http_info(public_id, opts)
@@ -109,8 +128,8 @@ module DatadogAPIClient::V1
 
     # Get organization information
     # Get organization information.
-    # @param public_id [String] The &#x60;public_id&#x60; of the organization you are operating within.
-    # @param [Hash] opts the optional parameters
+    # @param public_id [String] The `public_id` of the organization you are operating within.
+    # @param opts [Hash] the optional parameters
     # @return [Array<(OrganizationResponse, Integer, Hash)>] OrganizationResponse data, response status code and response headers
     def get_org_with_http_info(public_id, opts = {})
 
@@ -131,7 +150,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'public_id' when calling OrganizationsAPI.get_org"
       end
       # resource path
-      local_var_path = '/api/v1/org/{public_id}'.sub('{' + 'public_id' + '}', CGI.escape(public_id.to_s))
+      local_var_path = '/api/v1/org/{public_id}'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -172,7 +191,7 @@ module DatadogAPIClient::V1
 
     # List your managed organizations
     # List your managed organizations.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [OrganizationListResponse]
     def list_orgs(opts = {})
       data, _status_code, _headers = list_orgs_with_http_info(opts)
@@ -181,7 +200,7 @@ module DatadogAPIClient::V1
 
     # List your managed organizations
     # List your managed organizations.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(OrganizationListResponse, Integer, Hash)>] OrganizationListResponse data, response status code and response headers
     def list_orgs_with_http_info(opts = {})
 
@@ -239,9 +258,9 @@ module DatadogAPIClient::V1
 
     # Update your organization
     # Update your organization.
-    # @param public_id [String] The &#x60;public_id&#x60; of the organization you are operating within.
+    # @param public_id [String] The `public_id` of the organization you are operating within.
     # @param body [Organization] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [OrganizationResponse]
     def update_org(public_id, body, opts = {})
       data, _status_code, _headers = update_org_with_http_info(public_id, body, opts)
@@ -250,9 +269,9 @@ module DatadogAPIClient::V1
 
     # Update your organization
     # Update your organization.
-    # @param public_id [String] The &#x60;public_id&#x60; of the organization you are operating within.
+    # @param public_id [String] The `public_id` of the organization you are operating within.
     # @param body [Organization] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(OrganizationResponse, Integer, Hash)>] OrganizationResponse data, response status code and response headers
     def update_org_with_http_info(public_id, body, opts = {})
 
@@ -277,7 +296,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'body' when calling OrganizationsAPI.update_org"
       end
       # resource path
-      local_var_path = '/api/v1/org/{public_id}'.sub('{' + 'public_id' + '}', CGI.escape(public_id.to_s))
+      local_var_path = '/api/v1/org/{public_id}'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -319,10 +338,15 @@ module DatadogAPIClient::V1
     end
 
     # Upload IdP metadata
-    # There are a couple of options for updating the Identity Provider (IdP) metadata from your SAML IdP.  * **Multipart Form-Data**: Post the IdP metadata file using a form post.  * **XML Body:** Post the IdP metadata file as the body of the request.
-    # @param public_id [String] The &#x60;public_id&#x60; of the organization you are operating with
+    # There are a couple of options for updating the Identity Provider (IdP)
+    # metadata from your SAML IdP.
+    #
+    # * **Multipart Form-Data**: Post the IdP metadata file using a form post.
+    #
+    # * **XML Body:** Post the IdP metadata file as the body of the request.
+    # @param public_id [String] The `public_id` of the organization you are operating with
     # @param idp_file [File] The path to the XML metadata file you wish to upload.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [IdpResponse]
     def upload_id_p_for_org(public_id, idp_file, opts = {})
       data, _status_code, _headers = upload_id_p_for_org_with_http_info(public_id, idp_file, opts)
@@ -330,10 +354,15 @@ module DatadogAPIClient::V1
     end
 
     # Upload IdP metadata
-    # There are a couple of options for updating the Identity Provider (IdP) metadata from your SAML IdP.  * **Multipart Form-Data**: Post the IdP metadata file using a form post.  * **XML Body:** Post the IdP metadata file as the body of the request.
-    # @param public_id [String] The &#x60;public_id&#x60; of the organization you are operating with
+    # There are a couple of options for updating the Identity Provider (IdP)
+    # metadata from your SAML IdP.
+    #
+    # * **Multipart Form-Data**: Post the IdP metadata file using a form post.
+    #
+    # * **XML Body:** Post the IdP metadata file as the body of the request.
+    # @param public_id [String] The `public_id` of the organization you are operating with
     # @param idp_file [File] The path to the XML metadata file you wish to upload.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(IdpResponse, Integer, Hash)>] IdpResponse data, response status code and response headers
     def upload_id_p_for_org_with_http_info(public_id, idp_file, opts = {})
 
@@ -358,7 +387,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'idp_file' when calling OrganizationsAPI.upload_id_p_for_org"
       end
       # resource path
-      local_var_path = '/api/v1/org/{public_id}/idp_metadata'.sub('{' + 'public_id' + '}', CGI.escape(public_id.to_s))
+      local_var_path = '/api/v1/org/{public_id}/idp_metadata'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -375,7 +404,7 @@ module DatadogAPIClient::V1
       form_params['idp_file'] = idp_file
 
       # http body (model)
-      post_body = opts[:debug_body]
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
       return_type = opts[:debug_return_type] || 'IdpResponse'

@@ -22,10 +22,19 @@ module DatadogAPIClient::V1
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Search logs
-    # List endpoint returns logs that match a log search query. [Results are paginated][1].  **If you are considering archiving logs for your organization, consider use of the Datadog archive capabilities instead of the log list API. See [Datadog Logs Archive documentation][2].**  [1]: /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
+    # List endpoint returns logs that match a log search query.
+    # [Results are paginated][1].
+    #
+    # **If you are considering archiving logs for your organization,
+    # consider use of the Datadog archive capabilities instead of the log list API.
+    # See [Datadog Logs Archive documentation][2].**
+    #
+    # [1]: /logs/guide/collect-multiple-logs-with-pagination
+    # [2]: https://docs.datadoghq.com/logs/archives
     # @param body [LogsListRequest] Logs filter
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [LogsListResponse]
     def list_logs(body, opts = {})
       data, _status_code, _headers = list_logs_with_http_info(body, opts)
@@ -33,9 +42,17 @@ module DatadogAPIClient::V1
     end
 
     # Search logs
-    # List endpoint returns logs that match a log search query. [Results are paginated][1].  **If you are considering archiving logs for your organization, consider use of the Datadog archive capabilities instead of the log list API. See [Datadog Logs Archive documentation][2].**  [1]: /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
+    # List endpoint returns logs that match a log search query.
+    # [Results are paginated][1].
+    #
+    # **If you are considering archiving logs for your organization,
+    # consider use of the Datadog archive capabilities instead of the log list API.
+    # See [Datadog Logs Archive documentation][2].**
+    #
+    # [1]: /logs/guide/collect-multiple-logs-with-pagination
+    # [2]: https://docs.datadoghq.com/logs/archives
     # @param body [LogsListRequest] Logs filter
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(LogsListResponse, Integer, Hash)>] LogsListResponse data, response status code and response headers
     def list_logs_with_http_info(body, opts = {})
 
@@ -98,11 +115,29 @@ module DatadogAPIClient::V1
     end
 
     # Send logs
-    # Send your logs to your Datadog platform over HTTP. Limits per HTTP request are:  - Maximum content size per payload (uncompressed): 5MB - Maximum size for a single log: 1MB - Maximum array size if sending multiple logs in an array: 1000 entries  Any log exceeding 1MB is accepted and truncated by Datadog: - For a single log request, the API truncates the log at 1MB and returns a 2xx. - For a multi-logs request, the API processes all logs, truncates only logs larger than 1MB, and returns a 2xx.  Datadog recommends sending your logs compressed. Add the `Content-Encoding: gzip` header to the request when sending compressed logs.  The status codes answered by the HTTP API are: - 200: OK - 400: Bad request (likely an issue in the payload formatting) - 403: Permission issue (likely using an invalid API Key) - 413: Payload too large (batch is above 5MB uncompressed) - 5xx: Internal error, request should be retried after some time
+    # Send your logs to your Datadog platform over HTTP. Limits per HTTP request are:
+    #
+    # - Maximum content size per payload (uncompressed): 5MB
+    # - Maximum size for a single log: 1MB
+    # - Maximum array size if sending multiple logs in an array: 1000 entries
+    #
+    # Any log exceeding 1MB is accepted and truncated by Datadog:
+    # - For a single log request, the API truncates the log at 1MB and returns a 2xx.
+    # - For a multi-logs request, the API processes all logs, truncates only logs larger than 1MB, and returns a 2xx.
+    #
+    # Datadog recommends sending your logs compressed.
+    # Add the `Content-Encoding: gzip` header to the request when sending compressed logs.
+    #
+    # The status codes answered by the HTTP API are:
+    # - 200: OK
+    # - 400: Bad request (likely an issue in the payload formatting)
+    # - 403: Permission issue (likely using an invalid API Key)
+    # - 413: Payload too large (batch is above 5MB uncompressed)
+    # - 5xx: Internal error, request should be retried after some time
     # @param body [Array<HTTPLogItem>] Log to send (JSON format).
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [ContentEncoding] :content_encoding HTTP header used to compress the media-type.
-    # @option opts [String] :ddtags Log tags can be passed as query parameters with &#x60;text/plain&#x60; content type.
+    # @option opts [String] :ddtags Log tags can be passed as query parameters with `text/plain` content type.
     # @return [Object]
     def submit_log(body, opts = {})
       data, _status_code, _headers = submit_log_with_http_info(body, opts)
@@ -110,11 +145,29 @@ module DatadogAPIClient::V1
     end
 
     # Send logs
-    # Send your logs to your Datadog platform over HTTP. Limits per HTTP request are:  - Maximum content size per payload (uncompressed): 5MB - Maximum size for a single log: 1MB - Maximum array size if sending multiple logs in an array: 1000 entries  Any log exceeding 1MB is accepted and truncated by Datadog: - For a single log request, the API truncates the log at 1MB and returns a 2xx. - For a multi-logs request, the API processes all logs, truncates only logs larger than 1MB, and returns a 2xx.  Datadog recommends sending your logs compressed. Add the &#x60;Content-Encoding: gzip&#x60; header to the request when sending compressed logs.  The status codes answered by the HTTP API are: - 200: OK - 400: Bad request (likely an issue in the payload formatting) - 403: Permission issue (likely using an invalid API Key) - 413: Payload too large (batch is above 5MB uncompressed) - 5xx: Internal error, request should be retried after some time
+    # Send your logs to your Datadog platform over HTTP. Limits per HTTP request are:
+    #
+    # - Maximum content size per payload (uncompressed): 5MB
+    # - Maximum size for a single log: 1MB
+    # - Maximum array size if sending multiple logs in an array: 1000 entries
+    #
+    # Any log exceeding 1MB is accepted and truncated by Datadog:
+    # - For a single log request, the API truncates the log at 1MB and returns a 2xx.
+    # - For a multi-logs request, the API processes all logs, truncates only logs larger than 1MB, and returns a 2xx.
+    #
+    # Datadog recommends sending your logs compressed.
+    # Add the `Content-Encoding: gzip` header to the request when sending compressed logs.
+    #
+    # The status codes answered by the HTTP API are:
+    # - 200: OK
+    # - 400: Bad request (likely an issue in the payload formatting)
+    # - 403: Permission issue (likely using an invalid API Key)
+    # - 413: Payload too large (batch is above 5MB uncompressed)
+    # - 5xx: Internal error, request should be retried after some time
     # @param body [Array<HTTPLogItem>] Log to send (JSON format).
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [ContentEncoding] :content_encoding HTTP header used to compress the media-type.
-    # @option opts [String] :ddtags Log tags can be passed as query parameters with &#x60;text/plain&#x60; content type.
+    # @option opts [String] :ddtags Log tags can be passed as query parameters with `text/plain` content type.
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def submit_log_with_http_info(body, opts = {})
 
@@ -129,6 +182,10 @@ module DatadogAPIClient::V1
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsAPI.submit_log ...'
+      end
+      allowable_values = ['gzip', 'deflate']
+      if @api_client.config.client_side_validation && opts[:'content_encoding'] && !allowable_values.include?(opts[:'content_encoding'])
+        fail ArgumentError, "invalid value for \"content_encoding\", must be one of #{allowable_values}"
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?

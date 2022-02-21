@@ -33,30 +33,29 @@ module DatadogAPIClient::V1
           :'EventStreamWidgetDefinition',
           :'EventTimelineWidgetDefinition',
           :'FreeTextWidgetDefinition',
-          :'FunnelWidgetDefinition',
           :'GeomapWidgetDefinition',
           :'GroupWidgetDefinition',
           :'HeatMapWidgetDefinition',
           :'HostMapWidgetDefinition',
           :'IFrameWidgetDefinition',
           :'ImageWidgetDefinition',
-          :'ListStreamWidgetDefinition',
           :'LogStreamWidgetDefinition',
           :'MonitorSummaryWidgetDefinition',
           :'NoteWidgetDefinition',
           :'QueryValueWidgetDefinition',
-          :'SLOWidgetDefinition',
           :'ScatterPlotWidgetDefinition',
+          :'SLOWidgetDefinition',
           :'ServiceMapWidgetDefinition',
           :'ServiceSummaryWidgetDefinition',
           :'SunburstWidgetDefinition',
           :'TableWidgetDefinition',
           :'TimeseriesWidgetDefinition',
           :'ToplistWidgetDefinition',
-          :'TreeMapWidgetDefinition'
+          :'TreeMapWidgetDefinition',
+          :'ListStreamWidgetDefinition',
+          :'FunnelWidgetDefinition'
         ]
       end
-
       # Builds the object
       # @param [Mixed] Data to be matched against the list of oneOf items
       # @return [Object] Returns the model or the data itself
@@ -84,7 +83,6 @@ module DatadogAPIClient::V1
           self._unparsed = true
           DatadogAPIClient::V1::UnparsedObject.new(data)
         end
-
       end
 
       private
@@ -141,5 +139,4 @@ module DatadogAPIClient::V1
       end
     end
   end
-
 end

@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Dimension of the Scatterplot.
   class ScatterplotDimension
     X = "x".freeze
     Y = "y".freeze
@@ -40,5 +41,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

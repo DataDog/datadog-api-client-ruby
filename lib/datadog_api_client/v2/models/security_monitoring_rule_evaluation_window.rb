@@ -17,6 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
+  # A time window is specified to match when at least one of the cases matches true. This is a sliding window
+  # and evaluates in real time.
   class SecurityMonitoringRuleEvaluationWindow
     ZERO_MINUTES = 0.freeze
     ONE_MINUTE = 60.freeze
@@ -44,5 +46,4 @@ module DatadogAPIClient::V2
       constantValues.empty? ? DatadogAPIClient::V2::UnparsedObject.new(value) : value
     end
   end
-
 end

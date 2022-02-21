@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
+  # Sorting options for AuthN Mappings.
   class AuthNMappingsSort
     CREATED_AT_ASCENDING = "created_at".freeze
     CREATED_AT_DESCENDING = "-created_at".freeze
@@ -48,5 +49,4 @@ module DatadogAPIClient::V2
       constantValues.empty? ? DatadogAPIClient::V2::UnparsedObject.new(value) : value
     end
   end
-
 end

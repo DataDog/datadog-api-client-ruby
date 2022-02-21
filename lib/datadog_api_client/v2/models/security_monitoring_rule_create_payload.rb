@@ -41,6 +41,7 @@ module DatadogAPIClient::V2
     # The name of the rule.
     attr_accessor :name
 
+    # Options on rules.
     attr_accessor :options
 
     # Queries for selecting logs which are part of the rule.
@@ -49,6 +50,7 @@ module DatadogAPIClient::V2
     # Tags for generated signals.
     attr_accessor :tags
 
+    # The rule type.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -99,7 +101,8 @@ module DatadogAPIClient::V2
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringRuleCreatePayload` initialize method"
@@ -163,34 +166,28 @@ module DatadogAPIClient::V2
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @cases.nil?
         invalid_properties.push('invalid value for "cases", cases cannot be nil.')
       end
-
       if @is_enabled.nil?
         invalid_properties.push('invalid value for "is_enabled", is_enabled cannot be nil.')
       end
-
       if @message.nil?
         invalid_properties.push('invalid value for "message", message cannot be nil.')
       end
-
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
-
       if @options.nil?
         invalid_properties.push('invalid value for "options", options cannot be nil.')
       end
-
       if @queries.nil?
         invalid_properties.push('invalid value for "queries", queries cannot be nil.')
       end
-
       invalid_properties
     end
 
@@ -205,6 +202,66 @@ module DatadogAPIClient::V2
       return false if @options.nil?
       return false if @queries.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param cases [Object] Object to be assigned
+    # @!visibility private
+    def cases=(cases)
+      if cases.nil?
+        fail ArgumentError, 'invalid value for "cases", cases cannot be nil.'
+      end
+      @cases = cases
+    end
+
+    # Custom attribute writer method with validation
+    # @param is_enabled [Object] Object to be assigned
+    # @!visibility private
+    def is_enabled=(is_enabled)
+      if is_enabled.nil?
+        fail ArgumentError, 'invalid value for "is_enabled", is_enabled cannot be nil.'
+      end
+      @is_enabled = is_enabled
+    end
+
+    # Custom attribute writer method with validation
+    # @param message [Object] Object to be assigned
+    # @!visibility private
+    def message=(message)
+      if message.nil?
+        fail ArgumentError, 'invalid value for "message", message cannot be nil.'
+      end
+      @message = message
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    # @!visibility private
+    def name=(name)
+      if name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param options [Object] Object to be assigned
+    # @!visibility private
+    def options=(options)
+      if options.nil?
+        fail ArgumentError, 'invalid value for "options", options cannot be nil.'
+      end
+      @options = options
+    end
+
+    # Custom attribute writer method with validation
+    # @param queries [Object] Object to be assigned
+    # @!visibility private
+    def queries=(queries)
+      if queries.nil?
+        fail ArgumentError, 'invalid value for "queries", queries cannot be nil.'
+      end
+      @queries = queries
     end
 
     # Checks equality by comparing each attribute.
@@ -240,7 +297,7 @@ module DatadogAPIClient::V2
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -248,7 +305,7 @@ module DatadogAPIClient::V2
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -354,7 +411,7 @@ module DatadogAPIClient::V2
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -370,7 +427,5 @@ module DatadogAPIClient::V2
         value
       end
     end
-
   end
-
 end

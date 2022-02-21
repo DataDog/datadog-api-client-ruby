@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
+  # Type of the archive order definition.
   class LogsArchiveOrderDefinitionType
     ARCHIVE_ORDER = "archive_order".freeze
 
@@ -37,5 +38,4 @@ module DatadogAPIClient::V2
       constantValues.empty? ? DatadogAPIClient::V2::UnparsedObject.new(value) : value
     end
   end
-
 end

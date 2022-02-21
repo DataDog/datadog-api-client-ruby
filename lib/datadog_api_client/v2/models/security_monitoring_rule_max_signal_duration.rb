@@ -17,6 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
+  # A signal will “close” regardless of the query being matched once the time exceeds the maximum duration.
+  # This time is calculated from the first seen timestamp.
   class SecurityMonitoringRuleMaxSignalDuration
     ZERO_MINUTES = 0.freeze
     ONE_MINUTE = 60.freeze
@@ -48,5 +50,4 @@ module DatadogAPIClient::V2
       constantValues.empty? ? DatadogAPIClient::V2::UnparsedObject.new(value) : value
     end
   end
-
 end

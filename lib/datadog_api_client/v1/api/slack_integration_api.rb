@@ -22,11 +22,12 @@ module DatadogAPIClient::V1
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Create a Slack integration channel
     # Add a channel to your Datadog-Slack integration.
     # @param account_name [String] Your Slack account name.
     # @param body [SlackIntegrationChannel] Payload describing Slack channel to be created
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SlackIntegrationChannel]
     def create_slack_integration_channel(account_name, body, opts = {})
       data, _status_code, _headers = create_slack_integration_channel_with_http_info(account_name, body, opts)
@@ -37,7 +38,7 @@ module DatadogAPIClient::V1
     # Add a channel to your Datadog-Slack integration.
     # @param account_name [String] Your Slack account name.
     # @param body [SlackIntegrationChannel] Payload describing Slack channel to be created
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SlackIntegrationChannel, Integer, Hash)>] SlackIntegrationChannel data, response status code and response headers
     def create_slack_integration_channel_with_http_info(account_name, body, opts = {})
 
@@ -62,7 +63,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'body' when calling SlackIntegrationAPI.create_slack_integration_channel"
       end
       # resource path
-      local_var_path = '/api/v1/integration/slack/configuration/accounts/{account_name}/channels'.sub('{' + 'account_name' + '}', CGI.escape(account_name.to_s))
+      local_var_path = '/api/v1/integration/slack/configuration/accounts/{account_name}/channels'.sub('{account_name}', CGI.escape(account_name.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -107,7 +108,7 @@ module DatadogAPIClient::V1
     # Get a channel configured for your Datadog-Slack integration.
     # @param account_name [String] Your Slack account name.
     # @param channel_name [String] The name of the Slack channel being operated on.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SlackIntegrationChannel]
     def get_slack_integration_channel(account_name, channel_name, opts = {})
       data, _status_code, _headers = get_slack_integration_channel_with_http_info(account_name, channel_name, opts)
@@ -118,7 +119,7 @@ module DatadogAPIClient::V1
     # Get a channel configured for your Datadog-Slack integration.
     # @param account_name [String] Your Slack account name.
     # @param channel_name [String] The name of the Slack channel being operated on.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SlackIntegrationChannel, Integer, Hash)>] SlackIntegrationChannel data, response status code and response headers
     def get_slack_integration_channel_with_http_info(account_name, channel_name, opts = {})
 
@@ -143,7 +144,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'channel_name' when calling SlackIntegrationAPI.get_slack_integration_channel"
       end
       # resource path
-      local_var_path = '/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}'.sub('{' + 'account_name' + '}', CGI.escape(account_name.to_s)).sub('{' + 'channel_name' + '}', CGI.escape(channel_name.to_s))
+      local_var_path = '/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}'.sub('{account_name}', CGI.escape(account_name.to_s).gsub('%2F', '/')).sub('{channel_name}', CGI.escape(channel_name.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -185,7 +186,7 @@ module DatadogAPIClient::V1
     # Get all channels in a Slack integration
     # Get a list of all channels configured for your Datadog-Slack integration.
     # @param account_name [String] Your Slack account name.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<SlackIntegrationChannel>]
     def get_slack_integration_channels(account_name, opts = {})
       data, _status_code, _headers = get_slack_integration_channels_with_http_info(account_name, opts)
@@ -195,7 +196,7 @@ module DatadogAPIClient::V1
     # Get all channels in a Slack integration
     # Get a list of all channels configured for your Datadog-Slack integration.
     # @param account_name [String] Your Slack account name.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(Array<SlackIntegrationChannel>, Integer, Hash)>] Array<SlackIntegrationChannel> data, response status code and response headers
     def get_slack_integration_channels_with_http_info(account_name, opts = {})
 
@@ -216,7 +217,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'account_name' when calling SlackIntegrationAPI.get_slack_integration_channels"
       end
       # resource path
-      local_var_path = '/api/v1/integration/slack/configuration/accounts/{account_name}/channels'.sub('{' + 'account_name' + '}', CGI.escape(account_name.to_s))
+      local_var_path = '/api/v1/integration/slack/configuration/accounts/{account_name}/channels'.sub('{account_name}', CGI.escape(account_name.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -259,7 +260,7 @@ module DatadogAPIClient::V1
     # Remove a channel from your Datadog-Slack integration.
     # @param account_name [String] Your Slack account name.
     # @param channel_name [String] The name of the Slack channel being operated on.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [nil]
     def remove_slack_integration_channel(account_name, channel_name, opts = {})
       remove_slack_integration_channel_with_http_info(account_name, channel_name, opts)
@@ -270,7 +271,7 @@ module DatadogAPIClient::V1
     # Remove a channel from your Datadog-Slack integration.
     # @param account_name [String] Your Slack account name.
     # @param channel_name [String] The name of the Slack channel being operated on.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def remove_slack_integration_channel_with_http_info(account_name, channel_name, opts = {})
 
@@ -295,7 +296,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'channel_name' when calling SlackIntegrationAPI.remove_slack_integration_channel"
       end
       # resource path
-      local_var_path = '/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}'.sub('{' + 'account_name' + '}', CGI.escape(account_name.to_s)).sub('{' + 'channel_name' + '}', CGI.escape(channel_name.to_s))
+      local_var_path = '/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}'.sub('{account_name}', CGI.escape(account_name.to_s).gsub('%2F', '/')).sub('{channel_name}', CGI.escape(channel_name.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -303,7 +304,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -339,7 +340,7 @@ module DatadogAPIClient::V1
     # @param account_name [String] Your Slack account name.
     # @param channel_name [String] The name of the Slack channel being operated on.
     # @param body [SlackIntegrationChannel] Payload describing fields and values to be updated.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SlackIntegrationChannel]
     def update_slack_integration_channel(account_name, channel_name, body, opts = {})
       data, _status_code, _headers = update_slack_integration_channel_with_http_info(account_name, channel_name, body, opts)
@@ -351,7 +352,7 @@ module DatadogAPIClient::V1
     # @param account_name [String] Your Slack account name.
     # @param channel_name [String] The name of the Slack channel being operated on.
     # @param body [SlackIntegrationChannel] Payload describing fields and values to be updated.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SlackIntegrationChannel, Integer, Hash)>] SlackIntegrationChannel data, response status code and response headers
     def update_slack_integration_channel_with_http_info(account_name, channel_name, body, opts = {})
 
@@ -380,7 +381,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'body' when calling SlackIntegrationAPI.update_slack_integration_channel"
       end
       # resource path
-      local_var_path = '/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}'.sub('{' + 'account_name' + '}', CGI.escape(account_name.to_s)).sub('{' + 'channel_name' + '}', CGI.escape(channel_name.to_s))
+      local_var_path = '/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}'.sub('{account_name}', CGI.escape(account_name.to_s).gsub('%2F', '/')).sub('{channel_name}', CGI.escape(channel_name.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}

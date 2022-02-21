@@ -23,11 +23,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
+    # Optional parameters for bulk deleting metric tag configurations.
     attr_accessor :attributes
 
     # A text prefix to match against metric names.
     attr_accessor :id
 
+    # The metric bulk configure tags resource.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -64,7 +66,8 @@ module DatadogAPIClient::V2
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MetricBulkTagConfigDelete` initialize method"
@@ -94,18 +97,16 @@ module DatadogAPIClient::V2
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @id.nil?
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
-
       if @type.nil?
         invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
-
       invalid_properties
     end
 
@@ -116,6 +117,26 @@ module DatadogAPIClient::V2
       return false if @id.nil?
       return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param id [Object] Object to be assigned
+    # @!visibility private
+    def id=(id)
+      if id.nil?
+        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+      end
+      @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    # @!visibility private
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.
@@ -144,7 +165,7 @@ module DatadogAPIClient::V2
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -152,7 +173,7 @@ module DatadogAPIClient::V2
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -258,7 +279,7 @@ module DatadogAPIClient::V2
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -274,7 +295,5 @@ module DatadogAPIClient::V2
         value
       end
     end
-
   end
-
 end

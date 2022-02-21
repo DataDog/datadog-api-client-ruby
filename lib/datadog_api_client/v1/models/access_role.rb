@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # The access role of the user. Options are **st** (standard user), **adm** (admin user), or **ro** (read-only user).
   class AccessRole
     STANDARD = "st".freeze
     ADMIN = "adm".freeze
@@ -40,5 +41,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

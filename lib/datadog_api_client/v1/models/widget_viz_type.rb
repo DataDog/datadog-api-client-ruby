@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Whether to display the Alert Graph as a timeseries or a top list.
   class WidgetVizType
     TIMESERIES = "timeseries".freeze
     TOPLIST = "toplist".freeze
@@ -38,5 +39,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

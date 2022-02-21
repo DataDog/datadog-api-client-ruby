@@ -17,7 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # A metric to submit to Datadog. See [Datadog metrics](https://docs.datadoghq.com/developers/metrics/#custom-metrics-properties).
+  # A metric to submit to Datadog.
+  # See [Datadog metrics](https://docs.datadoghq.com/developers/metrics/#custom-metrics-properties).
   class Series
     # Whether the object has unparsed attributes
     # @!visibility private
@@ -67,7 +68,7 @@ module DatadogAPIClient::V1
         :'host' => :'String',
         :'interval' => :'Integer',
         :'metric' => :'String',
-        :'points' => :'Array<Array>',
+        :'points' => :'Array<Array<Float>>',
         :'tags' => :'Array<String>',
         :'type' => :'String'
       }
@@ -82,7 +83,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::Series` initialize method"
@@ -128,18 +130,16 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @metric.nil?
         invalid_properties.push('invalid value for "metric", metric cannot be nil.')
       end
-
       if @points.nil?
         invalid_properties.push('invalid value for "points", points cannot be nil.')
       end
-
       invalid_properties
     end
 
@@ -150,6 +150,26 @@ module DatadogAPIClient::V1
       return false if @metric.nil?
       return false if @points.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param metric [Object] Object to be assigned
+    # @!visibility private
+    def metric=(metric)
+      if metric.nil?
+        fail ArgumentError, 'invalid value for "metric", metric cannot be nil.'
+      end
+      @metric = metric
+    end
+
+    # Custom attribute writer method with validation
+    # @param points [Object] Object to be assigned
+    # @!visibility private
+    def points=(points)
+      if points.nil?
+        fail ArgumentError, 'invalid value for "points", points cannot be nil.'
+      end
+      @points = points
     end
 
     # Checks equality by comparing each attribute.
@@ -181,7 +201,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -189,7 +209,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -295,7 +315,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -311,7 +331,5 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
-
 end

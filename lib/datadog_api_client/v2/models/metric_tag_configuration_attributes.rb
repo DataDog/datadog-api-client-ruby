@@ -23,15 +23,32 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and Gauge metrics require the (time: avg, space: avg) aggregation. Additional time & space combinations are also available:  - time: avg, space: avg - time: avg, space: max - time: avg, space: min - time: avg, space: sum - time: count, space: sum - time: max, space: max - time: min, space: min - time: sum, space: avg - time: sum, space: sum  Can only be applied to metrics that have a `metric_type` of `count`, `rate`, or `gauge`.
+    # A list of queryable aggregation combinations for a count, rate, or gauge metric.
+    # By default, count and rate metrics require the (time: sum, space: sum) aggregation and
+    # Gauge metrics require the (time: avg, space: avg) aggregation.
+    # Additional time & space combinations are also available:
+    #
+    # - time: avg, space: avg
+    # - time: avg, space: max
+    # - time: avg, space: min
+    # - time: avg, space: sum
+    # - time: count, space: sum
+    # - time: max, space: max
+    # - time: min, space: min
+    # - time: sum, space: avg
+    # - time: sum, space: sum
+    #
+    # Can only be applied to metrics that have a `metric_type` of `count`, `rate`, or `gauge`.
     attr_accessor :aggregations
 
     # Timestamp when the tag configuration was created.
     attr_accessor :created_at
 
-    # Toggle to turn on/off percentile aggregations for distribution metrics. Only present when the `metric_type` is `distribution`.
+    # Toggle to turn on/off percentile aggregations for distribution metrics.
+    # Only present when the `metric_type` is `distribution`.
     attr_accessor :include_percentiles
 
+    # The metric's type.
     attr_accessor :metric_type
 
     # Timestamp when the tag configuration was last modified.
@@ -80,7 +97,8 @@ module DatadogAPIClient::V2
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::MetricTagConfigurationAttributes` initialize method"
@@ -126,8 +144,8 @@ module DatadogAPIClient::V2
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       invalid_properties
@@ -169,7 +187,7 @@ module DatadogAPIClient::V2
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -177,7 +195,7 @@ module DatadogAPIClient::V2
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -283,7 +301,7 @@ module DatadogAPIClient::V2
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -299,7 +317,5 @@ module DatadogAPIClient::V2
         value
       end
     end
-
   end
-
 end

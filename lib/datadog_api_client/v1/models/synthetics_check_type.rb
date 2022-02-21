@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Type of assertion to apply in an API test.
   class SyntheticsCheckType
     EQUALS = "equals".freeze
     NOT_EQUALS = "notEquals".freeze
@@ -50,5 +51,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

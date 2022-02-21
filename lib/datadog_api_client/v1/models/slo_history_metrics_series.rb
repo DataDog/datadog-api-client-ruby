@@ -17,7 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # A representation of `metric` based SLO time series for the provided queries. This is the same response type from `batch_query` endpoint.
+  # A representation of `metric` based SLO time series for the provided queries.
+  # This is the same response type from `batch_query` endpoint.
   class SLOHistoryMetricsSeries
     # Whether the object has unparsed attributes
     # @!visibility private
@@ -26,6 +27,7 @@ module DatadogAPIClient::V1
     # Count of submitted metrics.
     attr_accessor :count
 
+    # Query metadata.
     attr_accessor :metadata
 
     # Total sum of the query.
@@ -70,7 +72,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SLOHistoryMetricsSeries` initialize method"
@@ -104,22 +107,19 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @count.nil?
         invalid_properties.push('invalid value for "count", count cannot be nil.')
       end
-
       if @sum.nil?
         invalid_properties.push('invalid value for "sum", sum cannot be nil.')
       end
-
       if @values.nil?
         invalid_properties.push('invalid value for "values", values cannot be nil.')
       end
-
       invalid_properties
     end
 
@@ -131,6 +131,36 @@ module DatadogAPIClient::V1
       return false if @sum.nil?
       return false if @values.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param count [Object] Object to be assigned
+    # @!visibility private
+    def count=(count)
+      if count.nil?
+        fail ArgumentError, 'invalid value for "count", count cannot be nil.'
+      end
+      @count = count
+    end
+
+    # Custom attribute writer method with validation
+    # @param sum [Object] Object to be assigned
+    # @!visibility private
+    def sum=(sum)
+      if sum.nil?
+        fail ArgumentError, 'invalid value for "sum", sum cannot be nil.'
+      end
+      @sum = sum
+    end
+
+    # Custom attribute writer method with validation
+    # @param values [Object] Object to be assigned
+    # @!visibility private
+    def values=(values)
+      if values.nil?
+        fail ArgumentError, 'invalid value for "values", values cannot be nil.'
+      end
+      @values = values
     end
 
     # Checks equality by comparing each attribute.
@@ -160,7 +190,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -168,7 +198,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -274,7 +304,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -290,7 +320,5 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
-
 end

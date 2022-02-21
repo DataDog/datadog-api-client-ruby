@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Type of the markdown cell.
   class NotebookMarkdownCellDefinitionType
     MARKDOWN = "markdown".freeze
 
@@ -37,5 +38,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

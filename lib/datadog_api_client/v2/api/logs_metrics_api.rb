@@ -22,10 +22,12 @@ module DatadogAPIClient::V2
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Create a log-based metric
-    # Create a metric based on your ingested logs in your organization. Returns the log-based metric object from the request body when the request is successful.
+    # Create a metric based on your ingested logs in your organization.
+    # Returns the log-based metric object from the request body when the request is successful.
     # @param body [LogsMetricCreateRequest] The definition of the new log-based metric.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [LogsMetricResponse]
     def create_logs_metric(body, opts = {})
       data, _status_code, _headers = create_logs_metric_with_http_info(body, opts)
@@ -33,9 +35,10 @@ module DatadogAPIClient::V2
     end
 
     # Create a log-based metric
-    # Create a metric based on your ingested logs in your organization. Returns the log-based metric object from the request body when the request is successful.
+    # Create a metric based on your ingested logs in your organization.
+    # Returns the log-based metric object from the request body when the request is successful.
     # @param body [LogsMetricCreateRequest] The definition of the new log-based metric.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(LogsMetricResponse, Integer, Hash)>] LogsMetricResponse data, response status code and response headers
     def create_logs_metric_with_http_info(body, opts = {})
 
@@ -100,7 +103,7 @@ module DatadogAPIClient::V2
     # Delete a log-based metric
     # Delete a specific log-based metric from your organization.
     # @param metric_id [String] The name of the log-based metric.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [nil]
     def delete_logs_metric(metric_id, opts = {})
       delete_logs_metric_with_http_info(metric_id, opts)
@@ -110,7 +113,7 @@ module DatadogAPIClient::V2
     # Delete a log-based metric
     # Delete a specific log-based metric from your organization.
     # @param metric_id [String] The name of the log-based metric.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_logs_metric_with_http_info(metric_id, opts = {})
 
@@ -131,7 +134,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'metric_id' when calling LogsMetricsAPI.delete_logs_metric"
       end
       # resource path
-      local_var_path = '/api/v2/logs/config/metrics/{metric_id}'.sub('{' + 'metric_id' + '}', CGI.escape(metric_id.to_s))
+      local_var_path = '/api/v2/logs/config/metrics/{metric_id}'.sub('{metric_id}', CGI.escape(metric_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -139,7 +142,7 @@ module DatadogAPIClient::V2
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -173,7 +176,7 @@ module DatadogAPIClient::V2
     # Get a log-based metric
     # Get a specific log-based metric from your organization.
     # @param metric_id [String] The name of the log-based metric.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [LogsMetricResponse]
     def get_logs_metric(metric_id, opts = {})
       data, _status_code, _headers = get_logs_metric_with_http_info(metric_id, opts)
@@ -183,7 +186,7 @@ module DatadogAPIClient::V2
     # Get a log-based metric
     # Get a specific log-based metric from your organization.
     # @param metric_id [String] The name of the log-based metric.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(LogsMetricResponse, Integer, Hash)>] LogsMetricResponse data, response status code and response headers
     def get_logs_metric_with_http_info(metric_id, opts = {})
 
@@ -204,7 +207,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'metric_id' when calling LogsMetricsAPI.get_logs_metric"
       end
       # resource path
-      local_var_path = '/api/v2/logs/config/metrics/{metric_id}'.sub('{' + 'metric_id' + '}', CGI.escape(metric_id.to_s))
+      local_var_path = '/api/v2/logs/config/metrics/{metric_id}'.sub('{metric_id}', CGI.escape(metric_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -224,7 +227,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LogsMetricResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_logs_metric,
@@ -245,7 +248,7 @@ module DatadogAPIClient::V2
 
     # Get all log-based metrics
     # Get the list of configured log-based metrics with their definitions.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [LogsMetricsResponse]
     def list_logs_metrics(opts = {})
       data, _status_code, _headers = list_logs_metrics_with_http_info(opts)
@@ -254,7 +257,7 @@ module DatadogAPIClient::V2
 
     # Get all log-based metrics
     # Get the list of configured log-based metrics with their definitions.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(LogsMetricsResponse, Integer, Hash)>] LogsMetricsResponse data, response status code and response headers
     def list_logs_metrics_with_http_info(opts = {})
 
@@ -291,7 +294,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'LogsMetricsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_logs_metrics,
@@ -311,10 +314,11 @@ module DatadogAPIClient::V2
     end
 
     # Update a log-based metric
-    # Update a specific log-based metric from your organization. Returns the log-based metric object from the request body when the request is successful.
+    # Update a specific log-based metric from your organization.
+    # Returns the log-based metric object from the request body when the request is successful.
     # @param metric_id [String] The name of the log-based metric.
     # @param body [LogsMetricUpdateRequest] New definition of the log-based metric.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [LogsMetricResponse]
     def update_logs_metric(metric_id, body, opts = {})
       data, _status_code, _headers = update_logs_metric_with_http_info(metric_id, body, opts)
@@ -322,10 +326,11 @@ module DatadogAPIClient::V2
     end
 
     # Update a log-based metric
-    # Update a specific log-based metric from your organization. Returns the log-based metric object from the request body when the request is successful.
+    # Update a specific log-based metric from your organization.
+    # Returns the log-based metric object from the request body when the request is successful.
     # @param metric_id [String] The name of the log-based metric.
     # @param body [LogsMetricUpdateRequest] New definition of the log-based metric.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(LogsMetricResponse, Integer, Hash)>] LogsMetricResponse data, response status code and response headers
     def update_logs_metric_with_http_info(metric_id, body, opts = {})
 
@@ -350,7 +355,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'body' when calling LogsMetricsAPI.update_logs_metric"
       end
       # resource path
-      local_var_path = '/api/v2/logs/config/metrics/{metric_id}'.sub('{' + 'metric_id' + '}', CGI.escape(metric_id.to_s))
+      local_var_path = '/api/v2/logs/config/metrics/{metric_id}'.sub('{metric_id}', CGI.escape(metric_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}

@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
+  # The rule type.
   class SecurityMonitoringRuleTypeCreate
     LOG_DETECTION = "log_detection".freeze
     WORKLOAD_SECURITY = "workload_security".freeze
@@ -38,5 +39,4 @@ module DatadogAPIClient::V2
       constantValues.empty? ? DatadogAPIClient::V2::UnparsedObject.new(value) : value
     end
   end
-
 end

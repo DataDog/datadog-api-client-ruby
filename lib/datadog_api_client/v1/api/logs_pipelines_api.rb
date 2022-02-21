@@ -22,10 +22,11 @@ module DatadogAPIClient::V1
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Create a pipeline
     # Create a pipeline in your organization.
     # @param body [LogsPipeline] Definition of the new pipeline.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [LogsPipeline]
     def create_logs_pipeline(body, opts = {})
       data, _status_code, _headers = create_logs_pipeline_with_http_info(body, opts)
@@ -35,7 +36,7 @@ module DatadogAPIClient::V1
     # Create a pipeline
     # Create a pipeline in your organization.
     # @param body [LogsPipeline] Definition of the new pipeline.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(LogsPipeline, Integer, Hash)>] LogsPipeline data, response status code and response headers
     def create_logs_pipeline_with_http_info(body, opts = {})
 
@@ -98,9 +99,10 @@ module DatadogAPIClient::V1
     end
 
     # Delete a pipeline
-    # Delete a given pipeline from your organization. This endpoint takes no JSON arguments.
+    # Delete a given pipeline from your organization.
+    # This endpoint takes no JSON arguments.
     # @param pipeline_id [String] ID of the pipeline to delete.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [nil]
     def delete_logs_pipeline(pipeline_id, opts = {})
       delete_logs_pipeline_with_http_info(pipeline_id, opts)
@@ -108,9 +110,10 @@ module DatadogAPIClient::V1
     end
 
     # Delete a pipeline
-    # Delete a given pipeline from your organization. This endpoint takes no JSON arguments.
+    # Delete a given pipeline from your organization.
+    # This endpoint takes no JSON arguments.
     # @param pipeline_id [String] ID of the pipeline to delete.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_logs_pipeline_with_http_info(pipeline_id, opts = {})
 
@@ -131,7 +134,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'pipeline_id' when calling LogsPipelinesAPI.delete_logs_pipeline"
       end
       # resource path
-      local_var_path = '/api/v1/logs/config/pipelines/{pipeline_id}'.sub('{' + 'pipeline_id' + '}', CGI.escape(pipeline_id.to_s))
+      local_var_path = '/api/v1/logs/config/pipelines/{pipeline_id}'.sub('{pipeline_id}', CGI.escape(pipeline_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -139,7 +142,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -171,9 +174,10 @@ module DatadogAPIClient::V1
     end
 
     # Get a pipeline
-    # Get a specific pipeline from your organization. This endpoint takes no JSON arguments.
+    # Get a specific pipeline from your organization.
+    # This endpoint takes no JSON arguments.
     # @param pipeline_id [String] ID of the pipeline to get.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [LogsPipeline]
     def get_logs_pipeline(pipeline_id, opts = {})
       data, _status_code, _headers = get_logs_pipeline_with_http_info(pipeline_id, opts)
@@ -181,9 +185,10 @@ module DatadogAPIClient::V1
     end
 
     # Get a pipeline
-    # Get a specific pipeline from your organization. This endpoint takes no JSON arguments.
+    # Get a specific pipeline from your organization.
+    # This endpoint takes no JSON arguments.
     # @param pipeline_id [String] ID of the pipeline to get.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(LogsPipeline, Integer, Hash)>] LogsPipeline data, response status code and response headers
     def get_logs_pipeline_with_http_info(pipeline_id, opts = {})
 
@@ -204,7 +209,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'pipeline_id' when calling LogsPipelinesAPI.get_logs_pipeline"
       end
       # resource path
-      local_var_path = '/api/v1/logs/config/pipelines/{pipeline_id}'.sub('{' + 'pipeline_id' + '}', CGI.escape(pipeline_id.to_s))
+      local_var_path = '/api/v1/logs/config/pipelines/{pipeline_id}'.sub('{pipeline_id}', CGI.escape(pipeline_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -224,7 +229,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'LogsPipeline'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_logs_pipeline,
@@ -244,8 +249,9 @@ module DatadogAPIClient::V1
     end
 
     # Get pipeline order
-    # Get the current order of your pipelines. This endpoint takes no JSON arguments.
-    # @param [Hash] opts the optional parameters
+    # Get the current order of your pipelines.
+    # This endpoint takes no JSON arguments.
+    # @param opts [Hash] the optional parameters
     # @return [LogsPipelinesOrder]
     def get_logs_pipeline_order(opts = {})
       data, _status_code, _headers = get_logs_pipeline_order_with_http_info(opts)
@@ -253,8 +259,9 @@ module DatadogAPIClient::V1
     end
 
     # Get pipeline order
-    # Get the current order of your pipelines. This endpoint takes no JSON arguments.
-    # @param [Hash] opts the optional parameters
+    # Get the current order of your pipelines.
+    # This endpoint takes no JSON arguments.
+    # @param opts [Hash] the optional parameters
     # @return [Array<(LogsPipelinesOrder, Integer, Hash)>] LogsPipelinesOrder data, response status code and response headers
     def get_logs_pipeline_order_with_http_info(opts = {})
 
@@ -291,7 +298,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'LogsPipelinesOrder'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_logs_pipeline_order,
@@ -311,8 +318,9 @@ module DatadogAPIClient::V1
     end
 
     # Get all pipelines
-    # Get all pipelines from your organization. This endpoint takes no JSON arguments.
-    # @param [Hash] opts the optional parameters
+    # Get all pipelines from your organization.
+    # This endpoint takes no JSON arguments.
+    # @param opts [Hash] the optional parameters
     # @return [Array<LogsPipeline>]
     def list_logs_pipelines(opts = {})
       data, _status_code, _headers = list_logs_pipelines_with_http_info(opts)
@@ -320,8 +328,9 @@ module DatadogAPIClient::V1
     end
 
     # Get all pipelines
-    # Get all pipelines from your organization. This endpoint takes no JSON arguments.
-    # @param [Hash] opts the optional parameters
+    # Get all pipelines from your organization.
+    # This endpoint takes no JSON arguments.
+    # @param opts [Hash] the optional parameters
     # @return [Array<(Array<LogsPipeline>, Integer, Hash)>] Array<LogsPipeline> data, response status code and response headers
     def list_logs_pipelines_with_http_info(opts = {})
 
@@ -358,7 +367,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Array<LogsPipeline>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_logs_pipelines,
@@ -378,10 +387,13 @@ module DatadogAPIClient::V1
     end
 
     # Update a pipeline
-    # Update a given pipeline configuration to change it’s processors or their order.  **Note**: Using this method updates your pipeline configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
+    # Update a given pipeline configuration to change it’s processors or their order.
+    #
+    # **Note**: Using this method updates your pipeline configuration by **replacing**
+    # your current configuration with the new one sent to your Datadog organization.
     # @param pipeline_id [String] ID of the pipeline to delete.
     # @param body [LogsPipeline] New definition of the pipeline.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [LogsPipeline]
     def update_logs_pipeline(pipeline_id, body, opts = {})
       data, _status_code, _headers = update_logs_pipeline_with_http_info(pipeline_id, body, opts)
@@ -389,10 +401,13 @@ module DatadogAPIClient::V1
     end
 
     # Update a pipeline
-    # Update a given pipeline configuration to change it’s processors or their order.  **Note**: Using this method updates your pipeline configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
+    # Update a given pipeline configuration to change it’s processors or their order.
+    #
+    # **Note**: Using this method updates your pipeline configuration by **replacing**
+    # your current configuration with the new one sent to your Datadog organization.
     # @param pipeline_id [String] ID of the pipeline to delete.
     # @param body [LogsPipeline] New definition of the pipeline.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(LogsPipeline, Integer, Hash)>] LogsPipeline data, response status code and response headers
     def update_logs_pipeline_with_http_info(pipeline_id, body, opts = {})
 
@@ -417,7 +432,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'body' when calling LogsPipelinesAPI.update_logs_pipeline"
       end
       # resource path
-      local_var_path = '/api/v1/logs/config/pipelines/{pipeline_id}'.sub('{' + 'pipeline_id' + '}', CGI.escape(pipeline_id.to_s))
+      local_var_path = '/api/v1/logs/config/pipelines/{pipeline_id}'.sub('{pipeline_id}', CGI.escape(pipeline_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -459,9 +474,13 @@ module DatadogAPIClient::V1
     end
 
     # Update pipeline order
-    # Update the order of your pipelines. Since logs are processed sequentially, reordering a pipeline may change the structure and content of the data processed by other pipelines and their processors.  **Note**: Using the `PUT` method updates your pipeline order by replacing your current order with the new one sent to your Datadog organization.
+    # Update the order of your pipelines. Since logs are processed sequentially, reordering a pipeline may change
+    # the structure and content of the data processed by other pipelines and their processors.
+    #
+    # **Note**: Using the `PUT` method updates your pipeline order by replacing your current order
+    # with the new one sent to your Datadog organization.
     # @param body [LogsPipelinesOrder] Object containing the new ordered list of pipeline IDs.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [LogsPipelinesOrder]
     def update_logs_pipeline_order(body, opts = {})
       data, _status_code, _headers = update_logs_pipeline_order_with_http_info(body, opts)
@@ -469,9 +488,13 @@ module DatadogAPIClient::V1
     end
 
     # Update pipeline order
-    # Update the order of your pipelines. Since logs are processed sequentially, reordering a pipeline may change the structure and content of the data processed by other pipelines and their processors.  **Note**: Using the &#x60;PUT&#x60; method updates your pipeline order by replacing your current order with the new one sent to your Datadog organization.
+    # Update the order of your pipelines. Since logs are processed sequentially, reordering a pipeline may change
+    # the structure and content of the data processed by other pipelines and their processors.
+    #
+    # **Note**: Using the `PUT` method updates your pipeline order by replacing your current order
+    # with the new one sent to your Datadog organization.
     # @param body [LogsPipelinesOrder] Object containing the new ordered list of pipeline IDs.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(LogsPipelinesOrder, Integer, Hash)>] LogsPipelinesOrder data, response status code and response headers
     def update_logs_pipeline_order_with_http_info(body, opts = {})
 

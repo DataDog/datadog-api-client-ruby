@@ -17,7 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The attributes of a notebook cell in update cell request. Valid cell types are `markdown`, `timeseries`, `toplist`, `heatmap`, `distribution`, `log_stream`. [More information on each graph visualization type.](https://docs.datadoghq.com/dashboards/widgets/)
+  # The attributes of a notebook cell in update cell request. Valid cell types are `markdown`, `timeseries`, `toplist`, `heatmap`, `distribution`,
+  # `log_stream`. [More information on each graph visualization type.](https://docs.datadoghq.com/dashboards/widgets/)
   module NotebookCellUpdateRequestAttributes
     class << self
       attr_accessor :_unparsed
@@ -25,15 +26,14 @@ module DatadogAPIClient::V1
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'NotebookDistributionCellAttributes',
-          :'NotebookHeatMapCellAttributes',
-          :'NotebookLogStreamCellAttributes',
           :'NotebookMarkdownCellAttributes',
           :'NotebookTimeseriesCellAttributes',
-          :'NotebookToplistCellAttributes'
+          :'NotebookToplistCellAttributes',
+          :'NotebookHeatMapCellAttributes',
+          :'NotebookDistributionCellAttributes',
+          :'NotebookLogStreamCellAttributes'
         ]
       end
-
       # Builds the object
       # @param [Mixed] Data to be matched against the list of oneOf items
       # @return [Object] Returns the model or the data itself
@@ -61,7 +61,6 @@ module DatadogAPIClient::V1
           self._unparsed = true
           DatadogAPIClient::V1::UnparsedObject.new(data)
         end
-
       end
 
       private
@@ -118,5 +117,4 @@ module DatadogAPIClient::V1
       end
     end
   end
-
 end

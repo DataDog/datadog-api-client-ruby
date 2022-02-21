@@ -23,6 +23,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
+    # Data source for APM dependency stats queries.
     attr_accessor :data_source
 
     # APM environment.
@@ -49,6 +50,7 @@ module DatadogAPIClient::V1
     # APM service.
     attr_accessor :service
 
+    # APM statistic.
     attr_accessor :stat
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -99,7 +101,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::FormulaAndFunctionApmDependencyStatsQueryDefinition` initialize method"
@@ -155,38 +158,31 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @data_source.nil?
         invalid_properties.push('invalid value for "data_source", data_source cannot be nil.')
       end
-
       if @env.nil?
         invalid_properties.push('invalid value for "env", env cannot be nil.')
       end
-
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
-
       if @operation_name.nil?
         invalid_properties.push('invalid value for "operation_name", operation_name cannot be nil.')
       end
-
       if @resource_name.nil?
         invalid_properties.push('invalid value for "resource_name", resource_name cannot be nil.')
       end
-
       if @service.nil?
         invalid_properties.push('invalid value for "service", service cannot be nil.')
       end
-
       if @stat.nil?
         invalid_properties.push('invalid value for "stat", stat cannot be nil.')
       end
-
       invalid_properties
     end
 
@@ -202,6 +198,76 @@ module DatadogAPIClient::V1
       return false if @service.nil?
       return false if @stat.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param data_source [Object] Object to be assigned
+    # @!visibility private
+    def data_source=(data_source)
+      if data_source.nil?
+        fail ArgumentError, 'invalid value for "data_source", data_source cannot be nil.'
+      end
+      @data_source = data_source
+    end
+
+    # Custom attribute writer method with validation
+    # @param env [Object] Object to be assigned
+    # @!visibility private
+    def env=(env)
+      if env.nil?
+        fail ArgumentError, 'invalid value for "env", env cannot be nil.'
+      end
+      @env = env
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    # @!visibility private
+    def name=(name)
+      if name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param operation_name [Object] Object to be assigned
+    # @!visibility private
+    def operation_name=(operation_name)
+      if operation_name.nil?
+        fail ArgumentError, 'invalid value for "operation_name", operation_name cannot be nil.'
+      end
+      @operation_name = operation_name
+    end
+
+    # Custom attribute writer method with validation
+    # @param resource_name [Object] Object to be assigned
+    # @!visibility private
+    def resource_name=(resource_name)
+      if resource_name.nil?
+        fail ArgumentError, 'invalid value for "resource_name", resource_name cannot be nil.'
+      end
+      @resource_name = resource_name
+    end
+
+    # Custom attribute writer method with validation
+    # @param service [Object] Object to be assigned
+    # @!visibility private
+    def service=(service)
+      if service.nil?
+        fail ArgumentError, 'invalid value for "service", service cannot be nil.'
+      end
+      @service = service
+    end
+
+    # Custom attribute writer method with validation
+    # @param stat [Object] Object to be assigned
+    # @!visibility private
+    def stat=(stat)
+      if stat.nil?
+        fail ArgumentError, 'invalid value for "stat", stat cannot be nil.'
+      end
+      @stat = stat
     end
 
     # Checks equality by comparing each attribute.
@@ -237,7 +303,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -245,7 +311,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -351,7 +417,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -367,7 +433,5 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
-
 end

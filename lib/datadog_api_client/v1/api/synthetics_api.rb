@@ -22,10 +22,11 @@ module DatadogAPIClient::V1
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Create a global variable
     # Create a Synthetics global variable.
     # @param body [SyntheticsGlobalVariable] Details of the global variable to create.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SyntheticsGlobalVariable]
     def create_global_variable(body, opts = {})
       data, _status_code, _headers = create_global_variable_with_http_info(body, opts)
@@ -35,7 +36,7 @@ module DatadogAPIClient::V1
     # Create a global variable
     # Create a Synthetics global variable.
     # @param body [SyntheticsGlobalVariable] Details of the global variable to create.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsGlobalVariable, Integer, Hash)>] SyntheticsGlobalVariable data, response status code and response headers
     def create_global_variable_with_http_info(body, opts = {})
 
@@ -78,7 +79,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsGlobalVariable'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_global_variable,
@@ -100,7 +101,7 @@ module DatadogAPIClient::V1
     # Create a private location
     # Create a new Synthetics private location.
     # @param body [SyntheticsPrivateLocation] Details of the private location to create.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SyntheticsPrivateLocationCreationResponse]
     def create_private_location(body, opts = {})
       data, _status_code, _headers = create_private_location_with_http_info(body, opts)
@@ -110,7 +111,7 @@ module DatadogAPIClient::V1
     # Create a private location
     # Create a new Synthetics private location.
     # @param body [SyntheticsPrivateLocation] Details of the private location to create.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsPrivateLocationCreationResponse, Integer, Hash)>] SyntheticsPrivateLocationCreationResponse data, response status code and response headers
     def create_private_location_with_http_info(body, opts = {})
 
@@ -153,7 +154,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsPrivateLocationCreationResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_private_location,
@@ -175,7 +176,7 @@ module DatadogAPIClient::V1
     # Create an API test
     # Create a Synthetic API test.
     # @param body [SyntheticsAPITest] Details of the test to create.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SyntheticsAPITest]
     def create_synthetics_api_test(body, opts = {})
       data, _status_code, _headers = create_synthetics_api_test_with_http_info(body, opts)
@@ -185,7 +186,7 @@ module DatadogAPIClient::V1
     # Create an API test
     # Create a Synthetic API test.
     # @param body [SyntheticsAPITest] Details of the test to create.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsAPITest, Integer, Hash)>] SyntheticsAPITest data, response status code and response headers
     def create_synthetics_api_test_with_http_info(body, opts = {})
 
@@ -228,7 +229,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsAPITest'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_synthetics_api_test,
@@ -250,7 +251,7 @@ module DatadogAPIClient::V1
     # Create a browser test
     # Create a Synthetic browser test.
     # @param body [SyntheticsBrowserTest] Details of the test to create.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SyntheticsBrowserTest]
     def create_synthetics_browser_test(body, opts = {})
       data, _status_code, _headers = create_synthetics_browser_test_with_http_info(body, opts)
@@ -260,7 +261,7 @@ module DatadogAPIClient::V1
     # Create a browser test
     # Create a Synthetic browser test.
     # @param body [SyntheticsBrowserTest] Details of the test to create.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsBrowserTest, Integer, Hash)>] SyntheticsBrowserTest data, response status code and response headers
     def create_synthetics_browser_test_with_http_info(body, opts = {})
 
@@ -303,7 +304,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsBrowserTest'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_synthetics_browser_test,
@@ -325,7 +326,7 @@ module DatadogAPIClient::V1
     # Delete a global variable
     # Delete a Synthetics global variable.
     # @param variable_id [String] The ID of the global variable.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [nil]
     def delete_global_variable(variable_id, opts = {})
       delete_global_variable_with_http_info(variable_id, opts)
@@ -335,7 +336,7 @@ module DatadogAPIClient::V1
     # Delete a global variable
     # Delete a Synthetics global variable.
     # @param variable_id [String] The ID of the global variable.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_global_variable_with_http_info(variable_id, opts = {})
 
@@ -356,7 +357,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'variable_id' when calling SyntheticsAPI.delete_global_variable"
       end
       # resource path
-      local_var_path = '/api/v1/synthetics/variables/{variable_id}'.sub('{' + 'variable_id' + '}', CGI.escape(variable_id.to_s))
+      local_var_path = '/api/v1/synthetics/variables/{variable_id}'.sub('{variable_id}', CGI.escape(variable_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -364,7 +365,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -376,7 +377,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_global_variable,
@@ -398,7 +399,7 @@ module DatadogAPIClient::V1
     # Delete a private location
     # Delete a Synthetics private location.
     # @param location_id [String] The ID of the private location.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [nil]
     def delete_private_location(location_id, opts = {})
       delete_private_location_with_http_info(location_id, opts)
@@ -408,7 +409,7 @@ module DatadogAPIClient::V1
     # Delete a private location
     # Delete a Synthetics private location.
     # @param location_id [String] The ID of the private location.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_private_location_with_http_info(location_id, opts = {})
 
@@ -429,7 +430,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'location_id' when calling SyntheticsAPI.delete_private_location"
       end
       # resource path
-      local_var_path = '/api/v1/synthetics/private-locations/{location_id}'.sub('{' + 'location_id' + '}', CGI.escape(location_id.to_s))
+      local_var_path = '/api/v1/synthetics/private-locations/{location_id}'.sub('{location_id}', CGI.escape(location_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -437,7 +438,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -449,7 +450,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_private_location,
@@ -471,7 +472,7 @@ module DatadogAPIClient::V1
     # Delete tests
     # Delete multiple Synthetic tests by ID.
     # @param body [SyntheticsDeleteTestsPayload] Public ID list of the Synthetic tests to be deleted.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SyntheticsDeleteTestsResponse]
     def delete_tests(body, opts = {})
       data, _status_code, _headers = delete_tests_with_http_info(body, opts)
@@ -481,7 +482,7 @@ module DatadogAPIClient::V1
     # Delete tests
     # Delete multiple Synthetic tests by ID.
     # @param body [SyntheticsDeleteTestsPayload] Public ID list of the Synthetic tests to be deleted.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsDeleteTestsResponse, Integer, Hash)>] SyntheticsDeleteTestsResponse data, response status code and response headers
     def delete_tests_with_http_info(body, opts = {})
 
@@ -524,7 +525,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsDeleteTestsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_tests,
@@ -547,7 +548,7 @@ module DatadogAPIClient::V1
     # Edit a Synthetics global variable.
     # @param variable_id [String] The ID of the global variable.
     # @param body [SyntheticsGlobalVariable] Details of the global variable to update.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SyntheticsGlobalVariable]
     def edit_global_variable(variable_id, body, opts = {})
       data, _status_code, _headers = edit_global_variable_with_http_info(variable_id, body, opts)
@@ -558,7 +559,7 @@ module DatadogAPIClient::V1
     # Edit a Synthetics global variable.
     # @param variable_id [String] The ID of the global variable.
     # @param body [SyntheticsGlobalVariable] Details of the global variable to update.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsGlobalVariable, Integer, Hash)>] SyntheticsGlobalVariable data, response status code and response headers
     def edit_global_variable_with_http_info(variable_id, body, opts = {})
 
@@ -583,7 +584,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'body' when calling SyntheticsAPI.edit_global_variable"
       end
       # resource path
-      local_var_path = '/api/v1/synthetics/variables/{variable_id}'.sub('{' + 'variable_id' + '}', CGI.escape(variable_id.to_s))
+      local_var_path = '/api/v1/synthetics/variables/{variable_id}'.sub('{variable_id}', CGI.escape(variable_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -605,7 +606,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsGlobalVariable'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :edit_global_variable,
@@ -625,9 +626,10 @@ module DatadogAPIClient::V1
     end
 
     # Get an API test
-    # Get the detailed configuration associated with a Synthetic API test.
+    # Get the detailed configuration associated with
+    # a Synthetic API test.
     # @param public_id [String] The public ID of the test to get details from.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SyntheticsAPITest]
     def get_api_test(public_id, opts = {})
       data, _status_code, _headers = get_api_test_with_http_info(public_id, opts)
@@ -635,9 +637,10 @@ module DatadogAPIClient::V1
     end
 
     # Get an API test
-    # Get the detailed configuration associated with a Synthetic API test.
+    # Get the detailed configuration associated with
+    # a Synthetic API test.
     # @param public_id [String] The public ID of the test to get details from.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsAPITest, Integer, Hash)>] SyntheticsAPITest data, response status code and response headers
     def get_api_test_with_http_info(public_id, opts = {})
 
@@ -658,7 +661,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.get_api_test"
       end
       # resource path
-      local_var_path = '/api/v1/synthetics/tests/api/{public_id}'.sub('{' + 'public_id' + '}', CGI.escape(public_id.to_s))
+      local_var_path = '/api/v1/synthetics/tests/api/{public_id}'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -678,7 +681,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsAPITest'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_api_test,
@@ -700,7 +703,7 @@ module DatadogAPIClient::V1
     # Get an API test's latest results summaries
     # Get the last 50 test results summaries for a given Synthetics API test.
     # @param public_id [String] The public ID of the test for which to search results for.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [Integer] :from_ts Timestamp in milliseconds from which to start querying results.
     # @option opts [Integer] :to_ts Timestamp in milliseconds up to which to query results.
     # @option opts [Array<String>] :probe_dc Locations for which to query results.
@@ -710,10 +713,10 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get an API test&#39;s latest results summaries
+    # Get an API test's latest results summaries
     # Get the last 50 test results summaries for a given Synthetics API test.
     # @param public_id [String] The public ID of the test for which to search results for.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [Integer] :from_ts Timestamp in milliseconds from which to start querying results.
     # @option opts [Integer] :to_ts Timestamp in milliseconds up to which to query results.
     # @option opts [Array<String>] :probe_dc Locations for which to query results.
@@ -737,7 +740,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.get_api_test_latest_results"
       end
       # resource path
-      local_var_path = '/api/v1/synthetics/tests/{public_id}/results'.sub('{' + 'public_id' + '}', CGI.escape(public_id.to_s))
+      local_var_path = '/api/v1/synthetics/tests/{public_id}/results'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -760,7 +763,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsGetAPITestLatestResultsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_api_test_latest_results,
@@ -783,7 +786,7 @@ module DatadogAPIClient::V1
     # Get a specific full result from a given (API) Synthetic test.
     # @param public_id [String] The public ID of the API test to which the target result belongs.
     # @param result_id [String] The ID of the result to get.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SyntheticsAPITestResultFull]
     def get_api_test_result(public_id, result_id, opts = {})
       data, _status_code, _headers = get_api_test_result_with_http_info(public_id, result_id, opts)
@@ -794,7 +797,7 @@ module DatadogAPIClient::V1
     # Get a specific full result from a given (API) Synthetic test.
     # @param public_id [String] The public ID of the API test to which the target result belongs.
     # @param result_id [String] The ID of the result to get.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsAPITestResultFull, Integer, Hash)>] SyntheticsAPITestResultFull data, response status code and response headers
     def get_api_test_result_with_http_info(public_id, result_id, opts = {})
 
@@ -819,7 +822,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'result_id' when calling SyntheticsAPI.get_api_test_result"
       end
       # resource path
-      local_var_path = '/api/v1/synthetics/tests/{public_id}/results/{result_id}'.sub('{' + 'public_id' + '}', CGI.escape(public_id.to_s)).sub('{' + 'result_id' + '}', CGI.escape(result_id.to_s))
+      local_var_path = '/api/v1/synthetics/tests/{public_id}/results/{result_id}'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/')).sub('{result_id}', CGI.escape(result_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -839,7 +842,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsAPITestResultFull'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_api_test_result,
@@ -859,9 +862,10 @@ module DatadogAPIClient::V1
     end
 
     # Get a browser test
-    # Get the detailed configuration (including steps) associated with a Synthetic browser test.
+    # Get the detailed configuration (including steps) associated with
+    # a Synthetic browser test.
     # @param public_id [String] The public ID of the test to get details from.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SyntheticsBrowserTest]
     def get_browser_test(public_id, opts = {})
       data, _status_code, _headers = get_browser_test_with_http_info(public_id, opts)
@@ -869,9 +873,10 @@ module DatadogAPIClient::V1
     end
 
     # Get a browser test
-    # Get the detailed configuration (including steps) associated with a Synthetic browser test.
+    # Get the detailed configuration (including steps) associated with
+    # a Synthetic browser test.
     # @param public_id [String] The public ID of the test to get details from.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsBrowserTest, Integer, Hash)>] SyntheticsBrowserTest data, response status code and response headers
     def get_browser_test_with_http_info(public_id, opts = {})
 
@@ -892,7 +897,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.get_browser_test"
       end
       # resource path
-      local_var_path = '/api/v1/synthetics/tests/browser/{public_id}'.sub('{' + 'public_id' + '}', CGI.escape(public_id.to_s))
+      local_var_path = '/api/v1/synthetics/tests/browser/{public_id}'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -912,7 +917,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsBrowserTest'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_browser_test,
@@ -934,7 +939,7 @@ module DatadogAPIClient::V1
     # Get a browser test's latest results summaries
     # Get the last 50 test results summaries for a given Synthetics Browser test.
     # @param public_id [String] The public ID of the browser test for which to search results for.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [Integer] :from_ts Timestamp in milliseconds from which to start querying results.
     # @option opts [Integer] :to_ts Timestamp in milliseconds up to which to query results.
     # @option opts [Array<String>] :probe_dc Locations for which to query results.
@@ -944,10 +949,10 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get a browser test&#39;s latest results summaries
+    # Get a browser test's latest results summaries
     # Get the last 50 test results summaries for a given Synthetics Browser test.
     # @param public_id [String] The public ID of the browser test for which to search results for.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [Integer] :from_ts Timestamp in milliseconds from which to start querying results.
     # @option opts [Integer] :to_ts Timestamp in milliseconds up to which to query results.
     # @option opts [Array<String>] :probe_dc Locations for which to query results.
@@ -971,7 +976,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.get_browser_test_latest_results"
       end
       # resource path
-      local_var_path = '/api/v1/synthetics/tests/browser/{public_id}/results'.sub('{' + 'public_id' + '}', CGI.escape(public_id.to_s))
+      local_var_path = '/api/v1/synthetics/tests/browser/{public_id}/results'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -994,7 +999,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsGetBrowserTestLatestResultsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_browser_test_latest_results,
@@ -1017,7 +1022,7 @@ module DatadogAPIClient::V1
     # Get a specific full result from a given (browser) Synthetic test.
     # @param public_id [String] The public ID of the browser test to which the target result belongs.
     # @param result_id [String] The ID of the result to get.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SyntheticsBrowserTestResultFull]
     def get_browser_test_result(public_id, result_id, opts = {})
       data, _status_code, _headers = get_browser_test_result_with_http_info(public_id, result_id, opts)
@@ -1028,7 +1033,7 @@ module DatadogAPIClient::V1
     # Get a specific full result from a given (browser) Synthetic test.
     # @param public_id [String] The public ID of the browser test to which the target result belongs.
     # @param result_id [String] The ID of the result to get.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsBrowserTestResultFull, Integer, Hash)>] SyntheticsBrowserTestResultFull data, response status code and response headers
     def get_browser_test_result_with_http_info(public_id, result_id, opts = {})
 
@@ -1053,7 +1058,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'result_id' when calling SyntheticsAPI.get_browser_test_result"
       end
       # resource path
-      local_var_path = '/api/v1/synthetics/tests/browser/{public_id}/results/{result_id}'.sub('{' + 'public_id' + '}', CGI.escape(public_id.to_s)).sub('{' + 'result_id' + '}', CGI.escape(result_id.to_s))
+      local_var_path = '/api/v1/synthetics/tests/browser/{public_id}/results/{result_id}'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/')).sub('{result_id}', CGI.escape(result_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1073,7 +1078,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsBrowserTestResultFull'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_browser_test_result,
@@ -1095,7 +1100,7 @@ module DatadogAPIClient::V1
     # Get a global variable
     # Get the detailed configuration of a global variable.
     # @param variable_id [String] The ID of the global variable.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SyntheticsGlobalVariable]
     def get_global_variable(variable_id, opts = {})
       data, _status_code, _headers = get_global_variable_with_http_info(variable_id, opts)
@@ -1105,7 +1110,7 @@ module DatadogAPIClient::V1
     # Get a global variable
     # Get the detailed configuration of a global variable.
     # @param variable_id [String] The ID of the global variable.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsGlobalVariable, Integer, Hash)>] SyntheticsGlobalVariable data, response status code and response headers
     def get_global_variable_with_http_info(variable_id, opts = {})
 
@@ -1126,7 +1131,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'variable_id' when calling SyntheticsAPI.get_global_variable"
       end
       # resource path
-      local_var_path = '/api/v1/synthetics/variables/{variable_id}'.sub('{' + 'variable_id' + '}', CGI.escape(variable_id.to_s))
+      local_var_path = '/api/v1/synthetics/variables/{variable_id}'.sub('{variable_id}', CGI.escape(variable_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1146,7 +1151,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsGlobalVariable'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_global_variable,
@@ -1168,7 +1173,7 @@ module DatadogAPIClient::V1
     # Get a private location
     # Get a Synthetics private location.
     # @param location_id [String] The ID of the private location.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SyntheticsPrivateLocation]
     def get_private_location(location_id, opts = {})
       data, _status_code, _headers = get_private_location_with_http_info(location_id, opts)
@@ -1178,7 +1183,7 @@ module DatadogAPIClient::V1
     # Get a private location
     # Get a Synthetics private location.
     # @param location_id [String] The ID of the private location.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsPrivateLocation, Integer, Hash)>] SyntheticsPrivateLocation data, response status code and response headers
     def get_private_location_with_http_info(location_id, opts = {})
 
@@ -1199,7 +1204,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'location_id' when calling SyntheticsAPI.get_private_location"
       end
       # resource path
-      local_var_path = '/api/v1/synthetics/private-locations/{location_id}'.sub('{' + 'location_id' + '}', CGI.escape(location_id.to_s))
+      local_var_path = '/api/v1/synthetics/private-locations/{location_id}'.sub('{location_id}', CGI.escape(location_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1219,7 +1224,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsPrivateLocation'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_private_location,
@@ -1241,7 +1246,7 @@ module DatadogAPIClient::V1
     # Get details of batch
     # Get a batch's updated details.
     # @param batch_id [String] The ID of the batch.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SyntheticsBatchDetails]
     def get_synthetics_ci_batch(batch_id, opts = {})
       data, _status_code, _headers = get_synthetics_ci_batch_with_http_info(batch_id, opts)
@@ -1249,9 +1254,9 @@ module DatadogAPIClient::V1
     end
 
     # Get details of batch
-    # Get a batch&#39;s updated details.
+    # Get a batch's updated details.
     # @param batch_id [String] The ID of the batch.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsBatchDetails, Integer, Hash)>] SyntheticsBatchDetails data, response status code and response headers
     def get_synthetics_ci_batch_with_http_info(batch_id, opts = {})
 
@@ -1272,7 +1277,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'batch_id' when calling SyntheticsAPI.get_synthetics_ci_batch"
       end
       # resource path
-      local_var_path = '/api/v1/synthetics/ci/batch/{batch_id}'.sub('{' + 'batch_id' + '}', CGI.escape(batch_id.to_s))
+      local_var_path = '/api/v1/synthetics/ci/batch/{batch_id}'.sub('{batch_id}', CGI.escape(batch_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1292,7 +1297,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsBatchDetails'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_synthetics_ci_batch,
@@ -1314,7 +1319,7 @@ module DatadogAPIClient::V1
     # Get a test configuration
     # Get the detailed configuration associated with a Synthetics test.
     # @param public_id [String] The public ID of the test to get details from.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SyntheticsTestDetails]
     def get_test(public_id, opts = {})
       data, _status_code, _headers = get_test_with_http_info(public_id, opts)
@@ -1324,7 +1329,7 @@ module DatadogAPIClient::V1
     # Get a test configuration
     # Get the detailed configuration associated with a Synthetics test.
     # @param public_id [String] The public ID of the test to get details from.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsTestDetails, Integer, Hash)>] SyntheticsTestDetails data, response status code and response headers
     def get_test_with_http_info(public_id, opts = {})
 
@@ -1345,7 +1350,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.get_test"
       end
       # resource path
-      local_var_path = '/api/v1/synthetics/tests/{public_id}'.sub('{' + 'public_id' + '}', CGI.escape(public_id.to_s))
+      local_var_path = '/api/v1/synthetics/tests/{public_id}'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1365,7 +1370,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsTestDetails'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_test,
@@ -1386,7 +1391,7 @@ module DatadogAPIClient::V1
 
     # Get all global variables
     # Get the list of all Synthetics global variables.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SyntheticsListGlobalVariablesResponse]
     def list_global_variables(opts = {})
       data, _status_code, _headers = list_global_variables_with_http_info(opts)
@@ -1395,7 +1400,7 @@ module DatadogAPIClient::V1
 
     # Get all global variables
     # Get the list of all Synthetics global variables.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsListGlobalVariablesResponse, Integer, Hash)>] SyntheticsListGlobalVariablesResponse data, response status code and response headers
     def list_global_variables_with_http_info(opts = {})
 
@@ -1432,7 +1437,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsListGlobalVariablesResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_global_variables,
@@ -1452,8 +1457,9 @@ module DatadogAPIClient::V1
     end
 
     # Get all locations (public and private)
-    # Get the list of public and private locations available for Synthetic tests. No arguments required.
-    # @param [Hash] opts the optional parameters
+    # Get the list of public and private locations available for Synthetic
+    # tests. No arguments required.
+    # @param opts [Hash] the optional parameters
     # @return [SyntheticsLocations]
     def list_locations(opts = {})
       data, _status_code, _headers = list_locations_with_http_info(opts)
@@ -1461,8 +1467,9 @@ module DatadogAPIClient::V1
     end
 
     # Get all locations (public and private)
-    # Get the list of public and private locations available for Synthetic tests. No arguments required.
-    # @param [Hash] opts the optional parameters
+    # Get the list of public and private locations available for Synthetic
+    # tests. No arguments required.
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsLocations, Integer, Hash)>] SyntheticsLocations data, response status code and response headers
     def list_locations_with_http_info(opts = {})
 
@@ -1499,7 +1506,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsLocations'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_locations,
@@ -1520,7 +1527,7 @@ module DatadogAPIClient::V1
 
     # Get the list of all tests
     # Get the list of all Synthetic tests.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SyntheticsListTestsResponse]
     def list_tests(opts = {})
       data, _status_code, _headers = list_tests_with_http_info(opts)
@@ -1529,7 +1536,7 @@ module DatadogAPIClient::V1
 
     # Get the list of all tests
     # Get the list of all Synthetic tests.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsListTestsResponse, Integer, Hash)>] SyntheticsListTestsResponse data, response status code and response headers
     def list_tests_with_http_info(opts = {})
 
@@ -1566,7 +1573,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsListTestsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_tests,
@@ -1588,7 +1595,7 @@ module DatadogAPIClient::V1
     # Trigger tests from CI/CD pipelines
     # Trigger a set of Synthetics tests for continuous integration.
     # @param body [SyntheticsCITestBody] Details of the test to trigger.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SyntheticsTriggerCITestsResponse]
     def trigger_ci_tests(body, opts = {})
       data, _status_code, _headers = trigger_ci_tests_with_http_info(body, opts)
@@ -1598,7 +1605,7 @@ module DatadogAPIClient::V1
     # Trigger tests from CI/CD pipelines
     # Trigger a set of Synthetics tests for continuous integration.
     # @param body [SyntheticsCITestBody] Details of the test to trigger.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsTriggerCITestsResponse, Integer, Hash)>] SyntheticsTriggerCITestsResponse data, response status code and response headers
     def trigger_ci_tests_with_http_info(body, opts = {})
 
@@ -1641,7 +1648,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsTriggerCITestsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :trigger_ci_tests,
@@ -1663,7 +1670,7 @@ module DatadogAPIClient::V1
     # Trigger Synthetics tests
     # Trigger a set of Synthetics tests.
     # @param body [SyntheticsTriggerBody] The identifiers of the tests to trigger.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SyntheticsTriggerCITestsResponse]
     def trigger_tests(body, opts = {})
       data, _status_code, _headers = trigger_tests_with_http_info(body, opts)
@@ -1673,7 +1680,7 @@ module DatadogAPIClient::V1
     # Trigger Synthetics tests
     # Trigger a set of Synthetics tests.
     # @param body [SyntheticsTriggerBody] The identifiers of the tests to trigger.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsTriggerCITestsResponse, Integer, Hash)>] SyntheticsTriggerCITestsResponse data, response status code and response headers
     def trigger_tests_with_http_info(body, opts = {})
 
@@ -1716,7 +1723,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsTriggerCITestsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :trigger_tests,
@@ -1739,7 +1746,7 @@ module DatadogAPIClient::V1
     # Edit the configuration of a Synthetic API test.
     # @param public_id [String] The public ID of the test to get details from.
     # @param body [SyntheticsAPITest] New test details to be saved.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SyntheticsAPITest]
     def update_api_test(public_id, body, opts = {})
       data, _status_code, _headers = update_api_test_with_http_info(public_id, body, opts)
@@ -1750,7 +1757,7 @@ module DatadogAPIClient::V1
     # Edit the configuration of a Synthetic API test.
     # @param public_id [String] The public ID of the test to get details from.
     # @param body [SyntheticsAPITest] New test details to be saved.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsAPITest, Integer, Hash)>] SyntheticsAPITest data, response status code and response headers
     def update_api_test_with_http_info(public_id, body, opts = {})
 
@@ -1775,7 +1782,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'body' when calling SyntheticsAPI.update_api_test"
       end
       # resource path
-      local_var_path = '/api/v1/synthetics/tests/api/{public_id}'.sub('{' + 'public_id' + '}', CGI.escape(public_id.to_s))
+      local_var_path = '/api/v1/synthetics/tests/api/{public_id}'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1797,7 +1804,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsAPITest'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_api_test,
@@ -1820,7 +1827,7 @@ module DatadogAPIClient::V1
     # Edit the configuration of a Synthetic browser test.
     # @param public_id [String] The public ID of the test to get details from.
     # @param body [SyntheticsBrowserTest] New test details to be saved.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SyntheticsBrowserTest]
     def update_browser_test(public_id, body, opts = {})
       data, _status_code, _headers = update_browser_test_with_http_info(public_id, body, opts)
@@ -1831,7 +1838,7 @@ module DatadogAPIClient::V1
     # Edit the configuration of a Synthetic browser test.
     # @param public_id [String] The public ID of the test to get details from.
     # @param body [SyntheticsBrowserTest] New test details to be saved.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsBrowserTest, Integer, Hash)>] SyntheticsBrowserTest data, response status code and response headers
     def update_browser_test_with_http_info(public_id, body, opts = {})
 
@@ -1856,7 +1863,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'body' when calling SyntheticsAPI.update_browser_test"
       end
       # resource path
-      local_var_path = '/api/v1/synthetics/tests/browser/{public_id}'.sub('{' + 'public_id' + '}', CGI.escape(public_id.to_s))
+      local_var_path = '/api/v1/synthetics/tests/browser/{public_id}'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1878,7 +1885,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsBrowserTest'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_browser_test,
@@ -1901,7 +1908,7 @@ module DatadogAPIClient::V1
     # Edit a Synthetics private location.
     # @param location_id [String] The ID of the private location.
     # @param body [SyntheticsPrivateLocation] Details of the private location to be updated.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [SyntheticsPrivateLocation]
     def update_private_location(location_id, body, opts = {})
       data, _status_code, _headers = update_private_location_with_http_info(location_id, body, opts)
@@ -1912,7 +1919,7 @@ module DatadogAPIClient::V1
     # Edit a Synthetics private location.
     # @param location_id [String] The ID of the private location.
     # @param body [SyntheticsPrivateLocation] Details of the private location to be updated.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsPrivateLocation, Integer, Hash)>] SyntheticsPrivateLocation data, response status code and response headers
     def update_private_location_with_http_info(location_id, body, opts = {})
 
@@ -1937,7 +1944,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'body' when calling SyntheticsAPI.update_private_location"
       end
       # resource path
-      local_var_path = '/api/v1/synthetics/private-locations/{location_id}'.sub('{' + 'location_id' + '}', CGI.escape(location_id.to_s))
+      local_var_path = '/api/v1/synthetics/private-locations/{location_id}'.sub('{location_id}', CGI.escape(location_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1959,7 +1966,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SyntheticsPrivateLocation'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_private_location,
@@ -1982,7 +1989,7 @@ module DatadogAPIClient::V1
     # Pause or start a Synthetics test by changing the status.
     # @param public_id [String] The public ID of the Synthetic test to update.
     # @param body [SyntheticsUpdateTestPauseStatusPayload] Status to set the given Synthetic test to.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Boolean]
     def update_test_pause_status(public_id, body, opts = {})
       data, _status_code, _headers = update_test_pause_status_with_http_info(public_id, body, opts)
@@ -1993,7 +2000,7 @@ module DatadogAPIClient::V1
     # Pause or start a Synthetics test by changing the status.
     # @param public_id [String] The public ID of the Synthetic test to update.
     # @param body [SyntheticsUpdateTestPauseStatusPayload] Status to set the given Synthetic test to.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(Boolean, Integer, Hash)>] Boolean data, response status code and response headers
     def update_test_pause_status_with_http_info(public_id, body, opts = {})
 
@@ -2018,7 +2025,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'body' when calling SyntheticsAPI.update_test_pause_status"
       end
       # resource path
-      local_var_path = '/api/v1/synthetics/tests/{public_id}/status'.sub('{' + 'public_id' + '}', CGI.escape(public_id.to_s))
+      local_var_path = '/api/v1/synthetics/tests/{public_id}/status'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -2040,7 +2047,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Boolean'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_test_pause_status,

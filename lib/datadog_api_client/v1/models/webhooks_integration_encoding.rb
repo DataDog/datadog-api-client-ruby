@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Encoding type. Can be given either `json` or `form`.
   class WebhooksIntegrationEncoding
     JSON = "json".freeze
     FORM = "form".freeze
@@ -38,5 +39,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

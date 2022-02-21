@@ -22,10 +22,11 @@ module DatadogAPIClient::V1
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Create a GCP integration
     # Create a Datadog-GCP integration.
     # @param body [GCPAccount] Create a Datadog-GCP integration.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Object]
     def create_gcp_integration(body, opts = {})
       data, _status_code, _headers = create_gcp_integration_with_http_info(body, opts)
@@ -35,7 +36,7 @@ module DatadogAPIClient::V1
     # Create a GCP integration
     # Create a Datadog-GCP integration.
     # @param body [GCPAccount] Create a Datadog-GCP integration.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def create_gcp_integration_with_http_info(body, opts = {})
 
@@ -100,7 +101,7 @@ module DatadogAPIClient::V1
     # Delete a GCP integration
     # Delete a given Datadog-GCP integration.
     # @param body [GCPAccount] Delete a given Datadog-GCP integration.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Object]
     def delete_gcp_integration(body, opts = {})
       data, _status_code, _headers = delete_gcp_integration_with_http_info(body, opts)
@@ -110,7 +111,7 @@ module DatadogAPIClient::V1
     # Delete a GCP integration
     # Delete a given Datadog-GCP integration.
     # @param body [GCPAccount] Delete a given Datadog-GCP integration.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def delete_gcp_integration_with_http_info(body, opts = {})
 
@@ -174,7 +175,7 @@ module DatadogAPIClient::V1
 
     # List all GCP integrations
     # List all Datadog-GCP integrations configured in your Datadog account.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<GCPAccount>]
     def list_gcp_integration(opts = {})
       data, _status_code, _headers = list_gcp_integration_with_http_info(opts)
@@ -183,7 +184,7 @@ module DatadogAPIClient::V1
 
     # List all GCP integrations
     # List all Datadog-GCP integrations configured in your Datadog account.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(Array<GCPAccount>, Integer, Hash)>] Array<GCPAccount> data, response status code and response headers
     def list_gcp_integration_with_http_info(opts = {})
 
@@ -240,9 +241,12 @@ module DatadogAPIClient::V1
     end
 
     # Update a GCP integration
-    # Update a Datadog-GCP integrations host_filters and/or auto-mute. Requires a `project_id` and `client_email`, however these fields cannot be updated. If you need to update these fields, delete and use the create (`POST`) endpoint. The unspecified fields will keep their original values.
+    # Update a Datadog-GCP integrations host_filters and/or auto-mute.
+    # Requires a `project_id` and `client_email`, however these fields cannot be updated.
+    # If you need to update these fields, delete and use the create (`POST`) endpoint.
+    # The unspecified fields will keep their original values.
     # @param body [GCPAccount] Update a Datadog-GCP integration.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Object]
     def update_gcp_integration(body, opts = {})
       data, _status_code, _headers = update_gcp_integration_with_http_info(body, opts)
@@ -250,9 +254,12 @@ module DatadogAPIClient::V1
     end
 
     # Update a GCP integration
-    # Update a Datadog-GCP integrations host_filters and/or auto-mute. Requires a &#x60;project_id&#x60; and &#x60;client_email&#x60;, however these fields cannot be updated. If you need to update these fields, delete and use the create (&#x60;POST&#x60;) endpoint. The unspecified fields will keep their original values.
+    # Update a Datadog-GCP integrations host_filters and/or auto-mute.
+    # Requires a `project_id` and `client_email`, however these fields cannot be updated.
+    # If you need to update these fields, delete and use the create (`POST`) endpoint.
+    # The unspecified fields will keep their original values.
     # @param body [GCPAccount] Update a Datadog-GCP integration.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def update_gcp_integration_with_http_info(body, opts = {})
 

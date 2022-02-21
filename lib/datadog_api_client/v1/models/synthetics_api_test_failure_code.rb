@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Error code that can be returned by a Synthetic test.
   class SyntheticsApiTestFailureCode
     BODY_TOO_LARGE = "BODY_TOO_LARGE".freeze
     DENIED = "DENIED".freeze
@@ -62,5 +63,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

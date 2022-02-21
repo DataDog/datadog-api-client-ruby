@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Timeseries or Scalar response. **This feature is currently in beta.**
   class FormulaAndFunctionResponseFormat
     TIMESERIES = "timeseries".freeze
     SCALAR = "scalar".freeze
@@ -38,5 +39,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

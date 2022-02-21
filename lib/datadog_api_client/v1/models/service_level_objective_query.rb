@@ -17,7 +17,9 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # A metric SLI query. **Required if type is `metric`**. Note that Datadog only allows the sum by aggregator to be used because this will sum up all request counts instead of averaging them, or taking the max or min of all of those requests.
+  # A metric SLI query. **Required if type is `metric`**. Note that Datadog only allows the sum by aggregator
+  # to be used because this will sum up all request counts instead of averaging them, or taking the max or
+  # min of all of those requests.
   class ServiceLevelObjectiveQuery
     # Whether the object has unparsed attributes
     # @!visibility private
@@ -61,7 +63,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::ServiceLevelObjectiveQuery` initialize method"
@@ -85,18 +88,16 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @denominator.nil?
         invalid_properties.push('invalid value for "denominator", denominator cannot be nil.')
       end
-
       if @numerator.nil?
         invalid_properties.push('invalid value for "numerator", numerator cannot be nil.')
       end
-
       invalid_properties
     end
 
@@ -107,6 +108,26 @@ module DatadogAPIClient::V1
       return false if @denominator.nil?
       return false if @numerator.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param denominator [Object] Object to be assigned
+    # @!visibility private
+    def denominator=(denominator)
+      if denominator.nil?
+        fail ArgumentError, 'invalid value for "denominator", denominator cannot be nil.'
+      end
+      @denominator = denominator
+    end
+
+    # Custom attribute writer method with validation
+    # @param numerator [Object] Object to be assigned
+    # @!visibility private
+    def numerator=(numerator)
+      if numerator.nil?
+        fail ArgumentError, 'invalid value for "numerator", numerator cannot be nil.'
+      end
+      @numerator = numerator
     end
 
     # Checks equality by comparing each attribute.
@@ -134,7 +155,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -142,7 +163,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -248,7 +269,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -264,7 +285,5 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
-
 end

@@ -26,15 +26,20 @@ module DatadogAPIClient::V2
     # The name of the facet to use (required)
     attr_accessor :facet
 
+    # Used to perform a histogram computation (only for measure facets).
+    # Note: At most 100 buckets are allowed, the number of buckets is (max - min)/interval.
     attr_accessor :histogram
 
     # The maximum buckets to return for this group by
     attr_accessor :limit
 
+    # The value to use for logs that don't have the facet used to group by
     attr_accessor :missing
 
+    # A sort rule
     attr_accessor :sort
 
+    # A resulting object to put the given computes in over all the matching records.
     attr_accessor :total
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -77,7 +82,8 @@ module DatadogAPIClient::V2
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::LogsGroupBy` initialize method"
@@ -115,18 +121,19 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'total')
         self.total = attributes[:'total']
+      else
+        self.total = false
       end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @facet.nil?
         invalid_properties.push('invalid value for "facet", facet cannot be nil.')
       end
-
       invalid_properties
     end
 
@@ -136,6 +143,16 @@ module DatadogAPIClient::V2
     def valid?
       return false if @facet.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param facet [Object] Object to be assigned
+    # @!visibility private
+    def facet=(facet)
+      if facet.nil?
+        fail ArgumentError, 'invalid value for "facet", facet cannot be nil.'
+      end
+      @facet = facet
     end
 
     # Checks equality by comparing each attribute.
@@ -167,7 +184,7 @@ module DatadogAPIClient::V2
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -175,7 +192,7 @@ module DatadogAPIClient::V2
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -281,7 +298,7 @@ module DatadogAPIClient::V2
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -297,7 +314,5 @@ module DatadogAPIClient::V2
         value
       end
     end
-
   end
-
 end

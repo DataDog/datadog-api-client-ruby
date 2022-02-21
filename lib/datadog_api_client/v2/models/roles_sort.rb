@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
+  # Sorting options for roles.
   class RolesSort
     NAME_ASCENDING = "name".freeze
     NAME_DESCENDING = "-name".freeze
@@ -42,5 +43,4 @@ module DatadogAPIClient::V2
       constantValues.empty? ? DatadogAPIClient::V2::UnparsedObject.new(value) : value
     end
   end
-
 end

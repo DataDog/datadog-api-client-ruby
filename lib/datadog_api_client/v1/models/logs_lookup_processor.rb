@@ -17,7 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Use the Lookup Processor to define a mapping between a log attribute and a human readable value saved in the processors mapping table. For example, you can use the Lookup Processor to map an internal service ID into a human readable service name. Alternatively, you could also use it to check if the MAC address that just attempted to connect to the production environment belongs to your list of stolen machines.
+  # Use the Lookup Processor to define a mapping between a log attribute
+  # and a human readable value saved in the processors mapping table.
+  # For example, you can use the Lookup Processor to map an internal service ID
+  # into a human readable service name. Alternatively, you could also use it to check
+  # if the MAC address that just attempted to connect to the production
+  # environment belongs to your list of stolen machines.
   class LogsLookupProcessor
     # Whether the object has unparsed attributes
     # @!visibility private
@@ -29,7 +34,8 @@ module DatadogAPIClient::V1
     # Whether or not the processor is enabled.
     attr_accessor :is_enabled
 
-    # Mapping table of values for the source attribute and their associated target attribute values, formatted as `[\"source_key1,target_value1\", \"source_key2,target_value2\"]`
+    # Mapping table of values for the source attribute and their associated target attribute values,
+    # formatted as `["source_key1,target_value1", "source_key2,target_value2"]`
     attr_accessor :lookup_table
 
     # Name of the processor.
@@ -38,9 +44,11 @@ module DatadogAPIClient::V1
     # Source attribute used to perform the lookup.
     attr_accessor :source
 
-    # Name of the attribute that contains the corresponding value in the mapping list or the `default_lookup` if not found in the mapping list.
+    # Name of the attribute that contains the corresponding value in the mapping list
+    # or the `default_lookup` if not found in the mapping list.
     attr_accessor :target
 
+    # Type of logs lookup processor.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -85,7 +93,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::LogsLookupProcessor` initialize method"
@@ -135,26 +144,22 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @lookup_table.nil?
         invalid_properties.push('invalid value for "lookup_table", lookup_table cannot be nil.')
       end
-
       if @source.nil?
         invalid_properties.push('invalid value for "source", source cannot be nil.')
       end
-
       if @target.nil?
         invalid_properties.push('invalid value for "target", target cannot be nil.')
       end
-
       if @type.nil?
         invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
-
       invalid_properties
     end
 
@@ -167,6 +172,46 @@ module DatadogAPIClient::V1
       return false if @target.nil?
       return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param lookup_table [Object] Object to be assigned
+    # @!visibility private
+    def lookup_table=(lookup_table)
+      if lookup_table.nil?
+        fail ArgumentError, 'invalid value for "lookup_table", lookup_table cannot be nil.'
+      end
+      @lookup_table = lookup_table
+    end
+
+    # Custom attribute writer method with validation
+    # @param source [Object] Object to be assigned
+    # @!visibility private
+    def source=(source)
+      if source.nil?
+        fail ArgumentError, 'invalid value for "source", source cannot be nil.'
+      end
+      @source = source
+    end
+
+    # Custom attribute writer method with validation
+    # @param target [Object] Object to be assigned
+    # @!visibility private
+    def target=(target)
+      if target.nil?
+        fail ArgumentError, 'invalid value for "target", target cannot be nil.'
+      end
+      @target = target
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    # @!visibility private
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.
@@ -199,7 +244,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -207,7 +252,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -313,7 +358,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -329,7 +374,5 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
-
 end

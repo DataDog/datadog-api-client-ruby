@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Data source for event platform-based queries.
   class FormulaAndFunctionEventsDataSource
     LOGS = "logs".freeze
     SPANS = "spans".freeze
@@ -44,5 +45,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

@@ -76,7 +76,8 @@ module DatadogAPIClient::V2
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentCreateAttributes` initialize method"
@@ -95,9 +96,7 @@ module DatadogAPIClient::V2
       end
 
       if attributes.key?(:'fields')
-        if (value = attributes[:'fields']).is_a?(Hash)
-          self.fields = value
-        end
+        self.fields = attributes[:'fields']
       end
 
       if attributes.key?(:'initial_cells')
@@ -118,18 +117,16 @@ module DatadogAPIClient::V2
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @customer_impacted.nil?
         invalid_properties.push('invalid value for "customer_impacted", customer_impacted cannot be nil.')
       end
-
       if @title.nil?
         invalid_properties.push('invalid value for "title", title cannot be nil.')
       end
-
       invalid_properties
     end
 
@@ -140,6 +137,26 @@ module DatadogAPIClient::V2
       return false if @customer_impacted.nil?
       return false if @title.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param customer_impacted [Object] Object to be assigned
+    # @!visibility private
+    def customer_impacted=(customer_impacted)
+      if customer_impacted.nil?
+        fail ArgumentError, 'invalid value for "customer_impacted", customer_impacted cannot be nil.'
+      end
+      @customer_impacted = customer_impacted
+    end
+
+    # Custom attribute writer method with validation
+    # @param title [Object] Object to be assigned
+    # @!visibility private
+    def title=(title)
+      if title.nil?
+        fail ArgumentError, 'invalid value for "title", title cannot be nil.'
+      end
+      @title = title
     end
 
     # Checks equality by comparing each attribute.
@@ -170,7 +187,7 @@ module DatadogAPIClient::V2
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -178,7 +195,7 @@ module DatadogAPIClient::V2
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -284,7 +301,7 @@ module DatadogAPIClient::V2
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -300,7 +317,5 @@ module DatadogAPIClient::V2
         value
       end
     end
-
   end
-
 end

@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # HTTP header used to compress the media-type.
   class ContentEncoding
     GZIP = "gzip".freeze
     DEFLATE = "deflate".freeze
@@ -38,5 +39,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

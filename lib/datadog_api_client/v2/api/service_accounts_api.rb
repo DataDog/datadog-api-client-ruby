@@ -22,11 +22,12 @@ module DatadogAPIClient::V2
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Create an application key for this service account
     # Create an application key for this service account.
     # @param service_account_id [String] The ID of the service account.
     # @param body [ApplicationKeyCreateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [ApplicationKeyResponse]
     def create_service_account_application_key(service_account_id, body, opts = {})
       data, _status_code, _headers = create_service_account_application_key_with_http_info(service_account_id, body, opts)
@@ -37,7 +38,7 @@ module DatadogAPIClient::V2
     # Create an application key for this service account.
     # @param service_account_id [String] The ID of the service account.
     # @param body [ApplicationKeyCreateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def create_service_account_application_key_with_http_info(service_account_id, body, opts = {})
 
@@ -62,7 +63,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'body' when calling ServiceAccountsAPI.create_service_account_application_key"
       end
       # resource path
-      local_var_path = '/api/v2/service_accounts/{service_account_id}/application_keys'.sub('{' + 'service_account_id' + '}', CGI.escape(service_account_id.to_s))
+      local_var_path = '/api/v2/service_accounts/{service_account_id}/application_keys'.sub('{service_account_id}', CGI.escape(service_account_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -107,7 +108,7 @@ module DatadogAPIClient::V2
     # Delete an application key owned by this service account.
     # @param service_account_id [String] The ID of the service account.
     # @param app_key_id [String] The ID of the application key.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [nil]
     def delete_service_account_application_key(service_account_id, app_key_id, opts = {})
       delete_service_account_application_key_with_http_info(service_account_id, app_key_id, opts)
@@ -118,7 +119,7 @@ module DatadogAPIClient::V2
     # Delete an application key owned by this service account.
     # @param service_account_id [String] The ID of the service account.
     # @param app_key_id [String] The ID of the application key.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_service_account_application_key_with_http_info(service_account_id, app_key_id, opts = {})
 
@@ -143,7 +144,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'app_key_id' when calling ServiceAccountsAPI.delete_service_account_application_key"
       end
       # resource path
-      local_var_path = '/api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id}'.sub('{' + 'service_account_id' + '}', CGI.escape(service_account_id.to_s)).sub('{' + 'app_key_id' + '}', CGI.escape(app_key_id.to_s))
+      local_var_path = '/api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id}'.sub('{service_account_id}', CGI.escape(service_account_id.to_s).gsub('%2F', '/')).sub('{app_key_id}', CGI.escape(app_key_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -151,7 +152,7 @@ module DatadogAPIClient::V2
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -186,7 +187,7 @@ module DatadogAPIClient::V2
     # Get an application key owned by this service account.
     # @param service_account_id [String] The ID of the service account.
     # @param app_key_id [String] The ID of the application key.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [PartialApplicationKeyResponse]
     def get_service_account_application_key(service_account_id, app_key_id, opts = {})
       data, _status_code, _headers = get_service_account_application_key_with_http_info(service_account_id, app_key_id, opts)
@@ -197,7 +198,7 @@ module DatadogAPIClient::V2
     # Get an application key owned by this service account.
     # @param service_account_id [String] The ID of the service account.
     # @param app_key_id [String] The ID of the application key.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(PartialApplicationKeyResponse, Integer, Hash)>] PartialApplicationKeyResponse data, response status code and response headers
     def get_service_account_application_key_with_http_info(service_account_id, app_key_id, opts = {})
 
@@ -222,7 +223,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'app_key_id' when calling ServiceAccountsAPI.get_service_account_application_key"
       end
       # resource path
-      local_var_path = '/api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id}'.sub('{' + 'service_account_id' + '}', CGI.escape(service_account_id.to_s)).sub('{' + 'app_key_id' + '}', CGI.escape(app_key_id.to_s))
+      local_var_path = '/api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id}'.sub('{service_account_id}', CGI.escape(service_account_id.to_s).gsub('%2F', '/')).sub('{app_key_id}', CGI.escape(app_key_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -264,10 +265,10 @@ module DatadogAPIClient::V2
     # List application keys for this service account
     # List all application keys available for this service account.
     # @param service_account_id [String] The ID of the service account.
-    # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. (default to 10)
-    # @option opts [Integer] :page_number Specific page number to return. (default to 0)
-    # @option opts [ApplicationKeysSort] :sort Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. (default to 'name')
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size Size for a given page.
+    # @option opts [Integer] :page_number Specific page number to return.
+    # @option opts [ApplicationKeysSort] :sort Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
     # @option opts [String] :filter Filter application keys by the specified string.
     # @option opts [String] :filter_created_at_start Only include application keys created on or after the specified date.
     # @option opts [String] :filter_created_at_end Only include application keys created on or before the specified date.
@@ -280,7 +281,7 @@ module DatadogAPIClient::V2
     # List application keys for this service account
     # List all application keys available for this service account.
     # @param service_account_id [String] The ID of the service account.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Size for a given page.
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [ApplicationKeysSort] :sort Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
@@ -306,8 +307,12 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && service_account_id.nil?
         fail ArgumentError, "Missing the required parameter 'service_account_id' when calling ServiceAccountsAPI.list_service_account_application_keys"
       end
+      allowable_values = ['created_at', '-created_at', 'last4', '-last4', 'name', '-name']
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
       # resource path
-      local_var_path = '/api/v2/service_accounts/{service_account_id}/application_keys'.sub('{' + 'service_account_id' + '}', CGI.escape(service_account_id.to_s))
+      local_var_path = '/api/v2/service_accounts/{service_account_id}/application_keys'.sub('{service_account_id}', CGI.escape(service_account_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -357,7 +362,7 @@ module DatadogAPIClient::V2
     # @param service_account_id [String] The ID of the service account.
     # @param app_key_id [String] The ID of the application key.
     # @param body [ApplicationKeyUpdateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [PartialApplicationKeyResponse]
     def update_service_account_application_key(service_account_id, app_key_id, body, opts = {})
       data, _status_code, _headers = update_service_account_application_key_with_http_info(service_account_id, app_key_id, body, opts)
@@ -369,7 +374,7 @@ module DatadogAPIClient::V2
     # @param service_account_id [String] The ID of the service account.
     # @param app_key_id [String] The ID of the application key.
     # @param body [ApplicationKeyUpdateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(PartialApplicationKeyResponse, Integer, Hash)>] PartialApplicationKeyResponse data, response status code and response headers
     def update_service_account_application_key_with_http_info(service_account_id, app_key_id, body, opts = {})
 
@@ -398,7 +403,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'body' when calling ServiceAccountsAPI.update_service_account_application_key"
       end
       # resource path
-      local_var_path = '/api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id}'.sub('{' + 'service_account_id' + '}', CGI.escape(service_account_id.to_s)).sub('{' + 'app_key_id' + '}', CGI.escape(app_key_id.to_s))
+      local_var_path = '/api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id}'.sub('{service_account_id}', CGI.escape(service_account_id.to_s).gsub('%2F', '/')).sub('{app_key_id}', CGI.escape(app_key_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}

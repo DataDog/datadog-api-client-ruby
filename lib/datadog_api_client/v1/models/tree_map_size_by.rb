@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # The attribute used to determine size in the widget.
   class TreeMapSizeBy
     PCT_CPU = "pct_cpu".freeze
     PCT_MEM = "pct_mem".freeze
@@ -38,5 +39,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

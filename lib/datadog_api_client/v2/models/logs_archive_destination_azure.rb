@@ -26,6 +26,7 @@ module DatadogAPIClient::V2
     # The container where the archive will be stored.
     attr_accessor :container
 
+    # The Azure archive's integration destination.
     attr_accessor :integration
 
     # The archive path.
@@ -37,6 +38,7 @@ module DatadogAPIClient::V2
     # The associated storage account.
     attr_accessor :storage_account
 
+    # Type of the Azure archive destination.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -79,7 +81,8 @@ module DatadogAPIClient::V2
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::LogsArchiveDestinationAzure` initialize method"
@@ -121,26 +124,22 @@ module DatadogAPIClient::V2
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @container.nil?
         invalid_properties.push('invalid value for "container", container cannot be nil.')
       end
-
       if @integration.nil?
         invalid_properties.push('invalid value for "integration", integration cannot be nil.')
       end
-
       if @storage_account.nil?
         invalid_properties.push('invalid value for "storage_account", storage_account cannot be nil.')
       end
-
       if @type.nil?
         invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
-
       invalid_properties
     end
 
@@ -153,6 +152,46 @@ module DatadogAPIClient::V2
       return false if @storage_account.nil?
       return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param container [Object] Object to be assigned
+    # @!visibility private
+    def container=(container)
+      if container.nil?
+        fail ArgumentError, 'invalid value for "container", container cannot be nil.'
+      end
+      @container = container
+    end
+
+    # Custom attribute writer method with validation
+    # @param integration [Object] Object to be assigned
+    # @!visibility private
+    def integration=(integration)
+      if integration.nil?
+        fail ArgumentError, 'invalid value for "integration", integration cannot be nil.'
+      end
+      @integration = integration
+    end
+
+    # Custom attribute writer method with validation
+    # @param storage_account [Object] Object to be assigned
+    # @!visibility private
+    def storage_account=(storage_account)
+      if storage_account.nil?
+        fail ArgumentError, 'invalid value for "storage_account", storage_account cannot be nil.'
+      end
+      @storage_account = storage_account
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    # @!visibility private
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.
@@ -184,7 +223,7 @@ module DatadogAPIClient::V2
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -192,7 +231,7 @@ module DatadogAPIClient::V2
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -298,7 +337,7 @@ module DatadogAPIClient::V2
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -314,7 +353,5 @@ module DatadogAPIClient::V2
         value
       end
     end
-
   end
-
 end

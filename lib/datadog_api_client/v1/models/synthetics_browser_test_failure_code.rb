@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Error code that can be returned by a Synthetic test.
   class SyntheticsBrowserTestFailureCode
     API_REQUEST_FAILURE = "API_REQUEST_FAILURE".freeze
     ASSERTION_FAILURE = "ASSERTION_FAILURE".freeze
@@ -69,5 +70,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

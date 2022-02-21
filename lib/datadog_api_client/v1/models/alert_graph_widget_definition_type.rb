@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Type of the alert graph widget.
   class AlertGraphWidgetDefinitionType
     ALERT_GRAPH = "alert_graph".freeze
 
@@ -37,5 +38,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

@@ -32,16 +32,20 @@ module DatadogAPIClient::V1
     # Array of values to parse and save as variables from the response.
     attr_accessor :extracted_values
 
-    # Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
+    # Determines whether or not to consider the entire test as failed if this step fails.
+    # Can be used only if `allowFailure` is `true`.
     attr_accessor :is_critical
 
     # The name of the step.
     attr_accessor :name
 
+    # Object describing the Synthetic test request.
     attr_accessor :request
 
+    # Object describing the retry strategy to apply to a Synthetic test.
     attr_accessor :_retry
 
+    # The subtype of the Synthetic multistep API test step, currently only supporting `http`.
     attr_accessor :subtype
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -88,7 +92,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsAPIStep` initialize method"
@@ -110,6 +115,8 @@ module DatadogAPIClient::V1
         if (value = attributes[:'assertions']).is_a?(Array)
           self.assertions = value
         end
+      else
+        self.assertions = []
       end
 
       if attributes.key?(:'extracted_values')
@@ -140,26 +147,22 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @assertions.nil?
         invalid_properties.push('invalid value for "assertions", assertions cannot be nil.')
       end
-
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
-
       if @request.nil?
         invalid_properties.push('invalid value for "request", request cannot be nil.')
       end
-
       if @subtype.nil?
         invalid_properties.push('invalid value for "subtype", subtype cannot be nil.')
       end
-
       invalid_properties
     end
 
@@ -172,6 +175,46 @@ module DatadogAPIClient::V1
       return false if @request.nil?
       return false if @subtype.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param assertions [Object] Object to be assigned
+    # @!visibility private
+    def assertions=(assertions)
+      if assertions.nil?
+        fail ArgumentError, 'invalid value for "assertions", assertions cannot be nil.'
+      end
+      @assertions = assertions
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    # @!visibility private
+    def name=(name)
+      if name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param request [Object] Object to be assigned
+    # @!visibility private
+    def request=(request)
+      if request.nil?
+        fail ArgumentError, 'invalid value for "request", request cannot be nil.'
+      end
+      @request = request
+    end
+
+    # Custom attribute writer method with validation
+    # @param subtype [Object] Object to be assigned
+    # @!visibility private
+    def subtype=(subtype)
+      if subtype.nil?
+        fail ArgumentError, 'invalid value for "subtype", subtype cannot be nil.'
+      end
+      @subtype = subtype
     end
 
     # Checks equality by comparing each attribute.
@@ -205,7 +248,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -213,7 +256,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -319,7 +362,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -335,7 +378,5 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
-
 end

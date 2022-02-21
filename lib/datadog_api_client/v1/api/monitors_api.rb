@@ -22,10 +22,11 @@ module DatadogAPIClient::V1
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Check if a monitor can be deleted
     # Check if the given monitors can be deleted.
     # @param monitor_ids [Array<Integer>] The IDs of the monitor to check.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [CheckCanDeleteMonitorResponse]
     def check_can_delete_monitor(monitor_ids, opts = {})
       data, _status_code, _headers = check_can_delete_monitor_with_http_info(monitor_ids, opts)
@@ -35,7 +36,7 @@ module DatadogAPIClient::V1
     # Check if a monitor can be deleted
     # Check if the given monitors can be deleted.
     # @param monitor_ids [Array<Integer>] The IDs of the monitor to check.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(CheckCanDeleteMonitorResponse, Integer, Hash)>] CheckCanDeleteMonitorResponse data, response status code and response headers
     def check_can_delete_monitor_with_http_info(monitor_ids, opts = {})
 
@@ -77,7 +78,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'CheckCanDeleteMonitorResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :check_can_delete_monitor,
@@ -97,9 +98,167 @@ module DatadogAPIClient::V1
     end
 
     # Create a monitor
-    # Create a monitor using the specified options.  #### Monitor Types  The type of monitor chosen from:  - anomaly: `query alert` - APM: `query alert` or `trace-analytics alert` - composite: `composite` - custom: `service check` - event: `event alert` - forecast: `query alert` - host: `service check` - integration: `query alert` or `service check` - live process: `process alert` - logs: `log alert` - metric: `query alert` - network: `service check` - outlier: `query alert` - process: `service check` - rum: `rum alert` - SLO: `slo alert` - watchdog: `event alert` - event-v2: `event-v2 alert` - audit: `audit alert`  #### Query Types  **Metric Alert Query**  Example: `time_aggr(time_window):space_aggr:metric{tags} [by {key}] operator #`  - `time_aggr`: avg, sum, max, min, change, or pct_change - `time_window`: `last_#m` (with `#` between 1 and 10080 depending on the monitor type) or `last_#h`(with `#` between 1 and 168 depending on the monitor type) or `last_1d`, or `last_1w` - `space_aggr`: avg, sum, min, or max - `tags`: one or more tags (comma-separated), or * - `key`: a 'key' in key:value tag syntax; defines a separate alert for each tag in the group (multi-alert) - `operator`: <, <=, >, >=, ==, or != - `#`: an integer or decimal number used to set the threshold  If you are using the `_change_` or `_pct_change_` time aggregator, instead use `change_aggr(time_aggr(time_window), timeshift):space_aggr:metric{tags} [by {key}] operator #` with:  - `change_aggr` change, pct_change - `time_aggr` avg, sum, max, min [Learn more](https://docs.datadoghq.com/monitors/create/types/#define-the-conditions) - `time_window` last\\_#m (between 1 and 2880 depending on the monitor type), last\\_#h (between 1 and 48 depending on the monitor type), or last_#d (1 or 2) - `timeshift` #m_ago (5, 10, 15, or 30), #h_ago (1, 2, or 4), or 1d_ago  Use this to create an outlier monitor using the following query: `avg(last_30m):outliers(avg:system.cpu.user{role:es-events-data} by {host}, 'dbscan', 7) > 0`  **Service Check Query**  Example: `\"check\".over(tags).last(count).by(group).count_by_status()`  - **`check`** name of the check, for example `datadog.agent.up` - **`tags`** one or more quoted tags (comma-separated), or \"*\". for example: `.over(\"env:prod\", \"role:db\")`; **`over`** cannot be blank. - **`count`** must be at greater than or equal to your max threshold (defined in the `options`). It is limited to 100. For example, if you've specified to notify on 1 critical, 3 ok, and 2 warn statuses, `count` should be at least 3. - **`group`** must be specified for check monitors. Per-check grouping is already explicitly known for some service checks. For example, Postgres integration monitors are tagged by `db`, `host`, and `port`, and Network monitors by `host`, `instance`, and `url`. See [Service Checks](https://docs.datadoghq.com/api/latest/service-checks/) documentation for more information.  **Event Alert Query**  Example: `events('sources:nagios status:error,warning priority:normal tags: \"string query\"').rollup(\"count\").last(\"1h\")\"`  - **`event`**, the event query string: - **`string_query`** free text query to match against event title and text. - **`sources`** event sources (comma-separated). - **`status`** event statuses (comma-separated). Valid options: error, warn, and info. - **`priority`** event priorities (comma-separated). Valid options: low, normal, all. - **`host`** event reporting host (comma-separated). - **`tags`** event tags (comma-separated). - **`excluded_tags`** excluded event tags (comma-separated). - **`rollup`** the stats roll-up method. `count` is the only supported method now. - **`last`** the timeframe to roll up the counts. Examples: 45m, 4h. Supported timeframes: m, h and d. This value should not exceed 48 hours.  **NOTE** The Event Alert Query is being deprecated and replaced by the Event V2 Alert Query. For more information, see the [Event Migration guide](https://docs.datadoghq.com/events/guides/migrating_to_new_events_features/).  **Event V2 Alert Query**  Example: `events(query).rollup(rollup_method[, measure]).last(time_window) operator #`  - **`query`** The search query - following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/). - **`rollup_method`** The stats roll-up method - supports `count`, `avg` and `cardinality`. - **`measure`** For `avg` and cardinality `rollup_method` - specify the measure or the facet name you want to use. - **`time_window`** #m (between 1 and 2880), #h (between 1 and 48). - **`operator`** `<`, `<=`, `>`, `>=`, `==`, or `!=`. - **`#`** an integer or decimal number used to set the threshold.  **NOTE** Only available on US1-FED, US3, US5 and in closed beta on EU and US1.  **Process Alert Query**  Example: `processes(search).over(tags).rollup('count').last(timeframe) operator #`  - **`search`** free text search string for querying processes. Matching processes match results on the [Live Processes](https://docs.datadoghq.com/infrastructure/process/?tab=linuxwindows) page. - **`tags`** one or more tags (comma-separated) - **`timeframe`** the timeframe to roll up the counts. Examples: 10m, 4h. Supported timeframes: s, m, h and d - **`operator`** <, <=, >, >=, ==, or != - **`#`** an integer or decimal number used to set the threshold  **Logs Alert Query**  Example: `logs(query).index(index_name).rollup(rollup_method[, measure]).last(time_window) operator #`  - **`query`** The search query - following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/). - **`index_name`** For multi-index organizations, the log index in which the request is performed. - **`rollup_method`** The stats roll-up method - supports `count`, `avg` and `cardinality`. - **`measure`** For `avg` and cardinality `rollup_method` - specify the measure or the facet name you want to use. - **`time_window`** #m (between 1 and 2880), #h (between 1 and 48). - **`operator`** `<`, `<=`, `>`, `>=`, `==`, or `!=`. - **`#`** an integer or decimal number used to set the threshold.  **Composite Query**  Example: `12345 && 67890`, where `12345` and `67890` are the IDs of non-composite monitors  * **`name`** [*required*, *default* = **dynamic, based on query**]: The name of the alert. * **`message`** [*required*, *default* = **dynamic, based on query**]: A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the same '@username' notation as events. * **`tags`** [*optional*, *default* = **empty list**]: A list of tags to associate with your monitor. When getting all monitor details via the API, use the `monitor_tags` argument to filter results by these tags. It is only available via the API and isn't visible or editable in the Datadog UI.  **SLO Alert Query**  Example: `error_budget(\"slo_id\").over(\"time_window\") operator #`  - **`slo_id`**: The alphanumeric SLO ID of the SLO you are configuring the alert for. - **`time_window`**: The time window of the SLO target you wish to alert on. Valid options: `7d`, `30d`, `90d`. - **`operator`**: `>=` or `>`  **Audit Alert Query**  Example: `audits(query).rollup(rollup_method[, measure]).last(time_window) operator #`  - **`query`** The search query - following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/). - **`rollup_method`** The stats roll-up method - supports `count`, `avg` and `cardinality`. - **`measure`** For `avg` and cardinality `rollup_method` - specify the measure or the facet name you want to use. - **`time_window`** #m (between 1 and 2880), #h (between 1 and 48). - **`operator`** `<`, `<=`, `>`, `>=`, `==`, or `!=`. - **`#`** an integer or decimal number used to set the threshold.  **NOTE** Only available on US1-FED and in closed beta on US1, EU, US3, and US5.  **CI Pipelines Alert Query**  Example: `ci-pipelines(query).rollup(rollup_method[, measure]).last(time_window) operator #`  - **`query`** The search query - following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/). - **`rollup_method`** The stats roll-up method - supports `count`, `avg`, and `cardinality`. - **`measure`** For `avg` and cardinality `rollup_method` - specify the measure or the facet name you want to use. - **`time_window`** #m (between 1 and 2880), #h (between 1 and 48). - **`operator`** `<`, `<=`, `>`, `>=`, `==`, or `!=`. - **`#`** an integer or decimal number used to set the threshold.  **NOTE** Only available in closed beta on US1, EU, US3 and US5.
+    # Create a monitor using the specified options.
+    #
+    # #### Monitor Types
+    #
+    # The type of monitor chosen from:
+    #
+    # - anomaly: `query alert`
+    # - APM: `query alert` or `trace-analytics alert`
+    # - composite: `composite`
+    # - custom: `service check`
+    # - event: `event alert`
+    # - forecast: `query alert`
+    # - host: `service check`
+    # - integration: `query alert` or `service check`
+    # - live process: `process alert`
+    # - logs: `log alert`
+    # - metric: `query alert`
+    # - network: `service check`
+    # - outlier: `query alert`
+    # - process: `service check`
+    # - rum: `rum alert`
+    # - SLO: `slo alert`
+    # - watchdog: `event alert`
+    # - event-v2: `event-v2 alert`
+    # - audit: `audit alert`
+    #
+    # #### Query Types
+    #
+    # **Metric Alert Query**
+    #
+    # Example: `time_aggr(time_window):space_aggr:metric{tags} [by {key}] operator #`
+    #
+    # - `time_aggr`: avg, sum, max, min, change, or pct_change
+    # - `time_window`: `last_#m` (with `#` between 1 and 10080 depending on the monitor type) or `last_#h`(with `#` between 1 and 168 depending on the monitor type) or `last_1d`, or `last_1w`
+    # - `space_aggr`: avg, sum, min, or max
+    # - `tags`: one or more tags (comma-separated), or *
+    # - `key`: a 'key' in key:value tag syntax; defines a separate alert for each tag in the group (multi-alert)
+    # - `operator`: <, <=, >, >=, ==, or !=
+    # - `#`: an integer or decimal number used to set the threshold
+    #
+    # If you are using the `_change_` or `_pct_change_` time aggregator, instead use `change_aggr(time_aggr(time_window),
+    # timeshift):space_aggr:metric{tags} [by {key}] operator #` with:
+    #
+    # - `change_aggr` change, pct_change
+    # - `time_aggr` avg, sum, max, min [Learn more](https://docs.datadoghq.com/monitors/create/types/#define-the-conditions)
+    # - `time_window` last\_#m (between 1 and 2880 depending on the monitor type), last\_#h (between 1 and 48 depending on the monitor type), or last_#d (1 or 2)
+    # - `timeshift` #m_ago (5, 10, 15, or 30), #h_ago (1, 2, or 4), or 1d_ago
+    #
+    # Use this to create an outlier monitor using the following query:
+    # `avg(last_30m):outliers(avg:system.cpu.user{role:es-events-data} by {host}, 'dbscan', 7) > 0`
+    #
+    # **Service Check Query**
+    #
+    # Example: `"check".over(tags).last(count).by(group).count_by_status()`
+    #
+    # - **`check`** name of the check, for example `datadog.agent.up`
+    # - **`tags`** one or more quoted tags (comma-separated), or "*". for example: `.over("env:prod", "role:db")`; **`over`** cannot be blank.
+    # - **`count`** must be at greater than or equal to your max threshold (defined in the `options`). It is limited to 100.
+    # For example, if you've specified to notify on 1 critical, 3 ok, and 2 warn statuses, `count` should be at least 3.
+    # - **`group`** must be specified for check monitors. Per-check grouping is already explicitly known for some service checks.
+    # For example, Postgres integration monitors are tagged by `db`, `host`, and `port`, and Network monitors by `host`, `instance`, and `url`. See [Service Checks](https://docs.datadoghq.com/api/latest/service-checks/) documentation for more information.
+    #
+    # **Event Alert Query**
+    #
+    # Example: `events('sources:nagios status:error,warning priority:normal tags: "string query"').rollup("count").last("1h")"`
+    #
+    # - **`event`**, the event query string:
+    # - **`string_query`** free text query to match against event title and text.
+    # - **`sources`** event sources (comma-separated).
+    # - **`status`** event statuses (comma-separated). Valid options: error, warn, and info.
+    # - **`priority`** event priorities (comma-separated). Valid options: low, normal, all.
+    # - **`host`** event reporting host (comma-separated).
+    # - **`tags`** event tags (comma-separated).
+    # - **`excluded_tags`** excluded event tags (comma-separated).
+    # - **`rollup`** the stats roll-up method. `count` is the only supported method now.
+    # - **`last`** the timeframe to roll up the counts. Examples: 45m, 4h. Supported timeframes: m, h and d. This value should not exceed 48 hours.
+    #
+    # **NOTE** The Event Alert Query is being deprecated and replaced by the Event V2 Alert Query. For more information, see the [Event Migration guide](https://docs.datadoghq.com/events/guides/migrating_to_new_events_features/).
+    #
+    # **Event V2 Alert Query**
+    #
+    # Example: `events(query).rollup(rollup_method[, measure]).last(time_window) operator #`
+    #
+    # - **`query`** The search query - following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/).
+    # - **`rollup_method`** The stats roll-up method - supports `count`, `avg` and `cardinality`.
+    # - **`measure`** For `avg` and cardinality `rollup_method` - specify the measure or the facet name you want to use.
+    # - **`time_window`** #m (between 1 and 2880), #h (between 1 and 48).
+    # - **`operator`** `<`, `<=`, `>`, `>=`, `==`, or `!=`.
+    # - **`#`** an integer or decimal number used to set the threshold.
+    #
+    # **NOTE** Only available on US1-FED, US3, US5 and in closed beta on EU and US1.
+    #
+    # **Process Alert Query**
+    #
+    # Example: `processes(search).over(tags).rollup('count').last(timeframe) operator #`
+    #
+    # - **`search`** free text search string for querying processes.
+    # Matching processes match results on the [Live Processes](https://docs.datadoghq.com/infrastructure/process/?tab=linuxwindows) page.
+    # - **`tags`** one or more tags (comma-separated)
+    # - **`timeframe`** the timeframe to roll up the counts. Examples: 10m, 4h. Supported timeframes: s, m, h and d
+    # - **`operator`** <, <=, >, >=, ==, or !=
+    # - **`#`** an integer or decimal number used to set the threshold
+    #
+    # **Logs Alert Query**
+    #
+    # Example: `logs(query).index(index_name).rollup(rollup_method[, measure]).last(time_window) operator #`
+    #
+    # - **`query`** The search query - following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/).
+    # - **`index_name`** For multi-index organizations, the log index in which the request is performed.
+    # - **`rollup_method`** The stats roll-up method - supports `count`, `avg` and `cardinality`.
+    # - **`measure`** For `avg` and cardinality `rollup_method` - specify the measure or the facet name you want to use.
+    # - **`time_window`** #m (between 1 and 2880), #h (between 1 and 48).
+    # - **`operator`** `<`, `<=`, `>`, `>=`, `==`, or `!=`.
+    # - **`#`** an integer or decimal number used to set the threshold.
+    #
+    # **Composite Query**
+    #
+    # Example: `12345 && 67890`, where `12345` and `67890` are the IDs of non-composite monitors
+    #
+    # * **`name`** [*required*, *default* = **dynamic, based on query**]: The name of the alert.
+    # * **`message`** [*required*, *default* = **dynamic, based on query**]: A message to include with notifications for this monitor.
+    # Email notifications can be sent to specific users by using the same '@username' notation as events.
+    # * **`tags`** [*optional*, *default* = **empty list**]: A list of tags to associate with your monitor.
+    # When getting all monitor details via the API, use the `monitor_tags` argument to filter results by these tags.
+    # It is only available via the API and isn't visible or editable in the Datadog UI.
+    #
+    # **SLO Alert Query**
+    #
+    # Example: `error_budget("slo_id").over("time_window") operator #`
+    #
+    # - **`slo_id`**: The alphanumeric SLO ID of the SLO you are configuring the alert for.
+    # - **`time_window`**: The time window of the SLO target you wish to alert on. Valid options: `7d`, `30d`, `90d`.
+    # - **`operator`**: `>=` or `>`
+    #
+    # **Audit Alert Query**
+    #
+    # Example: `audits(query).rollup(rollup_method[, measure]).last(time_window) operator #`
+    #
+    # - **`query`** The search query - following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/).
+    # - **`rollup_method`** The stats roll-up method - supports `count`, `avg` and `cardinality`.
+    # - **`measure`** For `avg` and cardinality `rollup_method` - specify the measure or the facet name you want to use.
+    # - **`time_window`** #m (between 1 and 2880), #h (between 1 and 48).
+    # - **`operator`** `<`, `<=`, `>`, `>=`, `==`, or `!=`.
+    # - **`#`** an integer or decimal number used to set the threshold.
+    #
+    # **NOTE** Only available on US1-FED and in closed beta on US1, EU, US3, and US5.
+    #
+    # **CI Pipelines Alert Query**
+    #
+    # Example: `ci-pipelines(query).rollup(rollup_method[, measure]).last(time_window) operator #`
+    #
+    # - **`query`** The search query - following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/).
+    # - **`rollup_method`** The stats roll-up method - supports `count`, `avg`, and `cardinality`.
+    # - **`measure`** For `avg` and cardinality `rollup_method` - specify the measure or the facet name you want to use.
+    # - **`time_window`** #m (between 1 and 2880), #h (between 1 and 48).
+    # - **`operator`** `<`, `<=`, `>`, `>=`, `==`, or `!=`.
+    # - **`#`** an integer or decimal number used to set the threshold.
+    #
+    # **NOTE** Only available in closed beta on US1, EU, US3 and US5.
     # @param body [Monitor] Create a monitor request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Monitor]
     def create_monitor(body, opts = {})
       data, _status_code, _headers = create_monitor_with_http_info(body, opts)
@@ -107,9 +266,167 @@ module DatadogAPIClient::V1
     end
 
     # Create a monitor
-    # Create a monitor using the specified options.  #### Monitor Types  The type of monitor chosen from:  - anomaly: &#x60;query alert&#x60; - APM: &#x60;query alert&#x60; or &#x60;trace-analytics alert&#x60; - composite: &#x60;composite&#x60; - custom: &#x60;service check&#x60; - event: &#x60;event alert&#x60; - forecast: &#x60;query alert&#x60; - host: &#x60;service check&#x60; - integration: &#x60;query alert&#x60; or &#x60;service check&#x60; - live process: &#x60;process alert&#x60; - logs: &#x60;log alert&#x60; - metric: &#x60;query alert&#x60; - network: &#x60;service check&#x60; - outlier: &#x60;query alert&#x60; - process: &#x60;service check&#x60; - rum: &#x60;rum alert&#x60; - SLO: &#x60;slo alert&#x60; - watchdog: &#x60;event alert&#x60; - event-v2: &#x60;event-v2 alert&#x60; - audit: &#x60;audit alert&#x60;  #### Query Types  **Metric Alert Query**  Example: &#x60;time_aggr(time_window):space_aggr:metric{tags} [by {key}] operator #&#x60;  - &#x60;time_aggr&#x60;: avg, sum, max, min, change, or pct_change - &#x60;time_window&#x60;: &#x60;last_#m&#x60; (with &#x60;#&#x60; between 1 and 10080 depending on the monitor type) or &#x60;last_#h&#x60;(with &#x60;#&#x60; between 1 and 168 depending on the monitor type) or &#x60;last_1d&#x60;, or &#x60;last_1w&#x60; - &#x60;space_aggr&#x60;: avg, sum, min, or max - &#x60;tags&#x60;: one or more tags (comma-separated), or * - &#x60;key&#x60;: a &#39;key&#39; in key:value tag syntax; defines a separate alert for each tag in the group (multi-alert) - &#x60;operator&#x60;: &lt;, &lt;&#x3D;, &gt;, &gt;&#x3D;, &#x3D;&#x3D;, or !&#x3D; - &#x60;#&#x60;: an integer or decimal number used to set the threshold  If you are using the &#x60;_change_&#x60; or &#x60;_pct_change_&#x60; time aggregator, instead use &#x60;change_aggr(time_aggr(time_window), timeshift):space_aggr:metric{tags} [by {key}] operator #&#x60; with:  - &#x60;change_aggr&#x60; change, pct_change - &#x60;time_aggr&#x60; avg, sum, max, min [Learn more](https://docs.datadoghq.com/monitors/create/types/#define-the-conditions) - &#x60;time_window&#x60; last\\_#m (between 1 and 2880 depending on the monitor type), last\\_#h (between 1 and 48 depending on the monitor type), or last_#d (1 or 2) - &#x60;timeshift&#x60; #m_ago (5, 10, 15, or 30), #h_ago (1, 2, or 4), or 1d_ago  Use this to create an outlier monitor using the following query: &#x60;avg(last_30m):outliers(avg:system.cpu.user{role:es-events-data} by {host}, &#39;dbscan&#39;, 7) &gt; 0&#x60;  **Service Check Query**  Example: &#x60;\&quot;check\&quot;.over(tags).last(count).by(group).count_by_status()&#x60;  - **&#x60;check&#x60;** name of the check, for example &#x60;datadog.agent.up&#x60; - **&#x60;tags&#x60;** one or more quoted tags (comma-separated), or \&quot;*\&quot;. for example: &#x60;.over(\&quot;env:prod\&quot;, \&quot;role:db\&quot;)&#x60;; **&#x60;over&#x60;** cannot be blank. - **&#x60;count&#x60;** must be at greater than or equal to your max threshold (defined in the &#x60;options&#x60;). It is limited to 100. For example, if you&#39;ve specified to notify on 1 critical, 3 ok, and 2 warn statuses, &#x60;count&#x60; should be at least 3. - **&#x60;group&#x60;** must be specified for check monitors. Per-check grouping is already explicitly known for some service checks. For example, Postgres integration monitors are tagged by &#x60;db&#x60;, &#x60;host&#x60;, and &#x60;port&#x60;, and Network monitors by &#x60;host&#x60;, &#x60;instance&#x60;, and &#x60;url&#x60;. See [Service Checks](https://docs.datadoghq.com/api/latest/service-checks/) documentation for more information.  **Event Alert Query**  Example: &#x60;events(&#39;sources:nagios status:error,warning priority:normal tags: \&quot;string query\&quot;&#39;).rollup(\&quot;count\&quot;).last(\&quot;1h\&quot;)\&quot;&#x60;  - **&#x60;event&#x60;**, the event query string: - **&#x60;string_query&#x60;** free text query to match against event title and text. - **&#x60;sources&#x60;** event sources (comma-separated). - **&#x60;status&#x60;** event statuses (comma-separated). Valid options: error, warn, and info. - **&#x60;priority&#x60;** event priorities (comma-separated). Valid options: low, normal, all. - **&#x60;host&#x60;** event reporting host (comma-separated). - **&#x60;tags&#x60;** event tags (comma-separated). - **&#x60;excluded_tags&#x60;** excluded event tags (comma-separated). - **&#x60;rollup&#x60;** the stats roll-up method. &#x60;count&#x60; is the only supported method now. - **&#x60;last&#x60;** the timeframe to roll up the counts. Examples: 45m, 4h. Supported timeframes: m, h and d. This value should not exceed 48 hours.  **NOTE** The Event Alert Query is being deprecated and replaced by the Event V2 Alert Query. For more information, see the [Event Migration guide](https://docs.datadoghq.com/events/guides/migrating_to_new_events_features/).  **Event V2 Alert Query**  Example: &#x60;events(query).rollup(rollup_method[, measure]).last(time_window) operator #&#x60;  - **&#x60;query&#x60;** The search query - following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/). - **&#x60;rollup_method&#x60;** The stats roll-up method - supports &#x60;count&#x60;, &#x60;avg&#x60; and &#x60;cardinality&#x60;. - **&#x60;measure&#x60;** For &#x60;avg&#x60; and cardinality &#x60;rollup_method&#x60; - specify the measure or the facet name you want to use. - **&#x60;time_window&#x60;** #m (between 1 and 2880), #h (between 1 and 48). - **&#x60;operator&#x60;** &#x60;&lt;&#x60;, &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;, &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;** an integer or decimal number used to set the threshold.  **NOTE** Only available on US1-FED, US3, US5 and in closed beta on EU and US1.  **Process Alert Query**  Example: &#x60;processes(search).over(tags).rollup(&#39;count&#39;).last(timeframe) operator #&#x60;  - **&#x60;search&#x60;** free text search string for querying processes. Matching processes match results on the [Live Processes](https://docs.datadoghq.com/infrastructure/process/?tab&#x3D;linuxwindows) page. - **&#x60;tags&#x60;** one or more tags (comma-separated) - **&#x60;timeframe&#x60;** the timeframe to roll up the counts. Examples: 10m, 4h. Supported timeframes: s, m, h and d - **&#x60;operator&#x60;** &lt;, &lt;&#x3D;, &gt;, &gt;&#x3D;, &#x3D;&#x3D;, or !&#x3D; - **&#x60;#&#x60;** an integer or decimal number used to set the threshold  **Logs Alert Query**  Example: &#x60;logs(query).index(index_name).rollup(rollup_method[, measure]).last(time_window) operator #&#x60;  - **&#x60;query&#x60;** The search query - following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/). - **&#x60;index_name&#x60;** For multi-index organizations, the log index in which the request is performed. - **&#x60;rollup_method&#x60;** The stats roll-up method - supports &#x60;count&#x60;, &#x60;avg&#x60; and &#x60;cardinality&#x60;. - **&#x60;measure&#x60;** For &#x60;avg&#x60; and cardinality &#x60;rollup_method&#x60; - specify the measure or the facet name you want to use. - **&#x60;time_window&#x60;** #m (between 1 and 2880), #h (between 1 and 48). - **&#x60;operator&#x60;** &#x60;&lt;&#x60;, &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;, &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;** an integer or decimal number used to set the threshold.  **Composite Query**  Example: &#x60;12345 &amp;&amp; 67890&#x60;, where &#x60;12345&#x60; and &#x60;67890&#x60; are the IDs of non-composite monitors  * **&#x60;name&#x60;** [*required*, *default* &#x3D; **dynamic, based on query**]: The name of the alert. * **&#x60;message&#x60;** [*required*, *default* &#x3D; **dynamic, based on query**]: A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the same &#39;@username&#39; notation as events. * **&#x60;tags&#x60;** [*optional*, *default* &#x3D; **empty list**]: A list of tags to associate with your monitor. When getting all monitor details via the API, use the &#x60;monitor_tags&#x60; argument to filter results by these tags. It is only available via the API and isn&#39;t visible or editable in the Datadog UI.  **SLO Alert Query**  Example: &#x60;error_budget(\&quot;slo_id\&quot;).over(\&quot;time_window\&quot;) operator #&#x60;  - **&#x60;slo_id&#x60;**: The alphanumeric SLO ID of the SLO you are configuring the alert for. - **&#x60;time_window&#x60;**: The time window of the SLO target you wish to alert on. Valid options: &#x60;7d&#x60;, &#x60;30d&#x60;, &#x60;90d&#x60;. - **&#x60;operator&#x60;**: &#x60;&gt;&#x3D;&#x60; or &#x60;&gt;&#x60;  **Audit Alert Query**  Example: &#x60;audits(query).rollup(rollup_method[, measure]).last(time_window) operator #&#x60;  - **&#x60;query&#x60;** The search query - following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/). - **&#x60;rollup_method&#x60;** The stats roll-up method - supports &#x60;count&#x60;, &#x60;avg&#x60; and &#x60;cardinality&#x60;. - **&#x60;measure&#x60;** For &#x60;avg&#x60; and cardinality &#x60;rollup_method&#x60; - specify the measure or the facet name you want to use. - **&#x60;time_window&#x60;** #m (between 1 and 2880), #h (between 1 and 48). - **&#x60;operator&#x60;** &#x60;&lt;&#x60;, &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;, &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;** an integer or decimal number used to set the threshold.  **NOTE** Only available on US1-FED and in closed beta on US1, EU, US3, and US5.  **CI Pipelines Alert Query**  Example: &#x60;ci-pipelines(query).rollup(rollup_method[, measure]).last(time_window) operator #&#x60;  - **&#x60;query&#x60;** The search query - following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/). - **&#x60;rollup_method&#x60;** The stats roll-up method - supports &#x60;count&#x60;, &#x60;avg&#x60;, and &#x60;cardinality&#x60;. - **&#x60;measure&#x60;** For &#x60;avg&#x60; and cardinality &#x60;rollup_method&#x60; - specify the measure or the facet name you want to use. - **&#x60;time_window&#x60;** #m (between 1 and 2880), #h (between 1 and 48). - **&#x60;operator&#x60;** &#x60;&lt;&#x60;, &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;, &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;** an integer or decimal number used to set the threshold.  **NOTE** Only available in closed beta on US1, EU, US3 and US5.
+    # Create a monitor using the specified options.
+    #
+    # #### Monitor Types
+    #
+    # The type of monitor chosen from:
+    #
+    # - anomaly: `query alert`
+    # - APM: `query alert` or `trace-analytics alert`
+    # - composite: `composite`
+    # - custom: `service check`
+    # - event: `event alert`
+    # - forecast: `query alert`
+    # - host: `service check`
+    # - integration: `query alert` or `service check`
+    # - live process: `process alert`
+    # - logs: `log alert`
+    # - metric: `query alert`
+    # - network: `service check`
+    # - outlier: `query alert`
+    # - process: `service check`
+    # - rum: `rum alert`
+    # - SLO: `slo alert`
+    # - watchdog: `event alert`
+    # - event-v2: `event-v2 alert`
+    # - audit: `audit alert`
+    #
+    # #### Query Types
+    #
+    # **Metric Alert Query**
+    #
+    # Example: `time_aggr(time_window):space_aggr:metric{tags} [by {key}] operator #`
+    #
+    # - `time_aggr`: avg, sum, max, min, change, or pct_change
+    # - `time_window`: `last_#m` (with `#` between 1 and 10080 depending on the monitor type) or `last_#h`(with `#` between 1 and 168 depending on the monitor type) or `last_1d`, or `last_1w`
+    # - `space_aggr`: avg, sum, min, or max
+    # - `tags`: one or more tags (comma-separated), or *
+    # - `key`: a 'key' in key:value tag syntax; defines a separate alert for each tag in the group (multi-alert)
+    # - `operator`: <, <=, >, >=, ==, or !=
+    # - `#`: an integer or decimal number used to set the threshold
+    #
+    # If you are using the `_change_` or `_pct_change_` time aggregator, instead use `change_aggr(time_aggr(time_window),
+    # timeshift):space_aggr:metric{tags} [by {key}] operator #` with:
+    #
+    # - `change_aggr` change, pct_change
+    # - `time_aggr` avg, sum, max, min [Learn more](https://docs.datadoghq.com/monitors/create/types/#define-the-conditions)
+    # - `time_window` last\_#m (between 1 and 2880 depending on the monitor type), last\_#h (between 1 and 48 depending on the monitor type), or last_#d (1 or 2)
+    # - `timeshift` #m_ago (5, 10, 15, or 30), #h_ago (1, 2, or 4), or 1d_ago
+    #
+    # Use this to create an outlier monitor using the following query:
+    # `avg(last_30m):outliers(avg:system.cpu.user{role:es-events-data} by {host}, 'dbscan', 7) > 0`
+    #
+    # **Service Check Query**
+    #
+    # Example: `"check".over(tags).last(count).by(group).count_by_status()`
+    #
+    # - **`check`** name of the check, for example `datadog.agent.up`
+    # - **`tags`** one or more quoted tags (comma-separated), or "*". for example: `.over("env:prod", "role:db")`; **`over`** cannot be blank.
+    # - **`count`** must be at greater than or equal to your max threshold (defined in the `options`). It is limited to 100.
+    # For example, if you've specified to notify on 1 critical, 3 ok, and 2 warn statuses, `count` should be at least 3.
+    # - **`group`** must be specified for check monitors. Per-check grouping is already explicitly known for some service checks.
+    # For example, Postgres integration monitors are tagged by `db`, `host`, and `port`, and Network monitors by `host`, `instance`, and `url`. See [Service Checks](https://docs.datadoghq.com/api/latest/service-checks/) documentation for more information.
+    #
+    # **Event Alert Query**
+    #
+    # Example: `events('sources:nagios status:error,warning priority:normal tags: "string query"').rollup("count").last("1h")"`
+    #
+    # - **`event`**, the event query string:
+    # - **`string_query`** free text query to match against event title and text.
+    # - **`sources`** event sources (comma-separated).
+    # - **`status`** event statuses (comma-separated). Valid options: error, warn, and info.
+    # - **`priority`** event priorities (comma-separated). Valid options: low, normal, all.
+    # - **`host`** event reporting host (comma-separated).
+    # - **`tags`** event tags (comma-separated).
+    # - **`excluded_tags`** excluded event tags (comma-separated).
+    # - **`rollup`** the stats roll-up method. `count` is the only supported method now.
+    # - **`last`** the timeframe to roll up the counts. Examples: 45m, 4h. Supported timeframes: m, h and d. This value should not exceed 48 hours.
+    #
+    # **NOTE** The Event Alert Query is being deprecated and replaced by the Event V2 Alert Query. For more information, see the [Event Migration guide](https://docs.datadoghq.com/events/guides/migrating_to_new_events_features/).
+    #
+    # **Event V2 Alert Query**
+    #
+    # Example: `events(query).rollup(rollup_method[, measure]).last(time_window) operator #`
+    #
+    # - **`query`** The search query - following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/).
+    # - **`rollup_method`** The stats roll-up method - supports `count`, `avg` and `cardinality`.
+    # - **`measure`** For `avg` and cardinality `rollup_method` - specify the measure or the facet name you want to use.
+    # - **`time_window`** #m (between 1 and 2880), #h (between 1 and 48).
+    # - **`operator`** `<`, `<=`, `>`, `>=`, `==`, or `!=`.
+    # - **`#`** an integer or decimal number used to set the threshold.
+    #
+    # **NOTE** Only available on US1-FED, US3, US5 and in closed beta on EU and US1.
+    #
+    # **Process Alert Query**
+    #
+    # Example: `processes(search).over(tags).rollup('count').last(timeframe) operator #`
+    #
+    # - **`search`** free text search string for querying processes.
+    # Matching processes match results on the [Live Processes](https://docs.datadoghq.com/infrastructure/process/?tab=linuxwindows) page.
+    # - **`tags`** one or more tags (comma-separated)
+    # - **`timeframe`** the timeframe to roll up the counts. Examples: 10m, 4h. Supported timeframes: s, m, h and d
+    # - **`operator`** <, <=, >, >=, ==, or !=
+    # - **`#`** an integer or decimal number used to set the threshold
+    #
+    # **Logs Alert Query**
+    #
+    # Example: `logs(query).index(index_name).rollup(rollup_method[, measure]).last(time_window) operator #`
+    #
+    # - **`query`** The search query - following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/).
+    # - **`index_name`** For multi-index organizations, the log index in which the request is performed.
+    # - **`rollup_method`** The stats roll-up method - supports `count`, `avg` and `cardinality`.
+    # - **`measure`** For `avg` and cardinality `rollup_method` - specify the measure or the facet name you want to use.
+    # - **`time_window`** #m (between 1 and 2880), #h (between 1 and 48).
+    # - **`operator`** `<`, `<=`, `>`, `>=`, `==`, or `!=`.
+    # - **`#`** an integer or decimal number used to set the threshold.
+    #
+    # **Composite Query**
+    #
+    # Example: `12345 && 67890`, where `12345` and `67890` are the IDs of non-composite monitors
+    #
+    # * **`name`** [*required*, *default* = **dynamic, based on query**]: The name of the alert.
+    # * **`message`** [*required*, *default* = **dynamic, based on query**]: A message to include with notifications for this monitor.
+    # Email notifications can be sent to specific users by using the same '@username' notation as events.
+    # * **`tags`** [*optional*, *default* = **empty list**]: A list of tags to associate with your monitor.
+    # When getting all monitor details via the API, use the `monitor_tags` argument to filter results by these tags.
+    # It is only available via the API and isn't visible or editable in the Datadog UI.
+    #
+    # **SLO Alert Query**
+    #
+    # Example: `error_budget("slo_id").over("time_window") operator #`
+    #
+    # - **`slo_id`**: The alphanumeric SLO ID of the SLO you are configuring the alert for.
+    # - **`time_window`**: The time window of the SLO target you wish to alert on. Valid options: `7d`, `30d`, `90d`.
+    # - **`operator`**: `>=` or `>`
+    #
+    # **Audit Alert Query**
+    #
+    # Example: `audits(query).rollup(rollup_method[, measure]).last(time_window) operator #`
+    #
+    # - **`query`** The search query - following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/).
+    # - **`rollup_method`** The stats roll-up method - supports `count`, `avg` and `cardinality`.
+    # - **`measure`** For `avg` and cardinality `rollup_method` - specify the measure or the facet name you want to use.
+    # - **`time_window`** #m (between 1 and 2880), #h (between 1 and 48).
+    # - **`operator`** `<`, `<=`, `>`, `>=`, `==`, or `!=`.
+    # - **`#`** an integer or decimal number used to set the threshold.
+    #
+    # **NOTE** Only available on US1-FED and in closed beta on US1, EU, US3, and US5.
+    #
+    # **CI Pipelines Alert Query**
+    #
+    # Example: `ci-pipelines(query).rollup(rollup_method[, measure]).last(time_window) operator #`
+    #
+    # - **`query`** The search query - following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/).
+    # - **`rollup_method`** The stats roll-up method - supports `count`, `avg`, and `cardinality`.
+    # - **`measure`** For `avg` and cardinality `rollup_method` - specify the measure or the facet name you want to use.
+    # - **`time_window`** #m (between 1 and 2880), #h (between 1 and 48).
+    # - **`operator`** `<`, `<=`, `>`, `>=`, `==`, or `!=`.
+    # - **`#`** an integer or decimal number used to set the threshold.
+    #
+    # **NOTE** Only available in closed beta on US1, EU, US3 and US5.
     # @param body [Monitor] Create a monitor request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(Monitor, Integer, Hash)>] Monitor data, response status code and response headers
     def create_monitor_with_http_info(body, opts = {})
 
@@ -152,7 +469,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Monitor'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_monitor,
@@ -174,8 +491,8 @@ module DatadogAPIClient::V1
     # Delete a monitor
     # Delete the specified monitor
     # @param monitor_id [Integer] The ID of the monitor.
-    # @param [Hash] opts the optional parameters
-    # @option opts [String] :force Delete the monitor even if it&#39;s referenced by other resources (for example SLO, composite monitor).
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :force Delete the monitor even if it's referenced by other resources (for example SLO, composite monitor).
     # @return [DeletedMonitor]
     def delete_monitor(monitor_id, opts = {})
       data, _status_code, _headers = delete_monitor_with_http_info(monitor_id, opts)
@@ -185,8 +502,8 @@ module DatadogAPIClient::V1
     # Delete a monitor
     # Delete the specified monitor
     # @param monitor_id [Integer] The ID of the monitor.
-    # @param [Hash] opts the optional parameters
-    # @option opts [String] :force Delete the monitor even if it&#39;s referenced by other resources (for example SLO, composite monitor).
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :force Delete the monitor even if it's referenced by other resources (for example SLO, composite monitor).
     # @return [Array<(DeletedMonitor, Integer, Hash)>] DeletedMonitor data, response status code and response headers
     def delete_monitor_with_http_info(monitor_id, opts = {})
 
@@ -207,7 +524,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'monitor_id' when calling MonitorsAPI.delete_monitor"
       end
       # resource path
-      local_var_path = '/api/v1/monitor/{monitor_id}'.sub('{' + 'monitor_id' + '}', CGI.escape(monitor_id.to_s))
+      local_var_path = '/api/v1/monitor/{monitor_id}'.sub('{monitor_id}', CGI.escape(monitor_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -228,7 +545,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'DeletedMonitor'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_monitor,
@@ -250,19 +567,19 @@ module DatadogAPIClient::V1
     # Get a monitor's details
     # Get details about the specified monitor from your organization.
     # @param monitor_id [Integer] The ID of the monitor
-    # @param [Hash] opts the optional parameters
-    # @option opts [String] :group_states When specified, shows additional information about the group states. Choose one or more from &#x60;all&#x60;, &#x60;alert&#x60;, &#x60;warn&#x60;, and &#x60;no data&#x60;.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :group_states When specified, shows additional information about the group states. Choose one or more from `all`, `alert`, `warn`, and `no data`.
     # @return [Monitor]
     def get_monitor(monitor_id, opts = {})
       data, _status_code, _headers = get_monitor_with_http_info(monitor_id, opts)
       data
     end
 
-    # Get a monitor&#39;s details
+    # Get a monitor's details
     # Get details about the specified monitor from your organization.
     # @param monitor_id [Integer] The ID of the monitor
-    # @param [Hash] opts the optional parameters
-    # @option opts [String] :group_states When specified, shows additional information about the group states. Choose one or more from &#x60;all&#x60;, &#x60;alert&#x60;, &#x60;warn&#x60;, and &#x60;no data&#x60;.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :group_states When specified, shows additional information about the group states. Choose one or more from `all`, `alert`, `warn`, and `no data`.
     # @return [Array<(Monitor, Integer, Hash)>] Monitor data, response status code and response headers
     def get_monitor_with_http_info(monitor_id, opts = {})
 
@@ -283,7 +600,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'monitor_id' when calling MonitorsAPI.get_monitor"
       end
       # resource path
-      local_var_path = '/api/v1/monitor/{monitor_id}'.sub('{' + 'monitor_id' + '}', CGI.escape(monitor_id.to_s))
+      local_var_path = '/api/v1/monitor/{monitor_id}'.sub('{monitor_id}', CGI.escape(monitor_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -304,7 +621,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Monitor'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_monitor,
@@ -325,15 +642,15 @@ module DatadogAPIClient::V1
 
     # Get all monitor details
     # Get details about the specified monitor from your organization.
-    # @param [Hash] opts the optional parameters
-    # @option opts [String] :group_states When specified, shows additional information about the group states. Choose one or more from &#x60;all&#x60;, &#x60;alert&#x60;, &#x60;warn&#x60;, and &#x60;no data&#x60;.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :group_states When specified, shows additional information about the group states. Choose one or more from `all`, `alert`, `warn`, and `no data`.
     # @option opts [String] :name A string to filter monitors by name.
-    # @option opts [String] :tags A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope. For example, &#x60;host:host0&#x60;.
-    # @option opts [String] :monitor_tags A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended. For example, &#x60;service:my-app&#x60;.
+    # @option opts [String] :tags A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope. For example, `host:host0`.
+    # @option opts [String] :monitor_tags A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended. For example, `service:my-app`.
     # @option opts [Boolean] :with_downtimes If this argument is set to true, then the returned data includes all current active downtimes for each monitor.
     # @option opts [Integer] :id_offset Use this parameter for paginating through large sets of monitors. Start with a value of zero, make a request, set the value to the last ID of result set, and then repeat until the response is empty.
     # @option opts [Integer] :page The page to start paginating from. If this argument is not specified, the request returns all monitors without pagination.
-    # @option opts [Integer] :page_size The number of monitors to return per page. If the page argument is not specified, the default behavior returns all monitors without a &#x60;page_size&#x60; limit. However, if page is specified and &#x60;page_size&#x60; is not, the argument defaults to 100.
+    # @option opts [Integer] :page_size The number of monitors to return per page. If the page argument is not specified, the default behavior returns all monitors without a `page_size` limit. However, if page is specified and `page_size` is not, the argument defaults to 100.
     # @return [Array<Monitor>]
     def list_monitors(opts = {})
       data, _status_code, _headers = list_monitors_with_http_info(opts)
@@ -342,15 +659,15 @@ module DatadogAPIClient::V1
 
     # Get all monitor details
     # Get details about the specified monitor from your organization.
-    # @param [Hash] opts the optional parameters
-    # @option opts [String] :group_states When specified, shows additional information about the group states. Choose one or more from &#x60;all&#x60;, &#x60;alert&#x60;, &#x60;warn&#x60;, and &#x60;no data&#x60;.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :group_states When specified, shows additional information about the group states. Choose one or more from `all`, `alert`, `warn`, and `no data`.
     # @option opts [String] :name A string to filter monitors by name.
-    # @option opts [String] :tags A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope. For example, &#x60;host:host0&#x60;.
-    # @option opts [String] :monitor_tags A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended. For example, &#x60;service:my-app&#x60;.
+    # @option opts [String] :tags A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope. For example, `host:host0`.
+    # @option opts [String] :monitor_tags A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended. For example, `service:my-app`.
     # @option opts [Boolean] :with_downtimes If this argument is set to true, then the returned data includes all current active downtimes for each monitor.
     # @option opts [Integer] :id_offset Use this parameter for paginating through large sets of monitors. Start with a value of zero, make a request, set the value to the last ID of result set, and then repeat until the response is empty.
     # @option opts [Integer] :page The page to start paginating from. If this argument is not specified, the request returns all monitors without pagination.
-    # @option opts [Integer] :page_size The number of monitors to return per page. If the page argument is not specified, the default behavior returns all monitors without a &#x60;page_size&#x60; limit. However, if page is specified and &#x60;page_size&#x60; is not, the argument defaults to 100.
+    # @option opts [Integer] :page_size The number of monitors to return per page. If the page argument is not specified, the default behavior returns all monitors without a `page_size` limit. However, if page is specified and `page_size` is not, the argument defaults to 100.
     # @return [Array<(Array<Monitor>, Integer, Hash)>] Array<Monitor> data, response status code and response headers
     def list_monitors_with_http_info(opts = {})
 
@@ -369,7 +686,6 @@ module DatadogAPIClient::V1
       if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 1000
         fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling MonitorsAPI.list_monitors, must be smaller than or equal to 1000.'
       end
-
       # resource path
       local_var_path = '/api/v1/monitor'
 
@@ -399,7 +715,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Array<Monitor>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_monitors,
@@ -420,11 +736,11 @@ module DatadogAPIClient::V1
 
     # Monitors group search
     # Search and filter your monitor groups details.
-    # @param [Hash] opts the optional parameters
-    # @option opts [String] :query After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance &#x60;query&#x3D;\&quot;type:metric status:alert\&quot;&#x60;.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage/#find-the-monitors
-    # @option opts [Integer] :page Page to start paginating from. (default to 0)
-    # @option opts [Integer] :per_page Number of monitors to return per page. (default to 30)
-    # @option opts [String] :sort String for sort order, composed of field and sort order separate by a comma, for example &#x60;name,asc&#x60;. Supported sort directions: &#x60;asc&#x60;, &#x60;desc&#x60;. Supported fields:  * &#x60;name&#x60; * &#x60;status&#x60; * &#x60;tags&#x60;
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :query After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance `query="type:metric status:alert"`.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage/#find-the-monitors
+    # @option opts [Integer] :page Page to start paginating from.
+    # @option opts [Integer] :per_page Number of monitors to return per page.
+    # @option opts [String] :sort String for sort order, composed of field and sort order separate by a comma, for example `name,asc`. Supported sort directions: `asc`, `desc`. Supported fields:  * `name` * `status` * `tags`
     # @return [MonitorGroupSearchResponse]
     def search_monitor_groups(opts = {})
       data, _status_code, _headers = search_monitor_groups_with_http_info(opts)
@@ -433,11 +749,11 @@ module DatadogAPIClient::V1
 
     # Monitors group search
     # Search and filter your monitor groups details.
-    # @param [Hash] opts the optional parameters
-    # @option opts [String] :query After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance &#x60;query&#x3D;\&quot;type:metric status:alert\&quot;&#x60;.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage/#find-the-monitors
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :query After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance `query="type:metric status:alert"`.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage/#find-the-monitors
     # @option opts [Integer] :page Page to start paginating from.
     # @option opts [Integer] :per_page Number of monitors to return per page.
-    # @option opts [String] :sort String for sort order, composed of field and sort order separate by a comma, for example &#x60;name,asc&#x60;. Supported sort directions: &#x60;asc&#x60;, &#x60;desc&#x60;. Supported fields:  * &#x60;name&#x60; * &#x60;status&#x60; * &#x60;tags&#x60;
+    # @option opts [String] :sort String for sort order, composed of field and sort order separate by a comma, for example `name,asc`. Supported sort directions: `asc`, `desc`. Supported fields:  * `name` * `status` * `tags`
     # @return [Array<(MonitorGroupSearchResponse, Integer, Hash)>] MonitorGroupSearchResponse data, response status code and response headers
     def search_monitor_groups_with_http_info(opts = {})
 
@@ -478,7 +794,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'MonitorGroupSearchResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :search_monitor_groups,
@@ -499,11 +815,11 @@ module DatadogAPIClient::V1
 
     # Monitors search
     # Search and filter your monitors details.
-    # @param [Hash] opts the optional parameters
-    # @option opts [String] :query After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance &#x60;query&#x3D;\&quot;type:metric status:alert\&quot;&#x60;.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage/#find-the-monitors
-    # @option opts [Integer] :page Page to start paginating from. (default to 0)
-    # @option opts [Integer] :per_page Number of monitors to return per page. (default to 30)
-    # @option opts [String] :sort String for sort order, composed of field and sort order separate by a comma, for example &#x60;name,asc&#x60;. Supported sort directions: &#x60;asc&#x60;, &#x60;desc&#x60;. Supported fields:  * &#x60;name&#x60; * &#x60;status&#x60; * &#x60;tags&#x60;
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :query After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance `query="type:metric status:alert"`.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage/#find-the-monitors
+    # @option opts [Integer] :page Page to start paginating from.
+    # @option opts [Integer] :per_page Number of monitors to return per page.
+    # @option opts [String] :sort String for sort order, composed of field and sort order separate by a comma, for example `name,asc`. Supported sort directions: `asc`, `desc`. Supported fields:  * `name` * `status` * `tags`
     # @return [MonitorSearchResponse]
     def search_monitors(opts = {})
       data, _status_code, _headers = search_monitors_with_http_info(opts)
@@ -512,11 +828,11 @@ module DatadogAPIClient::V1
 
     # Monitors search
     # Search and filter your monitors details.
-    # @param [Hash] opts the optional parameters
-    # @option opts [String] :query After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance &#x60;query&#x3D;\&quot;type:metric status:alert\&quot;&#x60;.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage/#find-the-monitors
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :query After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance `query="type:metric status:alert"`.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage/#find-the-monitors
     # @option opts [Integer] :page Page to start paginating from.
     # @option opts [Integer] :per_page Number of monitors to return per page.
-    # @option opts [String] :sort String for sort order, composed of field and sort order separate by a comma, for example &#x60;name,asc&#x60;. Supported sort directions: &#x60;asc&#x60;, &#x60;desc&#x60;. Supported fields:  * &#x60;name&#x60; * &#x60;status&#x60; * &#x60;tags&#x60;
+    # @option opts [String] :sort String for sort order, composed of field and sort order separate by a comma, for example `name,asc`. Supported sort directions: `asc`, `desc`. Supported fields:  * `name` * `status` * `tags`
     # @return [Array<(MonitorSearchResponse, Integer, Hash)>] MonitorSearchResponse data, response status code and response headers
     def search_monitors_with_http_info(opts = {})
 
@@ -557,7 +873,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'MonitorSearchResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :search_monitors,
@@ -580,7 +896,7 @@ module DatadogAPIClient::V1
     # Edit the specified monitor.
     # @param monitor_id [Integer] The ID of the monitor.
     # @param body [MonitorUpdateRequest] Edit a monitor request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Monitor]
     def update_monitor(monitor_id, body, opts = {})
       data, _status_code, _headers = update_monitor_with_http_info(monitor_id, body, opts)
@@ -591,7 +907,7 @@ module DatadogAPIClient::V1
     # Edit the specified monitor.
     # @param monitor_id [Integer] The ID of the monitor.
     # @param body [MonitorUpdateRequest] Edit a monitor request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(Monitor, Integer, Hash)>] Monitor data, response status code and response headers
     def update_monitor_with_http_info(monitor_id, body, opts = {})
 
@@ -616,7 +932,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'body' when calling MonitorsAPI.update_monitor"
       end
       # resource path
-      local_var_path = '/api/v1/monitor/{monitor_id}'.sub('{' + 'monitor_id' + '}', CGI.escape(monitor_id.to_s))
+      local_var_path = '/api/v1/monitor/{monitor_id}'.sub('{monitor_id}', CGI.escape(monitor_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -638,7 +954,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Monitor'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_monitor,
@@ -660,7 +976,7 @@ module DatadogAPIClient::V1
     # Validate a monitor
     # Validate the monitor provided in the request.
     # @param body [Monitor] Monitor request object
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Object]
     def validate_monitor(body, opts = {})
       data, _status_code, _headers = validate_monitor_with_http_info(body, opts)
@@ -670,7 +986,7 @@ module DatadogAPIClient::V1
     # Validate a monitor
     # Validate the monitor provided in the request.
     # @param body [Monitor] Monitor request object
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def validate_monitor_with_http_info(body, opts = {})
 
@@ -713,7 +1029,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Object'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :validate_monitor,

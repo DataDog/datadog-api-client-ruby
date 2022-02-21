@@ -23,40 +23,48 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Contains the total number of infrastructure hosts reporting during a given hour that were running the Datadog Agent.
+    # Contains the total number of infrastructure hosts reporting
+    # during a given hour that were running the Datadog Agent.
     attr_accessor :agent_host_count
 
-    # Contains the total number of hosts that reported through Alibaba integration (and were NOT running the Datadog Agent).
+    # Contains the total number of hosts that reported through Alibaba integration
+    # (and were NOT running the Datadog Agent).
     attr_accessor :alibaba_host_count
 
     # Contains the total number of Azure App Services hosts using APM.
     attr_accessor :apm_azure_app_service_host_count
 
-    # Shows the total number of hosts using APM during the hour, these are counted as billable (except during trial periods).
+    # Shows the total number of hosts using APM during the hour,
+    # these are counted as billable (except during trial periods).
     attr_accessor :apm_host_count
 
-    # Contains the total number of hosts that reported through the AWS integration (and were NOT running the Datadog Agent).
+    # Contains the total number of hosts that reported through the AWS integration
+    # (and were NOT running the Datadog Agent).
     attr_accessor :aws_host_count
 
-    # Contains the total number of hosts that reported through Azure integration (and were NOT running the Datadog Agent).
+    # Contains the total number of hosts that reported through Azure integration
+    # (and were NOT running the Datadog Agent).
     attr_accessor :azure_host_count
 
     # Shows the total number of containers reported by the Docker integration during the hour.
     attr_accessor :container_count
 
-    # Contains the total number of hosts that reported through the Google Cloud integration (and were NOT running the Datadog Agent).
+    # Contains the total number of hosts that reported through the Google Cloud integration
+    # (and were NOT running the Datadog Agent).
     attr_accessor :gcp_host_count
 
     # Contains the total number of Heroku dynos reported by the Datadog Agent.
     attr_accessor :heroku_host_count
 
-    # Contains the total number of billable infrastructure hosts reporting during a given hour. This is the sum of `agent_host_count`, `aws_host_count`, and `gcp_host_count`.
+    # Contains the total number of billable infrastructure hosts reporting during a given hour.
+    # This is the sum of `agent_host_count`, `aws_host_count`, and `gcp_host_count`.
     attr_accessor :host_count
 
     # The hour for the usage.
     attr_accessor :hour
 
-    # Contains the total number of hosts that reported through the Azure App Services integration (and were NOT running the Datadog Agent).
+    # Contains the total number of hosts that reported through the Azure App Services integration
+    # (and were NOT running the Datadog Agent).
     attr_accessor :infra_azure_app_service
 
     # Contains the total number of hosts reported by Datadog exporter for the OpenTelemetry Collector.
@@ -68,7 +76,8 @@ module DatadogAPIClient::V1
     # The organization public ID.
     attr_accessor :public_id
 
-    # Contains the total number of hosts that reported through vSphere integration (and were NOT running the Datadog Agent).
+    # Contains the total number of hosts that reported through vSphere integration
+    # (and were NOT running the Datadog Agent).
     attr_accessor :vsphere_host_count
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -131,7 +140,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::UsageHostHour` initialize method"
@@ -211,8 +221,8 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       invalid_properties
@@ -264,7 +274,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -272,7 +282,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -378,7 +388,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -394,7 +404,5 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
-
 end

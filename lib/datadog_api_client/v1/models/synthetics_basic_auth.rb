@@ -25,12 +25,11 @@ module DatadogAPIClient::V1
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'SyntheticsBasicAuthNTLM',
+          :'SyntheticsBasicAuthWeb',
           :'SyntheticsBasicAuthSigv4',
-          :'SyntheticsBasicAuthWeb'
+          :'SyntheticsBasicAuthNTLM'
         ]
       end
-
       # Builds the object
       # @param [Mixed] Data to be matched against the list of oneOf items
       # @return [Object] Returns the model or the data itself
@@ -58,7 +57,6 @@ module DatadogAPIClient::V1
           self._unparsed = true
           DatadogAPIClient::V1::UnparsedObject.new(data)
         end
-
       end
 
       private
@@ -115,5 +113,4 @@ module DatadogAPIClient::V1
       end
     end
   end
-
 end

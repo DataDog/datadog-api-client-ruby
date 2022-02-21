@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
+  # The sort parameters used for querying security signals.
   class SecurityMonitoringSignalsSort
     TIMESTAMP_ASCENDING = "timestamp".freeze
     TIMESTAMP_DESCENDING = "-timestamp".freeze
@@ -38,5 +39,4 @@ module DatadogAPIClient::V2
       constantValues.empty? ? DatadogAPIClient::V2::UnparsedObject.new(value) : value
     end
   end
-
 end

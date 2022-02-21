@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Widget sorting methods.
   class WidgetMonitorSummarySort
     NAME = "name".freeze
     GROUP = "group".freeze
@@ -51,5 +52,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

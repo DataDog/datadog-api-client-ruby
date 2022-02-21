@@ -22,10 +22,11 @@ module DatadogAPIClient::V1
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Create an API key
     # Creates an API key with a given name.
     # @param body [ApiKey] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [ApiKeyResponse]
     def create_api_key(body, opts = {})
       data, _status_code, _headers = create_api_key_with_http_info(body, opts)
@@ -35,7 +36,7 @@ module DatadogAPIClient::V1
     # Create an API key
     # Creates an API key with a given name.
     # @param body [ApiKey] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(ApiKeyResponse, Integer, Hash)>] ApiKeyResponse data, response status code and response headers
     def create_api_key_with_http_info(body, opts = {})
 
@@ -100,7 +101,7 @@ module DatadogAPIClient::V1
     # Create an application key
     # Create an application key with a given name.
     # @param body [ApplicationKey] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [ApplicationKeyResponse]
     def create_application_key(body, opts = {})
       data, _status_code, _headers = create_application_key_with_http_info(body, opts)
@@ -110,7 +111,7 @@ module DatadogAPIClient::V1
     # Create an application key
     # Create an application key with a given name.
     # @param body [ApplicationKey] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def create_application_key_with_http_info(body, opts = {})
 
@@ -175,7 +176,7 @@ module DatadogAPIClient::V1
     # Delete an API key
     # Delete a given API key.
     # @param key [String] The specific API key you are working with.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [ApiKeyResponse]
     def delete_api_key(key, opts = {})
       data, _status_code, _headers = delete_api_key_with_http_info(key, opts)
@@ -185,7 +186,7 @@ module DatadogAPIClient::V1
     # Delete an API key
     # Delete a given API key.
     # @param key [String] The specific API key you are working with.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(ApiKeyResponse, Integer, Hash)>] ApiKeyResponse data, response status code and response headers
     def delete_api_key_with_http_info(key, opts = {})
 
@@ -206,7 +207,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'key' when calling KeyManagementAPI.delete_api_key"
       end
       # resource path
-      local_var_path = '/api/v1/api_key/{key}'.sub('{' + 'key' + '}', CGI.escape(key.to_s))
+      local_var_path = '/api/v1/api_key/{key}'.sub('{key}', CGI.escape(key.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -248,7 +249,7 @@ module DatadogAPIClient::V1
     # Delete an application key
     # Delete a given application key.
     # @param key [String] The specific APP key you are working with.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [ApplicationKeyResponse]
     def delete_application_key(key, opts = {})
       data, _status_code, _headers = delete_application_key_with_http_info(key, opts)
@@ -258,7 +259,7 @@ module DatadogAPIClient::V1
     # Delete an application key
     # Delete a given application key.
     # @param key [String] The specific APP key you are working with.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def delete_application_key_with_http_info(key, opts = {})
 
@@ -279,7 +280,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'key' when calling KeyManagementAPI.delete_application_key"
       end
       # resource path
-      local_var_path = '/api/v1/application_key/{key}'.sub('{' + 'key' + '}', CGI.escape(key.to_s))
+      local_var_path = '/api/v1/application_key/{key}'.sub('{key}', CGI.escape(key.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -321,7 +322,7 @@ module DatadogAPIClient::V1
     # Get API key
     # Get a given API key.
     # @param key [String] The specific API key you are working with.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [ApiKeyResponse]
     def get_api_key(key, opts = {})
       data, _status_code, _headers = get_api_key_with_http_info(key, opts)
@@ -331,7 +332,7 @@ module DatadogAPIClient::V1
     # Get API key
     # Get a given API key.
     # @param key [String] The specific API key you are working with.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(ApiKeyResponse, Integer, Hash)>] ApiKeyResponse data, response status code and response headers
     def get_api_key_with_http_info(key, opts = {})
 
@@ -352,7 +353,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'key' when calling KeyManagementAPI.get_api_key"
       end
       # resource path
-      local_var_path = '/api/v1/api_key/{key}'.sub('{' + 'key' + '}', CGI.escape(key.to_s))
+      local_var_path = '/api/v1/api_key/{key}'.sub('{key}', CGI.escape(key.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -394,7 +395,7 @@ module DatadogAPIClient::V1
     # Get an application key
     # Get a given application key.
     # @param key [String] The specific APP key you are working with.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [ApplicationKeyResponse]
     def get_application_key(key, opts = {})
       data, _status_code, _headers = get_application_key_with_http_info(key, opts)
@@ -404,7 +405,7 @@ module DatadogAPIClient::V1
     # Get an application key
     # Get a given application key.
     # @param key [String] The specific APP key you are working with.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def get_application_key_with_http_info(key, opts = {})
 
@@ -425,7 +426,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'key' when calling KeyManagementAPI.get_application_key"
       end
       # resource path
-      local_var_path = '/api/v1/application_key/{key}'.sub('{' + 'key' + '}', CGI.escape(key.to_s))
+      local_var_path = '/api/v1/application_key/{key}'.sub('{key}', CGI.escape(key.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -466,7 +467,7 @@ module DatadogAPIClient::V1
 
     # Get all API keys
     # Get all API keys available for your account.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [ApiKeyListResponse]
     def list_api_keys(opts = {})
       data, _status_code, _headers = list_api_keys_with_http_info(opts)
@@ -475,7 +476,7 @@ module DatadogAPIClient::V1
 
     # Get all API keys
     # Get all API keys available for your account.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(ApiKeyListResponse, Integer, Hash)>] ApiKeyListResponse data, response status code and response headers
     def list_api_keys_with_http_info(opts = {})
 
@@ -533,7 +534,7 @@ module DatadogAPIClient::V1
 
     # Get all application keys
     # Get all application keys available for your Datadog account.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [ApplicationKeyListResponse]
     def list_application_keys(opts = {})
       data, _status_code, _headers = list_application_keys_with_http_info(opts)
@@ -542,7 +543,7 @@ module DatadogAPIClient::V1
 
     # Get all application keys
     # Get all application keys available for your Datadog account.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyListResponse, Integer, Hash)>] ApplicationKeyListResponse data, response status code and response headers
     def list_application_keys_with_http_info(opts = {})
 
@@ -602,7 +603,7 @@ module DatadogAPIClient::V1
     # Edit an API key name.
     # @param key [String] The specific API key you are working with.
     # @param body [ApiKey] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [ApiKeyResponse]
     def update_api_key(key, body, opts = {})
       data, _status_code, _headers = update_api_key_with_http_info(key, body, opts)
@@ -613,7 +614,7 @@ module DatadogAPIClient::V1
     # Edit an API key name.
     # @param key [String] The specific API key you are working with.
     # @param body [ApiKey] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(ApiKeyResponse, Integer, Hash)>] ApiKeyResponse data, response status code and response headers
     def update_api_key_with_http_info(key, body, opts = {})
 
@@ -638,7 +639,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'body' when calling KeyManagementAPI.update_api_key"
       end
       # resource path
-      local_var_path = '/api/v1/api_key/{key}'.sub('{' + 'key' + '}', CGI.escape(key.to_s))
+      local_var_path = '/api/v1/api_key/{key}'.sub('{key}', CGI.escape(key.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -683,7 +684,7 @@ module DatadogAPIClient::V1
     # Edit an application key name.
     # @param key [String] The specific APP key you are working with.
     # @param body [ApplicationKey] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [ApplicationKeyResponse]
     def update_application_key(key, body, opts = {})
       data, _status_code, _headers = update_application_key_with_http_info(key, body, opts)
@@ -694,7 +695,7 @@ module DatadogAPIClient::V1
     # Edit an application key name.
     # @param key [String] The specific APP key you are working with.
     # @param body [ApplicationKey] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def update_application_key_with_http_info(key, body, opts = {})
 
@@ -719,7 +720,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'body' when calling KeyManagementAPI.update_application_key"
       end
       # resource path
-      local_var_path = '/api/v1/application_key/{key}'.sub('{' + 'key' + '}', CGI.escape(key.to_s))
+      local_var_path = '/api/v1/application_key/{key}'.sub('{key}', CGI.escape(key.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}

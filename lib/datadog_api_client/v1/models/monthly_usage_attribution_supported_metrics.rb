@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Supported metrics for monthly usage attribution requests.
   class MonthlyUsageAttributionSupportedMetrics
     API_USAGE = "api_usage".freeze
     API_PERCENTAGE = "api_percentage".freeze
@@ -67,5 +68,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

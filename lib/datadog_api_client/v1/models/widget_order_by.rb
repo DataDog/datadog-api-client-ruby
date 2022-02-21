@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # What to order by.
   class WidgetOrderBy
     CHANGE = "change".freeze
     NAME = "name".freeze
@@ -40,5 +41,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

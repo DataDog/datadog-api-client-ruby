@@ -22,10 +22,12 @@ module DatadogAPIClient::V1
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Create a new dashboard
-    # Create a dashboard using the specified options. When defining queries in your widgets, take note of which queries should have the `as_count()` or `as_rate()` modifiers appended. Refer to the following [documentation](https://docs.datadoghq.com/developers/metrics/type_modifiers/?tab=count#in-application-modifiers) for more information on these modifiers.
+    # Create a dashboard using the specified options. When defining queries in your widgets, take note of which queries should have the `as_count()` or `as_rate()` modifiers appended.
+    # Refer to the following [documentation](https://docs.datadoghq.com/developers/metrics/type_modifiers/?tab=count#in-application-modifiers) for more information on these modifiers.
     # @param body [Dashboard] Create a dashboard request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Dashboard]
     def create_dashboard(body, opts = {})
       data, _status_code, _headers = create_dashboard_with_http_info(body, opts)
@@ -33,9 +35,10 @@ module DatadogAPIClient::V1
     end
 
     # Create a new dashboard
-    # Create a dashboard using the specified options. When defining queries in your widgets, take note of which queries should have the &#x60;as_count()&#x60; or &#x60;as_rate()&#x60; modifiers appended. Refer to the following [documentation](https://docs.datadoghq.com/developers/metrics/type_modifiers/?tab&#x3D;count#in-application-modifiers) for more information on these modifiers.
+    # Create a dashboard using the specified options. When defining queries in your widgets, take note of which queries should have the `as_count()` or `as_rate()` modifiers appended.
+    # Refer to the following [documentation](https://docs.datadoghq.com/developers/metrics/type_modifiers/?tab=count#in-application-modifiers) for more information on these modifiers.
     # @param body [Dashboard] Create a dashboard request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(Dashboard, Integer, Hash)>] Dashboard data, response status code and response headers
     def create_dashboard_with_http_info(body, opts = {})
 
@@ -78,7 +81,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Dashboard'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_dashboard,
@@ -100,7 +103,7 @@ module DatadogAPIClient::V1
     # Delete a dashboard
     # Delete a dashboard using the specified ID.
     # @param dashboard_id [String] The ID of the dashboard.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [DashboardDeleteResponse]
     def delete_dashboard(dashboard_id, opts = {})
       data, _status_code, _headers = delete_dashboard_with_http_info(dashboard_id, opts)
@@ -110,7 +113,7 @@ module DatadogAPIClient::V1
     # Delete a dashboard
     # Delete a dashboard using the specified ID.
     # @param dashboard_id [String] The ID of the dashboard.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(DashboardDeleteResponse, Integer, Hash)>] DashboardDeleteResponse data, response status code and response headers
     def delete_dashboard_with_http_info(dashboard_id, opts = {})
 
@@ -131,7 +134,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'dashboard_id' when calling DashboardsAPI.delete_dashboard"
       end
       # resource path
-      local_var_path = '/api/v1/dashboard/{dashboard_id}'.sub('{' + 'dashboard_id' + '}', CGI.escape(dashboard_id.to_s))
+      local_var_path = '/api/v1/dashboard/{dashboard_id}'.sub('{dashboard_id}', CGI.escape(dashboard_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -151,7 +154,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'DashboardDeleteResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_dashboard,
@@ -173,7 +176,7 @@ module DatadogAPIClient::V1
     # Delete dashboards
     # Delete dashboards using the specified IDs. If there are any failures, no dashboards will be deleted (partial success is not allowed).
     # @param body [DashboardBulkDeleteRequest] Delete dashboards request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [nil]
     def delete_dashboards(body, opts = {})
       delete_dashboards_with_http_info(body, opts)
@@ -183,7 +186,7 @@ module DatadogAPIClient::V1
     # Delete dashboards
     # Delete dashboards using the specified IDs. If there are any failures, no dashboards will be deleted (partial success is not allowed).
     # @param body [DashboardBulkDeleteRequest] Delete dashboards request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_dashboards_with_http_info(body, opts = {})
 
@@ -212,7 +215,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -226,7 +229,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_dashboards,
@@ -248,7 +251,7 @@ module DatadogAPIClient::V1
     # Get a dashboard
     # Get a dashboard using the specified ID.
     # @param dashboard_id [String] The ID of the dashboard.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Dashboard]
     def get_dashboard(dashboard_id, opts = {})
       data, _status_code, _headers = get_dashboard_with_http_info(dashboard_id, opts)
@@ -258,7 +261,7 @@ module DatadogAPIClient::V1
     # Get a dashboard
     # Get a dashboard using the specified ID.
     # @param dashboard_id [String] The ID of the dashboard.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(Dashboard, Integer, Hash)>] Dashboard data, response status code and response headers
     def get_dashboard_with_http_info(dashboard_id, opts = {})
 
@@ -279,7 +282,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'dashboard_id' when calling DashboardsAPI.get_dashboard"
       end
       # resource path
-      local_var_path = '/api/v1/dashboard/{dashboard_id}'.sub('{' + 'dashboard_id' + '}', CGI.escape(dashboard_id.to_s))
+      local_var_path = '/api/v1/dashboard/{dashboard_id}'.sub('{dashboard_id}', CGI.escape(dashboard_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -299,7 +302,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Dashboard'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_dashboard,
@@ -319,10 +322,13 @@ module DatadogAPIClient::V1
     end
 
     # Get all dashboards
-    # Get all dashboards.  **Note**: This query will only return custom created or cloned dashboards. This query will not return preset dashboards.
-    # @param [Hash] opts the optional parameters
-    # @option opts [Boolean] :filter_shared When &#x60;true&#x60;, this query only returns shared custom created or cloned dashboards.
-    # @option opts [Boolean] :filter_deleted When &#x60;true&#x60;, this query returns only deleted custom-created or cloned dashboards. This parameter is incompatible with &#x60;filter[shared]&#x60;.
+    # Get all dashboards.
+    #
+    # **Note**: This query will only return custom created or cloned dashboards.
+    # This query will not return preset dashboards.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Boolean] :filter_shared When `true`, this query only returns shared custom created or cloned dashboards.
+    # @option opts [Boolean] :filter_deleted When `true`, this query returns only deleted custom-created or cloned dashboards. This parameter is incompatible with `filter[shared]`.
     # @return [DashboardSummary]
     def list_dashboards(opts = {})
       data, _status_code, _headers = list_dashboards_with_http_info(opts)
@@ -330,10 +336,13 @@ module DatadogAPIClient::V1
     end
 
     # Get all dashboards
-    # Get all dashboards.  **Note**: This query will only return custom created or cloned dashboards. This query will not return preset dashboards.
-    # @param [Hash] opts the optional parameters
-    # @option opts [Boolean] :filter_shared When &#x60;true&#x60;, this query only returns shared custom created or cloned dashboards.
-    # @option opts [Boolean] :filter_deleted When &#x60;true&#x60;, this query returns only deleted custom-created or cloned dashboards. This parameter is incompatible with &#x60;filter[shared]&#x60;.
+    # Get all dashboards.
+    #
+    # **Note**: This query will only return custom created or cloned dashboards.
+    # This query will not return preset dashboards.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Boolean] :filter_shared When `true`, this query only returns shared custom created or cloned dashboards.
+    # @option opts [Boolean] :filter_deleted When `true`, this query returns only deleted custom-created or cloned dashboards. This parameter is incompatible with `filter[shared]`.
     # @return [Array<(DashboardSummary, Integer, Hash)>] DashboardSummary data, response status code and response headers
     def list_dashboards_with_http_info(opts = {})
 
@@ -372,7 +381,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'DashboardSummary'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_dashboards,
@@ -394,7 +403,7 @@ module DatadogAPIClient::V1
     # Restore deleted dashboards
     # Restore dashboards using the specified IDs. If there are any failures, no dashboards will be restored (partial success is not allowed).
     # @param body [DashboardRestoreRequest] Restore dashboards request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [nil]
     def restore_dashboards(body, opts = {})
       restore_dashboards_with_http_info(body, opts)
@@ -404,7 +413,7 @@ module DatadogAPIClient::V1
     # Restore deleted dashboards
     # Restore dashboards using the specified IDs. If there are any failures, no dashboards will be restored (partial success is not allowed).
     # @param body [DashboardRestoreRequest] Restore dashboards request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def restore_dashboards_with_http_info(body, opts = {})
 
@@ -433,7 +442,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -447,7 +456,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :restore_dashboards,
@@ -470,7 +479,7 @@ module DatadogAPIClient::V1
     # Update a dashboard using the specified ID.
     # @param dashboard_id [String] The ID of the dashboard.
     # @param body [Dashboard] Update Dashboard request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Dashboard]
     def update_dashboard(dashboard_id, body, opts = {})
       data, _status_code, _headers = update_dashboard_with_http_info(dashboard_id, body, opts)
@@ -481,7 +490,7 @@ module DatadogAPIClient::V1
     # Update a dashboard using the specified ID.
     # @param dashboard_id [String] The ID of the dashboard.
     # @param body [Dashboard] Update Dashboard request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(Dashboard, Integer, Hash)>] Dashboard data, response status code and response headers
     def update_dashboard_with_http_info(dashboard_id, body, opts = {})
 
@@ -506,7 +515,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'body' when calling DashboardsAPI.update_dashboard"
       end
       # resource path
-      local_var_path = '/api/v1/dashboard/{dashboard_id}'.sub('{' + 'dashboard_id' + '}', CGI.escape(dashboard_id.to_s))
+      local_var_path = '/api/v1/dashboard/{dashboard_id}'.sub('{dashboard_id}', CGI.escape(dashboard_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -528,7 +537,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Dashboard'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_dashboard,

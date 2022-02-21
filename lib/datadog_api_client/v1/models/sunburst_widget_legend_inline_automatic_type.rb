@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Whether to show the legend inline or let it be automatically generated.
   class SunburstWidgetLegendInlineAutomaticType
     INLINE = "inline".freeze
     AUTOMATIC = "automatic".freeze
@@ -38,5 +39,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

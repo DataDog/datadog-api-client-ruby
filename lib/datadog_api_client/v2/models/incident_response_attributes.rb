@@ -26,7 +26,8 @@ module DatadogAPIClient::V2
     # Timestamp when the incident was created.
     attr_accessor :created
 
-    # Length of the incident's customer impact in seconds. Equals the difference between `customer_impact_start` and `customer_impact_end`.
+    # Length of the incident's customer impact in seconds.
+    # Equals the difference between `customer_impact_start` and `customer_impact_end`.
     attr_accessor :customer_impact_duration
 
     # Timestamp when customers were no longer impacted by the incident.
@@ -62,7 +63,8 @@ module DatadogAPIClient::V2
     # Timestamp when the incident's state was set to resolved.
     attr_accessor :resolved
 
-    # The amount of time in seconds to detect the incident. Equals the difference between `customer_impact_start` and `detected`.
+    # The amount of time in seconds to detect the incident.
+    # Equals the difference between `customer_impact_start` and `detected`.
     attr_accessor :time_to_detect
 
     # The amount of time in seconds to call incident after detection. Equals the difference of `detected` and `created`.
@@ -147,7 +149,8 @@ module DatadogAPIClient::V2
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentResponseAttributes` initialize method"
@@ -190,9 +193,7 @@ module DatadogAPIClient::V2
       end
 
       if attributes.key?(:'fields')
-        if (value = attributes[:'fields']).is_a?(Hash)
-          self.fields = value
-        end
+        self.fields = attributes[:'fields']
       end
 
       if attributes.key?(:'modified')
@@ -239,14 +240,13 @@ module DatadogAPIClient::V2
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @title.nil?
         invalid_properties.push('invalid value for "title", title cannot be nil.')
       end
-
       invalid_properties
     end
 
@@ -256,6 +256,16 @@ module DatadogAPIClient::V2
     def valid?
       return false if @title.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param title [Object] Object to be assigned
+    # @!visibility private
+    def title=(title)
+      if title.nil?
+        fail ArgumentError, 'invalid value for "title", title cannot be nil.'
+      end
+      @title = title
     end
 
     # Checks equality by comparing each attribute.
@@ -299,7 +309,7 @@ module DatadogAPIClient::V2
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -307,7 +317,7 @@ module DatadogAPIClient::V2
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -413,7 +423,7 @@ module DatadogAPIClient::V2
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -429,7 +439,5 @@ module DatadogAPIClient::V2
         value
       end
     end
-
   end
-
 end

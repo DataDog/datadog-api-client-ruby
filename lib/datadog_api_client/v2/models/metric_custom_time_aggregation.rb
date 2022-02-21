@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
+  # A time aggregation for use in query.
   class MetricCustomTimeAggregation
     AVG = "avg".freeze
     COUNT = "count".freeze
@@ -41,5 +42,4 @@ module DatadogAPIClient::V2
       constantValues.empty? ? DatadogAPIClient::V2::UnparsedObject.new(value) : value
     end
   end
-
 end

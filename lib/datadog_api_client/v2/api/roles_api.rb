@@ -22,11 +22,12 @@ module DatadogAPIClient::V2
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Grant permission to a role
     # Adds a permission to a role.
     # @param role_id [String] The ID of the role.
     # @param body [RelationshipToPermission] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [PermissionsResponse]
     def add_permission_to_role(role_id, body, opts = {})
       data, _status_code, _headers = add_permission_to_role_with_http_info(role_id, body, opts)
@@ -37,7 +38,7 @@ module DatadogAPIClient::V2
     # Adds a permission to a role.
     # @param role_id [String] The ID of the role.
     # @param body [RelationshipToPermission] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(PermissionsResponse, Integer, Hash)>] PermissionsResponse data, response status code and response headers
     def add_permission_to_role_with_http_info(role_id, body, opts = {})
 
@@ -62,7 +63,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'body' when calling RolesAPI.add_permission_to_role"
       end
       # resource path
-      local_var_path = '/api/v2/roles/{role_id}/permissions'.sub('{' + 'role_id' + '}', CGI.escape(role_id.to_s))
+      local_var_path = '/api/v2/roles/{role_id}/permissions'.sub('{role_id}', CGI.escape(role_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -84,7 +85,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'PermissionsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :add_permission_to_role,
@@ -107,7 +108,7 @@ module DatadogAPIClient::V2
     # Adds a user to a role.
     # @param role_id [String] The ID of the role.
     # @param body [RelationshipToUser] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [UsersResponse]
     def add_user_to_role(role_id, body, opts = {})
       data, _status_code, _headers = add_user_to_role_with_http_info(role_id, body, opts)
@@ -118,7 +119,7 @@ module DatadogAPIClient::V2
     # Adds a user to a role.
     # @param role_id [String] The ID of the role.
     # @param body [RelationshipToUser] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(UsersResponse, Integer, Hash)>] UsersResponse data, response status code and response headers
     def add_user_to_role_with_http_info(role_id, body, opts = {})
 
@@ -143,7 +144,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'body' when calling RolesAPI.add_user_to_role"
       end
       # resource path
-      local_var_path = '/api/v2/roles/{role_id}/users'.sub('{' + 'role_id' + '}', CGI.escape(role_id.to_s))
+      local_var_path = '/api/v2/roles/{role_id}/users'.sub('{role_id}', CGI.escape(role_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -165,7 +166,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'UsersResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :add_user_to_role,
@@ -188,7 +189,7 @@ module DatadogAPIClient::V2
     # Clone an existing role
     # @param role_id [String] The ID of the role.
     # @param body [RoleCloneRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [RoleResponse]
     def clone_role(role_id, body, opts = {})
       data, _status_code, _headers = clone_role_with_http_info(role_id, body, opts)
@@ -199,7 +200,7 @@ module DatadogAPIClient::V2
     # Clone an existing role
     # @param role_id [String] The ID of the role.
     # @param body [RoleCloneRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(RoleResponse, Integer, Hash)>] RoleResponse data, response status code and response headers
     def clone_role_with_http_info(role_id, body, opts = {})
 
@@ -224,7 +225,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'body' when calling RolesAPI.clone_role"
       end
       # resource path
-      local_var_path = '/api/v2/roles/{role_id}/clone'.sub('{' + 'role_id' + '}', CGI.escape(role_id.to_s))
+      local_var_path = '/api/v2/roles/{role_id}/clone'.sub('{role_id}', CGI.escape(role_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -246,7 +247,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'RoleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :clone_role,
@@ -268,7 +269,7 @@ module DatadogAPIClient::V2
     # Create role
     # Create a new role for your organization.
     # @param body [RoleCreateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [RoleCreateResponse]
     def create_role(body, opts = {})
       data, _status_code, _headers = create_role_with_http_info(body, opts)
@@ -278,7 +279,7 @@ module DatadogAPIClient::V2
     # Create role
     # Create a new role for your organization.
     # @param body [RoleCreateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(RoleCreateResponse, Integer, Hash)>] RoleCreateResponse data, response status code and response headers
     def create_role_with_http_info(body, opts = {})
 
@@ -321,7 +322,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'RoleCreateResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_role,
@@ -343,7 +344,7 @@ module DatadogAPIClient::V2
     # Delete role
     # Disables a role.
     # @param role_id [String] The ID of the role.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [nil]
     def delete_role(role_id, opts = {})
       delete_role_with_http_info(role_id, opts)
@@ -353,7 +354,7 @@ module DatadogAPIClient::V2
     # Delete role
     # Disables a role.
     # @param role_id [String] The ID of the role.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_role_with_http_info(role_id, opts = {})
 
@@ -374,7 +375,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'role_id' when calling RolesAPI.delete_role"
       end
       # resource path
-      local_var_path = '/api/v2/roles/{role_id}'.sub('{' + 'role_id' + '}', CGI.escape(role_id.to_s))
+      local_var_path = '/api/v2/roles/{role_id}'.sub('{role_id}', CGI.escape(role_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -382,7 +383,7 @@ module DatadogAPIClient::V2
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -394,7 +395,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_role,
@@ -416,7 +417,7 @@ module DatadogAPIClient::V2
     # Get a role
     # Get a role in the organization specified by the role’s `role_id`.
     # @param role_id [String] The ID of the role.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [RoleResponse]
     def get_role(role_id, opts = {})
       data, _status_code, _headers = get_role_with_http_info(role_id, opts)
@@ -424,9 +425,9 @@ module DatadogAPIClient::V2
     end
 
     # Get a role
-    # Get a role in the organization specified by the role’s &#x60;role_id&#x60;.
+    # Get a role in the organization specified by the role’s `role_id`.
     # @param role_id [String] The ID of the role.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(RoleResponse, Integer, Hash)>] RoleResponse data, response status code and response headers
     def get_role_with_http_info(role_id, opts = {})
 
@@ -447,7 +448,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'role_id' when calling RolesAPI.get_role"
       end
       # resource path
-      local_var_path = '/api/v2/roles/{role_id}'.sub('{' + 'role_id' + '}', CGI.escape(role_id.to_s))
+      local_var_path = '/api/v2/roles/{role_id}'.sub('{role_id}', CGI.escape(role_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -467,7 +468,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'RoleResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_role,
@@ -488,7 +489,7 @@ module DatadogAPIClient::V2
 
     # List permissions
     # Returns a list of all permissions, including name, description, and ID.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [PermissionsResponse]
     def list_permissions(opts = {})
       data, _status_code, _headers = list_permissions_with_http_info(opts)
@@ -497,7 +498,7 @@ module DatadogAPIClient::V2
 
     # List permissions
     # Returns a list of all permissions, including name, description, and ID.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(PermissionsResponse, Integer, Hash)>] PermissionsResponse data, response status code and response headers
     def list_permissions_with_http_info(opts = {})
 
@@ -534,7 +535,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'PermissionsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_permissions,
@@ -556,7 +557,7 @@ module DatadogAPIClient::V2
     # List permissions for a role
     # Returns a list of all permissions for a single role.
     # @param role_id [String] The ID of the role.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [PermissionsResponse]
     def list_role_permissions(role_id, opts = {})
       data, _status_code, _headers = list_role_permissions_with_http_info(role_id, opts)
@@ -566,7 +567,7 @@ module DatadogAPIClient::V2
     # List permissions for a role
     # Returns a list of all permissions for a single role.
     # @param role_id [String] The ID of the role.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(PermissionsResponse, Integer, Hash)>] PermissionsResponse data, response status code and response headers
     def list_role_permissions_with_http_info(role_id, opts = {})
 
@@ -587,7 +588,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'role_id' when calling RolesAPI.list_role_permissions"
       end
       # resource path
-      local_var_path = '/api/v2/roles/{role_id}/permissions'.sub('{' + 'role_id' + '}', CGI.escape(role_id.to_s))
+      local_var_path = '/api/v2/roles/{role_id}/permissions'.sub('{role_id}', CGI.escape(role_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -607,7 +608,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'PermissionsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_role_permissions,
@@ -626,97 +627,12 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get all users of a role
-    # Gets all users of a role.
-    # @param role_id [String] The ID of the role.
-    # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. (default to 10)
-    # @option opts [Integer] :page_number Specific page number to return. (default to 0)
-    # @option opts [String] :sort User attribute to order results by. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;email&#x60;, &#x60;status&#x60;. (default to 'name')
-    # @option opts [String] :filter Filter all users by the given string. Defaults to no filtering.
-    # @return [UsersResponse]
-    def list_role_users(role_id, opts = {})
-      data, _status_code, _headers = list_role_users_with_http_info(role_id, opts)
-      data
-    end
-
-    # Get all users of a role
-    # Gets all users of a role.
-    # @param role_id [String] The ID of the role.
-    # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :page_size Size for a given page.
-    # @option opts [Integer] :page_number Specific page number to return.
-    # @option opts [String] :sort User attribute to order results by. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;email&#x60;, &#x60;status&#x60;.
-    # @option opts [String] :filter Filter all users by the given string. Defaults to no filtering.
-    # @return [Array<(UsersResponse, Integer, Hash)>] UsersResponse data, response status code and response headers
-    def list_role_users_with_http_info(role_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_role_users)
-        unstable_enabled = @api_client.config.unstable_operations[:list_role_users]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_role_users")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_role_users"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: RolesAPI.list_role_users ...'
-      end
-      # verify the required parameter 'role_id' is set
-      if @api_client.config.client_side_validation && role_id.nil?
-        fail ArgumentError, "Missing the required parameter 'role_id' when calling RolesAPI.list_role_users"
-      end
-      # resource path
-      local_var_path = '/api/v2/roles/{role_id}/users'.sub('{' + 'role_id' + '}', CGI.escape(role_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
-      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
-      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
-      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'UsersResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
-
-      new_options = opts.merge(
-        :operation => :list_role_users,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: RolesAPI#list_role_users\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
     # List roles
     # Returns all roles, including their names and IDs.
-    # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. (default to 10)
-    # @option opts [Integer] :page_number Specific page number to return. (default to 0)
-    # @option opts [RolesSort] :sort Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: &#x60;sort&#x3D;-name&#x60;. (default to 'name')
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size Size for a given page.
+    # @option opts [Integer] :page_number Specific page number to return.
+    # @option opts [RolesSort] :sort Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: `sort=-name`.
     # @option opts [String] :filter Filter all roles by the given string.
     # @return [RolesResponse]
     def list_roles(opts = {})
@@ -726,10 +642,10 @@ module DatadogAPIClient::V2
 
     # List roles
     # Returns all roles, including their names and IDs.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Size for a given page.
     # @option opts [Integer] :page_number Specific page number to return.
-    # @option opts [RolesSort] :sort Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: &#x60;sort&#x3D;-name&#x60;.
+    # @option opts [RolesSort] :sort Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: `sort=-name`.
     # @option opts [String] :filter Filter all roles by the given string.
     # @return [Array<(RolesResponse, Integer, Hash)>] RolesResponse data, response status code and response headers
     def list_roles_with_http_info(opts = {})
@@ -745,6 +661,10 @@ module DatadogAPIClient::V2
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RolesAPI.list_roles ...'
+      end
+      allowable_values = ['name', '-name', 'modified_at', '-modified_at', 'user_count', '-user_count']
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/api/v2/roles'
@@ -771,7 +691,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'RolesResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_roles,
@@ -790,11 +710,96 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get all users of a role
+    # Gets all users of a role.
+    # @param role_id [String] The ID of the role.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size Size for a given page.
+    # @option opts [Integer] :page_number Specific page number to return.
+    # @option opts [String] :sort User attribute to order results by. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example `sort=-name`. Options: `name`, `email`, `status`.
+    # @option opts [String] :filter Filter all users by the given string. Defaults to no filtering.
+    # @return [UsersResponse]
+    def list_role_users(role_id, opts = {})
+      data, _status_code, _headers = list_role_users_with_http_info(role_id, opts)
+      data
+    end
+
+    # Get all users of a role
+    # Gets all users of a role.
+    # @param role_id [String] The ID of the role.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size Size for a given page.
+    # @option opts [Integer] :page_number Specific page number to return.
+    # @option opts [String] :sort User attribute to order results by. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example `sort=-name`. Options: `name`, `email`, `status`.
+    # @option opts [String] :filter Filter all users by the given string. Defaults to no filtering.
+    # @return [Array<(UsersResponse, Integer, Hash)>] UsersResponse data, response status code and response headers
+    def list_role_users_with_http_info(role_id, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:list_role_users)
+        unstable_enabled = @api_client.config.unstable_operations[:list_role_users]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_role_users")
+        else
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_role_users"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RolesAPI.list_role_users ...'
+      end
+      # verify the required parameter 'role_id' is set
+      if @api_client.config.client_side_validation && role_id.nil?
+        fail ArgumentError, "Missing the required parameter 'role_id' when calling RolesAPI.list_role_users"
+      end
+      # resource path
+      local_var_path = '/api/v2/roles/{role_id}/users'.sub('{role_id}', CGI.escape(role_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UsersResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_role_users,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: RolesAPI#list_role_users\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Revoke permission
     # Removes a permission from a role.
     # @param role_id [String] The ID of the role.
     # @param body [RelationshipToPermission] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [PermissionsResponse]
     def remove_permission_from_role(role_id, body, opts = {})
       data, _status_code, _headers = remove_permission_from_role_with_http_info(role_id, body, opts)
@@ -805,7 +810,7 @@ module DatadogAPIClient::V2
     # Removes a permission from a role.
     # @param role_id [String] The ID of the role.
     # @param body [RelationshipToPermission] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(PermissionsResponse, Integer, Hash)>] PermissionsResponse data, response status code and response headers
     def remove_permission_from_role_with_http_info(role_id, body, opts = {})
 
@@ -830,7 +835,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'body' when calling RolesAPI.remove_permission_from_role"
       end
       # resource path
-      local_var_path = '/api/v2/roles/{role_id}/permissions'.sub('{' + 'role_id' + '}', CGI.escape(role_id.to_s))
+      local_var_path = '/api/v2/roles/{role_id}/permissions'.sub('{role_id}', CGI.escape(role_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -852,7 +857,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'PermissionsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :remove_permission_from_role,
@@ -875,7 +880,7 @@ module DatadogAPIClient::V2
     # Removes a user from a role.
     # @param role_id [String] The ID of the role.
     # @param body [RelationshipToUser] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [UsersResponse]
     def remove_user_from_role(role_id, body, opts = {})
       data, _status_code, _headers = remove_user_from_role_with_http_info(role_id, body, opts)
@@ -886,7 +891,7 @@ module DatadogAPIClient::V2
     # Removes a user from a role.
     # @param role_id [String] The ID of the role.
     # @param body [RelationshipToUser] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(UsersResponse, Integer, Hash)>] UsersResponse data, response status code and response headers
     def remove_user_from_role_with_http_info(role_id, body, opts = {})
 
@@ -911,7 +916,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'body' when calling RolesAPI.remove_user_from_role"
       end
       # resource path
-      local_var_path = '/api/v2/roles/{role_id}/users'.sub('{' + 'role_id' + '}', CGI.escape(role_id.to_s))
+      local_var_path = '/api/v2/roles/{role_id}/users'.sub('{role_id}', CGI.escape(role_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -933,7 +938,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'UsersResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :remove_user_from_role,
@@ -956,7 +961,7 @@ module DatadogAPIClient::V2
     # Edit a role. Can only be used with application keys belonging to administrators.
     # @param role_id [String] The ID of the role.
     # @param body [RoleUpdateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [RoleUpdateResponse]
     def update_role(role_id, body, opts = {})
       data, _status_code, _headers = update_role_with_http_info(role_id, body, opts)
@@ -967,7 +972,7 @@ module DatadogAPIClient::V2
     # Edit a role. Can only be used with application keys belonging to administrators.
     # @param role_id [String] The ID of the role.
     # @param body [RoleUpdateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(RoleUpdateResponse, Integer, Hash)>] RoleUpdateResponse data, response status code and response headers
     def update_role_with_http_info(role_id, body, opts = {})
 
@@ -992,7 +997,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'body' when calling RolesAPI.update_role"
       end
       # resource path
-      local_var_path = '/api/v2/roles/{role_id}'.sub('{' + 'role_id' + '}', CGI.escape(role_id.to_s))
+      local_var_path = '/api/v2/roles/{role_id}'.sub('{role_id}', CGI.escape(role_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1014,7 +1019,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'RoleUpdateResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_role,

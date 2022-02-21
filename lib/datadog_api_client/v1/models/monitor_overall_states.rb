@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # The different states your monitor can be in.
   class MonitorOverallStates
     ALERT = "Alert".freeze
     IGNORED = "Ignored".freeze
@@ -43,5 +44,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

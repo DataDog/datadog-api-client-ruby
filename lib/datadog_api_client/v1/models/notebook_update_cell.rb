@@ -17,7 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Updating a notebook can either insert new cell(s) or update existing cell(s) by including the cell `id`. To delete existing cell(s), simply omit it from the list of cells.
+  # Updating a notebook can either insert new cell(s) or update existing cell(s) by including the cell `id`.
+  # To delete existing cell(s), simply omit it from the list of cells.
   module NotebookUpdateCell
     class << self
       attr_accessor :_unparsed
@@ -29,7 +30,6 @@ module DatadogAPIClient::V1
           :'NotebookCellUpdateRequest'
         ]
       end
-
       # Builds the object
       # @param [Mixed] Data to be matched against the list of oneOf items
       # @return [Object] Returns the model or the data itself
@@ -57,7 +57,6 @@ module DatadogAPIClient::V1
           self._unparsed = true
           DatadogAPIClient::V1::UnparsedObject.new(data)
         end
-
       end
 
       private
@@ -114,5 +113,4 @@ module DatadogAPIClient::V1
       end
     end
   end
-
 end

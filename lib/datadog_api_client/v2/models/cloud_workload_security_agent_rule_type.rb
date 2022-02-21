@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
+  # The type of the resource. The value should always be `agent_rule`.
   class CloudWorkloadSecurityAgentRuleType
     AGENT_RULE = "agent_rule".freeze
 
@@ -37,5 +38,4 @@ module DatadogAPIClient::V2
       constantValues.empty? ? DatadogAPIClient::V2::UnparsedObject.new(value) : value
     end
   end
-
 end

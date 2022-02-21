@@ -17,7 +17,19 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Use the string builder processor to add a new attribute (without spaces or special characters) to a log with the result of the provided template. This enables aggregation of different attributes or raw strings into a single attribute.  The template is defined by both raw text and blocks with the syntax `%{attribute_path}`.  **Notes**:  - The processor only accepts attributes with values or an array of values in the blocks. - If an attribute cannot be used (object or array of object),   it is replaced by an empty string or the entire operation is skipped depending on your selection. - If the target attribute already exists, it is overwritten by the result of the template. - Results of the template cannot exceed 256 characters.
+  # Use the string builder processor to add a new attribute (without spaces or special characters)
+  # to a log with the result of the provided template.
+  # This enables aggregation of different attributes or raw strings into a single attribute.
+  # 
+  # The template is defined by both raw text and blocks with the syntax `%{attribute_path}`.
+  # 
+  # **Notes**:
+  # 
+  # - The processor only accepts attributes with values or an array of values in the blocks.
+  # - If an attribute cannot be used (object or array of object),
+  #   it is replaced by an empty string or the entire operation is skipped depending on your selection.
+  # - If the target attribute already exists, it is overwritten by the result of the template.
+  # - Results of the template cannot exceed 256 characters.
   class LogsStringBuilderProcessor
     # Whether the object has unparsed attributes
     # @!visibility private
@@ -26,7 +38,8 @@ module DatadogAPIClient::V1
     # Whether or not the processor is enabled.
     attr_accessor :is_enabled
 
-    # If true, it replaces all missing attributes of `template` by an empty string. If `false` (default), skips the operation for missing attributes.
+    # If true, it replaces all missing attributes of `template` by an empty string.
+    # If `false` (default), skips the operation for missing attributes.
     attr_accessor :is_replace_missing
 
     # Name of the processor.
@@ -38,6 +51,7 @@ module DatadogAPIClient::V1
     # A formula with one or more attributes and raw text.
     attr_accessor :template
 
+    # Type of logs string builder processor.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -80,7 +94,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::LogsStringBuilderProcessor` initialize method"
@@ -126,22 +141,19 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @target.nil?
         invalid_properties.push('invalid value for "target", target cannot be nil.')
       end
-
       if @template.nil?
         invalid_properties.push('invalid value for "template", template cannot be nil.')
       end
-
       if @type.nil?
         invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
-
       invalid_properties
     end
 
@@ -153,6 +165,36 @@ module DatadogAPIClient::V1
       return false if @template.nil?
       return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param target [Object] Object to be assigned
+    # @!visibility private
+    def target=(target)
+      if target.nil?
+        fail ArgumentError, 'invalid value for "target", target cannot be nil.'
+      end
+      @target = target
+    end
+
+    # Custom attribute writer method with validation
+    # @param template [Object] Object to be assigned
+    # @!visibility private
+    def template=(template)
+      if template.nil?
+        fail ArgumentError, 'invalid value for "template", template cannot be nil.'
+      end
+      @template = template
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    # @!visibility private
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.
@@ -184,7 +226,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -192,7 +234,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -298,7 +340,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -314,7 +356,5 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
-
 end

@@ -17,7 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # An object that holds an SLI value and its associated data. It can represent an SLO's overall SLI value. This can also represent the SLI value for a specific monitor in multi-monitor SLOs, or a group in grouped SLOs.
+  # An object that holds an SLI value and its associated data. It can represent an SLO's overall SLI value.
+  # This can also represent the SLI value for a specific monitor in multi-monitor SLOs, or a group in grouped SLOs.
   class SLOHistoryMonitor
     # Whether the object has unparsed attributes
     # @!visibility private
@@ -47,7 +48,8 @@ module DatadogAPIClient::V1
     # The amount of decimal places the SLI value is accurate to for the given from `&&` to timestamp. Use `span_precision` instead.
     attr_accessor :precision
 
-    # For `monitor` based SLOs, when `true` this indicates that a replay is in progress to give an accurate uptime calculation.
+    # For `monitor` based SLOs, when `true` this indicates that a replay is in progress to give an accurate uptime
+    # calculation.
     attr_accessor :preview
 
     # The current SLI value of the SLO over the history window.
@@ -111,7 +113,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SLOHistoryMonitor` initialize method"
@@ -126,9 +129,7 @@ module DatadogAPIClient::V1
       }
 
       if attributes.key?(:'error_budget_remaining')
-        if (value = attributes[:'error_budget_remaining']).is_a?(Hash)
-          self.error_budget_remaining = value
-        end
+        self.error_budget_remaining = attributes[:'error_budget_remaining']
       end
 
       if attributes.key?(:'errors')
@@ -181,8 +182,8 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       invalid_properties
@@ -230,7 +231,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -238,7 +239,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -344,7 +345,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -360,7 +361,5 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
-
 end

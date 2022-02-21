@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
+  # The status of the response
   class LogsAggregateResponseStatus
     DONE = "done".freeze
     TIMEOUT = "timeout".freeze
@@ -38,5 +39,4 @@ module DatadogAPIClient::V2
       constantValues.empty? ? DatadogAPIClient::V2::UnparsedObject.new(value) : value
     end
   end
-
 end

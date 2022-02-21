@@ -17,6 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # How to size the image on the widget. The values are based on the image `object-fit` CSS properties.
+  # **Note**: `zoom`, `fit` and `center` values are deprecated.
   class WidgetImageSizing
     FILL = "fill".freeze
     CONTAIN = "contain".freeze
@@ -44,5 +46,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

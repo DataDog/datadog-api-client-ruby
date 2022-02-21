@@ -22,10 +22,15 @@ module DatadogAPIClient::V1
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Submit a Service Check
-    # Submit a list of Service Checks.  **Notes**: - A valid API key is required. - Service checks can be submitted up to 10 minutes in the past.
+    # Submit a list of Service Checks.
+    #
+    # **Notes**:
+    # - A valid API key is required.
+    # - Service checks can be submitted up to 10 minutes in the past.
     # @param body [Array<ServiceCheck>] Service Check request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [IntakePayloadAccepted]
     def submit_service_check(body, opts = {})
       data, _status_code, _headers = submit_service_check_with_http_info(body, opts)
@@ -33,9 +38,13 @@ module DatadogAPIClient::V1
     end
 
     # Submit a Service Check
-    # Submit a list of Service Checks.  **Notes**: - A valid API key is required. - Service checks can be submitted up to 10 minutes in the past.
+    # Submit a list of Service Checks.
+    #
+    # **Notes**:
+    # - A valid API key is required.
+    # - Service checks can be submitted up to 10 minutes in the past.
     # @param body [Array<ServiceCheck>] Service Check request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(IntakePayloadAccepted, Integer, Hash)>] IntakePayloadAccepted data, response status code and response headers
     def submit_service_check_with_http_info(body, opts = {})
 

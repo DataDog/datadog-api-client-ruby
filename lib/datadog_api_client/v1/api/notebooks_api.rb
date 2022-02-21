@@ -22,10 +22,11 @@ module DatadogAPIClient::V1
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Create a notebook
     # Create a notebook using the specified options.
     # @param body [NotebookCreateRequest] The JSON description of the notebook you want to create.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [NotebookResponse]
     def create_notebook(body, opts = {})
       data, _status_code, _headers = create_notebook_with_http_info(body, opts)
@@ -35,7 +36,7 @@ module DatadogAPIClient::V1
     # Create a notebook
     # Create a notebook using the specified options.
     # @param body [NotebookCreateRequest] The JSON description of the notebook you want to create.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(NotebookResponse, Integer, Hash)>] NotebookResponse data, response status code and response headers
     def create_notebook_with_http_info(body, opts = {})
 
@@ -100,7 +101,7 @@ module DatadogAPIClient::V1
     # Delete a notebook
     # Delete a notebook using the specified ID.
     # @param notebook_id [Integer] Unique ID, assigned when you create the notebook.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [nil]
     def delete_notebook(notebook_id, opts = {})
       delete_notebook_with_http_info(notebook_id, opts)
@@ -110,7 +111,7 @@ module DatadogAPIClient::V1
     # Delete a notebook
     # Delete a notebook using the specified ID.
     # @param notebook_id [Integer] Unique ID, assigned when you create the notebook.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_notebook_with_http_info(notebook_id, opts = {})
 
@@ -131,7 +132,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'notebook_id' when calling NotebooksAPI.delete_notebook"
       end
       # resource path
-      local_var_path = '/api/v1/notebooks/{notebook_id}'.sub('{' + 'notebook_id' + '}', CGI.escape(notebook_id.to_s))
+      local_var_path = '/api/v1/notebooks/{notebook_id}'.sub('{notebook_id}', CGI.escape(notebook_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -139,7 +140,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -173,7 +174,7 @@ module DatadogAPIClient::V1
     # Get a notebook
     # Get a notebook using the specified notebook ID.
     # @param notebook_id [Integer] Unique ID, assigned when you create the notebook.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [NotebookResponse]
     def get_notebook(notebook_id, opts = {})
       data, _status_code, _headers = get_notebook_with_http_info(notebook_id, opts)
@@ -183,7 +184,7 @@ module DatadogAPIClient::V1
     # Get a notebook
     # Get a notebook using the specified notebook ID.
     # @param notebook_id [Integer] Unique ID, assigned when you create the notebook.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(NotebookResponse, Integer, Hash)>] NotebookResponse data, response status code and response headers
     def get_notebook_with_http_info(notebook_id, opts = {})
 
@@ -204,7 +205,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'notebook_id' when calling NotebooksAPI.get_notebook"
       end
       # resource path
-      local_var_path = '/api/v1/notebooks/{notebook_id}'.sub('{' + 'notebook_id' + '}', CGI.escape(notebook_id.to_s))
+      local_var_path = '/api/v1/notebooks/{notebook_id}'.sub('{notebook_id}', CGI.escape(notebook_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -224,7 +225,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'NotebookResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_notebook,
@@ -244,17 +245,18 @@ module DatadogAPIClient::V1
     end
 
     # Get all notebooks
-    # Get all notebooks. This can also be used to search for notebooks with a particular `query` in the notebook `name` or author `handle`.
-    # @param [Hash] opts the optional parameters
-    # @option opts [String] :author_handle Return notebooks created by the given &#x60;author_handle&#x60;.
-    # @option opts [String] :exclude_author_handle Return notebooks not created by the given &#x60;author_handle&#x60;.
+    # Get all notebooks. This can also be used to search for notebooks with a particular `query` in the notebook
+    # `name` or author `handle`.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :author_handle Return notebooks created by the given `author_handle`.
+    # @option opts [String] :exclude_author_handle Return notebooks not created by the given `author_handle`.
     # @option opts [Integer] :start The index of the first notebook you want returned.
     # @option opts [Integer] :count The number of notebooks to be returned.
-    # @option opts [String] :sort_field Sort by field &#x60;modified&#x60;, &#x60;name&#x60;, or &#x60;created&#x60;. (default to 'modified')
-    # @option opts [String] :sort_dir Sort by direction &#x60;asc&#x60; or &#x60;desc&#x60;. (default to 'desc')
-    # @option opts [String] :query Return only notebooks with &#x60;query&#x60; string in notebook name or author handle.
-    # @option opts [Boolean] :include_cells Value of &#x60;false&#x60; excludes the &#x60;cells&#x60; and global &#x60;time&#x60; for each notebook. (default to true)
-    # @option opts [Boolean] :is_template True value returns only template notebooks. Default is false (returns only non-template notebooks). (default to false)
+    # @option opts [String] :sort_field Sort by field `modified`, `name`, or `created`.
+    # @option opts [String] :sort_dir Sort by direction `asc` or `desc`.
+    # @option opts [String] :query Return only notebooks with `query` string in notebook name or author handle.
+    # @option opts [Boolean] :include_cells Value of `false` excludes the `cells` and global `time` for each notebook.
+    # @option opts [Boolean] :is_template True value returns only template notebooks. Default is false (returns only non-template notebooks).
     # @option opts [String] :type If type is provided, returns only notebooks with that metadata type. Default does not have type filtering.
     # @return [NotebooksResponse]
     def list_notebooks(opts = {})
@@ -263,16 +265,17 @@ module DatadogAPIClient::V1
     end
 
     # Get all notebooks
-    # Get all notebooks. This can also be used to search for notebooks with a particular &#x60;query&#x60; in the notebook &#x60;name&#x60; or author &#x60;handle&#x60;.
-    # @param [Hash] opts the optional parameters
-    # @option opts [String] :author_handle Return notebooks created by the given &#x60;author_handle&#x60;.
-    # @option opts [String] :exclude_author_handle Return notebooks not created by the given &#x60;author_handle&#x60;.
+    # Get all notebooks. This can also be used to search for notebooks with a particular `query` in the notebook
+    # `name` or author `handle`.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :author_handle Return notebooks created by the given `author_handle`.
+    # @option opts [String] :exclude_author_handle Return notebooks not created by the given `author_handle`.
     # @option opts [Integer] :start The index of the first notebook you want returned.
     # @option opts [Integer] :count The number of notebooks to be returned.
-    # @option opts [String] :sort_field Sort by field &#x60;modified&#x60;, &#x60;name&#x60;, or &#x60;created&#x60;.
-    # @option opts [String] :sort_dir Sort by direction &#x60;asc&#x60; or &#x60;desc&#x60;.
-    # @option opts [String] :query Return only notebooks with &#x60;query&#x60; string in notebook name or author handle.
-    # @option opts [Boolean] :include_cells Value of &#x60;false&#x60; excludes the &#x60;cells&#x60; and global &#x60;time&#x60; for each notebook.
+    # @option opts [String] :sort_field Sort by field `modified`, `name`, or `created`.
+    # @option opts [String] :sort_dir Sort by direction `asc` or `desc`.
+    # @option opts [String] :query Return only notebooks with `query` string in notebook name or author handle.
+    # @option opts [Boolean] :include_cells Value of `false` excludes the `cells` and global `time` for each notebook.
     # @option opts [Boolean] :is_template True value returns only template notebooks. Default is false (returns only non-template notebooks).
     # @option opts [String] :type If type is provided, returns only notebooks with that metadata type. Default does not have type filtering.
     # @return [Array<(NotebooksResponse, Integer, Hash)>] NotebooksResponse data, response status code and response headers
@@ -321,7 +324,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'NotebooksResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_notebooks,
@@ -344,7 +347,7 @@ module DatadogAPIClient::V1
     # Update a notebook using the specified ID.
     # @param notebook_id [Integer] Unique ID, assigned when you create the notebook.
     # @param body [NotebookUpdateRequest] Update notebook request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [NotebookResponse]
     def update_notebook(notebook_id, body, opts = {})
       data, _status_code, _headers = update_notebook_with_http_info(notebook_id, body, opts)
@@ -355,7 +358,7 @@ module DatadogAPIClient::V1
     # Update a notebook using the specified ID.
     # @param notebook_id [Integer] Unique ID, assigned when you create the notebook.
     # @param body [NotebookUpdateRequest] Update notebook request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(NotebookResponse, Integer, Hash)>] NotebookResponse data, response status code and response headers
     def update_notebook_with_http_info(notebook_id, body, opts = {})
 
@@ -380,7 +383,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'body' when calling NotebooksAPI.update_notebook"
       end
       # resource path
-      local_var_path = '/api/v1/notebooks/{notebook_id}'.sub('{' + 'notebook_id' + '}', CGI.escape(notebook_id.to_s))
+      local_var_path = '/api/v1/notebooks/{notebook_id}'.sub('{notebook_id}', CGI.escape(notebook_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}

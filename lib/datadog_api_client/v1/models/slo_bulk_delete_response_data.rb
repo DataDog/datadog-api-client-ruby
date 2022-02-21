@@ -23,10 +23,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # An array of service level objective object IDs that indicates which objects that were completely deleted.
+    # An array of service level objective object IDs that indicates
+    # which objects that were completely deleted.
     attr_accessor :deleted
 
-    # An array of service level objective object IDs that indicates which objects that were modified (objects for which at least one threshold was deleted, but that were not completely deleted).
+    # An array of service level objective object IDs that indicates
+    # which objects that were modified (objects for which at least one
+    # threshold was deleted, but that were not completely deleted).
     attr_accessor :updated
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -61,7 +64,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SLOBulkDeleteResponseData` initialize method"
@@ -89,8 +93,8 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       invalid_properties
@@ -128,7 +132,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -136,7 +140,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -242,7 +246,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -258,7 +262,5 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
-
 end

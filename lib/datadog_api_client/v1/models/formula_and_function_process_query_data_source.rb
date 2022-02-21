@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Data sources that rely on the process backend.
   class FormulaAndFunctionProcessQueryDataSource
     PROCESS = "process".freeze
     CONTAINER = "container".freeze
@@ -38,5 +39,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

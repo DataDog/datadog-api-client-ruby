@@ -22,9 +22,11 @@ module DatadogAPIClient::V1
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Get the total number of active hosts
-    # This endpoint returns the total number of active and up hosts in your Datadog account. Active means the host has reported in the past hour, and up means it has reported in the past two hours.
-    # @param [Hash] opts the optional parameters
+    # This endpoint returns the total number of active and up hosts in your Datadog account.
+    # Active means the host has reported in the past hour, and up means it has reported in the past two hours.
+    # @param opts [Hash] the optional parameters
     # @option opts [Integer] :from Number of seconds from which you want to get total number of active hosts.
     # @return [HostTotals]
     def get_host_totals(opts = {})
@@ -33,8 +35,9 @@ module DatadogAPIClient::V1
     end
 
     # Get the total number of active hosts
-    # This endpoint returns the total number of active and up hosts in your Datadog account. Active means the host has reported in the past hour, and up means it has reported in the past two hours.
-    # @param [Hash] opts the optional parameters
+    # This endpoint returns the total number of active and up hosts in your Datadog account.
+    # Active means the host has reported in the past hour, and up means it has reported in the past two hours.
+    # @param opts [Hash] the optional parameters
     # @option opts [Integer] :from Number of seconds from which you want to get total number of active hosts.
     # @return [Array<(HostTotals, Integer, Hash)>] HostTotals data, response status code and response headers
     def get_host_totals_with_http_info(opts = {})
@@ -73,7 +76,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'HostTotals'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_host_totals,
@@ -93,11 +96,14 @@ module DatadogAPIClient::V1
     end
 
     # Get all hosts for your organization
-    # This endpoint allows searching for hosts by name, alias, or tag. Hosts live within the past 3 hours are included by default. Retention is 7 days. Results are paginated with a max of 1000 results at a time.
-    # @param [Hash] opts the optional parameters
+    # This endpoint allows searching for hosts by name, alias, or tag.
+    # Hosts live within the past 3 hours are included by default.
+    # Retention is 7 days.
+    # Results are paginated with a max of 1000 results at a time.
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :filter String to filter search results.
     # @option opts [String] :sort_field Sort hosts by this field.
-    # @option opts [String] :sort_dir Direction of sort. Options include &#x60;asc&#x60; and &#x60;desc&#x60;.
+    # @option opts [String] :sort_dir Direction of sort. Options include `asc` and `desc`.
     # @option opts [Integer] :start Host result to start search from.
     # @option opts [Integer] :count Number of hosts to return. Max 1000.
     # @option opts [Integer] :from Number of seconds since UNIX epoch from which you want to search your hosts.
@@ -110,11 +116,14 @@ module DatadogAPIClient::V1
     end
 
     # Get all hosts for your organization
-    # This endpoint allows searching for hosts by name, alias, or tag. Hosts live within the past 3 hours are included by default. Retention is 7 days. Results are paginated with a max of 1000 results at a time.
-    # @param [Hash] opts the optional parameters
+    # This endpoint allows searching for hosts by name, alias, or tag.
+    # Hosts live within the past 3 hours are included by default.
+    # Retention is 7 days.
+    # Results are paginated with a max of 1000 results at a time.
+    # @param opts [Hash] the optional parameters
     # @option opts [String] :filter String to filter search results.
     # @option opts [String] :sort_field Sort hosts by this field.
-    # @option opts [String] :sort_dir Direction of sort. Options include &#x60;asc&#x60; and &#x60;desc&#x60;.
+    # @option opts [String] :sort_dir Direction of sort. Options include `asc` and `desc`.
     # @option opts [Integer] :start Host result to start search from.
     # @option opts [Integer] :count Number of hosts to return. Max 1000.
     # @option opts [Integer] :from Number of seconds since UNIX epoch from which you want to search your hosts.
@@ -164,7 +173,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'HostListResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_hosts,
@@ -187,7 +196,7 @@ module DatadogAPIClient::V1
     # Mute a host.
     # @param host_name [String] Name of the host to mute.
     # @param body [HostMuteSettings] Mute a host request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [HostMuteResponse]
     def mute_host(host_name, body, opts = {})
       data, _status_code, _headers = mute_host_with_http_info(host_name, body, opts)
@@ -198,7 +207,7 @@ module DatadogAPIClient::V1
     # Mute a host.
     # @param host_name [String] Name of the host to mute.
     # @param body [HostMuteSettings] Mute a host request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(HostMuteResponse, Integer, Hash)>] HostMuteResponse data, response status code and response headers
     def mute_host_with_http_info(host_name, body, opts = {})
 
@@ -223,7 +232,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'body' when calling HostsAPI.mute_host"
       end
       # resource path
-      local_var_path = '/api/v1/host/{host_name}/mute'.sub('{' + 'host_name' + '}', CGI.escape(host_name.to_s))
+      local_var_path = '/api/v1/host/{host_name}/mute'.sub('{host_name}', CGI.escape(host_name.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -267,7 +276,7 @@ module DatadogAPIClient::V1
     # Unmute a host
     # Unmutes a host. This endpoint takes no JSON arguments.
     # @param host_name [String] Name of the host to unmute.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [HostMuteResponse]
     def unmute_host(host_name, opts = {})
       data, _status_code, _headers = unmute_host_with_http_info(host_name, opts)
@@ -277,7 +286,7 @@ module DatadogAPIClient::V1
     # Unmute a host
     # Unmutes a host. This endpoint takes no JSON arguments.
     # @param host_name [String] Name of the host to unmute.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(HostMuteResponse, Integer, Hash)>] HostMuteResponse data, response status code and response headers
     def unmute_host_with_http_info(host_name, opts = {})
 
@@ -298,7 +307,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'host_name' when calling HostsAPI.unmute_host"
       end
       # resource path
-      local_var_path = '/api/v1/host/{host_name}/unmute'.sub('{' + 'host_name' + '}', CGI.escape(host_name.to_s))
+      local_var_path = '/api/v1/host/{host_name}/unmute'.sub('{host_name}', CGI.escape(host_name.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}

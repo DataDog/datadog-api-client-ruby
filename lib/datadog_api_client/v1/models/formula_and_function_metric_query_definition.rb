@@ -23,8 +23,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
+    # The aggregation methods available for metrics queries.
     attr_accessor :aggregator
 
+    # Data source for metrics queries.
     attr_accessor :data_source
 
     # Name of the query for use in formulas.
@@ -69,7 +71,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::FormulaAndFunctionMetricQueryDefinition` initialize method"
@@ -101,22 +104,19 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @data_source.nil?
         invalid_properties.push('invalid value for "data_source", data_source cannot be nil.')
       end
-
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
-
       if @query.nil?
         invalid_properties.push('invalid value for "query", query cannot be nil.')
       end
-
       invalid_properties
     end
 
@@ -128,6 +128,36 @@ module DatadogAPIClient::V1
       return false if @name.nil?
       return false if @query.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param data_source [Object] Object to be assigned
+    # @!visibility private
+    def data_source=(data_source)
+      if data_source.nil?
+        fail ArgumentError, 'invalid value for "data_source", data_source cannot be nil.'
+      end
+      @data_source = data_source
+    end
+
+    # Custom attribute writer method with validation
+    # @param name [Object] Object to be assigned
+    # @!visibility private
+    def name=(name)
+      if name.nil?
+        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
+      end
+      @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param query [Object] Object to be assigned
+    # @!visibility private
+    def query=(query)
+      if query.nil?
+        fail ArgumentError, 'invalid value for "query", query cannot be nil.'
+      end
+      @query = query
     end
 
     # Checks equality by comparing each attribute.
@@ -157,7 +187,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -165,7 +195,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -271,7 +301,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -287,7 +317,5 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
-
 end

@@ -26,17 +26,28 @@ module DatadogAPIClient::V1
     # The `from` timestamp in epoch seconds.
     attr_accessor :from_ts
 
-    # For `metric` based SLOs where the query includes a group-by clause, this represents the list of grouping parameters.  This is not included in responses for `monitor` based SLOs.
+    # For `metric` based SLOs where the query includes a group-by clause, this represents the list of grouping parameters.
+    #
+    # This is not included in responses for `monitor` based SLOs.
     attr_accessor :group_by
 
-    # For grouped SLOs, this represents SLI data for specific groups.  This is not included in the responses for `metric` based SLOs.
+    # For grouped SLOs, this represents SLI data for specific groups.
+    #
+    # This is not included in the responses for `metric` based SLOs.
     attr_accessor :groups
 
-    # For multi-monitor SLOs, this represents SLI data for specific monitors.  This is not included in the responses for `metric` based SLOs.
+    # For multi-monitor SLOs, this represents SLI data for specific monitors.
+    #
+    # This is not included in the responses for `metric` based SLOs.
     attr_accessor :monitors
 
+    # An object that holds an SLI value and its associated data. It can represent an SLO's overall SLI value.
+    # This can also represent the SLI value for a specific monitor in multi-monitor SLOs, or a group in grouped SLOs.
     attr_accessor :overall
 
+    # A `metric` based SLO history response.
+    #
+    # This is not included in responses for `monitor` based SLOs.
     attr_accessor :series
 
     # mapping of string timeframe to the SLO threshold.
@@ -45,8 +56,12 @@ module DatadogAPIClient::V1
     # The `to` timestamp in epoch seconds.
     attr_accessor :to_ts
 
+    # The type of the service level objective.
     attr_accessor :type
 
+    # A numeric representation of the type of the service level objective (`0` for
+    # monitor, `1` for metric). Always included in service level objective responses.
+    # Ignored in create/update requests.
     attr_accessor :type_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -97,7 +112,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SLOHistoryResponseData` initialize method"
@@ -142,9 +158,7 @@ module DatadogAPIClient::V1
       end
 
       if attributes.key?(:'thresholds')
-        if (value = attributes[:'thresholds']).is_a?(Hash)
-          self.thresholds = value
-        end
+        self.thresholds = attributes[:'thresholds']
       end
 
       if attributes.key?(:'to_ts')
@@ -161,8 +175,8 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       invalid_properties
@@ -208,7 +222,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -216,7 +230,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -322,7 +336,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -338,7 +352,5 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
-
 end

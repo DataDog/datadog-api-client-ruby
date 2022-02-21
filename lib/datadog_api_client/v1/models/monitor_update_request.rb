@@ -26,6 +26,7 @@ module DatadogAPIClient::V1
     # Timestamp of the monitor creation.
     attr_accessor :created
 
+    # Object describing the creator of the shared element.
     attr_accessor :creator
 
     # Whether or not the monitor is deleted. (Always `null`)
@@ -46,8 +47,10 @@ module DatadogAPIClient::V1
     # The monitor name.
     attr_accessor :name
 
+    # List of options associated with your monitor.
     attr_accessor :options
 
+    # The different states your monitor can be in.
     attr_accessor :overall_state
 
     # Integer from 1 (high) to 5 (low) indicating alert severity.
@@ -59,11 +62,13 @@ module DatadogAPIClient::V1
     # A list of role identifiers that can be pulled from the Roles API. Cannot be used with `locked` option.
     attr_accessor :restricted_roles
 
+    # Wrapper object with the different monitor states.
     attr_accessor :state
 
     # Tags associated to your monitor.
     attr_accessor :tags
 
+    # The type of the monitor. For more information about `type`, see the [monitor options](https://docs.datadoghq.com/monitors/guide/monitor_api_options/) docs.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -127,7 +132,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::MonitorUpdateRequest` initialize method"
@@ -211,18 +217,16 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if !@priority.nil? && @priority > 5
         invalid_properties.push('invalid value for "priority", must be smaller than or equal to 5.')
       end
-
       if !@priority.nil? && @priority < 1
         invalid_properties.push('invalid value for "priority", must be greater than or equal to 1.')
       end
-
       invalid_properties
     end
 
@@ -236,16 +240,15 @@ module DatadogAPIClient::V1
     end
 
     # Custom attribute writer method with validation
-    # @param priority [Object] priority Value to be assigned
+    # @param priority [Object] Object to be assigned
+    # @!visibility private
     def priority=(priority)
       if !priority.nil? && priority > 5
         fail ArgumentError, 'invalid value for "priority", must be smaller than or equal to 5.'
       end
-
       if !priority.nil? && priority < 1
         fail ArgumentError, 'invalid value for "priority", must be greater than or equal to 1.'
       end
-
       @priority = priority
     end
 
@@ -288,7 +291,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -296,7 +299,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -402,7 +405,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -418,7 +421,5 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
-
 end

@@ -22,10 +22,11 @@ module DatadogAPIClient::V1
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Create a new service object
     # Create a new service object in the PagerDuty integration.
     # @param body [PagerDutyService] Create a new service object request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [PagerDutyServiceName]
     def create_pager_duty_integration_service(body, opts = {})
       data, _status_code, _headers = create_pager_duty_integration_service_with_http_info(body, opts)
@@ -35,7 +36,7 @@ module DatadogAPIClient::V1
     # Create a new service object
     # Create a new service object in the PagerDuty integration.
     # @param body [PagerDutyService] Create a new service object request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(PagerDutyServiceName, Integer, Hash)>] PagerDutyServiceName data, response status code and response headers
     def create_pager_duty_integration_service_with_http_info(body, opts = {})
 
@@ -100,7 +101,7 @@ module DatadogAPIClient::V1
     # Delete a single service object
     # Delete a single service object in the Datadog-PagerDuty integration.
     # @param service_name [String] The service name
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [nil]
     def delete_pager_duty_integration_service(service_name, opts = {})
       delete_pager_duty_integration_service_with_http_info(service_name, opts)
@@ -110,7 +111,7 @@ module DatadogAPIClient::V1
     # Delete a single service object
     # Delete a single service object in the Datadog-PagerDuty integration.
     # @param service_name [String] The service name
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_pager_duty_integration_service_with_http_info(service_name, opts = {})
 
@@ -131,7 +132,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'service_name' when calling PagerDutyIntegrationAPI.delete_pager_duty_integration_service"
       end
       # resource path
-      local_var_path = '/api/v1/integration/pagerduty/configuration/services/{service_name}'.sub('{' + 'service_name' + '}', CGI.escape(service_name.to_s))
+      local_var_path = '/api/v1/integration/pagerduty/configuration/services/{service_name}'.sub('{service_name}', CGI.escape(service_name.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -139,7 +140,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -173,7 +174,7 @@ module DatadogAPIClient::V1
     # Get a single service object
     # Get service name in the Datadog-PagerDuty integration.
     # @param service_name [String] The service name.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [PagerDutyServiceName]
     def get_pager_duty_integration_service(service_name, opts = {})
       data, _status_code, _headers = get_pager_duty_integration_service_with_http_info(service_name, opts)
@@ -183,7 +184,7 @@ module DatadogAPIClient::V1
     # Get a single service object
     # Get service name in the Datadog-PagerDuty integration.
     # @param service_name [String] The service name.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(PagerDutyServiceName, Integer, Hash)>] PagerDutyServiceName data, response status code and response headers
     def get_pager_duty_integration_service_with_http_info(service_name, opts = {})
 
@@ -204,7 +205,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'service_name' when calling PagerDutyIntegrationAPI.get_pager_duty_integration_service"
       end
       # resource path
-      local_var_path = '/api/v1/integration/pagerduty/configuration/services/{service_name}'.sub('{' + 'service_name' + '}', CGI.escape(service_name.to_s))
+      local_var_path = '/api/v1/integration/pagerduty/configuration/services/{service_name}'.sub('{service_name}', CGI.escape(service_name.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -247,7 +248,7 @@ module DatadogAPIClient::V1
     # Update a single service object in the Datadog-PagerDuty integration.
     # @param service_name [String] The service name
     # @param body [PagerDutyServiceKey] Update an existing service object request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [nil]
     def update_pager_duty_integration_service(service_name, body, opts = {})
       update_pager_duty_integration_service_with_http_info(service_name, body, opts)
@@ -258,7 +259,7 @@ module DatadogAPIClient::V1
     # Update a single service object in the Datadog-PagerDuty integration.
     # @param service_name [String] The service name
     # @param body [PagerDutyServiceKey] Update an existing service object request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def update_pager_duty_integration_service_with_http_info(service_name, body, opts = {})
 
@@ -283,7 +284,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'body' when calling PagerDutyIntegrationAPI.update_pager_duty_integration_service"
       end
       # resource path
-      local_var_path = '/api/v1/integration/pagerduty/configuration/services/{service_name}'.sub('{' + 'service_name' + '}', CGI.escape(service_name.to_s))
+      local_var_path = '/api/v1/integration/pagerduty/configuration/services/{service_name}'.sub('{service_name}', CGI.escape(service_name.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -291,7 +292,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 

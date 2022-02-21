@@ -25,12 +25,11 @@ module DatadogAPIClient::V2
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'Array<LogsAggregateBucketValueTimeseriesPoint>',
-          :'Float',
-          :'String'
+          :'LogsAggregateBucketValueSingleString',
+          :'LogsAggregateBucketValueSingleNumber',
+          :'LogsAggregateBucketValueTimeseries'
         ]
       end
-
       # Builds the object
       # @param [Mixed] Data to be matched against the list of oneOf items
       # @return [Object] Returns the model or the data itself
@@ -58,7 +57,6 @@ module DatadogAPIClient::V2
           self._unparsed = true
           DatadogAPIClient::V2::UnparsedObject.new(data)
         end
-
       end
 
       private
@@ -115,5 +113,4 @@ module DatadogAPIClient::V2
       end
     end
   end
-
 end

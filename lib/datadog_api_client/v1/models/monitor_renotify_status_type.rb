@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # The different statuses for which renotification is supported.
   class MonitorRenotifyStatusType
     ALERT = "alert".freeze
     WARN = "warn".freeze
@@ -39,5 +40,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

@@ -35,26 +35,31 @@ module DatadogAPIClient::V1
     # Whether to show the hosts with no metrics.
     attr_accessor :no_metric_hosts
 
+    # Which type of node to use in the map.
     attr_accessor :node_type
 
     # Notes on the title.
     attr_accessor :notes
 
+    # List of definitions.
     attr_accessor :requests
 
     # List of tags used to filter the map.
     attr_accessor :scope
 
+    # The style to apply to the widget.
     attr_accessor :style
 
     # Title of the widget.
     attr_accessor :title
 
+    # How to align the text on the widget.
     attr_accessor :title_align
 
     # Size of the title.
     attr_accessor :title_size
 
+    # Type of the host map widget.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -111,7 +116,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::HostMapWidgetDefinition` initialize method"
@@ -187,18 +193,16 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @requests.nil?
         invalid_properties.push('invalid value for "requests", requests cannot be nil.')
       end
-
       if @type.nil?
         invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
-
       invalid_properties
     end
 
@@ -209,6 +213,26 @@ module DatadogAPIClient::V1
       return false if @requests.nil?
       return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param requests [Object] Object to be assigned
+    # @!visibility private
+    def requests=(requests)
+      if requests.nil?
+        fail ArgumentError, 'invalid value for "requests", requests cannot be nil.'
+      end
+      @requests = requests
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    # @!visibility private
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.
@@ -247,7 +271,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -255,7 +279,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -361,7 +385,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -377,7 +401,5 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
-
 end

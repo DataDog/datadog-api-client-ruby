@@ -17,7 +17,27 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Use the Arithmetic Processor to add a new attribute (without spaces or special characters in the new attribute name) to a log with the result of the provided formula. This enables you to remap different time attributes with different units into a single attribute, or to compute operations on attributes within the same log.  The formula can use parentheses and the basic arithmetic operators `-`, `+`, `*`, `/`.  By default, the calculation is skipped if an attribute is missing. Select “Replace missing attribute by 0” to automatically populate missing attribute values with 0 to ensure that the calculation is done. An attribute is missing if it is not found in the log attributes, or if it cannot be converted to a number.  *Notes*:  - The operator `-` needs to be space split in the formula as it can also be contained in attribute names. - If the target attribute already exists, it is overwritten by the result of the formula. - Results are rounded up to the 9th decimal. For example, if the result of the formula is `0.1234567891`,   the actual value stored for the attribute is `0.123456789`. - If you need to scale a unit of measure,   see [Scale Filter](https://docs.datadoghq.com/logs/log_configuration/parsing/?tab=filter#matcher-and-filter).
+  # Use the Arithmetic Processor to add a new attribute (without spaces or special characters
+  # in the new attribute name) to a log with the result of the provided formula.
+  # This enables you to remap different time attributes with different units into a single attribute,
+  # or to compute operations on attributes within the same log.
+  # 
+  # The formula can use parentheses and the basic arithmetic operators `-`, `+`, `*`, `/`.
+  # 
+  # By default, the calculation is skipped if an attribute is missing.
+  # Select “Replace missing attribute by 0” to automatically populate
+  # missing attribute values with 0 to ensure that the calculation is done.
+  # An attribute is missing if it is not found in the log attributes,
+  # or if it cannot be converted to a number.
+  # 
+  # *Notes*:
+  # 
+  # - The operator `-` needs to be space split in the formula as it can also be contained in attribute names.
+  # - If the target attribute already exists, it is overwritten by the result of the formula.
+  # - Results are rounded up to the 9th decimal. For example, if the result of the formula is `0.1234567891`,
+  #   the actual value stored for the attribute is `0.123456789`.
+  # - If you need to scale a unit of measure,
+  #   see [Scale Filter](https://docs.datadoghq.com/logs/log_configuration/parsing/?tab=filter#matcher-and-filter).
   class LogsArithmeticProcessor
     # Whether the object has unparsed attributes
     # @!visibility private
@@ -29,7 +49,8 @@ module DatadogAPIClient::V1
     # Whether or not the processor is enabled.
     attr_accessor :is_enabled
 
-    # If `true`, it replaces all missing attributes of expression by `0`, `false` skip the operation if an attribute is missing.
+    # If `true`, it replaces all missing attributes of expression by `0`, `false`
+    # skip the operation if an attribute is missing.
     attr_accessor :is_replace_missing
 
     # Name of the processor.
@@ -38,6 +59,7 @@ module DatadogAPIClient::V1
     # Name of the attribute that contains the result of the arithmetic operation.
     attr_accessor :target
 
+    # Type of logs arithmetic processor.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -80,7 +102,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::LogsArithmeticProcessor` initialize method"
@@ -126,22 +149,19 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @expression.nil?
         invalid_properties.push('invalid value for "expression", expression cannot be nil.')
       end
-
       if @target.nil?
         invalid_properties.push('invalid value for "target", target cannot be nil.')
       end
-
       if @type.nil?
         invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
-
       invalid_properties
     end
 
@@ -153,6 +173,36 @@ module DatadogAPIClient::V1
       return false if @target.nil?
       return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param expression [Object] Object to be assigned
+    # @!visibility private
+    def expression=(expression)
+      if expression.nil?
+        fail ArgumentError, 'invalid value for "expression", expression cannot be nil.'
+      end
+      @expression = expression
+    end
+
+    # Custom attribute writer method with validation
+    # @param target [Object] Object to be assigned
+    # @!visibility private
+    def target=(target)
+      if target.nil?
+        fail ArgumentError, 'invalid value for "target", target cannot be nil.'
+      end
+      @target = target
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    # @!visibility private
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.
@@ -184,7 +234,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -192,7 +242,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -298,7 +348,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -314,7 +364,5 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
-
 end

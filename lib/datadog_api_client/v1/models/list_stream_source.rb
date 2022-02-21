@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Source from which to query items to display in the stream.
   class ListStreamSource
     ISSUE_STREAM = "issue_stream".freeze
     LOGS_STREAM = "logs_stream".freeze
@@ -39,5 +40,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

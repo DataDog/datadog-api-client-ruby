@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
+  # Type of the multiple value field definitions.
   class IncidentFieldAttributesValueType
     MULTISELECT = "multiselect".freeze
     TEXTARRAY = "textarray".freeze
@@ -40,5 +41,4 @@ module DatadogAPIClient::V2
       constantValues.empty? ? DatadogAPIClient::V2::UnparsedObject.new(value) : value
     end
   end
-
 end

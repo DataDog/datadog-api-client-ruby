@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
+  # A space aggregation for use in query.
   class MetricCustomSpaceAggregation
     AVG = "avg".freeze
     MAX = "max".freeze
@@ -40,5 +41,4 @@ module DatadogAPIClient::V2
       constantValues.empty? ? DatadogAPIClient::V2::UnparsedObject.new(value) : value
     end
   end
-
 end

@@ -29,6 +29,7 @@ module DatadogAPIClient::V1
     # Number of groups to return.
     attr_accessor :limit
 
+    # Options for sorting group by results.
     attr_accessor :sort
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -65,7 +66,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::MonitorFormulaAndFunctionEventQueryGroupBy` initialize method"
@@ -93,14 +95,13 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if @facet.nil?
         invalid_properties.push('invalid value for "facet", facet cannot be nil.')
       end
-
       invalid_properties
     end
 
@@ -110,6 +111,16 @@ module DatadogAPIClient::V1
     def valid?
       return false if @facet.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param facet [Object] Object to be assigned
+    # @!visibility private
+    def facet=(facet)
+      if facet.nil?
+        fail ArgumentError, 'invalid value for "facet", facet cannot be nil.'
+      end
+      @facet = facet
     end
 
     # Checks equality by comparing each attribute.
@@ -138,7 +149,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -146,7 +157,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -252,7 +263,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -268,7 +279,5 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
-
 end

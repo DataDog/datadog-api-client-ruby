@@ -59,7 +59,9 @@ module DatadogAPIClient::V1
     # Unique tags identifying this series.
     attr_accessor :tag_set
 
-    # Detailed information about the metric unit. First element describes the \"primary unit\" (for example, `bytes` in `bytes per second`), second describes the \"per unit\" (for example, `second` in `bytes per second`).
+    # Detailed information about the metric unit.
+    # First element describes the "primary unit" (for example, `bytes` in `bytes per second`),
+    # second describes the "per unit" (for example, `second` in `bytes per second`).
     attr_accessor :unit
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -99,7 +101,7 @@ module DatadogAPIClient::V1
         :'interval' => :'Integer',
         :'length' => :'Integer',
         :'metric' => :'String',
-        :'pointlist' => :'Array<Array>',
+        :'pointlist' => :'Array<Array<Float>>',
         :'query_index' => :'Integer',
         :'scope' => :'String',
         :'start' => :'Integer',
@@ -117,7 +119,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::MetricsQueryMetadata` initialize method"
@@ -191,18 +194,16 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       if !@unit.nil? && @unit.length > 2
         invalid_properties.push('invalid value for "unit", number of items must be less than or equal to 2.')
       end
-
       if !@unit.nil? && @unit.length < 2
         invalid_properties.push('invalid value for "unit", number of items must be greater than or equal to 2.')
       end
-
       invalid_properties
     end
 
@@ -216,16 +217,15 @@ module DatadogAPIClient::V1
     end
 
     # Custom attribute writer method with validation
-    # @param unit [Object] unit Value to be assigned
+    # @param unit [Object] Object to be assigned
+    # @!visibility private
     def unit=(unit)
       if !unit.nil? && unit.length > 2
         fail ArgumentError, 'invalid value for "unit", number of items must be less than or equal to 2.'
       end
-
       if !unit.nil? && unit.length < 2
         fail ArgumentError, 'invalid value for "unit", number of items must be greater than or equal to 2.'
       end
-
       @unit = unit
     end
 
@@ -265,7 +265,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -273,7 +273,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -379,7 +379,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -395,7 +395,5 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
-
 end

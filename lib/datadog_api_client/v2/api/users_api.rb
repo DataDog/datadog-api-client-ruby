@@ -22,10 +22,11 @@ module DatadogAPIClient::V2
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Create a service account
     # Create a service account for your organization.
     # @param body [ServiceAccountCreateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [UserResponse]
     def create_service_account(body, opts = {})
       data, _status_code, _headers = create_service_account_with_http_info(body, opts)
@@ -35,7 +36,7 @@ module DatadogAPIClient::V2
     # Create a service account
     # Create a service account for your organization.
     # @param body [ServiceAccountCreateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(UserResponse, Integer, Hash)>] UserResponse data, response status code and response headers
     def create_service_account_with_http_info(body, opts = {})
 
@@ -100,7 +101,7 @@ module DatadogAPIClient::V2
     # Create a user
     # Create a user for your organization.
     # @param body [UserCreateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [UserResponse]
     def create_user(body, opts = {})
       data, _status_code, _headers = create_user_with_http_info(body, opts)
@@ -110,7 +111,7 @@ module DatadogAPIClient::V2
     # Create a user
     # Create a user for your organization.
     # @param body [UserCreateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(UserResponse, Integer, Hash)>] UserResponse data, response status code and response headers
     def create_user_with_http_info(body, opts = {})
 
@@ -153,7 +154,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'UserResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_user,
@@ -173,9 +174,10 @@ module DatadogAPIClient::V2
     end
 
     # Disable a user
-    # Disable a user. Can only be used with an application key belonging to an administrator user.
+    # Disable a user. Can only be used with an application key belonging
+    # to an administrator user.
     # @param user_id [String] The ID of the user.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [nil]
     def disable_user(user_id, opts = {})
       disable_user_with_http_info(user_id, opts)
@@ -183,9 +185,10 @@ module DatadogAPIClient::V2
     end
 
     # Disable a user
-    # Disable a user. Can only be used with an application key belonging to an administrator user.
+    # Disable a user. Can only be used with an application key belonging
+    # to an administrator user.
     # @param user_id [String] The ID of the user.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def disable_user_with_http_info(user_id, opts = {})
 
@@ -206,7 +209,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'user_id' when calling UsersAPI.disable_user"
       end
       # resource path
-      local_var_path = '/api/v2/users/{user_id}'.sub('{' + 'user_id' + '}', CGI.escape(user_id.to_s))
+      local_var_path = '/api/v2/users/{user_id}'.sub('{user_id}', CGI.escape(user_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -214,7 +217,7 @@ module DatadogAPIClient::V2
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -226,7 +229,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :disable_user,
@@ -248,7 +251,7 @@ module DatadogAPIClient::V2
     # Get a user invitation
     # Returns a single user invitation by its UUID.
     # @param user_invitation_uuid [String] The UUID of the user invitation.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [UserInvitationResponse]
     def get_invitation(user_invitation_uuid, opts = {})
       data, _status_code, _headers = get_invitation_with_http_info(user_invitation_uuid, opts)
@@ -258,7 +261,7 @@ module DatadogAPIClient::V2
     # Get a user invitation
     # Returns a single user invitation by its UUID.
     # @param user_invitation_uuid [String] The UUID of the user invitation.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(UserInvitationResponse, Integer, Hash)>] UserInvitationResponse data, response status code and response headers
     def get_invitation_with_http_info(user_invitation_uuid, opts = {})
 
@@ -279,7 +282,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'user_invitation_uuid' when calling UsersAPI.get_invitation"
       end
       # resource path
-      local_var_path = '/api/v2/user_invitations/{user_invitation_uuid}'.sub('{' + 'user_invitation_uuid' + '}', CGI.escape(user_invitation_uuid.to_s))
+      local_var_path = '/api/v2/user_invitations/{user_invitation_uuid}'.sub('{user_invitation_uuid}', CGI.escape(user_invitation_uuid.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -299,7 +302,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'UserInvitationResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_invitation,
@@ -321,7 +324,7 @@ module DatadogAPIClient::V2
     # Get user details
     # Get a user in the organization specified by the user’s `user_id`.
     # @param user_id [String] The ID of the user.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [UserResponse]
     def get_user(user_id, opts = {})
       data, _status_code, _headers = get_user_with_http_info(user_id, opts)
@@ -329,9 +332,9 @@ module DatadogAPIClient::V2
     end
 
     # Get user details
-    # Get a user in the organization specified by the user’s &#x60;user_id&#x60;.
+    # Get a user in the organization specified by the user’s `user_id`.
     # @param user_id [String] The ID of the user.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(UserResponse, Integer, Hash)>] UserResponse data, response status code and response headers
     def get_user_with_http_info(user_id, opts = {})
 
@@ -352,7 +355,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'user_id' when calling UsersAPI.get_user"
       end
       # resource path
-      local_var_path = '/api/v2/users/{user_id}'.sub('{' + 'user_id' + '}', CGI.escape(user_id.to_s))
+      local_var_path = '/api/v2/users/{user_id}'.sub('{user_id}', CGI.escape(user_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -372,7 +375,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'UserResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_user,
@@ -392,9 +395,10 @@ module DatadogAPIClient::V2
     end
 
     # Get a user organization
-    # Get a user organization. Returns the user information and all organizations joined by this user.
+    # Get a user organization. Returns the user information and all organizations
+    # joined by this user.
     # @param user_id [String] The ID of the user.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [UserResponse]
     def list_user_organizations(user_id, opts = {})
       data, _status_code, _headers = list_user_organizations_with_http_info(user_id, opts)
@@ -402,9 +406,10 @@ module DatadogAPIClient::V2
     end
 
     # Get a user organization
-    # Get a user organization. Returns the user information and all organizations joined by this user.
+    # Get a user organization. Returns the user information and all organizations
+    # joined by this user.
     # @param user_id [String] The ID of the user.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(UserResponse, Integer, Hash)>] UserResponse data, response status code and response headers
     def list_user_organizations_with_http_info(user_id, opts = {})
 
@@ -425,7 +430,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'user_id' when calling UsersAPI.list_user_organizations"
       end
       # resource path
-      local_var_path = '/api/v2/users/{user_id}/orgs'.sub('{' + 'user_id' + '}', CGI.escape(user_id.to_s))
+      local_var_path = '/api/v2/users/{user_id}/orgs'.sub('{user_id}', CGI.escape(user_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -445,7 +450,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'UserResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_user_organizations,
@@ -465,9 +470,10 @@ module DatadogAPIClient::V2
     end
 
     # Get a user permissions
-    # Get a user permission set. Returns a list of the user’s permissions granted by the associated user's roles.
+    # Get a user permission set. Returns a list of the user’s permissions
+    # granted by the associated user's roles.
     # @param user_id [String] The ID of the user.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [PermissionsResponse]
     def list_user_permissions(user_id, opts = {})
       data, _status_code, _headers = list_user_permissions_with_http_info(user_id, opts)
@@ -475,9 +481,10 @@ module DatadogAPIClient::V2
     end
 
     # Get a user permissions
-    # Get a user permission set. Returns a list of the user’s permissions granted by the associated user&#39;s roles.
+    # Get a user permission set. Returns a list of the user’s permissions
+    # granted by the associated user's roles.
     # @param user_id [String] The ID of the user.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(PermissionsResponse, Integer, Hash)>] PermissionsResponse data, response status code and response headers
     def list_user_permissions_with_http_info(user_id, opts = {})
 
@@ -498,7 +505,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'user_id' when calling UsersAPI.list_user_permissions"
       end
       # resource path
-      local_var_path = '/api/v2/users/{user_id}/permissions'.sub('{' + 'user_id' + '}', CGI.escape(user_id.to_s))
+      local_var_path = '/api/v2/users/{user_id}/permissions'.sub('{user_id}', CGI.escape(user_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -518,7 +525,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'PermissionsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_user_permissions,
@@ -538,14 +545,15 @@ module DatadogAPIClient::V2
     end
 
     # List all users
-    # Get the list of all users in the organization. This list includes all users even if they are deactivated or unverified.
-    # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. (default to 10)
-    # @option opts [Integer] :page_number Specific page number to return. (default to 0)
-    # @option opts [String] :sort User attribute to order results by. Sort order is ascending by default. Sort order is descending if the field is prefixed by a negative sign, for example &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;modified_at&#x60;, &#x60;user_count&#x60;. (default to 'name')
-    # @option opts [QuerySortOrder] :sort_dir Direction of sort. Options: &#x60;asc&#x60;, &#x60;desc&#x60;. (default to 'desc')
+    # Get the list of all users in the organization. This list includes
+    # all users even if they are deactivated or unverified.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size Size for a given page.
+    # @option opts [Integer] :page_number Specific page number to return.
+    # @option opts [String] :sort User attribute to order results by. Sort order is ascending by default. Sort order is descending if the field is prefixed by a negative sign, for example `sort=-name`. Options: `name`, `modified_at`, `user_count`.
+    # @option opts [QuerySortOrder] :sort_dir Direction of sort. Options: `asc`, `desc`.
     # @option opts [String] :filter Filter all users by the given string. Defaults to no filtering.
-    # @option opts [String] :filter_status Filter on status attribute. Comma separated list, with possible values &#x60;Active&#x60;, &#x60;Pending&#x60;, and &#x60;Disabled&#x60;. Defaults to no filtering.
+    # @option opts [String] :filter_status Filter on status attribute. Comma separated list, with possible values `Active`, `Pending`, and `Disabled`. Defaults to no filtering.
     # @return [UsersResponse]
     def list_users(opts = {})
       data, _status_code, _headers = list_users_with_http_info(opts)
@@ -553,14 +561,15 @@ module DatadogAPIClient::V2
     end
 
     # List all users
-    # Get the list of all users in the organization. This list includes all users even if they are deactivated or unverified.
-    # @param [Hash] opts the optional parameters
+    # Get the list of all users in the organization. This list includes
+    # all users even if they are deactivated or unverified.
+    # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Size for a given page.
     # @option opts [Integer] :page_number Specific page number to return.
-    # @option opts [String] :sort User attribute to order results by. Sort order is ascending by default. Sort order is descending if the field is prefixed by a negative sign, for example &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;modified_at&#x60;, &#x60;user_count&#x60;.
-    # @option opts [QuerySortOrder] :sort_dir Direction of sort. Options: &#x60;asc&#x60;, &#x60;desc&#x60;.
+    # @option opts [String] :sort User attribute to order results by. Sort order is ascending by default. Sort order is descending if the field is prefixed by a negative sign, for example `sort=-name`. Options: `name`, `modified_at`, `user_count`.
+    # @option opts [QuerySortOrder] :sort_dir Direction of sort. Options: `asc`, `desc`.
     # @option opts [String] :filter Filter all users by the given string. Defaults to no filtering.
-    # @option opts [String] :filter_status Filter on status attribute. Comma separated list, with possible values &#x60;Active&#x60;, &#x60;Pending&#x60;, and &#x60;Disabled&#x60;. Defaults to no filtering.
+    # @option opts [String] :filter_status Filter on status attribute. Comma separated list, with possible values `Active`, `Pending`, and `Disabled`. Defaults to no filtering.
     # @return [Array<(UsersResponse, Integer, Hash)>] UsersResponse data, response status code and response headers
     def list_users_with_http_info(opts = {})
 
@@ -575,6 +584,10 @@ module DatadogAPIClient::V2
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsersAPI.list_users ...'
+      end
+      allowable_values = ['asc', 'desc']
+      if @api_client.config.client_side_validation && opts[:'sort_dir'] && !allowable_values.include?(opts[:'sort_dir'])
+        fail ArgumentError, "invalid value for \"sort_dir\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/api/v2/users'
@@ -603,7 +616,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'UsersResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_users,
@@ -625,7 +638,7 @@ module DatadogAPIClient::V2
     # Send invitation emails
     # Sends emails to one or more users inviting them to join the organization.
     # @param body [UserInvitationsRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [UserInvitationsResponse]
     def send_invitations(body, opts = {})
       data, _status_code, _headers = send_invitations_with_http_info(body, opts)
@@ -635,7 +648,7 @@ module DatadogAPIClient::V2
     # Send invitation emails
     # Sends emails to one or more users inviting them to join the organization.
     # @param body [UserInvitationsRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(UserInvitationsResponse, Integer, Hash)>] UserInvitationsResponse data, response status code and response headers
     def send_invitations_with_http_info(body, opts = {})
 
@@ -678,7 +691,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'UserInvitationsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :send_invitations,
@@ -698,10 +711,11 @@ module DatadogAPIClient::V2
     end
 
     # Update a user
-    # Edit a user. Can only be used with an application key belonging to an administrator user.
+    # Edit a user. Can only be used with an application key belonging
+    # to an administrator user.
     # @param user_id [String] The ID of the user.
     # @param body [UserUpdateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [UserResponse]
     def update_user(user_id, body, opts = {})
       data, _status_code, _headers = update_user_with_http_info(user_id, body, opts)
@@ -709,10 +723,11 @@ module DatadogAPIClient::V2
     end
 
     # Update a user
-    # Edit a user. Can only be used with an application key belonging to an administrator user.
+    # Edit a user. Can only be used with an application key belonging
+    # to an administrator user.
     # @param user_id [String] The ID of the user.
     # @param body [UserUpdateRequest] 
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(UserResponse, Integer, Hash)>] UserResponse data, response status code and response headers
     def update_user_with_http_info(user_id, body, opts = {})
 
@@ -737,7 +752,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'body' when calling UsersAPI.update_user"
       end
       # resource path
-      local_var_path = '/api/v2/users/{user_id}'.sub('{' + 'user_id' + '}', CGI.escape(user_id.to_s))
+      local_var_path = '/api/v2/users/{user_id}'.sub('{user_id}', CGI.escape(user_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -759,7 +774,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'UserResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_user,

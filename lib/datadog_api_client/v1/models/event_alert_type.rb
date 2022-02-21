@@ -17,6 +17,9 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # If an alert event is enabled, set its type.
+  # For example, `error`, `warning`, `info`, `success`, `user_update`,
+  # `recommendation`, and `snapshot`.
   class EventAlertType
     ERROR = "error".freeze
     WARNING = "warning".freeze
@@ -43,5 +46,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end

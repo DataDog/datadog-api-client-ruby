@@ -22,10 +22,11 @@ module DatadogAPIClient::V1
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Cancel a downtime
     # Cancel a downtime.
     # @param downtime_id [Integer] ID of the downtime to cancel.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [nil]
     def cancel_downtime(downtime_id, opts = {})
       cancel_downtime_with_http_info(downtime_id, opts)
@@ -35,7 +36,7 @@ module DatadogAPIClient::V1
     # Cancel a downtime
     # Cancel a downtime.
     # @param downtime_id [Integer] ID of the downtime to cancel.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def cancel_downtime_with_http_info(downtime_id, opts = {})
 
@@ -56,7 +57,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'downtime_id' when calling DowntimesAPI.cancel_downtime"
       end
       # resource path
-      local_var_path = '/api/v1/downtime/{downtime_id}'.sub('{' + 'downtime_id' + '}', CGI.escape(downtime_id.to_s))
+      local_var_path = '/api/v1/downtime/{downtime_id}'.sub('{downtime_id}', CGI.escape(downtime_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -64,7 +65,7 @@ module DatadogAPIClient::V1
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -76,7 +77,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :cancel_downtime,
@@ -98,7 +99,7 @@ module DatadogAPIClient::V1
     # Cancel downtimes by scope
     # Delete all downtimes that match the scope of `X`.
     # @param body [CancelDowntimesByScopeRequest] Scope to cancel downtimes for.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [CanceledDowntimesIds]
     def cancel_downtimes_by_scope(body, opts = {})
       data, _status_code, _headers = cancel_downtimes_by_scope_with_http_info(body, opts)
@@ -106,9 +107,9 @@ module DatadogAPIClient::V1
     end
 
     # Cancel downtimes by scope
-    # Delete all downtimes that match the scope of &#x60;X&#x60;.
+    # Delete all downtimes that match the scope of `X`.
     # @param body [CancelDowntimesByScopeRequest] Scope to cancel downtimes for.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(CanceledDowntimesIds, Integer, Hash)>] CanceledDowntimesIds data, response status code and response headers
     def cancel_downtimes_by_scope_with_http_info(body, opts = {})
 
@@ -151,7 +152,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'CanceledDowntimesIds'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :cancel_downtimes_by_scope,
@@ -173,7 +174,7 @@ module DatadogAPIClient::V1
     # Schedule a downtime
     # Schedule a downtime.
     # @param body [Downtime] Schedule a downtime request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Downtime]
     def create_downtime(body, opts = {})
       data, _status_code, _headers = create_downtime_with_http_info(body, opts)
@@ -183,7 +184,7 @@ module DatadogAPIClient::V1
     # Schedule a downtime
     # Schedule a downtime.
     # @param body [Downtime] Schedule a downtime request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(Downtime, Integer, Hash)>] Downtime data, response status code and response headers
     def create_downtime_with_http_info(body, opts = {})
 
@@ -226,7 +227,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Downtime'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_downtime,
@@ -248,7 +249,7 @@ module DatadogAPIClient::V1
     # Get a downtime
     # Get downtime detail by `downtime_id`.
     # @param downtime_id [Integer] ID of the downtime to fetch.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Downtime]
     def get_downtime(downtime_id, opts = {})
       data, _status_code, _headers = get_downtime_with_http_info(downtime_id, opts)
@@ -256,9 +257,9 @@ module DatadogAPIClient::V1
     end
 
     # Get a downtime
-    # Get downtime detail by &#x60;downtime_id&#x60;.
+    # Get downtime detail by `downtime_id`.
     # @param downtime_id [Integer] ID of the downtime to fetch.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(Downtime, Integer, Hash)>] Downtime data, response status code and response headers
     def get_downtime_with_http_info(downtime_id, opts = {})
 
@@ -279,7 +280,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'downtime_id' when calling DowntimesAPI.get_downtime"
       end
       # resource path
-      local_var_path = '/api/v1/downtime/{downtime_id}'.sub('{' + 'downtime_id' + '}', CGI.escape(downtime_id.to_s))
+      local_var_path = '/api/v1/downtime/{downtime_id}'.sub('{downtime_id}', CGI.escape(downtime_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -299,7 +300,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Downtime'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_downtime,
@@ -320,7 +321,7 @@ module DatadogAPIClient::V1
 
     # Get all downtimes
     # Get all scheduled downtimes.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [Boolean] :current_only Only return downtimes that are active when the request is made.
     # @return [Array<Downtime>]
     def list_downtimes(opts = {})
@@ -330,7 +331,7 @@ module DatadogAPIClient::V1
 
     # Get all downtimes
     # Get all scheduled downtimes.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [Boolean] :current_only Only return downtimes that are active when the request is made.
     # @return [Array<(Array<Downtime>, Integer, Hash)>] Array<Downtime> data, response status code and response headers
     def list_downtimes_with_http_info(opts = {})
@@ -369,7 +370,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Array<Downtime>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_downtimes,
@@ -391,7 +392,7 @@ module DatadogAPIClient::V1
     # Get all downtimes for a monitor
     # Get all active downtimes for the specified monitor.
     # @param monitor_id [Integer] The id of the monitor
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<Downtime>]
     def list_monitor_downtimes(monitor_id, opts = {})
       data, _status_code, _headers = list_monitor_downtimes_with_http_info(monitor_id, opts)
@@ -401,7 +402,7 @@ module DatadogAPIClient::V1
     # Get all downtimes for a monitor
     # Get all active downtimes for the specified monitor.
     # @param monitor_id [Integer] The id of the monitor
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(Array<Downtime>, Integer, Hash)>] Array<Downtime> data, response status code and response headers
     def list_monitor_downtimes_with_http_info(monitor_id, opts = {})
 
@@ -422,7 +423,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'monitor_id' when calling DowntimesAPI.list_monitor_downtimes"
       end
       # resource path
-      local_var_path = '/api/v1/monitor/{monitor_id}/downtimes'.sub('{' + 'monitor_id' + '}', CGI.escape(monitor_id.to_s))
+      local_var_path = '/api/v1/monitor/{monitor_id}/downtimes'.sub('{monitor_id}', CGI.escape(monitor_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -442,7 +443,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Array<Downtime>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_monitor_downtimes,
@@ -465,7 +466,7 @@ module DatadogAPIClient::V1
     # Update a single downtime by `downtime_id`.
     # @param downtime_id [Integer] ID of the downtime to update.
     # @param body [Downtime] Update a downtime request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Downtime]
     def update_downtime(downtime_id, body, opts = {})
       data, _status_code, _headers = update_downtime_with_http_info(downtime_id, body, opts)
@@ -473,10 +474,10 @@ module DatadogAPIClient::V1
     end
 
     # Update a downtime
-    # Update a single downtime by &#x60;downtime_id&#x60;.
+    # Update a single downtime by `downtime_id`.
     # @param downtime_id [Integer] ID of the downtime to update.
     # @param body [Downtime] Update a downtime request body.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(Downtime, Integer, Hash)>] Downtime data, response status code and response headers
     def update_downtime_with_http_info(downtime_id, body, opts = {})
 
@@ -501,7 +502,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'body' when calling DowntimesAPI.update_downtime"
       end
       # resource path
-      local_var_path = '/api/v1/downtime/{downtime_id}'.sub('{' + 'downtime_id' + '}', CGI.escape(downtime_id.to_s))
+      local_var_path = '/api/v1/downtime/{downtime_id}'.sub('{downtime_id}', CGI.escape(downtime_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -523,7 +524,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'Downtime'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_downtime,

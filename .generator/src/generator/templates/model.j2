@@ -1,0 +1,18 @@
+=begin
+{% include "api_info.j2" %}
+=end
+
+require 'date'
+require 'time'
+
+module {{ config.moduleName }}
+  # {{ model.description.rstrip()|replace('\n', '\n# ')|indent(2) }}
+{% if "enum" in model -%}
+{% include "model_enum.j2" %}
+{%- elif "oneOf" in model -%}
+{% include "model_oneof.j2" %}
+{%- else -%}
+{% include "model_generic.j2" %}
+{%- endif %}
+end
+{# keep new line #}

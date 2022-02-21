@@ -113,10 +113,14 @@ module DatadogAPIClient::V1
     # The Lambda invocation usage by tag(s).
     attr_accessor :lambda_invocations_usage
 
-    # The percentage of Lambda function usage by tag(s).  **Note** this field is deprecated. Use lambda_functions_percentage instead.
+    # The percentage of Lambda function usage by tag(s).
+    #
+    # **Note** this field is deprecated. Use lambda_functions_percentage instead.
     attr_accessor :lambda_percentage
 
-    # The Lambda function usage by tag(s).  **Note** this field is deprecated. Use lambda_functions_usage instead.
+    # The Lambda function usage by tag(s).
+    #
+    # **Note** this field is deprecated. Use lambda_functions_usage instead.
     attr_accessor :lambda_usage
 
     # The percentage of network host usage by tag(s).
@@ -251,7 +255,8 @@ module DatadogAPIClient::V1
     end
 
     # Initializes the object
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
+    # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::UsageAttributionValues` initialize method"
@@ -427,8 +432,8 @@ module DatadogAPIClient::V1
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @!visibility private
     # @return Array for valid properties with the reasons
+    # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
       invalid_properties
@@ -504,7 +509,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def self.build_from_hash(attributes)
@@ -512,7 +517,7 @@ module DatadogAPIClient::V1
     end
 
     # Builds the object from hash
-    # @param attributes [Hash] attributes Model attributes in the form of hash
+    # @param attributes [Hash] Model attributes in the form of hash
     # @return [Object] Returns the model itself
     # @!visibility private
     def build_from_hash(attributes)
@@ -618,7 +623,7 @@ module DatadogAPIClient::V1
 
     # Outputs non-array value in the form of hash
     # For object, use to_hash. Otherwise, just return the value
-    # @param value [Object] value Any valid value
+    # @param value [Object] Any valid value
     # @return [Hash] Returns the value in the form of hash
     # @!visibility private
     def _to_hash(value)
@@ -634,7 +639,5 @@ module DatadogAPIClient::V1
         value
       end
     end
-
   end
-
 end

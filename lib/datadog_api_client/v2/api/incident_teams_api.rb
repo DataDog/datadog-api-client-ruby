@@ -22,10 +22,11 @@ module DatadogAPIClient::V2
     def initialize(api_client = APIClient.default)
       @api_client = api_client
     end
+
     # Create a new incident team
     # Creates a new incident team.
     # @param body [IncidentTeamCreateRequest] Incident Team Payload.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [IncidentTeamResponse]
     def create_incident_team(body, opts = {})
       data, _status_code, _headers = create_incident_team_with_http_info(body, opts)
@@ -35,7 +36,7 @@ module DatadogAPIClient::V2
     # Create a new incident team
     # Creates a new incident team.
     # @param body [IncidentTeamCreateRequest] Incident Team Payload.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(IncidentTeamResponse, Integer, Hash)>] IncidentTeamResponse data, response status code and response headers
     def create_incident_team_with_http_info(body, opts = {})
 
@@ -78,7 +79,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'IncidentTeamResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :create_incident_team,
@@ -100,7 +101,7 @@ module DatadogAPIClient::V2
     # Delete an existing incident team
     # Deletes an existing incident team.
     # @param team_id [String] The ID of the incident team.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [nil]
     def delete_incident_team(team_id, opts = {})
       delete_incident_team_with_http_info(team_id, opts)
@@ -110,7 +111,7 @@ module DatadogAPIClient::V2
     # Delete an existing incident team
     # Deletes an existing incident team.
     # @param team_id [String] The ID of the incident team.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_incident_team_with_http_info(team_id, opts = {})
 
@@ -131,7 +132,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'team_id' when calling IncidentTeamsAPI.delete_incident_team"
       end
       # resource path
-      local_var_path = '/api/v2/teams/{team_id}'.sub('{' + 'team_id' + '}', CGI.escape(team_id.to_s))
+      local_var_path = '/api/v2/teams/{team_id}'.sub('{team_id}', CGI.escape(team_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -139,7 +140,7 @@ module DatadogAPIClient::V2
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -151,7 +152,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :delete_incident_team,
@@ -171,9 +172,10 @@ module DatadogAPIClient::V2
     end
 
     # Get details of an incident team
-    # Get details of an incident team. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident teams.
+    # Get details of an incident team. If the `include[users]` query parameter is provided,
+    # the included attribute will contain the users related to these incident teams.
     # @param team_id [String] The ID of the incident team.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [IncidentRelatedObject] :include Specifies which types of related objects should be included in the response.
     # @return [IncidentTeamResponse]
     def get_incident_team(team_id, opts = {})
@@ -182,9 +184,10 @@ module DatadogAPIClient::V2
     end
 
     # Get details of an incident team
-    # Get details of an incident team. If the &#x60;include[users]&#x60; query parameter is provided, the included attribute will contain the users related to these incident teams.
+    # Get details of an incident team. If the `include[users]` query parameter is provided,
+    # the included attribute will contain the users related to these incident teams.
     # @param team_id [String] The ID of the incident team.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [IncidentRelatedObject] :include Specifies which types of related objects should be included in the response.
     # @return [Array<(IncidentTeamResponse, Integer, Hash)>] IncidentTeamResponse data, response status code and response headers
     def get_incident_team_with_http_info(team_id, opts = {})
@@ -205,8 +208,12 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && team_id.nil?
         fail ArgumentError, "Missing the required parameter 'team_id' when calling IncidentTeamsAPI.get_incident_team"
       end
+      allowable_values = ['users']
+      if @api_client.config.client_side_validation && opts[:'include'] && !allowable_values.include?(opts[:'include'])
+        fail ArgumentError, "invalid value for \"include\", must be one of #{allowable_values}"
+      end
       # resource path
-      local_var_path = '/api/v2/teams/{team_id}'.sub('{' + 'team_id' + '}', CGI.escape(team_id.to_s))
+      local_var_path = '/api/v2/teams/{team_id}'.sub('{team_id}', CGI.escape(team_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -227,7 +234,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'IncidentTeamResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :get_incident_team,
@@ -248,10 +255,10 @@ module DatadogAPIClient::V2
 
     # Get a list of all incident teams
     # Get all incident teams for the requesting user's organization. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident teams.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @option opts [IncidentRelatedObject] :include Specifies which types of related objects should be included in the response.
-    # @option opts [Integer] :page_size Size for a given page. (default to 10)
-    # @option opts [Integer] :page_offset Specific offset to use as the beginning of the returned page. (default to 0)
+    # @option opts [Integer] :page_size Size for a given page.
+    # @option opts [Integer] :page_offset Specific offset to use as the beginning of the returned page.
     # @option opts [String] :filter A search query that filters teams by name.
     # @return [IncidentTeamsResponse]
     def list_incident_teams(opts = {})
@@ -260,8 +267,8 @@ module DatadogAPIClient::V2
     end
 
     # Get a list of all incident teams
-    # Get all incident teams for the requesting user&#39;s organization. If the &#x60;include[users]&#x60; query parameter is provided, the included attribute will contain the users related to these incident teams.
-    # @param [Hash] opts the optional parameters
+    # Get all incident teams for the requesting user's organization. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident teams.
+    # @param opts [Hash] the optional parameters
     # @option opts [IncidentRelatedObject] :include Specifies which types of related objects should be included in the response.
     # @option opts [Integer] :page_size Size for a given page.
     # @option opts [Integer] :page_offset Specific offset to use as the beginning of the returned page.
@@ -280,6 +287,10 @@ module DatadogAPIClient::V2
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: IncidentTeamsAPI.list_incident_teams ...'
+      end
+      allowable_values = ['users']
+      if @api_client.config.client_side_validation && opts[:'include'] && !allowable_values.include?(opts[:'include'])
+        fail ArgumentError, "invalid value for \"include\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/api/v2/teams'
@@ -306,7 +317,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'IncidentTeamsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :list_incident_teams,
@@ -329,7 +340,7 @@ module DatadogAPIClient::V2
     # Updates an existing incident team. Only provide the attributes which should be updated as this request is a partial update.
     # @param team_id [String] The ID of the incident team.
     # @param body [IncidentTeamUpdateRequest] Incident Team Payload.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [IncidentTeamResponse]
     def update_incident_team(team_id, body, opts = {})
       data, _status_code, _headers = update_incident_team_with_http_info(team_id, body, opts)
@@ -340,7 +351,7 @@ module DatadogAPIClient::V2
     # Updates an existing incident team. Only provide the attributes which should be updated as this request is a partial update.
     # @param team_id [String] The ID of the incident team.
     # @param body [IncidentTeamUpdateRequest] Incident Team Payload.
-    # @param [Hash] opts the optional parameters
+    # @param opts [Hash] the optional parameters
     # @return [Array<(IncidentTeamResponse, Integer, Hash)>] IncidentTeamResponse data, response status code and response headers
     def update_incident_team_with_http_info(team_id, body, opts = {})
 
@@ -365,7 +376,7 @@ module DatadogAPIClient::V2
         fail ArgumentError, "Missing the required parameter 'body' when calling IncidentTeamsAPI.update_incident_team"
       end
       # resource path
-      local_var_path = '/api/v2/teams/{team_id}'.sub('{' + 'team_id' + '}', CGI.escape(team_id.to_s))
+      local_var_path = '/api/v2/teams/{team_id}'.sub('{team_id}', CGI.escape(team_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -387,7 +398,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'IncidentTeamResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :update_incident_team,

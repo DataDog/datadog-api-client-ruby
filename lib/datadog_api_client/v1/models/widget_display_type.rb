@@ -17,6 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
+  # Type of display to use for the request.
   class WidgetDisplayType
     AREA = "area".freeze
     BARS = "bars".freeze
@@ -39,5 +40,4 @@ module DatadogAPIClient::V1
       constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
     end
   end
-
 end
