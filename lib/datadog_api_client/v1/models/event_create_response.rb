@@ -23,72 +23,18 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # If an alert event is enabled, set its type.
-    # For example, `error`, `warning`, `info`, `success`, `user_update`,
-    # `recommendation`, and `snapshot`.
-    attr_accessor :alert_type
-
-    # POSIX timestamp of the event. Must be sent as an integer (that is no quotes).
-    # Limited to events no older than 7 days.
-    attr_accessor :date_happened
-
-    # A device name.
-    attr_accessor :device_name
-
-    # Host name to associate with the event.
-    # Any tags associated with the host are also applied to this event.
-    attr_accessor :host
-
-    # Integer ID of the event.
-    attr_accessor :id
-
-    # Payload of the event.
-    attr_accessor :payload
-
-    # The priority of the event. For example, `normal` or `low`.
-    attr_accessor :priority
-
-    # ID of the parent event. Must be sent as an integer (that is no quotes).
-    attr_accessor :related_event_id
-
-    # The type of event being posted. Option examples include nagios, hudson, jenkins, my_apps, chef, puppet, git, bitbucket, etc.
-    # A complete list of source attribute values [available here](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
-    attr_accessor :source_type_name
+    # Object representing an event.
+    attr_accessor :event
 
     # A status.
     attr_accessor :status
-
-    # A list of tags to apply to the event.
-    attr_accessor :tags
-
-    # The body of the event. Limited to 4000 characters. The text supports markdown.
-    # Use `msg_text` with the Datadog Ruby library.
-    attr_accessor :text
-
-    # The event title. Limited to 100 characters. Use `msg_title` with the Datadog Ruby library.
-    attr_accessor :title
-
-    # URL of the event.
-    attr_accessor :url
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'alert_type' => :'alert_type',
-        :'date_happened' => :'date_happened',
-        :'device_name' => :'device_name',
-        :'host' => :'host',
-        :'id' => :'id',
-        :'payload' => :'payload',
-        :'priority' => :'priority',
-        :'related_event_id' => :'related_event_id',
-        :'source_type_name' => :'source_type_name',
-        :'status' => :'status',
-        :'tags' => :'tags',
-        :'text' => :'text',
-        :'title' => :'title',
-        :'url' => :'url'
+        :'event' => :'event',
+        :'status' => :'status'
       }
     end
 
@@ -102,20 +48,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'alert_type' => :'EventAlertType',
-        :'date_happened' => :'Integer',
-        :'device_name' => :'String',
-        :'host' => :'String',
-        :'id' => :'Integer',
-        :'payload' => :'String',
-        :'priority' => :'EventPriority',
-        :'related_event_id' => :'Integer',
-        :'source_type_name' => :'String',
-        :'status' => :'String',
-        :'tags' => :'Array<String>',
-        :'text' => :'String',
-        :'title' => :'String',
-        :'url' => :'String'
+        :'event' => :'Event',
+        :'status' => :'String'
       }
     end
 
@@ -142,62 +76,12 @@ module DatadogAPIClient::V1
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'alert_type')
-        self.alert_type = attributes[:'alert_type']
-      end
-
-      if attributes.key?(:'date_happened')
-        self.date_happened = attributes[:'date_happened']
-      end
-
-      if attributes.key?(:'device_name')
-        self.device_name = attributes[:'device_name']
-      end
-
-      if attributes.key?(:'host')
-        self.host = attributes[:'host']
-      end
-
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'payload')
-        self.payload = attributes[:'payload']
-      end
-
-      if attributes.key?(:'priority')
-        self.priority = attributes[:'priority']
-      end
-
-      if attributes.key?(:'related_event_id')
-        self.related_event_id = attributes[:'related_event_id']
-      end
-
-      if attributes.key?(:'source_type_name')
-        self.source_type_name = attributes[:'source_type_name']
+      if attributes.key?(:'event')
+        self.event = attributes[:'event']
       end
 
       if attributes.key?(:'status')
         self.status = attributes[:'status']
-      end
-
-      if attributes.key?(:'tags')
-        if (value = attributes[:'tags']).is_a?(Array)
-          self.tags = value
-        end
-      end
-
-      if attributes.key?(:'text')
-        self.text = attributes[:'text']
-      end
-
-      if attributes.key?(:'title')
-        self.title = attributes[:'title']
-      end
-
-      if attributes.key?(:'url')
-        self.url = attributes[:'url']
       end
     end
 
@@ -206,12 +90,6 @@ module DatadogAPIClient::V1
     # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@text.nil? && @text.to_s.length > 4000
-        invalid_properties.push('invalid value for "text", the character length must be smaller than or equal to 4000.')
-      end
-      if !@title.nil? && @title.to_s.length > 100
-        invalid_properties.push('invalid value for "title", the character length must be smaller than or equal to 100.')
-      end
       invalid_properties
     end
 
@@ -219,29 +97,7 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if !@text.nil? && @text.to_s.length > 4000
-      return false if !@title.nil? && @title.to_s.length > 100
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param text [Object] Object to be assigned
-    # @!visibility private
-    def text=(text)
-      if !text.nil? && text.to_s.length > 4000
-        fail ArgumentError, 'invalid value for "text", the character length must be smaller than or equal to 4000.'
-      end
-      @text = text
-    end
-
-    # Custom attribute writer method with validation
-    # @param title [Object] Object to be assigned
-    # @!visibility private
-    def title=(title)
-      if !title.nil? && title.to_s.length > 100
-        fail ArgumentError, 'invalid value for "title", the character length must be smaller than or equal to 100.'
-      end
-      @title = title
     end
 
     # Checks equality by comparing each attribute.
@@ -250,20 +106,8 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          alert_type == o.alert_type &&
-          date_happened == o.date_happened &&
-          device_name == o.device_name &&
-          host == o.host &&
-          id == o.id &&
-          payload == o.payload &&
-          priority == o.priority &&
-          related_event_id == o.related_event_id &&
-          source_type_name == o.source_type_name &&
-          status == o.status &&
-          tags == o.tags &&
-          text == o.text &&
-          title == o.title &&
-          url == o.url
+          event == o.event &&
+          status == o.status
     end
 
     # @see the `==` method
@@ -277,7 +121,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [alert_type, date_happened, device_name, host, id, payload, priority, related_event_id, source_type_name, status, tags, text, title, url].hash
+      [event, status].hash
     end
 
     # Builds the object from hash
