@@ -30,6 +30,9 @@ module DatadogAPIClient::V1
     # Allows loading insecure content for an HTTP request.
     attr_accessor :allow_insecure
 
+    # For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+    attr_accessor :check_certificate_revocation
+
     # For browser test, array with the different device IDs used to run the test.
     attr_accessor :device_ids
 
@@ -71,6 +74,7 @@ module DatadogAPIClient::V1
       {
         :'accept_self_signed' => :'accept_self_signed',
         :'allow_insecure' => :'allow_insecure',
+        :'check_certificate_revocation' => :'checkCertificateRevocation',
         :'device_ids' => :'device_ids',
         :'disable_cors' => :'disableCors',
         :'follow_redirects' => :'follow_redirects',
@@ -97,6 +101,7 @@ module DatadogAPIClient::V1
       {
         :'accept_self_signed' => :'Boolean',
         :'allow_insecure' => :'Boolean',
+        :'check_certificate_revocation' => :'Boolean',
         :'device_ids' => :'Array<SyntheticsDeviceID>',
         :'disable_cors' => :'Boolean',
         :'follow_redirects' => :'Boolean',
@@ -140,6 +145,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'allow_insecure')
         self.allow_insecure = attributes[:'allow_insecure']
+      end
+
+      if attributes.key?(:'check_certificate_revocation')
+        self.check_certificate_revocation = attributes[:'check_certificate_revocation']
       end
 
       if attributes.key?(:'device_ids')
@@ -254,6 +263,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           accept_self_signed == o.accept_self_signed &&
           allow_insecure == o.allow_insecure &&
+          check_certificate_revocation == o.check_certificate_revocation &&
           device_ids == o.device_ids &&
           disable_cors == o.disable_cors &&
           follow_redirects == o.follow_redirects &&
@@ -278,7 +288,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [accept_self_signed, allow_insecure, device_ids, disable_cors, follow_redirects, min_failure_duration, min_location_failed, monitor_name, monitor_options, monitor_priority, no_screenshot, _retry, tick_every].hash
+      [accept_self_signed, allow_insecure, check_certificate_revocation, device_ids, disable_cors, follow_redirects, min_failure_duration, min_location_failed, monitor_name, monitor_options, monitor_priority, no_screenshot, _retry, tick_every].hash
     end
 
     # Builds the object from hash
