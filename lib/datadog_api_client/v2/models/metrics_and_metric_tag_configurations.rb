@@ -20,7 +20,8 @@ module DatadogAPIClient::V2
   # Object for a metrics and metric tag configurations.
   module MetricsAndMetricTagConfigurations
     class << self
-      attr_accessor :_unparsed
+      include BaseOneOfModel
+      
 
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of

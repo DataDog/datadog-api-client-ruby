@@ -20,7 +20,8 @@ module DatadogAPIClient::V2
   # Dynamic fields for which selections can be made, with field names as keys.
   module IncidentFieldAttributes
     class << self
-      attr_accessor :_unparsed
+      include BaseOneOfModel
+      
 
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of

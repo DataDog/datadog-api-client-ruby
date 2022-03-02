@@ -20,7 +20,8 @@ module DatadogAPIClient::V2
   # An object related to a user.
   module UserResponseIncludedItem
     class << self
-      attr_accessor :_unparsed
+      include BaseOneOfModel
+      
 
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of

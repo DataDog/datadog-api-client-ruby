@@ -20,26 +20,11 @@ module DatadogAPIClient::V1
   # The timeframe of the threshold associated with this error
   # or "all" if all thresholds are affected.
   class SLOErrorTimeframe
+    include BaseEnumModel
+
     SEVEN_DAYS = "7d".freeze
     THIRTY_DAYS = "30d".freeze
     NINETY_DAYS = "90d".freeze
     ALL = "all".freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = SLOErrorTimeframe.constants.select { |c| SLOErrorTimeframe::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
-    end
   end
 end

@@ -19,26 +19,11 @@ require 'time'
 module DatadogAPIClient::V1
   # The SLO time window options.
   class SLOTimeframe
+    include BaseEnumModel
+
     SEVEN_DAYS = "7d".freeze
     THIRTY_DAYS = "30d".freeze
     NINETY_DAYS = "90d".freeze
     CUSTOM = "custom".freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = SLOTimeframe.constants.select { |c| SLOTimeframe::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
-    end
   end
 end

@@ -20,6 +20,7 @@ require 'datadog_api_client/v1/api_error'
 require 'datadog_api_client/v1/configuration'
 
 # Models
+require 'datadog_api_client/v1/model_base'
 require 'datadog_api_client/v1/models/access_role'
 require 'datadog_api_client/v1/models/alert_graph_widget_definition'
 require 'datadog_api_client/v1/models/alert_graph_widget_definition_type'

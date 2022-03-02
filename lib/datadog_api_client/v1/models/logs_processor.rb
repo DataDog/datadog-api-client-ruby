@@ -20,7 +20,8 @@ module DatadogAPIClient::V1
   # Definition of a logs processor.
   module LogsProcessor
     class << self
-      attr_accessor :_unparsed
+      include BaseOneOfModel
+      
 
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of

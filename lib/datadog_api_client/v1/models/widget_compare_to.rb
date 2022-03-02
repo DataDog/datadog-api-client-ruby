@@ -19,26 +19,11 @@ require 'time'
 module DatadogAPIClient::V1
   # Timeframe used for the change comparison.
   class WidgetCompareTo
+    include BaseEnumModel
+
     HOUR_BEFORE = "hour_before".freeze
     DAY_BEFORE = "day_before".freeze
     WEEK_BEFORE = "week_before".freeze
     MONTH_BEFORE = "month_before".freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = WidgetCompareTo.constants.select { |c| WidgetCompareTo::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
-    end
   end
 end

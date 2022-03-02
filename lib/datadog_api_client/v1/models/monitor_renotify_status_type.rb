@@ -19,25 +19,10 @@ require 'time'
 module DatadogAPIClient::V1
   # The different statuses for which renotification is supported.
   class MonitorRenotifyStatusType
+    include BaseEnumModel
+
     ALERT = "alert".freeze
     WARN = "warn".freeze
     NO_DATA = "no data".freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = MonitorRenotifyStatusType.constants.select { |c| MonitorRenotifyStatusType::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
-    end
   end
 end

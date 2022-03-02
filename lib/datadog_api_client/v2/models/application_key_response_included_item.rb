@@ -20,7 +20,8 @@ module DatadogAPIClient::V2
   # An object related to an application key.
   module ApplicationKeyResponseIncludedItem
     class << self
-      attr_accessor :_unparsed
+      include BaseOneOfModel
+      
 
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of

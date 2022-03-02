@@ -19,6 +19,8 @@ require 'time'
 module DatadogAPIClient::V1
   # Step type used in your Synthetic test.
   class SyntheticsStepType
+    include BaseEnumModel
+
     ASSERT_CURRENT_URL = "assertCurrentUrl".freeze
     ASSERT_ELEMENT_ATTRIBUTE = "assertElementAttribute".freeze
     ASSERT_ELEMENT_CONTENT = "assertElementContent".freeze
@@ -44,22 +46,5 @@ module DatadogAPIClient::V1
     TYPE_TEXT = "typeText".freeze
     UPLOAD_FILES = "uploadFiles".freeze
     WAIT = "wait".freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = SyntheticsStepType.constants.select { |c| SyntheticsStepType::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
-    end
   end
 end

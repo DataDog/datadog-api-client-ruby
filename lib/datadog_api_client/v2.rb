@@ -20,6 +20,7 @@ require 'datadog_api_client/v2/api_error'
 require 'datadog_api_client/v2/configuration'
 
 # Models
+require 'datadog_api_client/v2/model_base'
 require 'datadog_api_client/v2/models/api_error_response'
 require 'datadog_api_client/v2/models/api_key_create_attributes'
 require 'datadog_api_client/v2/models/api_key_create_data'

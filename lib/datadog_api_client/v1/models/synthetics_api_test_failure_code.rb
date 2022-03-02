@@ -19,6 +19,8 @@ require 'time'
 module DatadogAPIClient::V1
   # Error code that can be returned by a Synthetic test.
   class SyntheticsApiTestFailureCode
+    include BaseEnumModel
+
     BODY_TOO_LARGE = "BODY_TOO_LARGE".freeze
     DENIED = "DENIED".freeze
     TOO_MANY_REDIRECTS = "TOO_MANY_REDIRECTS".freeze
@@ -45,22 +47,5 @@ module DatadogAPIClient::V1
     WEBSOCKET = "WEBSOCKET".freeze
     UNKNOWN = "UNKNOWN".freeze
     INTERNAL_ERROR = "INTERNAL_ERROR".freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = SyntheticsApiTestFailureCode.constants.select { |c| SyntheticsApiTestFailureCode::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
-    end
   end
 end

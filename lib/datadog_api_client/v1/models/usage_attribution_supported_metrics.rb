@@ -19,6 +19,8 @@ require 'time'
 module DatadogAPIClient::V1
   # Supported fields for usage attribution requests (valid requests contain one or more metrics, or `*` for all).
   class UsageAttributionSupportedMetrics
+    include BaseEnumModel
+
     CUSTOM_TIMESERIES_USAGE = "custom_timeseries_usage".freeze
     CONTAINER_USAGE = "container_usage".freeze
     SNMP_PERCENTAGE = "snmp_percentage".freeze
@@ -54,22 +56,5 @@ module DatadogAPIClient::V1
     ESTIMATED_INDEXED_LOGS_USAGE = "estimated_indexed_logs_usage".freeze
     ESTIMATED_INDEXED_LOGS_PERCENTAGE = "estimated_indexed_logs_percentage".freeze
     ALL = "*".freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = UsageAttributionSupportedMetrics.constants.select { |c| UsageAttributionSupportedMetrics::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
-    end
   end
 end

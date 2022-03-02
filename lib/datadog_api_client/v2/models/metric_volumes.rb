@@ -20,7 +20,8 @@ module DatadogAPIClient::V2
   # Possible response objects for a metric's volume.
   module MetricVolumes
     class << self
-      attr_accessor :_unparsed
+      include BaseOneOfModel
+      
 
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of

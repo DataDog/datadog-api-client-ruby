@@ -19,6 +19,8 @@ require 'time'
 module DatadogAPIClient::V1
   # Color palette to apply.
   class WidgetPalette
+    include BaseEnumModel
+
     BLUE = "blue".freeze
     CUSTOM_BACKGROUND = "custom_bg".freeze
     CUSTOM_IMAGE = "custom_image".freeze
@@ -38,22 +40,5 @@ module DatadogAPIClient::V1
     BLACK_ON_LIGHT_YELLOW = "black_on_light_yellow".freeze
     BLACK_ON_LIGHT_GREEN = "black_on_light_green".freeze
     BLACK_ON_LIGHT_RED = "black_on_light_red".freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = WidgetPalette.constants.select { |c| WidgetPalette::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
-    end
   end
 end
