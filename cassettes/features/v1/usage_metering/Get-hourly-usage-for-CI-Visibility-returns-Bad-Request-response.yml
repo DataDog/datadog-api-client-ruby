@@ -1,0 +1,17 @@
+http_interactions:
+- recorded_at: Thu, 24 Feb 2022 14:52:00 GMT
+  request:
+    body: null
+    headers:
+      Content-Type:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v1/usage/ci-app?start_hr=2022-02-21T14%3A52%3A00.008Z&end_hr=2022-02-19T14%3A52%3A00.008Z
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors": ["start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]"]}'
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0

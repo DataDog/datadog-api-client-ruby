@@ -62,6 +62,18 @@ module DatadogAPIClient::V1
     # Shows the sum of all browser RUM units over all hours in the current date for all organizations.
     attr_accessor :browser_rum_units_sum
 
+    # Shows the sum of all CI pipeline indexed spans over all hours in the current month for all organizations.
+    attr_accessor :ci_pipeline_indexed_spans_sum
+
+    # Shows the sum of all CI test indexed spans over all hours in the current month for all organizations.
+    attr_accessor :ci_test_indexed_spans_sum
+
+    # Shows the high-water mark of all CI visibility pipeline committers over all hours in the current month for all organizations.
+    attr_accessor :ci_visibility_pipeline_committers_hwm
+
+    # Shows the high-water mark of all CI visibility test committers over all hours in the current month for all organizations.
+    attr_accessor :ci_visibility_test_committers_hwm
+
     # Shows the average of all distinct containers over all hours in the current date for all organizations.
     attr_accessor :container_avg
 
@@ -211,6 +223,10 @@ module DatadogAPIClient::V1
         :'browser_rum_lite_session_count_sum' => :'browser_rum_lite_session_count_sum',
         :'browser_rum_replay_session_count_sum' => :'browser_rum_replay_session_count_sum',
         :'browser_rum_units_sum' => :'browser_rum_units_sum',
+        :'ci_pipeline_indexed_spans_sum' => :'ci_pipeline_indexed_spans_sum',
+        :'ci_test_indexed_spans_sum' => :'ci_test_indexed_spans_sum',
+        :'ci_visibility_pipeline_committers_hwm' => :'ci_visibility_pipeline_committers_hwm',
+        :'ci_visibility_test_committers_hwm' => :'ci_visibility_test_committers_hwm',
         :'container_avg' => :'container_avg',
         :'container_hwm' => :'container_hwm',
         :'cspm_aas_host_top99p' => :'cspm_aas_host_top99p',
@@ -281,6 +297,10 @@ module DatadogAPIClient::V1
         :'browser_rum_lite_session_count_sum' => :'Integer',
         :'browser_rum_replay_session_count_sum' => :'Integer',
         :'browser_rum_units_sum' => :'Integer',
+        :'ci_pipeline_indexed_spans_sum' => :'Integer',
+        :'ci_test_indexed_spans_sum' => :'Integer',
+        :'ci_visibility_pipeline_committers_hwm' => :'Integer',
+        :'ci_visibility_test_committers_hwm' => :'Integer',
         :'container_avg' => :'Integer',
         :'container_hwm' => :'Integer',
         :'cspm_aas_host_top99p' => :'Integer',
@@ -401,6 +421,22 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'browser_rum_units_sum')
         self.browser_rum_units_sum = attributes[:'browser_rum_units_sum']
+      end
+
+      if attributes.key?(:'ci_pipeline_indexed_spans_sum')
+        self.ci_pipeline_indexed_spans_sum = attributes[:'ci_pipeline_indexed_spans_sum']
+      end
+
+      if attributes.key?(:'ci_test_indexed_spans_sum')
+        self.ci_test_indexed_spans_sum = attributes[:'ci_test_indexed_spans_sum']
+      end
+
+      if attributes.key?(:'ci_visibility_pipeline_committers_hwm')
+        self.ci_visibility_pipeline_committers_hwm = attributes[:'ci_visibility_pipeline_committers_hwm']
+      end
+
+      if attributes.key?(:'ci_visibility_test_committers_hwm')
+        self.ci_visibility_test_committers_hwm = attributes[:'ci_visibility_test_committers_hwm']
       end
 
       if attributes.key?(:'container_avg')
@@ -616,6 +652,10 @@ module DatadogAPIClient::V1
           browser_rum_lite_session_count_sum == o.browser_rum_lite_session_count_sum &&
           browser_rum_replay_session_count_sum == o.browser_rum_replay_session_count_sum &&
           browser_rum_units_sum == o.browser_rum_units_sum &&
+          ci_pipeline_indexed_spans_sum == o.ci_pipeline_indexed_spans_sum &&
+          ci_test_indexed_spans_sum == o.ci_test_indexed_spans_sum &&
+          ci_visibility_pipeline_committers_hwm == o.ci_visibility_pipeline_committers_hwm &&
+          ci_visibility_test_committers_hwm == o.ci_visibility_test_committers_hwm &&
           container_avg == o.container_avg &&
           container_hwm == o.container_hwm &&
           cspm_aas_host_top99p == o.cspm_aas_host_top99p &&
@@ -673,7 +713,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [agent_host_top99p, apm_azure_app_service_host_top99p, apm_host_top99p, audit_logs_lines_indexed_sum, avg_profiled_fargate_tasks, aws_host_top99p, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p, billable_ingested_bytes_sum, browser_rum_lite_session_count_sum, browser_rum_replay_session_count_sum, browser_rum_units_sum, container_avg, container_hwm, cspm_aas_host_top99p, cspm_azure_host_top99p, cspm_container_avg, cspm_container_hwm, cspm_host_top99p, custom_ts_avg, cws_container_count_avg, cws_host_top99p, date, dbm_host_top99p, dbm_queries_count_avg, fargate_tasks_count_avg, fargate_tasks_count_hwm, gcp_host_top99p, heroku_host_top99p, incident_management_monthly_active_users_hwm, indexed_events_count_sum, infra_host_top99p, ingested_events_bytes_sum, iot_device_sum, iot_device_top99p, mobile_rum_lite_session_count_sum, mobile_rum_session_count_android_sum, mobile_rum_session_count_ios_sum, mobile_rum_session_count_sum, mobile_rum_units_sum, netflow_indexed_events_count_sum, npm_host_top99p, opentelemetry_host_top99p, orgs, profiling_host_top99p, rum_browser_and_mobile_session_count, rum_session_count_sum, rum_total_session_count_sum, rum_units_sum, sds_logs_scanned_bytes_sum, sds_total_scanned_bytes_sum, synthetics_browser_check_calls_count_sum, synthetics_check_calls_count_sum, trace_search_indexed_events_count_sum, twol_ingested_events_bytes_sum, vsphere_host_top99p].hash
+      [agent_host_top99p, apm_azure_app_service_host_top99p, apm_host_top99p, audit_logs_lines_indexed_sum, avg_profiled_fargate_tasks, aws_host_top99p, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p, billable_ingested_bytes_sum, browser_rum_lite_session_count_sum, browser_rum_replay_session_count_sum, browser_rum_units_sum, ci_pipeline_indexed_spans_sum, ci_test_indexed_spans_sum, ci_visibility_pipeline_committers_hwm, ci_visibility_test_committers_hwm, container_avg, container_hwm, cspm_aas_host_top99p, cspm_azure_host_top99p, cspm_container_avg, cspm_container_hwm, cspm_host_top99p, custom_ts_avg, cws_container_count_avg, cws_host_top99p, date, dbm_host_top99p, dbm_queries_count_avg, fargate_tasks_count_avg, fargate_tasks_count_hwm, gcp_host_top99p, heroku_host_top99p, incident_management_monthly_active_users_hwm, indexed_events_count_sum, infra_host_top99p, ingested_events_bytes_sum, iot_device_sum, iot_device_top99p, mobile_rum_lite_session_count_sum, mobile_rum_session_count_android_sum, mobile_rum_session_count_ios_sum, mobile_rum_session_count_sum, mobile_rum_units_sum, netflow_indexed_events_count_sum, npm_host_top99p, opentelemetry_host_top99p, orgs, profiling_host_top99p, rum_browser_and_mobile_session_count, rum_session_count_sum, rum_total_session_count_sum, rum_units_sum, sds_logs_scanned_bytes_sum, sds_total_scanned_bytes_sum, synthetics_browser_check_calls_count_sum, synthetics_check_calls_count_sum, trace_search_indexed_events_count_sum, twol_ingested_events_bytes_sum, vsphere_host_top99p].hash
     end
 
     # Builds the object from hash
