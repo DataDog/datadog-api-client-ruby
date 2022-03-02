@@ -17,43 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Options on rules.
-  class SecurityMonitoringRuleOptions
+  # Options on impossible travel rules.
+  class SecurityMonitoringRuleImpossibleTravelOptions
     # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The detection method.
-    attr_accessor :detection_method
-
-    # A time window is specified to match when at least one of the cases matches true. This is a sliding window
-    # and evaluates in real time.
-    attr_accessor :evaluation_window
-
-    # Options on impossible travel rules.
-    attr_accessor :impossible_travel_options
-
-    # Once a signal is generated, the signal will remain “open” if a case is matched at least once within
-    # this keep alive window.
-    attr_accessor :keep_alive
-
-    # A signal will “close” regardless of the query being matched once the time exceeds the maximum duration.
-    # This time is calculated from the first seen timestamp.
-    attr_accessor :max_signal_duration
-
-    # Options on new value rules.
-    attr_accessor :new_value_options
+    # If true, signals are suppressed for the first 24 hours. In that time, Datadog learns the user's regular
+    # access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access.
+    attr_accessor :baseline_user_locations
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'detection_method' => :'detectionMethod',
-        :'evaluation_window' => :'evaluationWindow',
-        :'impossible_travel_options' => :'impossibleTravelOptions',
-        :'keep_alive' => :'keepAlive',
-        :'max_signal_duration' => :'maxSignalDuration',
-        :'new_value_options' => :'newValueOptions'
+        :'baseline_user_locations' => :'baselineUserLocations'
       }
     end
 
@@ -67,12 +45,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'detection_method' => :'SecurityMonitoringRuleDetectionMethod',
-        :'evaluation_window' => :'SecurityMonitoringRuleEvaluationWindow',
-        :'impossible_travel_options' => :'SecurityMonitoringRuleImpossibleTravelOptions',
-        :'keep_alive' => :'SecurityMonitoringRuleKeepAlive',
-        :'max_signal_duration' => :'SecurityMonitoringRuleMaxSignalDuration',
-        :'new_value_options' => :'SecurityMonitoringRuleNewValueOptions'
+        :'baseline_user_locations' => :'Boolean'
       }
     end
 
@@ -88,39 +61,19 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringRuleOptions` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringRuleImpossibleTravelOptions` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::SecurityMonitoringRuleOptions`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::SecurityMonitoringRuleImpossibleTravelOptions`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'detection_method')
-        self.detection_method = attributes[:'detection_method']
-      end
-
-      if attributes.key?(:'evaluation_window')
-        self.evaluation_window = attributes[:'evaluation_window']
-      end
-
-      if attributes.key?(:'impossible_travel_options')
-        self.impossible_travel_options = attributes[:'impossible_travel_options']
-      end
-
-      if attributes.key?(:'keep_alive')
-        self.keep_alive = attributes[:'keep_alive']
-      end
-
-      if attributes.key?(:'max_signal_duration')
-        self.max_signal_duration = attributes[:'max_signal_duration']
-      end
-
-      if attributes.key?(:'new_value_options')
-        self.new_value_options = attributes[:'new_value_options']
+      if attributes.key?(:'baseline_user_locations')
+        self.baseline_user_locations = attributes[:'baseline_user_locations']
       end
     end
 
@@ -145,12 +98,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          detection_method == o.detection_method &&
-          evaluation_window == o.evaluation_window &&
-          impossible_travel_options == o.impossible_travel_options &&
-          keep_alive == o.keep_alive &&
-          max_signal_duration == o.max_signal_duration &&
-          new_value_options == o.new_value_options
+          baseline_user_locations == o.baseline_user_locations
     end
 
     # @see the `==` method
@@ -164,7 +112,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [detection_method, evaluation_window, impossible_travel_options, keep_alive, max_signal_duration, new_value_options].hash
+      [baseline_user_locations].hash
     end
 
     # Builds the object from hash
