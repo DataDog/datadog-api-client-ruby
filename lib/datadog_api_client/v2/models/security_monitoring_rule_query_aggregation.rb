@@ -24,6 +24,7 @@ module DatadogAPIClient::V2
     SUM = "sum".freeze
     MAX = "max".freeze
     NEW_VALUE = "new_value".freeze
+    GEO_DATA = "geo_data".freeze
 
     # Builds the enum from string
     # @param value [String] The enum value in the form of the string
