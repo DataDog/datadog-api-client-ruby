@@ -3,7 +3,7 @@
 =end
 
 module {{ config.moduleName }}
-  module BaseEnum
+  module BaseEnumModel
       # Builds the enum from string
       # @param value [String] The enum value in the form of the string
       # @return [String] The enum value
@@ -28,7 +28,7 @@ module {{ config.moduleName }}
     end
   end
 
-  module BaseGeneric
+  module BaseGenericModel
     # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
@@ -179,7 +179,7 @@ module {{ config.moduleName }}
     end
   end
 
-  module BaseOneOf
+  module BaseOneOfModel
     attr_accessor :_unparsed
 
     private
