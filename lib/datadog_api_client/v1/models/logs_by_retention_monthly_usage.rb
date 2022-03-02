@@ -48,7 +48,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'date' => :'String',
+        :'date' => :'Time',
         :'usage' => :'Array<LogsRetentionSumUsage>'
       }
     end
