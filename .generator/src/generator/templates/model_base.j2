@@ -4,14 +4,14 @@
 
 module {{ config.moduleName }}
   module BaseEnumModel
-      # Builds the enum from string
-      # @param value [String] The enum value in the form of the string
-      # @return [String] The enum value
-      # @!visibility private
-      def build_from_hash(value)
-        constantValues = self.class.constants.select { |c| self.class::const_get(c) == value }
-        constantValues.empty? ? {{ config.moduleName }}::UnparsedObject.new(value) : value
-      end
+    # Builds the enum from string
+    # @param value [String] The enum value in the form of the string
+    # @return [String] The enum value
+    # @!visibility private
+    def build_from_hash(value)
+      constantValues = self.class.constants.select { |c| self.class::const_get(c) == value }
+      constantValues.empty? ? {{ config.moduleName }}::UnparsedObject.new(value) : value
+    end
 
     module ClassMethods
       # Builds the enum from string
