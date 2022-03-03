@@ -192,6 +192,9 @@ module DatadogAPIClient::V2
 
   module BaseOneOfModel
     attr_accessor :_unparsed
+  end
+
+  module BaseOneOfModelNoDiscriminator
 
     private
 
@@ -244,14 +247,6 @@ module DatadogAPIClient::V2
       raise # if no match by now, raise
     rescue
       raise SchemaMismatchError, "#{data} doesn't match the #{klass} type"
-    end
-
-    module ClassMethods
-
-    end
-
-    def self.included(base)
-        base.extend(ClassMethods)
     end
   end
 end
