@@ -19,27 +19,12 @@ require 'time'
 module DatadogAPIClient::V2
   # A time aggregation for use in query.
   class MetricCustomTimeAggregation
+    include BaseEnumModel
+
     AVG = "avg".freeze
     COUNT = "count".freeze
     MAX = "max".freeze
     MIN = "min".freeze
     SUM = "sum".freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = MetricCustomTimeAggregation.constants.select { |c| MetricCustomTimeAggregation::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V2::UnparsedObject.new(value) : value
-    end
   end
 end

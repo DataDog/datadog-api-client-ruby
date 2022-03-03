@@ -21,7 +21,8 @@ module DatadogAPIClient::V1
   # `log_stream`. [More information on each graph visualization type.](https://docs.datadoghq.com/dashboards/widgets/)
   module NotebookCellUpdateRequestAttributes
     class << self
-      attr_accessor :_unparsed
+      include BaseOneOfModel
+      
 
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of

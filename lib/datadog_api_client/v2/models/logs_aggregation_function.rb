@@ -19,6 +19,8 @@ require 'time'
 module DatadogAPIClient::V2
   # An aggregation function
   class LogsAggregationFunction
+    include BaseEnumModel
+
     COUNT = "count".freeze
     CARDINALITY = "cardinality".freeze
     PERCENTILE_75 = "pc75".freeze
@@ -30,22 +32,5 @@ module DatadogAPIClient::V2
     MIN = "min".freeze
     MAX = "max".freeze
     AVG = "avg".freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = LogsAggregationFunction.constants.select { |c| LogsAggregationFunction::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V2::UnparsedObject.new(value) : value
-    end
   end
 end

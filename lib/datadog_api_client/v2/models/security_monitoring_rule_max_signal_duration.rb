@@ -20,6 +20,8 @@ module DatadogAPIClient::V2
   # A signal will “close” regardless of the query being matched once the time exceeds the maximum duration.
   # This time is calculated from the first seen timestamp.
   class SecurityMonitoringRuleMaxSignalDuration
+    include BaseEnumModel
+
     ZERO_MINUTES = 0.freeze
     ONE_MINUTE = 60.freeze
     FIVE_MINUTES = 300.freeze
@@ -32,22 +34,5 @@ module DatadogAPIClient::V2
     SIX_HOURS = 21600.freeze
     TWELVE_HOURS = 43200.freeze
     ONE_DAY = 86400.freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = SecurityMonitoringRuleMaxSignalDuration.constants.select { |c| SecurityMonitoringRuleMaxSignalDuration::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V2::UnparsedObject.new(value) : value
-    end
   end
 end

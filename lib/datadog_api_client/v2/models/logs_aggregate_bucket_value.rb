@@ -20,7 +20,8 @@ module DatadogAPIClient::V2
   # A bucket value, can be either a timeseries or a single value
   module LogsAggregateBucketValue
     class << self
-      attr_accessor :_unparsed
+      include BaseOneOfModel
+      
 
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of

@@ -9,6 +9,7 @@ require '{{ config.gemName }}/api_error'
 require '{{ config.gemName }}/configuration'
 
 # Models
+require '{{ config.gemName }}/model_base'
 {%- for model in models|sort %}
 require '{{ config.gemName }}/models/{{ model|snake_case }}'
 {%- endfor %}

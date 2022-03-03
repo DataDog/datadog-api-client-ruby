@@ -21,24 +21,9 @@ module DatadogAPIClient::V1
   # If set to 'fixed', the dashboard expects all widgets to have a layout, and if it's set to 'auto',
   # widgets should not have layouts.
   class DashboardReflowType
+    include BaseEnumModel
+
     AUTO = "auto".freeze
     FIXED = "fixed".freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = DashboardReflowType.constants.select { |c| DashboardReflowType::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
-    end
   end
 end

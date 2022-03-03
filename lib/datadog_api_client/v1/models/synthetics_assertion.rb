@@ -21,7 +21,8 @@ module DatadogAPIClient::V1
   # which property they apply, and upon which target.
   module SyntheticsAssertion
     class << self
-      attr_accessor :_unparsed
+      include BaseOneOfModel
+      
 
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of

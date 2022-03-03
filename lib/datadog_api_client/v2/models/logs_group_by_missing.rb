@@ -20,7 +20,8 @@ module DatadogAPIClient::V2
   # The value to use for logs that don't have the facet used to group by
   module LogsGroupByMissing
     class << self
-      attr_accessor :_unparsed
+      include BaseOneOfModel
+      
 
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of

@@ -20,7 +20,8 @@ module DatadogAPIClient::V1
   # Timeframe for the notebook cell. When 'null', the notebook global time is used.
   module NotebookCellTime
     class << self
-      attr_accessor :_unparsed
+      include BaseOneOfModel
+      
 
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of

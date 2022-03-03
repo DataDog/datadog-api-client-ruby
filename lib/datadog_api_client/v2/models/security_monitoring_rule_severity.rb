@@ -19,27 +19,12 @@ require 'time'
 module DatadogAPIClient::V2
   # Severity of the Security Signal.
   class SecurityMonitoringRuleSeverity
+    include BaseEnumModel
+
     INFO = "info".freeze
     LOW = "low".freeze
     MEDIUM = "medium".freeze
     HIGH = "high".freeze
     CRITICAL = "critical".freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = SecurityMonitoringRuleSeverity.constants.select { |c| SecurityMonitoringRuleSeverity::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V2::UnparsedObject.new(value) : value
-    end
   end
 end

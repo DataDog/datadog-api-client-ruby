@@ -20,24 +20,9 @@ module DatadogAPIClient::V1
   # Define whether you want to start (`live`) or pause (`paused`) a
   # Synthetic test.
   class SyntheticsTestPauseStatus
+    include BaseEnumModel
+
     LIVE = "live".freeze
     PAUSED = "paused".freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = SyntheticsTestPauseStatus.constants.select { |c| SyntheticsTestPauseStatus::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
-    end
   end
 end

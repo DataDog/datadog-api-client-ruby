@@ -19,28 +19,13 @@ require 'time'
 module DatadogAPIClient::V2
   # Sorting options
   class ApplicationKeysSort
+    include BaseEnumModel
+
     CREATED_AT_ASCENDING = "created_at".freeze
     CREATED_AT_DESCENDING = "-created_at".freeze
     LAST4_ASCENDING = "last4".freeze
     LAST4_DESCENDING = "-last4".freeze
     NAME_ASCENDING = "name".freeze
     NAME_DESCENDING = "-name".freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = ApplicationKeysSort.constants.select { |c| ApplicationKeysSort::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V2::UnparsedObject.new(value) : value
-    end
   end
 end

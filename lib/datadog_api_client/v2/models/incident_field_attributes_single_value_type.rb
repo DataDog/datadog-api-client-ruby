@@ -19,24 +19,9 @@ require 'time'
 module DatadogAPIClient::V2
   # Type of the single value field definitions.
   class IncidentFieldAttributesSingleValueType
+    include BaseEnumModel
+
     DROPDOWN = "dropdown".freeze
     TEXTBOX = "textbox".freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = IncidentFieldAttributesSingleValueType.constants.select { |c| IncidentFieldAttributesSingleValueType::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V2::UnparsedObject.new(value) : value
-    end
   end
 end

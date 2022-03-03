@@ -19,6 +19,8 @@ require 'time'
 module DatadogAPIClient::V2
   # Sorting options for AuthN Mappings.
   class AuthNMappingsSort
+    include BaseEnumModel
+
     CREATED_AT_ASCENDING = "created_at".freeze
     CREATED_AT_DESCENDING = "-created_at".freeze
     ROLE_ID_ASCENDING = "role_id".freeze
@@ -31,22 +33,5 @@ module DatadogAPIClient::V2
     SAML_ASSERTION_ATTRIBUTE_KEY_DESCENDING = "-saml_assertion_attribute.attribute_key".freeze
     SAML_ASSERTION_ATTRIBUTE_VALUE_ASCENDING = "saml_assertion_attribute.attribute_value".freeze
     SAML_ASSERTION_ATTRIBUTE_VALUE_DESCENDING = "-saml_assertion_attribute.attribute_value".freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = AuthNMappingsSort.constants.select { |c| AuthNMappingsSort::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V2::UnparsedObject.new(value) : value
-    end
   end
 end

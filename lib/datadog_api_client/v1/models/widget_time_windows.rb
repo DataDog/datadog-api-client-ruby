@@ -19,6 +19,8 @@ require 'time'
 module DatadogAPIClient::V1
   # Define a time window.
   class WidgetTimeWindows
+    include BaseEnumModel
+
     SEVEN_DAYS = "7d".freeze
     THIRTY_DAYS = "30d".freeze
     NINETY_DAYS = "90d".freeze
@@ -27,22 +29,5 @@ module DatadogAPIClient::V1
     MONTH_TO_DATE = "month_to_date".freeze
     PREVIOUS_MONTH = "previous_month".freeze
     GLOBAL_TIME = "global_time".freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = WidgetTimeWindows.constants.select { |c| WidgetTimeWindows::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
-    end
   end
 end

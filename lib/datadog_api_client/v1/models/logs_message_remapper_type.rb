@@ -19,23 +19,8 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of logs message remapper.
   class LogsMessageRemapperType
+    include BaseEnumModel
+
     MESSAGE_REMAPPER = "message-remapper".freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = LogsMessageRemapperType.constants.select { |c| LogsMessageRemapperType::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
-    end
   end
 end
