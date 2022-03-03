@@ -17,23 +17,19 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Object containing a summary of indexed logs usage by retention period for a single month.
-  class LogsByRetentionMonthlyUsage
+  # CI visibility usage response
+  class UsageCIVisibilityResponse
     # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The month for the usage.
-    attr_accessor :date
-
-    # Indexed logs usage for each active retention for the month.
+    # Response containing CI visibility usage.
     attr_accessor :usage
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'date' => :'date',
         :'usage' => :'usage'
       }
     end
@@ -48,8 +44,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'date' => :'Time',
-        :'usage' => :'Array<LogsRetentionSumUsage>'
+        :'usage' => :'Array<UsageCIVisibilityHour>'
       }
     end
 
@@ -65,20 +60,16 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::LogsByRetentionMonthlyUsage` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::UsageCIVisibilityResponse` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::LogsByRetentionMonthlyUsage`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::UsageCIVisibilityResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
-
-      if attributes.key?(:'date')
-        self.date = attributes[:'date']
-      end
 
       if attributes.key?(:'usage')
         if (value = attributes[:'usage']).is_a?(Array)
@@ -108,7 +99,6 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          date == o.date &&
           usage == o.usage
     end
 
@@ -123,7 +113,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [date, usage].hash
+      [usage].hash
     end
 
     # Builds the object from hash
