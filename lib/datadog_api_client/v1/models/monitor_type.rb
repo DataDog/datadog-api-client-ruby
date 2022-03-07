@@ -19,6 +19,8 @@ require 'time'
 module DatadogAPIClient::V1
   # The type of the monitor. For more information about `type`, see the [monitor options](https://docs.datadoghq.com/monitors/guide/monitor_api_options/) docs.
   class MonitorType
+    include BaseEnumModel
+
     COMPOSITE = "composite".freeze
     EVENT_ALERT = "event alert".freeze
     LOG_ALERT = "log alert".freeze
@@ -33,22 +35,5 @@ module DatadogAPIClient::V1
     EVENT_V2_ALERT = "event-v2 alert".freeze
     AUDIT_ALERT = "audit alert".freeze
     CI_PIPELINES_ALERT = "ci-pipelines alert".freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = MonitorType.constants.select { |c| MonitorType::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
-    end
   end
 end

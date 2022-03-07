@@ -21,24 +21,9 @@ module DatadogAPIClient::V1
   # monitor, `1` for metric). Always included in service level objective responses.
   # Ignored in create/update requests.
   class SLOTypeNumeric
+    include BaseEnumModel
+
     MONITOR = 0.freeze
     METRIC = 1.freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = SLOTypeNumeric.constants.select { |c| SLOTypeNumeric::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
-    end
   end
 end

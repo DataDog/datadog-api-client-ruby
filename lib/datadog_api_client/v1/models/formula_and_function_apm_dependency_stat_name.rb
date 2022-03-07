@@ -19,6 +19,8 @@ require 'time'
 module DatadogAPIClient::V1
   # APM statistic.
   class FormulaAndFunctionApmDependencyStatName
+    include BaseEnumModel
+
     AVG_DURATION = "avg_duration".freeze
     AVG_ROOT_DURATION = "avg_root_duration".freeze
     AVG_SPANS_PER_TRACE = "avg_spans_per_trace".freeze
@@ -26,22 +28,5 @@ module DatadogAPIClient::V1
     PCT_EXEC_TIME = "pct_exec_time".freeze
     PCT_OF_TRACES = "pct_of_traces".freeze
     TOTAL_TRACES_COUNT = "total_traces_count".freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = FormulaAndFunctionApmDependencyStatName.constants.select { |c| FormulaAndFunctionApmDependencyStatName::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
-    end
   end
 end

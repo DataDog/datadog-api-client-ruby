@@ -19,6 +19,8 @@ require 'time'
 module DatadogAPIClient::V1
   # Aggregation methods for event platform queries.
   class FormulaAndFunctionEventAggregation
+    include BaseEnumModel
+
     COUNT = "count".freeze
     CARDINALITY = "cardinality".freeze
     MEDIAN = "median".freeze
@@ -31,22 +33,5 @@ module DatadogAPIClient::V1
     MIN = "min".freeze
     MAX = "max".freeze
     AVG = "avg".freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = FormulaAndFunctionEventAggregation.constants.select { |c| FormulaAndFunctionEventAggregation::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
-    end
   end
 end

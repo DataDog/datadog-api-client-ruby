@@ -20,6 +20,8 @@ module DatadogAPIClient::V1
   # The subtype of the Synthetic API test, `http`, `ssl`, `tcp`,
   # `dns`, `icmp`, `udp`, `websocket` or `multi`.
   class SyntheticsTestDetailsSubType
+    include BaseEnumModel
+
     HTTP = "http".freeze
     SSL = "ssl".freeze
     TCP = "tcp".freeze
@@ -28,22 +30,5 @@ module DatadogAPIClient::V1
     ICMP = "icmp".freeze
     UDP = "udp".freeze
     WEBSOCKET = "websocket".freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = SyntheticsTestDetailsSubType.constants.select { |c| SyntheticsTestDetailsSubType::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
-    end
   end
 end

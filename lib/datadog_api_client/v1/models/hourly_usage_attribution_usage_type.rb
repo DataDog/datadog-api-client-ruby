@@ -19,6 +19,8 @@ require 'time'
 module DatadogAPIClient::V1
   # Supported products for hourly usage attribution requests.
   class HourlyUsageAttributionUsageType
+    include BaseEnumModel
+
     API_USAGE = "api_usage".freeze
     APM_HOST_USAGE = "apm_host_usage".freeze
     BROWSER_USAGE = "browser_usage".freeze
@@ -34,22 +36,5 @@ module DatadogAPIClient::V1
     PROFILED_CONTAINER_USAGE = "profiled_container_usage".freeze
     PROFILED_HOST_USAGE = "profiled_host_usage".freeze
     SNMP_USAGE = "snmp_usage".freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = HourlyUsageAttributionUsageType.constants.select { |c| HourlyUsageAttributionUsageType::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
-    end
   end
 end

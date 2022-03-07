@@ -19,25 +19,10 @@ require 'time'
 module DatadogAPIClient::V1
   # Width of line displayed.
   class WidgetLineWidth
+    include BaseEnumModel
+
     NORMAL = "normal".freeze
     THICK = "thick".freeze
     THIN = "thin".freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = WidgetLineWidth.constants.select { |c| WidgetLineWidth::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
-    end
   end
 end

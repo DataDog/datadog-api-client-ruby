@@ -19,24 +19,9 @@ require 'time'
 module DatadogAPIClient::V2
   # The status of the response
   class LogsAggregateResponseStatus
+    include BaseEnumModel
+
     DONE = "done".freeze
     TIMEOUT = "timeout".freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = LogsAggregateResponseStatus.constants.select { |c| LogsAggregateResponseStatus::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V2::UnparsedObject.new(value) : value
-    end
   end
 end

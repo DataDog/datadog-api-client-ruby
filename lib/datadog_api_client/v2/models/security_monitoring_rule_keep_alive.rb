@@ -20,6 +20,8 @@ module DatadogAPIClient::V2
   # Once a signal is generated, the signal will remain “open” if a case is matched at least once within
   # this keep alive window.
   class SecurityMonitoringRuleKeepAlive
+    include BaseEnumModel
+
     ZERO_MINUTES = 0.freeze
     ONE_MINUTE = 60.freeze
     FIVE_MINUTES = 300.freeze
@@ -30,22 +32,5 @@ module DatadogAPIClient::V2
     TWO_HOURS = 7200.freeze
     THREE_HOURS = 10800.freeze
     SIX_HOURS = 21600.freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = SecurityMonitoringRuleKeepAlive.constants.select { |c| SecurityMonitoringRuleKeepAlive::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V2::UnparsedObject.new(value) : value
-    end
   end
 end

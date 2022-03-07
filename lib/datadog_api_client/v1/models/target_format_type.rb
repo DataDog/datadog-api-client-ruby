@@ -21,26 +21,11 @@ module DatadogAPIClient::V1
   # If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types.
   # If the `target_type` is `tag`, this parameter may not be specified.
   class TargetFormatType
+    include BaseEnumModel
+
     AUTO = "auto".freeze
     STRING = "string".freeze
     INTEGER = "integer".freeze
     DOUBLE = "double".freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = TargetFormatType.constants.select { |c| TargetFormatType::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
-    end
   end
 end

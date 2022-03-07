@@ -19,6 +19,8 @@ require 'time'
 module DatadogAPIClient::V1
   # The device ID.
   class SyntheticsDeviceID
+    include BaseEnumModel
+
     LAPTOP_LARGE = "laptop_large".freeze
     TABLET = "tablet".freeze
     MOBILE_SMALL = "mobile_small".freeze
@@ -31,22 +33,5 @@ module DatadogAPIClient::V1
     EDGE_LAPTOP_LARGE = "edge.laptop_large".freeze
     EDGE_TABLET = "edge.tablet".freeze
     EDGE_MOBILE_SMALL = "edge.mobile_small".freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = SyntheticsDeviceID.constants.select { |c| SyntheticsDeviceID::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
-    end
   end
 end

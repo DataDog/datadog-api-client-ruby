@@ -19,6 +19,8 @@ require 'time'
 module DatadogAPIClient::V1
   # The HTTP method.
   class HTTPMethod
+    include BaseEnumModel
+
     GET = "GET".freeze
     POST = "POST".freeze
     PATCH = "PATCH".freeze
@@ -26,22 +28,5 @@ module DatadogAPIClient::V1
     DELETE = "DELETE".freeze
     HEAD = "HEAD".freeze
     OPTIONS = "OPTIONS".freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = HTTPMethod.constants.select { |c| HTTPMethod::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
-    end
   end
 end

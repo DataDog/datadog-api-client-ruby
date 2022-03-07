@@ -20,6 +20,8 @@ module DatadogAPIClient::V1
   # How to size the image on the widget. The values are based on the image `object-fit` CSS properties.
   # **Note**: `zoom`, `fit` and `center` values are deprecated.
   class WidgetImageSizing
+    include BaseEnumModel
+
     FILL = "fill".freeze
     CONTAIN = "contain".freeze
     COVER = "cover".freeze
@@ -28,22 +30,5 @@ module DatadogAPIClient::V1
     ZOOM = "zoom".freeze
     FIT = "fit".freeze
     CENTER = "center".freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = WidgetImageSizing.constants.select { |c| WidgetImageSizing::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
-    end
   end
 end

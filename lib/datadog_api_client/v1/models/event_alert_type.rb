@@ -21,6 +21,8 @@ module DatadogAPIClient::V1
   # For example, `error`, `warning`, `info`, `success`, `user_update`,
   # `recommendation`, and `snapshot`.
   class EventAlertType
+    include BaseEnumModel
+
     ERROR = "error".freeze
     WARNING = "warning".freeze
     INFO = "info".freeze
@@ -28,22 +30,5 @@ module DatadogAPIClient::V1
     USER_UPDATE = "user_update".freeze
     RECOMMENDATION = "recommendation".freeze
     SNAPSHOT = "snapshot".freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = EventAlertType.constants.select { |c| EventAlertType::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
-    end
   end
 end

@@ -19,27 +19,12 @@ require 'time'
 module DatadogAPIClient::V2
   # The type of the dashboard.
   class DashboardType
+    include BaseEnumModel
+
     CUSTOM_TIMEBOARD = "custom_timeboard".freeze
     CUSTOM_SCREENBOARD = "custom_screenboard".freeze
     INTEGRATION_SCREENBOARD = "integration_screenboard".freeze
     INTEGRATION_TIMEBOARD = "integration_timeboard".freeze
     HOST_TIMEBOARD = "host_timeboard".freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = DashboardType.constants.select { |c| DashboardType::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V2::UnparsedObject.new(value) : value
-    end
   end
 end

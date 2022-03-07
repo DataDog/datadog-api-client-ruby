@@ -19,6 +19,8 @@ require 'time'
 module DatadogAPIClient::V1
   # The field to sort by.
   class UsageAttributionSort
+    include BaseEnumModel
+
     API_PERCENTAGE = "api_percentage".freeze
     SNMP_USAGE = "snmp_usage".freeze
     APM_HOST_USAGE = "apm_host_usage".freeze
@@ -43,22 +45,5 @@ module DatadogAPIClient::V1
     LAMBDA_PERCENTAGE = "lambda_percentage".freeze
     ESTIMATED_INDEXED_LOGS_USAGE = "estimated_indexed_logs_usage".freeze
     ESTIMATED_INDEXED_LOGS_PERCENTAGE = "estimated_indexed_logs_percentage".freeze
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def self.build_from_hash(value)
-      new.build_from_hash(value)
-    end
-
-    # Builds the enum from string
-    # @param value [String] The enum value in the form of the string
-    # @return [String] The enum value
-    # @!visibility private
-    def build_from_hash(value)
-      constantValues = UsageAttributionSort.constants.select { |c| UsageAttributionSort::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
-    end
   end
 end
