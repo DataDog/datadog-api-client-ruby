@@ -1,8 +1,8 @@
   module {{ name }}
     class << self
-      include BaseOneOfModel
+      include DatadogAPIClient::BaseOneOfModel
       {%- if not model.discriminator %}
-      include BaseOneOfModelNoDiscriminator
+      include DatadogAPIClient::BaseOneOfModelNoDiscriminator
       {%- endif %}
 
       # List of class defined in oneOf (OpenAPI v3)
@@ -81,7 +81,7 @@
           data
         else
           self._unparsed = true
-          {{ config.moduleName }}::UnparsedObject.new(data)
+          DatadogAPIClient::UnparsedObject.new(data)
         end
 
       {%- endif %}

@@ -1,5 +1,5 @@
   class {{ name }}
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 {# keep new line #}
 
 {%- for index, value in enumerate(model.enum) %}
