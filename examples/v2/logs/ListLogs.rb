@@ -20,4 +20,7 @@ body = DatadogAPIClient::V2::LogsListRequest.new({
     limit: 5,
   }),
 })
-p api_instance.list_logs(body)
+opts = {
+  body: body,
+}
+p api_instance.list_logs(opts)
