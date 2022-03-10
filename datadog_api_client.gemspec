@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
     "source_code_uri"   => "https://github.com/DataDog/datadog-api-client-ruby"
   }
 
-  spec.add_runtime_dependency "typhoeus", "~> 1.0", ">= 1.0.1"
+  spec.add_runtime_dependency "httparty", "~> 0.20", ">= 0.20.0"
 
   spec.add_development_dependency "rspec", "~> 3.6", ">= 3.6.0"
 
