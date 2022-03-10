@@ -99,7 +99,7 @@ module {{ config.moduleName }}
       req_opts = {
         :method => http_method,
         :headers => header_params,
-        :params => query_params,
+        :query => query_params,
         :params_encoding => @config.params_encoding,
         :timeout => @config.timeout,
         :ssl_verifypeer => @config.verify_ssl,
