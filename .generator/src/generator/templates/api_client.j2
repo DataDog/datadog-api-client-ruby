@@ -135,17 +135,18 @@ module {{ config.moduleName }}
         :timeout => @config.timeout,
         :verify_peer => @config.verify_ssl,
         :verify => _verify_ssl_host,
-        :pem => @config.cert_file,
-        :pem_password => @config.key_file,
         :verbose => @config.debugging
       }
+
+      req_opts[:pem] = File.read(@config.cert_file) if @config.cert_file
+      req_opts[:pem_password] = File.read(@config.key_file) if @config.key_file
 
       if opts[:return_type] == 'File'
         opts[:stream_body] = true
       end
 
       # set custom cert, if provided
-      req_opts[:ssl_ca_file] = @config.ssl_ca_cert if @config.ssl_ca_cert
+      req_opts[:ssl_ca_file] = File.read(@config.ssl_ca_cert) if @config.ssl_ca_cert
 
       if ["POST", "PATCH", "PUT", "DELETE"].include?(http_method.const_get(:METHOD))
         req_body = build_request_body(header_params, form_params, opts[:body])
