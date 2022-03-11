@@ -140,6 +140,10 @@ module {{ config.moduleName }}
         :verbose => @config.debugging
       }
 
+      if opts[:return_type] == 'File'
+        opts[:stream_body] = true
+      end
+
       # set custom cert, if provided
       req_opts[:ssl_ca_file] = @config.ssl_ca_cert if @config.ssl_ca_cert
 
