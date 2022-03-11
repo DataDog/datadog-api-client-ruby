@@ -1,9 +1,6 @@
 # Search logs returns "OK" response
 
 require "datadog_api_client"
-DatadogAPIClient::V2.configure do |config|
-  config.unstable_operations[:list_logs] = true
-end
 api_instance = DatadogAPIClient::V2::LogsAPI.new
 
 body = DatadogAPIClient::V2::LogsListRequest.new({
