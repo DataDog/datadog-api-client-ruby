@@ -25,13 +25,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # List of Scatterplot formulas that operate on queries.
+    # List of Scatterplot formulas that operate on queries. **This feature is currently in beta.**
     attr_accessor :formulas
 
-    # List of queries that can be returned directly or used in formulas.
+    # List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
     attr_accessor :queries
 
-    # Timeseries or Scalar response.
+    # Timeseries or Scalar response. **This feature is currently in beta.**
     attr_accessor :response_format
 
     # Attribute mapping from ruby-style variable name to JSON key.

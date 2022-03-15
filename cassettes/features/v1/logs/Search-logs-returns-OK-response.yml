@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Tue, 15 Mar 2022 19:09:27 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"index":"main","limit":5,"query":"service:web* AND @http.status_code:[200
+        TO 299]","sort":"asc","time":{"from":1647284967,"timezone":"Europe/Paris","to":1647371367}}'
+    headers:
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v1/logs-queries/list
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"status":"done","nextLogId":null,"logs":[],"requestId":"pddv1ChZDZUdZdDZPdVRRMk94LTV4U3JEMXFBIiwKHDeSV_fMV3lW8cL2htIQ-ZZdfNnidnlSY_WPRkoSDBVqgPwDzZlgmthWlA"}'
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0

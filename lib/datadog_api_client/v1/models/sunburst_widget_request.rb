@@ -34,7 +34,7 @@ module DatadogAPIClient::V1
     # The log query.
     attr_accessor :event_query
 
-    # List of formulas that operate on queries.
+    # List of formulas that operate on queries. **This feature is currently in beta.**
     attr_accessor :formulas
 
     # The log query.
@@ -52,10 +52,10 @@ module DatadogAPIClient::V1
     # Widget query.
     attr_accessor :q
 
-    # List of queries that can be returned directly or used in formulas.
+    # List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
     attr_accessor :queries
 
-    # Timeseries or Scalar response.
+    # Timeseries or Scalar response. **This feature is currently in beta.**
     attr_accessor :response_format
 
     # The log query.
