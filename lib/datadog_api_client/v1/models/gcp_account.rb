@@ -40,8 +40,8 @@ module DatadogAPIClient::V1
     # Your ID found in your JSON service account key.
     attr_accessor :client_id
 
-    # Should be `https://www.googleapis.com/robot/v1/metadata/x509/<CLIENT_EMAIL>`
-    # where `<CLIENT_EMAIL>` is the email found in your JSON service account key.
+    # Should be `https://www.googleapis.com/robot/v1/metadata/x509/$CLIENT_EMAIL`
+    # where `$CLIENT_EMAIL` is the email found in your JSON service account key.
     attr_accessor :client_x509_cert_url
 
     # An array of errors.
