@@ -12,4 +12,4 @@ body = [
 opts = {
   content_encoding: ContentEncoding::DEFLATE,
 }
-p api_instance.submit_log(optsbody)
+p api_instance.submit_log(body, opts)
