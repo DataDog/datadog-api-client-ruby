@@ -23,4 +23,4 @@ body = DatadogAPIClient::V1::MetricsPayload.new({
 opts = {
   content_encoding: MetricContentEncoding::DEFLATE,
 }
-p api_instance.submit_metrics(optsbody)
+p api_instance.submit_metrics(body, opts)
