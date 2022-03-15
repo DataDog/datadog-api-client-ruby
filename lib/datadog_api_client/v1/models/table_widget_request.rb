@@ -46,7 +46,7 @@ module DatadogAPIClient::V1
     # The log query.
     attr_accessor :event_query
 
-    # List of formulas that operate on queries. **This feature is currently in beta.**
+    # List of formulas that operate on queries.
     attr_accessor :formulas
 
     # For metric queries, the number of lines to show in the table. Only one request should have this property.
@@ -70,10 +70,10 @@ module DatadogAPIClient::V1
     # Query definition.
     attr_accessor :q
 
-    # List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
+    # List of queries that can be returned directly or used in formulas.
     attr_accessor :queries
 
-    # Timeseries or Scalar response. **This feature is currently in beta.**
+    # Timeseries or Scalar response.
     attr_accessor :response_format
 
     # The log query.
