@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Timeseries or Scalar response.
+  # Timeseries or Scalar response. **This feature is currently in beta.**
   class FormulaAndFunctionResponseFormat
     include BaseEnumModel
 
