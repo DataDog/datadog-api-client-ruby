@@ -55,7 +55,7 @@ module DatadogAPIClient::V1
     # - If `False`, `[Triggered] Monitor Title`
     attr_accessor :include_tags
 
-    # Whether or not the monitor is locked (only editable by creator and admins).
+    # Whether or not the monitor is locked (only editable by creator and admins). Use `restricted_roles` instead.
     attr_accessor :locked
 
     # How long the test should be in failure before alerting (integer, number of seconds, max 7200).

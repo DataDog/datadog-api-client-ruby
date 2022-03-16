@@ -25,7 +25,7 @@ module DatadogAPIClient::V2
 
     # Grant permission to a role
     # Adds a permission to a role.
-    # @param role_id [String] The ID of the role.
+    # @param role_id [String] The unique identifier of the role.
     # @param body [RelationshipToPermission] 
     # @param opts [Hash] the optional parameters
     # @return [PermissionsResponse]
@@ -36,7 +36,7 @@ module DatadogAPIClient::V2
 
     # Grant permission to a role
     # Adds a permission to a role.
-    # @param role_id [String] The ID of the role.
+    # @param role_id [String] The unique identifier of the role.
     # @param body [RelationshipToPermission] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(PermissionsResponse, Integer, Hash)>] PermissionsResponse data, response status code and response headers
@@ -106,7 +106,7 @@ module DatadogAPIClient::V2
 
     # Add a user to a role
     # Adds a user to a role.
-    # @param role_id [String] The ID of the role.
+    # @param role_id [String] The unique identifier of the role.
     # @param body [RelationshipToUser] 
     # @param opts [Hash] the optional parameters
     # @return [UsersResponse]
@@ -117,7 +117,7 @@ module DatadogAPIClient::V2
 
     # Add a user to a role
     # Adds a user to a role.
-    # @param role_id [String] The ID of the role.
+    # @param role_id [String] The unique identifier of the role.
     # @param body [RelationshipToUser] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(UsersResponse, Integer, Hash)>] UsersResponse data, response status code and response headers
@@ -187,7 +187,7 @@ module DatadogAPIClient::V2
 
     # Create a new role by cloning an existing role
     # Clone an existing role
-    # @param role_id [String] The ID of the role.
+    # @param role_id [String] The unique identifier of the role.
     # @param body [RoleCloneRequest] 
     # @param opts [Hash] the optional parameters
     # @return [RoleResponse]
@@ -198,7 +198,7 @@ module DatadogAPIClient::V2
 
     # Create a new role by cloning an existing role
     # Clone an existing role
-    # @param role_id [String] The ID of the role.
+    # @param role_id [String] The unique identifier of the role.
     # @param body [RoleCloneRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(RoleResponse, Integer, Hash)>] RoleResponse data, response status code and response headers
@@ -343,7 +343,7 @@ module DatadogAPIClient::V2
 
     # Delete role
     # Disables a role.
-    # @param role_id [String] The ID of the role.
+    # @param role_id [String] The unique identifier of the role.
     # @param opts [Hash] the optional parameters
     # @return [nil]
     def delete_role(role_id, opts = {})
@@ -353,7 +353,7 @@ module DatadogAPIClient::V2
 
     # Delete role
     # Disables a role.
-    # @param role_id [String] The ID of the role.
+    # @param role_id [String] The unique identifier of the role.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_role_with_http_info(role_id, opts = {})
@@ -416,7 +416,7 @@ module DatadogAPIClient::V2
 
     # Get a role
     # Get a role in the organization specified by the role’s `role_id`.
-    # @param role_id [String] The ID of the role.
+    # @param role_id [String] The unique identifier of the role.
     # @param opts [Hash] the optional parameters
     # @return [RoleResponse]
     def get_role(role_id, opts = {})
@@ -426,7 +426,7 @@ module DatadogAPIClient::V2
 
     # Get a role
     # Get a role in the organization specified by the role’s `role_id`.
-    # @param role_id [String] The ID of the role.
+    # @param role_id [String] The unique identifier of the role.
     # @param opts [Hash] the optional parameters
     # @return [Array<(RoleResponse, Integer, Hash)>] RoleResponse data, response status code and response headers
     def get_role_with_http_info(role_id, opts = {})
@@ -556,7 +556,7 @@ module DatadogAPIClient::V2
 
     # List permissions for a role
     # Returns a list of all permissions for a single role.
-    # @param role_id [String] The ID of the role.
+    # @param role_id [String] The unique identifier of the role.
     # @param opts [Hash] the optional parameters
     # @return [PermissionsResponse]
     def list_role_permissions(role_id, opts = {})
@@ -566,7 +566,7 @@ module DatadogAPIClient::V2
 
     # List permissions for a role
     # Returns a list of all permissions for a single role.
-    # @param role_id [String] The ID of the role.
+    # @param role_id [String] The unique identifier of the role.
     # @param opts [Hash] the optional parameters
     # @return [Array<(PermissionsResponse, Integer, Hash)>] PermissionsResponse data, response status code and response headers
     def list_role_permissions_with_http_info(role_id, opts = {})
@@ -628,7 +628,7 @@ module DatadogAPIClient::V2
     end
 
     # List roles
-    # Returns all roles, including their names and IDs.
+    # Returns all roles, including their names and their unique identifiers.
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Size for a given page.
     # @option opts [Integer] :page_number Specific page number to return.
@@ -641,7 +641,7 @@ module DatadogAPIClient::V2
     end
 
     # List roles
-    # Returns all roles, including their names and IDs.
+    # Returns all roles, including their names and their unique identifiers.
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Size for a given page.
     # @option opts [Integer] :page_number Specific page number to return.
@@ -712,7 +712,7 @@ module DatadogAPIClient::V2
 
     # Get all users of a role
     # Gets all users of a role.
-    # @param role_id [String] The ID of the role.
+    # @param role_id [String] The unique identifier of the role.
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Size for a given page.
     # @option opts [Integer] :page_number Specific page number to return.
@@ -726,7 +726,7 @@ module DatadogAPIClient::V2
 
     # Get all users of a role
     # Gets all users of a role.
-    # @param role_id [String] The ID of the role.
+    # @param role_id [String] The unique identifier of the role.
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Size for a given page.
     # @option opts [Integer] :page_number Specific page number to return.
@@ -797,7 +797,7 @@ module DatadogAPIClient::V2
 
     # Revoke permission
     # Removes a permission from a role.
-    # @param role_id [String] The ID of the role.
+    # @param role_id [String] The unique identifier of the role.
     # @param body [RelationshipToPermission] 
     # @param opts [Hash] the optional parameters
     # @return [PermissionsResponse]
@@ -808,7 +808,7 @@ module DatadogAPIClient::V2
 
     # Revoke permission
     # Removes a permission from a role.
-    # @param role_id [String] The ID of the role.
+    # @param role_id [String] The unique identifier of the role.
     # @param body [RelationshipToPermission] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(PermissionsResponse, Integer, Hash)>] PermissionsResponse data, response status code and response headers
@@ -878,7 +878,7 @@ module DatadogAPIClient::V2
 
     # Remove a user from a role
     # Removes a user from a role.
-    # @param role_id [String] The ID of the role.
+    # @param role_id [String] The unique identifier of the role.
     # @param body [RelationshipToUser] 
     # @param opts [Hash] the optional parameters
     # @return [UsersResponse]
@@ -889,7 +889,7 @@ module DatadogAPIClient::V2
 
     # Remove a user from a role
     # Removes a user from a role.
-    # @param role_id [String] The ID of the role.
+    # @param role_id [String] The unique identifier of the role.
     # @param body [RelationshipToUser] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(UsersResponse, Integer, Hash)>] UsersResponse data, response status code and response headers
@@ -959,7 +959,7 @@ module DatadogAPIClient::V2
 
     # Update a role
     # Edit a role. Can only be used with application keys belonging to administrators.
-    # @param role_id [String] The ID of the role.
+    # @param role_id [String] The unique identifier of the role.
     # @param body [RoleUpdateRequest] 
     # @param opts [Hash] the optional parameters
     # @return [RoleUpdateResponse]
@@ -970,7 +970,7 @@ module DatadogAPIClient::V2
 
     # Update a role
     # Edit a role. Can only be used with application keys belonging to administrators.
-    # @param role_id [String] The ID of the role.
+    # @param role_id [String] The unique identifier of the role.
     # @param body [RoleUpdateRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(RoleUpdateResponse, Integer, Hash)>] RoleUpdateResponse data, response status code and response headers

@@ -28,7 +28,7 @@ module DatadogAPIClient::V2
     # Attributes of the created role.
     attr_accessor :attributes
 
-    # ID of the role.
+    # The unique identifier of the role.
     attr_accessor :id
 
     # Relationships of the role object returned by the API.

@@ -31,7 +31,7 @@ module DatadogAPIClient::V2
     # Time of last role modification.
     attr_accessor :modified_at
 
-    # Name of the role.
+    # The name of the role. The name is neither unique nor a stable identifier of the role.
     attr_accessor :name
 
     # Number of users with that role.
