@@ -51,13 +51,13 @@
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `{{ config.moduleName }}::{{ name }}` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `{{ module_name }}::{{ version|upper }}::{{ name }}` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `{{ config.moduleName }}::{{ name }}`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `{{ module_name }}::{{ version|upper }}::{{ name }}`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -187,7 +187,7 @@
     # @!visibility private
     def {{ attr|attribute_name }}=({{ attr|attribute_name }})
       {%- if False and definition.enum is defined %}
-      validator = {{ config.moduleName }}::EnumAttributeValidator.new('{{ get_name(definition) }}', [{% for value in definition.enum %}{{ value|format_value }}{%- if not loop.last %}, {% endif %}{% endfor %}])
+      validator = {{ module_name }}::{{ version|upper }}::EnumAttributeValidator.new('{{ get_name(definition) }}', [{% for value in definition.enum %}{{ value|format_value }}{%- if not loop.last %}, {% endif %}{% endfor %}])
       unless validator.valid?({{ attr|attribute_name }})
         fail ArgumentError, "invalid value for \"{{ attr|attribute_name }}\", must be one of #{validator.allowable_values}."
       end

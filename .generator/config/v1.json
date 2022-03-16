@@ -1,9 +1,0 @@
-{
-  "gemName": "datadog_api_client/v1",
-  "gemNameInExamples": "datadog_api_client",
-  "gemVersion": "0.1.0",
-  "gitUserId": "DataDog",
-  "gitRepoId": "datadog-api-client-ruby",
-  "moduleName": "DatadogAPIClient::V1",
-  "httpUserAgent": "#{DatadogAPIClient::USER_AGENT}"
-}

@@ -5,25 +5,25 @@
 # Common files
 require 'datadog_api_client/version'
 require 'datadog_api_client/user_agent'
-require '{{ config.gemName }}/api_client'
-require '{{ config.gemName }}/api_error'
-require '{{ config.gemName }}/configuration'
+require '{{ gem_name }}/{{ version }}/api_client'
+require '{{ gem_name }}/{{ version }}/api_error'
+require '{{ gem_name }}/{{ version }}/configuration'
 
 # Models
-require '{{ config.gemName }}/model_base'
+require '{{ gem_name }}/{{ version }}/model_base'
 {%- for model in models|sort %}
-require '{{ config.gemName }}/models/{{ model|snake_case }}'
+require '{{ gem_name }}/{{ version }}/models/{{ model|snake_case }}'
 {%- endfor %}
 
 # APIs
 {%- for api in apis|sort %}
-require '{{ config.gemName }}/api/{{ api|snake_case }}_api'
+require '{{ gem_name }}/{{ version }}/api/{{ api|snake_case }}_api'
 {%- endfor %}
 
-module {{ config.moduleName}}
+module {{ module_name }}::{{ version|upper }}
   class << self
     # Customize default settings for the SDK using block.
-    #   {{ config.moduleName}}.configure do |config|
+    #   {{ module_name }}::{{ version|upper }}.configure do |config|
     #     config.username = "xxx"
     #     config.password = "xxx"
     #   end

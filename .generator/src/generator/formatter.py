@@ -85,6 +85,7 @@ def given_variables(context):
     """Return a list of variables using in given steps."""
     return {key for values in context.get("_given", {}).values() for key in values}
 
+
 def escape_reserved_keyword(word):
     """
     Escape reserved language keywords like openapi generator does it
@@ -102,7 +103,7 @@ def attribute_name(attribute):
 
 def format_value(value, quotes="'"):
     if isinstance(value, str):
-        return f'{quotes}{value}{quotes}'
+        return f"{quotes}{value}{quotes}"
     elif isinstance(value, bool):
         return "true" if value else "false"
     return value

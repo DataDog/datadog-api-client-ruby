@@ -4,7 +4,7 @@
 
 require 'cgi'
 
-module {{ config.moduleName }}
+module {{ module_name }}::{{ version|upper }}
 {%- set classname = name.replace(" ", "") + "API" %}
   class {{ classname }}
     attr_accessor :api_client

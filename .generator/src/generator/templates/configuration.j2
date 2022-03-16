@@ -2,7 +2,7 @@
 {% include "api_info.j2" %}
 =end
 
-module {{ config.moduleName }}
+module {{ module_name }}::{{ version|upper }}
   class Configuration
     # Defines url scheme
     attr_accessor :scheme
