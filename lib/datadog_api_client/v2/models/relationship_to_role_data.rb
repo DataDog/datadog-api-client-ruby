@@ -25,7 +25,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # ID of the role.
+    # The unique identifier of the role.
     attr_accessor :id
 
     # Roles type.
