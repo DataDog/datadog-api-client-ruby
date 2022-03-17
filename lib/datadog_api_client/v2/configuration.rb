@@ -132,13 +132,6 @@ module DatadogAPIClient::V2
     # Client private key file (for client certificate)
     attr_accessor :key_file
 
-    # Set this to customize parameters encoding of array parameter with multi collectionFormat.
-    # Default to nil.
-    #
-    # @see The params_encoding option of Ethon. Related source code:
-    # https://github.com/typhoeus/ethon/blob/master/lib/ethon/easy/queryable.rb#L96
-    attr_accessor :params_encoding
-
     attr_accessor :inject_format
 
     attr_accessor :force_ending_format
@@ -156,11 +149,10 @@ module DatadogAPIClient::V2
       @server_operation_variables = {}
       @api_key = {}
       @api_key_prefix = {}
-      @timeout = 0
+      @timeout = nil
       @client_side_validation = true
       @verify_ssl = true
       @verify_ssl_host = true
-      @params_encoding = nil
       @cert_file = nil
       @key_file = nil
       @debugging = false

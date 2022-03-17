@@ -18,7 +18,7 @@ require 'json'
 require 'logger'
 require 'tempfile'
 require 'time'
-require 'typhoeus'
+require 'httparty'
 
 module DatadogAPIClient::V1
   class APIClient
@@ -52,14 +52,46 @@ module DatadogAPIClient::V1
     #   the data deserialized from response body (could be nil), response status code and response headers.
     def call_api(http_method, path, opts = {})
       request = build_request(http_method, path, opts)
-      response = request.run
+      if opts[:stream_body]
+        tempfile = nil
+        encoding = nil
+
+        response = request.perform do | chunk |
+          unless tempfile
+            content_disposition = chunk.http_response.header['Content-Disposition']
+            if content_disposition && content_disposition =~ /filename=/i
+              filename = content_disposition[/filename=['"]?([^'"\s]+)['"]?/, 1]
+              prefix = sanitize_filename(filename)
+            else
+              prefix = 'download-'
+            end
+            prefix = prefix + '-' unless prefix.end_with?('-')
+            unless encoding
+              encoding = chunk.encoding
+            end
+            tempfile = Tempfile.open(prefix, @config.temp_folder_path, encoding: encoding)
+            @tempfile = tempfile
+          end
+          chunk.force_encoding(encoding)
+          tempfile.write(chunk)
+        end
+        if tempfile
+          tempfile.close
+          @config.logger.info "Temp file written to #{tempfile.path}, please copy the file to a proper folder "\
+                            "with e.g. `FileUtils.cp(tempfile.path, '/new/file/path')` otherwise the temp file "\
+                            "will be deleted automatically with GC. It's also recommended to delete the temp file "\
+                            "explicitly with `tempfile.delete`"
+        end
+      else
+        response = request.perform
+      end
 
       if @config.debugging
         @config.logger.debug "HTTP response body ~BEGIN~\n#{response.body}\n~END~\n"
       end
 
       unless response.success?
-        if response.timed_out?
+        if response.request_timeout?
           fail APIError.new('Connection timed out')
         elsif response.code == 0
           # Errors from libcurl will be made visible here
@@ -75,7 +107,7 @@ module DatadogAPIClient::V1
           fail APIError.new(:code => response.code,
                             :response_headers => response.headers,
                             :response_body => body),
-               response.status_message
+               response.message
         end
       end
 
@@ -95,11 +127,9 @@ module DatadogAPIClient::V1
     # @option opts [Hash] :query_params Query parameters
     # @option opts [Hash] :form_params Query parameters
     # @option opts [Object] :body HTTP body (JSON/XML)
-    # @return [Typhoeus::Request] A Typhoeus Request
+    # @return [HTTParty::Request] A httparty Request
     def build_request(http_method, path, opts = {})
       url = build_request_url(path, opts)
-      http_method = http_method.to_sym.downcase
-
       header_params = @default_headers.merge(opts[:header_params] || {})
       query_params = opts[:query_params] || {}
       form_params = opts[:form_params] || {}
@@ -112,20 +142,24 @@ module DatadogAPIClient::V1
       req_opts = {
         :method => http_method,
         :headers => header_params,
-        :params => query_params,
-        :params_encoding => @config.params_encoding,
+        :query => query_params,
         :timeout => @config.timeout,
-        :ssl_verifypeer => @config.verify_ssl,
-        :ssl_verifyhost => _verify_ssl_host,
-        :sslcert => @config.cert_file,
-        :sslkey => @config.key_file,
+        :verify_peer => @config.verify_ssl,
+        :verify => _verify_ssl_host,
         :verbose => @config.debugging
       }
 
-      # set custom cert, if provided
-      req_opts[:cainfo] = @config.ssl_ca_cert if @config.ssl_ca_cert
+      req_opts[:pem] = File.read(@config.cert_file) if @config.cert_file
+      req_opts[:pem_password] = File.read(@config.key_file) if @config.key_file
 
-      if [:post, :patch, :put, :delete].include?(http_method)
+      if opts[:return_type] == 'File'
+        opts[:stream_body] = true
+      end
+
+      # set custom cert, if provided
+      req_opts[:ssl_ca_file] = File.read(@config.ssl_ca_cert) if @config.ssl_ca_cert
+
+      if ["POST", "PATCH", "PUT", "DELETE"].include?(http_method.const_get(:METHOD))
         req_body = build_request_body(header_params, form_params, opts[:body])
         req_opts.update :body => req_body
         if @config.debugging
@@ -133,9 +167,7 @@ module DatadogAPIClient::V1
         end
       end
 
-      request = Typhoeus::Request.new(url, req_opts)
-      download_file(request) if opts[:return_type] == 'File'
-      request
+      HTTParty::Request.new(http_method, url, req_opts)
     end
 
     # Builds the HTTP request body
@@ -152,7 +184,7 @@ module DatadogAPIClient::V1
         form_params.each do |key, value|
           case value
           when ::File, ::Array, nil
-            # let typhoeus handle File, Array and nil parameters
+            # let httparty handle File, Array and nil parameters
             data[key] = value
           else
             data[key] = value.to_s
@@ -171,44 +203,6 @@ module DatadogAPIClient::V1
         data = Zlib::deflate(data)
       end
       data
-    end
-
-    # Save response body into a file in (the defined) temporary folder, using the filename
-    # from the "Content-Disposition" header if provided, otherwise a random filename.
-    # The response body is written to the file in chunks in order to handle files which
-    # size is larger than maximum Ruby String or even larger than the maximum memory a Ruby
-    # process can use.
-    #
-    # @see Configuration#temp_folder_path
-    def download_file(request)
-      tempfile = nil
-      encoding = nil
-      request.on_headers do |response|
-        content_disposition = response.headers['Content-Disposition']
-        if content_disposition && content_disposition =~ /filename=/i
-          filename = content_disposition[/filename=['"]?([^'"\s]+)['"]?/, 1]
-          prefix = sanitize_filename(filename)
-        else
-          prefix = 'download-'
-        end
-        prefix = prefix + '-' unless prefix.end_with?('-')
-        encoding = response.body.encoding
-        tempfile = Tempfile.open(prefix, @config.temp_folder_path, encoding: encoding)
-        @tempfile = tempfile
-      end
-      request.on_body do |chunk|
-        chunk.force_encoding(encoding)
-        tempfile.write(chunk)
-      end
-      request.on_complete do |response|
-        if tempfile
-          tempfile.close
-          @config.logger.info "Temp file written to #{tempfile.path}, please copy the file to a proper folder "\
-                              "with e.g. `FileUtils.cp(tempfile.path, '/new/file/path')` otherwise the temp file "\
-                              "will be deleted automatically with GC. It's also recommended to delete the temp file "\
-                              "explicitly with `tempfile.delete`"
-        end
-      end
     end
 
     # Check if the given MIME is a JSON MIME.
@@ -403,7 +397,7 @@ module DatadogAPIClient::V1
       when :pipes
         param.join('|')
       when :multi
-        # return the array directly as typhoeus will handle it as expected
+        # return the array directly as httparty will handle it as expected
         param
       else
         fail "unknown collection format: #{collection_format.inspect}"
