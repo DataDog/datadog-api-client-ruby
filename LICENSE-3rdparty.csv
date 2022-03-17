@@ -44,12 +44,10 @@ parallel,MIT,Michael Grosser
 parser,MIT,whitequark
 protobuf-cucumber,MIT,"BJ Neilsen, Brandon Dewitt, Devin Christensen, Adam Hutchison"
 pry,MIT,"John Mair (banisterfiend), Conrad Irwin, Ryan Fitzgerald, Kyrylo Silin"
-pry-byebug,MIT,"David Rodríguez, Gopal Patel"
 psych,MIT,"Aaron Patterson, SHIBATA Hiroshi, Charles Oliver Nutter"
 public_suffix,MIT,Simone Carletti
 rainbow,MIT,"Marcin Kulik, Olle Jonsson"
 rake,MIT,"Hiroshi SHIBATA, Eric Hodel, Jim Weirich"
-reek,MIT,"Kevin Rutherford, Timo Roessner, Matijs van Zuijlen, Piotr Szotkowski"
 regexp_parser,MIT,Ammar Ali
 reverse_markdown,WTFPL,Johannes Opper
 rexml,BSD-2-Clause,Kouhei Sutou
@@ -64,7 +62,6 @@ ruby-progressbar,MIT,"thekompanee, jfelchner"
 rubyzip,BSD-2-Clause,Alexander Simonov
 simplecov,MIT,"Christoph Olszowka, Tobias Pfeiffer"
 simplecov-html,MIT,Christoph Olszowka
-solargraph,MIT,Fred Snyder
 sys-uname,Apache-2.0,Daniel J. Berger
 thor,MIT,"Yehuda Katz, José Valim"
 thread_safe,Apache-2.0,"Charles Oliver Nutter, thedarkone"
