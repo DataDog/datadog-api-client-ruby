@@ -104,8 +104,8 @@ module DatadogAPIClient::V1
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
-      if @name > 32
-        invalid_properties.push('invalid value for "name", must be smaller than or equal to 32.')
+      if @name.to_s.length > 32
+        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 32.')
       end
       invalid_properties
     end
@@ -115,7 +115,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @name.nil?
-      return false if @name > 32
+      return false if @name.to_s.length > 32
       true
     end
 
@@ -126,8 +126,8 @@ module DatadogAPIClient::V1
       if name.nil?
         fail ArgumentError, 'invalid value for "name", name cannot be nil.'
       end
-      if name > 32
-        fail ArgumentError, 'invalid value for "name", must be smaller than or equal to 32.'
+      if name.to_s.length > 32
+        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 32.'
       end
       @name = name
     end

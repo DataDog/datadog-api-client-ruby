@@ -137,8 +137,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@name.nil? && @name > 32
-        invalid_properties.push('invalid value for "name", must be smaller than or equal to 32.')
+      if !@name.nil? && @name.to_s.length > 32
+        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 32.')
       end
       invalid_properties
     end
@@ -147,7 +147,7 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if !@name.nil? && @name > 32
+      return false if !@name.nil? && @name.to_s.length > 32
       true
     end
 
@@ -155,8 +155,8 @@ module DatadogAPIClient::V1
     # @param name [Object] Object to be assigned
     # @!visibility private
     def name=(name)
-      if !name.nil? && name > 32
-        fail ArgumentError, 'invalid value for "name", must be smaller than or equal to 32.'
+      if !name.nil? && name.to_s.length > 32
+        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 32.'
       end
       @name = name
     end
