@@ -152,9 +152,7 @@ module DatadogAPIClient::V1
       req_opts[:pem] = File.read(@config.cert_file) if @config.cert_file
       req_opts[:pem_password] = File.read(@config.key_file) if @config.key_file
 
-      if opts[:return_type] == 'File'
-        opts[:stream_body] = true
-      end
+      opts[:stream_body] = true if opts[:return_type] == 'File'
 
       # set custom cert, if provided
       req_opts[:ssl_ca_file] = File.read(@config.ssl_ca_cert) if @config.ssl_ca_cert
