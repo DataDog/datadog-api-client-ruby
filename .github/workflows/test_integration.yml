@@ -56,10 +56,10 @@ jobs:
           ./datadog-ci git-metadata upload
         env:
           DATADOG_API_KEY: ${{ secrets.DD_API_KEY }}
-      - name: Set up Ruby 2.7
+      - name: Set up Ruby 3.1
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7
+          ruby-version: 3.1
           bundler-cache: true
           cache-version: ${{ secrets.CACHE_VERSION }}
       - name: Install deps
