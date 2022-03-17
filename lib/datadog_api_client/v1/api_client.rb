@@ -91,7 +91,7 @@ module DatadogAPIClient::V1
       end
 
       unless response.success?
-        if response.request_timeout?
+        if response.request_time_out?
           fail APIError.new('Connection timed out')
         elsif response.code == 0
           # Errors from libcurl will be made visible here
