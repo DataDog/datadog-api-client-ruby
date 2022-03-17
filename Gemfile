@@ -9,9 +9,7 @@ group :development, :test do
   gem 'cucumber'
   gem 'ddtrace', '>=1.0.0.beta1'
   gem 'gem-release'
-  gem 'github-markup'
   gem 'rake', '~> 13.0.1'
-  gem 'redcarpet'
   gem 'rspec-expectations'
   gem 'rubocop'
   gem 'rufo'
@@ -19,5 +17,10 @@ group :development, :test do
   gem 'timecop'
   gem 'vcr'
   gem 'webmock'
+end
+
+group :docs do
+  gem 'github-markup'
+  gem 'redcarpet'
   gem 'yard'
 end
