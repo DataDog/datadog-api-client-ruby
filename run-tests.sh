@@ -4,8 +4,6 @@ function finish {
 }
 trap finish EXIT
 
-bundle config set --local without docs
-
 bundle install
 RSPEC_RESULT=0
 if [ "${RECORD:-false}" == "false" ]; then
