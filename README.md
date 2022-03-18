@@ -7,7 +7,7 @@ The code is generated using [`generator`](https://github.com/DataDog/datadog-api
 
 Installing and using the API client library requires:
 
-1. Ruby 2.2+
+1. Ruby 2.6+
 
 ## Installation
 
