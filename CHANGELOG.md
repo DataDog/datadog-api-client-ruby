@@ -1,5 +1,30 @@
 # CHANGELOG
 
+## 1.8.0 / 2022-03-18
+
+### Fixed
+* Add nullable user relationships to incidents and use this relationship schema for `commander_user` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/704
+* Fix event intake response by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/763
+* Fix type for `date` field in `LogsByRetentionMonthlyUsage` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/775
+* Fix org name maximum by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/805
+### Added
+* [Synthetics] Add missing option for SSL tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/767
+* Add impossible travel detection method by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/770
+* Add CI App usage endpoint and usage summary columns by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/774
+* [RUM] Add search endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/773
+* Add support for getting online archive usage by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/780
+* Add endpoint for retrieving audit logs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/779
+* Add support for Error Tracking monitors by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/808
+### Changed
+* Move duplicate model code into base modules by @skarimo in https://github.com/DataDog/datadog-api-client-ruby/pull/776
+### Deprecated
+* [monitors] Deprecate `locked` property and clarify documentation for `restricted_roles` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/797
+
+## New Contributors
+* @juan-fernandez made their first contribution in https://github.com/DataDog/datadog-api-client-ruby/pull/789
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-ruby/compare/v1.7.0...v1.8.0
+
 ## 1.7.0 / 2022-02-18
 
 ### Fixed
