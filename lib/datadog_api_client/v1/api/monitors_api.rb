@@ -257,7 +257,7 @@ module DatadogAPIClient::V1
     # - **`operator`** `<`, `<=`, `>`, `>=`, `==`, or `!=`.
     # - **`#`** an integer or decimal number used to set the threshold.
     #
-    # **NOTE** Only available in closed beta on US1, EU, US3 and US5.
+    # **NOTE** CI Pipeline monitors are in alpha on US1, EU, US3 and US5.
     #
     # **Error Tracking Alert Query**
     #
@@ -438,7 +438,7 @@ module DatadogAPIClient::V1
     # - **`operator`** `<`, `<=`, `>`, `>=`, `==`, or `!=`.
     # - **`#`** an integer or decimal number used to set the threshold.
     #
-    # **NOTE** Only available in closed beta on US1, EU, US3 and US5.
+    # **NOTE** CI Pipeline monitors are in alpha on US1, EU, US3 and US5.
     #
     # **Error Tracking Alert Query**
     #
