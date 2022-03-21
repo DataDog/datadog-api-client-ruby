@@ -17,30 +17,30 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The object containing document metadata.
-  class UsageTopAvgMetricsMetadata
+  # The metadata for the current pagination.
+  class UsageTopAvgMetricsPagination
     include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The day value from the user request that contains the returned usage data. (If day was used the request)
-    attr_accessor :day
+    # Maximum amount of records to be returned.
+    attr_accessor :limit
 
-    # The month value from the user request that contains the returned usage data. (If month was used the request)
-    attr_accessor :month
+    # The cursor to get the next results (if any). To make the next request, use the same parameters and add `next_record_id`.
+    attr_accessor :next_record_id
 
-    # The metadata for the current pagination.
-    attr_accessor :pagination
+    # Total number of records.
+    attr_accessor :total_number_of_records
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'day' => :'day',
-        :'month' => :'month',
-        :'pagination' => :'pagination'
+        :'limit' => :'limit',
+        :'next_record_id' => :'next_record_id',
+        :'total_number_of_records' => :'total_number_of_records'
       }
     end
 
@@ -54,9 +54,9 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'day' => :'Time',
-        :'month' => :'Time',
-        :'pagination' => :'UsageTopAvgMetricsPagination'
+        :'limit' => :'Integer',
+        :'next_record_id' => :'String',
+        :'total_number_of_records' => :'Integer'
       }
     end
 
@@ -72,27 +72,27 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::UsageTopAvgMetricsMetadata` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::UsageTopAvgMetricsPagination` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::UsageTopAvgMetricsMetadata`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::UsageTopAvgMetricsPagination`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'day')
-        self.day = attributes[:'day']
+      if attributes.key?(:'limit')
+        self.limit = attributes[:'limit']
       end
 
-      if attributes.key?(:'month')
-        self.month = attributes[:'month']
+      if attributes.key?(:'next_record_id')
+        self.next_record_id = attributes[:'next_record_id']
       end
 
-      if attributes.key?(:'pagination')
-        self.pagination = attributes[:'pagination']
+      if attributes.key?(:'total_number_of_records')
+        self.total_number_of_records = attributes[:'total_number_of_records']
       end
     end
 
@@ -117,9 +117,9 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          day == o.day &&
-          month == o.month &&
-          pagination == o.pagination
+          limit == o.limit &&
+          next_record_id == o.next_record_id &&
+          total_number_of_records == o.total_number_of_records
     end
 
     # @see the `==` method
@@ -133,7 +133,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [day, month, pagination].hash
+      [limit, next_record_id, total_number_of_records].hash
     end
   end
 end
