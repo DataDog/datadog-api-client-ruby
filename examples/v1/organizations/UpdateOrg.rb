@@ -7,7 +7,6 @@ body = DatadogAPIClient::V1::Organization.new({
   billing: DatadogAPIClient::V1::OrganizationBilling.new({
     type: "parent_billing",
   }),
-  created: "2019-09-26T17:28:28Z",
   description: "some description",
   name: "New child org",
   public_id: "abcdef12345",

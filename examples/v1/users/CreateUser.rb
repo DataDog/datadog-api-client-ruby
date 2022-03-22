@@ -8,8 +8,6 @@ body = DatadogAPIClient::V1::User.new({
   disabled: false,
   email: "test@datadoghq.com",
   handle: "test@datadoghq.com",
-  icon: "/path/to/matching/gravatar/icon",
   name: "test user",
-  verified: true,
 })
 p api_instance.create_user(body)

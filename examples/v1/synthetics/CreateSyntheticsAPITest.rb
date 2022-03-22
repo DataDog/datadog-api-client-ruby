@@ -21,7 +21,6 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
     "aws:eu-west-3",
   ],
   message: "Notification message",
-  monitor_id: 12345678,
   name: "Example test name",
   options: DatadogAPIClient::V1::SyntheticsTestOptions.new({
     device_ids: [
@@ -30,7 +29,6 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
     monitor_options: DatadogAPIClient::V1::SyntheticsTestOptionsMonitorOptions.new({}),
     _retry: DatadogAPIClient::V1::SyntheticsTestOptionsRetry.new({}),
   }),
-  public_id: "123-abc-456",
   status: DatadogAPIClient::V1::SyntheticsTestPauseStatus::LIVE,
   subtype: DatadogAPIClient::V1::SyntheticsTestDetailsSubType::HTTP,
   tags: [
