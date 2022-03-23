@@ -17,7 +17,6 @@ body = DatadogAPIClient::V1::LogsIndex.new({
   filter: DatadogAPIClient::V1::LogsFilter.new({
     query: "source:python",
   }),
-  is_rate_limited: false,
   name: "main",
   num_retention_days: 15,
 })
