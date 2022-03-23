@@ -22,5 +22,6 @@ module DatadogAPIClient::V1
     include BaseEnumModel
 
     RUM = "rum".freeze
+    CI_PIPELINES = "ci_pipelines".freeze
   end
 end
