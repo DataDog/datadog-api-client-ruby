@@ -51,7 +51,7 @@ body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({
       allow_failure: false,
       is_critical: true,
       name: "Refresh page",
-      params: DatadogAPIClient::V1::SyntheticsStepParams.new({}),
+      params: {},
       type: DatadogAPIClient::V1::SyntheticsStepType::REFRESH,
     }),
   ],
