@@ -119,9 +119,6 @@ module DatadogAPIClient::V2
     # Set this to customize the certificate file to verify the peer.
     #
     # @return [String] the path to the certificate file
-    #
-    # @see The `cainfo` option of Typhoeus, `--cert` option of libcurl. Related source code:
-    # https://github.com/typhoeus/typhoeus/blob/master/lib/typhoeus/easy_factory.rb#L145
     attr_accessor :ssl_ca_cert
 
     ### TLS/SSL setting
@@ -131,13 +128,6 @@ module DatadogAPIClient::V2
     ### TLS/SSL setting
     # Client private key file (for client certificate)
     attr_accessor :key_file
-
-    # Set this to customize parameters encoding of array parameter with multi collectionFormat.
-    # Default to nil.
-    #
-    # @see The params_encoding option of Ethon. Related source code:
-    # https://github.com/typhoeus/ethon/blob/master/lib/ethon/easy/queryable.rb#L96
-    attr_accessor :params_encoding
 
     attr_accessor :inject_format
 
@@ -156,11 +146,10 @@ module DatadogAPIClient::V2
       @server_operation_variables = {}
       @api_key = {}
       @api_key_prefix = {}
-      @timeout = 0
+      @timeout = nil
       @client_side_validation = true
       @verify_ssl = true
       @verify_ssl_host = true
-      @params_encoding = nil
       @cert_file = nil
       @key_file = nil
       @debugging = false
