@@ -1,4 +1,6 @@
 """Data formatter."""
+import pathlib
+import json
 import re
 import warnings
 from functools import singledispatch
@@ -47,6 +49,9 @@ KEYWORDS = {
     "yield",
 }
 
+with (pathlib.Path(__file__).parent / "replacement.json").open() as f:
+    EDGE_CASES = json.load(f)
+
 PATTERN_DOUBLE_UNDERSCORE = re.compile(r"__+")
 PATTERN_LEADING_ALPHA = re.compile(r"(.)([A-Z][a-z]+)")
 PATTERN_FOLLOWING_ALPHA = re.compile(r"([a-z0-9])([A-Z])")
@@ -54,6 +59,8 @@ PATTERN_WHITESPACE = re.compile(r"\W")
 
 
 def snake_case(value):
+    for token, replacement in EDGE_CASES.items():
+        value = value.replace(token, replacement)
     s1 = PATTERN_LEADING_ALPHA.sub(r"\1_\2", value)
     s1 = PATTERN_FOLLOWING_ALPHA.sub(r"\1_\2", s1).lower()
     s1 = PATTERN_WHITESPACE.sub("_", s1)
