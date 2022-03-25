@@ -5,7 +5,7 @@
 require 'date'
 require 'time'
 
-module {{ config.moduleName }}
+module {{ module_name }}::{{ version|upper }}
   # {{ model.description.rstrip()|replace('\n', '\n# ')|indent(2) }}
 {% if "enum" in model -%}
 {% include "model_enum.j2" %}

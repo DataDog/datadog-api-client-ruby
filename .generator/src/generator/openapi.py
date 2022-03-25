@@ -222,7 +222,9 @@ def parameters(operation):
 
     if "requestBody" in operation:
         if "multipart/form-data" in operation["requestBody"]["content"]:
-            parent = operation["requestBody"]["content"]["multipart/form-data"]["schema"]
+            parent = operation["requestBody"]["content"]["multipart/form-data"][
+                "schema"
+            ]
             for name, schema in parent["properties"].items():
                 yield name, {
                     "in": "form",
@@ -280,7 +282,7 @@ def collection_format(parameter):
         ("form", True): "multi",
         # TODO add more cases from https://swagger.io/specification/#parameter-style
     }
-    if (schema.get("type") == "array" or "items" in schema):
+    if schema.get("type") == "array" or "items" in schema:
         in_ = parameter.get("in", "query")
         style = parameter.get("style", in_to_style[in_])
         explode = parameter.get("explode", True if style == "form" else False)

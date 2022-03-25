@@ -52,11 +52,11 @@
         klass = openapi_discriminator_mapping[discriminator_value.to_sym]
         return nil unless klass
 
-        {{moduleName}}.const_get(klass).build_from_hash(data)
+        {{ module_name }}::{{ version|upper }}.const_get(klass).build_from_hash(data)
       {{/-first}}
       {{/mappedModels}}
       {{^mappedModels}}
-        {{moduleName}}.const_get(discriminator_value).build_from_hash(data)
+        {{ module_name }}::{{ version|upper }}.const_get(discriminator_value).build_from_hash(data)
       {{/mappedModels}}
       #}
       {%- else %}
@@ -81,7 +81,7 @@
           data
         else
           self._unparsed = true
-          {{ config.moduleName }}::UnparsedObject.new(data)
+          {{ module_name }}::{{ version|upper }}::UnparsedObject.new(data)
         end
 
       {%- endif %}

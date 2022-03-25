@@ -1,11 +1,14 @@
-import json
 import pathlib
 
 import click
-from jinja2 import Environment, FileSystemLoader, Template
+from jinja2 import Environment, FileSystemLoader
 
 from . import openapi
 from . import formatter
+
+GEM_NAME = "datadog_api_client"
+
+MODULE_NAME = "DatadogAPIClient"
 
 
 @click.command()
@@ -28,8 +31,6 @@ def cli(input, output):
     spec = openapi.load(input)
 
     version = input.parent.name
-    with (input.parent.parent.parent / "config" / f"{version}.json").open() as fp:
-        config = json.load(fp)
 
     env = Environment(
         loader=FileSystemLoader(str(pathlib.Path(__file__).parent / "templates"))
@@ -47,7 +48,8 @@ def cli(input, output):
     env.filters["return_type"] = openapi.return_type
     env.filters["snake_case"] = formatter.snake_case
 
-    env.globals["config"] = config
+    env.globals["gem_name"] = GEM_NAME
+    env.globals["module_name"] = MODULE_NAME
     env.globals["enumerate"] = enumerate
     env.globals["version"] = version
     env.globals["openapi"] = spec
@@ -69,12 +71,12 @@ def cli(input, output):
     apis = openapi.apis(spec)
     models = openapi.models(spec)
 
-    package = output / config["gemNameInExamples"] / f"{version}.rb"
+    package = output / GEM_NAME / f"{version}.rb"
     package.parent.mkdir(parents=True, exist_ok=True)
     with package.open("w") as fp:
         fp.write(package_j2.render(apis=apis, models=models))
 
-    gem_path = output / config["gemName"]
+    gem_path = output / GEM_NAME / version
     gem_path.mkdir(parents=True, exist_ok=True)
 
     for name, template in extra_files.items():

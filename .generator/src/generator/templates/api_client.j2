@@ -9,7 +9,7 @@ require 'tempfile'
 require 'time'
 require 'httparty'
 
-module {{ config.moduleName }}
+module {{ module_name }}::{{ version|upper }}
   class APIClient
     # The Configuration object holding settings to be used in the API client.
     attr_accessor :config
@@ -23,7 +23,7 @@ module {{ config.moduleName }}
     # @option config [Configuration] Configuration for initializing the object, default to Configuration.default
     def initialize(config = Configuration.default)
       @config = config
-      @user_agent = "{{ config.httpUserAgent }}"
+      @user_agent = "#{{ '{' }}{{ module_name }}::USER_AGENT}"
       @default_headers = {
         'Content-Type' => 'application/json',
         'User-Agent' => @user_agent
@@ -280,7 +280,7 @@ module {{ config.moduleName }}
         end
       else
         # models (e.g. Pet) or oneOf
-        klass = {{ config.moduleName }}.const_get(return_type)
+        klass = {{ module_name }}::{{ version|upper }}.const_get(return_type)
         klass.respond_to?(:openapi_one_of) ? klass.build(data) : klass.build_from_hash(data)
       end
     end
