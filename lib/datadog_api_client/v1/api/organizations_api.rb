@@ -348,8 +348,8 @@ module DatadogAPIClient::V1
     # @param idp_file [File] The path to the XML metadata file you wish to upload.
     # @param opts [Hash] the optional parameters
     # @return [IdpResponse]
-    def upload_id_p_for_org(public_id, idp_file, opts = {})
-      data, _status_code, _headers = upload_id_p_for_org_with_http_info(public_id, idp_file, opts)
+    def upload_idp_for_org(public_id, idp_file, opts = {})
+      data, _status_code, _headers = upload_idp_for_org_with_http_info(public_id, idp_file, opts)
       data
     end
 
@@ -364,27 +364,27 @@ module DatadogAPIClient::V1
     # @param idp_file [File] The path to the XML metadata file you wish to upload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(IdpResponse, Integer, Hash)>] IdpResponse data, response status code and response headers
-    def upload_id_p_for_org_with_http_info(public_id, idp_file, opts = {})
+    def upload_idp_for_org_with_http_info(public_id, idp_file, opts = {})
 
-      if @api_client.config.unstable_operations.has_key?(:upload_id_p_for_org)
-        unstable_enabled = @api_client.config.unstable_operations[:upload_id_p_for_org]
+      if @api_client.config.unstable_operations.has_key?(:upload_idp_for_org)
+        unstable_enabled = @api_client.config.unstable_operations[:upload_idp_for_org]
         if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "upload_id_p_for_org")
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "upload_idp_for_org")
         else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "upload_id_p_for_org"))
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "upload_idp_for_org"))
         end
       end
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OrganizationsAPI.upload_id_p_for_org ...'
+        @api_client.config.logger.debug 'Calling API: OrganizationsAPI.upload_idp_for_org ...'
       end
       # verify the required parameter 'public_id' is set
       if @api_client.config.client_side_validation && public_id.nil?
-        fail ArgumentError, "Missing the required parameter 'public_id' when calling OrganizationsAPI.upload_id_p_for_org"
+        fail ArgumentError, "Missing the required parameter 'public_id' when calling OrganizationsAPI.upload_idp_for_org"
       end
       # verify the required parameter 'idp_file' is set
       if @api_client.config.client_side_validation && idp_file.nil?
-        fail ArgumentError, "Missing the required parameter 'idp_file' when calling OrganizationsAPI.upload_id_p_for_org"
+        fail ArgumentError, "Missing the required parameter 'idp_file' when calling OrganizationsAPI.upload_idp_for_org"
       end
       # resource path
       local_var_path = '/api/v1/org/{public_id}/idp_metadata'.sub('{public_id}', CGI.escape(public_id.to_s).gsub('%2F', '/'))
@@ -413,7 +413,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
-        :operation => :upload_id_p_for_org,
+        :operation => :upload_idp_for_org,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -424,7 +424,7 @@ module DatadogAPIClient::V1
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: OrganizationsAPI#upload_id_p_for_org\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: OrganizationsAPI#upload_idp_for_org\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

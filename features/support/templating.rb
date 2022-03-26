@@ -1,3 +1,8 @@
+require 'json'
+
+EDGE_CASES = JSON.parse(File.read(File.join(__dir__, "..", "..", ".generator", "src", "generator", "replacement.json")))
+REPLACED_KEYS = EDGE_CASES.keys.map { |k| Regexp.quote(k) }.join("|")
+
 class Object
   def lookup(dotted_path)
     result = self
@@ -23,6 +28,7 @@ end
 
 class String
   def snakecase
+    gsub(/#{REPLACED_KEYS}/, EDGE_CASES).
     gsub(/([A-Z]+)([A-Z][a-z])/, '\1_\2').
       gsub(/([a-z\d])([A-Z])/, '\1_\2').
       tr('-', '_').
