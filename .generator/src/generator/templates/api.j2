@@ -164,7 +164,7 @@ module {{ module_name }}::{{ version|upper }}
 
       {%- for name, parameter in operation|parameters if parameter.in == "header" and parameter.required %}
       {%- set collection = parameter|collection_format %}
-      header_params['{{ name }}'] = {% if collection %}@api_client.build_collection_param({{ name|attribute_name }}, :{{ collection }}){% else %}{ name|attribute_name }}{% endif %}
+      header_params['{{ name }}'] = {% if collection %}@api_client.build_collection_param({{ name|attribute_name }}, :{{ collection }}){% else %}{{ name|attribute_name }}{% endif %}
       {%- endfor %}
       {%- for name, parameter in operation|parameters if parameter.in == "header" and not parameter.required %}
       {%- set collection = parameter|collection_format %}
