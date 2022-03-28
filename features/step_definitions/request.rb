@@ -221,7 +221,7 @@ Given(/^request contains "([^"]+)" parameter with value (.+)$/) do |parameter_na
 end
 
 Given(/^new "([^"]+)" request$/) do |name|
-  @api_method = @api_instance.method("#{name.underscore}_with_http_info".to_sym)
+  @api_method = @api_instance.method("#{name.snakecase}_with_http_info".to_sym)
 end
 
 When('the request is sent') do
