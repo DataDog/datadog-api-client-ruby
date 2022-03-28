@@ -30,14 +30,12 @@ module DatadogAPIClient::V1
     INFRA_HOST_USAGE = "infra_host_usage".freeze
     CUSTOM_TIMESERIES_PERCENTAGE = "custom_timeseries_percentage".freeze
     CONTAINER_PERCENTAGE = "container_percentage".freeze
-    LAMBDA_USAGE = "lambda_usage".freeze
     API_USAGE = "api_usage".freeze
     APM_HOST_PERCENTAGE = "apm_host_percentage".freeze
     INFRA_HOST_PERCENTAGE = "infra_host_percentage".freeze
     SNMP_USAGE = "snmp_usage".freeze
     BROWSER_PERCENTAGE = "browser_percentage".freeze
     API_PERCENTAGE = "api_percentage".freeze
-    LAMBDA_PERCENTAGE = "lambda_percentage".freeze
     NPM_HOST_USAGE = "npm_host_usage".freeze
     LAMBDA_FUNCTIONS_USAGE = "lambda_functions_usage".freeze
     LAMBDA_FUNCTIONS_PERCENTAGE = "lambda_functions_percentage".freeze
