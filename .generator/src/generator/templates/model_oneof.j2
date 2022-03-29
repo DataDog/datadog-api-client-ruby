@@ -9,7 +9,7 @@
       def openapi_one_of
         [
       {%- for schema in model.oneOf %}
-          :'{{ get_name(schema) }}'{% if not loop.last %},{% endif %}
+          :'{{ type_to_ruby(schema) }}'{% if not loop.last %},{% endif %}
       {%- endfor %}
         ]
       end
