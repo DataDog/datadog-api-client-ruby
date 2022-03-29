@@ -54,6 +54,7 @@ def cli(input, output):
     env.globals["version"] = version
     env.globals["openapi"] = spec
     env.globals["get_name"] = openapi.get_name
+    env.globals["type_to_ruby"] = openapi.type_to_ruby
     env.globals["get_type_for_attribute"] = openapi.get_type_for_attribute
     env.globals["get_type_for_parameter"] = openapi.get_type_for_parameter
 
