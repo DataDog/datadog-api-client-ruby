@@ -26,9 +26,9 @@ module DatadogAPIClient::V2
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'LogsAggregateBucketValueSingleString',
-          :'LogsAggregateBucketValueSingleNumber',
-          :'LogsAggregateBucketValueTimeseries'
+          :'String',
+          :'Float',
+          :'Array<LogsAggregateBucketValueTimeseriesPoint>'
         ]
       end
       # Builds the object
