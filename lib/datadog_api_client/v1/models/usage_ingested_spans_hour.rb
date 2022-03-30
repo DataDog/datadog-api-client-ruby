@@ -28,8 +28,11 @@ module DatadogAPIClient::V1
     # The hour for the usage.
     attr_accessor :hour
 
-    # Contains the total number of bytes ingested during a given hour.
+    # Use `ingested_spans_billable_bytes` as of 2022-03-01. Contains the total number of bytes ingested during a given hour using an old method of calculating span volume.
     attr_accessor :ingested_events_bytes
+
+    # Contains the total number of bytes ingested during a given hour.
+    attr_accessor :ingested_spans_billable_bytes
 
     # The organization name.
     attr_accessor :org_name
@@ -43,6 +46,7 @@ module DatadogAPIClient::V1
       {
         :'hour' => :'hour',
         :'ingested_events_bytes' => :'ingested_events_bytes',
+        :'ingested_spans_billable_bytes' => :'ingested_spans_billable_bytes',
         :'org_name' => :'org_name',
         :'public_id' => :'public_id'
       }
@@ -60,6 +64,7 @@ module DatadogAPIClient::V1
       {
         :'hour' => :'Time',
         :'ingested_events_bytes' => :'Integer',
+        :'ingested_spans_billable_bytes' => :'Integer',
         :'org_name' => :'String',
         :'public_id' => :'String'
       }
@@ -96,6 +101,10 @@ module DatadogAPIClient::V1
         self.ingested_events_bytes = attributes[:'ingested_events_bytes']
       end
 
+      if attributes.key?(:'ingested_spans_billable_bytes')
+        self.ingested_spans_billable_bytes = attributes[:'ingested_spans_billable_bytes']
+      end
+
       if attributes.key?(:'org_name')
         self.org_name = attributes[:'org_name']
       end
@@ -128,6 +137,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           hour == o.hour &&
           ingested_events_bytes == o.ingested_events_bytes &&
+          ingested_spans_billable_bytes == o.ingested_spans_billable_bytes &&
           org_name == o.org_name &&
           public_id == o.public_id
     end
@@ -143,7 +153,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [hour, ingested_events_bytes, org_name, public_id].hash
+      [hour, ingested_events_bytes, ingested_spans_billable_bytes, org_name, public_id].hash
     end
   end
 end
