@@ -23,6 +23,81 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Aggregate RUM events
+    # The API endpoint to aggregate RUM events into buckets of computed metrics and timeseries.
+    # @param body [RUMAggregateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [RUMAnalyticsAggregateResponse]
+    def aggregate_rum_events(body, opts = {})
+      data, _status_code, _headers = aggregate_rum_events_with_http_info(body, opts)
+      data
+    end
+
+    # Aggregate RUM events
+    # The API endpoint to aggregate RUM events into buckets of computed metrics and timeseries.
+    # @param body [RUMAggregateRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(RUMAnalyticsAggregateResponse, Integer, Hash)>] RUMAnalyticsAggregateResponse data, response status code and response headers
+    def aggregate_rum_events_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:aggregate_rum_events)
+        unstable_enabled = @api_client.config.unstable_operations[:aggregate_rum_events]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "aggregate_rum_events")
+        else
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "aggregate_rum_events"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RUMAPI.aggregate_rum_events ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling RUMAPI.aggregate_rum_events"
+      end
+      # resource path
+      local_var_path = '/api/v2/rum/analytics/aggregate'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RUMAnalyticsAggregateResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :aggregate_rum_events,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: RUMAPI#aggregate_rum_events\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a list of RUM events
     # List endpoint returns events that match a RUM search query.
     # [Results are paginated][1].
@@ -132,11 +207,11 @@ module DatadogAPIClient::V2
     # Use this endpoint to build complex RUM events filtering and search.
     #
     # [1]: https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
+    # @param body [RUMSearchEventsRequest] 
     # @param opts [Hash] the optional parameters
-    # @option opts [RUMSearchEventsRequest] :body 
     # @return [RUMEventsResponse]
-    def search_rum_events(opts = {})
-      data, _status_code, _headers = search_rum_events_with_http_info(opts)
+    def search_rum_events(body, opts = {})
+      data, _status_code, _headers = search_rum_events_with_http_info(body, opts)
       data
     end
 
@@ -147,10 +222,10 @@ module DatadogAPIClient::V2
     # Use this endpoint to build complex RUM events filtering and search.
     #
     # [1]: https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
+    # @param body [RUMSearchEventsRequest] 
     # @param opts [Hash] the optional parameters
-    # @option opts [RUMSearchEventsRequest] :body 
     # @return [Array<(RUMEventsResponse, Integer, Hash)>] RUMEventsResponse data, response status code and response headers
-    def search_rum_events_with_http_info(opts = {})
+    def search_rum_events_with_http_info(body, opts = {})
 
       if @api_client.config.unstable_operations.has_key?(:search_rum_events)
         unstable_enabled = @api_client.config.unstable_operations[:search_rum_events]
@@ -163,6 +238,10 @@ module DatadogAPIClient::V2
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RUMAPI.search_rum_events ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling RUMAPI.search_rum_events"
       end
       # resource path
       local_var_path = '/api/v2/rum/events/search'
@@ -181,7 +260,7 @@ module DatadogAPIClient::V2
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'body'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
       return_type = opts[:debug_return_type] || 'RUMEventsResponse'

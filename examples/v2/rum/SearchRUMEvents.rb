@@ -18,7 +18,4 @@ body = DatadogAPIClient::V2::RUMSearchEventsRequest.new({
   }),
   sort: DatadogAPIClient::V2::RUMSort::TIMESTAMP_ASCENDING,
 })
-opts = {
-  body: body,
-}
-p api_instance.search_rum_events(opts)
+p api_instance.search_rum_events(body)
