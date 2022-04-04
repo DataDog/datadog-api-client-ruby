@@ -178,7 +178,7 @@ module DatadogAPIClient::V1
 
     # Search metrics
     # Search for metrics from the last 24 hours in Datadog.
-    # @param q [String] Query string to search metrics upon. Can optionally be prefixed with `metrics:`.
+    # @param q [String] Query string to search metrics upon. Must be prefixed with `metrics:`.
     # @param opts [Hash] the optional parameters
     # @return [MetricSearchResponse]
     def list_metrics(q, opts = {})
@@ -188,7 +188,7 @@ module DatadogAPIClient::V1
 
     # Search metrics
     # Search for metrics from the last 24 hours in Datadog.
-    # @param q [String] Query string to search metrics upon. Can optionally be prefixed with `metrics:`.
+    # @param q [String] Query string to search metrics upon. Must be prefixed with `metrics:`.
     # @param opts [Hash] the optional parameters
     # @return [Array<(MetricSearchResponse, Integer, Hash)>] MetricSearchResponse data, response status code and response headers
     def list_metrics_with_http_info(q, opts = {})

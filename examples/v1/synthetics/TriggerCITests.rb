@@ -7,9 +7,9 @@ body = DatadogAPIClient::V1::SyntheticsCITestBody.new({
   tests: [
     DatadogAPIClient::V1::SyntheticsCITest.new({
       basic_auth: DatadogAPIClient::V1::SyntheticsBasicAuthWeb.new({
-        password: "PaSSw0RD!",
+        password: "",
         type: DatadogAPIClient::V1::SyntheticsBasicAuthWebType::WEB,
-        username: "my_username",
+        username: "",
       }),
       device_ids: [
         DatadogAPIClient::V1::SyntheticsDeviceID::LAPTOP_LARGE,
