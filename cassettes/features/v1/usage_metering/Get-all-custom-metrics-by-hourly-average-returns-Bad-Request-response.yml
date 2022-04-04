@@ -1,0 +1,17 @@
+http_interactions:
+- recorded_at: Fri, 01 Apr 2022 00:41:20 GMT
+  request:
+    body: null
+    headers:
+      Content-Type:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v1/usage/top_avg_metrics
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors": ["The parameter ''month/day'' is required"]}'
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0
