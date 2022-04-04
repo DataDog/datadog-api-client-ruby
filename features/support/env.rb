@@ -18,7 +18,7 @@ Datadog.configure do |c|
   c.time_now_provider = -> { Time.now_without_mock_time }
   c.ci.enabled = true
   c.ci.instrument :cucumber, operation_name: 'test'
-  c.use :http
+  c.tracing.instrument :http
 end
 
 module RecordMode
