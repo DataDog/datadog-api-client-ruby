@@ -112,12 +112,26 @@ module DatadogAPIClient::V1
 
     # Get Hourly Usage Attribution
     # Get Hourly Usage Attribution.
+    #
+    # This API endpoint is paginated. To make sure you receive all records, check if the value of `next_record_id` is
+    # set in the response. If it is, make another request and pass `next_record_id` as a parameter.
+    # Pseudo code example:
+    #
+    # ```
+    # response := GetHourlyUsageAttribution(start_month)
+    # cursor := response.metadata.pagination.next_record_id
+    # WHILE cursor != null BEGIN
+    #   sleep(5 seconds)  # Avoid running into rate limit
+    #   response := GetHourlyUsageAttribution(start_month, next_record_id=cursor)
+    #   cursor := response.metadata.pagination.next_record_id
+    # END
+    # ```
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param usage_type [HourlyUsageAttributionUsageType] Usage type to retrieve.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @option opts [String] :next_record_id List following results with a next_record_id provided in the previous query.
-    # @option opts [String] :tag_breakdown_keys Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.
+    # @option opts [String] :tag_breakdown_keys Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.  To see which tags are available, look for the value of `tag_config_source` in the API response.
     # @return [HourlyUsageAttributionResponse]
     def get_hourly_usage_attribution(start_hr, usage_type, opts = {})
       data, _status_code, _headers = get_hourly_usage_attribution_with_http_info(start_hr, usage_type, opts)
@@ -126,12 +140,26 @@ module DatadogAPIClient::V1
 
     # Get Hourly Usage Attribution
     # Get Hourly Usage Attribution.
+    #
+    # This API endpoint is paginated. To make sure you receive all records, check if the value of `next_record_id` is
+    # set in the response. If it is, make another request and pass `next_record_id` as a parameter.
+    # Pseudo code example:
+    #
+    # ```
+    # response := GetHourlyUsageAttribution(start_month)
+    # cursor := response.metadata.pagination.next_record_id
+    # WHILE cursor != null BEGIN
+    #   sleep(5 seconds)  # Avoid running into rate limit
+    #   response := GetHourlyUsageAttribution(start_month, next_record_id=cursor)
+    #   cursor := response.metadata.pagination.next_record_id
+    # END
+    # ```
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param usage_type [HourlyUsageAttributionUsageType] Usage type to retrieve.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @option opts [String] :next_record_id List following results with a next_record_id provided in the previous query.
-    # @option opts [String] :tag_breakdown_keys Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.
+    # @option opts [String] :tag_breakdown_keys Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.  To see which tags are available, look for the value of `tag_config_source` in the API response.
     # @return [Array<(HourlyUsageAttributionResponse, Integer, Hash)>] HourlyUsageAttributionResponse data, response status code and response headers
     def get_hourly_usage_attribution_with_http_info(start_hr, usage_type, opts = {})
 
@@ -448,13 +476,27 @@ module DatadogAPIClient::V1
 
     # Get Monthly Usage Attribution
     # Get Monthly Usage Attribution.
+    #
+    # This API endpoint is paginated. To make sure you receive all records, check if the value of `next_record_id` is
+    # set in the response. If it is, make another request and pass `next_record_id` as a parameter.
+    # Pseudo code example:
+    #
+    # ```
+    # response := GetMonthlyUsageAttribution(start_month)
+    # cursor := response.metadata.pagination.next_record_id
+    # WHILE cursor != null BEGIN
+    #   sleep(5 seconds)  # Avoid running into rate limit
+    #   response := GetMonthlyUsageAttribution(start_month, next_record_id=cursor)
+    #   cursor := response.metadata.pagination.next_record_id
+    # END
+    # ```
     # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage beginning in this month. Maximum of 15 months ago.
     # @param fields [MonthlyUsageAttributionSupportedMetrics] Comma-separated list of usage types to return, or `*` for all usage types.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage ending this month.
     # @option opts [UsageSortDirection] :sort_direction The direction to sort by: `[desc, asc]`.
     # @option opts [MonthlyUsageAttributionSupportedMetrics] :sort_name The field to sort by.
-    # @option opts [String] :tag_breakdown_keys Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.
+    # @option opts [String] :tag_breakdown_keys Comma separated list of tag keys used to group usage. If no value is provided the usage will not be broken down by tags.  To see which tags are available, look for the value of `tag_config_source` in the API response.
     # @option opts [String] :next_record_id List following results with a next_record_id provided in the previous query.
     # @return [MonthlyUsageAttributionResponse]
     def get_monthly_usage_attribution(start_month, fields, opts = {})
@@ -464,13 +506,27 @@ module DatadogAPIClient::V1
 
     # Get Monthly Usage Attribution
     # Get Monthly Usage Attribution.
+    #
+    # This API endpoint is paginated. To make sure you receive all records, check if the value of `next_record_id` is
+    # set in the response. If it is, make another request and pass `next_record_id` as a parameter.
+    # Pseudo code example:
+    #
+    # ```
+    # response := GetMonthlyUsageAttribution(start_month)
+    # cursor := response.metadata.pagination.next_record_id
+    # WHILE cursor != null BEGIN
+    #   sleep(5 seconds)  # Avoid running into rate limit
+    #   response := GetMonthlyUsageAttribution(start_month, next_record_id=cursor)
+    #   cursor := response.metadata.pagination.next_record_id
+    # END
+    # ```
     # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage beginning in this month. Maximum of 15 months ago.
     # @param fields [MonthlyUsageAttributionSupportedMetrics] Comma-separated list of usage types to return, or `*` for all usage types.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage ending this month.
     # @option opts [UsageSortDirection] :sort_direction The direction to sort by: `[desc, asc]`.
     # @option opts [MonthlyUsageAttributionSupportedMetrics] :sort_name The field to sort by.
-    # @option opts [String] :tag_breakdown_keys Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.
+    # @option opts [String] :tag_breakdown_keys Comma separated list of tag keys used to group usage. If no value is provided the usage will not be broken down by tags.  To see which tags are available, look for the value of `tag_config_source` in the API response.
     # @option opts [String] :next_record_id List following results with a next_record_id provided in the previous query.
     # @return [Array<(MonthlyUsageAttributionResponse, Integer, Hash)>] MonthlyUsageAttributionResponse data, response status code and response headers
     def get_monthly_usage_attribution_with_http_info(start_month, fields, opts = {})
