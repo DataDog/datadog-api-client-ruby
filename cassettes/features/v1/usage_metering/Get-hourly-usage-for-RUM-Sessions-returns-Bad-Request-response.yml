@@ -1,0 +1,17 @@
+http_interactions:
+- recorded_at: Fri, 01 Apr 2022 00:41:26 GMT
+  request:
+    body: null
+    headers:
+      Content-Type:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v1/usage/rum_sessions?start_hr=2022-03-29T00%3A41%3A26.836Z&end_hr=2022-03-27T00%3A41%3A26.836Z
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors": ["start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]"]}'
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0
