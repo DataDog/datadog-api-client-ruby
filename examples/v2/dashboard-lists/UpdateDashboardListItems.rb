@@ -3,18 +3,12 @@
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::DashboardListsAPI.new
 
-# there is a valid "dashboard_list" in the system
-DASHBOARD_LIST_ID = ENV["DASHBOARD_LIST_ID"]
-
-# there is a valid "screenboard_dashboard" in the system
-SCREENBOARD_DASHBOARD_ID = ENV["SCREENBOARD_DASHBOARD_ID"]
-
 body = DatadogAPIClient::V2::DashboardListUpdateItemsRequest.new({
   dashboards: [
     DatadogAPIClient::V2::DashboardListItemRequest.new({
-      id: SCREENBOARD_DASHBOARD_ID,
-      type: DatadogAPIClient::V2::DashboardType::CUSTOM_SCREENBOARD,
+      id: "q5j-nti-fv6",
+      type: DatadogAPIClient::V2::DashboardType::HOST_TIMEBOARD,
     }),
   ],
 })
-p api_instance.update_dashboard_list_items(DASHBOARD_LIST_ID.to_i, body)
+p api_instance.update_dashboard_list_items(9223372036854775807, body)

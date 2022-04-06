@@ -22,7 +22,7 @@ body = DatadogAPIClient::V1::Dashboard.new({
         title_size: "16",
         title_align: DatadogAPIClient::V1::WidgetTextAlign::LEFT,
         type: DatadogAPIClient::V1::AlertValueWidgetDefinitionType::ALERT_VALUE,
-        alert_id: "7",
+        alert_id: "1",
         unit: "auto",
         text_align: DatadogAPIClient::V1::WidgetTextAlign::LEFT,
         precision: 2,

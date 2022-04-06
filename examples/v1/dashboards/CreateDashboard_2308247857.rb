@@ -23,7 +23,7 @@ body = DatadogAPIClient::V1::Dashboard.new({
         title_align: DatadogAPIClient::V1::WidgetTextAlign::LEFT,
         time: DatadogAPIClient::V1::WidgetTime.new({}),
         type: DatadogAPIClient::V1::AlertGraphWidgetDefinitionType::ALERT_GRAPH,
-        alert_id: "7",
+        alert_id: "1",
         viz_type: DatadogAPIClient::V1::WidgetVizType::TIMESERIES,
       }),
     }),

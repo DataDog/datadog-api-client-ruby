@@ -46,9 +46,6 @@ module DatadogAPIClient::V1
     # Time setting for the widget.
     attr_accessor :time
 
-    # Set a timeseries on the widget background.
-    attr_accessor :timeseries_background
-
     # Title of your widget.
     attr_accessor :title
 
@@ -72,7 +69,6 @@ module DatadogAPIClient::V1
         :'requests' => :'requests',
         :'text_align' => :'text_align',
         :'time' => :'time',
-        :'timeseries_background' => :'timeseries_background',
         :'title' => :'title',
         :'title_align' => :'title_align',
         :'title_size' => :'title_size',
@@ -97,7 +93,6 @@ module DatadogAPIClient::V1
         :'requests' => :'Array<QueryValueWidgetRequest>',
         :'text_align' => :'WidgetTextAlign',
         :'time' => :'WidgetTime',
-        :'timeseries_background' => :'TimeseriesBackground',
         :'title' => :'String',
         :'title_align' => :'WidgetTextAlign',
         :'title_size' => :'String',
@@ -158,10 +153,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'time')
         self.time = attributes[:'time']
-      end
-
-      if attributes.key?(:'timeseries_background')
-        self.timeseries_background = attributes[:'timeseries_background']
       end
 
       if attributes.key?(:'title')
@@ -253,7 +244,6 @@ module DatadogAPIClient::V1
           requests == o.requests &&
           text_align == o.text_align &&
           time == o.time &&
-          timeseries_background == o.timeseries_background &&
           title == o.title &&
           title_align == o.title_align &&
           title_size == o.title_size &&
@@ -271,7 +261,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [autoscale, custom_links, custom_unit, precision, requests, text_align, time, timeseries_background, title, title_align, title_size, type].hash
+      [autoscale, custom_links, custom_unit, precision, requests, text_align, time, title, title_align, title_size, type].hash
     end
   end
 end
