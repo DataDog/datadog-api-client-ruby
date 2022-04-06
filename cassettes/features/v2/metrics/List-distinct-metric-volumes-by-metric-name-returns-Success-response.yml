@@ -1,0 +1,64 @@
+http_interactions:
+- recorded_at: Fri, 01 Apr 2022 20:32:14 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"series":[{"metric":"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1648845134","points":[[1648845134,1.1]],"tags":["test:ExampleSubmitmetricsreturnsPayloadacceptedresponse"],"type":"gauge"}]}'
+    headers:
+      Content-Type:
+      - text/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v1/series
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"status": "ok"}'
+    status:
+      code: 202
+      message: Accepted
+- recorded_at: Fri, 01 Apr 2022 20:32:14 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"metric_type":"gauge","tags":["app","datacenter","TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1648845134"]},"id":"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1648845134","type":"manage_tags"}}'
+    headers:
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/metrics/TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1648845134/tags
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"manage_tags","id":"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1648845134","attributes":{"tags":["datacenter","app","TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1648845134"],"created_at":"2022-04-01T20:32:15.216397+00:00","modified_at":"2022-04-01T20:32:15.216397+00:00","metric_type":"gauge","aggregations":[{"space":"avg","time":"avg"}]}}}'
+    status:
+      code: 201
+      message: Created
+- recorded_at: Fri, 01 Apr 2022 20:32:14 GMT
+  request:
+    body: null
+    headers:
+      Content-Type:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/metrics/TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1648845134/volumes
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"metric_volumes","id":"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1648845134","attributes":{"indexed_volume":0,"ingested_volume":0}}}'
+    status:
+      code: 200
+      message: OK
+- recorded_at: Fri, 01 Apr 2022 20:32:14 GMT
+  request:
+    body: null
+    headers: {}
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/metrics/TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1648845134/tags
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0

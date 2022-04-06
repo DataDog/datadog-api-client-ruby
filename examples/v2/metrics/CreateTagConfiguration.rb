@@ -15,7 +15,7 @@ body = DatadogAPIClient::V2::MetricTagConfigurationCreateRequest.new({
         "app",
         "datacenter",
       ],
-      metric_type: DatadogAPIClient::V2::MetricTagConfigurationMetricTypes::DISTRIBUTION,
+      metric_type: DatadogAPIClient::V2::MetricTagConfigurationMetricTypes::GAUGE,
     }),
   }),
 })
