@@ -5,6 +5,11 @@ api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
 
 body = DatadogAPIClient::V1::SyntheticsPrivateLocation.new({
   description: "Description of private location",
+  metadata: DatadogAPIClient::V1::SyntheticsPrivateLocationMetadata.new({
+    restricted_roles: [
+      "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    ],
+  }),
   name: "New private location",
   tags: [
     "team:front",

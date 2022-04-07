@@ -27,6 +27,9 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
       DatadogAPIClient::V1::SyntheticsDeviceID::LAPTOP_LARGE,
     ],
     monitor_options: DatadogAPIClient::V1::SyntheticsTestOptionsMonitorOptions.new({}),
+    restricted_roles: [
+      "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    ],
     _retry: DatadogAPIClient::V1::SyntheticsTestOptionsRetry.new({}),
   }),
   status: DatadogAPIClient::V1::SyntheticsTestPauseStatus::LIVE,
