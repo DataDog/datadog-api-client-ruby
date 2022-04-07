@@ -32,6 +32,5 @@ module DatadogAPIClient::V2
     MIN = "min".freeze
     MAX = "max".freeze
     AVG = "avg".freeze
-    MEDIAN = "median".freeze
   end
 end

@@ -24,7 +24,5 @@ module DatadogAPIClient::V1
     ISSUE_STREAM = "issue_stream".freeze
     LOGS_STREAM = "logs_stream".freeze
     AUDIT_STREAM = "audit_stream".freeze
-    RUM_ISSUE_STREAM = "rum_issue_stream".freeze
-    APM_ISSUE_STREAM = "apm_issue_stream".freeze
   end
 end

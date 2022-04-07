@@ -14,9 +14,9 @@ body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({
     ],
     request: DatadogAPIClient::V1::SyntheticsTestRequest.new({
       basic_auth: DatadogAPIClient::V1::SyntheticsBasicAuthWeb.new({
-        password: "PaSSw0RD!",
+        password: "",
         type: DatadogAPIClient::V1::SyntheticsBasicAuthWebType::WEB,
-        username: "my_username",
+        username: "",
       }),
       certificate: DatadogAPIClient::V1::SyntheticsTestRequestCertificate.new({
         cert: DatadogAPIClient::V1::SyntheticsTestRequestCertificateItem.new({}),

@@ -106,6 +106,9 @@ module DatadogAPIClient::V1
       if @password.nil?
         invalid_properties.push('invalid value for "password", password cannot be nil.')
       end
+      if @type.nil?
+        invalid_properties.push('invalid value for "type", type cannot be nil.')
+      end
       if @username.nil?
         invalid_properties.push('invalid value for "username", username cannot be nil.')
       end
@@ -117,6 +120,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @password.nil?
+      return false if @type.nil?
       return false if @username.nil?
       true
     end
@@ -129,6 +133,16 @@ module DatadogAPIClient::V1
         fail ArgumentError, 'invalid value for "password", password cannot be nil.'
       end
       @password = password
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    # @!visibility private
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Custom attribute writer method with validation

@@ -205,7 +205,7 @@ module DatadogAPIClient::V1
     # Shows the sum of all Indexed Spans indexed over all hours in the current date for all organizations.
     attr_accessor :trace_search_indexed_events_count_sum
 
-    # Shows the sum of all ingested APM span bytes over all hours in the current date for all organizations.
+    # Shows the sum of all tracing without limits bytes ingested over all hours in the current date for all organizations.
     attr_accessor :twol_ingested_events_bytes_sum
 
     # Shows the 99th percentile of all vSphere hosts over all hours in the current date for all organizations.

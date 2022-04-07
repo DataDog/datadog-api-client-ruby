@@ -28,7 +28,7 @@ module DatadogAPIClient::V1
     # The hour for the usage.
     attr_accessor :hour
 
-    # Contains the total number of bytes ingested for APM spans during a given hour.
+    # Contains the total number of bytes ingested during a given hour.
     attr_accessor :ingested_events_bytes
 
     # The organization name.
