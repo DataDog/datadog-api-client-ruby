@@ -5,7 +5,9 @@ api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
 
 body = DatadogAPIClient::V1::SyntheticsGlobalVariable.new({
   attributes: DatadogAPIClient::V1::SyntheticsGlobalVariableAttributes.new({
-    restricted_roles: [],
+    restricted_roles: [
+      "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    ],
   }),
   description: "Example description",
   name: "MY_VARIABLE",

@@ -31,6 +31,9 @@ module DatadogAPIClient::V1
     # Unique identifier of the private location.
     attr_accessor :id
 
+    # Object containing metadata about the private location.
+    attr_accessor :metadata
+
     # Name of the private location.
     attr_accessor :name
 
@@ -46,6 +49,7 @@ module DatadogAPIClient::V1
       {
         :'description' => :'description',
         :'id' => :'id',
+        :'metadata' => :'metadata',
         :'name' => :'name',
         :'secrets' => :'secrets',
         :'tags' => :'tags'
@@ -64,6 +68,7 @@ module DatadogAPIClient::V1
       {
         :'description' => :'String',
         :'id' => :'String',
+        :'metadata' => :'SyntheticsPrivateLocationMetadata',
         :'name' => :'String',
         :'secrets' => :'SyntheticsPrivateLocationSecrets',
         :'tags' => :'Array<String>'
@@ -99,6 +104,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'metadata')
+        self.metadata = attributes[:'metadata']
       end
 
       if attributes.key?(:'name')
@@ -181,6 +190,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           description == o.description &&
           id == o.id &&
+          metadata == o.metadata &&
           name == o.name &&
           secrets == o.secrets &&
           tags == o.tags
@@ -197,7 +207,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, id, name, secrets, tags].hash
+      [description, id, metadata, name, secrets, tags].hash
     end
   end
 end

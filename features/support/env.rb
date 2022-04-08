@@ -6,6 +6,7 @@ SimpleCov.start do
   add_filter "/spec"
 end
 
+require 'cgi'
 require 'cucumber'
 require 'datadog_api_client'
 require 'ddtrace'
@@ -42,6 +43,13 @@ def use_real_time?
 end
 
 VCR.configure do |c|
+  c.register_request_matcher :safe_path do |r1, r2|
+    r1.parsed_uri.path == CGI.unescape(r2.parsed_uri.path)
+  end
+  c.default_cassette_options = {
+    :record_on_error => false,
+    :match_requests_on => [:method, :host, :safe_path, :query, :body_as_json],
+  }
   c.allow_http_connections_when_no_cassette = true
   RecordMode.send(ENV["RECORD"] || "false", c)
   c.cassette_library_dir = "cassettes"

@@ -64,6 +64,9 @@ module DatadogAPIClient::V1
     # Prevents saving screenshots of the steps.
     attr_accessor :no_screenshot
 
+    # A list of role identifiers that can be pulled from the Roles API, for restricting read and write access.
+    attr_accessor :restricted_roles
+
     # Object describing the retry strategy to apply to a Synthetic test.
     attr_accessor :_retry
 
@@ -86,6 +89,7 @@ module DatadogAPIClient::V1
         :'monitor_options' => :'monitor_options',
         :'monitor_priority' => :'monitor_priority',
         :'no_screenshot' => :'noScreenshot',
+        :'restricted_roles' => :'restricted_roles',
         :'_retry' => :'retry',
         :'tick_every' => :'tick_every'
       }
@@ -113,6 +117,7 @@ module DatadogAPIClient::V1
         :'monitor_options' => :'SyntheticsTestOptionsMonitorOptions',
         :'monitor_priority' => :'Integer',
         :'no_screenshot' => :'Boolean',
+        :'restricted_roles' => :'Array<String>',
         :'_retry' => :'SyntheticsTestOptionsRetry',
         :'tick_every' => :'Integer'
       }
@@ -189,6 +194,12 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'no_screenshot')
         self.no_screenshot = attributes[:'no_screenshot']
+      end
+
+      if attributes.key?(:'restricted_roles')
+        if (value = attributes[:'restricted_roles']).is_a?(Array)
+          self.restricted_roles = value
+        end
       end
 
       if attributes.key?(:'_retry')
@@ -275,6 +286,7 @@ module DatadogAPIClient::V1
           monitor_options == o.monitor_options &&
           monitor_priority == o.monitor_priority &&
           no_screenshot == o.no_screenshot &&
+          restricted_roles == o.restricted_roles &&
           _retry == o._retry &&
           tick_every == o.tick_every
     end
@@ -290,7 +302,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [accept_self_signed, allow_insecure, check_certificate_revocation, device_ids, disable_cors, follow_redirects, min_failure_duration, min_location_failed, monitor_name, monitor_options, monitor_priority, no_screenshot, _retry, tick_every].hash
+      [accept_self_signed, allow_insecure, check_certificate_revocation, device_ids, disable_cors, follow_redirects, min_failure_duration, min_location_failed, monitor_name, monitor_options, monitor_priority, no_screenshot, restricted_roles, _retry, tick_every].hash
     end
   end
 end
