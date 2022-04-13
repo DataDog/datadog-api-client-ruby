@@ -611,8 +611,8 @@ module DatadogAPIClient::V1
     # @option opts [Integer] :limit The number of SLOs to return in the response.
     # @option opts [Integer] :offset The specific offset to use as the beginning of the returned response.
     # @return [SLOListResponse]
-    def list_sl_os(opts = {})
-      data, _status_code, _headers = list_sl_os_with_http_info(opts)
+    def list_slos(opts = {})
+      data, _status_code, _headers = list_slos_with_http_info(opts)
       data
     end
 
@@ -626,19 +626,19 @@ module DatadogAPIClient::V1
     # @option opts [Integer] :limit The number of SLOs to return in the response.
     # @option opts [Integer] :offset The specific offset to use as the beginning of the returned response.
     # @return [Array<(SLOListResponse, Integer, Hash)>] SLOListResponse data, response status code and response headers
-    def list_sl_os_with_http_info(opts = {})
+    def list_slos_with_http_info(opts = {})
 
-      if @api_client.config.unstable_operations.has_key?(:list_sl_os)
-        unstable_enabled = @api_client.config.unstable_operations[:list_sl_os]
+      if @api_client.config.unstable_operations.has_key?(:list_slos)
+        unstable_enabled = @api_client.config.unstable_operations[:list_slos]
         if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_sl_os")
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_slos")
         else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_sl_os"))
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_slos"))
         end
       end
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ServiceLevelObjectivesAPI.list_sl_os ...'
+        @api_client.config.logger.debug 'Calling API: ServiceLevelObjectivesAPI.list_slos ...'
       end
       # resource path
       local_var_path = '/api/v1/slo'
@@ -670,7 +670,7 @@ module DatadogAPIClient::V1
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
-        :operation => :list_sl_os,
+        :operation => :list_slos,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -681,7 +681,7 @@ module DatadogAPIClient::V1
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ServiceLevelObjectivesAPI#list_sl_os\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ServiceLevelObjectivesAPI#list_slos\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
