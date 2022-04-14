@@ -40,7 +40,7 @@ module DatadogAPIClient::V1
     # The ID of the result to get.
     attr_accessor :result_id
 
-    # Total duration in millisecond of the test.
+    # Number of times this result has been retried.
     attr_accessor :retries
 
     # Determines whether or not the batch has passed, failed, or is in progress.
