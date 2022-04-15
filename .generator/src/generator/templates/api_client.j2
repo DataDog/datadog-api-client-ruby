@@ -390,5 +390,37 @@ module {{ module_name }}::{{ version|upper }}
         fail "unknown collection format: #{collection_format.inspect}"
       end
     end
+
+    def get_attribute_from_path(obj, attribute_path, default=nil)
+      for attr in attribute_path.split(".") do
+        case obj
+        when Hash
+          obj = obj[attr.to_sym]
+        else
+          obj = obj.send(attr)
+        end
+        return default if obj.nil?
+      end
+      obj
+    end
+
+    def set_attribute_from_path(obj, attribute_path, value)
+      attrs = attribute_path.split(".")
+      last = attrs.pop
+      for attr in attrs do
+        case obj
+        when Hash
+          obj = obj[attr.to_sym]
+        else
+          obj = obj.send(attr)
+        end
+      end
+      case obj
+      when Hash
+        obj[last.to_sym] = value
+      else
+        obj.send(last, value)
+      end
+    end
   end
 end

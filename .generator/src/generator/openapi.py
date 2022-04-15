@@ -347,3 +347,27 @@ def response(operation, status_code=None):
                 "schema"
             ]
     return None
+
+
+def get_default(operation, attribute_path):
+    attrs = attribute_path.split(".")
+    for name, parameter in parameters(operation):
+        if name == attrs[0]:
+            break
+    if name == attribute_path:
+        # We found a top level attribute matching the full path, let's use the default
+        return parameter["schema"]["default"]
+
+    if name == "body":
+        parameter = parameter["content"]["application/json"]["schema"]
+    for attr in attrs[1:]:
+        parameter = parameter["properties"][attr]
+    return parameter["default"]
+
+
+def get_container(operation, attribute_path):
+    attribute_name = attribute_path.split(".")[0]
+    for name, parameter in parameters(operation):
+        if name == attribute_name and parameter["required"]:
+            return '{}, "{}"'.format(name, ".".join(formatter.attribute_name(a) for a in attribute_path.split(".")[1:]))
+    return f'opts ,"{formatter.attribute_path(attribute_path)}"'

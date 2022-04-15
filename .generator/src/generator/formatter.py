@@ -299,3 +299,7 @@ def format_data_with_schema_dict(
         return f"{name_prefix}{name}.new({{\n{parameters}}})"
 
     return parameters
+
+
+def attribute_path(attribute):
+    return ".".join(attribute_name(a) for a in attribute.split("."))

@@ -30,7 +30,7 @@ module APIWorld
   def api_error
     api::APIError
   end
-  
+
   def sleep_after_request
     sleep SLEEP_AFTER_REQUEST unless ENV["RECORD"] == "false" || SLEEP_AFTER_REQUEST <= 0
   end
@@ -247,6 +247,25 @@ When('the request is sent') do
 
 end
 
+When('the request with pagination is sent') do
+  method_name = @api_method.name.to_s.chomp('_with_http_info') + "_with_pagination"
+  method = @api_instance.method(method_name.to_sym)
+  params = method.parameters.select { |p| p[0] == :req }.map { |p| opts.delete(p[1]) }
+
+  begin
+    @response = [method.call(*params, opts), 200, nil]
+  rescue api_error => e
+    # If we have an exception, make a stub response object to use for assertions
+    # Instead of finding the response class of the method, we use the fact that all
+    # responses returned have the `1` element set to the response code
+    begin
+        @response = [JSON.parse(e.response_body, :symbolize_names => true), e.code, nil]
+    rescue JSON::ParserError
+        @response = [e.response_body, e.code, nil]
+    end
+  end
+end
+
 Then(/^the response "([^"]+)" is equal to (.*)$/) do |response_path, value|
   body = @response[0].respond_to?(:to_body) ? @response[0].to_body : @response[0]
   expect(body.lookup response_path).to eq JSON.parse(value.templated(fixtures), :symbolize_names => true)
@@ -266,6 +285,10 @@ end
 
 Then(/^the response "([^"]+)" has length ([0-9]+)$/) do |response_path, fixture_length|
   expect((@response[0].lookup response_path).length).to eq fixture_length.to_i
+end
+
+Then(/^the response has ([0-9]+) items/) do |fixture_length|
+  expect(@response[0].length).to eq fixture_length.to_i
 end
 
 Dir.glob(File.join(__dir__, '..', "v*", 'given.json')).each do |f|

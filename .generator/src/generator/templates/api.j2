@@ -214,6 +214,29 @@ module {{ module_name }}::{{ version|upper }}
       end
       return data, status_code, headers
     end
+{%- if operation["x-pagination"] %}
+{%- set pagination = operation["x-pagination"] %}
+
+    def {{ operation.operationId|snake_case }}_with_pagination({% for name, parameter in operation|parameters if parameter.required %}{{ name|attribute_name }}, {% endfor %}opts = {})
+        result = []
+        page_size = @api_client.get_attribute_from_path({{ get_container(operation, pagination.limitParam) }}, {{ get_default(operation, pagination.limitParam) }})
+        @api_client.set_attribute_from_path({{ get_container(operation, pagination.limitParam) }}, page_size)
+        while true do
+            response = {{ operation.operationId|snake_case }}({% for name, parameter in operation|parameters if parameter.required %}{{ name|attribute_name }}, {% endfor %}opts)
+            result.concat(@api_client.get_attribute_from_path(response, "{{ pagination.resultsPath|attribute_path }}"))
+            if @api_client.get_attribute_from_path(response, "{{ pagination.resultsPath|attribute_path }}").length < page_size
+              break
+            end
+            {%- if pagination.pageOffsetParam %}
+            @api_client.set_attribute_from_path({{ get_container(operation, pagination.pageOffsetParam) }}, @api_client.get_attribute_from_path({{ get_container(operation, pagination.pageOffsetParam) }}, 0) + page_size)
+            {%- endif %}
+            {%- if pagination.cursorParam %}
+            @api_client.set_attribute_from_path({{ get_container(operation, pagination.cursorParam) }}, @api_client.get_attribute_from_path(response, "{{ pagination.cursorPath }}"))
+            {%- endif %}
+        end
+        result
+    end
+{%- endif %}
 {%- if not loop.last %}
 
 {%- endif %}
