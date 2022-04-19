@@ -19,7 +19,7 @@ body = DatadogAPIClient::V1::Dashboard.new({
               }),
             ],
             query: DatadogAPIClient::V1::ListStreamQuery.new({
-              data_source: DatadogAPIClient::V1::ListStreamSource::ISSUE_STREAM,
+              data_source: DatadogAPIClient::V1::ListStreamSource::APM_ISSUE_STREAM,
               query_string: "",
             }),
             response_format: DatadogAPIClient::V1::ListStreamResponseFormat::EVENT_LIST,
