@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Thu, 06 Jan 2022 00:50:52 GMT
+- recorded_at: Tue, 12 Apr 2022 14:46:46 GMT
   request:
     body:
       encoding: UTF-8
-      string: '[{"ddtags":"host:TestSendlogsreturnsResponsefromserveralways200emptyJSONresponse1641430252","message":"Test-Send_logs_returns_Response_from_server_always_200_empty_JSON_response-1641430252"}]'
+      string: '[{"ddtags":"host:TestSendlogsreturnsResponsefromserveralways200emptyJSONresponse1649774806","message":"Test-Send_logs_returns_Response_from_server_always_200_empty_JSON_response-1649774806"}]'
     headers:
       Content-Type:
       - application/json

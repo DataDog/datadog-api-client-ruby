@@ -74,7 +74,7 @@ module DatadogAPIClient::V1
         :'host' => :'String',
         :'message' => :'String',
         :'service' => :'String',
-        :'tags' => :'Array<Object>',
+        :'tags' => :'Array<String>',
         :'timestamp' => :'Time'
       }
     end
@@ -119,7 +119,9 @@ module DatadogAPIClient::V1
       end
 
       if attributes.key?(:'tags')
-        self.tags = attributes[:'tags']
+        if (value = attributes[:'tags']).is_a?(Array)
+          self.tags = value
+        end
       end
 
       if attributes.key?(:'timestamp')
