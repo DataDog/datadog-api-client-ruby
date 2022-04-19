@@ -224,6 +224,10 @@ Given(/^new "([^"]+)" request$/) do |name|
   @api_method = @api_instance.method("#{name.snakecase}_with_http_info".to_sym)
 end
 
+Given('there is a {int} second delay') do |sleep_time|
+  sleep(sleep_time)
+end
+
 When('the request is sent') do
   params = @api_method.parameters.select { |p| p[0] == :req }.map { |p| opts.delete(p[1]) }
   undo_builder = build_undo_for(@api_version, @api_method.name.to_s.chomp('_with_http_info'))  # fail early on missing undo method
