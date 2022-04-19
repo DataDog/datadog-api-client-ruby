@@ -31,7 +31,7 @@ module DatadogAPIClient::V1
     attr_accessor :alert_type
 
     # POSIX timestamp of the event. Must be sent as an integer (that is no quotes).
-    # Limited to events no older than 18 hours.
+    # Limited to events no older than 7 days.
     attr_accessor :date_happened
 
     # A device name.
