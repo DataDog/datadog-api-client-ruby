@@ -98,7 +98,9 @@ module DatadogAPIClient::V2
       end
 
       if attributes.key?(:'tags')
-        self.tags = attributes[:'tags']
+        if (value = attributes[:'tags']).is_a?(Array)
+          self.tags = value
+        end
       end
 
       if attributes.key?(:'timestamp')
