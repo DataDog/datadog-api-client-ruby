@@ -60,6 +60,7 @@ def cli(input, output):
     env.globals["get_type_for_parameter"] = openapi.get_type_for_parameter
     env.globals["get_default"] = openapi.get_default
     env.globals["get_container"] = openapi.get_container
+    env.globals["get_type_at_path"] = openapi.get_type_at_path
 
     api_j2 = env.get_template("api.j2")
     model_j2 = env.get_template("model.j2")
