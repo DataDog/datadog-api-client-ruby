@@ -407,6 +407,7 @@ module {{ module_name }}::{{ version|upper }}
     def set_attribute_from_path(obj, attribute_path, builder, value)
       attrs = attribute_path.split(".")
       last = attrs.pop
+      i = 0
       for attr in attrs do
         case obj
         when Hash
@@ -414,12 +415,15 @@ module {{ module_name }}::{{ version|upper }}
         else
           obj = obj.send(attr)
         end
+        builder = DatadogAPIClient::V2.const_get(builder.openapi_types[attr.to_sym]) if i > 0
+        obj = builder.new if obj.nil?
+        i += 1
       end
       case obj
       when Hash
         obj[last.to_sym] = value
       else
-        obj.send(last, value)
+        obj.send(last + "=", value)
       end
     end
   end
