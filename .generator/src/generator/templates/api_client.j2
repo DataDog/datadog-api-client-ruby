@@ -395,7 +395,7 @@ module {{ module_name }}::{{ version|upper }}
       for attr in attribute_path.split(".") do
         case obj
         when Hash
-          obj = obj[attr.to_sym]
+          obj = !obj[attr.to_sym].nil? ? obj[attr.to_sym] : obj[attr]
         else
           obj = obj.send(attr)
         end
@@ -404,13 +404,13 @@ module {{ module_name }}::{{ version|upper }}
       obj
     end
 
-    def set_attribute_from_path(obj, attribute_path, value)
+    def set_attribute_from_path(obj, attribute_path, builder, value)
       attrs = attribute_path.split(".")
       last = attrs.pop
       for attr in attrs do
         case obj
         when Hash
-          obj = obj[attr.to_sym]
+          obj = !obj[attr.to_sym].nil? ? obj[attr.to_sym] : obj[attr]
         else
           obj = obj.send(attr)
         end

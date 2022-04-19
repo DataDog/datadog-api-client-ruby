@@ -365,9 +365,16 @@ def get_default(operation, attribute_path):
     return parameter["default"]
 
 
-def get_container(operation, attribute_path):
+def get_container(operation, attribute_path, with_type=False):
+
+    def get_type(parameter):
+        if with_type:
+            return f", {get_type_for_parameter(parameter)}"
+        return ""
+
     attribute_name = attribute_path.split(".")[0]
     for name, parameter in parameters(operation):
-        if name == attribute_name and parameter["required"]:
-            return '{}, "{}"'.format(name, ".".join(formatter.attribute_name(a) for a in attribute_path.split(".")[1:]))
-    return f'opts ,"{formatter.attribute_path(attribute_path)}"'
+        if name == attribute_name:
+            if parameter["required"]:
+                return '{}, "{}"{}'.format(name, ".".join(formatter.attribute_name(a) for a in attribute_path.split(".")[1:]), get_type(parameter))
+    return f'opts, "{formatter.attribute_path(attribute_path)}"{get_type(parameter)}'
