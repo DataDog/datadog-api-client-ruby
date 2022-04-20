@@ -23,18 +23,18 @@ module DatadogAPIClient::V1
       @api_client = api_client
     end
 
-    # Cancel a downtime
     # Cancel a downtime.
-    # @param downtime_id [Integer] ID of the downtime to cancel.
-    # @param opts [Hash] the optional parameters
-    # @return [nil]
+    #
+    # @see #cancel_downtime_with_http_info
     def cancel_downtime(downtime_id, opts = {})
       cancel_downtime_with_http_info(downtime_id, opts)
       nil
     end
 
-    # Cancel a downtime
     # Cancel a downtime.
+    #
+    # Cancel a downtime.
+    #
     # @param downtime_id [Integer] ID of the downtime to cancel.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -96,18 +96,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Cancel downtimes by scope
-    # Delete all downtimes that match the scope of `X`.
-    # @param body [CancelDowntimesByScopeRequest] Scope to cancel downtimes for.
-    # @param opts [Hash] the optional parameters
-    # @return [CanceledDowntimesIds]
+    # Cancel downtimes by scope.
+    #
+    # @see #cancel_downtimes_by_scope_with_http_info
     def cancel_downtimes_by_scope(body, opts = {})
       data, _status_code, _headers = cancel_downtimes_by_scope_with_http_info(body, opts)
       data
     end
 
-    # Cancel downtimes by scope
+    # Cancel downtimes by scope.
+    #
     # Delete all downtimes that match the scope of `X`.
+    #
     # @param body [CancelDowntimesByScopeRequest] Scope to cancel downtimes for.
     # @param opts [Hash] the optional parameters
     # @return [Array<(CanceledDowntimesIds, Integer, Hash)>] CanceledDowntimesIds data, response status code and response headers
@@ -171,18 +171,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Schedule a downtime
     # Schedule a downtime.
-    # @param body [Downtime] Schedule a downtime request body.
-    # @param opts [Hash] the optional parameters
-    # @return [Downtime]
+    #
+    # @see #create_downtime_with_http_info
     def create_downtime(body, opts = {})
       data, _status_code, _headers = create_downtime_with_http_info(body, opts)
       data
     end
 
-    # Schedule a downtime
     # Schedule a downtime.
+    #
+    # Schedule a downtime.
+    #
     # @param body [Downtime] Schedule a downtime request body.
     # @param opts [Hash] the optional parameters
     # @return [Array<(Downtime, Integer, Hash)>] Downtime data, response status code and response headers
@@ -246,18 +246,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get a downtime
-    # Get downtime detail by `downtime_id`.
-    # @param downtime_id [Integer] ID of the downtime to fetch.
-    # @param opts [Hash] the optional parameters
-    # @return [Downtime]
+    # Get a downtime.
+    #
+    # @see #get_downtime_with_http_info
     def get_downtime(downtime_id, opts = {})
       data, _status_code, _headers = get_downtime_with_http_info(downtime_id, opts)
       data
     end
 
-    # Get a downtime
+    # Get a downtime.
+    #
     # Get downtime detail by `downtime_id`.
+    #
     # @param downtime_id [Integer] ID of the downtime to fetch.
     # @param opts [Hash] the optional parameters
     # @return [Array<(Downtime, Integer, Hash)>] Downtime data, response status code and response headers
@@ -319,18 +319,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get all downtimes
-    # Get all scheduled downtimes.
-    # @param opts [Hash] the optional parameters
-    # @option opts [Boolean] :current_only Only return downtimes that are active when the request is made.
-    # @return [Array<Downtime>]
+    # Get all downtimes.
+    #
+    # @see #list_downtimes_with_http_info
     def list_downtimes(opts = {})
       data, _status_code, _headers = list_downtimes_with_http_info(opts)
       data
     end
 
-    # Get all downtimes
+    # Get all downtimes.
+    #
     # Get all scheduled downtimes.
+    #
     # @param opts [Hash] the optional parameters
     # @option opts [Boolean] :current_only Only return downtimes that are active when the request is made.
     # @return [Array<(Array<Downtime>, Integer, Hash)>] Array<Downtime> data, response status code and response headers
@@ -389,18 +389,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get all downtimes for a monitor
-    # Get all active downtimes for the specified monitor.
-    # @param monitor_id [Integer] The id of the monitor
-    # @param opts [Hash] the optional parameters
-    # @return [Array<Downtime>]
+    # Get all downtimes for a monitor.
+    #
+    # @see #list_monitor_downtimes_with_http_info
     def list_monitor_downtimes(monitor_id, opts = {})
       data, _status_code, _headers = list_monitor_downtimes_with_http_info(monitor_id, opts)
       data
     end
 
-    # Get all downtimes for a monitor
+    # Get all downtimes for a monitor.
+    #
     # Get all active downtimes for the specified monitor.
+    #
     # @param monitor_id [Integer] The id of the monitor
     # @param opts [Hash] the optional parameters
     # @return [Array<(Array<Downtime>, Integer, Hash)>] Array<Downtime> data, response status code and response headers
@@ -462,19 +462,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Update a downtime
-    # Update a single downtime by `downtime_id`.
-    # @param downtime_id [Integer] ID of the downtime to update.
-    # @param body [Downtime] Update a downtime request body.
-    # @param opts [Hash] the optional parameters
-    # @return [Downtime]
+    # Update a downtime.
+    #
+    # @see #update_downtime_with_http_info
     def update_downtime(downtime_id, body, opts = {})
       data, _status_code, _headers = update_downtime_with_http_info(downtime_id, body, opts)
       data
     end
 
-    # Update a downtime
+    # Update a downtime.
+    #
     # Update a single downtime by `downtime_id`.
+    #
     # @param downtime_id [Integer] ID of the downtime to update.
     # @param body [Downtime] Update a downtime request body.
     # @param opts [Hash] the optional parameters

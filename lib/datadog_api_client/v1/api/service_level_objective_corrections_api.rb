@@ -23,18 +23,18 @@ module DatadogAPIClient::V1
       @api_client = api_client
     end
 
-    # Create an SLO correction
-    # Create an SLO Correction.
-    # @param body [SLOCorrectionCreateRequest] Create an SLO Correction
-    # @param opts [Hash] the optional parameters
-    # @return [SLOCorrectionResponse]
+    # Create an SLO correction.
+    #
+    # @see #create_slo_correction_with_http_info
     def create_slo_correction(body, opts = {})
       data, _status_code, _headers = create_slo_correction_with_http_info(body, opts)
       data
     end
 
-    # Create an SLO correction
+    # Create an SLO correction.
+    #
     # Create an SLO Correction.
+    #
     # @param body [SLOCorrectionCreateRequest] Create an SLO Correction
     # @param opts [Hash] the optional parameters
     # @return [Array<(SLOCorrectionResponse, Integer, Hash)>] SLOCorrectionResponse data, response status code and response headers
@@ -98,18 +98,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Delete an SLO correction
-    # Permanently delete the specified SLO correction object.
-    # @param slo_correction_id [String] The ID of the SLO correction object.
-    # @param opts [Hash] the optional parameters
-    # @return [nil]
+    # Delete an SLO correction.
+    #
+    # @see #delete_slo_correction_with_http_info
     def delete_slo_correction(slo_correction_id, opts = {})
       delete_slo_correction_with_http_info(slo_correction_id, opts)
       nil
     end
 
-    # Delete an SLO correction
+    # Delete an SLO correction.
+    #
     # Permanently delete the specified SLO correction object.
+    #
     # @param slo_correction_id [String] The ID of the SLO correction object.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -171,18 +171,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get an SLO correction for an SLO
-    # Get an SLO correction.
-    # @param slo_correction_id [String] The ID of the SLO correction object.
-    # @param opts [Hash] the optional parameters
-    # @return [SLOCorrectionResponse]
+    # Get an SLO correction for an SLO.
+    #
+    # @see #get_slo_correction_with_http_info
     def get_slo_correction(slo_correction_id, opts = {})
       data, _status_code, _headers = get_slo_correction_with_http_info(slo_correction_id, opts)
       data
     end
 
-    # Get an SLO correction for an SLO
+    # Get an SLO correction for an SLO.
+    #
     # Get an SLO correction.
+    #
     # @param slo_correction_id [String] The ID of the SLO correction object.
     # @param opts [Hash] the optional parameters
     # @return [Array<(SLOCorrectionResponse, Integer, Hash)>] SLOCorrectionResponse data, response status code and response headers
@@ -244,17 +244,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get all SLO corrections
-    # Get all Service Level Objective corrections.
-    # @param opts [Hash] the optional parameters
-    # @return [SLOCorrectionListResponse]
+    # Get all SLO corrections.
+    #
+    # @see #list_slo_correction_with_http_info
     def list_slo_correction(opts = {})
       data, _status_code, _headers = list_slo_correction_with_http_info(opts)
       data
     end
 
-    # Get all SLO corrections
+    # Get all SLO corrections.
+    #
     # Get all Service Level Objective corrections.
+    #
     # @param opts [Hash] the optional parameters
     # @return [Array<(SLOCorrectionListResponse, Integer, Hash)>] SLOCorrectionListResponse data, response status code and response headers
     def list_slo_correction_with_http_info(opts = {})
@@ -311,19 +312,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Update an SLO correction
-    # Update the specified SLO correction object object.
-    # @param slo_correction_id [String] The ID of the SLO correction object.
-    # @param body [SLOCorrectionUpdateRequest] The edited SLO correction object.
-    # @param opts [Hash] the optional parameters
-    # @return [SLOCorrectionResponse]
+    # Update an SLO correction.
+    #
+    # @see #update_slo_correction_with_http_info
     def update_slo_correction(slo_correction_id, body, opts = {})
       data, _status_code, _headers = update_slo_correction_with_http_info(slo_correction_id, body, opts)
       data
     end
 
-    # Update an SLO correction
+    # Update an SLO correction.
+    #
     # Update the specified SLO correction object object.
+    #
     # @param slo_correction_id [String] The ID of the SLO correction object.
     # @param body [SLOCorrectionUpdateRequest] The edited SLO correction object.
     # @param opts [Hash] the optional parameters

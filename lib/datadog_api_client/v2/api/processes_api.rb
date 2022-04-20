@@ -23,23 +23,18 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
-    # Get all processes
-    # Get all processes for your organization.
-    # @param opts [Hash] the optional parameters
-    # @option opts [String] :search String to search processes by.
-    # @option opts [String] :tags Comma-separated list of tags to filter processes by.
-    # @option opts [Integer] :from Unix timestamp (number of seconds since epoch) of the start of the query window. If not provided, the start of the query window will be 15 minutes before the `to` timestamp. If neither `from` nor `to` are provided, the query window will be `[now - 15m, now]`.
-    # @option opts [Integer] :to Unix timestamp (number of seconds since epoch) of the end of the query window. If not provided, the end of the query window will be 15 minutes after the `from` timestamp. If neither `from` nor `to` are provided, the query window will be `[now - 15m, now]`.
-    # @option opts [Integer] :page_limit Maximum number of results returned.
-    # @option opts [String] :page_cursor String to query the next page of results. This key is provided with each valid response from the API in `meta.page.after`.
-    # @return [ProcessSummariesResponse]
+    # Get all processes.
+    #
+    # @see #list_processes_with_http_info
     def list_processes(opts = {})
       data, _status_code, _headers = list_processes_with_http_info(opts)
       data
     end
 
-    # Get all processes
+    # Get all processes.
+    #
     # Get all processes for your organization.
+    #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :search String to search processes by.
     # @option opts [String] :tags Comma-separated list of tags to filter processes by.
@@ -112,6 +107,26 @@ module DatadogAPIClient::V2
         @api_client.config.logger.debug "API called: ProcessesAPI#list_processes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
+    end
+
+    # Get all processes.
+    #
+    # Provide a paginated version of {#list_processes}, returning all items.
+    #
+    # To use it you need to use a block: list_processes_with_pagination { |item| p item }
+    #
+    # @yield [ProcessSummary] Paginated items
+    def list_processes_with_pagination(opts = {})
+        page_size = @api_client.get_attribute_from_path(opts, "page_limit", 1000)
+        @api_client.set_attribute_from_path(opts, "page_limit", String, page_size)
+        while true do
+            response = list_processes(opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(opts, "page_cursor", String, @api_client.get_attribute_from_path(response, "meta.page.after"))
+        end
     end
   end
 end

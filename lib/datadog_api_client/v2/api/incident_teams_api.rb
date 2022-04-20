@@ -23,18 +23,18 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
-    # Create a new incident team
-    # Creates a new incident team.
-    # @param body [IncidentTeamCreateRequest] Incident Team Payload.
-    # @param opts [Hash] the optional parameters
-    # @return [IncidentTeamResponse]
+    # Create a new incident team.
+    #
+    # @see #create_incident_team_with_http_info
     def create_incident_team(body, opts = {})
       data, _status_code, _headers = create_incident_team_with_http_info(body, opts)
       data
     end
 
-    # Create a new incident team
+    # Create a new incident team.
+    #
     # Creates a new incident team.
+    #
     # @param body [IncidentTeamCreateRequest] Incident Team Payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(IncidentTeamResponse, Integer, Hash)>] IncidentTeamResponse data, response status code and response headers
@@ -98,18 +98,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete an existing incident team
-    # Deletes an existing incident team.
-    # @param team_id [String] The ID of the incident team.
-    # @param opts [Hash] the optional parameters
-    # @return [nil]
+    # Delete an existing incident team.
+    #
+    # @see #delete_incident_team_with_http_info
     def delete_incident_team(team_id, opts = {})
       delete_incident_team_with_http_info(team_id, opts)
       nil
     end
 
-    # Delete an existing incident team
+    # Delete an existing incident team.
+    #
     # Deletes an existing incident team.
+    #
     # @param team_id [String] The ID of the incident team.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -171,21 +171,19 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get details of an incident team
-    # Get details of an incident team. If the `include[users]` query parameter is provided,
-    # the included attribute will contain the users related to these incident teams.
-    # @param team_id [String] The ID of the incident team.
-    # @param opts [Hash] the optional parameters
-    # @option opts [IncidentRelatedObject] :include Specifies which types of related objects should be included in the response.
-    # @return [IncidentTeamResponse]
+    # Get details of an incident team.
+    #
+    # @see #get_incident_team_with_http_info
     def get_incident_team(team_id, opts = {})
       data, _status_code, _headers = get_incident_team_with_http_info(team_id, opts)
       data
     end
 
-    # Get details of an incident team
+    # Get details of an incident team.
+    #
     # Get details of an incident team. If the `include[users]` query parameter is provided,
     # the included attribute will contain the users related to these incident teams.
+    #
     # @param team_id [String] The ID of the incident team.
     # @param opts [Hash] the optional parameters
     # @option opts [IncidentRelatedObject] :include Specifies which types of related objects should be included in the response.
@@ -253,21 +251,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get a list of all incident teams
-    # Get all incident teams for the requesting user's organization. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident teams.
-    # @param opts [Hash] the optional parameters
-    # @option opts [IncidentRelatedObject] :include Specifies which types of related objects should be included in the response.
-    # @option opts [Integer] :page_size Size for a given page.
-    # @option opts [Integer] :page_offset Specific offset to use as the beginning of the returned page.
-    # @option opts [String] :filter A search query that filters teams by name.
-    # @return [IncidentTeamsResponse]
+    # Get a list of all incident teams.
+    #
+    # @see #list_incident_teams_with_http_info
     def list_incident_teams(opts = {})
       data, _status_code, _headers = list_incident_teams_with_http_info(opts)
       data
     end
 
-    # Get a list of all incident teams
+    # Get a list of all incident teams.
+    #
     # Get all incident teams for the requesting user's organization. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident teams.
+    #
     # @param opts [Hash] the optional parameters
     # @option opts [IncidentRelatedObject] :include Specifies which types of related objects should be included in the response.
     # @option opts [Integer] :page_size Size for a given page.
@@ -336,19 +331,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Update an existing incident team
-    # Updates an existing incident team. Only provide the attributes which should be updated as this request is a partial update.
-    # @param team_id [String] The ID of the incident team.
-    # @param body [IncidentTeamUpdateRequest] Incident Team Payload.
-    # @param opts [Hash] the optional parameters
-    # @return [IncidentTeamResponse]
+    # Update an existing incident team.
+    #
+    # @see #update_incident_team_with_http_info
     def update_incident_team(team_id, body, opts = {})
       data, _status_code, _headers = update_incident_team_with_http_info(team_id, body, opts)
       data
     end
 
-    # Update an existing incident team
+    # Update an existing incident team.
+    #
     # Updates an existing incident team. Only provide the attributes which should be updated as this request is a partial update.
+    #
     # @param team_id [String] The ID of the incident team.
     # @param body [IncidentTeamUpdateRequest] Incident Team Payload.
     # @param opts [Hash] the optional parameters

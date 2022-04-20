@@ -23,18 +23,18 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
-    # Aggregate RUM events
-    # The API endpoint to aggregate RUM events into buckets of computed metrics and timeseries.
-    # @param body [RUMAggregateRequest] 
-    # @param opts [Hash] the optional parameters
-    # @return [RUMAnalyticsAggregateResponse]
+    # Aggregate RUM events.
+    #
+    # @see #aggregate_rum_events_with_http_info
     def aggregate_rum_events(body, opts = {})
       data, _status_code, _headers = aggregate_rum_events_with_http_info(body, opts)
       data
     end
 
-    # Aggregate RUM events
+    # Aggregate RUM events.
+    #
     # The API endpoint to aggregate RUM events into buckets of computed metrics and timeseries.
+    #
     # @param body [RUMAggregateRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(RUMAnalyticsAggregateResponse, Integer, Hash)>] RUMAnalyticsAggregateResponse data, response status code and response headers
@@ -98,33 +98,23 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get a list of RUM events
-    # List endpoint returns events that match a RUM search query.
-    # [Results are paginated][1].
+    # Get a list of RUM events.
     #
-    # Use this endpoint to see your latest RUM events.
-    #
-    # [1]: https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
-    # @param opts [Hash] the optional parameters
-    # @option opts [String] :filter_query Search query following RUM syntax.
-    # @option opts [Time] :filter_from Minimum timestamp for requested events.
-    # @option opts [Time] :filter_to Maximum timestamp for requested events.
-    # @option opts [RUMSort] :sort Order of events in results.
-    # @option opts [String] :page_cursor List following results with a cursor provided in the previous query.
-    # @option opts [Integer] :page_limit Maximum number of events in the response.
-    # @return [RUMEventsResponse]
+    # @see #list_rum_events_with_http_info
     def list_rum_events(opts = {})
       data, _status_code, _headers = list_rum_events_with_http_info(opts)
       data
     end
 
-    # Get a list of RUM events
+    # Get a list of RUM events.
+    #
     # List endpoint returns events that match a RUM search query.
     # [Results are paginated][1].
     #
     # Use this endpoint to see your latest RUM events.
     #
     # [1]: https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
+    #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :filter_query Search query following RUM syntax.
     # @option opts [Time] :filter_from Minimum timestamp for requested events.
@@ -200,28 +190,43 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Search RUM events
-    # List endpoint returns RUM events that match a RUM search query.
-    # [Results are paginated][1].
+    # Get a list of RUM events.
     #
-    # Use this endpoint to build complex RUM events filtering and search.
+    # Provide a paginated version of {#list_rum_events}, returning all items.
     #
-    # [1]: https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
-    # @param body [RUMSearchEventsRequest] 
-    # @param opts [Hash] the optional parameters
-    # @return [RUMEventsResponse]
+    # To use it you need to use a block: list_rum_events_with_pagination { |item| p item }
+    #
+    # @yield [RUMEvent] Paginated items
+    def list_rum_events_with_pagination(opts = {})
+        page_size = @api_client.get_attribute_from_path(opts, "page_limit", 10)
+        @api_client.set_attribute_from_path(opts, "page_limit", Integer, page_size)
+        while true do
+            response = list_rum_events(opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(opts, "page_cursor", Integer, @api_client.get_attribute_from_path(response, "meta.page.after"))
+        end
+    end
+
+    # Search RUM events.
+    #
+    # @see #search_rum_events_with_http_info
     def search_rum_events(body, opts = {})
       data, _status_code, _headers = search_rum_events_with_http_info(body, opts)
       data
     end
 
-    # Search RUM events
+    # Search RUM events.
+    #
     # List endpoint returns RUM events that match a RUM search query.
     # [Results are paginated][1].
     #
     # Use this endpoint to build complex RUM events filtering and search.
     #
     # [1]: https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
+    #
     # @param body [RUMSearchEventsRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(RUMEventsResponse, Integer, Hash)>] RUMEventsResponse data, response status code and response headers
@@ -283,6 +288,26 @@ module DatadogAPIClient::V2
         @api_client.config.logger.debug "API called: RUMAPI#search_rum_events\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
+    end
+
+    # Search RUM events.
+    #
+    # Provide a paginated version of {#search_rum_events}, returning all items.
+    #
+    # To use it you need to use a block: search_rum_events_with_pagination { |item| p item }
+    #
+    # @yield [RUMEvent] Paginated items
+    def search_rum_events_with_pagination(body, opts = {})
+        page_size = @api_client.get_attribute_from_path(body, "page.limit", 10)
+        @api_client.set_attribute_from_path(body, "page.limit", RUMSearchEventsRequest, page_size)
+        while true do
+            response = search_rum_events(body, opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(body, "page.cursor", RUMSearchEventsRequest, @api_client.get_attribute_from_path(response, "meta.page.after"))
+        end
     end
   end
 end

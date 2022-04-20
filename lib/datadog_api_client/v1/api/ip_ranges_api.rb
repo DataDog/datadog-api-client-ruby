@@ -23,17 +23,18 @@ module DatadogAPIClient::V1
       @api_client = api_client
     end
 
-    # List IP Ranges
-    # Get information about Datadog IP ranges.
-    # @param opts [Hash] the optional parameters
-    # @return [IPRanges]
+    # List IP Ranges.
+    #
+    # @see #get_ip_ranges_with_http_info
     def get_ip_ranges(opts = {})
       data, _status_code, _headers = get_ip_ranges_with_http_info(opts)
       data
     end
 
-    # List IP Ranges
+    # List IP Ranges.
+    #
     # Get information about Datadog IP ranges.
+    #
     # @param opts [Hash] the optional parameters
     # @return [Array<(IPRanges, Integer, Hash)>] IPRanges data, response status code and response headers
     def get_ip_ranges_with_http_info(opts = {})

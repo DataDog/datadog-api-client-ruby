@@ -47,6 +47,7 @@ def cli(input, output):
     env.filters["parameters"] = openapi.parameters
     env.filters["return_type"] = openapi.return_type
     env.filters["snake_case"] = formatter.snake_case
+    env.filters["attribute_path"] = formatter.attribute_path
 
     env.globals["gem_name"] = GEM_NAME
     env.globals["module_name"] = MODULE_NAME
@@ -57,6 +58,9 @@ def cli(input, output):
     env.globals["type_to_ruby"] = openapi.type_to_ruby
     env.globals["get_type_for_attribute"] = openapi.get_type_for_attribute
     env.globals["get_type_for_parameter"] = openapi.get_type_for_parameter
+    env.globals["get_default"] = openapi.get_default
+    env.globals["get_container"] = openapi.get_container
+    env.globals["get_type_at_path"] = openapi.get_type_at_path
 
     api_j2 = env.get_template("api.j2")
     model_j2 = env.get_template("model.j2")

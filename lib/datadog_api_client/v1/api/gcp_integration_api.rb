@@ -23,18 +23,18 @@ module DatadogAPIClient::V1
       @api_client = api_client
     end
 
-    # Create a GCP integration
-    # Create a Datadog-GCP integration.
-    # @param body [GCPAccount] Create a Datadog-GCP integration.
-    # @param opts [Hash] the optional parameters
-    # @return [Object]
+    # Create a GCP integration.
+    #
+    # @see #create_gcp_integration_with_http_info
     def create_gcp_integration(body, opts = {})
       data, _status_code, _headers = create_gcp_integration_with_http_info(body, opts)
       data
     end
 
-    # Create a GCP integration
+    # Create a GCP integration.
+    #
     # Create a Datadog-GCP integration.
+    #
     # @param body [GCPAccount] Create a Datadog-GCP integration.
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
@@ -98,18 +98,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Delete a GCP integration
-    # Delete a given Datadog-GCP integration.
-    # @param body [GCPAccount] Delete a given Datadog-GCP integration.
-    # @param opts [Hash] the optional parameters
-    # @return [Object]
+    # Delete a GCP integration.
+    #
+    # @see #delete_gcp_integration_with_http_info
     def delete_gcp_integration(body, opts = {})
       data, _status_code, _headers = delete_gcp_integration_with_http_info(body, opts)
       data
     end
 
-    # Delete a GCP integration
+    # Delete a GCP integration.
+    #
     # Delete a given Datadog-GCP integration.
+    #
     # @param body [GCPAccount] Delete a given Datadog-GCP integration.
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
@@ -173,17 +173,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # List all GCP integrations
-    # List all Datadog-GCP integrations configured in your Datadog account.
-    # @param opts [Hash] the optional parameters
-    # @return [Array<GCPAccount>]
+    # List all GCP integrations.
+    #
+    # @see #list_gcp_integration_with_http_info
     def list_gcp_integration(opts = {})
       data, _status_code, _headers = list_gcp_integration_with_http_info(opts)
       data
     end
 
-    # List all GCP integrations
+    # List all GCP integrations.
+    #
     # List all Datadog-GCP integrations configured in your Datadog account.
+    #
     # @param opts [Hash] the optional parameters
     # @return [Array<(Array<GCPAccount>, Integer, Hash)>] Array<GCPAccount> data, response status code and response headers
     def list_gcp_integration_with_http_info(opts = {})
@@ -240,24 +241,21 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Update a GCP integration
-    # Update a Datadog-GCP integrations host_filters and/or auto-mute.
-    # Requires a `project_id` and `client_email`, however these fields cannot be updated.
-    # If you need to update these fields, delete and use the create (`POST`) endpoint.
-    # The unspecified fields will keep their original values.
-    # @param body [GCPAccount] Update a Datadog-GCP integration.
-    # @param opts [Hash] the optional parameters
-    # @return [Object]
+    # Update a GCP integration.
+    #
+    # @see #update_gcp_integration_with_http_info
     def update_gcp_integration(body, opts = {})
       data, _status_code, _headers = update_gcp_integration_with_http_info(body, opts)
       data
     end
 
-    # Update a GCP integration
+    # Update a GCP integration.
+    #
     # Update a Datadog-GCP integrations host_filters and/or auto-mute.
     # Requires a `project_id` and `client_email`, however these fields cannot be updated.
     # If you need to update these fields, delete and use the create (`POST`) endpoint.
     # The unspecified fields will keep their original values.
+    #
     # @param body [GCPAccount] Update a Datadog-GCP integration.
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers

@@ -23,22 +23,20 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
-    # Upload IdP metadata
-    # Endpoint for uploading IdP metadata for SAML setup.
+    # Upload IdP metadata.
     #
-    # Use this endpoint to upload or replace IdP metadata for SAML login configuration.
-    # @param opts [Hash] the optional parameters
-    # @option opts [File] :idp_file The IdP metadata XML file
-    # @return [nil]
+    # @see #upload_idp_metadata_with_http_info
     def upload_idp_metadata(opts = {})
       upload_idp_metadata_with_http_info(opts)
       nil
     end
 
-    # Upload IdP metadata
+    # Upload IdP metadata.
+    #
     # Endpoint for uploading IdP metadata for SAML setup.
     #
     # Use this endpoint to upload or replace IdP metadata for SAML login configuration.
+    #
     # @param opts [Hash] the optional parameters
     # @option opts [File] :idp_file The IdP metadata XML file
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers

@@ -23,20 +23,19 @@ module DatadogAPIClient::V1
       @api_client = api_client
     end
 
-    # Create a new dashboard
-    # Create a dashboard using the specified options. When defining queries in your widgets, take note of which queries should have the `as_count()` or `as_rate()` modifiers appended.
-    # Refer to the following [documentation](https://docs.datadoghq.com/developers/metrics/type_modifiers/?tab=count#in-application-modifiers) for more information on these modifiers.
-    # @param body [Dashboard] Create a dashboard request body.
-    # @param opts [Hash] the optional parameters
-    # @return [Dashboard]
+    # Create a new dashboard.
+    #
+    # @see #create_dashboard_with_http_info
     def create_dashboard(body, opts = {})
       data, _status_code, _headers = create_dashboard_with_http_info(body, opts)
       data
     end
 
-    # Create a new dashboard
+    # Create a new dashboard.
+    #
     # Create a dashboard using the specified options. When defining queries in your widgets, take note of which queries should have the `as_count()` or `as_rate()` modifiers appended.
     # Refer to the following [documentation](https://docs.datadoghq.com/developers/metrics/type_modifiers/?tab=count#in-application-modifiers) for more information on these modifiers.
+    #
     # @param body [Dashboard] Create a dashboard request body.
     # @param opts [Hash] the optional parameters
     # @return [Array<(Dashboard, Integer, Hash)>] Dashboard data, response status code and response headers
@@ -100,18 +99,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Delete a dashboard
-    # Delete a dashboard using the specified ID.
-    # @param dashboard_id [String] The ID of the dashboard.
-    # @param opts [Hash] the optional parameters
-    # @return [DashboardDeleteResponse]
+    # Delete a dashboard.
+    #
+    # @see #delete_dashboard_with_http_info
     def delete_dashboard(dashboard_id, opts = {})
       data, _status_code, _headers = delete_dashboard_with_http_info(dashboard_id, opts)
       data
     end
 
-    # Delete a dashboard
+    # Delete a dashboard.
+    #
     # Delete a dashboard using the specified ID.
+    #
     # @param dashboard_id [String] The ID of the dashboard.
     # @param opts [Hash] the optional parameters
     # @return [Array<(DashboardDeleteResponse, Integer, Hash)>] DashboardDeleteResponse data, response status code and response headers
@@ -173,18 +172,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Delete dashboards
-    # Delete dashboards using the specified IDs. If there are any failures, no dashboards will be deleted (partial success is not allowed).
-    # @param body [DashboardBulkDeleteRequest] Delete dashboards request body.
-    # @param opts [Hash] the optional parameters
-    # @return [nil]
+    # Delete dashboards.
+    #
+    # @see #delete_dashboards_with_http_info
     def delete_dashboards(body, opts = {})
       delete_dashboards_with_http_info(body, opts)
       nil
     end
 
-    # Delete dashboards
+    # Delete dashboards.
+    #
     # Delete dashboards using the specified IDs. If there are any failures, no dashboards will be deleted (partial success is not allowed).
+    #
     # @param body [DashboardBulkDeleteRequest] Delete dashboards request body.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -248,18 +247,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get a dashboard
-    # Get a dashboard using the specified ID.
-    # @param dashboard_id [String] The ID of the dashboard.
-    # @param opts [Hash] the optional parameters
-    # @return [Dashboard]
+    # Get a dashboard.
+    #
+    # @see #get_dashboard_with_http_info
     def get_dashboard(dashboard_id, opts = {})
       data, _status_code, _headers = get_dashboard_with_http_info(dashboard_id, opts)
       data
     end
 
-    # Get a dashboard
+    # Get a dashboard.
+    #
     # Get a dashboard using the specified ID.
+    #
     # @param dashboard_id [String] The ID of the dashboard.
     # @param opts [Hash] the optional parameters
     # @return [Array<(Dashboard, Integer, Hash)>] Dashboard data, response status code and response headers
@@ -321,25 +320,21 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get all dashboards
     # Get all dashboards.
     #
-    # **Note**: This query will only return custom created or cloned dashboards.
-    # This query will not return preset dashboards.
-    # @param opts [Hash] the optional parameters
-    # @option opts [Boolean] :filter_shared When `true`, this query only returns shared custom created or cloned dashboards.
-    # @option opts [Boolean] :filter_deleted When `true`, this query returns only deleted custom-created or cloned dashboards. This parameter is incompatible with `filter[shared]`.
-    # @return [DashboardSummary]
+    # @see #list_dashboards_with_http_info
     def list_dashboards(opts = {})
       data, _status_code, _headers = list_dashboards_with_http_info(opts)
       data
     end
 
-    # Get all dashboards
+    # Get all dashboards.
+    #
     # Get all dashboards.
     #
     # **Note**: This query will only return custom created or cloned dashboards.
     # This query will not return preset dashboards.
+    #
     # @param opts [Hash] the optional parameters
     # @option opts [Boolean] :filter_shared When `true`, this query only returns shared custom created or cloned dashboards.
     # @option opts [Boolean] :filter_deleted When `true`, this query returns only deleted custom-created or cloned dashboards. This parameter is incompatible with `filter[shared]`.
@@ -400,18 +395,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Restore deleted dashboards
-    # Restore dashboards using the specified IDs. If there are any failures, no dashboards will be restored (partial success is not allowed).
-    # @param body [DashboardRestoreRequest] Restore dashboards request body.
-    # @param opts [Hash] the optional parameters
-    # @return [nil]
+    # Restore deleted dashboards.
+    #
+    # @see #restore_dashboards_with_http_info
     def restore_dashboards(body, opts = {})
       restore_dashboards_with_http_info(body, opts)
       nil
     end
 
-    # Restore deleted dashboards
+    # Restore deleted dashboards.
+    #
     # Restore dashboards using the specified IDs. If there are any failures, no dashboards will be restored (partial success is not allowed).
+    #
     # @param body [DashboardRestoreRequest] Restore dashboards request body.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -475,19 +470,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Update a dashboard
-    # Update a dashboard using the specified ID.
-    # @param dashboard_id [String] The ID of the dashboard.
-    # @param body [Dashboard] Update Dashboard request body.
-    # @param opts [Hash] the optional parameters
-    # @return [Dashboard]
+    # Update a dashboard.
+    #
+    # @see #update_dashboard_with_http_info
     def update_dashboard(dashboard_id, body, opts = {})
       data, _status_code, _headers = update_dashboard_with_http_info(dashboard_id, body, opts)
       data
     end
 
-    # Update a dashboard
+    # Update a dashboard.
+    #
     # Update a dashboard using the specified ID.
+    #
     # @param dashboard_id [String] The ID of the dashboard.
     # @param body [Dashboard] Update Dashboard request body.
     # @param opts [Hash] the optional parameters

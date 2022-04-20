@@ -23,18 +23,18 @@ module DatadogAPIClient::V1
       @api_client = api_client
     end
 
-    # Create a global variable
-    # Create a Synthetics global variable.
-    # @param body [SyntheticsGlobalVariable] Details of the global variable to create.
-    # @param opts [Hash] the optional parameters
-    # @return [SyntheticsGlobalVariable]
+    # Create a global variable.
+    #
+    # @see #create_global_variable_with_http_info
     def create_global_variable(body, opts = {})
       data, _status_code, _headers = create_global_variable_with_http_info(body, opts)
       data
     end
 
-    # Create a global variable
+    # Create a global variable.
+    #
     # Create a Synthetics global variable.
+    #
     # @param body [SyntheticsGlobalVariable] Details of the global variable to create.
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsGlobalVariable, Integer, Hash)>] SyntheticsGlobalVariable data, response status code and response headers
@@ -98,18 +98,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Create a private location
-    # Create a new Synthetics private location.
-    # @param body [SyntheticsPrivateLocation] Details of the private location to create.
-    # @param opts [Hash] the optional parameters
-    # @return [SyntheticsPrivateLocationCreationResponse]
+    # Create a private location.
+    #
+    # @see #create_private_location_with_http_info
     def create_private_location(body, opts = {})
       data, _status_code, _headers = create_private_location_with_http_info(body, opts)
       data
     end
 
-    # Create a private location
+    # Create a private location.
+    #
     # Create a new Synthetics private location.
+    #
     # @param body [SyntheticsPrivateLocation] Details of the private location to create.
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsPrivateLocationCreationResponse, Integer, Hash)>] SyntheticsPrivateLocationCreationResponse data, response status code and response headers
@@ -173,18 +173,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Create an API test
-    # Create a Synthetic API test.
-    # @param body [SyntheticsAPITest] Details of the test to create.
-    # @param opts [Hash] the optional parameters
-    # @return [SyntheticsAPITest]
+    # Create an API test.
+    #
+    # @see #create_synthetics_api_test_with_http_info
     def create_synthetics_api_test(body, opts = {})
       data, _status_code, _headers = create_synthetics_api_test_with_http_info(body, opts)
       data
     end
 
-    # Create an API test
+    # Create an API test.
+    #
     # Create a Synthetic API test.
+    #
     # @param body [SyntheticsAPITest] Details of the test to create.
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsAPITest, Integer, Hash)>] SyntheticsAPITest data, response status code and response headers
@@ -248,18 +248,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Create a browser test
-    # Create a Synthetic browser test.
-    # @param body [SyntheticsBrowserTest] Details of the test to create.
-    # @param opts [Hash] the optional parameters
-    # @return [SyntheticsBrowserTest]
+    # Create a browser test.
+    #
+    # @see #create_synthetics_browser_test_with_http_info
     def create_synthetics_browser_test(body, opts = {})
       data, _status_code, _headers = create_synthetics_browser_test_with_http_info(body, opts)
       data
     end
 
-    # Create a browser test
+    # Create a browser test.
+    #
     # Create a Synthetic browser test.
+    #
     # @param body [SyntheticsBrowserTest] Details of the test to create.
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsBrowserTest, Integer, Hash)>] SyntheticsBrowserTest data, response status code and response headers
@@ -323,18 +323,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Delete a global variable
-    # Delete a Synthetics global variable.
-    # @param variable_id [String] The ID of the global variable.
-    # @param opts [Hash] the optional parameters
-    # @return [nil]
+    # Delete a global variable.
+    #
+    # @see #delete_global_variable_with_http_info
     def delete_global_variable(variable_id, opts = {})
       delete_global_variable_with_http_info(variable_id, opts)
       nil
     end
 
-    # Delete a global variable
+    # Delete a global variable.
+    #
     # Delete a Synthetics global variable.
+    #
     # @param variable_id [String] The ID of the global variable.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -396,18 +396,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Delete a private location
-    # Delete a Synthetics private location.
-    # @param location_id [String] The ID of the private location.
-    # @param opts [Hash] the optional parameters
-    # @return [nil]
+    # Delete a private location.
+    #
+    # @see #delete_private_location_with_http_info
     def delete_private_location(location_id, opts = {})
       delete_private_location_with_http_info(location_id, opts)
       nil
     end
 
-    # Delete a private location
+    # Delete a private location.
+    #
     # Delete a Synthetics private location.
+    #
     # @param location_id [String] The ID of the private location.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -469,18 +469,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Delete tests
-    # Delete multiple Synthetic tests by ID.
-    # @param body [SyntheticsDeleteTestsPayload] Public ID list of the Synthetic tests to be deleted.
-    # @param opts [Hash] the optional parameters
-    # @return [SyntheticsDeleteTestsResponse]
+    # Delete tests.
+    #
+    # @see #delete_tests_with_http_info
     def delete_tests(body, opts = {})
       data, _status_code, _headers = delete_tests_with_http_info(body, opts)
       data
     end
 
-    # Delete tests
+    # Delete tests.
+    #
     # Delete multiple Synthetic tests by ID.
+    #
     # @param body [SyntheticsDeleteTestsPayload] Public ID list of the Synthetic tests to be deleted.
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsDeleteTestsResponse, Integer, Hash)>] SyntheticsDeleteTestsResponse data, response status code and response headers
@@ -544,19 +544,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Edit a global variable
-    # Edit a Synthetics global variable.
-    # @param variable_id [String] The ID of the global variable.
-    # @param body [SyntheticsGlobalVariable] Details of the global variable to update.
-    # @param opts [Hash] the optional parameters
-    # @return [SyntheticsGlobalVariable]
+    # Edit a global variable.
+    #
+    # @see #edit_global_variable_with_http_info
     def edit_global_variable(variable_id, body, opts = {})
       data, _status_code, _headers = edit_global_variable_with_http_info(variable_id, body, opts)
       data
     end
 
-    # Edit a global variable
+    # Edit a global variable.
+    #
     # Edit a Synthetics global variable.
+    #
     # @param variable_id [String] The ID of the global variable.
     # @param body [SyntheticsGlobalVariable] Details of the global variable to update.
     # @param opts [Hash] the optional parameters
@@ -625,20 +624,19 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get an API test
-    # Get the detailed configuration associated with
-    # a Synthetic API test.
-    # @param public_id [String] The public ID of the test to get details from.
-    # @param opts [Hash] the optional parameters
-    # @return [SyntheticsAPITest]
+    # Get an API test.
+    #
+    # @see #get_api_test_with_http_info
     def get_api_test(public_id, opts = {})
       data, _status_code, _headers = get_api_test_with_http_info(public_id, opts)
       data
     end
 
-    # Get an API test
+    # Get an API test.
+    #
     # Get the detailed configuration associated with
     # a Synthetic API test.
+    #
     # @param public_id [String] The public ID of the test to get details from.
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsAPITest, Integer, Hash)>] SyntheticsAPITest data, response status code and response headers
@@ -700,21 +698,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get an API test's latest results summaries
-    # Get the last 50 test results summaries for a given Synthetics API test.
-    # @param public_id [String] The public ID of the test for which to search results for.
-    # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :from_ts Timestamp in milliseconds from which to start querying results.
-    # @option opts [Integer] :to_ts Timestamp in milliseconds up to which to query results.
-    # @option opts [Array<String>] :probe_dc Locations for which to query results.
-    # @return [SyntheticsGetAPITestLatestResultsResponse]
+    # Get an API test's latest results summaries.
+    #
+    # @see #get_api_test_latest_results_with_http_info
     def get_api_test_latest_results(public_id, opts = {})
       data, _status_code, _headers = get_api_test_latest_results_with_http_info(public_id, opts)
       data
     end
 
-    # Get an API test's latest results summaries
+    # Get an API test's latest results summaries.
+    #
     # Get the last 50 test results summaries for a given Synthetics API test.
+    #
     # @param public_id [String] The public ID of the test for which to search results for.
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :from_ts Timestamp in milliseconds from which to start querying results.
@@ -782,19 +777,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get an API test result
-    # Get a specific full result from a given (API) Synthetic test.
-    # @param public_id [String] The public ID of the API test to which the target result belongs.
-    # @param result_id [String] The ID of the result to get.
-    # @param opts [Hash] the optional parameters
-    # @return [SyntheticsAPITestResultFull]
+    # Get an API test result.
+    #
+    # @see #get_api_test_result_with_http_info
     def get_api_test_result(public_id, result_id, opts = {})
       data, _status_code, _headers = get_api_test_result_with_http_info(public_id, result_id, opts)
       data
     end
 
-    # Get an API test result
+    # Get an API test result.
+    #
     # Get a specific full result from a given (API) Synthetic test.
+    #
     # @param public_id [String] The public ID of the API test to which the target result belongs.
     # @param result_id [String] The ID of the result to get.
     # @param opts [Hash] the optional parameters
@@ -861,20 +855,19 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get a browser test
-    # Get the detailed configuration (including steps) associated with
-    # a Synthetic browser test.
-    # @param public_id [String] The public ID of the test to get details from.
-    # @param opts [Hash] the optional parameters
-    # @return [SyntheticsBrowserTest]
+    # Get a browser test.
+    #
+    # @see #get_browser_test_with_http_info
     def get_browser_test(public_id, opts = {})
       data, _status_code, _headers = get_browser_test_with_http_info(public_id, opts)
       data
     end
 
-    # Get a browser test
+    # Get a browser test.
+    #
     # Get the detailed configuration (including steps) associated with
     # a Synthetic browser test.
+    #
     # @param public_id [String] The public ID of the test to get details from.
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsBrowserTest, Integer, Hash)>] SyntheticsBrowserTest data, response status code and response headers
@@ -936,21 +929,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get a browser test's latest results summaries
-    # Get the last 50 test results summaries for a given Synthetics Browser test.
-    # @param public_id [String] The public ID of the browser test for which to search results for.
-    # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :from_ts Timestamp in milliseconds from which to start querying results.
-    # @option opts [Integer] :to_ts Timestamp in milliseconds up to which to query results.
-    # @option opts [Array<String>] :probe_dc Locations for which to query results.
-    # @return [SyntheticsGetBrowserTestLatestResultsResponse]
+    # Get a browser test's latest results summaries.
+    #
+    # @see #get_browser_test_latest_results_with_http_info
     def get_browser_test_latest_results(public_id, opts = {})
       data, _status_code, _headers = get_browser_test_latest_results_with_http_info(public_id, opts)
       data
     end
 
-    # Get a browser test's latest results summaries
+    # Get a browser test's latest results summaries.
+    #
     # Get the last 50 test results summaries for a given Synthetics Browser test.
+    #
     # @param public_id [String] The public ID of the browser test for which to search results for.
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :from_ts Timestamp in milliseconds from which to start querying results.
@@ -1018,19 +1008,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get a browser test result
-    # Get a specific full result from a given (browser) Synthetic test.
-    # @param public_id [String] The public ID of the browser test to which the target result belongs.
-    # @param result_id [String] The ID of the result to get.
-    # @param opts [Hash] the optional parameters
-    # @return [SyntheticsBrowserTestResultFull]
+    # Get a browser test result.
+    #
+    # @see #get_browser_test_result_with_http_info
     def get_browser_test_result(public_id, result_id, opts = {})
       data, _status_code, _headers = get_browser_test_result_with_http_info(public_id, result_id, opts)
       data
     end
 
-    # Get a browser test result
+    # Get a browser test result.
+    #
     # Get a specific full result from a given (browser) Synthetic test.
+    #
     # @param public_id [String] The public ID of the browser test to which the target result belongs.
     # @param result_id [String] The ID of the result to get.
     # @param opts [Hash] the optional parameters
@@ -1097,18 +1086,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get a global variable
-    # Get the detailed configuration of a global variable.
-    # @param variable_id [String] The ID of the global variable.
-    # @param opts [Hash] the optional parameters
-    # @return [SyntheticsGlobalVariable]
+    # Get a global variable.
+    #
+    # @see #get_global_variable_with_http_info
     def get_global_variable(variable_id, opts = {})
       data, _status_code, _headers = get_global_variable_with_http_info(variable_id, opts)
       data
     end
 
-    # Get a global variable
+    # Get a global variable.
+    #
     # Get the detailed configuration of a global variable.
+    #
     # @param variable_id [String] The ID of the global variable.
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsGlobalVariable, Integer, Hash)>] SyntheticsGlobalVariable data, response status code and response headers
@@ -1170,18 +1159,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get a private location
-    # Get a Synthetics private location.
-    # @param location_id [String] The ID of the private location.
-    # @param opts [Hash] the optional parameters
-    # @return [SyntheticsPrivateLocation]
+    # Get a private location.
+    #
+    # @see #get_private_location_with_http_info
     def get_private_location(location_id, opts = {})
       data, _status_code, _headers = get_private_location_with_http_info(location_id, opts)
       data
     end
 
-    # Get a private location
+    # Get a private location.
+    #
     # Get a Synthetics private location.
+    #
     # @param location_id [String] The ID of the private location.
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsPrivateLocation, Integer, Hash)>] SyntheticsPrivateLocation data, response status code and response headers
@@ -1243,18 +1232,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get details of batch
-    # Get a batch's updated details.
-    # @param batch_id [String] The ID of the batch.
-    # @param opts [Hash] the optional parameters
-    # @return [SyntheticsBatchDetails]
+    # Get details of batch.
+    #
+    # @see #get_synthetics_ci_batch_with_http_info
     def get_synthetics_ci_batch(batch_id, opts = {})
       data, _status_code, _headers = get_synthetics_ci_batch_with_http_info(batch_id, opts)
       data
     end
 
-    # Get details of batch
+    # Get details of batch.
+    #
     # Get a batch's updated details.
+    #
     # @param batch_id [String] The ID of the batch.
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsBatchDetails, Integer, Hash)>] SyntheticsBatchDetails data, response status code and response headers
@@ -1316,18 +1305,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get a test configuration
-    # Get the detailed configuration associated with a Synthetics test.
-    # @param public_id [String] The public ID of the test to get details from.
-    # @param opts [Hash] the optional parameters
-    # @return [SyntheticsTestDetails]
+    # Get a test configuration.
+    #
+    # @see #get_test_with_http_info
     def get_test(public_id, opts = {})
       data, _status_code, _headers = get_test_with_http_info(public_id, opts)
       data
     end
 
-    # Get a test configuration
+    # Get a test configuration.
+    #
     # Get the detailed configuration associated with a Synthetics test.
+    #
     # @param public_id [String] The public ID of the test to get details from.
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsTestDetails, Integer, Hash)>] SyntheticsTestDetails data, response status code and response headers
@@ -1389,17 +1378,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get all global variables
-    # Get the list of all Synthetics global variables.
-    # @param opts [Hash] the optional parameters
-    # @return [SyntheticsListGlobalVariablesResponse]
+    # Get all global variables.
+    #
+    # @see #list_global_variables_with_http_info
     def list_global_variables(opts = {})
       data, _status_code, _headers = list_global_variables_with_http_info(opts)
       data
     end
 
-    # Get all global variables
+    # Get all global variables.
+    #
     # Get the list of all Synthetics global variables.
+    #
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsListGlobalVariablesResponse, Integer, Hash)>] SyntheticsListGlobalVariablesResponse data, response status code and response headers
     def list_global_variables_with_http_info(opts = {})
@@ -1456,19 +1446,19 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get all locations (public and private)
-    # Get the list of public and private locations available for Synthetic
-    # tests. No arguments required.
-    # @param opts [Hash] the optional parameters
-    # @return [SyntheticsLocations]
+    # Get all locations (public and private).
+    #
+    # @see #list_locations_with_http_info
     def list_locations(opts = {})
       data, _status_code, _headers = list_locations_with_http_info(opts)
       data
     end
 
-    # Get all locations (public and private)
+    # Get all locations (public and private).
+    #
     # Get the list of public and private locations available for Synthetic
     # tests. No arguments required.
+    #
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsLocations, Integer, Hash)>] SyntheticsLocations data, response status code and response headers
     def list_locations_with_http_info(opts = {})
@@ -1525,17 +1515,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get the list of all tests
-    # Get the list of all Synthetic tests.
-    # @param opts [Hash] the optional parameters
-    # @return [SyntheticsListTestsResponse]
+    # Get the list of all tests.
+    #
+    # @see #list_tests_with_http_info
     def list_tests(opts = {})
       data, _status_code, _headers = list_tests_with_http_info(opts)
       data
     end
 
-    # Get the list of all tests
+    # Get the list of all tests.
+    #
     # Get the list of all Synthetic tests.
+    #
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsListTestsResponse, Integer, Hash)>] SyntheticsListTestsResponse data, response status code and response headers
     def list_tests_with_http_info(opts = {})
@@ -1592,18 +1583,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Trigger tests from CI/CD pipelines
-    # Trigger a set of Synthetics tests for continuous integration.
-    # @param body [SyntheticsCITestBody] Details of the test to trigger.
-    # @param opts [Hash] the optional parameters
-    # @return [SyntheticsTriggerCITestsResponse]
+    # Trigger tests from CI/CD pipelines.
+    #
+    # @see #trigger_ci_tests_with_http_info
     def trigger_ci_tests(body, opts = {})
       data, _status_code, _headers = trigger_ci_tests_with_http_info(body, opts)
       data
     end
 
-    # Trigger tests from CI/CD pipelines
+    # Trigger tests from CI/CD pipelines.
+    #
     # Trigger a set of Synthetics tests for continuous integration.
+    #
     # @param body [SyntheticsCITestBody] Details of the test to trigger.
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsTriggerCITestsResponse, Integer, Hash)>] SyntheticsTriggerCITestsResponse data, response status code and response headers
@@ -1667,18 +1658,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Trigger Synthetics tests
-    # Trigger a set of Synthetics tests.
-    # @param body [SyntheticsTriggerBody] The identifiers of the tests to trigger.
-    # @param opts [Hash] the optional parameters
-    # @return [SyntheticsTriggerCITestsResponse]
+    # Trigger Synthetics tests.
+    #
+    # @see #trigger_tests_with_http_info
     def trigger_tests(body, opts = {})
       data, _status_code, _headers = trigger_tests_with_http_info(body, opts)
       data
     end
 
-    # Trigger Synthetics tests
+    # Trigger Synthetics tests.
+    #
     # Trigger a set of Synthetics tests.
+    #
     # @param body [SyntheticsTriggerBody] The identifiers of the tests to trigger.
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsTriggerCITestsResponse, Integer, Hash)>] SyntheticsTriggerCITestsResponse data, response status code and response headers
@@ -1742,19 +1733,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Edit an API test
-    # Edit the configuration of a Synthetic API test.
-    # @param public_id [String] The public ID of the test to get details from.
-    # @param body [SyntheticsAPITest] New test details to be saved.
-    # @param opts [Hash] the optional parameters
-    # @return [SyntheticsAPITest]
+    # Edit an API test.
+    #
+    # @see #update_api_test_with_http_info
     def update_api_test(public_id, body, opts = {})
       data, _status_code, _headers = update_api_test_with_http_info(public_id, body, opts)
       data
     end
 
-    # Edit an API test
+    # Edit an API test.
+    #
     # Edit the configuration of a Synthetic API test.
+    #
     # @param public_id [String] The public ID of the test to get details from.
     # @param body [SyntheticsAPITest] New test details to be saved.
     # @param opts [Hash] the optional parameters
@@ -1823,19 +1813,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Edit a browser test
-    # Edit the configuration of a Synthetic browser test.
-    # @param public_id [String] The public ID of the test to get details from.
-    # @param body [SyntheticsBrowserTest] New test details to be saved.
-    # @param opts [Hash] the optional parameters
-    # @return [SyntheticsBrowserTest]
+    # Edit a browser test.
+    #
+    # @see #update_browser_test_with_http_info
     def update_browser_test(public_id, body, opts = {})
       data, _status_code, _headers = update_browser_test_with_http_info(public_id, body, opts)
       data
     end
 
-    # Edit a browser test
+    # Edit a browser test.
+    #
     # Edit the configuration of a Synthetic browser test.
+    #
     # @param public_id [String] The public ID of the test to get details from.
     # @param body [SyntheticsBrowserTest] New test details to be saved.
     # @param opts [Hash] the optional parameters
@@ -1904,19 +1893,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Edit a private location
-    # Edit a Synthetics private location.
-    # @param location_id [String] The ID of the private location.
-    # @param body [SyntheticsPrivateLocation] Details of the private location to be updated.
-    # @param opts [Hash] the optional parameters
-    # @return [SyntheticsPrivateLocation]
+    # Edit a private location.
+    #
+    # @see #update_private_location_with_http_info
     def update_private_location(location_id, body, opts = {})
       data, _status_code, _headers = update_private_location_with_http_info(location_id, body, opts)
       data
     end
 
-    # Edit a private location
+    # Edit a private location.
+    #
     # Edit a Synthetics private location.
+    #
     # @param location_id [String] The ID of the private location.
     # @param body [SyntheticsPrivateLocation] Details of the private location to be updated.
     # @param opts [Hash] the optional parameters
@@ -1985,19 +1973,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Pause or start a test
-    # Pause or start a Synthetics test by changing the status.
-    # @param public_id [String] The public ID of the Synthetic test to update.
-    # @param body [SyntheticsUpdateTestPauseStatusPayload] Status to set the given Synthetic test to.
-    # @param opts [Hash] the optional parameters
-    # @return [Boolean]
+    # Pause or start a test.
+    #
+    # @see #update_test_pause_status_with_http_info
     def update_test_pause_status(public_id, body, opts = {})
       data, _status_code, _headers = update_test_pause_status_with_http_info(public_id, body, opts)
       data
     end
 
-    # Pause or start a test
+    # Pause or start a test.
+    #
     # Pause or start a Synthetics test by changing the status.
+    #
     # @param public_id [String] The public ID of the Synthetic test to update.
     # @param body [SyntheticsUpdateTestPauseStatusPayload] Status to set the given Synthetic test to.
     # @param opts [Hash] the optional parameters

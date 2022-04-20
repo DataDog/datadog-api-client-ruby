@@ -23,26 +23,16 @@ module DatadogAPIClient::V1
       @api_client = api_client
     end
 
-    # Create a child organization
     # Create a child organization.
     #
-    # This endpoint requires the
-    # [multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/)
-    # feature and must be enabled by
-    # [contacting support](https://docs.datadoghq.com/help/).
-    #
-    # Once a new child organization is created, you can interact with it
-    # by using the `org.public_id`, `api_key.key`, and
-    # `application_key.hash` provided in the response.
-    # @param body [OrganizationCreateBody] Organization object that needs to be created
-    # @param opts [Hash] the optional parameters
-    # @return [OrganizationCreateResponse]
+    # @see #create_child_org_with_http_info
     def create_child_org(body, opts = {})
       data, _status_code, _headers = create_child_org_with_http_info(body, opts)
       data
     end
 
-    # Create a child organization
+    # Create a child organization.
+    #
     # Create a child organization.
     #
     # This endpoint requires the
@@ -53,6 +43,7 @@ module DatadogAPIClient::V1
     # Once a new child organization is created, you can interact with it
     # by using the `org.public_id`, `api_key.key`, and
     # `application_key.hash` provided in the response.
+    #
     # @param body [OrganizationCreateBody] Organization object that needs to be created
     # @param opts [Hash] the optional parameters
     # @return [Array<(OrganizationCreateResponse, Integer, Hash)>] OrganizationCreateResponse data, response status code and response headers
@@ -116,18 +107,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get organization information
     # Get organization information.
-    # @param public_id [String] The `public_id` of the organization you are operating within.
-    # @param opts [Hash] the optional parameters
-    # @return [OrganizationResponse]
+    #
+    # @see #get_org_with_http_info
     def get_org(public_id, opts = {})
       data, _status_code, _headers = get_org_with_http_info(public_id, opts)
       data
     end
 
-    # Get organization information
     # Get organization information.
+    #
+    # Get organization information.
+    #
     # @param public_id [String] The `public_id` of the organization you are operating within.
     # @param opts [Hash] the optional parameters
     # @return [Array<(OrganizationResponse, Integer, Hash)>] OrganizationResponse data, response status code and response headers
@@ -189,17 +180,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # List your managed organizations
     # List your managed organizations.
-    # @param opts [Hash] the optional parameters
-    # @return [OrganizationListResponse]
+    #
+    # @see #list_orgs_with_http_info
     def list_orgs(opts = {})
       data, _status_code, _headers = list_orgs_with_http_info(opts)
       data
     end
 
-    # List your managed organizations
     # List your managed organizations.
+    #
+    # List your managed organizations.
+    #
     # @param opts [Hash] the optional parameters
     # @return [Array<(OrganizationListResponse, Integer, Hash)>] OrganizationListResponse data, response status code and response headers
     def list_orgs_with_http_info(opts = {})
@@ -256,19 +248,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Update your organization
     # Update your organization.
-    # @param public_id [String] The `public_id` of the organization you are operating within.
-    # @param body [Organization] 
-    # @param opts [Hash] the optional parameters
-    # @return [OrganizationResponse]
+    #
+    # @see #update_org_with_http_info
     def update_org(public_id, body, opts = {})
       data, _status_code, _headers = update_org_with_http_info(public_id, body, opts)
       data
     end
 
-    # Update your organization
     # Update your organization.
+    #
+    # Update your organization.
+    #
     # @param public_id [String] The `public_id` of the organization you are operating within.
     # @param body [Organization] 
     # @param opts [Hash] the optional parameters
@@ -337,29 +328,23 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Upload IdP metadata
-    # There are a couple of options for updating the Identity Provider (IdP)
-    # metadata from your SAML IdP.
+    # Upload IdP metadata.
     #
-    # * **Multipart Form-Data**: Post the IdP metadata file using a form post.
-    #
-    # * **XML Body:** Post the IdP metadata file as the body of the request.
-    # @param public_id [String] The `public_id` of the organization you are operating with
-    # @param idp_file [File] The path to the XML metadata file you wish to upload.
-    # @param opts [Hash] the optional parameters
-    # @return [IdpResponse]
+    # @see #upload_idp_for_org_with_http_info
     def upload_idp_for_org(public_id, idp_file, opts = {})
       data, _status_code, _headers = upload_idp_for_org_with_http_info(public_id, idp_file, opts)
       data
     end
 
-    # Upload IdP metadata
+    # Upload IdP metadata.
+    #
     # There are a couple of options for updating the Identity Provider (IdP)
     # metadata from your SAML IdP.
     #
     # * **Multipart Form-Data**: Post the IdP metadata file using a form post.
     #
     # * **XML Body:** Post the IdP metadata file as the body of the request.
+    #
     # @param public_id [String] The `public_id` of the organization you are operating with
     # @param idp_file [File] The path to the XML metadata file you wish to upload.
     # @param opts [Hash] the optional parameters

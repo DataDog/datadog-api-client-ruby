@@ -347,3 +347,49 @@ def response(operation, status_code=None):
                 "schema"
             ]
     return None
+
+
+def get_default(operation, attribute_path):
+    attrs = attribute_path.split(".")
+    for name, parameter in parameters(operation):
+        if name == attrs[0]:
+            break
+    if name == attribute_path:
+        # We found a top level attribute matching the full path, let's use the default
+        return parameter["schema"]["default"]
+
+    if name == "body":
+        parameter = next(iter(parameter["content"].values()))["schema"]
+    for attr in attrs[1:]:
+        parameter = parameter["properties"][attr]
+    return parameter["default"]
+
+
+def get_container(operation, attribute_path, with_type=False):
+
+    def get_type(parameter):
+        if with_type:
+            return f", {get_type_for_parameter(parameter)}"
+        return ""
+
+    attribute_name = attribute_path.split(".")[0]
+    for name, parameter in parameters(operation):
+        if name == attribute_name:
+            if parameter["required"]:
+                return '{}, "{}"{}'.format(name, ".".join(formatter.attribute_name(a) for a in attribute_path.split(".")[1:]), get_type(parameter))
+    return f'opts, "{formatter.attribute_path(attribute_path)}"{get_type(parameter)}'
+
+
+def get_type_at_path(operation, attribute_path):
+    content = None
+    for code, response in operation.get("responses", {}).items():
+        if int(code) >= 300:
+            continue
+        for content in response.get("content", {}).values():
+            if "schema" in content:
+                break
+    if content is None:
+        raise RuntimeError("Default response not found")
+    for attr in attribute_path.split("."):
+        content = content["schema"]["properties"][attr]
+    return get_name(content.get("items"))

@@ -23,18 +23,18 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
-    # Create a new incident service
-    # Creates a new incident service.
-    # @param body [IncidentServiceCreateRequest] Incident Service Payload.
-    # @param opts [Hash] the optional parameters
-    # @return [IncidentServiceResponse]
+    # Create a new incident service.
+    #
+    # @see #create_incident_service_with_http_info
     def create_incident_service(body, opts = {})
       data, _status_code, _headers = create_incident_service_with_http_info(body, opts)
       data
     end
 
-    # Create a new incident service
+    # Create a new incident service.
+    #
     # Creates a new incident service.
+    #
     # @param body [IncidentServiceCreateRequest] Incident Service Payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(IncidentServiceResponse, Integer, Hash)>] IncidentServiceResponse data, response status code and response headers
@@ -98,18 +98,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete an existing incident service
-    # Deletes an existing incident service.
-    # @param service_id [String] The ID of the incident service.
-    # @param opts [Hash] the optional parameters
-    # @return [nil]
+    # Delete an existing incident service.
+    #
+    # @see #delete_incident_service_with_http_info
     def delete_incident_service(service_id, opts = {})
       delete_incident_service_with_http_info(service_id, opts)
       nil
     end
 
-    # Delete an existing incident service
+    # Delete an existing incident service.
+    #
     # Deletes an existing incident service.
+    #
     # @param service_id [String] The ID of the incident service.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -171,21 +171,19 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get details of an incident service
-    # Get details of an incident service. If the `include[users]` query parameter is provided,
-    # the included attribute will contain the users related to these incident services.
-    # @param service_id [String] The ID of the incident service.
-    # @param opts [Hash] the optional parameters
-    # @option opts [IncidentRelatedObject] :include Specifies which types of related objects should be included in the response.
-    # @return [IncidentServiceResponse]
+    # Get details of an incident service.
+    #
+    # @see #get_incident_service_with_http_info
     def get_incident_service(service_id, opts = {})
       data, _status_code, _headers = get_incident_service_with_http_info(service_id, opts)
       data
     end
 
-    # Get details of an incident service
+    # Get details of an incident service.
+    #
     # Get details of an incident service. If the `include[users]` query parameter is provided,
     # the included attribute will contain the users related to these incident services.
+    #
     # @param service_id [String] The ID of the incident service.
     # @param opts [Hash] the optional parameters
     # @option opts [IncidentRelatedObject] :include Specifies which types of related objects should be included in the response.
@@ -253,21 +251,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get a list of all incident services
-    # Get all incident services uploaded for the requesting user's organization. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident services.
-    # @param opts [Hash] the optional parameters
-    # @option opts [IncidentRelatedObject] :include Specifies which types of related objects should be included in the response.
-    # @option opts [Integer] :page_size Size for a given page.
-    # @option opts [Integer] :page_offset Specific offset to use as the beginning of the returned page.
-    # @option opts [String] :filter A search query that filters services by name.
-    # @return [IncidentServicesResponse]
+    # Get a list of all incident services.
+    #
+    # @see #list_incident_services_with_http_info
     def list_incident_services(opts = {})
       data, _status_code, _headers = list_incident_services_with_http_info(opts)
       data
     end
 
-    # Get a list of all incident services
+    # Get a list of all incident services.
+    #
     # Get all incident services uploaded for the requesting user's organization. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident services.
+    #
     # @param opts [Hash] the optional parameters
     # @option opts [IncidentRelatedObject] :include Specifies which types of related objects should be included in the response.
     # @option opts [Integer] :page_size Size for a given page.
@@ -336,19 +331,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Update an existing incident service
-    # Updates an existing incident service. Only provide the attributes which should be updated as this request is a partial update.
-    # @param service_id [String] The ID of the incident service.
-    # @param body [IncidentServiceUpdateRequest] Incident Service Payload.
-    # @param opts [Hash] the optional parameters
-    # @return [IncidentServiceResponse]
+    # Update an existing incident service.
+    #
+    # @see #update_incident_service_with_http_info
     def update_incident_service(service_id, body, opts = {})
       data, _status_code, _headers = update_incident_service_with_http_info(service_id, body, opts)
       data
     end
 
-    # Update an existing incident service
+    # Update an existing incident service.
+    #
     # Updates an existing incident service. Only provide the attributes which should be updated as this request is a partial update.
+    #
     # @param service_id [String] The ID of the incident service.
     # @param body [IncidentServiceUpdateRequest] Incident Service Payload.
     # @param opts [Hash] the optional parameters

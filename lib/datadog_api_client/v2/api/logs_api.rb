@@ -23,18 +23,18 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
-    # Aggregate events
-    # The API endpoint to aggregate events into buckets and compute metrics and timeseries.
-    # @param body [LogsAggregateRequest] 
-    # @param opts [Hash] the optional parameters
-    # @return [LogsAggregateResponse]
+    # Aggregate events.
+    #
+    # @see #aggregate_logs_with_http_info
     def aggregate_logs(body, opts = {})
       data, _status_code, _headers = aggregate_logs_with_http_info(body, opts)
       data
     end
 
-    # Aggregate events
+    # Aggregate events.
+    #
     # The API endpoint to aggregate events into buckets and compute metrics and timeseries.
+    #
     # @param body [LogsAggregateRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsAggregateResponse, Integer, Hash)>] LogsAggregateResponse data, response status code and response headers
@@ -98,27 +98,16 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Search logs
-    # List endpoint returns logs that match a log search query.
-    # [Results are paginated][1].
+    # Search logs.
     #
-    # Use this endpoint to build complex logs filtering and search.
-    #
-    # **If you are considering archiving logs for your organization,
-    # consider use of the Datadog archive capabilities instead of the log list API.
-    # See [Datadog Logs Archive documentation][2].**
-    #
-    # [1]: /logs/guide/collect-multiple-logs-with-pagination
-    # [2]: https://docs.datadoghq.com/logs/archives
-    # @param opts [Hash] the optional parameters
-    # @option opts [LogsListRequest] :body 
-    # @return [LogsListResponse]
+    # @see #list_logs_with_http_info
     def list_logs(opts = {})
       data, _status_code, _headers = list_logs_with_http_info(opts)
       data
     end
 
-    # Search logs
+    # Search logs.
+    #
     # List endpoint returns logs that match a log search query.
     # [Results are paginated][1].
     #
@@ -130,6 +119,7 @@ module DatadogAPIClient::V2
     #
     # [1]: /logs/guide/collect-multiple-logs-with-pagination
     # [2]: https://docs.datadoghq.com/logs/archives
+    #
     # @param opts [Hash] the optional parameters
     # @option opts [LogsListRequest] :body 
     # @return [Array<(LogsListResponse, Integer, Hash)>] LogsListResponse data, response status code and response headers
@@ -189,33 +179,36 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get a list of logs
-    # List endpoint returns logs that match a log search query.
-    # [Results are paginated][1].
+    # Search logs.
     #
-    # Use this endpoint to see your latest logs.
+    # Provide a paginated version of {#list_logs}, returning all items.
     #
-    # **If you are considering archiving logs for your organization,
-    # consider use of the Datadog archive capabilities instead of the log list API.
-    # See [Datadog Logs Archive documentation][2].**
+    # To use it you need to use a block: list_logs_with_pagination { |item| p item }
     #
-    # [1]: /logs/guide/collect-multiple-logs-with-pagination
-    # [2]: https://docs.datadoghq.com/logs/archives
-    # @param opts [Hash] the optional parameters
-    # @option opts [String] :filter_query Search query following logs syntax.
-    # @option opts [String] :filter_index For customers with multiple indexes, the indexes to search Defaults to '*' which means all indexes
-    # @option opts [Time] :filter_from Minimum timestamp for requested logs.
-    # @option opts [Time] :filter_to Maximum timestamp for requested logs.
-    # @option opts [LogsSort] :sort Order of logs in results.
-    # @option opts [String] :page_cursor List following results with a cursor provided in the previous query.
-    # @option opts [Integer] :page_limit Maximum number of logs in the response.
-    # @return [LogsListResponse]
+    # @yield [Log] Paginated items
+    def list_logs_with_pagination(opts = {})
+        page_size = @api_client.get_attribute_from_path(opts, "body.page.limit", 10)
+        @api_client.set_attribute_from_path(opts, "body.page.limit", LogsListRequest, page_size)
+        while true do
+            response = list_logs(opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(opts, "body.page.cursor", LogsListRequest, @api_client.get_attribute_from_path(response, "meta.page.after"))
+        end
+    end
+
+    # Get a list of logs.
+    #
+    # @see #list_logs_get_with_http_info
     def list_logs_get(opts = {})
       data, _status_code, _headers = list_logs_get_with_http_info(opts)
       data
     end
 
-    # Get a list of logs
+    # Get a list of logs.
+    #
     # List endpoint returns logs that match a log search query.
     # [Results are paginated][1].
     #
@@ -227,6 +220,7 @@ module DatadogAPIClient::V2
     #
     # [1]: /logs/guide/collect-multiple-logs-with-pagination
     # [2]: https://docs.datadoghq.com/logs/archives
+    #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :filter_query Search query following logs syntax.
     # @option opts [String] :filter_index For customers with multiple indexes, the indexes to search Defaults to '*' which means all indexes
@@ -304,41 +298,36 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Send logs
-    # Send your logs to your Datadog platform over HTTP. Limits per HTTP request are:
+    # Get a list of logs.
     #
-    # - Maximum content size per payload (uncompressed): 5MB
-    # - Maximum size for a single log: 1MB
-    # - Maximum array size if sending multiple logs in an array: 1000 entries
+    # Provide a paginated version of {#list_logs_get}, returning all items.
     #
-    # Any log exceeding 1MB is accepted and truncated by Datadog:
-    # - For a single log request, the API truncates the log at 1MB and returns a 2xx.
-    # - For a multi-logs request, the API processes all logs, truncates only logs larger than 1MB, and returns a 2xx.
+    # To use it you need to use a block: list_logs_get_with_pagination { |item| p item }
     #
-    # Datadog recommends sending your logs compressed.
-    # Add the `Content-Encoding: gzip` header to the request when sending compressed logs.
+    # @yield [Log] Paginated items
+    def list_logs_get_with_pagination(opts = {})
+        page_size = @api_client.get_attribute_from_path(opts, "page_limit", 10)
+        @api_client.set_attribute_from_path(opts, "page_limit", Integer, page_size)
+        while true do
+            response = list_logs_get(opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(opts, "page_cursor", Integer, @api_client.get_attribute_from_path(response, "meta.page.after"))
+        end
+    end
+
+    # Send logs.
     #
-    # The status codes answered by the HTTP API are:
-    # - 202: Accepted: the request has been accepted for processing
-    # - 400: Bad request (likely an issue in the payload formatting)
-    # - 401: Unauthorized (likely a missing API Key)
-    # - 403: Permission issue (likely using an invalid API Key)
-    # - 408: Request Timeout, request should be retried after some time
-    # - 413: Payload too large (batch is above 5MB uncompressed)
-    # - 429: Too Many Requests, request should be retried after some time
-    # - 500: Internal Server Error, the server encountered an unexpected condition that prevented it from fulfilling the request, request should be retried after some time
-    # - 503: Service Unavailable, the server is not ready to handle the request probably because it is overloaded, request should be retried after some time
-    # @param body [Array<HTTPLogItem>] Log to send (JSON format).
-    # @param opts [Hash] the optional parameters
-    # @option opts [ContentEncoding] :content_encoding HTTP header used to compress the media-type.
-    # @option opts [String] :ddtags Log tags can be passed as query parameters with `text/plain` content type.
-    # @return [Object]
+    # @see #submit_log_with_http_info
     def submit_log(body, opts = {})
       data, _status_code, _headers = submit_log_with_http_info(body, opts)
       data
     end
 
-    # Send logs
+    # Send logs.
+    #
     # Send your logs to your Datadog platform over HTTP. Limits per HTTP request are:
     #
     # - Maximum content size per payload (uncompressed): 5MB
@@ -362,6 +351,7 @@ module DatadogAPIClient::V2
     # - 429: Too Many Requests, request should be retried after some time
     # - 500: Internal Server Error, the server encountered an unexpected condition that prevented it from fulfilling the request, request should be retried after some time
     # - 503: Service Unavailable, the server is not ready to handle the request probably because it is overloaded, request should be retried after some time
+    #
     # @param body [Array<HTTPLogItem>] Log to send (JSON format).
     # @param opts [Hash] the optional parameters
     # @option opts [ContentEncoding] :content_encoding HTTP header used to compress the media-type.

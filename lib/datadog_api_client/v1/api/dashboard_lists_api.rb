@@ -23,18 +23,18 @@ module DatadogAPIClient::V1
       @api_client = api_client
     end
 
-    # Create a dashboard list
-    # Create an empty dashboard list.
-    # @param body [DashboardList] Create a dashboard list request body.
-    # @param opts [Hash] the optional parameters
-    # @return [DashboardList]
+    # Create a dashboard list.
+    #
+    # @see #create_dashboard_list_with_http_info
     def create_dashboard_list(body, opts = {})
       data, _status_code, _headers = create_dashboard_list_with_http_info(body, opts)
       data
     end
 
-    # Create a dashboard list
+    # Create a dashboard list.
+    #
     # Create an empty dashboard list.
+    #
     # @param body [DashboardList] Create a dashboard list request body.
     # @param opts [Hash] the optional parameters
     # @return [Array<(DashboardList, Integer, Hash)>] DashboardList data, response status code and response headers
@@ -98,18 +98,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Delete a dashboard list
     # Delete a dashboard list.
-    # @param list_id [Integer] ID of the dashboard list to delete.
-    # @param opts [Hash] the optional parameters
-    # @return [DashboardListDeleteResponse]
+    #
+    # @see #delete_dashboard_list_with_http_info
     def delete_dashboard_list(list_id, opts = {})
       data, _status_code, _headers = delete_dashboard_list_with_http_info(list_id, opts)
       data
     end
 
-    # Delete a dashboard list
     # Delete a dashboard list.
+    #
+    # Delete a dashboard list.
+    #
     # @param list_id [Integer] ID of the dashboard list to delete.
     # @param opts [Hash] the optional parameters
     # @return [Array<(DashboardListDeleteResponse, Integer, Hash)>] DashboardListDeleteResponse data, response status code and response headers
@@ -171,18 +171,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get a dashboard list
-    # Fetch an existing dashboard list's definition.
-    # @param list_id [Integer] ID of the dashboard list to fetch.
-    # @param opts [Hash] the optional parameters
-    # @return [DashboardList]
+    # Get a dashboard list.
+    #
+    # @see #get_dashboard_list_with_http_info
     def get_dashboard_list(list_id, opts = {})
       data, _status_code, _headers = get_dashboard_list_with_http_info(list_id, opts)
       data
     end
 
-    # Get a dashboard list
+    # Get a dashboard list.
+    #
     # Fetch an existing dashboard list's definition.
+    #
     # @param list_id [Integer] ID of the dashboard list to fetch.
     # @param opts [Hash] the optional parameters
     # @return [Array<(DashboardList, Integer, Hash)>] DashboardList data, response status code and response headers
@@ -244,17 +244,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get all dashboard lists
-    # Fetch all of your existing dashboard list definitions.
-    # @param opts [Hash] the optional parameters
-    # @return [DashboardListListResponse]
+    # Get all dashboard lists.
+    #
+    # @see #list_dashboard_lists_with_http_info
     def list_dashboard_lists(opts = {})
       data, _status_code, _headers = list_dashboard_lists_with_http_info(opts)
       data
     end
 
-    # Get all dashboard lists
+    # Get all dashboard lists.
+    #
     # Fetch all of your existing dashboard list definitions.
+    #
     # @param opts [Hash] the optional parameters
     # @return [Array<(DashboardListListResponse, Integer, Hash)>] DashboardListListResponse data, response status code and response headers
     def list_dashboard_lists_with_http_info(opts = {})
@@ -311,19 +312,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Update a dashboard list
-    # Update the name of a dashboard list.
-    # @param list_id [Integer] ID of the dashboard list to update.
-    # @param body [DashboardList] Update a dashboard list request body.
-    # @param opts [Hash] the optional parameters
-    # @return [DashboardList]
+    # Update a dashboard list.
+    #
+    # @see #update_dashboard_list_with_http_info
     def update_dashboard_list(list_id, body, opts = {})
       data, _status_code, _headers = update_dashboard_list_with_http_info(list_id, body, opts)
       data
     end
 
-    # Update a dashboard list
+    # Update a dashboard list.
+    #
     # Update the name of a dashboard list.
+    #
     # @param list_id [Integer] ID of the dashboard list to update.
     # @param body [DashboardList] Update a dashboard list request body.
     # @param opts [Hash] the optional parameters

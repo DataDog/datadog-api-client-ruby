@@ -23,20 +23,19 @@ module DatadogAPIClient::V1
       @api_client = api_client
     end
 
-    # Post an event
-    # This endpoint allows you to post events to the stream.
-    # Tag them, set priority and event aggregate them with other events.
-    # @param body [EventCreateRequest] Event request object
-    # @param opts [Hash] the optional parameters
-    # @return [EventCreateResponse]
+    # Post an event.
+    #
+    # @see #create_event_with_http_info
     def create_event(body, opts = {})
       data, _status_code, _headers = create_event_with_http_info(body, opts)
       data
     end
 
-    # Post an event
+    # Post an event.
+    #
     # This endpoint allows you to post events to the stream.
     # Tag them, set priority and event aggregate them with other events.
+    #
     # @param body [EventCreateRequest] Event request object
     # @param opts [Hash] the optional parameters
     # @return [Array<(EventCreateResponse, Integer, Hash)>] EventCreateResponse data, response status code and response headers
@@ -100,24 +99,21 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get an event
-    # This endpoint allows you to query for event details.
+    # Get an event.
     #
-    # **Note**: If the event you’re querying contains markdown formatting of any kind,
-    # you may see characters such as `%`,`\`,`n` in your output.
-    # @param event_id [Integer] The ID of the event.
-    # @param opts [Hash] the optional parameters
-    # @return [EventResponse]
+    # @see #get_event_with_http_info
     def get_event(event_id, opts = {})
       data, _status_code, _headers = get_event_with_http_info(event_id, opts)
       data
     end
 
-    # Get an event
+    # Get an event.
+    #
     # This endpoint allows you to query for event details.
     #
     # **Note**: If the event you’re querying contains markdown formatting of any kind,
     # you may see characters such as `%`,`\`,`n` in your output.
+    #
     # @param event_id [Integer] The ID of the event.
     # @param opts [Hash] the optional parameters
     # @return [Array<(EventResponse, Integer, Hash)>] EventResponse data, response status code and response headers
@@ -179,32 +175,16 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Query the event stream
-    # The event stream can be queried and filtered by time, priority, sources and tags.
+    # Query the event stream.
     #
-    # **Notes**:
-    # - If the event you’re querying contains markdown formatting of any kind,
-    # you may see characters such as `%`,`\`,`n` in your output.
-    #
-    # - This endpoint returns a maximum of `1000` most recent results. To return additional results,
-    # identify the last timestamp of the last result and set that as the `end` query time to
-    # paginate the results. You can also use the page parameter to specify which set of `1000` results to return.
-    # @param start [Integer] POSIX timestamp.
-    # @param _end [Integer] POSIX timestamp.
-    # @param opts [Hash] the optional parameters
-    # @option opts [EventPriority] :priority Priority of your events, either `low` or `normal`.
-    # @option opts [String] :sources A comma separated string of sources.
-    # @option opts [String] :tags A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope.
-    # @option opts [Boolean] :unaggregated Set unaggregated to `true` to return all events within the specified [`start`,`end`] timeframe. Otherwise if an event is aggregated to a parent event with a timestamp outside of the timeframe, it won't be available in the output. Aggregated events with `is_aggregate=true` in the response will still be returned unless exclude_aggregate is set to `true.`
-    # @option opts [Boolean] :exclude_aggregate Set `exclude_aggregate` to `true` to only return unaggregated events where `is_aggregate=false` in the response. If the `exclude_aggregate` parameter is set to `true`, then the unaggregated parameter is ignored and will be `true` by default.
-    # @option opts [Integer] :page By default 1000 results are returned per request. Set page to the number of the page to return with `0` being the first page. The page parameter can only be used when either unaggregated or exclude_aggregate is set to `true.`
-    # @return [EventListResponse]
+    # @see #list_events_with_http_info
     def list_events(start, _end, opts = {})
       data, _status_code, _headers = list_events_with_http_info(start, _end, opts)
       data
     end
 
-    # Query the event stream
+    # Query the event stream.
+    #
     # The event stream can be queried and filtered by time, priority, sources and tags.
     #
     # **Notes**:
@@ -214,6 +194,7 @@ module DatadogAPIClient::V1
     # - This endpoint returns a maximum of `1000` most recent results. To return additional results,
     # identify the last timestamp of the last result and set that as the `end` query time to
     # paginate the results. You can also use the page parameter to specify which set of `1000` results to return.
+    #
     # @param start [Integer] POSIX timestamp.
     # @param _end [Integer] POSIX timestamp.
     # @param opts [Hash] the optional parameters

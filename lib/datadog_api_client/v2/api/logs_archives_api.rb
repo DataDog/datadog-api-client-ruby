@@ -23,19 +23,18 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
-    # Grant role to an archive
-    # Adds a read role to an archive. ([Roles API](https://docs.datadoghq.com/api/v2/roles/))
-    # @param archive_id [String] The ID of the archive.
-    # @param body [RelationshipToRole] 
-    # @param opts [Hash] the optional parameters
-    # @return [nil]
+    # Grant role to an archive.
+    #
+    # @see #add_read_role_to_archive_with_http_info
     def add_read_role_to_archive(archive_id, body, opts = {})
       add_read_role_to_archive_with_http_info(archive_id, body, opts)
       nil
     end
 
-    # Grant role to an archive
+    # Grant role to an archive.
+    #
     # Adds a read role to an archive. ([Roles API](https://docs.datadoghq.com/api/v2/roles/))
+    #
     # @param archive_id [String] The ID of the archive.
     # @param body [RelationshipToRole] 
     # @param opts [Hash] the optional parameters
@@ -104,18 +103,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Create an archive
-    # Create an archive in your organization.
-    # @param body [LogsArchiveCreateRequest] The definition of the new archive.
-    # @param opts [Hash] the optional parameters
-    # @return [LogsArchive]
+    # Create an archive.
+    #
+    # @see #create_logs_archive_with_http_info
     def create_logs_archive(body, opts = {})
       data, _status_code, _headers = create_logs_archive_with_http_info(body, opts)
       data
     end
 
-    # Create an archive
+    # Create an archive.
+    #
     # Create an archive in your organization.
+    #
     # @param body [LogsArchiveCreateRequest] The definition of the new archive.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsArchive, Integer, Hash)>] LogsArchive data, response status code and response headers
@@ -179,18 +178,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete an archive
-    # Delete a given archive from your organization.
-    # @param archive_id [String] The ID of the archive.
-    # @param opts [Hash] the optional parameters
-    # @return [nil]
+    # Delete an archive.
+    #
+    # @see #delete_logs_archive_with_http_info
     def delete_logs_archive(archive_id, opts = {})
       delete_logs_archive_with_http_info(archive_id, opts)
       nil
     end
 
-    # Delete an archive
+    # Delete an archive.
+    #
     # Delete a given archive from your organization.
+    #
     # @param archive_id [String] The ID of the archive.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -252,18 +251,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get an archive
-    # Get a specific archive from your organization.
-    # @param archive_id [String] The ID of the archive.
-    # @param opts [Hash] the optional parameters
-    # @return [LogsArchive]
+    # Get an archive.
+    #
+    # @see #get_logs_archive_with_http_info
     def get_logs_archive(archive_id, opts = {})
       data, _status_code, _headers = get_logs_archive_with_http_info(archive_id, opts)
       data
     end
 
-    # Get an archive
+    # Get an archive.
+    #
     # Get a specific archive from your organization.
+    #
     # @param archive_id [String] The ID of the archive.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsArchive, Integer, Hash)>] LogsArchive data, response status code and response headers
@@ -325,19 +324,19 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get archive order
-    # Get the current order of your archives.
-    # This endpoint takes no JSON arguments.
-    # @param opts [Hash] the optional parameters
-    # @return [LogsArchiveOrder]
+    # Get archive order.
+    #
+    # @see #get_logs_archive_order_with_http_info
     def get_logs_archive_order(opts = {})
       data, _status_code, _headers = get_logs_archive_order_with_http_info(opts)
       data
     end
 
-    # Get archive order
+    # Get archive order.
+    #
     # Get the current order of your archives.
     # This endpoint takes no JSON arguments.
+    #
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsArchiveOrder, Integer, Hash)>] LogsArchiveOrder data, response status code and response headers
     def get_logs_archive_order_with_http_info(opts = {})
@@ -394,18 +393,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List read roles for an archive
-    # Returns all read roles a given archive is restricted to.
-    # @param archive_id [String] The ID of the archive.
-    # @param opts [Hash] the optional parameters
-    # @return [RolesResponse]
+    # List read roles for an archive.
+    #
+    # @see #list_archive_read_roles_with_http_info
     def list_archive_read_roles(archive_id, opts = {})
       data, _status_code, _headers = list_archive_read_roles_with_http_info(archive_id, opts)
       data
     end
 
-    # List read roles for an archive
+    # List read roles for an archive.
+    #
     # Returns all read roles a given archive is restricted to.
+    #
     # @param archive_id [String] The ID of the archive.
     # @param opts [Hash] the optional parameters
     # @return [Array<(RolesResponse, Integer, Hash)>] RolesResponse data, response status code and response headers
@@ -467,17 +466,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get all archives
-    # Get the list of configured logs archives with their definitions.
-    # @param opts [Hash] the optional parameters
-    # @return [LogsArchives]
+    # Get all archives.
+    #
+    # @see #list_logs_archives_with_http_info
     def list_logs_archives(opts = {})
       data, _status_code, _headers = list_logs_archives_with_http_info(opts)
       data
     end
 
-    # Get all archives
+    # Get all archives.
+    #
     # Get the list of configured logs archives with their definitions.
+    #
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsArchives, Integer, Hash)>] LogsArchives data, response status code and response headers
     def list_logs_archives_with_http_info(opts = {})
@@ -534,19 +534,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Revoke role from an archive
-    # Removes a role from an archive. ([Roles API](https://docs.datadoghq.com/api/v2/roles/))
-    # @param archive_id [String] The ID of the archive.
-    # @param body [RelationshipToRole] 
-    # @param opts [Hash] the optional parameters
-    # @return [nil]
+    # Revoke role from an archive.
+    #
+    # @see #remove_role_from_archive_with_http_info
     def remove_role_from_archive(archive_id, body, opts = {})
       remove_role_from_archive_with_http_info(archive_id, body, opts)
       nil
     end
 
-    # Revoke role from an archive
+    # Revoke role from an archive.
+    #
     # Removes a role from an archive. ([Roles API](https://docs.datadoghq.com/api/v2/roles/))
+    #
     # @param archive_id [String] The ID of the archive.
     # @param body [RelationshipToRole] 
     # @param opts [Hash] the optional parameters
@@ -615,25 +614,21 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Update an archive
-    # Update a given archive configuration.
+    # Update an archive.
     #
-    # **Note**: Using this method updates your archive configuration by **replacing**
-    # your current configuration with the new one sent to your Datadog organization.
-    # @param archive_id [String] The ID of the archive.
-    # @param body [LogsArchiveCreateRequest] New definition of the archive.
-    # @param opts [Hash] the optional parameters
-    # @return [LogsArchive]
+    # @see #update_logs_archive_with_http_info
     def update_logs_archive(archive_id, body, opts = {})
       data, _status_code, _headers = update_logs_archive_with_http_info(archive_id, body, opts)
       data
     end
 
-    # Update an archive
+    # Update an archive.
+    #
     # Update a given archive configuration.
     #
     # **Note**: Using this method updates your archive configuration by **replacing**
     # your current configuration with the new one sent to your Datadog organization.
+    #
     # @param archive_id [String] The ID of the archive.
     # @param body [LogsArchiveCreateRequest] New definition of the archive.
     # @param opts [Hash] the optional parameters
@@ -702,26 +697,22 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Update archive order
-    # Update the order of your archives. Since logs are processed sequentially, reordering an archive may change
-    # the structure and content of the data processed by other archives.
+    # Update archive order.
     #
-    # **Note**: Using the `PUT` method updates your archive's order by replacing the current order
-    # with the new one.
-    # @param body [LogsArchiveOrder] An object containing the new ordered list of archive IDs.
-    # @param opts [Hash] the optional parameters
-    # @return [LogsArchiveOrder]
+    # @see #update_logs_archive_order_with_http_info
     def update_logs_archive_order(body, opts = {})
       data, _status_code, _headers = update_logs_archive_order_with_http_info(body, opts)
       data
     end
 
-    # Update archive order
+    # Update archive order.
+    #
     # Update the order of your archives. Since logs are processed sequentially, reordering an archive may change
     # the structure and content of the data processed by other archives.
     #
     # **Note**: Using the `PUT` method updates your archive's order by replacing the current order
     # with the new one.
+    #
     # @param body [LogsArchiveOrder] An object containing the new ordered list of archive IDs.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsArchiveOrder, Integer, Hash)>] LogsArchiveOrder data, response status code and response headers
