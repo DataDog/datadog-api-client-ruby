@@ -8,4 +8,4 @@ SLO_DATA_0_ID = ENV["SLO_DATA_0_ID"]
 opts = {
   ids: SLO_DATA_0_ID,
 }
-p api_instance.list_sl_os(opts)
+p api_instance.list_slos(opts)

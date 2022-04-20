@@ -117,10 +117,22 @@ def format_value(value, quotes="'"):
 
 
 def format_parameters(kwargs, spec, replace_values=None, has_body=False):
+    parameters_spec = {p["name"]: p for p in spec.get("parameters", [])}
+    if "requestBody" in spec and "multipart/form-data" in spec["requestBody"]["content"]:
+        parent = spec["requestBody"]["content"]["multipart/form-data"]["schema"]
+        for name, schema in parent["properties"].items():
+            parameters_spec[name] = {
+                "in": "form",
+                "schema": schema,
+                "name": name,
+                "description": schema.get("description"),
+                "required": name in parent.get("required", []),
+            }
+
     parameters = ""
     optional_spec = {}
     opts = {}
-    for p in spec.get("parameters", []):
+    for p in parameters_spec.values():
         required = p.get("required", False)
         k = snake_case(p["name"])
         if required:
@@ -134,6 +146,14 @@ def format_parameters(kwargs, spec, replace_values=None, has_body=False):
         else:
             optional_spec[k] = p
 
+    if has_body:
+        body_is_required = spec.get("requestBody", {"required": None}).get("required", False)
+        if not body_is_required:
+            opts["body"] = "body"
+            parameters += "opts"
+        else:
+            parameters += "body, "
+
     if optional_spec:
         for k, v in kwargs.items():
             k = snake_case(k)
@@ -144,7 +164,7 @@ def format_parameters(kwargs, spec, replace_values=None, has_body=False):
             )
             opts[escape_reserved_keyword(k)] = value
 
-        if opts:
+        if opts and "opts" not in parameters:
             parameters += "opts"
 
     return parameters, opts
@@ -157,6 +177,33 @@ def get_name(schema):
         name = schema.__reference__["$ref"].split("/")[-1]
 
     return name
+
+
+def _format_oneof(data, schema, name_prefix=None, replace_values=None):
+    parameters = ""
+    matched = 0
+    for sub_schema in schema["oneOf"]:
+        try:
+            formatted = format_data_with_schema(
+                data,
+                sub_schema,
+                name_prefix=name_prefix,
+                replace_values=replace_values,
+            )
+            if matched == 0:
+                # NOTE we do not support mixed schemas with oneOf
+                # parameters += formatted
+                parameters = formatted
+            matched += 1
+        except (KeyError, ValueError):
+            pass
+
+    if matched == 0:
+        raise ValueError(f"[{matched}] {data} is not valid for schema")
+    elif matched > 1:
+        warnings.warn(f"[{matched}] {data} is not valid for schema")
+
+    return parameters
 
 
 @singledispatch
@@ -173,7 +220,6 @@ def format_data_with_schema(
         raise ValueError(f"{data} is not valid enum value {schema['enum']}")
 
     if replace_values and data in replace_values:
-        warnings.warn(f"implement '{replace_values[data]}' with value {data}")
         parameters = replace_values[data]
         if schema.get("type") == "integer":
             parameters = f"{parameters}.to_i"
@@ -185,16 +231,24 @@ def format_data_with_schema(
         if schema.get("nullable") and data is None:
             return "nil"
         else:
-            formatter = {
-                "number": str,
-                "integer": str,
-                "boolean": lambda x: "true" if x else "false",
-                "string": repr,
-                None: repr,
-            }[schema.get("type")]
+            if "oneOf" in schema:
+                name = None
+                parameters = _format_oneof(data, schema, name_prefix=name_prefix, replace_values=replace_values)
+            else:
 
-            # TODO format date and datetime
-            parameters = formatter(data)
+                def open_file(x):
+                    return f"File.open({repr(x)}, 'r')"
+
+                formatter = {
+                    "number": str,
+                    "integer": str,
+                    "boolean": lambda x: "true" if x else "false",
+                    "string": open_file if schema.get("format") == "binary" else repr,
+                    None: repr,
+                }[schema.get("type")]
+
+                # TODO format date and datetime
+                parameters = formatter(data)
 
     if "enum" in schema and name:
         return f"{name_prefix}{name}::{parameters.upper()}"
@@ -254,7 +308,7 @@ def format_data_with_schema_dict(
             )
             parameters += f"{escape_reserved_keyword(snake_case(k))}: {value},\n"
 
-    if "additionalProperties" in schema:
+    if schema.get("additionalProperties"):
         for k, v in data.items():
             value = format_data_with_schema(
                 v,
@@ -265,37 +319,19 @@ def format_data_with_schema_dict(
             parameters += f"{k}: {value}, "
 
     if not name and "oneOf" not in schema:
-        if default_name:
+        if default_name and not schema.get("additionalProperties") and schema.get("properties"):
             name = default_name
         else:
             name = "dict"
             warnings.warn(f"Unnamed schema {schema} for {data}")
 
     if "oneOf" in schema:
-        matched = 0
-        for sub_schema in schema["oneOf"]:
-            try:
-                formatted = format_data_with_schema(
-                    data,
-                    sub_schema,
-                    name_prefix=name_prefix,
-                    replace_values=replace_values,
-                )
-                if matched == 0:
-                    # NOTE we do not support mixed schemas with oneOf
-                    # parameters += formatted
-                    parameters = formatted
-                    name = None
-                matched += 1
-            except (KeyError, ValueError) as e:
-                print(f"{e}")
+        name = None
+        parameters = _format_oneof(data, schema, name_prefix=name_prefix, replace_values=replace_values)
 
-        if matched == 0:
-            raise ValueError(f"[{matched}] {data} is not valid for schema {name}")
-        elif matched > 1:
-            warnings.warn(f"[{matched}] {data} is not valid for schema {name}")
-
-    if name:
+    if name == "dict":
+        return f"{{\n{parameters}}}"
+    elif name:
         return f"{name_prefix}{name}.new({{\n{parameters}}})"
 
     return parameters

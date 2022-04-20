@@ -27,4 +27,4 @@ body = DatadogAPIClient::V2::AuthNMappingUpdateRequest.new({
     type: DatadogAPIClient::V2::AuthNMappingsType::AUTHN_MAPPINGS,
   }),
 })
-p api_instance.update_auth_n_mapping(AUTHN_MAPPING_DATA_ID, body)
+p api_instance.update_authn_mapping(AUTHN_MAPPING_DATA_ID, body)

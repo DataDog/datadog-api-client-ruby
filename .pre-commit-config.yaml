@@ -12,8 +12,8 @@ repos:
     language: ruby
     additional_dependencies:
       - rufo
-    entry: rufo examples/generated
-    files: '^examples/generated'
+    entry: rufo examples
+    files: '^examples'
     pass_filenames: false
   - id: docs
     name: Format documentation
@@ -42,6 +42,15 @@ repos:
     language: python
     entry: bash -c "cd .generator && poetry install && poetry run python -m generator -i ./schemas/v2/openapi.yaml -o ../lib/"
     files: "^.generator/(config|schemas/v2|src|poetry.lock|pyproject.toml)"
+    stages: [manual]
+    pass_filenames: false
+    additional_dependencies:
+      - "poetry"
+  - id: examples
+    name: examples
+    language: python
+    entry: bash -c "cd .generator && poetry install && poetry run pytest"
+    files: "^.generator/"
     stages: [manual]
     pass_filenames: false
     additional_dependencies:
