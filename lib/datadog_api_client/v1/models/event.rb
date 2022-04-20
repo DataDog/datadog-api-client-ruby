@@ -48,6 +48,10 @@ module DatadogAPIClient::V1
     # Instead, use the string representation of the Event ID to avoid losing accuracy.
     attr_accessor :id_str
 
+    # Integer ID of the monitor.
+    # The `monitor_id` is only available if the event has an associated monitor.
+    attr_accessor :monitor_id
+
     # Payload of the event.
     attr_accessor :payload
 
@@ -82,6 +86,7 @@ module DatadogAPIClient::V1
         :'host' => :'host',
         :'id' => :'id',
         :'id_str' => :'id_str',
+        :'monitor_id' => :'monitor_id',
         :'payload' => :'payload',
         :'priority' => :'priority',
         :'source_type_name' => :'source_type_name',
@@ -108,6 +113,7 @@ module DatadogAPIClient::V1
         :'host' => :'String',
         :'id' => :'Integer',
         :'id_str' => :'String',
+        :'monitor_id' => :'Integer',
         :'payload' => :'String',
         :'priority' => :'EventPriority',
         :'source_type_name' => :'String',
@@ -164,6 +170,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'id_str')
         self.id_str = attributes[:'id_str']
+      end
+
+      if attributes.key?(:'monitor_id')
+        self.monitor_id = attributes[:'monitor_id']
       end
 
       if attributes.key?(:'payload')
@@ -238,6 +248,7 @@ module DatadogAPIClient::V1
           host == o.host &&
           id == o.id &&
           id_str == o.id_str &&
+          monitor_id == o.monitor_id &&
           payload == o.payload &&
           priority == o.priority &&
           source_type_name == o.source_type_name &&
@@ -258,7 +269,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [alert_type, date_happened, device_name, host, id, id_str, payload, priority, source_type_name, tags, text, title, url].hash
+      [alert_type, date_happened, device_name, host, id, id_str, monitor_id, payload, priority, source_type_name, tags, text, title, url].hash
     end
   end
 end
