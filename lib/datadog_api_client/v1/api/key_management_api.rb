@@ -23,18 +23,18 @@ module DatadogAPIClient::V1
       @api_client = api_client
     end
 
-    # Create an API key
-    # Creates an API key with a given name.
-    # @param body [ApiKey] 
-    # @param opts [Hash] the optional parameters
-    # @return [ApiKeyResponse]
+    # Create an API key.
+    #
+    # @see #create_api_key_with_http_info
     def create_api_key(body, opts = {})
       data, _status_code, _headers = create_api_key_with_http_info(body, opts)
       data
     end
 
-    # Create an API key
+    # Create an API key.
+    #
     # Creates an API key with a given name.
+    #
     # @param body [ApiKey] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApiKeyResponse, Integer, Hash)>] ApiKeyResponse data, response status code and response headers
@@ -98,18 +98,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Create an application key
-    # Create an application key with a given name.
-    # @param body [ApplicationKey] 
-    # @param opts [Hash] the optional parameters
-    # @return [ApplicationKeyResponse]
+    # Create an application key.
+    #
+    # @see #create_application_key_with_http_info
     def create_application_key(body, opts = {})
       data, _status_code, _headers = create_application_key_with_http_info(body, opts)
       data
     end
 
-    # Create an application key
+    # Create an application key.
+    #
     # Create an application key with a given name.
+    #
     # @param body [ApplicationKey] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
@@ -173,18 +173,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Delete an API key
-    # Delete a given API key.
-    # @param key [String] The specific API key you are working with.
-    # @param opts [Hash] the optional parameters
-    # @return [ApiKeyResponse]
+    # Delete an API key.
+    #
+    # @see #delete_api_key_with_http_info
     def delete_api_key(key, opts = {})
       data, _status_code, _headers = delete_api_key_with_http_info(key, opts)
       data
     end
 
-    # Delete an API key
+    # Delete an API key.
+    #
     # Delete a given API key.
+    #
     # @param key [String] The specific API key you are working with.
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApiKeyResponse, Integer, Hash)>] ApiKeyResponse data, response status code and response headers
@@ -246,18 +246,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Delete an application key
-    # Delete a given application key.
-    # @param key [String] The specific APP key you are working with.
-    # @param opts [Hash] the optional parameters
-    # @return [ApplicationKeyResponse]
+    # Delete an application key.
+    #
+    # @see #delete_application_key_with_http_info
     def delete_application_key(key, opts = {})
       data, _status_code, _headers = delete_application_key_with_http_info(key, opts)
       data
     end
 
-    # Delete an application key
+    # Delete an application key.
+    #
     # Delete a given application key.
+    #
     # @param key [String] The specific APP key you are working with.
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
@@ -319,18 +319,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get API key
-    # Get a given API key.
-    # @param key [String] The specific API key you are working with.
-    # @param opts [Hash] the optional parameters
-    # @return [ApiKeyResponse]
+    # Get API key.
+    #
+    # @see #get_api_key_with_http_info
     def get_api_key(key, opts = {})
       data, _status_code, _headers = get_api_key_with_http_info(key, opts)
       data
     end
 
-    # Get API key
+    # Get API key.
+    #
     # Get a given API key.
+    #
     # @param key [String] The specific API key you are working with.
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApiKeyResponse, Integer, Hash)>] ApiKeyResponse data, response status code and response headers
@@ -392,18 +392,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get an application key
-    # Get a given application key.
-    # @param key [String] The specific APP key you are working with.
-    # @param opts [Hash] the optional parameters
-    # @return [ApplicationKeyResponse]
+    # Get an application key.
+    #
+    # @see #get_application_key_with_http_info
     def get_application_key(key, opts = {})
       data, _status_code, _headers = get_application_key_with_http_info(key, opts)
       data
     end
 
-    # Get an application key
+    # Get an application key.
+    #
     # Get a given application key.
+    #
     # @param key [String] The specific APP key you are working with.
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
@@ -465,17 +465,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get all API keys
-    # Get all API keys available for your account.
-    # @param opts [Hash] the optional parameters
-    # @return [ApiKeyListResponse]
+    # Get all API keys.
+    #
+    # @see #list_api_keys_with_http_info
     def list_api_keys(opts = {})
       data, _status_code, _headers = list_api_keys_with_http_info(opts)
       data
     end
 
-    # Get all API keys
+    # Get all API keys.
+    #
     # Get all API keys available for your account.
+    #
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApiKeyListResponse, Integer, Hash)>] ApiKeyListResponse data, response status code and response headers
     def list_api_keys_with_http_info(opts = {})
@@ -532,17 +533,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get all application keys
-    # Get all application keys available for your Datadog account.
-    # @param opts [Hash] the optional parameters
-    # @return [ApplicationKeyListResponse]
+    # Get all application keys.
+    #
+    # @see #list_application_keys_with_http_info
     def list_application_keys(opts = {})
       data, _status_code, _headers = list_application_keys_with_http_info(opts)
       data
     end
 
-    # Get all application keys
+    # Get all application keys.
+    #
     # Get all application keys available for your Datadog account.
+    #
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyListResponse, Integer, Hash)>] ApplicationKeyListResponse data, response status code and response headers
     def list_application_keys_with_http_info(opts = {})
@@ -599,19 +601,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Edit an API key
-    # Edit an API key name.
-    # @param key [String] The specific API key you are working with.
-    # @param body [ApiKey] 
-    # @param opts [Hash] the optional parameters
-    # @return [ApiKeyResponse]
+    # Edit an API key.
+    #
+    # @see #update_api_key_with_http_info
     def update_api_key(key, body, opts = {})
       data, _status_code, _headers = update_api_key_with_http_info(key, body, opts)
       data
     end
 
-    # Edit an API key
+    # Edit an API key.
+    #
     # Edit an API key name.
+    #
     # @param key [String] The specific API key you are working with.
     # @param body [ApiKey] 
     # @param opts [Hash] the optional parameters
@@ -680,19 +681,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Edit an application key
-    # Edit an application key name.
-    # @param key [String] The specific APP key you are working with.
-    # @param body [ApplicationKey] 
-    # @param opts [Hash] the optional parameters
-    # @return [ApplicationKeyResponse]
+    # Edit an application key.
+    #
+    # @see #update_application_key_with_http_info
     def update_application_key(key, body, opts = {})
       data, _status_code, _headers = update_application_key_with_http_info(key, body, opts)
       data
     end
 
-    # Edit an application key
+    # Edit an application key.
+    #
     # Edit an application key name.
+    #
     # @param key [String] The specific APP key you are working with.
     # @param body [ApplicationKey] 
     # @param opts [Hash] the optional parameters

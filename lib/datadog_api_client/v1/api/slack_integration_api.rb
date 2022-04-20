@@ -23,19 +23,18 @@ module DatadogAPIClient::V1
       @api_client = api_client
     end
 
-    # Create a Slack integration channel
-    # Add a channel to your Datadog-Slack integration.
-    # @param account_name [String] Your Slack account name.
-    # @param body [SlackIntegrationChannel] Payload describing Slack channel to be created
-    # @param opts [Hash] the optional parameters
-    # @return [SlackIntegrationChannel]
+    # Create a Slack integration channel.
+    #
+    # @see #create_slack_integration_channel_with_http_info
     def create_slack_integration_channel(account_name, body, opts = {})
       data, _status_code, _headers = create_slack_integration_channel_with_http_info(account_name, body, opts)
       data
     end
 
-    # Create a Slack integration channel
+    # Create a Slack integration channel.
+    #
     # Add a channel to your Datadog-Slack integration.
+    #
     # @param account_name [String] Your Slack account name.
     # @param body [SlackIntegrationChannel] Payload describing Slack channel to be created
     # @param opts [Hash] the optional parameters
@@ -104,19 +103,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get a Slack integration channel
-    # Get a channel configured for your Datadog-Slack integration.
-    # @param account_name [String] Your Slack account name.
-    # @param channel_name [String] The name of the Slack channel being operated on.
-    # @param opts [Hash] the optional parameters
-    # @return [SlackIntegrationChannel]
+    # Get a Slack integration channel.
+    #
+    # @see #get_slack_integration_channel_with_http_info
     def get_slack_integration_channel(account_name, channel_name, opts = {})
       data, _status_code, _headers = get_slack_integration_channel_with_http_info(account_name, channel_name, opts)
       data
     end
 
-    # Get a Slack integration channel
+    # Get a Slack integration channel.
+    #
     # Get a channel configured for your Datadog-Slack integration.
+    #
     # @param account_name [String] Your Slack account name.
     # @param channel_name [String] The name of the Slack channel being operated on.
     # @param opts [Hash] the optional parameters
@@ -183,18 +181,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get all channels in a Slack integration
-    # Get a list of all channels configured for your Datadog-Slack integration.
-    # @param account_name [String] Your Slack account name.
-    # @param opts [Hash] the optional parameters
-    # @return [Array<SlackIntegrationChannel>]
+    # Get all channels in a Slack integration.
+    #
+    # @see #get_slack_integration_channels_with_http_info
     def get_slack_integration_channels(account_name, opts = {})
       data, _status_code, _headers = get_slack_integration_channels_with_http_info(account_name, opts)
       data
     end
 
-    # Get all channels in a Slack integration
+    # Get all channels in a Slack integration.
+    #
     # Get a list of all channels configured for your Datadog-Slack integration.
+    #
     # @param account_name [String] Your Slack account name.
     # @param opts [Hash] the optional parameters
     # @return [Array<(Array<SlackIntegrationChannel>, Integer, Hash)>] Array<SlackIntegrationChannel> data, response status code and response headers
@@ -256,19 +254,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Remove a Slack integration channel
-    # Remove a channel from your Datadog-Slack integration.
-    # @param account_name [String] Your Slack account name.
-    # @param channel_name [String] The name of the Slack channel being operated on.
-    # @param opts [Hash] the optional parameters
-    # @return [nil]
+    # Remove a Slack integration channel.
+    #
+    # @see #remove_slack_integration_channel_with_http_info
     def remove_slack_integration_channel(account_name, channel_name, opts = {})
       remove_slack_integration_channel_with_http_info(account_name, channel_name, opts)
       nil
     end
 
-    # Remove a Slack integration channel
+    # Remove a Slack integration channel.
+    #
     # Remove a channel from your Datadog-Slack integration.
+    #
     # @param account_name [String] Your Slack account name.
     # @param channel_name [String] The name of the Slack channel being operated on.
     # @param opts [Hash] the optional parameters
@@ -335,20 +332,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Update a Slack integration channel
-    # Update a channel used in your Datadog-Slack integration.
-    # @param account_name [String] Your Slack account name.
-    # @param channel_name [String] The name of the Slack channel being operated on.
-    # @param body [SlackIntegrationChannel] Payload describing fields and values to be updated.
-    # @param opts [Hash] the optional parameters
-    # @return [SlackIntegrationChannel]
+    # Update a Slack integration channel.
+    #
+    # @see #update_slack_integration_channel_with_http_info
     def update_slack_integration_channel(account_name, channel_name, body, opts = {})
       data, _status_code, _headers = update_slack_integration_channel_with_http_info(account_name, channel_name, body, opts)
       data
     end
 
-    # Update a Slack integration channel
+    # Update a Slack integration channel.
+    #
     # Update a channel used in your Datadog-Slack integration.
+    #
     # @param account_name [String] Your Slack account name.
     # @param channel_name [String] The name of the Slack channel being operated on.
     # @param body [SlackIntegrationChannel] Payload describing fields and values to be updated.

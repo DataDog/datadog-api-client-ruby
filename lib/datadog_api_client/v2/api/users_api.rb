@@ -23,18 +23,18 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
-    # Create a service account
-    # Create a service account for your organization.
-    # @param body [ServiceAccountCreateRequest] 
-    # @param opts [Hash] the optional parameters
-    # @return [UserResponse]
+    # Create a service account.
+    #
+    # @see #create_service_account_with_http_info
     def create_service_account(body, opts = {})
       data, _status_code, _headers = create_service_account_with_http_info(body, opts)
       data
     end
 
-    # Create a service account
+    # Create a service account.
+    #
     # Create a service account for your organization.
+    #
     # @param body [ServiceAccountCreateRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(UserResponse, Integer, Hash)>] UserResponse data, response status code and response headers
@@ -98,18 +98,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Create a user
-    # Create a user for your organization.
-    # @param body [UserCreateRequest] 
-    # @param opts [Hash] the optional parameters
-    # @return [UserResponse]
+    # Create a user.
+    #
+    # @see #create_user_with_http_info
     def create_user(body, opts = {})
       data, _status_code, _headers = create_user_with_http_info(body, opts)
       data
     end
 
-    # Create a user
+    # Create a user.
+    #
     # Create a user for your organization.
+    #
     # @param body [UserCreateRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(UserResponse, Integer, Hash)>] UserResponse data, response status code and response headers
@@ -173,20 +173,19 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Disable a user
-    # Disable a user. Can only be used with an application key belonging
-    # to an administrator user.
-    # @param user_id [String] The ID of the user.
-    # @param opts [Hash] the optional parameters
-    # @return [nil]
+    # Disable a user.
+    #
+    # @see #disable_user_with_http_info
     def disable_user(user_id, opts = {})
       disable_user_with_http_info(user_id, opts)
       nil
     end
 
-    # Disable a user
+    # Disable a user.
+    #
     # Disable a user. Can only be used with an application key belonging
     # to an administrator user.
+    #
     # @param user_id [String] The ID of the user.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -248,18 +247,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get a user invitation
-    # Returns a single user invitation by its UUID.
-    # @param user_invitation_uuid [String] The UUID of the user invitation.
-    # @param opts [Hash] the optional parameters
-    # @return [UserInvitationResponse]
+    # Get a user invitation.
+    #
+    # @see #get_invitation_with_http_info
     def get_invitation(user_invitation_uuid, opts = {})
       data, _status_code, _headers = get_invitation_with_http_info(user_invitation_uuid, opts)
       data
     end
 
-    # Get a user invitation
+    # Get a user invitation.
+    #
     # Returns a single user invitation by its UUID.
+    #
     # @param user_invitation_uuid [String] The UUID of the user invitation.
     # @param opts [Hash] the optional parameters
     # @return [Array<(UserInvitationResponse, Integer, Hash)>] UserInvitationResponse data, response status code and response headers
@@ -321,18 +320,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get user details
-    # Get a user in the organization specified by the user’s `user_id`.
-    # @param user_id [String] The ID of the user.
-    # @param opts [Hash] the optional parameters
-    # @return [UserResponse]
+    # Get user details.
+    #
+    # @see #get_user_with_http_info
     def get_user(user_id, opts = {})
       data, _status_code, _headers = get_user_with_http_info(user_id, opts)
       data
     end
 
-    # Get user details
+    # Get user details.
+    #
     # Get a user in the organization specified by the user’s `user_id`.
+    #
     # @param user_id [String] The ID of the user.
     # @param opts [Hash] the optional parameters
     # @return [Array<(UserResponse, Integer, Hash)>] UserResponse data, response status code and response headers
@@ -394,20 +393,19 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get a user organization
-    # Get a user organization. Returns the user information and all organizations
-    # joined by this user.
-    # @param user_id [String] The ID of the user.
-    # @param opts [Hash] the optional parameters
-    # @return [UserResponse]
+    # Get a user organization.
+    #
+    # @see #list_user_organizations_with_http_info
     def list_user_organizations(user_id, opts = {})
       data, _status_code, _headers = list_user_organizations_with_http_info(user_id, opts)
       data
     end
 
-    # Get a user organization
+    # Get a user organization.
+    #
     # Get a user organization. Returns the user information and all organizations
     # joined by this user.
+    #
     # @param user_id [String] The ID of the user.
     # @param opts [Hash] the optional parameters
     # @return [Array<(UserResponse, Integer, Hash)>] UserResponse data, response status code and response headers
@@ -469,20 +467,19 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get a user permissions
-    # Get a user permission set. Returns a list of the user’s permissions
-    # granted by the associated user's roles.
-    # @param user_id [String] The ID of the user.
-    # @param opts [Hash] the optional parameters
-    # @return [PermissionsResponse]
+    # Get a user permissions.
+    #
+    # @see #list_user_permissions_with_http_info
     def list_user_permissions(user_id, opts = {})
       data, _status_code, _headers = list_user_permissions_with_http_info(user_id, opts)
       data
     end
 
-    # Get a user permissions
+    # Get a user permissions.
+    #
     # Get a user permission set. Returns a list of the user’s permissions
     # granted by the associated user's roles.
+    #
     # @param user_id [String] The ID of the user.
     # @param opts [Hash] the optional parameters
     # @return [Array<(PermissionsResponse, Integer, Hash)>] PermissionsResponse data, response status code and response headers
@@ -544,25 +541,19 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List all users
-    # Get the list of all users in the organization. This list includes
-    # all users even if they are deactivated or unverified.
-    # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page.
-    # @option opts [Integer] :page_number Specific page number to return.
-    # @option opts [String] :sort User attribute to order results by. Sort order is ascending by default. Sort order is descending if the field is prefixed by a negative sign, for example `sort=-name`. Options: `name`, `modified_at`, `user_count`.
-    # @option opts [QuerySortOrder] :sort_dir Direction of sort. Options: `asc`, `desc`.
-    # @option opts [String] :filter Filter all users by the given string. Defaults to no filtering.
-    # @option opts [String] :filter_status Filter on status attribute. Comma separated list, with possible values `Active`, `Pending`, and `Disabled`. Defaults to no filtering.
-    # @return [UsersResponse]
+    # List all users.
+    #
+    # @see #list_users_with_http_info
     def list_users(opts = {})
       data, _status_code, _headers = list_users_with_http_info(opts)
       data
     end
 
-    # List all users
+    # List all users.
+    #
     # Get the list of all users in the organization. This list includes
     # all users even if they are deactivated or unverified.
+    #
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Size for a given page.
     # @option opts [Integer] :page_number Specific page number to return.
@@ -635,18 +626,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Send invitation emails
-    # Sends emails to one or more users inviting them to join the organization.
-    # @param body [UserInvitationsRequest] 
-    # @param opts [Hash] the optional parameters
-    # @return [UserInvitationsResponse]
+    # Send invitation emails.
+    #
+    # @see #send_invitations_with_http_info
     def send_invitations(body, opts = {})
       data, _status_code, _headers = send_invitations_with_http_info(body, opts)
       data
     end
 
-    # Send invitation emails
+    # Send invitation emails.
+    #
     # Sends emails to one or more users inviting them to join the organization.
+    #
     # @param body [UserInvitationsRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(UserInvitationsResponse, Integer, Hash)>] UserInvitationsResponse data, response status code and response headers
@@ -710,21 +701,19 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Update a user
-    # Edit a user. Can only be used with an application key belonging
-    # to an administrator user.
-    # @param user_id [String] The ID of the user.
-    # @param body [UserUpdateRequest] 
-    # @param opts [Hash] the optional parameters
-    # @return [UserResponse]
+    # Update a user.
+    #
+    # @see #update_user_with_http_info
     def update_user(user_id, body, opts = {})
       data, _status_code, _headers = update_user_with_http_info(user_id, body, opts)
       data
     end
 
-    # Update a user
+    # Update a user.
+    #
     # Edit a user. Can only be used with an application key belonging
     # to an administrator user.
+    #
     # @param user_id [String] The ID of the user.
     # @param body [UserUpdateRequest] 
     # @param opts [Hash] the optional parameters

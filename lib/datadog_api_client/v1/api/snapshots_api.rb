@@ -23,25 +23,19 @@ module DatadogAPIClient::V1
       @api_client = api_client
     end
 
-    # Take graph snapshots
     # Take graph snapshots.
-    # **Note**: When a snapshot is created, there is some delay before it is available.
-    # @param start [Integer] The POSIX timestamp of the start of the query.
-    # @param _end [Integer] The POSIX timestamp of the end of the query.
-    # @param opts [Hash] the optional parameters
-    # @option opts [String] :metric_query The metric query.
-    # @option opts [String] :event_query A query that adds event bands to the graph.
-    # @option opts [String] :graph_def A JSON document defining the graph. `graph_def` can be used instead of `metric_query`. The JSON document uses the [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be formatted to a single line then URL encoded.
-    # @option opts [String] :title A title for the graph. If no title is specified, the graph does not have a title.
-    # @return [GraphSnapshot]
+    #
+    # @see #get_graph_snapshot_with_http_info
     def get_graph_snapshot(start, _end, opts = {})
       data, _status_code, _headers = get_graph_snapshot_with_http_info(start, _end, opts)
       data
     end
 
-    # Take graph snapshots
+    # Take graph snapshots.
+    #
     # Take graph snapshots.
     # **Note**: When a snapshot is created, there is some delay before it is available.
+    #
     # @param start [Integer] The POSIX timestamp of the start of the query.
     # @param _end [Integer] The POSIX timestamp of the end of the query.
     # @param opts [Hash] the optional parameters

@@ -23,17 +23,18 @@ module DatadogAPIClient::V1
       @api_client = api_client
     end
 
-    # Validate API key
-    # Check if the API key (not the APP key) is valid. If invalid, a 403 is returned.
-    # @param opts [Hash] the optional parameters
-    # @return [AuthenticationValidationResponse]
+    # Validate API key.
+    #
+    # @see #validate_with_http_info
     def validate(opts = {})
       data, _status_code, _headers = validate_with_http_info(opts)
       data
     end
 
-    # Validate API key
+    # Validate API key.
+    #
     # Check if the API key (not the APP key) is valid. If invalid, a 403 is returned.
+    #
     # @param opts [Hash] the optional parameters
     # @return [Array<(AuthenticationValidationResponse, Integer, Hash)>] AuthenticationValidationResponse data, response status code and response headers
     def validate_with_http_info(opts = {})

@@ -23,18 +23,18 @@ module DatadogAPIClient::V1
       @api_client = api_client
     end
 
-    # Create a new service object
-    # Create a new service object in the PagerDuty integration.
-    # @param body [PagerDutyService] Create a new service object request body.
-    # @param opts [Hash] the optional parameters
-    # @return [PagerDutyServiceName]
+    # Create a new service object.
+    #
+    # @see #create_pager_duty_integration_service_with_http_info
     def create_pager_duty_integration_service(body, opts = {})
       data, _status_code, _headers = create_pager_duty_integration_service_with_http_info(body, opts)
       data
     end
 
-    # Create a new service object
+    # Create a new service object.
+    #
     # Create a new service object in the PagerDuty integration.
+    #
     # @param body [PagerDutyService] Create a new service object request body.
     # @param opts [Hash] the optional parameters
     # @return [Array<(PagerDutyServiceName, Integer, Hash)>] PagerDutyServiceName data, response status code and response headers
@@ -98,18 +98,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Delete a single service object
-    # Delete a single service object in the Datadog-PagerDuty integration.
-    # @param service_name [String] The service name
-    # @param opts [Hash] the optional parameters
-    # @return [nil]
+    # Delete a single service object.
+    #
+    # @see #delete_pager_duty_integration_service_with_http_info
     def delete_pager_duty_integration_service(service_name, opts = {})
       delete_pager_duty_integration_service_with_http_info(service_name, opts)
       nil
     end
 
-    # Delete a single service object
+    # Delete a single service object.
+    #
     # Delete a single service object in the Datadog-PagerDuty integration.
+    #
     # @param service_name [String] The service name
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -171,18 +171,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get a single service object
-    # Get service name in the Datadog-PagerDuty integration.
-    # @param service_name [String] The service name.
-    # @param opts [Hash] the optional parameters
-    # @return [PagerDutyServiceName]
+    # Get a single service object.
+    #
+    # @see #get_pager_duty_integration_service_with_http_info
     def get_pager_duty_integration_service(service_name, opts = {})
       data, _status_code, _headers = get_pager_duty_integration_service_with_http_info(service_name, opts)
       data
     end
 
-    # Get a single service object
+    # Get a single service object.
+    #
     # Get service name in the Datadog-PagerDuty integration.
+    #
     # @param service_name [String] The service name.
     # @param opts [Hash] the optional parameters
     # @return [Array<(PagerDutyServiceName, Integer, Hash)>] PagerDutyServiceName data, response status code and response headers
@@ -244,19 +244,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Update a single service object
-    # Update a single service object in the Datadog-PagerDuty integration.
-    # @param service_name [String] The service name
-    # @param body [PagerDutyServiceKey] Update an existing service object request body.
-    # @param opts [Hash] the optional parameters
-    # @return [nil]
+    # Update a single service object.
+    #
+    # @see #update_pager_duty_integration_service_with_http_info
     def update_pager_duty_integration_service(service_name, body, opts = {})
       update_pager_duty_integration_service_with_http_info(service_name, body, opts)
       nil
     end
 
-    # Update a single service object
+    # Update a single service object.
+    #
     # Update a single service object in the Datadog-PagerDuty integration.
+    #
     # @param service_name [String] The service name
     # @param body [PagerDutyServiceKey] Update an existing service object request body.
     # @param opts [Hash] the optional parameters

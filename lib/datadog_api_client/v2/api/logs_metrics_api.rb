@@ -23,20 +23,19 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
-    # Create a log-based metric
-    # Create a metric based on your ingested logs in your organization.
-    # Returns the log-based metric object from the request body when the request is successful.
-    # @param body [LogsMetricCreateRequest] The definition of the new log-based metric.
-    # @param opts [Hash] the optional parameters
-    # @return [LogsMetricResponse]
+    # Create a log-based metric.
+    #
+    # @see #create_logs_metric_with_http_info
     def create_logs_metric(body, opts = {})
       data, _status_code, _headers = create_logs_metric_with_http_info(body, opts)
       data
     end
 
-    # Create a log-based metric
+    # Create a log-based metric.
+    #
     # Create a metric based on your ingested logs in your organization.
     # Returns the log-based metric object from the request body when the request is successful.
+    #
     # @param body [LogsMetricCreateRequest] The definition of the new log-based metric.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsMetricResponse, Integer, Hash)>] LogsMetricResponse data, response status code and response headers
@@ -100,18 +99,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete a log-based metric
-    # Delete a specific log-based metric from your organization.
-    # @param metric_id [String] The name of the log-based metric.
-    # @param opts [Hash] the optional parameters
-    # @return [nil]
+    # Delete a log-based metric.
+    #
+    # @see #delete_logs_metric_with_http_info
     def delete_logs_metric(metric_id, opts = {})
       delete_logs_metric_with_http_info(metric_id, opts)
       nil
     end
 
-    # Delete a log-based metric
+    # Delete a log-based metric.
+    #
     # Delete a specific log-based metric from your organization.
+    #
     # @param metric_id [String] The name of the log-based metric.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -173,18 +172,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get a log-based metric
-    # Get a specific log-based metric from your organization.
-    # @param metric_id [String] The name of the log-based metric.
-    # @param opts [Hash] the optional parameters
-    # @return [LogsMetricResponse]
+    # Get a log-based metric.
+    #
+    # @see #get_logs_metric_with_http_info
     def get_logs_metric(metric_id, opts = {})
       data, _status_code, _headers = get_logs_metric_with_http_info(metric_id, opts)
       data
     end
 
-    # Get a log-based metric
+    # Get a log-based metric.
+    #
     # Get a specific log-based metric from your organization.
+    #
     # @param metric_id [String] The name of the log-based metric.
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsMetricResponse, Integer, Hash)>] LogsMetricResponse data, response status code and response headers
@@ -246,17 +245,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get all log-based metrics
-    # Get the list of configured log-based metrics with their definitions.
-    # @param opts [Hash] the optional parameters
-    # @return [LogsMetricsResponse]
+    # Get all log-based metrics.
+    #
+    # @see #list_logs_metrics_with_http_info
     def list_logs_metrics(opts = {})
       data, _status_code, _headers = list_logs_metrics_with_http_info(opts)
       data
     end
 
-    # Get all log-based metrics
+    # Get all log-based metrics.
+    #
     # Get the list of configured log-based metrics with their definitions.
+    #
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsMetricsResponse, Integer, Hash)>] LogsMetricsResponse data, response status code and response headers
     def list_logs_metrics_with_http_info(opts = {})
@@ -313,21 +313,19 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Update a log-based metric
-    # Update a specific log-based metric from your organization.
-    # Returns the log-based metric object from the request body when the request is successful.
-    # @param metric_id [String] The name of the log-based metric.
-    # @param body [LogsMetricUpdateRequest] New definition of the log-based metric.
-    # @param opts [Hash] the optional parameters
-    # @return [LogsMetricResponse]
+    # Update a log-based metric.
+    #
+    # @see #update_logs_metric_with_http_info
     def update_logs_metric(metric_id, body, opts = {})
       data, _status_code, _headers = update_logs_metric_with_http_info(metric_id, body, opts)
       data
     end
 
-    # Update a log-based metric
+    # Update a log-based metric.
+    #
     # Update a specific log-based metric from your organization.
     # Returns the log-based metric object from the request body when the request is successful.
+    #
     # @param metric_id [String] The name of the log-based metric.
     # @param body [LogsMetricUpdateRequest] New definition of the log-based metric.
     # @param opts [Hash] the optional parameters

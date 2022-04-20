@@ -23,19 +23,18 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
-    # Create an application key for this service account
     # Create an application key for this service account.
-    # @param service_account_id [String] The ID of the service account.
-    # @param body [ApplicationKeyCreateRequest] 
-    # @param opts [Hash] the optional parameters
-    # @return [ApplicationKeyResponse]
+    #
+    # @see #create_service_account_application_key_with_http_info
     def create_service_account_application_key(service_account_id, body, opts = {})
       data, _status_code, _headers = create_service_account_application_key_with_http_info(service_account_id, body, opts)
       data
     end
 
-    # Create an application key for this service account
     # Create an application key for this service account.
+    #
+    # Create an application key for this service account.
+    #
     # @param service_account_id [String] The ID of the service account.
     # @param body [ApplicationKeyCreateRequest] 
     # @param opts [Hash] the optional parameters
@@ -104,19 +103,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete an application key for this service account
-    # Delete an application key owned by this service account.
-    # @param service_account_id [String] The ID of the service account.
-    # @param app_key_id [String] The ID of the application key.
-    # @param opts [Hash] the optional parameters
-    # @return [nil]
+    # Delete an application key for this service account.
+    #
+    # @see #delete_service_account_application_key_with_http_info
     def delete_service_account_application_key(service_account_id, app_key_id, opts = {})
       delete_service_account_application_key_with_http_info(service_account_id, app_key_id, opts)
       nil
     end
 
-    # Delete an application key for this service account
+    # Delete an application key for this service account.
+    #
     # Delete an application key owned by this service account.
+    #
     # @param service_account_id [String] The ID of the service account.
     # @param app_key_id [String] The ID of the application key.
     # @param opts [Hash] the optional parameters
@@ -183,19 +181,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get one application key for this service account
-    # Get an application key owned by this service account.
-    # @param service_account_id [String] The ID of the service account.
-    # @param app_key_id [String] The ID of the application key.
-    # @param opts [Hash] the optional parameters
-    # @return [PartialApplicationKeyResponse]
+    # Get one application key for this service account.
+    #
+    # @see #get_service_account_application_key_with_http_info
     def get_service_account_application_key(service_account_id, app_key_id, opts = {})
       data, _status_code, _headers = get_service_account_application_key_with_http_info(service_account_id, app_key_id, opts)
       data
     end
 
-    # Get one application key for this service account
+    # Get one application key for this service account.
+    #
     # Get an application key owned by this service account.
+    #
     # @param service_account_id [String] The ID of the service account.
     # @param app_key_id [String] The ID of the application key.
     # @param opts [Hash] the optional parameters
@@ -262,24 +259,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List application keys for this service account
-    # List all application keys available for this service account.
-    # @param service_account_id [String] The ID of the service account.
-    # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page.
-    # @option opts [Integer] :page_number Specific page number to return.
-    # @option opts [ApplicationKeysSort] :sort Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
-    # @option opts [String] :filter Filter application keys by the specified string.
-    # @option opts [String] :filter_created_at_start Only include application keys created on or after the specified date.
-    # @option opts [String] :filter_created_at_end Only include application keys created on or before the specified date.
-    # @return [ListApplicationKeysResponse]
+    # List application keys for this service account.
+    #
+    # @see #list_service_account_application_keys_with_http_info
     def list_service_account_application_keys(service_account_id, opts = {})
       data, _status_code, _headers = list_service_account_application_keys_with_http_info(service_account_id, opts)
       data
     end
 
-    # List application keys for this service account
+    # List application keys for this service account.
+    #
     # List all application keys available for this service account.
+    #
     # @param service_account_id [String] The ID of the service account.
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Size for a given page.
@@ -357,20 +348,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Edit an application key for this service account
-    # Edit an application key owned by this service account.
-    # @param service_account_id [String] The ID of the service account.
-    # @param app_key_id [String] The ID of the application key.
-    # @param body [ApplicationKeyUpdateRequest] 
-    # @param opts [Hash] the optional parameters
-    # @return [PartialApplicationKeyResponse]
+    # Edit an application key for this service account.
+    #
+    # @see #update_service_account_application_key_with_http_info
     def update_service_account_application_key(service_account_id, app_key_id, body, opts = {})
       data, _status_code, _headers = update_service_account_application_key_with_http_info(service_account_id, app_key_id, body, opts)
       data
     end
 
-    # Edit an application key for this service account
+    # Edit an application key for this service account.
+    #
     # Edit an application key owned by this service account.
+    #
     # @param service_account_id [String] The ID of the service account.
     # @param app_key_id [String] The ID of the application key.
     # @param body [ApplicationKeyUpdateRequest] 

@@ -23,18 +23,18 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
-    # Create an incident
     # Create an incident.
-    # @param body [IncidentCreateRequest] Incident payload.
-    # @param opts [Hash] the optional parameters
-    # @return [IncidentResponse]
+    #
+    # @see #create_incident_with_http_info
     def create_incident(body, opts = {})
       data, _status_code, _headers = create_incident_with_http_info(body, opts)
       data
     end
 
-    # Create an incident
     # Create an incident.
+    #
+    # Create an incident.
+    #
     # @param body [IncidentCreateRequest] Incident payload.
     # @param opts [Hash] the optional parameters
     # @return [Array<(IncidentResponse, Integer, Hash)>] IncidentResponse data, response status code and response headers
@@ -98,18 +98,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete an existing incident
-    # Deletes an existing incident from the users organization.
-    # @param incident_id [String] The UUID of the incident.
-    # @param opts [Hash] the optional parameters
-    # @return [nil]
+    # Delete an existing incident.
+    #
+    # @see #delete_incident_with_http_info
     def delete_incident(incident_id, opts = {})
       delete_incident_with_http_info(incident_id, opts)
       nil
     end
 
-    # Delete an existing incident
+    # Delete an existing incident.
+    #
     # Deletes an existing incident from the users organization.
+    #
     # @param incident_id [String] The UUID of the incident.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -171,19 +171,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get the details of an incident
-    # Get the details of an incident by `incident_id`.
-    # @param incident_id [String] The UUID of the incident.
-    # @param opts [Hash] the optional parameters
-    # @option opts [Array<IncidentRelatedObject>] :include Specifies which types of related objects should be included in the response.
-    # @return [IncidentResponse]
+    # Get the details of an incident.
+    #
+    # @see #get_incident_with_http_info
     def get_incident(incident_id, opts = {})
       data, _status_code, _headers = get_incident_with_http_info(incident_id, opts)
       data
     end
 
-    # Get the details of an incident
+    # Get the details of an incident.
+    #
     # Get the details of an incident by `incident_id`.
+    #
     # @param incident_id [String] The UUID of the incident.
     # @param opts [Hash] the optional parameters
     # @option opts [Array<IncidentRelatedObject>] :include Specifies which types of related objects should be included in the response.
@@ -247,20 +246,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get a list of incidents
-    # Get all incidents for the user's organization.
-    # @param opts [Hash] the optional parameters
-    # @option opts [Array<IncidentRelatedObject>] :include Specifies which types of related objects should be included in the response.
-    # @option opts [Integer] :page_size Size for a given page.
-    # @option opts [Integer] :page_offset Specific offset to use as the beginning of the returned page.
-    # @return [IncidentsResponse]
+    # Get a list of incidents.
+    #
+    # @see #list_incidents_with_http_info
     def list_incidents(opts = {})
       data, _status_code, _headers = list_incidents_with_http_info(opts)
       data
     end
 
-    # Get a list of incidents
+    # Get a list of incidents.
+    #
     # Get all incidents for the user's organization.
+    #
     # @param opts [Hash] the optional parameters
     # @option opts [Array<IncidentRelatedObject>] :include Specifies which types of related objects should be included in the response.
     # @option opts [Integer] :page_size Size for a given page.
@@ -323,20 +320,38 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Update an existing incident
-    # Updates an incident. Provide only the attributes that should be updated as this request is a partial update.
-    # @param incident_id [String] The UUID of the incident.
-    # @param body [IncidentUpdateRequest] Incident Payload.
-    # @param opts [Hash] the optional parameters
-    # @option opts [Array<IncidentRelatedObject>] :include Specifies which types of related objects should be included in the response.
-    # @return [IncidentResponse]
+    # Get a list of incidents.
+    #
+    # Provide a paginated version of {#list_incidents}, returning all items.
+    #
+    # To use it you need to use a block: list_incidents_with_pagination { |item| p item }
+    #
+    # @yield [IncidentResponseData] Paginated items
+    def list_incidents_with_pagination(opts = {})
+        page_size = @api_client.get_attribute_from_path(opts, "page_size", 10)
+        @api_client.set_attribute_from_path(opts, "page_size", Integer, page_size)
+        while true do
+            response = list_incidents(opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(opts, "page_offset", Integer, @api_client.get_attribute_from_path(opts, "page_offset", 0) + page_size)
+        end
+    end
+
+    # Update an existing incident.
+    #
+    # @see #update_incident_with_http_info
     def update_incident(incident_id, body, opts = {})
       data, _status_code, _headers = update_incident_with_http_info(incident_id, body, opts)
       data
     end
 
-    # Update an existing incident
+    # Update an existing incident.
+    #
     # Updates an incident. Provide only the attributes that should be updated as this request is a partial update.
+    #
     # @param incident_id [String] The UUID of the incident.
     # @param body [IncidentUpdateRequest] Incident Payload.
     # @param opts [Hash] the optional parameters

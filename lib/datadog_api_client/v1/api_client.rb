@@ -119,7 +119,7 @@ module DatadogAPIClient::V1
       return data, response.code, response.headers
     end
 
-    # Builds the HTTP request
+    # Build the HTTP request
     #
     # @param [String] http_method HTTP method/verb (e.g. POST)
     # @param [String] path URL path (e.g. /account/new)
@@ -168,7 +168,7 @@ module DatadogAPIClient::V1
       HTTParty::Request.new(http_method, url, req_opts)
     end
 
-    # Builds the HTTP request body
+    # Build the HTTP request body
     #
     # @param [Hash] header_params Header parameters
     # @param [Hash] form_params Query parameters
@@ -399,6 +399,57 @@ module DatadogAPIClient::V1
         param
       else
         fail "unknown collection format: #{collection_format.inspect}"
+      end
+    end
+
+
+    # Retrieve an attribute from a path specification.
+    #
+    # @param [Object] obj The source object
+    # @param [String] attribute_path The path spefication, separated by "."
+    # @param [Object] default The default value, if not found
+    # @return [Object] The value found, or default
+    # @!visibility private
+    def get_attribute_from_path(obj, attribute_path, default=nil)
+      for attr in attribute_path.split(".") do
+        case obj
+        when Hash
+          obj = !obj[attr.to_sym].nil? ? obj[attr.to_sym] : obj[attr]
+        else
+          obj = obj.send(attr)
+        end
+        return default if obj.nil?
+      end
+      obj
+    end
+
+    # Set an attribute at the given path
+    #
+    # @param [Object] obj The source object
+    # @param [String] attribute_path The path spefication, separated by "."
+    # @param [Object] builder The class matching the top level attribute
+    # @param [Object] value The value to set
+    # @!visibility private
+    def set_attribute_from_path(obj, attribute_path, builder, value)
+      attrs = attribute_path.split(".")
+      last = attrs.pop
+      i = 0
+      for attr in attrs do
+        case obj
+        when Hash
+          obj = !obj[attr.to_sym].nil? ? obj[attr.to_sym] : obj[attr]
+        else
+          obj = obj.send(attr)
+        end
+        builder = DatadogAPIClient::V2.const_get(builder.openapi_types[attr.to_sym]) if i > 0
+        obj = builder.new if obj.nil?
+        i += 1
+      end
+      case obj
+      when Hash
+        obj[last.to_sym] = value
+      else
+        obj.send(last + "=", value)
       end
     end
   end

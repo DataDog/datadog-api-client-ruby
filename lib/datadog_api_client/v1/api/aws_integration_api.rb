@@ -23,24 +23,21 @@ module DatadogAPIClient::V1
       @api_client = api_client
     end
 
-    # Create an AWS integration
-    # Create a Datadog-Amazon Web Services integration.
-    # Using the `POST` method updates your integration configuration
-    # by adding your new configuration to the existing one in your Datadog organization.
-    # A unique AWS Account ID for role based authentication.
-    # @param body [AWSAccount] AWS Request Object
-    # @param opts [Hash] the optional parameters
-    # @return [AWSAccountCreateResponse]
+    # Create an AWS integration.
+    #
+    # @see #create_aws_account_with_http_info
     def create_aws_account(body, opts = {})
       data, _status_code, _headers = create_aws_account_with_http_info(body, opts)
       data
     end
 
-    # Create an AWS integration
+    # Create an AWS integration.
+    #
     # Create a Datadog-Amazon Web Services integration.
     # Using the `POST` method updates your integration configuration
     # by adding your new configuration to the existing one in your Datadog organization.
     # A unique AWS Account ID for role based authentication.
+    #
     # @param body [AWSAccount] AWS Request Object
     # @param opts [Hash] the optional parameters
     # @return [Array<(AWSAccountCreateResponse, Integer, Hash)>] AWSAccountCreateResponse data, response status code and response headers
@@ -104,18 +101,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Set an AWS tag filter
     # Set an AWS tag filter.
-    # @param body [AWSTagFilterCreateRequest] Set an AWS tag filter using an `aws_account_identifier`, `namespace`, and filtering string. Namespace options are `application_elb`, `elb`, `lambda`, `network_elb`, `rds`, `sqs`, and `custom`.
-    # @param opts [Hash] the optional parameters
-    # @return [Object]
+    #
+    # @see #create_aws_tag_filter_with_http_info
     def create_aws_tag_filter(body, opts = {})
       data, _status_code, _headers = create_aws_tag_filter_with_http_info(body, opts)
       data
     end
 
-    # Set an AWS tag filter
     # Set an AWS tag filter.
+    #
+    # Set an AWS tag filter.
+    #
     # @param body [AWSTagFilterCreateRequest] Set an AWS tag filter using an `aws_account_identifier`, `namespace`, and filtering string. Namespace options are `application_elb`, `elb`, `lambda`, `network_elb`, `rds`, `sqs`, and `custom`.
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
@@ -179,18 +176,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Generate a new external ID
-    # Generate a new AWS external ID for a given AWS account ID and role name pair.
-    # @param body [AWSAccount] Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://docs.datadoghq.com/integrations/amazon_web_services/#setup).
-    # @param opts [Hash] the optional parameters
-    # @return [AWSAccountCreateResponse]
+    # Generate a new external ID.
+    #
+    # @see #create_new_aws_external_id_with_http_info
     def create_new_aws_external_id(body, opts = {})
       data, _status_code, _headers = create_new_aws_external_id_with_http_info(body, opts)
       data
     end
 
-    # Generate a new external ID
+    # Generate a new external ID.
+    #
     # Generate a new AWS external ID for a given AWS account ID and role name pair.
+    #
     # @param body [AWSAccount] Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://docs.datadoghq.com/integrations/amazon_web_services/#setup).
     # @param opts [Hash] the optional parameters
     # @return [Array<(AWSAccountCreateResponse, Integer, Hash)>] AWSAccountCreateResponse data, response status code and response headers
@@ -254,18 +251,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Delete an AWS integration
-    # Delete a Datadog-AWS integration matching the specified `account_id` and `role_name parameters`.
-    # @param body [AWSAccountDeleteRequest] AWS request object
-    # @param opts [Hash] the optional parameters
-    # @return [Object]
+    # Delete an AWS integration.
+    #
+    # @see #delete_aws_account_with_http_info
     def delete_aws_account(body, opts = {})
       data, _status_code, _headers = delete_aws_account_with_http_info(body, opts)
       data
     end
 
-    # Delete an AWS integration
+    # Delete an AWS integration.
+    #
     # Delete a Datadog-AWS integration matching the specified `account_id` and `role_name parameters`.
+    #
     # @param body [AWSAccountDeleteRequest] AWS request object
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
@@ -329,18 +326,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Delete a tag filtering entry
     # Delete a tag filtering entry.
-    # @param body [AWSTagFilterDeleteRequest] Delete a tag filtering entry for a given AWS account and `dd-aws` namespace.
-    # @param opts [Hash] the optional parameters
-    # @return [Object]
+    #
+    # @see #delete_aws_tag_filter_with_http_info
     def delete_aws_tag_filter(body, opts = {})
       data, _status_code, _headers = delete_aws_tag_filter_with_http_info(body, opts)
       data
     end
 
-    # Delete a tag filtering entry
     # Delete a tag filtering entry.
+    #
+    # Delete a tag filtering entry.
+    #
     # @param body [AWSTagFilterDeleteRequest] Delete a tag filtering entry for a given AWS account and `dd-aws` namespace.
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
@@ -404,17 +401,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # List namespace rules
-    # List all namespace rules for a given Datadog-AWS integration. This endpoint takes no arguments.
-    # @param opts [Hash] the optional parameters
-    # @return [Array<String>]
+    # List namespace rules.
+    #
+    # @see #list_available_aws_namespaces_with_http_info
     def list_available_aws_namespaces(opts = {})
       data, _status_code, _headers = list_available_aws_namespaces_with_http_info(opts)
       data
     end
 
-    # List namespace rules
+    # List namespace rules.
+    #
     # List all namespace rules for a given Datadog-AWS integration. This endpoint takes no arguments.
+    #
     # @param opts [Hash] the optional parameters
     # @return [Array<(Array<String>, Integer, Hash)>] Array<String> data, response status code and response headers
     def list_available_aws_namespaces_with_http_info(opts = {})
@@ -471,20 +469,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # List all AWS integrations
-    # List all Datadog-AWS integrations available in your Datadog organization.
-    # @param opts [Hash] the optional parameters
-    # @option opts [String] :account_id Only return AWS accounts that matches this `account_id`.
-    # @option opts [String] :role_name Only return AWS accounts that matches this role_name.
-    # @option opts [String] :access_key_id Only return AWS accounts that matches this `access_key_id`.
-    # @return [AWSAccountListResponse]
+    # List all AWS integrations.
+    #
+    # @see #list_aws_accounts_with_http_info
     def list_aws_accounts(opts = {})
       data, _status_code, _headers = list_aws_accounts_with_http_info(opts)
       data
     end
 
-    # List all AWS integrations
+    # List all AWS integrations.
+    #
     # List all Datadog-AWS integrations available in your Datadog organization.
+    #
     # @param opts [Hash] the optional parameters
     # @option opts [String] :account_id Only return AWS accounts that matches this `account_id`.
     # @option opts [String] :role_name Only return AWS accounts that matches this role_name.
@@ -547,18 +543,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get all AWS tag filters
     # Get all AWS tag filters.
-    # @param account_id [String] Only return AWS filters that matches this `account_id`.
-    # @param opts [Hash] the optional parameters
-    # @return [AWSTagFilterListResponse]
+    #
+    # @see #list_aws_tag_filters_with_http_info
     def list_aws_tag_filters(account_id, opts = {})
       data, _status_code, _headers = list_aws_tag_filters_with_http_info(account_id, opts)
       data
     end
 
-    # Get all AWS tag filters
     # Get all AWS tag filters.
+    #
+    # Get all AWS tag filters.
+    #
     # @param account_id [String] Only return AWS filters that matches this `account_id`.
     # @param opts [Hash] the optional parameters
     # @return [Array<(AWSTagFilterListResponse, Integer, Hash)>] AWSTagFilterListResponse data, response status code and response headers
@@ -621,21 +617,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Update an AWS integration
-    # Update a Datadog-Amazon Web Services integration.
-    # @param body [AWSAccount] AWS request object
-    # @param opts [Hash] the optional parameters
-    # @option opts [String] :account_id Only return AWS accounts that matches this `account_id`.
-    # @option opts [String] :role_name Only return AWS accounts that match this `role_name`. Required if `account_id` is specified.
-    # @option opts [String] :access_key_id Only return AWS accounts that matches this `access_key_id`. Required if none of the other two options are specified.
-    # @return [Object]
+    # Update an AWS integration.
+    #
+    # @see #update_aws_account_with_http_info
     def update_aws_account(body, opts = {})
       data, _status_code, _headers = update_aws_account_with_http_info(body, opts)
       data
     end
 
-    # Update an AWS integration
+    # Update an AWS integration.
+    #
     # Update a Datadog-Amazon Web Services integration.
+    #
     # @param body [AWSAccount] AWS request object
     # @param opts [Hash] the optional parameters
     # @option opts [String] :account_id Only return AWS accounts that matches this `account_id`.

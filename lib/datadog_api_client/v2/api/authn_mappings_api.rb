@@ -23,18 +23,18 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
-    # Create an AuthN Mapping
     # Create an AuthN Mapping.
-    # @param body [AuthNMappingCreateRequest] 
-    # @param opts [Hash] the optional parameters
-    # @return [AuthNMappingResponse]
+    #
+    # @see #create_authn_mapping_with_http_info
     def create_authn_mapping(body, opts = {})
       data, _status_code, _headers = create_authn_mapping_with_http_info(body, opts)
       data
     end
 
-    # Create an AuthN Mapping
     # Create an AuthN Mapping.
+    #
+    # Create an AuthN Mapping.
+    #
     # @param body [AuthNMappingCreateRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(AuthNMappingResponse, Integer, Hash)>] AuthNMappingResponse data, response status code and response headers
@@ -98,18 +98,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete an AuthN Mapping
-    # Delete an AuthN Mapping specified by AuthN Mapping UUID.
-    # @param authn_mapping_id [String] The UUID of the AuthN Mapping.
-    # @param opts [Hash] the optional parameters
-    # @return [nil]
+    # Delete an AuthN Mapping.
+    #
+    # @see #delete_authn_mapping_with_http_info
     def delete_authn_mapping(authn_mapping_id, opts = {})
       delete_authn_mapping_with_http_info(authn_mapping_id, opts)
       nil
     end
 
-    # Delete an AuthN Mapping
+    # Delete an AuthN Mapping.
+    #
     # Delete an AuthN Mapping specified by AuthN Mapping UUID.
+    #
     # @param authn_mapping_id [String] The UUID of the AuthN Mapping.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -171,18 +171,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get an AuthN Mapping by UUID
-    # Get an AuthN Mapping specified by the AuthN Mapping UUID.
-    # @param authn_mapping_id [String] The UUID of the AuthN Mapping.
-    # @param opts [Hash] the optional parameters
-    # @return [AuthNMappingResponse]
+    # Get an AuthN Mapping by UUID.
+    #
+    # @see #get_authn_mapping_with_http_info
     def get_authn_mapping(authn_mapping_id, opts = {})
       data, _status_code, _headers = get_authn_mapping_with_http_info(authn_mapping_id, opts)
       data
     end
 
-    # Get an AuthN Mapping by UUID
+    # Get an AuthN Mapping by UUID.
+    #
     # Get an AuthN Mapping specified by the AuthN Mapping UUID.
+    #
     # @param authn_mapping_id [String] The UUID of the AuthN Mapping.
     # @param opts [Hash] the optional parameters
     # @return [Array<(AuthNMappingResponse, Integer, Hash)>] AuthNMappingResponse data, response status code and response headers
@@ -244,22 +244,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List all AuthN Mappings
-    # List all AuthN Mappings in the org.
-    # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page.
-    # @option opts [Integer] :page_number Specific page number to return.
-    # @option opts [AuthNMappingsSort] :sort Sort AuthN Mappings depending on the given field.
-    # @option opts [Array<String>] :include Include additional information in the response.
-    # @option opts [String] :filter Filter all mappings by the given string.
-    # @return [AuthNMappingsResponse]
+    # List all AuthN Mappings.
+    #
+    # @see #list_authn_mappings_with_http_info
     def list_authn_mappings(opts = {})
       data, _status_code, _headers = list_authn_mappings_with_http_info(opts)
       data
     end
 
-    # List all AuthN Mappings
+    # List all AuthN Mappings.
+    #
     # List all AuthN Mappings in the org.
+    #
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Size for a given page.
     # @option opts [Integer] :page_number Specific page number to return.
@@ -330,19 +326,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Edit an AuthN Mapping
     # Edit an AuthN Mapping.
-    # @param authn_mapping_id [String] The UUID of the AuthN Mapping.
-    # @param body [AuthNMappingUpdateRequest] 
-    # @param opts [Hash] the optional parameters
-    # @return [AuthNMappingResponse]
+    #
+    # @see #update_authn_mapping_with_http_info
     def update_authn_mapping(authn_mapping_id, body, opts = {})
       data, _status_code, _headers = update_authn_mapping_with_http_info(authn_mapping_id, body, opts)
       data
     end
 
-    # Edit an AuthN Mapping
     # Edit an AuthN Mapping.
+    #
+    # Edit an AuthN Mapping.
+    #
     # @param authn_mapping_id [String] The UUID of the AuthN Mapping.
     # @param body [AuthNMappingUpdateRequest] 
     # @param opts [Hash] the optional parameters

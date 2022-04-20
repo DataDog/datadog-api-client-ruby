@@ -23,19 +23,18 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
-    # Grant permission to a role
-    # Adds a permission to a role.
-    # @param role_id [String] The unique identifier of the role.
-    # @param body [RelationshipToPermission] 
-    # @param opts [Hash] the optional parameters
-    # @return [PermissionsResponse]
+    # Grant permission to a role.
+    #
+    # @see #add_permission_to_role_with_http_info
     def add_permission_to_role(role_id, body, opts = {})
       data, _status_code, _headers = add_permission_to_role_with_http_info(role_id, body, opts)
       data
     end
 
-    # Grant permission to a role
+    # Grant permission to a role.
+    #
     # Adds a permission to a role.
+    #
     # @param role_id [String] The unique identifier of the role.
     # @param body [RelationshipToPermission] 
     # @param opts [Hash] the optional parameters
@@ -104,19 +103,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Add a user to a role
-    # Adds a user to a role.
-    # @param role_id [String] The unique identifier of the role.
-    # @param body [RelationshipToUser] 
-    # @param opts [Hash] the optional parameters
-    # @return [UsersResponse]
+    # Add a user to a role.
+    #
+    # @see #add_user_to_role_with_http_info
     def add_user_to_role(role_id, body, opts = {})
       data, _status_code, _headers = add_user_to_role_with_http_info(role_id, body, opts)
       data
     end
 
-    # Add a user to a role
+    # Add a user to a role.
+    #
     # Adds a user to a role.
+    #
     # @param role_id [String] The unique identifier of the role.
     # @param body [RelationshipToUser] 
     # @param opts [Hash] the optional parameters
@@ -185,19 +183,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Create a new role by cloning an existing role
-    # Clone an existing role
-    # @param role_id [String] The unique identifier of the role.
-    # @param body [RoleCloneRequest] 
-    # @param opts [Hash] the optional parameters
-    # @return [RoleResponse]
+    # Create a new role by cloning an existing role.
+    #
+    # @see #clone_role_with_http_info
     def clone_role(role_id, body, opts = {})
       data, _status_code, _headers = clone_role_with_http_info(role_id, body, opts)
       data
     end
 
-    # Create a new role by cloning an existing role
+    # Create a new role by cloning an existing role.
+    #
     # Clone an existing role
+    #
     # @param role_id [String] The unique identifier of the role.
     # @param body [RoleCloneRequest] 
     # @param opts [Hash] the optional parameters
@@ -266,18 +263,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Create role
-    # Create a new role for your organization.
-    # @param body [RoleCreateRequest] 
-    # @param opts [Hash] the optional parameters
-    # @return [RoleCreateResponse]
+    # Create role.
+    #
+    # @see #create_role_with_http_info
     def create_role(body, opts = {})
       data, _status_code, _headers = create_role_with_http_info(body, opts)
       data
     end
 
-    # Create role
+    # Create role.
+    #
     # Create a new role for your organization.
+    #
     # @param body [RoleCreateRequest] 
     # @param opts [Hash] the optional parameters
     # @return [Array<(RoleCreateResponse, Integer, Hash)>] RoleCreateResponse data, response status code and response headers
@@ -341,18 +338,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Delete role
-    # Disables a role.
-    # @param role_id [String] The unique identifier of the role.
-    # @param opts [Hash] the optional parameters
-    # @return [nil]
+    # Delete role.
+    #
+    # @see #delete_role_with_http_info
     def delete_role(role_id, opts = {})
       delete_role_with_http_info(role_id, opts)
       nil
     end
 
-    # Delete role
+    # Delete role.
+    #
     # Disables a role.
+    #
     # @param role_id [String] The unique identifier of the role.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -414,18 +411,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get a role
-    # Get a role in the organization specified by the role’s `role_id`.
-    # @param role_id [String] The unique identifier of the role.
-    # @param opts [Hash] the optional parameters
-    # @return [RoleResponse]
+    # Get a role.
+    #
+    # @see #get_role_with_http_info
     def get_role(role_id, opts = {})
       data, _status_code, _headers = get_role_with_http_info(role_id, opts)
       data
     end
 
-    # Get a role
+    # Get a role.
+    #
     # Get a role in the organization specified by the role’s `role_id`.
+    #
     # @param role_id [String] The unique identifier of the role.
     # @param opts [Hash] the optional parameters
     # @return [Array<(RoleResponse, Integer, Hash)>] RoleResponse data, response status code and response headers
@@ -487,17 +484,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List permissions
-    # Returns a list of all permissions, including name, description, and ID.
-    # @param opts [Hash] the optional parameters
-    # @return [PermissionsResponse]
+    # List permissions.
+    #
+    # @see #list_permissions_with_http_info
     def list_permissions(opts = {})
       data, _status_code, _headers = list_permissions_with_http_info(opts)
       data
     end
 
-    # List permissions
+    # List permissions.
+    #
     # Returns a list of all permissions, including name, description, and ID.
+    #
     # @param opts [Hash] the optional parameters
     # @return [Array<(PermissionsResponse, Integer, Hash)>] PermissionsResponse data, response status code and response headers
     def list_permissions_with_http_info(opts = {})
@@ -554,18 +552,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List permissions for a role
-    # Returns a list of all permissions for a single role.
-    # @param role_id [String] The unique identifier of the role.
-    # @param opts [Hash] the optional parameters
-    # @return [PermissionsResponse]
+    # List permissions for a role.
+    #
+    # @see #list_role_permissions_with_http_info
     def list_role_permissions(role_id, opts = {})
       data, _status_code, _headers = list_role_permissions_with_http_info(role_id, opts)
       data
     end
 
-    # List permissions for a role
+    # List permissions for a role.
+    #
     # Returns a list of all permissions for a single role.
+    #
     # @param role_id [String] The unique identifier of the role.
     # @param opts [Hash] the optional parameters
     # @return [Array<(PermissionsResponse, Integer, Hash)>] PermissionsResponse data, response status code and response headers
@@ -627,21 +625,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List roles
-    # Returns all roles, including their names and their unique identifiers.
-    # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page.
-    # @option opts [Integer] :page_number Specific page number to return.
-    # @option opts [RolesSort] :sort Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: `sort=-name`.
-    # @option opts [String] :filter Filter all roles by the given string.
-    # @return [RolesResponse]
+    # List roles.
+    #
+    # @see #list_roles_with_http_info
     def list_roles(opts = {})
       data, _status_code, _headers = list_roles_with_http_info(opts)
       data
     end
 
-    # List roles
+    # List roles.
+    #
     # Returns all roles, including their names and their unique identifiers.
+    #
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Size for a given page.
     # @option opts [Integer] :page_number Specific page number to return.
@@ -710,22 +705,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get all users of a role
-    # Gets all users of a role.
-    # @param role_id [String] The unique identifier of the role.
-    # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page.
-    # @option opts [Integer] :page_number Specific page number to return.
-    # @option opts [String] :sort User attribute to order results by. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example `sort=-name`. Options: `name`, `email`, `status`.
-    # @option opts [String] :filter Filter all users by the given string. Defaults to no filtering.
-    # @return [UsersResponse]
+    # Get all users of a role.
+    #
+    # @see #list_role_users_with_http_info
     def list_role_users(role_id, opts = {})
       data, _status_code, _headers = list_role_users_with_http_info(role_id, opts)
       data
     end
 
-    # Get all users of a role
+    # Get all users of a role.
+    #
     # Gets all users of a role.
+    #
     # @param role_id [String] The unique identifier of the role.
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size Size for a given page.
@@ -795,19 +786,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Revoke permission
-    # Removes a permission from a role.
-    # @param role_id [String] The unique identifier of the role.
-    # @param body [RelationshipToPermission] 
-    # @param opts [Hash] the optional parameters
-    # @return [PermissionsResponse]
+    # Revoke permission.
+    #
+    # @see #remove_permission_from_role_with_http_info
     def remove_permission_from_role(role_id, body, opts = {})
       data, _status_code, _headers = remove_permission_from_role_with_http_info(role_id, body, opts)
       data
     end
 
-    # Revoke permission
+    # Revoke permission.
+    #
     # Removes a permission from a role.
+    #
     # @param role_id [String] The unique identifier of the role.
     # @param body [RelationshipToPermission] 
     # @param opts [Hash] the optional parameters
@@ -876,19 +866,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Remove a user from a role
-    # Removes a user from a role.
-    # @param role_id [String] The unique identifier of the role.
-    # @param body [RelationshipToUser] 
-    # @param opts [Hash] the optional parameters
-    # @return [UsersResponse]
+    # Remove a user from a role.
+    #
+    # @see #remove_user_from_role_with_http_info
     def remove_user_from_role(role_id, body, opts = {})
       data, _status_code, _headers = remove_user_from_role_with_http_info(role_id, body, opts)
       data
     end
 
-    # Remove a user from a role
+    # Remove a user from a role.
+    #
     # Removes a user from a role.
+    #
     # @param role_id [String] The unique identifier of the role.
     # @param body [RelationshipToUser] 
     # @param opts [Hash] the optional parameters
@@ -957,19 +946,18 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Update a role
-    # Edit a role. Can only be used with application keys belonging to administrators.
-    # @param role_id [String] The unique identifier of the role.
-    # @param body [RoleUpdateRequest] 
-    # @param opts [Hash] the optional parameters
-    # @return [RoleUpdateResponse]
+    # Update a role.
+    #
+    # @see #update_role_with_http_info
     def update_role(role_id, body, opts = {})
       data, _status_code, _headers = update_role_with_http_info(role_id, body, opts)
       data
     end
 
-    # Update a role
+    # Update a role.
+    #
     # Edit a role. Can only be used with application keys belonging to administrators.
+    #
     # @param role_id [String] The unique identifier of the role.
     # @param body [RoleUpdateRequest] 
     # @param opts [Hash] the optional parameters

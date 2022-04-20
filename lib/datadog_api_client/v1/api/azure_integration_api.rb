@@ -23,23 +23,16 @@ module DatadogAPIClient::V1
       @api_client = api_client
     end
 
-    # Create an Azure integration
-    # Create a Datadog-Azure integration.
+    # Create an Azure integration.
     #
-    # Using the `POST` method updates your integration configuration by adding your new
-    # configuration to the existing one in your Datadog organization.
-    #
-    # Using the `PUT` method updates your integration configuration by replacing your
-    # current configuration with the new one sent to your Datadog organization.
-    # @param body [AzureAccount] Create a Datadog-Azure integration for your Datadog account request body.
-    # @param opts [Hash] the optional parameters
-    # @return [Object]
+    # @see #create_azure_integration_with_http_info
     def create_azure_integration(body, opts = {})
       data, _status_code, _headers = create_azure_integration_with_http_info(body, opts)
       data
     end
 
-    # Create an Azure integration
+    # Create an Azure integration.
+    #
     # Create a Datadog-Azure integration.
     #
     # Using the `POST` method updates your integration configuration by adding your new
@@ -47,6 +40,7 @@ module DatadogAPIClient::V1
     #
     # Using the `PUT` method updates your integration configuration by replacing your
     # current configuration with the new one sent to your Datadog organization.
+    #
     # @param body [AzureAccount] Create a Datadog-Azure integration for your Datadog account request body.
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
@@ -110,18 +104,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Delete an Azure integration
-    # Delete a given Datadog-Azure integration from your Datadog account.
-    # @param body [AzureAccount] Delete a given Datadog-Azure integration request body.
-    # @param opts [Hash] the optional parameters
-    # @return [Object]
+    # Delete an Azure integration.
+    #
+    # @see #delete_azure_integration_with_http_info
     def delete_azure_integration(body, opts = {})
       data, _status_code, _headers = delete_azure_integration_with_http_info(body, opts)
       data
     end
 
-    # Delete an Azure integration
+    # Delete an Azure integration.
+    #
     # Delete a given Datadog-Azure integration from your Datadog account.
+    #
     # @param body [AzureAccount] Delete a given Datadog-Azure integration request body.
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
@@ -185,17 +179,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # List all Azure integrations
-    # List all Datadog-Azure integrations configured in your Datadog account.
-    # @param opts [Hash] the optional parameters
-    # @return [Array<AzureAccount>]
+    # List all Azure integrations.
+    #
+    # @see #list_azure_integration_with_http_info
     def list_azure_integration(opts = {})
       data, _status_code, _headers = list_azure_integration_with_http_info(opts)
       data
     end
 
-    # List all Azure integrations
+    # List all Azure integrations.
+    #
     # List all Datadog-Azure integrations configured in your Datadog account.
+    #
     # @param opts [Hash] the optional parameters
     # @return [Array<(Array<AzureAccount>, Integer, Hash)>] Array<AzureAccount> data, response status code and response headers
     def list_azure_integration_with_http_info(opts = {})
@@ -252,18 +247,18 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Update Azure integration host filters
-    # Update the defined list of host filters for a given Datadog-Azure integration.
-    # @param body [AzureAccount] Update a Datadog-Azure integration's host filters request body.
-    # @param opts [Hash] the optional parameters
-    # @return [Object]
+    # Update Azure integration host filters.
+    #
+    # @see #update_azure_host_filters_with_http_info
     def update_azure_host_filters(body, opts = {})
       data, _status_code, _headers = update_azure_host_filters_with_http_info(body, opts)
       data
     end
 
-    # Update Azure integration host filters
+    # Update Azure integration host filters.
+    #
     # Update the defined list of host filters for a given Datadog-Azure integration.
+    #
     # @param body [AzureAccount] Update a Datadog-Azure integration's host filters request body.
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
@@ -327,22 +322,20 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Update an Azure integration
-    # Update a Datadog-Azure integration. Requires an existing `tenant_name` and `client_id`.
-    # Any other fields supplied will overwrite existing values. To overwrite `tenant_name` or `client_id`,
-    # use `new_tenant_name` and `new_client_id`. To leave a field unchanged, do not supply that field in the payload.
-    # @param body [AzureAccount] Update a Datadog-Azure integration request body.
-    # @param opts [Hash] the optional parameters
-    # @return [Object]
+    # Update an Azure integration.
+    #
+    # @see #update_azure_integration_with_http_info
     def update_azure_integration(body, opts = {})
       data, _status_code, _headers = update_azure_integration_with_http_info(body, opts)
       data
     end
 
-    # Update an Azure integration
+    # Update an Azure integration.
+    #
     # Update a Datadog-Azure integration. Requires an existing `tenant_name` and `client_id`.
     # Any other fields supplied will overwrite existing values. To overwrite `tenant_name` or `client_id`,
     # use `new_tenant_name` and `new_client_id`. To leave a field unchanged, do not supply that field in the payload.
+    #
     # @param body [AzureAccount] Update a Datadog-Azure integration request body.
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
