@@ -212,9 +212,9 @@ module {{ module_name }}::{{ version|upper }}
 
     {{ operation.summary|block_comment|indent(4) }}.
     #
-    # Provide a paginated version of {% raw %}{{% endraw %}#{{ operation.operationId|snake_case }}{% raw %}}{% endraw %}, returning all items.
+    # Provide a paginated version of {{ '{' }}#{{ operation.operationId|snake_case }}{{ '}' }}, returning all items.
     #
-    # To use it you need to use a block: { operation.operationId|snake_case }}_with_pagination { |item| p item }
+    # To use it you need to use a block: {{ operation.operationId|snake_case }}_with_pagination { |item| p item }
     #
     # @yield [{{ get_type_at_path(operation, pagination.resultsPath) }}] Paginated items
     def {{ operation.operationId|snake_case }}_with_pagination({% for name, parameter in operation|parameters if parameter.required %}{{ name|attribute_name }}, {% endfor %}opts = {})
