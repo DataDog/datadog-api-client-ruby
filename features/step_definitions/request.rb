@@ -253,7 +253,9 @@ When('the request with pagination is sent') do
   params = method.parameters.select { |p| p[0] == :req }.map { |p| opts.delete(p[1]) }
 
   begin
-    @response = [method.call(*params, opts), 200, nil]
+    result = []
+    method.call(*params, opts) { |item| result.append(item) }
+    @response = [result, 200, nil]
   rescue api_error => e
     # If we have an exception, make a stub response object to use for assertions
     # Instead of finding the response class of the method, we use the fact that all
