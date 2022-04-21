@@ -80,20 +80,6 @@ module DatadogAPIClient::V1
       end
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    # @!visibility private
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if !@renotify_interval.nil? && @renotify_interval > 1440
-        invalid_properties.push('invalid value for "renotify_interval", must be smaller than or equal to 1440.')
-      end
-      if !@renotify_interval.nil? && @renotify_interval < 0
-        invalid_properties.push('invalid value for "renotify_interval", must be greater than or equal to 0.')
-      end
-      invalid_properties
-    end
-
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     # @!visibility private

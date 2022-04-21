@@ -89,20 +89,6 @@ module DatadogAPIClient::V1
       end
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    # @!visibility private
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if @account_id.nil?
-        invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
-      end
-      if @services.nil?
-        invalid_properties.push('invalid value for "services", services cannot be nil.')
-      end
-      invalid_properties
-    end
-
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     # @!visibility private

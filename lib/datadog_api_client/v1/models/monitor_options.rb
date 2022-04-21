@@ -349,20 +349,6 @@ module DatadogAPIClient::V1
       end
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    # @!visibility private
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if !@min_failure_duration.nil? && @min_failure_duration > 7200
-        invalid_properties.push('invalid value for "min_failure_duration", must be smaller than or equal to 7200.')
-      end
-      if !@min_failure_duration.nil? && @min_failure_duration < 0
-        invalid_properties.push('invalid value for "min_failure_duration", must be greater than or equal to 0.')
-      end
-      invalid_properties
-    end
-
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     # @!visibility private

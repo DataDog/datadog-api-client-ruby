@@ -147,35 +147,6 @@ module DatadogAPIClient::V1
       end
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    # @!visibility private
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if @denominator.nil?
-        invalid_properties.push('invalid value for "denominator", denominator cannot be nil.')
-      end
-      if @interval.nil?
-        invalid_properties.push('invalid value for "interval", interval cannot be nil.')
-      end
-      if @numerator.nil?
-        invalid_properties.push('invalid value for "numerator", numerator cannot be nil.')
-      end
-      if @query.nil?
-        invalid_properties.push('invalid value for "query", query cannot be nil.')
-      end
-      if @res_type.nil?
-        invalid_properties.push('invalid value for "res_type", res_type cannot be nil.')
-      end
-      if @resp_version.nil?
-        invalid_properties.push('invalid value for "resp_version", resp_version cannot be nil.')
-      end
-      if @times.nil?
-        invalid_properties.push('invalid value for "times", times cannot be nil.')
-      end
-      invalid_properties
-    end
-
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     # @!visibility private
