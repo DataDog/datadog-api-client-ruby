@@ -2,4 +2,4 @@
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::AuthNMappingsAPI.new
-p api_instance.list_auth_n_mappings()
+p api_instance.list_authn_mappings()
