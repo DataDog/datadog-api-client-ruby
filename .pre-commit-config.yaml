@@ -5,7 +5,7 @@ repos:
     name: Generate
     language: system
     entry: make
-    files: '^(\.generator/.*|\.pre-commit-config\.yaml|Makefile)'
+    files: '^(\.generator/.*|\.pre-commit-config\.yaml|Makefile|\features/.*)'
     pass_filenames: false
   - id: format-examples
     name: Format generated examples
