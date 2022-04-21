@@ -56,19 +56,6 @@ def lookup(value, path):
     return result
 
 
-class FloatEncoder(json.JSONEncoder):
-    """Ensure that floats have decimal point and no trailing zeros."""
-
-    def encode(self, obj):
-        result = super().encode(obj)
-        if isinstance(obj, float):
-            if "." in result and result.endswith("0"):
-                result = result.rstrip("0")
-            result = result.rstrip(".")
-            return result
-        return result
-
-
 JINJA_ENV = Environment(loader=FileSystemLoader(pathlib.Path(__file__).parent / "src" / "generator" / "templates"))
 JINJA_ENV.filters["tojson"] = json.dumps
 JINJA_ENV.filters["snake_case"] = snake_case
