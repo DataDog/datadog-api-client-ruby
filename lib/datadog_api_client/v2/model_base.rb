@@ -230,7 +230,7 @@ module DatadogAPIClient::V2
           return data.each_with_object({}) { |(k, v), hsh| hsh[k] = find_and_cast_into_type(sub_type, v) }
         end
       else # model
-        const = DatadogAPIClient::V1.const_get(klass)
+        const = DatadogAPIClient::V2.const_get(klass)
         if const
           if const.respond_to?(:openapi_one_of) # nested oneOf model
             model = const.build(data)
