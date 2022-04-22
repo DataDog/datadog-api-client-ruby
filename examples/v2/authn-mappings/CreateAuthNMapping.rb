@@ -23,4 +23,4 @@ body = DatadogAPIClient::V2::AuthNMappingCreateRequest.new({
     type: DatadogAPIClient::V2::AuthNMappingsType::AUTHN_MAPPINGS,
   }),
 })
-p api_instance.create_authn_mapping(body)
+p api_instance.create_auth_n_mapping(body)
