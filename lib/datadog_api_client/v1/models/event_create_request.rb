@@ -179,26 +179,6 @@ module DatadogAPIClient::V1
       end
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    # @!visibility private
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if !@aggregation_key.nil? && @aggregation_key.to_s.length > 100
-        invalid_properties.push('invalid value for "aggregation_key", the character length must be smaller than or equal to 100.')
-      end
-      if @text.nil?
-        invalid_properties.push('invalid value for "text", text cannot be nil.')
-      end
-      if @text.to_s.length > 4000
-        invalid_properties.push('invalid value for "text", the character length must be smaller than or equal to 4000.')
-      end
-      if @title.nil?
-        invalid_properties.push('invalid value for "title", title cannot be nil.')
-      end
-      invalid_properties
-    end
-
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     # @!visibility private
