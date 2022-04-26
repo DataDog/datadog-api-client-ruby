@@ -23,6 +23,82 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
+    # Get Cost Across Multi-Org Account.
+    #
+    # @see #get_cost_by_org_with_http_info
+    def get_cost_by_org(start_month, opts = {})
+      data, _status_code, _headers = get_cost_by_org_with_http_info(start_month, opts)
+      data
+    end
+
+    # Get Cost Across Multi-Org Account.
+    #
+    # Get Cost Across Multi-Org Account.
+    #
+    # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost beginning this month.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost ending this month.
+    # @return [Array<(CostByOrgResponse, Integer, Hash)>] CostByOrgResponse data, response status code and response headers
+    def get_cost_by_org_with_http_info(start_month, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:get_cost_by_org)
+        unstable_enabled = @api_client.config.unstable_operations[:get_cost_by_org]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_cost_by_org")
+        else
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_cost_by_org"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_cost_by_org ...'
+      end
+      # verify the required parameter 'start_month' is set
+      if @api_client.config.client_side_validation && start_month.nil?
+        fail ArgumentError, "Missing the required parameter 'start_month' when calling UsageMeteringAPI.get_cost_by_org"
+      end
+      # resource path
+      local_var_path = '/api/v2/usage/cost_by_org'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'start_month'] = start_month
+      query_params[:'end_month'] = opts[:'end_month'] if !opts[:'end_month'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CostByOrgResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_cost_by_org,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsageMeteringAPI#get_cost_by_org\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get hourly usage for Observability Pipelines.
     #
     # @see #get_usage_observability_pipelines_with_http_info
