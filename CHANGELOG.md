@@ -1,5 +1,37 @@
 # CHANGELOG
 
+## 1.9.0 / 2022-04-26
+
+### Fixed
+* Fix pagination for top avg metrics endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/814
+* Rename models and APIs with IdP, AuthNMapping, AuthN, and IoT by @therve in https://github.com/DataDog/datadog-api-client-ruby/pull/825
+* Fix oneOf object names by @jirikuncar in https://github.com/DataDog/datadog-api-client-ruby/pull/832
+* Make type optional for synthetics basic auth model by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/840
+* Fix camel case version of `ListSLOs` by @jirikuncar in https://github.com/DataDog/datadog-api-client-ruby/pull/860
+* Set correct type for `tags` property by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/857
+* Fix serialization of v2 models by @jirikuncar in https://github.com/DataDog/datadog-api-client-ruby/pull/875
+### Added
+* Add support for `ci-pipelines` monitor using Formulas and Functions by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/820
+* Add aggregate endpoint for RUM by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/831
+* Add  `median` aggregation functions to RUM and logs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/838
+* Add endpoint for validation of existing monitors by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/839
+* Create new ListStreamSource types in order to deprecate ISSUE_STREAM by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/847
+* [Query Value Widget] Add the timeseries background by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/837
+* Add `restricted_roles` to Synthetics tests and private locations by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/849
+* Add v2 SAML config IdP Metadata upload endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/855
+* Support pagination in Python by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/861
+* Support pagination in Ruby by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/865
+* Add Usage API endpoint for observability-pipelines and add properties to v1 GetUsageSummary by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/835
+### Changed
+* Use HTTParty for API client by @skarimo in https://github.com/DataDog/datadog-api-client-ruby/pull/803
+* Remove list_invalid_properties by @therve in https://github.com/DataDog/datadog-api-client-ruby/pull/871
+### Removed
+* Remove `lambda_usage` and `lambda_percentage` from usage API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/827
+* [dashboards] Removed `issue_stream` type from `ListStreamSource` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/852
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-ruby/compare/v1.8.0...v1.9.0
+
 ## 1.8.0 / 2022-03-18
 
 ### Fixed
