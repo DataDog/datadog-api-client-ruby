@@ -32,7 +32,7 @@ def type_to_ruby(schema, alternative_name=None):
     if name:
         if "enum" in schema:
             return name
-        if not schema.get("additionalProperties") and schema.get("type", "object") == "object":
+        if not (schema.get("additionalProperties") and not schema.get("properties")) and schema.get("type", "object") == "object":
             return name
 
     type_ = schema.get("type")
@@ -61,7 +61,7 @@ def type_to_ruby(schema, alternative_name=None):
     elif type_ == "array":
         return "Array<{}>".format(type_to_ruby(schema["items"]))
     elif type_ == "object":
-        if "additionalProperties" in schema:
+        if "additionalProperties" in schema and not schema.get("properties"):
             return "Hash<String, {}>".format(type_to_ruby(schema["additionalProperties"]))
         return (
             alternative_name
@@ -119,7 +119,7 @@ def child_models(schema, alternative_name=None, seen=None):
 
     if (
         schema.get("type") == "object" or "properties" in schema or has_sub_models
-    ) and "additionalProperties" not in schema:
+    ) and not ("additionalProperties" in schema and "properties" not in schema):
         if not has_sub_models and name is None:
             # this is a basic map object so we don't need a type
             return

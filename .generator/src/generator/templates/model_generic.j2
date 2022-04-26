@@ -9,6 +9,10 @@
     {{ definition.description|block_comment|indent(4) }}
     attr_accessor :{{ attr|attribute_name }}
 {%- endfor %}
+{%- if model.get("additionalProperties") %}
+
+    attr_accessor :additional_properties
+{%- endif %}
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -57,9 +61,16 @@
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
+{%- if model.get("additionalProperties") %}
+          self.additional_properties[k.to_sym] = v
+        else
+          h[k.to_sym] = v
+        end
+{%- else %}
           fail ArgumentError, "`#{k}` is not a valid attribute in `{{ module_name }}::{{ version|upper }}::{{ name }}`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
+{%- endif %}
       }
 {%- for attr, definition in model.get("properties", {}).items() %}
 
@@ -185,6 +196,28 @@
     end
     {%- endif %}
 {%- endfor %}
+{%- if model.get("additionalProperties") %}
+
+    # Returns the object in the form of hash, with additionalProperties support.
+    # @return [Hash] Returns the object in the form of hash
+    # @!visibility private
+    def to_hash
+      hash = {}
+      self.class.attribute_map.each_pair do |attr, param|
+        value = self.send(attr)
+        if value.nil?
+          is_nullable = self.class.openapi_nullable.include?(attr)
+          next if !is_nullable || (is_nullable && !instance_variable_defined?(:"@#{attr}"))
+        end
+
+        hash[param] = _to_hash(value)
+      end
+      self.additional_properties.each_pair do |attr, value|
+        hash[attr] = value
+      end
+      hash
+    end
+{%- endif %}
 
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
@@ -193,8 +226,11 @@
       return true if self.equal?(o)
       self.class == o.class &&
 {%- for attr in model.properties %}
-          {{ attr|attribute_name }} == o.{{ attr|attribute_name }}{% if not loop.last %} &&{% endif %}
+          {{ attr|attribute_name }} == o.{{ attr|attribute_name }}{% if not loop.last or model.get("additionalProperties") %} &&{% endif %}
 {%- endfor %}
+{%- if model.get("additionalProperties") %}
+          additional_properties == o.additional_properties
+{%- endif %}
     end
 
     # @see the `==` method
@@ -208,6 +244,6 @@
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [{% for attr in model.properties %}{{ attr|attribute_name }}{% if not loop.last %}, {% endif %}{% endfor %}].hash
+      [{% for attr in model.properties %}{{ attr|attribute_name }}{% if not loop.last or model.get("additionalProperties") %}, {% endif %}{% endfor %}{% if model.get("additionalProperties") %}additional_properties{% endif %}].hash
     end
   end
