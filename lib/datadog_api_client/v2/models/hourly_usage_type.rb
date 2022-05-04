@@ -21,7 +21,6 @@ module DatadogAPIClient::V2
   class HourlyUsageType
     include BaseEnumModel
 
-    APP_SEC_HOST_COUNT = "app_sec_host_count".freeze
     OBSERVABILITY_PIPELINES_BYTES_PROCESSSED = "observability_pipelines_bytes_processed".freeze
   end
 end
