@@ -18,6 +18,7 @@ body = DatadogAPIClient::V2::LogsArchiveCreateRequest.new({
       include_tags: false,
       name: "Nginx Archive",
       query: "source:nginx",
+      rehydration_max_scan_size_in_gb: 100,
       rehydration_tags: [
         "team:intake",
         "team:app",

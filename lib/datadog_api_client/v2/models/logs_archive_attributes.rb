@@ -38,6 +38,9 @@ module DatadogAPIClient::V2
     # The archive query/filter. Logs matching this query are included in the archive.
     attr_accessor :query
 
+    # Maximum scan size for rehydration from this archive.
+    attr_accessor :rehydration_max_scan_size_in_gb
+
     # An array of tags to add to rehydrated logs from an archive.
     attr_accessor :rehydration_tags
 
@@ -52,6 +55,7 @@ module DatadogAPIClient::V2
         :'include_tags' => :'include_tags',
         :'name' => :'name',
         :'query' => :'query',
+        :'rehydration_max_scan_size_in_gb' => :'rehydration_max_scan_size_in_gb',
         :'rehydration_tags' => :'rehydration_tags',
         :'state' => :'state'
       }
@@ -71,6 +75,7 @@ module DatadogAPIClient::V2
         :'include_tags' => :'Boolean',
         :'name' => :'String',
         :'query' => :'String',
+        :'rehydration_max_scan_size_in_gb' => :'Integer',
         :'rehydration_tags' => :'Array<String>',
         :'state' => :'LogsArchiveState'
       }
@@ -81,6 +86,7 @@ module DatadogAPIClient::V2
     def self.openapi_nullable
       Set.new([
         :'destination',
+        :'rehydration_max_scan_size_in_gb',
       ])
     end
 
@@ -116,6 +122,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'query')
         self.query = attributes[:'query']
+      end
+
+      if attributes.key?(:'rehydration_max_scan_size_in_gb')
+        self.rehydration_max_scan_size_in_gb = attributes[:'rehydration_max_scan_size_in_gb']
       end
 
       if attributes.key?(:'rehydration_tags')
@@ -168,6 +178,7 @@ module DatadogAPIClient::V2
           include_tags == o.include_tags &&
           name == o.name &&
           query == o.query &&
+          rehydration_max_scan_size_in_gb == o.rehydration_max_scan_size_in_gb &&
           rehydration_tags == o.rehydration_tags &&
           state == o.state
     end
@@ -183,7 +194,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [destination, include_tags, name, query, rehydration_tags, state].hash
+      [destination, include_tags, name, query, rehydration_max_scan_size_in_gb, rehydration_tags, state].hash
     end
   end
 end
