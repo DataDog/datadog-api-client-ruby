@@ -64,6 +64,9 @@ module DatadogAPIClient::V1
     # For example, `service:postgres` **AND** `team:frontend`.
     attr_accessor :monitor_tags
 
+    # If the first recovery notification during a downtime should be muted.
+    attr_accessor :mute_first_recovery_notification
+
     # ID of the parent Downtime.
     attr_accessor :parent_id
 
@@ -99,6 +102,7 @@ module DatadogAPIClient::V1
         :'message' => :'message',
         :'monitor_id' => :'monitor_id',
         :'monitor_tags' => :'monitor_tags',
+        :'mute_first_recovery_notification' => :'mute_first_recovery_notification',
         :'parent_id' => :'parent_id',
         :'recurrence' => :'recurrence',
         :'scope' => :'scope',
@@ -128,6 +132,7 @@ module DatadogAPIClient::V1
         :'message' => :'String',
         :'monitor_id' => :'Integer',
         :'monitor_tags' => :'Array<String>',
+        :'mute_first_recovery_notification' => :'Boolean',
         :'parent_id' => :'Integer',
         :'recurrence' => :'DowntimeRecurrence',
         :'scope' => :'Array<String>',
@@ -206,6 +211,10 @@ module DatadogAPIClient::V1
         if (value = attributes[:'monitor_tags']).is_a?(Array)
           self.monitor_tags = value
         end
+      end
+
+      if attributes.key?(:'mute_first_recovery_notification')
+        self.mute_first_recovery_notification = attributes[:'mute_first_recovery_notification']
       end
 
       if attributes.key?(:'parent_id')
@@ -291,6 +300,7 @@ module DatadogAPIClient::V1
           message == o.message &&
           monitor_id == o.monitor_id &&
           monitor_tags == o.monitor_tags &&
+          mute_first_recovery_notification == o.mute_first_recovery_notification &&
           parent_id == o.parent_id &&
           recurrence == o.recurrence &&
           scope == o.scope &&
@@ -310,7 +320,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [active, canceled, creator_id, disabled, downtime_type, _end, id, message, monitor_id, monitor_tags, parent_id, recurrence, scope, start, timezone, updater_id].hash
+      [active, canceled, creator_id, disabled, downtime_type, _end, id, message, monitor_id, monitor_tags, mute_first_recovery_notification, parent_id, recurrence, scope, start, timezone, updater_id].hash
     end
   end
 end
