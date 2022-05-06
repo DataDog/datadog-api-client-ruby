@@ -15,5 +15,6 @@ body = DatadogAPIClient::V1::Downtime.new({
   start: Time.now.to_i,
   _end: (Time.now + 1 * 3600).to_i,
   timezone: "Etc/UTC",
+  mute_first_recovery_notification: true,
 })
 p api_instance.create_downtime(body)
