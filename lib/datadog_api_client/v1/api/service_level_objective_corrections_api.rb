@@ -322,7 +322,7 @@ module DatadogAPIClient::V1
 
     # Update an SLO correction.
     #
-    # Update the specified SLO correction object object.
+    # Update the specified SLO correction object.
     #
     # @param slo_correction_id [String] The ID of the SLO correction object.
     # @param body [SLOCorrectionUpdateRequest] The edited SLO correction object.

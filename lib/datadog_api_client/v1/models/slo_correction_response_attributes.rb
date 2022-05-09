@@ -28,7 +28,7 @@ module DatadogAPIClient::V1
     # Category the SLO correction belongs to.
     attr_accessor :category
 
-    # The epoch timestamp of when the correction was created at
+    # The epoch timestamp of when the correction was created at.
     attr_accessor :created_at
 
     # Object describing the creator of the shared element.
@@ -43,17 +43,17 @@ module DatadogAPIClient::V1
     # Ending time of the correction in epoch seconds.
     attr_accessor :_end
 
-    # The epoch timestamp of when the correction was modified at
+    # The epoch timestamp of when the correction was modified at.
     attr_accessor :modified_at
 
     # Modifier of the object.
     attr_accessor :modifier
 
     # The recurrence rules as defined in the iCalendar RFC 5545. The supported rules for SLO corrections
-    # are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
+    # are `FREQ`, `INTERVAL`, `COUNT`, and `UNTIL`.
     attr_accessor :rrule
 
-    # ID of the SLO that this correction will be applied to.
+    # ID of the SLO that this correction applies to.
     attr_accessor :slo_id
 
     # Starting time of the correction in epoch seconds.
