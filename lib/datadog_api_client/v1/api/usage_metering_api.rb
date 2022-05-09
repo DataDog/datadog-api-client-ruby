@@ -1048,7 +1048,7 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for CI Visibility.
     #
-    # Get hourly usage for CI Visibility (Tests, Pipeline, Combo, and Spans).
+    # Get hourly usage for CI Visibility (Tests, Pipeline, and Spans).
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters

@@ -41,7 +41,7 @@ module DatadogAPIClient::V1
     # are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
     attr_accessor :rrule
 
-    # ID of the SLO that this correction will be applied to.
+    # ID of the SLO that this correction applies to.
     attr_accessor :slo_id
 
     # Starting time of the correction in epoch seconds.
