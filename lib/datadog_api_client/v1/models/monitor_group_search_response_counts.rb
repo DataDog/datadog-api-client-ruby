@@ -50,8 +50,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'status' => :'Array<Object>',
-        :'type' => :'Array<Object>'
+        :'status' => :'Array<MonitorSearchCountItem>',
+        :'type' => :'Array<MonitorSearchCountItem>'
       }
     end
 

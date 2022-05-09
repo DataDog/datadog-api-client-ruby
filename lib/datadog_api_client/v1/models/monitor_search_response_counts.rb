@@ -58,10 +58,10 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'muted' => :'Array<Object>',
-        :'status' => :'Array<Object>',
-        :'tag' => :'Array<Object>',
-        :'type' => :'Array<Object>'
+        :'muted' => :'Array<MonitorSearchCountItem>',
+        :'status' => :'Array<MonitorSearchCountItem>',
+        :'tag' => :'Array<MonitorSearchCountItem>',
+        :'type' => :'Array<MonitorSearchCountItem>'
       }
     end
 

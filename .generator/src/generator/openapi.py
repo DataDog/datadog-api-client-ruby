@@ -59,7 +59,7 @@ def type_to_ruby(schema, alternative_name=None):
     elif type_ == "boolean":
         return "Boolean"
     elif type_ == "array":
-        return "Array<{}>".format(type_to_ruby(schema["items"]))
+        return "Array<{}>".format(type_to_ruby(schema["items"], name + "Item" if name else None))
     elif type_ == "object":
         if "additionalProperties" in schema and not schema.get("properties"):
             return "Hash<String, {}>".format(type_to_ruby(schema["additionalProperties"]))
@@ -113,7 +113,7 @@ def child_models(schema, alternative_name=None, seen=None):
     if "items" in schema:
         yield from child_models(
             schema["items"],
-            alternative_name=alternative_name + "Item" if alternative_name is not None else None,
+            alternative_name=name + "Item" if name is not None else None,
             seen=seen,
         )
 
