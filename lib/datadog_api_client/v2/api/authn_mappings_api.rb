@@ -260,7 +260,6 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_size Size for a given page.
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [AuthNMappingsSort] :sort Sort AuthN Mappings depending on the given field.
-    # @option opts [Array<String>] :include Include additional information in the response.
     # @option opts [String] :filter Filter all mappings by the given string.
     # @return [Array<(AuthNMappingsResponse, Integer, Hash)>] AuthNMappingsResponse data, response status code and response headers
     def list_authn_mappings_with_http_info(opts = {})
@@ -289,7 +288,6 @@ module DatadogAPIClient::V2
       query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
       query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
-      query_params[:'include'] = @api_client.build_collection_param(opts[:'include'], :multi) if !opts[:'include'].nil?
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
 
       # header parameters
