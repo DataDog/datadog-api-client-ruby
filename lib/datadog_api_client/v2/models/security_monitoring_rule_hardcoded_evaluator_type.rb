@@ -17,14 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The detection method.
-  class SecurityMonitoringRuleDetectionMethod
+  # Hardcoded evaluator type.
+  class SecurityMonitoringRuleHardcodedEvaluatorType
     include BaseEnumModel
 
-    THRESHOLD = "threshold".freeze
-    NEW_VALUE = "new_value".freeze
-    ANOMALY_DETECTION = "anomaly_detection".freeze
-    IMPOSSIBLE_TRAVEL = "impossible_travel".freeze
-    HARDCODED = "hardcoded".freeze
+    LOG4SHELL = "log4shell".freeze
   end
 end
