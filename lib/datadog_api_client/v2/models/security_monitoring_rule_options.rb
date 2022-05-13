@@ -32,6 +32,9 @@ module DatadogAPIClient::V2
     # and evaluates in real time.
     attr_accessor :evaluation_window
 
+    # Hardcoded evaluator type.
+    attr_accessor :hardcoded_evaluator_type
+
     # Options on impossible travel rules.
     attr_accessor :impossible_travel_options
 
@@ -52,6 +55,7 @@ module DatadogAPIClient::V2
       {
         :'detection_method' => :'detectionMethod',
         :'evaluation_window' => :'evaluationWindow',
+        :'hardcoded_evaluator_type' => :'hardcodedEvaluatorType',
         :'impossible_travel_options' => :'impossibleTravelOptions',
         :'keep_alive' => :'keepAlive',
         :'max_signal_duration' => :'maxSignalDuration',
@@ -71,6 +75,7 @@ module DatadogAPIClient::V2
       {
         :'detection_method' => :'SecurityMonitoringRuleDetectionMethod',
         :'evaluation_window' => :'SecurityMonitoringRuleEvaluationWindow',
+        :'hardcoded_evaluator_type' => :'SecurityMonitoringRuleHardcodedEvaluatorType',
         :'impossible_travel_options' => :'SecurityMonitoringRuleImpossibleTravelOptions',
         :'keep_alive' => :'SecurityMonitoringRuleKeepAlive',
         :'max_signal_duration' => :'SecurityMonitoringRuleMaxSignalDuration',
@@ -109,6 +114,10 @@ module DatadogAPIClient::V2
         self.evaluation_window = attributes[:'evaluation_window']
       end
 
+      if attributes.key?(:'hardcoded_evaluator_type')
+        self.hardcoded_evaluator_type = attributes[:'hardcoded_evaluator_type']
+      end
+
       if attributes.key?(:'impossible_travel_options')
         self.impossible_travel_options = attributes[:'impossible_travel_options']
       end
@@ -141,6 +150,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           detection_method == o.detection_method &&
           evaluation_window == o.evaluation_window &&
+          hardcoded_evaluator_type == o.hardcoded_evaluator_type &&
           impossible_travel_options == o.impossible_travel_options &&
           keep_alive == o.keep_alive &&
           max_signal_duration == o.max_signal_duration &&
@@ -158,7 +168,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [detection_method, evaluation_window, impossible_travel_options, keep_alive, max_signal_duration, new_value_options].hash
+      [detection_method, evaluation_window, hardcoded_evaluator_type, impossible_travel_options, keep_alive, max_signal_duration, new_value_options].hash
     end
   end
 end

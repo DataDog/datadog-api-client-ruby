@@ -19,6 +19,7 @@ body = DatadogAPIClient::V2::SecurityMonitoringRuleUpdatePayload.new({
   options: DatadogAPIClient::V2::SecurityMonitoringRuleOptions.new({
     detection_method: DatadogAPIClient::V2::SecurityMonitoringRuleDetectionMethod::THRESHOLD,
     evaluation_window: DatadogAPIClient::V2::SecurityMonitoringRuleEvaluationWindow::ZERO_MINUTES,
+    hardcoded_evaluator_type: DatadogAPIClient::V2::SecurityMonitoringRuleHardcodedEvaluatorType::LOG4SHELL,
     impossible_travel_options: DatadogAPIClient::V2::SecurityMonitoringRuleImpossibleTravelOptions.new({
       baseline_user_locations: true,
     }),
