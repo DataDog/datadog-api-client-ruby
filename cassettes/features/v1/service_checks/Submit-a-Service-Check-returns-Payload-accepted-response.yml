@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Thu, 06 Jan 2022 00:51:05 GMT
+- recorded_at: Thu, 12 May 2022 09:50:11 GMT
   request:
     body:
       encoding: UTF-8
-      string: '[{"check":"app.ok","host_name":"host","status":0,"tags":["test:TestSubmitaServiceCheckreturnsPayloadacceptedresponse1641430265"]}]'
+      string: '[{"check":"app.ok","host_name":"host","status":0,"tags":["test:TestSubmitaServiceCheckreturnsPayloadacceptedresponse1652349011"]}]'
     headers:
       Content-Type:
       - text/json
@@ -12,7 +12,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"status":"ok"}'
+      string: '{"status": "ok"}'
     status:
       code: 202
       message: Accepted

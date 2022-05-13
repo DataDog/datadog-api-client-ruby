@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Thu, 06 Jan 2022 00:50:52 GMT
+- recorded_at: Thu, 12 May 2022 09:50:05 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"series":[{"metric":"system.load.1","points":[[1641430252,1.1]],"tags":["test:TestSubmitmetricsreturnsPayloadacceptedresponse1641430252"],"type":"gauge"}]}'
+      string: '{"series":[{"metric":"system.load.1","points":[[1652349005,1.1]],"tags":["test:TestSubmitmetricsreturnsPayloadacceptedresponse1652349005"],"type":"gauge"}]}'
     headers:
       Content-Type:
       - text/json
@@ -12,7 +12,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"status":"ok"}'
+      string: '{"status": "ok"}'
     status:
       code: 202
       message: Accepted
