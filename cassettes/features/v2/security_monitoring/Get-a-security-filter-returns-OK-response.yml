@@ -1,10 +1,10 @@
 http_interactions:
-- recorded_at: Mon, 10 Jan 2022 15:51:27 GMT
+- recorded_at: Thu, 12 May 2022 09:53:15 GMT
   request:
     body:
       encoding: UTF-8
       string: '{"data":{"attributes":{"exclusion_filters":[{"name":"Exclude logs from
-        staging","query":"source:staging"}],"filtered_data_type":"logs","is_enabled":true,"name":"Test-Get_a_security_filter_returns_OK_response-1641829887","query":"service:TestGetasecurityfilterreturnsOKresponse1641829887"},"type":"security_filters"}}'
+        staging","query":"source:staging"}],"filtered_data_type":"logs","is_enabled":true,"name":"Test-Get_a_security_filter_returns_OK_response-1652349195","query":"service:TestGetasecurityfilterreturnsOKresponse1652349195"},"type":"security_filters"}}'
     headers:
       Content-Type:
       - application/json;charset=utf-8
@@ -13,33 +13,35 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"is_enabled":true,"name":"Test-Get_a_security_filter_returns_OK_response-1641829887","filtered_data_type":"logs","exclusion_filters":[{"query":"source:staging","name":"Exclude
-        logs from staging"}],"version":1,"query":"service:TestGetasecurityfilterreturnsOKresponse1641829887","is_builtin":false},"type":"security_filters","id":"ixg-a5r-3st"}}'
+      string: '{"data":{"attributes":{"is_enabled":true,"name":"Test-Get_a_security_filter_returns_OK_response-1652349195","filtered_data_type":"logs","exclusion_filters":[{"query":"source:staging","name":"Exclude
+        logs from staging"}],"version":1,"query":"service:TestGetasecurityfilterreturnsOKresponse1652349195","is_builtin":false},"type":"security_filters","id":"lgh-q3c-xlh"}}'
     status:
       code: 200
       message: OK
-- recorded_at: Mon, 10 Jan 2022 15:51:27 GMT
+- recorded_at: Thu, 12 May 2022 09:53:15 GMT
   request:
     body: null
     headers:
       Content-Type:
       - application/json;charset=utf-8
     method: GET
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters/ixg-a5r-3st
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters/lgh-q3c-xlh
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"is_enabled":true,"name":"Test-Get_a_security_filter_returns_OK_response-1641829887","filtered_data_type":"logs","exclusion_filters":[{"query":"source:staging","name":"Exclude
-        logs from staging"}],"version":1,"query":"service:TestGetasecurityfilterreturnsOKresponse1641829887","is_builtin":false},"type":"security_filters","id":"ixg-a5r-3st"}}'
+      string: '{"data":{"attributes":{"is_enabled":true,"name":"Test-Get_a_security_filter_returns_OK_response-1652349195","filtered_data_type":"logs","exclusion_filters":[{"query":"source:staging","name":"Exclude
+        logs from staging"}],"version":1,"query":"service:TestGetasecurityfilterreturnsOKresponse1652349195","is_builtin":false},"type":"security_filters","id":"lgh-q3c-xlh"}}'
     status:
       code: 200
       message: OK
-- recorded_at: Mon, 10 Jan 2022 15:51:27 GMT
+- recorded_at: Thu, 12 May 2022 09:53:15 GMT
   request:
     body: null
-    headers: {}
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters/ixg-a5r-3st
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters/lgh-q3c-xlh
   response:
     body:
       encoding: UTF-8

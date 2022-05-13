@@ -1,30 +1,32 @@
 http_interactions:
-- recorded_at: Mon, 10 Jan 2022 15:51:26 GMT
+- recorded_at: Thu, 12 May 2022 09:53:09 GMT
   request:
     body:
       encoding: UTF-8
       string: '{"cases":[{"condition":"a > 0","name":"","notifications":[],"status":"info"}],"filters":[],"isEnabled":true,"message":"Test
-        rule","name":"Test-Create_a_detection_rule_with_type_workload_security_returns_OK_response-1641829886","options":{"evaluationWindow":900,"keepAlive":3600,"maxSignalDuration":86400},"queries":[{"aggregation":"count","distinctFields":[],"groupByFields":[],"metric":"","query":"@test:true"}],"tags":[],"type":"workload_security"}'
+        rule","name":"Test-Create_a_detection_rule_with_type_workload_security_returns_OK_response-1652349189","options":{"evaluationWindow":900,"keepAlive":3600,"maxSignalDuration":86400},"queries":[{"aggregation":"count","distinctFields":[],"groupByFields":[],"metric":"","query":"@test:true"}],"tags":[],"type":"workload_security"}'
     headers:
       Content-Type:
-      - application/json;charset=utf-8
+      - application/json
     method: POST
     uri: https://api.datadoghq.com/api/v2/security_monitoring/rules
   response:
     body:
       encoding: UTF-8
       string: '{"creationAuthorId":1445416,"tags":[],"isEnabled":true,"hasExtendedTitle":false,"message":"Test
-        rule","options":{"detectionMethod":"threshold","evaluationWindow":900,"maxSignalDuration":86400,"keepAlive":3600},"version":1,"createdAt":1641829886523,"filters":[],"queries":[{"distinctFields":[],"name":"","metric":"","aggregation":"count","groupByFields":[],"query":"@test:true"}],"isDeleted":false,"cases":[{"status":"info","notifications":[],"name":"","condition":"a
-        > 0"}],"type":"workload_security","id":"0zm-idp-p44","isDefault":false,"name":"Test-Create_a_detection_rule_with_type_workload_security_returns_OK_response-1641829886"}'
+        rule","options":{"detectionMethod":"threshold","evaluationWindow":900,"maxSignalDuration":86400,"keepAlive":3600},"version":1,"createdAt":1652349190020,"filters":[],"queries":[{"distinctFields":[],"name":"","metric":"","aggregation":"count","groupByFields":[],"query":"@test:true"}],"isDeleted":false,"cases":[{"status":"info","notifications":[],"name":"","condition":"a
+        > 0"}],"type":"workload_security","id":"zzi-zsq-2is","isDefault":false,"name":"Test-Create_a_detection_rule_with_type_workload_security_returns_OK_response-1652349189"}
+
+        '
     status:
       code: 200
       message: OK
-- recorded_at: Mon, 10 Jan 2022 15:51:26 GMT
+- recorded_at: Thu, 12 May 2022 09:53:09 GMT
   request:
     body: null
     headers: {}
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/rules/0zm-idp-p44
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/rules/zzi-zsq-2is
   response:
     body:
       encoding: UTF-8

@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Tue, 29 Mar 2022 13:29:02 GMT
+- recorded_at: Thu, 12 May 2022 11:26:28 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"series":[{"metric":"TestDeleteatagconfigurationreturnsNoContentresponse1648560542","points":[[1648560542,1.1]],"tags":["test:ExampleSubmitmetricsreturnsPayloadacceptedresponse"],"type":"gauge"}]}'
+      string: '{"series":[{"metric":"TestDeleteatagconfigurationreturnsNoContentresponse1652354788","points":[[1652354788,1.1]],"tags":["test:ExampleSubmitmetricsreturnsPayloadacceptedresponse"],"type":"gauge"}]}'
     headers:
       Content-Type:
       - text/json
@@ -16,29 +16,29 @@ http_interactions:
     status:
       code: 202
       message: Accepted
-- recorded_at: Tue, 29 Mar 2022 13:29:02 GMT
+- recorded_at: Thu, 12 May 2022 11:26:28 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"metric_type":"gauge","tags":["app","datacenter","TestDeleteatagconfigurationreturnsNoContentresponse1648560542"]},"id":"TestDeleteatagconfigurationreturnsNoContentresponse1648560542","type":"manage_tags"}}'
+      string: '{"data":{"attributes":{"metric_type":"gauge","tags":["app","datacenter","TestDeleteatagconfigurationreturnsNoContentresponse1652354788"]},"id":"TestDeleteatagconfigurationreturnsNoContentresponse1652354788","type":"manage_tags"}}'
     headers:
       Content-Type:
       - application/json
     method: POST
-    uri: https://api.datadoghq.com/api/v2/metrics/TestDeleteatagconfigurationreturnsNoContentresponse1648560542/tags
+    uri: https://api.datadoghq.com/api/v2/metrics/TestDeleteatagconfigurationreturnsNoContentresponse1652354788/tags
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"manage_tags","id":"TestDeleteatagconfigurationreturnsNoContentresponse1648560542","attributes":{"tags":["datacenter","app","TestDeleteatagconfigurationreturnsNoContentresponse1648560542"],"created_at":"2022-03-29T13:29:03.991675+00:00","modified_at":"2022-03-29T13:29:03.991675+00:00","metric_type":"gauge","aggregations":[{"space":"avg","time":"avg"}]}}}'
+      string: '{"data":{"type":"manage_tags","id":"TestDeleteatagconfigurationreturnsNoContentresponse1652354788","attributes":{"tags":["datacenter","app","TestDeleteatagconfigurationreturnsNoContentresponse1652354788"],"created_at":"2022-05-12T11:26:33.849417+00:00","modified_at":"2022-05-12T11:26:33.849417+00:00","metric_type":"gauge","aggregations":[{"space":"avg","time":"avg"}]}}}'
     status:
       code: 201
       message: Created
-- recorded_at: Tue, 29 Mar 2022 13:29:02 GMT
+- recorded_at: Thu, 12 May 2022 11:26:28 GMT
   request:
     body: null
     headers: {}
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/metrics/TestDeleteatagconfigurationreturnsNoContentresponse1648560542/tags
+    uri: https://api.datadoghq.com/api/v2/metrics/TestDeleteatagconfigurationreturnsNoContentresponse1652354788/tags
   response:
     body:
       encoding: UTF-8
@@ -46,18 +46,18 @@ http_interactions:
     status:
       code: 204
       message: No Content
-- recorded_at: Tue, 29 Mar 2022 13:29:02 GMT
+- recorded_at: Thu, 12 May 2022 11:26:28 GMT
   request:
     body: null
     headers:
       Content-Type:
       - application/json
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/metrics/TestDeleteatagconfigurationreturnsNoContentresponse1648560542/tags
+    uri: https://api.datadoghq.com/api/v2/metrics/TestDeleteatagconfigurationreturnsNoContentresponse1652354788/tags
   response:
     body:
       encoding: UTF-8
-      string: '{"errors": ["TestDeleteatagconfigurationreturnsNoContentresponse1648560542
+      string: '{"errors": ["TestDeleteatagconfigurationreturnsNoContentresponse1652354788
         not found"]}'
     status:
       code: 404

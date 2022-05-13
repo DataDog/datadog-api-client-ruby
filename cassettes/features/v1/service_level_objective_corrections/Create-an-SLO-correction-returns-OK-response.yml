@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Mon, 10 Jan 2022 15:50:24 GMT
+- recorded_at: Thu, 12 May 2022 09:50:11 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"name":"Test-Create_an_SLO_correction_returns_OK_response-1641829824","query":{"denominator":"sum:httpservice.hits{!code:3xx}.as_count()","numerator":"sum:httpservice.hits{code:2xx}.as_count()"},"thresholds":[{"target":95,"timeframe":"7d","warning":98}],"type":"metric"}'
+      string: '{"name":"Test-Create_an_SLO_correction_returns_OK_response-1652349011","query":{"denominator":"sum:httpservice.hits{!code:3xx}.as_count()","numerator":"sum:httpservice.hits{code:2xx}.as_count()"},"thresholds":[{"target":95,"timeframe":"7d","warning":98}],"type":"metric"}'
     headers:
       Content-Type:
       - application/json
@@ -12,15 +12,15 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":[{"description":"","monitor_tags":[],"creator":{"handle":"frog@datadoghq.com","name":null,"email":"frog@datadoghq.com"},"thresholds":[{"warning":98.0,"warning_display":"98.","target":95.0,"target_display":"95.","timeframe":"7d"}],"type_id":1,"query":{"denominator":"sum:httpservice.hits{!code:3xx}.as_count()","numerator":"sum:httpservice.hits{code:2xx}.as_count()"},"id":"29e5d0559e8d5726a400448a93f28ece","name":"Test-Create_an_SLO_correction_returns_OK_response-1641829824","created_at":1641829824,"tags":[],"modified_at":1641829824,"type":"metric"}],"error":null}'
+      string: '{"data":[{"description":"","monitor_tags":[],"creator":{"handle":"frog@datadoghq.com","name":null,"email":"frog@datadoghq.com"},"thresholds":[{"warning":98.0,"warning_display":"98.","target":95.0,"target_display":"95.","timeframe":"7d"}],"type_id":1,"query":{"denominator":"sum:httpservice.hits{!code:3xx}.as_count()","numerator":"sum:httpservice.hits{code:2xx}.as_count()"},"id":"26d1f492d25b598fb6ef1a0405faa153","name":"Test-Create_an_SLO_correction_returns_OK_response-1652349011","created_at":1652349012,"tags":[],"modified_at":1652349012,"type":"metric"}],"error":null}'
     status:
       code: 200
       message: OK
-- recorded_at: Mon, 10 Jan 2022 15:50:24 GMT
+- recorded_at: Thu, 12 May 2022 09:50:11 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"category":"Scheduled Maintenance","description":"Test-Create_an_SLO_correction_returns_OK_response-1641829824","end":1641833424,"slo_id":"29e5d0559e8d5726a400448a93f28ece","start":1641829824,"timezone":"UTC"},"type":"correction"}}'
+      string: '{"data":{"attributes":{"category":"Scheduled Maintenance","description":"Test-Create_an_SLO_correction_returns_OK_response-1652349011","end":1652352611,"slo_id":"26d1f492d25b598fb6ef1a0405faa153","start":1652349011,"timezone":"UTC"},"type":"correction"}}'
     headers:
       Content-Type:
       - application/json
@@ -29,17 +29,17 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"correction","id":"0699f8e8-722d-11ec-b5d6-da7ad0900002","attributes":{"slo_id":"29e5d0559e8d5726a400448a93f28ece","start":1641829824,"end":1641833424,"description":"Test-Create_an_SLO_correction_returns_OK_response-1641829824","category":"Scheduled
+      string: '{"data":{"type":"correction","id":"eb223538-d1d8-11ec-8dd2-da7ad0902002","attributes":{"slo_id":"26d1f492d25b598fb6ef1a0405faa153","start":1652349011,"end":1652352611,"description":"Test-Create_an_SLO_correction_returns_OK_response-1652349011","category":"Scheduled
         Maintenance","timezone":"UTC","created_at":null,"modified_at":null,"rrule":null,"duration":null,"creator":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0","attributes":{"uuid":"3ad549bf-eba0-11e9-a77a-0705486660d0","handle":"frog@datadoghq.com","email":"frog@datadoghq.com","name":null,"icon":"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro"}}},"modifier":null}}}'
     status:
       code: 200
       message: OK
-- recorded_at: Mon, 10 Jan 2022 15:50:24 GMT
+- recorded_at: Thu, 12 May 2022 09:50:11 GMT
   request:
     body: null
     headers: {}
     method: DELETE
-    uri: https://api.datadoghq.com/api/v1/slo/correction/0699f8e8-722d-11ec-b5d6-da7ad0900002
+    uri: https://api.datadoghq.com/api/v1/slo/correction/eb223538-d1d8-11ec-8dd2-da7ad0902002
   response:
     body:
       encoding: UTF-8
@@ -47,18 +47,18 @@ http_interactions:
     status:
       code: 204
       message: No Content
-- recorded_at: Mon, 10 Jan 2022 15:50:24 GMT
+- recorded_at: Thu, 12 May 2022 09:50:11 GMT
   request:
     body: null
     headers:
       Content-Type:
       - application/json
     method: DELETE
-    uri: https://api.datadoghq.com/api/v1/slo/29e5d0559e8d5726a400448a93f28ece
+    uri: https://api.datadoghq.com/api/v1/slo/26d1f492d25b598fb6ef1a0405faa153
   response:
     body:
       encoding: UTF-8
-      string: '{"data":["29e5d0559e8d5726a400448a93f28ece"],"error":null}'
+      string: '{"data":["26d1f492d25b598fb6ef1a0405faa153"],"error":null}'
     status:
       code: 200
       message: OK
