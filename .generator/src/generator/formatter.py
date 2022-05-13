@@ -297,8 +297,11 @@ def format_data_with_schema_dict(
     name = get_name(schema)
 
     parameters = ""
-    if "properties" in schema:
+    has_properties = schema.get("properties")
+    if has_properties:
         for k, v in data.items():
+            if k not in schema["properties"]:
+                continue
             value = format_data_with_schema(
                 v,
                 schema["properties"][k],
@@ -310,6 +313,8 @@ def format_data_with_schema_dict(
 
     if schema.get("additionalProperties"):
         for k, v in data.items():
+            if has_properties and k in schema["properties"]:
+                continue
             value = format_data_with_schema(
                 v,
                 schema["additionalProperties"],
