@@ -338,6 +338,89 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Estimate Output Series - Public v2 API.
+    #
+    # @see #estimate_metrics_output_series_with_http_info
+    def estimate_metrics_output_series(metric_name, opts = {})
+      data, _status_code, _headers = estimate_metrics_output_series_with_http_info(metric_name, opts)
+      data
+    end
+
+    # Estimate Output Series - Public v2 API.
+    #
+    # Returns a cardinality estimate for a metric with a given tag, percentile, and number of aggregations configuration.
+    #
+    # @param metric_name [String] The name of the metric.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :filter_groups Filtered tag groups that the metric is configured to query with.
+    # @option opts [Integer] :filter_hours_ago The number of hours of look back (from now) to estimate cardinality with.
+    # @option opts [Integer] :filter_num_aggregations The number of aggregations that a `count`, `rate`, or `gauge` metric is configured to use. Max number of aggregation combos is 9.
+    # @option opts [Boolean] :filter_pct A boolean, for distribution metrics only, to estimate cardinality if the metric includes additional percentile aggregators.
+    # @option opts [Integer] :filter_timespan_h A window, in hours, from the look back to estimate cardinality with.
+    # @return [Array<(MetricEstimateResponse, Integer, Hash)>] MetricEstimateResponse data, response status code and response headers
+    def estimate_metrics_output_series_with_http_info(metric_name, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:estimate_metrics_output_series)
+        unstable_enabled = @api_client.config.unstable_operations[:estimate_metrics_output_series]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "estimate_metrics_output_series")
+        else
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "estimate_metrics_output_series"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MetricsAPI.estimate_metrics_output_series ...'
+      end
+      # verify the required parameter 'metric_name' is set
+      if @api_client.config.client_side_validation && metric_name.nil?
+        fail ArgumentError, "Missing the required parameter 'metric_name' when calling MetricsAPI.estimate_metrics_output_series"
+      end
+      # resource path
+      local_var_path = '/api/v2/metrics/{metric_name}/estimate'.sub('{metric_name}', CGI.escape(metric_name.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter[groups]'] = opts[:'filter_groups'] if !opts[:'filter_groups'].nil?
+      query_params[:'filter[hours_ago]'] = opts[:'filter_hours_ago'] if !opts[:'filter_hours_ago'].nil?
+      query_params[:'filter[num_aggregations]'] = opts[:'filter_num_aggregations'] if !opts[:'filter_num_aggregations'].nil?
+      query_params[:'filter[pct]'] = opts[:'filter_pct'] if !opts[:'filter_pct'].nil?
+      query_params[:'filter[timespan_h]'] = opts[:'filter_timespan_h'] if !opts[:'filter_timespan_h'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MetricEstimateResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :estimate_metrics_output_series,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MetricsAPI#estimate_metrics_output_series\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List tag configuration by name.
     #
     # @see #list_tag_configuration_by_name_with_http_info
