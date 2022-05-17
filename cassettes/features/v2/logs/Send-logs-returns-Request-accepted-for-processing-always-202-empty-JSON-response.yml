@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Thu, 12 May 2022 15:31:57 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '[{"ddsource":"nginx","ddtags":"env:staging,version:5.1","hostname":"i-012345678","message":"2019-11-19T14:37:58,995
+        INFO [process.name][20081] Hello World","service":"payment","status":"error"}]'
+    headers:
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://http-intake.logs.datadoghq.com/api/v2/logs
+  response:
+    body:
+      encoding: UTF-8
+      string: '{}'
+    status:
+      code: 202
+      message: Accepted
+recorded_with: VCR 6.0.0
