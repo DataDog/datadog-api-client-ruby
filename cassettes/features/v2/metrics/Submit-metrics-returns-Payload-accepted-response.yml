@@ -1,0 +1,19 @@
+http_interactions:
+- recorded_at: Fri, 22 Apr 2022 15:23:38 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"series":[{"metric":"system.load.1","points":[{"timestamp":1650641018,"value":0.7}],"type":0}]}'
+    headers:
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/series
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":[]}'
+    status:
+      code: 202
+      message: Accepted
+recorded_with: VCR 6.0.0
