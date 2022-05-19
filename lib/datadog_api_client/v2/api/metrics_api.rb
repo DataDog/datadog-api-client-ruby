@@ -338,7 +338,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Estimate Output Series - Public v2 API.
+    # Tag Configuration Cardinality Estimator.
     #
     # @see #estimate_metrics_output_series_with_http_info
     def estimate_metrics_output_series(metric_name, opts = {})
@@ -346,13 +346,13 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Estimate Output Series - Public v2 API.
+    # Tag Configuration Cardinality Estimator.
     #
-    # Returns a cardinality estimate for a metric with a given tag, percentile, and number of aggregations configuration.
+    # Returns the estimated cardinality for a metric with a given tag, percentile and number of aggregations configuration using Metrics without Limits&trade;.
     #
     # @param metric_name [String] The name of the metric.
     # @param opts [Hash] the optional parameters
-    # @option opts [String] :filter_groups Filtered tag groups that the metric is configured to query with.
+    # @option opts [String] :filter_groups Filtered tag keys that the metric is configured to query with.
     # @option opts [Integer] :filter_hours_ago The number of hours of look back (from now) to estimate cardinality with.
     # @option opts [Integer] :filter_num_aggregations The number of aggregations that a `count`, `rate`, or `gauge` metric is configured to use. Max number of aggregation combos is 9.
     # @option opts [Boolean] :filter_pct A boolean, for distribution metrics only, to estimate cardinality if the metric includes additional percentile aggregators.
