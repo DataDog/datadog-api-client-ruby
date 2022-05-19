@@ -23,5 +23,6 @@ module DatadogAPIClient::V1
 
     RUM = "rum".freeze
     CI_PIPELINES = "ci_pipelines".freeze
+    CI_TESTS = "ci_tests".freeze
   end
 end

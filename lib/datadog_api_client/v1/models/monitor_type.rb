@@ -35,6 +35,7 @@ module DatadogAPIClient::V1
     EVENT_V2_ALERT = "event-v2 alert".freeze
     AUDIT_ALERT = "audit alert".freeze
     CI_PIPELINES_ALERT = "ci-pipelines alert".freeze
+    CI_TESTS_ALERT = "ci-tests alert".freeze
     ERROR_TRACKING_ALERT = "error-tracking alert".freeze
   end
 end
