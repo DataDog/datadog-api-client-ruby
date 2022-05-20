@@ -31,6 +31,11 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
       "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     ],
     _retry: DatadogAPIClient::V1::SyntheticsTestOptionsRetry.new({}),
+    rum_settings: DatadogAPIClient::V1::SyntheticsBrowserTestRumSettings.new({
+      application_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      client_token_id: 12345,
+      is_enabled: true,
+    }),
   }),
   status: DatadogAPIClient::V1::SyntheticsTestPauseStatus::LIVE,
   subtype: DatadogAPIClient::V1::SyntheticsTestDetailsSubType::HTTP,

@@ -70,6 +70,19 @@ module DatadogAPIClient::V1
     # Object describing the retry strategy to apply to a Synthetic test.
     attr_accessor :_retry
 
+    # The RUM data collection settings for the Synthetic browser test.
+    # **Note:** There are 3 ways to format RUM settings:
+    #
+    # `{ isEnabled: false }`
+    # RUM data is not collected.
+    #
+    # `{ isEnabled: true }`
+    # RUM data is collected from the Synthetic test's default application.
+    #
+    # `{ isEnabled: true, applicationId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", clientTokenId: 12345 }`
+    # RUM data is collected using the specified application.
+    attr_accessor :rum_settings
+
     # The frequency at which to run the Synthetic test (in seconds).
     attr_accessor :tick_every
 
@@ -91,6 +104,7 @@ module DatadogAPIClient::V1
         :'no_screenshot' => :'noScreenshot',
         :'restricted_roles' => :'restricted_roles',
         :'_retry' => :'retry',
+        :'rum_settings' => :'rumSettings',
         :'tick_every' => :'tick_every'
       }
     end
@@ -119,6 +133,7 @@ module DatadogAPIClient::V1
         :'no_screenshot' => :'Boolean',
         :'restricted_roles' => :'Array<String>',
         :'_retry' => :'SyntheticsTestOptionsRetry',
+        :'rum_settings' => :'SyntheticsBrowserTestRumSettings',
         :'tick_every' => :'Integer'
       }
     end
@@ -206,6 +221,10 @@ module DatadogAPIClient::V1
         self._retry = attributes[:'_retry']
       end
 
+      if attributes.key?(:'rum_settings')
+        self.rum_settings = attributes[:'rum_settings']
+      end
+
       if attributes.key?(:'tick_every')
         self.tick_every = attributes[:'tick_every']
       end
@@ -268,6 +287,7 @@ module DatadogAPIClient::V1
           no_screenshot == o.no_screenshot &&
           restricted_roles == o.restricted_roles &&
           _retry == o._retry &&
+          rum_settings == o.rum_settings &&
           tick_every == o.tick_every
     end
 
@@ -282,7 +302,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [accept_self_signed, allow_insecure, check_certificate_revocation, device_ids, disable_cors, follow_redirects, min_failure_duration, min_location_failed, monitor_name, monitor_options, monitor_priority, no_screenshot, restricted_roles, _retry, tick_every].hash
+      [accept_self_signed, allow_insecure, check_certificate_revocation, device_ids, disable_cors, follow_redirects, min_failure_duration, min_location_failed, monitor_name, monitor_options, monitor_priority, no_screenshot, restricted_roles, _retry, rum_settings, tick_every].hash
     end
   end
 end
