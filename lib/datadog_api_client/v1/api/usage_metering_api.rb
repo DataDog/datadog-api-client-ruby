@@ -107,7 +107,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get Hourly Usage Attribution.
+    # Get hourly usage attribution.
     #
     # @see #get_hourly_usage_attribution_with_http_info
     def get_hourly_usage_attribution(start_hr, usage_type, opts = {})
@@ -115,9 +115,9 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get Hourly Usage Attribution.
+    # Get hourly usage attribution.
     #
-    # Get Hourly Usage Attribution.
+    # Get hourly usage attribution.
     #
     # This API endpoint is paginated. To make sure you receive all records, check if the value of `next_record_id` is
     # set in the response. If it is, make another request and pass `next_record_id` as a parameter.
@@ -448,7 +448,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get Monthly Usage Attribution.
+    # Get monthly usage attribution.
     #
     # @see #get_monthly_usage_attribution_with_http_info
     def get_monthly_usage_attribution(start_month, fields, opts = {})
@@ -456,9 +456,9 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get Monthly Usage Attribution.
+    # Get monthly usage attribution.
     #
-    # Get Monthly Usage Attribution.
+    # Get monthly usage attribution.
     #
     # This API endpoint is paginated. To make sure you receive all records, check if the value of `next_record_id` is
     # set in the response. If it is, make another request and pass `next_record_id` as a parameter.
@@ -787,7 +787,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get Usage Attribution.
+    # Get usage attribution.
     #
     # @see #get_usage_attribution_with_http_info
     def get_usage_attribution(start_month, fields, opts = {})
@@ -795,9 +795,9 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get Usage Attribution.
+    # Get usage attribution.
     #
-    # Get Usage Attribution.
+    # Get usage attribution.
     #
     # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage beginning in this month. Maximum of 15 months ago.
     # @param fields [UsageAttributionSupportedMetrics] Comma-separated list of usage types to return, or `*` for all usage types.

@@ -28,7 +28,7 @@ module DatadogAPIClient::V1
     # The object containing document metadata.
     attr_accessor :metadata
 
-    # Get Usage Summary by tag(s).
+    # Get usage summary by tag(s).
     attr_accessor :usage
 
     # Attribute mapping from ruby-style variable name to JSON key.
