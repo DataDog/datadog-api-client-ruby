@@ -66,7 +66,7 @@ module DatadogAPIClient::V2
         :'attribute_value' => :'String',
         :'created_at' => :'Time',
         :'modified_at' => :'Time',
-        :'saml_assertion_attribute_id' => :'Integer'
+        :'saml_assertion_attribute_id' => :'String'
       }
     end
 
@@ -118,18 +118,7 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if !@saml_assertion_attribute_id.nil? && @saml_assertion_attribute_id > 2147483647
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param saml_assertion_attribute_id [Object] Object to be assigned
-    # @!visibility private
-    def saml_assertion_attribute_id=(saml_assertion_attribute_id)
-      if !saml_assertion_attribute_id.nil? && saml_assertion_attribute_id > 2147483647
-        fail ArgumentError, 'invalid value for "saml_assertion_attribute_id", must be smaller than or equal to 2147483647.'
-      end
-      @saml_assertion_attribute_id = saml_assertion_attribute_id
     end
 
     # Checks equality by comparing each attribute.
