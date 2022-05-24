@@ -36,5 +36,6 @@ module DatadogAPIClient::V1
     PACKETS_RECEIVED = "packetsReceived".freeze
     NETWORK_HOP = "networkHop".freeze
     RECEIVED_MESSAGE = "receivedMessage".freeze
+    CONNECTION = "connection".freeze
   end
 end
