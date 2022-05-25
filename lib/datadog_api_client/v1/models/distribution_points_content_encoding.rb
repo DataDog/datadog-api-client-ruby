@@ -17,13 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Reason why a signal has been archived.
-  class SignalArchiveReason
+  # HTTP header used to compress the media-type.
+  class DistributionPointsContentEncoding
     include BaseEnumModel
 
-    NONE = "none".freeze
-    FALSE_POSITIVE = "false_positive".freeze
-    TESTING_OR_MAINTENANCE = "testing_or_maintenance".freeze
-    OTHER = "other".freeze
+    DEFLATE = "deflate".freeze
   end
 end

@@ -50,7 +50,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'id' => :'String',
+        :'id' => :'Integer',
         :'type' => :'SAMLAssertionAttributesType'
       }
     end
@@ -94,6 +94,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @id.nil?
+      return false if @id > 2147483647
       return false if @type.nil?
       true
     end
@@ -104,6 +105,9 @@ module DatadogAPIClient::V2
     def id=(id)
       if id.nil?
         fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+      end
+      if id > 2147483647
+        fail ArgumentError, 'invalid value for "id", must be smaller than or equal to 2147483647.'
       end
       @id = id
     end

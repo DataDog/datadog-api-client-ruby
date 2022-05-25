@@ -28,15 +28,11 @@ module DatadogAPIClient::V2
     # The AuthN Mapping object returned by API.
     attr_accessor :data
 
-    # Included data in the AuthN Mapping response.
-    attr_accessor :included
-
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'included' => :'included'
+        :'data' => :'data'
       }
     end
 
@@ -50,8 +46,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'AuthNMapping',
-        :'included' => :'Array<AuthNMappingIncluded>'
+        :'data' => :'AuthNMapping'
       }
     end
 
@@ -81,12 +76,6 @@ module DatadogAPIClient::V2
       if attributes.key?(:'data')
         self.data = attributes[:'data']
       end
-
-      if attributes.key?(:'included')
-        if (value = attributes[:'included']).is_a?(Array)
-          self.included = value
-        end
-      end
     end
 
     # Check to see if the all the properties in the model are valid
@@ -102,8 +91,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          included == o.included
+          data == o.data
     end
 
     # @see the `==` method
@@ -117,7 +105,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, included].hash
+      [data].hash
     end
   end
 end

@@ -1,4 +1,4 @@
-# Get hourly usage attribution returns "OK" response
+# Get Hourly Usage Attribution returns "OK" response
 
 require "datadog_api_client"
 DatadogAPIClient::V2.configure do |config|

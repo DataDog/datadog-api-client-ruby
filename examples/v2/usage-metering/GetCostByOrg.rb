@@ -1,4 +1,4 @@
-# Get cost across multi-org account returns "OK" response
+# Get Cost Across Multi-Org Account returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::UsageMeteringAPI.new

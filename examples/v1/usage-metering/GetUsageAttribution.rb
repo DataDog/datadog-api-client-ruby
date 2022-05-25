@@ -1,4 +1,4 @@
-# Get usage attribution returns "OK" response
+# Get Usage Attribution returns "OK" response
 
 require "datadog_api_client"
 DatadogAPIClient::V2.configure do |config|

@@ -36,7 +36,5 @@ module DatadogAPIClient::V1
     PACKETS_RECEIVED = "packetsReceived".freeze
     NETWORK_HOP = "networkHop".freeze
     RECEIVED_MESSAGE = "receivedMessage".freeze
-    GRPC_HEALTHCHECK_STATUS = "grpcHealthcheckStatus".freeze
-    CONNECTION = "connection".freeze
   end
 end

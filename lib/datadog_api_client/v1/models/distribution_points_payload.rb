@@ -17,34 +17,22 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Attributes describing the change of state for a given state.
-  class SignalStateUpdateRequest
+  # The distribution points payload.
+  class DistributionPointsPayload
     include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Optional comment to explain why a signal is being archived.
-    attr_accessor :archive_comment
-
-    # Reason why a signal has been archived.
-    attr_accessor :archive_reason
-
-    # The new triage state of the signal.
-    attr_accessor :state
-
-    # Version of the updated signal. If server side version is higher, update will be rejected.
-    attr_accessor :version
+    # A list of distribution points series to submit to Datadog.
+    attr_accessor :series
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'archive_comment' => :'archiveComment',
-        :'archive_reason' => :'archiveReason',
-        :'state' => :'state',
-        :'version' => :'version'
+        :'series' => :'series'
       }
     end
 
@@ -58,10 +46,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'archive_comment' => :'String',
-        :'archive_reason' => :'SignalArchiveReason',
-        :'state' => :'SignalTriageState',
-        :'version' => :'Integer'
+        :'series' => :'Array<DistributionPointsSeries>'
       }
     end
 
@@ -77,31 +62,21 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SignalStateUpdateRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::DistributionPointsPayload` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SignalStateUpdateRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::DistributionPointsPayload`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'archive_comment')
-        self.archive_comment = attributes[:'archive_comment']
-      end
-
-      if attributes.key?(:'archive_reason')
-        self.archive_reason = attributes[:'archive_reason']
-      end
-
-      if attributes.key?(:'state')
-        self.state = attributes[:'state']
-      end
-
-      if attributes.key?(:'version')
-        self.version = attributes[:'version']
+      if attributes.key?(:'series')
+        if (value = attributes[:'series']).is_a?(Array)
+          self.series = value
+        end
       end
     end
 
@@ -109,18 +84,18 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @state.nil?
+      return false if @series.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param state [Object] Object to be assigned
+    # @param series [Object] Object to be assigned
     # @!visibility private
-    def state=(state)
-      if state.nil?
-        fail ArgumentError, 'invalid value for "state", state cannot be nil.'
+    def series=(series)
+      if series.nil?
+        fail ArgumentError, 'invalid value for "series", series cannot be nil.'
       end
-      @state = state
+      @series = series
     end
 
     # Checks equality by comparing each attribute.
@@ -129,10 +104,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          archive_comment == o.archive_comment &&
-          archive_reason == o.archive_reason &&
-          state == o.state &&
-          version == o.version
+          series == o.series
     end
 
     # @see the `==` method
@@ -146,7 +118,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [archive_comment, archive_reason, state, version].hash
+      [series].hash
     end
   end
 end

@@ -17,12 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The new triage state of the signal.
-  class SignalTriageState
+  # The type of the distribution point.
+  class DistributionPointsType
     include BaseEnumModel
 
-    OPEN = "open".freeze
-    ARCHIVED = "archived".freeze
-    UNDER_REVIEW = "under_review".freeze
+    DISTRIBUTION = "distribution".freeze
   end
 end

@@ -35,7 +35,7 @@ module DatadogAPIClient::V1
     # The search query - following the log search syntax.
     attr_accessor :query
 
-    # Time-ascending `asc` or time-descending `desc` results.
+    # Time-ascending `asc` or time-descending `desc`results.
     attr_accessor :sort
 
     # Hash identifier of the first log to return in the list, available in a log `id` attribute.

@@ -51,7 +51,7 @@ module DatadogAPIClient::V1
     attr_accessor :status
 
     # The subtype of the Synthetic API test, `http`, `ssl`, `tcp`,
-    # `dns`, `icmp`, `udp`, `websocket`, `grpc` or `multi`.
+    # `dns`, `icmp`, `udp`, `websocket` or `multi`.
     attr_accessor :subtype
 
     # Array of tags attached to the test.

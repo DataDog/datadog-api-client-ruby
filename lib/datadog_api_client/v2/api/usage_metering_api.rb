@@ -23,7 +23,7 @@ module DatadogAPIClient::V2
       @api_client = api_client
     end
 
-    # Get cost across multi-org account.
+    # Get Cost Across Multi-Org Account.
     #
     # @see #get_cost_by_org_with_http_info
     def get_cost_by_org(start_month, opts = {})
@@ -31,9 +31,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Get cost across multi-org account.
+    # Get Cost Across Multi-Org Account.
     #
-    # Get cost across multi-org account. Cost by org data for a given month becomes available no later than the 16th of the following month.
+    # Get Cost Across Multi-Org Account.
     #
     # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost beginning this month.
     # @param opts [Hash] the optional parameters

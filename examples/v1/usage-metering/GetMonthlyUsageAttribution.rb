@@ -1,4 +1,4 @@
-# Get monthly usage attribution returns "OK" response
+# Get Monthly Usage Attribution returns "OK" response
 
 require "datadog_api_client"
 DatadogAPIClient::V2.configure do |config|

@@ -31,6 +31,9 @@ module DatadogAPIClient::V2
     # ID of the AuthN Mapping.
     attr_accessor :id
 
+    # Included data in the AuthN Mapping response.
+    attr_accessor :included
+
     # All relationships associated with AuthN Mapping.
     attr_accessor :relationships
 
@@ -43,6 +46,7 @@ module DatadogAPIClient::V2
       {
         :'attributes' => :'attributes',
         :'id' => :'id',
+        :'included' => :'included',
         :'relationships' => :'relationships',
         :'type' => :'type'
       }
@@ -60,6 +64,7 @@ module DatadogAPIClient::V2
       {
         :'attributes' => :'AuthNMappingAttributes',
         :'id' => :'String',
+        :'included' => :'Array<AuthNMappingIncluded>',
         :'relationships' => :'AuthNMappingRelationships',
         :'type' => :'AuthNMappingsType'
       }
@@ -94,6 +99,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'included')
+        if (value = attributes[:'included']).is_a?(Array)
+          self.included = value
+        end
       end
 
       if attributes.key?(:'relationships')
@@ -144,6 +155,7 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           attributes == o.attributes &&
           id == o.id &&
+          included == o.included &&
           relationships == o.relationships &&
           type == o.type
     end
@@ -159,7 +171,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, relationships, type].hash
+      [attributes, id, included, relationships, type].hash
     end
   end
 end

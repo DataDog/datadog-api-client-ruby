@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V1
   # The subtype of the Synthetic API test, `http`, `ssl`, `tcp`,
-  # `dns`, `icmp`, `udp`, `websocket`, `grpc` or `multi`.
+  # `dns`, `icmp`, `udp`, `websocket` or `multi`.
   class SyntheticsTestDetailsSubType
     include BaseEnumModel
 
@@ -30,6 +30,5 @@ module DatadogAPIClient::V1
     ICMP = "icmp".freeze
     UDP = "udp".freeze
     WEBSOCKET = "websocket".freeze
-    GRPC = "grpc".freeze
   end
 end
