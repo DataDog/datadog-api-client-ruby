@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Time-ascending `asc` or time-descending `desc`results.
+  # Time-ascending `asc` or time-descending `desc` results.
   class LogsSort
     include BaseEnumModel
 

@@ -55,6 +55,9 @@ module DatadogAPIClient::V1
     # Message to send for UDP or WebSocket tests.
     attr_accessor :message
 
+    # Metadata to include when performing the gRPC test.
+    attr_accessor :metadata
+
     # The HTTP method.
     attr_accessor :method
 
@@ -77,6 +80,9 @@ module DatadogAPIClient::V1
     # allowing the server to present one of multiple possible certificates on
     # the same IP address and TCP port number.
     attr_accessor :servername
+
+    # gRPC service on which you want to perform the healthcheck.
+    attr_accessor :service
 
     # Turns on a traceroute probe to discover all gateways along the path to the host destination.
     attr_accessor :should_track_hops
@@ -101,6 +107,7 @@ module DatadogAPIClient::V1
         :'headers' => :'headers',
         :'host' => :'host',
         :'message' => :'message',
+        :'metadata' => :'metadata',
         :'method' => :'method',
         :'no_saving_response_body' => :'noSavingResponseBody',
         :'number_of_packets' => :'numberOfPackets',
@@ -108,6 +115,7 @@ module DatadogAPIClient::V1
         :'proxy' => :'proxy',
         :'query' => :'query',
         :'servername' => :'servername',
+        :'service' => :'service',
         :'should_track_hops' => :'shouldTrackHops',
         :'timeout' => :'timeout',
         :'url' => :'url'
@@ -134,6 +142,7 @@ module DatadogAPIClient::V1
         :'headers' => :'Hash<String, String>',
         :'host' => :'String',
         :'message' => :'String',
+        :'metadata' => :'Hash<String, String>',
         :'method' => :'HTTPMethod',
         :'no_saving_response_body' => :'Boolean',
         :'number_of_packets' => :'Integer',
@@ -141,6 +150,7 @@ module DatadogAPIClient::V1
         :'proxy' => :'SyntheticsTestRequestProxy',
         :'query' => :'Object',
         :'servername' => :'String',
+        :'service' => :'String',
         :'should_track_hops' => :'Boolean',
         :'timeout' => :'Float',
         :'url' => :'String'
@@ -210,6 +220,10 @@ module DatadogAPIClient::V1
         self.message = attributes[:'message']
       end
 
+      if attributes.key?(:'metadata')
+        self.metadata = attributes[:'metadata']
+      end
+
       if attributes.key?(:'method')
         self.method = attributes[:'method']
       end
@@ -236,6 +250,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'servername')
         self.servername = attributes[:'servername']
+      end
+
+      if attributes.key?(:'service')
+        self.service = attributes[:'service']
       end
 
       if attributes.key?(:'should_track_hops')
@@ -304,6 +322,7 @@ module DatadogAPIClient::V1
           headers == o.headers &&
           host == o.host &&
           message == o.message &&
+          metadata == o.metadata &&
           method == o.method &&
           no_saving_response_body == o.no_saving_response_body &&
           number_of_packets == o.number_of_packets &&
@@ -311,6 +330,7 @@ module DatadogAPIClient::V1
           proxy == o.proxy &&
           query == o.query &&
           servername == o.servername &&
+          service == o.service &&
           should_track_hops == o.should_track_hops &&
           timeout == o.timeout &&
           url == o.url
@@ -327,7 +347,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_insecure, basic_auth, body, certificate, dns_server, dns_server_port, follow_redirects, headers, host, message, method, no_saving_response_body, number_of_packets, port, proxy, query, servername, should_track_hops, timeout, url].hash
+      [allow_insecure, basic_auth, body, certificate, dns_server, dns_server_port, follow_redirects, headers, host, message, metadata, method, no_saving_response_body, number_of_packets, port, proxy, query, servername, service, should_track_hops, timeout, url].hash
     end
   end
 end

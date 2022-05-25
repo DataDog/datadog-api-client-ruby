@@ -1,4 +1,4 @@
-# Paginate Monthly Usage Attribution
+# Paginate monthly usage attribution
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::UsageMeteringAPI.new

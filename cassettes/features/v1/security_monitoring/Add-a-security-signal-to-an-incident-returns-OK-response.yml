@@ -1,0 +1,19 @@
+http_interactions:
+- recorded_at: Fri, 20 May 2022 15:17:51 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"incident_id":2609}'
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+    method: PATCH
+    uri: https://api.datadoghq.com/api/v1/security_analytics/signals/AQAAAYDiB_Ol8PbzFAAAAABBWURpQl9PbEFBQU0yeXhGTG9ZV2JnQUE/add_to_incident
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"status":"done","elapsed":4,"hitCount":1,"type":"status","requestId":"pddv1ChZVSG9rS0xiLVROR0UzaExkSVRnaTZBIisKG6tMRhR9fRc0eaDfripyLqgONwbpcw5WGKATXBIMaeO6PoTCinH6lG0J"}'
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0

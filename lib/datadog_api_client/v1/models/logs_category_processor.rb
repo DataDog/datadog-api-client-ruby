@@ -38,7 +38,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Array of filters to match or not a log and their
-    # corresponding `name`to assign a custom value to the log.
+    # corresponding `name` to assign a custom value to the log.
     attr_accessor :categories
 
     # Whether or not the processor is enabled.

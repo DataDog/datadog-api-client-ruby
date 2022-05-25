@@ -17,19 +17,12 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The subtype of the Synthetic API test, `http`, `ssl`, `tcp`,
-  # `dns`, `icmp`, `udp`, `websocket`, `grpc` or `multi`.
-  class SyntheticsTestDetailsSubType
+  # The new triage state of the signal.
+  class SignalTriageState
     include BaseEnumModel
 
-    HTTP = "http".freeze
-    SSL = "ssl".freeze
-    TCP = "tcp".freeze
-    DNS = "dns".freeze
-    MULTI = "multi".freeze
-    ICMP = "icmp".freeze
-    UDP = "udp".freeze
-    WEBSOCKET = "websocket".freeze
-    GRPC = "grpc".freeze
+    OPEN = "open".freeze
+    ARCHIVED = "archived".freeze
+    UNDER_REVIEW = "under_review".freeze
   end
 end

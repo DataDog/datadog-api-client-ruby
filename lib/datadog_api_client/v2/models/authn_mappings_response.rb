@@ -28,6 +28,9 @@ module DatadogAPIClient::V2
     # Array of returned AuthN Mappings.
     attr_accessor :data
 
+    # Included data in the AuthN Mapping response.
+    attr_accessor :included
+
     # Object describing meta attributes of response.
     attr_accessor :meta
 
@@ -36,6 +39,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'data' => :'data',
+        :'included' => :'included',
         :'meta' => :'meta'
       }
     end
@@ -51,6 +55,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'data' => :'Array<AuthNMapping>',
+        :'included' => :'Array<AuthNMappingIncluded>',
         :'meta' => :'ResponseMetaAttributes'
       }
     end
@@ -84,6 +89,12 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'included')
+        if (value = attributes[:'included']).is_a?(Array)
+          self.included = value
+        end
+      end
+
       if attributes.key?(:'meta')
         self.meta = attributes[:'meta']
       end
@@ -103,6 +114,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           data == o.data &&
+          included == o.included &&
           meta == o.meta
     end
 
@@ -117,7 +129,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data, meta].hash
+      [data, included, meta].hash
     end
   end
 end

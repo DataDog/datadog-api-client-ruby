@@ -17,19 +17,13 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The subtype of the Synthetic API test, `http`, `ssl`, `tcp`,
-  # `dns`, `icmp`, `udp`, `websocket`, `grpc` or `multi`.
-  class SyntheticsTestDetailsSubType
+  # Reason why a signal has been archived.
+  class SignalArchiveReason
     include BaseEnumModel
 
-    HTTP = "http".freeze
-    SSL = "ssl".freeze
-    TCP = "tcp".freeze
-    DNS = "dns".freeze
-    MULTI = "multi".freeze
-    ICMP = "icmp".freeze
-    UDP = "udp".freeze
-    WEBSOCKET = "websocket".freeze
-    GRPC = "grpc".freeze
+    NONE = "none".freeze
+    FALSE_POSITIVE = "false_positive".freeze
+    TESTING_OR_MAINTENANCE = "testing_or_maintenance".freeze
+    OTHER = "other".freeze
   end
 end
