@@ -5,6 +5,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"is_secret":false,"name":"TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1652349056","value":"variable-value"}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: POST
@@ -13,6 +15,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"is_secret":false,"name":"TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1652349056","value":"variable-value"}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 201
       message: Created
@@ -22,6 +27,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"value":"variable-updated"}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: PUT
@@ -30,6 +37,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"is_secret":false,"name":"TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1652349056","value":"variable-updated"}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK
@@ -37,14 +47,17 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
-      - application/json
+      Accept:
+      - '*/*'
     method: DELETE
     uri: https://api.datadoghq.com/api/v1/integration/webhooks/configuration/custom-variables/TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1652349056
   response:
     body:
       encoding: UTF-8
       string: '{}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK

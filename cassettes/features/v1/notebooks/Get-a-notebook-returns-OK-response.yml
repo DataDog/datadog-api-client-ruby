@@ -6,6 +6,8 @@ http_interactions:
       string: '{"data":{"attributes":{"cells":[{"attributes":{"definition":{"text":"#
         Test-Get_a_notebook_returns_OK_response-1652349008 notebook text","type":"markdown"}},"type":"notebook_cells"}],"name":"Test-Get_a_notebook_returns_OK_response-1652349008","time":{"live_span":"1h"}},"type":"notebooks"}}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: POST
@@ -15,6 +17,9 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"type":"notebooks","id":2466033,"attributes":{"name":"Test-Get_a_notebook_returns_OK_response-1652349008","cells":[{"attributes":{"definition":{"text":"#
         Test-Get_a_notebook_returns_OK_response-1652349008 notebook text","type":"markdown"}},"type":"notebook_cells","id":"hzy6fag9"}],"time":{"live_span":"1h"},"metadata":{"is_favorite":false,"is_template":false,"type":null,"take_snapshots":false},"template_variables":[],"status":"published","modified":"2022-05-12T09:50:08.997931+00:00","created":"2022-05-12T09:50:08.997931+00:00","author":{"name":null,"handle":"frog@datadoghq.com","email":"frog@datadoghq.com","icon":"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro","title":null,"verified":true,"disabled":false,"status":"Active"}}}}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK
@@ -22,7 +27,7 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
+      Accept:
       - application/json
     method: GET
     uri: https://api.datadoghq.com/api/v1/notebooks/2466033
@@ -31,19 +36,25 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"type":"notebooks","id":2466033,"attributes":{"name":"Test-Get_a_notebook_returns_OK_response-1652349008","cells":[{"attributes":{"definition":{"text":"#
         Test-Get_a_notebook_returns_OK_response-1652349008 notebook text","type":"markdown"}},"type":"notebook_cells","id":"hzy6fag9"}],"time":{"live_span":"1h"},"metadata":{"is_favorite":false,"is_template":false,"type":null,"take_snapshots":false},"template_variables":[],"status":"published","modified":"2022-05-12T09:50:08.997931+00:00","created":"2022-05-12T09:50:08.997931+00:00","author":{"name":null,"handle":"frog@datadoghq.com","email":"frog@datadoghq.com","icon":"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro","title":null,"verified":true,"disabled":false,"status":"Active"}}}}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK
 - recorded_at: Thu, 12 May 2022 09:50:08 GMT
   request:
     body: null
-    headers: {}
+    headers:
+      Accept:
+      - '*/*'
     method: DELETE
     uri: https://api.datadoghq.com/api/v1/notebooks/2466033
   response:
     body:
       encoding: UTF-8
       string: ''
+    headers: {}
     status:
       code: 204
       message: No Content

@@ -5,6 +5,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"name":"updated","options":{"evaluation_delay":null,"new_group_delay":600,"new_host_delay":null,"renotify_interval":null,"thresholds":{"critical":2,"warning":null},"timeout_h":null}}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: PUT
@@ -13,6 +15,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"errors":["Monitor not found"]}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 404
       message: Not Found

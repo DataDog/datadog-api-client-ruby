@@ -3,8 +3,8 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
-      - application/yaml
+      Accept:
+      - application/yaml, application/json
     method: GET
     uri: https://api.datadoghq.com/api/v2/security/cloud_workload/policy/download
   response:
@@ -816,6 +816,9 @@ http_interactions:
         \ == \"go\"\n- id: user_created_tty\n  version: 5b5f4a52\n  description: User\
         \ Created Interactively\n  expression: exec.file.name in [\"useradd\", \"\
         newusers\"] && exec.tty_name !=\"\"\n"
+    headers:
+      Content-Type:
+      - application/yaml
     status:
       code: 200
       message: OK

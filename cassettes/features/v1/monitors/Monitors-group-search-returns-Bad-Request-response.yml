@@ -3,7 +3,7 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
+      Accept:
       - application/json
     method: GET
     uri: https://api.datadoghq.com/api/v1/monitor/groups/search?query=status%3Anotastatus
@@ -12,6 +12,9 @@ http_interactions:
       encoding: UTF-8
       string: '{"errors":["Query parsing error: ''notastatus'' is not a valid monitor
         status"]}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 400
       message: Bad Request

@@ -5,6 +5,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"description":"","is_read_only":false,"layout_type":"free","notify_list":[],"template_variables":[],"title":"Test-Create_a_new_dashboard_with_image_widget-1641430235","widgets":[{"definition":{"sizing":"cover","type":"image","url":"https://example.com/image.png"},"layout":{"height":12,"width":12,"x":0,"y":0}}]}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: POST
@@ -13,6 +15,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"notify_list":[],"description":"","restricted_roles":[],"author_name":null,"template_variables":[],"is_read_only":false,"id":"6qb-v3p-rrv","title":"Test-Create_a_new_dashboard_with_image_widget-1641430235","url":"/dashboard/6qb-v3p-rrv/test-createanewdashboardwithimagewidget-1641430235","created_at":"2022-01-06T00:50:36.031687+00:00","modified_at":"2022-01-06T00:50:36.031687+00:00","author_handle":"frog@datadoghq.com","widgets":[{"definition":{"sizing":"cover","url":"https://example.com/image.png","type":"image"},"layout":{"y":0,"width":12,"x":0,"height":12},"id":4480145637940282}],"layout_type":"free"}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK
@@ -20,7 +25,7 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
+      Accept:
       - application/json
     method: DELETE
     uri: https://api.datadoghq.com/api/v1/dashboard/6qb-v3p-rrv
@@ -28,6 +33,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"deleted_dashboard_id":"6qb-v3p-rrv"}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK

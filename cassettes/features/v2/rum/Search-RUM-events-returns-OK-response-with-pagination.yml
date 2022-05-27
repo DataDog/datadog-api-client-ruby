@@ -5,6 +5,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"filter":{"from":"now-15m","query":"@type:session AND @session.type:user","to":"now"},"options":{"time_offset":0,"timezone":"GMT"},"page":{"limit":2},"sort":"timestamp"}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: POST
@@ -27,6 +29,9 @@ http_interactions:
         Inc."},"location":[0.1234,1.234],"continent":"Europe"},"view":{"name":"/monitors/:id/edit","url":"https://example.datadoghq.eu/monitors/12345/edit","referrer":"https://example.datadoghq.eu/monitors/12345?from_ts=1649720111217&to_ts=1649736027006&eval_ts=1649736027006","url_host":"example.datadoghq.eu","url_scheme":"https","url_path_group":"/monitors/?/edit","url_path":"/monitors/12345/edit","id":"c29e0f27-30aa-4e13-b4b9-4eddc396684b"}},"tags":["sdk_version:4.7.1","datacenter:split.env","source:browser","env:prod","version:35.7643717","env:prod","sdk_version:4.7.1","datacenter:split.env","source:browser","version:35.7643717","service:web-ui"],"service":"web-ui","timestamp":"2022-04-12T10:04:36.895Z"},"type":"rum","id":"AQAAAYAdO3KfpzfngAAAAABBWUFkTzNSV0FBQ29pNkphck1fdU1nQUM"}],"links":{"next":"https://api.datadoghq.com/api/v2/rum/events?page%5Bcursor%5D=eyJhZnRlciI6IkFRQUFBWUFkTzNLZnB6Zm5nQUFBQUFCQldVRmtUek5TVjBGQlEyOXBOa3BoY2sxZmRVMW5RVU0ifQ&page%5Blimit%5D=2"}}
 
         '
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK
@@ -36,6 +41,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"filter":{"from":"now-15m","query":"@type:session AND @session.type:user","to":"now"},"options":{"time_offset":0,"timezone":"GMT"},"page":{"cursor":"eyJhZnRlciI6IkFRQUFBWUFkeXBJYXB1d21Sd0FBQUFCeWMxOWlNVGcxTW1Fd1l5MDROV0V5TFRRNFlqWXRZak0wTnkxbVpUSXhN","limit":2},"sort":"timestamp"}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: POST
@@ -51,6 +58,9 @@ http_interactions:
         Inc."},"location":[0.1234,1.234],"continent":"Europe"},"view":{"name":"/monitors/:id/edit","url":"https://example.datadoghq.eu/monitors/12345/edit","referrer":"https://example.datadoghq.eu/monitors/12345?from_ts=1649720111217&to_ts=1649736027006&eval_ts=1649736027006","url_host":"example.datadoghq.eu","url_scheme":"https","url_path_group":"/monitors/?/edit","url_path":"/monitors/12345/edit","id":"c29e0f27-30aa-4e13-b4b9-4eddc396684b"}},"tags":["sdk_version:4.7.1","datacenter:split.env","source:browser","env:prod","version:35.7643717","env:prod","sdk_version:4.7.1","datacenter:split.env","source:browser","version:35.7643717","service:web-ui"],"service":"web-ui","timestamp":"2022-04-12T10:04:36.894Z"},"type":"rum","id":"AQAAAYAdO3KepzfnfwAAAABBWUFkTzNSV0FBQ29pNkphck1fdU1nQUI"}],"links":{"next":"https://api.datadoghq.com/api/v2/rum/events?page%5Bcursor%5D=eyJhZnRlciI6IkFRQUFBWUFkTzNLYXN2VDNLd0FBQUFCQldVRmtUek5UVFVGQlFrOXRiRkZaY3kwNGFVcDNRVWMifQ&page%5Blimit%5D=2"}}
 
         '
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK

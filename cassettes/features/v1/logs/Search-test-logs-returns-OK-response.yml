@@ -5,6 +5,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"index":"main","query":"host:Test*","sort":"asc","time":{"from":"2022-04-12T13:46:01.054Z","timezone":"Europe/Paris","to":"2022-04-12T14:46:01.054Z"}}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: POST
@@ -21,6 +23,9 @@ http_interactions:
         Test-Go-TestLogsList-1649774376","timestamp":"2022-04-12T14:22:56.000Z"},"id":"AQAAAYAeJ_IAoerAgAAAAABBWUFlTnpZWUFBQ29QaE5GdHgxcjJnQUE"},{"content":{"attributes":{"timestamp":1649773408000,"hostname":"Test-Go-TestLogsListGet-1649774408"},"host":"Test-Go-TestLogsListGet-1649774408","tags":["source:go-client-test-test-go-testlogslistget-1649774408","test","go","list","source:go-client-test-test-go-testlogslistget-1649774408"],"message":"test-log-list-1
         Test-Go-TestLogsListGet-1649774408","timestamp":"2022-04-12T14:23:28.000Z"},"id":"AQAAAYAeKG8Ao6McCAAAAABBWUFlTjdLZEFBRHFMTW9ZX2RTdzdnQUE"},{"content":{"attributes":{"timestamp":1649774194000,"hostname":"Test-Go-TestLogsList-1649774195"},"host":"Test-Go-TestLogsList-1649774195","tags":["source:go-client-test-test-go-testlogslist-1649774195","test","go","list","source:go-client-test-test-go-testlogslist-1649774195"],"message":"test-log-list-2
         Test-Go-TestLogsList-1649774195","timestamp":"2022-04-12T14:36:34.000Z"},"id":"AQAAAYAeNG1Q5fBvLwAAAABBWUFlTkhQakFBQmtWQk8zVXkwTXNnQUE"}],"requestId":"pddv1ChZ0T0JqMzFnX1FQaWdGd21BTU1hckl3IiwKHC8XTMg_fLTUGsRepyDllkNF3vCLTnkHA-t3jZYSDMSnnSl0VC9gKVQz5Q"}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK

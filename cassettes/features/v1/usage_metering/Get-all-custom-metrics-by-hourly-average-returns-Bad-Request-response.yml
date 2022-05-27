@@ -3,14 +3,17 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
-      - application/json
+      Accept:
+      - application/json;datetime-format=rfc3339
     method: GET
     uri: https://api.datadoghq.com/api/v1/usage/top_avg_metrics
   response:
     body:
       encoding: UTF-8
       string: '{"errors": ["The parameter ''month/day'' is required"]}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 400
       message: Bad Request

@@ -3,8 +3,8 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
-      - application/json
+      Accept:
+      - application/json;datetime-format=rfc3339
     method: GET
     uri: https://api.datadoghq.com/api/v1/usage/ingested-spans?start_hr=2022-01-26T09%3A34%3A33.739Z&end_hr=2022-01-28T09%3A34%3A33.739Z
   response:
@@ -58,6 +58,9 @@ http_interactions:
         Integration Tests (321813)","ingested_events_bytes":0,"public_id":"fasjyydbcgwwc2uc","hour":"2022-01-28T06:00:00+00:00"},{"org_name":"DD
         Integration Tests (321813)","ingested_events_bytes":0,"public_id":"fasjyydbcgwwc2uc","hour":"2022-01-28T07:00:00+00:00"},{"org_name":"DD
         Integration Tests (321813)","ingested_events_bytes":0,"public_id":"fasjyydbcgwwc2uc","hour":"2022-01-28T08:00:00+00:00"}]}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK

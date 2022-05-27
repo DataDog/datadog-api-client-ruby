@@ -5,6 +5,8 @@ http_interactions:
       encoding: UTF-8
       string: '[{"ddtags":"host:TestSendlogsreturnsResponsefromserveralways200emptyJSONresponse1649774806","message":"Test-Send_logs_returns_Response_from_server_always_200_empty_JSON_response-1649774806"}]'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: POST
@@ -13,6 +15,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK

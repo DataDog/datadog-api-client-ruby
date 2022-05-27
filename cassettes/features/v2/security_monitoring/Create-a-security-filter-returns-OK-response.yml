@@ -5,8 +5,10 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"attributes":{"exclusion_filters":[{"name":"Exclude staging","query":"source:staging"}],"filtered_data_type":"logs","is_enabled":true,"name":"Test-Create_a_security_filter_returns_OK_response-1652349190","query":"service:TestCreateasecurityfilterreturnsOKresponse1652349190"},"type":"security_filters"}}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
-      - application/json;charset=utf-8
+      - application/json
     method: POST
     uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters
   response:
@@ -14,6 +16,9 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"attributes":{"is_enabled":true,"name":"Test-Create_a_security_filter_returns_OK_response-1652349190","filtered_data_type":"logs","exclusion_filters":[{"query":"source:staging","name":"Exclude
         staging"}],"version":1,"query":"service:TestCreateasecurityfilterreturnsOKresponse1652349190","is_builtin":false},"type":"security_filters","id":"2co-379-ngs"}}'
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
     status:
       code: 200
       message: OK
@@ -21,14 +26,17 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
-      - application/json;charset=utf-8
+      Accept:
+      - '*/*'
     method: DELETE
     uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters/2co-379-ngs
   response:
     body:
       encoding: UTF-8
       string: ''
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
     status:
       code: 204
       message: No Content

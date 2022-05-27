@@ -6,8 +6,10 @@ http_interactions:
       string: '{"data":{"attributes":{"description":"My Agent rule","enabled":true,"expression":"exec.file.name
         == \"sh\"","name":"testgetacloudworkloadsecurityagentrulereturnsokresponse1652349083"},"type":"agent_rule"}}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
-      - application/json;charset=utf-8
+      - application/json
     method: POST
     uri: https://api.datadoghq.com/api/v2/security_monitoring/cloud_workload_security/agent_rules
   response:
@@ -16,6 +18,9 @@ http_interactions:
       string: '{"data":{"attributes":{"category":"Process Activity","name":"testgetacloudworkloadsecurityagentrulereturnsokresponse1652349083","creator":{"handle":"frog@datadoghq.com","name":null},"description":"My
         Agent rule","enabled":true,"defaultRule":false,"version":1,"updater":{"handle":"frog@datadoghq.com","name":null},"updateDate":1652349083546,"creationDate":1652349083546,"expression":"exec.file.name
         == \"sh\""},"type":"agent_rule","id":"xnm-bjf-tfb"}}'
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
     status:
       code: 200
       message: OK
@@ -23,8 +28,8 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
-      - application/json;charset=utf-8
+      Accept:
+      - application/json
     method: GET
     uri: https://api.datadoghq.com/api/v2/security_monitoring/cloud_workload_security/agent_rules/xnm-bjf-tfb
   response:
@@ -33,6 +38,9 @@ http_interactions:
       string: '{"data":{"attributes":{"category":"Process Activity","name":"testgetacloudworkloadsecurityagentrulereturnsokresponse1652349083","creator":{"handle":"frog@datadoghq.com","name":null},"description":"My
         Agent rule","enabled":true,"defaultRule":false,"version":1,"updater":{"handle":"frog@datadoghq.com","name":null},"updateDate":1652349083546,"creationDate":1652349083546,"expression":"exec.file.name
         == \"sh\""},"type":"agent_rule","id":"xnm-bjf-tfb"}}'
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
     status:
       code: 200
       message: OK
@@ -40,14 +48,17 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
-      - application/json;charset=utf-8
+      Accept:
+      - '*/*'
     method: DELETE
     uri: https://api.datadoghq.com/api/v2/security_monitoring/cloud_workload_security/agent_rules/xnm-bjf-tfb
   response:
     body:
       encoding: UTF-8
       string: ''
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
     status:
       code: 204
       message: No Content

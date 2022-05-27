@@ -3,7 +3,7 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
+      Accept:
       - application/json
     method: GET
     uri: https://ip-ranges.datadoghq.com/
@@ -96,6 +96,9 @@ http_interactions:
         \          \"54.157.132.187/32\",\n            \"54.157.36.5/32\",\n     \
         \       \"54.164.178.25/32\",\n            \"54.92.248.81/32\"\n        ],\n\
         \        \"prefixes_ipv6\": []\n    }\n}\n"
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK

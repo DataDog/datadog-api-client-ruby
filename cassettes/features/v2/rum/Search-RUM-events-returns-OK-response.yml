@@ -5,6 +5,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"filter":{"from":"now-15m","query":"@type:session AND @session.type:user","to":"now"},"options":{"time_offset":0,"timezone":"GMT"},"page":{"limit":25},"sort":"timestamp"}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: POST
@@ -13,6 +15,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"data":[]}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK

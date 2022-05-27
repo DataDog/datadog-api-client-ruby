@@ -3,8 +3,8 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
-      - application/json
+      Accept:
+      - application/json;datetime-format=rfc3339
     method: GET
     uri: https://api.datadoghq.com/api/v1/usage/monthly-attribution?start_month=2022-05-20T08%3A46%3A27.028Z&fields=infra_host_usage
   response:
@@ -12,6 +12,9 @@ http_interactions:
       encoding: UTF-8
       string: '{"usage":[{"org_name":"DD Integration Tests (321813)","public_id":"fasjyydbcgwwc2uc","tag_config_source":"DD
         Integration Tests (321813):::project","tags":null,"updated_at":"2022-05-22T09:05:00Z","month":"2022-05-01T00:00:00+00:00","values":{"infra_host_usage":19}}],"metadata":{"pagination":{"next_record_id":null},"aggregates":[{"field":"infra_host_usage","value":19.0,"agg_type":"sum"}]}}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK

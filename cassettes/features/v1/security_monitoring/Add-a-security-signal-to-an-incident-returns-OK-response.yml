@@ -5,14 +5,19 @@ http_interactions:
       encoding: UTF-8
       string: '{"incident_id":2609}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
-      - application/json;charset=utf-8
+      - application/json
     method: PATCH
     uri: https://api.datadoghq.com/api/v1/security_analytics/signals/AQAAAYDiB_Ol8PbzFAAAAABBWURpQl9PbEFBQU0yeXhGTG9ZV2JnQUE/add_to_incident
   response:
     body:
       encoding: UTF-8
       string: '{"status":"done","elapsed":4,"hitCount":1,"type":"status","requestId":"pddv1ChZVSG9rS0xiLVROR0UzaExkSVRnaTZBIisKG6tMRhR9fRc0eaDfripyLqgONwbpcw5WGKATXBIMaeO6PoTCinH6lG0J"}'
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
     status:
       code: 200
       message: OK

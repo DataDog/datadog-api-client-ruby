@@ -3,7 +3,7 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
+      Accept:
       - application/json
     method: GET
     uri: https://api.datadoghq.com/api/v1/monitor/search
@@ -88,6 +88,9 @@ http_interactions:
         alert"},{"status":"No Data","scopes":[],"classification":"synthetics","creator":{"handle":"frog@datadoghq.com","name":"frog@datadoghq.com","id":{"handle":"frog@datadoghq.com","id":1445416,"name":null}},"metrics":[],"notifications":[],"muted_until_ts":null,"query":"no_query","id":59653374,"last_triggered_ts":null,"name":"[Synthetics]
         Example-Create_a_browser_test_returns_OK_Returns_the_created_test_details_response_1641382929","tags":["check_status:paused","probe_dc:aws:us-east-2","testing:browser","check_type:browser"],"org_id":321813,"priority":null,"overall_state_modified":1641383035,"restricted_roles":[],"type":"synthetics
         alert"}],"metadata":{"total_count":199,"page_count":7,"page":0,"per_page":30}}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK

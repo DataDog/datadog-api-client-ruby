@@ -3,7 +3,7 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
+      Accept:
       - application/json
     method: GET
     uri: https://api.datadoghq.com/api/v1/hosts?include_hosts_metadata=true
@@ -177,6 +177,9 @@ http_interactions:
         Xeon(R) CPU @ 2.20GHz\",\"stepping\":\"0\",\"vendor_id\":\"GenuineIntel\"},\"filesystem\":[{\"kb_size\":\"1024000\",\"mounted_on\":\"/\",\"name\":\"overlay\"},{\"kb_size\":\"8212632\",\"mounted_on\":\"/dev/shm\",\"name\":\"tmpfs\"},{\"kb_size\":\"115956164\",\"mounted_on\":\"/tmp/garden-init\",\"name\":\"/dev/sda3\"},{\"kb_size\":\"8212632\",\"mounted_on\":\"/sys/fs/cgroup\",\"name\":\"tmpfs\"},{\"kb_size\":\"2796\",\"mounted_on\":\"/etc/cf-instance-credentials\",\"name\":\"tmpfs\"},{\"kb_size\":\"8197672\",\"mounted_on\":\"/dev/tty\",\"name\":\"devtmpfs\"},{\"kb_size\":\"8212632\",\"mounted_on\":\"/proc/scsi\",\"name\":\"tmpfs\"},{\"kb_size\":\"8212632\",\"mounted_on\":\"/sys/firmware\",\"name\":\"tmpfs\"}],\"memory\":{\"swap_total\":\"16425264kB\",\"total\":\"16425268kB\"},\"network\":null,\"platform\":{\"GOOARCH\":\"amd64\",\"GOOS\":\"linux\",\"goV\":\"1.14.12\",\"hardware_platform\":\"x86_64\",\"hostname\":\"a2af6476-390b-4f1f-6b18-a9bf\",\"kernel_name\":\"Linux\",\"kernel_release\":\"4.15.0-132-generic\",\"kernel_version\":\"#136~16.04.1-Ubuntu
         SMP Tue Jan 12 18:22:20 UTC 2021\",\"machine\":\"x86_64\",\"os\":\"GNU/Linux\",\"processor\":\"x86_64\",\"pythonV\":\"2.7.17\"}}","logs_agent":{"transport":"HTTP"},"host_id":6306937724,"pythonV":"n/a","processor":"Intel(R)
         Xeon(R) CPU @ 2.20GHz","socket-fqdn":"a2af6476-390b-4f1f-6b18-a9bf","network":null},"host_name":"a2af6476-390b-4f1f-6b18-a9bf","id":6306937724,"aliases":["a2af6476-390b-4f1f-6b18-a9bf"]}],"total_matching":41}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK

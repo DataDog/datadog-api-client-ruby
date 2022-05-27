@@ -3,7 +3,7 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
+      Accept:
       - application/json
     method: GET
     uri: https://api.datadoghq.com/api/v2/permissions
@@ -188,6 +188,9 @@ http_interactions:
         Metrics","description":"The ability to create custom metrics from spans.","created":"2021-09-16T15:31:24.458963+00:00","group_name":"APM","display_type":"other","restricted":false}},{"type":"permissions","id":"020a563c-56a4-11ec-a982-da7ad0900002","attributes":{"name":"apm_pipelines_write","display_name":"Manage
         Pipelines","description":"The ability to add and change APM pipeline configurations.","created":"2021-12-06T14:51:35.049129+00:00","group_name":"APM","display_type":"write","restricted":false}},{"type":"permissions","id":"8e4d6b6e-5750-11ec-a9f4-da7ad0900002","attributes":{"name":"apm_pipelines_read","display_name":"Manage
         Pipelines","description":"The ability to view APM pipeline configurations.","created":"2021-12-07T11:26:43.807269+00:00","group_name":"APM","display_type":"read","restricted":false}}]}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK
@@ -197,6 +200,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","type":"permissions"}}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: DELETE
@@ -205,6 +210,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"errors":["Missing Role 00000000-dead-beef-dead-ffffffffffff not found"]}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 404
       message: Not Found

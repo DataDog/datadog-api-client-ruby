@@ -5,6 +5,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"series":[{"metric":"system.load.1","points":[[1652349005,1.1]],"tags":["test:TestSubmitmetricsreturnsPayloadacceptedresponse1652349005"],"type":"gauge"}]}'
     headers:
+      Accept:
+      - text/json, application/json
       Content-Type:
       - text/json
     method: POST
@@ -13,6 +15,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"status": "ok"}'
+    headers:
+      Content-Type:
+      - text/json
     status:
       code: 202
       message: Accepted
