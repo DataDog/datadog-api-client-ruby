@@ -1,9 +1,6 @@
 # Get Corrections For an SLO returns "OK" response
 
 require "datadog_api_client"
-DatadogAPIClient::V2.configure do |config|
-  config.unstable_operations[:get_slo_corrections] = true
-end
 api_instance = DatadogAPIClient::V1::ServiceLevelObjectivesAPI.new
 
 # there is a valid "slo" in the system
