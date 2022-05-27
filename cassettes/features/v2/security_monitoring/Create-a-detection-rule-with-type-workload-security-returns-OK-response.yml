@@ -6,6 +6,8 @@ http_interactions:
       string: '{"cases":[{"condition":"a > 0","name":"","notifications":[],"status":"info"}],"filters":[],"isEnabled":true,"message":"Test
         rule","name":"Test-Create_a_detection_rule_with_type_workload_security_returns_OK_response-1652349189","options":{"evaluationWindow":900,"keepAlive":3600,"maxSignalDuration":86400},"queries":[{"aggregation":"count","distinctFields":[],"groupByFields":[],"metric":"","query":"@test:true"}],"tags":[],"type":"workload_security"}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: POST
@@ -18,19 +20,25 @@ http_interactions:
         > 0"}],"type":"workload_security","id":"zzi-zsq-2is","isDefault":false,"name":"Test-Create_a_detection_rule_with_type_workload_security_returns_OK_response-1652349189"}
 
         '
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK
 - recorded_at: Thu, 12 May 2022 09:53:09 GMT
   request:
     body: null
-    headers: {}
+    headers:
+      Accept:
+      - '*/*'
     method: DELETE
     uri: https://api.datadoghq.com/api/v2/security_monitoring/rules/zzi-zsq-2is
   response:
     body:
       encoding: UTF-8
       string: ''
+    headers: {}
     status:
       code: 204
       message: No Content

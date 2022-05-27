@@ -6,8 +6,10 @@ http_interactions:
       string: '{"data":{"attributes":{"exclusion_filters":[{"name":"Exclude logs from
         staging","query":"source:staging"}],"filtered_data_type":"logs","is_enabled":true,"name":"Test-Update_a_security_filter_returns_OK_response-1652349197","query":"service:TestUpdateasecurityfilterreturnsOKresponse1652349197"},"type":"security_filters"}}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
-      - application/json;charset=utf-8
+      - application/json
     method: POST
     uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters
   response:
@@ -15,6 +17,9 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"attributes":{"is_enabled":true,"name":"Test-Update_a_security_filter_returns_OK_response-1652349197","filtered_data_type":"logs","exclusion_filters":[{"query":"source:staging","name":"Exclude
         logs from staging"}],"version":1,"query":"service:TestUpdateasecurityfilterreturnsOKresponse1652349197","is_builtin":false},"type":"security_filters","id":"f8d-36h-d0y"}}'
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
     status:
       code: 200
       message: OK
@@ -24,14 +29,19 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"attributes":{"exclusion_filters":[],"filtered_data_type":"logs","is_enabled":true,"name":"Test-Update_a_security_filter_returns_OK_response-1652349197","query":"service:TestUpdateasecurityfilterreturnsOKresponse1652349197","version":1},"type":"security_filters"}}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
-      - application/json;charset=utf-8
+      - application/json
     method: PATCH
     uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters/f8d-36h-d0y
   response:
     body:
       encoding: UTF-8
       string: '{"data":{"attributes":{"is_enabled":true,"name":"Test-Update_a_security_filter_returns_OK_response-1652349197","filtered_data_type":"logs","exclusion_filters":[],"version":2,"query":"service:TestUpdateasecurityfilterreturnsOKresponse1652349197","is_builtin":false},"type":"security_filters","id":"f8d-36h-d0y"}}'
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
     status:
       code: 200
       message: OK
@@ -39,14 +49,17 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
-      - application/json;charset=utf-8
+      Accept:
+      - '*/*'
     method: DELETE
     uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters/f8d-36h-d0y
   response:
     body:
       encoding: UTF-8
       string: ''
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
     status:
       code: 204
       message: No Content

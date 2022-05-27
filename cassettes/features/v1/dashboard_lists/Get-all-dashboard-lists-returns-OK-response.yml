@@ -3,7 +3,7 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
+      Accept:
       - application/json
     method: GET
     uri: https://api.datadoghq.com/api/v1/dashboard/lists/manual
@@ -27,6 +27,9 @@ http_interactions:
         Test-Update_a_dashboard_list_returns_OK_response-1637077860","dashboard_count":0,"author":{"handle":"frog@datadoghq.com","name":null},"created":"2021-11-16T15:51:01.035434+00:00","type":"manual_dashboard_list","dashboards":null,"modified":"2021-11-16T15:51:01.480129+00:00","id":255388},{"is_favorite":false,"name":"updated
         Test-Update_a_dashboard_list_returns_OK_response-1637078373","dashboard_count":0,"author":{"handle":"frog@datadoghq.com","name":null},"created":"2021-11-16T15:59:34.292076+00:00","type":"manual_dashboard_list","dashboards":null,"modified":"2021-11-16T15:59:34.662062+00:00","id":255393},{"is_favorite":false,"name":"updated
         Test-Update_a_dashboard_list_returns_OK_response-1637141108","dashboard_count":0,"author":{"handle":"frog@datadoghq.com","name":null},"created":"2021-11-17T09:25:11.229062+00:00","type":"manual_dashboard_list","dashboards":null,"modified":"2021-11-17T09:25:11.690913+00:00","id":255558}]}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK

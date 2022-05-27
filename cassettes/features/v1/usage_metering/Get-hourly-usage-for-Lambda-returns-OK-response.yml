@@ -3,8 +3,8 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
-      - application/json
+      Accept:
+      - application/json;datetime-format=rfc3339
     method: GET
     uri: https://api.datadoghq.com/api/v1/usage/aws_lambda?start_hr=2022-03-27T00%3A41%3A24.021Z&end_hr=2022-03-29T00%3A41%3A24.021Z
   response:
@@ -58,6 +58,9 @@ http_interactions:
         Integration Tests (321813)","func_count":0,"public_id":"fasjyydbcgwwc2uc","hour":"2022-03-28T21:00:00+00:00","invocations_sum":0},{"org_name":"DD
         Integration Tests (321813)","func_count":0,"public_id":"fasjyydbcgwwc2uc","hour":"2022-03-28T22:00:00+00:00","invocations_sum":0},{"org_name":"DD
         Integration Tests (321813)","func_count":0,"public_id":"fasjyydbcgwwc2uc","hour":"2022-03-28T23:00:00+00:00","invocations_sum":0}]}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK

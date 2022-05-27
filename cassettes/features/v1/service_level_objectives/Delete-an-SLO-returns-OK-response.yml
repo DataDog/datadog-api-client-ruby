@@ -5,6 +5,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"name":"Test-Delete_an_SLO_returns_OK_response-1641430271","query":{"denominator":"sum:httpservice.hits{!code:3xx}.as_count()","numerator":"sum:httpservice.hits{code:2xx}.as_count()"},"thresholds":[{"target":95,"timeframe":"7d","warning":98}],"type":"metric"}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: POST
@@ -13,6 +15,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"data":[{"description":"","monitor_tags":[],"creator":{"handle":"frog@datadoghq.com","name":null,"email":"frog@datadoghq.com"},"thresholds":[{"warning":98,"warning_display":"98.","target":95,"target_display":"95.","timeframe":"7d"}],"type_id":1,"query":{"denominator":"sum:httpservice.hits{!code:3xx}.as_count()","numerator":"sum:httpservice.hits{code:2xx}.as_count()"},"id":"7c7a8700d1125ac99aa0ffa12f686b89","name":"Test-Delete_an_SLO_returns_OK_response-1641430271","created_at":1641430271,"tags":[],"modified_at":1641430271,"type":"metric"}],"error":null}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK
@@ -20,7 +25,7 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
+      Accept:
       - application/json
     method: DELETE
     uri: https://api.datadoghq.com/api/v1/slo/7c7a8700d1125ac99aa0ffa12f686b89
@@ -28,6 +33,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"data":["7c7a8700d1125ac99aa0ffa12f686b89"],"error":null}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK
@@ -35,7 +43,7 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
+      Accept:
       - application/json
     method: DELETE
     uri: https://api.datadoghq.com/api/v1/slo/7c7a8700d1125ac99aa0ffa12f686b89
@@ -43,6 +51,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"errors":["SLO not found: 7c7a8700d1125ac99aa0ffa12f686b89 not found"]}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 404
       message: Not Found

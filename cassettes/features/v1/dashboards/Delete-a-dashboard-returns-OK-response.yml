@@ -6,6 +6,8 @@ http_interactions:
       string: '{"layout_type":"ordered","title":"Test-Delete_a_dashboard_returns_OK_response-1645779299
         with Profile Metrics Query","widgets":[{"definition":{"requests":[{"profile_metrics_query":{"compute":{"aggregation":"sum","facet":"@prof_core_cpu_cores"},"group_by":[{"facet":"service","limit":10,"sort":{"aggregation":"sum","facet":"@prof_core_cpu_cores","order":"desc"}}],"search":{"query":"runtime:jvm"}}}],"type":"timeseries"}}]}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: POST
@@ -15,6 +17,9 @@ http_interactions:
       encoding: UTF-8
       string: '{"notify_list":null,"description":null,"restricted_roles":[],"author_name":null,"template_variables":null,"is_read_only":false,"id":"sbs-4fb-9dc","title":"Test-Delete_a_dashboard_returns_OK_response-1645779299
         with Profile Metrics Query","url":"/dashboard/sbs-4fb-9dc/test-deleteadashboardreturnsokresponse-1645779299-with-profile-metrics-query","created_at":"2022-02-25T08:55:00.681383+00:00","modified_at":"2022-02-25T08:55:00.681383+00:00","author_handle":"frog@datadoghq.com","widgets":[{"definition":{"requests":[{"profile_metrics_query":{"search":{"query":"runtime:jvm"},"group_by":[{"facet":"service","sort":{"facet":"@prof_core_cpu_cores","aggregation":"sum","order":"desc"},"limit":10}],"compute":{"facet":"@prof_core_cpu_cores","aggregation":"sum"}}}],"type":"timeseries"},"id":7246585146253581}],"layout_type":"ordered"}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK
@@ -22,7 +27,7 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
+      Accept:
       - application/json
     method: DELETE
     uri: https://api.datadoghq.com/api/v1/dashboard/sbs-4fb-9dc
@@ -30,6 +35,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"deleted_dashboard_id":"sbs-4fb-9dc"}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK
@@ -37,7 +45,7 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
+      Accept:
       - application/json
     method: DELETE
     uri: https://api.datadoghq.com/api/v1/dashboard/sbs-4fb-9dc
@@ -45,6 +53,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"errors": ["Dashboard with ID sbs-4fb-9dc not found"]}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 404
       message: Not Found

@@ -5,6 +5,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"attributes":{"name":"Test-Delete_an_AuthN_Mapping_returns_OK_response-1652349069"},"type":"roles"}}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: POST
@@ -13,6 +15,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"data":{"type":"roles","id":"0cd38a56-d1d9-11ec-ad3d-da7ad0900002","attributes":{"name":"Test-Delete_an_AuthN_Mapping_returns_OK_response-1652349069","created_at":"2022-05-12T09:51:09.492974+00:00","modified_at":"2022-05-12T09:51:09.537993+00:00"},"relationships":{"permissions":{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2"},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304"},{"type":"permissions","id":"417ba636-2dce-11eb-84c0-6bce5b0d9de0"},{"type":"permissions","id":"12efc20e-d36c-11eb-a9b8-da7ad0900002"},{"type":"permissions","id":"97971c1c-e895-11eb-b13c-da7ad0900002"},{"type":"permissions","id":"7605ef24-f376-11eb-b90b-da7ad0900002"},{"type":"permissions","id":"b6bf9ac6-9a59-11ec-8480-da7ad0900002"}]}}}}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK
@@ -22,6 +27,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"attributes":{"attribute_key":"testdeleteanauthnmappingreturnsokresponse1652349069","attribute_value":"Test-Delete_an_AuthN_Mapping_returns_OK_response-1652349069"},"relationships":{"role":{"data":{"id":"0cd38a56-d1d9-11ec-ad3d-da7ad0900002","type":"roles"}}},"type":"authn_mappings"}}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: POST
@@ -30,19 +37,25 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"included":[{"type":"roles","id":"0cd38a56-d1d9-11ec-ad3d-da7ad0900002","attributes":{"name":"Test-Delete_an_AuthN_Mapping_returns_OK_response-1652349069","created_at":"2022-05-12T09:51:09.492974+00:00","modified_at":"2022-05-12T09:51:09.537993+00:00"},"relationships":{"permissions":{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2"},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304"},{"type":"permissions","id":"417ba636-2dce-11eb-84c0-6bce5b0d9de0"},{"type":"permissions","id":"12efc20e-d36c-11eb-a9b8-da7ad0900002"},{"type":"permissions","id":"97971c1c-e895-11eb-b13c-da7ad0900002"},{"type":"permissions","id":"7605ef24-f376-11eb-b90b-da7ad0900002"},{"type":"permissions","id":"b6bf9ac6-9a59-11ec-8480-da7ad0900002"}]}}}],"data":{"type":"authn_mappings","id":"0d2328cc-d1d9-11ec-ad3d-da7ad0900002","attributes":{"attribute_key":"testdeleteanauthnmappingreturnsokresponse1652349069","attribute_value":"Test-Delete_an_AuthN_Mapping_returns_OK_response-1652349069","created_at":"2022-05-12T09:51:10.015048+00:00","modified_at":"2022-05-12T09:51:10.015048+00:00"},"relationships":{"role":{"data":{"type":"roles","id":"0cd38a56-d1d9-11ec-ad3d-da7ad0900002"}}}}}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK
 - recorded_at: Thu, 12 May 2022 09:51:09 GMT
   request:
     body: null
-    headers: {}
+    headers:
+      Accept:
+      - '*/*'
     method: DELETE
     uri: https://api.datadoghq.com/api/v2/authn_mappings/0d2328cc-d1d9-11ec-ad3d-da7ad0900002
   response:
     body:
       encoding: UTF-8
       string: ''
+    headers: {}
     status:
       code: 204
       message: No Content
@@ -50,8 +63,8 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
-      - application/json
+      Accept:
+      - '*/*'
     method: DELETE
     uri: https://api.datadoghq.com/api/v2/authn_mappings/0d2328cc-d1d9-11ec-ad3d-da7ad0900002
   response:
@@ -59,19 +72,25 @@ http_interactions:
       encoding: UTF-8
       string: '{"errors": ["Mapping with id 0d2328cc-d1d9-11ec-ad3d-da7ad0900002 not
         found"]}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 404
       message: Not Found
 - recorded_at: Thu, 12 May 2022 09:51:09 GMT
   request:
     body: null
-    headers: {}
+    headers:
+      Accept:
+      - '*/*'
     method: DELETE
     uri: https://api.datadoghq.com/api/v2/roles/0cd38a56-d1d9-11ec-ad3d-da7ad0900002
   response:
     body:
       encoding: UTF-8
       string: ''
+    headers: {}
     status:
       code: 204
       message: No Content

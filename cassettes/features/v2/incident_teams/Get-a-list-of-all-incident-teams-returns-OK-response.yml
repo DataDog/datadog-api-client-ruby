@@ -5,6 +5,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"attributes":{"name":"Test-Get_a_list_of_all_incident_teams_returns_OK_response-1652349099"},"type":"teams"}}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: POST
@@ -13,6 +15,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"included":[{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0","attributes":{"name":null,"handle":"frog@datadoghq.com","created_at":"2019-10-02T08:15:39.795051+00:00","modified_at":"2020-06-15T12:33:12.884459+00:00","email":"frog@datadoghq.com","icon":"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro","title":null,"verified":true,"service_account":false,"disabled":false,"allowed_login_methods":[],"status":"Active"},"relationships":{"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}],"data":{"type":"teams","id":"48fe29a2-88f2-5563-ac54-205e0ca2723a","attributes":{"name":"Test-Get_a_list_of_all_incident_teams_returns_OK_response-1652349099","created":"2022-05-12T09:51:39.732496+00:00","modified":"2022-05-12T09:51:39.732496+00:00"},"relationships":{"last_modified_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}},"created_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}}}}}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 201
       message: Created
@@ -20,7 +25,7 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
+      Accept:
       - application/json
     method: GET
     uri: https://api.datadoghq.com/api/v2/teams?filter=Test-Get_a_list_of_all_incident_teams_returns_OK_response-1652349099
@@ -28,19 +33,25 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"meta":{"sort":"ASC","pagination":{"total":1705,"size":1,"next_offset":1,"offset":0},"total":1705},"data":[{"type":"teams","id":"48fe29a2-88f2-5563-ac54-205e0ca2723a","attributes":{"name":"Test-Get_a_list_of_all_incident_teams_returns_OK_response-1652349099","created":"2022-05-12T09:51:39.732496+00:00","modified":"2022-05-12T09:51:39.732496+00:00"},"relationships":{"last_modified_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}},"created_by":{"data":{"type":"users","id":"3ad549bf-eba0-11e9-a77a-0705486660d0"}}}}]}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK
 - recorded_at: Thu, 12 May 2022 09:51:39 GMT
   request:
     body: null
-    headers: {}
+    headers:
+      Accept:
+      - '*/*'
     method: DELETE
     uri: https://api.datadoghq.com/api/v2/teams/48fe29a2-88f2-5563-ac54-205e0ca2723a
   response:
     body:
       encoding: UTF-8
       string: ''
+    headers: {}
     status:
       code: 204
       message: No Content

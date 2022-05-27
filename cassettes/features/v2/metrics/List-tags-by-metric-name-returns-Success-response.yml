@@ -5,6 +5,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"series":[{"metric":"TestListtagsbymetricnamereturnsSuccessresponse1652354618","points":[[1652354618,1.1]],"tags":["test:ExampleSubmitmetricsreturnsPayloadacceptedresponse"],"type":"gauge"}]}'
     headers:
+      Accept:
+      - text/json, application/json
       Content-Type:
       - text/json
     method: POST
@@ -13,6 +15,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"status": "ok"}'
+    headers:
+      Content-Type:
+      - text/json
     status:
       code: 202
       message: Accepted
@@ -22,6 +27,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"attributes":{"metric_type":"gauge","tags":["app","datacenter","TestListtagsbymetricnamereturnsSuccessresponse1652354618"]},"id":"TestListtagsbymetricnamereturnsSuccessresponse1652354618","type":"manage_tags"}}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: POST
@@ -30,6 +37,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"data":{"type":"manage_tags","id":"TestListtagsbymetricnamereturnsSuccessresponse1652354618","attributes":{"tags":["datacenter","app","TestListtagsbymetricnamereturnsSuccessresponse1652354618"],"created_at":"2022-05-12T11:23:43.466946+00:00","modified_at":"2022-05-12T11:23:43.466946+00:00","metric_type":"gauge","aggregations":[{"space":"avg","time":"avg"}]}}}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 201
       message: Created
@@ -37,7 +47,7 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
+      Accept:
       - application/json
     method: GET
     uri: https://api.datadoghq.com/api/v2/metrics/TestListtagsbymetricnamereturnsSuccessresponse1652354618/all-tags
@@ -45,19 +55,25 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"data":{"type":"metrics","id":"TestListtagsbymetricnamereturnsSuccessresponse1652354618","attributes":{"tags":[]}}}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK
 - recorded_at: Thu, 12 May 2022 11:23:38 GMT
   request:
     body: null
-    headers: {}
+    headers:
+      Accept:
+      - '*/*'
     method: DELETE
     uri: https://api.datadoghq.com/api/v2/metrics/TestListtagsbymetricnamereturnsSuccessresponse1652354618/tags
   response:
     body:
       encoding: UTF-8
       string: ''
+    headers: {}
     status:
       code: 204
       message: No Content

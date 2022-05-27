@@ -5,6 +5,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"attributes":{"compute":{"aggregation_type":"count"},"filter":{"query":"source:Test-Get_a_log_based_metric_returns_OK_response-1652349145"}},"id":"Test-Get_a_log_based_metric_returns_OK_response-1652349145","type":"logs_metrics"}}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: POST
@@ -13,6 +15,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"data":{"attributes":{"filter":{"query":"source:Test-Get_a_log_based_metric_returns_OK_response-1652349145"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics","id":"Test_Get_a_log_based_metric_returns_OK_response_1652349145"}}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK
@@ -20,7 +25,7 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
+      Accept:
       - application/json
     method: GET
     uri: https://api.datadoghq.com/api/v2/logs/config/metrics/Test_Get_a_log_based_metric_returns_OK_response_1652349145
@@ -28,6 +33,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"data":{"attributes":{"filter":{"query":"source:Test-Get_a_log_based_metric_returns_OK_response-1652349145"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics","id":"Test_Get_a_log_based_metric_returns_OK_response_1652349145"}}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK
@@ -35,14 +43,17 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
-      - application/json
+      Accept:
+      - '*/*'
     method: DELETE
     uri: https://api.datadoghq.com/api/v2/logs/config/metrics/Test_Get_a_log_based_metric_returns_OK_response_1652349145
   response:
     body:
       encoding: UTF-8
       string: '{}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK

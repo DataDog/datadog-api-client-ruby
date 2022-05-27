@@ -1,11 +1,13 @@
 http_interactions:
-- recorded_at: Mon, 28 Mar 2022 15:06:36 GMT
+- recorded_at: Tue, 29 Mar 2022 08:59:44 GMT
   request:
     body:
       encoding: UTF-8
       string: '{"compute":[{"aggregation":"pc90","metric":"@view.time_spent","type":"total"}],"filter":{"from":"now-15m","query":"@type:view
         AND @session.type:user","to":"now"},"group_by":[{"facet":"@view.time_spent","limit":10,"total":false}],"options":{"timezone":"GMT"},"page":{"limit":25}}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: POST
@@ -13,9 +15,12 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"meta":{"status":"done","request_id":"pddv1ChZyS2R0R2cwbFNTR3dXWHE0T1V4SkV3IiwKHO-LyxpZr85euhVxgr_zcJZpbjq-uQVUzkFlD0ISDPnlZXRCg4-gaoMc2w","elapsed":0},"data":{"buckets":[]}}
+      string: '{"meta":{"status":"done","request_id":"pddv1ChZiX1d1RWNfM1JuaURhSkJ6elFsRHpnIi0KHQJFlSKZaC6T1BR15cquEEJdzvJ8iKfJO5Kr37vkEgyJYfau6iiq_M5ftbo","elapsed":0},"data":{"buckets":[]}}
 
         '
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK

@@ -5,6 +5,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"filter":{"from":"now-15m","indexes":["main"],"query":"*","to":"now"}}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: POST
@@ -13,6 +15,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"meta":{"status":"done","request_id":"pddv1ChZqNnEtQ2hTU1M5dTYxbWtrUGtBMGFBIi0KHVny0iHoClVAOb_xrSWcwl_hHz3QjhOb8cLTslhGEgz4EiXPOZ8kQFQe2Zw","elapsed":5},"data":{"buckets":[{"computes":{"c0":2},"by":{}}]}}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK

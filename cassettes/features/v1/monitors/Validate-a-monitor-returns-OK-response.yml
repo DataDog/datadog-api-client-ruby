@@ -9,6 +9,8 @@ http_interactions:
         > 2","tags":["test:testvalidateamonitorreturnsokresponse1641430261","env:ci"],"type":"log
         alert"}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: POST
@@ -17,6 +19,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK

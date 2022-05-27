@@ -5,6 +5,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"attributes":{"disabled":true,"name":"updated"},"id":"00000000-dead-beef-dead-ffffffffffff","type":"users"}}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: PATCH
@@ -13,6 +15,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"errors":["00000000-dead-beef-dead-ffffffffffff not found"]}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 404
       message: Not Found

@@ -9,6 +9,8 @@ http_interactions:
         > 2","tags":["test:testgetamonitorsdetailsreturnsokresponse1641430257","env:ci"],"type":"log
         alert"}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: POST
@@ -21,6 +23,9 @@ http_interactions:
         > 2","message":"some message Notify: @hipchat-channel","id":59800662,"multi":true,"name":"Test-Get_a_monitor_s_details_returns_OK_response-1641430257","created":"2022-01-06T00:50:58.216052+00:00","created_at":1641430258000,"creator":{"id":1445416,"handle":"frog@datadoghq.com","name":null,"email":"frog@datadoghq.com"},"org_id":321813,"modified":"2022-01-06T00:50:58.216052+00:00","priority":3,"overall_state_modified":null,"overall_state":"No
         Data","type":"log alert","options":{"notify_audit":false,"locked":false,"timeout_h":24,"renotify_interval":60,"include_tags":true,"no_data_timeframe":null,"silenced":{},"new_host_delay":600,"require_full_window":true,"notify_no_data":false,"enable_logs_sample":true,"groupby_simple_monitor":true,"escalation_message":"the
         situation has escalated","evaluation_delay":700,"thresholds":{"critical":2,"warning":1}}}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK
@@ -28,7 +33,7 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
+      Accept:
       - application/json
     method: GET
     uri: https://api.datadoghq.com/api/v1/monitor/59800662
@@ -40,6 +45,9 @@ http_interactions:
         > 2","message":"some message Notify: @hipchat-channel","id":59800662,"multi":true,"name":"Test-Get_a_monitor_s_details_returns_OK_response-1641430257","created":"2022-01-06T00:50:58.216052+00:00","created_at":1641430258000,"creator":{"id":1445416,"handle":"frog@datadoghq.com","name":null,"email":"frog@datadoghq.com"},"org_id":321813,"modified":"2022-01-06T00:50:58.216052+00:00","priority":3,"overall_state_modified":null,"overall_state":"No
         Data","type":"log alert","options":{"notify_audit":false,"locked":false,"timeout_h":24,"renotify_interval":60,"include_tags":true,"no_data_timeframe":null,"silenced":{},"new_host_delay":600,"require_full_window":true,"notify_no_data":false,"enable_logs_sample":true,"groupby_simple_monitor":true,"escalation_message":"the
         situation has escalated","evaluation_delay":700,"thresholds":{"critical":2,"warning":1}}}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK
@@ -47,7 +55,7 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
+      Accept:
       - application/json
     method: DELETE
     uri: https://api.datadoghq.com/api/v1/monitor/59800662
@@ -55,6 +63,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"deleted_monitor_id":59800662}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK

@@ -5,6 +5,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"name":"Test-Delete_a_dashboard_list_returns_OK_response-1641430221"}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: POST
@@ -13,6 +15,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"is_favorite":false,"name":"Test-Delete_a_dashboard_list_returns_OK_response-1641430221","dashboard_count":0,"author":{"handle":"frog@datadoghq.com","name":null},"created":"2022-01-06T00:50:22.024122+00:00","type":"manual_dashboard_list","dashboards":null,"modified":"2022-01-06T00:50:22.024147+00:00","id":269880}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK
@@ -20,7 +25,7 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
+      Accept:
       - application/json
     method: DELETE
     uri: https://api.datadoghq.com/api/v1/dashboard/lists/manual/269880
@@ -28,6 +33,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"deleted_dashboard_list_id":269880}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK
@@ -35,7 +43,7 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
+      Accept:
       - application/json
     method: DELETE
     uri: https://api.datadoghq.com/api/v1/dashboard/lists/manual/269880
@@ -43,6 +51,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"errors":["Manual Dashboard List with id 269880 not found"]}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 404
       message: Not Found

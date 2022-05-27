@@ -8,6 +8,8 @@ http_interactions:
         >= 1","tags":["test:testcreateanerrortrackingmonitorreturnsokresponse1647547501","env:ci"],"type":"error-tracking
         alert"}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: POST
@@ -19,6 +21,9 @@ http_interactions:
         AND @error.source:source\").rollup(\"count\").by(\"@issue.id\").last(\"1h\")
         >= 1","message":"some message","id":66239295,"multi":true,"name":"Test-Create_an_Error_Tracking_monitor_returns_OK_response-1647547501","created":"2022-03-17T20:05:01.603951+00:00","created_at":1647547501000,"creator":{"id":1445416,"handle":"frog@datadoghq.com","name":null,"email":"frog@datadoghq.com"},"org_id":321813,"modified":"2022-03-17T20:05:01.603951+00:00","priority":3,"overall_state_modified":null,"overall_state":"No
         Data","type":"error-tracking alert","options":{"notify_audit":false,"silenced":{},"include_tags":true,"thresholds":{"critical":1.0},"new_host_delay":300,"notify_no_data":false,"groupby_simple_monitor":false}}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK
@@ -26,7 +31,7 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
+      Accept:
       - application/json
     method: DELETE
     uri: https://api.datadoghq.com/api/v1/monitor/66239295
@@ -34,6 +39,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"deleted_monitor_id":66239295}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK

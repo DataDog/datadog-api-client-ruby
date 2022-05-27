@@ -5,14 +5,19 @@ http_interactions:
       encoding: UTF-8
       string: '[{"check":"app.ok","host_name":"host","status":0,"tags":["test:TestSubmitaServiceCheckreturnsPayloadacceptedresponse1652349011"]}]'
     headers:
+      Accept:
+      - text/json, application/json
       Content-Type:
-      - text/json
+      - application/json
     method: POST
     uri: https://api.datadoghq.com/api/v1/check_run
   response:
     body:
       encoding: UTF-8
       string: '{"status": "ok"}'
+    headers:
+      Content-Type:
+      - text/json
     status:
       code: 202
       message: Accepted

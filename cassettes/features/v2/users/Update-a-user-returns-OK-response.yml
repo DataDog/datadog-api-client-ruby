@@ -6,6 +6,8 @@ http_interactions:
       string: '{"data":{"attributes":{"email":"Test-Update_a_user_returns_OK_response-1652349233@datadoghq.com","title":"user
         title"},"type":"users"}}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: POST
@@ -15,6 +17,9 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"type":"users","id":"6de87a9b-d1d9-11ec-ad3d-da7ad0900002","attributes":{"name":null,"handle":"test-update_a_user_returns_ok_response-1652349233@datadoghq.com","created_at":"2022-05-12T09:53:53.972168+00:00","modified_at":"2022-05-12T09:53:54.014176+00:00","email":"test-update_a_user_returns_ok_response-1652349233@datadoghq.com","icon":"https://secure.gravatar.com/avatar/e3e4683c1e52cc0efa35ddd7a3bf393a?s=48&d=retro","title":"user
         title","verified":false,"service_account":false,"disabled":false,"allowed_login_methods":[],"status":"Pending"},"relationships":{"roles":{"data":[]},"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 201
       message: Created
@@ -24,6 +29,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"attributes":{"disabled":true,"name":"updated"},"id":"6de87a9b-d1d9-11ec-ad3d-da7ad0900002","type":"users"}}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: PATCH
@@ -33,6 +40,9 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"type":"users","id":"6de87a9b-d1d9-11ec-ad3d-da7ad0900002","attributes":{"name":"updated","handle":"test-update_a_user_returns_ok_response-1652349233@datadoghq.com","created_at":"2022-05-12T09:53:53.972168+00:00","modified_at":"2022-05-12T09:53:54.471054+00:00","email":"test-update_a_user_returns_ok_response-1652349233@datadoghq.com","icon":"https://secure.gravatar.com/avatar/e3e4683c1e52cc0efa35ddd7a3bf393a?s=48&d=retro","title":"user
         title","verified":false,"service_account":false,"disabled":true,"allowed_login_methods":[],"status":"Disabled"},"relationships":{"roles":{"data":[]},"org":{"data":{"type":"orgs","id":"4dee724d-00cc-11ea-a77b-570c9d03c6c5"}}}}}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK
@@ -40,14 +50,17 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
-      - application/json
+      Accept:
+      - '*/*'
     method: DELETE
     uri: https://api.datadoghq.com/api/v2/users/6de87a9b-d1d9-11ec-ad3d-da7ad0900002
   response:
     body:
       encoding: UTF-8
       string: '{"errors": ["6de87a9b-d1d9-11ec-ad3d-da7ad0900002 not found"]}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 404
       message: Not Found

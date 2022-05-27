@@ -6,14 +6,19 @@ http_interactions:
       string: '{"date_happened":1,"tags":["test:TestPostaneventinthepastreturnsBadRequestresponse1641430251"],"text":"A
         text message.","title":"Test-Post_an_event_in_the_past_returns_Bad_Request_response-1641430251"}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
-      - text/plain; charset=utf-8
+      - application/json
     method: POST
     uri: https://api.datadoghq.com/api/v1/events
   response:
     body:
       encoding: UTF-8
       string: '{"errors":["Event too far in the past"]}'
+    headers:
+      Content-Type:
+      - text/plain; charset=utf-8
     status:
       code: 400
       message: Bad Request
