@@ -339,6 +339,7 @@ module DatadogAPIClient::V1
     # @param [Array] accepts array for Accept
     # @return [String] the Accept header (e.g. application/json)
     def select_header_accept(accepts)
+      return nil if accepts.nil? || accepts.empty?
       accepts.join(', ')
     end
 
