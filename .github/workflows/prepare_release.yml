@@ -41,7 +41,7 @@ jobs:
         run: |
           if [ "${VERSION}" = "" ] ; then
             LATEST_TAG=$(git describe --tags --abbrev=0)
-            NEXT_TAG=$(echo $LATEST_TAG | awk '{split($0, a, "."); print a[1] "." a[2] + 1 "." a[3]}')
+            NEXT_TAG=$(echo ${LATEST_TAG#v} | awk '{split($0, a, "."); print a[1] "." a[2] + 1 "." a[3]}')
             echo ::set-output name=version::$NEXT_TAG
           else
             echo ::set-output name=version::$VERSION
