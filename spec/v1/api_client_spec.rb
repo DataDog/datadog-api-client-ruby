@@ -169,11 +169,11 @@ describe DatadogAPIClient::V1::APIClient do
       expect(api_client.select_header_accept([])).to be_nil
 
       expect(api_client.select_header_accept(['application/json'])).to eq('application/json')
-      expect(api_client.select_header_accept(['application/xml', 'application/json; charset=UTF8'])).to eq('application/json; charset=UTF8')
-      expect(api_client.select_header_accept(['APPLICATION/JSON', 'text/html'])).to eq('APPLICATION/JSON')
+      expect(api_client.select_header_accept(['application/xml', 'application/json; charset=UTF8'])).to eq('application/xml, application/json; charset=UTF8')
+      expect(api_client.select_header_accept(['APPLICATION/JSON', 'text/html'])).to eq('APPLICATION/JSON, text/html')
 
       expect(api_client.select_header_accept(['application/xml'])).to eq('application/xml')
-      expect(api_client.select_header_accept(['text/html', 'application/xml'])).to eq('text/html,application/xml')
+      expect(api_client.select_header_accept(['text/html', 'application/xml'])).to eq('text/html, application/xml')
     end
   end
 
