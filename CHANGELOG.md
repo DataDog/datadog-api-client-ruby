@@ -1,5 +1,37 @@
 # CHANGELOG
 
+## v1.10.0 / 2022-05-30
+
+### Fixed
+* Add support for nested additionalProperties by @therve in https://github.com/DataDog/datadog-api-client-ruby/pull/873
+* Fix monitor search count generation by @therve in https://github.com/DataDog/datadog-api-client-ruby/pull/888
+* Remove unused pararameter from authn mapping by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/891
+* AuthN Mapping spec cleanup to match implementation by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/908
+* Enable header matching in tests by @therve in https://github.com/DataDog/datadog-api-client-ruby/pull/920
+### Added
+* Add Historical Chargeback Summary endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/870
+* Expose v2 usage endpoint for application security monitoring by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/883
+* Add `rehydration_max_scan_size_in_gb` field to Logs Archives by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/879
+* Add `mute_first_recovery_notification` option to downtime by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/850
+* Add lambda traced invocations usage endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/889
+* Expose new usage field for react sessions by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/892
+* Add missing option and enum value for SecurityMonitoringRule by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/898
+* Adds docs for metric estimate endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/880
+* Allow additional log attributes by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/869
+* Add v2 endpoint for submitting series by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/824
+* Add `ci-tests` monitor type by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/897
+* Add RUM settings schema to synthetics tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/906
+* Add v1 signal triage endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/902
+* Add connection to synthetics assertion type enum by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/911
+* Add grpc subtype to synthetics tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/890
+### Changed
+* Remove unstable marker from SLO corrections API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/917
+### Deprecated
+* Deprecate old usage apis by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/894
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-ruby/compare/v1.9.0...vv1.10.0
+
 ## 1.9.0 / 2022-04-26
 
 ### Fixed
