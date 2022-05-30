@@ -138,6 +138,22 @@ config.debugging = true
 client = DatadogAPIClient::V1::APIClient.new(config)
 ```
 
+### Pagination
+
+Several listing operations have a pagination method to help consume all the items available.
+For example, to retrieve all your incidents:
+
+```ruby
+require "datadog_api_client"
+DatadogAPIClient::V2.configure do |config|
+  config.unstable_operations[:list_incidents] = true
+end
+api_instance = DatadogAPIClient::V2::IncidentsAPI.new
+api_instance.list_incidents_with_pagination() do |incident|
+  p incident.id
+end
+```
+
 ## Documentation
 
 If you are interested in general documentation for all public Datadog API endpoints, checkout the [general documentation site][api docs].
