@@ -164,7 +164,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SuccessfulSignalUpdateResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :edit_security_monitoring_signal_assignee,
@@ -244,7 +244,7 @@ module DatadogAPIClient::V1
       return_type = opts[:debug_return_type] || 'SuccessfulSignalUpdateResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:AuthZ, :apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :edit_security_monitoring_signal_state,
