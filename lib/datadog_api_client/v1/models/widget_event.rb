@@ -31,15 +31,11 @@ module DatadogAPIClient::V1
     # Query definition.
     attr_accessor :q
 
-    # The execution method for multi-value filters.
-    attr_accessor :tags_execution
-
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'q' => :'q',
-        :'tags_execution' => :'tags_execution'
+        :'q' => :'q'
       }
     end
 
@@ -53,8 +49,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'q' => :'String',
-        :'tags_execution' => :'String'
+        :'q' => :'String'
       }
     end
 
@@ -84,10 +79,6 @@ module DatadogAPIClient::V1
       if attributes.key?(:'q')
         self.q = attributes[:'q']
       end
-
-      if attributes.key?(:'tags_execution')
-        self.tags_execution = attributes[:'tags_execution']
-      end
     end
 
     # Check to see if the all the properties in the model are valid
@@ -114,8 +105,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          q == o.q &&
-          tags_execution == o.tags_execution
+          q == o.q
     end
 
     # @see the `==` method
@@ -129,7 +119,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [q, tags_execution].hash
+      [q].hash
     end
   end
 end

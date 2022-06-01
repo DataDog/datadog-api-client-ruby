@@ -20,7 +20,6 @@ body = DatadogAPIClient::V1::Dashboard.new({
         title_align: DatadogAPIClient::V1::WidgetTextAlign::LEFT,
         type: DatadogAPIClient::V1::EventStreamWidgetDefinitionType::EVENT_STREAM,
         query: "example-query",
-        tags_execution: "and",
         event_size: DatadogAPIClient::V1::WidgetEventSize::SMALL,
       }),
     }),

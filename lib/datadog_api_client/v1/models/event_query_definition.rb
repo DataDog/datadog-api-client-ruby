@@ -28,15 +28,11 @@ module DatadogAPIClient::V1
     # The query being made on the event.
     attr_accessor :search
 
-    # The execution method for multi-value filters. Can be either and or or.
-    attr_accessor :tags_execution
-
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'search' => :'search',
-        :'tags_execution' => :'tags_execution'
+        :'search' => :'search'
       }
     end
 
@@ -50,8 +46,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'search' => :'String',
-        :'tags_execution' => :'String'
+        :'search' => :'String'
       }
     end
 
@@ -81,10 +76,6 @@ module DatadogAPIClient::V1
       if attributes.key?(:'search')
         self.search = attributes[:'search']
       end
-
-      if attributes.key?(:'tags_execution')
-        self.tags_execution = attributes[:'tags_execution']
-      end
     end
 
     # Check to see if the all the properties in the model are valid
@@ -92,7 +83,6 @@ module DatadogAPIClient::V1
     # @!visibility private
     def valid?
       return false if @search.nil?
-      return false if @tags_execution.nil?
       true
     end
 
@@ -106,24 +96,13 @@ module DatadogAPIClient::V1
       @search = search
     end
 
-    # Custom attribute writer method with validation
-    # @param tags_execution [Object] Object to be assigned
-    # @!visibility private
-    def tags_execution=(tags_execution)
-      if tags_execution.nil?
-        fail ArgumentError, 'invalid value for "tags_execution", tags_execution cannot be nil.'
-      end
-      @tags_execution = tags_execution
-    end
-
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          search == o.search &&
-          tags_execution == o.tags_execution
+          search == o.search
     end
 
     # @see the `==` method
@@ -137,7 +116,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [search, tags_execution].hash
+      [search].hash
     end
   end
 end

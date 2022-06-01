@@ -28,9 +28,6 @@ module DatadogAPIClient::V1
     # Query to filter the event timeline with.
     attr_accessor :query
 
-    # The execution method for multi-value filters. Can be either and or or.
-    attr_accessor :tags_execution
-
     # Time setting for the widget.
     attr_accessor :time
 
@@ -51,7 +48,6 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'query' => :'query',
-        :'tags_execution' => :'tags_execution',
         :'time' => :'time',
         :'title' => :'title',
         :'title_align' => :'title_align',
@@ -71,7 +67,6 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'query' => :'String',
-        :'tags_execution' => :'String',
         :'time' => :'WidgetTime',
         :'title' => :'String',
         :'title_align' => :'WidgetTextAlign',
@@ -105,10 +100,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'query')
         self.query = attributes[:'query']
-      end
-
-      if attributes.key?(:'tags_execution')
-        self.tags_execution = attributes[:'tags_execution']
       end
 
       if attributes.key?(:'time')
@@ -170,7 +161,6 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           query == o.query &&
-          tags_execution == o.tags_execution &&
           time == o.time &&
           title == o.title &&
           title_align == o.title_align &&
@@ -189,7 +179,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [query, tags_execution, time, title, title_align, title_size, type].hash
+      [query, time, title, title_align, title_size, type].hash
     end
   end
 end

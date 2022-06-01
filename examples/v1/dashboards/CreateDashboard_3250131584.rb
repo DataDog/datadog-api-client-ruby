@@ -20,7 +20,6 @@ body = DatadogAPIClient::V1::Dashboard.new({
         title_align: DatadogAPIClient::V1::WidgetTextAlign::LEFT,
         type: DatadogAPIClient::V1::EventTimelineWidgetDefinitionType::EVENT_TIMELINE,
         query: "status:error priority:all",
-        tags_execution: "and",
       }),
     }),
   ],
