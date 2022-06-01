@@ -42,13 +42,18 @@ def use_real_time?
   !(ENV["RECORD"] == nil || ENV["RECORD"] == "false")
 end
 
+filtered_headers = ["Accept", "Content-Type"]
+
 VCR.configure do |c|
   c.register_request_matcher :safe_path do |r1, r2|
     r1.parsed_uri.path == CGI.unescape(r2.parsed_uri.path)
   end
+  c.register_request_matcher :safe_headers do |r1, r2|
+    r1.headers.slice(*filtered_headers) == r2.headers.slice(*filtered_headers)
+  end
   c.default_cassette_options = {
     :record_on_error => false,
-    :match_requests_on => [:method, :host, :safe_path, :query, :body_as_json],
+    :match_requests_on => [:method, :host, :safe_path, :query, :body_as_json, :safe_headers],
   }
   c.allow_http_connections_when_no_cassette = true
   RecordMode.send(ENV["RECORD"] || "false", c)
@@ -57,7 +62,6 @@ VCR.configure do |c|
   c.before_record do |i|
     i.request.headers.delete('Dd-Api-Key')
     i.request.headers.delete('Dd-Application-Key')
-    # TODO verify we don't store api_key and application_key as query params
   end
 
   c.ignore_hosts (ENV["DD_AGENT_HOST"] || '127.0.0.1')

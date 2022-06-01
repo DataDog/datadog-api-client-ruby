@@ -3,7 +3,7 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
+      Accept:
       - application/json
     method: GET
     uri: https://api.datadoghq.com/api/v2/security_monitoring/signals?page%5Blimit%5D=2
@@ -69,6 +69,9 @@ http_interactions:
         system with a known-good system image.\n\n%%%"},"type":"signal","id":"AQAAAYAeDX6RQ1MmRQAAAABBWUFlRFg2UkFBRDZONmh4RHNIOGF3QUE"}],"links":{"next":"https://api.datadoghq.com/api/v2/security_monitoring/signals?sort=timestamp&filter%5Bto%5D=now&page%5Bcursor%5D=eyJhZnRlciI6IkFRQUFBWUFlRFg2UlExTW1SUUFBQUFCQldVRmxSRmcyVWtGQlJEWk9ObWg0UkhOSU9HRjNRVUUifQ&filter%5Bfrom%5D=now-15m&filter%5Bquery%5D=security%3Aattack+status%3Ahigh&page%5Blimit%5D=2"}}
 
         '
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK
@@ -76,7 +79,7 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
+      Accept:
       - application/json
     method: GET
     uri: https://api.datadoghq.com/api/v2/security_monitoring/signals?page%5Blimit%5D=2&page%5Bcursor%5D=eyJhZnRlciI6IkFRQUFBWUFlZHdCbC1Wd21VZ0FBQUFCQldVRmxaSGRDYkVGQlFXRkpURGgxTlZNMFFtTlJRVUUifQ
@@ -103,6 +106,9 @@ http_interactions:
         credentials were accessed by an attacker.\n\n%%%"},"type":"signal","id":"AQAAAYAeDaGdCLwmPQAAAABBWUFlRGFHZEFBQ3R3QXBJcFc0dEVBQUE"}],"links":{"next":"https://api.datadoghq.com/api/v2/security_monitoring/signals?sort=timestamp&filter%5Bto%5D=now&page%5Bcursor%5D=eyJhZnRlciI6IkFRQUFBWUFlRGFHZENMd21QZ0FBQUFCQldVRmxSR0ZIWkVGQlJFa3lkakpuYjFCSmF6Um5RVUUifQ&filter%5Bfrom%5D=now-15m&filter%5Bquery%5D=security%3Aattack+status%3Ahigh&page%5Blimit%5D=2"}}
 
         '
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK

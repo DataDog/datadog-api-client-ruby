@@ -5,6 +5,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"series":[{"metric":"system.load.1","points":[{"timestamp":1650641018,"value":0.7}],"type":0}]}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: POST
@@ -13,6 +15,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"errors":[]}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 202
       message: Accepted

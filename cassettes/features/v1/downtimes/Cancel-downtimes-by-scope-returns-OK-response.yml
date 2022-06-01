@@ -5,6 +5,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"message":"Test-Cancel_downtimes_by_scope_returns_OK_response-1652348995","recurrence":{"period":1,"type":"weeks","until_date":1654163395,"week_days":["Mon","Tue","Wed","Thu","Fri"]},"scope":["test:testcanceldowntimesbyscopereturnsokresponse1652348995"],"start":1652348995,"timezone":"Etc/UTC"}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: POST
@@ -13,6 +15,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"recurrence":{"until_date":1654163395,"until_occurrences":null,"week_days":["Mon","Tue","Wed","Thu","Fri"],"type":"weeks","period":1},"end":null,"monitor_tags":["*"],"child_id":null,"canceled":null,"monitor_id":null,"mute_first_recovery_notification":false,"created":1652348995,"org_id":321813,"modified":1652348995,"disabled":false,"start":1652348995,"creator_id":1445416,"parent_id":null,"timezone":"Etc/UTC","active":true,"scope":["test:testcanceldowntimesbyscopereturnsokresponse1652348995"],"message":"Test-Cancel_downtimes_by_scope_returns_OK_response-1652348995","downtime_type":2,"id":1944162243,"updater_id":null}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK
@@ -22,6 +27,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"scope":"test:testcanceldowntimesbyscopereturnsokresponse1652348995"}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: POST
@@ -30,19 +37,25 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"cancelled_ids":[1944162243]}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK
 - recorded_at: Thu, 12 May 2022 09:49:55 GMT
   request:
     body: null
-    headers: {}
+    headers:
+      Accept:
+      - '*/*'
     method: DELETE
     uri: https://api.datadoghq.com/api/v1/downtime/1944162243
   response:
     body:
       encoding: UTF-8
       string: ''
+    headers: {}
     status:
       code: 204
       message: No Content

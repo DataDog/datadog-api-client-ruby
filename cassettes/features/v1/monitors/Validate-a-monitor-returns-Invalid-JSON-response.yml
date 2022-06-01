@@ -5,6 +5,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"query":"query","type":"log alert"}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: POST
@@ -14,6 +16,9 @@ http_interactions:
       encoding: UTF-8
       string: '{"errors":["The value provided for parameter ''query'' is invalid:
         invalid operator specified: "]}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 400
       message: Bad Request

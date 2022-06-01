@@ -6,6 +6,8 @@ http_interactions:
       string: '{"data":{"attributes":{"description":"Test Agent rule","enabled":true,"expression":"open.file.path
         = sh","name":"testcreateacloudworkloadsecurityagentrulereturnsbadrequestresponse1641924695"},"type":"agent_rule"}}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: POST
@@ -16,6 +18,9 @@ http_interactions:
       string: '{"errors":["input_validation_error(Field ''expression'' is invalid:
         rule `testcreateacloudworkloadsecurityagentrulereturnsbadrequestresponse1641924695`
         definition error: syntax error: 1:18: unexpected token \"sh\" (expected \"~\"))"]}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 400
       message: Bad Request

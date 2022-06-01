@@ -5,6 +5,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"attributes":{"name":"updated"},"id":"00000000-dead-beef-dead-ffffffffffff","type":"roles"}}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: PATCH
@@ -13,6 +15,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"errors":["Missing Role 00000000-dead-beef-dead-ffffffffffff not found"]}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 404
       message: Not Found

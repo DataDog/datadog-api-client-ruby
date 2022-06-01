@@ -5,6 +5,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"series":[{"metric":"TestDeleteatagconfigurationreturnsNoContentresponse1652354788","points":[[1652354788,1.1]],"tags":["test:ExampleSubmitmetricsreturnsPayloadacceptedresponse"],"type":"gauge"}]}'
     headers:
+      Accept:
+      - text/json, application/json
       Content-Type:
       - text/json
     method: POST
@@ -13,6 +15,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"status": "ok"}'
+    headers:
+      Content-Type:
+      - text/json
     status:
       code: 202
       message: Accepted
@@ -22,6 +27,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"attributes":{"metric_type":"gauge","tags":["app","datacenter","TestDeleteatagconfigurationreturnsNoContentresponse1652354788"]},"id":"TestDeleteatagconfigurationreturnsNoContentresponse1652354788","type":"manage_tags"}}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: POST
@@ -30,19 +37,25 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"data":{"type":"manage_tags","id":"TestDeleteatagconfigurationreturnsNoContentresponse1652354788","attributes":{"tags":["datacenter","app","TestDeleteatagconfigurationreturnsNoContentresponse1652354788"],"created_at":"2022-05-12T11:26:33.849417+00:00","modified_at":"2022-05-12T11:26:33.849417+00:00","metric_type":"gauge","aggregations":[{"space":"avg","time":"avg"}]}}}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 201
       message: Created
 - recorded_at: Thu, 12 May 2022 11:26:28 GMT
   request:
     body: null
-    headers: {}
+    headers:
+      Accept:
+      - '*/*'
     method: DELETE
     uri: https://api.datadoghq.com/api/v2/metrics/TestDeleteatagconfigurationreturnsNoContentresponse1652354788/tags
   response:
     body:
       encoding: UTF-8
       string: ''
+    headers: {}
     status:
       code: 204
       message: No Content
@@ -50,8 +63,8 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
-      - application/json
+      Accept:
+      - '*/*'
     method: DELETE
     uri: https://api.datadoghq.com/api/v2/metrics/TestDeleteatagconfigurationreturnsNoContentresponse1652354788/tags
   response:
@@ -59,6 +72,9 @@ http_interactions:
       encoding: UTF-8
       string: '{"errors": ["TestDeleteatagconfigurationreturnsNoContentresponse1652354788
         not found"]}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 404
       message: Not Found

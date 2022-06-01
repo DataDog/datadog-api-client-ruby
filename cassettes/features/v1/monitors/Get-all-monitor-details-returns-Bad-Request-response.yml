@@ -3,7 +3,7 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
+      Accept:
       - application/json
     method: GET
     uri: https://api.datadoghq.com/api/v1/monitor?group_states=notagroupstate
@@ -11,6 +11,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"errors":["Invalid group_state filters."]}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 400
       message: Bad Request

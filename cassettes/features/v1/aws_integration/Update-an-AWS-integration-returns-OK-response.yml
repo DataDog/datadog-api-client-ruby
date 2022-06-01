@@ -5,14 +5,19 @@ http_interactions:
       encoding: UTF-8
       string: '{"account_id":"123456789012","account_specific_namespace_rules":{"auto_scaling":false},"cspm_resource_collection_enabled":true,"excluded_regions":["us-east-1","us-west-2"],"filter_tags":["$KEY:$VALUE"],"host_tags":["$KEY:$VALUE"],"metrics_collection_enabled":false,"resource_collection_enabled":true,"role_name":"datadog-role"}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
-      - application/json;charset=utf-8
+      - application/json
     method: PUT
     uri: https://api.datadoghq.com/api/v1/integration/aws?account_id=123456789012&role_name=datadog-role
   response:
     body:
       encoding: UTF-8
       string: '{}'
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
     status:
       code: 200
       message: OK

@@ -9,14 +9,19 @@ http_interactions:
         UTF-8\"?>\ni am > bad xml\n\r\n--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--\r\
         \n"
     headers:
+      Accept:
+      - '*/*'
       Content-Type:
-      - application/json
+      - multipart/form-data; boundary=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
     method: POST
     uri: https://api.datadoghq.com/api/v2/saml_configurations/idp_metadata
   response:
     body:
       encoding: UTF-8
       string: '{"errors": ["Invalid metadata"]}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 400
       message: Bad Request

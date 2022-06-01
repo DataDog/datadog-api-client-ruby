@@ -6,6 +6,8 @@ http_interactions:
       string: '{"cases":[{"condition":"a > 0","name":"","notifications":[],"status":"info"}],"filters":[],"isEnabled":true,"message":"Test
         rule","name":"Test-Create_a_detection_rule_returns_OK_response-1652349187","options":{"evaluationWindow":900,"keepAlive":3600,"maxSignalDuration":86400},"queries":[{"aggregation":"count","distinctFields":[],"groupByFields":[],"metric":"","query":"@test:true"}],"tags":[]}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: POST
@@ -18,19 +20,25 @@ http_interactions:
         > 0"}],"type":"log_detection","id":"8tp-n1t-i19","isDefault":false,"name":"Test-Create_a_detection_rule_returns_OK_response-1652349187"}
 
         '
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK
 - recorded_at: Thu, 12 May 2022 09:53:07 GMT
   request:
     body: null
-    headers: {}
+    headers:
+      Accept:
+      - '*/*'
     method: DELETE
     uri: https://api.datadoghq.com/api/v2/security_monitoring/rules/8tp-n1t-i19
   response:
     body:
       encoding: UTF-8
       string: ''
+    headers: {}
     status:
       code: 204
       message: No Content

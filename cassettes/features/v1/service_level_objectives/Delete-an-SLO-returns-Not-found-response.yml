@@ -3,7 +3,7 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
+      Accept:
       - application/json
     method: DELETE
     uri: https://api.datadoghq.com/api/v1/slo/testdeleteansloreturnsnotfoundresponse1641430270
@@ -12,6 +12,9 @@ http_interactions:
       encoding: UTF-8
       string: '{"errors":["SLO not found: testdeleteansloreturnsnotfoundresponse1641430270
         not found"]}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 404
       message: Not Found

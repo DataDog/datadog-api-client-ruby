@@ -6,6 +6,8 @@ http_interactions:
       string: '{"data":{"attributes":{"description":"Test Agent rule","enabled":true,"expression":"exec.file.name
         == \"sh\""},"type":"agent_rule"}}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: PATCH
@@ -14,6 +16,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"errors":["not_found(Agent rule not found: agentRuleId=abc-123-xyz)"]}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 404
       message: Not Found

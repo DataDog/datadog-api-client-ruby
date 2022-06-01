@@ -5,6 +5,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"name":"Not found"}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: PUT
@@ -13,6 +15,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"errors":["Manual Dashboard List with id 0 not found"]}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 404
       message: Not Found

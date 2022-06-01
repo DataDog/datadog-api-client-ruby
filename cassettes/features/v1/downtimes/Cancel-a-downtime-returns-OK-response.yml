@@ -5,6 +5,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"message":"Test-Cancel_a_downtime_returns_OK_response-1652348993","recurrence":{"period":1,"type":"weeks","until_date":1654163393,"week_days":["Mon","Tue","Wed","Thu","Fri"]},"scope":["test:testcanceladowntimereturnsokresponse1652348993"],"start":1652348993,"timezone":"Etc/UTC"}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: POST
@@ -13,32 +15,41 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"recurrence":{"until_date":1654163393,"until_occurrences":null,"week_days":["Mon","Tue","Wed","Thu","Fri"],"type":"weeks","period":1},"end":null,"monitor_tags":["*"],"child_id":null,"canceled":null,"monitor_id":null,"mute_first_recovery_notification":false,"created":1652348994,"org_id":321813,"modified":1652348994,"disabled":false,"start":1652348993,"creator_id":1445416,"parent_id":null,"timezone":"Etc/UTC","active":true,"scope":["test:testcanceladowntimereturnsokresponse1652348993"],"message":"Test-Cancel_a_downtime_returns_OK_response-1652348993","downtime_type":2,"id":1944162237,"updater_id":null}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK
 - recorded_at: Thu, 12 May 2022 09:49:53 GMT
   request:
     body: null
-    headers: {}
+    headers:
+      Accept:
+      - '*/*'
     method: DELETE
     uri: https://api.datadoghq.com/api/v1/downtime/1944162237
   response:
     body:
       encoding: UTF-8
       string: ''
+    headers: {}
     status:
       code: 204
       message: No Content
 - recorded_at: Thu, 12 May 2022 09:49:53 GMT
   request:
     body: null
-    headers: {}
+    headers:
+      Accept:
+      - '*/*'
     method: DELETE
     uri: https://api.datadoghq.com/api/v1/downtime/1944162237
   response:
     body:
       encoding: UTF-8
       string: ''
+    headers: {}
     status:
       code: 204
       message: No Content

@@ -3,8 +3,8 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
-      - application/json
+      Accept:
+      - application/json;datetime-format=rfc3339
     method: GET
     uri: https://api.datadoghq.com/api/v1/usage/ci-app?start_hr=2022-02-19T14%3A52%3A00.155Z&end_hr=2022-02-21T14%3A52%3A00.155Z
   response:
@@ -58,6 +58,9 @@ http_interactions:
         Integration Tests (321813)","ci_visibility_test_committers":1,"public_id":"fasjyydbcgwwc2uc","ci_visibility_pipeline_committers":1,"hour":"2022-02-21T11:00:00+00:00","ci_visibility_combo_committers":0,"ci_test_indexed_spans":null,"ci_pipeline_indexed_spans":null},{"org_name":"DD
         Integration Tests (321813)","ci_visibility_test_committers":1,"public_id":"fasjyydbcgwwc2uc","ci_visibility_pipeline_committers":1,"hour":"2022-02-21T12:00:00+00:00","ci_visibility_combo_committers":0,"ci_test_indexed_spans":null,"ci_pipeline_indexed_spans":null},{"org_name":"DD
         Integration Tests (321813)","ci_visibility_test_committers":1,"public_id":"fasjyydbcgwwc2uc","ci_visibility_pipeline_committers":1,"hour":"2022-02-21T13:00:00+00:00","ci_visibility_combo_committers":0,"ci_test_indexed_spans":null,"ci_pipeline_indexed_spans":null}]}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK

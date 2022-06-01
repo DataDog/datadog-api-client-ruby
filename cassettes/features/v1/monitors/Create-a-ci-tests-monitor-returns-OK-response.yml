@@ -8,6 +8,8 @@ http_interactions:
         >= 1","tags":["test:testcreateacitestsmonitorreturnsokresponse1652800228","env:ci"],"type":"ci-tests
         alert"}'
     headers:
+      Accept:
+      - application/json
       Content-Type:
       - application/json
     method: POST
@@ -19,6 +21,9 @@ http_interactions:
         @git.branch:staging* @test.status:fail\").rollup(\"count\").by(\"@test.name\").last(\"5m\")
         >= 1","message":"some message Notify: @hipchat-channel","id":71774917,"multi":true,"name":"Test-Create_a_ci_tests_monitor_returns_OK_response-1652800228","created":"2022-05-17T15:10:29.357369+00:00","created_at":1652800229000,"creator":{"id":1445416,"handle":"frog@datadoghq.com","name":null,"email":"frog@datadoghq.com"},"org_id":321813,"modified":"2022-05-17T15:10:29.357369+00:00","priority":3,"overall_state_modified":null,"overall_state":"No
         Data","type":"ci-tests alert","options":{"notify_audit":false,"silenced":{},"include_tags":true,"thresholds":{"critical":1.0},"new_host_delay":300,"notify_no_data":false,"groupby_simple_monitor":false}}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK
@@ -26,7 +31,7 @@ http_interactions:
   request:
     body: null
     headers:
-      Content-Type:
+      Accept:
       - application/json
     method: DELETE
     uri: https://api.datadoghq.com/api/v1/monitor/71774917
@@ -34,6 +39,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"deleted_monitor_id":71774917}'
+    headers:
+      Content-Type:
+      - application/json
     status:
       code: 200
       message: OK
