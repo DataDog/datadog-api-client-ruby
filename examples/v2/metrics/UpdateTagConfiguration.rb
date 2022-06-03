@@ -1,9 +1,6 @@
 # Update a tag configuration returns "OK" response
 
 require "datadog_api_client"
-DatadogAPIClient::V2.configure do |config|
-  config.unstable_operations[:update_tag_configuration] = true
-end
 api_instance = DatadogAPIClient::V2::MetricsAPI.new
 
 # there is a valid "metric_tag_configuration" in the system
