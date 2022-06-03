@@ -168,8 +168,6 @@ module DatadogAPIClient::V2
             list_tag_configuration_by_name: false,
             update_tag_configuration: false,
             create_tag_configuration: false,
-            list_security_monitoring_signals: false,
-            search_security_monitoring_signals: false,
             list_incident_services: false,
             create_incident_service: false,
             delete_incident_service: false,

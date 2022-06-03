@@ -1,10 +1,7 @@
 # Get a list of security signals returns "OK" response
 
 require "datadog_api_client"
-DatadogAPIClient::V2.configure do |config|
-  config.unstable_operations[:search_security_monitoring_signals] = true
-end
-api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
+api_instance = DatadogAPIClient::V2::SecurityPlatformAPI.new
 
 body = DatadogAPIClient::V2::SecurityMonitoringSignalListRequest.new({
   filter: DatadogAPIClient::V2::SecurityMonitoringSignalListRequestFilter.new({
