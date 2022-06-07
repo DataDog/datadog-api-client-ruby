@@ -1,21 +1,19 @@
-# Update an existing rule returns "OK" response
+# Create a detection rule returns "OK" response
 
 require "datadog_api_client"
-api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
+api_instance = DatadogAPIClient::V2::SecurityPlatformAPI.new
 
-body = DatadogAPIClient::V2::SecurityMonitoringRuleUpdatePayload.new({
-  cases: [
-    DatadogAPIClient::V2::SecurityMonitoringRuleCase.new({
-      notifications: [],
-      status: DatadogAPIClient::V2::SecurityMonitoringRuleSeverity::CRITICAL,
-    }),
-  ],
+body = DatadogAPIClient::V2::SecurityMonitoringRuleCreatePayload.new({
+  cases: [],
   filters: [
     DatadogAPIClient::V2::SecurityMonitoringFilter.new({
       action: DatadogAPIClient::V2::SecurityMonitoringFilterAction::REQUIRE,
     }),
   ],
   has_extended_title: true,
+  is_enabled: true,
+  message: "",
+  name: "My security monitoring rule.",
   options: DatadogAPIClient::V2::SecurityMonitoringRuleOptions.new({
     detection_method: DatadogAPIClient::V2::SecurityMonitoringRuleDetectionMethod::THRESHOLD,
     evaluation_window: DatadogAPIClient::V2::SecurityMonitoringRuleEvaluationWindow::ZERO_MINUTES,
@@ -30,14 +28,11 @@ body = DatadogAPIClient::V2::SecurityMonitoringRuleUpdatePayload.new({
       learning_duration: DatadogAPIClient::V2::SecurityMonitoringRuleNewValueOptionsLearningDuration::ZERO_DAYS,
     }),
   }),
-  queries: [
-    DatadogAPIClient::V2::SecurityMonitoringRuleQuery.new({
-      aggregation: DatadogAPIClient::V2::SecurityMonitoringRuleQueryAggregation::COUNT,
-      distinct_fields: [],
-      group_by_fields: [],
-    }),
+  queries: [],
+  tags: [
+    "env:prod",
+    "team:security",
   ],
-  tags: [],
-  version: 1,
+  type: DatadogAPIClient::V2::SecurityMonitoringRuleTypeCreate::LOG_DETECTION,
 })
-p api_instance.update_security_monitoring_rule("rule_id", body)
+p api_instance.create_security_monitoring_rule(body)
