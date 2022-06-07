@@ -139,6 +139,7 @@ module DatadogAPIClient::V1
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @option opts [String] :next_record_id List following results with a next_record_id provided in the previous query.
     # @option opts [String] :tag_breakdown_keys Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.  To see which tags are available, look for the value of `tag_config_source` in the API response.
+    # @option opts [Boolean] :include_descendants Include child org usage in the response. Defaults to `true`.
     # @return [Array<(HourlyUsageAttributionResponse, Integer, Hash)>] HourlyUsageAttributionResponse data, response status code and response headers
     def get_hourly_usage_attribution_with_http_info(start_hr, usage_type, opts = {})
 
@@ -177,6 +178,7 @@ module DatadogAPIClient::V1
       query_params[:'end_hr'] = opts[:'end_hr'] if !opts[:'end_hr'].nil?
       query_params[:'next_record_id'] = opts[:'next_record_id'] if !opts[:'next_record_id'].nil?
       query_params[:'tag_breakdown_keys'] = opts[:'tag_breakdown_keys'] if !opts[:'tag_breakdown_keys'].nil?
+      query_params[:'include_descendants'] = opts[:'include_descendants'] if !opts[:'include_descendants'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -482,6 +484,7 @@ module DatadogAPIClient::V1
     # @option opts [MonthlyUsageAttributionSupportedMetrics] :sort_name The field to sort by.
     # @option opts [String] :tag_breakdown_keys Comma separated list of tag keys used to group usage. If no value is provided the usage will not be broken down by tags.  To see which tags are available, look for the value of `tag_config_source` in the API response.
     # @option opts [String] :next_record_id List following results with a next_record_id provided in the previous query.
+    # @option opts [Boolean] :include_descendants Include child org usage in the response. Defaults to `true`.
     # @return [Array<(MonthlyUsageAttributionResponse, Integer, Hash)>] MonthlyUsageAttributionResponse data, response status code and response headers
     def get_monthly_usage_attribution_with_http_info(start_month, fields, opts = {})
 
@@ -530,6 +533,7 @@ module DatadogAPIClient::V1
       query_params[:'sort_name'] = opts[:'sort_name'] if !opts[:'sort_name'].nil?
       query_params[:'tag_breakdown_keys'] = opts[:'tag_breakdown_keys'] if !opts[:'tag_breakdown_keys'].nil?
       query_params[:'next_record_id'] = opts[:'next_record_id'] if !opts[:'next_record_id'].nil?
+      query_params[:'include_descendants'] = opts[:'include_descendants'] if !opts[:'include_descendants'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
