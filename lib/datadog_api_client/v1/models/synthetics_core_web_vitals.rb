@@ -54,8 +54,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'cls' => :'Integer',
-        :'lcp' => :'Integer',
+        :'cls' => :'Float',
+        :'lcp' => :'Float',
         :'url' => :'String'
       }
     end
