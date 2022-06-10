@@ -42,7 +42,7 @@ Around do |scenario, block|
 end
 
 Around do |scenario, block|
-  VCR.use_cassette(scenario.location.file.chomp('.feature') + "/" + scenario.name.gsub(/[^A-Za-z0-9]+/, '-')[0..100]) do |cassette|
+  VCR.use_cassette(scenario.location.file.chomp('.feature') + "/" + scenario.name.gsub(/[^A-Za-z0-9]+/, '-')) do |cassette|
     if !File.exist?(cassette.file) && ENV.fetch("RECORD", "false") == "false" && !scenario.match_tags?("@integration-only")
       raise Exception.new "Cassette '#{cassette.file}' not found: create one setting `RECORD=true` or ignore it using `RECORD=none`"
     end
