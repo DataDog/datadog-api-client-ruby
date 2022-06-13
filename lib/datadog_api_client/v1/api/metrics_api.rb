@@ -334,6 +334,87 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
+    # Submit distribution points.
+    #
+    # @see #submit_distribution_points_with_http_info
+    def submit_distribution_points(body, opts = {})
+      data, _status_code, _headers = submit_distribution_points_with_http_info(body, opts)
+      data
+    end
+
+    # Submit distribution points.
+    #
+    # The distribution points end-point allows you to post distribution data that can be graphed on Datadog’s dashboards.
+    #
+    # @param body [DistributionPointsPayload] 
+    # @param opts [Hash] the optional parameters
+    # @option opts [DistributionPointsContentEncoding] :content_encoding HTTP header used to compress the media-type.
+    # @return [Array<(IntakePayloadAccepted, Integer, Hash)>] IntakePayloadAccepted data, response status code and response headers
+    def submit_distribution_points_with_http_info(body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:submit_distribution_points)
+        unstable_enabled = @api_client.config.unstable_operations[:submit_distribution_points]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "submit_distribution_points")
+        else
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "submit_distribution_points"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MetricsAPI.submit_distribution_points ...'
+      end
+      allowable_values = ['deflate']
+      if @api_client.config.client_side_validation && opts[:'content_encoding'] && !allowable_values.include?(opts[:'content_encoding'])
+        fail ArgumentError, "invalid value for \"content_encoding\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling MetricsAPI.submit_distribution_points"
+      end
+      # resource path
+      local_var_path = '/api/v1/distribution_points'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/json', 'application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['text/json'])
+      header_params['Content-Encoding'] = opts[:'content_encoding'] if !opts[:'content_encoding'].nil?
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'IntakePayloadAccepted'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :submit_distribution_points,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MetricsAPI#submit_distribution_points\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Submit metrics.
     #
     # @see #submit_metrics_with_http_info
