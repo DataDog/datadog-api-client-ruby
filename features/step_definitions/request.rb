@@ -37,7 +37,7 @@ module APIWorld
 
   def unique
     now = Time.now.utc
-    scenario_name = @scenario.name.gsub(/[^A-Za-z0-9]+/, '_')[0..100]
+    scenario_name = @scenario.name.gsub(/[^A-Za-z0-9]+/, '_')[0, 100]
     prefix = ENV["RECORD"] == "none" ? "Test-Ruby" : "Test"
     @unique ||= "#{prefix}-#{scenario_name}-#{now.to_i}"
   end
