@@ -3,16 +3,19 @@
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::OpsgenieIntegrationAPI.new
 
+# there is a valid "opsgenie_service" in the system
+OPSGENIE_SERVICE_DATA_ATTRIBUTES_NAME = ENV["OPSGENIE_SERVICE_DATA_ATTRIBUTES_NAME"]
+OPSGENIE_SERVICE_DATA_ID = ENV["OPSGENIE_SERVICE_DATA_ID"]
+
 body = DatadogAPIClient::V2::OpsgenieServiceUpdateRequest.new({
   data: DatadogAPIClient::V2::OpsgenieServiceUpdateData.new({
     attributes: DatadogAPIClient::V2::OpsgenieServiceUpdateAttributes.new({
-      custom_url: "https://example.com",
-      name: "fake-opsgenie-service-name",
+      name: "fake-opsgenie-service-name--updated",
       opsgenie_api_key: "00000000-0000-0000-0000-000000000000",
-      region: DatadogAPIClient::V2::OpsgenieServiceRegionType::US,
+      region: DatadogAPIClient::V2::OpsgenieServiceRegionType::EU,
     }),
-    id: "596da4af-0563-4097-90ff-07230c3f9db3",
+    id: OPSGENIE_SERVICE_DATA_ID,
     type: DatadogAPIClient::V2::OpsgenieServiceType::OPSGENIE_SERVICE,
   }),
 })
-p api_instance.update_opsgenie_service("integration_service_id", body)
+p api_instance.update_opsgenie_service(OPSGENIE_SERVICE_DATA_ID, body)
