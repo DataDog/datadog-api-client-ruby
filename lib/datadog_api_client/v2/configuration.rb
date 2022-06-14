@@ -163,8 +163,6 @@ module DatadogAPIClient::V2
             delete_incident: false,
             get_incident: false,
             update_incident: false,
-            list_security_monitoring_signals: false,
-            search_security_monitoring_signals: false,
             list_incident_services: false,
             create_incident_service: false,
             delete_incident_service: false,
