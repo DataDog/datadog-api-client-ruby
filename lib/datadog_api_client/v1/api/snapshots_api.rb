@@ -43,6 +43,8 @@ module DatadogAPIClient::V1
     # @option opts [String] :event_query A query that adds event bands to the graph.
     # @option opts [String] :graph_def A JSON document defining the graph. `graph_def` can be used instead of `metric_query`. The JSON document uses the [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be formatted to a single line then URL encoded.
     # @option opts [String] :title A title for the graph. If no title is specified, the graph does not have a title.
+    # @option opts [Integer] :height The height of the graph. If no height is specified, the graph's original height is used.
+    # @option opts [Integer] :width The width of the graph. If no width is specified, the graph's original width is used.
     # @return [Array<(GraphSnapshot, Integer, Hash)>] GraphSnapshot data, response status code and response headers
     def get_graph_snapshot_with_http_info(start, _end, opts = {})
 
@@ -77,6 +79,8 @@ module DatadogAPIClient::V1
       query_params[:'event_query'] = opts[:'event_query'] if !opts[:'event_query'].nil?
       query_params[:'graph_def'] = opts[:'graph_def'] if !opts[:'graph_def'].nil?
       query_params[:'title'] = opts[:'title'] if !opts[:'title'].nil?
+      query_params[:'height'] = opts[:'height'] if !opts[:'height'].nil?
+      query_params[:'width'] = opts[:'width'] if !opts[:'width'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
