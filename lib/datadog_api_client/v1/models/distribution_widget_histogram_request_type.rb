@@ -17,20 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # APM resource stat name.
-  class FormulaAndFunctionApmResourceStatName
+  # Request type for the histogram request.
+  class DistributionWidgetHistogramRequestType
     include BaseEnumModel
 
-    ERRORS = "errors".freeze
-    ERROR_RATE = "error_rate".freeze
-    HITS = "hits".freeze
-    LATENCY_AVG = "latency_avg".freeze
-    LATENCY_DISTRIBUTION = "latency_distribution".freeze
-    LATENCY_MAX = "latency_max".freeze
-    LATENCY_P50 = "latency_p50".freeze
-    LATENCY_P75 = "latency_p75".freeze
-    LATENCY_P90 = "latency_p90".freeze
-    LATENCY_P95 = "latency_p95".freeze
-    LATENCY_P99 = "latency_p99".freeze
+    HISTOGRAM = "histogram".freeze
   end
 end

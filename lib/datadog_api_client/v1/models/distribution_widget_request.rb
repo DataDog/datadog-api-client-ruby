@@ -49,6 +49,12 @@ module DatadogAPIClient::V1
     # Widget query.
     attr_accessor :q
 
+    # Query definition for Distribution Widget Histogram Request
+    attr_accessor :query
+
+    # Request type for the histogram request.
+    attr_accessor :request_type
+
     # The log query.
     attr_accessor :rum_query
 
@@ -70,6 +76,8 @@ module DatadogAPIClient::V1
         :'process_query' => :'process_query',
         :'profile_metrics_query' => :'profile_metrics_query',
         :'q' => :'q',
+        :'query' => :'query',
+        :'request_type' => :'request_type',
         :'rum_query' => :'rum_query',
         :'security_query' => :'security_query',
         :'style' => :'style'
@@ -94,6 +102,8 @@ module DatadogAPIClient::V1
         :'process_query' => :'ProcessQueryDefinition',
         :'profile_metrics_query' => :'LogQueryDefinition',
         :'q' => :'String',
+        :'query' => :'DistributionWidgetHistogramRequestQuery',
+        :'request_type' => :'DistributionWidgetHistogramRequestType',
         :'rum_query' => :'LogQueryDefinition',
         :'security_query' => :'LogQueryDefinition',
         :'style' => :'WidgetStyle'
@@ -155,6 +165,14 @@ module DatadogAPIClient::V1
         self.q = attributes[:'q']
       end
 
+      if attributes.key?(:'query')
+        self.query = attributes[:'query']
+      end
+
+      if attributes.key?(:'request_type')
+        self.request_type = attributes[:'request_type']
+      end
+
       if attributes.key?(:'rum_query')
         self.rum_query = attributes[:'rum_query']
       end
@@ -189,6 +207,8 @@ module DatadogAPIClient::V1
           process_query == o.process_query &&
           profile_metrics_query == o.profile_metrics_query &&
           q == o.q &&
+          query == o.query &&
+          request_type == o.request_type &&
           rum_query == o.rum_query &&
           security_query == o.security_query &&
           style == o.style
@@ -205,7 +225,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [apm_query, apm_stats_query, event_query, log_query, network_query, process_query, profile_metrics_query, q, rum_query, security_query, style].hash
+      [apm_query, apm_stats_query, event_query, log_query, network_query, process_query, profile_metrics_query, q, query, request_type, rum_query, security_query, style].hash
     end
   end
 end
