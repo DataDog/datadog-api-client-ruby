@@ -363,6 +363,7 @@ require 'datadog_api_client/v1/models/organization_settings_saml_autocreate_user
 require 'datadog_api_client/v1/models/organization_settings_saml_idp_initiated_login'
 require 'datadog_api_client/v1/models/organization_settings_saml_strict_mode'
 require 'datadog_api_client/v1/models/organization_subscription'
+require 'datadog_api_client/v1/models/org_downgraded_response'
 require 'datadog_api_client/v1/models/pager_duty_service'
 require 'datadog_api_client/v1/models/pager_duty_service_key'
 require 'datadog_api_client/v1/models/pager_duty_service_name'
