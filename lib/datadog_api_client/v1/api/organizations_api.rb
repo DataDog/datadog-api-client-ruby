@@ -190,7 +190,7 @@ module DatadogAPIClient::V1
 
     # List your managed organizations.
     #
-    # List your managed organizations.
+    # This endpoint returns data on your top-level organization.
     #
     # @param opts [Hash] the optional parameters
     # @return [Array<(OrganizationListResponse, Integer, Hash)>] OrganizationListResponse data, response status code and response headers
