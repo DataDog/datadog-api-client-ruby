@@ -46,6 +46,9 @@ module DatadogAPIClient::V1
     # Subscription definition.
     attr_accessor :subscription
 
+    # Only available for MSP customers. Allows child organizations to be created on a trial plan.
+    attr_accessor :trial
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
@@ -56,7 +59,8 @@ module DatadogAPIClient::V1
         :'name' => :'name',
         :'public_id' => :'public_id',
         :'settings' => :'settings',
-        :'subscription' => :'subscription'
+        :'subscription' => :'subscription',
+        :'trial' => :'trial'
       }
     end
 
@@ -76,7 +80,8 @@ module DatadogAPIClient::V1
         :'name' => :'String',
         :'public_id' => :'String',
         :'settings' => :'OrganizationSettings',
-        :'subscription' => :'OrganizationSubscription'
+        :'subscription' => :'OrganizationSubscription',
+        :'trial' => :'Boolean'
       }
     end
 
@@ -130,6 +135,10 @@ module DatadogAPIClient::V1
       if attributes.key?(:'subscription')
         self.subscription = attributes[:'subscription']
       end
+
+      if attributes.key?(:'trial')
+        self.trial = attributes[:'trial']
+      end
     end
 
     # Check to see if the all the properties in the model are valid
@@ -162,7 +171,8 @@ module DatadogAPIClient::V1
           name == o.name &&
           public_id == o.public_id &&
           settings == o.settings &&
-          subscription == o.subscription
+          subscription == o.subscription &&
+          trial == o.trial
     end
 
     # @see the `==` method
@@ -176,7 +186,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [billing, created, description, name, public_id, settings, subscription].hash
+      [billing, created, description, name, public_id, settings, subscription, trial].hash
     end
   end
 end
