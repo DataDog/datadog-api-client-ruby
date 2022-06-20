@@ -436,8 +436,6 @@ require 'datadog_api_client/v2/models/security_monitoring_rule_max_signal_durati
 require 'datadog_api_client/v2/models/security_monitoring_rule_new_value_options'
 require 'datadog_api_client/v2/models/security_monitoring_rule_new_value_options_forget_after'
 require 'datadog_api_client/v2/models/security_monitoring_rule_new_value_options_learning_duration'
-require 'datadog_api_client/v2/models/security_monitoring_rule_new_value_options_learning_method'
-require 'datadog_api_client/v2/models/security_monitoring_rule_new_value_options_learning_threshold'
 require 'datadog_api_client/v2/models/security_monitoring_rule_options'
 require 'datadog_api_client/v2/models/security_monitoring_rule_query'
 require 'datadog_api_client/v2/models/security_monitoring_rule_query_aggregation'

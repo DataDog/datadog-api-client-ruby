@@ -32,20 +32,12 @@ module DatadogAPIClient::V2
     # weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned.
     attr_accessor :learning_duration
 
-    # The learning method used to determine when signals should be generated for values that weren't learned.
-    attr_accessor :learning_method
-
-    # A number of occurrences after which signals will be generated for values that weren't learned.
-    attr_accessor :learning_threshold
-
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
         :'forget_after' => :'forgetAfter',
-        :'learning_duration' => :'learningDuration',
-        :'learning_method' => :'learningMethod',
-        :'learning_threshold' => :'learningThreshold'
+        :'learning_duration' => :'learningDuration'
       }
     end
 
@@ -60,9 +52,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'forget_after' => :'SecurityMonitoringRuleNewValueOptionsForgetAfter',
-        :'learning_duration' => :'SecurityMonitoringRuleNewValueOptionsLearningDuration',
-        :'learning_method' => :'SecurityMonitoringRuleNewValueOptionsLearningMethod',
-        :'learning_threshold' => :'SecurityMonitoringRuleNewValueOptionsLearningThreshold'
+        :'learning_duration' => :'SecurityMonitoringRuleNewValueOptionsLearningDuration'
       }
     end
 
@@ -95,20 +85,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'learning_duration')
         self.learning_duration = attributes[:'learning_duration']
-      else
-        self.learning_duration = 0
-      end
-
-      if attributes.key?(:'learning_method')
-        self.learning_method = attributes[:'learning_method']
-      else
-        self.learning_method = 'duration'
-      end
-
-      if attributes.key?(:'learning_threshold')
-        self.learning_threshold = attributes[:'learning_threshold']
-      else
-        self.learning_threshold = 0
       end
     end
 
@@ -126,9 +102,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           forget_after == o.forget_after &&
-          learning_duration == o.learning_duration &&
-          learning_method == o.learning_method &&
-          learning_threshold == o.learning_threshold
+          learning_duration == o.learning_duration
     end
 
     # @see the `==` method
@@ -142,7 +116,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [forget_after, learning_duration, learning_method, learning_threshold].hash
+      [forget_after, learning_duration].hash
     end
   end
 end

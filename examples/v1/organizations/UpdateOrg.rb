@@ -36,6 +36,5 @@ body = DatadogAPIClient::V1::Organization.new({
   subscription: DatadogAPIClient::V1::OrganizationSubscription.new({
     type: "pro",
   }),
-  trial: false,
 })
 p api_instance.update_org("abc123", body)
