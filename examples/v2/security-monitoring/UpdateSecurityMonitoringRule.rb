@@ -28,6 +28,8 @@ body = DatadogAPIClient::V2::SecurityMonitoringRuleUpdatePayload.new({
     new_value_options: DatadogAPIClient::V2::SecurityMonitoringRuleNewValueOptions.new({
       forget_after: DatadogAPIClient::V2::SecurityMonitoringRuleNewValueOptionsForgetAfter::ONE_DAY,
       learning_duration: DatadogAPIClient::V2::SecurityMonitoringRuleNewValueOptionsLearningDuration::ZERO_DAYS,
+      learning_method: DatadogAPIClient::V2::SecurityMonitoringRuleNewValueOptionsLearningMethod::DURATION,
+      learning_threshold: DatadogAPIClient::V2::SecurityMonitoringRuleNewValueOptionsLearningThreshold::ZERO_OCCURRENCES,
     }),
   }),
   queries: [
