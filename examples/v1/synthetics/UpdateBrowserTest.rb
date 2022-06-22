@@ -41,6 +41,9 @@ body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({
   message: "",
   name: "Example test name",
   options: DatadogAPIClient::V1::SyntheticsTestOptions.new({
+    ci: DatadogAPIClient::V1::SyntheticsTestCiOptions.new({
+      execution_rule: DatadogAPIClient::V1::SyntheticsTestExecutionRule::BLOCKING,
+    }),
     device_ids: [
       DatadogAPIClient::V1::SyntheticsDeviceID::LAPTOP_LARGE,
     ],

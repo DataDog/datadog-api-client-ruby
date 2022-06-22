@@ -46,6 +46,9 @@ body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({
       client_token_id: 123456,
     }),
     tick_every: 300,
+    ci: DatadogAPIClient::V1::SyntheticsTestCiOptions.new({
+      execution_rule: DatadogAPIClient::V1::SyntheticsTestExecutionRule::SKIPPED,
+    }),
   }),
   tags: [
     "testing:browser",

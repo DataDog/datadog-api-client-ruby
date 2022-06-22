@@ -35,6 +35,9 @@ module DatadogAPIClient::V1
     # For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
     attr_accessor :check_certificate_revocation
 
+    # CI/CD options for a Synthetic test.
+    attr_accessor :ci
+
     # For browser test, array with the different device IDs used to run the test.
     attr_accessor :device_ids
 
@@ -93,6 +96,7 @@ module DatadogAPIClient::V1
         :'accept_self_signed' => :'accept_self_signed',
         :'allow_insecure' => :'allow_insecure',
         :'check_certificate_revocation' => :'checkCertificateRevocation',
+        :'ci' => :'ci',
         :'device_ids' => :'device_ids',
         :'disable_cors' => :'disableCors',
         :'follow_redirects' => :'follow_redirects',
@@ -122,6 +126,7 @@ module DatadogAPIClient::V1
         :'accept_self_signed' => :'Boolean',
         :'allow_insecure' => :'Boolean',
         :'check_certificate_revocation' => :'Boolean',
+        :'ci' => :'SyntheticsTestCiOptions',
         :'device_ids' => :'Array<SyntheticsDeviceID>',
         :'disable_cors' => :'Boolean',
         :'follow_redirects' => :'Boolean',
@@ -171,6 +176,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'check_certificate_revocation')
         self.check_certificate_revocation = attributes[:'check_certificate_revocation']
+      end
+
+      if attributes.key?(:'ci')
+        self.ci = attributes[:'ci']
       end
 
       if attributes.key?(:'device_ids')
@@ -276,6 +285,7 @@ module DatadogAPIClient::V1
           accept_self_signed == o.accept_self_signed &&
           allow_insecure == o.allow_insecure &&
           check_certificate_revocation == o.check_certificate_revocation &&
+          ci == o.ci &&
           device_ids == o.device_ids &&
           disable_cors == o.disable_cors &&
           follow_redirects == o.follow_redirects &&
@@ -302,7 +312,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [accept_self_signed, allow_insecure, check_certificate_revocation, device_ids, disable_cors, follow_redirects, min_failure_duration, min_location_failed, monitor_name, monitor_options, monitor_priority, no_screenshot, restricted_roles, _retry, rum_settings, tick_every].hash
+      [accept_self_signed, allow_insecure, check_certificate_revocation, ci, device_ids, disable_cors, follow_redirects, min_failure_duration, min_location_failed, monitor_name, monitor_options, monitor_priority, no_screenshot, restricted_roles, _retry, rum_settings, tick_every].hash
     end
   end
 end
