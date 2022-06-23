@@ -162,7 +162,6 @@ module DatadogAPIClient::V1
             get_specified_daily_custom_reports: false,
             get_monthly_custom_reports: false,
             get_specified_monthly_custom_reports: false,
-            search_slo: false,
             get_slo_history: false,
             get_usage_attribution: false,
             get_hourly_usage_attribution: false,
@@ -366,56 +365,6 @@ module DatadogAPIClient::V1
               subdomain: {
                 description: "The subdomain where the API is deployed.",
                 default_value: "ip-ranges",
-              }
-            }
-          }  
-        ],
-        search_slo: [
-          {
-            url: "https://{subdomain}.{site}",
-            description: "No description provided",
-            variables: {
-              site: {
-                description: "The regional site for Datadog customers.",
-                default_value: "datadoghq.com",
-                enum_values: [
-                  "datadoghq.com",
-                  "us3.datadoghq.com",
-                  "us5.datadoghq.com",
-                  "ddog-gov.com"
-                ]
-              },
-              subdomain: {
-                description: "The subdomain where the API is deployed.",
-                default_value: "api",
-              }
-            }
-          },
-          {
-            url: "{protocol}://{name}",
-            description: "No description provided",
-            variables: {
-              name: {
-                description: "Full site DNS name.",
-                default_value: "api.datadoghq.com",
-              },
-              protocol: {
-                description: "The protocol for accessing the API.",
-                default_value: "https",
-              }
-            }
-          },
-          {
-            url: "https://{subdomain}.{site}",
-            description: "No description provided",
-            variables: {
-              site: {
-                description: "Any Datadog deployment.",
-                default_value: "datadoghq.com",
-              },
-              subdomain: {
-                description: "The subdomain where the API is deployed.",
-                default_value: "api",
               }
             }
           }  

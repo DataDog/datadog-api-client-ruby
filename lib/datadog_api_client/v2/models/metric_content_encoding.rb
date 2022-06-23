@@ -21,6 +21,8 @@ module DatadogAPIClient::V2
   class MetricContentEncoding
     include BaseEnumModel
 
+    ZSTD1 = "zstd1".freeze
     DEFLATE = "deflate".freeze
+    GZIP = "gzip".freeze
   end
 end

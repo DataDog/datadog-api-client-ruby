@@ -75,7 +75,7 @@ module DatadogAPIClient::V1
     # The name of the service level objective object.
     attr_accessor :name
 
-    # A metric-based SLO. **Required if type is `metric`**. Note that Datadog only allows the sum by aggregator
+    # A metric SLI query. **Required if type is `metric`**. Note that Datadog only allows the sum by aggregator
     # to be used because this will sum up all request counts instead of averaging them, or taking the max or
     # min of all of those requests.
     attr_accessor :query
