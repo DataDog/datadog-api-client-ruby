@@ -17,28 +17,26 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # A metric-based SLO. **Required if type is `metric`**. Note that Datadog only allows the sum by aggregator
-  # to be used because this will sum up all request counts instead of averaging them, or taking the max or
-  # min of all of those requests.
-  class ServiceLevelObjectiveQuery
+  # Facet
+  class SearchSLOResponseDataAttributesFacetsObjectInt
     include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
-    # A Datadog metric query for total (valid) events.
-    attr_accessor :denominator
+    # Count
+    attr_accessor :count
 
-    # A Datadog metric query for good events.
-    attr_accessor :numerator
+    # Facet
+    attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'denominator' => :'denominator',
-        :'numerator' => :'numerator'
+        :'count' => :'count',
+        :'name' => :'name'
       }
     end
 
@@ -52,8 +50,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'denominator' => :'String',
-        :'numerator' => :'String'
+        :'count' => :'Integer',
+        :'name' => :'Float'
       }
     end
 
@@ -69,23 +67,23 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::ServiceLevelObjectiveQuery` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SearchSLOResponseDataAttributesFacetsObjectInt` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::ServiceLevelObjectiveQuery`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SearchSLOResponseDataAttributesFacetsObjectInt`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'denominator')
-        self.denominator = attributes[:'denominator']
+      if attributes.key?(:'count')
+        self.count = attributes[:'count']
       end
 
-      if attributes.key?(:'numerator')
-        self.numerator = attributes[:'numerator']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
     end
 
@@ -93,29 +91,7 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @denominator.nil?
-      return false if @numerator.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param denominator [Object] Object to be assigned
-    # @!visibility private
-    def denominator=(denominator)
-      if denominator.nil?
-        fail ArgumentError, 'invalid value for "denominator", denominator cannot be nil.'
-      end
-      @denominator = denominator
-    end
-
-    # Custom attribute writer method with validation
-    # @param numerator [Object] Object to be assigned
-    # @!visibility private
-    def numerator=(numerator)
-      if numerator.nil?
-        fail ArgumentError, 'invalid value for "numerator", numerator cannot be nil.'
-      end
-      @numerator = numerator
     end
 
     # Checks equality by comparing each attribute.
@@ -124,8 +100,8 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          denominator == o.denominator &&
-          numerator == o.numerator
+          count == o.count &&
+          name == o.name
     end
 
     # @see the `==` method
@@ -139,7 +115,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [denominator, numerator].hash
+      [count, name].hash
     end
   end
 end

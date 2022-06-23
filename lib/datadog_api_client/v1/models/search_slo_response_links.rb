@@ -17,28 +17,38 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # A metric-based SLO. **Required if type is `metric`**. Note that Datadog only allows the sum by aggregator
-  # to be used because this will sum up all request counts instead of averaging them, or taking the max or
-  # min of all of those requests.
-  class ServiceLevelObjectiveQuery
+  # Pagination links.
+  class SearchSLOResponseLinks
     include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
-    # A Datadog metric query for total (valid) events.
-    attr_accessor :denominator
+    # Link to last page.
+    attr_accessor :first
 
-    # A Datadog metric query for good events.
-    attr_accessor :numerator
+    # Link to first page.
+    attr_accessor :last
+
+    # Link to the next page.
+    attr_accessor :_next
+
+    # Link to previous page.
+    attr_accessor :prev
+
+    # Link to current page.
+    attr_accessor :_self
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'denominator' => :'denominator',
-        :'numerator' => :'numerator'
+        :'first' => :'first',
+        :'last' => :'last',
+        :'_next' => :'next',
+        :'prev' => :'prev',
+        :'_self' => :'self'
       }
     end
 
@@ -52,8 +62,11 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'denominator' => :'String',
-        :'numerator' => :'String'
+        :'first' => :'String',
+        :'last' => :'String',
+        :'_next' => :'String',
+        :'prev' => :'String',
+        :'_self' => :'String'
       }
     end
 
@@ -69,23 +82,35 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::ServiceLevelObjectiveQuery` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SearchSLOResponseLinks` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::ServiceLevelObjectiveQuery`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SearchSLOResponseLinks`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'denominator')
-        self.denominator = attributes[:'denominator']
+      if attributes.key?(:'first')
+        self.first = attributes[:'first']
       end
 
-      if attributes.key?(:'numerator')
-        self.numerator = attributes[:'numerator']
+      if attributes.key?(:'last')
+        self.last = attributes[:'last']
+      end
+
+      if attributes.key?(:'_next')
+        self._next = attributes[:'_next']
+      end
+
+      if attributes.key?(:'prev')
+        self.prev = attributes[:'prev']
+      end
+
+      if attributes.key?(:'_self')
+        self._self = attributes[:'_self']
       end
     end
 
@@ -93,29 +118,7 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @denominator.nil?
-      return false if @numerator.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param denominator [Object] Object to be assigned
-    # @!visibility private
-    def denominator=(denominator)
-      if denominator.nil?
-        fail ArgumentError, 'invalid value for "denominator", denominator cannot be nil.'
-      end
-      @denominator = denominator
-    end
-
-    # Custom attribute writer method with validation
-    # @param numerator [Object] Object to be assigned
-    # @!visibility private
-    def numerator=(numerator)
-      if numerator.nil?
-        fail ArgumentError, 'invalid value for "numerator", numerator cannot be nil.'
-      end
-      @numerator = numerator
     end
 
     # Checks equality by comparing each attribute.
@@ -124,8 +127,11 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          denominator == o.denominator &&
-          numerator == o.numerator
+          first == o.first &&
+          last == o.last &&
+          _next == o._next &&
+          prev == o.prev &&
+          _self == o._self
     end
 
     # @see the `==` method
@@ -139,7 +145,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [denominator, numerator].hash
+      [first, last, _next, prev, _self].hash
     end
   end
 end
