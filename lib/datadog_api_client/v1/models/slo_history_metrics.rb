@@ -50,7 +50,7 @@ module DatadogAPIClient::V1
     # The series response version type. This mimics `batch_query` response type.
     attr_accessor :resp_version
 
-    # An array of query timestamps in EPOCH milliseconds
+    # An array of query timestamps in EPOCH milliseconds.
     attr_accessor :times
 
     # Attribute mapping from ruby-style variable name to JSON key.

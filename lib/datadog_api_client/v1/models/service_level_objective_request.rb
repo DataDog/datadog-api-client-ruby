@@ -32,21 +32,21 @@ module DatadogAPIClient::V1
     # Optional in create/update requests.
     attr_accessor :description
 
-    # A list of (up to 20) monitor groups that narrow the scope of a monitor service level objective.
+    # A list of (up to 100) monitor groups that narrow the scope of a monitor service level objective.
     #
     # Included in service level objective responses if it is not empty. Optional in
     # create/update requests for monitor service level objectives, but may only be
     # used when then length of the `monitor_ids` field is one.
     attr_accessor :groups
 
-    # A list of monitor ids that defines the scope of a monitor service level
+    # A list of monitor IDs that defines the scope of a monitor service level
     # objective. **Required if type is `monitor`**.
     attr_accessor :monitor_ids
 
     # The name of the service level objective object.
     attr_accessor :name
 
-    # A metric SLI query. **Required if type is `metric`**. Note that Datadog only allows the sum by aggregator
+    # A metric-based SLO. **Required if type is `metric`**. Note that Datadog only allows the sum by aggregator
     # to be used because this will sum up all request counts instead of averaging them, or taking the max or
     # min of all of those requests.
     attr_accessor :query
