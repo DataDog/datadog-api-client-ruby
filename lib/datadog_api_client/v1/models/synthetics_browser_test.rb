@@ -183,6 +183,7 @@ module DatadogAPIClient::V1
     def valid?
       return false if @config.nil?
       return false if @locations.nil?
+      return false if @message.nil?
       return false if @name.nil?
       return false if @options.nil?
       return false if @type.nil?
@@ -207,6 +208,16 @@ module DatadogAPIClient::V1
         fail ArgumentError, 'invalid value for "locations", locations cannot be nil.'
       end
       @locations = locations
+    end
+
+    # Custom attribute writer method with validation
+    # @param message [Object] Object to be assigned
+    # @!visibility private
+    def message=(message)
+      if message.nil?
+        fail ArgumentError, 'invalid value for "message", message cannot be nil.'
+      end
+      @message = message
     end
 
     # Custom attribute writer method with validation
