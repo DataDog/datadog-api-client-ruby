@@ -42,4 +42,28 @@ describe DatadogAPIClient::Configuration do
       end
     end
   end
+
+  describe "DatadogAPIClient.configure" do
+    it 'can be called' do
+      DatadogAPIClient.configure do |config|
+        expect(config).to be_a(DatadogAPIClient::Configuration)
+      end
+    end
+  end
+
+  describe "DatadogAPIClient::V1.configure" do
+    it 'can be called' do
+      DatadogAPIClient::V1.configure do |config|
+        expect(config).to be_a(DatadogAPIClient::Configuration)
+      end
+    end
+  end
+
+  describe "DatadogAPIClient::V2.configure" do
+    it 'can be called' do
+      DatadogAPIClient::V2.configure do |config|
+        expect(config).to be_a(DatadogAPIClient::Configuration)
+      end
+    end
+  end
 end
