@@ -107,8 +107,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'include_percentiles')
         self.include_percentiles = attributes[:'include_percentiles']
-      else
-        self.include_percentiles = false
       end
 
       if attributes.key?(:'tags')
