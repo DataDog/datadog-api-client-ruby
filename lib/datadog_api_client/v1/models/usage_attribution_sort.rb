@@ -25,6 +25,8 @@ module DatadogAPIClient::V1
     SNMP_USAGE = "snmp_usage".freeze
     APM_HOST_USAGE = "apm_host_usage".freeze
     API_USAGE = "api_usage".freeze
+    APPSEC_USAGE = "appsec_usage".freeze
+    APPSEC_PERCENTAGE = "appsec_percentage".freeze
     CONTAINER_USAGE = "container_usage".freeze
     CUSTOM_TIMESERIES_PERCENTAGE = "custom_timeseries_percentage".freeze
     CONTAINER_PERCENTAGE = "container_percentage".freeze

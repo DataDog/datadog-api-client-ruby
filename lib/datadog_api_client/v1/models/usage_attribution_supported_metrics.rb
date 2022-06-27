@@ -53,6 +53,8 @@ module DatadogAPIClient::V1
     DBM_QUERIES_PERCENTAGE = "dbm_queries_percentage".freeze
     ESTIMATED_INDEXED_LOGS_USAGE = "estimated_indexed_logs_usage".freeze
     ESTIMATED_INDEXED_LOGS_PERCENTAGE = "estimated_indexed_logs_percentage".freeze
+    APPSEC_USAGE = "appsec_usage".freeze
+    APPSEC_PERCENTAGE = "appsec_percentage".freeze
     ESTIMATED_INDEXED_SPANS_USAGE = "estimated_indexed_spans_usage".freeze
     ESTIMATED_INDEXED_SPANS_PERCENTAGE = "estimated_indexed_spans_percentage".freeze
     ALL = "*".freeze

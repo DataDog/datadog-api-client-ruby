@@ -23,6 +23,7 @@ module DatadogAPIClient::V1
 
     API_USAGE = "api_usage".freeze
     APM_HOST_USAGE = "apm_host_usage".freeze
+    APPSEC_USAGE = "appsec_usage".freeze
     BROWSER_USAGE = "browser_usage".freeze
     CONTAINER_USAGE = "container_usage".freeze
     CUSTOM_TIMESERIES_USAGE = "custom_timeseries_usage".freeze
