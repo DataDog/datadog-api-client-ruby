@@ -97,6 +97,12 @@ module DatadogAPIClient::V1
     # The estimated live indexed logs usage by tag(s). Note this field is in private beta.
     attr_accessor :estimated_indexed_logs_usage
 
+    # The percentage of estimated indexed spans usage by tag(s). Note this field is in private beta.
+    attr_accessor :estimated_indexed_spans_percentage
+
+    # The estimated indexed spans usage by tag(s). Note this field is in private beta.
+    attr_accessor :estimated_indexed_spans_usage
+
     # The percentage of infrastructure host usage by tag(s).
     attr_accessor :infra_host_percentage
 
@@ -167,6 +173,8 @@ module DatadogAPIClient::V1
         :'dbm_queries_usage' => :'dbm_queries_usage',
         :'estimated_indexed_logs_percentage' => :'estimated_indexed_logs_percentage',
         :'estimated_indexed_logs_usage' => :'estimated_indexed_logs_usage',
+        :'estimated_indexed_spans_percentage' => :'estimated_indexed_spans_percentage',
+        :'estimated_indexed_spans_usage' => :'estimated_indexed_spans_usage',
         :'infra_host_percentage' => :'infra_host_percentage',
         :'infra_host_usage' => :'infra_host_usage',
         :'lambda_functions_percentage' => :'lambda_functions_percentage',
@@ -218,6 +226,8 @@ module DatadogAPIClient::V1
         :'dbm_queries_usage' => :'Float',
         :'estimated_indexed_logs_percentage' => :'Float',
         :'estimated_indexed_logs_usage' => :'Float',
+        :'estimated_indexed_spans_percentage' => :'Float',
+        :'estimated_indexed_spans_usage' => :'Float',
         :'infra_host_percentage' => :'Float',
         :'infra_host_usage' => :'Float',
         :'lambda_functions_percentage' => :'Float',
@@ -354,6 +364,14 @@ module DatadogAPIClient::V1
         self.estimated_indexed_logs_usage = attributes[:'estimated_indexed_logs_usage']
       end
 
+      if attributes.key?(:'estimated_indexed_spans_percentage')
+        self.estimated_indexed_spans_percentage = attributes[:'estimated_indexed_spans_percentage']
+      end
+
+      if attributes.key?(:'estimated_indexed_spans_usage')
+        self.estimated_indexed_spans_usage = attributes[:'estimated_indexed_spans_usage']
+      end
+
       if attributes.key?(:'infra_host_percentage')
         self.infra_host_percentage = attributes[:'infra_host_percentage']
       end
@@ -448,6 +466,8 @@ module DatadogAPIClient::V1
           dbm_queries_usage == o.dbm_queries_usage &&
           estimated_indexed_logs_percentage == o.estimated_indexed_logs_percentage &&
           estimated_indexed_logs_usage == o.estimated_indexed_logs_usage &&
+          estimated_indexed_spans_percentage == o.estimated_indexed_spans_percentage &&
+          estimated_indexed_spans_usage == o.estimated_indexed_spans_usage &&
           infra_host_percentage == o.infra_host_percentage &&
           infra_host_usage == o.infra_host_usage &&
           lambda_functions_percentage == o.lambda_functions_percentage &&
@@ -475,7 +495,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [api_percentage, api_usage, apm_host_percentage, apm_host_usage, browser_percentage, browser_usage, container_percentage, container_usage, cspm_container_percentage, cspm_container_usage, cspm_host_percentage, cspm_host_usage, custom_timeseries_percentage, custom_timeseries_usage, cws_container_percentage, cws_container_usage, cws_host_percentage, cws_host_usage, dbm_hosts_percentage, dbm_hosts_usage, dbm_queries_percentage, dbm_queries_usage, estimated_indexed_logs_percentage, estimated_indexed_logs_usage, infra_host_percentage, infra_host_usage, lambda_functions_percentage, lambda_functions_usage, lambda_invocations_percentage, lambda_invocations_usage, npm_host_percentage, npm_host_usage, profiled_container_percentage, profiled_container_usage, profiled_hosts_percentage, profiled_hosts_usage, snmp_percentage, snmp_usage].hash
+      [api_percentage, api_usage, apm_host_percentage, apm_host_usage, browser_percentage, browser_usage, container_percentage, container_usage, cspm_container_percentage, cspm_container_usage, cspm_host_percentage, cspm_host_usage, custom_timeseries_percentage, custom_timeseries_usage, cws_container_percentage, cws_container_usage, cws_host_percentage, cws_host_usage, dbm_hosts_percentage, dbm_hosts_usage, dbm_queries_percentage, dbm_queries_usage, estimated_indexed_logs_percentage, estimated_indexed_logs_usage, estimated_indexed_spans_percentage, estimated_indexed_spans_usage, infra_host_percentage, infra_host_usage, lambda_functions_percentage, lambda_functions_usage, lambda_invocations_percentage, lambda_invocations_usage, npm_host_percentage, npm_host_usage, profiled_container_percentage, profiled_container_usage, profiled_hosts_percentage, profiled_hosts_usage, snmp_percentage, snmp_usage].hash
     end
   end
 end
