@@ -17,6 +17,7 @@ body = DatadogAPIClient::V2::SecurityMonitoringRuleUpdatePayload.new({
   ],
   has_extended_title: true,
   options: DatadogAPIClient::V2::SecurityMonitoringRuleOptions.new({
+    decrease_criticality_based_on_env: false,
     detection_method: DatadogAPIClient::V2::SecurityMonitoringRuleDetectionMethod::THRESHOLD,
     evaluation_window: DatadogAPIClient::V2::SecurityMonitoringRuleEvaluationWindow::ZERO_MINUTES,
     hardcoded_evaluator_type: DatadogAPIClient::V2::SecurityMonitoringRuleHardcodedEvaluatorType::LOG4SHELL,
