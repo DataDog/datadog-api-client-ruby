@@ -46,6 +46,9 @@ module DatadogAPIClient::V1
     # Available prefix information for the Synthetics endpoints.
     attr_accessor :synthetics
 
+    # Available prefix information for the Synthetics Private Locations endpoints.
+    attr_accessor :synthetics_private_locations
+
     # Version of the IP list.
     attr_accessor :version
 
@@ -63,6 +66,7 @@ module DatadogAPIClient::V1
         :'modified' => :'modified',
         :'process' => :'process',
         :'synthetics' => :'synthetics',
+        :'synthetics_private_locations' => :'synthetics-private-locations',
         :'version' => :'version',
         :'webhooks' => :'webhooks'
       }
@@ -85,6 +89,7 @@ module DatadogAPIClient::V1
         :'modified' => :'String',
         :'process' => :'IPPrefixesProcess',
         :'synthetics' => :'IPPrefixesSynthetics',
+        :'synthetics_private_locations' => :'IPPrefixesSyntheticsPrivateLocations',
         :'version' => :'Integer',
         :'webhooks' => :'IPPrefixesWebhooks'
       }
@@ -141,6 +146,10 @@ module DatadogAPIClient::V1
         self.synthetics = attributes[:'synthetics']
       end
 
+      if attributes.key?(:'synthetics_private_locations')
+        self.synthetics_private_locations = attributes[:'synthetics_private_locations']
+      end
+
       if attributes.key?(:'version')
         self.version = attributes[:'version']
       end
@@ -170,6 +179,7 @@ module DatadogAPIClient::V1
           modified == o.modified &&
           process == o.process &&
           synthetics == o.synthetics &&
+          synthetics_private_locations == o.synthetics_private_locations &&
           version == o.version &&
           webhooks == o.webhooks
     end
@@ -185,7 +195,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [agents, api, apm, logs, modified, process, synthetics, version, webhooks].hash
+      [agents, api, apm, logs, modified, process, synthetics, synthetics_private_locations, version, webhooks].hash
     end
   end
 end
