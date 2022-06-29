@@ -25,14 +25,14 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The status of the intake payload.
-    attr_accessor :status
+    # A list of errors.
+    attr_accessor :errors
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'status' => :'status'
+        :'errors' => :'errors'
       }
     end
 
@@ -46,7 +46,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'status' => :'String'
+        :'errors' => :'Array<String>'
       }
     end
 
@@ -73,8 +73,10 @@ module DatadogAPIClient::V2
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
+      if attributes.key?(:'errors')
+        if (value = attributes[:'errors']).is_a?(Array)
+          self.errors = value
+        end
       end
     end
 
@@ -91,7 +93,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          status == o.status
+          errors == o.errors
     end
 
     # @see the `==` method
@@ -105,7 +107,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [status].hash
+      [errors].hash
     end
   end
 end
