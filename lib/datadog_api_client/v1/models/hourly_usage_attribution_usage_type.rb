@@ -26,7 +26,13 @@ module DatadogAPIClient::V1
     APPSEC_USAGE = "appsec_usage".freeze
     BROWSER_USAGE = "browser_usage".freeze
     CONTAINER_USAGE = "container_usage".freeze
+    CSPM_CONTAINERS_USAGE = "cspm_containers_usage".freeze
+    CSPM_HOSTS_USAGE = "cspm_hosts_usage".freeze
     CUSTOM_TIMESERIES_USAGE = "custom_timeseries_usage".freeze
+    CWS_CONTAINERS_USAGE = "cws_containers_usage".freeze
+    CWS_HOSTS_USAGE = "cws_hosts_usage".freeze
+    DBM_HOSTS_USAGE = "dbm_hosts_usage".freeze
+    DBM_QUERIES_USAGE = "dbm_queries_usage".freeze
     ESTIMATED_INDEXED_LOGS_USAGE = "estimated_indexed_logs_usage".freeze
     ESTIMATED_INDEXED_SPANS_USAGE = "estimated_indexed_spans_usage".freeze
     FARGATE_USAGE = "fargate_usage".freeze
