@@ -109,7 +109,7 @@ module DatadogAPIClient::V2
 
     # Get estimated cost across multi-org account.
     #
-    # Get estimated cost across multi-org account.
+    # Get estimated cost across multi-org account. Estimated data is only available for the current month and previous month. To access historical costs beyond 2 months in the past, use the [/cost_by_org](#get-cost-across-multi-org-account) endpoint.
     #
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :start_month Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost beginning this month. Either start_month or start_date should be specified, but not both.
