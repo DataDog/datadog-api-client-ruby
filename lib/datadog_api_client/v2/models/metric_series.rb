@@ -47,7 +47,7 @@ module DatadogAPIClient::V2
     # A list of tags associated with the metric.
     attr_accessor :tags
 
-    # The type of metric.
+    # The type of metric. The available types are `0` (unspecified), `1` (count), `2` (rate), and `3` (gauge).
     attr_accessor :type
 
     # The unit of point value.
