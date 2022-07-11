@@ -43,7 +43,7 @@ body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({
     rum_settings: DatadogAPIClient::V1::SyntheticsBrowserTestRumSettings.new({
       is_enabled: true,
       application_id: "mockApplicationId",
-      client_token_id: 123456,
+      client_token_id: 12345,
     }),
     tick_every: 300,
     ci: DatadogAPIClient::V1::SyntheticsTestCiOptions.new({
