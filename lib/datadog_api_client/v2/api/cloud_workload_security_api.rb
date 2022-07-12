@@ -39,19 +39,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CloudWorkloadSecurityAgentRuleResponse, Integer, Hash)>] CloudWorkloadSecurityAgentRuleResponse data, response status code and response headers
     def create_cloud_workload_security_agent_rule_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:create_cloud_workload_security_agent_rule)
-        unstable_enabled = @api_client.config.unstable_operations[:create_cloud_workload_security_agent_rule]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_cloud_workload_security_agent_rule")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_cloud_workload_security_agent_rule"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudWorkloadSecurityAPI.create_cloud_workload_security_agent_rule ...'
-      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling CloudWorkloadSecurityAPI.create_cloud_workload_security_agent_rule"
@@ -115,19 +102,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_cloud_workload_security_agent_rule_with_http_info(agent_rule_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:delete_cloud_workload_security_agent_rule)
-        unstable_enabled = @api_client.config.unstable_operations[:delete_cloud_workload_security_agent_rule]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_cloud_workload_security_agent_rule")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_cloud_workload_security_agent_rule"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudWorkloadSecurityAPI.delete_cloud_workload_security_agent_rule ...'
-      end
       # verify the required parameter 'agent_rule_id' is set
       if @api_client.config.client_side_validation && agent_rule_id.nil?
         fail ArgumentError, "Missing the required parameter 'agent_rule_id' when calling CloudWorkloadSecurityAPI.delete_cloud_workload_security_agent_rule"
@@ -190,19 +164,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def download_cloud_workload_policy_file_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:download_cloud_workload_policy_file)
-        unstable_enabled = @api_client.config.unstable_operations[:download_cloud_workload_policy_file]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "download_cloud_workload_policy_file")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "download_cloud_workload_policy_file"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudWorkloadSecurityAPI.download_cloud_workload_policy_file ...'
-      end
       # resource path
       local_var_path = '/api/v2/security/cloud_workload/policy/download'
 
@@ -260,19 +221,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CloudWorkloadSecurityAgentRuleResponse, Integer, Hash)>] CloudWorkloadSecurityAgentRuleResponse data, response status code and response headers
     def get_cloud_workload_security_agent_rule_with_http_info(agent_rule_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_cloud_workload_security_agent_rule)
-        unstable_enabled = @api_client.config.unstable_operations[:get_cloud_workload_security_agent_rule]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_cloud_workload_security_agent_rule")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_cloud_workload_security_agent_rule"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudWorkloadSecurityAPI.get_cloud_workload_security_agent_rule ...'
-      end
       # verify the required parameter 'agent_rule_id' is set
       if @api_client.config.client_side_validation && agent_rule_id.nil?
         fail ArgumentError, "Missing the required parameter 'agent_rule_id' when calling CloudWorkloadSecurityAPI.get_cloud_workload_security_agent_rule"
@@ -333,19 +281,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CloudWorkloadSecurityAgentRulesListResponse, Integer, Hash)>] CloudWorkloadSecurityAgentRulesListResponse data, response status code and response headers
     def list_cloud_workload_security_agent_rules_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_cloud_workload_security_agent_rules)
-        unstable_enabled = @api_client.config.unstable_operations[:list_cloud_workload_security_agent_rules]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_cloud_workload_security_agent_rules")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_cloud_workload_security_agent_rules"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudWorkloadSecurityAPI.list_cloud_workload_security_agent_rules ...'
-      end
       # resource path
       local_var_path = '/api/v2/security_monitoring/cloud_workload_security/agent_rules'
 
@@ -405,19 +340,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CloudWorkloadSecurityAgentRuleResponse, Integer, Hash)>] CloudWorkloadSecurityAgentRuleResponse data, response status code and response headers
     def update_cloud_workload_security_agent_rule_with_http_info(agent_rule_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_cloud_workload_security_agent_rule)
-        unstable_enabled = @api_client.config.unstable_operations[:update_cloud_workload_security_agent_rule]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_cloud_workload_security_agent_rule")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_cloud_workload_security_agent_rule"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudWorkloadSecurityAPI.update_cloud_workload_security_agent_rule ...'
-      end
       # verify the required parameter 'agent_rule_id' is set
       if @api_client.config.client_side_validation && agent_rule_id.nil?
         fail ArgumentError, "Missing the required parameter 'agent_rule_id' when calling CloudWorkloadSecurityAPI.update_cloud_workload_security_agent_rule"

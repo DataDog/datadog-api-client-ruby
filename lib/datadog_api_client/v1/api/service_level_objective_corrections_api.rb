@@ -39,19 +39,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SLOCorrectionResponse, Integer, Hash)>] SLOCorrectionResponse data, response status code and response headers
     def create_slo_correction_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:create_slo_correction)
-        unstable_enabled = @api_client.config.unstable_operations[:create_slo_correction]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_slo_correction")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_slo_correction"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ServiceLevelObjectiveCorrectionsAPI.create_slo_correction ...'
-      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling ServiceLevelObjectiveCorrectionsAPI.create_slo_correction"
@@ -115,19 +102,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_slo_correction_with_http_info(slo_correction_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:delete_slo_correction)
-        unstable_enabled = @api_client.config.unstable_operations[:delete_slo_correction]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_slo_correction")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_slo_correction"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ServiceLevelObjectiveCorrectionsAPI.delete_slo_correction ...'
-      end
       # verify the required parameter 'slo_correction_id' is set
       if @api_client.config.client_side_validation && slo_correction_id.nil?
         fail ArgumentError, "Missing the required parameter 'slo_correction_id' when calling ServiceLevelObjectiveCorrectionsAPI.delete_slo_correction"
@@ -189,19 +163,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SLOCorrectionResponse, Integer, Hash)>] SLOCorrectionResponse data, response status code and response headers
     def get_slo_correction_with_http_info(slo_correction_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_slo_correction)
-        unstable_enabled = @api_client.config.unstable_operations[:get_slo_correction]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_slo_correction")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_slo_correction"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ServiceLevelObjectiveCorrectionsAPI.get_slo_correction ...'
-      end
       # verify the required parameter 'slo_correction_id' is set
       if @api_client.config.client_side_validation && slo_correction_id.nil?
         fail ArgumentError, "Missing the required parameter 'slo_correction_id' when calling ServiceLevelObjectiveCorrectionsAPI.get_slo_correction"
@@ -262,19 +223,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SLOCorrectionListResponse, Integer, Hash)>] SLOCorrectionListResponse data, response status code and response headers
     def list_slo_correction_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_slo_correction)
-        unstable_enabled = @api_client.config.unstable_operations[:list_slo_correction]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_slo_correction")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_slo_correction"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ServiceLevelObjectiveCorrectionsAPI.list_slo_correction ...'
-      end
       # resource path
       local_var_path = '/api/v1/slo/correction'
 
@@ -333,19 +281,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SLOCorrectionResponse, Integer, Hash)>] SLOCorrectionResponse data, response status code and response headers
     def update_slo_correction_with_http_info(slo_correction_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_slo_correction)
-        unstable_enabled = @api_client.config.unstable_operations[:update_slo_correction]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_slo_correction")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_slo_correction"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ServiceLevelObjectiveCorrectionsAPI.update_slo_correction ...'
-      end
       # verify the required parameter 'slo_correction_id' is set
       if @api_client.config.client_side_validation && slo_correction_id.nil?
         fail ArgumentError, "Missing the required parameter 'slo_correction_id' when calling ServiceLevelObjectiveCorrectionsAPI.update_slo_correction"

@@ -42,19 +42,6 @@ module DatadogAPIClient::V1
     # @option opts [String] :source The source of the tags. [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
     # @return [Array<(HostTags, Integer, Hash)>] HostTags data, response status code and response headers
     def create_host_tags_with_http_info(host_name, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:create_host_tags)
-        unstable_enabled = @api_client.config.unstable_operations[:create_host_tags]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_host_tags")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_host_tags"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TagsAPI.create_host_tags ...'
-      end
       # verify the required parameter 'host_name' is set
       if @api_client.config.client_side_validation && host_name.nil?
         fail ArgumentError, "Missing the required parameter 'host_name' when calling TagsAPI.create_host_tags"
@@ -125,19 +112,6 @@ module DatadogAPIClient::V1
     # @option opts [String] :source The source of the tags (for example chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_host_tags_with_http_info(host_name, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:delete_host_tags)
-        unstable_enabled = @api_client.config.unstable_operations[:delete_host_tags]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_host_tags")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_host_tags"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TagsAPI.delete_host_tags ...'
-      end
       # verify the required parameter 'host_name' is set
       if @api_client.config.client_side_validation && host_name.nil?
         fail ArgumentError, "Missing the required parameter 'host_name' when calling TagsAPI.delete_host_tags"
@@ -201,19 +175,6 @@ module DatadogAPIClient::V1
     # @option opts [String] :source Source to filter.
     # @return [Array<(HostTags, Integer, Hash)>] HostTags data, response status code and response headers
     def get_host_tags_with_http_info(host_name, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_host_tags)
-        unstable_enabled = @api_client.config.unstable_operations[:get_host_tags]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_host_tags")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_host_tags"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TagsAPI.get_host_tags ...'
-      end
       # verify the required parameter 'host_name' is set
       if @api_client.config.client_side_validation && host_name.nil?
         fail ArgumentError, "Missing the required parameter 'host_name' when calling TagsAPI.get_host_tags"
@@ -276,19 +237,6 @@ module DatadogAPIClient::V1
     # @option opts [String] :source When specified, filters host list to those tags with the specified source.
     # @return [Array<(TagToHosts, Integer, Hash)>] TagToHosts data, response status code and response headers
     def list_host_tags_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_host_tags)
-        unstable_enabled = @api_client.config.unstable_operations[:list_host_tags]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_host_tags")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_host_tags"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TagsAPI.list_host_tags ...'
-      end
       # resource path
       local_var_path = '/api/v1/tags/hosts'
 
@@ -350,19 +298,6 @@ module DatadogAPIClient::V1
     # @option opts [String] :source The source of the tags (for example chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value)
     # @return [Array<(HostTags, Integer, Hash)>] HostTags data, response status code and response headers
     def update_host_tags_with_http_info(host_name, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_host_tags)
-        unstable_enabled = @api_client.config.unstable_operations[:update_host_tags]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_host_tags")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_host_tags"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TagsAPI.update_host_tags ...'
-      end
       # verify the required parameter 'host_name' is set
       if @api_client.config.client_side_validation && host_name.nil?
         fail ArgumentError, "Missing the required parameter 'host_name' when calling TagsAPI.update_host_tags"

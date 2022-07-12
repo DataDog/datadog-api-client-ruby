@@ -39,19 +39,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(AuthNMappingResponse, Integer, Hash)>] AuthNMappingResponse data, response status code and response headers
     def create_authn_mapping_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:create_authn_mapping)
-        unstable_enabled = @api_client.config.unstable_operations[:create_authn_mapping]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_authn_mapping")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_authn_mapping"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AuthNMappingsAPI.create_authn_mapping ...'
-      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling AuthNMappingsAPI.create_authn_mapping"
@@ -115,19 +102,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_authn_mapping_with_http_info(authn_mapping_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:delete_authn_mapping)
-        unstable_enabled = @api_client.config.unstable_operations[:delete_authn_mapping]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_authn_mapping")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_authn_mapping"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AuthNMappingsAPI.delete_authn_mapping ...'
-      end
       # verify the required parameter 'authn_mapping_id' is set
       if @api_client.config.client_side_validation && authn_mapping_id.nil?
         fail ArgumentError, "Missing the required parameter 'authn_mapping_id' when calling AuthNMappingsAPI.delete_authn_mapping"
@@ -189,19 +163,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(AuthNMappingResponse, Integer, Hash)>] AuthNMappingResponse data, response status code and response headers
     def get_authn_mapping_with_http_info(authn_mapping_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_authn_mapping)
-        unstable_enabled = @api_client.config.unstable_operations[:get_authn_mapping]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_authn_mapping")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_authn_mapping"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AuthNMappingsAPI.get_authn_mapping ...'
-      end
       # verify the required parameter 'authn_mapping_id' is set
       if @api_client.config.client_side_validation && authn_mapping_id.nil?
         fail ArgumentError, "Missing the required parameter 'authn_mapping_id' when calling AuthNMappingsAPI.get_authn_mapping"
@@ -266,19 +227,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter Filter all mappings by the given string.
     # @return [Array<(AuthNMappingsResponse, Integer, Hash)>] AuthNMappingsResponse data, response status code and response headers
     def list_authn_mappings_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_authn_mappings)
-        unstable_enabled = @api_client.config.unstable_operations[:list_authn_mappings]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_authn_mappings")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_authn_mappings"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AuthNMappingsAPI.list_authn_mappings ...'
-      end
       allowable_values = ['created_at', '-created_at', 'role_id', '-role_id', 'saml_assertion_attribute_id', '-saml_assertion_attribute_id', 'role.name', '-role.name', 'saml_assertion_attribute.attribute_key', '-saml_assertion_attribute.attribute_key', 'saml_assertion_attribute.attribute_value', '-saml_assertion_attribute.attribute_value']
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
@@ -345,19 +293,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(AuthNMappingResponse, Integer, Hash)>] AuthNMappingResponse data, response status code and response headers
     def update_authn_mapping_with_http_info(authn_mapping_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_authn_mapping)
-        unstable_enabled = @api_client.config.unstable_operations[:update_authn_mapping]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_authn_mapping")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_authn_mapping"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AuthNMappingsAPI.update_authn_mapping ...'
-      end
       # verify the required parameter 'authn_mapping_id' is set
       if @api_client.config.client_side_validation && authn_mapping_id.nil?
         fail ArgumentError, "Missing the required parameter 'authn_mapping_id' when calling AuthNMappingsAPI.update_authn_mapping"

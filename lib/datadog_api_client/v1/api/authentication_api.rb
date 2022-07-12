@@ -38,19 +38,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(AuthenticationValidationResponse, Integer, Hash)>] AuthenticationValidationResponse data, response status code and response headers
     def validate_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:validate)
-        unstable_enabled = @api_client.config.unstable_operations[:validate]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "validate")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "validate"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AuthenticationAPI.validate ...'
-      end
       # resource path
       local_var_path = '/api/v1/validate'
 

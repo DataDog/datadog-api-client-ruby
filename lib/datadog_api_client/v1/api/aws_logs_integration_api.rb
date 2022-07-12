@@ -46,19 +46,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(AWSLogsAsyncResponse, Integer, Hash)>] AWSLogsAsyncResponse data, response status code and response headers
     def check_aws_logs_lambda_async_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:check_aws_logs_lambda_async)
-        unstable_enabled = @api_client.config.unstable_operations[:check_aws_logs_lambda_async]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "check_aws_logs_lambda_async")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "check_aws_logs_lambda_async"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AWSLogsIntegrationAPI.check_aws_logs_lambda_async ...'
-      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling AWSLogsIntegrationAPI.check_aws_logs_lambda_async"
@@ -131,19 +118,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(AWSLogsAsyncResponse, Integer, Hash)>] AWSLogsAsyncResponse data, response status code and response headers
     def check_aws_logs_services_async_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:check_aws_logs_services_async)
-        unstable_enabled = @api_client.config.unstable_operations[:check_aws_logs_services_async]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "check_aws_logs_services_async")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "check_aws_logs_services_async"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AWSLogsIntegrationAPI.check_aws_logs_services_async ...'
-      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling AWSLogsIntegrationAPI.check_aws_logs_services_async"
@@ -207,19 +181,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def create_aws_lambda_arn_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:create_aws_lambda_arn)
-        unstable_enabled = @api_client.config.unstable_operations[:create_aws_lambda_arn]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_aws_lambda_arn")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_aws_lambda_arn"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AWSLogsIntegrationAPI.create_aws_lambda_arn ...'
-      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling AWSLogsIntegrationAPI.create_aws_lambda_arn"
@@ -283,19 +244,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def delete_aws_lambda_arn_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:delete_aws_lambda_arn)
-        unstable_enabled = @api_client.config.unstable_operations[:delete_aws_lambda_arn]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_aws_lambda_arn")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_aws_lambda_arn"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AWSLogsIntegrationAPI.delete_aws_lambda_arn ...'
-      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling AWSLogsIntegrationAPI.delete_aws_lambda_arn"
@@ -359,19 +307,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def enable_aws_log_services_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:enable_aws_log_services)
-        unstable_enabled = @api_client.config.unstable_operations[:enable_aws_log_services]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "enable_aws_log_services")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "enable_aws_log_services"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AWSLogsIntegrationAPI.enable_aws_log_services ...'
-      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling AWSLogsIntegrationAPI.enable_aws_log_services"
@@ -434,19 +369,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Array<AWSLogsListResponse>, Integer, Hash)>] Array<AWSLogsListResponse> data, response status code and response headers
     def list_aws_logs_integrations_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_aws_logs_integrations)
-        unstable_enabled = @api_client.config.unstable_operations[:list_aws_logs_integrations]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_aws_logs_integrations")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_aws_logs_integrations"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AWSLogsIntegrationAPI.list_aws_logs_integrations ...'
-      end
       # resource path
       local_var_path = '/api/v1/integration/aws/logs'
 
@@ -503,19 +425,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Array<AWSLogsListServicesResponse>, Integer, Hash)>] Array<AWSLogsListServicesResponse> data, response status code and response headers
     def list_aws_logs_services_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_aws_logs_services)
-        unstable_enabled = @api_client.config.unstable_operations[:list_aws_logs_services]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_aws_logs_services")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_aws_logs_services"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AWSLogsIntegrationAPI.list_aws_logs_services ...'
-      end
       # resource path
       local_var_path = '/api/v1/integration/aws/logs/services'
 

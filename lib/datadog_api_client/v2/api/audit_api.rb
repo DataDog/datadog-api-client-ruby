@@ -49,19 +49,6 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_limit Maximum number of events in the response.
     # @return [Array<(AuditLogsEventsResponse, Integer, Hash)>] AuditLogsEventsResponse data, response status code and response headers
     def list_audit_logs_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_audit_logs)
-        unstable_enabled = @api_client.config.unstable_operations[:list_audit_logs]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_audit_logs")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_audit_logs"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AuditAPI.list_audit_logs ...'
-      end
       allowable_values = ['timestamp', '-timestamp']
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
@@ -158,19 +145,6 @@ module DatadogAPIClient::V2
     # @option opts [AuditLogsSearchEventsRequest] :body 
     # @return [Array<(AuditLogsEventsResponse, Integer, Hash)>] AuditLogsEventsResponse data, response status code and response headers
     def search_audit_logs_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:search_audit_logs)
-        unstable_enabled = @api_client.config.unstable_operations[:search_audit_logs]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "search_audit_logs")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "search_audit_logs"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AuditAPI.search_audit_logs ...'
-      end
       # resource path
       local_var_path = '/api/v2/audit/events/search'
 

@@ -39,19 +39,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsAggregateResponse, Integer, Hash)>] LogsAggregateResponse data, response status code and response headers
     def aggregate_logs_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:aggregate_logs)
-        unstable_enabled = @api_client.config.unstable_operations[:aggregate_logs]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "aggregate_logs")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "aggregate_logs"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: LogsAPI.aggregate_logs ...'
-      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling LogsAPI.aggregate_logs"
@@ -125,19 +112,6 @@ module DatadogAPIClient::V2
     # @option opts [LogsListRequest] :body 
     # @return [Array<(LogsListResponse, Integer, Hash)>] LogsListResponse data, response status code and response headers
     def list_logs_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_logs)
-        unstable_enabled = @api_client.config.unstable_operations[:list_logs]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_logs")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_logs"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: LogsAPI.list_logs ...'
-      end
       # resource path
       local_var_path = '/api/v2/logs/events/search'
 
@@ -234,19 +208,6 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_limit Maximum number of logs in the response.
     # @return [Array<(LogsListResponse, Integer, Hash)>] LogsListResponse data, response status code and response headers
     def list_logs_get_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_logs_get)
-        unstable_enabled = @api_client.config.unstable_operations[:list_logs_get]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_logs_get")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_logs_get"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: LogsAPI.list_logs_get ...'
-      end
       allowable_values = ['timestamp', '-timestamp']
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
@@ -363,19 +324,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :ddtags Log tags can be passed as query parameters with `text/plain` content type.
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def submit_log_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:submit_log)
-        unstable_enabled = @api_client.config.unstable_operations[:submit_log]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "submit_log")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "submit_log"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: LogsAPI.submit_log ...'
-      end
       allowable_values = ['gzip', 'deflate']
       if @api_client.config.client_side_validation && opts[:'content_encoding'] && !allowable_values.include?(opts[:'content_encoding'])
         fail ArgumentError, "invalid value for \"content_encoding\", must be one of #{allowable_values}"

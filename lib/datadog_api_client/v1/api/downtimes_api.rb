@@ -39,19 +39,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def cancel_downtime_with_http_info(downtime_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:cancel_downtime)
-        unstable_enabled = @api_client.config.unstable_operations[:cancel_downtime]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "cancel_downtime")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "cancel_downtime"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DowntimesAPI.cancel_downtime ...'
-      end
       # verify the required parameter 'downtime_id' is set
       if @api_client.config.client_side_validation && downtime_id.nil?
         fail ArgumentError, "Missing the required parameter 'downtime_id' when calling DowntimesAPI.cancel_downtime"
@@ -113,19 +100,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(CanceledDowntimesIds, Integer, Hash)>] CanceledDowntimesIds data, response status code and response headers
     def cancel_downtimes_by_scope_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:cancel_downtimes_by_scope)
-        unstable_enabled = @api_client.config.unstable_operations[:cancel_downtimes_by_scope]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "cancel_downtimes_by_scope")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "cancel_downtimes_by_scope"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DowntimesAPI.cancel_downtimes_by_scope ...'
-      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling DowntimesAPI.cancel_downtimes_by_scope"
@@ -189,19 +163,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Downtime, Integer, Hash)>] Downtime data, response status code and response headers
     def create_downtime_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:create_downtime)
-        unstable_enabled = @api_client.config.unstable_operations[:create_downtime]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_downtime")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_downtime"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DowntimesAPI.create_downtime ...'
-      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling DowntimesAPI.create_downtime"
@@ -265,19 +226,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Downtime, Integer, Hash)>] Downtime data, response status code and response headers
     def get_downtime_with_http_info(downtime_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_downtime)
-        unstable_enabled = @api_client.config.unstable_operations[:get_downtime]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_downtime")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_downtime"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DowntimesAPI.get_downtime ...'
-      end
       # verify the required parameter 'downtime_id' is set
       if @api_client.config.client_side_validation && downtime_id.nil?
         fail ArgumentError, "Missing the required parameter 'downtime_id' when calling DowntimesAPI.get_downtime"
@@ -339,19 +287,6 @@ module DatadogAPIClient::V1
     # @option opts [Boolean] :current_only Only return downtimes that are active when the request is made.
     # @return [Array<(Array<Downtime>, Integer, Hash)>] Array<Downtime> data, response status code and response headers
     def list_downtimes_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_downtimes)
-        unstable_enabled = @api_client.config.unstable_operations[:list_downtimes]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_downtimes")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_downtimes"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DowntimesAPI.list_downtimes ...'
-      end
       # resource path
       local_var_path = '/api/v1/downtime'
 
@@ -410,19 +345,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Array<Downtime>, Integer, Hash)>] Array<Downtime> data, response status code and response headers
     def list_monitor_downtimes_with_http_info(monitor_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_monitor_downtimes)
-        unstable_enabled = @api_client.config.unstable_operations[:list_monitor_downtimes]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_monitor_downtimes")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_monitor_downtimes"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DowntimesAPI.list_monitor_downtimes ...'
-      end
       # verify the required parameter 'monitor_id' is set
       if @api_client.config.client_side_validation && monitor_id.nil?
         fail ArgumentError, "Missing the required parameter 'monitor_id' when calling DowntimesAPI.list_monitor_downtimes"
@@ -485,19 +407,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Downtime, Integer, Hash)>] Downtime data, response status code and response headers
     def update_downtime_with_http_info(downtime_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_downtime)
-        unstable_enabled = @api_client.config.unstable_operations[:update_downtime]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_downtime")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_downtime"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DowntimesAPI.update_downtime ...'
-      end
       # verify the required parameter 'downtime_id' is set
       if @api_client.config.client_side_validation && downtime_id.nil?
         fail ArgumentError, "Missing the required parameter 'downtime_id' when calling DowntimesAPI.update_downtime"

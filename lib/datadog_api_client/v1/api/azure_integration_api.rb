@@ -45,19 +45,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def create_azure_integration_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:create_azure_integration)
-        unstable_enabled = @api_client.config.unstable_operations[:create_azure_integration]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_azure_integration")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_azure_integration"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AzureIntegrationAPI.create_azure_integration ...'
-      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling AzureIntegrationAPI.create_azure_integration"
@@ -121,19 +108,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def delete_azure_integration_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:delete_azure_integration)
-        unstable_enabled = @api_client.config.unstable_operations[:delete_azure_integration]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_azure_integration")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_azure_integration"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AzureIntegrationAPI.delete_azure_integration ...'
-      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling AzureIntegrationAPI.delete_azure_integration"
@@ -196,19 +170,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Array<AzureAccount>, Integer, Hash)>] Array<AzureAccount> data, response status code and response headers
     def list_azure_integration_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_azure_integration)
-        unstable_enabled = @api_client.config.unstable_operations[:list_azure_integration]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_azure_integration")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_azure_integration"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AzureIntegrationAPI.list_azure_integration ...'
-      end
       # resource path
       local_var_path = '/api/v1/integration/azure'
 
@@ -266,19 +227,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def update_azure_host_filters_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_azure_host_filters)
-        unstable_enabled = @api_client.config.unstable_operations[:update_azure_host_filters]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_azure_host_filters")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_azure_host_filters"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AzureIntegrationAPI.update_azure_host_filters ...'
-      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling AzureIntegrationAPI.update_azure_host_filters"
@@ -344,19 +292,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def update_azure_integration_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_azure_integration)
-        unstable_enabled = @api_client.config.unstable_operations[:update_azure_integration]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_azure_integration")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_azure_integration"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AzureIntegrationAPI.update_azure_integration ...'
-      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling AzureIntegrationAPI.update_azure_integration"

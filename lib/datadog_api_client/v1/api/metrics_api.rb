@@ -39,19 +39,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(MetricMetadata, Integer, Hash)>] MetricMetadata data, response status code and response headers
     def get_metric_metadata_with_http_info(metric_name, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_metric_metadata)
-        unstable_enabled = @api_client.config.unstable_operations[:get_metric_metadata]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_metric_metadata")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_metric_metadata"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MetricsAPI.get_metric_metadata ...'
-      end
       # verify the required parameter 'metric_name' is set
       if @api_client.config.client_side_validation && metric_name.nil?
         fail ArgumentError, "Missing the required parameter 'metric_name' when calling MetricsAPI.get_metric_metadata"
@@ -115,19 +102,6 @@ module DatadogAPIClient::V1
     # @option opts [String] :tag_filter Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
     # @return [Array<(MetricsListResponse, Integer, Hash)>] MetricsListResponse data, response status code and response headers
     def list_active_metrics_with_http_info(from, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_active_metrics)
-        unstable_enabled = @api_client.config.unstable_operations[:list_active_metrics]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_active_metrics")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_active_metrics"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MetricsAPI.list_active_metrics ...'
-      end
       # verify the required parameter 'from' is set
       if @api_client.config.client_side_validation && from.nil?
         fail ArgumentError, "Missing the required parameter 'from' when calling MetricsAPI.list_active_metrics"
@@ -192,19 +166,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(MetricSearchResponse, Integer, Hash)>] MetricSearchResponse data, response status code and response headers
     def list_metrics_with_http_info(q, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_metrics)
-        unstable_enabled = @api_client.config.unstable_operations[:list_metrics]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_metrics")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_metrics"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MetricsAPI.list_metrics ...'
-      end
       # verify the required parameter 'q' is set
       if @api_client.config.client_side_validation && q.nil?
         fail ArgumentError, "Missing the required parameter 'q' when calling MetricsAPI.list_metrics"
@@ -269,19 +230,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(MetricsQueryResponse, Integer, Hash)>] MetricsQueryResponse data, response status code and response headers
     def query_metrics_with_http_info(from, to, query, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:query_metrics)
-        unstable_enabled = @api_client.config.unstable_operations[:query_metrics]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "query_metrics")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "query_metrics"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MetricsAPI.query_metrics ...'
-      end
       # verify the required parameter 'from' is set
       if @api_client.config.client_side_validation && from.nil?
         fail ArgumentError, "Missing the required parameter 'from' when calling MetricsAPI.query_metrics"
@@ -355,19 +303,6 @@ module DatadogAPIClient::V1
     # @option opts [DistributionPointsContentEncoding] :content_encoding HTTP header used to compress the media-type.
     # @return [Array<(IntakePayloadAccepted, Integer, Hash)>] IntakePayloadAccepted data, response status code and response headers
     def submit_distribution_points_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:submit_distribution_points)
-        unstable_enabled = @api_client.config.unstable_operations[:submit_distribution_points]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "submit_distribution_points")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "submit_distribution_points"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MetricsAPI.submit_distribution_points ...'
-      end
       allowable_values = ['deflate']
       if @api_client.config.client_side_validation && opts[:'content_encoding'] && !allowable_values.include?(opts[:'content_encoding'])
         fail ArgumentError, "invalid value for \"content_encoding\", must be one of #{allowable_values}"
@@ -447,19 +382,6 @@ module DatadogAPIClient::V1
     # @option opts [MetricContentEncoding] :content_encoding HTTP header used to compress the media-type.
     # @return [Array<(IntakePayloadAccepted, Integer, Hash)>] IntakePayloadAccepted data, response status code and response headers
     def submit_metrics_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:submit_metrics)
-        unstable_enabled = @api_client.config.unstable_operations[:submit_metrics]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "submit_metrics")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "submit_metrics"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MetricsAPI.submit_metrics ...'
-      end
       allowable_values = ['deflate']
       if @api_client.config.client_side_validation && opts[:'content_encoding'] && !allowable_values.include?(opts[:'content_encoding'])
         fail ArgumentError, "invalid value for \"content_encoding\", must be one of #{allowable_values}"
@@ -529,19 +451,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(MetricMetadata, Integer, Hash)>] MetricMetadata data, response status code and response headers
     def update_metric_metadata_with_http_info(metric_name, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_metric_metadata)
-        unstable_enabled = @api_client.config.unstable_operations[:update_metric_metadata]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_metric_metadata")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_metric_metadata"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MetricsAPI.update_metric_metadata ...'
-      end
       # verify the required parameter 'metric_name' is set
       if @api_client.config.client_side_validation && metric_name.nil?
         fail ArgumentError, "Missing the required parameter 'metric_name' when calling MetricsAPI.update_metric_metadata"

@@ -39,19 +39,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(NotebookResponse, Integer, Hash)>] NotebookResponse data, response status code and response headers
     def create_notebook_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:create_notebook)
-        unstable_enabled = @api_client.config.unstable_operations[:create_notebook]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_notebook")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_notebook"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: NotebooksAPI.create_notebook ...'
-      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling NotebooksAPI.create_notebook"
@@ -115,19 +102,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_notebook_with_http_info(notebook_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:delete_notebook)
-        unstable_enabled = @api_client.config.unstable_operations[:delete_notebook]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_notebook")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_notebook"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: NotebooksAPI.delete_notebook ...'
-      end
       # verify the required parameter 'notebook_id' is set
       if @api_client.config.client_side_validation && notebook_id.nil?
         fail ArgumentError, "Missing the required parameter 'notebook_id' when calling NotebooksAPI.delete_notebook"
@@ -189,19 +163,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(NotebookResponse, Integer, Hash)>] NotebookResponse data, response status code and response headers
     def get_notebook_with_http_info(notebook_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_notebook)
-        unstable_enabled = @api_client.config.unstable_operations[:get_notebook]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_notebook")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_notebook"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: NotebooksAPI.get_notebook ...'
-      end
       # verify the required parameter 'notebook_id' is set
       if @api_client.config.client_side_validation && notebook_id.nil?
         fail ArgumentError, "Missing the required parameter 'notebook_id' when calling NotebooksAPI.get_notebook"
@@ -273,19 +234,6 @@ module DatadogAPIClient::V1
     # @option opts [String] :type If type is provided, returns only notebooks with that metadata type. Default does not have type filtering.
     # @return [Array<(NotebooksResponse, Integer, Hash)>] NotebooksResponse data, response status code and response headers
     def list_notebooks_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_notebooks)
-        unstable_enabled = @api_client.config.unstable_operations[:list_notebooks]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_notebooks")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_notebooks"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: NotebooksAPI.list_notebooks ...'
-      end
       # resource path
       local_var_path = '/api/v1/notebooks'
 
@@ -354,19 +302,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(NotebookResponse, Integer, Hash)>] NotebookResponse data, response status code and response headers
     def update_notebook_with_http_info(notebook_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_notebook)
-        unstable_enabled = @api_client.config.unstable_operations[:update_notebook]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_notebook")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_notebook"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: NotebooksAPI.update_notebook ...'
-      end
       # verify the required parameter 'notebook_id' is set
       if @api_client.config.client_side_validation && notebook_id.nil?
         fail ArgumentError, "Missing the required parameter 'notebook_id' when calling NotebooksAPI.update_notebook"

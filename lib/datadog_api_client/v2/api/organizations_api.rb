@@ -41,19 +41,6 @@ module DatadogAPIClient::V2
     # @option opts [File] :idp_file The IdP metadata XML file
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def upload_idp_metadata_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:upload_idp_metadata)
-        unstable_enabled = @api_client.config.unstable_operations[:upload_idp_metadata]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "upload_idp_metadata")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "upload_idp_metadata"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OrganizationsAPI.upload_idp_metadata ...'
-      end
       # resource path
       local_var_path = '/api/v2/saml_configurations/idp_metadata'
 

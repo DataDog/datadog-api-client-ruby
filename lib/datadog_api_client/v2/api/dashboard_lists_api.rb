@@ -40,19 +40,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(DashboardListAddItemsResponse, Integer, Hash)>] DashboardListAddItemsResponse data, response status code and response headers
     def create_dashboard_list_items_with_http_info(dashboard_list_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:create_dashboard_list_items)
-        unstable_enabled = @api_client.config.unstable_operations[:create_dashboard_list_items]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_dashboard_list_items")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_dashboard_list_items"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DashboardListsAPI.create_dashboard_list_items ...'
-      end
       # verify the required parameter 'dashboard_list_id' is set
       if @api_client.config.client_side_validation && dashboard_list_id.nil?
         fail ArgumentError, "Missing the required parameter 'dashboard_list_id' when calling DashboardListsAPI.create_dashboard_list_items"
@@ -121,19 +108,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(DashboardListDeleteItemsResponse, Integer, Hash)>] DashboardListDeleteItemsResponse data, response status code and response headers
     def delete_dashboard_list_items_with_http_info(dashboard_list_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:delete_dashboard_list_items)
-        unstable_enabled = @api_client.config.unstable_operations[:delete_dashboard_list_items]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_dashboard_list_items")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_dashboard_list_items"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DashboardListsAPI.delete_dashboard_list_items ...'
-      end
       # verify the required parameter 'dashboard_list_id' is set
       if @api_client.config.client_side_validation && dashboard_list_id.nil?
         fail ArgumentError, "Missing the required parameter 'dashboard_list_id' when calling DashboardListsAPI.delete_dashboard_list_items"
@@ -201,19 +175,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(DashboardListItems, Integer, Hash)>] DashboardListItems data, response status code and response headers
     def get_dashboard_list_items_with_http_info(dashboard_list_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_dashboard_list_items)
-        unstable_enabled = @api_client.config.unstable_operations[:get_dashboard_list_items]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_dashboard_list_items")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_dashboard_list_items"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DashboardListsAPI.get_dashboard_list_items ...'
-      end
       # verify the required parameter 'dashboard_list_id' is set
       if @api_client.config.client_side_validation && dashboard_list_id.nil?
         fail ArgumentError, "Missing the required parameter 'dashboard_list_id' when calling DashboardListsAPI.get_dashboard_list_items"
@@ -276,19 +237,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(DashboardListUpdateItemsResponse, Integer, Hash)>] DashboardListUpdateItemsResponse data, response status code and response headers
     def update_dashboard_list_items_with_http_info(dashboard_list_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_dashboard_list_items)
-        unstable_enabled = @api_client.config.unstable_operations[:update_dashboard_list_items]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_dashboard_list_items")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_dashboard_list_items"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DashboardListsAPI.update_dashboard_list_items ...'
-      end
       # verify the required parameter 'dashboard_list_id' is set
       if @api_client.config.client_side_validation && dashboard_list_id.nil?
         fail ArgumentError, "Missing the required parameter 'dashboard_list_id' when calling DashboardListsAPI.update_dashboard_list_items"

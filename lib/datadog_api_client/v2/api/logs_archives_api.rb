@@ -40,19 +40,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def add_read_role_to_archive_with_http_info(archive_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:add_read_role_to_archive)
-        unstable_enabled = @api_client.config.unstable_operations[:add_read_role_to_archive]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "add_read_role_to_archive")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "add_read_role_to_archive"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: LogsArchivesAPI.add_read_role_to_archive ...'
-      end
       # verify the required parameter 'archive_id' is set
       if @api_client.config.client_side_validation && archive_id.nil?
         fail ArgumentError, "Missing the required parameter 'archive_id' when calling LogsArchivesAPI.add_read_role_to_archive"
@@ -120,19 +107,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsArchive, Integer, Hash)>] LogsArchive data, response status code and response headers
     def create_logs_archive_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:create_logs_archive)
-        unstable_enabled = @api_client.config.unstable_operations[:create_logs_archive]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_logs_archive")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_logs_archive"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: LogsArchivesAPI.create_logs_archive ...'
-      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling LogsArchivesAPI.create_logs_archive"
@@ -196,19 +170,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_logs_archive_with_http_info(archive_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:delete_logs_archive)
-        unstable_enabled = @api_client.config.unstable_operations[:delete_logs_archive]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_logs_archive")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_logs_archive"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: LogsArchivesAPI.delete_logs_archive ...'
-      end
       # verify the required parameter 'archive_id' is set
       if @api_client.config.client_side_validation && archive_id.nil?
         fail ArgumentError, "Missing the required parameter 'archive_id' when calling LogsArchivesAPI.delete_logs_archive"
@@ -270,19 +231,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsArchive, Integer, Hash)>] LogsArchive data, response status code and response headers
     def get_logs_archive_with_http_info(archive_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_logs_archive)
-        unstable_enabled = @api_client.config.unstable_operations[:get_logs_archive]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_logs_archive")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_logs_archive"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: LogsArchivesAPI.get_logs_archive ...'
-      end
       # verify the required parameter 'archive_id' is set
       if @api_client.config.client_side_validation && archive_id.nil?
         fail ArgumentError, "Missing the required parameter 'archive_id' when calling LogsArchivesAPI.get_logs_archive"
@@ -344,19 +292,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsArchiveOrder, Integer, Hash)>] LogsArchiveOrder data, response status code and response headers
     def get_logs_archive_order_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_logs_archive_order)
-        unstable_enabled = @api_client.config.unstable_operations[:get_logs_archive_order]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_logs_archive_order")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_logs_archive_order"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: LogsArchivesAPI.get_logs_archive_order ...'
-      end
       # resource path
       local_var_path = '/api/v2/logs/config/archive-order'
 
@@ -414,19 +349,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(RolesResponse, Integer, Hash)>] RolesResponse data, response status code and response headers
     def list_archive_read_roles_with_http_info(archive_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_archive_read_roles)
-        unstable_enabled = @api_client.config.unstable_operations[:list_archive_read_roles]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_archive_read_roles")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_archive_read_roles"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: LogsArchivesAPI.list_archive_read_roles ...'
-      end
       # verify the required parameter 'archive_id' is set
       if @api_client.config.client_side_validation && archive_id.nil?
         fail ArgumentError, "Missing the required parameter 'archive_id' when calling LogsArchivesAPI.list_archive_read_roles"
@@ -487,19 +409,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsArchives, Integer, Hash)>] LogsArchives data, response status code and response headers
     def list_logs_archives_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_logs_archives)
-        unstable_enabled = @api_client.config.unstable_operations[:list_logs_archives]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_logs_archives")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_logs_archives"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: LogsArchivesAPI.list_logs_archives ...'
-      end
       # resource path
       local_var_path = '/api/v2/logs/config/archives'
 
@@ -558,19 +467,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def remove_role_from_archive_with_http_info(archive_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:remove_role_from_archive)
-        unstable_enabled = @api_client.config.unstable_operations[:remove_role_from_archive]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "remove_role_from_archive")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "remove_role_from_archive"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: LogsArchivesAPI.remove_role_from_archive ...'
-      end
       # verify the required parameter 'archive_id' is set
       if @api_client.config.client_side_validation && archive_id.nil?
         fail ArgumentError, "Missing the required parameter 'archive_id' when calling LogsArchivesAPI.remove_role_from_archive"
@@ -642,19 +538,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsArchive, Integer, Hash)>] LogsArchive data, response status code and response headers
     def update_logs_archive_with_http_info(archive_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_logs_archive)
-        unstable_enabled = @api_client.config.unstable_operations[:update_logs_archive]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_logs_archive")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_logs_archive"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: LogsArchivesAPI.update_logs_archive ...'
-      end
       # verify the required parameter 'archive_id' is set
       if @api_client.config.client_side_validation && archive_id.nil?
         fail ArgumentError, "Missing the required parameter 'archive_id' when calling LogsArchivesAPI.update_logs_archive"
@@ -726,19 +609,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsArchiveOrder, Integer, Hash)>] LogsArchiveOrder data, response status code and response headers
     def update_logs_archive_order_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_logs_archive_order)
-        unstable_enabled = @api_client.config.unstable_operations[:update_logs_archive_order]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_logs_archive_order")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_logs_archive_order"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: LogsArchivesAPI.update_logs_archive_order ...'
-      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling LogsArchivesAPI.update_logs_archive_order"

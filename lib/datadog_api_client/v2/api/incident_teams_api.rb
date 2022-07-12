@@ -39,14 +39,11 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(IncidentTeamResponse, Integer, Hash)>] IncidentTeamResponse data, response status code and response headers
     def create_incident_team_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:create_incident_team)
-        unstable_enabled = @api_client.config.unstable_operations[:create_incident_team]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_incident_team")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_incident_team"))
-        end
+      unstable_enabled = @api_client.config.unstable_operations["V2.create_incident_team".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "create_incident_team")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "create_incident_team"))
       end
 
       if @api_client.config.debugging
@@ -115,14 +112,11 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_incident_team_with_http_info(team_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:delete_incident_team)
-        unstable_enabled = @api_client.config.unstable_operations[:delete_incident_team]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_incident_team")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_incident_team"))
-        end
+      unstable_enabled = @api_client.config.unstable_operations["V2.delete_incident_team".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_incident_team")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "delete_incident_team"))
       end
 
       if @api_client.config.debugging
@@ -191,14 +185,11 @@ module DatadogAPIClient::V2
     # @option opts [IncidentRelatedObject] :include Specifies which types of related objects should be included in the response.
     # @return [Array<(IncidentTeamResponse, Integer, Hash)>] IncidentTeamResponse data, response status code and response headers
     def get_incident_team_with_http_info(team_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_incident_team)
-        unstable_enabled = @api_client.config.unstable_operations[:get_incident_team]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_incident_team")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_incident_team"))
-        end
+      unstable_enabled = @api_client.config.unstable_operations["V2.get_incident_team".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "get_incident_team")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "get_incident_team"))
       end
 
       if @api_client.config.debugging
@@ -273,14 +264,11 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter A search query that filters teams by name.
     # @return [Array<(IncidentTeamsResponse, Integer, Hash)>] IncidentTeamsResponse data, response status code and response headers
     def list_incident_teams_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_incident_teams)
-        unstable_enabled = @api_client.config.unstable_operations[:list_incident_teams]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_incident_teams")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_incident_teams"))
-        end
+      unstable_enabled = @api_client.config.unstable_operations["V2.list_incident_teams".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "list_incident_teams")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "list_incident_teams"))
       end
 
       if @api_client.config.debugging
@@ -352,14 +340,11 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(IncidentTeamResponse, Integer, Hash)>] IncidentTeamResponse data, response status code and response headers
     def update_incident_team_with_http_info(team_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_incident_team)
-        unstable_enabled = @api_client.config.unstable_operations[:update_incident_team]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_incident_team")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_incident_team"))
-        end
+      unstable_enabled = @api_client.config.unstable_operations["V2.update_incident_team".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "update_incident_team")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "update_incident_team"))
       end
 
       if @api_client.config.debugging

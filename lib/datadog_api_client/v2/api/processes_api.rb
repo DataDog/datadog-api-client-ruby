@@ -44,19 +44,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :page_cursor String to query the next page of results. This key is provided with each valid response from the API in `meta.page.after`.
     # @return [Array<(ProcessSummariesResponse, Integer, Hash)>] ProcessSummariesResponse data, response status code and response headers
     def list_processes_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_processes)
-        unstable_enabled = @api_client.config.unstable_operations[:list_processes]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_processes")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_processes"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ProcessesAPI.list_processes ...'
-      end
       if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 10000
         fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling ProcessesAPI.list_processes, must be smaller than or equal to 10000.'
       end

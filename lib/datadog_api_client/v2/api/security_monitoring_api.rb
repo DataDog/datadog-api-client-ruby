@@ -42,19 +42,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityFilterResponse, Integer, Hash)>] SecurityFilterResponse data, response status code and response headers
     def create_security_filter_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:create_security_filter)
-        unstable_enabled = @api_client.config.unstable_operations[:create_security_filter]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_security_filter")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_security_filter"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_security_filter ...'
-      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.create_security_filter"
@@ -118,19 +105,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringRuleResponse, Integer, Hash)>] SecurityMonitoringRuleResponse data, response status code and response headers
     def create_security_monitoring_rule_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:create_security_monitoring_rule)
-        unstable_enabled = @api_client.config.unstable_operations[:create_security_monitoring_rule]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_security_monitoring_rule")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_security_monitoring_rule"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.create_security_monitoring_rule ...'
-      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.create_security_monitoring_rule"
@@ -194,19 +168,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_security_filter_with_http_info(security_filter_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:delete_security_filter)
-        unstable_enabled = @api_client.config.unstable_operations[:delete_security_filter]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_security_filter")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_security_filter"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.delete_security_filter ...'
-      end
       # verify the required parameter 'security_filter_id' is set
       if @api_client.config.client_side_validation && security_filter_id.nil?
         fail ArgumentError, "Missing the required parameter 'security_filter_id' when calling SecurityMonitoringAPI.delete_security_filter"
@@ -268,19 +229,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_security_monitoring_rule_with_http_info(rule_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:delete_security_monitoring_rule)
-        unstable_enabled = @api_client.config.unstable_operations[:delete_security_monitoring_rule]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_security_monitoring_rule")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_security_monitoring_rule"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.delete_security_monitoring_rule ...'
-      end
       # verify the required parameter 'rule_id' is set
       if @api_client.config.client_side_validation && rule_id.nil?
         fail ArgumentError, "Missing the required parameter 'rule_id' when calling SecurityMonitoringAPI.delete_security_monitoring_rule"
@@ -345,19 +293,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityFilterResponse, Integer, Hash)>] SecurityFilterResponse data, response status code and response headers
     def get_security_filter_with_http_info(security_filter_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_security_filter)
-        unstable_enabled = @api_client.config.unstable_operations[:get_security_filter]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_security_filter")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_security_filter"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_security_filter ...'
-      end
       # verify the required parameter 'security_filter_id' is set
       if @api_client.config.client_side_validation && security_filter_id.nil?
         fail ArgumentError, "Missing the required parameter 'security_filter_id' when calling SecurityMonitoringAPI.get_security_filter"
@@ -419,19 +354,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringRuleResponse, Integer, Hash)>] SecurityMonitoringRuleResponse data, response status code and response headers
     def get_security_monitoring_rule_with_http_info(rule_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_security_monitoring_rule)
-        unstable_enabled = @api_client.config.unstable_operations[:get_security_monitoring_rule]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_security_monitoring_rule")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_security_monitoring_rule"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.get_security_monitoring_rule ...'
-      end
       # verify the required parameter 'rule_id' is set
       if @api_client.config.client_side_validation && rule_id.nil?
         fail ArgumentError, "Missing the required parameter 'rule_id' when calling SecurityMonitoringAPI.get_security_monitoring_rule"
@@ -492,19 +414,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityFiltersResponse, Integer, Hash)>] SecurityFiltersResponse data, response status code and response headers
     def list_security_filters_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_security_filters)
-        unstable_enabled = @api_client.config.unstable_operations[:list_security_filters]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_security_filters")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_security_filters"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_security_filters ...'
-      end
       # resource path
       local_var_path = '/api/v2/security_monitoring/configuration/security_filters'
 
@@ -563,19 +472,6 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_number Specific page number to return.
     # @return [Array<(SecurityMonitoringListRulesResponse, Integer, Hash)>] SecurityMonitoringListRulesResponse data, response status code and response headers
     def list_security_monitoring_rules_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_security_monitoring_rules)
-        unstable_enabled = @api_client.config.unstable_operations[:list_security_monitoring_rules]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_security_monitoring_rules")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_security_monitoring_rules"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_security_monitoring_rules ...'
-      end
       # resource path
       local_var_path = '/api/v2/security_monitoring/rules'
 
@@ -642,19 +538,6 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_limit The maximum number of security signals in the response.
     # @return [Array<(SecurityMonitoringSignalsListResponse, Integer, Hash)>] SecurityMonitoringSignalsListResponse data, response status code and response headers
     def list_security_monitoring_signals_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_security_monitoring_signals)
-        unstable_enabled = @api_client.config.unstable_operations[:list_security_monitoring_signals]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_security_monitoring_signals")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_security_monitoring_signals"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_security_monitoring_signals ...'
-      end
       allowable_values = ['timestamp', '-timestamp']
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
@@ -748,19 +631,6 @@ module DatadogAPIClient::V2
     # @option opts [SecurityMonitoringSignalListRequest] :body 
     # @return [Array<(SecurityMonitoringSignalsListResponse, Integer, Hash)>] SecurityMonitoringSignalsListResponse data, response status code and response headers
     def search_security_monitoring_signals_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:search_security_monitoring_signals)
-        unstable_enabled = @api_client.config.unstable_operations[:search_security_monitoring_signals]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "search_security_monitoring_signals")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "search_security_monitoring_signals"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.search_security_monitoring_signals ...'
-      end
       # resource path
       local_var_path = '/api/v2/security_monitoring/signals/search'
 
@@ -843,19 +713,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityFilterResponse, Integer, Hash)>] SecurityFilterResponse data, response status code and response headers
     def update_security_filter_with_http_info(security_filter_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_security_filter)
-        unstable_enabled = @api_client.config.unstable_operations[:update_security_filter]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_security_filter")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_security_filter"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.update_security_filter ...'
-      end
       # verify the required parameter 'security_filter_id' is set
       if @api_client.config.client_side_validation && security_filter_id.nil?
         fail ArgumentError, "Missing the required parameter 'security_filter_id' when calling SecurityMonitoringAPI.update_security_filter"
@@ -926,19 +783,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringRuleResponse, Integer, Hash)>] SecurityMonitoringRuleResponse data, response status code and response headers
     def update_security_monitoring_rule_with_http_info(rule_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_security_monitoring_rule)
-        unstable_enabled = @api_client.config.unstable_operations[:update_security_monitoring_rule]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_security_monitoring_rule")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_security_monitoring_rule"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.update_security_monitoring_rule ...'
-      end
       # verify the required parameter 'rule_id' is set
       if @api_client.config.client_side_validation && rule_id.nil?
         fail ArgumentError, "Missing the required parameter 'rule_id' when calling SecurityMonitoringAPI.update_security_monitoring_rule"

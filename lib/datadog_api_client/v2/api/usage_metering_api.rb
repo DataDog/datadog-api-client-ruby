@@ -40,19 +40,6 @@ module DatadogAPIClient::V2
     # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost ending this month.
     # @return [Array<(CostByOrgResponse, Integer, Hash)>] CostByOrgResponse data, response status code and response headers
     def get_cost_by_org_with_http_info(start_month, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_cost_by_org)
-        unstable_enabled = @api_client.config.unstable_operations[:get_cost_by_org]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_cost_by_org")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_cost_by_org"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_cost_by_org ...'
-      end
       # verify the required parameter 'start_month' is set
       if @api_client.config.client_side_validation && start_month.nil?
         fail ArgumentError, "Missing the required parameter 'start_month' when calling UsageMeteringAPI.get_cost_by_org"
@@ -119,19 +106,6 @@ module DatadogAPIClient::V2
     # @option opts [Time] :end_date Datetime in ISO-8601 format, UTC, precise to day: `[YYYY-MM-DD]` for cost ending this day.
     # @return [Array<(CostByOrgResponse, Integer, Hash)>] CostByOrgResponse data, response status code and response headers
     def get_estimated_cost_by_org_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_estimated_cost_by_org)
-        unstable_enabled = @api_client.config.unstable_operations[:get_estimated_cost_by_org]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_estimated_cost_by_org")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_estimated_cost_by_org"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_estimated_cost_by_org ...'
-      end
       # resource path
       local_var_path = '/api/v2/usage/estimated_cost_by_org'
 
@@ -194,19 +168,6 @@ module DatadogAPIClient::V2
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageApplicationSecurityMonitoringResponse, Integer, Hash)>] UsageApplicationSecurityMonitoringResponse data, response status code and response headers
     def get_usage_application_security_monitoring_with_http_info(start_hr, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_usage_application_security_monitoring)
-        unstable_enabled = @api_client.config.unstable_operations[:get_usage_application_security_monitoring]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_application_security_monitoring")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_usage_application_security_monitoring"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_application_security_monitoring ...'
-      end
       # verify the required parameter 'start_hr' is set
       if @api_client.config.client_side_validation && start_hr.nil?
         fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_application_security_monitoring"
@@ -271,19 +232,6 @@ module DatadogAPIClient::V2
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageLambdaTracedInvocationsResponse, Integer, Hash)>] UsageLambdaTracedInvocationsResponse data, response status code and response headers
     def get_usage_lambda_traced_invocations_with_http_info(start_hr, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_usage_lambda_traced_invocations)
-        unstable_enabled = @api_client.config.unstable_operations[:get_usage_lambda_traced_invocations]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_lambda_traced_invocations")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_usage_lambda_traced_invocations"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_lambda_traced_invocations ...'
-      end
       # verify the required parameter 'start_hr' is set
       if @api_client.config.client_side_validation && start_hr.nil?
         fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_lambda_traced_invocations"
@@ -348,19 +296,6 @@ module DatadogAPIClient::V2
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageObservabilityPipelinesResponse, Integer, Hash)>] UsageObservabilityPipelinesResponse data, response status code and response headers
     def get_usage_observability_pipelines_with_http_info(start_hr, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_usage_observability_pipelines)
-        unstable_enabled = @api_client.config.unstable_operations[:get_usage_observability_pipelines]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_observability_pipelines")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_usage_observability_pipelines"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_observability_pipelines ...'
-      end
       # verify the required parameter 'start_hr' is set
       if @api_client.config.client_side_validation && start_hr.nil?
         fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_observability_pipelines"

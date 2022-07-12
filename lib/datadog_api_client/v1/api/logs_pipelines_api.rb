@@ -39,19 +39,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsPipeline, Integer, Hash)>] LogsPipeline data, response status code and response headers
     def create_logs_pipeline_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:create_logs_pipeline)
-        unstable_enabled = @api_client.config.unstable_operations[:create_logs_pipeline]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_logs_pipeline")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_logs_pipeline"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: LogsPipelinesAPI.create_logs_pipeline ...'
-      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling LogsPipelinesAPI.create_logs_pipeline"
@@ -116,19 +103,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_logs_pipeline_with_http_info(pipeline_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:delete_logs_pipeline)
-        unstable_enabled = @api_client.config.unstable_operations[:delete_logs_pipeline]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_logs_pipeline")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_logs_pipeline"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: LogsPipelinesAPI.delete_logs_pipeline ...'
-      end
       # verify the required parameter 'pipeline_id' is set
       if @api_client.config.client_side_validation && pipeline_id.nil?
         fail ArgumentError, "Missing the required parameter 'pipeline_id' when calling LogsPipelinesAPI.delete_logs_pipeline"
@@ -191,19 +165,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsPipeline, Integer, Hash)>] LogsPipeline data, response status code and response headers
     def get_logs_pipeline_with_http_info(pipeline_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_logs_pipeline)
-        unstable_enabled = @api_client.config.unstable_operations[:get_logs_pipeline]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_logs_pipeline")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_logs_pipeline"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: LogsPipelinesAPI.get_logs_pipeline ...'
-      end
       # verify the required parameter 'pipeline_id' is set
       if @api_client.config.client_side_validation && pipeline_id.nil?
         fail ArgumentError, "Missing the required parameter 'pipeline_id' when calling LogsPipelinesAPI.get_logs_pipeline"
@@ -265,19 +226,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsPipelinesOrder, Integer, Hash)>] LogsPipelinesOrder data, response status code and response headers
     def get_logs_pipeline_order_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_logs_pipeline_order)
-        unstable_enabled = @api_client.config.unstable_operations[:get_logs_pipeline_order]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_logs_pipeline_order")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_logs_pipeline_order"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: LogsPipelinesAPI.get_logs_pipeline_order ...'
-      end
       # resource path
       local_var_path = '/api/v1/logs/config/pipeline-order'
 
@@ -335,19 +283,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Array<LogsPipeline>, Integer, Hash)>] Array<LogsPipeline> data, response status code and response headers
     def list_logs_pipelines_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_logs_pipelines)
-        unstable_enabled = @api_client.config.unstable_operations[:list_logs_pipelines]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_logs_pipelines")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_logs_pipelines"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: LogsPipelinesAPI.list_logs_pipelines ...'
-      end
       # resource path
       local_var_path = '/api/v1/logs/config/pipelines'
 
@@ -409,19 +344,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsPipeline, Integer, Hash)>] LogsPipeline data, response status code and response headers
     def update_logs_pipeline_with_http_info(pipeline_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_logs_pipeline)
-        unstable_enabled = @api_client.config.unstable_operations[:update_logs_pipeline]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_logs_pipeline")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_logs_pipeline"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: LogsPipelinesAPI.update_logs_pipeline ...'
-      end
       # verify the required parameter 'pipeline_id' is set
       if @api_client.config.client_side_validation && pipeline_id.nil?
         fail ArgumentError, "Missing the required parameter 'pipeline_id' when calling LogsPipelinesAPI.update_logs_pipeline"
@@ -493,19 +415,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsPipelinesOrder, Integer, Hash)>] LogsPipelinesOrder data, response status code and response headers
     def update_logs_pipeline_order_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_logs_pipeline_order)
-        unstable_enabled = @api_client.config.unstable_operations[:update_logs_pipeline_order]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_logs_pipeline_order")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_logs_pipeline_order"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: LogsPipelinesAPI.update_logs_pipeline_order ...'
-      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling LogsPipelinesAPI.update_logs_pipeline_order"

@@ -39,19 +39,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(PagerDutyServiceName, Integer, Hash)>] PagerDutyServiceName data, response status code and response headers
     def create_pager_duty_integration_service_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:create_pager_duty_integration_service)
-        unstable_enabled = @api_client.config.unstable_operations[:create_pager_duty_integration_service]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_pager_duty_integration_service")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_pager_duty_integration_service"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: PagerDutyIntegrationAPI.create_pager_duty_integration_service ...'
-      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling PagerDutyIntegrationAPI.create_pager_duty_integration_service"
@@ -115,19 +102,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_pager_duty_integration_service_with_http_info(service_name, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:delete_pager_duty_integration_service)
-        unstable_enabled = @api_client.config.unstable_operations[:delete_pager_duty_integration_service]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_pager_duty_integration_service")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_pager_duty_integration_service"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: PagerDutyIntegrationAPI.delete_pager_duty_integration_service ...'
-      end
       # verify the required parameter 'service_name' is set
       if @api_client.config.client_side_validation && service_name.nil?
         fail ArgumentError, "Missing the required parameter 'service_name' when calling PagerDutyIntegrationAPI.delete_pager_duty_integration_service"
@@ -189,19 +163,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(PagerDutyServiceName, Integer, Hash)>] PagerDutyServiceName data, response status code and response headers
     def get_pager_duty_integration_service_with_http_info(service_name, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_pager_duty_integration_service)
-        unstable_enabled = @api_client.config.unstable_operations[:get_pager_duty_integration_service]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_pager_duty_integration_service")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_pager_duty_integration_service"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: PagerDutyIntegrationAPI.get_pager_duty_integration_service ...'
-      end
       # verify the required parameter 'service_name' is set
       if @api_client.config.client_side_validation && service_name.nil?
         fail ArgumentError, "Missing the required parameter 'service_name' when calling PagerDutyIntegrationAPI.get_pager_duty_integration_service"
@@ -264,19 +225,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def update_pager_duty_integration_service_with_http_info(service_name, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_pager_duty_integration_service)
-        unstable_enabled = @api_client.config.unstable_operations[:update_pager_duty_integration_service]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_pager_duty_integration_service")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_pager_duty_integration_service"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: PagerDutyIntegrationAPI.update_pager_duty_integration_service ...'
-      end
       # verify the required parameter 'service_name' is set
       if @api_client.config.client_side_validation && service_name.nil?
         fail ArgumentError, "Missing the required parameter 'service_name' when calling PagerDutyIntegrationAPI.update_pager_duty_integration_service"

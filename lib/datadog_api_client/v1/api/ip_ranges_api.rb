@@ -38,19 +38,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(IPRanges, Integer, Hash)>] IPRanges data, response status code and response headers
     def get_ip_ranges_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_ip_ranges)
-        unstable_enabled = @api_client.config.unstable_operations[:get_ip_ranges]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_ip_ranges")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_ip_ranges"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IPRangesAPI.get_ip_ranges ...'
-      end
       # resource path
       local_var_path = '/'
 

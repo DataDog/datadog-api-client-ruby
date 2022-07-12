@@ -40,19 +40,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def create_service_account_application_key_with_http_info(service_account_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:create_service_account_application_key)
-        unstable_enabled = @api_client.config.unstable_operations[:create_service_account_application_key]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_service_account_application_key")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_service_account_application_key"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ServiceAccountsAPI.create_service_account_application_key ...'
-      end
       # verify the required parameter 'service_account_id' is set
       if @api_client.config.client_side_validation && service_account_id.nil?
         fail ArgumentError, "Missing the required parameter 'service_account_id' when calling ServiceAccountsAPI.create_service_account_application_key"
@@ -121,19 +108,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_service_account_application_key_with_http_info(service_account_id, app_key_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:delete_service_account_application_key)
-        unstable_enabled = @api_client.config.unstable_operations[:delete_service_account_application_key]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_service_account_application_key")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_service_account_application_key"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ServiceAccountsAPI.delete_service_account_application_key ...'
-      end
       # verify the required parameter 'service_account_id' is set
       if @api_client.config.client_side_validation && service_account_id.nil?
         fail ArgumentError, "Missing the required parameter 'service_account_id' when calling ServiceAccountsAPI.delete_service_account_application_key"
@@ -200,19 +174,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(PartialApplicationKeyResponse, Integer, Hash)>] PartialApplicationKeyResponse data, response status code and response headers
     def get_service_account_application_key_with_http_info(service_account_id, app_key_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_service_account_application_key)
-        unstable_enabled = @api_client.config.unstable_operations[:get_service_account_application_key]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_service_account_application_key")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_service_account_application_key"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ServiceAccountsAPI.get_service_account_application_key ...'
-      end
       # verify the required parameter 'service_account_id' is set
       if @api_client.config.client_side_validation && service_account_id.nil?
         fail ArgumentError, "Missing the required parameter 'service_account_id' when calling ServiceAccountsAPI.get_service_account_application_key"
@@ -284,19 +245,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_created_at_end Only include application keys created on or before the specified date.
     # @return [Array<(ListApplicationKeysResponse, Integer, Hash)>] ListApplicationKeysResponse data, response status code and response headers
     def list_service_account_application_keys_with_http_info(service_account_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_service_account_application_keys)
-        unstable_enabled = @api_client.config.unstable_operations[:list_service_account_application_keys]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_service_account_application_keys")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_service_account_application_keys"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ServiceAccountsAPI.list_service_account_application_keys ...'
-      end
       # verify the required parameter 'service_account_id' is set
       if @api_client.config.client_side_validation && service_account_id.nil?
         fail ArgumentError, "Missing the required parameter 'service_account_id' when calling ServiceAccountsAPI.list_service_account_application_keys"
@@ -370,19 +318,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(PartialApplicationKeyResponse, Integer, Hash)>] PartialApplicationKeyResponse data, response status code and response headers
     def update_service_account_application_key_with_http_info(service_account_id, app_key_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_service_account_application_key)
-        unstable_enabled = @api_client.config.unstable_operations[:update_service_account_application_key]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_service_account_application_key")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_service_account_application_key"))
-        end
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ServiceAccountsAPI.update_service_account_application_key ...'
-      end
       # verify the required parameter 'service_account_id' is set
       if @api_client.config.client_side_validation && service_account_id.nil?
         fail ArgumentError, "Missing the required parameter 'service_account_id' when calling ServiceAccountsAPI.update_service_account_application_key"
