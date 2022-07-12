@@ -111,7 +111,7 @@ module DatadogAPIClient
       end
 
       if opts[:return_type]
-        data = deserialize(response, opts[:return_type], opts[:api_version])
+        data = deserialize(opts[:api_version], response, opts[:return_type])
       else
         data = nil
       end
@@ -216,9 +216,10 @@ module DatadogAPIClient
 
     # Deserialize the response to the given return type.
     #
+    # @param [String] the api version
     # @param [Response] response HTTP response
     # @param [String] return_type some examples: "User", "Array<User>", "Hash<String, Integer>"
-    def deserialize(response, return_type, api_version)
+    def deserialize(api_version, response, return_type)
       body = response.body
 
       # handle file downloading - return the File instance processed in request callbacks
@@ -422,12 +423,13 @@ module DatadogAPIClient
 
     # Set an attribute at the given path
     #
+    # @param [String] api_version The api version
     # @param [Object] obj The source object
     # @param [String] attribute_path The path spefication, separated by "."
     # @param [Object] builder The class matching the top level attribute
     # @param [Object] value The value to set
     # @!visibility private
-    def set_attribute_from_path(obj, attribute_path, builder, value)
+    def set_attribute_from_path(api_version, obj, attribute_path, builder, value)
       attrs = attribute_path.split(".")
       last = attrs.pop
       i = 0
@@ -438,7 +440,7 @@ module DatadogAPIClient
         else
           obj = obj.send(attr)
         end
-        builder = DatadogAPIClient.const_get(builder.openapi_types[attr.to_sym]) if i > 0
+        builder = DatadogAPIClient.const_get(api_version).const_get(builder.openapi_types[attr.to_sym]) if i > 0
         obj = builder.new if obj.nil?
         i += 1
       end

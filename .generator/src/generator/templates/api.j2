@@ -219,8 +219,9 @@ module {{ module_name }}::{{ version|upper }}
     #
     # @yield [{{ get_type_at_path(operation, pagination.resultsPath) }}] Paginated items
     def {{ operation.operationId|snake_case }}_with_pagination({% for name, parameter in operation|parameters if parameter.required %}{{ name|attribute_name }}, {% endfor %}opts = {})
+        api_version = "{{ version|upper }}"
         page_size = @api_client.get_attribute_from_path({{ get_container(operation, pagination.limitParam) }}, {{ get_default(operation, pagination.limitParam) }})
-        @api_client.set_attribute_from_path({{ get_container(operation, pagination.limitParam, True) }}, page_size)
+        @api_client.set_attribute_from_path(api_version, {{ get_container(operation, pagination.limitParam, True) }}, page_size)
         while true do
             response = {{ operation.operationId|snake_case }}({% for name, parameter in operation|parameters if parameter.required %}{{ name|attribute_name }}, {% endfor %}opts)
             @api_client.get_attribute_from_path(response, "{{ pagination.resultsPath|attribute_path }}").each { |item| yield(item) }
@@ -228,10 +229,10 @@ module {{ module_name }}::{{ version|upper }}
               break
             end
             {%- if pagination.pageOffsetParam %}
-            @api_client.set_attribute_from_path({{ get_container(operation, pagination.pageOffsetParam, True) }}, @api_client.get_attribute_from_path({{ get_container(operation, pagination.pageOffsetParam) }}, 0) + page_size)
+            @api_client.set_attribute_from_path(api_version, {{ get_container(operation, pagination.pageOffsetParam, True) }}, @api_client.get_attribute_from_path({{ get_container(operation, pagination.pageOffsetParam) }}, 0) + page_size)
             {%- endif %}
             {%- if pagination.cursorParam %}
-            @api_client.set_attribute_from_path({{ get_container(operation, pagination.cursorParam, True) }}, @api_client.get_attribute_from_path(response, "{{ pagination.cursorPath }}"))
+            @api_client.set_attribute_from_path(api_version, {{ get_container(operation, pagination.cursorParam, True) }}, @api_client.get_attribute_from_path(response, "{{ pagination.cursorPath }}"))
             {%- endif %}
         end
     end

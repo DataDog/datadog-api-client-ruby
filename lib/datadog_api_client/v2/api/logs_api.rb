@@ -189,15 +189,16 @@ module DatadogAPIClient::V2
     #
     # @yield [Log] Paginated items
     def list_logs_with_pagination(opts = {})
+        api_version = "V2"
         page_size = @api_client.get_attribute_from_path(opts, "body.page.limit", 10)
-        @api_client.set_attribute_from_path(opts, "body.page.limit", LogsListRequest, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "body.page.limit", LogsListRequest, page_size)
         while true do
             response = list_logs(opts)
             @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
             if @api_client.get_attribute_from_path(response, "data").length < page_size
               break
             end
-            @api_client.set_attribute_from_path(opts, "body.page.cursor", LogsListRequest, @api_client.get_attribute_from_path(response, "meta.page.after"))
+            @api_client.set_attribute_from_path(api_version, opts, "body.page.cursor", LogsListRequest, @api_client.get_attribute_from_path(response, "meta.page.after"))
         end
     end
 
@@ -309,15 +310,16 @@ module DatadogAPIClient::V2
     #
     # @yield [Log] Paginated items
     def list_logs_get_with_pagination(opts = {})
+        api_version = "V2"
         page_size = @api_client.get_attribute_from_path(opts, "page_limit", 10)
-        @api_client.set_attribute_from_path(opts, "page_limit", Integer, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "page_limit", Integer, page_size)
         while true do
             response = list_logs_get(opts)
             @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
             if @api_client.get_attribute_from_path(response, "data").length < page_size
               break
             end
-            @api_client.set_attribute_from_path(opts, "page_cursor", Integer, @api_client.get_attribute_from_path(response, "meta.page.after"))
+            @api_client.set_attribute_from_path(api_version, opts, "page_cursor", Integer, @api_client.get_attribute_from_path(response, "meta.page.after"))
         end
     end
 

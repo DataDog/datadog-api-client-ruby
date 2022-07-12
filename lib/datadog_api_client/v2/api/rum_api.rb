@@ -200,15 +200,16 @@ module DatadogAPIClient::V2
     #
     # @yield [RUMEvent] Paginated items
     def list_rum_events_with_pagination(opts = {})
+        api_version = "V2"
         page_size = @api_client.get_attribute_from_path(opts, "page_limit", 10)
-        @api_client.set_attribute_from_path(opts, "page_limit", Integer, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "page_limit", Integer, page_size)
         while true do
             response = list_rum_events(opts)
             @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
             if @api_client.get_attribute_from_path(response, "data").length < page_size
               break
             end
-            @api_client.set_attribute_from_path(opts, "page_cursor", Integer, @api_client.get_attribute_from_path(response, "meta.page.after"))
+            @api_client.set_attribute_from_path(api_version, opts, "page_cursor", Integer, @api_client.get_attribute_from_path(response, "meta.page.after"))
         end
     end
 
@@ -301,15 +302,16 @@ module DatadogAPIClient::V2
     #
     # @yield [RUMEvent] Paginated items
     def search_rum_events_with_pagination(body, opts = {})
+        api_version = "V2"
         page_size = @api_client.get_attribute_from_path(body, "page.limit", 10)
-        @api_client.set_attribute_from_path(body, "page.limit", RUMSearchEventsRequest, page_size)
+        @api_client.set_attribute_from_path(api_version, body, "page.limit", RUMSearchEventsRequest, page_size)
         while true do
             response = search_rum_events(body, opts)
             @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
             if @api_client.get_attribute_from_path(response, "data").length < page_size
               break
             end
-            @api_client.set_attribute_from_path(body, "page.cursor", RUMSearchEventsRequest, @api_client.get_attribute_from_path(response, "meta.page.after"))
+            @api_client.set_attribute_from_path(api_version, body, "page.cursor", RUMSearchEventsRequest, @api_client.get_attribute_from_path(response, "meta.page.after"))
         end
     end
   end

@@ -118,15 +118,16 @@ module DatadogAPIClient::V2
     #
     # @yield [ProcessSummary] Paginated items
     def list_processes_with_pagination(opts = {})
+        api_version = "V2"
         page_size = @api_client.get_attribute_from_path(opts, "page_limit", 1000)
-        @api_client.set_attribute_from_path(opts, "page_limit", String, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "page_limit", String, page_size)
         while true do
             response = list_processes(opts)
             @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
             if @api_client.get_attribute_from_path(response, "data").length < page_size
               break
             end
-            @api_client.set_attribute_from_path(opts, "page_cursor", String, @api_client.get_attribute_from_path(response, "meta.page.after"))
+            @api_client.set_attribute_from_path(api_version, opts, "page_cursor", String, @api_client.get_attribute_from_path(response, "meta.page.after"))
         end
     end
   end

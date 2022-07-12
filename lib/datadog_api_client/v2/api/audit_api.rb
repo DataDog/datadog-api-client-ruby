@@ -124,15 +124,16 @@ module DatadogAPIClient::V2
     #
     # @yield [AuditLogsEvent] Paginated items
     def list_audit_logs_with_pagination(opts = {})
+        api_version = "V2"
         page_size = @api_client.get_attribute_from_path(opts, "page_limit", 10)
-        @api_client.set_attribute_from_path(opts, "page_limit", Integer, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "page_limit", Integer, page_size)
         while true do
             response = list_audit_logs(opts)
             @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
             if @api_client.get_attribute_from_path(response, "data").length < page_size
               break
             end
-            @api_client.set_attribute_from_path(opts, "page_cursor", Integer, @api_client.get_attribute_from_path(response, "meta.page.after"))
+            @api_client.set_attribute_from_path(api_version, opts, "page_cursor", Integer, @api_client.get_attribute_from_path(response, "meta.page.after"))
         end
     end
 
@@ -221,15 +222,16 @@ module DatadogAPIClient::V2
     #
     # @yield [AuditLogsEvent] Paginated items
     def search_audit_logs_with_pagination(opts = {})
+        api_version = "V2"
         page_size = @api_client.get_attribute_from_path(opts, "body.page.limit", 10)
-        @api_client.set_attribute_from_path(opts, "body.page.limit", AuditLogsSearchEventsRequest, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "body.page.limit", AuditLogsSearchEventsRequest, page_size)
         while true do
             response = search_audit_logs(opts)
             @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
             if @api_client.get_attribute_from_path(response, "data").length < page_size
               break
             end
-            @api_client.set_attribute_from_path(opts, "body.page.cursor", AuditLogsSearchEventsRequest, @api_client.get_attribute_from_path(response, "meta.page.after"))
+            @api_client.set_attribute_from_path(api_version, opts, "body.page.cursor", AuditLogsSearchEventsRequest, @api_client.get_attribute_from_path(response, "meta.page.after"))
         end
     end
   end
