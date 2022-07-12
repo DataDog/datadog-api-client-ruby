@@ -142,12 +142,12 @@ module APIWorld
     operation_name = operation["operationId"].snakecase
 
     # make sure we have a fresh instance of API client and configuration
-    given_api = Object.const_get("DatadogAPIClient::V#{api_version}")
+    given_api = Object.const_get("DatadogAPIClient")
     given_configuration = from_env(given_api::Configuration.new)
     given_configuration.api_key = ENV["DD_TEST_CLIENT_API_KEY"]
     given_configuration.application_key = ENV["DD_TEST_CLIENT_APP_KEY"]
     given_api_client = given_api::APIClient.new given_configuration
-    given_api_instance = given_api.const_get("#{api_name}API").new given_api_client
+    given_api_instance = given_api.const_get("V#{api_version}").const_get("#{api_name}API").new given_api_client
     method = given_api_instance.method("#{operation_name}_with_http_info".to_sym)
 
     # find undo method
@@ -191,7 +191,6 @@ Given('a valid "apiKeyAuth" key in the system') do
 end
 
 Given('a valid "appKeyAuth" key in the system') do
-  require 'pry'; binding.pry
   configuration.application_key = ENV["DD_TEST_CLIENT_APP_KEY"]
 end
 
