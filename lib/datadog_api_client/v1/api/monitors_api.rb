@@ -39,6 +39,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(CheckCanDeleteMonitorResponse, Integer, Hash)>] CheckCanDeleteMonitorResponse data, response status code and response headers
     def check_can_delete_monitor_with_http_info(monitor_ids, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MonitorsAPI.check_can_delete_monitor ...'
+      end
       # verify the required parameter 'monitor_ids' is set
       if @api_client.config.client_side_validation && monitor_ids.nil?
         fail ArgumentError, "Missing the required parameter 'monitor_ids' when calling MonitorsAPI.check_can_delete_monitor"
@@ -283,6 +287,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Monitor, Integer, Hash)>] Monitor data, response status code and response headers
     def create_monitor_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MonitorsAPI.create_monitor ...'
+      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling MonitorsAPI.create_monitor"
@@ -347,6 +355,10 @@ module DatadogAPIClient::V1
     # @option opts [String] :force Delete the monitor even if it's referenced by other resources (for example SLO, composite monitor).
     # @return [Array<(DeletedMonitor, Integer, Hash)>] DeletedMonitor data, response status code and response headers
     def delete_monitor_with_http_info(monitor_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MonitorsAPI.delete_monitor ...'
+      end
       # verify the required parameter 'monitor_id' is set
       if @api_client.config.client_side_validation && monitor_id.nil?
         fail ArgumentError, "Missing the required parameter 'monitor_id' when calling MonitorsAPI.delete_monitor"
@@ -410,6 +422,10 @@ module DatadogAPIClient::V1
     # @option opts [String] :group_states When specified, shows additional information about the group states. Choose one or more from `all`, `alert`, `warn`, and `no data`.
     # @return [Array<(Monitor, Integer, Hash)>] Monitor data, response status code and response headers
     def get_monitor_with_http_info(monitor_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MonitorsAPI.get_monitor ...'
+      end
       # verify the required parameter 'monitor_id' is set
       if @api_client.config.client_side_validation && monitor_id.nil?
         fail ArgumentError, "Missing the required parameter 'monitor_id' when calling MonitorsAPI.get_monitor"
@@ -479,6 +495,10 @@ module DatadogAPIClient::V1
     # @option opts [Integer] :page_size The number of monitors to return per page. If the page argument is not specified, the default behavior returns all monitors without a `page_size` limit. However, if page is specified and `page_size` is not, the argument defaults to 100.
     # @return [Array<(Array<Monitor>, Integer, Hash)>] Array<Monitor> data, response status code and response headers
     def list_monitors_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MonitorsAPI.list_monitors ...'
+      end
       if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 1000
         fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling MonitorsAPI.list_monitors, must be smaller than or equal to 1000.'
       end
@@ -550,6 +570,10 @@ module DatadogAPIClient::V1
     # @option opts [String] :sort String for sort order, composed of field and sort order separate by a comma, for example `name,asc`. Supported sort directions: `asc`, `desc`. Supported fields:  * `name` * `status` * `tags`
     # @return [Array<(MonitorGroupSearchResponse, Integer, Hash)>] MonitorGroupSearchResponse data, response status code and response headers
     def search_monitor_groups_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MonitorsAPI.search_monitor_groups ...'
+      end
       # resource path
       local_var_path = '/api/v1/monitor/groups/search'
 
@@ -614,6 +638,10 @@ module DatadogAPIClient::V1
     # @option opts [String] :sort String for sort order, composed of field and sort order separate by a comma, for example `name,asc`. Supported sort directions: `asc`, `desc`. Supported fields:  * `name` * `status` * `tags`
     # @return [Array<(MonitorSearchResponse, Integer, Hash)>] MonitorSearchResponse data, response status code and response headers
     def search_monitors_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MonitorsAPI.search_monitors ...'
+      end
       # resource path
       local_var_path = '/api/v1/monitor/search'
 
@@ -676,6 +704,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Monitor, Integer, Hash)>] Monitor data, response status code and response headers
     def update_monitor_with_http_info(monitor_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MonitorsAPI.update_monitor ...'
+      end
       # verify the required parameter 'monitor_id' is set
       if @api_client.config.client_side_validation && monitor_id.nil?
         fail ArgumentError, "Missing the required parameter 'monitor_id' when calling MonitorsAPI.update_monitor"
@@ -744,6 +776,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def validate_existing_monitor_with_http_info(monitor_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MonitorsAPI.validate_existing_monitor ...'
+      end
       # verify the required parameter 'monitor_id' is set
       if @api_client.config.client_side_validation && monitor_id.nil?
         fail ArgumentError, "Missing the required parameter 'monitor_id' when calling MonitorsAPI.validate_existing_monitor"
@@ -811,6 +847,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def validate_monitor_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MonitorsAPI.validate_monitor ...'
+      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling MonitorsAPI.validate_monitor"

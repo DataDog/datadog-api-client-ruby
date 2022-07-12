@@ -40,6 +40,10 @@ module DatadogAPIClient::V1
     # @option opts [Integer] :from Number of seconds from which you want to get total number of active hosts.
     # @return [Array<(HostTotals, Integer, Hash)>] HostTotals data, response status code and response headers
     def get_host_totals_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: HostsAPI.get_host_totals ...'
+      end
       # resource path
       local_var_path = '/api/v1/hosts/totals'
 
@@ -108,6 +112,10 @@ module DatadogAPIClient::V1
     # @option opts [Boolean] :include_hosts_metadata Include additional metadata about the hosts (agent_version, machine, platform, processor, etc.).
     # @return [Array<(HostListResponse, Integer, Hash)>] HostListResponse data, response status code and response headers
     def list_hosts_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: HostsAPI.list_hosts ...'
+      end
       # resource path
       local_var_path = '/api/v1/hosts'
 
@@ -174,6 +182,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(HostMuteResponse, Integer, Hash)>] HostMuteResponse data, response status code and response headers
     def mute_host_with_http_info(host_name, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: HostsAPI.mute_host ...'
+      end
       # verify the required parameter 'host_name' is set
       if @api_client.config.client_side_validation && host_name.nil?
         fail ArgumentError, "Missing the required parameter 'host_name' when calling HostsAPI.mute_host"
@@ -241,6 +253,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(HostMuteResponse, Integer, Hash)>] HostMuteResponse data, response status code and response headers
     def unmute_host_with_http_info(host_name, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: HostsAPI.unmute_host ...'
+      end
       # verify the required parameter 'host_name' is set
       if @api_client.config.client_side_validation && host_name.nil?
         fail ArgumentError, "Missing the required parameter 'host_name' when calling HostsAPI.unmute_host"

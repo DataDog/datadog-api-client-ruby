@@ -47,6 +47,10 @@ module DatadogAPIClient::V1
     # @option opts [Integer] :width The width of the graph. If no width is specified, the graph's original width is used.
     # @return [Array<(GraphSnapshot, Integer, Hash)>] GraphSnapshot data, response status code and response headers
     def get_graph_snapshot_with_http_info(start, _end, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SnapshotsAPI.get_graph_snapshot ...'
+      end
       # verify the required parameter 'start' is set
       if @api_client.config.client_side_validation && start.nil?
         fail ArgumentError, "Missing the required parameter 'start' when calling SnapshotsAPI.get_graph_snapshot"

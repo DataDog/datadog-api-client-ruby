@@ -40,6 +40,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SuccessfulSignalUpdateResponse, Integer, Hash)>] SuccessfulSignalUpdateResponse data, response status code and response headers
     def add_security_monitoring_signal_to_incident_with_http_info(signal_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.add_security_monitoring_signal_to_incident ...'
+      end
       # verify the required parameter 'signal_id' is set
       if @api_client.config.client_side_validation && signal_id.nil?
         fail ArgumentError, "Missing the required parameter 'signal_id' when calling SecurityMonitoringAPI.add_security_monitoring_signal_to_incident"
@@ -108,6 +112,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SuccessfulSignalUpdateResponse, Integer, Hash)>] SuccessfulSignalUpdateResponse data, response status code and response headers
     def edit_security_monitoring_signal_assignee_with_http_info(signal_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.edit_security_monitoring_signal_assignee ...'
+      end
       # verify the required parameter 'signal_id' is set
       if @api_client.config.client_side_validation && signal_id.nil?
         fail ArgumentError, "Missing the required parameter 'signal_id' when calling SecurityMonitoringAPI.edit_security_monitoring_signal_assignee"
@@ -176,6 +184,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SuccessfulSignalUpdateResponse, Integer, Hash)>] SuccessfulSignalUpdateResponse data, response status code and response headers
     def edit_security_monitoring_signal_state_with_http_info(signal_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.edit_security_monitoring_signal_state ...'
+      end
       # verify the required parameter 'signal_id' is set
       if @api_client.config.client_side_validation && signal_id.nil?
         fail ArgumentError, "Missing the required parameter 'signal_id' when calling SecurityMonitoringAPI.edit_security_monitoring_signal_state"

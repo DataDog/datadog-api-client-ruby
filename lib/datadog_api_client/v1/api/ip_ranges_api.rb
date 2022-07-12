@@ -38,6 +38,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(IPRanges, Integer, Hash)>] IPRanges data, response status code and response headers
     def get_ip_ranges_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IPRangesAPI.get_ip_ranges ...'
+      end
       # resource path
       local_var_path = '/'
 

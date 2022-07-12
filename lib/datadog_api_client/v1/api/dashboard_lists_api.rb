@@ -39,6 +39,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(DashboardList, Integer, Hash)>] DashboardList data, response status code and response headers
     def create_dashboard_list_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DashboardListsAPI.create_dashboard_list ...'
+      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling DashboardListsAPI.create_dashboard_list"
@@ -102,6 +106,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(DashboardListDeleteResponse, Integer, Hash)>] DashboardListDeleteResponse data, response status code and response headers
     def delete_dashboard_list_with_http_info(list_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DashboardListsAPI.delete_dashboard_list ...'
+      end
       # verify the required parameter 'list_id' is set
       if @api_client.config.client_side_validation && list_id.nil?
         fail ArgumentError, "Missing the required parameter 'list_id' when calling DashboardListsAPI.delete_dashboard_list"
@@ -163,6 +171,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(DashboardList, Integer, Hash)>] DashboardList data, response status code and response headers
     def get_dashboard_list_with_http_info(list_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DashboardListsAPI.get_dashboard_list ...'
+      end
       # verify the required parameter 'list_id' is set
       if @api_client.config.client_side_validation && list_id.nil?
         fail ArgumentError, "Missing the required parameter 'list_id' when calling DashboardListsAPI.get_dashboard_list"
@@ -223,6 +235,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(DashboardListListResponse, Integer, Hash)>] DashboardListListResponse data, response status code and response headers
     def list_dashboard_lists_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DashboardListsAPI.list_dashboard_lists ...'
+      end
       # resource path
       local_var_path = '/api/v1/dashboard/lists/manual'
 
@@ -281,6 +297,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(DashboardList, Integer, Hash)>] DashboardList data, response status code and response headers
     def update_dashboard_list_with_http_info(list_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DashboardListsAPI.update_dashboard_list ...'
+      end
       # verify the required parameter 'list_id' is set
       if @api_client.config.client_side_validation && list_id.nil?
         fail ArgumentError, "Missing the required parameter 'list_id' when calling DashboardListsAPI.update_dashboard_list"

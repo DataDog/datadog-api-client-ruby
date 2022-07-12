@@ -40,6 +40,10 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def create_service_account_application_key_with_http_info(service_account_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ServiceAccountsAPI.create_service_account_application_key ...'
+      end
       # verify the required parameter 'service_account_id' is set
       if @api_client.config.client_side_validation && service_account_id.nil?
         fail ArgumentError, "Missing the required parameter 'service_account_id' when calling ServiceAccountsAPI.create_service_account_application_key"
@@ -108,6 +112,10 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_service_account_application_key_with_http_info(service_account_id, app_key_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ServiceAccountsAPI.delete_service_account_application_key ...'
+      end
       # verify the required parameter 'service_account_id' is set
       if @api_client.config.client_side_validation && service_account_id.nil?
         fail ArgumentError, "Missing the required parameter 'service_account_id' when calling ServiceAccountsAPI.delete_service_account_application_key"
@@ -174,6 +182,10 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(PartialApplicationKeyResponse, Integer, Hash)>] PartialApplicationKeyResponse data, response status code and response headers
     def get_service_account_application_key_with_http_info(service_account_id, app_key_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ServiceAccountsAPI.get_service_account_application_key ...'
+      end
       # verify the required parameter 'service_account_id' is set
       if @api_client.config.client_side_validation && service_account_id.nil?
         fail ArgumentError, "Missing the required parameter 'service_account_id' when calling ServiceAccountsAPI.get_service_account_application_key"
@@ -245,6 +257,10 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_created_at_end Only include application keys created on or before the specified date.
     # @return [Array<(ListApplicationKeysResponse, Integer, Hash)>] ListApplicationKeysResponse data, response status code and response headers
     def list_service_account_application_keys_with_http_info(service_account_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ServiceAccountsAPI.list_service_account_application_keys ...'
+      end
       # verify the required parameter 'service_account_id' is set
       if @api_client.config.client_side_validation && service_account_id.nil?
         fail ArgumentError, "Missing the required parameter 'service_account_id' when calling ServiceAccountsAPI.list_service_account_application_keys"
@@ -318,6 +334,10 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(PartialApplicationKeyResponse, Integer, Hash)>] PartialApplicationKeyResponse data, response status code and response headers
     def update_service_account_application_key_with_http_info(service_account_id, app_key_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ServiceAccountsAPI.update_service_account_application_key ...'
+      end
       # verify the required parameter 'service_account_id' is set
       if @api_client.config.client_side_validation && service_account_id.nil?
         fail ArgumentError, "Missing the required parameter 'service_account_id' when calling ServiceAccountsAPI.update_service_account_application_key"

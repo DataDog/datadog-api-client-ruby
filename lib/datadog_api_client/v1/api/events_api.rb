@@ -40,6 +40,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(EventCreateResponse, Integer, Hash)>] EventCreateResponse data, response status code and response headers
     def create_event_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EventsAPI.create_event ...'
+      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling EventsAPI.create_event"
@@ -106,6 +110,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(EventResponse, Integer, Hash)>] EventResponse data, response status code and response headers
     def get_event_with_http_info(event_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EventsAPI.get_event ...'
+      end
       # verify the required parameter 'event_id' is set
       if @api_client.config.client_side_validation && event_id.nil?
         fail ArgumentError, "Missing the required parameter 'event_id' when calling EventsAPI.get_event"
@@ -182,6 +190,10 @@ module DatadogAPIClient::V1
     # @option opts [Integer] :page By default 1000 results are returned per request. Set page to the number of the page to return with `0` being the first page. The page parameter can only be used when either unaggregated or exclude_aggregate is set to `true.`
     # @return [Array<(EventListResponse, Integer, Hash)>] EventListResponse data, response status code and response headers
     def list_events_with_http_info(start, _end, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EventsAPI.list_events ...'
+      end
       # verify the required parameter 'start' is set
       if @api_client.config.client_side_validation && start.nil?
         fail ArgumentError, "Missing the required parameter 'start' when calling EventsAPI.list_events"

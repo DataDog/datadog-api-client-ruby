@@ -40,6 +40,10 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(PermissionsResponse, Integer, Hash)>] PermissionsResponse data, response status code and response headers
     def add_permission_to_role_with_http_info(role_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RolesAPI.add_permission_to_role ...'
+      end
       # verify the required parameter 'role_id' is set
       if @api_client.config.client_side_validation && role_id.nil?
         fail ArgumentError, "Missing the required parameter 'role_id' when calling RolesAPI.add_permission_to_role"
@@ -108,6 +112,10 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(UsersResponse, Integer, Hash)>] UsersResponse data, response status code and response headers
     def add_user_to_role_with_http_info(role_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RolesAPI.add_user_to_role ...'
+      end
       # verify the required parameter 'role_id' is set
       if @api_client.config.client_side_validation && role_id.nil?
         fail ArgumentError, "Missing the required parameter 'role_id' when calling RolesAPI.add_user_to_role"
@@ -176,6 +184,10 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(RoleResponse, Integer, Hash)>] RoleResponse data, response status code and response headers
     def clone_role_with_http_info(role_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RolesAPI.clone_role ...'
+      end
       # verify the required parameter 'role_id' is set
       if @api_client.config.client_side_validation && role_id.nil?
         fail ArgumentError, "Missing the required parameter 'role_id' when calling RolesAPI.clone_role"
@@ -243,6 +255,10 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(RoleCreateResponse, Integer, Hash)>] RoleCreateResponse data, response status code and response headers
     def create_role_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RolesAPI.create_role ...'
+      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling RolesAPI.create_role"
@@ -306,6 +322,10 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_role_with_http_info(role_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RolesAPI.delete_role ...'
+      end
       # verify the required parameter 'role_id' is set
       if @api_client.config.client_side_validation && role_id.nil?
         fail ArgumentError, "Missing the required parameter 'role_id' when calling RolesAPI.delete_role"
@@ -367,6 +387,10 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(RoleResponse, Integer, Hash)>] RoleResponse data, response status code and response headers
     def get_role_with_http_info(role_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RolesAPI.get_role ...'
+      end
       # verify the required parameter 'role_id' is set
       if @api_client.config.client_side_validation && role_id.nil?
         fail ArgumentError, "Missing the required parameter 'role_id' when calling RolesAPI.get_role"
@@ -427,6 +451,10 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(PermissionsResponse, Integer, Hash)>] PermissionsResponse data, response status code and response headers
     def list_permissions_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RolesAPI.list_permissions ...'
+      end
       # resource path
       local_var_path = '/api/v2/permissions'
 
@@ -484,6 +512,10 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(PermissionsResponse, Integer, Hash)>] PermissionsResponse data, response status code and response headers
     def list_role_permissions_with_http_info(role_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RolesAPI.list_role_permissions ...'
+      end
       # verify the required parameter 'role_id' is set
       if @api_client.config.client_side_validation && role_id.nil?
         fail ArgumentError, "Missing the required parameter 'role_id' when calling RolesAPI.list_role_permissions"
@@ -548,6 +580,10 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter Filter all roles by the given string.
     # @return [Array<(RolesResponse, Integer, Hash)>] RolesResponse data, response status code and response headers
     def list_roles_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RolesAPI.list_roles ...'
+      end
       allowable_values = ['name', '-name', 'modified_at', '-modified_at', 'user_count', '-user_count']
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
@@ -617,6 +653,10 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter Filter all users by the given string. Defaults to no filtering.
     # @return [Array<(UsersResponse, Integer, Hash)>] UsersResponse data, response status code and response headers
     def list_role_users_with_http_info(role_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RolesAPI.list_role_users ...'
+      end
       # verify the required parameter 'role_id' is set
       if @api_client.config.client_side_validation && role_id.nil?
         fail ArgumentError, "Missing the required parameter 'role_id' when calling RolesAPI.list_role_users"
@@ -683,6 +723,10 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(PermissionsResponse, Integer, Hash)>] PermissionsResponse data, response status code and response headers
     def remove_permission_from_role_with_http_info(role_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RolesAPI.remove_permission_from_role ...'
+      end
       # verify the required parameter 'role_id' is set
       if @api_client.config.client_side_validation && role_id.nil?
         fail ArgumentError, "Missing the required parameter 'role_id' when calling RolesAPI.remove_permission_from_role"
@@ -751,6 +795,10 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(UsersResponse, Integer, Hash)>] UsersResponse data, response status code and response headers
     def remove_user_from_role_with_http_info(role_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RolesAPI.remove_user_from_role ...'
+      end
       # verify the required parameter 'role_id' is set
       if @api_client.config.client_side_validation && role_id.nil?
         fail ArgumentError, "Missing the required parameter 'role_id' when calling RolesAPI.remove_user_from_role"
@@ -819,6 +867,10 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(RoleUpdateResponse, Integer, Hash)>] RoleUpdateResponse data, response status code and response headers
     def update_role_with_http_info(role_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RolesAPI.update_role ...'
+      end
       # verify the required parameter 'role_id' is set
       if @api_client.config.client_side_validation && role_id.nil?
         fail ArgumentError, "Missing the required parameter 'role_id' when calling RolesAPI.update_role"

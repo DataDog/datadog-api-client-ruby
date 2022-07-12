@@ -39,6 +39,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApiKeyResponse, Integer, Hash)>] ApiKeyResponse data, response status code and response headers
     def create_api_key_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KeyManagementAPI.create_api_key ...'
+      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling KeyManagementAPI.create_api_key"
@@ -102,6 +106,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def create_application_key_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KeyManagementAPI.create_application_key ...'
+      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling KeyManagementAPI.create_application_key"
@@ -165,6 +173,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApiKeyResponse, Integer, Hash)>] ApiKeyResponse data, response status code and response headers
     def delete_api_key_with_http_info(key, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KeyManagementAPI.delete_api_key ...'
+      end
       # verify the required parameter 'key' is set
       if @api_client.config.client_side_validation && key.nil?
         fail ArgumentError, "Missing the required parameter 'key' when calling KeyManagementAPI.delete_api_key"
@@ -226,6 +238,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def delete_application_key_with_http_info(key, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KeyManagementAPI.delete_application_key ...'
+      end
       # verify the required parameter 'key' is set
       if @api_client.config.client_side_validation && key.nil?
         fail ArgumentError, "Missing the required parameter 'key' when calling KeyManagementAPI.delete_application_key"
@@ -287,6 +303,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApiKeyResponse, Integer, Hash)>] ApiKeyResponse data, response status code and response headers
     def get_api_key_with_http_info(key, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KeyManagementAPI.get_api_key ...'
+      end
       # verify the required parameter 'key' is set
       if @api_client.config.client_side_validation && key.nil?
         fail ArgumentError, "Missing the required parameter 'key' when calling KeyManagementAPI.get_api_key"
@@ -348,6 +368,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def get_application_key_with_http_info(key, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KeyManagementAPI.get_application_key ...'
+      end
       # verify the required parameter 'key' is set
       if @api_client.config.client_side_validation && key.nil?
         fail ArgumentError, "Missing the required parameter 'key' when calling KeyManagementAPI.get_application_key"
@@ -408,6 +432,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApiKeyListResponse, Integer, Hash)>] ApiKeyListResponse data, response status code and response headers
     def list_api_keys_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KeyManagementAPI.list_api_keys ...'
+      end
       # resource path
       local_var_path = '/api/v1/api_key'
 
@@ -464,6 +492,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyListResponse, Integer, Hash)>] ApplicationKeyListResponse data, response status code and response headers
     def list_application_keys_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KeyManagementAPI.list_application_keys ...'
+      end
       # resource path
       local_var_path = '/api/v1/application_key'
 
@@ -522,6 +554,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApiKeyResponse, Integer, Hash)>] ApiKeyResponse data, response status code and response headers
     def update_api_key_with_http_info(key, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KeyManagementAPI.update_api_key ...'
+      end
       # verify the required parameter 'key' is set
       if @api_client.config.client_side_validation && key.nil?
         fail ArgumentError, "Missing the required parameter 'key' when calling KeyManagementAPI.update_api_key"
@@ -590,6 +626,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def update_application_key_with_http_info(key, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KeyManagementAPI.update_application_key ...'
+      end
       # verify the required parameter 'key' is set
       if @api_client.config.client_side_validation && key.nil?
         fail ArgumentError, "Missing the required parameter 'key' when calling KeyManagementAPI.update_application_key"

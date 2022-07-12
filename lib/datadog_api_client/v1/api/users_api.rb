@@ -42,6 +42,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(UserResponse, Integer, Hash)>] UserResponse data, response status code and response headers
     def create_user_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsersAPI.create_user ...'
+      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling UsersAPI.create_user"
@@ -108,6 +112,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(UserDisableResponse, Integer, Hash)>] UserDisableResponse data, response status code and response headers
     def disable_user_with_http_info(user_handle, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsersAPI.disable_user ...'
+      end
       # verify the required parameter 'user_handle' is set
       if @api_client.config.client_side_validation && user_handle.nil?
         fail ArgumentError, "Missing the required parameter 'user_handle' when calling UsersAPI.disable_user"
@@ -169,6 +177,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(UserResponse, Integer, Hash)>] UserResponse data, response status code and response headers
     def get_user_with_http_info(user_handle, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsersAPI.get_user ...'
+      end
       # verify the required parameter 'user_handle' is set
       if @api_client.config.client_side_validation && user_handle.nil?
         fail ArgumentError, "Missing the required parameter 'user_handle' when calling UsersAPI.get_user"
@@ -229,6 +241,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(UserListResponse, Integer, Hash)>] UserListResponse data, response status code and response headers
     def list_users_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsersAPI.list_users ...'
+      end
       # resource path
       local_var_path = '/api/v1/user'
 
@@ -289,6 +305,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(UserResponse, Integer, Hash)>] UserResponse data, response status code and response headers
     def update_user_with_http_info(user_handle, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsersAPI.update_user ...'
+      end
       # verify the required parameter 'user_handle' is set
       if @api_client.config.client_side_validation && user_handle.nil?
         fail ArgumentError, "Missing the required parameter 'user_handle' when calling UsersAPI.update_user"

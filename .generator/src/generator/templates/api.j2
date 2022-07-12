@@ -47,11 +47,11 @@ module {{ module_name }}::{{ version|upper }}
       else
         raise {{ module_name }}::APIError.new(message: format("Unstable operation '%s' is disabled", "{{ operation.operationId|snake_case }}"))
       end
+      {%- endif %}
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: {{classname}}.{{ operation.operationId|snake_case }} ...'
       end
-      {%- endif %}
 
 {%- for name, parameter in operation|parameters %}
   {%- set schema = parameter|parameter_schema %}

@@ -49,6 +49,10 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_limit Maximum number of events in the response.
     # @return [Array<(AuditLogsEventsResponse, Integer, Hash)>] AuditLogsEventsResponse data, response status code and response headers
     def list_audit_logs_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AuditAPI.list_audit_logs ...'
+      end
       allowable_values = ['timestamp', '-timestamp']
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
@@ -145,6 +149,10 @@ module DatadogAPIClient::V2
     # @option opts [AuditLogsSearchEventsRequest] :body 
     # @return [Array<(AuditLogsEventsResponse, Integer, Hash)>] AuditLogsEventsResponse data, response status code and response headers
     def search_audit_logs_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AuditAPI.search_audit_logs ...'
+      end
       # resource path
       local_var_path = '/api/v2/audit/events/search'
 

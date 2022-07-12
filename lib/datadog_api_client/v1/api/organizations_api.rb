@@ -48,6 +48,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(OrganizationCreateResponse, Integer, Hash)>] OrganizationCreateResponse data, response status code and response headers
     def create_child_org_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrganizationsAPI.create_child_org ...'
+      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling OrganizationsAPI.create_child_org"
@@ -111,6 +115,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(OrgDowngradedResponse, Integer, Hash)>] OrgDowngradedResponse data, response status code and response headers
     def downgrade_org_with_http_info(public_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrganizationsAPI.downgrade_org ...'
+      end
       # verify the required parameter 'public_id' is set
       if @api_client.config.client_side_validation && public_id.nil?
         fail ArgumentError, "Missing the required parameter 'public_id' when calling OrganizationsAPI.downgrade_org"
@@ -172,6 +180,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(OrganizationResponse, Integer, Hash)>] OrganizationResponse data, response status code and response headers
     def get_org_with_http_info(public_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrganizationsAPI.get_org ...'
+      end
       # verify the required parameter 'public_id' is set
       if @api_client.config.client_side_validation && public_id.nil?
         fail ArgumentError, "Missing the required parameter 'public_id' when calling OrganizationsAPI.get_org"
@@ -232,6 +244,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(OrganizationListResponse, Integer, Hash)>] OrganizationListResponse data, response status code and response headers
     def list_orgs_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrganizationsAPI.list_orgs ...'
+      end
       # resource path
       local_var_path = '/api/v1/org'
 
@@ -290,6 +306,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(OrganizationResponse, Integer, Hash)>] OrganizationResponse data, response status code and response headers
     def update_org_with_http_info(public_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrganizationsAPI.update_org ...'
+      end
       # verify the required parameter 'public_id' is set
       if @api_client.config.client_side_validation && public_id.nil?
         fail ArgumentError, "Missing the required parameter 'public_id' when calling OrganizationsAPI.update_org"
@@ -363,6 +383,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(IdpResponse, Integer, Hash)>] IdpResponse data, response status code and response headers
     def upload_idp_for_org_with_http_info(public_id, idp_file, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrganizationsAPI.upload_idp_for_org ...'
+      end
       # verify the required parameter 'public_id' is set
       if @api_client.config.client_side_validation && public_id.nil?
         fail ArgumentError, "Missing the required parameter 'public_id' when calling OrganizationsAPI.upload_idp_for_org"

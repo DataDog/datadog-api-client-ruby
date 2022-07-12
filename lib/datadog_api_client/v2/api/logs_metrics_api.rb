@@ -40,6 +40,10 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsMetricResponse, Integer, Hash)>] LogsMetricResponse data, response status code and response headers
     def create_logs_metric_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LogsMetricsAPI.create_logs_metric ...'
+      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling LogsMetricsAPI.create_logs_metric"
@@ -103,6 +107,10 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_logs_metric_with_http_info(metric_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LogsMetricsAPI.delete_logs_metric ...'
+      end
       # verify the required parameter 'metric_id' is set
       if @api_client.config.client_side_validation && metric_id.nil?
         fail ArgumentError, "Missing the required parameter 'metric_id' when calling LogsMetricsAPI.delete_logs_metric"
@@ -164,6 +172,10 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsMetricResponse, Integer, Hash)>] LogsMetricResponse data, response status code and response headers
     def get_logs_metric_with_http_info(metric_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LogsMetricsAPI.get_logs_metric ...'
+      end
       # verify the required parameter 'metric_id' is set
       if @api_client.config.client_side_validation && metric_id.nil?
         fail ArgumentError, "Missing the required parameter 'metric_id' when calling LogsMetricsAPI.get_logs_metric"
@@ -224,6 +236,10 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsMetricsResponse, Integer, Hash)>] LogsMetricsResponse data, response status code and response headers
     def list_logs_metrics_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LogsMetricsAPI.list_logs_metrics ...'
+      end
       # resource path
       local_var_path = '/api/v2/logs/config/metrics'
 
@@ -283,6 +299,10 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsMetricResponse, Integer, Hash)>] LogsMetricResponse data, response status code and response headers
     def update_logs_metric_with_http_info(metric_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LogsMetricsAPI.update_logs_metric ...'
+      end
       # verify the required parameter 'metric_id' is set
       if @api_client.config.client_side_validation && metric_id.nil?
         fail ArgumentError, "Missing the required parameter 'metric_id' when calling LogsMetricsAPI.update_logs_metric"

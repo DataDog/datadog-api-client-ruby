@@ -39,6 +39,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsGlobalVariable, Integer, Hash)>] SyntheticsGlobalVariable data, response status code and response headers
     def create_global_variable_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.create_global_variable ...'
+      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling SyntheticsAPI.create_global_variable"
@@ -102,6 +106,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsPrivateLocationCreationResponse, Integer, Hash)>] SyntheticsPrivateLocationCreationResponse data, response status code and response headers
     def create_private_location_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.create_private_location ...'
+      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling SyntheticsAPI.create_private_location"
@@ -165,6 +173,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsAPITest, Integer, Hash)>] SyntheticsAPITest data, response status code and response headers
     def create_synthetics_api_test_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.create_synthetics_api_test ...'
+      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling SyntheticsAPI.create_synthetics_api_test"
@@ -228,6 +240,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsBrowserTest, Integer, Hash)>] SyntheticsBrowserTest data, response status code and response headers
     def create_synthetics_browser_test_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.create_synthetics_browser_test ...'
+      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling SyntheticsAPI.create_synthetics_browser_test"
@@ -291,6 +307,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_global_variable_with_http_info(variable_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.delete_global_variable ...'
+      end
       # verify the required parameter 'variable_id' is set
       if @api_client.config.client_side_validation && variable_id.nil?
         fail ArgumentError, "Missing the required parameter 'variable_id' when calling SyntheticsAPI.delete_global_variable"
@@ -352,6 +372,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_private_location_with_http_info(location_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.delete_private_location ...'
+      end
       # verify the required parameter 'location_id' is set
       if @api_client.config.client_side_validation && location_id.nil?
         fail ArgumentError, "Missing the required parameter 'location_id' when calling SyntheticsAPI.delete_private_location"
@@ -413,6 +437,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsDeleteTestsResponse, Integer, Hash)>] SyntheticsDeleteTestsResponse data, response status code and response headers
     def delete_tests_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.delete_tests ...'
+      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling SyntheticsAPI.delete_tests"
@@ -477,6 +505,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsGlobalVariable, Integer, Hash)>] SyntheticsGlobalVariable data, response status code and response headers
     def edit_global_variable_with_http_info(variable_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.edit_global_variable ...'
+      end
       # verify the required parameter 'variable_id' is set
       if @api_client.config.client_side_validation && variable_id.nil?
         fail ArgumentError, "Missing the required parameter 'variable_id' when calling SyntheticsAPI.edit_global_variable"
@@ -545,6 +577,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsAPITest, Integer, Hash)>] SyntheticsAPITest data, response status code and response headers
     def get_api_test_with_http_info(public_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_api_test ...'
+      end
       # verify the required parameter 'public_id' is set
       if @api_client.config.client_side_validation && public_id.nil?
         fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.get_api_test"
@@ -609,6 +645,10 @@ module DatadogAPIClient::V1
     # @option opts [Array<String>] :probe_dc Locations for which to query results.
     # @return [Array<(SyntheticsGetAPITestLatestResultsResponse, Integer, Hash)>] SyntheticsGetAPITestLatestResultsResponse data, response status code and response headers
     def get_api_test_latest_results_with_http_info(public_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_api_test_latest_results ...'
+      end
       # verify the required parameter 'public_id' is set
       if @api_client.config.client_side_validation && public_id.nil?
         fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.get_api_test_latest_results"
@@ -674,6 +714,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsAPITestResultFull, Integer, Hash)>] SyntheticsAPITestResultFull data, response status code and response headers
     def get_api_test_result_with_http_info(public_id, result_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_api_test_result ...'
+      end
       # verify the required parameter 'public_id' is set
       if @api_client.config.client_side_validation && public_id.nil?
         fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.get_api_test_result"
@@ -740,6 +784,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsBrowserTest, Integer, Hash)>] SyntheticsBrowserTest data, response status code and response headers
     def get_browser_test_with_http_info(public_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_browser_test ...'
+      end
       # verify the required parameter 'public_id' is set
       if @api_client.config.client_side_validation && public_id.nil?
         fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.get_browser_test"
@@ -804,6 +852,10 @@ module DatadogAPIClient::V1
     # @option opts [Array<String>] :probe_dc Locations for which to query results.
     # @return [Array<(SyntheticsGetBrowserTestLatestResultsResponse, Integer, Hash)>] SyntheticsGetBrowserTestLatestResultsResponse data, response status code and response headers
     def get_browser_test_latest_results_with_http_info(public_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_browser_test_latest_results ...'
+      end
       # verify the required parameter 'public_id' is set
       if @api_client.config.client_side_validation && public_id.nil?
         fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.get_browser_test_latest_results"
@@ -869,6 +921,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsBrowserTestResultFull, Integer, Hash)>] SyntheticsBrowserTestResultFull data, response status code and response headers
     def get_browser_test_result_with_http_info(public_id, result_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_browser_test_result ...'
+      end
       # verify the required parameter 'public_id' is set
       if @api_client.config.client_side_validation && public_id.nil?
         fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.get_browser_test_result"
@@ -934,6 +990,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsGlobalVariable, Integer, Hash)>] SyntheticsGlobalVariable data, response status code and response headers
     def get_global_variable_with_http_info(variable_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_global_variable ...'
+      end
       # verify the required parameter 'variable_id' is set
       if @api_client.config.client_side_validation && variable_id.nil?
         fail ArgumentError, "Missing the required parameter 'variable_id' when calling SyntheticsAPI.get_global_variable"
@@ -995,6 +1055,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsPrivateLocation, Integer, Hash)>] SyntheticsPrivateLocation data, response status code and response headers
     def get_private_location_with_http_info(location_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_private_location ...'
+      end
       # verify the required parameter 'location_id' is set
       if @api_client.config.client_side_validation && location_id.nil?
         fail ArgumentError, "Missing the required parameter 'location_id' when calling SyntheticsAPI.get_private_location"
@@ -1056,6 +1120,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsBatchDetails, Integer, Hash)>] SyntheticsBatchDetails data, response status code and response headers
     def get_synthetics_ci_batch_with_http_info(batch_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_synthetics_ci_batch ...'
+      end
       # verify the required parameter 'batch_id' is set
       if @api_client.config.client_side_validation && batch_id.nil?
         fail ArgumentError, "Missing the required parameter 'batch_id' when calling SyntheticsAPI.get_synthetics_ci_batch"
@@ -1117,6 +1185,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsTestDetails, Integer, Hash)>] SyntheticsTestDetails data, response status code and response headers
     def get_test_with_http_info(public_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.get_test ...'
+      end
       # verify the required parameter 'public_id' is set
       if @api_client.config.client_side_validation && public_id.nil?
         fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.get_test"
@@ -1177,6 +1249,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsListGlobalVariablesResponse, Integer, Hash)>] SyntheticsListGlobalVariablesResponse data, response status code and response headers
     def list_global_variables_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.list_global_variables ...'
+      end
       # resource path
       local_var_path = '/api/v1/synthetics/variables'
 
@@ -1234,6 +1310,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsLocations, Integer, Hash)>] SyntheticsLocations data, response status code and response headers
     def list_locations_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.list_locations ...'
+      end
       # resource path
       local_var_path = '/api/v1/synthetics/locations'
 
@@ -1290,6 +1370,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsListTestsResponse, Integer, Hash)>] SyntheticsListTestsResponse data, response status code and response headers
     def list_tests_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.list_tests ...'
+      end
       # resource path
       local_var_path = '/api/v1/synthetics/tests'
 
@@ -1347,6 +1431,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsTriggerCITestsResponse, Integer, Hash)>] SyntheticsTriggerCITestsResponse data, response status code and response headers
     def trigger_ci_tests_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.trigger_ci_tests ...'
+      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling SyntheticsAPI.trigger_ci_tests"
@@ -1410,6 +1498,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsTriggerCITestsResponse, Integer, Hash)>] SyntheticsTriggerCITestsResponse data, response status code and response headers
     def trigger_tests_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.trigger_tests ...'
+      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling SyntheticsAPI.trigger_tests"
@@ -1474,6 +1566,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsAPITest, Integer, Hash)>] SyntheticsAPITest data, response status code and response headers
     def update_api_test_with_http_info(public_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.update_api_test ...'
+      end
       # verify the required parameter 'public_id' is set
       if @api_client.config.client_side_validation && public_id.nil?
         fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.update_api_test"
@@ -1542,6 +1638,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsBrowserTest, Integer, Hash)>] SyntheticsBrowserTest data, response status code and response headers
     def update_browser_test_with_http_info(public_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.update_browser_test ...'
+      end
       # verify the required parameter 'public_id' is set
       if @api_client.config.client_side_validation && public_id.nil?
         fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.update_browser_test"
@@ -1610,6 +1710,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SyntheticsPrivateLocation, Integer, Hash)>] SyntheticsPrivateLocation data, response status code and response headers
     def update_private_location_with_http_info(location_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.update_private_location ...'
+      end
       # verify the required parameter 'location_id' is set
       if @api_client.config.client_side_validation && location_id.nil?
         fail ArgumentError, "Missing the required parameter 'location_id' when calling SyntheticsAPI.update_private_location"
@@ -1678,6 +1782,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Boolean, Integer, Hash)>] Boolean data, response status code and response headers
     def update_test_pause_status_with_http_info(public_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SyntheticsAPI.update_test_pause_status ...'
+      end
       # verify the required parameter 'public_id' is set
       if @api_client.config.client_side_validation && public_id.nil?
         fail ArgumentError, "Missing the required parameter 'public_id' when calling SyntheticsAPI.update_test_pause_status"

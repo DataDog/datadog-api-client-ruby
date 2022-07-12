@@ -41,6 +41,10 @@ module DatadogAPIClient::V2
     # @option opts [File] :idp_file The IdP metadata XML file
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def upload_idp_metadata_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrganizationsAPI.upload_idp_metadata ...'
+      end
       # resource path
       local_var_path = '/api/v2/saml_configurations/idp_metadata'
 

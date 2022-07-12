@@ -40,6 +40,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SlackIntegrationChannel, Integer, Hash)>] SlackIntegrationChannel data, response status code and response headers
     def create_slack_integration_channel_with_http_info(account_name, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SlackIntegrationAPI.create_slack_integration_channel ...'
+      end
       # verify the required parameter 'account_name' is set
       if @api_client.config.client_side_validation && account_name.nil?
         fail ArgumentError, "Missing the required parameter 'account_name' when calling SlackIntegrationAPI.create_slack_integration_channel"
@@ -108,6 +112,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SlackIntegrationChannel, Integer, Hash)>] SlackIntegrationChannel data, response status code and response headers
     def get_slack_integration_channel_with_http_info(account_name, channel_name, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SlackIntegrationAPI.get_slack_integration_channel ...'
+      end
       # verify the required parameter 'account_name' is set
       if @api_client.config.client_side_validation && account_name.nil?
         fail ArgumentError, "Missing the required parameter 'account_name' when calling SlackIntegrationAPI.get_slack_integration_channel"
@@ -173,6 +181,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Array<SlackIntegrationChannel>, Integer, Hash)>] Array<SlackIntegrationChannel> data, response status code and response headers
     def get_slack_integration_channels_with_http_info(account_name, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SlackIntegrationAPI.get_slack_integration_channels ...'
+      end
       # verify the required parameter 'account_name' is set
       if @api_client.config.client_side_validation && account_name.nil?
         fail ArgumentError, "Missing the required parameter 'account_name' when calling SlackIntegrationAPI.get_slack_integration_channels"
@@ -235,6 +247,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def remove_slack_integration_channel_with_http_info(account_name, channel_name, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SlackIntegrationAPI.remove_slack_integration_channel ...'
+      end
       # verify the required parameter 'account_name' is set
       if @api_client.config.client_side_validation && account_name.nil?
         fail ArgumentError, "Missing the required parameter 'account_name' when calling SlackIntegrationAPI.remove_slack_integration_channel"
@@ -302,6 +318,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SlackIntegrationChannel, Integer, Hash)>] SlackIntegrationChannel data, response status code and response headers
     def update_slack_integration_channel_with_http_info(account_name, channel_name, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SlackIntegrationAPI.update_slack_integration_channel ...'
+      end
       # verify the required parameter 'account_name' is set
       if @api_client.config.client_side_validation && account_name.nil?
         fail ArgumentError, "Missing the required parameter 'account_name' when calling SlackIntegrationAPI.update_slack_integration_channel"

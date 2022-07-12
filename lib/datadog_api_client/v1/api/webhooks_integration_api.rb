@@ -39,6 +39,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(WebhooksIntegration, Integer, Hash)>] WebhooksIntegration data, response status code and response headers
     def create_webhooks_integration_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WebhooksIntegrationAPI.create_webhooks_integration ...'
+      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling WebhooksIntegrationAPI.create_webhooks_integration"
@@ -102,6 +106,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(WebhooksIntegrationCustomVariableResponse, Integer, Hash)>] WebhooksIntegrationCustomVariableResponse data, response status code and response headers
     def create_webhooks_integration_custom_variable_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WebhooksIntegrationAPI.create_webhooks_integration_custom_variable ...'
+      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling WebhooksIntegrationAPI.create_webhooks_integration_custom_variable"
@@ -165,6 +173,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_webhooks_integration_with_http_info(webhook_name, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WebhooksIntegrationAPI.delete_webhooks_integration ...'
+      end
       # verify the required parameter 'webhook_name' is set
       if @api_client.config.client_side_validation && webhook_name.nil?
         fail ArgumentError, "Missing the required parameter 'webhook_name' when calling WebhooksIntegrationAPI.delete_webhooks_integration"
@@ -226,6 +238,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_webhooks_integration_custom_variable_with_http_info(custom_variable_name, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WebhooksIntegrationAPI.delete_webhooks_integration_custom_variable ...'
+      end
       # verify the required parameter 'custom_variable_name' is set
       if @api_client.config.client_side_validation && custom_variable_name.nil?
         fail ArgumentError, "Missing the required parameter 'custom_variable_name' when calling WebhooksIntegrationAPI.delete_webhooks_integration_custom_variable"
@@ -287,6 +303,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(WebhooksIntegration, Integer, Hash)>] WebhooksIntegration data, response status code and response headers
     def get_webhooks_integration_with_http_info(webhook_name, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WebhooksIntegrationAPI.get_webhooks_integration ...'
+      end
       # verify the required parameter 'webhook_name' is set
       if @api_client.config.client_side_validation && webhook_name.nil?
         fail ArgumentError, "Missing the required parameter 'webhook_name' when calling WebhooksIntegrationAPI.get_webhooks_integration"
@@ -351,6 +371,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(WebhooksIntegrationCustomVariableResponse, Integer, Hash)>] WebhooksIntegrationCustomVariableResponse data, response status code and response headers
     def get_webhooks_integration_custom_variable_with_http_info(custom_variable_name, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WebhooksIntegrationAPI.get_webhooks_integration_custom_variable ...'
+      end
       # verify the required parameter 'custom_variable_name' is set
       if @api_client.config.client_side_validation && custom_variable_name.nil?
         fail ArgumentError, "Missing the required parameter 'custom_variable_name' when calling WebhooksIntegrationAPI.get_webhooks_integration_custom_variable"
@@ -413,6 +437,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(WebhooksIntegration, Integer, Hash)>] WebhooksIntegration data, response status code and response headers
     def update_webhooks_integration_with_http_info(webhook_name, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WebhooksIntegrationAPI.update_webhooks_integration ...'
+      end
       # verify the required parameter 'webhook_name' is set
       if @api_client.config.client_side_validation && webhook_name.nil?
         fail ArgumentError, "Missing the required parameter 'webhook_name' when calling WebhooksIntegrationAPI.update_webhooks_integration"
@@ -481,6 +509,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(WebhooksIntegrationCustomVariableResponse, Integer, Hash)>] WebhooksIntegrationCustomVariableResponse data, response status code and response headers
     def update_webhooks_integration_custom_variable_with_http_info(custom_variable_name, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WebhooksIntegrationAPI.update_webhooks_integration_custom_variable ...'
+      end
       # verify the required parameter 'custom_variable_name' is set
       if @api_client.config.client_side_validation && custom_variable_name.nil?
         fail ArgumentError, "Missing the required parameter 'custom_variable_name' when calling WebhooksIntegrationAPI.update_webhooks_integration_custom_variable"

@@ -39,6 +39,10 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(OpsgenieServiceResponse, Integer, Hash)>] OpsgenieServiceResponse data, response status code and response headers
     def create_opsgenie_service_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OpsgenieIntegrationAPI.create_opsgenie_service ...'
+      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling OpsgenieIntegrationAPI.create_opsgenie_service"
@@ -102,6 +106,10 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_opsgenie_service_with_http_info(integration_service_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OpsgenieIntegrationAPI.delete_opsgenie_service ...'
+      end
       # verify the required parameter 'integration_service_id' is set
       if @api_client.config.client_side_validation && integration_service_id.nil?
         fail ArgumentError, "Missing the required parameter 'integration_service_id' when calling OpsgenieIntegrationAPI.delete_opsgenie_service"
@@ -163,6 +171,10 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(OpsgenieServiceResponse, Integer, Hash)>] OpsgenieServiceResponse data, response status code and response headers
     def get_opsgenie_service_with_http_info(integration_service_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OpsgenieIntegrationAPI.get_opsgenie_service ...'
+      end
       # verify the required parameter 'integration_service_id' is set
       if @api_client.config.client_side_validation && integration_service_id.nil?
         fail ArgumentError, "Missing the required parameter 'integration_service_id' when calling OpsgenieIntegrationAPI.get_opsgenie_service"
@@ -223,6 +235,10 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(OpsgenieServicesResponse, Integer, Hash)>] OpsgenieServicesResponse data, response status code and response headers
     def list_opsgenie_services_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OpsgenieIntegrationAPI.list_opsgenie_services ...'
+      end
       # resource path
       local_var_path = '/api/v2/integration/opsgenie/services'
 
@@ -281,6 +297,10 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(OpsgenieServiceResponse, Integer, Hash)>] OpsgenieServiceResponse data, response status code and response headers
     def update_opsgenie_service_with_http_info(integration_service_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OpsgenieIntegrationAPI.update_opsgenie_service ...'
+      end
       # verify the required parameter 'integration_service_id' is set
       if @api_client.config.client_side_validation && integration_service_id.nil?
         fail ArgumentError, "Missing the required parameter 'integration_service_id' when calling OpsgenieIntegrationAPI.update_opsgenie_service"

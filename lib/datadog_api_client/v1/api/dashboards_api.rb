@@ -40,6 +40,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Dashboard, Integer, Hash)>] Dashboard data, response status code and response headers
     def create_dashboard_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DashboardsAPI.create_dashboard ...'
+      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling DashboardsAPI.create_dashboard"
@@ -103,6 +107,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(DashboardDeleteResponse, Integer, Hash)>] DashboardDeleteResponse data, response status code and response headers
     def delete_dashboard_with_http_info(dashboard_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DashboardsAPI.delete_dashboard ...'
+      end
       # verify the required parameter 'dashboard_id' is set
       if @api_client.config.client_side_validation && dashboard_id.nil?
         fail ArgumentError, "Missing the required parameter 'dashboard_id' when calling DashboardsAPI.delete_dashboard"
@@ -164,6 +172,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_dashboards_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DashboardsAPI.delete_dashboards ...'
+      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling DashboardsAPI.delete_dashboards"
@@ -227,6 +239,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Dashboard, Integer, Hash)>] Dashboard data, response status code and response headers
     def get_dashboard_with_http_info(dashboard_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DashboardsAPI.get_dashboard ...'
+      end
       # verify the required parameter 'dashboard_id' is set
       if @api_client.config.client_side_validation && dashboard_id.nil?
         fail ArgumentError, "Missing the required parameter 'dashboard_id' when calling DashboardsAPI.get_dashboard"
@@ -292,6 +308,10 @@ module DatadogAPIClient::V1
     # @option opts [Boolean] :filter_deleted When `true`, this query returns only deleted custom-created or cloned dashboards. This parameter is incompatible with `filter[shared]`.
     # @return [Array<(DashboardSummary, Integer, Hash)>] DashboardSummary data, response status code and response headers
     def list_dashboards_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DashboardsAPI.list_dashboards ...'
+      end
       # resource path
       local_var_path = '/api/v1/dashboard'
 
@@ -351,6 +371,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def restore_dashboards_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DashboardsAPI.restore_dashboards ...'
+      end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling DashboardsAPI.restore_dashboards"
@@ -415,6 +439,10 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Dashboard, Integer, Hash)>] Dashboard data, response status code and response headers
     def update_dashboard_with_http_info(dashboard_id, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DashboardsAPI.update_dashboard ...'
+      end
       # verify the required parameter 'dashboard_id' is set
       if @api_client.config.client_side_validation && dashboard_id.nil?
         fail ArgumentError, "Missing the required parameter 'dashboard_id' when calling DashboardsAPI.update_dashboard"

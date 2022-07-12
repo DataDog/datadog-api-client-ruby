@@ -227,6 +227,10 @@ module DatadogAPIClient::V1
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageIncidentManagementResponse, Integer, Hash)>] UsageIncidentManagementResponse data, response status code and response headers
     def get_incident_management_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_incident_management ...'
+      end
       # verify the required parameter 'start_hr' is set
       if @api_client.config.client_side_validation && start_hr.nil?
         fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_incident_management"
@@ -291,6 +295,10 @@ module DatadogAPIClient::V1
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageIngestedSpansResponse, Integer, Hash)>] UsageIngestedSpansResponse data, response status code and response headers
     def get_ingested_spans_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_ingested_spans ...'
+      end
       # verify the required parameter 'start_hr' is set
       if @api_client.config.client_side_validation && start_hr.nil?
         fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_ingested_spans"
@@ -696,6 +704,10 @@ module DatadogAPIClient::V1
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageAnalyzedLogsResponse, Integer, Hash)>] UsageAnalyzedLogsResponse data, response status code and response headers
     def get_usage_analyzed_logs_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_analyzed_logs ...'
+      end
       # verify the required parameter 'start_hr' is set
       if @api_client.config.client_side_validation && start_hr.nil?
         fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_analyzed_logs"
@@ -863,6 +875,10 @@ module DatadogAPIClient::V1
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageAuditLogsResponse, Integer, Hash)>] UsageAuditLogsResponse data, response status code and response headers
     def get_usage_audit_logs_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_audit_logs ...'
+      end
       # verify the required parameter 'start_hr' is set
       if @api_client.config.client_side_validation && start_hr.nil?
         fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_audit_logs"
@@ -926,6 +942,10 @@ module DatadogAPIClient::V1
     # @option opts [Time] :month Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage starting this month.
     # @return [Array<(UsageBillableSummaryResponse, Integer, Hash)>] UsageBillableSummaryResponse data, response status code and response headers
     def get_usage_billable_summary_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_billable_summary ...'
+      end
       # resource path
       local_var_path = '/api/v1/usage/billable-summary'
 
@@ -985,6 +1005,10 @@ module DatadogAPIClient::V1
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageCIVisibilityResponse, Integer, Hash)>] UsageCIVisibilityResponse data, response status code and response headers
     def get_usage_ci_app_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_ci_app ...'
+      end
       # verify the required parameter 'start_hr' is set
       if @api_client.config.client_side_validation && start_hr.nil?
         fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_ci_app"
@@ -1049,6 +1073,10 @@ module DatadogAPIClient::V1
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageCloudSecurityPostureManagementResponse, Integer, Hash)>] UsageCloudSecurityPostureManagementResponse data, response status code and response headers
     def get_usage_cloud_security_posture_management_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_cloud_security_posture_management ...'
+      end
       # verify the required parameter 'start_hr' is set
       if @api_client.config.client_side_validation && start_hr.nil?
         fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_cloud_security_posture_management"
@@ -1113,6 +1141,10 @@ module DatadogAPIClient::V1
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageCWSResponse, Integer, Hash)>] UsageCWSResponse data, response status code and response headers
     def get_usage_cws_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_cws ...'
+      end
       # verify the required parameter 'start_hr' is set
       if @api_client.config.client_side_validation && start_hr.nil?
         fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_cws"
@@ -1177,6 +1209,10 @@ module DatadogAPIClient::V1
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageDBMResponse, Integer, Hash)>] UsageDBMResponse data, response status code and response headers
     def get_usage_dbm_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_dbm ...'
+      end
       # verify the required parameter 'start_hr' is set
       if @api_client.config.client_side_validation && start_hr.nil?
         fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_dbm"
@@ -1241,6 +1277,10 @@ module DatadogAPIClient::V1
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageFargateResponse, Integer, Hash)>] UsageFargateResponse data, response status code and response headers
     def get_usage_fargate_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_fargate ...'
+      end
       # verify the required parameter 'start_hr' is set
       if @api_client.config.client_side_validation && start_hr.nil?
         fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_fargate"
@@ -1305,6 +1345,10 @@ module DatadogAPIClient::V1
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageHostsResponse, Integer, Hash)>] UsageHostsResponse data, response status code and response headers
     def get_usage_hosts_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_hosts ...'
+      end
       # verify the required parameter 'start_hr' is set
       if @api_client.config.client_side_validation && start_hr.nil?
         fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_hosts"
@@ -1369,6 +1413,10 @@ module DatadogAPIClient::V1
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageIndexedSpansResponse, Integer, Hash)>] UsageIndexedSpansResponse data, response status code and response headers
     def get_usage_indexed_spans_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_indexed_spans ...'
+      end
       # verify the required parameter 'start_hr' is set
       if @api_client.config.client_side_validation && start_hr.nil?
         fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_indexed_spans"
@@ -1433,6 +1481,10 @@ module DatadogAPIClient::V1
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageIoTResponse, Integer, Hash)>] UsageIoTResponse data, response status code and response headers
     def get_usage_internet_of_things_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_internet_of_things ...'
+      end
       # verify the required parameter 'start_hr' is set
       if @api_client.config.client_side_validation && start_hr.nil?
         fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_internet_of_things"
@@ -1497,6 +1549,10 @@ module DatadogAPIClient::V1
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageLambdaResponse, Integer, Hash)>] UsageLambdaResponse data, response status code and response headers
     def get_usage_lambda_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_lambda ...'
+      end
       # verify the required parameter 'start_hr' is set
       if @api_client.config.client_side_validation && start_hr.nil?
         fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_lambda"
@@ -1561,6 +1617,10 @@ module DatadogAPIClient::V1
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageLogsResponse, Integer, Hash)>] UsageLogsResponse data, response status code and response headers
     def get_usage_logs_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_logs ...'
+      end
       # verify the required parameter 'start_hr' is set
       if @api_client.config.client_side_validation && start_hr.nil?
         fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_logs"
@@ -1626,6 +1686,10 @@ module DatadogAPIClient::V1
     # @option opts [Array<String>] :index_name Comma-separated list of log index names.
     # @return [Array<(UsageLogsByIndexResponse, Integer, Hash)>] UsageLogsByIndexResponse data, response status code and response headers
     def get_usage_logs_by_index_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_logs_by_index ...'
+      end
       # verify the required parameter 'start_hr' is set
       if @api_client.config.client_side_validation && start_hr.nil?
         fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_logs_by_index"
@@ -1691,6 +1755,10 @@ module DatadogAPIClient::V1
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageLogsByRetentionResponse, Integer, Hash)>] UsageLogsByRetentionResponse data, response status code and response headers
     def get_usage_logs_by_retention_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_logs_by_retention ...'
+      end
       # verify the required parameter 'start_hr' is set
       if @api_client.config.client_side_validation && start_hr.nil?
         fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_logs_by_retention"
@@ -1755,6 +1823,10 @@ module DatadogAPIClient::V1
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageNetworkFlowsResponse, Integer, Hash)>] UsageNetworkFlowsResponse data, response status code and response headers
     def get_usage_network_flows_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_network_flows ...'
+      end
       # verify the required parameter 'start_hr' is set
       if @api_client.config.client_side_validation && start_hr.nil?
         fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_network_flows"
@@ -1819,6 +1891,10 @@ module DatadogAPIClient::V1
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageNetworkHostsResponse, Integer, Hash)>] UsageNetworkHostsResponse data, response status code and response headers
     def get_usage_network_hosts_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_network_hosts ...'
+      end
       # verify the required parameter 'start_hr' is set
       if @api_client.config.client_side_validation && start_hr.nil?
         fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_network_hosts"
@@ -1883,6 +1959,10 @@ module DatadogAPIClient::V1
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageOnlineArchiveResponse, Integer, Hash)>] UsageOnlineArchiveResponse data, response status code and response headers
     def get_usage_online_archive_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_online_archive ...'
+      end
       # verify the required parameter 'start_hr' is set
       if @api_client.config.client_side_validation && start_hr.nil?
         fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_online_archive"
@@ -1947,6 +2027,10 @@ module DatadogAPIClient::V1
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageProfilingResponse, Integer, Hash)>] UsageProfilingResponse data, response status code and response headers
     def get_usage_profiling_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_profiling ...'
+      end
       # verify the required parameter 'start_hr' is set
       if @api_client.config.client_side_validation && start_hr.nil?
         fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_profiling"
@@ -2012,6 +2096,10 @@ module DatadogAPIClient::V1
     # @option opts [String] :type RUM type: `[browser, mobile]`. Defaults to `browser`.
     # @return [Array<(UsageRumSessionsResponse, Integer, Hash)>] UsageRumSessionsResponse data, response status code and response headers
     def get_usage_rum_sessions_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_rum_sessions ...'
+      end
       # verify the required parameter 'start_hr' is set
       if @api_client.config.client_side_validation && start_hr.nil?
         fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_rum_sessions"
@@ -2077,6 +2165,10 @@ module DatadogAPIClient::V1
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageRumUnitsResponse, Integer, Hash)>] UsageRumUnitsResponse data, response status code and response headers
     def get_usage_rum_units_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_rum_units ...'
+      end
       # verify the required parameter 'start_hr' is set
       if @api_client.config.client_side_validation && start_hr.nil?
         fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_rum_units"
@@ -2141,6 +2233,10 @@ module DatadogAPIClient::V1
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageSDSResponse, Integer, Hash)>] UsageSDSResponse data, response status code and response headers
     def get_usage_sds_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_sds ...'
+      end
       # verify the required parameter 'start_hr' is set
       if @api_client.config.client_side_validation && start_hr.nil?
         fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_sds"
@@ -2205,6 +2301,10 @@ module DatadogAPIClient::V1
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageSNMPResponse, Integer, Hash)>] UsageSNMPResponse data, response status code and response headers
     def get_usage_snmp_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_snmp ...'
+      end
       # verify the required parameter 'start_hr' is set
       if @api_client.config.client_side_validation && start_hr.nil?
         fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_snmp"
@@ -2270,6 +2370,10 @@ module DatadogAPIClient::V1
     # @option opts [Boolean] :include_org_details Include usage summaries for each sub-org.
     # @return [Array<(UsageSummaryResponse, Integer, Hash)>] UsageSummaryResponse data, response status code and response headers
     def get_usage_summary_with_http_info(start_month, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_summary ...'
+      end
       # verify the required parameter 'start_month' is set
       if @api_client.config.client_side_validation && start_month.nil?
         fail ArgumentError, "Missing the required parameter 'start_month' when calling UsageMeteringAPI.get_usage_summary"
@@ -2335,6 +2439,10 @@ module DatadogAPIClient::V1
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageSyntheticsResponse, Integer, Hash)>] UsageSyntheticsResponse data, response status code and response headers
     def get_usage_synthetics_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_synthetics ...'
+      end
       # verify the required parameter 'start_hr' is set
       if @api_client.config.client_side_validation && start_hr.nil?
         fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_synthetics"
@@ -2399,6 +2507,10 @@ module DatadogAPIClient::V1
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageSyntheticsAPIResponse, Integer, Hash)>] UsageSyntheticsAPIResponse data, response status code and response headers
     def get_usage_synthetics_api_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_synthetics_api ...'
+      end
       # verify the required parameter 'start_hr' is set
       if @api_client.config.client_side_validation && start_hr.nil?
         fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_synthetics_api"
@@ -2463,6 +2575,10 @@ module DatadogAPIClient::V1
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageSyntheticsBrowserResponse, Integer, Hash)>] UsageSyntheticsBrowserResponse data, response status code and response headers
     def get_usage_synthetics_browser_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_synthetics_browser ...'
+      end
       # verify the required parameter 'start_hr' is set
       if @api_client.config.client_side_validation && start_hr.nil?
         fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_synthetics_browser"
@@ -2527,6 +2643,10 @@ module DatadogAPIClient::V1
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageTimeseriesResponse, Integer, Hash)>] UsageTimeseriesResponse data, response status code and response headers
     def get_usage_timeseries_with_http_info(start_hr, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_timeseries ...'
+      end
       # verify the required parameter 'start_hr' is set
       if @api_client.config.client_side_validation && start_hr.nil?
         fail ArgumentError, "Missing the required parameter 'start_hr' when calling UsageMeteringAPI.get_usage_timeseries"
@@ -2594,6 +2714,10 @@ module DatadogAPIClient::V1
     # @option opts [String] :next_record_id List following results with a next_record_id provided in the previous query.
     # @return [Array<(UsageTopAvgMetricsResponse, Integer, Hash)>] UsageTopAvgMetricsResponse data, response status code and response headers
     def get_usage_top_avg_metrics_with_http_info(opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_top_avg_metrics ...'
+      end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 5000
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UsageMeteringAPI.get_usage_top_avg_metrics, must be smaller than or equal to 5000.'
       end
