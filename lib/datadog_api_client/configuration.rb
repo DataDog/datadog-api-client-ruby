@@ -158,30 +158,30 @@ module DatadogAPIClient
       @compress = true
       @logger = defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
       @unstable_operations = {
-            "v1.get_daily_custom_reports": false,
-            "v1.get_hourly_usage_attribution": false,
-            "v1.get_monthly_custom_reports": false,
-            "v1.get_monthly_usage_attribution": false,
-            "v1.get_specified_daily_custom_reports": false,
-            "v1.get_specified_monthly_custom_reports": false,
-            "v1.get_usage_attribution": false,
-            "v1.get_slo_history": false,
-            "v1.search_slo": false,
-            "v2.create_incident": false,
-            "v2.delete_incident": false,
-            "v2.get_incident": false,
-            "v2.list_incidents": false,
-            "v2.update_incident": false,
-            "v2.create_incident_service": false,
-            "v2.delete_incident_service": false,
-            "v2.get_incident_service": false,
-            "v2.list_incident_services": false,
-            "v2.update_incident_service": false,
-            "v2.create_incident_team": false,
-            "v2.delete_incident_team": false,
-            "v2.get_incident_team": false,
-            "v2.list_incident_teams": false,
-            "v2.update_incident_team": false,
+            "V1.get_daily_custom_reports": false,
+            "V1.get_hourly_usage_attribution": false,
+            "V1.get_monthly_custom_reports": false,
+            "V1.get_monthly_usage_attribution": false,
+            "V1.get_specified_daily_custom_reports": false,
+            "V1.get_specified_monthly_custom_reports": false,
+            "V1.get_usage_attribution": false,
+            "V1.get_slo_history": false,
+            "V1.search_slo": false,
+            "V2.create_incident": false,
+            "V2.delete_incident": false,
+            "V2.get_incident": false,
+            "V2.list_incidents": false,
+            "V2.update_incident": false,
+            "V2.create_incident_service": false,
+            "V2.delete_incident_service": false,
+            "V2.get_incident_service": false,
+            "V2.list_incident_services": false,
+            "V2.update_incident_service": false,
+            "V2.create_incident_team": false,
+            "V2.delete_incident_team": false,
+            "V2.get_incident_team": false,
+            "V2.list_incident_teams": false,
+            "V2.update_incident_team": false,
       }
       @server_variables[:site] = ENV['DD_SITE'] if ENV.key? 'DD_SITE'
       @api_key['apiKeyAuth'] = ENV['DD_API_KEY'] if ENV.key? 'DD_API_KEY'
@@ -220,7 +220,7 @@ module DatadogAPIClient
       index = server_operation_index.fetch(operation, server_index)
       return "#{scheme}://#{[host, base_path].join('/').gsub(/\/+/, '/')}".sub(/\/+\z/, '') if index == nil
 
-      server_url(index, server_operation_variables.fetch(operation, server_variables), operation_server_settings[operation])
+      server_url(index, server_operation_variables.fetch(operation.to_sym, server_variables), operation_server_settings[operation.to_sym])
     end
 
     # Gets API key (with prefix if set).
@@ -324,7 +324,7 @@ module DatadogAPIClient
 
     def operation_server_settings
       {
-        "v1.get_ip_ranges": [
+        "V1.get_ip_ranges": [
           {
             url: "https://{subdomain}.{site}",
             description: "No description provided",
@@ -371,7 +371,7 @@ module DatadogAPIClient
             }
           }  
         ],
-        "v1.search_slo": [
+        "V1.search_slo": [
           {
             url: "https://{subdomain}.{site}",
             description: "No description provided",
@@ -421,7 +421,7 @@ module DatadogAPIClient
             }
           }  
         ],
-        "v1.submit_log": [
+        "V1.submit_log": [
           {
             url: "https://{subdomain}.{site}",
             description: "No description provided",
@@ -472,7 +472,7 @@ module DatadogAPIClient
             }
           }  
         ],
-        "v2.submit_log": [
+        "V2.submit_log": [
           {
             url: "https://{subdomain}.{site}",
             description: "No description provided",
