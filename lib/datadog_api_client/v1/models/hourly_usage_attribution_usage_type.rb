@@ -35,6 +35,7 @@ module DatadogAPIClient::V1
     DBM_QUERIES_USAGE = "dbm_queries_usage".freeze
     ESTIMATED_INDEXED_LOGS_USAGE = "estimated_indexed_logs_usage".freeze
     ESTIMATED_INDEXED_SPANS_USAGE = "estimated_indexed_spans_usage".freeze
+    ESTIMATED_INGESTED_SPANS_USAGE = "estimated_ingested_spans_usage".freeze
     FARGATE_USAGE = "fargate_usage".freeze
     FUNCTIONS_USAGE = "functions_usage".freeze
     INDEXED_LOGS_USAGE = "indexed_logs_usage".freeze
