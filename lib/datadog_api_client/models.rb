@@ -18,6 +18,7 @@ require 'datadog_api_client/version'
 require 'datadog_api_client/user_agent'
 require 'datadog_api_client/api_client'
 require 'datadog_api_client/configuration'
+require 'datadog_api_client/api_key_configuration'
 
 # Models
 require 'datadog_api_client/v1/model_base'
