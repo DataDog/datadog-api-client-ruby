@@ -6,7 +6,7 @@ SLEEP_AFTER_REQUEST = ENV["SLEEP_AFTER_REQUEST"].present? ? ENV["SLEEP_AFTER_REQ
 
 module APIWorld
   def api
-    Object.const_get("DatadogAPIClient::V#{@api_version}")
+    Object.const_get("DatadogAPIClient")
   end
 
   def configuration
@@ -191,12 +191,13 @@ Given('a valid "apiKeyAuth" key in the system') do
 end
 
 Given('a valid "appKeyAuth" key in the system') do
+  require 'pry'; binding.pry
   configuration.application_key = ENV["DD_TEST_CLIENT_APP_KEY"]
 end
 
 Given(/^an instance of "([^"]+)" API$/) do |api_name|
   configuration.debugging = ENV["DEBUG"].present?
-  @api_instance = api.const_get("#{api_name}API").new api_client
+  @api_instance = api.const_get("V#{@api_version}").const_get("#{api_name}API").new api_client
 end
 
 Given('operation {string} enabled') do |name|

@@ -111,7 +111,7 @@ module DatadogAPIClient
       end
 
       if opts[:return_type]
-        data = deserialize(response, opts[:return_type])
+        data = deserialize(response, opts[:return_type], opts[:api_version])
       else
         data = nil
       end
@@ -218,7 +218,7 @@ module DatadogAPIClient
     #
     # @param [Response] response HTTP response
     # @param [String] return_type some examples: "User", "Array<User>", "Hash<String, Integer>"
-    def deserialize(response, return_type)
+    def deserialize(response, return_type, api_version)
       body = response.body
 
       # handle file downloading - return the File instance processed in request callbacks
@@ -251,14 +251,14 @@ module DatadogAPIClient
         end
       end
 
-      convert_to_type data, return_type
+      convert_to_type data, return_type, api_version
     end
 
     # Convert data to the given return type.
     # @param [Object] data Data to be converted
     # @param [String] return_type Return type
     # @return [Mixed] Data in a particular type
-    def convert_to_type(data, return_type)
+    def convert_to_type(data, return_type, api_version)
       return nil if data.nil?
       case return_type
       when 'String'
@@ -281,16 +281,16 @@ module DatadogAPIClient
       when /\AArray<(.+)>\z/
         # e.g. Array<Pet>
         sub_type = $1
-        data.map { |item| convert_to_type(item, sub_type) }
+        data.map { |item| convert_to_type(item, sub_type, api_version) }
       when /\AHash\<String, (.+)\>\z/
         # e.g. Hash<String, Integer>
         sub_type = $1
         {}.tap do |hash|
-          data.each { |k, v| hash[k] = convert_to_type(v, sub_type) }
+          data.each { |k, v| hash[k] = convert_to_type(v, sub_type, api_version) }
         end
       else
         # models (e.g. Pet) or oneOf
-        klass = DatadogAPIClient.const_get(return_type)
+        klass = DatadogAPIClient.const_get(api_version).const_get(return_type)
         klass.respond_to?(:openapi_one_of) ? klass.build(data) : klass.build_from_hash(data)
       end
     end
@@ -438,7 +438,7 @@ module DatadogAPIClient
         else
           obj = obj.send(attr)
         end
-        builder = DatadogAPIClient::V2.const_get(builder.openapi_types[attr.to_sym]) if i > 0
+        builder = DatadogAPIClient.const_get(builder.openapi_types[attr.to_sym]) if i > 0
         obj = builder.new if obj.nil?
         i += 1
       end
@@ -448,6 +448,50 @@ module DatadogAPIClient
       else
         obj.send(last + "=", value)
       end
+    end
+  end
+
+  class APIError < StandardError
+    attr_reader :code, :response_headers, :response_body
+
+    # Usage examples:
+    #   APIError.new
+    #   APIError.new("message")
+    #   APIError.new(:code => 500, :response_headers => {}, :response_body => "")
+    #   APIError.new(:code => 404, :message => "Not Found")
+    def initialize(arg = nil)
+      if arg.is_a? Hash
+        if arg.key?(:message) || arg.key?('message')
+          super(arg[:message] || arg['message'])
+        else
+          super arg
+        end
+
+        arg.each do |k, v|
+          instance_variable_set "@#{k}", v
+        end
+      else
+        super arg
+      end
+    end
+
+    # Override to_s to display a friendly error message
+    def to_s
+      message
+    end
+
+    def message
+      if @message.nil?
+        msg = "Error message: the server returns an error"
+      else
+        msg = @message
+      end
+
+      msg += "\nHTTP status code: #{code}" if code
+      msg += "\nResponse headers: #{response_headers}" if response_headers
+      msg += "\nResponse body: #{response_body}" if response_body
+
+      msg
     end
   end
 end

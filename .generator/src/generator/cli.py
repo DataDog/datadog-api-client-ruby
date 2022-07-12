@@ -62,7 +62,6 @@ def cli(specs, output):
 
     common_files = {
         "api_client.rb": env.get_template("api_client.j2"),
-        "api_error.rb": env.get_template("api_error.j2"),
         "configuration.rb": env.get_template("configuration.j2"),
     }
 

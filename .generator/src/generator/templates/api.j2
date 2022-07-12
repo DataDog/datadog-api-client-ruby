@@ -198,7 +198,8 @@ module {{ module_name }}::{{ version|upper }}
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "{{ version|upper }}"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::{{ httpMethod|camel_case }}, local_var_path, new_options)
