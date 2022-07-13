@@ -57,6 +57,8 @@ module DatadogAPIClient::V1
     APPSEC_PERCENTAGE = "appsec_percentage".freeze
     ESTIMATED_INDEXED_SPANS_USAGE = "estimated_indexed_spans_usage".freeze
     ESTIMATED_INDEXED_SPANS_PERCENTAGE = "estimated_indexed_spans_percentage".freeze
+    ESTIMATED_INGESTED_SPANS_USAGE = "estimated_ingested_spans_usage".freeze
+    ESTIMATED_INGESTED_SPANS_PERCENTAGE = "estimated_ingested_spans_percentage".freeze
     ALL = "*".freeze
   end
 end
