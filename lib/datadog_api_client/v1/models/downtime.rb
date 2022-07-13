@@ -22,7 +22,7 @@ module DatadogAPIClient::V1
   # Downtime settings, which can be scheduled with start and end times,
   # prevent all alerting related to specified Datadog tags.
   class Downtime
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

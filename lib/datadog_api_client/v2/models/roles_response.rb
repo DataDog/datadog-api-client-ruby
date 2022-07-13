@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Response containing information about multiple roles.
   class RolesResponse
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

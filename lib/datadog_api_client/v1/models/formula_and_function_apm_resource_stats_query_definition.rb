@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # APM resource stats query using formulas and functions.
   class FormulaAndFunctionApmResourceStatsQueryDefinition
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

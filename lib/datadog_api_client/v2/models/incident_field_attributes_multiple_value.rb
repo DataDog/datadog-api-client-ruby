@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # A field with potentially multiple values selected.
   class IncidentFieldAttributesMultipleValue
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

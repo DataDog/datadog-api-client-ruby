@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The Log Stream displays a log flow matching the defined query. Only available on FREE layout dashboards.
   class LogStreamWidgetDefinition
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

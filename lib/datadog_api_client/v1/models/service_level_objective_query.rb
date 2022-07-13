@@ -21,7 +21,7 @@ module DatadogAPIClient::V1
   # to be used because this will sum up all request counts instead of averaging them, or taking the max or
   # min of all of those requests.
   class ServiceLevelObjectiveQuery
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

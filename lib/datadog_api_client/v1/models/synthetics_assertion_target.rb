@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # An assertion which uses a simple target.
   class SyntheticsAssertionTarget
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

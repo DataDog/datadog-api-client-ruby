@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # An aggregation function.
   class RUMAggregationFunction
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     COUNT = "count".freeze
     CARDINALITY = "cardinality".freeze

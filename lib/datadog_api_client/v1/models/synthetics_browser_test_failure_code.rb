@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Error code that can be returned by a Synthetic test.
   class SyntheticsBrowserTestFailureCode
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     API_REQUEST_FAILURE = "API_REQUEST_FAILURE".freeze
     ASSERTION_FAILURE = "ASSERTION_FAILURE".freeze

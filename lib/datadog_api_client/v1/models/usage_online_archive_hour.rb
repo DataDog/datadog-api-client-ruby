@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Online Archive usage in a given hour.
   class UsageOnlineArchiveHour
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The type of authentication to use when performing the test.
   class SyntheticsBasicAuthSigv4Type
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     SIGV4 = "sigv4".freeze
   end

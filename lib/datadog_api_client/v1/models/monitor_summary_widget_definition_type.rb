@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the monitor summary widget.
   class MonitorSummaryWidgetDefinitionType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     MANAGE_STATUS = "manage_status".freeze
   end

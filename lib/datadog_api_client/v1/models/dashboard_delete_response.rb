@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Response from the delete dashboard call.
   class DashboardDeleteResponse
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

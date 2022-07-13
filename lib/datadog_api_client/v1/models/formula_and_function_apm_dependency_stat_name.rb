@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # APM statistic.
   class FormulaAndFunctionApmDependencyStatName
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     AVG_DURATION = "avg_duration".freeze
     AVG_ROOT_DURATION = "avg_root_duration".freeze

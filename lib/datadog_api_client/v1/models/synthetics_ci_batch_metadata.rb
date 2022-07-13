@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Metadata for the Synthetics tests run.
   class SyntheticsCIBatchMetadata
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

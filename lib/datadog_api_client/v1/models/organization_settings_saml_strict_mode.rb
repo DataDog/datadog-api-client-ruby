@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Has one property enabled (boolean).
   class OrganizationSettingsSamlStrictMode
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Size of the widget.
   class WidgetSizeFormat
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     SMALL = "small".freeze
     MEDIUM = "medium".freeze

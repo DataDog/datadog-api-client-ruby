@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Cost attributes data.
   class CostByOrgAttributes
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

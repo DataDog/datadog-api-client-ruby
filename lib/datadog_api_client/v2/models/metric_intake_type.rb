@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The type of metric. The available types are `0` (unspecified), `1` (count), `2` (rate), and `3` (gauge).
   class MetricIntakeType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     UNSPECIFIED = 0.freeze
     COUNT = 1.freeze

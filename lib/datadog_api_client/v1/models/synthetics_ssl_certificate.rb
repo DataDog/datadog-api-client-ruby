@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Object describing the SSL certificate used for a Synthetic test.
   class SyntheticsSSLCertificate
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

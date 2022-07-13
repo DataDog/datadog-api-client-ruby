@@ -20,7 +20,7 @@ module DatadogAPIClient::V2
   # The response object with all security signals matching the request
   # and pagination information.
   class SecurityMonitoringSignalsListResponse
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Relationship to organizations.
   class RelationshipToOrganizations
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

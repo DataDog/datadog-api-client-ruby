@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Warning message indicating something that went wrong with the query.
   class AuditLogsWarning
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

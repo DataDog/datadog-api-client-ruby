@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Paging attributes for listing events.
   class RUMQueryPageOptions
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

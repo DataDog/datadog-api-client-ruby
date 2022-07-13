@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Information about a single test run.
   class SyntheticsTriggerCITestRunResult
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

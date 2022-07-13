@@ -20,7 +20,7 @@ module DatadogAPIClient::V1
   # The GeoIP parser takes an IP address attribute and extracts if available
   # the Continent, Country, Subdivision, and City information in the target attribute path.
   class LogsGeoIPParser
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

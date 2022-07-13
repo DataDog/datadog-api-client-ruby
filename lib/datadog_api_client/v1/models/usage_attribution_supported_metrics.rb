@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Supported fields for usage attribution requests (valid requests contain one or more metrics, or `*` for all).
   class UsageAttributionSupportedMetrics
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     CUSTOM_TIMESERIES_USAGE = "custom_timeseries_usage".freeze
     CONTAINER_USAGE = "container_usage".freeze

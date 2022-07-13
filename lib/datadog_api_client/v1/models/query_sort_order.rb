@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Direction of sort.
   class QuerySortOrder
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     ASC = "asc".freeze
     DESC = "desc".freeze

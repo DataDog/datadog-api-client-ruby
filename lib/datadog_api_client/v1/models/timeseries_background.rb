@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Set a timeseries on the widget background.
   class TimeseriesBackground
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

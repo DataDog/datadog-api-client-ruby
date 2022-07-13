@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Number of Fargate tasks run and hourly usage.
   class UsageFargateHour
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

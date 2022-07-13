@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Search and filter query settings.
   class AuditLogsQueryFilter
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

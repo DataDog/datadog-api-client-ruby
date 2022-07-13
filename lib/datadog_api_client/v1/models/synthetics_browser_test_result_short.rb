@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Object with the results of a single Synthetic browser test.
   class SyntheticsBrowserTestResultShort
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

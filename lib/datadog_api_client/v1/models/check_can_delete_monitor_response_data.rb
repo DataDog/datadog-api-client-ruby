@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Wrapper object with the list of monitor IDs.
   class CheckCanDeleteMonitorResponseData
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

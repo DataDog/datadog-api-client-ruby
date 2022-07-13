@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # A point object is of the form `{POSIX_timestamp, numeric_value}`.
   class MetricPoint
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

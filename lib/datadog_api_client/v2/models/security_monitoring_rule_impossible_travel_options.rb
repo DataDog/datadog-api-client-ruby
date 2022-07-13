@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Options on impossible travel rules.
   class SecurityMonitoringRuleImpossibleTravelOptions
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of GeoIP parser.
   class LogsGeoIPParserType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     GEO_IP_PARSER = "geo-ip-parser".freeze
   end

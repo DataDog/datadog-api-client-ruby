@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Sunbursts are spot on to highlight how groups contribute to the total of a query.
   class SunburstWidgetDefinition
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

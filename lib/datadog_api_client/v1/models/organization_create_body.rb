@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Object describing an organization to create.
   class OrganizationCreateBody
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

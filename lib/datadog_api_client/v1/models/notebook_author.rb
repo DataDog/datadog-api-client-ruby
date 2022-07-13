@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Attributes of user object returned by the API.
   class NotebookAuthor
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

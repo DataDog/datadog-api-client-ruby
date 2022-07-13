@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # A Cloud Workload Security Agent rule returned by the API.
   class CloudWorkloadSecurityAgentRuleAttributes
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

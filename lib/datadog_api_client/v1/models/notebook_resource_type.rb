@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the Notebook resource.
   class NotebookResourceType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     NOTEBOOKS = "notebooks".freeze
   end

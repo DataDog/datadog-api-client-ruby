@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Contains the metric category.
   class UsageMetricCategory
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     STANDARD = "standard".freeze
     CUSTOM = "custom".freeze

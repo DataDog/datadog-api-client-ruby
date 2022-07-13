@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Define a time window.
   class WidgetTimeWindows
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     SEVEN_DAYS = "7d".freeze
     THIRTY_DAYS = "30d".freeze

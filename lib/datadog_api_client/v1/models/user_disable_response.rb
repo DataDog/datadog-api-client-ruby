@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Array of user disabled for a given organization.
   class UserDisableResponse
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

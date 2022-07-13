@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Layout type of the group.
   class WidgetLayoutType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     ORDERED = "ordered".freeze
   end

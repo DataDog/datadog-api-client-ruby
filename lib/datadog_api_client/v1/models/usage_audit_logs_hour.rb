@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Audit logs usage for a given organization for a given hour.
   class UsageAuditLogsHour
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

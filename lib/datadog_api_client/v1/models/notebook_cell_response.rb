@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The description of a notebook cell response.
   class NotebookCellResponse
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

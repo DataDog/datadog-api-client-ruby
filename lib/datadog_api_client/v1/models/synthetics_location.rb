@@ -20,7 +20,7 @@ module DatadogAPIClient::V1
   # Synthetic location that can be used when creating or editing a
   # test.
   class SyntheticsLocation
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

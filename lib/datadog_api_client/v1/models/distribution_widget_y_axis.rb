@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Y Axis controls for the distribution widget.
   class DistributionWidgetYAxis
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # JSON object containing all log attributes and their associated values.
   class LogContent
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

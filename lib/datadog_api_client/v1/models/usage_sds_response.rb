@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Response containing the Sensitive Data Scanner usage for each hour for a given organization.
   class UsageSDSResponse
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

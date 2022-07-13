@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Object describing a monitor update request.
   class MonitorUpdateRequest
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

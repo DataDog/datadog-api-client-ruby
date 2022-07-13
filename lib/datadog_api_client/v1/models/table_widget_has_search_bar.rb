@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Controls the display of the search bar.
   class TableWidgetHasSearchBar
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     ALWAYS = "always".freeze
     NEVER = "never".freeze

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Response object which includes a single metric's volume.
   class MetricVolumesResponse
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

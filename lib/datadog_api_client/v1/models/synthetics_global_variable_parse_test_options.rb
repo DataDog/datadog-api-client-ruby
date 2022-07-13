@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Parser options to use for retrieving a Synthetics global variable from a Synthetics Test. Used in conjunction with `parse_test_public_id`.
   class SyntheticsGlobalVariableParseTestOptions
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

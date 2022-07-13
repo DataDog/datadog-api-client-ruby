@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Invalid query performed.
   class HTTPLogError
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

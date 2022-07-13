@@ -20,7 +20,7 @@ module DatadogAPIClient::V2
   # Global query options that are used during the query.
   # Note: You should only supply timezone or time offset but not both otherwise the query will fail.
   class LogsQueryOptions
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

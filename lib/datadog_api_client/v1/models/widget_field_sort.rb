@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Which column and order to sort by
   class WidgetFieldSort
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

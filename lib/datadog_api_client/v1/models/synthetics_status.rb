@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Determines whether or not the batch has passed, failed, or is in progress.
   class SyntheticsStatus
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     PASSED = "passed".freeze
     skipped = "skipped".freeze

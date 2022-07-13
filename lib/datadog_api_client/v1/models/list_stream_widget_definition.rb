@@ -20,7 +20,7 @@ module DatadogAPIClient::V1
   # The list stream visualization displays a table of recent events in your application that
   # match a search criteria using user-defined columns.
   class ListStreamWidgetDefinition
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

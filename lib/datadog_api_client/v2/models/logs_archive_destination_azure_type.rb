@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Type of the Azure archive destination.
   class LogsArchiveDestinationAzureType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     AZURE = "azure".freeze
   end

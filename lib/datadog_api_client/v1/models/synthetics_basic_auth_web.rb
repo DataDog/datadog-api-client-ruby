@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Object to handle basic authentication when performing the test.
   class SyntheticsBasicAuthWeb
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

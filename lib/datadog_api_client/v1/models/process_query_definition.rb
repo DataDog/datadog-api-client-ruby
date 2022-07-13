@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The process query to use in the widget.
   class ProcessQueryDefinition
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

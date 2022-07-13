@@ -20,7 +20,7 @@ module DatadogAPIClient::V1
   # Number of lambda functions and sum of the invocations of all lambda functions
   # for each hour for a given organization.
   class UsageLambdaHour
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

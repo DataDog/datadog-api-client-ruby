@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The region for the Opsgenie service.
   class OpsgenieServiceRegionType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     US = "us".freeze
     EU = "eu".freeze

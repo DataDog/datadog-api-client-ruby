@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the iframe widget.
   class IFrameWidgetDefinitionType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     IFRAME = "iframe".freeze
   end

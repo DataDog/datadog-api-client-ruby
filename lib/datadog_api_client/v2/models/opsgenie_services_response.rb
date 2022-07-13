@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Response with a list of Opsgenie services.
   class OpsgenieServicesResponse
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Widget style definition.
   class WidgetStyle
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

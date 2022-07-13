@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Response object with all logs matching the request and pagination information.
   class LogsListResponse
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

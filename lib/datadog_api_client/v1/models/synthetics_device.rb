@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Object describing the device used to perform the Synthetic test.
   class SyntheticsDevice
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the event timeline widget.
   class EventTimelineWidgetDefinitionType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     EVENT_TIMELINE = "event_timeline".freeze
   end

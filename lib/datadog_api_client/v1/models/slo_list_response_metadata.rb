@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The metadata object containing additional information about the list of SLOs.
   class SLOListResponseMetadata
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

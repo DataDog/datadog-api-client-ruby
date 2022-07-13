@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Wrapper object for a single bulk tag deletion request.
   class MetricBulkTagConfigDeleteRequest
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

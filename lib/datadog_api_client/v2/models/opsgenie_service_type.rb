@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Opsgenie service resource type.
   class OpsgenieServiceType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     OPSGENIE_SERVICE = "opsgenie-service".freeze
   end

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The type of event.
   class SecurityMonitoringSignalType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     SIGNAL = "signal".freeze
   end

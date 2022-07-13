@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The namespace associated with the tag filter entry.
   class AWSNamespace
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     ELB = "elb".freeze
     APPLICATION_ELB = "application_elb".freeze

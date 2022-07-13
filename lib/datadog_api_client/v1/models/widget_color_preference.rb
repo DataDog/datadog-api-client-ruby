@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Which color to use on the widget.
   class WidgetColorPreference
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     BACKGROUND = "background".freeze
     TEXT = "text".freeze

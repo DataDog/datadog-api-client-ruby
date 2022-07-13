@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Object to start or pause an existing Synthetic test.
   class SyntheticsUpdateTestPauseStatusPayload
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

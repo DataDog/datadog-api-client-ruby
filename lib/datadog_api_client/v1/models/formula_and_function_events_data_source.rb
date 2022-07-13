@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Data source for event platform-based queries.
   class FormulaAndFunctionEventsDataSource
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     LOGS = "logs".freeze
     SPANS = "spans".freeze

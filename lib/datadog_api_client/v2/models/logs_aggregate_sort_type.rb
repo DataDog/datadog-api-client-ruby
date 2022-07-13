@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The type of sorting algorithm
   class LogsAggregateSortType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     ALPHABETICAL = "alphabetical".freeze
     MEASURE = "measure".freeze

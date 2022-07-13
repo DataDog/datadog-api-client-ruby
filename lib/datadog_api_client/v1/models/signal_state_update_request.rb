@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Attributes describing the change of state for a given state.
   class SignalStateUpdateRequest
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

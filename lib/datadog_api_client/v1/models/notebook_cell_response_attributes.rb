@@ -21,8 +21,8 @@ module DatadogAPIClient::V1
   # `log_stream`. [More information on each graph visualization type.](https://docs.datadoghq.com/dashboards/widgets/)
   module NotebookCellResponseAttributes
     class << self
-      include BaseOneOfModel
-      include BaseOneOfModelNoDiscriminator
+      include DatadogAPIClient::BaseOneOfModel
+      include DatadogAPIClient::BaseOneOfModelNoDiscriminator
 
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of

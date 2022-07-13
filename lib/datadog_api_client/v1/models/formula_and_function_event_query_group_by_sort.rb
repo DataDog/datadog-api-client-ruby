@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Options for sorting group by results.
   class FormulaAndFunctionEventQueryGroupBySort
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

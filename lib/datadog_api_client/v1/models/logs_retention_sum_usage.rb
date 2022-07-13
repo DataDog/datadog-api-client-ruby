@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Object containing indexed logs usage grouped by retention period and summed.
   class LogsRetentionSumUsage
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

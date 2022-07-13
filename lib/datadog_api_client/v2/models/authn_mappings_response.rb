@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Array of AuthN Mappings response.
   class AuthNMappingsResponse
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

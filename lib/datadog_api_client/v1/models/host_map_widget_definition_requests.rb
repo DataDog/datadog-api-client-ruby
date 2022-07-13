@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # List of definitions.
   class HostMapWidgetDefinitionRequests
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

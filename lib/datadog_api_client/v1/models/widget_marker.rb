@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Markers allow you to add visual conditional formatting for your graphs.
   class WidgetMarker
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

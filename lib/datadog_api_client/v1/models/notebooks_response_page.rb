@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Pagination metadata returned by the API.
   class NotebooksResponsePage
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

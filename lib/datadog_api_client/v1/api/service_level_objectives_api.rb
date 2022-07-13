@@ -459,9 +459,9 @@ module DatadogAPIClient::V1
     def get_slo_history_with_http_info(slo_id, from_ts, to_ts, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["V1.get_slo_history".to_sym]
       if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "get_slo_history")
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "V1.get_slo_history")
       else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "get_slo_history"))
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "V1.get_slo_history"))
       end
 
       if @api_client.config.debugging
@@ -622,9 +622,9 @@ module DatadogAPIClient::V1
     def search_slo_with_http_info(opts = {})
       unstable_enabled = @api_client.config.unstable_operations["V1.search_slo".to_sym]
       if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "search_slo")
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "V1.search_slo")
       else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "search_slo"))
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "V1.search_slo"))
       end
 
       if @api_client.config.debugging

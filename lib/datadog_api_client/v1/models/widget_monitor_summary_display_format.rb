@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # What to display on the widget.
   class WidgetMonitorSummaryDisplayFormat
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     COUNTS = "counts".freeze
     COUNTS_AND_LIST = "countsAndList".freeze

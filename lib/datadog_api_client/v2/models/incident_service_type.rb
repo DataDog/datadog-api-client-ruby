@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Incident service resource type.
   class IncidentServiceType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     SERVICES = "services".freeze
   end

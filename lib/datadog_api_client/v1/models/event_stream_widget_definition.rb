@@ -20,7 +20,7 @@ module DatadogAPIClient::V1
   # The event stream is a widget version of the stream of events
   # on the Event Stream view. Only available on FREE layout dashboards.
   class EventStreamWidgetDefinition
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

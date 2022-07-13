@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Object with all Index configurations for a given organization.
   class LogsIndexListResponse
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

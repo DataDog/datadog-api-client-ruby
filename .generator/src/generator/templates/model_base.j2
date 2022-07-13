@@ -2,7 +2,7 @@
 {% include "api_info.j2" %}
 =end
 
-module {{ module_name }}::{{ version|upper }}
+module {{ module_name }}
   module BaseEnumModel
     # Builds the enum from string
     # @param value [String] The enum value in the form of the string
@@ -105,7 +105,7 @@ module {{ module_name }}::{{ version|upper }}
         end
       else # model
         # models (e.g. Pet) or oneOf
-        klass = {{ module_name }}::{{ version|upper }}.const_get(type)
+        klass = {{ module_name }}.const_get(self.class.to_s.gsub(/(.*)::.*/, '\1')).const_get(type)
         res = klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
         if res.instance_of? {{ module_name }}::UnparsedObject
           self._unparsed = true
@@ -219,7 +219,7 @@ module {{ module_name }}::{{ version|upper }}
           return data.each_with_object({}) { |(k, v), hsh| hsh[k] = find_and_cast_into_type(sub_type, v) }
         end
       else # model
-        const = DatadogAPIClient::{{ version|upper }}.const_get(klass)
+        const = DatadogAPIClient.const_get(self.to_s.gsub(/(.*)::.*/, '\1')).const_get(klass)
         if const
           if const.respond_to?(:openapi_one_of) # nested oneOf model
             model = const.build(data)
@@ -236,6 +236,19 @@ module {{ module_name }}::{{ version|upper }}
       raise # if no match by now, raise
     rescue
       raise SchemaMismatchError, "#{data} doesn't match the #{klass} type"
+    end
+  end
+
+  class UnparsedObject
+    # Defines unparsed object
+    attr_accessor :data
+
+    def initialize(data)
+      @data = data
+    end
+
+    def to_hash
+      self.data
     end
   end
 end

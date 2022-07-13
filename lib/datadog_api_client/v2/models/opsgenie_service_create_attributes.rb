@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The Opsgenie service attributes for a create request.
   class OpsgenieServiceCreateAttributes
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

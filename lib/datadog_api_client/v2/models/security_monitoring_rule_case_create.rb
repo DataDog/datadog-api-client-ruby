@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Case when signal is generated.
   class SecurityMonitoringRuleCaseCreate
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

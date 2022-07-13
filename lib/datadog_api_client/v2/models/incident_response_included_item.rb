@@ -20,8 +20,8 @@ module DatadogAPIClient::V2
   # An object related to an incident that is included in the response.
   module IncidentResponseIncludedItem
     class << self
-      include BaseOneOfModel
-      include BaseOneOfModelNoDiscriminator
+      include DatadogAPIClient::BaseOneOfModel
+      include DatadogAPIClient::BaseOneOfModelNoDiscriminator
 
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of

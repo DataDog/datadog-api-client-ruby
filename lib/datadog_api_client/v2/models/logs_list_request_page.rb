@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Paging attributes for listing logs.
   class LogsListRequestPage
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

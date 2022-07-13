@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The number of SNMP devices for each hour for a given organization.
   class UsageSNMPHour
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

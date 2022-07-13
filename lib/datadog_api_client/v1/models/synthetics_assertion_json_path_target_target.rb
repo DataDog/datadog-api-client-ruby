@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Composed target for `validatesJSONPath` operator.
   class SyntheticsAssertionJSONPathTargetTarget
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

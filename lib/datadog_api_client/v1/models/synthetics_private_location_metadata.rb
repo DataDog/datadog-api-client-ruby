@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Object containing metadata about the private location.
   class SyntheticsPrivateLocationMetadata
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

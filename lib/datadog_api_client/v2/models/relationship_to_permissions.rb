@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Relationship to multiple permissions objects.
   class RelationshipToPermissions
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

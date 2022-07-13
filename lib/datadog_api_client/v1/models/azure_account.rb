@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Datadog-Azure integrations configured for your organization.
   class AzureAccount
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The object containing page total count for specified ID.
   class UsageSpecifiedCustomReportsPage
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Object containing the ordered list of pipeline IDs.
   class LogsPipelinesOrder
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Filter for logs.
   class LogsFilter
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

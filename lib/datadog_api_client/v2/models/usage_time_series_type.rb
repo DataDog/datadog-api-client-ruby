@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Type of usage data.
   class UsageTimeSeriesType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     USAGE_TIMESERIES = "usage_timeseries".freeze
   end

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # HTTP header used to compress the media-type.
   class ContentEncoding
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     GZIP = "gzip".freeze
     DEFLATE = "deflate".freeze

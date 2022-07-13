@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Object containing the definition of a metric's distinct volume.
   class MetricDistinctVolumeAttributes
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

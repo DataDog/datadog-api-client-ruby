@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Attributes of a partial API key.
   class PartialAPIKeyAttributes
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

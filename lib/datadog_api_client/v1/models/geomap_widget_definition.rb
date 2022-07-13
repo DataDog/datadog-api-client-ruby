@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # This visualization displays a series of values by country on a world map.
   class GeomapWidgetDefinition
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

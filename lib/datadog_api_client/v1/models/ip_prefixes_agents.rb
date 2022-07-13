@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Available prefix information for the Agent endpoints.
   class IPPrefixesAgents
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The metric resource type.
   class MetricType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     METRICS = "metrics".freeze
   end

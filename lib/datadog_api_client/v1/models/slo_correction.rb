@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The response object of a list of SLO corrections.
   class SLOCorrection
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

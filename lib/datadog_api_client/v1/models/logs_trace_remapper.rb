@@ -24,7 +24,7 @@ module DatadogAPIClient::V1
   # 
   #   2. Use the Trace remapper processor to define a log attribute as its associated trace ID.
   class LogsTraceRemapper
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

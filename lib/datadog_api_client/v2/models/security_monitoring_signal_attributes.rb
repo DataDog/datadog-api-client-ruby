@@ -20,7 +20,7 @@ module DatadogAPIClient::V2
   # The object containing all signal attributes and their
   # associated values.
   class SecurityMonitoringSignalAttributes
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

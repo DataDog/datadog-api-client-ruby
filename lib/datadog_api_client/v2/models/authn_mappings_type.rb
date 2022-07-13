@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # AuthN Mappings resource type.
   class AuthNMappingsType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     AUTHN_MAPPINGS = "authn_mappings".freeze
   end

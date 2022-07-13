@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Request containing the list of dashboards to update to.
   class DashboardListUpdateItemsRequest
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

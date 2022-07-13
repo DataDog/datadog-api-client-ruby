@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Response containing the number of logs for each hour.
   class UsageLogsResponse
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

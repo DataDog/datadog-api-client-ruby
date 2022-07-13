@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Organizations resource type.
   class OrganizationsType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     ORGS = "orgs".freeze
   end

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Encoding type. Can be given either `json` or `form`.
   class WebhooksIntegrationEncoding
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     JSON = "json".freeze
     FORM = "form".freeze

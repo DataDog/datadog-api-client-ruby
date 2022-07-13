@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Response for retrieving an application key.
   class ApplicationKeyResponse
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

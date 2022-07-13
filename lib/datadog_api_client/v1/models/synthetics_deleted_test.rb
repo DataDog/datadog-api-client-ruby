@@ -20,7 +20,7 @@ module DatadogAPIClient::V1
   # Object containing a deleted Synthetic test ID with the associated
   # deletion timestamp.
   class SyntheticsDeletedTest
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

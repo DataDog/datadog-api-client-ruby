@@ -31,7 +31,7 @@ module DatadogAPIClient::V1
   # - The names of the categories must be unique.
   # - Once defined in the Category Processor, you can map categories to log status using the Log Status Remapper.
   class LogsCategoryProcessor
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

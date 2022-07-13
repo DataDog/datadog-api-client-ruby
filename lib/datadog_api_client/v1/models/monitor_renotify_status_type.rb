@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The different statuses for which renotification is supported.
   class MonitorRenotifyStatusType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     ALERT = "alert".freeze
     WARN = "warn".freeze

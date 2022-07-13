@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Response containing the number of Synthetics Browser tests run for each hour for a given organization.
   class UsageSyntheticsBrowserResponse
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

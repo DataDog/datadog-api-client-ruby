@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Timeframe to retrieve the log from.
   class LogsListRequestTime
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

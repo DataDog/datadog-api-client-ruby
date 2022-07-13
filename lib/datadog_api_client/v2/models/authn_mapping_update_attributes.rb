@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Key/Value pair of attributes used for update request.
   class AuthNMappingUpdateAttributes
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -20,7 +20,7 @@ module DatadogAPIClient::V2
   # Used to perform a histogram computation (only for measure facets).
   # Note: At most 100 buckets are allowed, the number of buckets is (max - min)/interval.
   class LogsGroupByHistogram
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

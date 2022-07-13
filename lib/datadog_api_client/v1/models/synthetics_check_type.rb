@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of assertion to apply in an API test.
   class SyntheticsCheckType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     EQUALS = "equals".freeze
     NOT_EQUALS = "notEquals".freeze

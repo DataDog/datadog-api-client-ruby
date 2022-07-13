@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Object used to create an API key.
   class APIKeyCreateData
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

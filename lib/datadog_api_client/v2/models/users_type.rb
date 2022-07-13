@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Users resource type.
   class UsersType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     USERS = "users".freeze
   end

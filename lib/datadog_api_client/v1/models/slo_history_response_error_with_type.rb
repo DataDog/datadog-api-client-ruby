@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # An object describing the error with error type and error message.
   class SLOHistoryResponseErrorWithType
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

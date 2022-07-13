@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # An updated treemap widget.
   class TreeMapWidgetRequest
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

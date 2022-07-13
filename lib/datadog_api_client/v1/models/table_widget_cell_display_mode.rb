@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Define a display mode for the table cell.
   class TableWidgetCellDisplayMode
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     NUMBER = "number".freeze
     BAR = "bar".freeze

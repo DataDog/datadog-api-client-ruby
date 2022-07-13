@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Navigate between different tabs for your browser test.
   class SyntheticsPlayingTab
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     MAIN_TAB = -1.freeze
     NEW_TAB = 0.freeze

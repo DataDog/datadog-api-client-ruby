@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Represents the index exclusion filter object from configuration API.
   class LogsExclusion
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

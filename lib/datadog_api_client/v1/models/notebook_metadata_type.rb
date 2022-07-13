@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Metadata type of the notebook.
   class NotebookMetadataType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     POSTMORTEM = "postmortem".freeze
     RUNBOOK = "runbook".freeze

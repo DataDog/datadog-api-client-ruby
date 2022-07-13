@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Object collecting warnings for a given step.
   class SyntheticsStepDetailWarning
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # A response list of all service level objective deleted.
   class SLODeleteResponse
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

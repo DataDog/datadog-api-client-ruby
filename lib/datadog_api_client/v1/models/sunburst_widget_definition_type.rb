@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the Sunburst widget.
   class SunburstWidgetDefinitionType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     SUNBURST = "sunburst".freeze
   end

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Type of the archive order definition.
   class LogsArchiveOrderDefinitionType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     ARCHIVE_ORDER = "archive_order".freeze
   end

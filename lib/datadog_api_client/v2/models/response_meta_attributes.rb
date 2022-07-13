@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Object describing meta attributes of response.
   class ResponseMetaAttributes
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

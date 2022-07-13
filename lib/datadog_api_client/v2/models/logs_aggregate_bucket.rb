@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # A bucket values
   class LogsAggregateBucket
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

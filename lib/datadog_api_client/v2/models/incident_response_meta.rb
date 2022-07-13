@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The metadata object containing pagination metadata.
   class IncidentResponseMeta
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

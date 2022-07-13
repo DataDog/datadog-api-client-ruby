@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Dimension of the Scatterplot.
   class ScatterplotDimension
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     X = "x".freeze
     Y = "y".freeze

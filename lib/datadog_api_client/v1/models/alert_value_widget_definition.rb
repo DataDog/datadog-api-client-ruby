@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Alert values are query values showing the current value of the metric in any monitor defined on your system.
   class AlertValueWidgetDefinition
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

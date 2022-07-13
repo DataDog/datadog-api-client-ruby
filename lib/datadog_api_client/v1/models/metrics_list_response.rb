@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Object listing all metric names stored by Datadog since a given time.
   class MetricsListResponse
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

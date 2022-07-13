@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of logs category processor.
   class LogsCategoryProcessorType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     CATEGORY_PROCESSOR = "category-processor".freeze
   end

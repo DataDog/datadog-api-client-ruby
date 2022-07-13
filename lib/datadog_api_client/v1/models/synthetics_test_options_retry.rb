@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Object describing the retry strategy to apply to a Synthetic test.
   class SyntheticsTestOptionsRetry
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

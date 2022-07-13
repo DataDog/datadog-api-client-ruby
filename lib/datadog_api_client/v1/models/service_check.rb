@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # An object containing service check and status.
   class ServiceCheck
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

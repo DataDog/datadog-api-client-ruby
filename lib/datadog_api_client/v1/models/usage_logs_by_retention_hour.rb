@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The number of indexed logs for each hour for a given organization broken down by retention period.
   class UsageLogsByRetentionHour
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

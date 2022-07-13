@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Widget column.
   class ListStreamColumn
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

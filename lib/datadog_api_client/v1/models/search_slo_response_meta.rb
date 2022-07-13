@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Searches metadata returned by the API.
   class SearchSLOResponseMeta
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

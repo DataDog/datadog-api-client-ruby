@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The metrics' payload.
   class MetricsPayload
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -21,7 +21,7 @@ module DatadogAPIClient::V1
   # If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types.
   # If the `target_type` is `tag`, this parameter may not be specified.
   class TargetFormatType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     AUTO = "auto".freeze
     STRING = "string".freeze

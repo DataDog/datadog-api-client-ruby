@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Time setting for the widget.
   class WidgetTime
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

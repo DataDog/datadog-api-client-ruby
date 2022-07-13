@@ -20,8 +20,8 @@ module DatadogAPIClient::V1
   # A formula and function query.
   module FormulaAndFunctionQueryDefinition
     class << self
-      include BaseOneOfModel
-      include BaseOneOfModelNoDiscriminator
+      include DatadogAPIClient::BaseOneOfModel
+      include DatadogAPIClient::BaseOneOfModelNoDiscriminator
 
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of

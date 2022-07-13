@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Public key for the result encryption.
   class SyntheticsPrivateLocationCreationResponseResultEncryption
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

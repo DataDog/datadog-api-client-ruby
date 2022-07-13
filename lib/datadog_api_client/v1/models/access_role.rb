@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The access role of the user. Options are **st** (standard user), **adm** (admin user), or **ro** (read-only user).
   class AccessRole
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     STANDARD = "st".freeze
     ADMIN = "adm".freeze

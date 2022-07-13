@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Type of the single value field definitions.
   class IncidentFieldAttributesSingleValueType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     DROPDOWN = "dropdown".freeze
     TEXTBOX = "textbox".freeze

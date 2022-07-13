@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Define a conditional format for the widget.
   class WidgetConditionalFormat
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

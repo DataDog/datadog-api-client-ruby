@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Error type returned by a browser test.
   class SyntheticsBrowserErrorType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     NETWORK = "network".freeze
     JS = "js".freeze

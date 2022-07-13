@@ -20,7 +20,7 @@ module DatadogAPIClient::V2
   # A metric to submit to Datadog.
   # See [Datadog metrics](https://docs.datadoghq.com/developers/metrics/#custom-metrics-properties).
   class MetricSeries
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

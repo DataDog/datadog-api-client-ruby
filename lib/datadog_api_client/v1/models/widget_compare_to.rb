@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Timeframe used for the change comparison.
   class WidgetCompareTo
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     HOUR_BEFORE = "hour_before".freeze
     DAY_BEFORE = "day_before".freeze

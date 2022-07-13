@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The scatter plot visualization allows you to graph a chosen scope over two different metrics with their respective aggregation.
   class ScatterPlotWidgetDefinition
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

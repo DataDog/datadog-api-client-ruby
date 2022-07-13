@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Description of errors.
   class AWSLogsAsyncError
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

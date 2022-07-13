@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Request containing a list of dashboards to delete.
   class DashboardListDeleteItemsRequest
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Object representing a graph snapshot.
   class GraphSnapshot
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

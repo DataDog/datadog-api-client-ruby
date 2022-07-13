@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Object to create a user invitation.
   class UserInvitationData
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Dashboard summary response.
   class DashboardSummary
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

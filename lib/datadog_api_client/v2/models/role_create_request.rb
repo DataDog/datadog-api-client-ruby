@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Create a role.
   class RoleCreateRequest
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

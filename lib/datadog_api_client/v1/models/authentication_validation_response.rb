@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Represent validation endpoint responses.
   class AuthenticationValidationResponse
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

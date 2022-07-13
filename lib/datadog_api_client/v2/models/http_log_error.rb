@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # List of errors.
   class HTTPLogError
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

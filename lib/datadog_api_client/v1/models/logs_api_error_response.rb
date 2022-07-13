@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Response returned by the Logs API when errors occur.
   class LogsAPIErrorResponse
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

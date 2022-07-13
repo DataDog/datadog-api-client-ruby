@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Process query using formulas and functions.
   class FormulaAndFunctionProcessQueryDefinition
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

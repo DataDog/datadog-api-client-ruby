@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The view of the world that the map should render.
   class GeomapWidgetDefinitionView
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

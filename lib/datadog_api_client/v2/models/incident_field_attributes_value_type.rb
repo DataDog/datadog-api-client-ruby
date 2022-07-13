@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Type of the multiple value field definitions.
   class IncidentFieldAttributesValueType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     MULTISELECT = "multiselect".freeze
     TEXTARRAY = "textarray".freeze

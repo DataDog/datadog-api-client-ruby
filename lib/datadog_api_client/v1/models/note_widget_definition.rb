@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The notes and links widget is similar to free text widget, but allows for more formatting options.
   class NoteWidgetDefinition
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The status of the response.
   class AuditLogsResponseStatus
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     DONE = "done".freeze
     TIMEOUT = "timeout".freeze

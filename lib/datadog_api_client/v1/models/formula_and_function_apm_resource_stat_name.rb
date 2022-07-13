@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # APM resource stat name.
   class FormulaAndFunctionApmResourceStatName
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     ERRORS = "errors".freeze
     ERROR_RATE = "error_rate".freeze

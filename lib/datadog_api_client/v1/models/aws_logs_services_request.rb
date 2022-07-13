@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # A list of current AWS services for which Datadog offers automatic log collection.
   class AWSLogsServicesRequest
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

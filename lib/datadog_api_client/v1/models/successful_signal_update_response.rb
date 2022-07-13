@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Updated signal data following a successfully performed update.
   class SuccessfulSignalUpdateResponse
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

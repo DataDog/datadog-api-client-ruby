@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The type of compute
   class LogsComputeType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     TIMESERIES = "timeseries".freeze
     TOTAL = "total".freeze

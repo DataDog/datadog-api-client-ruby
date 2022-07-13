@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Application Security Monitoring usage response.
   class UsageApplicationSecurityMonitoringResponse
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

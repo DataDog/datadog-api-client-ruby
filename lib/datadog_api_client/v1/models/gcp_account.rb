@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Your Google Cloud Platform Account.
   class GCPAccount
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

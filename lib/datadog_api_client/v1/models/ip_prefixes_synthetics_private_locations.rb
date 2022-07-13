@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Available prefix information for the Synthetics Private Locations endpoints.
   class IPPrefixesSyntheticsPrivateLocations
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The status of a service check.
   class ServiceCheckStatus
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     OK = 0.freeze
     WARNING = 1.freeze

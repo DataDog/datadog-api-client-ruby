@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The table visualization is available on timeboards and screenboards. It displays columns of metrics grouped by tag key.
   class TableWidgetDefinition
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

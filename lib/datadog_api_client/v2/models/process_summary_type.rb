@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Type of process summary.
   class ProcessSummaryType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     PROCESS = "process".freeze
   end

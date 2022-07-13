@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # A time and space aggregation combination for use in query.
   class MetricCustomAggregation
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

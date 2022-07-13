@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Type of the GCS archive destination.
   class LogsArchiveDestinationGCSType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     GCS = "gcs".freeze
   end

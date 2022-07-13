@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the query value widget.
   class QueryValueWidgetDefinitionType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     QUERY_VALUE = "query_value".freeze
   end

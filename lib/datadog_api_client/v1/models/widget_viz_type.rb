@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Whether to display the Alert Graph as a timeseries or a top list.
   class WidgetVizType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     TIMESERIES = "timeseries".freeze
     TOPLIST = "toplist".freeze

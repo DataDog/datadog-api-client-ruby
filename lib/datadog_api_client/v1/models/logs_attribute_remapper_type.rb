@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of logs attribute remapper.
   class LogsAttributeRemapperType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     ATTRIBUTE_REMAPPER = "attribute-remapper".freeze
   end

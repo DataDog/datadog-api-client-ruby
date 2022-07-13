@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Type of the event.
   class RUMEventType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     RUM = "rum".freeze
   end

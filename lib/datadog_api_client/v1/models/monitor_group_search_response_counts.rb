@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The counts of monitor groups per different criteria.
   class MonitorGroupSearchResponseCounts
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

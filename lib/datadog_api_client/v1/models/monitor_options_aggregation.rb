@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of aggregation performed in the monitor query.
   class MonitorOptionsAggregation
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

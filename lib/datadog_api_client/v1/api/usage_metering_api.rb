@@ -44,9 +44,9 @@ module DatadogAPIClient::V1
     def get_daily_custom_reports_with_http_info(opts = {})
       unstable_enabled = @api_client.config.unstable_operations["V1.get_daily_custom_reports".to_sym]
       if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "get_daily_custom_reports")
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "V1.get_daily_custom_reports")
       else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "get_daily_custom_reports"))
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "V1.get_daily_custom_reports"))
       end
 
       if @api_client.config.debugging
@@ -142,9 +142,9 @@ module DatadogAPIClient::V1
     def get_hourly_usage_attribution_with_http_info(start_hr, usage_type, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["V1.get_hourly_usage_attribution".to_sym]
       if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "get_hourly_usage_attribution")
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "V1.get_hourly_usage_attribution")
       else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "get_hourly_usage_attribution"))
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "V1.get_hourly_usage_attribution"))
       end
 
       if @api_client.config.debugging
@@ -367,9 +367,9 @@ module DatadogAPIClient::V1
     def get_monthly_custom_reports_with_http_info(opts = {})
       unstable_enabled = @api_client.config.unstable_operations["V1.get_monthly_custom_reports".to_sym]
       if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "get_monthly_custom_reports")
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "V1.get_monthly_custom_reports")
       else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "get_monthly_custom_reports"))
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "V1.get_monthly_custom_reports"))
       end
 
       if @api_client.config.debugging
@@ -467,9 +467,9 @@ module DatadogAPIClient::V1
     def get_monthly_usage_attribution_with_http_info(start_month, fields, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["V1.get_monthly_usage_attribution".to_sym]
       if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "get_monthly_usage_attribution")
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "V1.get_monthly_usage_attribution")
       else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "get_monthly_usage_attribution"))
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "V1.get_monthly_usage_attribution"))
       end
 
       if @api_client.config.debugging
@@ -563,9 +563,9 @@ module DatadogAPIClient::V1
     def get_specified_daily_custom_reports_with_http_info(report_id, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["V1.get_specified_daily_custom_reports".to_sym]
       if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "get_specified_daily_custom_reports")
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "V1.get_specified_daily_custom_reports")
       else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "get_specified_daily_custom_reports"))
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "V1.get_specified_daily_custom_reports"))
       end
 
       if @api_client.config.debugging
@@ -634,9 +634,9 @@ module DatadogAPIClient::V1
     def get_specified_monthly_custom_reports_with_http_info(report_id, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["V1.get_specified_monthly_custom_reports".to_sym]
       if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "get_specified_monthly_custom_reports")
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "V1.get_specified_monthly_custom_reports")
       else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "get_specified_monthly_custom_reports"))
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "V1.get_specified_monthly_custom_reports"))
       end
 
       if @api_client.config.debugging
@@ -780,9 +780,9 @@ module DatadogAPIClient::V1
     def get_usage_attribution_with_http_info(start_month, fields, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["V1.get_usage_attribution".to_sym]
       if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_attribution")
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "V1.get_usage_attribution")
       else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "get_usage_attribution"))
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "V1.get_usage_attribution"))
       end
 
       if @api_client.config.debugging

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of logs lookup processor.
   class LogsLookupProcessorType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     LOOKUP_PROCESSOR = "lookup-processor".freeze
   end

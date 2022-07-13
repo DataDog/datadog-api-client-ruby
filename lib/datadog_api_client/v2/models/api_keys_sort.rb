@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Sorting options
   class APIKeysSort
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     CREATED_AT_ASCENDING = "created_at".freeze
     CREATED_AT_DESCENDING = "-created_at".freeze

@@ -21,8 +21,8 @@ module DatadogAPIClient::V1
   # To delete existing cell(s), simply omit it from the list of cells.
   module NotebookUpdateCell
     class << self
-      include BaseOneOfModel
-      include BaseOneOfModelNoDiscriminator
+      include DatadogAPIClient::BaseOneOfModel
+      include DatadogAPIClient::BaseOneOfModelNoDiscriminator
 
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Number of Synthetics API tests run for each hour for a given organization.
   class UsageSyntheticsAPIHour
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

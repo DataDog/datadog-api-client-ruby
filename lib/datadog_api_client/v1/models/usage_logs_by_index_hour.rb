@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Number of indexed logs for each hour and index for a given organization.
   class UsageLogsByIndexHour
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

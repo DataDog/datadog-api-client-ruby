@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Which type of node to use in the map.
   class WidgetNodeType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     HOST = "host".freeze
     CONTAINER = "container".freeze

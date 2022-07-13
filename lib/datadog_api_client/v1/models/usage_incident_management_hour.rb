@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Incident management usage for a given organization for a given hour.
   class UsageIncidentManagementHour
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

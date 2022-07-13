@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of logs arithmetic processor.
   class LogsArithmeticProcessorType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     ARITHMETIC_PROCESSOR = "arithmetic-processor".freeze
   end

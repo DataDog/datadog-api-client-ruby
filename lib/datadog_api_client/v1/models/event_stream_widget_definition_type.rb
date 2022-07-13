@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the event stream widget.
   class EventStreamWidgetDefinitionType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     EVENT_STREAM = "event_stream".freeze
   end

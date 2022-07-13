@@ -20,7 +20,7 @@ module DatadogAPIClient::V1
   # A dashboard is Datadog’s tool for visually tracking, analyzing, and displaying
   # key performance metrics, which enable you to monitor the health of your infrastructure.
   class Dashboard
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

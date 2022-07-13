@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Cancel downtimes according to scope.
   class CancelDowntimesByScopeRequest
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

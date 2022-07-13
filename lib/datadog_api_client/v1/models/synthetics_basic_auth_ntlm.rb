@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Object to handle `NTLM` authentication when performing the test.
   class SyntheticsBasicAuthNTLM
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

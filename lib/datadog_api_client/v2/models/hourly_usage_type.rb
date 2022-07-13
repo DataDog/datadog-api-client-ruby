@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Usage type that is being measured.
   class HourlyUsageType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     APP_SEC_HOST_COUNT = "app_sec_host_count".freeze
     OBSERVABILITY_PIPELINES_BYTES_PROCESSSED = "observability_pipelines_bytes_processed".freeze

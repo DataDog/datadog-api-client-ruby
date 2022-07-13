@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Response containing information about a single user.
   class UserResponse
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

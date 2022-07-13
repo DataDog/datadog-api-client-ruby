@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Metadata about the response.
   class MonitorSearchResponseMetadata
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

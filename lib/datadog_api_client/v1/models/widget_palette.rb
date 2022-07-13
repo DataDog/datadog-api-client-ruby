@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Color palette to apply.
   class WidgetPalette
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     BLUE = "blue".freeze
     CUSTOM_BACKGROUND = "custom_bg".freeze

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Number of netflow events indexed for each hour for a given organization.
   class UsageNetworkFlowsHour
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

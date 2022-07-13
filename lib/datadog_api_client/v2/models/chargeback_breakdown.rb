@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Charges breakdown.
   class ChargebackBreakdown
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

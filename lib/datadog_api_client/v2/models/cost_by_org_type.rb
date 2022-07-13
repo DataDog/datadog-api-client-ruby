@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Type of cost data.
   class CostByOrgType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     COST_BY_ORG = "cost_by_org".freeze
   end

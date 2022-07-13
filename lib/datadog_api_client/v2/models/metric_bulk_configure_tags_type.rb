@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The metric bulk configure tags resource.
   class MetricBulkConfigureTagsType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     BULK_MANAGE_TAGS = "metric_bulk_configure_tags".freeze
   end

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Assertion operator to apply.
   class SyntheticsAssertionJSONPathOperator
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     VALIDATES_JSON_PATH = "validatesJSONPath".freeze
   end

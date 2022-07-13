@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The filtered data type.
   class SecurityFilterFilteredDataType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     LOGS = "logs".freeze
   end

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Widget sorting methods.
   class WidgetMonitorSummarySort
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     NAME = "name".freeze
     GROUP = "group".freeze

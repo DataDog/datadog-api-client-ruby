@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Attributes describing which incident to add the signal to.
   class AddSignalToIncidentRequest
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

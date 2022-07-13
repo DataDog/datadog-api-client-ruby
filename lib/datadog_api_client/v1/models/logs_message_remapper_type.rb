@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of logs message remapper.
   class LogsMessageRemapperType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     MESSAGE_REMAPPER = "message-remapper".freeze
   end

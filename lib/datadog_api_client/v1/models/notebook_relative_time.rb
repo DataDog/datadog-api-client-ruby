@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Relative timeframe.
   class NotebookRelativeTime
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

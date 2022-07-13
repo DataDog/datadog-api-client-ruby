@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the list stream widget.
   class ListStreamWidgetDefinitionType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     LIST_STREAM = "list_stream".freeze
   end

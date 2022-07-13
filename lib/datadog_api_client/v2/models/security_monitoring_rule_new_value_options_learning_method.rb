@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The learning method used to determine when signals should be generated for values that weren't learned.
   class SecurityMonitoringRuleNewValueOptionsLearningMethod
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     DURATION = "duration".freeze
     THRESHOLD = "threshold".freeze

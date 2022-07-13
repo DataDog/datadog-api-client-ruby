@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The metric estimate resource type.
   class MetricEstimateResourceType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     METRIC_CARDINALITY_ESTIMATE = "metric_cardinality_estimate".freeze
   end

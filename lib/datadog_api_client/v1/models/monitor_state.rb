@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Wrapper object with the different monitor states.
   class MonitorState
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

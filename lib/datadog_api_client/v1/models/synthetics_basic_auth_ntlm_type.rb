@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The type of authentication to use when performing the test.
   class SyntheticsBasicAuthNTLMType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     NTLM = "ntlm".freeze
   end

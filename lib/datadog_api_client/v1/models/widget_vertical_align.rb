@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Vertical alignment.
   class WidgetVerticalAlign
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     CENTER = "center".freeze
     TOP = "top".freeze

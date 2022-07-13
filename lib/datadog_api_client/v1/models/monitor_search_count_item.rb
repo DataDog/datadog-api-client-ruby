@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # A facet item.
   class MonitorSearchCountItem
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

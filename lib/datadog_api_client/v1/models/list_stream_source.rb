@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Source from which to query items to display in the stream.
   class ListStreamSource
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     LOGS_STREAM = "logs_stream".freeze
     AUDIT_STREAM = "audit_stream".freeze

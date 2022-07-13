@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The Response returned by the AWS Create Account call.
   class AWSAccountCreateResponse
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

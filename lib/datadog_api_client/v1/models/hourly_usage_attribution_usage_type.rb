@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Supported products for hourly usage attribution requests.
   class HourlyUsageAttributionUsageType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     API_USAGE = "api_usage".freeze
     APM_HOST_USAGE = "apm_host_usage".freeze

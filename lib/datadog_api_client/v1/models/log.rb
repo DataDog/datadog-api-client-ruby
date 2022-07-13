@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Object describing a log after being processed and stored by Datadog.
   class Log
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

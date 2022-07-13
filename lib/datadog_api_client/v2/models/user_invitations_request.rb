@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Object to invite users to join the organization.
   class UserInvitationsRequest
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

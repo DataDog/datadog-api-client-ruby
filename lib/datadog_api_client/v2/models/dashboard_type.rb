@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The type of the dashboard.
   class DashboardType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     CUSTOM_TIMEBOARD = "custom_timeboard".freeze
     CUSTOM_SCREENBOARD = "custom_screenboard".freeze

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the change widget.
   class ChangeWidgetDefinitionType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     CHANGE = "change".freeze
   end

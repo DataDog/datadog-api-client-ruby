@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the configuration variable.
   class SyntheticsConfigVariableType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     GLOBAL = "global".freeze
     TEXT = "text".freeze

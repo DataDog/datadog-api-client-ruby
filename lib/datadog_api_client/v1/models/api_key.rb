@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Datadog API key.
   class ApiKey
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

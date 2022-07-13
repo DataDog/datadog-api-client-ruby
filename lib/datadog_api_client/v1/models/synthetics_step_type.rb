@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Step type used in your Synthetic test.
   class SyntheticsStepType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     ASSERT_CURRENT_URL = "assertCurrentUrl".freeze
     ASSERT_ELEMENT_ATTRIBUTE = "assertElementAttribute".freeze

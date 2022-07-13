@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Updated list stream widget.
   class ListStreamQuery
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

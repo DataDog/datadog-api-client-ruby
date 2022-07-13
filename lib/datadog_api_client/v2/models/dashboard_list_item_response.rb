@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # A dashboard within a list.
   class DashboardListItemResponse
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # A relationship reference for postmortems.
   class RelationshipToIncidentPostmortem
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

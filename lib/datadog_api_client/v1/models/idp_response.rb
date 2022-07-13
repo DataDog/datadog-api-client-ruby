@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The IdP response object.
   class IdpResponse
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

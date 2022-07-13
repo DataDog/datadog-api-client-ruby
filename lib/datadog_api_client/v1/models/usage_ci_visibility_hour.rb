@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # CI visibility usage in a given hour.
   class UsageCIVisibilityHour
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # AuthN Mapping relationship to SAML Assertion Attribute.
   class RelationshipToSAMLAssertionAttribute
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

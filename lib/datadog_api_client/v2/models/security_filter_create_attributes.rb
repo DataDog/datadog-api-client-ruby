@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Object containing the attributes of the security filter to be created.
   class SecurityFilterCreateAttributes
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

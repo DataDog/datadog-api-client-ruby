@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # User locator used.
   class SyntheticsWarningType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     USER_LOCATOR = "user_locator".freeze
   end

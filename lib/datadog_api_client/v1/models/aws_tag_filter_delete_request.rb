@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The objects used to delete an AWS tag filter entry.
   class AWSTagFilterDeleteRequest
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

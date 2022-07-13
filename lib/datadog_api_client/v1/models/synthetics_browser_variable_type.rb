@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of browser test variable.
   class SyntheticsBrowserVariableType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     ELEMENT = "element".freeze
     EMAIL = "email".freeze

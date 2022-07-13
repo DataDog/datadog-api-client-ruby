@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Response object that includes metric cardinality estimates.
   class MetricEstimateResponse
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

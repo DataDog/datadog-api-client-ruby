@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Optional attributes for the status of a bulk tag configuration request.
   class MetricBulkTagConfigStatusAttributes
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

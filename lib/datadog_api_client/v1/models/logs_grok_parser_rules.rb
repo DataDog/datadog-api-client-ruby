@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Set of rules for the grok parser.
   class LogsGrokParserRules
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

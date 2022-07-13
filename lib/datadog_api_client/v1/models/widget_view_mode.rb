@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Define how you want the SLO to be displayed.
   class WidgetViewMode
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     OVERALL = "overall".freeze
     COMPONENT = "component".freeze

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of lines displayed.
   class WidgetLineType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     DASHED = "dashed".freeze
     DOTTED = "dotted".freeze

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Relationship of AuthN Mapping update object to Role.
   class AuthNMappingUpdateRelationships
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Attributes of the created user.
   class UserCreateAttributes
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

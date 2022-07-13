@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Define a request certificate.
   class SyntheticsTestRequestCertificateItem
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

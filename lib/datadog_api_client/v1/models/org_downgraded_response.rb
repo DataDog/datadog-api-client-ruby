@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Status of downgrade
   class OrgDowngradedResponse
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

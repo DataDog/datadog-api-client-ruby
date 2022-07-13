@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # A service level objective response containing a single service level objective.
   class SLOResponse
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

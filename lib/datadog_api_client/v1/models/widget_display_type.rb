@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of display to use for the request.
   class WidgetDisplayType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     AREA = "area".freeze
     BARS = "bars".freeze

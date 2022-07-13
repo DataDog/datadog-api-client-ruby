@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Updated host map.
   class HostMapRequest
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

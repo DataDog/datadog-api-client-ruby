@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Assertion operator to apply.
   class SyntheticsAssertionOperator
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     CONTAINS = "contains".freeze
     DOES_NOT_CONTAIN = "doesNotContain".freeze

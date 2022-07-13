@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Check status shows the current status or number of results for any check performed.
   class CheckStatusWidgetDefinition
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

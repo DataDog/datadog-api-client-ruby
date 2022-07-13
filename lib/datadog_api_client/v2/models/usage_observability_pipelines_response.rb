@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Observability Pipelines usage response.
   class UsageObservabilityPipelinesResponse
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Error code that can be returned by a Synthetic test.
   class SyntheticsApiTestFailureCode
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     BODY_TOO_LARGE = "BODY_TOO_LARGE".freeze
     DENIED = "DENIED".freeze

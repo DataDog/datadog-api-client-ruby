@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The APM stats query for table and distributions widgets.
   class ApmStatsQueryDefinition
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

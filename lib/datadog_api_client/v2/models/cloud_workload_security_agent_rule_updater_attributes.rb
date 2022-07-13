@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The attributes of the user who last updated the Agent rule.
   class CloudWorkloadSecurityAgentRuleUpdaterAttributes
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

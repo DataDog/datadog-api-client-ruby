@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Layout of the legend.
   class TimeseriesWidgetLegendLayout
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     AUTO = "auto".freeze
     HORIZONTAL = "horizontal".freeze

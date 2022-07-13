@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The layout for a widget on a `free` or **new dashboard layout** dashboard.
   class WidgetLayout
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

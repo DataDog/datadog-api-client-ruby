@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Data sources that rely on the process backend.
   class FormulaAndFunctionProcessQueryDataSource
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     PROCESS = "process".freeze
     CONTAINER = "container".freeze

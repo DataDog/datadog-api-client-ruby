@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # ID of the device the Synthetics monitor is running on. Same as `SyntheticsDeviceID`.
   class MonitorDeviceID
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     LAPTOP_LARGE = "laptop_large".freeze
     TABLET = "tablet".freeze

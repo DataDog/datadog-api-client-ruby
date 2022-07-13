@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Width of line displayed.
   class WidgetLineWidth
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     NORMAL = "normal".freeze
     THICK = "thick".freeze

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The new triage state of the signal.
   class SignalTriageState
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     OPEN = "open".freeze
     ARCHIVED = "archived".freeze

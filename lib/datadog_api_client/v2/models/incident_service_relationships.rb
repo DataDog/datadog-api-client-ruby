@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The incident service's relationships.
   class IncidentServiceRelationships
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

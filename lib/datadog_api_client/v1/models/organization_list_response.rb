@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Response with the list of organizations.
   class OrganizationListResponse
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Optional parameters for bulk deleting metric tag configurations.
   class MetricBulkTagConfigDeleteAttributes
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # An object defining the recurrence of the downtime.
   class DowntimeRecurrence
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

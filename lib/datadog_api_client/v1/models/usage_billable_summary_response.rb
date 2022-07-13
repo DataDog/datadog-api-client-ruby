@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Response with monthly summary of data billed by Datadog.
   class UsageBillableSummaryResponse
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

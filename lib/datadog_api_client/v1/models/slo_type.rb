@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The type of the service level objective.
   class SLOType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     METRIC = "metric".freeze
     MONITOR = "monitor".freeze

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The type of the distribution point.
   class DistributionPointsType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     DISTRIBUTION = "distribution".freeze
   end

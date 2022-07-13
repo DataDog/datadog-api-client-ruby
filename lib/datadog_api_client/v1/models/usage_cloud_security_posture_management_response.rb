@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The response containing the Cloud Security Posture Management usage for each hour for a given organization.
   class UsageCloudSecurityPostureManagementResponse
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

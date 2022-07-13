@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Timeline cell data for Markdown timeline cells for a create request.
   class IncidentTimelineCellMarkdownCreateAttributes
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

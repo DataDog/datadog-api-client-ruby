@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Creator of the object.
   class Creator
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

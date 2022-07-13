@@ -29,7 +29,7 @@ module DatadogAPIClient::V1
   # `{ isEnabled: true, applicationId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", clientTokenId: 12345 }`
   # RUM data is collected using the specified application.
   class SyntheticsBrowserTestRumSettings
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

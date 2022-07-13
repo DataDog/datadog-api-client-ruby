@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Which summary type should be used.
   class WidgetSummaryType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     MONITORS = "monitors".freeze
     GROUPS = "groups".freeze

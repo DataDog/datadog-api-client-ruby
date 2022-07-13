@@ -21,7 +21,7 @@ module DatadogAPIClient::V1
   # If set to 'fixed', the dashboard expects all widgets to have a layout, and if it's set to 'auto',
   # widgets should not have layouts.
   class DashboardReflowType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     AUTO = "auto".freeze
     FIXED = "fixed".freeze

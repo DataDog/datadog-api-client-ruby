@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Estimate type based on the queried configuration. By default, `count_or_gauge` is returned. `distribution` is returned for distribution metrics without percentiles enabled. Lastly, `percentile` is returned if `filter[pct]=true` is queried with a distribution metric.
   class MetricEstimateType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     COUNT_OR_GAUGE = "count_or_gauge".freeze
     DISTRIBUTION = "distribution".freeze

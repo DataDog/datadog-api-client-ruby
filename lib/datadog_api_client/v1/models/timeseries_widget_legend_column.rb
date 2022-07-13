@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Legend column.
   class TimeseriesWidgetLegendColumn
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     VALUE = "value".freeze
     AVG = "avg".freeze

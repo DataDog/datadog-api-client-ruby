@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Role object returned by the API.
   class RoleUpdateResponseData
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

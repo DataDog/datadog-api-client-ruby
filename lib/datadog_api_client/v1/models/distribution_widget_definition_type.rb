@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the distribution widget.
   class DistributionWidgetDefinitionType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     DISTRIBUTION = "distribution".freeze
   end

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Wrapper object for a single bulk tag configuration request.
   class MetricBulkTagConfigCreateRequest
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

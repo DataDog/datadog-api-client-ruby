@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of logs date remapper.
   class LogsDateRemapperType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     DATE_REMAPPER = "date-remapper".freeze
   end

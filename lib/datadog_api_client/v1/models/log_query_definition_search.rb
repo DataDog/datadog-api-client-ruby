@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The query being made on the logs.
   class LogQueryDefinitionSearch
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

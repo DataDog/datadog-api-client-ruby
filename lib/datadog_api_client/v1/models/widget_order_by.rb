@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # What to order by.
   class WidgetOrderBy
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     CHANGE = "change".freeze
     NAME = "name".freeze

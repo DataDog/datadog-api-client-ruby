@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Type of the event.
   class AuditLogsEventType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     Audit = "audit".freeze
   end

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The priority of the event. For example, `normal` or `low`.
   class EventPriority
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     NORMAL = "normal".freeze
     LOW = "low".freeze

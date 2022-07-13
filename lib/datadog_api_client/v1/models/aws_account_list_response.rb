@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # List of enabled AWS accounts.
   class AWSAccountListResponse
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

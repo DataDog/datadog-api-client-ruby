@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Integration metadata resource type.
   class IncidentIntegrationMetadataType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     INCIDENT_INTEGRATIONS = "incident_integrations".freeze
   end

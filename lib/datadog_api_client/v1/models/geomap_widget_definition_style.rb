@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The style to apply to the widget.
   class GeomapWidgetDefinitionStyle
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

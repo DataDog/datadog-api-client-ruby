@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # A ordered list of archive IDs.
   class LogsArchiveOrder
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

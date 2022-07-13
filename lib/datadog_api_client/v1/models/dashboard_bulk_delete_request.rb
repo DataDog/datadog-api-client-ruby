@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Dashboard bulk delete request body.
   class DashboardBulkDeleteRequest
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

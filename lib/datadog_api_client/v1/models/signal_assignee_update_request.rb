@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Attributes describing an assignee update operation over a security signal.
   class SignalAssigneeUpdateRequest
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

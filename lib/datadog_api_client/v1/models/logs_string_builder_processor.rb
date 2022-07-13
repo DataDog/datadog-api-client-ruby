@@ -31,7 +31,7 @@ module DatadogAPIClient::V1
   # - If the target attribute already exists, it is overwritten by the result of the template.
   # - Results of the template cannot exceed 256 characters.
   class LogsStringBuilderProcessor
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

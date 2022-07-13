@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of logs User-Agent parser.
   class LogsUserAgentParserType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     USER_AGENT_PARSER = "user-agent-parser".freeze
   end

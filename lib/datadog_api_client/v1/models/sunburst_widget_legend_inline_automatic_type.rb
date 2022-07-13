@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Whether to show the legend inline or let it be automatically generated.
   class SunburstWidgetLegendInlineAutomaticType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     INLINE = "inline".freeze
     AUTOMATIC = "automatic".freeze

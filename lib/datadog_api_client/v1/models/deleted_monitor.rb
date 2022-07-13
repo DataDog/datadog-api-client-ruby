@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Response from the delete monitor call.
   class DeletedMonitor
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

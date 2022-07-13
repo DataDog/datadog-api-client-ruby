@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Opsgenie service for an update request.
   class OpsgenieServiceUpdateData
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

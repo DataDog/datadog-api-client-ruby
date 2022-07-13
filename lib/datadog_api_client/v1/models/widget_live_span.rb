@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The available timeframes depend on the widget you are using.
   class WidgetLiveSpan
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     PAST_ONE_MINUTE = "1m".freeze
     PAST_FIVE_MINUTES = "5m".freeze

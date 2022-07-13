@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Permissions resource type.
   class PermissionsType
-    include BaseEnumModel
+    include DatadogAPIClient::BaseEnumModel
 
     PERMISSIONS = "permissions".freeze
   end

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # AWS account ID and Lambda ARN.
   class AWSAccountAndLambdaRequest
-    include BaseGenericModel
+    include DatadogAPIClient::BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private
