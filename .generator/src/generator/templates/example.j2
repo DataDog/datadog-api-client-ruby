@@ -8,7 +8,7 @@ require 'datadog_api_client'
 {%- if context._enable_operations %}
 DatadogAPIClient::V2.configure do |config|
 {%- for operation in context._enable_operations %}
-  config.unstable_operations[:{{ operation|snake_case }}] = true
+  config.unstable_operations["{{ version.upper() }}.{{ operation|snake_case }}".to_sym] = true
 {%- endfor %}
 end
 {%- endif %}
