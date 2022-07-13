@@ -9,7 +9,7 @@ module {{ module_name }}::{{ version|upper }}
   class {{ classname }}
     attr_accessor :api_client
 
-    def initialize(api_client = APIClient.default)
+    def initialize(api_client = {{ module_name }}::APIClient.default)
       @api_client = api_client
     end
 

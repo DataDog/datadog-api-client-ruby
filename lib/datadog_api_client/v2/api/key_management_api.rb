@@ -19,7 +19,7 @@ module DatadogAPIClient::V2
   class KeyManagementAPI
     attr_accessor :api_client
 
-    def initialize(api_client = APIClient.default)
+    def initialize(api_client = DatadogAPIClient::APIClient.default)
       @api_client = api_client
     end
 
