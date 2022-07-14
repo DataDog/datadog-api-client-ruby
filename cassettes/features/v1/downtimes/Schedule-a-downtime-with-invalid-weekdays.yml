@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Thu, 06 Jan 2022 00:50:48 GMT
+- recorded_at: Tue, 12 Jul 2022 22:07:46 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"end":1641433848,"message":"Test-Schedule_a_downtime_with_invalid_weekdays-1641430248","recurrence":{"period":1,"type":"weeks","week_days":["mon","tue"]},"scope":["*"],"start":1641430248,"timezone":"Etc/UTC"}'
+      string: '{"end":1657667266,"message":"Test-Schedule_a_downtime_with_invalid_weekdays-1657663666","monitor_tags":["tag0"],"recurrence":{"period":1,"type":"weeks","week_days":["mon","tue"]},"scope":["*"],"start":1657663666,"timezone":"Etc/UTC"}'
     headers:
       Accept:
       - application/json
@@ -14,7 +14,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"errors":["Invalid set of days in week_days. Be sure that the first
+      string: '{"errors": ["Invalid set of days in week_days. Be sure that the first
         letter is capitalized."]}'
     headers:
       Content-Type:
