@@ -152,7 +152,7 @@ module {{ module_name }}
       {%- for operations in apis.values() %}
       {%- for _, _, operation in operations|sort(attribute="2.operationId") %}
       {%- if "x-unstable" in operation %}
-            "{{ version|upper }}.{{ operation.operationId|snake_case }}": false,
+            "{{ version }}.{{ operation.operationId|snake_case }}": false,
       {%- endif %}
       {%- endfor %}
       {%- endfor %}
@@ -301,7 +301,7 @@ module {{ module_name }}
         {%- for operation in path.values() %}
         {%- for server in operation.servers %}
         {%- if loop.first %}
-        "{{ version|upper }}.{{ operation.operationId|snake_case }}": [
+        "{{ version }}.{{ operation.operationId|snake_case }}": [
         {%- endif %}
           {{ server_configuration(server)|indent(10) }}{% if not loop.last %},{% endif %}
         {%- if loop.last %}  

@@ -39,11 +39,11 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(IncidentResponse, Integer, Hash)>] IncidentResponse data, response status code and response headers
     def create_incident_with_http_info(body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["V2.create_incident".to_sym]
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_incident".to_sym]
       if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "V2.create_incident")
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_incident")
       else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "V2.create_incident"))
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_incident"))
       end
 
       if @api_client.config.debugging
@@ -112,11 +112,11 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_incident_with_http_info(incident_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["V2.delete_incident".to_sym]
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_incident".to_sym]
       if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "V2.delete_incident")
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_incident")
       else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "V2.delete_incident"))
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_incident"))
       end
 
       if @api_client.config.debugging
@@ -184,11 +184,11 @@ module DatadogAPIClient::V2
     # @option opts [Array<IncidentRelatedObject>] :include Specifies which types of related objects should be included in the response.
     # @return [Array<(IncidentResponse, Integer, Hash)>] IncidentResponse data, response status code and response headers
     def get_incident_with_http_info(incident_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["V2.get_incident".to_sym]
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_incident".to_sym]
       if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "V2.get_incident")
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_incident")
       else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "V2.get_incident"))
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_incident"))
       end
 
       if @api_client.config.debugging
@@ -258,11 +258,11 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_offset Specific offset to use as the beginning of the returned page.
     # @return [Array<(IncidentsResponse, Integer, Hash)>] IncidentsResponse data, response status code and response headers
     def list_incidents_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["V2.list_incidents".to_sym]
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_incidents".to_sym]
       if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "V2.list_incidents")
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_incidents")
       else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "V2.list_incidents"))
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_incidents"))
       end
 
       if @api_client.config.debugging
@@ -351,11 +351,11 @@ module DatadogAPIClient::V2
     # @option opts [Array<IncidentRelatedObject>] :include Specifies which types of related objects should be included in the response.
     # @return [Array<(IncidentResponse, Integer, Hash)>] IncidentResponse data, response status code and response headers
     def update_incident_with_http_info(incident_id, body, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["V2.update_incident".to_sym]
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_incident".to_sym]
       if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "V2.update_incident")
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_incident")
       else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "V2.update_incident"))
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_incident"))
       end
 
       if @api_client.config.debugging

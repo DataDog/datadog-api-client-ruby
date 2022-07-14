@@ -2,7 +2,7 @@
 
 require "datadog_api_client"
 DatadogAPIClient::V2.configure do |config|
-  config.unstable_operations["V1.search_slo".to_sym] = true
+  config.unstable_operations["v1.search_slo".to_sym] = true
 end
 api_instance = DatadogAPIClient::V1::ServiceLevelObjectivesAPI.new
 

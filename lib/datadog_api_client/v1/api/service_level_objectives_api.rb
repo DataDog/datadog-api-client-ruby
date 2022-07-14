@@ -457,11 +457,11 @@ module DatadogAPIClient::V1
     # @option opts [Boolean] :apply_correction Defaults to `true`. If any SLO corrections are applied and this parameter is set to `false`, then the corrections will not be applied and the SLI values will not be affected.
     # @return [Array<(SLOHistoryResponse, Integer, Hash)>] SLOHistoryResponse data, response status code and response headers
     def get_slo_history_with_http_info(slo_id, from_ts, to_ts, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["V1.get_slo_history".to_sym]
+      unstable_enabled = @api_client.config.unstable_operations["v1.get_slo_history".to_sym]
       if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "V1.get_slo_history")
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v1.get_slo_history")
       else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "V1.get_slo_history"))
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v1.get_slo_history"))
       end
 
       if @api_client.config.debugging
@@ -620,11 +620,11 @@ module DatadogAPIClient::V1
     # @option opts [Integer] :page_number The identifier of the first page to return. This parameter is used for the pagination feature `[default=0]`.
     # @return [Array<(SearchSLOResponse, Integer, Hash)>] SearchSLOResponse data, response status code and response headers
     def search_slo_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["V1.search_slo".to_sym]
+      unstable_enabled = @api_client.config.unstable_operations["v1.search_slo".to_sym]
       if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "V1.search_slo")
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v1.search_slo")
       else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "V1.search_slo"))
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v1.search_slo"))
       end
 
       if @api_client.config.debugging

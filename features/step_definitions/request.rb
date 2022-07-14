@@ -130,8 +130,8 @@ module APIWorld
       end.to_h
       params = method.parameters.select { |p| p[0] == :req }.map { |p| args.delete(p[1]) }
 
-      if api_instance.api_client.config.unstable_operations.has_key?("V#{@api_version}.#{operation_name}".to_sym)
-        api_instance.api_client.config.unstable_operations["V#{@api_version}.#{operation_name}".to_sym] = true
+      if api_instance.api_client.config.unstable_operations.has_key?("v#{@api_version}.#{operation_name}".to_sym)
+        api_instance.api_client.config.unstable_operations["v#{@api_version}.#{operation_name}".to_sym] = true
       end
       lambda { method.call(*params) }
     end
@@ -154,8 +154,8 @@ module APIWorld
     undo_builder = build_undo_for(api_version, operation_name, given_api_instance)
 
     # enable unstable operation
-    if given_configuration.unstable_operations.has_key?("V#{@api_version}.#{operation_name}".to_sym)
-      given_configuration.unstable_operations["V#{@api_version}.#{operation_name}".to_sym] = true
+    if given_configuration.unstable_operations.has_key?("v#{@api_version}.#{operation_name}".to_sym)
+      given_configuration.unstable_operations["v#{@api_version}.#{operation_name}".to_sym] = true
     end
 
     # perform operation
@@ -201,7 +201,7 @@ end
 
 Given('operation {string} enabled') do |name|
   "V#{@api_version}.#{name.snakecase}".to_sym
-  configuration.unstable_operations["V#{@api_version}.#{name.snakecase}".to_sym] = true
+  configuration.unstable_operations["v#{@api_version}.#{name.snakecase}".to_sym] = true
 end
 
 Given(/^body with value (.*)$/) do |body|

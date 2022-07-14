@@ -41,11 +41,11 @@ module {{ module_name }}::{{ version|upper }}
     # @return [Array<({% if returnType %}{{ returnType }}{% else %}nil{% endif %}, Integer, Hash)>] {% if returnType %}{{ returnType }} data{% else %}nil{% endif %}, response status code and response headers
     def {{ operation.operationId|snake_case }}_with_http_info({% for name, parameter in operation|parameters if parameter.required %}{{ name|attribute_name }}, {% endfor %}opts = {})
       {%- if "x-unstable" in operation %}
-      unstable_enabled = @api_client.config.unstable_operations["{{ version|upper }}.{{ operation.operationId|snake_case }}".to_sym]
+      unstable_enabled = @api_client.config.unstable_operations["{{ version }}.{{ operation.operationId|snake_case }}".to_sym]
       if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "{{ version|upper }}.{{ operation.operationId|snake_case }}")
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "{{ version }}.{{ operation.operationId|snake_case }}")
       else
-        raise {{ module_name }}::APIError.new(message: format("Unstable operation '%s' is disabled", "{{ version|upper }}.{{ operation.operationId|snake_case }}"))
+        raise {{ module_name }}::APIError.new(message: format("Unstable operation '%s' is disabled", "{{ version }}.{{ operation.operationId|snake_case }}"))
       end
       {%- endif %}
 
