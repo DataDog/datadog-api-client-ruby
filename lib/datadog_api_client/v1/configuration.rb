@@ -165,8 +165,6 @@ module DatadogAPIClient::V1
             search_slo: false,
             get_slo_history: false,
             get_usage_attribution: false,
-            get_hourly_usage_attribution: false,
-            get_monthly_usage_attribution: false,
       }
       @server_variables[:site] = ENV['DD_SITE'] if ENV.key? 'DD_SITE'
       @api_key['apiKeyAuth'] = ENV['DD_API_KEY'] if ENV.key? 'DD_API_KEY'
