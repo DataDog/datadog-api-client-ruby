@@ -19,7 +19,7 @@ require 'logger'
 require 'tempfile'
 require 'time'
 require 'httparty'
-require 'zstd-ruby'
+require 'zstandard'
 
 module DatadogAPIClient::V2
   class APIClient
@@ -200,7 +200,7 @@ module DatadogAPIClient::V2
       elsif header_params['Content-Encoding'] == 'deflate'
         data = Zlib::deflate(data)
       elsif header_params['Content-Encoding'] == 'zstd1'
-        data = Zstd.compress(data)
+        data = Zstandard.deflate(data)
       end
       data
     end
