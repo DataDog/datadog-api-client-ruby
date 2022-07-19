@@ -308,15 +308,6 @@ module DatadogAPIClient::V2
     # @return [Array<(SecurityMonitoringSignalTriageUpdateResponse, Integer, Hash)>] SecurityMonitoringSignalTriageUpdateResponse data, response status code and response headers
     def edit_security_monitoring_signal_assignee_with_http_info(signal_id, body, opts = {})
 
-      if @api_client.config.unstable_operations.has_key?(:edit_security_monitoring_signal_assignee)
-        unstable_enabled = @api_client.config.unstable_operations[:edit_security_monitoring_signal_assignee]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "edit_security_monitoring_signal_assignee")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "edit_security_monitoring_signal_assignee"))
-        end
-      end
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.edit_security_monitoring_signal_assignee ...'
       end
@@ -360,7 +351,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
@@ -387,15 +379,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringSignalTriageUpdateResponse, Integer, Hash)>] SecurityMonitoringSignalTriageUpdateResponse data, response status code and response headers
     def edit_security_monitoring_signal_incidents_with_http_info(signal_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:edit_security_monitoring_signal_incidents)
-        unstable_enabled = @api_client.config.unstable_operations[:edit_security_monitoring_signal_incidents]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "edit_security_monitoring_signal_incidents")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "edit_security_monitoring_signal_incidents"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.edit_security_monitoring_signal_incidents ...'
@@ -440,7 +423,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
@@ -467,15 +451,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(SecurityMonitoringSignalTriageUpdateResponse, Integer, Hash)>] SecurityMonitoringSignalTriageUpdateResponse data, response status code and response headers
     def edit_security_monitoring_signal_state_with_http_info(signal_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:edit_security_monitoring_signal_state)
-        unstable_enabled = @api_client.config.unstable_operations[:edit_security_monitoring_signal_state]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "edit_security_monitoring_signal_state")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "edit_security_monitoring_signal_state"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.edit_security_monitoring_signal_state ...'
@@ -520,7 +495,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)

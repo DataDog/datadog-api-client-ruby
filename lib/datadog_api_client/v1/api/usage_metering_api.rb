@@ -140,12 +140,6 @@ module DatadogAPIClient::V1
     # @option opts [Boolean] :include_descendants Include child org usage in the response. Defaults to `true`.
     # @return [Array<(HourlyUsageAttributionResponse, Integer, Hash)>] HourlyUsageAttributionResponse data, response status code and response headers
     def get_hourly_usage_attribution_with_http_info(start_hr, usage_type, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v1.get_hourly_usage_attribution".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v1.get_hourly_usage_attribution")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v1.get_hourly_usage_attribution"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_hourly_usage_attribution ...'
@@ -465,12 +459,6 @@ module DatadogAPIClient::V1
     # @option opts [Boolean] :include_descendants Include child org usage in the response. Defaults to `true`.
     # @return [Array<(MonthlyUsageAttributionResponse, Integer, Hash)>] MonthlyUsageAttributionResponse data, response status code and response headers
     def get_monthly_usage_attribution_with_http_info(start_month, fields, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v1.get_monthly_usage_attribution".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v1.get_monthly_usage_attribution")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v1.get_monthly_usage_attribution"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_monthly_usage_attribution ...'
