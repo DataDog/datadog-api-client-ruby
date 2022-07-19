@@ -290,6 +290,246 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Modify the triage assignee of a security signal.
+    #
+    # @see #edit_security_monitoring_signal_assignee_with_http_info
+    def edit_security_monitoring_signal_assignee(signal_id, body, opts = {})
+      data, _status_code, _headers = edit_security_monitoring_signal_assignee_with_http_info(signal_id, body, opts)
+      data
+    end
+
+    # Modify the triage assignee of a security signal.
+    #
+    # Modify the triage assignee of a security signal.
+    #
+    # @param signal_id [String] The ID of the signal.
+    # @param body [SecurityMonitoringSignalAssigneeUpdateRequest] Attributes describing the signal update.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringSignalTriageUpdateResponse, Integer, Hash)>] SecurityMonitoringSignalTriageUpdateResponse data, response status code and response headers
+    def edit_security_monitoring_signal_assignee_with_http_info(signal_id, body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:edit_security_monitoring_signal_assignee)
+        unstable_enabled = @api_client.config.unstable_operations[:edit_security_monitoring_signal_assignee]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "edit_security_monitoring_signal_assignee")
+        else
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "edit_security_monitoring_signal_assignee"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.edit_security_monitoring_signal_assignee ...'
+      end
+      # verify the required parameter 'signal_id' is set
+      if @api_client.config.client_side_validation && signal_id.nil?
+        fail ArgumentError, "Missing the required parameter 'signal_id' when calling SecurityMonitoringAPI.edit_security_monitoring_signal_assignee"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.edit_security_monitoring_signal_assignee"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/signals/{signal_id}/assignee'.sub('{signal_id}', CGI.escape(signal_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringSignalTriageUpdateResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :edit_security_monitoring_signal_assignee,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#edit_security_monitoring_signal_assignee\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Change the related incidents of a security signal.
+    #
+    # @see #edit_security_monitoring_signal_incidents_with_http_info
+    def edit_security_monitoring_signal_incidents(signal_id, body, opts = {})
+      data, _status_code, _headers = edit_security_monitoring_signal_incidents_with_http_info(signal_id, body, opts)
+      data
+    end
+
+    # Change the related incidents of a security signal.
+    #
+    # Change the related incidents for a security signal.
+    #
+    # @param signal_id [String] The ID of the signal.
+    # @param body [SecurityMonitoringSignalIncidentsUpdateRequest] Attributes describing the signal update.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringSignalTriageUpdateResponse, Integer, Hash)>] SecurityMonitoringSignalTriageUpdateResponse data, response status code and response headers
+    def edit_security_monitoring_signal_incidents_with_http_info(signal_id, body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:edit_security_monitoring_signal_incidents)
+        unstable_enabled = @api_client.config.unstable_operations[:edit_security_monitoring_signal_incidents]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "edit_security_monitoring_signal_incidents")
+        else
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "edit_security_monitoring_signal_incidents"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.edit_security_monitoring_signal_incidents ...'
+      end
+      # verify the required parameter 'signal_id' is set
+      if @api_client.config.client_side_validation && signal_id.nil?
+        fail ArgumentError, "Missing the required parameter 'signal_id' when calling SecurityMonitoringAPI.edit_security_monitoring_signal_incidents"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.edit_security_monitoring_signal_incidents"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/signals/{signal_id}/incidents'.sub('{signal_id}', CGI.escape(signal_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringSignalTriageUpdateResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :edit_security_monitoring_signal_incidents,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#edit_security_monitoring_signal_incidents\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Change the triage state of a security signal.
+    #
+    # @see #edit_security_monitoring_signal_state_with_http_info
+    def edit_security_monitoring_signal_state(signal_id, body, opts = {})
+      data, _status_code, _headers = edit_security_monitoring_signal_state_with_http_info(signal_id, body, opts)
+      data
+    end
+
+    # Change the triage state of a security signal.
+    #
+    # Change the triage state of a security signal.
+    #
+    # @param signal_id [String] The ID of the signal.
+    # @param body [SecurityMonitoringSignalStateUpdateRequest] Attributes describing the signal update.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SecurityMonitoringSignalTriageUpdateResponse, Integer, Hash)>] SecurityMonitoringSignalTriageUpdateResponse data, response status code and response headers
+    def edit_security_monitoring_signal_state_with_http_info(signal_id, body, opts = {})
+
+      if @api_client.config.unstable_operations.has_key?(:edit_security_monitoring_signal_state)
+        unstable_enabled = @api_client.config.unstable_operations[:edit_security_monitoring_signal_state]
+        if unstable_enabled
+          @api_client.config.logger.warn format("Using unstable operation '%s'", "edit_security_monitoring_signal_state")
+        else
+          raise APIError.new(message: format("Unstable operation '%s' is disabled", "edit_security_monitoring_signal_state"))
+        end
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.edit_security_monitoring_signal_state ...'
+      end
+      # verify the required parameter 'signal_id' is set
+      if @api_client.config.client_side_validation && signal_id.nil?
+        fail ArgumentError, "Missing the required parameter 'signal_id' when calling SecurityMonitoringAPI.edit_security_monitoring_signal_state"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SecurityMonitoringAPI.edit_security_monitoring_signal_state"
+      end
+      # resource path
+      local_var_path = '/api/v2/security_monitoring/signals/{signal_id}/state'.sub('{signal_id}', CGI.escape(signal_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SecurityMonitoringSignalTriageUpdateResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :edit_security_monitoring_signal_state,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SecurityMonitoringAPI#edit_security_monitoring_signal_state\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a security filter.
     #
     # @see #get_security_filter_with_http_info

@@ -2,4 +2,4 @@
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
-p api_instance.get_browser_test_result("public_id", "result_id")
+p api_instance.get_browser_test_result("2yy-sem-mjh", "5671719892074090418")
