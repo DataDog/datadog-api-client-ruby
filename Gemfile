@@ -17,6 +17,7 @@ group :development, :test do
   gem 'timecop'
   gem 'vcr'
   gem 'webmock'
+  gem 'zstd-ruby'
 end
 
 group :docs do
