@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # IoT usage for a given organization for a given hour.
   class UsageIoTHour
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the treemap widget.
   class TreeMapWidgetDefinitionType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     TREEMAP = "treemap".freeze
   end

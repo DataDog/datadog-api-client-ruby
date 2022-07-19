@@ -36,7 +36,7 @@ module DatadogAPIClient::V1
   #   **Note:** If multiple log status remapper processors can be applied to a given log,
   #   only the first one (according to the pipelines order) is taken into account.
   class LogsStatusRemapper
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

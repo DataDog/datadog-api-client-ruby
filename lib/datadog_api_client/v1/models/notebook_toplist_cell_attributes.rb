@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The attributes of a notebook `toplist` cell.
   class NotebookToplistCellAttributes
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Type of the Markdown timeline cell.
   class IncidentTimelineCellMarkdownContentType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     MARKDOWN = "markdown".freeze
   end

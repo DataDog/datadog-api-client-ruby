@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Comparator to apply.
   class WidgetComparator
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     GREATER_THAN = ">".freeze
     GREATER_THAN_OR_EQUAL_TO = ">=".freeze

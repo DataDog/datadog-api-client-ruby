@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Data source for APM dependency stats queries.
   class FormulaAndFunctionApmDependencyStatsDataSource
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     APM_DEPENDENCY_STATS = "apm_dependency_stats".freeze
   end

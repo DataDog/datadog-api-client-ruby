@@ -20,8 +20,8 @@ module DatadogAPIClient::V1
   # Query definition for Distribution Widget Histogram Request
   module DistributionWidgetHistogramRequestQuery
     class << self
-      include DatadogAPIClient::BaseOneOfModel
-      include DatadogAPIClient::BaseOneOfModelNoDiscriminator
+      include BaseOneOfModel
+      include BaseOneOfModelNoDiscriminator
 
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of

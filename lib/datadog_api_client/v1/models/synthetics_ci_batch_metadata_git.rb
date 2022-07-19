@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Git information.
   class SyntheticsCIBatchMetadataGit
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Aggregation methods for event platform queries.
   class FormulaAndFunctionEventAggregation
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     COUNT = "count".freeze
     CARDINALITY = "cardinality".freeze

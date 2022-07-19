@@ -20,7 +20,7 @@ module DatadogAPIClient::V1
   # The timeframe of the threshold associated with this error
   # or "all" if all thresholds are affected.
   class SLOErrorTimeframe
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     SEVEN_DAYS = "7d".freeze
     THIRTY_DAYS = "30d".freeze

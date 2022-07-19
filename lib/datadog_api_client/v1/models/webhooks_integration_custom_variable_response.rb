@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Custom variable for Webhook integration.
   class WebhooksIntegrationCustomVariableResponse
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

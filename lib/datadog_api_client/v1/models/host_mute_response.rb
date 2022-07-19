@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Response with the list of muted host for your organization.
   class HostMuteResponse
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

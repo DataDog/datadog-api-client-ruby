@@ -20,7 +20,7 @@ module DatadogAPIClient::V1
   # Size of the margins around the image.
   # **Note**: `small` and `large` values are deprecated.
   class WidgetMargin
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     SM = "sm".freeze
     MD = "md".freeze

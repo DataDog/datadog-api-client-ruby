@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The type of sorting algorithm.
   class RUMAggregateSortType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     ALPHABETICAL = "alphabetical".freeze
     MEASURE = "measure".freeze

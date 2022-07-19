@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of logs status remapper.
   class LogsStatusRemapperType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     STATUS_REMAPPER = "status-remapper".freeze
   end

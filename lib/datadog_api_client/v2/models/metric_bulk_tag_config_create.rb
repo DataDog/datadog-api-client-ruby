@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Request object to bulk configure tags for metrics matching the given prefix.
   class MetricBulkTagConfigCreate
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

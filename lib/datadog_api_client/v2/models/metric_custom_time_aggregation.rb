@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # A time aggregation for use in query.
   class MetricCustomTimeAggregation
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     AVG = "avg".freeze
     COUNT = "count".freeze

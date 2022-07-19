@@ -20,8 +20,8 @@ module DatadogAPIClient::V2
   # An object related to an incident team which is present in the included payload.
   module IncidentTeamIncludedItems
     class << self
-      include DatadogAPIClient::BaseOneOfModel
-      include DatadogAPIClient::BaseOneOfModelNoDiscriminator
+      include BaseOneOfModel
+      include BaseOneOfModelNoDiscriminator
 
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of

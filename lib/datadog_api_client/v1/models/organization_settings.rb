@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # A JSON array of settings.
   class OrganizationSettings
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

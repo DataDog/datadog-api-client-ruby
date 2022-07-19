@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Response summarizing all usage aggregated across the months in the request for all organizations, and broken down by month and by organization.
   class UsageSummaryResponse
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

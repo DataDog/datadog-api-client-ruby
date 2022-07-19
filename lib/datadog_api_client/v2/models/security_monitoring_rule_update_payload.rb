@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Update an existing rule.
   class SecurityMonitoringRuleUpdatePayload
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

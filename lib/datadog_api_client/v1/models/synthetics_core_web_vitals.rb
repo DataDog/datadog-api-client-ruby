@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Core Web Vitals attached to a browser test step.
   class SyntheticsCoreWebVitals
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

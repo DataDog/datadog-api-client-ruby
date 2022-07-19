@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The attributes associated with the archive order.
   class LogsArchiveOrderAttributes
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

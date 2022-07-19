@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Object to create a service account User.
   class ServiceAccountCreateData
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The attribute used to group elements in the widget.
   class TreeMapGroupBy
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     USER = "user".freeze
     FAMILY = "family".freeze

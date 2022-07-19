@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The duration in days after which a learned value is forgotten.
   class SecurityMonitoringRuleNewValueOptionsForgetAfter
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     ONE_DAY = 1.freeze
     TWO_DAYS = 2.freeze

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Whether or not to show a table legend.
   class SunburstWidgetLegendTableType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     TABLE = "table".freeze
     NONE = "none".freeze

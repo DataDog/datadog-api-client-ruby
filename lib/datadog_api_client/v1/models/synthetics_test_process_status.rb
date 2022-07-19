@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Status of a Synthetic test.
   class SyntheticsTestProcessStatus
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     NOT_SCHEDULED = "not_scheduled".freeze
     SCHEDULED = "scheduled".freeze

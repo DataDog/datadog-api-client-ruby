@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The metric distinct volume type.
   class MetricDistinctVolumeType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     DISTINCT_METRIC_VOLUMES = "distinct_metric_volumes".freeze
   end

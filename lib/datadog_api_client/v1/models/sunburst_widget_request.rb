@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Request definition of sunburst widget.
   class SunburstWidgetRequest
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Response object which includes a single metric's tag configuration.
   class MetricTagConfigurationResponse
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

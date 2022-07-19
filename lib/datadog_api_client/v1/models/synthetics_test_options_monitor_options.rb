@@ -20,7 +20,7 @@ module DatadogAPIClient::V1
   # Object containing the options for a Synthetic test as a monitor
   # (for example, renotification).
   class SyntheticsTestOptionsMonitorOptions
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

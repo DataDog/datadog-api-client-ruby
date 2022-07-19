@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Object for a single metric's ingested and indexed volume.
   class MetricIngestedIndexedVolume
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

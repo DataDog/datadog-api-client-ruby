@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
   # 
   # A pipeline can contain Nested Pipelines and Processors whereas a Nested Pipeline can only contain Processors.
   class LogsPipelineProcessor
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

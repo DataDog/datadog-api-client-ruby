@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # This processor extracts query parameters and other important parameters from a URL.
   class LogsURLParser
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

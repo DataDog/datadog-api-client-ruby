@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The image widget allows you to embed an image on your dashboard. An image can be a PNG, JPG, or animated GIF. Only available on FREE layout dashboards.
   class ImageWidgetDefinition
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

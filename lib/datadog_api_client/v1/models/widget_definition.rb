@@ -20,8 +20,8 @@ module DatadogAPIClient::V1
   # [Definition of the widget](https://docs.datadoghq.com/dashboards/widgets/).
   module WidgetDefinition
     class << self
-      include DatadogAPIClient::BaseOneOfModel
-      include DatadogAPIClient::BaseOneOfModelNoDiscriminator
+      include BaseOneOfModel
+      include BaseOneOfModelNoDiscriminator
 
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of

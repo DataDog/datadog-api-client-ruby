@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Application Keys resource type.
   class ApplicationKeysType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     APPLICATION_KEYS = "application_keys".freeze
   end

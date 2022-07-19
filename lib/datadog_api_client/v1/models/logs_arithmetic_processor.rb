@@ -39,7 +39,7 @@ module DatadogAPIClient::V1
   # - If you need to scale a unit of measure,
   #   see [Scale Filter](https://docs.datadoghq.com/logs/log_configuration/parsing/?tab=filter#matcher-and-filter).
   class LogsArithmeticProcessor
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

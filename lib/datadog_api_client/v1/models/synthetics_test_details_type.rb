@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the Synthetic test, either `api` or `browser`.
   class SyntheticsTestDetailsType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     API = "api".freeze
     BROWSER = "browser".freeze

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The level of detail for the request.
   class ApmStatsQueryRowType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     SERVICE = "service".freeze
     RESOURCE = "resource".freeze

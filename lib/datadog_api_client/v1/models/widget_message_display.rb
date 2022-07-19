@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Amount of log lines to display
   class WidgetMessageDisplay
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     INLINE = "inline".freeze
     EXPANDED_MEDIUM = "expanded-md".freeze

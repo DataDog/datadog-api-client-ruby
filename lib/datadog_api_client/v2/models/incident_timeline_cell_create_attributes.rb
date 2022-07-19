@@ -20,8 +20,8 @@ module DatadogAPIClient::V2
   # The timeline cell's attributes for a create request.
   module IncidentTimelineCellCreateAttributes
     class << self
-      include DatadogAPIClient::BaseOneOfModel
-      include DatadogAPIClient::BaseOneOfModelNoDiscriminator
+      include BaseOneOfModel
+      include BaseOneOfModelNoDiscriminator
 
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of

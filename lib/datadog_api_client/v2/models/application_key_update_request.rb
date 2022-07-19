@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Request used to update an application key.
   class ApplicationKeyUpdateRequest
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

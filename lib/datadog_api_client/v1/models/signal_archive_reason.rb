@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Reason why a signal has been archived.
   class SignalArchiveReason
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     NONE = "none".freeze
     FALSE_POSITIVE = "false_positive".freeze

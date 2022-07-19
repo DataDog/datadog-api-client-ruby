@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The S3 Archive's integration destination.
   class LogsArchiveIntegrationS3
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # This widget displays a map of a service to all of the services that call it, and all of the services that it calls.
   class ServiceMapWidgetDefinition
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Query values display the current value of a given metric, APM, or log query.
   class QueryValueWidgetDefinition
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

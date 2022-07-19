@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The aggregation type.
   class SecurityMonitoringRuleQueryAggregation
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     COUNT = "count".freeze
     CARDINALITY = "cardinality".freeze

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Roles type.
   class RolesType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     ROLES = "roles".freeze
   end

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Configuration options for what is shown in an alert event message.
   class SlackIntegrationChannelDisplay
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

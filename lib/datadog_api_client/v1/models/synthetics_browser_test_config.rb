@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Configuration object for a Synthetic browser test.
   class SyntheticsBrowserTestConfig
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The attribute used to determine size in the widget.
   class TreeMapSizeBy
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     PCT_CPU = "pct_cpu".freeze
     PCT_MEM = "pct_mem".freeze

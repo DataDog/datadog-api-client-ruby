@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Object containing array of IDs of canceled downtimes.
   class CanceledDowntimesIds
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

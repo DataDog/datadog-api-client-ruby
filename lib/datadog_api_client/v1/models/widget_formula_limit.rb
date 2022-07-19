@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Options for limiting results returned.
   class WidgetFormulaLimit
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

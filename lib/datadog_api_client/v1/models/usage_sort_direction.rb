@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The direction to sort by.
   class UsageSortDirection
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     DESC = "desc".freeze
     ASC = "asc".freeze

@@ -20,7 +20,7 @@ module DatadogAPIClient::V2
   # The status of a request to bulk configure metric tags.
   # It contains the fields from the original request for reference.
   class MetricBulkTagConfigStatus
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The metric ingested and indexed volume type.
   class MetricIngestedIndexedVolumeType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     METRIC_VOLUMES = "metric_volumes".freeze
   end

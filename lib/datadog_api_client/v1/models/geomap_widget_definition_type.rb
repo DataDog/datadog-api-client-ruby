@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the geomap widget.
   class GeomapWidgetDefinitionType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     GEOMAP = "geomap".freeze
   end

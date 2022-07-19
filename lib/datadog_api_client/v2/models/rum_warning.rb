@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # A warning message indicating something that went wrong with the query.
   class RUMWarning
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

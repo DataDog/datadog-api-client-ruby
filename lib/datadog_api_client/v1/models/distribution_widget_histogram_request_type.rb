@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Request type for the histogram request.
   class DistributionWidgetHistogramRequestType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     HISTOGRAM = "histogram".freeze
   end

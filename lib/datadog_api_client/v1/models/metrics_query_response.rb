@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Response Object that includes your query and the list of metrics retrieved.
   class MetricsQueryResponse
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

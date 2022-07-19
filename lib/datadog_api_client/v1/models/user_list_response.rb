@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Array of Datadog users for a given organization.
   class UserListResponse
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

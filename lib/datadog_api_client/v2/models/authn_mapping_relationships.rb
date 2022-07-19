@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # All relationships associated with AuthN Mapping.
   class AuthNMappingRelationships
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

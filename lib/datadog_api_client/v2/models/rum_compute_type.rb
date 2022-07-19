@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The type of compute.
   class RUMComputeType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     TIMESERIES = "timeseries".freeze
     TOTAL = "total".freeze

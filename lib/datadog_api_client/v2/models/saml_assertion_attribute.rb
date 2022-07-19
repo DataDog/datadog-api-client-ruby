@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # SAML assertion attribute.
   class SAMLAssertionAttribute
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

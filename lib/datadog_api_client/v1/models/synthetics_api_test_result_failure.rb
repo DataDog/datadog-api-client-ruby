@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The API test failure details.
   class SyntheticsApiTestResultFailure
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

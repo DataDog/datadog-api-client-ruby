@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Custom links help you connect a data value to a URL, like a Datadog page or your AWS console.
   class WidgetCustomLink
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

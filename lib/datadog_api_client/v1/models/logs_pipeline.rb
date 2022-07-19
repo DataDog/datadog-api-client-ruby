@@ -23,7 +23,7 @@ module DatadogAPIClient::V1
   # **Note**: These endpoints are only available for admin users.
   # Make sure to use an application key created by an admin.
   class LogsPipeline
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

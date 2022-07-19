@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Subscription definition.
   class OrganizationSubscription
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

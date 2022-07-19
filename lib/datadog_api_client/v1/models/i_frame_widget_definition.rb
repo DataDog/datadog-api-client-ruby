@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The iframe widget allows you to embed a portion of any other web page on your dashboard. Only available on FREE layout dashboards.
   class IFrameWidgetDefinition
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

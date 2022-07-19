@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The order to use, ascending or descending
   class LogsSortOrder
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     ASCENDING = "asc".freeze
     DESCENDING = "desc".freeze

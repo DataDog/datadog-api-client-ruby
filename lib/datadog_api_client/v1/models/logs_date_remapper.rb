@@ -37,7 +37,7 @@ module DatadogAPIClient::V1
   #   If multiple log date remapper processors can be applied to a given log,
   #   only the first one (according to the pipelines order) is taken into account.
   class LogsDateRemapper
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

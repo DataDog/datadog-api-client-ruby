@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # A response containing indexed spans usage.
   class UsageIndexedSpansResponse
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

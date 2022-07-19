@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Layout type of the dashboard.
   class DashboardLayoutType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     ORDERED = "ordered".freeze
     FREE = "free".freeze

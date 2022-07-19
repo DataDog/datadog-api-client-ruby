@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # List of AWS accounts to delete.
   class AWSAccountDeleteRequest
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

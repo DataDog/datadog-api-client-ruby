@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Parsing options for variables to extract.
   class SyntheticsParsingOptions
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

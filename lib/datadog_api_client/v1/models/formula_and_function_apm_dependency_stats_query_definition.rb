@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # A formula and functions APM dependency stats query.
   class FormulaAndFunctionApmDependencyStatsQueryDefinition
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the alert value widget.
   class AlertValueWidgetDefinitionType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     ALERT_VALUE = "alert_value".freeze
   end

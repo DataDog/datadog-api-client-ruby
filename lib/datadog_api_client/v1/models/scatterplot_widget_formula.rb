@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Formula to be used in a Scatterplot widget query.
   class ScatterplotWidgetFormula
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

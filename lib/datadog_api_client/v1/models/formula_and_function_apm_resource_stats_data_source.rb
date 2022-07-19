@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Data source for APM resource stats queries.
   class FormulaAndFunctionApmResourceStatsDataSource
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     APM_RESOURCE_STATS = "apm_resource_stats".freeze
   end

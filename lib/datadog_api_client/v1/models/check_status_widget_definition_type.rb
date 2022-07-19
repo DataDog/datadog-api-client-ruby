@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the check status widget.
   class CheckStatusWidgetDefinitionType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     CHECK_STATUS = "check_status".freeze
   end

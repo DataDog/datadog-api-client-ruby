@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Request to update an AuthN Mapping.
   class AuthNMappingUpdateRequest
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Usage Summary by tag for a given organization.
   class MonthlyUsageAttributionBody
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

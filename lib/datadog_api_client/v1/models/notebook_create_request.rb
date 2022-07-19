@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The description of a notebook create request.
   class NotebookCreateRequest
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

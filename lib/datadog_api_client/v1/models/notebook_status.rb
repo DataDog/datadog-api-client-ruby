@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Publication status of the notebook. For now, always "published".
   class NotebookStatus
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     PUBLISHED = "published".freeze
   end

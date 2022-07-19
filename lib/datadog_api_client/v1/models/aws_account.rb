@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Returns the AWS account associated with this integration.
   class AWSAccount
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

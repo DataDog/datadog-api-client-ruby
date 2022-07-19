@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # An event list response.
   class EventListResponse
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

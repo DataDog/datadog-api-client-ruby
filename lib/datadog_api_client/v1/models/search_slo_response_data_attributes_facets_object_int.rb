@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Facet
   class SearchSLOResponseDataAttributesFacetsObjectInt
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Has two properties, `enabled` (boolean) and `domains`, which is a list of domains without the @ symbol.
   class OrganizationSettingsSamlAutocreateUsersDomains
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

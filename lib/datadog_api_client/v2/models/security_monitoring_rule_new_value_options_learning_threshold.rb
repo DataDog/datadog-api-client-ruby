@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # A number of occurrences after which signals will be generated for values that weren't learned.
   class SecurityMonitoringRuleNewValueOptionsLearningThreshold
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     ZERO_OCCURRENCES = 0.freeze
     ONE_OCCURRENCE = 1.freeze

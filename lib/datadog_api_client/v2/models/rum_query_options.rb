@@ -20,7 +20,7 @@ module DatadogAPIClient::V2
   # Global query options that are used during the query.
   # Note: Only supply timezone or time offset, not both. Otherwise, the query fails.
   class RUMQueryOptions
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

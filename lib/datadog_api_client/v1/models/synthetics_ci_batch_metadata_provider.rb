@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Description of the CI provider.
   class SyntheticsCIBatchMetadataProvider
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

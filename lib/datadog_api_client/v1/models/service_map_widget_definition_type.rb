@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the service map widget.
   class ServiceMapWidgetDefinitionType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     SERVICEMAP = "servicemap".freeze
   end

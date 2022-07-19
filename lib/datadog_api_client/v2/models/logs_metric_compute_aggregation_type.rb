@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The type of aggregation to use.
   class LogsMetricComputeAggregationType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     COUNT = "count".freeze
     DISTRIBUTION = "distribution".freeze

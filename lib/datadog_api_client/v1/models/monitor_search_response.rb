@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The response form a monitor search.
   class MonitorSearchResponse
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

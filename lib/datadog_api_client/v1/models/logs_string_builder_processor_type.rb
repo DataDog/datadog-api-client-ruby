@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of logs string builder processor.
   class LogsStringBuilderProcessorType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     STRING_BUILDER_PROCESSOR = "string-builder-processor".freeze
   end

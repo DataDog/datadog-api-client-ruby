@@ -24,7 +24,7 @@ module DatadogAPIClient::V1
   # if the MAC address that just attempted to connect to the production
   # environment belongs to your list of stolen machines.
   class LogsLookupProcessor
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

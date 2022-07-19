@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The funnel visualization displays a funnel of user sessions that maps a sequence of view navigation and user interaction in your application.
   class FunnelWidgetDefinition
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

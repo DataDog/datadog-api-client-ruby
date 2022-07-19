@@ -24,7 +24,7 @@ module DatadogAPIClient::V1
   #       - If `reflow_type` is `fixed`, `layout` is required.
   #       - If `reflow_type` is `auto`, `layout` should not be set.
   class Widget
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

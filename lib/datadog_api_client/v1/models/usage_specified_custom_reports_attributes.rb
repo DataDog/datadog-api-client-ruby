@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The response containing attributes for specified custom reports.
   class UsageSpecifiedCustomReportsAttributes
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

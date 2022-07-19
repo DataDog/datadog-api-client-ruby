@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Timeseries is made using an area or bars.
   class TimeseriesBackgroundType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     BARS = "bars".freeze
     AREA = "area".freeze

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Object related to an incident.
   class IncidentRelatedObject
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     USERS = "users".freeze
   end

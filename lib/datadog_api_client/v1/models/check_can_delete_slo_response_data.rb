@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # An array of service level objective objects.
   class CheckCanDeleteSLOResponseData
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

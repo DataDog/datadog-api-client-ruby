@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The type of the monitor. For more information about `type`, see the [monitor options](https://docs.datadoghq.com/monitors/guide/monitor_api_options/) docs.
   class MonitorType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     COMPOSITE = "composite".freeze
     EVENT_ALERT = "event alert".freeze

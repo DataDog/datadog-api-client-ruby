@@ -22,7 +22,7 @@ module DatadogAPIClient::V1
   # * `1` for triggered
   # * `2` for no data
   class SyntheticsTestMonitorStatus
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     UNTRIGGERED = 0.freeze
     TRIGGERED = 1.freeze

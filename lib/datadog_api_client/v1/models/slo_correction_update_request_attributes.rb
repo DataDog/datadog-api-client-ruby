@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The attribute object associated with the SLO correction to be updated.
   class SLOCorrectionUpdateRequestAttributes
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

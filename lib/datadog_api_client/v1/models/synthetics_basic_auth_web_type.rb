@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The type of basic authentication to use when performing the test.
   class SyntheticsBasicAuthWebType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     WEB = "web".freeze
   end

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Supported metrics for monthly usage attribution requests.
   class MonthlyUsageAttributionSupportedMetrics
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     API_USAGE = "api_usage".freeze
     API_PERCENTAGE = "api_percentage".freeze

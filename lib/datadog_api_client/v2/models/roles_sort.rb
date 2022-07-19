@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Sorting options for roles.
   class RolesSort
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     NAME_ASCENDING = "name".freeze
     NAME_DESCENDING = "-name".freeze

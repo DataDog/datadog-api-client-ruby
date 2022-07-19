@@ -20,7 +20,7 @@ module DatadogAPIClient::V1
   # Create custom grok rules to parse the full message or [a specific attribute of your raw event](https://docs.datadoghq.com/logs/log_configuration/parsing/#advanced-settings).
   # For more information, see the [parsing section](https://docs.datadoghq.com/logs/log_configuration/parsing).
   class LogsGrokParser
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

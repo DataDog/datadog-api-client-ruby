@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Error response object for a browser test.
   class SyntheticsBrowserError
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

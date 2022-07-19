@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The steps used in a Synthetics browser test.
   class SyntheticsStep
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

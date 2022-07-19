@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The metadata associated with a request
   class LogsResponseMetadata
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

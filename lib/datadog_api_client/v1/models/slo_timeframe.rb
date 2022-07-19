@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The SLO time window options.
   class SLOTimeframe
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     SEVEN_DAYS = "7d".freeze
     THIRTY_DAYS = "30d".freeze

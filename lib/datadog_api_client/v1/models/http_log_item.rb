@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Logs that are sent over HTTP.
   class HTTPLogItem
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

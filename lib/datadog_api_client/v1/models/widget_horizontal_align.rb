@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Horizontal alignment.
   class WidgetHorizontalAlign
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     CENTER = "center".freeze
     LEFT = "left".freeze

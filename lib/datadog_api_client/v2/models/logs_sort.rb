@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Sort parameters when querying logs.
   class LogsSort
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     TIMESTAMP_ASCENDING = "timestamp".freeze
     TIMESTAMP_DESCENDING = "-timestamp".freeze

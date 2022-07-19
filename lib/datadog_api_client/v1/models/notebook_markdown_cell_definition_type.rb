@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the markdown cell.
   class NotebookMarkdownCellDefinitionType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     MARKDOWN = "markdown".freeze
   end

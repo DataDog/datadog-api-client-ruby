@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Widget request type.
   class FunnelRequestType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     FUNNEL = "funnel".freeze
   end

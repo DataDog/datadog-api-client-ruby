@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The kind of grouping to use.
   class WidgetGrouping
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     CHECK = "check".freeze
     CLUSTER = "cluster".freeze

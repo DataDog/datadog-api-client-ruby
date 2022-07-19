@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Object defining a variable that can be used in your test configuration.
   class SyntheticsConfigVariable
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

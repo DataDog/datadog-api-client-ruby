@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Widget sorting methods.
   class WidgetSort
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     ASCENDING = "asc".freeze
     DESCENDING = "desc".freeze

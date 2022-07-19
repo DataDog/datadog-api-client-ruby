@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Object representing an event.
   class EventCreateRequest
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

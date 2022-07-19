@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # A distribution points metric to submit to Datadog.
   class DistributionPointsSeries
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

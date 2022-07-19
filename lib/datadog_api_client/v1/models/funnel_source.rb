@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Source from which to query items to display in the funnel.
   class FunnelSource
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     RUM = "rum".freeze
   end

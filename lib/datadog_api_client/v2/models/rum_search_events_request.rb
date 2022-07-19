@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The request for a RUM events list.
   class RUMSearchEventsRequest
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

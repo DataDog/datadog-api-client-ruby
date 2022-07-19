@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Object containing the metric unit family, scale factor, name, and short name.
   class MetricsQueryUnit
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

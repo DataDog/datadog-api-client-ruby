@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The proxy to perform the test.
   class SyntheticsTestRequestProxy
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

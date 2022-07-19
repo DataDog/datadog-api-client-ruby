@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Sensitive Data Scanner usage for a given organization for a given hour.
   class UsageSDSHour
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

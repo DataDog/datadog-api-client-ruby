@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the timeseries widget.
   class TimeseriesWidgetDefinitionType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     TIMESERIES = "timeseries".freeze
   end

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Modifier of the object.
   class SLOCorrectionResponseAttributesModifier
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the log stream widget.
   class LogStreamWidgetDefinitionType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     LOG_STREAM = "log_stream".freeze
   end

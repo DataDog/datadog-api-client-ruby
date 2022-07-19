@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The field to sort by.
   class UsageSort
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     COMPUTED_ON = "computed_on".freeze
     SIZE = "size".freeze

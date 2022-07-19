@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of logs pipeline processor.
   class LogsPipelineProcessorType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     PIPELINE = "pipeline".freeze
   end

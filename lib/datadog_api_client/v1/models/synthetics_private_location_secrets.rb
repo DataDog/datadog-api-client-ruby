@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Secrets for the private location. Only present in the response when creating the private location.
   class SyntheticsPrivateLocationSecrets
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

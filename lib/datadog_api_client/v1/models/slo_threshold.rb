@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # SLO thresholds (target and optionally warning) for a single time window.
   class SLOThreshold
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

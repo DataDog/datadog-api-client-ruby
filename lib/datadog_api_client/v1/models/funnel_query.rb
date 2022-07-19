@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Updated funnel widget.
   class FunnelQuery
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -20,8 +20,8 @@ module DatadogAPIClient::V2
   # Included data in the AuthN Mapping response.
   module AuthNMappingIncluded
     class << self
-      include DatadogAPIClient::BaseOneOfModel
-      include DatadogAPIClient::BaseOneOfModelNoDiscriminator
+      include BaseOneOfModel
+      include BaseOneOfModelNoDiscriminator
 
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of

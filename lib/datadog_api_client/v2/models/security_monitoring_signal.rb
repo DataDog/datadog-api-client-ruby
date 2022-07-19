@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Object description of a security signal.
   class SecurityMonitoringSignal
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

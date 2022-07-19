@@ -21,7 +21,7 @@ module DatadogAPIClient::V1
   # monitor, `1` for metric). Always included in service level objective responses.
   # Ignored in create/update requests.
   class SLOTypeNumeric
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     MONITOR = 0.freeze
     METRIC = 1.freeze

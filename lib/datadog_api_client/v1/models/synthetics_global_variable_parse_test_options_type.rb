@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Property of the Synthetics Test Response to use for a Synthetics global variable.
   class SyntheticsGlobalVariableParseTestOptionsType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     HTTP_BODY = "http_body".freeze
     HTTP_HEADER = "http_header".freeze

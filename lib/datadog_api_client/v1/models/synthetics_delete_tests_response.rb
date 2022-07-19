@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Response object for deleting Synthetic tests.
   class SyntheticsDeleteTestsResponse
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Combination of settings to mute a host.
   class HostMuteSettings
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

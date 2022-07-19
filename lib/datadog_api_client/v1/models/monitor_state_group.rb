@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Monitor state for a single group.
   class MonitorStateGroup
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

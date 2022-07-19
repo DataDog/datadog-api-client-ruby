@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the heat map widget.
   class HeatMapWidgetDefinitionType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     HEATMAP = "heatmap".freeze
   end

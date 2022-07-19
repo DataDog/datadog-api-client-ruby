@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of logs grok parser.
   class LogsGrokParserType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     GROK_PARSER = "grok-parser".freeze
   end

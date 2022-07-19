@@ -20,7 +20,7 @@ module DatadogAPIClient::V1
   # A representation of `metric` based SLO time series for the provided queries.
   # This is the same response type from `batch_query` endpoint.
   class SLOHistoryMetricsSeries
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

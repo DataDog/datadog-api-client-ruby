@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Payload with API-returned permissions.
   class PermissionsResponse
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

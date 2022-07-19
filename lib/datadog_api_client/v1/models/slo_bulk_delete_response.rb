@@ -24,7 +24,7 @@ module DatadogAPIClient::V1
   # it may be partially successful. In such cases, the "data" and "error"
   # fields in this response indicate which deletions succeeded and failed.
   class SLOBulkDeleteResponse
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

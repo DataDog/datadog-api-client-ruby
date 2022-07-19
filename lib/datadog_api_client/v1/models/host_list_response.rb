@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Response with Host information from Datadog.
   class HostListResponse
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

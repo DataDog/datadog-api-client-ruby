@@ -20,7 +20,7 @@ module DatadogAPIClient::V1
   # The subtype of the Synthetic API test, `http`, `ssl`, `tcp`,
   # `dns`, `icmp`, `udp`, `websocket`, `grpc` or `multi`.
   class SyntheticsTestDetailsSubType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     HTTP = "http".freeze
     SSL = "ssl".freeze

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of logs URL parser.
   class LogsURLParserType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     URL_PARSER = "url-parser".freeze
   end

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Dashboard resource type.
   class DashboardResourceType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     DASHBOARD = "dashboard".freeze
   end

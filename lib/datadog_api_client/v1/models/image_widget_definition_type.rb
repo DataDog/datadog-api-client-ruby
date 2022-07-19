@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the image widget.
   class ImageWidgetDefinitionType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     IMAGE = "image".freeze
   end

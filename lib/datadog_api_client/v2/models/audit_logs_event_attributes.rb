@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # JSON object containing all event attributes and their associated values.
   class AuditLogsEventAttributes
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

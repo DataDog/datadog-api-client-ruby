@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Size to use to display an event.
   class WidgetEventSize
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     SMALL = "s".freeze
     LARGE = "l".freeze

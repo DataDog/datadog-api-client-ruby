@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Updated change widget.
   class ChangeWidgetRequest
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -20,7 +20,7 @@ module DatadogAPIClient::V1
   # The downtime object definition of the active child for the original parent recurring downtime. This
   # field will only exist on recurring downtimes.
   class DowntimeChild
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

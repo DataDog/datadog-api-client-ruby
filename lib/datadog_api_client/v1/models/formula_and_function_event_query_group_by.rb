@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # List of objects used to group by.
   class FormulaAndFunctionEventQueryGroupBy
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

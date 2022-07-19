@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Attributes required to create a new role by cloning an existing one.
   class RoleCloneAttributes
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the host map widget.
   class HostMapWidgetDefinitionType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     HOSTMAP = "hostmap".freeze
   end

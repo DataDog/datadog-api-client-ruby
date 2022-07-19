@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The HTTP method.
   class HTTPMethod
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     GET = "GET".freeze
     POST = "POST".freeze

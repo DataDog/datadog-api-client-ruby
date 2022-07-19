@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # All the available log-based metric objects.
   class LogsMetricsResponse
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

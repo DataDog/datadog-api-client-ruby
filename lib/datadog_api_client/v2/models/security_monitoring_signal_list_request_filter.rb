@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Search filters for listing security signals.
   class SecurityMonitoringSignalListRequestFilter
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

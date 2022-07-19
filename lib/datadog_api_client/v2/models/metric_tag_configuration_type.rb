@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The metric tag configuration resource type.
   class MetricTagConfigurationType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     MANAGE_TAGS = "manage_tags".freeze
   end

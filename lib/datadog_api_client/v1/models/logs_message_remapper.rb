@@ -24,7 +24,7 @@ module DatadogAPIClient::V1
   # **Note:** If multiple log message remapper processors can be applied to a given log,
   # only the first one (according to the pipeline order) is taken into account.
   class LogsMessageRemapper
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

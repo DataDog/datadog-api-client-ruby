@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The type of the resource. The value should always be logs_metrics.
   class LogsMetricType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     LOGS_METRICS = "logs_metrics".freeze
   end

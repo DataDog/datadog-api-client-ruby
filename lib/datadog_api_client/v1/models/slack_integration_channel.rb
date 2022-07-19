@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The Slack channel configuration.
   class SlackIntegrationChannel
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

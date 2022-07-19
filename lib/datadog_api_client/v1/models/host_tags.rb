@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Set of tags to associate with your host.
   class HostTags
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

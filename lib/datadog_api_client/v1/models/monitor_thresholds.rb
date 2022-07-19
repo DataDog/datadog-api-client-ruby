@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # List of the different monitor threshold available.
   class MonitorThresholds
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

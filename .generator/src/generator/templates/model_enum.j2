@@ -1,5 +1,5 @@
   class {{ name }}
-    include {{ module_name }}::BaseEnumModel
+    include BaseEnumModel
 {# keep new line #}
 
 {%- for index, value in enumerate(model.enum) %}

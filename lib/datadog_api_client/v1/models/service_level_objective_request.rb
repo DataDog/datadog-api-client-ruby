@@ -20,7 +20,7 @@ module DatadogAPIClient::V1
   # A service level objective object includes a service level indicator, thresholds
   # for one or more timeframes, and metadata (`name`, `description`, `tags`, etc.).
   class ServiceLevelObjectiveRequest
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Lambda Traced Invocations usage response.
   class UsageLambdaTracedInvocationsResponse
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

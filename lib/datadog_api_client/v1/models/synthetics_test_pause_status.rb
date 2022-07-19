@@ -20,7 +20,7 @@ module DatadogAPIClient::V1
   # Define whether you want to start (`live`) or pause (`paused`) a
   # Synthetic test.
   class SyntheticsTestPauseStatus
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     LIVE = "live".freeze
     PAUSED = "paused".freeze

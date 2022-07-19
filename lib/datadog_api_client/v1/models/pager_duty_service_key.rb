@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # PagerDuty service object key.
   class PagerDutyServiceKey
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

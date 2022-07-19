@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The log-based metric filter. Logs matching this filter will be aggregated in this metric.
   class LogsMetricFilter
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

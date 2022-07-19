@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Request to create a role by cloning an existing role.
   class RoleCloneRequest
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

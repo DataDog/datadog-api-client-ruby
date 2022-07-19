@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The metric's type.
   class MetricTagConfigurationMetricTypes
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     GAUGE = "gauge".freeze
     COUNT = "count".freeze

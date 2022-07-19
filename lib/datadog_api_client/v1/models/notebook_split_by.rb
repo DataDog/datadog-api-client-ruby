@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Object describing how to split the graph to display multiple visualizations per request.
   class NotebookSplitBy
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Widget response format.
   class ListStreamResponseFormat
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     EVENT_LIST = "event_list".freeze
   end

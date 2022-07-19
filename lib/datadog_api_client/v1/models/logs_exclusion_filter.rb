@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Exclusion filter is defined by a query, a sampling rule, and a active/inactive toggle.
   class LogsExclusionFilter
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

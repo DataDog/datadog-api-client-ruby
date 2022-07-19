@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The aggregation methods available for metrics queries.
   class FormulaAndFunctionMetricAggregation
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     AVG = "avg".freeze
     MIN = "min".freeze

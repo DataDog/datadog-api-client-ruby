@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Show the absolute or the relative change.
   class WidgetChangeType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     ABSOLUTE = "absolute".freeze
     RELATIVE = "relative".freeze

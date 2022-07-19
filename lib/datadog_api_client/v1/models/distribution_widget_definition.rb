@@ -21,7 +21,7 @@ module DatadogAPIClient::V1
   # aggregated across one or several tags, such as hosts.
   # Unlike the heat map, a distribution graph’s x-axis is quantity rather than time.
   class DistributionWidgetDefinition
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

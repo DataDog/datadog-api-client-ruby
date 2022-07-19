@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Number of columns to display.
   class WidgetServiceSummaryDisplayFormat
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     ONE_COLUMN = "one_column".freeze
     TWO_COLUMN = "two_column".freeze

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Datadog application key.
   class FullApplicationKey
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

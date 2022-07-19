@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Object containing results for your Synthetic API test.
   class SyntheticsAPITestResultData
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

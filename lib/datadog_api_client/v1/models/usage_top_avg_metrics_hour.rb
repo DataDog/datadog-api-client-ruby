@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Number of hourly recorded custom metrics for a given organization.
   class UsageTopAvgMetricsHour
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

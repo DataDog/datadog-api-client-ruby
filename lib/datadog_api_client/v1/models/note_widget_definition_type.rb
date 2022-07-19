@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the note widget.
   class NoteWidgetDefinitionType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     NOTE = "note".freeze
   end

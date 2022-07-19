@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The sort parameters used for querying security signals.
   class SecurityMonitoringSignalsSort
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     TIMESTAMP_ASCENDING = "timestamp".freeze
     TIMESTAMP_DESCENDING = "-timestamp".freeze

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The data attributes of a notebook.
   class NotebookUpdateDataAttributes
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

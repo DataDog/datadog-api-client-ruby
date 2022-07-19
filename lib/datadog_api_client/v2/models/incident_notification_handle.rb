@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # A notification handle that will be notified at incident creation.
   class IncidentNotificationHandle
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

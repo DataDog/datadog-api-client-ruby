@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the table widget.
   class TableWidgetDefinitionType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     QUERY_TABLE = "query_table".freeze
   end

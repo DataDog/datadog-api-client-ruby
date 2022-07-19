@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # A compute rule to compute metrics or timeseries
   class LogsCompute
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

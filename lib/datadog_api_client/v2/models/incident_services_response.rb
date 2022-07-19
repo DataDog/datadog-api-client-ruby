@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Response with a list of incident service payloads.
   class IncidentServicesResponse
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Search options.
   class MonitorFormulaAndFunctionEventQueryDefinitionSearch
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

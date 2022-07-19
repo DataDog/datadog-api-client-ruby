@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Severity of the Security Signal.
   class SecurityMonitoringRuleSeverity
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     INFO = "info".freeze
     LOW = "low".freeze

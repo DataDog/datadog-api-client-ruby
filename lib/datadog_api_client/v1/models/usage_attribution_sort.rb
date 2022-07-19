@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The field to sort by.
   class UsageAttributionSort
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     API_PERCENTAGE = "api_percentage".freeze
     SNMP_USAGE = "snmp_usage".freeze

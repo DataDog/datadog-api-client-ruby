@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Response with properties for each aggregated usage type.
   class UsageBillableSummaryBody
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

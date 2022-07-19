@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the assertion.
   class SyntheticsAssertionType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     BODY = "body".freeze
     HEADER = "header".freeze

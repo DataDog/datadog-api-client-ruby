@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # A single monitor group search result.
   class MonitorGroupSearchResult
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Number of hosts/containers recorded for each hour for a given organization.
   class UsageHostHour
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

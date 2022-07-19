@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Template variables saved views.
   class DashboardTemplateVariablePresetValue
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

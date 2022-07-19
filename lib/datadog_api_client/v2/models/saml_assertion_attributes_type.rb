@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # SAML assertion attributes resource type.
   class SAMLAssertionAttributesType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     SAML_ASSERTION_ATTRIBUTES = "saml_assertion_attributes".freeze
   end

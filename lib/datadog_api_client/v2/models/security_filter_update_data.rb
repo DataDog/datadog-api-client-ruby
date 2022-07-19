@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The new security filter properties.
   class SecurityFilterUpdateData
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

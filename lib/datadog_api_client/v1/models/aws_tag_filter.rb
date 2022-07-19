@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # A tag filter.
   class AWSTagFilter
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

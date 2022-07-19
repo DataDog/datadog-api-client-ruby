@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # HTTP header used to compress the media-type.
   class DistributionPointsContentEncoding
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     DEFLATE = "deflate".freeze
   end

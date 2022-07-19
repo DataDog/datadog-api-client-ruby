@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Alerting time window options.
   class MonitorThresholdWindowOptions
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

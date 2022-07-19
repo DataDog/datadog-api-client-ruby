@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Response for a list of API keys.
   class APIKeysResponse
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

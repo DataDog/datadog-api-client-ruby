@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the scatter plot widget.
   class ScatterPlotWidgetDefinitionType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     SCATTERPLOT = "scatterplot".freeze
   end

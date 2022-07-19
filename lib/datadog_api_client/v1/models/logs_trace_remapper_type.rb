@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of logs trace remapper.
   class LogsTraceRemapperType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     TRACE_ID_REMAPPER = "trace-id-remapper".freeze
   end

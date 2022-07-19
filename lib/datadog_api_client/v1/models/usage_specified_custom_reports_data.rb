@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Response containing date and type for specified custom reports.
   class UsageSpecifiedCustomReportsData
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

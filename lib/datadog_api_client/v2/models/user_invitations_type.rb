@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # User invitations type.
   class UserInvitationsType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     USER_INVITATIONS = "user_invitations".freeze
   end

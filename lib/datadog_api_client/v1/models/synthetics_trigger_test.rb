@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Test configuration for Synthetics
   class SyntheticsTriggerTest
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

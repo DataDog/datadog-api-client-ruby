@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The distribution points payload.
   class DistributionPointsPayload
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

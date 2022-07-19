@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Category the SLO correction belongs to.
   class SLOCorrectionCategory
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     SCHEDULED_MAINTENANCE = "Scheduled Maintenance".freeze
     OUTSIDE_BUSINESS_HOURS = "Outside Business Hours".freeze

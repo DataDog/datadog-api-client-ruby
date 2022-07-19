@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The style to apply to the widget.
   class HostMapWidgetDefinitionStyle
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

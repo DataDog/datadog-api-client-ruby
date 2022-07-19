@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The attribute used to determine color in the widget.
   class TreeMapColorBy
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     USER = "user".freeze
   end

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The status of the response.
   class RUMResponseStatus
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     DONE = "done".freeze
     TIMEOUT = "timeout".freeze

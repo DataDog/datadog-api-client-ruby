@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Data source for metrics queries.
   class FormulaAndFunctionMetricDataSource
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     METRICS = "metrics".freeze
   end

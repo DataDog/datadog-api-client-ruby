@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The service summary displays the graphs of a chosen service in your screenboard. Only available on FREE layout dashboards.
   class ServiceSummaryWidgetDefinition
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

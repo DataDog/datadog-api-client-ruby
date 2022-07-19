@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The rule type.
   class SecurityMonitoringRuleTypeRead
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     LOG_DETECTION = "log_detection".freeze
     INFRASTRUCTURE_CONFIGURATION = "infrastructure_configuration".freeze

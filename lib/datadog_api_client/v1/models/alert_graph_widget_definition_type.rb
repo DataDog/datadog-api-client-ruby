@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the alert graph widget.
   class AlertGraphWidgetDefinitionType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     ALERT_GRAPH = "alert_graph".freeze
   end

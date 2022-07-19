@@ -21,7 +21,7 @@ module DatadogAPIClient::V1
   # For example, `error`, `warning`, `info`, `success`, `user_update`,
   # `recommendation`, and `snapshot`.
   class EventAlertType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     ERROR = "error".freeze
     WARNING = "warning".freeze

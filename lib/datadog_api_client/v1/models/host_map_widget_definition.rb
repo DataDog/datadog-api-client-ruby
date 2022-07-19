@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The host map widget graphs any metric across your hosts using the same visualization available from the main Host Map page.
   class HostMapWidgetDefinition
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

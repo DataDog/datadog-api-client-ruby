@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Configuration of inline or automatic legends.
   class SunburstWidgetLegendInlineAutomatic
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

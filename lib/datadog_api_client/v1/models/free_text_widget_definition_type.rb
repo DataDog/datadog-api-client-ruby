@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the free text widget.
   class FreeTextWidgetDefinitionType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     FREE_TEXT = "free_text".freeze
   end

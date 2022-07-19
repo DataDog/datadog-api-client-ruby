@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Execution rule for a Synthetics test.
   class SyntheticsTestExecutionRule
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     BLOCKING = "blocking".freeze
     NON_BLOCKING = "non_blocking".freeze

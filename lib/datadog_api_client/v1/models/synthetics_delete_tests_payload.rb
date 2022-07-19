@@ -20,7 +20,7 @@ module DatadogAPIClient::V1
   # A JSON list of the ID or IDs of the Synthetic tests that you want
   # to delete.
   class SyntheticsDeleteTestsPayload
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

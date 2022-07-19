@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Aggregator used for the request.
   class ScatterplotWidgetAggregator
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     AVERAGE = "avg".freeze
     LAST = "last".freeze

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The Change graph shows you the change in a value over the time period chosen.
   class ChangeWidgetDefinition
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

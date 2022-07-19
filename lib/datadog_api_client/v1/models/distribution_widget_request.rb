@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Updated distribution widget.
   class DistributionWidgetRequest
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

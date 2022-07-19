@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The attributes of the user who created the Agent rule.
   class CloudWorkloadSecurityAgentRuleCreatorAttributes
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

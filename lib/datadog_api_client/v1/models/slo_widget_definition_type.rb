@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the SLO widget.
   class SLOWidgetDefinitionType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     SLO = "slo".freeze
   end

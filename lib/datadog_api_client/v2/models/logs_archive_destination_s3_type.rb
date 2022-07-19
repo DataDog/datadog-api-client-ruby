@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Type of the S3 archive destination.
   class LogsArchiveDestinationS3Type
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     S3 = "s3".freeze
   end

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The metadata for the current pagination.
   class HourlyUsageAttributionPagination
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

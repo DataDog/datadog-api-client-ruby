@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Wrapper object that contains the details of a batch.
   class SyntheticsBatchDetailsData
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

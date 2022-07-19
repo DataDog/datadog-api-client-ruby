@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The size of the graph.
   class NotebookGraphSize
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     EXTRA_SMALL = "xs".freeze
     SMALL = "s".freeze

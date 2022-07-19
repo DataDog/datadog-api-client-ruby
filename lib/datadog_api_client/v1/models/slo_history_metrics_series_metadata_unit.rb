@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # An Object of metric units.
   class SLOHistoryMetricsSeriesMetadataUnit
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

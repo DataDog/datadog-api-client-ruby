@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The state of the archive.
   class LogsArchiveState
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     UNKNOWN = "UNKNOWN".freeze
     WORKING = "WORKING".freeze

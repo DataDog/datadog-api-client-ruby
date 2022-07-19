@@ -20,7 +20,7 @@ module DatadogAPIClient::V2
   # A signal will “close” regardless of the query being matched once the time exceeds the maximum duration.
   # This time is calculated from the first seen timestamp.
   class SecurityMonitoringRuleMaxSignalDuration
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     ZERO_MINUTES = 0.freeze
     ONE_MINUTE = 60.freeze

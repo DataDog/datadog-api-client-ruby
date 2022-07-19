@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Response containing information about an updated role.
   class RoleUpdateResponse
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

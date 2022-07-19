@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # A list of errors while querying the history data for the service level objective.
   class SLOHistoryResponseError
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

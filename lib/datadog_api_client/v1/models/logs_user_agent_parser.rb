@@ -20,7 +20,7 @@ module DatadogAPIClient::V1
   # The User-Agent parser takes a User-Agent attribute and extracts the OS, browser, device, and other user data.
   # It recognizes major bots like the Google Bot, Yahoo Slurp, and Bing.
   class LogsUserAgentParser
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

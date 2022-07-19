@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the group widget.
   class GroupWidgetDefinitionType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     GROUP = "group".freeze
   end

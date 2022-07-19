@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Optional metadata associated to the response.
   class SecurityFilterMeta
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

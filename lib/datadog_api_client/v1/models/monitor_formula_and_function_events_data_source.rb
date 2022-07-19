@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Data source for event platform-based queries.
   class MonitorFormulaAndFunctionEventsDataSource
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     RUM = "rum".freeze
     CI_PIPELINES = "ci_pipelines".freeze

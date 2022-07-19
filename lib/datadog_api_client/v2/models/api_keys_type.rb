@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # API Keys resource type.
   class APIKeysType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     API_KEYS = "api_keys".freeze
   end

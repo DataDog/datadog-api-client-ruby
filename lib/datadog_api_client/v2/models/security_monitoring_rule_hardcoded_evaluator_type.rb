@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Hardcoded evaluator type.
   class SecurityMonitoringRuleHardcodedEvaluatorType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     LOG4SHELL = "log4shell".freeze
   end

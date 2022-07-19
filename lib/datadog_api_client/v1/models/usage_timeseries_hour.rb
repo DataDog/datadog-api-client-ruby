@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The hourly usage of timeseries.
   class UsageTimeseriesHour
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

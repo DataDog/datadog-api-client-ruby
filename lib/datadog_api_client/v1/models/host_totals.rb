@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Total number of host currently monitored by Datadog.
   class HostTotals
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

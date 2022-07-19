@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Query for matching rule.
   class SecurityMonitoringRuleQuery
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

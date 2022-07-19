@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Metadata associated with the notebook.
   class NotebookMetadata
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

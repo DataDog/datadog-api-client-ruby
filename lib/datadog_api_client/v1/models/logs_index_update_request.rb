@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Object for updating a Datadog Log index.
   class LogsIndexUpdateRequest
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

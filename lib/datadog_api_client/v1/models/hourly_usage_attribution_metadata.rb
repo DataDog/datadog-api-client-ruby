@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The object containing document metadata.
   class HourlyUsageAttributionMetadata
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Define how you want to align the text on the widget.
   class WidgetTickEdge
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     BOTTOM = "bottom".freeze
     LEFT = "left".freeze

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The object containing information about the pages of the list of SLOs.
   class SLOListResponseMetadataPage
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

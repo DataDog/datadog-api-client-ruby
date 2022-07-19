@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Object with the results of a Synthetics batch.
   class SyntheticsBatchResult
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

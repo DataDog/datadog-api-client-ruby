@@ -56,10 +56,14 @@ def cli(specs, output):
     model_j2 = env.get_template("model.j2")
     package_j2 = env.get_template("package.j2")
 
+    extra_files = {
+        "model_base.rb": env.get_template("model_base.j2"),
+    }
+
     common_files = {
         "api_client.rb": env.get_template("api_client.j2"),
         "configuration.rb": env.get_template("configuration.j2"),
-        "model_base.rb": env.get_template("model_base.j2"),
+#         "model_base.rb": env.get_template("model_base.j2"),
     }
 
     all_specs = {}
@@ -82,6 +86,11 @@ def cli(specs, output):
 
         gem_path = output / GEM_NAME / version
         gem_path.mkdir(parents=True, exist_ok=True)
+
+        for name, template in extra_files.items():
+            filename = gem_path / name
+            with filename.open("w") as fp:
+                fp.write(template.render(apis=apis, models=models))
 
         for name, model in models.items():
             filename = formatter.snake_case(name) + ".rb"

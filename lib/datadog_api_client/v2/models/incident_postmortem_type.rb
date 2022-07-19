@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Incident postmortem resource type.
   class IncidentPostmortemType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     INCIDENT_POSTMORTEMS = "incident_postmortems".freeze
   end

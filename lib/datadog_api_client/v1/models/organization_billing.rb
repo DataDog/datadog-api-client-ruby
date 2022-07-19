@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # A JSON array of billing type.
   class OrganizationBilling
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

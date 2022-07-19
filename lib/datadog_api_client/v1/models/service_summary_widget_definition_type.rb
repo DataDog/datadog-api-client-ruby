@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the service summary widget.
   class ServiceSummaryWidgetDefinitionType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     TRACE_SERVICE = "trace_service".freeze
   end

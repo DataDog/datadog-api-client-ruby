@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The detection method.
   class SecurityMonitoringRuleDetectionMethod
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     THRESHOLD = "threshold".freeze
     NEW_VALUE = "new_value".freeze

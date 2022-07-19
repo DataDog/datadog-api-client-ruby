@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Object to update a user.
   class UserUpdateData
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

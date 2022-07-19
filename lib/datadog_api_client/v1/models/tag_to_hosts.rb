@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # In this object, the key is the tag, the value is a list of host names that are reporting that tag.
   class TagToHosts
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

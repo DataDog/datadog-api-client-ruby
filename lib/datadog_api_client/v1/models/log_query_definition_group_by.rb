@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Defined items in the group.
   class LogQueryDefinitionGroupBy
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

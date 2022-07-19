@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Alert graphs are timeseries graphs showing the current status of any monitor defined on your system.
   class AlertGraphWidgetDefinition
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

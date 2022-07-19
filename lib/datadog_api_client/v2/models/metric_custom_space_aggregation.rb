@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # A space aggregation for use in query.
   class MetricCustomSpaceAggregation
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     AVG = "avg".freeze
     MAX = "max".freeze

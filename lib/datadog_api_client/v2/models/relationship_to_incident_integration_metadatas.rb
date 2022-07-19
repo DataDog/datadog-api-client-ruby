@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # A relationship reference for multiple integration metadata objects.
   class RelationshipToIncidentIntegrationMetadatas
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

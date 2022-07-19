@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Indexed logs usage by retention for a single organization.
   class LogsByRetentionOrgUsage
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

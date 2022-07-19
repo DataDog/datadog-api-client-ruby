@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Widget column width.
   class ListStreamColumnWidth
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     AUTO = "auto".freeze
     COMPACT = "compact".freeze

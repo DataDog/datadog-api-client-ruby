@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The usage for one set of tags for one hour.
   class HourlyUsageAttributionBody
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

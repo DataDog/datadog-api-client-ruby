@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # SLO correction resource type.
   class SLOCorrectionType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     CORRECTION = "correction".freeze
   end

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The request for a logs list.
   class LogsListRequest
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

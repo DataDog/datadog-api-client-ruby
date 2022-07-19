@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Number of RUM Units used for each hour for a given organization (data available as of November 1, 2021).
   class UsageRumUnitsHour
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

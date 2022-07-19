@@ -1,8 +1,8 @@
   module {{ name }}
     class << self
-      include {{ module_name }}::BaseOneOfModel
+      include BaseOneOfModel
       {%- if not model.discriminator %}
-      include {{ module_name }}::BaseOneOfModelNoDiscriminator
+      include BaseOneOfModelNoDiscriminator
       {%- endif %}
 
       # List of class defined in oneOf (OpenAPI v3)

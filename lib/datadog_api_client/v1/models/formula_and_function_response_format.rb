@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Timeseries or Scalar response.
   class FormulaAndFunctionResponseFormat
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     TIMESERIES = "timeseries".freeze
     SCALAR = "scalar".freeze

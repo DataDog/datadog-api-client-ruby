@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # How to align the text on the widget.
   class WidgetTextAlign
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     CENTER = "center".freeze
     LEFT = "left".freeze

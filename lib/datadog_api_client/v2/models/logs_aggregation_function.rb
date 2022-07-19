@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # An aggregation function
   class LogsAggregationFunction
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     COUNT = "count".freeze
     CARDINALITY = "cardinality".freeze

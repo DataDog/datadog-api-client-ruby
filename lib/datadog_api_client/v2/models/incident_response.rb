@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Response with an incident.
   class IncidentResponse
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

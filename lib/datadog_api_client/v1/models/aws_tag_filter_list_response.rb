@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # An array of tag filter rules by `namespace` and tag filter string.
   class AWSTagFilterListResponse
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

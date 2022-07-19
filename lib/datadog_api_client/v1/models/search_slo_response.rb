@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # A search SLO response containing results from the search query.
   class SearchSLOResponse
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

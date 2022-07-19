@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Details of the parser to use for the global variable.
   class SyntheticsVariableParser
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

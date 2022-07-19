@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Object to handle `SIGV4` authentication when performing the test.
   class SyntheticsBasicAuthSigv4
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Key/Value pair of attributes used for create request.
   class AuthNMappingCreateAttributes
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

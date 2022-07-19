@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of the top list widget.
   class ToplistWidgetDefinitionType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     TOPLIST = "toplist".freeze
   end

@@ -21,7 +21,7 @@ module DatadogAPIClient::V1
   # 
   # This is not included in responses for `monitor` based SLOs.
   class SLOHistoryMetrics
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

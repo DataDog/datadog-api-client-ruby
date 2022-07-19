@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Type of the event.
   class LogType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     LOG = "log".freeze
   end

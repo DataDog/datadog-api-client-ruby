@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of logs service remapper.
   class LogsServiceRemapperType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     SERVICE_REMAPPER = "service-remapper".freeze
   end

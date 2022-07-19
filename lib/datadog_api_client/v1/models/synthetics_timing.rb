@@ -20,7 +20,7 @@ module DatadogAPIClient::V1
   # Object containing all metrics and their values collected for a Synthetic API test.
   # Learn more about those metrics in [Synthetics documentation](https://docs.datadoghq.com/synthetics/#metrics).
   class SyntheticsTiming
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

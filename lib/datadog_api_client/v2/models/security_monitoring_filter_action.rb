@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The type of filtering action.
   class SecurityMonitoringFilterAction
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     REQUIRE = "require".freeze
     SUPPRESS = "suppress".freeze

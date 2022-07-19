@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The type of reports.
   class UsageReportsType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     REPORTS = "reports".freeze
   end

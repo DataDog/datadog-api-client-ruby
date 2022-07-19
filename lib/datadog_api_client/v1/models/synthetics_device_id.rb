@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The device ID.
   class SyntheticsDeviceID
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     LAPTOP_LARGE = "laptop_large".freeze
     TABLET = "tablet".freeze

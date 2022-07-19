@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Object with all metric related metadata.
   class MetricMetadata
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

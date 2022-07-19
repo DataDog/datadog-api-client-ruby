@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Response of monitor IDs that can or can't be safely deleted.
   class CheckCanDeleteMonitorResponse
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Optional parameters for bulk creating metric tag configurations.
   class MetricBulkTagConfigCreateAttributes
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # The type of the resource. The value should always be `security_filters`.
   class SecurityFilterType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     SECURITY_FILTERS = "security_filters".freeze
   end

@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # Type of parser for a Synthetics global variable from a synthetics test.
   class SyntheticsGlobalVariableParserType
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     RAW = "raw".freeze
     JSON_PATH = "json_path".freeze

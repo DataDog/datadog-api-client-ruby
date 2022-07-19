@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V2
   # Usage attributes data.
   class UsageAttributesObject
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

@@ -20,7 +20,7 @@ module DatadogAPIClient::V2
   # A time window is specified to match when at least one of the cases matches true. This is a sliding window
   # and evaluates in real time.
   class SecurityMonitoringRuleEvaluationWindow
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     ZERO_MINUTES = 0.freeze
     ONE_MINUTE = 60.freeze

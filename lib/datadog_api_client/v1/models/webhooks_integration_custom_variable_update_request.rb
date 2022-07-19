@@ -21,7 +21,7 @@ module DatadogAPIClient::V1
   # 
   # *All properties are optional.*
   class WebhooksIntegrationCustomVariableUpdateRequest
-    include DatadogAPIClient::BaseGenericModel
+    include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private

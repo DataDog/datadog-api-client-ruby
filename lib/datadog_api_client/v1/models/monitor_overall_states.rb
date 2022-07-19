@@ -19,7 +19,7 @@ require 'time'
 module DatadogAPIClient::V1
   # The different states your monitor can be in.
   class MonitorOverallStates
-    include DatadogAPIClient::BaseEnumModel
+    include BaseEnumModel
 
     ALERT = "Alert".freeze
     IGNORED = "Ignored".freeze
