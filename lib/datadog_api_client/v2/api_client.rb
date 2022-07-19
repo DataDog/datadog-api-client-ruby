@@ -19,7 +19,10 @@ require 'logger'
 require 'tempfile'
 require 'time'
 require 'httparty'
-require 'zstandard'
+begin
+  require 'zstandard'
+rescue LoadError
+end
 
 module DatadogAPIClient::V2
   class APIClient

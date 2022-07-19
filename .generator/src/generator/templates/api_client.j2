@@ -8,7 +8,10 @@ require 'logger'
 require 'tempfile'
 require 'time'
 require 'httparty'
-require 'zstandard'
+begin
+  require 'zstandard'
+rescue LoadError
+end
 
 module {{ module_name }}::{{ version|upper }}
   class APIClient
