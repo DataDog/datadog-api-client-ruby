@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The treemap visualization found on the Host Dashboards comes from the output of `ps auxww`. This is not continuously run on your hosts. Instead, it’s run once on Agent start/restart. The treemap is only supported for process data on a single host dashboard — this may not be reused in other dashboards or for other metrics.
+  # The treemap visualization enables you to display hierarchical and nested data. It is well suited for queries that describe part-whole relationships, such as resource usage by availability zone, data center, or team.
   class TreeMapWidgetDefinition
     include BaseGenericModel
 
@@ -25,17 +25,23 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The attribute used to determine color in the widget.
+    # (deprecated) The attribute formerly used to determine color in the widget.
     attr_accessor :color_by
 
-    # The attribute used to group elements in the widget.
+    # List of custom links.
+    attr_accessor :custom_links
+
+    # (deprecated) The attribute formerly used to group elements in the widget.
     attr_accessor :group_by
 
-    # List of top list widget requests.
+    # List of treemap widget requests.
     attr_accessor :requests
 
-    # The attribute used to determine size in the widget.
+    # (deprecated) The attribute formerly used to determine size in the widget.
     attr_accessor :size_by
+
+    # Time setting for the widget.
+    attr_accessor :time
 
     # Title of your widget.
     attr_accessor :title
@@ -48,9 +54,11 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'color_by' => :'color_by',
+        :'custom_links' => :'custom_links',
         :'group_by' => :'group_by',
         :'requests' => :'requests',
         :'size_by' => :'size_by',
+        :'time' => :'time',
         :'title' => :'title',
         :'type' => :'type'
       }
@@ -67,9 +75,11 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'color_by' => :'TreeMapColorBy',
+        :'custom_links' => :'Array<WidgetCustomLink>',
         :'group_by' => :'TreeMapGroupBy',
         :'requests' => :'Array<TreeMapWidgetRequest>',
         :'size_by' => :'TreeMapSizeBy',
+        :'time' => :'WidgetTime',
         :'title' => :'String',
         :'type' => :'TreeMapWidgetDefinitionType'
       }
@@ -104,6 +114,12 @@ module DatadogAPIClient::V1
         self.color_by = 'user'
       end
 
+      if attributes.key?(:'custom_links')
+        if (value = attributes[:'custom_links']).is_a?(Array)
+          self.custom_links = value
+        end
+      end
+
       if attributes.key?(:'group_by')
         self.group_by = attributes[:'group_by']
       end
@@ -116,6 +132,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'size_by')
         self.size_by = attributes[:'size_by']
+      end
+
+      if attributes.key?(:'time')
+        self.time = attributes[:'time']
       end
 
       if attributes.key?(:'title')
@@ -173,9 +193,11 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           color_by == o.color_by &&
+          custom_links == o.custom_links &&
           group_by == o.group_by &&
           requests == o.requests &&
           size_by == o.size_by &&
+          time == o.time &&
           title == o.title &&
           type == o.type
     end
@@ -191,7 +213,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [color_by, group_by, requests, size_by, title, type].hash
+      [color_by, custom_links, group_by, requests, size_by, time, title, type].hash
     end
   end
 end

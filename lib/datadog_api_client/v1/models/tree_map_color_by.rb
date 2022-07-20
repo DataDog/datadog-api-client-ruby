@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The attribute used to determine color in the widget.
+  # (deprecated) The attribute formerly used to determine color in the widget.
   class TreeMapColorBy
     include BaseEnumModel
 
