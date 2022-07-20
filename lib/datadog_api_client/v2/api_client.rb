@@ -19,6 +19,10 @@ require 'logger'
 require 'tempfile'
 require 'time'
 require 'httparty'
+begin
+  require 'zstandard'
+rescue LoadError
+end
 
 module DatadogAPIClient::V2
   class APIClient
@@ -198,6 +202,8 @@ module DatadogAPIClient::V2
         gzip.close
       elsif header_params['Content-Encoding'] == 'deflate'
         data = Zlib::deflate(data)
+      elsif header_params['Content-Encoding'] == 'zstd1'
+        data = Zstandard.deflate(data)
       end
       data
     end

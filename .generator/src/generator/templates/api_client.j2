@@ -8,6 +8,10 @@ require 'logger'
 require 'tempfile'
 require 'time'
 require 'httparty'
+begin
+  require 'zstandard'
+rescue LoadError
+end
 
 module {{ module_name }}::{{ version|upper }}
   class APIClient
@@ -187,6 +191,8 @@ module {{ module_name }}::{{ version|upper }}
         gzip.close
       elsif header_params['Content-Encoding'] == 'deflate'
         data = Zlib::deflate(data)
+      elsif header_params['Content-Encoding'] == 'zstd1'
+        data = Zstandard.deflate(data)
       end
       data
     end
