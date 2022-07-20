@@ -63,7 +63,7 @@ def cli(specs, output):
     common_files = {
         "api_client.rb": env.get_template("api_client.j2"),
         "configuration.rb": env.get_template("configuration.j2"),
-#         "model_base.rb": env.get_template("model_base.j2"),
+        "inflector.rb": env.get_template("inflector.j2"),
     }
 
     all_specs = {}

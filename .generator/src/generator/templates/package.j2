@@ -9,19 +9,10 @@ require '{{ gem_name }}/api_client'
 require '{{ gem_name }}/configuration'
 require '{{ gem_name }}/api_key_configuration'
 
-# Models
+# Model base
+## Load in the model_base modules which also initializes the V1 and V2 namespaces
 {%- for version, models in all_models.items() %}
 require '{{ gem_name }}/{{ version }}/model_base'
-{%- for model in models|sort %}
-require '{{ gem_name }}/{{ version }}/models/{{ model|snake_case }}'
-{%- endfor %}
-{%- endfor %}
-
-# APIs
-{%- for version, apis in all_apis.items() %}
-{%- for api in apis|sort %}
-require '{{ gem_name }}/{{ version }}/api/{{ api|snake_case }}_api'
-{%- endfor %}
 {%- endfor %}
 
 module {{ module_name }}
