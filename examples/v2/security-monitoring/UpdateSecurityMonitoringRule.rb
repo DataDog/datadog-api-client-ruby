@@ -38,6 +38,7 @@ body = DatadogAPIClient::V2::SecurityMonitoringRuleUpdatePayload.new({
       aggregation: DatadogAPIClient::V2::SecurityMonitoringRuleQueryAggregation::COUNT,
       distinct_fields: [],
       group_by_fields: [],
+      metrics: [],
     }),
   ],
   tags: [],
