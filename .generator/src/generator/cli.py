@@ -114,4 +114,4 @@ def cli(specs, output):
     for name, template in common_files.items():
         filename = common_output / name
         with filename.open("w") as fp:
-            fp.write(template.render(all_apis=all_apis, all_specs=all_specs))
+            fp.write(template.render(all_apis=all_apis, all_specs=all_specs, all_models=all_models))
