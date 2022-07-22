@@ -1,8 +1,5 @@
-# Get hourly usage for Network Flows returns "OK" response
+# get hourly usage for network flows returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::UsageMeteringAPI.new
-opts = {
-  end_hr: (Time.now + -3 * 86400),
-}
-p api_instance.get_usage_network_flows((Time.now + -5 * 86400), opts)
+p api_instance.get_usage_network_flows("2021-11-11T11:11:11.111+00:00")
