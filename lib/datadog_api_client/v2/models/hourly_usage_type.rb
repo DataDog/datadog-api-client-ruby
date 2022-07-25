@@ -24,5 +24,6 @@ module DatadogAPIClient::V2
     APP_SEC_HOST_COUNT = "app_sec_host_count".freeze
     OBSERVABILITY_PIPELINES_BYTES_PROCESSSED = "observability_pipelines_bytes_processed".freeze
     LAMBDA_TRACED_INVOCATIONS_COUNT = "lambda_traced_invocations_count".freeze
+    CUSTOM_EVENT_COUNT = "custom_event_count".freeze
   end
 end
