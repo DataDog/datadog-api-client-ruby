@@ -1,0 +1,26 @@
+http_interactions:
+- recorded_at: Mon, 20 Jun 2022 12:31:32 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"filter":{"from":"2020-09-17T11:48:36+01:00","query":"datadog-agent","to":"2020-09-17T12:48:36+01:00"},"page":{"limit":5},"sort":"timestamp"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/events/search
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":[]}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0

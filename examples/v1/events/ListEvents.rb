@@ -1,4 +1,4 @@
-# Query the event stream returns "OK" response
+# Get a list of events returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::EventsAPI.new

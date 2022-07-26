@@ -158,6 +158,8 @@ module DatadogAPIClient::V2
       @compress = true
       @logger = defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
       @unstable_operations = {
+            list_events: false,
+            search_events: false,
             list_incidents: false,
             create_incident: false,
             delete_incident: false,
