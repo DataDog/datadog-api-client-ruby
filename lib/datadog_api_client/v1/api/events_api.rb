@@ -175,7 +175,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Query the event stream.
+    # Get a list of events.
     #
     # @see #list_events_with_http_info
     def list_events(start, _end, opts = {})
@@ -183,7 +183,7 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Query the event stream.
+    # Get a list of events.
     #
     # The event stream can be queried and filtered by time, priority, sources and tags.
     #
