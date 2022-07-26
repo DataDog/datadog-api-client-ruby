@@ -33,8 +33,13 @@ opts = {
 {%- endfor %}
 }
 {%- endif %}
+
+{%- if context.pagination %}
+api_instance.{{ context.api_request.operation_id|snake_case }}_with_pagination({{ parameters }}) { |item| puts item }
+{%- else %}
 {%- if context.status_code != 204 %}
 p api_instance.{{ context.api_request.operation_id|snake_case }}({{ parameters }})
 {%- else %}
 api_instance.{{ context.api_request.operation_id|snake_case }}({{ parameters }})
+{%- endif %}
 {%- endif %}
