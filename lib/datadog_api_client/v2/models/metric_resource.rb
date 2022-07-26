@@ -25,10 +25,10 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The name of the metric.
+    # The name of the resource.
     attr_accessor :name
 
-    # The type of metric.
+    # The type of the resource.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

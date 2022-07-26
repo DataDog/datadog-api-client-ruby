@@ -14,6 +14,12 @@ body = DatadogAPIClient::V2::MetricPayload.new({
           value: 0.7,
         }),
       ],
+      resources: [
+        DatadogAPIClient::V2::MetricResource.new({
+          name: "dummyhost",
+          type: "host",
+        }),
+      ],
     }),
   ],
 })
