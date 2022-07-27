@@ -217,6 +217,9 @@ def format_data_with_schema(
     name = get_name(schema)
 
     if "enum" in schema and data not in schema["enum"]:
+        # Support nullable enums
+        if schema.get("nullable") and data is None:
+            return "nil"
         raise ValueError(f"{data} is not valid enum value {schema['enum']}")
 
     if replace_values and data in replace_values:
