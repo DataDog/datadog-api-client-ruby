@@ -63,7 +63,7 @@ def cli(specs, output):
     common_files = {
         "api_client.rb": env.get_template("api_client.j2"),
         "configuration.rb": env.get_template("configuration.j2"),
-#         "model_base.rb": env.get_template("model_base.j2"),
+        "inflector.rb": env.get_template("inflector.j2"),
     }
 
     all_specs = {}
@@ -114,4 +114,4 @@ def cli(specs, output):
     for name, template in common_files.items():
         filename = common_output / name
         with filename.open("w") as fp:
-            fp.write(template.render(all_apis=all_apis, all_specs=all_specs))
+            fp.write(template.render(all_apis=all_apis, all_specs=all_specs, all_models=all_models))

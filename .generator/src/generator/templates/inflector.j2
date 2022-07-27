@@ -1,0 +1,28 @@
+require 'zeitwerk'
+
+module {{ module_name }}
+  class {{ module_name }}Inflector < Zeitwerk::Inflector
+    def camelize(basename, abspath)
+      model_name = "#{abspath.match('v[0-9]')}.#{basename}"
+      overrides[model_name] || basename.split('_').each(&:capitalize!).join
+    end
+
+    def overrides
+      @overrides ||= {
+        # Models
+        {%- for version, models in all_models.items() %}
+        {%- for model in models|sort %}
+          "{{ version }}.{{ model|snake_case }}" => "{{ model }}",
+        {%- endfor %}
+        {%- endfor %}
+        # APIs
+        {%- for version, apis in all_apis.items() %}
+        {%- for api in apis|sort %}
+        {%- set name = api.replace(" ", "") + "API" %}
+        "{{ version }}.{{ api|snake_case }}_api" => "{{ name }}"{%-if not loop.last %},{% endif %}
+        {%- endfor %}{%-if not loop.last %},{% endif %}
+        {%- endfor %}
+        }
+    end
+  end
+end
