@@ -85,6 +85,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_nullable
       Set.new([
+        :'metrics',
       ])
     end
 
