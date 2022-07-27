@@ -215,6 +215,7 @@ module DatadogAPIClient::V1
     # Get hourly usage for incident management.
     #
     # Get hourly usage for incident management.
+    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
@@ -283,6 +284,7 @@ module DatadogAPIClient::V1
     # Get hourly usage for ingested spans.
     #
     # Get hourly usage for ingested spans.
+    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
@@ -686,6 +688,7 @@ module DatadogAPIClient::V1
     # Get hourly usage for analyzed logs.
     #
     # Get hourly usage for analyzed logs (Security Monitoring).
+    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
@@ -857,6 +860,7 @@ module DatadogAPIClient::V1
     # Get hourly usage for audit logs.
     #
     # Get hourly usage for audit logs.
+    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
@@ -976,7 +980,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get hourly usage for CI Visibility.
+    # Get hourly usage for CI visibility.
     #
     # @see #get_usage_ci_app_with_http_info
     def get_usage_ci_app(start_hr, opts = {})
@@ -984,9 +988,10 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get hourly usage for CI Visibility.
+    # Get hourly usage for CI visibility.
     #
-    # Get hourly usage for CI Visibility (Tests, Pipeline, and Spans).
+    # Get hourly usage for CI visibility (tests, pipeline, and spans).
+    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
@@ -1054,7 +1059,8 @@ module DatadogAPIClient::V1
 
     # Get hourly usage for CSPM.
     #
-    # Get hourly usage for Cloud Security Posture Management (CSPM).
+    # Get hourly usage for cloud security posture management (CSPM).
+    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
@@ -1112,7 +1118,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get hourly usage for Cloud Workload Security.
+    # Get hourly usage for cloud workload security.
     #
     # @see #get_usage_cws_with_http_info
     def get_usage_cws(start_hr, opts = {})
@@ -1120,9 +1126,10 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get hourly usage for Cloud Workload Security.
+    # Get hourly usage for cloud workload security.
     #
-    # Get hourly usage for Cloud Workload Security.
+    # Get hourly usage for cloud workload security.
+    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
@@ -1180,7 +1187,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get hourly usage for Database Monitoring.
+    # Get hourly usage for database monitoring.
     #
     # @see #get_usage_dbm_with_http_info
     def get_usage_dbm(start_hr, opts = {})
@@ -1188,9 +1195,10 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get hourly usage for Database Monitoring.
+    # Get hourly usage for database monitoring.
     #
-    # Get hourly usage for Database Monitoring
+    # Get hourly usage for database monitoring
+    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
@@ -1259,6 +1267,7 @@ module DatadogAPIClient::V1
     # Get hourly usage for Fargate.
     #
     # Get hourly usage for [Fargate](https://docs.datadoghq.com/integrations/ecs_fargate/).
+    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
@@ -1327,6 +1336,7 @@ module DatadogAPIClient::V1
     # Get hourly usage for hosts and containers.
     #
     # Get hourly usage for hosts and containers.
+    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
@@ -1395,6 +1405,7 @@ module DatadogAPIClient::V1
     # Get hourly usage for indexed spans.
     #
     # Get hourly usage for indexed spans.
+    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
@@ -1463,6 +1474,7 @@ module DatadogAPIClient::V1
     # Get hourly usage for IoT.
     #
     # Get hourly usage for IoT.
+    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
@@ -1520,7 +1532,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get hourly usage for Lambda.
+    # Get hourly usage for lambda.
     #
     # @see #get_usage_lambda_with_http_info
     def get_usage_lambda(start_hr, opts = {})
@@ -1528,9 +1540,10 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get hourly usage for Lambda.
+    # Get hourly usage for lambda.
     #
     # Get hourly usage for lambda.
+    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
@@ -1588,7 +1601,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get hourly usage for Logs.
+    # Get hourly usage for logs.
     #
     # @see #get_usage_logs_with_http_info
     def get_usage_logs(start_hr, opts = {})
@@ -1596,9 +1609,10 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get hourly usage for Logs.
+    # Get hourly usage for logs.
     #
     # Get hourly usage for logs.
+    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
@@ -1656,7 +1670,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get hourly usage for Logs by Index.
+    # Get hourly usage for logs by index.
     #
     # @see #get_usage_logs_by_index_with_http_info
     def get_usage_logs_by_index(start_hr, opts = {})
@@ -1664,7 +1678,7 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get hourly usage for Logs by Index.
+    # Get hourly usage for logs by index.
     #
     # Get hourly usage for logs by index.
     #
@@ -1737,6 +1751,7 @@ module DatadogAPIClient::V1
     # Get hourly logs usage by retention.
     #
     # Get hourly usage for indexed logs by retention period.
+    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
@@ -1794,7 +1809,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get hourly usage for Network Flows.
+    # get hourly usage for network flows.
     #
     # @see #get_usage_network_flows_with_http_info
     def get_usage_network_flows(start_hr, opts = {})
@@ -1802,9 +1817,10 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get hourly usage for Network Flows.
+    # get hourly usage for network flows.
     #
     # Get hourly usage for network flows.
+    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
@@ -1862,7 +1878,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get hourly usage for Network Hosts.
+    # Get hourly usage for network hosts.
     #
     # @see #get_usage_network_hosts_with_http_info
     def get_usage_network_hosts(start_hr, opts = {})
@@ -1870,9 +1886,10 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get hourly usage for Network Hosts.
+    # Get hourly usage for network hosts.
     #
     # Get hourly usage for network hosts.
+    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
@@ -1930,7 +1947,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get hourly usage for Online Archive.
+    # Get hourly usage for online archive.
     #
     # @see #get_usage_online_archive_with_http_info
     def get_usage_online_archive(start_hr, opts = {})
@@ -1938,9 +1955,10 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get hourly usage for Online Archive.
+    # Get hourly usage for online archive.
     #
-    # Get hourly usage for Online Archive.
+    # Get hourly usage for online archive.
+    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
@@ -2009,6 +2027,7 @@ module DatadogAPIClient::V1
     # Get hourly usage for profiled hosts.
     #
     # Get hourly usage for profiled hosts.
+    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
@@ -2066,7 +2085,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get hourly usage for RUM Sessions.
+    # Get hourly usage for RUM sessions.
     #
     # @see #get_usage_rum_sessions_with_http_info
     def get_usage_rum_sessions(start_hr, opts = {})
@@ -2074,9 +2093,10 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get hourly usage for RUM Sessions.
+    # Get hourly usage for RUM sessions.
     #
     # Get hourly usage for [RUM](https://docs.datadoghq.com/real_user_monitoring/) Sessions.
+    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
@@ -2136,7 +2156,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get hourly usage for RUM Units.
+    # Get hourly usage for RUM units.
     #
     # @see #get_usage_rum_units_with_http_info
     def get_usage_rum_units(start_hr, opts = {})
@@ -2144,9 +2164,10 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get hourly usage for RUM Units.
+    # Get hourly usage for RUM units.
     #
     # Get hourly usage for [RUM](https://docs.datadoghq.com/real_user_monitoring/) Units.
+    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
@@ -2204,7 +2225,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get hourly usage for Sensitive Data Scanner.
+    # Get hourly usage for sensitive data scanner.
     #
     # @see #get_usage_sds_with_http_info
     def get_usage_sds(start_hr, opts = {})
@@ -2212,9 +2233,10 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get hourly usage for Sensitive Data Scanner.
+    # Get hourly usage for sensitive data scanner.
     #
-    # Get hourly usage for Sensitive Data Scanner.
+    # Get hourly usage for sensitive data scanner.
+    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
@@ -2283,6 +2305,7 @@ module DatadogAPIClient::V1
     # Get hourly usage for SNMP devices.
     #
     # Get hourly usage for SNMP devices.
+    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
@@ -2410,7 +2433,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get hourly usage for Synthetics Checks.
+    # Get hourly usage for synthetics checks.
     #
     # @see #get_usage_synthetics_with_http_info
     def get_usage_synthetics(start_hr, opts = {})
@@ -2418,9 +2441,10 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get hourly usage for Synthetics Checks.
+    # Get hourly usage for synthetics checks.
     #
-    # Get hourly usage for [Synthetics checks](https://docs.datadoghq.com/synthetics/).
+    # Get hourly usage for [synthetics checks](https://docs.datadoghq.com/synthetics/).
+    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
@@ -2478,7 +2502,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get hourly usage for Synthetics API Checks.
+    # Get hourly usage for synthetics API checks.
     #
     # @see #get_usage_synthetics_api_with_http_info
     def get_usage_synthetics_api(start_hr, opts = {})
@@ -2486,9 +2510,10 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get hourly usage for Synthetics API Checks.
+    # Get hourly usage for synthetics API checks.
     #
     # Get hourly usage for [synthetics API checks](https://docs.datadoghq.com/synthetics/).
+    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
@@ -2546,7 +2571,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get hourly usage for Synthetics Browser Checks.
+    # Get hourly usage for synthetics browser checks.
     #
     # @see #get_usage_synthetics_browser_with_http_info
     def get_usage_synthetics_browser(start_hr, opts = {})
@@ -2554,9 +2579,10 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get hourly usage for Synthetics Browser Checks.
+    # Get hourly usage for synthetics browser checks.
     #
     # Get hourly usage for synthetics browser checks.
+    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
@@ -2625,6 +2651,7 @@ module DatadogAPIClient::V1
     # Get hourly usage for custom metrics.
     #
     # Get hourly usage for [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/).
+    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param opts [Hash] the optional parameters

@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Wed, 18 May 2022 18:24:32 GMT
+- recorded_at: Tue, 12 Jul 2022 21:45:36 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"series":[{"metric":"system.load.1","points":[{"timestamp":1652898272,"value":0.7}],"type":0}]}'
+      string: '{"series":[{"metric":"system.load.1","points":[{"timestamp":1657662336,"value":0.7}],"resources":[{"name":"dummyhost","type":"host"}],"type":0}]}'
     headers:
       Accept:
       - application/json

@@ -170,6 +170,18 @@
       "type": "safe"
     }
   },
+  "ListEvents": {
+    "tag": "Events",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "SearchEvents": {
+    "tag": "Events",
+    "undo": {
+      "type": "safe"
+    }
+  },
   "ListIncidents": {
     "tag": "Incidents",
     "undo": {
@@ -862,6 +874,12 @@
     }
   },
   "GetEstimatedCostByOrg": {
+    "tag": "Usage Metering",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "GetHourlyUsage": {
     "tag": "Usage Metering",
     "undo": {
       "type": "safe"

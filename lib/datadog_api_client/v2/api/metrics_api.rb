@@ -676,6 +676,8 @@ module DatadogAPIClient::V2
     # - 50 bytes for the timeseries
     # - The full payload is approximately 100 bytes.
     #
+    # Host name is one of the resources in the Resources field.
+    #
     # @param body [MetricPayload] 
     # @param opts [Hash] the optional parameters
     # @option opts [MetricContentEncoding] :content_encoding HTTP header used to compress the media-type.

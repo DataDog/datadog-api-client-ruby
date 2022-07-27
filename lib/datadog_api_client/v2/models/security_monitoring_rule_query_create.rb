@@ -38,6 +38,9 @@ module DatadogAPIClient::V2
     # aggregations.
     attr_accessor :metric
 
+    # Group of target fields to aggregate over when using the new value aggregations.
+    attr_accessor :metrics
+
     # Name of the query.
     attr_accessor :name
 
@@ -52,6 +55,7 @@ module DatadogAPIClient::V2
         :'distinct_fields' => :'distinctFields',
         :'group_by_fields' => :'groupByFields',
         :'metric' => :'metric',
+        :'metrics' => :'metrics',
         :'name' => :'name',
         :'query' => :'query'
       }
@@ -71,6 +75,7 @@ module DatadogAPIClient::V2
         :'distinct_fields' => :'Array<String>',
         :'group_by_fields' => :'Array<String>',
         :'metric' => :'String',
+        :'metrics' => :'Array<String>',
         :'name' => :'String',
         :'query' => :'String'
       }
@@ -119,6 +124,12 @@ module DatadogAPIClient::V2
         self.metric = attributes[:'metric']
       end
 
+      if attributes.key?(:'metrics')
+        if (value = attributes[:'metrics']).is_a?(Array)
+          self.metrics = value
+        end
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -156,6 +167,7 @@ module DatadogAPIClient::V2
           distinct_fields == o.distinct_fields &&
           group_by_fields == o.group_by_fields &&
           metric == o.metric &&
+          metrics == o.metrics &&
           name == o.name &&
           query == o.query
     end
@@ -171,7 +183,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation, distinct_fields, group_by_fields, metric, name, query].hash
+      [aggregation, distinct_fields, group_by_fields, metric, metrics, name, query].hash
     end
   end
 end

@@ -59,6 +59,23 @@ Feature: Usage Metering
     Then the response status is 200 OK
 
   @team:DataDog/red-zone-revenue-query
+  Scenario: Get hourly usage by product family returns "Bad Request" response
+    Given new "GetHourlyUsage" request
+    And request contains "filter[timestamp][start]" parameter with value "{{ timeISO('now - 3d') }}"
+    And request contains "filter[product_families]" parameter with value "infra_hosts"
+    And request contains "filter[timestamp][end]" parameter with value "{{ timeISO('now - 5d') }}"
+    When the request is sent
+    Then the response status is 400 Bad Request
+
+  @team:DataDog/red-zone-revenue-query
+  Scenario: Get hourly usage by product family returns "OK" response
+    Given new "GetHourlyUsage" request
+    And request contains "filter[timestamp][start]" parameter with value "{{ timeISO('now - 3d') }}"
+    And request contains "filter[product_families]" parameter with value "infra_hosts"
+    When the request is sent
+    Then the response status is 200 OK
+
+  @team:DataDog/red-zone-revenue-query
   Scenario: Get hourly usage for Application Security returns "Bad Request" response
     Given new "GetUsageApplicationSecurityMonitoring" request
     And request contains "start_hr" parameter with value "{{ timeISO('now - 3d') }}"
@@ -103,5 +120,47 @@ Feature: Usage Metering
     Given new "GetUsageObservabilityPipelines" request
     And request contains "start_hr" parameter with value "{{ timeISO('now - 5d') }}"
     And request contains "end_hr" parameter with value "{{ timeISO('now - 3d') }}"
+    When the request is sent
+    Then the response status is 200 OK
+
+  @generated @skip @team:DataDog/red-zone-revenue-query
+  Scenario: Get hourly usage for application security returns "Bad Request" response
+    Given new "GetUsageApplicationSecurityMonitoring" request
+    And request contains "start_hr" parameter from "REPLACE.ME"
+    When the request is sent
+    Then the response status is 400 Bad Request
+
+  @generated @skip @team:DataDog/red-zone-revenue-query
+  Scenario: Get hourly usage for application security returns "OK" response
+    Given new "GetUsageApplicationSecurityMonitoring" request
+    And request contains "start_hr" parameter from "REPLACE.ME"
+    When the request is sent
+    Then the response status is 200 OK
+
+  @generated @skip @team:DataDog/red-zone-revenue-query
+  Scenario: Get hourly usage for lambda traced invocations returns "Bad Request" response
+    Given new "GetUsageLambdaTracedInvocations" request
+    And request contains "start_hr" parameter from "REPLACE.ME"
+    When the request is sent
+    Then the response status is 400 Bad Request
+
+  @generated @skip @team:DataDog/red-zone-revenue-query
+  Scenario: Get hourly usage for lambda traced invocations returns "OK" response
+    Given new "GetUsageLambdaTracedInvocations" request
+    And request contains "start_hr" parameter from "REPLACE.ME"
+    When the request is sent
+    Then the response status is 200 OK
+
+  @generated @skip @team:DataDog/red-zone-revenue-query
+  Scenario: Get hourly usage for observability pipelines returns "Bad Request" response
+    Given new "GetUsageObservabilityPipelines" request
+    And request contains "start_hr" parameter from "REPLACE.ME"
+    When the request is sent
+    Then the response status is 400 Bad Request
+
+  @generated @skip @team:DataDog/red-zone-revenue-query
+  Scenario: Get hourly usage for observability pipelines returns "OK" response
+    Given new "GetUsageObservabilityPipelines" request
+    And request contains "start_hr" parameter from "REPLACE.ME"
     When the request is sent
     Then the response status is 200 OK
