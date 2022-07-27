@@ -182,15 +182,6 @@ module DatadogAPIClient::V2
     # @return [Array<(HourlyUsageResponse, Integer, Hash)>] HourlyUsageResponse data, response status code and response headers
     def get_hourly_usage_with_http_info(filter_timestamp_start, filter_product_families, opts = {})
 
-      if @api_client.config.unstable_operations.has_key?(:get_hourly_usage)
-        unstable_enabled = @api_client.config.unstable_operations[:get_hourly_usage]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_hourly_usage")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_hourly_usage"))
-        end
-      end
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_hourly_usage ...'
       end
@@ -245,7 +236,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)

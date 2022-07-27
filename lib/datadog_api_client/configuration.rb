@@ -165,6 +165,8 @@ module DatadogAPIClient
             "v1.get_usage_attribution": false,
             "v1.get_slo_history": false,
             "v1.search_slo": false,
+            "v2.list_events": false,
+            "v2.search_events": false,
             "v2.create_incident": false,
             "v2.delete_incident": false,
             "v2.get_incident": false,

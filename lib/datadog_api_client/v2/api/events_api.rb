@@ -19,7 +19,7 @@ module DatadogAPIClient::V2
   class EventsAPI
     attr_accessor :api_client
 
-    def initialize(api_client = APIClient.default)
+    def initialize(api_client = DatadogAPIClient::APIClient.default)
       @api_client = api_client
     end
 
@@ -47,14 +47,11 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_limit Maximum number of events in the response.
     # @return [Array<(EventsListResponse, Integer, Hash)>] EventsListResponse data, response status code and response headers
     def list_events_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_events)
-        unstable_enabled = @api_client.config.unstable_operations[:list_events]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_events")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_events"))
-        end
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_events".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_events")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_events"))
       end
 
       if @api_client.config.debugging
@@ -103,7 +100,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -121,15 +119,16 @@ module DatadogAPIClient::V2
     #
     # @yield [EventResponse] Paginated items
     def list_events_with_pagination(opts = {})
+        api_version = "V2"
         page_size = @api_client.get_attribute_from_path(opts, "page_limit", 10)
-        @api_client.set_attribute_from_path(opts, "page_limit", Integer, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "page_limit", Integer, page_size)
         while true do
             response = list_events(opts)
             @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
             if @api_client.get_attribute_from_path(response, "data").length < page_size
               break
             end
-            @api_client.set_attribute_from_path(opts, "page_cursor", Integer, @api_client.get_attribute_from_path(response, "meta.page.after"))
+            @api_client.set_attribute_from_path(api_version, opts, "page_cursor", Integer, @api_client.get_attribute_from_path(response, "meta.page.after"))
         end
     end
 
@@ -152,14 +151,11 @@ module DatadogAPIClient::V2
     # @option opts [EventsListRequest] :body 
     # @return [Array<(EventsListResponse, Integer, Hash)>] EventsListResponse data, response status code and response headers
     def search_events_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:search_events)
-        unstable_enabled = @api_client.config.unstable_operations[:search_events]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "search_events")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "search_events"))
-        end
+      unstable_enabled = @api_client.config.unstable_operations["v2.search_events".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.search_events")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.search_events"))
       end
 
       if @api_client.config.debugging
@@ -197,7 +193,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
@@ -215,15 +212,16 @@ module DatadogAPIClient::V2
     #
     # @yield [EventResponse] Paginated items
     def search_events_with_pagination(opts = {})
+        api_version = "V2"
         page_size = @api_client.get_attribute_from_path(opts, "body.page.limit", 10)
-        @api_client.set_attribute_from_path(opts, "body.page.limit", EventsListRequest, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "body.page.limit", EventsListRequest, page_size)
         while true do
             response = search_events(opts)
             @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
             if @api_client.get_attribute_from_path(response, "data").length < page_size
               break
             end
-            @api_client.set_attribute_from_path(opts, "body.page.cursor", EventsListRequest, @api_client.get_attribute_from_path(response, "meta.page.after"))
+            @api_client.set_attribute_from_path(api_version, opts, "body.page.cursor", EventsListRequest, @api_client.get_attribute_from_path(response, "meta.page.after"))
         end
     end
   end
