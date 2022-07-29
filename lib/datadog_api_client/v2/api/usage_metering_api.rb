@@ -99,25 +99,27 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get estimated cost across multi-org account.
+    # Get estimated cost across your account.
     #
     # @see #get_estimated_cost_by_org_with_http_info
-    def get_estimated_cost_by_org(opts = {})
-      data, _status_code, _headers = get_estimated_cost_by_org_with_http_info(opts)
+    def get_estimated_cost_by_org(view, opts = {})
+      data, _status_code, _headers = get_estimated_cost_by_org_with_http_info(view, opts)
       data
     end
 
-    # Get estimated cost across multi-org account.
+    # Get estimated cost across your account.
     #
-    # Get estimated cost across multi-org account.
+    # Get estimated cost across multi-org and single root-org accounts.
+    # Estimated cost data is only available for the current month and previous month. To access historical costs prior to this, use the /cost_by_org endpoint.
     #
+    # @param view [String] String to specify whether cost is broken down at a parent-org level or at the sub-org level. Currently, only the 'sub-org' view is supported.
     # @param opts [Hash] the optional parameters
-    # @option opts [Time] :start_month Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost beginning this month. Either start_month or start_date should be specified, but not both.
+    # @option opts [Time] :start_month Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost beginning this month. Either start_month or start_date should be specified, but not both. (start_month cannot go beyond two months in the past)
     # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost ending this month.
-    # @option opts [Time] :start_date Datetime in ISO-8601 format, UTC, precise to day: `[YYYY-MM-DD]` for cost beginning this day. Either start_month or start_date should be specified, but not both.
+    # @option opts [Time] :start_date Datetime in ISO-8601 format, UTC, precise to day: `[YYYY-MM-DD]` for cost beginning this day. Either start_month or start_date should be specified, but not both. (start_date cannot go beyond two months in the past)
     # @option opts [Time] :end_date Datetime in ISO-8601 format, UTC, precise to day: `[YYYY-MM-DD]` for cost ending this day.
     # @return [Array<(CostByOrgResponse, Integer, Hash)>] CostByOrgResponse data, response status code and response headers
-    def get_estimated_cost_by_org_with_http_info(opts = {})
+    def get_estimated_cost_by_org_with_http_info(view, opts = {})
 
       if @api_client.config.unstable_operations.has_key?(:get_estimated_cost_by_org)
         unstable_enabled = @api_client.config.unstable_operations[:get_estimated_cost_by_org]
@@ -131,11 +133,16 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_estimated_cost_by_org ...'
       end
+      # verify the required parameter 'view' is set
+      if @api_client.config.client_side_validation && view.nil?
+        fail ArgumentError, "Missing the required parameter 'view' when calling UsageMeteringAPI.get_estimated_cost_by_org"
+      end
       # resource path
-      local_var_path = '/api/v2/usage/estimated_cost_by_org'
+      local_var_path = '/api/v2/usage/estimated_cost'
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'view'] = view
       query_params[:'start_month'] = opts[:'start_month'] if !opts[:'start_month'].nil?
       query_params[:'end_month'] = opts[:'end_month'] if !opts[:'end_month'].nil?
       query_params[:'start_date'] = opts[:'start_date'] if !opts[:'start_date'].nil?
