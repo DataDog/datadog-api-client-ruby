@@ -112,6 +112,12 @@ module DatadogAPIClient::V2
     # @option opts [Time] :end_date Datetime in ISO-8601 format, UTC, precise to day: `[YYYY-MM-DD]` for cost ending this day.
     # @return [Array<(CostByOrgResponse, Integer, Hash)>] CostByOrgResponse data, response status code and response headers
     def get_estimated_cost_by_org_with_http_info(view, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_estimated_cost_by_org".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_estimated_cost_by_org")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_estimated_cost_by_org"))
+      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_estimated_cost_by_org ...'

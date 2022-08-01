@@ -182,6 +182,7 @@ module DatadogAPIClient
             "v2.get_incident_team": false,
             "v2.list_incident_teams": false,
             "v2.update_incident_team": false,
+            "v2.get_estimated_cost_by_org": false,
       }
       @server_variables[:site] = ENV['DD_SITE'] if ENV.key? 'DD_SITE'
       @api_key['apiKeyAuth'] = ENV['DD_API_KEY'] if ENV.key? 'DD_API_KEY'
