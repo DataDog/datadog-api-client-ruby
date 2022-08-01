@@ -19,7 +19,7 @@ module DatadogAPIClient::V1
   class SnapshotsAPI
     attr_accessor :api_client
 
-    def initialize(api_client = APIClient.default)
+    def initialize(api_client = DatadogAPIClient::APIClient.default)
       @api_client = api_client
     end
 
@@ -47,15 +47,6 @@ module DatadogAPIClient::V1
     # @option opts [Integer] :width The width of the graph. If no width is specified, the graph's original width is used.
     # @return [Array<(GraphSnapshot, Integer, Hash)>] GraphSnapshot data, response status code and response headers
     def get_graph_snapshot_with_http_info(start, _end, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_graph_snapshot)
-        unstable_enabled = @api_client.config.unstable_operations[:get_graph_snapshot]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_graph_snapshot")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_graph_snapshot"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SnapshotsAPI.get_graph_snapshot ...'
@@ -106,7 +97,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)

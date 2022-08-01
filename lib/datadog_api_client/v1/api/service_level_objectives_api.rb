@@ -19,7 +19,7 @@ module DatadogAPIClient::V1
   class ServiceLevelObjectivesAPI
     attr_accessor :api_client
 
-    def initialize(api_client = APIClient.default)
+    def initialize(api_client = DatadogAPIClient::APIClient.default)
       @api_client = api_client
     end
 
@@ -40,15 +40,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(CheckCanDeleteSLOResponse, Integer, Hash)>] CheckCanDeleteSLOResponse data, response status code and response headers
     def check_can_delete_slo_with_http_info(ids, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:check_can_delete_slo)
-        unstable_enabled = @api_client.config.unstable_operations[:check_can_delete_slo]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "check_can_delete_slo")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "check_can_delete_slo"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceLevelObjectivesAPI.check_can_delete_slo ...'
@@ -88,7 +79,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -114,15 +106,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SLOListResponse, Integer, Hash)>] SLOListResponse data, response status code and response headers
     def create_slo_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:create_slo)
-        unstable_enabled = @api_client.config.unstable_operations[:create_slo]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_slo")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_slo"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceLevelObjectivesAPI.create_slo ...'
@@ -163,7 +146,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
@@ -193,15 +177,6 @@ module DatadogAPIClient::V1
     # @option opts [String] :force Delete the monitor even if it's referenced by other resources (for example SLO, composite monitor).
     # @return [Array<(SLODeleteResponse, Integer, Hash)>] SLODeleteResponse data, response status code and response headers
     def delete_slo_with_http_info(slo_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:delete_slo)
-        unstable_enabled = @api_client.config.unstable_operations[:delete_slo]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_slo")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_slo"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceLevelObjectivesAPI.delete_slo ...'
@@ -241,7 +216,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
@@ -271,15 +247,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SLOBulkDeleteResponse, Integer, Hash)>] SLOBulkDeleteResponse data, response status code and response headers
     def delete_slo_timeframe_in_bulk_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:delete_slo_timeframe_in_bulk)
-        unstable_enabled = @api_client.config.unstable_operations[:delete_slo_timeframe_in_bulk]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_slo_timeframe_in_bulk")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_slo_timeframe_in_bulk"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceLevelObjectivesAPI.delete_slo_timeframe_in_bulk ...'
@@ -320,7 +287,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
@@ -347,15 +315,6 @@ module DatadogAPIClient::V1
     # @option opts [Boolean] :with_configured_alert_ids Get the IDs of SLO monitors that reference this SLO.
     # @return [Array<(SLOResponse, Integer, Hash)>] SLOResponse data, response status code and response headers
     def get_slo_with_http_info(slo_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_slo)
-        unstable_enabled = @api_client.config.unstable_operations[:get_slo]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_slo")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_slo"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceLevelObjectivesAPI.get_slo ...'
@@ -395,7 +354,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -421,15 +381,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SLOCorrectionListResponse, Integer, Hash)>] SLOCorrectionListResponse data, response status code and response headers
     def get_slo_corrections_with_http_info(slo_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_slo_corrections)
-        unstable_enabled = @api_client.config.unstable_operations[:get_slo_corrections]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_slo_corrections")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_slo_corrections"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceLevelObjectivesAPI.get_slo_corrections ...'
@@ -468,7 +419,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -505,14 +457,11 @@ module DatadogAPIClient::V1
     # @option opts [Boolean] :apply_correction Defaults to `true`. If any SLO corrections are applied and this parameter is set to `false`, then the corrections will not be applied and the SLI values will not be affected.
     # @return [Array<(SLOHistoryResponse, Integer, Hash)>] SLOHistoryResponse data, response status code and response headers
     def get_slo_history_with_http_info(slo_id, from_ts, to_ts, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_slo_history)
-        unstable_enabled = @api_client.config.unstable_operations[:get_slo_history]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_slo_history")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_slo_history"))
-        end
+      unstable_enabled = @api_client.config.unstable_operations["v1.get_slo_history".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v1.get_slo_history")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v1.get_slo_history"))
       end
 
       if @api_client.config.debugging
@@ -570,7 +519,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -601,15 +551,6 @@ module DatadogAPIClient::V1
     # @option opts [Integer] :offset The specific offset to use as the beginning of the returned response.
     # @return [Array<(SLOListResponse, Integer, Hash)>] SLOListResponse data, response status code and response headers
     def list_slos_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_slos)
-        unstable_enabled = @api_client.config.unstable_operations[:list_slos]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_slos")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_slos"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceLevelObjectivesAPI.list_slos ...'
@@ -650,7 +591,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -678,14 +620,11 @@ module DatadogAPIClient::V1
     # @option opts [Integer] :page_number The identifier of the first page to return. This parameter is used for the pagination feature `[default=0]`.
     # @return [Array<(SearchSLOResponse, Integer, Hash)>] SearchSLOResponse data, response status code and response headers
     def search_slo_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:search_slo)
-        unstable_enabled = @api_client.config.unstable_operations[:search_slo]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "search_slo")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "search_slo"))
-        end
+      unstable_enabled = @api_client.config.unstable_operations["v1.search_slo".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v1.search_slo")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v1.search_slo"))
       end
 
       if @api_client.config.debugging
@@ -724,7 +663,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -751,15 +691,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(SLOListResponse, Integer, Hash)>] SLOListResponse data, response status code and response headers
     def update_slo_with_http_info(slo_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_slo)
-        unstable_enabled = @api_client.config.unstable_operations[:update_slo]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_slo")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_slo"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceLevelObjectivesAPI.update_slo ...'
@@ -804,7 +735,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)

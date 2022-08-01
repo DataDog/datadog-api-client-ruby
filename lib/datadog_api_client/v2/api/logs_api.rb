@@ -19,7 +19,7 @@ module DatadogAPIClient::V2
   class LogsAPI
     attr_accessor :api_client
 
-    def initialize(api_client = APIClient.default)
+    def initialize(api_client = DatadogAPIClient::APIClient.default)
       @api_client = api_client
     end
 
@@ -39,15 +39,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsAggregateResponse, Integer, Hash)>] LogsAggregateResponse data, response status code and response headers
     def aggregate_logs_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:aggregate_logs)
-        unstable_enabled = @api_client.config.unstable_operations[:aggregate_logs]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "aggregate_logs")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "aggregate_logs"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsAPI.aggregate_logs ...'
@@ -88,7 +79,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
@@ -125,15 +117,6 @@ module DatadogAPIClient::V2
     # @return [Array<(LogsListResponse, Integer, Hash)>] LogsListResponse data, response status code and response headers
     def list_logs_with_http_info(opts = {})
 
-      if @api_client.config.unstable_operations.has_key?(:list_logs)
-        unstable_enabled = @api_client.config.unstable_operations[:list_logs]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_logs")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_logs"))
-        end
-      end
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsAPI.list_logs ...'
       end
@@ -169,7 +152,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
@@ -187,15 +171,16 @@ module DatadogAPIClient::V2
     #
     # @yield [Log] Paginated items
     def list_logs_with_pagination(opts = {})
+        api_version = "V2"
         page_size = @api_client.get_attribute_from_path(opts, "body.page.limit", 10)
-        @api_client.set_attribute_from_path(opts, "body.page.limit", LogsListRequest, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "body.page.limit", LogsListRequest, page_size)
         while true do
             response = list_logs(opts)
             @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
             if @api_client.get_attribute_from_path(response, "data").length < page_size
               break
             end
-            @api_client.set_attribute_from_path(opts, "body.page.cursor", LogsListRequest, @api_client.get_attribute_from_path(response, "meta.page.after"))
+            @api_client.set_attribute_from_path(api_version, opts, "body.page.cursor", LogsListRequest, @api_client.get_attribute_from_path(response, "meta.page.after"))
         end
     end
 
@@ -231,15 +216,6 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_limit Maximum number of logs in the response.
     # @return [Array<(LogsListResponse, Integer, Hash)>] LogsListResponse data, response status code and response headers
     def list_logs_get_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_logs_get)
-        unstable_enabled = @api_client.config.unstable_operations[:list_logs_get]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_logs_get")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_logs_get"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsAPI.list_logs_get ...'
@@ -288,7 +264,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -306,15 +283,16 @@ module DatadogAPIClient::V2
     #
     # @yield [Log] Paginated items
     def list_logs_get_with_pagination(opts = {})
+        api_version = "V2"
         page_size = @api_client.get_attribute_from_path(opts, "page_limit", 10)
-        @api_client.set_attribute_from_path(opts, "page_limit", Integer, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "page_limit", Integer, page_size)
         while true do
             response = list_logs_get(opts)
             @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
             if @api_client.get_attribute_from_path(response, "data").length < page_size
               break
             end
-            @api_client.set_attribute_from_path(opts, "page_cursor", Integer, @api_client.get_attribute_from_path(response, "meta.page.after"))
+            @api_client.set_attribute_from_path(api_version, opts, "page_cursor", Integer, @api_client.get_attribute_from_path(response, "meta.page.after"))
         end
     end
 
@@ -358,15 +336,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :ddtags Log tags can be passed as query parameters with `text/plain` content type.
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def submit_log_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:submit_log)
-        unstable_enabled = @api_client.config.unstable_operations[:submit_log]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "submit_log")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "submit_log"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsAPI.submit_log ...'
@@ -413,7 +382,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)

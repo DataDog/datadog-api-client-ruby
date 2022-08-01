@@ -10,7 +10,7 @@ module {{ module_name }}::{{ version|upper }}
     # @!visibility private
     def build_from_hash(value)
       constantValues = self.class.constants.select { |c| self.class::const_get(c) == value }
-      constantValues.empty? ? {{ module_name }}::{{ version|upper }}::UnparsedObject.new(value) : value
+      constantValues.empty? ? {{ module_name }}::UnparsedObject.new(value) : value
     end
 
     module ClassMethods
@@ -107,7 +107,7 @@ module {{ module_name }}::{{ version|upper }}
         # models (e.g. Pet) or oneOf
         klass = {{ module_name }}::{{ version|upper }}.const_get(type)
         res = klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
-        if res.instance_of? {{ module_name }}::{{ version|upper }}::UnparsedObject
+        if res.instance_of? {{ module_name }}::UnparsedObject
           self._unparsed = true
         end
         res

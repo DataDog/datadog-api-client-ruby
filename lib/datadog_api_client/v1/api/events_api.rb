@@ -19,7 +19,7 @@ module DatadogAPIClient::V1
   class EventsAPI
     attr_accessor :api_client
 
-    def initialize(api_client = APIClient.default)
+    def initialize(api_client = DatadogAPIClient::APIClient.default)
       @api_client = api_client
     end
 
@@ -40,15 +40,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(EventCreateResponse, Integer, Hash)>] EventCreateResponse data, response status code and response headers
     def create_event_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:create_event)
-        unstable_enabled = @api_client.config.unstable_operations[:create_event]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_event")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_event"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EventsAPI.create_event ...'
@@ -89,7 +80,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
@@ -118,15 +110,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(EventResponse, Integer, Hash)>] EventResponse data, response status code and response headers
     def get_event_with_http_info(event_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_event)
-        unstable_enabled = @api_client.config.unstable_operations[:get_event]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_event")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_event"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EventsAPI.get_event ...'
@@ -165,7 +148,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -206,15 +190,6 @@ module DatadogAPIClient::V1
     # @option opts [Integer] :page By default 1000 results are returned per request. Set page to the number of the page to return with `0` being the first page. The page parameter can only be used when either unaggregated or exclude_aggregate is set to `true.`
     # @return [Array<(EventListResponse, Integer, Hash)>] EventListResponse data, response status code and response headers
     def list_events_with_http_info(start, _end, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_events)
-        unstable_enabled = @api_client.config.unstable_operations[:list_events]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_events")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_events"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EventsAPI.list_events ...'
@@ -272,7 +247,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)

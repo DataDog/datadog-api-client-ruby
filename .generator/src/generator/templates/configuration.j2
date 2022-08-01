@@ -2,7 +2,7 @@
 {% include "api_info.j2" %}
 =end
 
-module {{ module_name }}::{{ version|upper }}
+module {{ module_name }}
   class Configuration
     # Defines url scheme
     attr_accessor :scheme
@@ -148,11 +148,13 @@ module {{ module_name }}::{{ version|upper }}
       @compress = true
       @logger = defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
       @unstable_operations = {
-      {%- for path in openapi.paths.values() %}
-      {%- for operation in path.values() %}
+      {%- for version, apis in all_apis.items() %}
+      {%- for operations in apis.values() %}
+      {%- for _, _, operation in operations|sort(attribute="2.operationId") %}
       {%- if "x-unstable" in operation %}
-            {{ operation.operationId|snake_case }}: false,
+            "{{ version }}.{{ operation.operationId|snake_case }}": false,
       {%- endif %}
+      {%- endfor %}
       {%- endfor %}
       {%- endfor %}
       }
@@ -191,10 +193,10 @@ module {{ module_name }}::{{ version|upper }}
 
     # Returns base URL for specified operation based on server settings
     def base_url(operation = nil)
-      index = server_operation_index.fetch(operation, server_index)
+      index = server_operation_index.fetch(operation.to_sym, server_index)
       return "#{scheme}://#{[host, base_path].join('/').gsub(/\/+/, '/')}".sub(/\/+\z/, '') if index == nil
 
-      server_url(index, server_operation_variables.fetch(operation, server_variables), operation_server_settings[operation])
+      server_url(index, server_operation_variables.fetch(operation.to_sym, server_variables), operation_server_settings[operation.to_sym])
     end
 
     # Gets API key (with prefix if set).
@@ -294,16 +296,18 @@ module {{ module_name }}::{{ version|upper }}
 
     def operation_server_settings
       {
-        {%- for path in openapi.paths.values() %}
+        {%- for version, spec in all_specs.items() %}
+        {%- for path in spec.paths.values() %}
         {%- for operation in path.values() %}
         {%- for server in operation.servers %}
         {%- if loop.first %}
-        {{ operation.operationId|snake_case }}: [
+        "{{ version }}.{{ operation.operationId|snake_case }}": [
         {%- endif %}
           {{ server_configuration(server)|indent(10) }}{% if not loop.last %},{% endif %}
         {%- if loop.last %}  
         ],
         {%- endif %}
+        {%- endfor %}
         {%- endfor %}
         {%- endfor %}
         {%- endfor %}

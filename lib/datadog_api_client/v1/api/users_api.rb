@@ -19,7 +19,7 @@ module DatadogAPIClient::V1
   class UsersAPI
     attr_accessor :api_client
 
-    def initialize(api_client = APIClient.default)
+    def initialize(api_client = DatadogAPIClient::APIClient.default)
       @api_client = api_client
     end
 
@@ -42,15 +42,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(UserResponse, Integer, Hash)>] UserResponse data, response status code and response headers
     def create_user_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:create_user)
-        unstable_enabled = @api_client.config.unstable_operations[:create_user]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_user")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_user"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsersAPI.create_user ...'
@@ -91,7 +82,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
@@ -120,15 +112,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(UserDisableResponse, Integer, Hash)>] UserDisableResponse data, response status code and response headers
     def disable_user_with_http_info(user_handle, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:disable_user)
-        unstable_enabled = @api_client.config.unstable_operations[:disable_user]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "disable_user")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "disable_user"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsersAPI.disable_user ...'
@@ -167,7 +150,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
@@ -193,15 +177,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(UserResponse, Integer, Hash)>] UserResponse data, response status code and response headers
     def get_user_with_http_info(user_handle, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_user)
-        unstable_enabled = @api_client.config.unstable_operations[:get_user]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_user")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_user"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsersAPI.get_user ...'
@@ -240,7 +215,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -265,15 +241,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(UserListResponse, Integer, Hash)>] UserListResponse data, response status code and response headers
     def list_users_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_users)
-        unstable_enabled = @api_client.config.unstable_operations[:list_users]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_users")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_users"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsersAPI.list_users ...'
@@ -308,7 +275,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -337,15 +305,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(UserResponse, Integer, Hash)>] UserResponse data, response status code and response headers
     def update_user_with_http_info(user_handle, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_user)
-        unstable_enabled = @api_client.config.unstable_operations[:update_user]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_user")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_user"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsersAPI.update_user ...'
@@ -390,7 +349,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)

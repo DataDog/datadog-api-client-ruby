@@ -19,7 +19,7 @@ module DatadogAPIClient::V1
   class MonitorsAPI
     attr_accessor :api_client
 
-    def initialize(api_client = APIClient.default)
+    def initialize(api_client = DatadogAPIClient::APIClient.default)
       @api_client = api_client
     end
 
@@ -39,15 +39,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(CheckCanDeleteMonitorResponse, Integer, Hash)>] CheckCanDeleteMonitorResponse data, response status code and response headers
     def check_can_delete_monitor_with_http_info(monitor_ids, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:check_can_delete_monitor)
-        unstable_enabled = @api_client.config.unstable_operations[:check_can_delete_monitor]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "check_can_delete_monitor")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "check_can_delete_monitor"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MonitorsAPI.check_can_delete_monitor ...'
@@ -87,7 +78,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -296,15 +288,6 @@ module DatadogAPIClient::V1
     # @return [Array<(Monitor, Integer, Hash)>] Monitor data, response status code and response headers
     def create_monitor_with_http_info(body, opts = {})
 
-      if @api_client.config.unstable_operations.has_key?(:create_monitor)
-        unstable_enabled = @api_client.config.unstable_operations[:create_monitor]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_monitor")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_monitor"))
-        end
-      end
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MonitorsAPI.create_monitor ...'
       end
@@ -344,7 +327,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
@@ -371,15 +355,6 @@ module DatadogAPIClient::V1
     # @option opts [String] :force Delete the monitor even if it's referenced by other resources (for example SLO, composite monitor).
     # @return [Array<(DeletedMonitor, Integer, Hash)>] DeletedMonitor data, response status code and response headers
     def delete_monitor_with_http_info(monitor_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:delete_monitor)
-        unstable_enabled = @api_client.config.unstable_operations[:delete_monitor]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_monitor")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_monitor"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MonitorsAPI.delete_monitor ...'
@@ -419,7 +394,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
@@ -446,15 +422,6 @@ module DatadogAPIClient::V1
     # @option opts [String] :group_states When specified, shows additional information about the group states. Choose one or more from `all`, `alert`, `warn`, and `no data`.
     # @return [Array<(Monitor, Integer, Hash)>] Monitor data, response status code and response headers
     def get_monitor_with_http_info(monitor_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_monitor)
-        unstable_enabled = @api_client.config.unstable_operations[:get_monitor]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_monitor")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_monitor"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MonitorsAPI.get_monitor ...'
@@ -494,7 +461,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -527,15 +495,6 @@ module DatadogAPIClient::V1
     # @option opts [Integer] :page_size The number of monitors to return per page. If the page argument is not specified, the default behavior returns all monitors without a `page_size` limit. However, if page is specified and `page_size` is not, the argument defaults to 100.
     # @return [Array<(Array<Monitor>, Integer, Hash)>] Array<Monitor> data, response status code and response headers
     def list_monitors_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_monitors)
-        unstable_enabled = @api_client.config.unstable_operations[:list_monitors]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_monitors")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_monitors"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MonitorsAPI.list_monitors ...'
@@ -581,7 +540,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -610,15 +570,6 @@ module DatadogAPIClient::V1
     # @option opts [String] :sort String for sort order, composed of field and sort order separate by a comma, for example `name,asc`. Supported sort directions: `asc`, `desc`. Supported fields:  * `name` * `status` * `tags`
     # @return [Array<(MonitorGroupSearchResponse, Integer, Hash)>] MonitorGroupSearchResponse data, response status code and response headers
     def search_monitor_groups_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:search_monitor_groups)
-        unstable_enabled = @api_client.config.unstable_operations[:search_monitor_groups]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "search_monitor_groups")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "search_monitor_groups"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MonitorsAPI.search_monitor_groups ...'
@@ -657,7 +608,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -686,15 +638,6 @@ module DatadogAPIClient::V1
     # @option opts [String] :sort String for sort order, composed of field and sort order separate by a comma, for example `name,asc`. Supported sort directions: `asc`, `desc`. Supported fields:  * `name` * `status` * `tags`
     # @return [Array<(MonitorSearchResponse, Integer, Hash)>] MonitorSearchResponse data, response status code and response headers
     def search_monitors_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:search_monitors)
-        unstable_enabled = @api_client.config.unstable_operations[:search_monitors]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "search_monitors")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "search_monitors"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MonitorsAPI.search_monitors ...'
@@ -733,7 +676,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -760,15 +704,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Monitor, Integer, Hash)>] Monitor data, response status code and response headers
     def update_monitor_with_http_info(monitor_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_monitor)
-        unstable_enabled = @api_client.config.unstable_operations[:update_monitor]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_monitor")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_monitor"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MonitorsAPI.update_monitor ...'
@@ -813,7 +748,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
@@ -840,15 +776,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def validate_existing_monitor_with_http_info(monitor_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:validate_existing_monitor)
-        unstable_enabled = @api_client.config.unstable_operations[:validate_existing_monitor]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "validate_existing_monitor")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "validate_existing_monitor"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MonitorsAPI.validate_existing_monitor ...'
@@ -893,7 +820,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
@@ -919,15 +847,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def validate_monitor_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:validate_monitor)
-        unstable_enabled = @api_client.config.unstable_operations[:validate_monitor]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "validate_monitor")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "validate_monitor"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MonitorsAPI.validate_monitor ...'
@@ -968,7 +887,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)

@@ -19,7 +19,7 @@ module DatadogAPIClient::V1
   class AuthenticationAPI
     attr_accessor :api_client
 
-    def initialize(api_client = APIClient.default)
+    def initialize(api_client = DatadogAPIClient::APIClient.default)
       @api_client = api_client
     end
 
@@ -38,15 +38,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(AuthenticationValidationResponse, Integer, Hash)>] AuthenticationValidationResponse data, response status code and response headers
     def validate_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:validate)
-        unstable_enabled = @api_client.config.unstable_operations[:validate]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "validate")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "validate"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AuthenticationAPI.validate ...'
@@ -81,7 +72,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)

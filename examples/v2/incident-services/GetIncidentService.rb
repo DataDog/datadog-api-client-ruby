@@ -2,7 +2,7 @@
 
 require "datadog_api_client"
 DatadogAPIClient::V2.configure do |config|
-  config.unstable_operations[:get_incident_service] = true
+  config.unstable_operations["v2.get_incident_service".to_sym] = true
 end
 api_instance = DatadogAPIClient::V2::IncidentServicesAPI.new
 

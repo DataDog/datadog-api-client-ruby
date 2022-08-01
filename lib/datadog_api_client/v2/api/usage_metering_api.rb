@@ -19,7 +19,7 @@ module DatadogAPIClient::V2
   class UsageMeteringAPI
     attr_accessor :api_client
 
-    def initialize(api_client = APIClient.default)
+    def initialize(api_client = DatadogAPIClient::APIClient.default)
       @api_client = api_client
     end
 
@@ -40,15 +40,6 @@ module DatadogAPIClient::V2
     # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost ending this month.
     # @return [Array<(CostByOrgResponse, Integer, Hash)>] CostByOrgResponse data, response status code and response headers
     def get_cost_by_org_with_http_info(start_month, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_cost_by_org)
-        unstable_enabled = @api_client.config.unstable_operations[:get_cost_by_org]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_cost_by_org")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_cost_by_org"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_cost_by_org ...'
@@ -89,7 +80,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -120,14 +112,11 @@ module DatadogAPIClient::V2
     # @option opts [Time] :end_date Datetime in ISO-8601 format, UTC, precise to day: `[YYYY-MM-DD]` for cost ending this day.
     # @return [Array<(CostByOrgResponse, Integer, Hash)>] CostByOrgResponse data, response status code and response headers
     def get_estimated_cost_by_org_with_http_info(view, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_estimated_cost_by_org)
-        unstable_enabled = @api_client.config.unstable_operations[:get_estimated_cost_by_org]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_estimated_cost_by_org")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_estimated_cost_by_org"))
-        end
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_estimated_cost_by_org".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_estimated_cost_by_org")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_estimated_cost_by_org"))
       end
 
       if @api_client.config.debugging
@@ -172,7 +161,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -204,15 +194,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :page_next_record_id List following results with a next_record_id provided in the previous query.
     # @return [Array<(HourlyUsageResponse, Integer, Hash)>] HourlyUsageResponse data, response status code and response headers
     def get_hourly_usage_with_http_info(filter_timestamp_start, filter_product_families, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_hourly_usage)
-        unstable_enabled = @api_client.config.unstable_operations[:get_hourly_usage]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_hourly_usage")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_hourly_usage"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_hourly_usage ...'
@@ -268,7 +249,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -296,15 +278,6 @@ module DatadogAPIClient::V2
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageApplicationSecurityMonitoringResponse, Integer, Hash)>] UsageApplicationSecurityMonitoringResponse data, response status code and response headers
     def get_usage_application_security_monitoring_with_http_info(start_hr, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_usage_application_security_monitoring)
-        unstable_enabled = @api_client.config.unstable_operations[:get_usage_application_security_monitoring]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_application_security_monitoring")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_usage_application_security_monitoring"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_application_security_monitoring ...'
@@ -345,7 +318,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -373,15 +347,6 @@ module DatadogAPIClient::V2
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageLambdaTracedInvocationsResponse, Integer, Hash)>] UsageLambdaTracedInvocationsResponse data, response status code and response headers
     def get_usage_lambda_traced_invocations_with_http_info(start_hr, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_usage_lambda_traced_invocations)
-        unstable_enabled = @api_client.config.unstable_operations[:get_usage_lambda_traced_invocations]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_lambda_traced_invocations")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_usage_lambda_traced_invocations"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_lambda_traced_invocations ...'
@@ -422,7 +387,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -450,15 +416,6 @@ module DatadogAPIClient::V2
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageObservabilityPipelinesResponse, Integer, Hash)>] UsageObservabilityPipelinesResponse data, response status code and response headers
     def get_usage_observability_pipelines_with_http_info(start_hr, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_usage_observability_pipelines)
-        unstable_enabled = @api_client.config.unstable_operations[:get_usage_observability_pipelines]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_usage_observability_pipelines")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_usage_observability_pipelines"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_observability_pipelines ...'
@@ -499,7 +456,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)

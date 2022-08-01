@@ -2,7 +2,7 @@
 
 require "datadog_api_client"
 DatadogAPIClient::V2.configure do |config|
-  config.unstable_operations[:search_events] = true
+  config.unstable_operations["v2.search_events".to_sym] = true
 end
 api_instance = DatadogAPIClient::V2::EventsAPI.new
 

@@ -19,7 +19,7 @@ module DatadogAPIClient::V2
   class RUMAPI
     attr_accessor :api_client
 
-    def initialize(api_client = APIClient.default)
+    def initialize(api_client = DatadogAPIClient::APIClient.default)
       @api_client = api_client
     end
 
@@ -39,15 +39,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(RUMAnalyticsAggregateResponse, Integer, Hash)>] RUMAnalyticsAggregateResponse data, response status code and response headers
     def aggregate_rum_events_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:aggregate_rum_events)
-        unstable_enabled = @api_client.config.unstable_operations[:aggregate_rum_events]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "aggregate_rum_events")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "aggregate_rum_events"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RUMAPI.aggregate_rum_events ...'
@@ -88,7 +79,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
@@ -124,15 +116,6 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_limit Maximum number of events in the response.
     # @return [Array<(RUMEventsResponse, Integer, Hash)>] RUMEventsResponse data, response status code and response headers
     def list_rum_events_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_rum_events)
-        unstable_enabled = @api_client.config.unstable_operations[:list_rum_events]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_rum_events")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_rum_events"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RUMAPI.list_rum_events ...'
@@ -180,7 +163,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -198,15 +182,16 @@ module DatadogAPIClient::V2
     #
     # @yield [RUMEvent] Paginated items
     def list_rum_events_with_pagination(opts = {})
+        api_version = "V2"
         page_size = @api_client.get_attribute_from_path(opts, "page_limit", 10)
-        @api_client.set_attribute_from_path(opts, "page_limit", Integer, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "page_limit", Integer, page_size)
         while true do
             response = list_rum_events(opts)
             @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
             if @api_client.get_attribute_from_path(response, "data").length < page_size
               break
             end
-            @api_client.set_attribute_from_path(opts, "page_cursor", Integer, @api_client.get_attribute_from_path(response, "meta.page.after"))
+            @api_client.set_attribute_from_path(api_version, opts, "page_cursor", Integer, @api_client.get_attribute_from_path(response, "meta.page.after"))
         end
     end
 
@@ -231,15 +216,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(RUMEventsResponse, Integer, Hash)>] RUMEventsResponse data, response status code and response headers
     def search_rum_events_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:search_rum_events)
-        unstable_enabled = @api_client.config.unstable_operations[:search_rum_events]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "search_rum_events")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "search_rum_events"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RUMAPI.search_rum_events ...'
@@ -280,7 +256,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
@@ -298,15 +275,16 @@ module DatadogAPIClient::V2
     #
     # @yield [RUMEvent] Paginated items
     def search_rum_events_with_pagination(body, opts = {})
+        api_version = "V2"
         page_size = @api_client.get_attribute_from_path(body, "page.limit", 10)
-        @api_client.set_attribute_from_path(body, "page.limit", RUMSearchEventsRequest, page_size)
+        @api_client.set_attribute_from_path(api_version, body, "page.limit", RUMSearchEventsRequest, page_size)
         while true do
             response = search_rum_events(body, opts)
             @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
             if @api_client.get_attribute_from_path(response, "data").length < page_size
               break
             end
-            @api_client.set_attribute_from_path(body, "page.cursor", RUMSearchEventsRequest, @api_client.get_attribute_from_path(response, "meta.page.after"))
+            @api_client.set_attribute_from_path(api_version, body, "page.cursor", RUMSearchEventsRequest, @api_client.get_attribute_from_path(response, "meta.page.after"))
         end
     end
   end
