@@ -1,5 +1,30 @@
 # CHANGELOG
 
+## 2.0.0 / 2022-08-01
+
+### Fixed
+* Add synthetics results api replay only tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/991
+### Added
+* Update usage attribution enums by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/966
+* Add estimated ingested spans to usage attribution by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/981
+* Add v2 Security monitoring signals triage operations. by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/972
+* docs(dataviz): update Treemap widget definition with deprecated properties + updated description [VIZZ-2305] by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/992
+* Add hourly usage v2 endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/977
+* Add support for zstd compression by @therve in https://github.com/DataDog/datadog-api-client-ruby/pull/994
+* Add metrics field in the RuleQuery by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/978
+* Add support for Events V2 endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/954
+* [RQ-2492]: Add custom_events to list of product families in hourly-usage api. by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1000
+* Re-introduce Estimated Cost API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1006
+* Move shared modules out and introduce code loader by @skarimo in https://github.com/DataDog/datadog-api-client-ruby/pull/989
+### Changed
+* Add description of metric type enums by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/982
+* remove x-unstable property for usage attribution endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/990
+
+## New Contributors
+* @ganeshkumarsv made their first contribution in https://github.com/DataDog/datadog-api-client-ruby/pull/987
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-ruby/compare/v1.11.0...v2.0.0
+
 ## 1.11.0 / 2022-07-01
 
 ### Fixed
