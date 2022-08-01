@@ -97,9 +97,7 @@ RSpec.configure do |config|
       now = Time.now
       name = example.metadata[:full_description].gsub(/[^A-Za-z0-9]+/, '-')[0..100]
       @unique ||= "ruby-#{name}-#{now.to_i}"
-      m = example.metadata[:file_path].match /spec\/v(?<version>\d+)\/.*/
-      @api_version = m[:version]
-      api = Object.const_get("DatadogAPIClient::V#{@api_version}")
+      api = Object.const_get("DatadogAPIClient")
       @configuration = api::Configuration.new
       @configuration.api_key = ENV["DD_TEST_CLIENT_API_KEY"]
       @configuration.application_key = ENV["DD_TEST_CLIENT_APP_KEY"]

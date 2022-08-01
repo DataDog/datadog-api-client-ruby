@@ -19,7 +19,7 @@ module DatadogAPIClient::V1
   class OrganizationsAPI
     attr_accessor :api_client
 
-    def initialize(api_client = APIClient.default)
+    def initialize(api_client = DatadogAPIClient::APIClient.default)
       @api_client = api_client
     end
 
@@ -48,15 +48,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(OrganizationCreateResponse, Integer, Hash)>] OrganizationCreateResponse data, response status code and response headers
     def create_child_org_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:create_child_org)
-        unstable_enabled = @api_client.config.unstable_operations[:create_child_org]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_child_org")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_child_org"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrganizationsAPI.create_child_org ...'
@@ -97,7 +88,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
@@ -123,15 +115,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(OrgDowngradedResponse, Integer, Hash)>] OrgDowngradedResponse data, response status code and response headers
     def downgrade_org_with_http_info(public_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:downgrade_org)
-        unstable_enabled = @api_client.config.unstable_operations[:downgrade_org]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "downgrade_org")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "downgrade_org"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrganizationsAPI.downgrade_org ...'
@@ -170,7 +153,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
@@ -196,15 +180,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(OrganizationResponse, Integer, Hash)>] OrganizationResponse data, response status code and response headers
     def get_org_with_http_info(public_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_org)
-        unstable_enabled = @api_client.config.unstable_operations[:get_org]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_org")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_org"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrganizationsAPI.get_org ...'
@@ -243,7 +218,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -268,15 +244,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(OrganizationListResponse, Integer, Hash)>] OrganizationListResponse data, response status code and response headers
     def list_orgs_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_orgs)
-        unstable_enabled = @api_client.config.unstable_operations[:list_orgs]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_orgs")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_orgs"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrganizationsAPI.list_orgs ...'
@@ -311,7 +278,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -338,15 +306,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(OrganizationResponse, Integer, Hash)>] OrganizationResponse data, response status code and response headers
     def update_org_with_http_info(public_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_org)
-        unstable_enabled = @api_client.config.unstable_operations[:update_org]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_org")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_org"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrganizationsAPI.update_org ...'
@@ -391,7 +350,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
@@ -423,15 +383,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(IdpResponse, Integer, Hash)>] IdpResponse data, response status code and response headers
     def upload_idp_for_org_with_http_info(public_id, idp_file, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:upload_idp_for_org)
-        unstable_enabled = @api_client.config.unstable_operations[:upload_idp_for_org]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "upload_idp_for_org")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "upload_idp_for_org"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrganizationsAPI.upload_idp_for_org ...'
@@ -477,7 +428,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)

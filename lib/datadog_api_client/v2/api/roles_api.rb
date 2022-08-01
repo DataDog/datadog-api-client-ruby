@@ -19,7 +19,7 @@ module DatadogAPIClient::V2
   class RolesAPI
     attr_accessor :api_client
 
-    def initialize(api_client = APIClient.default)
+    def initialize(api_client = DatadogAPIClient::APIClient.default)
       @api_client = api_client
     end
 
@@ -40,15 +40,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(PermissionsResponse, Integer, Hash)>] PermissionsResponse data, response status code and response headers
     def add_permission_to_role_with_http_info(role_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:add_permission_to_role)
-        unstable_enabled = @api_client.config.unstable_operations[:add_permission_to_role]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "add_permission_to_role")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "add_permission_to_role"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RolesAPI.add_permission_to_role ...'
@@ -93,7 +84,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
@@ -120,15 +112,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(UsersResponse, Integer, Hash)>] UsersResponse data, response status code and response headers
     def add_user_to_role_with_http_info(role_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:add_user_to_role)
-        unstable_enabled = @api_client.config.unstable_operations[:add_user_to_role]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "add_user_to_role")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "add_user_to_role"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RolesAPI.add_user_to_role ...'
@@ -173,7 +156,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
@@ -200,15 +184,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(RoleResponse, Integer, Hash)>] RoleResponse data, response status code and response headers
     def clone_role_with_http_info(role_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:clone_role)
-        unstable_enabled = @api_client.config.unstable_operations[:clone_role]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "clone_role")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "clone_role"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RolesAPI.clone_role ...'
@@ -253,7 +228,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
@@ -279,15 +255,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(RoleCreateResponse, Integer, Hash)>] RoleCreateResponse data, response status code and response headers
     def create_role_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:create_role)
-        unstable_enabled = @api_client.config.unstable_operations[:create_role]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_role")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_role"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RolesAPI.create_role ...'
@@ -328,7 +295,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
@@ -354,15 +322,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_role_with_http_info(role_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:delete_role)
-        unstable_enabled = @api_client.config.unstable_operations[:delete_role]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_role")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_role"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RolesAPI.delete_role ...'
@@ -401,7 +360,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
@@ -427,15 +387,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(RoleResponse, Integer, Hash)>] RoleResponse data, response status code and response headers
     def get_role_with_http_info(role_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_role)
-        unstable_enabled = @api_client.config.unstable_operations[:get_role]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_role")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_role"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RolesAPI.get_role ...'
@@ -474,7 +425,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -499,15 +451,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(PermissionsResponse, Integer, Hash)>] PermissionsResponse data, response status code and response headers
     def list_permissions_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_permissions)
-        unstable_enabled = @api_client.config.unstable_operations[:list_permissions]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_permissions")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_permissions"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RolesAPI.list_permissions ...'
@@ -542,7 +485,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -568,15 +512,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(PermissionsResponse, Integer, Hash)>] PermissionsResponse data, response status code and response headers
     def list_role_permissions_with_http_info(role_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_role_permissions)
-        unstable_enabled = @api_client.config.unstable_operations[:list_role_permissions]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_role_permissions")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_role_permissions"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RolesAPI.list_role_permissions ...'
@@ -615,7 +550,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -644,15 +580,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter Filter all roles by the given string.
     # @return [Array<(RolesResponse, Integer, Hash)>] RolesResponse data, response status code and response headers
     def list_roles_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_roles)
-        unstable_enabled = @api_client.config.unstable_operations[:list_roles]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_roles")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_roles"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RolesAPI.list_roles ...'
@@ -695,7 +622,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -725,15 +653,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter Filter all users by the given string. Defaults to no filtering.
     # @return [Array<(UsersResponse, Integer, Hash)>] UsersResponse data, response status code and response headers
     def list_role_users_with_http_info(role_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_role_users)
-        unstable_enabled = @api_client.config.unstable_operations[:list_role_users]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_role_users")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_role_users"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RolesAPI.list_role_users ...'
@@ -776,7 +695,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -803,15 +723,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(PermissionsResponse, Integer, Hash)>] PermissionsResponse data, response status code and response headers
     def remove_permission_from_role_with_http_info(role_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:remove_permission_from_role)
-        unstable_enabled = @api_client.config.unstable_operations[:remove_permission_from_role]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "remove_permission_from_role")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "remove_permission_from_role"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RolesAPI.remove_permission_from_role ...'
@@ -856,7 +767,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
@@ -883,15 +795,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(UsersResponse, Integer, Hash)>] UsersResponse data, response status code and response headers
     def remove_user_from_role_with_http_info(role_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:remove_user_from_role)
-        unstable_enabled = @api_client.config.unstable_operations[:remove_user_from_role]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "remove_user_from_role")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "remove_user_from_role"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RolesAPI.remove_user_from_role ...'
@@ -936,7 +839,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
@@ -963,15 +867,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(RoleUpdateResponse, Integer, Hash)>] RoleUpdateResponse data, response status code and response headers
     def update_role_with_http_info(role_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_role)
-        unstable_enabled = @api_client.config.unstable_operations[:update_role]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_role")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_role"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RolesAPI.update_role ...'
@@ -1016,7 +911,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)

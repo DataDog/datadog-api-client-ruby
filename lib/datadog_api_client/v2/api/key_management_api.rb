@@ -19,7 +19,7 @@ module DatadogAPIClient::V2
   class KeyManagementAPI
     attr_accessor :api_client
 
-    def initialize(api_client = APIClient.default)
+    def initialize(api_client = DatadogAPIClient::APIClient.default)
       @api_client = api_client
     end
 
@@ -39,15 +39,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(APIKeyResponse, Integer, Hash)>] APIKeyResponse data, response status code and response headers
     def create_api_key_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:create_api_key)
-        unstable_enabled = @api_client.config.unstable_operations[:create_api_key]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_api_key")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_api_key"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.create_api_key ...'
@@ -88,7 +79,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
@@ -114,15 +106,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def create_current_user_application_key_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:create_current_user_application_key)
-        unstable_enabled = @api_client.config.unstable_operations[:create_current_user_application_key]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_current_user_application_key")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_current_user_application_key"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.create_current_user_application_key ...'
@@ -163,7 +146,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
@@ -189,15 +173,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_api_key_with_http_info(api_key_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:delete_api_key)
-        unstable_enabled = @api_client.config.unstable_operations[:delete_api_key]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_api_key")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_api_key"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.delete_api_key ...'
@@ -236,7 +211,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
@@ -262,15 +238,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_application_key_with_http_info(app_key_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:delete_application_key)
-        unstable_enabled = @api_client.config.unstable_operations[:delete_application_key]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_application_key")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_application_key"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.delete_application_key ...'
@@ -309,7 +276,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
@@ -335,15 +303,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_current_user_application_key_with_http_info(app_key_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:delete_current_user_application_key)
-        unstable_enabled = @api_client.config.unstable_operations[:delete_current_user_application_key]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_current_user_application_key")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_current_user_application_key"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.delete_current_user_application_key ...'
@@ -382,7 +341,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
@@ -409,15 +369,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :include Comma separated list of resource paths for related resources to include in the response. Supported resource paths are `created_by` and `modified_by`.
     # @return [Array<(APIKeyResponse, Integer, Hash)>] APIKeyResponse data, response status code and response headers
     def get_api_key_with_http_info(api_key_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_api_key)
-        unstable_enabled = @api_client.config.unstable_operations[:get_api_key]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_api_key")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_api_key"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.get_api_key ...'
@@ -457,7 +408,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -484,15 +436,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :include Resource path for related resources to include in the response. Only `owned_by` is supported.
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def get_application_key_with_http_info(app_key_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_application_key)
-        unstable_enabled = @api_client.config.unstable_operations[:get_application_key]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_application_key")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_application_key"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.get_application_key ...'
@@ -532,7 +475,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -558,15 +502,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def get_current_user_application_key_with_http_info(app_key_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_current_user_application_key)
-        unstable_enabled = @api_client.config.unstable_operations[:get_current_user_application_key]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_current_user_application_key")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_current_user_application_key"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.get_current_user_application_key ...'
@@ -605,7 +540,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -639,15 +575,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :include Comma separated list of resource paths for related resources to include in the response. Supported resource paths are `created_by` and `modified_by`.
     # @return [Array<(APIKeysResponse, Integer, Hash)>] APIKeysResponse data, response status code and response headers
     def list_api_keys_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_api_keys)
-        unstable_enabled = @api_client.config.unstable_operations[:list_api_keys]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_api_keys")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_api_keys"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.list_api_keys ...'
@@ -695,7 +622,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -726,15 +654,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_created_at_end Only include application keys created on or before the specified date.
     # @return [Array<(ListApplicationKeysResponse, Integer, Hash)>] ListApplicationKeysResponse data, response status code and response headers
     def list_application_keys_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_application_keys)
-        unstable_enabled = @api_client.config.unstable_operations[:list_application_keys]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_application_keys")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_application_keys"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.list_application_keys ...'
@@ -779,7 +698,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -810,15 +730,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_created_at_end Only include application keys created on or before the specified date.
     # @return [Array<(ListApplicationKeysResponse, Integer, Hash)>] ListApplicationKeysResponse data, response status code and response headers
     def list_current_user_application_keys_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_current_user_application_keys)
-        unstable_enabled = @api_client.config.unstable_operations[:list_current_user_application_keys]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_current_user_application_keys")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_current_user_application_keys"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.list_current_user_application_keys ...'
@@ -863,7 +774,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -890,15 +802,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(APIKeyResponse, Integer, Hash)>] APIKeyResponse data, response status code and response headers
     def update_api_key_with_http_info(api_key_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_api_key)
-        unstable_enabled = @api_client.config.unstable_operations[:update_api_key]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_api_key")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_api_key"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.update_api_key ...'
@@ -943,7 +846,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
@@ -970,15 +874,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def update_application_key_with_http_info(app_key_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_application_key)
-        unstable_enabled = @api_client.config.unstable_operations[:update_application_key]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_application_key")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_application_key"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.update_application_key ...'
@@ -1023,7 +918,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
@@ -1050,15 +946,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(ApplicationKeyResponse, Integer, Hash)>] ApplicationKeyResponse data, response status code and response headers
     def update_current_user_application_key_with_http_info(app_key_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_current_user_application_key)
-        unstable_enabled = @api_client.config.unstable_operations[:update_current_user_application_key]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_current_user_application_key")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_current_user_application_key"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KeyManagementAPI.update_current_user_application_key ...'
@@ -1103,7 +990,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)

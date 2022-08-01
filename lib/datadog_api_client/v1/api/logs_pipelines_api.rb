@@ -19,7 +19,7 @@ module DatadogAPIClient::V1
   class LogsPipelinesAPI
     attr_accessor :api_client
 
-    def initialize(api_client = APIClient.default)
+    def initialize(api_client = DatadogAPIClient::APIClient.default)
       @api_client = api_client
     end
 
@@ -39,15 +39,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsPipeline, Integer, Hash)>] LogsPipeline data, response status code and response headers
     def create_logs_pipeline_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:create_logs_pipeline)
-        unstable_enabled = @api_client.config.unstable_operations[:create_logs_pipeline]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_logs_pipeline")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_logs_pipeline"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsPipelinesAPI.create_logs_pipeline ...'
@@ -88,7 +79,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
@@ -115,15 +107,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_logs_pipeline_with_http_info(pipeline_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:delete_logs_pipeline)
-        unstable_enabled = @api_client.config.unstable_operations[:delete_logs_pipeline]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_logs_pipeline")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_logs_pipeline"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsPipelinesAPI.delete_logs_pipeline ...'
@@ -162,7 +145,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
@@ -189,15 +173,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsPipeline, Integer, Hash)>] LogsPipeline data, response status code and response headers
     def get_logs_pipeline_with_http_info(pipeline_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_logs_pipeline)
-        unstable_enabled = @api_client.config.unstable_operations[:get_logs_pipeline]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_logs_pipeline")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_logs_pipeline"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsPipelinesAPI.get_logs_pipeline ...'
@@ -236,7 +211,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -262,15 +238,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsPipelinesOrder, Integer, Hash)>] LogsPipelinesOrder data, response status code and response headers
     def get_logs_pipeline_order_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_logs_pipeline_order)
-        unstable_enabled = @api_client.config.unstable_operations[:get_logs_pipeline_order]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_logs_pipeline_order")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_logs_pipeline_order"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsPipelinesAPI.get_logs_pipeline_order ...'
@@ -305,7 +272,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -331,15 +299,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Array<LogsPipeline>, Integer, Hash)>] Array<LogsPipeline> data, response status code and response headers
     def list_logs_pipelines_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_logs_pipelines)
-        unstable_enabled = @api_client.config.unstable_operations[:list_logs_pipelines]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_logs_pipelines")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_logs_pipelines"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsPipelinesAPI.list_logs_pipelines ...'
@@ -374,7 +333,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -404,15 +364,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsPipeline, Integer, Hash)>] LogsPipeline data, response status code and response headers
     def update_logs_pipeline_with_http_info(pipeline_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_logs_pipeline)
-        unstable_enabled = @api_client.config.unstable_operations[:update_logs_pipeline]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_logs_pipeline")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_logs_pipeline"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsPipelinesAPI.update_logs_pipeline ...'
@@ -457,7 +408,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
@@ -487,15 +439,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsPipelinesOrder, Integer, Hash)>] LogsPipelinesOrder data, response status code and response headers
     def update_logs_pipeline_order_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_logs_pipeline_order)
-        unstable_enabled = @api_client.config.unstable_operations[:update_logs_pipeline_order]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_logs_pipeline_order")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_logs_pipeline_order"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsPipelinesAPI.update_logs_pipeline_order ...'
@@ -536,7 +479,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)

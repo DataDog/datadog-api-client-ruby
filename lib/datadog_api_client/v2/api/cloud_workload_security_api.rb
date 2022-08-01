@@ -19,7 +19,7 @@ module DatadogAPIClient::V2
   class CloudWorkloadSecurityAPI
     attr_accessor :api_client
 
-    def initialize(api_client = APIClient.default)
+    def initialize(api_client = DatadogAPIClient::APIClient.default)
       @api_client = api_client
     end
 
@@ -39,15 +39,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CloudWorkloadSecurityAgentRuleResponse, Integer, Hash)>] CloudWorkloadSecurityAgentRuleResponse data, response status code and response headers
     def create_cloud_workload_security_agent_rule_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:create_cloud_workload_security_agent_rule)
-        unstable_enabled = @api_client.config.unstable_operations[:create_cloud_workload_security_agent_rule]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_cloud_workload_security_agent_rule")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_cloud_workload_security_agent_rule"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudWorkloadSecurityAPI.create_cloud_workload_security_agent_rule ...'
@@ -88,7 +79,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
@@ -114,15 +106,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_cloud_workload_security_agent_rule_with_http_info(agent_rule_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:delete_cloud_workload_security_agent_rule)
-        unstable_enabled = @api_client.config.unstable_operations[:delete_cloud_workload_security_agent_rule]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_cloud_workload_security_agent_rule")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_cloud_workload_security_agent_rule"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudWorkloadSecurityAPI.delete_cloud_workload_security_agent_rule ...'
@@ -161,7 +144,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
@@ -188,15 +172,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def download_cloud_workload_policy_file_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:download_cloud_workload_policy_file)
-        unstable_enabled = @api_client.config.unstable_operations[:download_cloud_workload_policy_file]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "download_cloud_workload_policy_file")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "download_cloud_workload_policy_file"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudWorkloadSecurityAPI.download_cloud_workload_policy_file ...'
@@ -231,7 +206,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -257,15 +233,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CloudWorkloadSecurityAgentRuleResponse, Integer, Hash)>] CloudWorkloadSecurityAgentRuleResponse data, response status code and response headers
     def get_cloud_workload_security_agent_rule_with_http_info(agent_rule_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_cloud_workload_security_agent_rule)
-        unstable_enabled = @api_client.config.unstable_operations[:get_cloud_workload_security_agent_rule]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_cloud_workload_security_agent_rule")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_cloud_workload_security_agent_rule"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudWorkloadSecurityAPI.get_cloud_workload_security_agent_rule ...'
@@ -304,7 +271,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -329,15 +297,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CloudWorkloadSecurityAgentRulesListResponse, Integer, Hash)>] CloudWorkloadSecurityAgentRulesListResponse data, response status code and response headers
     def list_cloud_workload_security_agent_rules_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_cloud_workload_security_agent_rules)
-        unstable_enabled = @api_client.config.unstable_operations[:list_cloud_workload_security_agent_rules]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_cloud_workload_security_agent_rules")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_cloud_workload_security_agent_rules"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudWorkloadSecurityAPI.list_cloud_workload_security_agent_rules ...'
@@ -372,7 +331,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -400,15 +360,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(CloudWorkloadSecurityAgentRuleResponse, Integer, Hash)>] CloudWorkloadSecurityAgentRuleResponse data, response status code and response headers
     def update_cloud_workload_security_agent_rule_with_http_info(agent_rule_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_cloud_workload_security_agent_rule)
-        unstable_enabled = @api_client.config.unstable_operations[:update_cloud_workload_security_agent_rule]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_cloud_workload_security_agent_rule")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_cloud_workload_security_agent_rule"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudWorkloadSecurityAPI.update_cloud_workload_security_agent_rule ...'
@@ -453,7 +404,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)

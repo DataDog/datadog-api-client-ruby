@@ -21,7 +21,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def build_from_hash(value)
       constantValues = self.class.constants.select { |c| self.class::const_get(c) == value }
-      constantValues.empty? ? DatadogAPIClient::V1::UnparsedObject.new(value) : value
+      constantValues.empty? ? DatadogAPIClient::UnparsedObject.new(value) : value
     end
 
     module ClassMethods
@@ -118,7 +118,7 @@ module DatadogAPIClient::V1
         # models (e.g. Pet) or oneOf
         klass = DatadogAPIClient::V1.const_get(type)
         res = klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
-        if res.instance_of? DatadogAPIClient::V1::UnparsedObject
+        if res.instance_of? DatadogAPIClient::UnparsedObject
           self._unparsed = true
         end
         res

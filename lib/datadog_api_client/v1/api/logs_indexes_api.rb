@@ -19,7 +19,7 @@ module DatadogAPIClient::V1
   class LogsIndexesAPI
     attr_accessor :api_client
 
-    def initialize(api_client = APIClient.default)
+    def initialize(api_client = DatadogAPIClient::APIClient.default)
       @api_client = api_client
     end
 
@@ -39,15 +39,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsIndex, Integer, Hash)>] LogsIndex data, response status code and response headers
     def create_logs_index_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:create_logs_index)
-        unstable_enabled = @api_client.config.unstable_operations[:create_logs_index]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_logs_index")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_logs_index"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsIndexesAPI.create_logs_index ...'
@@ -88,7 +79,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
@@ -114,15 +106,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsIndex, Integer, Hash)>] LogsIndex data, response status code and response headers
     def get_logs_index_with_http_info(name, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_logs_index)
-        unstable_enabled = @api_client.config.unstable_operations[:get_logs_index]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_logs_index")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_logs_index"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsIndexesAPI.get_logs_index ...'
@@ -161,7 +144,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -186,15 +170,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsIndexesOrder, Integer, Hash)>] LogsIndexesOrder data, response status code and response headers
     def get_logs_index_order_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_logs_index_order)
-        unstable_enabled = @api_client.config.unstable_operations[:get_logs_index_order]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_logs_index_order")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_logs_index_order"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsIndexesAPI.get_logs_index_order ...'
@@ -229,7 +204,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -255,15 +231,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsIndexListResponse, Integer, Hash)>] LogsIndexListResponse data, response status code and response headers
     def list_log_indexes_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_log_indexes)
-        unstable_enabled = @api_client.config.unstable_operations[:list_log_indexes]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_log_indexes")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_log_indexes"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsIndexesAPI.list_log_indexes ...'
@@ -298,7 +265,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -329,15 +297,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsIndex, Integer, Hash)>] LogsIndex data, response status code and response headers
     def update_logs_index_with_http_info(name, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_logs_index)
-        unstable_enabled = @api_client.config.unstable_operations[:update_logs_index]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_logs_index")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_logs_index"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsIndexesAPI.update_logs_index ...'
@@ -382,7 +341,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
@@ -409,15 +369,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsIndexesOrder, Integer, Hash)>] LogsIndexesOrder data, response status code and response headers
     def update_logs_index_order_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_logs_index_order)
-        unstable_enabled = @api_client.config.unstable_operations[:update_logs_index_order]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_logs_index_order")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_logs_index_order"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsIndexesAPI.update_logs_index_order ...'
@@ -458,7 +409,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)

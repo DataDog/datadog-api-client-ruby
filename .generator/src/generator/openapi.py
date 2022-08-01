@@ -32,7 +32,10 @@ def type_to_ruby(schema, alternative_name=None):
     if name:
         if "enum" in schema:
             return name
-        if not (schema.get("additionalProperties") and not schema.get("properties")) and schema.get("type", "object") == "object":
+        if (
+            not (schema.get("additionalProperties") and not schema.get("properties"))
+            and schema.get("type", "object") == "object"
+        ):
             return name
 
     type_ = schema.get("type")
@@ -117,9 +120,9 @@ def child_models(schema, alternative_name=None, seen=None):
             seen=seen,
         )
 
-    if (
-        schema.get("type") == "object" or "properties" in schema or has_sub_models
-    ) and not ("additionalProperties" in schema and "properties" not in schema):
+    if (schema.get("type") == "object" or "properties" in schema or has_sub_models) and not (
+        "additionalProperties" in schema and "properties" not in schema
+    ):
         if not has_sub_models and name is None:
             # this is a basic map object so we don't need a type
             return
@@ -458,7 +461,6 @@ def get_default(operation, attribute_path):
 
 
 def get_container(operation, attribute_path, with_type=False):
-
     def get_type(parameter):
         if with_type:
             return f", {get_type_for_parameter(parameter)}"
@@ -468,7 +470,11 @@ def get_container(operation, attribute_path, with_type=False):
     for name, parameter in parameters(operation):
         if name == attribute_name:
             if parameter["required"]:
-                return '{}, "{}"{}'.format(name, ".".join(formatter.attribute_name(a) for a in attribute_path.split(".")[1:]), get_type(parameter))
+                return '{}, "{}"{}'.format(
+                    name,
+                    ".".join(formatter.attribute_name(a) for a in attribute_path.split(".")[1:]),
+                    get_type(parameter),
+                )
     return f'opts, "{formatter.attribute_path(attribute_path)}"{get_type(parameter)}'
 
 

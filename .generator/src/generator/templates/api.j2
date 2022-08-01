@@ -9,7 +9,7 @@ module {{ module_name }}::{{ version|upper }}
   class {{ classname }}
     attr_accessor :api_client
 
-    def initialize(api_client = APIClient.default)
+    def initialize(api_client = {{ module_name }}::APIClient.default)
       @api_client = api_client
     end
 
@@ -40,15 +40,14 @@ module {{ module_name }}::{{ version|upper }}
     {%- endfor %}
     # @return [Array<({% if returnType %}{{ returnType }}{% else %}nil{% endif %}, Integer, Hash)>] {% if returnType %}{{ returnType }} data{% else %}nil{% endif %}, response status code and response headers
     def {{ operation.operationId|snake_case }}_with_http_info({% for name, parameter in operation|parameters if parameter.required %}{{ name|attribute_name }}, {% endfor %}opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:{{ operation.operationId|snake_case }})
-        unstable_enabled = @api_client.config.unstable_operations[:{{ operation.operationId|snake_case }}]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "{{ operation.operationId|snake_case }}")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "{{ operation.operationId|snake_case }}"))
-        end
+      {%- if "x-unstable" in operation %}
+      unstable_enabled = @api_client.config.unstable_operations["{{ version }}.{{ operation.operationId|snake_case }}".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "{{ version }}.{{ operation.operationId|snake_case }}")
+      else
+        raise {{ module_name }}::APIError.new(message: format("Unstable operation '%s' is disabled", "{{ version }}.{{ operation.operationId|snake_case }}"))
       end
+      {%- endif %}
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: {{classname}}.{{ operation.operationId|snake_case }} ...'
@@ -198,7 +197,8 @@ module {{ module_name }}::{{ version|upper }}
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "{{ version|upper }}"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::{{ httpMethod|camel_case }}, local_var_path, new_options)
@@ -218,8 +218,9 @@ module {{ module_name }}::{{ version|upper }}
     #
     # @yield [{{ get_type_at_path(operation, pagination.resultsPath) }}] Paginated items
     def {{ operation.operationId|snake_case }}_with_pagination({% for name, parameter in operation|parameters if parameter.required %}{{ name|attribute_name }}, {% endfor %}opts = {})
+        api_version = "{{ version|upper }}"
         page_size = @api_client.get_attribute_from_path({{ get_container(operation, pagination.limitParam) }}, {{ get_default(operation, pagination.limitParam) }})
-        @api_client.set_attribute_from_path({{ get_container(operation, pagination.limitParam, True) }}, page_size)
+        @api_client.set_attribute_from_path(api_version, {{ get_container(operation, pagination.limitParam, True) }}, page_size)
         while true do
             response = {{ operation.operationId|snake_case }}({% for name, parameter in operation|parameters if parameter.required %}{{ name|attribute_name }}, {% endfor %}opts)
             @api_client.get_attribute_from_path(response, "{{ pagination.resultsPath|attribute_path }}").each { |item| yield(item) }
@@ -227,10 +228,10 @@ module {{ module_name }}::{{ version|upper }}
               break
             end
             {%- if pagination.pageOffsetParam %}
-            @api_client.set_attribute_from_path({{ get_container(operation, pagination.pageOffsetParam, True) }}, @api_client.get_attribute_from_path({{ get_container(operation, pagination.pageOffsetParam) }}, 0) + page_size)
+            @api_client.set_attribute_from_path(api_version, {{ get_container(operation, pagination.pageOffsetParam, True) }}, @api_client.get_attribute_from_path({{ get_container(operation, pagination.pageOffsetParam) }}, 0) + page_size)
             {%- endif %}
             {%- if pagination.cursorParam %}
-            @api_client.set_attribute_from_path({{ get_container(operation, pagination.cursorParam, True) }}, @api_client.get_attribute_from_path(response, "{{ pagination.cursorPath }}"))
+            @api_client.set_attribute_from_path(api_version, {{ get_container(operation, pagination.cursorParam, True) }}, @api_client.get_attribute_from_path(response, "{{ pagination.cursorPath }}"))
             {%- endif %}
         end
     end

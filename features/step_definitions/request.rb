@@ -6,7 +6,7 @@ SLEEP_AFTER_REQUEST = ENV["SLEEP_AFTER_REQUEST"].present? ? ENV["SLEEP_AFTER_REQ
 
 module APIWorld
   def api
-    Object.const_get("DatadogAPIClient::V#{@api_version}")
+    Object.const_get("DatadogAPIClient")
   end
 
   def configuration
@@ -130,8 +130,8 @@ module APIWorld
       end.to_h
       params = method.parameters.select { |p| p[0] == :req }.map { |p| args.delete(p[1]) }
 
-      if api_instance.api_client.config.unstable_operations.has_key?(operation_name.to_sym)
-        api_instance.api_client.config.unstable_operations[operation_name.to_sym] = true
+      if api_instance.api_client.config.unstable_operations.has_key?("v#{@api_version}.#{operation_name}".to_sym)
+        api_instance.api_client.config.unstable_operations["v#{@api_version}.#{operation_name}".to_sym] = true
       end
       lambda { method.call(*params) }
     end
@@ -142,20 +142,20 @@ module APIWorld
     operation_name = operation["operationId"].snakecase
 
     # make sure we have a fresh instance of API client and configuration
-    given_api = Object.const_get("DatadogAPIClient::V#{api_version}")
+    given_api = Object.const_get("DatadogAPIClient")
     given_configuration = from_env(given_api::Configuration.new)
     given_configuration.api_key = ENV["DD_TEST_CLIENT_API_KEY"]
     given_configuration.application_key = ENV["DD_TEST_CLIENT_APP_KEY"]
     given_api_client = given_api::APIClient.new given_configuration
-    given_api_instance = given_api.const_get("#{api_name}API").new given_api_client
+    given_api_instance = given_api.const_get("V#{api_version}").const_get("#{api_name}API").new given_api_client
     method = given_api_instance.method("#{operation_name}_with_http_info".to_sym)
 
     # find undo method
     undo_builder = build_undo_for(api_version, operation_name, given_api_instance)
 
     # enable unstable operation
-    if given_configuration.unstable_operations.has_key?(operation_name.to_sym)
-      given_configuration.unstable_operations[operation_name.to_sym] = true
+    if given_configuration.unstable_operations.has_key?("v#{@api_version}.#{operation_name}".to_sym)
+      given_configuration.unstable_operations["v#{@api_version}.#{operation_name}".to_sym] = true
     end
 
     # perform operation
@@ -196,11 +196,12 @@ end
 
 Given(/^an instance of "([^"]+)" API$/) do |api_name|
   configuration.debugging = ENV["DEBUG"].present?
-  @api_instance = api.const_get("#{api_name}API").new api_client
+  @api_instance = api.const_get("V#{@api_version}").const_get("#{api_name}API").new api_client
 end
 
 Given('operation {string} enabled') do |name|
-  configuration.unstable_operations[name.snakecase.to_sym] = true
+  "V#{@api_version}.#{name.snakecase}".to_sym
+  configuration.unstable_operations["v#{@api_version}.#{name.snakecase}".to_sym] = true
 end
 
 Given(/^body with value (.*)$/) do |body|

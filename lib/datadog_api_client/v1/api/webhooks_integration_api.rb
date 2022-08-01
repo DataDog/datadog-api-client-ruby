@@ -19,7 +19,7 @@ module DatadogAPIClient::V1
   class WebhooksIntegrationAPI
     attr_accessor :api_client
 
-    def initialize(api_client = APIClient.default)
+    def initialize(api_client = DatadogAPIClient::APIClient.default)
       @api_client = api_client
     end
 
@@ -39,15 +39,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(WebhooksIntegration, Integer, Hash)>] WebhooksIntegration data, response status code and response headers
     def create_webhooks_integration_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:create_webhooks_integration)
-        unstable_enabled = @api_client.config.unstable_operations[:create_webhooks_integration]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_webhooks_integration")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_webhooks_integration"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WebhooksIntegrationAPI.create_webhooks_integration ...'
@@ -88,7 +79,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
@@ -114,15 +106,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(WebhooksIntegrationCustomVariableResponse, Integer, Hash)>] WebhooksIntegrationCustomVariableResponse data, response status code and response headers
     def create_webhooks_integration_custom_variable_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:create_webhooks_integration_custom_variable)
-        unstable_enabled = @api_client.config.unstable_operations[:create_webhooks_integration_custom_variable]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_webhooks_integration_custom_variable")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_webhooks_integration_custom_variable"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WebhooksIntegrationAPI.create_webhooks_integration_custom_variable ...'
@@ -163,7 +146,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
@@ -189,15 +173,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_webhooks_integration_with_http_info(webhook_name, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:delete_webhooks_integration)
-        unstable_enabled = @api_client.config.unstable_operations[:delete_webhooks_integration]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_webhooks_integration")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_webhooks_integration"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WebhooksIntegrationAPI.delete_webhooks_integration ...'
@@ -236,7 +211,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
@@ -262,15 +238,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_webhooks_integration_custom_variable_with_http_info(custom_variable_name, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:delete_webhooks_integration_custom_variable)
-        unstable_enabled = @api_client.config.unstable_operations[:delete_webhooks_integration_custom_variable]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_webhooks_integration_custom_variable")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_webhooks_integration_custom_variable"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WebhooksIntegrationAPI.delete_webhooks_integration_custom_variable ...'
@@ -309,7 +276,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
@@ -335,15 +303,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(WebhooksIntegration, Integer, Hash)>] WebhooksIntegration data, response status code and response headers
     def get_webhooks_integration_with_http_info(webhook_name, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_webhooks_integration)
-        unstable_enabled = @api_client.config.unstable_operations[:get_webhooks_integration]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_webhooks_integration")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_webhooks_integration"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WebhooksIntegrationAPI.get_webhooks_integration ...'
@@ -382,7 +341,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -411,15 +371,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(WebhooksIntegrationCustomVariableResponse, Integer, Hash)>] WebhooksIntegrationCustomVariableResponse data, response status code and response headers
     def get_webhooks_integration_custom_variable_with_http_info(custom_variable_name, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_webhooks_integration_custom_variable)
-        unstable_enabled = @api_client.config.unstable_operations[:get_webhooks_integration_custom_variable]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_webhooks_integration_custom_variable")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_webhooks_integration_custom_variable"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WebhooksIntegrationAPI.get_webhooks_integration_custom_variable ...'
@@ -458,7 +409,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -485,15 +437,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(WebhooksIntegration, Integer, Hash)>] WebhooksIntegration data, response status code and response headers
     def update_webhooks_integration_with_http_info(webhook_name, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_webhooks_integration)
-        unstable_enabled = @api_client.config.unstable_operations[:update_webhooks_integration]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_webhooks_integration")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_webhooks_integration"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WebhooksIntegrationAPI.update_webhooks_integration ...'
@@ -538,7 +481,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
@@ -565,15 +509,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(WebhooksIntegrationCustomVariableResponse, Integer, Hash)>] WebhooksIntegrationCustomVariableResponse data, response status code and response headers
     def update_webhooks_integration_custom_variable_with_http_info(custom_variable_name, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_webhooks_integration_custom_variable)
-        unstable_enabled = @api_client.config.unstable_operations[:update_webhooks_integration_custom_variable]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_webhooks_integration_custom_variable")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_webhooks_integration_custom_variable"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WebhooksIntegrationAPI.update_webhooks_integration_custom_variable ...'
@@ -618,7 +553,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)

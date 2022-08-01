@@ -19,7 +19,7 @@ module DatadogAPIClient::V2
   class MetricsAPI
     attr_accessor :api_client
 
-    def initialize(api_client = APIClient.default)
+    def initialize(api_client = DatadogAPIClient::APIClient.default)
       @api_client = api_client
     end
 
@@ -44,15 +44,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(MetricBulkTagConfigResponse, Integer, Hash)>] MetricBulkTagConfigResponse data, response status code and response headers
     def create_bulk_tags_metrics_configuration_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:create_bulk_tags_metrics_configuration)
-        unstable_enabled = @api_client.config.unstable_operations[:create_bulk_tags_metrics_configuration]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_bulk_tags_metrics_configuration")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_bulk_tags_metrics_configuration"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsAPI.create_bulk_tags_metrics_configuration ...'
@@ -93,7 +84,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
@@ -123,15 +115,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(MetricTagConfigurationResponse, Integer, Hash)>] MetricTagConfigurationResponse data, response status code and response headers
     def create_tag_configuration_with_http_info(metric_name, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:create_tag_configuration)
-        unstable_enabled = @api_client.config.unstable_operations[:create_tag_configuration]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_tag_configuration")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_tag_configuration"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsAPI.create_tag_configuration ...'
@@ -176,7 +159,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
@@ -205,15 +189,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(MetricBulkTagConfigResponse, Integer, Hash)>] MetricBulkTagConfigResponse data, response status code and response headers
     def delete_bulk_tags_metrics_configuration_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:delete_bulk_tags_metrics_configuration)
-        unstable_enabled = @api_client.config.unstable_operations[:delete_bulk_tags_metrics_configuration]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_bulk_tags_metrics_configuration")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_bulk_tags_metrics_configuration"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsAPI.delete_bulk_tags_metrics_configuration ...'
@@ -254,7 +229,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
@@ -281,15 +257,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_tag_configuration_with_http_info(metric_name, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:delete_tag_configuration)
-        unstable_enabled = @api_client.config.unstable_operations[:delete_tag_configuration]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_tag_configuration")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_tag_configuration"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsAPI.delete_tag_configuration ...'
@@ -328,7 +295,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
@@ -359,15 +327,6 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :filter_timespan_h A window, in hours, from the look back to estimate cardinality with.
     # @return [Array<(MetricEstimateResponse, Integer, Hash)>] MetricEstimateResponse data, response status code and response headers
     def estimate_metrics_output_series_with_http_info(metric_name, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:estimate_metrics_output_series)
-        unstable_enabled = @api_client.config.unstable_operations[:estimate_metrics_output_series]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "estimate_metrics_output_series")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "estimate_metrics_output_series"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsAPI.estimate_metrics_output_series ...'
@@ -411,7 +370,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -437,15 +397,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(MetricTagConfigurationResponse, Integer, Hash)>] MetricTagConfigurationResponse data, response status code and response headers
     def list_tag_configuration_by_name_with_http_info(metric_name, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_tag_configuration_by_name)
-        unstable_enabled = @api_client.config.unstable_operations[:list_tag_configuration_by_name]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_tag_configuration_by_name")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_tag_configuration_by_name"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsAPI.list_tag_configuration_by_name ...'
@@ -484,7 +435,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -516,15 +468,6 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :window_seconds The number of seconds of look back (from now) to apply to a filter[tag] query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days).
     # @return [Array<(MetricsAndMetricTagConfigurationsResponse, Integer, Hash)>] MetricsAndMetricTagConfigurationsResponse data, response status code and response headers
     def list_tag_configurations_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_tag_configurations)
-        unstable_enabled = @api_client.config.unstable_operations[:list_tag_configurations]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_tag_configurations")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_tag_configurations"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsAPI.list_tag_configurations ...'
@@ -569,7 +512,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -595,15 +539,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(MetricAllTagsResponse, Integer, Hash)>] MetricAllTagsResponse data, response status code and response headers
     def list_tags_by_metric_name_with_http_info(metric_name, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_tags_by_metric_name)
-        unstable_enabled = @api_client.config.unstable_operations[:list_tags_by_metric_name]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_tags_by_metric_name")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_tags_by_metric_name"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsAPI.list_tags_by_metric_name ...'
@@ -642,7 +577,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -670,15 +606,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(MetricVolumesResponse, Integer, Hash)>] MetricVolumesResponse data, response status code and response headers
     def list_volumes_by_metric_name_with_http_info(metric_name, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_volumes_by_metric_name)
-        unstable_enabled = @api_client.config.unstable_operations[:list_volumes_by_metric_name]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_volumes_by_metric_name")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_volumes_by_metric_name"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsAPI.list_volumes_by_metric_name ...'
@@ -717,7 +644,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -755,15 +683,6 @@ module DatadogAPIClient::V2
     # @option opts [MetricContentEncoding] :content_encoding HTTP header used to compress the media-type.
     # @return [Array<(IntakePayloadAccepted, Integer, Hash)>] IntakePayloadAccepted data, response status code and response headers
     def submit_metrics_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:submit_metrics)
-        unstable_enabled = @api_client.config.unstable_operations[:submit_metrics]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "submit_metrics")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "submit_metrics"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsAPI.submit_metrics ...'
@@ -809,7 +728,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
@@ -838,15 +758,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(MetricTagConfigurationResponse, Integer, Hash)>] MetricTagConfigurationResponse data, response status code and response headers
     def update_tag_configuration_with_http_info(metric_name, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_tag_configuration)
-        unstable_enabled = @api_client.config.unstable_operations[:update_tag_configuration]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_tag_configuration")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_tag_configuration"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsAPI.update_tag_configuration ...'
@@ -891,7 +802,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)

@@ -19,7 +19,7 @@ module DatadogAPIClient::V1
   class HostsAPI
     attr_accessor :api_client
 
-    def initialize(api_client = APIClient.default)
+    def initialize(api_client = DatadogAPIClient::APIClient.default)
       @api_client = api_client
     end
 
@@ -40,15 +40,6 @@ module DatadogAPIClient::V1
     # @option opts [Integer] :from Number of seconds from which you want to get total number of active hosts.
     # @return [Array<(HostTotals, Integer, Hash)>] HostTotals data, response status code and response headers
     def get_host_totals_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_host_totals)
-        unstable_enabled = @api_client.config.unstable_operations[:get_host_totals]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_host_totals")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_host_totals"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: HostsAPI.get_host_totals ...'
@@ -84,7 +75,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -120,15 +112,6 @@ module DatadogAPIClient::V1
     # @option opts [Boolean] :include_hosts_metadata Include additional metadata about the hosts (agent_version, machine, platform, processor, etc.).
     # @return [Array<(HostListResponse, Integer, Hash)>] HostListResponse data, response status code and response headers
     def list_hosts_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_hosts)
-        unstable_enabled = @api_client.config.unstable_operations[:list_hosts]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_hosts")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_hosts"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: HostsAPI.list_hosts ...'
@@ -171,7 +154,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -198,15 +182,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(HostMuteResponse, Integer, Hash)>] HostMuteResponse data, response status code and response headers
     def mute_host_with_http_info(host_name, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:mute_host)
-        unstable_enabled = @api_client.config.unstable_operations[:mute_host]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "mute_host")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "mute_host"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: HostsAPI.mute_host ...'
@@ -251,7 +226,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
@@ -277,15 +253,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(HostMuteResponse, Integer, Hash)>] HostMuteResponse data, response status code and response headers
     def unmute_host_with_http_info(host_name, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:unmute_host)
-        unstable_enabled = @api_client.config.unstable_operations[:unmute_host]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "unmute_host")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "unmute_host"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: HostsAPI.unmute_host ...'
@@ -324,7 +291,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)

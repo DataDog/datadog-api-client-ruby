@@ -19,7 +19,7 @@ module DatadogAPIClient::V1
   class ServiceChecksAPI
     attr_accessor :api_client
 
-    def initialize(api_client = APIClient.default)
+    def initialize(api_client = DatadogAPIClient::APIClient.default)
       @api_client = api_client
     end
 
@@ -43,15 +43,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(IntakePayloadAccepted, Integer, Hash)>] IntakePayloadAccepted data, response status code and response headers
     def submit_service_check_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:submit_service_check)
-        unstable_enabled = @api_client.config.unstable_operations[:submit_service_check]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "submit_service_check")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "submit_service_check"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceChecksAPI.submit_service_check ...'
@@ -92,7 +83,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
