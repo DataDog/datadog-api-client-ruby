@@ -1,5 +1,5 @@
-# Delete a single service object returns "OK" response
+# Delete a single service object returns "No Content" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::PagerDutyIntegrationAPI.new
-p api_instance.delete_pager_duty_integration_service("service_name")
+api_instance.delete_pager_duty_integration_service("service_name")
