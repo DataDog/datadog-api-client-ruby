@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 2.0.1 / 2022-08-02
+
+### Fixed
+* Configure Zeitwerk with absolute paths by @anakinj in https://github.com/DataDog/datadog-api-client-ruby/pull/1010
+
+## New Contributors
+* @anakinj made their first contribution in https://github.com/DataDog/datadog-api-client-ruby/pull/1010
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-ruby/compare/v2.0.0...v2.0.1
+
 ## 2.0.0 / 2022-08-01
 
 ### Fixed
