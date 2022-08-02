@@ -27,7 +27,7 @@ The following steps will help you quickly start interacting with Datadog APIs us
 3. (optional) You can configure site and [authentication](#authentication) using environment variables or code block:
 
    ```ruby
-   DatadogAPIClient::V1.configure do |config|
+   DatadogAPIClient.configure do |config|
      config.server_variables[:site] = 'datadoghq.eu'
    end
    ```
@@ -78,7 +78,7 @@ api_instance = DatadogAPIClient::V1::IPRangesAPI.new
 begin
   result = api_instance.get_ip_ranges
   p result
-rescue DatadogAPIClient::V1::APIError => e
+rescue DatadogAPIClient::APIError => e
   puts "Error when calling IPRangesAPI->get_ip_ranges: #{e}"
 end
 ```
@@ -88,7 +88,7 @@ end
 Authenticate with the API by providing your API and Application keys in the configuration:
 
 ```ruby
-DatadogAPIClient::V1.configure do |config|
+DatadogAPIClient.configure do |config|
   config.api_key = ENV['NON_STANDARD_NAME_FOR_DD_API_KEY']
   config.application_key = ENV['NON_STANDARD_NAME_FOR_DD_APP_KEY']
 end
@@ -99,8 +99,8 @@ end
 This client includes access to Datadog API endpoints while they are in an unstable state and may undergo breaking changes. An extra configuration step is required to enable these endpoints:
 
 ```ruby
-DatadogAPIClient::V1.configure do |config|
-  config.unstable_operations[:'<unstable_operation_id>'] = true
+DatadogAPIClient.configure do |config|
+  config.unstable_operations[:'<api_version>.<unstable_operation_id>'] = true
 end
 ```
 
@@ -111,9 +111,9 @@ where `<unstable_operation_id>` is the name of the method used to interact with 
 When talking to a different server, like the `eu` instance, change the `server_variables` on your configuration object:
 
 ```ruby
-config = DatadogAPIClient::V1::Configuration.new
+config = DatadogAPIClient::Configuration.new
 config.server_variables["site"] = "datadoghq.eu"
-client = DatadogAPIClient::V1::APIClient.new(config)
+client = DatadogAPIClient::APIClient.new(config)
 ```
 
 ### Disable compressed payloads
@@ -122,9 +122,9 @@ If you want to disable GZIP compressed responses, set the `compress` flag
 on your configuration object:
 
 ```ruby
-config = DatadogAPIClient::V1::Configuration.new
+config = DatadogAPIClient::Configuration.new
 config.compress = false
-client = DatadogAPIClient::V1::APIClient.new(config)
+client = DatadogAPIClient::APIClient.new(config)
 ```
 
 ### Enable requests logging
@@ -133,9 +133,9 @@ If you want to enable requests logging, set the `debugging` flag
 on your configuration object:
 
 ```ruby
-config = DatadogAPIClient::V1::Configuration.new
+config = DatadogAPIClient::Configuration.new
 config.debugging = true
-client = DatadogAPIClient::V1::APIClient.new(config)
+client = DatadogAPIClient::APIClient.new(config)
 ```
 
 ### Pagination
@@ -145,8 +145,8 @@ For example, to retrieve all your incidents:
 
 ```ruby
 require "datadog_api_client"
-DatadogAPIClient::V2.configure do |config|
-  config.unstable_operations[:list_incidents] = true
+DatadogAPIClient.configure do |config|
+  config.unstable_operations[:'v2.list_incidents'] = true
 end
 api_instance = DatadogAPIClient::V2::IncidentsAPI.new
 api_instance.list_incidents_with_pagination() do |incident|
