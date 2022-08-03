@@ -8,7 +8,7 @@ require 'datadog_api_client'
 {%- if context._enable_operations %}
 DatadogAPIClient::V2.configure do |config|
 {%- for operation in context._enable_operations %}
-  config.unstable_operations[:{{ operation|snake_case }}] = true
+  config.unstable_operations["{{ version }}.{{ operation|snake_case }}".to_sym] = true
 {%- endfor %}
 end
 {%- endif %}
@@ -33,8 +33,13 @@ opts = {
 {%- endfor %}
 }
 {%- endif %}
+
+{%- if context.pagination %}
+api_instance.{{ context.api_request.operation_id|snake_case }}_with_pagination({{ parameters }}) { |item| puts item }
+{%- else %}
 {%- if context.status_code != 204 %}
 p api_instance.{{ context.api_request.operation_id|snake_case }}({{ parameters }})
 {%- else %}
 api_instance.{{ context.api_request.operation_id|snake_case }}({{ parameters }})
+{%- endif %}
 {%- endif %}

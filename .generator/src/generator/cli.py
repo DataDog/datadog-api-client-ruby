@@ -12,9 +12,9 @@ MODULE_NAME = "DatadogAPIClient"
 
 
 @click.command()
-@click.option(
-    "-i",
-    "--input",
+@click.argument(
+    "specs",
+    nargs=-1,
     type=click.Path(exists=True, file_okay=True, dir_okay=False, path_type=pathlib.Path),
 )
 @click.option(
@@ -22,14 +22,10 @@ MODULE_NAME = "DatadogAPIClient"
     "--output",
     type=click.Path(path_type=pathlib.Path),
 )
-def cli(input, output):
+def cli(specs, output):
     """
     Generate a Ruby code snippet from OpenAPI specification.
     """
-    spec = openapi.load(input)
-
-    version = input.parent.name
-
     env = Environment(loader=FileSystemLoader(str(pathlib.Path(__file__).parent / "templates")))
 
     env.filters["accept_headers"] = openapi.accept_headers
@@ -48,8 +44,6 @@ def cli(input, output):
     env.globals["gem_name"] = GEM_NAME
     env.globals["module_name"] = MODULE_NAME
     env.globals["enumerate"] = enumerate
-    env.globals["version"] = version
-    env.globals["openapi"] = spec
     env.globals["get_name"] = openapi.get_name
     env.globals["type_to_ruby"] = openapi.type_to_ruby
     env.globals["get_type_for_attribute"] = openapi.get_type_for_attribute
@@ -63,38 +57,61 @@ def cli(input, output):
     package_j2 = env.get_template("package.j2")
 
     extra_files = {
-        "api_client.rb": env.get_template("api_client.j2"),
-        "api_error.rb": env.get_template("api_error.j2"),
-        "configuration.rb": env.get_template("configuration.j2"),
         "model_base.rb": env.get_template("model_base.j2"),
     }
 
-    apis = openapi.apis(spec)
-    models = openapi.models(spec)
+    common_files = {
+        "api_client.rb": env.get_template("api_client.j2"),
+        "configuration.rb": env.get_template("configuration.j2"),
+        "inflector.rb": env.get_template("inflector.j2"),
+    }
 
-    package = output / GEM_NAME / f"{version}.rb"
-    package.parent.mkdir(parents=True, exist_ok=True)
-    with package.open("w") as fp:
-        fp.write(package_j2.render(apis=apis, models=models))
+    all_specs = {}
+    all_apis = {}
+    all_models = {}
+    for spec_path in specs:
+        version = spec_path.parent.name
 
-    gem_path = output / GEM_NAME / version
-    gem_path.mkdir(parents=True, exist_ok=True)
+        spec = openapi.load(spec_path)
+        all_specs[version] = spec
 
-    for name, template in extra_files.items():
-        filename = gem_path / name
+        apis = openapi.apis(spec)
+        all_apis[version] = apis
+
+        models = openapi.models(spec)
+        all_models[version] = models
+
+        env.globals["openapi"] = spec
+        env.globals["version"] = version
+
+        gem_path = output / GEM_NAME / version
+        gem_path.mkdir(parents=True, exist_ok=True)
+
+        for name, template in extra_files.items():
+            filename = gem_path / name
+            with filename.open("w") as fp:
+                fp.write(template.render(apis=apis, models=models))
+
+        for name, model in models.items():
+            filename = formatter.snake_case(name) + ".rb"
+            model_path = gem_path / "models" / filename
+            model_path.parent.mkdir(parents=True, exist_ok=True)
+            with model_path.open("w") as fp:
+                fp.write(model_j2.render(name=name, model=model))
+
+        for name, operations in apis.items():
+            filename = formatter.snake_case(name) + "_api.rb"
+            api_path = gem_path / "api" / filename
+            api_path.parent.mkdir(parents=True, exist_ok=True)
+            with api_path.open("w") as fp:
+                fp.write(api_j2.render(name=name, operations=operations))
+
+    models_output = output / GEM_NAME / "models.rb"
+    with models_output.open("w") as fp:
+        fp.write(package_j2.render(all_apis=all_apis, all_models=all_models))
+
+    common_output = output / GEM_NAME
+    for name, template in common_files.items():
+        filename = common_output / name
         with filename.open("w") as fp:
-            fp.write(template.render(apis=apis, models=models))
-
-    for name, model in models.items():
-        filename = formatter.snake_case(name) + ".rb"
-        model_path = gem_path / "models" / filename
-        model_path.parent.mkdir(parents=True, exist_ok=True)
-        with model_path.open("w") as fp:
-            fp.write(model_j2.render(name=name, model=model))
-
-    for name, operations in apis.items():
-        filename = formatter.snake_case(name) + "_api.rb"
-        api_path = gem_path / "api" / filename
-        api_path.parent.mkdir(parents=True, exist_ok=True)
-        with api_path.open("w") as fp:
-            fp.write(api_j2.render(name=name, operations=operations))
+            fp.write(template.render(all_apis=all_apis, all_specs=all_specs, all_models=all_models))

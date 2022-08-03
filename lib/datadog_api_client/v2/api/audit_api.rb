@@ -19,7 +19,7 @@ module DatadogAPIClient::V2
   class AuditAPI
     attr_accessor :api_client
 
-    def initialize(api_client = APIClient.default)
+    def initialize(api_client = DatadogAPIClient::APIClient.default)
       @api_client = api_client
     end
 
@@ -49,15 +49,6 @@ module DatadogAPIClient::V2
     # @option opts [Integer] :page_limit Maximum number of events in the response.
     # @return [Array<(AuditLogsEventsResponse, Integer, Hash)>] AuditLogsEventsResponse data, response status code and response headers
     def list_audit_logs_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_audit_logs)
-        unstable_enabled = @api_client.config.unstable_operations[:list_audit_logs]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_audit_logs")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_audit_logs"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AuditAPI.list_audit_logs ...'
@@ -105,7 +96,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -123,15 +115,16 @@ module DatadogAPIClient::V2
     #
     # @yield [AuditLogsEvent] Paginated items
     def list_audit_logs_with_pagination(opts = {})
+        api_version = "V2"
         page_size = @api_client.get_attribute_from_path(opts, "page_limit", 10)
-        @api_client.set_attribute_from_path(opts, "page_limit", Integer, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "page_limit", Integer, page_size)
         while true do
             response = list_audit_logs(opts)
             @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
             if @api_client.get_attribute_from_path(response, "data").length < page_size
               break
             end
-            @api_client.set_attribute_from_path(opts, "page_cursor", Integer, @api_client.get_attribute_from_path(response, "meta.page.after"))
+            @api_client.set_attribute_from_path(api_version, opts, "page_cursor", Integer, @api_client.get_attribute_from_path(response, "meta.page.after"))
         end
     end
 
@@ -156,15 +149,6 @@ module DatadogAPIClient::V2
     # @option opts [AuditLogsSearchEventsRequest] :body 
     # @return [Array<(AuditLogsEventsResponse, Integer, Hash)>] AuditLogsEventsResponse data, response status code and response headers
     def search_audit_logs_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:search_audit_logs)
-        unstable_enabled = @api_client.config.unstable_operations[:search_audit_logs]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "search_audit_logs")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "search_audit_logs"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AuditAPI.search_audit_logs ...'
@@ -201,7 +185,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
@@ -219,15 +204,16 @@ module DatadogAPIClient::V2
     #
     # @yield [AuditLogsEvent] Paginated items
     def search_audit_logs_with_pagination(opts = {})
+        api_version = "V2"
         page_size = @api_client.get_attribute_from_path(opts, "body.page.limit", 10)
-        @api_client.set_attribute_from_path(opts, "body.page.limit", AuditLogsSearchEventsRequest, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "body.page.limit", AuditLogsSearchEventsRequest, page_size)
         while true do
             response = search_audit_logs(opts)
             @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
             if @api_client.get_attribute_from_path(response, "data").length < page_size
               break
             end
-            @api_client.set_attribute_from_path(opts, "body.page.cursor", AuditLogsSearchEventsRequest, @api_client.get_attribute_from_path(response, "meta.page.after"))
+            @api_client.set_attribute_from_path(api_version, opts, "body.page.cursor", AuditLogsSearchEventsRequest, @api_client.get_attribute_from_path(response, "meta.page.after"))
         end
     end
   end

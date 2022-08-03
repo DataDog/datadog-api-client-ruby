@@ -81,7 +81,7 @@
           data
         else
           self._unparsed = true
-          {{ module_name }}::{{ version|upper }}::UnparsedObject.new(data)
+          {{ module_name }}::UnparsedObject.new(data)
         end
 
       {%- endif %}

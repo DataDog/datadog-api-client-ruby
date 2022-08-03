@@ -54,7 +54,7 @@ module DatadogAPIClient::V2
           data
         else
           self._unparsed = true
-          DatadogAPIClient::V2::UnparsedObject.new(data)
+          DatadogAPIClient::UnparsedObject.new(data)
         end
       end
     end

@@ -19,7 +19,7 @@ module DatadogAPIClient::V2
   class AuthNMappingsAPI
     attr_accessor :api_client
 
-    def initialize(api_client = APIClient.default)
+    def initialize(api_client = DatadogAPIClient::APIClient.default)
       @api_client = api_client
     end
 
@@ -39,15 +39,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(AuthNMappingResponse, Integer, Hash)>] AuthNMappingResponse data, response status code and response headers
     def create_authn_mapping_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:create_authn_mapping)
-        unstable_enabled = @api_client.config.unstable_operations[:create_authn_mapping]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_authn_mapping")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_authn_mapping"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AuthNMappingsAPI.create_authn_mapping ...'
@@ -88,7 +79,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
@@ -114,15 +106,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_authn_mapping_with_http_info(authn_mapping_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:delete_authn_mapping)
-        unstable_enabled = @api_client.config.unstable_operations[:delete_authn_mapping]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_authn_mapping")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_authn_mapping"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AuthNMappingsAPI.delete_authn_mapping ...'
@@ -161,7 +144,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
@@ -187,15 +171,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(AuthNMappingResponse, Integer, Hash)>] AuthNMappingResponse data, response status code and response headers
     def get_authn_mapping_with_http_info(authn_mapping_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_authn_mapping)
-        unstable_enabled = @api_client.config.unstable_operations[:get_authn_mapping]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_authn_mapping")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_authn_mapping"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AuthNMappingsAPI.get_authn_mapping ...'
@@ -234,7 +209,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -263,15 +239,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter Filter all mappings by the given string.
     # @return [Array<(AuthNMappingsResponse, Integer, Hash)>] AuthNMappingsResponse data, response status code and response headers
     def list_authn_mappings_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_authn_mappings)
-        unstable_enabled = @api_client.config.unstable_operations[:list_authn_mappings]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_authn_mappings")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_authn_mappings"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AuthNMappingsAPI.list_authn_mappings ...'
@@ -314,7 +281,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -341,15 +309,6 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @return [Array<(AuthNMappingResponse, Integer, Hash)>] AuthNMappingResponse data, response status code and response headers
     def update_authn_mapping_with_http_info(authn_mapping_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_authn_mapping)
-        unstable_enabled = @api_client.config.unstable_operations[:update_authn_mapping]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_authn_mapping")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_authn_mapping"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AuthNMappingsAPI.update_authn_mapping ...'
@@ -394,7 +353,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)

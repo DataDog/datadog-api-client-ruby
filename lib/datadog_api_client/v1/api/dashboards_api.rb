@@ -19,7 +19,7 @@ module DatadogAPIClient::V1
   class DashboardsAPI
     attr_accessor :api_client
 
-    def initialize(api_client = APIClient.default)
+    def initialize(api_client = DatadogAPIClient::APIClient.default)
       @api_client = api_client
     end
 
@@ -40,15 +40,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Dashboard, Integer, Hash)>] Dashboard data, response status code and response headers
     def create_dashboard_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:create_dashboard)
-        unstable_enabled = @api_client.config.unstable_operations[:create_dashboard]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "create_dashboard")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "create_dashboard"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DashboardsAPI.create_dashboard ...'
@@ -89,7 +80,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
@@ -115,15 +107,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(DashboardDeleteResponse, Integer, Hash)>] DashboardDeleteResponse data, response status code and response headers
     def delete_dashboard_with_http_info(dashboard_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:delete_dashboard)
-        unstable_enabled = @api_client.config.unstable_operations[:delete_dashboard]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_dashboard")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_dashboard"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DashboardsAPI.delete_dashboard ...'
@@ -162,7 +145,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
@@ -188,15 +172,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_dashboards_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:delete_dashboards)
-        unstable_enabled = @api_client.config.unstable_operations[:delete_dashboards]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "delete_dashboards")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "delete_dashboards"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DashboardsAPI.delete_dashboards ...'
@@ -237,7 +212,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
@@ -263,15 +239,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Dashboard, Integer, Hash)>] Dashboard data, response status code and response headers
     def get_dashboard_with_http_info(dashboard_id, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:get_dashboard)
-        unstable_enabled = @api_client.config.unstable_operations[:get_dashboard]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "get_dashboard")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "get_dashboard"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DashboardsAPI.get_dashboard ...'
@@ -310,7 +277,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -340,15 +308,6 @@ module DatadogAPIClient::V1
     # @option opts [Boolean] :filter_deleted When `true`, this query returns only deleted custom-created or cloned dashboards. This parameter is incompatible with `filter[shared]`.
     # @return [Array<(DashboardSummary, Integer, Hash)>] DashboardSummary data, response status code and response headers
     def list_dashboards_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_dashboards)
-        unstable_enabled = @api_client.config.unstable_operations[:list_dashboards]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_dashboards")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_dashboards"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DashboardsAPI.list_dashboards ...'
@@ -385,7 +344,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -411,15 +371,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def restore_dashboards_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:restore_dashboards)
-        unstable_enabled = @api_client.config.unstable_operations[:restore_dashboards]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "restore_dashboards")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "restore_dashboards"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DashboardsAPI.restore_dashboards ...'
@@ -460,7 +411,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
@@ -487,15 +439,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(Dashboard, Integer, Hash)>] Dashboard data, response status code and response headers
     def update_dashboard_with_http_info(dashboard_id, body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:update_dashboard)
-        unstable_enabled = @api_client.config.unstable_operations[:update_dashboard]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "update_dashboard")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "update_dashboard"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DashboardsAPI.update_dashboard ...'
@@ -540,7 +483,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)

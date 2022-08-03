@@ -19,7 +19,7 @@ module DatadogAPIClient::V2
   class ProcessesAPI
     attr_accessor :api_client
 
-    def initialize(api_client = APIClient.default)
+    def initialize(api_client = DatadogAPIClient::APIClient.default)
       @api_client = api_client
     end
 
@@ -44,15 +44,6 @@ module DatadogAPIClient::V2
     # @option opts [String] :page_cursor String to query the next page of results. This key is provided with each valid response from the API in `meta.page.after`.
     # @return [Array<(ProcessSummariesResponse, Integer, Hash)>] ProcessSummariesResponse data, response status code and response headers
     def list_processes_with_http_info(opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_processes)
-        unstable_enabled = @api_client.config.unstable_operations[:list_processes]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_processes")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_processes"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProcessesAPI.list_processes ...'
@@ -99,7 +90,8 @@ module DatadogAPIClient::V2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V2"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
@@ -117,15 +109,16 @@ module DatadogAPIClient::V2
     #
     # @yield [ProcessSummary] Paginated items
     def list_processes_with_pagination(opts = {})
+        api_version = "V2"
         page_size = @api_client.get_attribute_from_path(opts, "page_limit", 1000)
-        @api_client.set_attribute_from_path(opts, "page_limit", String, page_size)
+        @api_client.set_attribute_from_path(api_version, opts, "page_limit", String, page_size)
         while true do
             response = list_processes(opts)
             @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
             if @api_client.get_attribute_from_path(response, "data").length < page_size
               break
             end
-            @api_client.set_attribute_from_path(opts, "page_cursor", String, @api_client.get_attribute_from_path(response, "meta.page.after"))
+            @api_client.set_attribute_from_path(api_version, opts, "page_cursor", String, @api_client.get_attribute_from_path(response, "meta.page.after"))
         end
     end
   end

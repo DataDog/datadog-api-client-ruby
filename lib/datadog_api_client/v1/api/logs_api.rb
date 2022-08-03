@@ -19,7 +19,7 @@ module DatadogAPIClient::V1
   class LogsAPI
     attr_accessor :api_client
 
-    def initialize(api_client = APIClient.default)
+    def initialize(api_client = DatadogAPIClient::APIClient.default)
       @api_client = api_client
     end
 
@@ -47,15 +47,6 @@ module DatadogAPIClient::V1
     # @param opts [Hash] the optional parameters
     # @return [Array<(LogsListResponse, Integer, Hash)>] LogsListResponse data, response status code and response headers
     def list_logs_with_http_info(body, opts = {})
-
-      if @api_client.config.unstable_operations.has_key?(:list_logs)
-        unstable_enabled = @api_client.config.unstable_operations[:list_logs]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "list_logs")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "list_logs"))
-        end
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsAPI.list_logs ...'
@@ -96,7 +87,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
@@ -143,15 +135,6 @@ module DatadogAPIClient::V1
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def submit_log_with_http_info(body, opts = {})
 
-      if @api_client.config.unstable_operations.has_key?(:submit_log)
-        unstable_enabled = @api_client.config.unstable_operations[:submit_log]
-        if unstable_enabled
-          @api_client.config.logger.warn format("Using unstable operation '%s'", "submit_log")
-        else
-          raise APIError.new(message: format("Unstable operation '%s' is disabled", "submit_log"))
-        end
-      end
-
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsAPI.submit_log ...'
       end
@@ -197,7 +180,8 @@ module DatadogAPIClient::V1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => return_type
+        :return_type => return_type,
+        :api_version => "V1"
       )
 
       data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
