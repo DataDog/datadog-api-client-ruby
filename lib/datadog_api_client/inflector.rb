@@ -464,6 +464,8 @@ module DatadogAPIClient
           "v1.synthetics_assertion_target" => "SyntheticsAssertionTarget",
           "v1.synthetics_assertion_type" => "SyntheticsAssertionType",
           "v1.synthetics_basic_auth" => "SyntheticsBasicAuth",
+          "v1.synthetics_basic_auth_digest" => "SyntheticsBasicAuthDigest",
+          "v1.synthetics_basic_auth_digest_type" => "SyntheticsBasicAuthDigestType",
           "v1.synthetics_basic_auth_ntlm" => "SyntheticsBasicAuthNTLM",
           "v1.synthetics_basic_auth_ntlm_type" => "SyntheticsBasicAuthNTLMType",
           "v1.synthetics_basic_auth_sigv4" => "SyntheticsBasicAuthSigv4",
