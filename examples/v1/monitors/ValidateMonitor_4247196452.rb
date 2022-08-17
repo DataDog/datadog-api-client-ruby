@@ -1,18 +1,15 @@
-# Validate an existing monitor returns "OK" response
+# Validate a multi-alert monitor returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::MonitorsAPI.new
 
-# there is a valid "monitor" in the system
-MONITOR_ID = ENV["MONITOR_ID"]
-
 body = DatadogAPIClient::V1::Monitor.new({
-  name: "Example-Validate_an_existing_monitor_returns_OK_response",
+  name: "Example-Validate_a_multi_alert_monitor_returns_OK_response",
   type: DatadogAPIClient::V1::MonitorType::LOG_ALERT,
   query: 'logs("service:foo AND type:error").index("main").rollup("count").by("source").last("5m") > 2',
   message: "some message Notify: @hipchat-channel",
   tags: [
-    "test:examplevalidateanexistingmonitorreturnsokresponse",
+    "test:examplevalidateamultialertmonitorreturnsokresponse",
     "env:ci",
   ],
   priority: 3,
@@ -20,7 +17,8 @@ body = DatadogAPIClient::V1::Monitor.new({
     enable_logs_sample: true,
     escalation_message: "the situation has escalated",
     evaluation_delay: 700,
-    groupby_simple_monitor: true,
+    group_retention_duration: "2d",
+    groupby_simple_monitor: false,
     include_tags: true,
     locked: false,
     new_host_delay: 600,
@@ -37,4 +35,4 @@ body = DatadogAPIClient::V1::Monitor.new({
     }),
   }),
 })
-p api_instance.validate_existing_monitor(MONITOR_ID.to_i, body)
+p api_instance.validate_monitor(body)
