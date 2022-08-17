@@ -45,6 +45,12 @@ module DatadogAPIClient::V1
     # This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor always has data during evaluation.
     attr_accessor :evaluation_delay
 
+    # The time span after which groups with missing data are dropped from the monitor state.
+    # The minimum value is one hour, and the maximum value is 72 hours.
+    # Example values are: "60m", "1h", and "2d".
+    # This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+    attr_accessor :group_retention_duration
+
     # Whether the log alert monitor triggers a single alert or multiple alerts when any group breaches a threshold.
     attr_accessor :groupby_simple_monitor
 
@@ -91,6 +97,13 @@ module DatadogAPIClient::V1
     # A Boolean indicating whether this monitor notifies when data stops reporting.
     attr_accessor :notify_no_data
 
+    # Controls how groups or monitors are treated if an evaluation does not return any data points.
+    # The default option results in different behavior depending on the monitor query type.
+    # For monitors using Count queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions.
+    # For monitor using any query type other than Count, for example Gauge or Rate, the monitor shows the last known status.
+    # This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+    attr_accessor :on_missing_data
+
     # The number of minutes after the last notification before a monitor re-notifies on the current status.
     # It only re-notifies if it’s not resolved.
     attr_accessor :renotify_interval
@@ -133,6 +146,7 @@ module DatadogAPIClient::V1
         :'enable_logs_sample' => :'enable_logs_sample',
         :'escalation_message' => :'escalation_message',
         :'evaluation_delay' => :'evaluation_delay',
+        :'group_retention_duration' => :'group_retention_duration',
         :'groupby_simple_monitor' => :'groupby_simple_monitor',
         :'include_tags' => :'include_tags',
         :'locked' => :'locked',
@@ -143,6 +157,7 @@ module DatadogAPIClient::V1
         :'no_data_timeframe' => :'no_data_timeframe',
         :'notify_audit' => :'notify_audit',
         :'notify_no_data' => :'notify_no_data',
+        :'on_missing_data' => :'on_missing_data',
         :'renotify_interval' => :'renotify_interval',
         :'renotify_occurrences' => :'renotify_occurrences',
         :'renotify_statuses' => :'renotify_statuses',
@@ -171,6 +186,7 @@ module DatadogAPIClient::V1
         :'enable_logs_sample' => :'Boolean',
         :'escalation_message' => :'String',
         :'evaluation_delay' => :'Integer',
+        :'group_retention_duration' => :'String',
         :'groupby_simple_monitor' => :'Boolean',
         :'include_tags' => :'Boolean',
         :'locked' => :'Boolean',
@@ -181,6 +197,7 @@ module DatadogAPIClient::V1
         :'no_data_timeframe' => :'Integer',
         :'notify_audit' => :'Boolean',
         :'notify_no_data' => :'Boolean',
+        :'on_missing_data' => :'OnMissingDataOption',
         :'renotify_interval' => :'Integer',
         :'renotify_occurrences' => :'Integer',
         :'renotify_statuses' => :'Array<MonitorRenotifyStatusType>',
@@ -252,6 +269,10 @@ module DatadogAPIClient::V1
         self.evaluation_delay = attributes[:'evaluation_delay']
       end
 
+      if attributes.key?(:'group_retention_duration')
+        self.group_retention_duration = attributes[:'group_retention_duration']
+      end
+
       if attributes.key?(:'groupby_simple_monitor')
         self.groupby_simple_monitor = attributes[:'groupby_simple_monitor']
       end
@@ -302,6 +323,10 @@ module DatadogAPIClient::V1
         self.notify_no_data = attributes[:'notify_no_data']
       else
         self.notify_no_data = false
+      end
+
+      if attributes.key?(:'on_missing_data')
+        self.on_missing_data = attributes[:'on_missing_data']
       end
 
       if attributes.key?(:'renotify_interval')
@@ -382,6 +407,7 @@ module DatadogAPIClient::V1
           enable_logs_sample == o.enable_logs_sample &&
           escalation_message == o.escalation_message &&
           evaluation_delay == o.evaluation_delay &&
+          group_retention_duration == o.group_retention_duration &&
           groupby_simple_monitor == o.groupby_simple_monitor &&
           include_tags == o.include_tags &&
           locked == o.locked &&
@@ -392,6 +418,7 @@ module DatadogAPIClient::V1
           no_data_timeframe == o.no_data_timeframe &&
           notify_audit == o.notify_audit &&
           notify_no_data == o.notify_no_data &&
+          on_missing_data == o.on_missing_data &&
           renotify_interval == o.renotify_interval &&
           renotify_occurrences == o.renotify_occurrences &&
           renotify_statuses == o.renotify_statuses &&
@@ -415,7 +442,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation, device_ids, enable_logs_sample, escalation_message, evaluation_delay, groupby_simple_monitor, include_tags, locked, min_failure_duration, min_location_failed, new_group_delay, new_host_delay, no_data_timeframe, notify_audit, notify_no_data, renotify_interval, renotify_occurrences, renotify_statuses, require_full_window, silenced, synthetics_check_id, threshold_windows, thresholds, timeout_h, variables].hash
+      [aggregation, device_ids, enable_logs_sample, escalation_message, evaluation_delay, group_retention_duration, groupby_simple_monitor, include_tags, locked, min_failure_duration, min_location_failed, new_group_delay, new_host_delay, no_data_timeframe, notify_audit, notify_no_data, on_missing_data, renotify_interval, renotify_occurrences, renotify_statuses, require_full_window, silenced, synthetics_check_id, threshold_windows, thresholds, timeout_h, variables].hash
     end
   end
 end

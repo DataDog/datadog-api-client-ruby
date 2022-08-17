@@ -36,5 +36,7 @@ module DatadogAPIClient::V1
     TAGS_DESCENDING = "tags,desc".freeze
     TRIGGERED_ASCENDING = "triggered,asc".freeze
     TRIGGERED_DESCENDING = "triggered,desc".freeze
+    PRIORITY_ASCENDING = "priority,asc".freeze
+    PRIORITY_DESCENDING = "priority,desc".freeze
   end
 end

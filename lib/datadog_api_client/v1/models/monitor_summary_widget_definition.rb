@@ -43,6 +43,9 @@ module DatadogAPIClient::V1
     # Whether to show the time that has elapsed since the monitor/group triggered.
     attr_accessor :show_last_triggered
 
+    # Whether to show the priorities column.
+    attr_accessor :show_priority
+
     # Widget sorting methods.
     attr_accessor :sort
 
@@ -74,6 +77,7 @@ module DatadogAPIClient::V1
         :'hide_zero_counts' => :'hide_zero_counts',
         :'query' => :'query',
         :'show_last_triggered' => :'show_last_triggered',
+        :'show_priority' => :'show_priority',
         :'sort' => :'sort',
         :'start' => :'start',
         :'summary_type' => :'summary_type',
@@ -100,6 +104,7 @@ module DatadogAPIClient::V1
         :'hide_zero_counts' => :'Boolean',
         :'query' => :'String',
         :'show_last_triggered' => :'Boolean',
+        :'show_priority' => :'Boolean',
         :'sort' => :'WidgetMonitorSummarySort',
         :'start' => :'Integer',
         :'summary_type' => :'WidgetSummaryType',
@@ -155,6 +160,12 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'show_last_triggered')
         self.show_last_triggered = attributes[:'show_last_triggered']
+      end
+
+      if attributes.key?(:'show_priority')
+        self.show_priority = attributes[:'show_priority']
+      else
+        self.show_priority = false
       end
 
       if attributes.key?(:'sort')
@@ -229,6 +240,7 @@ module DatadogAPIClient::V1
           hide_zero_counts == o.hide_zero_counts &&
           query == o.query &&
           show_last_triggered == o.show_last_triggered &&
+          show_priority == o.show_priority &&
           sort == o.sort &&
           start == o.start &&
           summary_type == o.summary_type &&
@@ -249,7 +261,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [color_preference, count, display_format, hide_zero_counts, query, show_last_triggered, sort, start, summary_type, title, title_align, title_size, type].hash
+      [color_preference, count, display_format, hide_zero_counts, query, show_last_triggered, show_priority, sort, start, summary_type, title, title_align, title_size, type].hash
     end
   end
 end

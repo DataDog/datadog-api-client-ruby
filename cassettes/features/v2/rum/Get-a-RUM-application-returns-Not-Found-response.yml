@@ -1,0 +1,22 @@
+http_interactions:
+- recorded_at: Mon, 08 Aug 2022 16:05:33 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/rum/applications/abcd1234-0000-0000-abcd-1234abcd5678
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["Application Not Found not found"]}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0
