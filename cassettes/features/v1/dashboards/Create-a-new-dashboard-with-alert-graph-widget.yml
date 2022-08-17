@@ -1,12 +1,12 @@
 http_interactions:
-- recorded_at: Thu, 06 Jan 2022 00:50:25 GMT
+- recorded_at: Mon, 15 Aug 2022 18:04:35 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"message":"some message Notify: @hipchat-channel","name":"Test-Create_a_new_dashboard_with_alert_graph_widget-1641430225","options":{"enable_logs_sample":true,"escalation_message":"the
-        situation has escalated","evaluation_delay":700,"groupby_simple_monitor":true,"include_tags":true,"locked":false,"new_host_delay":600,"no_data_timeframe":null,"notify_audit":false,"notify_no_data":false,"renotify_interval":60,"require_full_window":true,"thresholds":{"critical":2,"warning":1},"timeout_h":24},"priority":3,"query":"logs(\"service:foo
+      string: '{"message":"some message Notify: @hipchat-channel","name":"Test-Create_a_new_dashboard_with_alert_graph_widget-1660586675","options":{"enable_logs_sample":true,"escalation_message":"the
+        situation has escalated","evaluation_delay":700,"groupby_simple_monitor":true,"include_tags":true,"locked":false,"new_host_delay":600,"no_data_timeframe":null,"notify_audit":false,"notify_no_data":false,"on_missing_data":"show_and_notify_no_data","renotify_interval":60,"require_full_window":true,"thresholds":{"critical":2,"warning":1},"timeout_h":24},"priority":3,"query":"logs(\"service:foo
         AND type:error\").index(\"main\").rollup(\"count\").by(\"source\").last(\"5m\")
-        > 2","tags":["test:testcreateanewdashboardwithalertgraphwidget1641430225","env:ci"],"type":"log
+        > 2","tags":["test:testcreateanewdashboardwithalertgraphwidget1660586675","env:ci"],"type":"log
         alert"}'
     headers:
       Accept:
@@ -18,22 +18,22 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"restricted_roles":null,"tags":["test:testcreateanewdashboardwithalertgraphwidget1641430225","env:ci"],"deleted":null,"query":"logs(\"service:foo
+      string: '{"restricted_roles":null,"tags":["test:testcreateanewdashboardwithalertgraphwidget1660586675","env:ci"],"deleted":null,"query":"logs(\"service:foo
         AND type:error\").index(\"main\").rollup(\"count\").by(\"source\").last(\"5m\")
-        > 2","message":"some message Notify: @hipchat-channel","id":59800315,"multi":true,"name":"Test-Create_a_new_dashboard_with_alert_graph_widget-1641430225","created":"2022-01-06T00:50:26.247872+00:00","created_at":1641430226000,"creator":{"id":1445416,"handle":"frog@datadoghq.com","name":null,"email":"frog@datadoghq.com"},"org_id":321813,"modified":"2022-01-06T00:50:26.247872+00:00","priority":3,"overall_state_modified":null,"overall_state":"No
-        Data","type":"log alert","options":{"notify_audit":false,"locked":false,"timeout_h":24,"renotify_interval":60,"include_tags":true,"no_data_timeframe":null,"silenced":{},"new_host_delay":600,"require_full_window":true,"notify_no_data":false,"enable_logs_sample":true,"groupby_simple_monitor":true,"escalation_message":"the
-        situation has escalated","evaluation_delay":700,"thresholds":{"critical":2,"warning":1}}}'
+        > 2","message":"some message Notify: @hipchat-channel","id":80119038,"multi":true,"name":"Test-Create_a_new_dashboard_with_alert_graph_widget-1660586675","created":"2022-08-15T18:04:36.610523+00:00","created_at":1660586676000,"creator":{"id":1445416,"handle":"frog@datadoghq.com","name":null,"email":"frog@datadoghq.com"},"org_id":321813,"modified":"2022-08-15T18:04:36.610523+00:00","priority":3,"overall_state_modified":null,"overall_state":"No
+        Data","type":"log alert","options":{"notify_audit":false,"locked":false,"timeout_h":24,"renotify_interval":60,"include_tags":true,"no_data_timeframe":null,"silenced":{},"new_host_delay":600,"on_missing_data":"show_and_notify_no_data","require_full_window":true,"notify_no_data":false,"enable_logs_sample":true,"groupby_simple_monitor":true,"escalation_message":"the
+        situation has escalated","evaluation_delay":700,"thresholds":{"critical":2.0,"warning":1.0}}}'
     headers:
       Content-Type:
       - application/json
     status:
       code: 200
       message: OK
-- recorded_at: Thu, 06 Jan 2022 00:50:25 GMT
+- recorded_at: Mon, 15 Aug 2022 18:04:35 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"description":"","is_read_only":false,"layout_type":"free","notify_list":[],"template_variables":[],"title":"Test-Create_a_new_dashboard_with_alert_graph_widget-1641430225","widgets":[{"definition":{"alert_id":"59800315","time":{},"title":"","title_align":"left","title_size":"16","type":"alert_graph","viz_type":"timeseries"},"layout":{"height":15,"width":47,"x":0,"y":0}}]}'
+      string: '{"description":"","is_read_only":false,"layout_type":"free","notify_list":[],"template_variables":[],"title":"Test-Create_a_new_dashboard_with_alert_graph_widget-1660586675","widgets":[{"definition":{"alert_id":"80119038","time":{},"title":"","title_align":"left","title_size":"16","type":"alert_graph","viz_type":"timeseries"},"layout":{"height":15,"width":47,"x":0,"y":0}}]}'
     headers:
       Accept:
       - application/json
@@ -44,43 +44,47 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"notify_list":[],"description":"","restricted_roles":[],"author_name":null,"template_variables":[],"is_read_only":false,"id":"m8v-aud-r6a","title":"Test-Create_a_new_dashboard_with_alert_graph_widget-1641430225","url":"/dashboard/m8v-aud-r6a/test-createanewdashboardwithalertgraphwidget-1641430225","created_at":"2022-01-06T00:50:26.498395+00:00","modified_at":"2022-01-06T00:50:26.498395+00:00","author_handle":"frog@datadoghq.com","widgets":[{"definition":{"title_size":"16","viz_type":"timeseries","title":"","title_align":"left","alert_id":"59800315","time":{},"type":"alert_graph"},"layout":{"y":0,"width":47,"x":0,"height":15},"id":5197028522086004}],"layout_type":"free"}'
+      string: '{"notify_list":[],"description":"","restricted_roles":[],"author_name":null,"template_variables":[],"is_read_only":false,"id":"shb-j47-ek7","title":"Test-Create_a_new_dashboard_with_alert_graph_widget-1660586675","url":"/dashboard/shb-j47-ek7/test-createanewdashboardwithalertgraphwidget-1660586675","created_at":"2022-08-15T18:04:37.095538+00:00","modified_at":"2022-08-15T18:04:37.095538+00:00","author_handle":"frog@datadoghq.com","widgets":[{"definition":{"title_size":"16","viz_type":"timeseries","title":"","title_align":"left","alert_id":"80119038","time":{},"type":"alert_graph"},"layout":{"y":0,"width":47,"x":0,"height":15},"id":27855510418916}],"layout_type":"free"}
+
+        '
     headers:
       Content-Type:
       - application/json
     status:
       code: 200
       message: OK
-- recorded_at: Thu, 06 Jan 2022 00:50:25 GMT
+- recorded_at: Mon, 15 Aug 2022 18:04:35 GMT
   request:
     body: null
     headers:
       Accept:
       - application/json
     method: DELETE
-    uri: https://api.datadoghq.com/api/v1/dashboard/m8v-aud-r6a
+    uri: https://api.datadoghq.com/api/v1/dashboard/shb-j47-ek7
   response:
     body:
       encoding: UTF-8
-      string: '{"deleted_dashboard_id":"m8v-aud-r6a"}'
+      string: '{"deleted_dashboard_id":"shb-j47-ek7"}
+
+        '
     headers:
       Content-Type:
       - application/json
     status:
       code: 200
       message: OK
-- recorded_at: Thu, 06 Jan 2022 00:50:25 GMT
+- recorded_at: Mon, 15 Aug 2022 18:04:35 GMT
   request:
     body: null
     headers:
       Accept:
       - application/json
     method: DELETE
-    uri: https://api.datadoghq.com/api/v1/monitor/59800315
+    uri: https://api.datadoghq.com/api/v1/monitor/80119038
   response:
     body:
       encoding: UTF-8
-      string: '{"deleted_monitor_id":59800315}'
+      string: '{"deleted_monitor_id":80119038}'
     headers:
       Content-Type:
       - application/json

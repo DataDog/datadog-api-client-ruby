@@ -340,6 +340,7 @@ module DatadogAPIClient
           "v1.notebook_update_request" => "NotebookUpdateRequest",
           "v1.note_widget_definition" => "NoteWidgetDefinition",
           "v1.note_widget_definition_type" => "NoteWidgetDefinitionType",
+          "v1.on_missing_data_option" => "OnMissingDataOption",
           "v1.organization" => "Organization",
           "v1.organization_billing" => "OrganizationBilling",
           "v1.organization_create_body" => "OrganizationCreateBody",
