@@ -34,6 +34,8 @@ module DatadogAPIClient::V1
     # Get the list of available daily custom reports.
     #
     # Get daily custom reports.
+    # **Note:** This endpoint will be fully deprecated on December 1, 2022.
+    # Refer to [Migrating from v1 to v2 of the Usage Attribution API](https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/) for the associated migration guide.
     #
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size The number of files to return in the response. `[default=60]`.
@@ -42,12 +44,6 @@ module DatadogAPIClient::V1
     # @option opts [UsageSort] :sort The field to sort by: `[computed_on, size, start_date, end_date]`.
     # @return [Array<(UsageCustomReportsResponse, Integer, Hash)>] UsageCustomReportsResponse data, response status code and response headers
     def get_daily_custom_reports_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v1.get_daily_custom_reports".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v1.get_daily_custom_reports")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v1.get_daily_custom_reports"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_daily_custom_reports ...'
@@ -353,6 +349,8 @@ module DatadogAPIClient::V1
     # Get the list of available monthly custom reports.
     #
     # Get monthly custom reports.
+    # **Note:** This endpoint will be fully deprecated on December 1, 2022.
+    # Refer to [Migrating from v1 to v2 of the Usage Attribution API](https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/) for the associated migration guide.
     #
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size The number of files to return in the response `[default=60].`
@@ -361,12 +359,6 @@ module DatadogAPIClient::V1
     # @option opts [UsageSort] :sort The field to sort by: `[computed_on, size, start_date, end_date]`.
     # @return [Array<(UsageCustomReportsResponse, Integer, Hash)>] UsageCustomReportsResponse data, response status code and response headers
     def get_monthly_custom_reports_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v1.get_monthly_custom_reports".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v1.get_monthly_custom_reports")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v1.get_monthly_custom_reports"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_monthly_custom_reports ...'
@@ -546,17 +538,13 @@ module DatadogAPIClient::V1
     # Get specified daily custom reports.
     #
     # Get specified daily custom reports.
+    # **Note:** This endpoint will be fully deprecated on December 1, 2022.
+    # Refer to [Migrating from v1 to v2 of the Usage Attribution API](https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/) for the associated migration guide.
     #
     # @param report_id [String] Date of the report in the format `YYYY-MM-DD`.
     # @param opts [Hash] the optional parameters
     # @return [Array<(UsageSpecifiedCustomReportsResponse, Integer, Hash)>] UsageSpecifiedCustomReportsResponse data, response status code and response headers
     def get_specified_daily_custom_reports_with_http_info(report_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v1.get_specified_daily_custom_reports".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v1.get_specified_daily_custom_reports")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v1.get_specified_daily_custom_reports"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_specified_daily_custom_reports ...'
@@ -617,17 +605,13 @@ module DatadogAPIClient::V1
     # Get specified monthly custom reports.
     #
     # Get specified monthly custom reports.
+    # **Note:** This endpoint will be fully deprecated on December 1, 2022.
+    # Refer to [Migrating from v1 to v2 of the Usage Attribution API](https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/) for the associated migration guide.
     #
     # @param report_id [String] Date of the report in the format `YYYY-MM-DD`.
     # @param opts [Hash] the optional parameters
     # @return [Array<(UsageSpecifiedCustomReportsResponse, Integer, Hash)>] UsageSpecifiedCustomReportsResponse data, response status code and response headers
     def get_specified_monthly_custom_reports_with_http_info(report_id, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v1.get_specified_monthly_custom_reports".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v1.get_specified_monthly_custom_reports")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v1.get_specified_monthly_custom_reports"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_specified_monthly_custom_reports ...'
@@ -757,6 +741,8 @@ module DatadogAPIClient::V1
     # Get usage attribution.
     #
     # Get usage attribution.
+    # **Note:** This endpoint will be fully deprecated on December 1, 2022.
+    # Refer to [Migrating from v1 to v2 of the Usage Attribution API](https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/) for the associated migration guide.
     #
     # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage beginning in this month. Maximum of 15 months ago.
     # @param fields [UsageAttributionSupportedMetrics] Comma-separated list of usage types to return, or `*` for all usage types.
@@ -769,12 +755,6 @@ module DatadogAPIClient::V1
     # @option opts [Integer] :limit Maximum number of records to be returned.
     # @return [Array<(UsageAttributionResponse, Integer, Hash)>] UsageAttributionResponse data, response status code and response headers
     def get_usage_attribution_with_http_info(start_month, fields, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v1.get_usage_attribution".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v1.get_usage_attribution")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v1.get_usage_attribution"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_attribution ...'
