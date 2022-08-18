@@ -43,7 +43,7 @@ module DatadogAPIClient::V2
     # Org ID of the RUM application.
     attr_accessor :org_id
 
-    # Type of the RUM application.
+    # Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`.
     attr_accessor :type
 
     # Timestamp in ms of the last update date.
