@@ -23,7 +23,6 @@ module DatadogAPIClient::V1
 
     NOT_SCHEDULED = "not_scheduled".freeze
     SCHEDULED = "scheduled".freeze
-    STARTED = "started".freeze
     FINISHED = "finished".freeze
     FINISHED_WITH_ERROR = "finished_with_error".freeze
   end
