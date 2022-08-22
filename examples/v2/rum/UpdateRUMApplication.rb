@@ -7,7 +7,7 @@ body = DatadogAPIClient::V2::RUMApplicationUpdateRequest.new({
   data: DatadogAPIClient::V2::RUMApplicationUpdate.new({
     attributes: DatadogAPIClient::V2::RUMApplicationUpdateAttributes.new({
       name: "updated_name_for_my_existing_rum_application",
-      type: "browser|ios|android|react-native|flutter",
+      type: "browser",
     }),
     id: "abcd1234-0000-0000-abcd-1234abcd5678",
     type: DatadogAPIClient::V2::RUMApplicationUpdateType::RUM_APPLICATION_UPDATE,

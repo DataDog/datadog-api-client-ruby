@@ -28,7 +28,7 @@ module DatadogAPIClient::V2
     # Name of the RUM application.
     attr_accessor :name
 
-    # Type of the RUM application.
+    # Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
