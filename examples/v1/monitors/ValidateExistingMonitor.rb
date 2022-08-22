@@ -27,6 +27,7 @@ body = DatadogAPIClient::V1::Monitor.new({
     no_data_timeframe: nil,
     notify_audit: false,
     notify_no_data: false,
+    on_missing_data: DatadogAPIClient::V1::OnMissingDataOption::SHOW_AND_NOTIFY_NO_DATA,
     renotify_interval: 60,
     require_full_window: true,
     timeout_h: 24,
