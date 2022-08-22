@@ -6,7 +6,6 @@
 * Update Pagerduty operation `DeletePagerDutyIntegrationService` response status code by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1004
 * Don't try to load model_base on eager_load by @skarimo in https://github.com/DataDog/datadog-api-client-ruby/pull/1018
 
-
 **Full Changelog**: https://github.com/DataDog/datadog-api-client-ruby/compare/v2.0.1...v2.0.2
 
 ## 2.0.1 / 2022-08-02
