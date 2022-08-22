@@ -18,6 +18,7 @@ group :development, :test do
   gem 'vcr'
   gem 'webmock'
   gem 'zstandard'
+  gem 'msgpack', '1.5.4'
 end
 
 group :docs do
