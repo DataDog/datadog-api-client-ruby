@@ -340,7 +340,7 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsAPI.submit_log ...'
       end
-      allowable_values = ['identity', 'gzip', 'deflate']
+      allowable_values = ['gzip', 'deflate']
       if @api_client.config.client_side_validation && opts[:'content_encoding'] && !allowable_values.include?(opts[:'content_encoding'])
         fail ArgumentError, "invalid value for \"content_encoding\", must be one of #{allowable_values}"
       end
