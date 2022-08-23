@@ -68,7 +68,7 @@ module DatadogAPIClient::V2
 
     # The type of event being posted.
     # For example, `nagios`, `hudson`, `jenkins`, `my_apps`, `chef`, `puppet`, `git` or `bitbucket`.
-    # The list of standard source attribute values is [available here](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
+    # The list of standard source attribute values is [available here](https://docs.datadoghq.com/events/guides/new_events_sources/).
     attr_accessor :source_type_name
 
     # Identifier for the source of the event, such as a monitor alert, an externally-submitted event, or an integration.

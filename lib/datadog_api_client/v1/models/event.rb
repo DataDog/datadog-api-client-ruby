@@ -55,7 +55,7 @@ module DatadogAPIClient::V1
     attr_accessor :priority
 
     # The type of event being posted. Option examples include nagios, hudson, jenkins, my_apps, chef, puppet, git, bitbucket, etc.
-    # The list of standard source attribute values [available here](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
+    # The list of standard source attribute values [available here](https://docs.datadoghq.com/events/guides/new_events_sources/).
     attr_accessor :source_type_name
 
     # A list of tags to apply to the event.
