@@ -21,6 +21,7 @@ module DatadogAPIClient::V2
   class ContentEncoding
     include BaseEnumModel
 
+    IDENTITY = "identity".freeze
     GZIP = "gzip".freeze
     DEFLATE = "deflate".freeze
   end
