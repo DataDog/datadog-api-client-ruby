@@ -66,6 +66,10 @@ def cli(specs, output):
         "inflector.rb": env.get_template("inflector.j2"),
     }
 
+    test_scenarios_files = {
+        "scenarios_model_mapping.rb": env.get_template("scenarios_model_mapping.j2")
+    }
+
     all_specs = {}
     all_apis = {}
     all_models = {}
@@ -115,3 +119,10 @@ def cli(specs, output):
         filename = common_output / name
         with filename.open("w") as fp:
             fp.write(template.render(all_apis=all_apis, all_specs=all_specs, all_models=all_models))
+
+    # Parameter mappings for bdd tests
+    scenarios_test_output = pathlib.Path("../features/")
+    for name, template in test_scenarios_files.items():
+        filename = scenarios_test_output / name
+        with filename.open("w") as fp:
+            fp.write(template.render(all_apis=all_apis))
