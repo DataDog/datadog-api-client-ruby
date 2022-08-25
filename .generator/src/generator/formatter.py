@@ -136,7 +136,7 @@ def format_parameters(kwargs, spec, replace_values=None, has_body=False):
         required = p.get("required", False)
         k = snake_case(p["name"])
         if required:
-            v = kwargs.pop(k)  # otherwise there is a missing required parameters
+            v = kwargs.pop(p["name"])  # otherwise there is a missing required parameters
             value = format_data_with_schema(
                 v["value"],
                 p["schema"],
