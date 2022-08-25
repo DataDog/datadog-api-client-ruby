@@ -58,7 +58,7 @@ module DatadogAPIClient::V2
     def build_from_hash(attributes)
       return nil unless attributes.is_a?(Hash)
       self.class.openapi_types.each_pair do |key, type|
-        if attributes[self.class.attribute_map[key]].nil? && self.class.openapi_nullable.include?(key)
+        if attributes.key?(self.class.attribute_map[key]) && attributes[self.class.attribute_map[key]].nil? && self.class.openapi_nullable.include?(key)
           self.send("#{key}=", nil)
         elsif type =~ /\AArray<(.*)>/i
           # check to ensure the input is an array given that the attribute
