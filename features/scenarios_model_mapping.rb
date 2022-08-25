@@ -1,4 +1,4 @@
-operation_param_to_model_mapping = {
+ScenariosModelMappings = {
     "v1.CreateAPIKey" => {
             "body" => "ApiKey",
     },
