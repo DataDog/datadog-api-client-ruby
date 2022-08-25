@@ -125,8 +125,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
-      else
-        self.type = 'alert_graph'
       end
 
       if attributes.key?(:'viz_type')

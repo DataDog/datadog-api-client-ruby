@@ -122,8 +122,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'show_title')
         self.show_title = attributes[:'show_title']
-      else
-        self.show_title = true
       end
 
       if attributes.key?(:'title')
@@ -136,8 +134,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
-      else
-        self.type = 'group'
       end
 
       if attributes.key?(:'widgets')

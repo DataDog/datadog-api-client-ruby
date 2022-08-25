@@ -145,8 +145,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'cspm_resource_collection_enabled')
         self.cspm_resource_collection_enabled = attributes[:'cspm_resource_collection_enabled']
-      else
-        self.cspm_resource_collection_enabled = false
       end
 
       if attributes.key?(:'excluded_regions')
@@ -169,14 +167,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'metrics_collection_enabled')
         self.metrics_collection_enabled = attributes[:'metrics_collection_enabled']
-      else
-        self.metrics_collection_enabled = true
       end
 
       if attributes.key?(:'resource_collection_enabled')
         self.resource_collection_enabled = attributes[:'resource_collection_enabled']
-      else
-        self.resource_collection_enabled = false
       end
 
       if attributes.key?(:'role_name')

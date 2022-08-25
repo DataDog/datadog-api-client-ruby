@@ -84,8 +84,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
-      else
-        self.type = 'logs_metrics'
       end
     end
 

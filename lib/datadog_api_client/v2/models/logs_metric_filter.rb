@@ -75,8 +75,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'query')
         self.query = attributes[:'query']
-      else
-        self.query = '*'
       end
     end
 

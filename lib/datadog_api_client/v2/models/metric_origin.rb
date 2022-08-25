@@ -85,20 +85,14 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'metric_type')
         self.metric_type = attributes[:'metric_type']
-      else
-        self.metric_type = 0
       end
 
       if attributes.key?(:'product')
         self.product = attributes[:'product']
-      else
-        self.product = 0
       end
 
       if attributes.key?(:'service')
         self.service = attributes[:'service']
-      else
-        self.service = 0
       end
     end
 

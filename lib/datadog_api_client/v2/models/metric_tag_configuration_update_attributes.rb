@@ -113,8 +113,6 @@ module DatadogAPIClient::V2
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
         end
-      else
-        self.tags = []
       end
     end
 

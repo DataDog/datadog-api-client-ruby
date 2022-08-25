@@ -85,8 +85,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'estimate_type')
         self.estimate_type = attributes[:'estimate_type']
-      else
-        self.estimate_type = 'count_or_gauge'
       end
 
       if attributes.key?(:'estimated_at')

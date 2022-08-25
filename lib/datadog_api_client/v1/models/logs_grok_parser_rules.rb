@@ -84,8 +84,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'support_rules')
         self.support_rules = attributes[:'support_rules']
-      else
-        self.support_rules = ''
       end
     end
 

@@ -110,8 +110,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'color_by')
         self.color_by = attributes[:'color_by']
-      else
-        self.color_by = 'user'
       end
 
       if attributes.key?(:'custom_links')
@@ -144,8 +142,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
-      else
-        self.type = 'treemap'
       end
     end
 

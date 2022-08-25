@@ -117,8 +117,6 @@ module DatadogAPIClient::V1
         if (value = attributes[:'assertions']).is_a?(Array)
           self.assertions = value
         end
-      else
-        self.assertions = []
       end
 
       if attributes.key?(:'extracted_values')

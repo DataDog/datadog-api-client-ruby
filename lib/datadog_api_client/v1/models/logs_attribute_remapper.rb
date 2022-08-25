@@ -124,8 +124,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'is_enabled')
         self.is_enabled = attributes[:'is_enabled']
-      else
-        self.is_enabled = false
       end
 
       if attributes.key?(:'name')
@@ -134,20 +132,14 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'override_on_conflict')
         self.override_on_conflict = attributes[:'override_on_conflict']
-      else
-        self.override_on_conflict = false
       end
 
       if attributes.key?(:'preserve_source')
         self.preserve_source = attributes[:'preserve_source']
-      else
-        self.preserve_source = false
       end
 
       if attributes.key?(:'source_type')
         self.source_type = attributes[:'source_type']
-      else
-        self.source_type = 'attribute'
       end
 
       if attributes.key?(:'sources')
@@ -166,14 +158,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'target_type')
         self.target_type = attributes[:'target_type']
-      else
-        self.target_type = 'attribute'
       end
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
-      else
-        self.type = 'attribute-remapper'
       end
     end
 

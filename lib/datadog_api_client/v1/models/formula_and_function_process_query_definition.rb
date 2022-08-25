@@ -139,8 +139,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'sort')
         self.sort = attributes[:'sort']
-      else
-        self.sort = 'desc'
       end
 
       if attributes.key?(:'tag_filters')

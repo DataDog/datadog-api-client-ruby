@@ -116,16 +116,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'metric_type')
         self.metric_type = attributes[:'metric_type']
-      else
-        self.metric_type = 'gauge'
       end
 
       if attributes.key?(:'tags')
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
         end
-      else
-        self.tags = []
       end
     end
 

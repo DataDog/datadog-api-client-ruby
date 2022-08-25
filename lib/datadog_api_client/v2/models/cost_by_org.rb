@@ -93,8 +93,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
-      else
-        self.type = 'cost_by_org'
       end
     end
 

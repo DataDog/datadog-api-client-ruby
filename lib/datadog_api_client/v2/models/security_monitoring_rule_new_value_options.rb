@@ -95,20 +95,14 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'learning_duration')
         self.learning_duration = attributes[:'learning_duration']
-      else
-        self.learning_duration = 0
       end
 
       if attributes.key?(:'learning_method')
         self.learning_method = attributes[:'learning_method']
-      else
-        self.learning_method = 'duration'
       end
 
       if attributes.key?(:'learning_threshold')
         self.learning_threshold = attributes[:'learning_threshold']
-      else
-        self.learning_threshold = 0
       end
     end
 

@@ -107,8 +107,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'encode_as')
         self.encode_as = attributes[:'encode_as']
-      else
-        self.encode_as = 'json'
       end
 
       if attributes.key?(:'name')
