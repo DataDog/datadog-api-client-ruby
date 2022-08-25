@@ -372,7 +372,26 @@ module DatadogAPIClient
       else
         local_body = object_to_hash(model)
       end
-      local_body.to_json
+      transform_hash(local_body).to_json
+    end
+
+    # Transform object (array, hash, object, etc) to serializable object.
+    # @param [Object] obj to transform
+    # @return [Object]
+    def transform_hash(obj)
+      if obj.is_a?(Array)
+        obj.map { |m| transform_hash(m) }
+      elsif obj.is_a?(Hash)
+        obj.each do | k, v |
+          if v.class == Time
+            obj[k] = v.nsec == 0 ? v.rfc3339 : v.rfc3339(3)
+          else
+            obj[k] = transform_hash(v)
+          end
+        end
+      end
+
+      obj
     end
 
     # Convert object(non-array) to hash.

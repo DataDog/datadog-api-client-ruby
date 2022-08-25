@@ -18,6 +18,7 @@ group :development, :test do
   gem 'vcr'
   gem 'webmock'
   gem 'zstandard'
+  gem 'pry'
 end
 
 group :docs do
