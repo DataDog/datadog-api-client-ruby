@@ -71,6 +71,14 @@ module DatadogAPIClient::V2
         end
       end
 
+      if self.respond_to?(:additional_properties)
+        attributes.each_with_object({}) { |(k, v), h|
+          if (!self.class.attribute_map.key?(k.to_sym))
+            self.additional_properties[k.to_sym] = v
+          end
+        }
+      end
+
       self
     end
 
