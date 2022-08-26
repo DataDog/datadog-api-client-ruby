@@ -25,7 +25,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # A unique code for this type of warning
+    # A unique code for this type of warning updated
     attr_accessor :code
 
     # A detailed explanation of this specific warning
