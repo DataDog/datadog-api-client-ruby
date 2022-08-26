@@ -85,6 +85,9 @@ module DatadogAPIClient::V1
     # Shows the 99th percentile of all Cloud Security Posture Management Azure app services hosts over all hours in the current date for the given org.
     attr_accessor :cspm_aas_host_top99p
 
+    # Shows the 99th percentile of all Cloud Security Posture Management AWS hosts over all hours in the current date for the given org.
+    attr_accessor :cspm_aws_host_top99p
+
     # Shows the 99th percentile of all Cloud Security Posture Management Azure hosts over all hours in the current date for the given org.
     attr_accessor :cspm_azure_host_top99p
 
@@ -244,6 +247,7 @@ module DatadogAPIClient::V1
         :'container_avg' => :'container_avg',
         :'container_hwm' => :'container_hwm',
         :'cspm_aas_host_top99p' => :'cspm_aas_host_top99p',
+        :'cspm_aws_host_top99p' => :'cspm_aws_host_top99p',
         :'cspm_azure_host_top99p' => :'cspm_azure_host_top99p',
         :'cspm_container_avg' => :'cspm_container_avg',
         :'cspm_container_hwm' => :'cspm_container_hwm',
@@ -322,6 +326,7 @@ module DatadogAPIClient::V1
         :'container_avg' => :'Integer',
         :'container_hwm' => :'Integer',
         :'cspm_aas_host_top99p' => :'Integer',
+        :'cspm_aws_host_top99p' => :'Integer',
         :'cspm_azure_host_top99p' => :'Integer',
         :'cspm_container_avg' => :'Integer',
         :'cspm_container_hwm' => :'Integer',
@@ -471,6 +476,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'cspm_aas_host_top99p')
         self.cspm_aas_host_top99p = attributes[:'cspm_aas_host_top99p']
+      end
+
+      if attributes.key?(:'cspm_aws_host_top99p')
+        self.cspm_aws_host_top99p = attributes[:'cspm_aws_host_top99p']
       end
 
       if attributes.key?(:'cspm_azure_host_top99p')
@@ -687,6 +696,7 @@ module DatadogAPIClient::V1
           container_avg == o.container_avg &&
           container_hwm == o.container_hwm &&
           cspm_aas_host_top99p == o.cspm_aas_host_top99p &&
+          cspm_aws_host_top99p == o.cspm_aws_host_top99p &&
           cspm_azure_host_top99p == o.cspm_azure_host_top99p &&
           cspm_container_avg == o.cspm_container_avg &&
           cspm_container_hwm == o.cspm_container_hwm &&
@@ -745,7 +755,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [agent_host_top99p, apm_azure_app_service_host_top99p, apm_host_top99p, audit_logs_lines_indexed_sum, avg_profiled_fargate_tasks, aws_host_top99p, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p, billable_ingested_bytes_sum, browser_rum_lite_session_count_sum, browser_rum_replay_session_count_sum, browser_rum_units_sum, ci_pipeline_indexed_spans_sum, ci_test_indexed_spans_sum, ci_visibility_pipeline_committers_hwm, ci_visibility_test_committers_hwm, container_avg, container_hwm, cspm_aas_host_top99p, cspm_azure_host_top99p, cspm_container_avg, cspm_container_hwm, cspm_host_top99p, custom_ts_avg, cws_container_count_avg, cws_host_top99p, dbm_host_top99p_sum, dbm_queries_avg_sum, fargate_tasks_count_avg, fargate_tasks_count_hwm, gcp_host_top99p, heroku_host_top99p, id, incident_management_monthly_active_users_hwm, indexed_events_count_sum, infra_host_top99p, ingested_events_bytes_sum, iot_device_agg_sum, iot_device_top99p_sum, mobile_rum_lite_session_count_sum, mobile_rum_session_count_android_sum, mobile_rum_session_count_ios_sum, mobile_rum_session_count_reactnative_sum, mobile_rum_session_count_sum, mobile_rum_units_sum, name, netflow_indexed_events_count_sum, npm_host_top99p, observability_pipelines_bytes_processed_sum, online_archive_events_count_sum, opentelemetry_host_top99p, profiling_host_top99p, public_id, rum_browser_and_mobile_session_count, rum_session_count_sum, rum_total_session_count_sum, rum_units_sum, sds_logs_scanned_bytes_sum, sds_total_scanned_bytes_sum, synthetics_browser_check_calls_count_sum, synthetics_check_calls_count_sum, trace_search_indexed_events_count_sum, twol_ingested_events_bytes_sum, vsphere_host_top99p].hash
+      [agent_host_top99p, apm_azure_app_service_host_top99p, apm_host_top99p, audit_logs_lines_indexed_sum, avg_profiled_fargate_tasks, aws_host_top99p, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p, billable_ingested_bytes_sum, browser_rum_lite_session_count_sum, browser_rum_replay_session_count_sum, browser_rum_units_sum, ci_pipeline_indexed_spans_sum, ci_test_indexed_spans_sum, ci_visibility_pipeline_committers_hwm, ci_visibility_test_committers_hwm, container_avg, container_hwm, cspm_aas_host_top99p, cspm_aws_host_top99p, cspm_azure_host_top99p, cspm_container_avg, cspm_container_hwm, cspm_host_top99p, custom_ts_avg, cws_container_count_avg, cws_host_top99p, dbm_host_top99p_sum, dbm_queries_avg_sum, fargate_tasks_count_avg, fargate_tasks_count_hwm, gcp_host_top99p, heroku_host_top99p, id, incident_management_monthly_active_users_hwm, indexed_events_count_sum, infra_host_top99p, ingested_events_bytes_sum, iot_device_agg_sum, iot_device_top99p_sum, mobile_rum_lite_session_count_sum, mobile_rum_session_count_android_sum, mobile_rum_session_count_ios_sum, mobile_rum_session_count_reactnative_sum, mobile_rum_session_count_sum, mobile_rum_units_sum, name, netflow_indexed_events_count_sum, npm_host_top99p, observability_pipelines_bytes_processed_sum, online_archive_events_count_sum, opentelemetry_host_top99p, profiling_host_top99p, public_id, rum_browser_and_mobile_session_count, rum_session_count_sum, rum_total_session_count_sum, rum_units_sum, sds_logs_scanned_bytes_sum, sds_total_scanned_bytes_sum, synthetics_browser_check_calls_count_sum, synthetics_check_calls_count_sum, trace_search_indexed_events_count_sum, twol_ingested_events_bytes_sum, vsphere_host_top99p].hash
     end
   end
 end
