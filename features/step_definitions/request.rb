@@ -183,6 +183,11 @@ module APIWorld
 
     result
   end
+
+  def model_builder(param, obj)
+    model = ScenariosModelMappings["v#{@api_version}.#{@operation_id}"][param]
+    @api_client.convert_to_type(obj, model, "V#{@api_version}")
+  end
 end
 
 World(APIWorld)
@@ -207,24 +212,22 @@ Given('operation {string} enabled') do |name|
 end
 
 Given(/^body with value (.*)$/) do |body|
-  model = ScenariosModelMappings["v#{@api_version}.#{@operation_id}"]["body"]
   body_hash = JSON.parse(body.templated(fixtures), {:symbolize_names => true})
-  opts[:body] = @api_client.convert_to_type(body_hash, model, "V#{@api_version}")
+  opts[:body] = model_builder("body", body_hash)
 end
 
 Given(/^body from file "(.*)"$/) do |file|
-  model = ScenariosModelMappings["v#{@api_version}.#{@operation_id}"]["body"]
   body = File.read(File.join(__dir__, "..", "v" + @api_version, file))
   body_hash = JSON.parse(body.templated(fixtures), {:symbolize_names => true})
-  opts[:body] = @api_client.convert_to_type(body_hash, model, "V#{@api_version}")
+  opts[:body] = model_builder("body", body_hash)
 end
 
 Given(/^request contains "([^"]+)" parameter from "([^"]+)"$/) do |parameter_name, fixture_path|
-  opts[parameter_name.to_parameter.to_sym] = fixtures.lookup(fixture_path)
+  opts[parameter_name.to_parameter.to_sym] = model_builder(parameter_name.to_parameter, fixtures.lookup(fixture_path))
 end
 
 Given(/^request contains "([^"]+)" parameter with value (.+)$/) do |parameter_name, value|
-  opts[parameter_name.to_parameter.to_sym] = JSON.parse(value.templated fixtures)
+  opts[parameter_name.to_parameter.to_sym] = model_builder(parameter_name.to_parameter, JSON.parse(value.templated fixtures))
 end
 
 Given(/^new "([^"]+)" request$/) do |name|

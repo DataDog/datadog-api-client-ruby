@@ -145,7 +145,7 @@ module DatadogAPIClient
       req_opts = {
         :method => http_method,
         :headers => header_params,
-        :query => query_params,
+        :query => transform_hash(query_params),
         :timeout => @config.timeout,
         :verify_peer => @config.verify_ssl,
         :verify => _verify_ssl_host,
