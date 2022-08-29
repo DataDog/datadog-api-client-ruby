@@ -79,7 +79,7 @@ def pytest_bdd_after_scenario(request, feature, scenario):
     status_code = context["status_code"]
     if status_code >= 300:
         return
-
+    assert 1 == 2
     operation_spec = operation_specs[version][operation_id]
     response_spec = operation_spec.spec["responses"][str(status_code)]
     group_name = "-".join(operation_spec.spec["tags"][0].split(" ")).lower()
