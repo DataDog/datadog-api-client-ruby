@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Fri, 26 Aug 2022 21:57:24 GMT
+- recorded_at: Fri, 26 Aug 2022 21:57:22 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"name":"Test-Update_a_role_returns_OK_response-1661551044"},"type":"roles"}}'
+      string: '{"data":{"attributes":{"name":"Test-Update_a_role_returns_Bad_Request_response-1661551042"},"type":"roles"}}'
     headers:
       Accept:
       - application/json
@@ -14,7 +14,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"roles","id":"11727e1e-258a-11ed-b455-da7ad0900002","attributes":{"name":"Test-Update_a_role_returns_OK_response-1661551044","created_at":"2022-08-26T21:57:24.677764+00:00","modified_at":"2022-08-26T21:57:24.748094+00:00"},"relationships":{"permissions":{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2"},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304"},{"type":"permissions","id":"417ba636-2dce-11eb-84c0-6bce5b0d9de0"},{"type":"permissions","id":"12efc20e-d36c-11eb-a9b8-da7ad0900002"},{"type":"permissions","id":"97971c1c-e895-11eb-b13c-da7ad0900002"},{"type":"permissions","id":"7605ef24-f376-11eb-b90b-da7ad0900002"},{"type":"permissions","id":"b6bf9ac6-9a59-11ec-8480-da7ad0900002"},{"type":"permissions","id":"f8e941cf-e746-11ec-b22d-da7ad0900002"}]}}}}
+      string: '{"data":{"type":"roles","id":"10475ae6-258a-11ed-b455-da7ad0900002","attributes":{"name":"Test-Update_a_role_returns_Bad_Request_response-1661551042","created_at":"2022-08-26T21:57:22.716898+00:00","modified_at":"2022-08-26T21:57:22.941930+00:00"},"relationships":{"permissions":{"data":[{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2"},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304"},{"type":"permissions","id":"417ba636-2dce-11eb-84c0-6bce5b0d9de0"},{"type":"permissions","id":"12efc20e-d36c-11eb-a9b8-da7ad0900002"},{"type":"permissions","id":"97971c1c-e895-11eb-b13c-da7ad0900002"},{"type":"permissions","id":"7605ef24-f376-11eb-b90b-da7ad0900002"},{"type":"permissions","id":"b6bf9ac6-9a59-11ec-8480-da7ad0900002"},{"type":"permissions","id":"f8e941cf-e746-11ec-b22d-da7ad0900002"}]}}}}
 
         '
     headers:
@@ -23,7 +23,7 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Fri, 26 Aug 2022 21:57:24 GMT
+- recorded_at: Fri, 26 Aug 2022 21:57:22 GMT
   request:
     body: null
     headers:
@@ -260,38 +260,38 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Fri, 26 Aug 2022 21:57:24 GMT
+- recorded_at: Fri, 26 Aug 2022 21:57:22 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"name":"Test-Update_a_role_returns_OK_response-1661551044-updated"},"id":"11727e1e-258a-11ed-b455-da7ad0900002","relationships":{"permissions":{"data":[{"id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029","type":"permissions"}]}},"type":"roles"}}'
+      string: '{"data":{"attributes":{"name":"Test-Update_a_role_returns_Bad_Request_response-1661551042-updated"},"id":"10475ae6-258a-11ed-b455-da7ad0900002","relationships":{"permissions":{"data":[{"id":"11111111-dead-beef-dead-ffffffffffff","type":"permissions"}]}},"type":"roles"}}'
     headers:
       Accept:
       - application/json
       Content-Type:
       - application/json
     method: PATCH
-    uri: https://api.datadoghq.com/api/v2/roles/11727e1e-258a-11ed-b455-da7ad0900002
+    uri: https://api.datadoghq.com/api/v2/roles/10475ae6-258a-11ed-b455-da7ad0900002
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"roles","id":"11727e1e-258a-11ed-b455-da7ad0900002","attributes":{"name":"Test-Update_a_role_returns_OK_response-1661551044-updated","created_at":"2022-08-26T21:57:24.677764+00:00","modified_at":"2022-08-26T21:57:25.093346+00:00"},"relationships":{"permissions":{"data":[{"type":"permissions","id":"984a2bd4-d3b4-11e8-a1ff-a7f660d43029"},{"type":"permissions","id":"984d2f00-d3b4-11e8-a200-bb47109e9987"},{"type":"permissions","id":"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2"},{"type":"permissions","id":"4441648c-d8b1-11e9-a77a-1b899a04b304"},{"type":"permissions","id":"417ba636-2dce-11eb-84c0-6bce5b0d9de0"},{"type":"permissions","id":"7df222b6-a45c-11eb-a0af-da7ad0900002"},{"type":"permissions","id":"12efc20e-d36c-11eb-a9b8-da7ad0900002"},{"type":"permissions","id":"97971c1c-e895-11eb-b13c-da7ad0900002"},{"type":"permissions","id":"7605ef24-f376-11eb-b90b-da7ad0900002"},{"type":"permissions","id":"b6bf9ac6-9a59-11ec-8480-da7ad0900002"},{"type":"permissions","id":"f8e941cf-e746-11ec-b22d-da7ad0900002"}]}}}}
+      string: '{"errors":["Invalid input "]}
 
         '
     headers:
       Content-Type:
       - application/json
     status:
-      code: 200
-      message: OK
-- recorded_at: Fri, 26 Aug 2022 21:57:24 GMT
+      code: 400
+      message: Bad Request
+- recorded_at: Fri, 26 Aug 2022 21:57:22 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/roles/11727e1e-258a-11ed-b455-da7ad0900002
+    uri: https://api.datadoghq.com/api/v2/roles/10475ae6-258a-11ed-b455-da7ad0900002
   response:
     body:
       encoding: UTF-8
