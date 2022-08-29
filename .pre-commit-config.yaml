@@ -39,6 +39,7 @@ repos:
       - "poetry"
   - id: examples
     name: examples
+    fail_fast: true
     language: python
     entry: bash -c "cd .generator && poetry install && poetry run pytest"
     files: "^.generator/"
