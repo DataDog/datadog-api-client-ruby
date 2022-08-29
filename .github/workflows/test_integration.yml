@@ -53,7 +53,7 @@ jobs:
       - name: Install system zstd
         run: |
           sudo apt-get -y install zstd
-          echo "ZSTANDARD_LIBRARY=$(which zstd)" >> $GITHUB_ENV
+          echo "ZSTANDARD_LIBRARY=$(find /usr/lib -iname libzstd.so.1)" >> $GITHUB_ENV
       - name: Set up Ruby 3.1
         uses: ruby/setup-ruby@v1
         with:
