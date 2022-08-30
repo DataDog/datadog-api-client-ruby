@@ -29,5 +29,6 @@ module DatadogAPIClient::V1
     PROFILES = "profiles".freeze
     AUDIT = "audit".freeze
     EVENTS = "events".freeze
+    CI_TESTS = "ci_tests".freeze
   end
 end
