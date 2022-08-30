@@ -28,6 +28,9 @@ module DatadogAPIClient::V1
     # When type is `http_header`, name of the header to use to extract the value.
     attr_accessor :field
 
+    # When type is `local_variable`, name of the local variable to use to extract the value.
+    attr_accessor :local_variable_name
+
     # Details of the parser to use for the global variable.
     attr_accessor :parser
 
@@ -39,6 +42,7 @@ module DatadogAPIClient::V1
     def self.attribute_map
       {
         :'field' => :'field',
+        :'local_variable_name' => :'localVariableName',
         :'parser' => :'parser',
         :'type' => :'type'
       }
@@ -55,6 +59,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'field' => :'String',
+        :'local_variable_name' => :'String',
         :'parser' => :'SyntheticsVariableParser',
         :'type' => :'SyntheticsGlobalVariableParseTestOptionsType'
       }
@@ -87,6 +92,10 @@ module DatadogAPIClient::V1
         self.field = attributes[:'field']
       end
 
+      if attributes.key?(:'local_variable_name')
+        self.local_variable_name = attributes[:'local_variable_name']
+      end
+
       if attributes.key?(:'parser')
         self.parser = attributes[:'parser']
       end
@@ -100,19 +109,8 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @parser.nil?
       return false if @type.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param parser [Object] Object to be assigned
-    # @!visibility private
-    def parser=(parser)
-      if parser.nil?
-        fail ArgumentError, 'invalid value for "parser", parser cannot be nil.'
-      end
-      @parser = parser
     end
 
     # Custom attribute writer method with validation
@@ -132,6 +130,7 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           field == o.field &&
+          local_variable_name == o.local_variable_name &&
           parser == o.parser &&
           type == o.type
     end
@@ -147,7 +146,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [field, parser, type].hash
+      [field, local_variable_name, parser, type].hash
     end
   end
 end

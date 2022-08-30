@@ -23,5 +23,6 @@ module DatadogAPIClient::V1
 
     HTTP_BODY = "http_body".freeze
     HTTP_HEADER = "http_header".freeze
+    LOCAL_VARIABLE = "local_variable".freeze
   end
 end

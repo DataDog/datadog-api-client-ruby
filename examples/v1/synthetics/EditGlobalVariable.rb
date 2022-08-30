@@ -13,6 +13,7 @@ body = DatadogAPIClient::V1::SyntheticsGlobalVariable.new({
   name: "MY_VARIABLE",
   parse_test_options: DatadogAPIClient::V1::SyntheticsGlobalVariableParseTestOptions.new({
     field: "content-type",
+    local_variable_name: "LOCAL_VARIABLE",
     parser: DatadogAPIClient::V1::SyntheticsVariableParser.new({
       type: DatadogAPIClient::V1::SyntheticsGlobalVariableParserType::REGEX,
       value: ".*",
