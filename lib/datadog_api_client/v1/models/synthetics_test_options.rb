@@ -44,8 +44,17 @@ module DatadogAPIClient::V1
     # Whether or not to disable CORS mechanism.
     attr_accessor :disable_cors
 
+    # Disable Content Security Policy for browser tests.
+    attr_accessor :disable_csp
+
     # For API HTTP test, whether or not the test should follow redirects.
     attr_accessor :follow_redirects
+
+    # Ignore server certificate error.
+    attr_accessor :ignore_server_certificate_error
+
+    # Timeout before declaring the initial step as failed (in seconds) for browser tests.
+    attr_accessor :initial_navigation_timeout
 
     # Minimum amount of time in failure required to trigger an alert.
     attr_accessor :min_failure_duration
@@ -99,7 +108,10 @@ module DatadogAPIClient::V1
         :'ci' => :'ci',
         :'device_ids' => :'device_ids',
         :'disable_cors' => :'disableCors',
+        :'disable_csp' => :'disableCsp',
         :'follow_redirects' => :'follow_redirects',
+        :'ignore_server_certificate_error' => :'ignoreServerCertificateError',
+        :'initial_navigation_timeout' => :'initialNavigationTimeout',
         :'min_failure_duration' => :'min_failure_duration',
         :'min_location_failed' => :'min_location_failed',
         :'monitor_name' => :'monitor_name',
@@ -129,7 +141,10 @@ module DatadogAPIClient::V1
         :'ci' => :'SyntheticsTestCiOptions',
         :'device_ids' => :'Array<SyntheticsDeviceID>',
         :'disable_cors' => :'Boolean',
+        :'disable_csp' => :'Boolean',
         :'follow_redirects' => :'Boolean',
+        :'ignore_server_certificate_error' => :'Boolean',
+        :'initial_navigation_timeout' => :'Integer',
         :'min_failure_duration' => :'Integer',
         :'min_location_failed' => :'Integer',
         :'monitor_name' => :'String',
@@ -192,8 +207,20 @@ module DatadogAPIClient::V1
         self.disable_cors = attributes[:'disable_cors']
       end
 
+      if attributes.key?(:'disable_csp')
+        self.disable_csp = attributes[:'disable_csp']
+      end
+
       if attributes.key?(:'follow_redirects')
         self.follow_redirects = attributes[:'follow_redirects']
+      end
+
+      if attributes.key?(:'ignore_server_certificate_error')
+        self.ignore_server_certificate_error = attributes[:'ignore_server_certificate_error']
+      end
+
+      if attributes.key?(:'initial_navigation_timeout')
+        self.initial_navigation_timeout = attributes[:'initial_navigation_timeout']
       end
 
       if attributes.key?(:'min_failure_duration')
@@ -288,7 +315,10 @@ module DatadogAPIClient::V1
           ci == o.ci &&
           device_ids == o.device_ids &&
           disable_cors == o.disable_cors &&
+          disable_csp == o.disable_csp &&
           follow_redirects == o.follow_redirects &&
+          ignore_server_certificate_error == o.ignore_server_certificate_error &&
+          initial_navigation_timeout == o.initial_navigation_timeout &&
           min_failure_duration == o.min_failure_duration &&
           min_location_failed == o.min_location_failed &&
           monitor_name == o.monitor_name &&
@@ -312,7 +342,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [accept_self_signed, allow_insecure, check_certificate_revocation, ci, device_ids, disable_cors, follow_redirects, min_failure_duration, min_location_failed, monitor_name, monitor_options, monitor_priority, no_screenshot, restricted_roles, _retry, rum_settings, tick_every].hash
+      [accept_self_signed, allow_insecure, check_certificate_revocation, ci, device_ids, disable_cors, disable_csp, follow_redirects, ignore_server_certificate_error, initial_navigation_timeout, min_failure_duration, min_location_failed, monitor_name, monitor_options, monitor_priority, no_screenshot, restricted_roles, _retry, rum_settings, tick_every].hash
     end
   end
 end
