@@ -1,4 +1,4 @@
-# List tag configurations with configured filter returns "Success" response
+# Get a list of metrics with configured filter returns "Success" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::MetricsAPI.new

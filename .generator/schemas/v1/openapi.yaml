@@ -2485,6 +2485,7 @@ components:
       - profiles
       - audit
       - events
+      - ci_tests
       example: logs
       type: string
       x-enum-varnames:
@@ -2496,6 +2497,7 @@ components:
       - PROFILES
       - AUDIT
       - EVENTS
+      - CI_TESTS
     FormulaAndFunctionMetricAggregation:
       description: The aggregation methods available for metrics queries.
       enum:
@@ -5644,6 +5646,9 @@ components:
           type: string
         pointlist:
           description: List of points of the time series.
+          example:
+          - - 1575317847.0
+            - 0.5
           items:
             $ref: '#/components/schemas/Point'
           readOnly: true
@@ -11896,13 +11901,17 @@ components:
             the value.
           example: content-type
           type: string
+        localVariableName:
+          description: When type is `local_variable`, name of the local variable to
+            use to extract the value.
+          example: LOCAL_VARIABLE
+          type: string
         parser:
           $ref: '#/components/schemas/SyntheticsVariableParser'
         type:
           $ref: '#/components/schemas/SyntheticsGlobalVariableParseTestOptionsType'
       required:
       - type
-      - parser
       type: object
     SyntheticsGlobalVariableParseTestOptionsType:
       description: Property of the Synthetics Test Response to use for a Synthetics
@@ -11910,11 +11919,13 @@ components:
       enum:
       - http_body
       - http_header
+      - local_variable
       example: http_body
       type: string
       x-enum-varnames:
       - HTTP_BODY
       - HTTP_HEADER
+      - LOCAL_VARIABLE
     SyntheticsGlobalVariableParserType:
       description: Type of parser for a Synthetics global variable from a synthetics
         test.
@@ -12562,9 +12573,20 @@ components:
         disableCors:
           description: Whether or not to disable CORS mechanism.
           type: boolean
+        disableCsp:
+          description: Disable Content Security Policy for browser tests.
+          type: boolean
         follow_redirects:
           description: For API HTTP test, whether or not the test should follow redirects.
           type: boolean
+        ignoreServerCertificateError:
+          description: Ignore server certificate error.
+          type: boolean
+        initialNavigationTimeout:
+          description: Timeout before declaring the initial step as failed (in seconds)
+            for browser tests.
+          format: int64
+          type: integer
         min_failure_duration:
           description: Minimum amount of time in failure required to trigger an alert.
           format: int64
@@ -12675,6 +12697,16 @@ components:
           type: string
         certificate:
           $ref: '#/components/schemas/SyntheticsTestRequestCertificate'
+        certificateDomains:
+          default: []
+          description: By default, the client certificate is applied on the domain
+            of the starting URL for browser tests. If you want your client certificate
+            to be applied on other domains instead, add them in `certificateDomains`.
+          items:
+            description: Domain to apply the client certificate.
+            example: ''
+            type: string
+          type: array
         dnsServer:
           description: DNS server to use for DNS tests.
           type: string

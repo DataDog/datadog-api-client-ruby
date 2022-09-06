@@ -37,6 +37,9 @@ module DatadogAPIClient::V1
     # Client certificate to use when performing the test request.
     attr_accessor :certificate
 
+    # By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificateDomains`.
+    attr_accessor :certificate_domains
+
     # DNS server to use for DNS tests.
     attr_accessor :dns_server
 
@@ -101,6 +104,7 @@ module DatadogAPIClient::V1
         :'basic_auth' => :'basicAuth',
         :'body' => :'body',
         :'certificate' => :'certificate',
+        :'certificate_domains' => :'certificateDomains',
         :'dns_server' => :'dnsServer',
         :'dns_server_port' => :'dnsServerPort',
         :'follow_redirects' => :'follow_redirects',
@@ -136,6 +140,7 @@ module DatadogAPIClient::V1
         :'basic_auth' => :'SyntheticsBasicAuth',
         :'body' => :'String',
         :'certificate' => :'SyntheticsTestRequestCertificate',
+        :'certificate_domains' => :'Array<String>',
         :'dns_server' => :'String',
         :'dns_server_port' => :'Integer',
         :'follow_redirects' => :'Boolean',
@@ -194,6 +199,14 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'certificate')
         self.certificate = attributes[:'certificate']
+      end
+
+      if attributes.key?(:'certificate_domains')
+        if (value = attributes[:'certificate_domains']).is_a?(Array)
+          self.certificate_domains = value
+        end
+      else
+        self.certificate_domains = []
       end
 
       if attributes.key?(:'dns_server')
@@ -316,6 +329,7 @@ module DatadogAPIClient::V1
           basic_auth == o.basic_auth &&
           body == o.body &&
           certificate == o.certificate &&
+          certificate_domains == o.certificate_domains &&
           dns_server == o.dns_server &&
           dns_server_port == o.dns_server_port &&
           follow_redirects == o.follow_redirects &&
@@ -347,7 +361,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_insecure, basic_auth, body, certificate, dns_server, dns_server_port, follow_redirects, headers, host, message, metadata, method, no_saving_response_body, number_of_packets, port, proxy, query, servername, service, should_track_hops, timeout, url].hash
+      [allow_insecure, basic_auth, body, certificate, certificate_domains, dns_server, dns_server_port, follow_redirects, headers, host, message, metadata, method, no_saving_response_body, number_of_packets, port, proxy, query, servername, service, should_track_hops, timeout, url].hash
     end
   end
 end
