@@ -992,6 +992,7 @@ ScenariosModelMappings = {
             "filter_tags_configured" => "String",
             "filter_metric_type" => "MetricTagConfigurationMetricTypes",
             "filter_include_percentiles" => "Boolean",
+            "filter_queried" => "Boolean",
             "filter_tags" => "String",
             "window_seconds" => "Integer",
     },
@@ -1000,6 +1001,10 @@ ScenariosModelMappings = {
     },
     "v2.CreateBulkTagsMetricsConfiguration" => {
             "body" => "MetricBulkTagConfigCreateRequest",
+    },
+    "v2.ListActiveMetricConfigurations" => {
+            "metric_name" => "String",
+            "window_seconds" => "Integer",
     },
     "v2.ListTagsByMetricName" => {
             "metric_name" => "String",
