@@ -381,6 +381,73 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # List active tags and aggregations.
+    #
+    # @see #list_active_metric_configurations_with_http_info
+    def list_active_metric_configurations(metric_name, opts = {})
+      data, _status_code, _headers = list_active_metric_configurations_with_http_info(metric_name, opts)
+      data
+    end
+
+    # List active tags and aggregations.
+    #
+    # List tags and aggregations that are actively queried on dashboards and monitors for a given metric name.
+    #
+    # @param metric_name [String] The name of the metric.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :window_seconds The number of seconds of look back (from now). Default value is 604,800 (1 week), minimum value is 7200 (2 hours), maximum value is 2,630,000 (1 month).
+    # @return [Array<(MetricSuggestedTagsAndAggregationsResponse, Integer, Hash)>] MetricSuggestedTagsAndAggregationsResponse data, response status code and response headers
+    def list_active_metric_configurations_with_http_info(metric_name, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MetricsAPI.list_active_metric_configurations ...'
+      end
+      # verify the required parameter 'metric_name' is set
+      if @api_client.config.client_side_validation && metric_name.nil?
+        fail ArgumentError, "Missing the required parameter 'metric_name' when calling MetricsAPI.list_active_metric_configurations"
+      end
+      # resource path
+      local_var_path = '/api/v2/metrics/{metric_name}/active-configurations'.sub('{metric_name}', CGI.escape(metric_name.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'window[seconds]'] = opts[:'window_seconds'] if !opts[:'window_seconds'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MetricSuggestedTagsAndAggregationsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_active_metric_configurations,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MetricsAPI#list_active_metric_configurations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List tag configuration by name.
     #
     # @see #list_tag_configuration_by_name_with_http_info
@@ -446,7 +513,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # List tag configurations.
+    # Get a list of metrics.
     #
     # @see #list_tag_configurations_with_http_info
     def list_tag_configurations(opts = {})
@@ -454,18 +521,18 @@ module DatadogAPIClient::V2
       data
     end
 
-    # List tag configurations.
+    # Get a list of metrics.
     #
-    # Returns all configured count/gauge/rate/distribution metric names
-    # (with additional filters if specified).
+    # Returns all metrics (matching additional filters if specified).
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [Boolean] :filter_configured Filter metrics that have configured tags.
+    # @option opts [Boolean] :filter_configured Filter custom metrics that have configured tags.
     # @option opts [String] :filter_tags_configured Filter tag configurations by configured tags.
-    # @option opts [MetricTagConfigurationMetricTypes] :filter_metric_type Filter tag configurations by metric type.
+    # @option opts [MetricTagConfigurationMetricTypes] :filter_metric_type Filter metrics by metric type.
     # @option opts [Boolean] :filter_include_percentiles Filter distributions with additional percentile aggregations enabled or disabled.
-    # @option opts [String] :filter_tags Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
-    # @option opts [Integer] :window_seconds The number of seconds of look back (from now) to apply to a filter[tag] query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days).
+    # @option opts [Boolean] :filter_queried Filter custom metrics that have or have not been queried in the specified window[seconds]. If no window is provided or the window is less than 2 hours, a default of 2 hours will be applied.
+    # @option opts [String] :filter_tags Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Can only be combined with the filter[queried] filter.
+    # @option opts [Integer] :window_seconds The number of seconds of look back (from now) to apply to a filter[tag] or filter[queried] query. Defaults value is 3600 (1 hour), maximum value is 1,209,600 (2 weeks).
     # @return [Array<(MetricsAndMetricTagConfigurationsResponse, Integer, Hash)>] MetricsAndMetricTagConfigurationsResponse data, response status code and response headers
     def list_tag_configurations_with_http_info(opts = {})
 
@@ -485,6 +552,7 @@ module DatadogAPIClient::V2
       query_params[:'filter[tags_configured]'] = opts[:'filter_tags_configured'] if !opts[:'filter_tags_configured'].nil?
       query_params[:'filter[metric_type]'] = opts[:'filter_metric_type'] if !opts[:'filter_metric_type'].nil?
       query_params[:'filter[include_percentiles]'] = opts[:'filter_include_percentiles'] if !opts[:'filter_include_percentiles'].nil?
+      query_params[:'filter[queried]'] = opts[:'filter_queried'] if !opts[:'filter_queried'].nil?
       query_params[:'filter[tags]'] = opts[:'filter_tags'] if !opts[:'filter_tags'].nil?
       query_params[:'window[seconds]'] = opts[:'window_seconds'] if !opts[:'window_seconds'].nil?
 

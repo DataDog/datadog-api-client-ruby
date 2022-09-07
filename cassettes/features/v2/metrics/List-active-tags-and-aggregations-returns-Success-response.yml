@@ -1,0 +1,44 @@
+http_interactions:
+- recorded_at: Thu, 01 Sep 2022 12:00:27 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"series":[{"metric":"TestListactivetagsandaggregationsreturnsSuccessresponse1662033627","points":[[1662033627,1.1]],"tags":["test:ExampleSubmitmetricsreturnsPayloadacceptedresponse"],"type":"gauge"}]}'
+    headers:
+      Accept:
+      - text/json, application/json
+      Content-Type:
+      - text/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v1/series
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"status": "ok"}'
+    headers:
+      Content-Type:
+      - text/json
+    status:
+      code: 202
+      message: Accepted
+- recorded_at: Thu, 01 Sep 2022 12:00:27 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/metrics/TestListactivetagsandaggregationsreturnsSuccessresponse1662033627/active-configurations
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"actively_queried_configurations","id":"TestListactivetagsandaggregationsreturnsSuccessresponse1662033627","attributes":{"active_tags":[],"active_aggregations":[]}}}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0
