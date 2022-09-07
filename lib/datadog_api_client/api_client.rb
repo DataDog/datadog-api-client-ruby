@@ -384,7 +384,13 @@ module DatadogAPIClient
       elsif obj.is_a?(Hash)
         obj.each do | k, v |
           if v.class == Time
-            obj[k] = v.nsec == 0 ? v.rfc3339 : v.rfc3339(3)
+            t = v.strftime("%FT%T")
+            if v.nsec > 0
+              t << v.strftime(".%3N")
+            end
+            t << (v.utc? ? 'Z' : v.strftime("%:z"))
+
+            obj[k] = t
           else
             obj[k] = transform_hash(v)
           end
