@@ -34,5 +34,6 @@ module DatadogAPIClient::V1
     VALIDATES = "validates".freeze
     IS_IN_MORE_DAYS_THAN = "isInMoreThan".freeze
     IS_IN_LESS_DAYS_THAN = "isInLessThan".freeze
+    DOES_NOT_EXIST = "doesNotExist".freeze
   end
 end
