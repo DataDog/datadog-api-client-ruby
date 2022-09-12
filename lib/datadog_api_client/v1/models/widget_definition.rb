@@ -54,7 +54,8 @@ module DatadogAPIClient::V1
           :'ToplistWidgetDefinition',
           :'TreeMapWidgetDefinition',
           :'ListStreamWidgetDefinition',
-          :'FunnelWidgetDefinition'
+          :'FunnelWidgetDefinition',
+          :'TopologyMapWidgetDefinition'
         ]
       end
       # Builds the object
