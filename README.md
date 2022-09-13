@@ -138,6 +138,18 @@ config.debugging = true
 client = DatadogAPIClient::APIClient.new(config)
 ```
 
+### Configure proxy
+
+You can configure the client to use proxy by setting `http_proxyaddr` and `http_proxyport` keys on configuration object:
+
+```ruby
+DatadogAPIClient.configure do |config|
+   config.http_proxyaddr = '127.0.0.1'
+   config.http_proxyport = '80'
+end
+client = DatadogAPIClient::APIClient.new(config)
+```
+
 ### Pagination
 
 Several listing operations have a pagination method to help consume all the items available.
