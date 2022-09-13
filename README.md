@@ -143,10 +143,9 @@ client = DatadogAPIClient::APIClient.new(config)
 You can configure the client to use proxy by setting `http_proxyaddr` and `http_proxyport` keys on configuration object:
 
 ```ruby
-DatadogAPIClient.configure do |config|
-   config.http_proxyaddr = '127.0.0.1'
-   config.http_proxyport = '80'
-end
+config = DatadogAPIClient::Configuration.new
+config.http_proxyaddr = '127.0.0.1'
+config.http_proxyport = '3128'
 client = DatadogAPIClient::APIClient.new(config)
 ```
 
