@@ -615,9 +615,10 @@ module DatadogAPIClient::V1
     # Get a list of service level objective objects for your organization.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [String] :query The query string to filter results based on SLO names.
+    # @option opts [String] :query The query string to filter results based on SLO names. Some examples of queries include `service:<service-name>` and `<slo-name>`.
     # @option opts [Integer] :page_size The number of files to return in the response `[default=10]`.
     # @option opts [Integer] :page_number The identifier of the first page to return. This parameter is used for the pagination feature `[default=0]`.
+    # @option opts [Boolean] :include_facets Whether or not to return facet information in the response `[default=false]`.
     # @return [Array<(SearchSLOResponse, Integer, Hash)>] SearchSLOResponse data, response status code and response headers
     def search_slo_with_http_info(opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v1.search_slo".to_sym]
@@ -638,6 +639,7 @@ module DatadogAPIClient::V1
       query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
       query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
       query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'include_facets'] = opts[:'include_facets'] if !opts[:'include_facets'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
