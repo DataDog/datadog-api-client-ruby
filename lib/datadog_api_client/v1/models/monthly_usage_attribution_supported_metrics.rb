@@ -23,6 +23,8 @@ module DatadogAPIClient::V1
 
     API_USAGE = "api_usage".freeze
     API_PERCENTAGE = "api_percentage".freeze
+    APM_FARGATE_USAGE = "apm_fargate_usage".freeze
+    APM_FARGATE_PERCENTAGE = "apm_fargate_percentage".freeze
     APM_HOST_USAGE = "apm_host_usage".freeze
     APM_HOST_PERCENTAGE = "apm_host_percentage".freeze
     APPSEC_USAGE = "appsec_usage".freeze
