@@ -17,26 +17,26 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Attributes
-  class SearchSLOResponseDataAttributes
+  # Error budget remaining for an SLO.
+  class SLORawErrorBudgetRemaining
     include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Facets
-    attr_accessor :facets
+    # Error budget remaining unit.
+    attr_accessor :unit
 
-    # SLOs
-    attr_accessor :slo
+    # Error budget remaining value.
+    attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'facets' => :'facets',
-        :'slo' => :'slo'
+        :'unit' => :'unit',
+        :'value' => :'value'
       }
     end
 
@@ -50,8 +50,8 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'facets' => :'SearchSLOResponseDataAttributesFacets',
-        :'slo' => :'Array<SearchServiceLevelObjective>'
+        :'unit' => :'String',
+        :'value' => :'Float'
       }
     end
 
@@ -67,25 +67,23 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SearchSLOResponseDataAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SLORawErrorBudgetRemaining` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SearchSLOResponseDataAttributes`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SLORawErrorBudgetRemaining`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'facets')
-        self.facets = attributes[:'facets']
+      if attributes.key?(:'unit')
+        self.unit = attributes[:'unit']
       end
 
-      if attributes.key?(:'slo')
-        if (value = attributes[:'slo']).is_a?(Array)
-          self.slo = value
-        end
+      if attributes.key?(:'value')
+        self.value = attributes[:'value']
       end
     end
 
@@ -102,8 +100,8 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          facets == o.facets &&
-          slo == o.slo
+          unit == o.unit &&
+          value == o.value
     end
 
     # @see the `==` method
@@ -117,7 +115,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [facets, slo].hash
+      [unit, value].hash
     end
   end
 end

@@ -149,7 +149,11 @@ module DatadogAPIClient
         :timeout => @config.timeout,
         :verify_peer => @config.verify_ssl,
         :verify => _verify_ssl_host,
-        :verbose => @config.debugging
+        :verbose => @config.debugging,
+        :http_proxyaddr => @config.http_proxyaddr,
+        :http_proxyport => @config.http_proxyport,
+        :http_proxyuser => @config.http_proxyuser,
+        :http_proxypass => @config.http_proxypass
       }
 
       req_opts[:pem] = File.read(@config.cert_file) if @config.cert_file
