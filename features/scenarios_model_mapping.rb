@@ -618,6 +618,7 @@ ScenariosModelMappings = {
             "query" => "String",
             "page_size" => "Integer",
             "page_number" => "Integer",
+            "include_facets" => "Boolean",
     },
     "v1.DeleteSLO" => {
             "slo_id" => "String",

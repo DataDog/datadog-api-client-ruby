@@ -124,8 +124,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
-      else
-        self.type = 'topology_map'
       end
     end
 
