@@ -31,6 +31,12 @@ module DatadogAPIClient::V1
     # The synthetic API test usage by tag(s).
     attr_accessor :api_usage
 
+    # The percentage of APM ECS Fargate task usage by tag(s).
+    attr_accessor :apm_fargate_percentage
+
+    # The APM ECS Fargate task usage by tag(s).
+    attr_accessor :apm_fargate_usage
+
     # The percentage of APM host usage by tag(s).
     attr_accessor :apm_host_percentage
 
@@ -169,6 +175,8 @@ module DatadogAPIClient::V1
       {
         :'api_percentage' => :'api_percentage',
         :'api_usage' => :'api_usage',
+        :'apm_fargate_percentage' => :'apm_fargate_percentage',
+        :'apm_fargate_usage' => :'apm_fargate_usage',
         :'apm_host_percentage' => :'apm_host_percentage',
         :'apm_host_usage' => :'apm_host_usage',
         :'appsec_percentage' => :'appsec_percentage',
@@ -228,6 +236,8 @@ module DatadogAPIClient::V1
       {
         :'api_percentage' => :'Float',
         :'api_usage' => :'Float',
+        :'apm_fargate_percentage' => :'Float',
+        :'apm_fargate_usage' => :'Float',
         :'apm_host_percentage' => :'Float',
         :'apm_host_usage' => :'Float',
         :'appsec_percentage' => :'Float',
@@ -304,6 +314,14 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'api_usage')
         self.api_usage = attributes[:'api_usage']
+      end
+
+      if attributes.key?(:'apm_fargate_percentage')
+        self.apm_fargate_percentage = attributes[:'apm_fargate_percentage']
+      end
+
+      if attributes.key?(:'apm_fargate_usage')
+        self.apm_fargate_usage = attributes[:'apm_fargate_usage']
       end
 
       if attributes.key?(:'apm_host_percentage')
@@ -498,6 +516,8 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           api_percentage == o.api_percentage &&
           api_usage == o.api_usage &&
+          apm_fargate_percentage == o.apm_fargate_percentage &&
+          apm_fargate_usage == o.apm_fargate_usage &&
           apm_host_percentage == o.apm_host_percentage &&
           apm_host_usage == o.apm_host_usage &&
           appsec_percentage == o.appsec_percentage &&
@@ -555,7 +575,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [api_percentage, api_usage, apm_host_percentage, apm_host_usage, appsec_percentage, appsec_usage, browser_percentage, browser_usage, container_percentage, container_usage, cspm_container_percentage, cspm_container_usage, cspm_host_percentage, cspm_host_usage, custom_timeseries_percentage, custom_timeseries_usage, cws_container_percentage, cws_container_usage, cws_host_percentage, cws_host_usage, dbm_hosts_percentage, dbm_hosts_usage, dbm_queries_percentage, dbm_queries_usage, estimated_indexed_logs_percentage, estimated_indexed_logs_usage, estimated_indexed_spans_percentage, estimated_indexed_spans_usage, estimated_ingested_logs_percentage, estimated_ingested_logs_usage, estimated_ingested_spans_percentage, estimated_ingested_spans_usage, infra_host_percentage, infra_host_usage, lambda_functions_percentage, lambda_functions_usage, lambda_invocations_percentage, lambda_invocations_usage, npm_host_percentage, npm_host_usage, profiled_container_percentage, profiled_container_usage, profiled_hosts_percentage, profiled_hosts_usage, snmp_percentage, snmp_usage].hash
+      [api_percentage, api_usage, apm_fargate_percentage, apm_fargate_usage, apm_host_percentage, apm_host_usage, appsec_percentage, appsec_usage, browser_percentage, browser_usage, container_percentage, container_usage, cspm_container_percentage, cspm_container_usage, cspm_host_percentage, cspm_host_usage, custom_timeseries_percentage, custom_timeseries_usage, cws_container_percentage, cws_container_usage, cws_host_percentage, cws_host_usage, dbm_hosts_percentage, dbm_hosts_usage, dbm_queries_percentage, dbm_queries_usage, estimated_indexed_logs_percentage, estimated_indexed_logs_usage, estimated_indexed_spans_percentage, estimated_indexed_spans_usage, estimated_ingested_logs_percentage, estimated_ingested_logs_usage, estimated_ingested_spans_percentage, estimated_ingested_spans_usage, infra_host_percentage, infra_host_usage, lambda_functions_percentage, lambda_functions_usage, lambda_invocations_percentage, lambda_invocations_usage, npm_host_percentage, npm_host_usage, profiled_container_percentage, profiled_container_usage, profiled_hosts_percentage, profiled_hosts_usage, snmp_percentage, snmp_usage].hash
     end
   end
 end

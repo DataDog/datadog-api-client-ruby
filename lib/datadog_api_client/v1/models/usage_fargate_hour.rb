@@ -25,6 +25,9 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
+    # The high-water mark of APM ECS Fargate tasks during the given hour.
+    attr_accessor :apm_fargate_count
+
     # The average profiled task count for Fargate Profiling.
     attr_accessor :avg_profiled_fargate_tasks
 
@@ -44,6 +47,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'apm_fargate_count' => :'apm_fargate_count',
         :'avg_profiled_fargate_tasks' => :'avg_profiled_fargate_tasks',
         :'hour' => :'hour',
         :'org_name' => :'org_name',
@@ -62,6 +66,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'apm_fargate_count' => :'Integer',
         :'avg_profiled_fargate_tasks' => :'Integer',
         :'hour' => :'Time',
         :'org_name' => :'String',
@@ -92,6 +97,10 @@ module DatadogAPIClient::V1
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'apm_fargate_count')
+        self.apm_fargate_count = attributes[:'apm_fargate_count']
+      end
 
       if attributes.key?(:'avg_profiled_fargate_tasks')
         self.avg_profiled_fargate_tasks = attributes[:'avg_profiled_fargate_tasks']
@@ -127,6 +136,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          apm_fargate_count == o.apm_fargate_count &&
           avg_profiled_fargate_tasks == o.avg_profiled_fargate_tasks &&
           hour == o.hour &&
           org_name == o.org_name &&
@@ -145,7 +155,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [avg_profiled_fargate_tasks, hour, org_name, public_id, tasks_count].hash
+      [apm_fargate_count, avg_profiled_fargate_tasks, hour, org_name, public_id, tasks_count].hash
     end
   end
 end

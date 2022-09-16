@@ -22,6 +22,7 @@ module DatadogAPIClient::V1
     include BaseEnumModel
 
     API_USAGE = "api_usage".freeze
+    APM_FARGATE_USAGE = "apm_fargate_usage".freeze
     APM_HOST_USAGE = "apm_host_usage".freeze
     APPSEC_USAGE = "appsec_usage".freeze
     BROWSER_USAGE = "browser_usage".freeze
