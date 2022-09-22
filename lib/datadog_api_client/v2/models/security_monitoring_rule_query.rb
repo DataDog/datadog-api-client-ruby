@@ -28,6 +28,12 @@ module DatadogAPIClient::V2
     # The aggregation type.
     attr_accessor :aggregation
 
+    # Fields to group by for Signal Correlation rules.
+    attr_accessor :correlated_by_fields
+
+    # Index of the rule query used to retrieve the correlated field for Signal Correlation rules.
+    attr_accessor :correlated_query_index
+
     # Field for which the cardinality is measured. Sent as an array.
     attr_accessor :distinct_fields
 
@@ -47,17 +53,23 @@ module DatadogAPIClient::V2
     # Query to run on logs.
     attr_accessor :query
 
+    # Rule ID to match on signals for Signal Correlation rules.
+    attr_accessor :rule_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
         :'aggregation' => :'aggregation',
+        :'correlated_by_fields' => :'correlatedByFields',
+        :'correlated_query_index' => :'correlatedQueryIndex',
         :'distinct_fields' => :'distinctFields',
         :'group_by_fields' => :'groupByFields',
         :'metric' => :'metric',
         :'metrics' => :'metrics',
         :'name' => :'name',
-        :'query' => :'query'
+        :'query' => :'query',
+        :'rule_id' => :'ruleId'
       }
     end
 
@@ -72,12 +84,15 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'aggregation' => :'SecurityMonitoringRuleQueryAggregation',
+        :'correlated_by_fields' => :'Array<String>',
+        :'correlated_query_index' => :'Integer',
         :'distinct_fields' => :'Array<String>',
         :'group_by_fields' => :'Array<String>',
         :'metric' => :'String',
         :'metrics' => :'Array<String>',
         :'name' => :'String',
-        :'query' => :'String'
+        :'query' => :'String',
+        :'rule_id' => :'String'
       }
     end
 
@@ -106,6 +121,16 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'aggregation')
         self.aggregation = attributes[:'aggregation']
+      end
+
+      if attributes.key?(:'correlated_by_fields')
+        if (value = attributes[:'correlated_by_fields']).is_a?(Array)
+          self.correlated_by_fields = value
+        end
+      end
+
+      if attributes.key?(:'correlated_query_index')
+        self.correlated_query_index = attributes[:'correlated_query_index']
       end
 
       if attributes.key?(:'distinct_fields')
@@ -137,13 +162,28 @@ module DatadogAPIClient::V2
       if attributes.key?(:'query')
         self.query = attributes[:'query']
       end
+
+      if attributes.key?(:'rule_id')
+        self.rule_id = attributes[:'rule_id']
+      end
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if !@correlated_query_index.nil? && @correlated_query_index > 9
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param correlated_query_index [Object] Object to be assigned
+    # @!visibility private
+    def correlated_query_index=(correlated_query_index)
+      if !correlated_query_index.nil? && correlated_query_index > 9
+        fail ArgumentError, 'invalid value for "correlated_query_index", must be smaller than or equal to 9.'
+      end
+      @correlated_query_index = correlated_query_index
     end
 
     # Checks equality by comparing each attribute.
@@ -153,12 +193,15 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           aggregation == o.aggregation &&
+          correlated_by_fields == o.correlated_by_fields &&
+          correlated_query_index == o.correlated_query_index &&
           distinct_fields == o.distinct_fields &&
           group_by_fields == o.group_by_fields &&
           metric == o.metric &&
           metrics == o.metrics &&
           name == o.name &&
-          query == o.query
+          query == o.query &&
+          rule_id == o.rule_id
     end
 
     # @see the `==` method
@@ -172,7 +215,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation, distinct_fields, group_by_fields, metric, metrics, name, query].hash
+      [aggregation, correlated_by_fields, correlated_query_index, distinct_fields, group_by_fields, metric, metrics, name, query, rule_id].hash
     end
   end
 end
