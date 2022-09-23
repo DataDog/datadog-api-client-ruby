@@ -34,13 +34,17 @@ module DatadogAPIClient::V1
     # Widget query.
     attr_accessor :query_string
 
+    # Option for storage location. Feature in Private Beta.
+    attr_accessor :storage
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
         :'data_source' => :'data_source',
         :'indexes' => :'indexes',
-        :'query_string' => :'query_string'
+        :'query_string' => :'query_string',
+        :'storage' => :'storage'
       }
     end
 
@@ -56,7 +60,8 @@ module DatadogAPIClient::V1
       {
         :'data_source' => :'ListStreamSource',
         :'indexes' => :'Array<String>',
-        :'query_string' => :'String'
+        :'query_string' => :'String',
+        :'storage' => :'String'
       }
     end
 
@@ -98,6 +103,10 @@ module DatadogAPIClient::V1
       if attributes.key?(:'query_string')
         self.query_string = attributes[:'query_string']
       end
+
+      if attributes.key?(:'storage')
+        self.storage = attributes[:'storage']
+      end
     end
 
     # Check to see if the all the properties in the model are valid
@@ -137,7 +146,8 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           data_source == o.data_source &&
           indexes == o.indexes &&
-          query_string == o.query_string
+          query_string == o.query_string &&
+          storage == o.storage
     end
 
     # @see the `==` method
@@ -151,7 +161,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data_source, indexes, query_string].hash
+      [data_source, indexes, query_string, storage].hash
     end
   end
 end
