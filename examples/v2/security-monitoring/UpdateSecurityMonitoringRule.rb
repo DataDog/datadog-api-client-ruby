@@ -34,7 +34,7 @@ body = DatadogAPIClient::V2::SecurityMonitoringRuleUpdatePayload.new({
     }),
   }),
   queries: [
-    DatadogAPIClient::V2::SecurityMonitoringRuleQuery.new({
+    DatadogAPIClient::V2::SecurityMonitoringStandardRuleQuery.new({
       aggregation: DatadogAPIClient::V2::SecurityMonitoringRuleQueryAggregation::COUNT,
       distinct_fields: [],
       group_by_fields: [],
