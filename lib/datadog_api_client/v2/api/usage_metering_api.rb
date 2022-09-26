@@ -33,7 +33,11 @@ module DatadogAPIClient::V2
 
     # Get cost across multi-org account.
     #
-    # Get cost across multi-org account. Cost by org data for a given month becomes available no later than the 16th of the following month.
+    # Get cost across multi-org account.
+    # Cost by org data for a given month becomes available no later than the 16th of the following month.
+    # **Note:** This endpoint has been deprecated. Please use the new endpoint
+    # [`/historical_cost`](https://docs.datadoghq.com/api/latest/usage-metering/#get-historical-cost-across-your-account)
+    # instead.
     #
     # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost beginning this month.
     # @param opts [Hash] the optional parameters
@@ -94,44 +98,35 @@ module DatadogAPIClient::V2
     # Get estimated cost across your account.
     #
     # @see #get_estimated_cost_by_org_with_http_info
-    def get_estimated_cost_by_org(view, opts = {})
-      data, _status_code, _headers = get_estimated_cost_by_org_with_http_info(view, opts)
+    def get_estimated_cost_by_org(opts = {})
+      data, _status_code, _headers = get_estimated_cost_by_org_with_http_info(opts)
       data
     end
 
     # Get estimated cost across your account.
     #
     # Get estimated cost across multi-org and single root-org accounts.
-    # Estimated cost data is only available for the current month and previous month. To access historical costs prior to this, use the /cost_by_org endpoint.
+    # Estimated cost data is only available for the current month and previous month.
+    # To access historical costs prior to this, use the `/historical_cost` endpoint.
     #
-    # @param view [String] String to specify whether cost is broken down at a parent-org level or at the sub-org level. Currently, only the 'sub-org' view is supported.
     # @param opts [Hash] the optional parameters
+    # @option opts [String] :view String to specify whether cost is broken down at a parent-org level or at the sub-org level. Available views are `summary` and `sub-org`. Defaults to `summary`.
     # @option opts [Time] :start_month Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost beginning this month. Either start_month or start_date should be specified, but not both. (start_month cannot go beyond two months in the past)
     # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost ending this month.
     # @option opts [Time] :start_date Datetime in ISO-8601 format, UTC, precise to day: `[YYYY-MM-DD]` for cost beginning this day. Either start_month or start_date should be specified, but not both. (start_date cannot go beyond two months in the past)
     # @option opts [Time] :end_date Datetime in ISO-8601 format, UTC, precise to day: `[YYYY-MM-DD]` for cost ending this day.
     # @return [Array<(CostByOrgResponse, Integer, Hash)>] CostByOrgResponse data, response status code and response headers
-    def get_estimated_cost_by_org_with_http_info(view, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v2.get_estimated_cost_by_org".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_estimated_cost_by_org")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_estimated_cost_by_org"))
-      end
+    def get_estimated_cost_by_org_with_http_info(opts = {})
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_estimated_cost_by_org ...'
-      end
-      # verify the required parameter 'view' is set
-      if @api_client.config.client_side_validation && view.nil?
-        fail ArgumentError, "Missing the required parameter 'view' when calling UsageMeteringAPI.get_estimated_cost_by_org"
       end
       # resource path
       local_var_path = '/api/v2/usage/estimated_cost'
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'view'] = view
+      query_params[:'view'] = opts[:'view'] if !opts[:'view'].nil?
       query_params[:'start_month'] = opts[:'start_month'] if !opts[:'start_month'].nil?
       query_params[:'end_month'] = opts[:'end_month'] if !opts[:'end_month'].nil?
       query_params[:'start_date'] = opts[:'start_date'] if !opts[:'start_date'].nil?
@@ -168,6 +163,77 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: UsageMeteringAPI#get_estimated_cost_by_org\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get historical cost across your account.
+    #
+    # @see #get_historical_cost_by_org_with_http_info
+    def get_historical_cost_by_org(start_month, opts = {})
+      data, _status_code, _headers = get_historical_cost_by_org_with_http_info(start_month, opts)
+      data
+    end
+
+    # Get historical cost across your account.
+    #
+    # Get historical cost across multi-org and single root-org accounts.
+    # Cost data for a given month becomes available no later than the 16th of the following month.
+    #
+    # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost beginning this month.
+    # @param opts [Hash] the optional parameters
+    # @option opts [String] :view String to specify whether cost is broken down at a parent-org level or at the sub-org level. Available views are `summary` and `sub-org`.  Defaults to `summary`.
+    # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost ending this month.
+    # @return [Array<(CostByOrgResponse, Integer, Hash)>] CostByOrgResponse data, response status code and response headers
+    def get_historical_cost_by_org_with_http_info(start_month, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_historical_cost_by_org ...'
+      end
+      # verify the required parameter 'start_month' is set
+      if @api_client.config.client_side_validation && start_month.nil?
+        fail ArgumentError, "Missing the required parameter 'start_month' when calling UsageMeteringAPI.get_historical_cost_by_org"
+      end
+      # resource path
+      local_var_path = '/api/v2/usage/historical_cost'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'start_month'] = start_month
+      query_params[:'view'] = opts[:'view'] if !opts[:'view'].nil?
+      query_params[:'end_month'] = opts[:'end_month'] if !opts[:'end_month'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json;datetime-format=rfc3339'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CostByOrgResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_historical_cost_by_org,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsageMeteringAPI#get_historical_cost_by_org\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

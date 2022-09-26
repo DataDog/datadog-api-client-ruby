@@ -1,0 +1,21 @@
+http_interactions:
+- recorded_at: Fri, 23 Sep 2022 14:04:15 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json;datetime-format=rfc3339
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/usage/estimated_cost?view=sub-org&start_month=2022-09-20T14%3A04%3A15.545Z&start_date=2022-09-20T14%3A04%3A15.545Z
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["API called with non-parent org keys. Data is only available
+        at the root level org"]}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0
