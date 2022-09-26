@@ -17,16 +17,10 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The aggregation type.
-  class SecurityMonitoringRuleQueryAggregation
+  # The rule type.
+  class SecurityMonitoringSignalRuleTypeCreate
     include BaseEnumModel
 
-    COUNT = "count".freeze
-    CARDINALITY = "cardinality".freeze
-    SUM = "sum".freeze
-    MAX = "max".freeze
-    NEW_VALUE = "new_value".freeze
-    GEO_DATA = "geo_data".freeze
-    EVENT_COUNT = "event_count".freeze
+    SIGNAL_CORRELATION = "signal_correlation".freeze
   end
 end

@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Query for matching rule.
-  class SecurityMonitoringRuleQueryCreate
+  # Query for matching rule on signals
+  class SecurityMonitoringSignalRuleQueryCreate
     include BaseGenericModel
 
     # Whether the object has unparsed attributes
@@ -28,15 +28,11 @@ module DatadogAPIClient::V2
     # The aggregation type.
     attr_accessor :aggregation
 
-    # Field for which the cardinality is measured. Sent as an array.
-    attr_accessor :distinct_fields
-
     # Fields to group by.
-    attr_accessor :group_by_fields
+    attr_accessor :correlated_by_fields
 
-    # The target field to aggregate over when using the sum or max
-    # aggregations.
-    attr_accessor :metric
+    # Index of the rule query used to retrieve the correlated field.
+    attr_accessor :correlated_query_index
 
     # Group of target fields to aggregate over when using the new value aggregations.
     attr_accessor :metrics
@@ -44,20 +40,19 @@ module DatadogAPIClient::V2
     # Name of the query.
     attr_accessor :name
 
-    # Query to run on logs.
-    attr_accessor :query
+    # Rule ID to match on signals.
+    attr_accessor :rule_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
         :'aggregation' => :'aggregation',
-        :'distinct_fields' => :'distinctFields',
-        :'group_by_fields' => :'groupByFields',
-        :'metric' => :'metric',
+        :'correlated_by_fields' => :'correlatedByFields',
+        :'correlated_query_index' => :'correlatedQueryIndex',
         :'metrics' => :'metrics',
         :'name' => :'name',
-        :'query' => :'query'
+        :'rule_id' => :'ruleId'
       }
     end
 
@@ -72,12 +67,11 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'aggregation' => :'SecurityMonitoringRuleQueryAggregation',
-        :'distinct_fields' => :'Array<String>',
-        :'group_by_fields' => :'Array<String>',
-        :'metric' => :'String',
+        :'correlated_by_fields' => :'Array<String>',
+        :'correlated_query_index' => :'Integer',
         :'metrics' => :'Array<String>',
         :'name' => :'String',
-        :'query' => :'String'
+        :'rule_id' => :'String'
       }
     end
 
@@ -93,13 +87,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringRuleQueryCreate` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringSignalRuleQueryCreate` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::SecurityMonitoringRuleQueryCreate`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::SecurityMonitoringSignalRuleQueryCreate`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -108,20 +102,14 @@ module DatadogAPIClient::V2
         self.aggregation = attributes[:'aggregation']
       end
 
-      if attributes.key?(:'distinct_fields')
-        if (value = attributes[:'distinct_fields']).is_a?(Array)
-          self.distinct_fields = value
+      if attributes.key?(:'correlated_by_fields')
+        if (value = attributes[:'correlated_by_fields']).is_a?(Array)
+          self.correlated_by_fields = value
         end
       end
 
-      if attributes.key?(:'group_by_fields')
-        if (value = attributes[:'group_by_fields']).is_a?(Array)
-          self.group_by_fields = value
-        end
-      end
-
-      if attributes.key?(:'metric')
-        self.metric = attributes[:'metric']
+      if attributes.key?(:'correlated_query_index')
+        self.correlated_query_index = attributes[:'correlated_query_index']
       end
 
       if attributes.key?(:'metrics')
@@ -134,8 +122,8 @@ module DatadogAPIClient::V2
         self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'query')
-        self.query = attributes[:'query']
+      if attributes.key?(:'rule_id')
+        self.rule_id = attributes[:'rule_id']
       end
     end
 
@@ -143,18 +131,29 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @query.nil?
+      return false if !@correlated_query_index.nil? && @correlated_query_index > 9
+      return false if @rule_id.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param query [Object] Object to be assigned
+    # @param correlated_query_index [Object] Object to be assigned
     # @!visibility private
-    def query=(query)
-      if query.nil?
-        fail ArgumentError, 'invalid value for "query", query cannot be nil.'
+    def correlated_query_index=(correlated_query_index)
+      if !correlated_query_index.nil? && correlated_query_index > 9
+        fail ArgumentError, 'invalid value for "correlated_query_index", must be smaller than or equal to 9.'
       end
-      @query = query
+      @correlated_query_index = correlated_query_index
+    end
+
+    # Custom attribute writer method with validation
+    # @param rule_id [Object] Object to be assigned
+    # @!visibility private
+    def rule_id=(rule_id)
+      if rule_id.nil?
+        fail ArgumentError, 'invalid value for "rule_id", rule_id cannot be nil.'
+      end
+      @rule_id = rule_id
     end
 
     # Checks equality by comparing each attribute.
@@ -164,12 +163,11 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           aggregation == o.aggregation &&
-          distinct_fields == o.distinct_fields &&
-          group_by_fields == o.group_by_fields &&
-          metric == o.metric &&
+          correlated_by_fields == o.correlated_by_fields &&
+          correlated_query_index == o.correlated_query_index &&
           metrics == o.metrics &&
           name == o.name &&
-          query == o.query
+          rule_id == o.rule_id
     end
 
     # @see the `==` method
@@ -183,7 +181,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation, distinct_fields, group_by_fields, metric, metrics, name, query].hash
+      [aggregation, correlated_by_fields, correlated_query_index, metrics, name, rule_id].hash
     end
   end
 end
