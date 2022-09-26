@@ -46,6 +46,7 @@ module DatadogAPIClient::V1
           :'QueryValueWidgetDefinition',
           :'ScatterPlotWidgetDefinition',
           :'SLOWidgetDefinition',
+          :'SLOListWidgetDefinition',
           :'ServiceMapWidgetDefinition',
           :'ServiceSummaryWidgetDefinition',
           :'SunburstWidgetDefinition',
