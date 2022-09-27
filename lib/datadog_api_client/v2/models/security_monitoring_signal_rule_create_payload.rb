@@ -89,7 +89,7 @@ module DatadogAPIClient::V2
         :'message' => :'String',
         :'name' => :'String',
         :'options' => :'SecurityMonitoringRuleOptions',
-        :'queries' => :'Array<SecurityMonitoringSignalRuleQueryCreate>',
+        :'queries' => :'Array<SecurityMonitoringSignalRuleQuery>',
         :'tags' => :'Array<String>',
         :'type' => :'SecurityMonitoringSignalRuleTypeCreate'
       }

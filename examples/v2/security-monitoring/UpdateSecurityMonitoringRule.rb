@@ -39,6 +39,7 @@ body = DatadogAPIClient::V2::SecurityMonitoringRuleUpdatePayload.new({
       distinct_fields: [],
       group_by_fields: [],
       metrics: [],
+      query: "a > 3",
     }),
   ],
   tags: [],
