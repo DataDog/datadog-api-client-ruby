@@ -132,6 +132,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if !@correlated_query_index.nil? && @correlated_query_index > 9
+      return false if @rule_id.nil?
       true
     end
 
@@ -143,6 +144,16 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "correlated_query_index", must be smaller than or equal to 9.'
       end
       @correlated_query_index = correlated_query_index
+    end
+
+    # Custom attribute writer method with validation
+    # @param rule_id [Object] Object to be assigned
+    # @!visibility private
+    def rule_id=(rule_id)
+      if rule_id.nil?
+        fail ArgumentError, 'invalid value for "rule_id", rule_id cannot be nil.'
+      end
+      @rule_id = rule_id
     end
 
     # Checks equality by comparing each attribute.

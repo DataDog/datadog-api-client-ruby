@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # The rule type.
-  class SecurityMonitoringSignalRuleTypeCreate
+  class SecurityMonitoringSignalRuleType
     include BaseEnumModel
 
     SIGNAL_CORRELATION = "signal_correlation".freeze

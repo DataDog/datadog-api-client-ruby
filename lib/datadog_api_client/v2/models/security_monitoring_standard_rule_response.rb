@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Create a new signal correlation rule.
-  class SecurityMonitoringSignalRuleCreatePayload
+  # Rule.
+  class SecurityMonitoringStandardRuleResponse
     include BaseGenericModel
 
     # Whether the object has unparsed attributes
@@ -28,11 +28,26 @@ module DatadogAPIClient::V2
     # Cases for generating signals.
     attr_accessor :cases
 
+    # When the rule was created, timestamp in milliseconds.
+    attr_accessor :created_at
+
+    # User ID of the user who created the rule.
+    attr_accessor :creation_author_id
+
     # Additional queries to filter matched events before they are processed.
     attr_accessor :filters
 
     # Whether the notifications include the triggering group-by values in their title.
     attr_accessor :has_extended_title
+
+    # The ID of the rule.
+    attr_accessor :id
+
+    # Whether the rule is included by default.
+    attr_accessor :is_default
+
+    # Whether the rule has been deleted.
+    attr_accessor :is_deleted
 
     # Whether the rule is enabled.
     attr_accessor :is_enabled
@@ -46,7 +61,7 @@ module DatadogAPIClient::V2
     # Options on rules.
     attr_accessor :options
 
-    # Queries for selecting signals which are part of the rule.
+    # Queries for selecting logs which are part of the rule.
     attr_accessor :queries
 
     # Tags for generated signals.
@@ -55,20 +70,33 @@ module DatadogAPIClient::V2
     # The rule type.
     attr_accessor :type
 
+    # User ID of the user who updated the rule.
+    attr_accessor :update_author_id
+
+    # The version of the rule.
+    attr_accessor :version
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
         :'cases' => :'cases',
+        :'created_at' => :'createdAt',
+        :'creation_author_id' => :'creationAuthorId',
         :'filters' => :'filters',
         :'has_extended_title' => :'hasExtendedTitle',
+        :'id' => :'id',
+        :'is_default' => :'isDefault',
+        :'is_deleted' => :'isDeleted',
         :'is_enabled' => :'isEnabled',
         :'message' => :'message',
         :'name' => :'name',
         :'options' => :'options',
         :'queries' => :'queries',
         :'tags' => :'tags',
-        :'type' => :'type'
+        :'type' => :'type',
+        :'update_author_id' => :'updateAuthorId',
+        :'version' => :'version'
       }
     end
 
@@ -82,16 +110,23 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'cases' => :'Array<SecurityMonitoringRuleCaseCreate>',
+        :'cases' => :'Array<SecurityMonitoringRuleCase>',
+        :'created_at' => :'Integer',
+        :'creation_author_id' => :'Integer',
         :'filters' => :'Array<SecurityMonitoringFilter>',
         :'has_extended_title' => :'Boolean',
+        :'id' => :'String',
+        :'is_default' => :'Boolean',
+        :'is_deleted' => :'Boolean',
         :'is_enabled' => :'Boolean',
         :'message' => :'String',
         :'name' => :'String',
         :'options' => :'SecurityMonitoringRuleOptions',
-        :'queries' => :'Array<SecurityMonitoringSignalRuleQuery>',
+        :'queries' => :'Array<SecurityMonitoringStandardRuleQuery>',
         :'tags' => :'Array<String>',
-        :'type' => :'SecurityMonitoringSignalRuleType'
+        :'type' => :'SecurityMonitoringRuleTypeRead',
+        :'update_author_id' => :'Integer',
+        :'version' => :'Integer'
       }
     end
 
@@ -107,13 +142,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringSignalRuleCreatePayload` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringStandardRuleResponse` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::SecurityMonitoringSignalRuleCreatePayload`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::SecurityMonitoringStandardRuleResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -124,6 +159,14 @@ module DatadogAPIClient::V2
         end
       end
 
+      if attributes.key?(:'created_at')
+        self.created_at = attributes[:'created_at']
+      end
+
+      if attributes.key?(:'creation_author_id')
+        self.creation_author_id = attributes[:'creation_author_id']
+      end
+
       if attributes.key?(:'filters')
         if (value = attributes[:'filters']).is_a?(Array)
           self.filters = value
@@ -132,6 +175,18 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'has_extended_title')
         self.has_extended_title = attributes[:'has_extended_title']
+      end
+
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'is_default')
+        self.is_default = attributes[:'is_default']
+      end
+
+      if attributes.key?(:'is_deleted')
+        self.is_deleted = attributes[:'is_deleted']
       end
 
       if attributes.key?(:'is_enabled')
@@ -165,79 +220,21 @@ module DatadogAPIClient::V2
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
+
+      if attributes.key?(:'update_author_id')
+        self.update_author_id = attributes[:'update_author_id']
+      end
+
+      if attributes.key?(:'version')
+        self.version = attributes[:'version']
+      end
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @cases.nil?
-      return false if @is_enabled.nil?
-      return false if @message.nil?
-      return false if @name.nil?
-      return false if @options.nil?
-      return false if @queries.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param cases [Object] Object to be assigned
-    # @!visibility private
-    def cases=(cases)
-      if cases.nil?
-        fail ArgumentError, 'invalid value for "cases", cases cannot be nil.'
-      end
-      @cases = cases
-    end
-
-    # Custom attribute writer method with validation
-    # @param is_enabled [Object] Object to be assigned
-    # @!visibility private
-    def is_enabled=(is_enabled)
-      if is_enabled.nil?
-        fail ArgumentError, 'invalid value for "is_enabled", is_enabled cannot be nil.'
-      end
-      @is_enabled = is_enabled
-    end
-
-    # Custom attribute writer method with validation
-    # @param message [Object] Object to be assigned
-    # @!visibility private
-    def message=(message)
-      if message.nil?
-        fail ArgumentError, 'invalid value for "message", message cannot be nil.'
-      end
-      @message = message
-    end
-
-    # Custom attribute writer method with validation
-    # @param name [Object] Object to be assigned
-    # @!visibility private
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
-      end
-      @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param options [Object] Object to be assigned
-    # @!visibility private
-    def options=(options)
-      if options.nil?
-        fail ArgumentError, 'invalid value for "options", options cannot be nil.'
-      end
-      @options = options
-    end
-
-    # Custom attribute writer method with validation
-    # @param queries [Object] Object to be assigned
-    # @!visibility private
-    def queries=(queries)
-      if queries.nil?
-        fail ArgumentError, 'invalid value for "queries", queries cannot be nil.'
-      end
-      @queries = queries
     end
 
     # Checks equality by comparing each attribute.
@@ -247,15 +244,22 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           cases == o.cases &&
+          created_at == o.created_at &&
+          creation_author_id == o.creation_author_id &&
           filters == o.filters &&
           has_extended_title == o.has_extended_title &&
+          id == o.id &&
+          is_default == o.is_default &&
+          is_deleted == o.is_deleted &&
           is_enabled == o.is_enabled &&
           message == o.message &&
           name == o.name &&
           options == o.options &&
           queries == o.queries &&
           tags == o.tags &&
-          type == o.type
+          type == o.type &&
+          update_author_id == o.update_author_id &&
+          version == o.version
     end
 
     # @see the `==` method
@@ -269,7 +273,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cases, filters, has_extended_title, is_enabled, message, name, options, queries, tags, type].hash
+      [cases, created_at, creation_author_id, filters, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, tags, type, update_author_id, version].hash
     end
   end
 end

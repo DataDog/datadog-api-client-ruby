@@ -22,7 +22,6 @@ module DatadogAPIClient::V2
     include BaseEnumModel
 
     LOG_DETECTION = "log_detection".freeze
-    SIGNAL_CORRELATION = "signal_correlation".freeze
     INFRASTRUCTURE_CONFIGURATION = "infrastructure_configuration".freeze
     WORKLOAD_SECURITY = "workload_security".freeze
     CLOUD_CONFIGURATION = "cloud_configuration".freeze

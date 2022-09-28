@@ -1,10 +1,10 @@
 http_interactions:
-- recorded_at: Mon, 19 Sep 2022 10:52:17 GMT
+- recorded_at: Tue, 27 Sep 2022 13:06:51 GMT
   request:
     body:
       encoding: UTF-8
       string: '{"cases":[{"condition":"a > 0","name":"","notifications":[],"status":"info"}],"filters":[],"isEnabled":true,"message":"Test
-        rule","name":"Test-Create_a_detection_rule_with_type_signal_correlation_returns_OK_response-1663584737","options":{"evaluationWindow":900,"keepAlive":3600,"maxSignalDuration":86400},"queries":[{"aggregation":"count","distinctFields":[],"groupByFields":[],"metric":"","query":"@test:true"}],"tags":[],"type":"log_detection"}'
+        rule","name":"Test-Create_a_detection_rule_with_type_signal_correlation_returns_OK_response-1664284011","options":{"evaluationWindow":900,"keepAlive":3600,"maxSignalDuration":86400},"queries":[{"aggregation":"count","distinctFields":[],"groupByFields":[],"metric":"","query":"@test:true"}],"tags":[],"type":"log_detection"}'
     headers:
       Accept:
       - application/json
@@ -16,8 +16,8 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"creationAuthorId":1445416,"tags":[],"isEnabled":true,"hasExtendedTitle":false,"message":"Test
-        rule","options":{"detectionMethod":"threshold","evaluationWindow":900,"maxSignalDuration":86400,"keepAlive":3600},"version":1,"createdAt":1663584737718,"filters":[],"queries":[{"query":"@test:true","groupByFields":[],"aggregation":"count","name":"","distinctFields":[]}],"isDeleted":false,"cases":[{"status":"info","notifications":[],"name":"","condition":"a
-        > 0"}],"type":"log_detection","id":"wjo-ehv-wku","isDefault":false,"name":"Test-Create_a_detection_rule_with_type_signal_correlation_returns_OK_response-1663584737"}
+        rule","options":{"detectionMethod":"threshold","evaluationWindow":900,"maxSignalDuration":86400,"keepAlive":3600},"version":1,"createdAt":1664284011737,"filters":[],"queries":[{"query":"@test:true","groupByFields":[],"aggregation":"count","name":"","distinctFields":[]}],"isDeleted":false,"cases":[{"status":"info","notifications":[],"name":"","condition":"a
+        > 0"}],"type":"log_detection","id":"bvi-e5q-fw2","isDefault":false,"name":"Test-Create_a_detection_rule_with_type_signal_correlation_returns_OK_response-1664284011"}
 
         '
     headers:
@@ -26,12 +26,12 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Mon, 19 Sep 2022 10:52:17 GMT
+- recorded_at: Tue, 27 Sep 2022 13:06:51 GMT
   request:
     body:
       encoding: UTF-8
       string: '{"cases":[{"condition":"a > 0","name":"","notifications":[],"status":"info"}],"filters":[],"isEnabled":true,"message":"Test
-        rule Bis","name":"Test-Create_a_detection_rule_with_type_signal_correlation_returns_OK_response-1663584737_bis","options":{"evaluationWindow":900,"keepAlive":3600,"maxSignalDuration":86400},"queries":[{"aggregation":"count","distinctFields":[],"groupByFields":[],"metric":"","query":"@test:false"}],"tags":[],"type":"log_detection"}'
+        rule Bis","name":"Test-Create_a_detection_rule_with_type_signal_correlation_returns_OK_response-1664284011_bis","options":{"evaluationWindow":900,"keepAlive":3600,"maxSignalDuration":86400},"queries":[{"aggregation":"count","distinctFields":[],"groupByFields":[],"metric":"","query":"@test:false"}],"tags":[],"type":"log_detection"}'
     headers:
       Accept:
       - application/json
@@ -43,8 +43,8 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"creationAuthorId":1445416,"tags":[],"isEnabled":true,"hasExtendedTitle":false,"message":"Test
-        rule Bis","options":{"detectionMethod":"threshold","evaluationWindow":900,"maxSignalDuration":86400,"keepAlive":3600},"version":1,"createdAt":1663584738121,"filters":[],"queries":[{"query":"@test:false","groupByFields":[],"aggregation":"count","name":"","distinctFields":[]}],"isDeleted":false,"cases":[{"status":"info","notifications":[],"name":"","condition":"a
-        > 0"}],"type":"log_detection","id":"mfw-y8s-dhf","isDefault":false,"name":"Test-Create_a_detection_rule_with_type_signal_correlation_returns_OK_response-1663584737_bis"}
+        rule Bis","options":{"detectionMethod":"threshold","evaluationWindow":900,"maxSignalDuration":86400,"keepAlive":3600},"version":1,"createdAt":1664284012131,"filters":[],"queries":[{"query":"@test:false","groupByFields":[],"aggregation":"count","name":"","distinctFields":[]}],"isDeleted":false,"cases":[{"status":"info","notifications":[],"name":"","condition":"a
+        > 0"}],"type":"log_detection","id":"iik-vtr-194","isDefault":false,"name":"Test-Create_a_detection_rule_with_type_signal_correlation_returns_OK_response-1664284011_bis"}
 
         '
     headers:
@@ -53,12 +53,12 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Mon, 19 Sep 2022 10:52:17 GMT
+- recorded_at: Tue, 27 Sep 2022 13:06:51 GMT
   request:
     body:
       encoding: UTF-8
       string: '{"cases":[{"condition":"a > 0 && b > 0","name":"","notifications":[],"status":"info"}],"filters":[],"isEnabled":true,"message":"Test
-        signal correlation rule","name":"Test-Create_a_detection_rule_with_type_signal_correlation_returns_OK_response-1663584737_signal_rule","options":{"evaluationWindow":900,"keepAlive":3600,"maxSignalDuration":86400},"queries":[{"aggregation":"event_count","correlatedByFields":["host"],"correlatedQueryIndex":1,"ruleId":"wjo-ehv-wku"},{"aggregation":"event_count","correlatedByFields":["host"],"ruleId":"mfw-y8s-dhf"}],"tags":[],"type":"signal_correlation"}'
+        signal correlation rule","name":"Test-Create_a_detection_rule_with_type_signal_correlation_returns_OK_response-1664284011_signal_rule","options":{"evaluationWindow":900,"keepAlive":3600,"maxSignalDuration":86400},"queries":[{"aggregation":"event_count","correlatedByFields":["host"],"correlatedQueryIndex":1,"ruleId":"bvi-e5q-fw2"},{"aggregation":"event_count","correlatedByFields":["host"],"ruleId":"iik-vtr-194"}],"tags":[],"type":"signal_correlation"}'
     headers:
       Accept:
       - application/json
@@ -70,8 +70,8 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"creationAuthorId":1445416,"tags":[],"isEnabled":true,"hasExtendedTitle":false,"message":"Test
-        signal correlation rule","options":{"detectionMethod":"threshold","evaluationWindow":900,"maxSignalDuration":86400,"keepAlive":3600},"version":1,"createdAt":1663584738582,"filters":[],"queries":[{"distinctFields":[],"correlatedByFields":["host"],"name":"","ruleId":"wjo-ehv-wku","aggregation":"event_count","groupByFields":[],"correlatedQueryIndex":1},{"distinctFields":[],"correlatedByFields":["host"],"name":"","ruleId":"mfw-y8s-dhf","aggregation":"event_count","groupByFields":[]}],"isDeleted":false,"cases":[{"status":"info","notifications":[],"name":"","condition":"a
-        > 0 && b > 0"}],"type":"signal_correlation","id":"rrg-f60-8ru","isDefault":false,"name":"Test-Create_a_detection_rule_with_type_signal_correlation_returns_OK_response-1663584737_signal_rule"}
+        signal correlation rule","options":{"detectionMethod":"threshold","evaluationWindow":900,"maxSignalDuration":86400,"keepAlive":3600},"version":1,"createdAt":1664284012602,"filters":[],"queries":[{"distinctFields":[],"correlatedByFields":["host"],"name":"","ruleId":"bvi-e5q-fw2","aggregation":"event_count","groupByFields":[],"correlatedQueryIndex":1},{"distinctFields":[],"correlatedByFields":["host"],"name":"","ruleId":"iik-vtr-194","aggregation":"event_count","groupByFields":[]}],"isDeleted":false,"cases":[{"status":"info","notifications":[],"name":"","condition":"a
+        > 0 && b > 0"}],"type":"signal_correlation","id":"l1e-bel-iqm","isDefault":false,"name":"Test-Create_a_detection_rule_with_type_signal_correlation_returns_OK_response-1664284011_signal_rule"}
 
         '
     headers:
@@ -80,14 +80,14 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Mon, 19 Sep 2022 10:52:17 GMT
+- recorded_at: Tue, 27 Sep 2022 13:06:51 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/rules/rrg-f60-8ru
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/rules/l1e-bel-iqm
   response:
     body:
       encoding: UTF-8
@@ -96,14 +96,14 @@ http_interactions:
     status:
       code: 204
       message: No Content
-- recorded_at: Mon, 19 Sep 2022 10:52:17 GMT
+- recorded_at: Tue, 27 Sep 2022 13:06:51 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/rules/mfw-y8s-dhf
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/rules/iik-vtr-194
   response:
     body:
       encoding: UTF-8
@@ -112,14 +112,14 @@ http_interactions:
     status:
       code: 204
       message: No Content
-- recorded_at: Mon, 19 Sep 2022 10:52:17 GMT
+- recorded_at: Tue, 27 Sep 2022 13:06:51 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/rules/wjo-ehv-wku
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/rules/bvi-e5q-fw2
   response:
     body:
       encoding: UTF-8

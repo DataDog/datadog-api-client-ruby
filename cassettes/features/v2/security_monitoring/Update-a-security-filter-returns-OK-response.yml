@@ -1,10 +1,10 @@
 http_interactions:
-- recorded_at: Thu, 12 May 2022 09:53:17 GMT
+- recorded_at: Tue, 27 Sep 2022 13:07:00 GMT
   request:
     body:
       encoding: UTF-8
       string: '{"data":{"attributes":{"exclusion_filters":[{"name":"Exclude logs from
-        staging","query":"source:staging"}],"filtered_data_type":"logs","is_enabled":true,"name":"Test-Update_a_security_filter_returns_OK_response-1652349197","query":"service:TestUpdateasecurityfilterreturnsOKresponse1652349197"},"type":"security_filters"}}'
+        staging","query":"source:staging"}],"filtered_data_type":"logs","is_enabled":true,"name":"Test-Update_a_security_filter_returns_OK_response-1664284020","query":"service:TestUpdateasecurityfilterreturnsOKresponse1664284020"},"type":"security_filters"}}'
     headers:
       Accept:
       - application/json
@@ -15,51 +15,55 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"is_enabled":true,"name":"Test-Update_a_security_filter_returns_OK_response-1652349197","filtered_data_type":"logs","exclusion_filters":[{"query":"source:staging","name":"Exclude
-        logs from staging"}],"version":1,"query":"service:TestUpdateasecurityfilterreturnsOKresponse1652349197","is_builtin":false},"type":"security_filters","id":"f8d-36h-d0y"}}'
+      string: '{"data":{"attributes":{"is_enabled":true,"name":"Test-Update_a_security_filter_returns_OK_response-1664284020","filtered_data_type":"logs","exclusion_filters":[{"query":"source:staging","name":"Exclude
+        logs from staging"}],"version":1,"query":"service:TestUpdateasecurityfilterreturnsOKresponse1664284020","is_builtin":false},"type":"security_filters","id":"bdb-ssn-uzt"}}
+
+        '
     headers:
       Content-Type:
-      - application/json;charset=utf-8
+      - application/json
     status:
       code: 200
       message: OK
-- recorded_at: Thu, 12 May 2022 09:53:17 GMT
+- recorded_at: Tue, 27 Sep 2022 13:07:00 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"exclusion_filters":[],"filtered_data_type":"logs","is_enabled":true,"name":"Test-Update_a_security_filter_returns_OK_response-1652349197","query":"service:TestUpdateasecurityfilterreturnsOKresponse1652349197","version":1},"type":"security_filters"}}'
+      string: '{"data":{"attributes":{"exclusion_filters":[],"filtered_data_type":"logs","is_enabled":true,"name":"Test-Update_a_security_filter_returns_OK_response-1664284020","query":"service:TestUpdateasecurityfilterreturnsOKresponse1664284020","version":1},"type":"security_filters"}}'
     headers:
       Accept:
       - application/json
       Content-Type:
       - application/json
     method: PATCH
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters/f8d-36h-d0y
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters/bdb-ssn-uzt
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"is_enabled":true,"name":"Test-Update_a_security_filter_returns_OK_response-1652349197","filtered_data_type":"logs","exclusion_filters":[],"version":2,"query":"service:TestUpdateasecurityfilterreturnsOKresponse1652349197","is_builtin":false},"type":"security_filters","id":"f8d-36h-d0y"}}'
+      string: '{"data":{"attributes":{"is_enabled":true,"name":"Test-Update_a_security_filter_returns_OK_response-1664284020","filtered_data_type":"logs","exclusion_filters":[],"version":2,"query":"service:TestUpdateasecurityfilterreturnsOKresponse1664284020","is_builtin":false},"type":"security_filters","id":"bdb-ssn-uzt"}}
+
+        '
     headers:
       Content-Type:
-      - application/json;charset=utf-8
+      - application/json
     status:
       code: 200
       message: OK
-- recorded_at: Thu, 12 May 2022 09:53:17 GMT
+- recorded_at: Tue, 27 Sep 2022 13:07:00 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters/f8d-36h-d0y
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters/bdb-ssn-uzt
   response:
     body:
       encoding: UTF-8
       string: ''
     headers:
       Content-Type:
-      - application/json;charset=utf-8
+      - text/html; charset=utf-8
     status:
       code: 204
       message: No Content

@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Thu, 12 May 2022 09:53:10 GMT
+- recorded_at: Tue, 27 Sep 2022 13:06:55 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"exclusion_filters":[{"name":"Exclude staging","query":"source:staging"}],"filtered_data_type":"logs","is_enabled":true,"name":"Test-Create_a_security_filter_returns_OK_response-1652349190","query":"service:TestCreateasecurityfilterreturnsOKresponse1652349190"},"type":"security_filters"}}'
+      string: '{"data":{"attributes":{"exclusion_filters":[{"name":"Exclude staging","query":"source:staging"}],"filtered_data_type":"logs","is_enabled":true,"name":"Test-Create_a_security_filter_returns_OK_response-1664284015","query":"service:TestCreateasecurityfilterreturnsOKresponse1664284015"},"type":"security_filters"}}'
     headers:
       Accept:
       - application/json
@@ -14,29 +14,31 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"is_enabled":true,"name":"Test-Create_a_security_filter_returns_OK_response-1652349190","filtered_data_type":"logs","exclusion_filters":[{"query":"source:staging","name":"Exclude
-        staging"}],"version":1,"query":"service:TestCreateasecurityfilterreturnsOKresponse1652349190","is_builtin":false},"type":"security_filters","id":"2co-379-ngs"}}'
+      string: '{"data":{"attributes":{"is_enabled":true,"name":"Test-Create_a_security_filter_returns_OK_response-1664284015","filtered_data_type":"logs","exclusion_filters":[{"query":"source:staging","name":"Exclude
+        staging"}],"version":1,"query":"service:TestCreateasecurityfilterreturnsOKresponse1664284015","is_builtin":false},"type":"security_filters","id":"pde-qfs-vdh"}}
+
+        '
     headers:
       Content-Type:
-      - application/json;charset=utf-8
+      - application/json
     status:
       code: 200
       message: OK
-- recorded_at: Thu, 12 May 2022 09:53:10 GMT
+- recorded_at: Tue, 27 Sep 2022 13:06:55 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters/2co-379-ngs
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/configuration/security_filters/pde-qfs-vdh
   response:
     body:
       encoding: UTF-8
       string: ''
     headers:
       Content-Type:
-      - application/json;charset=utf-8
+      - text/html; charset=utf-8
     status:
       code: 204
       message: No Content
