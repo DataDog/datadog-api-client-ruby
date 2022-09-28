@@ -12,7 +12,7 @@ SECURITY_RULE_BIS_ID = ENV["SECURITY_RULE_BIS_ID"]
 body = DatadogAPIClient::V2::SecurityMonitoringSignalRuleCreatePayload.new({
   name: "Example-Create_a_detection_rule_with_type_signal_correlation_returns_OK_response_signal_rule",
   queries: [
-    DatadogAPIClient::V2::SecurityMonitoringSignalRuleQueryCreate.new({
+    DatadogAPIClient::V2::SecurityMonitoringSignalRuleQuery.new({
       rule_id: SECURITY_RULE_ID,
       aggregation: DatadogAPIClient::V2::SecurityMonitoringRuleQueryAggregation::EVENT_COUNT,
       correlated_by_fields: [
@@ -20,7 +20,7 @@ body = DatadogAPIClient::V2::SecurityMonitoringSignalRuleCreatePayload.new({
       ],
       correlated_query_index: 1,
     }),
-    DatadogAPIClient::V2::SecurityMonitoringSignalRuleQueryCreate.new({
+    DatadogAPIClient::V2::SecurityMonitoringSignalRuleQuery.new({
       rule_id: SECURITY_RULE_BIS_ID,
       aggregation: DatadogAPIClient::V2::SecurityMonitoringRuleQueryAggregation::EVENT_COUNT,
       correlated_by_fields: [
@@ -45,6 +45,6 @@ body = DatadogAPIClient::V2::SecurityMonitoringSignalRuleCreatePayload.new({
   message: "Test signal correlation rule",
   tags: [],
   is_enabled: true,
-  type: DatadogAPIClient::V2::SecurityMonitoringSignalRuleTypeCreate::SIGNAL_CORRELATION,
+  type: DatadogAPIClient::V2::SecurityMonitoringSignalRuleType::SIGNAL_CORRELATION,
 })
 p api_instance.create_security_monitoring_rule(body)
