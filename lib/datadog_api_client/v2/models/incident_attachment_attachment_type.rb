@@ -17,11 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Object related to an incident.
-  class IncidentRelatedObject
+  # The type of the incident attachment attributes.
+  class IncidentAttachmentAttachmentType
     include BaseEnumModel
 
-    USERS = "users".freeze
-    ATTACHMENTS = "attachments".freeze
+    LINK = "link".freeze
+    POSTMORTEM = "postmortem".freeze
   end
 end

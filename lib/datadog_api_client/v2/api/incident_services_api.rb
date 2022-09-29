@@ -199,7 +199,7 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && service_id.nil?
         fail ArgumentError, "Missing the required parameter 'service_id' when calling IncidentServicesAPI.get_incident_service"
       end
-      allowable_values = ['users']
+      allowable_values = ['users', 'attachments']
       if @api_client.config.client_side_validation && opts[:'include'] && !allowable_values.include?(opts[:'include'])
         fail ArgumentError, "invalid value for \"include\", must be one of #{allowable_values}"
       end
@@ -274,7 +274,7 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: IncidentServicesAPI.list_incident_services ...'
       end
-      allowable_values = ['users']
+      allowable_values = ['users', 'attachments']
       if @api_client.config.client_side_validation && opts[:'include'] && !allowable_values.include?(opts[:'include'])
         fail ArgumentError, "invalid value for \"include\", must be one of #{allowable_values}"
       end

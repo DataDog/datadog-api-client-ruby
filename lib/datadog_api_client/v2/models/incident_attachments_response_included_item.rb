@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # An object related to an incident that is included in the response.
-  module IncidentResponseIncludedItem
+  # An object related to an attachment that is included in the response.
+  module IncidentAttachmentsResponseIncludedItem
     class << self
       include BaseOneOfModel
       include BaseOneOfModelNoDiscriminator
@@ -26,8 +26,7 @@ module DatadogAPIClient::V2
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'User',
-          :'IncidentAttachmentData'
+          :'User'
         ]
       end
       # Builds the object
