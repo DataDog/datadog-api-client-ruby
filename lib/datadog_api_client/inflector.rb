@@ -373,6 +373,8 @@ module DatadogAPIClient
           "v1.scatter_plot_widget_definition_type" => "ScatterPlotWidgetDefinitionType",
           "v1.scatterplot_widget_formula" => "ScatterplotWidgetFormula",
           "v1.search_service_level_objective" => "SearchServiceLevelObjective",
+          "v1.search_service_level_objective_attributes" => "SearchServiceLevelObjectiveAttributes",
+          "v1.search_service_level_objective_data" => "SearchServiceLevelObjectiveData",
           "v1.search_slo_query" => "SearchSLOQuery",
           "v1.search_slo_response" => "SearchSLOResponse",
           "v1.search_slo_response_data" => "SearchSLOResponseData",

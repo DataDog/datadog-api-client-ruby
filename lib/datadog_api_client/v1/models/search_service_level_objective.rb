@@ -17,8 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # A service level objective object includes a service level indicator, thresholds
-  # for one or more timeframes, and metadata (`name`, `description`, `tags`, etc.).
+  # A service level objective data container.
   class SearchServiceLevelObjective
     include BaseGenericModel
 
@@ -26,81 +25,14 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
-    # A list of tags associated with this service level objective.
-    # Always included in service level objective responses (but may be empty).
-    # Optional in create/update requests.
-    attr_accessor :all_tags
-
-    # Creation timestamp (UNIX time in seconds)
-    #
-    # Always included in service level objective responses.
-    attr_accessor :created_at
-
-    # The creator of the SLO
-    attr_accessor :creator
-
-    # A user-defined description of the service level objective.
-    #
-    # Always included in service level objective responses (but may be `null`).
-    # Optional in create/update requests.
-    attr_accessor :description
-
-    # A list of (up to 100) monitor groups that narrow the scope of a monitor service level objective.
-    #
-    # Included in service level objective responses if it is not empty. Optional in
-    # create/update requests for monitor service level objectives, but may only be
-    # used when then length of the `monitor_ids` field is one.
-    attr_accessor :groups
-
-    # A unique identifier for the service level objective object.
-    #
-    # Always included in service level objective responses.
-    attr_accessor :id
-
-    # Modification timestamp (UNIX time in seconds)
-    #
-    # Always included in service level objective responses.
-    attr_accessor :modified_at
-
-    # A list of monitor ids that defines the scope of a monitor service level
-    # objective. **Required if type is `monitor`**.
-    attr_accessor :monitor_ids
-
-    # The name of the service level objective object.
-    attr_accessor :name
-
-    # calculated status and error budget remaining.
-    attr_accessor :overall_status
-
-    # A metric-based SLO. **Required if type is `metric`**. Note that Datadog only allows the sum by aggregator
-    # to be used because this will sum up all request counts instead of averaging them, or taking the max or
-    # min of all of those requests.
-    attr_accessor :query
-
-    # The thresholds (timeframes and associated targets) for this service level
-    # objective object.
-    attr_accessor :thresholds
-
-    # The type of the service level objective.
-    attr_accessor :type
+    # A service level objective ID and attributes.
+    attr_accessor :data
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'all_tags' => :'all_tags',
-        :'created_at' => :'created_at',
-        :'creator' => :'creator',
-        :'description' => :'description',
-        :'groups' => :'groups',
-        :'id' => :'id',
-        :'modified_at' => :'modified_at',
-        :'monitor_ids' => :'monitor_ids',
-        :'name' => :'name',
-        :'overall_status' => :'overall_status',
-        :'query' => :'query',
-        :'thresholds' => :'thresholds',
-        :'type' => :'type'
+        :'data' => :'data'
       }
     end
 
@@ -114,19 +46,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'all_tags' => :'Array<String>',
-        :'created_at' => :'Integer',
-        :'creator' => :'SLOCreator',
-        :'description' => :'String',
-        :'groups' => :'Array<String>',
-        :'id' => :'String',
-        :'modified_at' => :'Integer',
-        :'monitor_ids' => :'Array<Integer>',
-        :'name' => :'String',
-        :'overall_status' => :'Array<SLOOverallStatuses>',
-        :'query' => :'SearchSLOQuery',
-        :'thresholds' => :'Array<SearchSLOThreshold>',
-        :'type' => :'SLOType'
+        :'data' => :'SearchServiceLevelObjectiveData'
       }
     end
 
@@ -134,11 +54,6 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_nullable
       Set.new([
-        :'creator',
-        :'description',
-        :'groups',
-        :'monitor_ids',
-        :'query',
       ])
     end
 
@@ -158,66 +73,8 @@ module DatadogAPIClient::V1
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'all_tags')
-        if (value = attributes[:'all_tags']).is_a?(Array)
-          self.all_tags = value
-        end
-      end
-
-      if attributes.key?(:'created_at')
-        self.created_at = attributes[:'created_at']
-      end
-
-      if attributes.key?(:'creator')
-        self.creator = attributes[:'creator']
-      end
-
-      if attributes.key?(:'description')
-        self.description = attributes[:'description']
-      end
-
-      if attributes.key?(:'groups')
-        if (value = attributes[:'groups']).is_a?(Array)
-          self.groups = value
-        end
-      end
-
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'modified_at')
-        self.modified_at = attributes[:'modified_at']
-      end
-
-      if attributes.key?(:'monitor_ids')
-        if (value = attributes[:'monitor_ids']).is_a?(Array)
-          self.monitor_ids = value
-        end
-      end
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'overall_status')
-        if (value = attributes[:'overall_status']).is_a?(Array)
-          self.overall_status = value
-        end
-      end
-
-      if attributes.key?(:'query')
-        self.query = attributes[:'query']
-      end
-
-      if attributes.key?(:'thresholds')
-        if (value = attributes[:'thresholds']).is_a?(Array)
-          self.thresholds = value
-        end
-      end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'data')
+        self.data = attributes[:'data']
       end
     end
 
@@ -234,19 +91,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          all_tags == o.all_tags &&
-          created_at == o.created_at &&
-          creator == o.creator &&
-          description == o.description &&
-          groups == o.groups &&
-          id == o.id &&
-          modified_at == o.modified_at &&
-          monitor_ids == o.monitor_ids &&
-          name == o.name &&
-          overall_status == o.overall_status &&
-          query == o.query &&
-          thresholds == o.thresholds &&
-          type == o.type
+          data == o.data
     end
 
     # @see the `==` method
@@ -260,7 +105,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [all_tags, created_at, creator, description, groups, id, modified_at, monitor_ids, name, overall_status, query, thresholds, type].hash
+      [data].hash
     end
   end
 end
