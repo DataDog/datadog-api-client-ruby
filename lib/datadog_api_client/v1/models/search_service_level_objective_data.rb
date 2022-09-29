@@ -17,38 +17,33 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Pagination links.
-  class SearchSLOResponseLinks
+  # A service level objective ID and attributes.
+  class SearchServiceLevelObjectiveData
     include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Link to last page.
-    attr_accessor :first
+    # A service level objective object includes a service level indicator, thresholds
+    # for one or more timeframes, and metadata (`name`, `description`, and `tags`).
+    attr_accessor :attributes
 
-    # Link to first page.
-    attr_accessor :last
+    # A unique identifier for the service level objective object.
+    #
+    # Always included in service level objective responses.
+    attr_accessor :id
 
-    # Link to the next page.
-    attr_accessor :_next
-
-    # Link to previous page.
-    attr_accessor :prev
-
-    # Link to current page.
-    attr_accessor :_self
+    # The type of the object, must be `slo`.
+    attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'first' => :'first',
-        :'last' => :'last',
-        :'_next' => :'next',
-        :'prev' => :'prev',
-        :'_self' => :'self'
+        :'attributes' => :'attributes',
+        :'id' => :'id',
+        :'type' => :'type'
       }
     end
 
@@ -62,11 +57,9 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'first' => :'String',
-        :'last' => :'String',
-        :'_next' => :'String',
-        :'prev' => :'String',
-        :'_self' => :'String'
+        :'attributes' => :'SearchServiceLevelObjectiveAttributes',
+        :'id' => :'String',
+        :'type' => :'String'
       }
     end
 
@@ -74,8 +67,6 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_nullable
       Set.new([
-        :'last',
-        :'prev',
       ])
     end
 
@@ -84,35 +75,27 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SearchSLOResponseLinks` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SearchServiceLevelObjectiveData` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SearchSLOResponseLinks`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SearchServiceLevelObjectiveData`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'first')
-        self.first = attributes[:'first']
+      if attributes.key?(:'attributes')
+        self.attributes = attributes[:'attributes']
       end
 
-      if attributes.key?(:'last')
-        self.last = attributes[:'last']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'_next')
-        self._next = attributes[:'_next']
-      end
-
-      if attributes.key?(:'prev')
-        self.prev = attributes[:'prev']
-      end
-
-      if attributes.key?(:'_self')
-        self._self = attributes[:'_self']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -129,11 +112,9 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          first == o.first &&
-          last == o.last &&
-          _next == o._next &&
-          prev == o.prev &&
-          _self == o._self
+          attributes == o.attributes &&
+          id == o.id &&
+          type == o.type
     end
 
     # @see the `==` method
@@ -147,7 +128,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [first, last, _next, prev, _self].hash
+      [attributes, id, type].hash
     end
   end
 end
