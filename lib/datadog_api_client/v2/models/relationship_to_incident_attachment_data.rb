@@ -17,38 +17,26 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The incident's relationships from a response.
-  class IncidentResponseRelationships
+  # The attachment relationship data.
+  class RelationshipToIncidentAttachmentData
     include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
-    # A relationship reference for attachments.
-    attr_accessor :attachments
+    # A unique identifier that represents the attachment.
+    attr_accessor :id
 
-    # Relationship to user.
-    attr_accessor :commander_user
-
-    # Relationship to user.
-    attr_accessor :created_by_user
-
-    # A relationship reference for multiple integration metadata objects.
-    attr_accessor :integrations
-
-    # Relationship to user.
-    attr_accessor :last_modified_by_user
+    # The incident attachment resource type.
+    attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'attachments' => :'attachments',
-        :'commander_user' => :'commander_user',
-        :'created_by_user' => :'created_by_user',
-        :'integrations' => :'integrations',
-        :'last_modified_by_user' => :'last_modified_by_user'
+        :'id' => :'id',
+        :'type' => :'type'
       }
     end
 
@@ -62,11 +50,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attachments' => :'RelationshipToIncidentAttachment',
-        :'commander_user' => :'NullableRelationshipToUser',
-        :'created_by_user' => :'RelationshipToUser',
-        :'integrations' => :'RelationshipToIncidentIntegrationMetadatas',
-        :'last_modified_by_user' => :'RelationshipToUser'
+        :'id' => :'String',
+        :'type' => :'IncidentAttachmentType'
       }
     end
 
@@ -82,35 +67,25 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentResponseRelationships` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RelationshipToIncidentAttachmentData` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::IncidentResponseRelationships`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::RelationshipToIncidentAttachmentData`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'attachments')
-        self.attachments = attributes[:'attachments']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'commander_user')
-        self.commander_user = attributes[:'commander_user']
-      end
-
-      if attributes.key?(:'created_by_user')
-        self.created_by_user = attributes[:'created_by_user']
-      end
-
-      if attributes.key?(:'integrations')
-        self.integrations = attributes[:'integrations']
-      end
-
-      if attributes.key?(:'last_modified_by_user')
-        self.last_modified_by_user = attributes[:'last_modified_by_user']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      else
+        self.type = 'incident_attachments'
       end
     end
 
@@ -118,7 +93,29 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if @id.nil?
+      return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param id [Object] Object to be assigned
+    # @!visibility private
+    def id=(id)
+      if id.nil?
+        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+      end
+      @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param type [Object] Object to be assigned
+    # @!visibility private
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'invalid value for "type", type cannot be nil.'
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.
@@ -127,11 +124,8 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attachments == o.attachments &&
-          commander_user == o.commander_user &&
-          created_by_user == o.created_by_user &&
-          integrations == o.integrations &&
-          last_modified_by_user == o.last_modified_by_user
+          id == o.id &&
+          type == o.type
     end
 
     # @see the `==` method
@@ -145,7 +139,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attachments, commander_user, created_by_user, integrations, last_modified_by_user].hash
+      [id, type].hash
     end
   end
 end
