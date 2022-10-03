@@ -90,28 +90,20 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'from')
         self.from = attributes[:'from']
-      else
-        self.from = 'now-15m'
       end
 
       if attributes.key?(:'indexes')
         if (value = attributes[:'indexes']).is_a?(Array)
           self.indexes = value
         end
-      else
-        self.indexes = ['*']
       end
 
       if attributes.key?(:'query')
         self.query = attributes[:'query']
-      else
-        self.query = '*'
       end
 
       if attributes.key?(:'to')
         self.to = attributes[:'to']
-      else
-        self.to = 'now'
       end
     end
 

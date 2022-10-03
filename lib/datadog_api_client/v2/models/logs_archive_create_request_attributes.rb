@@ -106,8 +106,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'include_tags')
         self.include_tags = attributes[:'include_tags']
-      else
-        self.include_tags = false
       end
 
       if attributes.key?(:'name')

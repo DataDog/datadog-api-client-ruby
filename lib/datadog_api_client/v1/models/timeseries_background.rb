@@ -80,8 +80,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
-      else
-        self.type = 'area'
       end
 
       if attributes.key?(:'yaxis')

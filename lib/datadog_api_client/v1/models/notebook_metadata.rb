@@ -86,14 +86,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'is_template')
         self.is_template = attributes[:'is_template']
-      else
-        self.is_template = false
       end
 
       if attributes.key?(:'take_snapshots')
         self.take_snapshots = attributes[:'take_snapshots']
-      else
-        self.take_snapshots = false
       end
 
       if attributes.key?(:'type')

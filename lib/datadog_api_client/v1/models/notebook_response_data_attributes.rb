@@ -136,8 +136,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'status')
         self.status = attributes[:'status']
-      else
-        self.status = 'published'
       end
 
       if attributes.key?(:'time')

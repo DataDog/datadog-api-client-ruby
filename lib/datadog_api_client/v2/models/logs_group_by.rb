@@ -109,8 +109,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'limit')
         self.limit = attributes[:'limit']
-      else
-        self.limit = 10
       end
 
       if attributes.key?(:'missing')
@@ -123,8 +121,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'total')
         self.total = attributes[:'total']
-      else
-        self.total = false
       end
     end
 

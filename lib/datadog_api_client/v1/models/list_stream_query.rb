@@ -90,8 +90,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'data_source')
         self.data_source = attributes[:'data_source']
-      else
-        self.data_source = 'apm_issue_stream'
       end
 
       if attributes.key?(:'indexes')

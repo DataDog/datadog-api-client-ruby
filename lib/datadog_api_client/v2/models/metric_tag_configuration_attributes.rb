@@ -130,8 +130,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'metric_type')
         self.metric_type = attributes[:'metric_type']
-      else
-        self.metric_type = 'gauge'
       end
 
       if attributes.key?(:'modified_at')

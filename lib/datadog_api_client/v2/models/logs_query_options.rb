@@ -85,8 +85,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'timezone')
         self.timezone = attributes[:'timezone']
-      else
-        self.timezone = 'UTC'
       end
     end
 

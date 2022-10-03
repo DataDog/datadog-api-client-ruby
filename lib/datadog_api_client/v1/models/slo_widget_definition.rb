@@ -150,8 +150,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
-      else
-        self.type = 'slo'
       end
 
       if attributes.key?(:'view_mode')
@@ -160,8 +158,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'view_type')
         self.view_type = attributes[:'view_type']
-      else
-        self.view_type = 'detail'
       end
     end
 

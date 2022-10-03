@@ -205,8 +205,6 @@ module DatadogAPIClient::V1
         if (value = attributes[:'certificate_domains']).is_a?(Array)
           self.certificate_domains = value
         end
-      else
-        self.certificate_domains = []
       end
 
       if attributes.key?(:'dns_server')

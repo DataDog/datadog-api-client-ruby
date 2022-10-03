@@ -117,14 +117,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'has_background')
         self.has_background = attributes[:'has_background']
-      else
-        self.has_background = true
       end
 
       if attributes.key?(:'has_border')
         self.has_border = attributes[:'has_border']
-      else
-        self.has_border = true
       end
 
       if attributes.key?(:'horizontal_align')
@@ -141,8 +137,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
-      else
-        self.type = 'image'
       end
 
       if attributes.key?(:'url')

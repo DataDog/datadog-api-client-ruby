@@ -90,26 +90,18 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'message')
         self.message = attributes[:'message']
-      else
-        self.message = true
       end
 
       if attributes.key?(:'notified')
         self.notified = attributes[:'notified']
-      else
-        self.notified = true
       end
 
       if attributes.key?(:'snapshot')
         self.snapshot = attributes[:'snapshot']
-      else
-        self.snapshot = true
       end
 
       if attributes.key?(:'tags')
         self.tags = attributes[:'tags']
-      else
-        self.tags = true
       end
     end
 

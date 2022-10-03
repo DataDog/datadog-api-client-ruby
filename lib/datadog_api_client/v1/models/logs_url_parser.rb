@@ -101,8 +101,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'is_enabled')
         self.is_enabled = attributes[:'is_enabled']
-      else
-        self.is_enabled = false
       end
 
       if attributes.key?(:'name')
@@ -111,28 +109,20 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'normalize_ending_slashes')
         self.normalize_ending_slashes = attributes[:'normalize_ending_slashes']
-      else
-        self.normalize_ending_slashes = false
       end
 
       if attributes.key?(:'sources')
         if (value = attributes[:'sources']).is_a?(Array)
           self.sources = value
         end
-      else
-        self.sources = ['http.url']
       end
 
       if attributes.key?(:'target')
         self.target = attributes[:'target']
-      else
-        self.target = 'http.url_details'
       end
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
-      else
-        self.type = 'url-parser'
       end
     end
 

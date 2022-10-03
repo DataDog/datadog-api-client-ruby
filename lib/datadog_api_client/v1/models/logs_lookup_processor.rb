@@ -116,8 +116,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'is_enabled')
         self.is_enabled = attributes[:'is_enabled']
-      else
-        self.is_enabled = false
       end
 
       if attributes.key?(:'lookup_table')
@@ -140,8 +138,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
-      else
-        self.type = 'lookup-processor'
       end
     end
 

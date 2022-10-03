@@ -96,8 +96,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'is_enabled')
         self.is_enabled = attributes[:'is_enabled']
-      else
-        self.is_enabled = false
       end
 
       if attributes.key?(:'name')
@@ -108,20 +106,14 @@ module DatadogAPIClient::V1
         if (value = attributes[:'sources']).is_a?(Array)
           self.sources = value
         end
-      else
-        self.sources = ['network.client.ip']
       end
 
       if attributes.key?(:'target')
         self.target = attributes[:'target']
-      else
-        self.target = 'network.client.geoip'
       end
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
-      else
-        self.type = 'geo-ip-parser'
       end
     end
 

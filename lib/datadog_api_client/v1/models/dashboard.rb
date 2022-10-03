@@ -178,8 +178,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'is_read_only')
         self.is_read_only = attributes[:'is_read_only']
-      else
-        self.is_read_only = false
       end
 
       if attributes.key?(:'layout_type')

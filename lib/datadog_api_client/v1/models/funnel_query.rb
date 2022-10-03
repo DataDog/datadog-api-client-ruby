@@ -85,8 +85,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'data_source')
         self.data_source = attributes[:'data_source']
-      else
-        self.data_source = 'rum'
       end
 
       if attributes.key?(:'query_string')
