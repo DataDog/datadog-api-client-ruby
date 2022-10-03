@@ -134,8 +134,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
-      else
-        self.type = 'alert_value'
       end
 
       if attributes.key?(:'unit')

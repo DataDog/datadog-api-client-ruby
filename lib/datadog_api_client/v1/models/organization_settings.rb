@@ -129,8 +129,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'saml_autocreate_access_role')
         self.saml_autocreate_access_role = attributes[:'saml_autocreate_access_role']
-      else
-        self.saml_autocreate_access_role = 'st'
       end
 
       if attributes.key?(:'saml_autocreate_users_domains')

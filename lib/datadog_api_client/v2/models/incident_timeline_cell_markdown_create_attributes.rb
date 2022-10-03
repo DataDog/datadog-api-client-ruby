@@ -85,8 +85,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'cell_type')
         self.cell_type = attributes[:'cell_type']
-      else
-        self.cell_type = 'markdown'
       end
 
       if attributes.key?(:'content')
@@ -95,8 +93,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'important')
         self.important = attributes[:'important']
-      else
-        self.important = false
       end
     end
 

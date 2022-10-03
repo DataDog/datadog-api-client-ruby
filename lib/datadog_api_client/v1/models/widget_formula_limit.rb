@@ -84,8 +84,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'order')
         self.order = attributes[:'order']
-      else
-        self.order = 'desc'
       end
     end
 

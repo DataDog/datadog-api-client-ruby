@@ -132,8 +132,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'has_padding')
         self.has_padding = attributes[:'has_padding']
-      else
-        self.has_padding = true
       end
 
       if attributes.key?(:'show_tick')
@@ -154,8 +152,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
-      else
-        self.type = 'note'
       end
 
       if attributes.key?(:'vertical_align')

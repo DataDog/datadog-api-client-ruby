@@ -84,8 +84,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'attachment_type')
         self.attachment_type = attributes[:'attachment_type']
-      else
-        self.attachment_type = 'link'
       end
     end
 

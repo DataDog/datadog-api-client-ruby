@@ -105,8 +105,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'access_role')
         self.access_role = attributes[:'access_role']
-      else
-        self.access_role = 'st'
       end
 
       if attributes.key?(:'disabled')

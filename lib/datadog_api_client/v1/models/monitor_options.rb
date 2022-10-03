@@ -261,8 +261,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'escalation_message')
         self.escalation_message = attributes[:'escalation_message']
-      else
-        self.escalation_message = 'none'
       end
 
       if attributes.key?(:'evaluation_delay')
@@ -279,8 +277,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'include_tags')
         self.include_tags = attributes[:'include_tags']
-      else
-        self.include_tags = true
       end
 
       if attributes.key?(:'locked')
@@ -289,14 +285,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'min_failure_duration')
         self.min_failure_duration = attributes[:'min_failure_duration']
-      else
-        self.min_failure_duration = 0
       end
 
       if attributes.key?(:'min_location_failed')
         self.min_location_failed = attributes[:'min_location_failed']
-      else
-        self.min_location_failed = 1
       end
 
       if attributes.key?(:'new_group_delay')
@@ -305,8 +297,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'new_host_delay')
         self.new_host_delay = attributes[:'new_host_delay']
-      else
-        self.new_host_delay = 300
       end
 
       if attributes.key?(:'no_data_timeframe')
@@ -315,14 +305,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'notify_audit')
         self.notify_audit = attributes[:'notify_audit']
-      else
-        self.notify_audit = false
       end
 
       if attributes.key?(:'notify_no_data')
         self.notify_no_data = attributes[:'notify_no_data']
-      else
-        self.notify_no_data = false
       end
 
       if attributes.key?(:'on_missing_data')

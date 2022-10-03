@@ -103,20 +103,14 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'max')
         self.max = attributes[:'max']
-      else
-        self.max = 'auto'
       end
 
       if attributes.key?(:'min')
         self.min = attributes[:'min']
-      else
-        self.min = 'auto'
       end
 
       if attributes.key?(:'scale')
         self.scale = attributes[:'scale']
-      else
-        self.scale = 'linear'
       end
     end
 

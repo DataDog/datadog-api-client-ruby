@@ -1,5 +1,31 @@
 # CHANGELOG
 
+## 2.2.0 / 2022-10-03
+
+### Fixed
+* Refactor RuleQuery models by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1082
+* Fix SearchSLO response structure by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1084
+### Added
+* Add ListActiveConfigurations endpoint and add new filter[queried] param to list tag configurations endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1017
+* Add doesNotExist to synthetics operator enum by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1059
+* Add TopologyMapWidget to dashboard schema by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1063
+* Add Overall Status support to SLO Search API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1065
+* Add support for proxy usage by @skarimo in https://github.com/DataDog/datadog-api-client-ruby/pull/1069
+* Add APM Fargate to Usage Metering API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1058
+* Add support for template variable multiselect in dashboards by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1068
+* Add storage option to widget query definitions by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1072
+* Add support for retrieving a security signal by ID by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1077
+* Add support for signal correlation API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1073
+* Add support for SLO List widget by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1076
+* Add new historical_cost endpoint, and update estimate_cost by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1071
+* Add support for incident attachment APIs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1083
+
+## New Contributors
+* @nkzou made their first contribution in https://github.com/DataDog/datadog-api-client-ruby/pull/1057
+* @dependabot made their first contribution in https://github.com/DataDog/datadog-api-client-ruby/pull/1091
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-ruby/compare/v2.1.0...v2.2.0
+
 ## 2.1.0 / 2022-08-31
 
 ### Added

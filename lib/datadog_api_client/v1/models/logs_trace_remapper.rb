@@ -95,8 +95,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'is_enabled')
         self.is_enabled = attributes[:'is_enabled']
-      else
-        self.is_enabled = false
       end
 
       if attributes.key?(:'name')
@@ -107,14 +105,10 @@ module DatadogAPIClient::V1
         if (value = attributes[:'sources']).is_a?(Array)
           self.sources = value
         end
-      else
-        self.sources = ['dd.trace_id']
       end
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
-      else
-        self.type = 'trace-id-remapper'
       end
     end
 

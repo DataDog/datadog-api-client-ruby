@@ -164,8 +164,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'show_priority')
         self.show_priority = attributes[:'show_priority']
-      else
-        self.show_priority = false
       end
 
       if attributes.key?(:'sort')
@@ -194,8 +192,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
-      else
-        self.type = 'manage_status'
       end
     end
 

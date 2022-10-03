@@ -85,10 +85,6 @@
         {%- else %}
         self.{{ attr|attribute_name }} = attributes[:'{{ attr|attribute_name }}']
         {%- endif %}
-{%- if "default" in definition and definition.default != None %}
-      else
-        self.{{ attr|attribute_name }} = {{ definition.default|format_value }}
-{%- endif %}
       end
 {%- endfor %}
     end

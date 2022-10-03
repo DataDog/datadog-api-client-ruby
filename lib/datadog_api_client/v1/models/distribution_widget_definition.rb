@@ -166,8 +166,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
-      else
-        self.type = 'distribution'
       end
 
       if attributes.key?(:'xaxis')

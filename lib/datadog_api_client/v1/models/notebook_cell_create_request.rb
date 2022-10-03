@@ -85,8 +85,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
-      else
-        self.type = 'notebook_cells'
       end
     end
 
