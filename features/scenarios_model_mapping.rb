@@ -915,6 +915,16 @@ ScenariosModelMappings = {
             "include" => "Array<IncidentRelatedObject>",
             "body" => "IncidentUpdateRequest",
     },
+    "v2.ListIncidentAttachments" => {
+            "incident_id" => "String",
+            "include" => "Array<IncidentAttachmentRelatedObject>",
+            "filter_attachment_type" => "Array<IncidentAttachmentAttachmentType>",
+    },
+    "v2.UpdateIncidentAttachments" => {
+            "incident_id" => "String",
+            "include" => "Array<IncidentAttachmentRelatedObject>",
+            "body" => "IncidentAttachmentUpdateRequest",
+    },
     "v2.CreateOpsgenieService" => {
             "body" => "OpsgenieServiceCreateRequest",
     },
@@ -1180,6 +1190,9 @@ ScenariosModelMappings = {
     "v2.SearchSecurityMonitoringSignals" => {
             "body" => "SecurityMonitoringSignalListRequest",
     },
+    "v2.GetSecurityMonitoringSignal" => {
+            "signal_id" => "String",
+    },
     "v2.EditSecurityMonitoringSignalAssignee" => {
             "signal_id" => "String",
             "body" => "SecurityMonitoringSignalAssigneeUpdateRequest",
@@ -1308,6 +1321,11 @@ ScenariosModelMappings = {
             "end_month" => "Time",
             "start_date" => "Time",
             "end_date" => "Time",
+    },
+    "v2.GetHistoricalCostByOrg" => {
+            "view" => "String",
+            "start_month" => "Time",
+            "end_month" => "Time",
     },
     "v2.GetHourlyUsage" => {
             "filter_timestamp_start" => "Time",

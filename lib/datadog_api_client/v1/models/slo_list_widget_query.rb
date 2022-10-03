@@ -80,8 +80,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'limit')
         self.limit = attributes[:'limit']
-      else
-        self.limit = 100
       end
 
       if attributes.key?(:'query_string')
