@@ -1,0 +1,66 @@
+http_interactions:
+- recorded_at: Mon, 03 Oct 2022 19:33:57 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"test_name_create","type":"browser"},"type":"rum_application_create"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/rum/applications
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"updated_by_handle":"frog@datadoghq.com","application_id":"8aeaffbf-12e3-4192-9b71-7f85bb8f2bf4","name":"test_name_create","created_by_handle":"frog@datadoghq.com","created_at":1664825637704,"org_id":321813,"updated_at":1664825637704,"is_active":false,"hash":"pub1ef487d822e6ce60d082ad0364b29883","type":"browser"},"type":"rum_application","id":"8aeaffbf-12e3-4192-9b71-7f85bb8f2bf4"}}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Mon, 03 Oct 2022 19:33:57 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"updated_name_for_my_existing_rum_application","type":"browser"},"id":"8aeaffbf-12e3-4192-9b71-7f85bb8f2bf4","type":"rum_application_update"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: PATCH
+    uri: https://api.datadoghq.com/api/v2/rum/applications/8aeaffbf-12e3-4192-9b71-7f85bb8f2bf4
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"updated_by_handle":"frog@datadoghq.com","application_id":"8aeaffbf-12e3-4192-9b71-7f85bb8f2bf4","name":"updated_name_for_my_existing_rum_application","created_by_handle":"frog@datadoghq.com","created_at":1664825637704,"org_id":321813,"updated_at":1664825638467,"is_active":false,"hash":"pub1ef487d822e6ce60d082ad0364b29883","type":"browser"},"type":"rum_application","id":"8aeaffbf-12e3-4192-9b71-7f85bb8f2bf4"}}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Mon, 03 Oct 2022 19:33:57 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/rum/applications/8aeaffbf-12e3-4192-9b71-7f85bb8f2bf4
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers: {}
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0
