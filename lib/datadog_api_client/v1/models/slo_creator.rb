@@ -55,7 +55,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'email' => :'String',
-        :'id' => :'String',
+        :'id' => :'Integer',
         :'name' => :'String'
       }
     end

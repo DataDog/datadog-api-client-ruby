@@ -22,5 +22,6 @@ module DatadogAPIClient::V2
     include BaseEnumModel
 
     USERS = "users".freeze
+    ATTACHMENTS = "attachments".freeze
   end
 end

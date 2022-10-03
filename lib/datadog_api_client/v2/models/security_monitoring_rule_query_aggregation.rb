@@ -27,5 +27,6 @@ module DatadogAPIClient::V2
     MAX = "max".freeze
     NEW_VALUE = "new_value".freeze
     GEO_DATA = "geo_data".freeze
+    EVENT_COUNT = "event_count".freeze
   end
 end

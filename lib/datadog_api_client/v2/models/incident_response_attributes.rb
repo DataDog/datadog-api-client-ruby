@@ -56,9 +56,6 @@ module DatadogAPIClient::V2
     # Notification handles that will be notified of the incident during update.
     attr_accessor :notification_handles
 
-    # The UUID of the postmortem object attached to the incident.
-    attr_accessor :postmortem_id
-
     # The monotonically increasing integer ID for the incident.
     attr_accessor :public_id
 
@@ -95,7 +92,6 @@ module DatadogAPIClient::V2
         :'fields' => :'fields',
         :'modified' => :'modified',
         :'notification_handles' => :'notification_handles',
-        :'postmortem_id' => :'postmortem_id',
         :'public_id' => :'public_id',
         :'resolved' => :'resolved',
         :'time_to_detect' => :'time_to_detect',
@@ -126,7 +122,6 @@ module DatadogAPIClient::V2
         :'fields' => :'Hash<String, IncidentFieldAttributes>',
         :'modified' => :'Time',
         :'notification_handles' => :'Array<IncidentNotificationHandle>',
-        :'postmortem_id' => :'String',
         :'public_id' => :'Integer',
         :'resolved' => :'Time',
         :'time_to_detect' => :'Integer',
@@ -208,10 +203,6 @@ module DatadogAPIClient::V2
         end
       end
 
-      if attributes.key?(:'postmortem_id')
-        self.postmortem_id = attributes[:'postmortem_id']
-      end
-
       if attributes.key?(:'public_id')
         self.public_id = attributes[:'public_id']
       end
@@ -275,7 +266,6 @@ module DatadogAPIClient::V2
           fields == o.fields &&
           modified == o.modified &&
           notification_handles == o.notification_handles &&
-          postmortem_id == o.postmortem_id &&
           public_id == o.public_id &&
           resolved == o.resolved &&
           time_to_detect == o.time_to_detect &&
@@ -296,7 +286,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created, customer_impact_duration, customer_impact_end, customer_impact_scope, customer_impact_start, customer_impacted, detected, fields, modified, notification_handles, postmortem_id, public_id, resolved, time_to_detect, time_to_internal_response, time_to_repair, time_to_resolve, title].hash
+      [created, customer_impact_duration, customer_impact_end, customer_impact_scope, customer_impact_start, customer_impacted, detected, fields, modified, notification_handles, public_id, resolved, time_to_detect, time_to_internal_response, time_to_repair, time_to_resolve, title].hash
     end
   end
 end
