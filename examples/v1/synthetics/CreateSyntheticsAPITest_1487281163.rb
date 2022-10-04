@@ -48,15 +48,15 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
           updated_at: "2020-10-16T09:23:24.857Z",
         }),
       }),
-      headers: DatadogAPIClient::V1::SyntheticsTestHeaders.new({
+      headers: {
         unique: "examplecreateanapihttptestreturnsokreturnsthecreatedtestdetailsresponse",
-      }),
+      },
       method: DatadogAPIClient::V1::HTTPMethod::GET,
       timeout: 10,
       url: "https://datadoghq.com",
       proxy: DatadogAPIClient::V1::SyntheticsTestRequestProxy.new({
         url: "https://datadoghq.com",
-        headers: DatadogAPIClient::V1::SyntheticsTestHeaders.new({}),
+        headers: {},
       }),
     }),
   }),

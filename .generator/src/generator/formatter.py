@@ -336,6 +336,8 @@ def format_data_with_schema_dict(
                 replace_values=replace_values,
             )
             parameters += f"{k}: {value}, "
+        if not has_properties:
+            name = None
 
     if not name and "oneOf" not in schema:
         if default_name and not schema.get("additionalProperties") and schema.get("properties"):
