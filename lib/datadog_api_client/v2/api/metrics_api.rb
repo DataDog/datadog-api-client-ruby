@@ -523,7 +523,7 @@ module DatadogAPIClient::V2
 
     # Get a list of metrics.
     #
-    # Returns all metrics (matching additional filters if specified).
+    # Returns all metrics that can be configured in the Metrics Summary page or with Metrics without Limits™ (matching additional filters if specified).
     #
     # @param opts [Hash] the optional parameters
     # @option opts [Boolean] :filter_configured Filter custom metrics that have configured tags.
