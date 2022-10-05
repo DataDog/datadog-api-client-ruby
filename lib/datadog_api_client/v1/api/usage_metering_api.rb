@@ -2343,7 +2343,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get usage across your multi-org account.
+    # Get usage across your account.
     #
     # @see #get_usage_summary_with_http_info
     def get_usage_summary(start_month, opts = {})
@@ -2351,9 +2351,9 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get usage across your multi-org account.
+    # Get usage across your account.
     #
-    # Get usage across your multi-org account. You must have the multi-org feature enabled.
+    # Get all usage across your account.
     #
     # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage beginning in this month. Maximum of 15 months ago.
     # @param opts [Hash] the optional parameters
