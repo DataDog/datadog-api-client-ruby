@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Query for matching rule on signals.
-  class SecurityMonitoringSignalRuleQuery
+  class SecurityMonitoringSignalRuleResponseQuery
     include BaseGenericModel
 
     # Whether the object has unparsed attributes
@@ -33,6 +33,9 @@ module DatadogAPIClient::V2
 
     # Index of the rule query used to retrieve the correlated field.
     attr_accessor :correlated_query_index
+
+    # Default Rule ID to match on signals.
+    attr_accessor :default_rule_id
 
     # Group of target fields to aggregate over when using the new value aggregations.
     attr_accessor :metrics
@@ -50,6 +53,7 @@ module DatadogAPIClient::V2
         :'aggregation' => :'aggregation',
         :'correlated_by_fields' => :'correlatedByFields',
         :'correlated_query_index' => :'correlatedQueryIndex',
+        :'default_rule_id' => :'defaultRuleId',
         :'metrics' => :'metrics',
         :'name' => :'name',
         :'rule_id' => :'ruleId'
@@ -69,6 +73,7 @@ module DatadogAPIClient::V2
         :'aggregation' => :'SecurityMonitoringRuleQueryAggregation',
         :'correlated_by_fields' => :'Array<String>',
         :'correlated_query_index' => :'Integer',
+        :'default_rule_id' => :'String',
         :'metrics' => :'Array<String>',
         :'name' => :'String',
         :'rule_id' => :'String'
@@ -87,13 +92,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringSignalRuleQuery` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringSignalRuleResponseQuery` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::SecurityMonitoringSignalRuleQuery`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::SecurityMonitoringSignalRuleResponseQuery`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -110,6 +115,10 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'correlated_query_index')
         self.correlated_query_index = attributes[:'correlated_query_index']
+      end
+
+      if attributes.key?(:'default_rule_id')
+        self.default_rule_id = attributes[:'default_rule_id']
       end
 
       if attributes.key?(:'metrics')
@@ -132,7 +141,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if !@correlated_query_index.nil? && @correlated_query_index > 9
-      return false if @rule_id.nil?
       true
     end
 
@@ -146,16 +154,6 @@ module DatadogAPIClient::V2
       @correlated_query_index = correlated_query_index
     end
 
-    # Custom attribute writer method with validation
-    # @param rule_id [Object] Object to be assigned
-    # @!visibility private
-    def rule_id=(rule_id)
-      if rule_id.nil?
-        fail ArgumentError, 'invalid value for "rule_id", rule_id cannot be nil.'
-      end
-      @rule_id = rule_id
-    end
-
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private
@@ -165,6 +163,7 @@ module DatadogAPIClient::V2
           aggregation == o.aggregation &&
           correlated_by_fields == o.correlated_by_fields &&
           correlated_query_index == o.correlated_query_index &&
+          default_rule_id == o.default_rule_id &&
           metrics == o.metrics &&
           name == o.name &&
           rule_id == o.rule_id
@@ -181,7 +180,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation, correlated_by_fields, correlated_query_index, metrics, name, rule_id].hash
+      [aggregation, correlated_by_fields, correlated_query_index, default_rule_id, metrics, name, rule_id].hash
     end
   end
 end

@@ -122,7 +122,7 @@ module DatadogAPIClient::V2
         :'message' => :'String',
         :'name' => :'String',
         :'options' => :'SecurityMonitoringRuleOptions',
-        :'queries' => :'Array<SecurityMonitoringSignalRuleQuery>',
+        :'queries' => :'Array<SecurityMonitoringSignalRuleResponseQuery>',
         :'tags' => :'Array<String>',
         :'type' => :'SecurityMonitoringSignalRuleType',
         :'update_author_id' => :'Integer',

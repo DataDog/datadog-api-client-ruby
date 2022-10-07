@@ -1249,6 +1249,7 @@ module DatadogAPIClient
           "v2.security_monitoring_signal_rule_create_payload" => "SecurityMonitoringSignalRuleCreatePayload",
           "v2.security_monitoring_signal_rule_query" => "SecurityMonitoringSignalRuleQuery",
           "v2.security_monitoring_signal_rule_response" => "SecurityMonitoringSignalRuleResponse",
+          "v2.security_monitoring_signal_rule_response_query" => "SecurityMonitoringSignalRuleResponseQuery",
           "v2.security_monitoring_signal_rule_type" => "SecurityMonitoringSignalRuleType",
           "v2.security_monitoring_signals_list_response" => "SecurityMonitoringSignalsListResponse",
           "v2.security_monitoring_signals_list_response_links" => "SecurityMonitoringSignalsListResponseLinks",
