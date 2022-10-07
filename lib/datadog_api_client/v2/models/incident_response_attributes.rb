@@ -59,7 +59,7 @@ module DatadogAPIClient::V2
     # The monotonically increasing integer ID for the incident.
     attr_accessor :public_id
 
-    # Timestamp when the incident's state was set to resolved.
+    # Timestamp when the incident's state was last changed from active or stable to resolved or completed.
     attr_accessor :resolved
 
     # The amount of time in seconds to detect the incident.
