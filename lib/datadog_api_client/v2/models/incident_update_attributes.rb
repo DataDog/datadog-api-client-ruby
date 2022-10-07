@@ -46,9 +46,6 @@ module DatadogAPIClient::V2
     # Notification handles that will be notified of the incident during update.
     attr_accessor :notification_handles
 
-    # Timestamp when the incident's state was set to resolved.
-    attr_accessor :resolved
-
     # The title of the incident, which summarizes what happened.
     attr_accessor :title
 
@@ -63,7 +60,6 @@ module DatadogAPIClient::V2
         :'detected' => :'detected',
         :'fields' => :'fields',
         :'notification_handles' => :'notification_handles',
-        :'resolved' => :'resolved',
         :'title' => :'title'
       }
     end
@@ -85,7 +81,6 @@ module DatadogAPIClient::V2
         :'detected' => :'Time',
         :'fields' => :'Hash<String, IncidentFieldAttributes>',
         :'notification_handles' => :'Array<IncidentNotificationHandle>',
-        :'resolved' => :'Time',
         :'title' => :'String'
       }
     end
@@ -97,7 +92,6 @@ module DatadogAPIClient::V2
         :'customer_impact_end',
         :'customer_impact_start',
         :'detected',
-        :'resolved',
       ])
     end
 
@@ -147,10 +141,6 @@ module DatadogAPIClient::V2
         end
       end
 
-      if attributes.key?(:'resolved')
-        self.resolved = attributes[:'resolved']
-      end
-
       if attributes.key?(:'title')
         self.title = attributes[:'title']
       end
@@ -176,7 +166,6 @@ module DatadogAPIClient::V2
           detected == o.detected &&
           fields == o.fields &&
           notification_handles == o.notification_handles &&
-          resolved == o.resolved &&
           title == o.title
     end
 
@@ -191,7 +180,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [customer_impact_end, customer_impact_scope, customer_impact_start, customer_impacted, detected, fields, notification_handles, resolved, title].hash
+      [customer_impact_end, customer_impact_scope, customer_impact_start, customer_impacted, detected, fields, notification_handles, title].hash
     end
   end
 end
