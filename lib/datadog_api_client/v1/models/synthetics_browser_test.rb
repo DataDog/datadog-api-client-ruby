@@ -50,7 +50,7 @@ module DatadogAPIClient::V1
     # Synthetic test.
     attr_accessor :status
 
-    # The steps of the test.
+    # Array of steps for the test.
     attr_accessor :steps
 
     # Array of tags attached to the test.
