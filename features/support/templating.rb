@@ -16,7 +16,7 @@ class Object
           when Hash
             result = result[part.to_sym] rescue result[part]
           else
-            result = result.send(part)
+            result = result.send(part.snakecase)
           end
         end
       end
