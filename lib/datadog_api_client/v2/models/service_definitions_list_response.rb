@@ -17,15 +17,15 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Get service definitions response.
-  class ServiceDefinitionListResponse
+  # Create service definitions response.
+  class ServiceDefinitionsListResponse
     include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Get service definitions response payload.
+    # Data representing service definitions.
     attr_accessor :data
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -34,12 +34,6 @@ module DatadogAPIClient::V2
       {
         :'data' => :'data'
       }
-    end
-
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
     end
 
     # Attribute type mapping.
@@ -62,13 +56,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ServiceDefinitionListResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ServiceDefinitionsListResponse` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::ServiceDefinitionListResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::ServiceDefinitionsListResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -94,13 +88,6 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           data == o.data
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
     end
 
     # Calculates hash code according to all attributes.

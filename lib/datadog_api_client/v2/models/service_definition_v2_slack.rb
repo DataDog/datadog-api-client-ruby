@@ -17,7 +17,7 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Service owner's slack channel.
+  # Service owner's Slack channel.
   class ServiceDefinitionV2Slack
     include BaseGenericModel
 
@@ -42,12 +42,6 @@ module DatadogAPIClient::V2
         :'name' => :'name',
         :'type' => :'type'
       }
-    end
-
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
     end
 
     # Attribute type mapping.
@@ -134,13 +128,6 @@ module DatadogAPIClient::V2
           contact == o.contact &&
           name == o.name &&
           type == o.type
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
     end
 
     # Calculates hash code according to all attributes.

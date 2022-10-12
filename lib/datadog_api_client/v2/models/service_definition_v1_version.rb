@@ -21,6 +21,6 @@ module DatadogAPIClient::V2
   class ServiceDefinitionV1Version
     include BaseEnumModel
 
-    v1 = "v1".freeze
+    V1 = "v1".freeze
   end
 end

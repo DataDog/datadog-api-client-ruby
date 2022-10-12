@@ -25,7 +25,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # PagerDuty service url for the service.
+    # PagerDuty service URL for the service.
     attr_accessor :pagerduty
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -34,12 +34,6 @@ module DatadogAPIClient::V2
       {
         :'pagerduty' => :'pagerduty'
       }
-    end
-
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
     end
 
     # Attribute type mapping.
@@ -92,13 +86,6 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           pagerduty == o.pagerduty
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
     end
 
     # Calculates hash code according to all attributes.

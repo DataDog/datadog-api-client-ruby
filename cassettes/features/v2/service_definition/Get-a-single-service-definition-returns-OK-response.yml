@@ -4,7 +4,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"dd-service":"service-Test-Get_a_single_service_definition_returns_OK_response-1665405239","dd-team":"my-team","docs":[{"name":"Architecture","provider":"google
-        drive","url":"https://gdrive/mygivedoc"}],"extensions":{"frog/extension":"extensionFrogValue"},"integrations":{"opsgenie":{"region":"US","service-id":"123e4567-e89b-12d3-a456-426614174000"},"pagerduty":"https://my-org.pagerduty.com/service-directory/PMyService"},"links":[{"name":"Runbook","type":"runbook","url":"https://my-runbook"}],"repos":[{"name":"Source
+        drive","url":"https://gdrive/mygivedoc"}],"extensions":{"frogextension":"extensionfrogvalue"},"integrations":{"opsgenie":{"region":"US","service-id":"123e4567-e89b-12d3-a456-426614174000"},"pagerduty":"https://my-org.pagerduty.com/service-directory/PMyService"},"links":[{"name":"Runbook","type":"runbook","url":"https://my-runbook"}],"repos":[{"name":"Source
         Code","provider":"GitHub","url":"https://github.com/DataDog/given"}],"schema-version":"v2","tags":["this:tag","service:tag"],"team":"super-team"}'
     headers:
       Accept:

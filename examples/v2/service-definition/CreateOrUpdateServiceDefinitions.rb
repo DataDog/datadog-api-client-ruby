@@ -20,7 +20,9 @@ body = DatadogAPIClient::V2::ServiceDefinitionV2.new({
       url: "https://gdrive/mydoc",
     }),
   ],
-  extensions: {},
+  extensions: {
+    myorgextension: "extensionvalue",
+  },
   integrations: DatadogAPIClient::V2::ServiceDefinitionV2Integrations.new({
     opsgenie: DatadogAPIClient::V2::ServiceDefinitionV2Opsgenie.new({
       region: DatadogAPIClient::V2::ServiceDefinitionV2OpsgenieRegion::US,

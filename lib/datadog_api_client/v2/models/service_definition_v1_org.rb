@@ -25,7 +25,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # App feature for which this service supports.
+    # App feature this service supports.
     attr_accessor :application
 
     # Team that owns the service.
@@ -38,12 +38,6 @@ module DatadogAPIClient::V2
         :'application' => :'application',
         :'team' => :'team'
       }
-    end
-
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
     end
 
     # Attribute type mapping.
@@ -102,13 +96,6 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           application == o.application &&
           team == o.team
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
     end
 
     # Calculates hash code according to all attributes.

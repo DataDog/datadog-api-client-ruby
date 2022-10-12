@@ -28,7 +28,7 @@ module DatadogAPIClient::V2
     # Service owner’s email.
     attr_accessor :email
 
-    # Service owner’s slack channel.
+    # Service owner’s Slack channel.
     attr_accessor :slack
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -38,12 +38,6 @@ module DatadogAPIClient::V2
         :'email' => :'email',
         :'slack' => :'slack'
       }
-    end
-
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
     end
 
     # Attribute type mapping.
@@ -102,13 +96,6 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           email == o.email &&
           slack == o.slack
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
     end
 
     # Calculates hash code according to all attributes.

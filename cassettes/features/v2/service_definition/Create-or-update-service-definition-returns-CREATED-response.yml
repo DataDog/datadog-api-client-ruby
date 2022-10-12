@@ -1,10 +1,10 @@
 http_interactions:
-- recorded_at: Mon, 10 Oct 2022 10:16:22 GMT
+- recorded_at: Tue, 11 Oct 2022 16:11:15 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"contacts":[{"contact":"contact@datadoghq.com","name":"Team Email","type":"email"}],"dd-service":"service-Test-Create_or_update_service_definition_returns_CREATED_response-1665396982","dd-team":"my-team","docs":[{"name":"Architecture","provider":"google
-        drive","url":"https://gdrive/mydoc"}],"extensions":{"myorg/extension":"extensionValue"},"integrations":{"opsgenie":{"region":"US","service-id":"123e4567-e89b-12d3-a456-426614174000"},"pagerduty":"https://my-org.pagerduty.com/service-directory/PMyService"},"links":[{"name":"Runbook","type":"runbook","url":"https://my-runbook"}],"repos":[{"name":"Source
+      string: '{"contacts":[{"contact":"contact@datadoghq.com","name":"Team Email","type":"email"}],"dd-service":"service-Test-Create_or_update_service_definition_returns_CREATED_response-1665504675","dd-team":"my-team","docs":[{"name":"Architecture","provider":"google
+        drive","url":"https://gdrive/mydoc"}],"extensions":{"myorgextension":"extensionvalue"},"integrations":{"opsgenie":{"region":"US","service-id":"123e4567-e89b-12d3-a456-426614174000"},"pagerduty":"https://my-org.pagerduty.com/service-directory/PMyService"},"links":[{"name":"Runbook","type":"runbook","url":"https://my-runbook"}],"repos":[{"name":"Source
         Code","provider":"GitHub","url":"https://github.com/DataDog/schema"}],"schema-version":"v2","tags":["my:tag","service:tag"],"team":"my-team"}'
     headers:
       Accept:
@@ -16,10 +16,10 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":[{"attributes":{"meta":{"ingested-schema-version":"v2","ingestion-source":"api","last-modified-time":"2022-10-10T10:16:23.361540446Z","github-html-url":"","warnings":[]},"schema":{"links":[{"url":"https://my-runbook","type":"runbook","name":"Runbook"}],"contacts":[{"contact":"contact@datadoghq.com","type":"email","name":"Team
+      string: '{"data":[{"attributes":{"meta":{"ingested-schema-version":"v2","ingestion-source":"api","last-modified-time":"2022-10-11T16:11:16.302119241Z","github-html-url":"","warnings":[]},"schema":{"links":[{"url":"https://my-runbook","type":"runbook","name":"Runbook"}],"contacts":[{"contact":"contact@datadoghq.com","type":"email","name":"Team
         Email"}],"docs":[{"url":"https://gdrive/mydoc","name":"Architecture","provider":"google
         drive"}],"repos":[{"url":"https://github.com/DataDog/schema","name":"Source
-        Code","provider":"GitHub"}],"tags":["my:tag","service:tag"],"dd-team":"my-team","integrations":{"opsgenie":{"region":"US","service-id":"123e4567-e89b-12d3-a456-426614174000"},"pagerduty":"https://my-org.pagerduty.com/service-directory/PMyService"},"schema-version":"v2","team":"my-team","extensions":{},"dd-service":"service-test-create_or_update_service_definition_returns_created_response-1665396982"}},"type":"service-definition"}]}
+        Code","provider":"GitHub"}],"tags":["my:tag","service:tag"],"dd-team":"my-team","integrations":{"opsgenie":{"region":"US","service-id":"123e4567-e89b-12d3-a456-426614174000"},"pagerduty":"https://my-org.pagerduty.com/service-directory/PMyService"},"schema-version":"v2","team":"my-team","extensions":{},"dd-service":"service-test-create_or_update_service_definition_returns_created_response-1665504675"}},"type":"service-definition"}]}
 
         '
     headers:
@@ -28,22 +28,24 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Mon, 10 Oct 2022 10:16:22 GMT
+- recorded_at: Tue, 11 Oct 2022 16:11:15 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/services/definitions/service-test-create_or_update_service_definition_returns_created_response-1665396982
+    uri: https://api.datadoghq.com/api/v2/services/definitions/service-test-create_or_update_service_definition_returns_created_response-1665504675
   response:
     body:
       encoding: UTF-8
-      string: ''
+      string: '{"errors":["Not Found"],"error_details":[{}]}
+
+        '
     headers:
       Content-Type:
-      - text/html; charset=utf-8
+      - application/json
     status:
-      code: 204
-      message: No Content
+      code: 404
+      message: Not Found
 recorded_with: VCR 6.0.0

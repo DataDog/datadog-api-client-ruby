@@ -37,7 +37,7 @@ module DatadogAPIClient::V2
     #
     # @param body [ServiceDefinitionsCreateRequest] Service Definition YAML/JSON.
     # @param opts [Hash] the optional parameters
-    # @return [Array<(ServiceDefinitionListResponse, Integer, Hash)>] ServiceDefinitionListResponse data, response status code and response headers
+    # @return [Array<(ServiceDefinitionCreateResponse, Integer, Hash)>] ServiceDefinitionCreateResponse data, response status code and response headers
     def create_or_update_service_definitions_with_http_info(body, opts = {})
 
       if @api_client.config.debugging
@@ -67,7 +67,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'ServiceDefinitionListResponse'
+      return_type = opts[:debug_return_type] || 'ServiceDefinitionCreateResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
@@ -233,7 +233,7 @@ module DatadogAPIClient::V2
     # Get a list of all service definitions from the Datadog Service Catalog.
     #
     # @param opts [Hash] the optional parameters
-    # @return [Array<(ServiceDefinitionsCreateResponse, Integer, Hash)>] ServiceDefinitionsCreateResponse data, response status code and response headers
+    # @return [Array<(ServiceDefinitionsListResponse, Integer, Hash)>] ServiceDefinitionsListResponse data, response status code and response headers
     def list_service_definitions_with_http_info(opts = {})
 
       if @api_client.config.debugging
@@ -257,7 +257,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'ServiceDefinitionsCreateResponse'
+      return_type = opts[:debug_return_type] || 'ServiceDefinitionsListResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
