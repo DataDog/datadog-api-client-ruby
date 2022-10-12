@@ -332,12 +332,6 @@ module DatadogAPIClient::V1
       }
     end
 
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
-    end
-
     # Attribute type mapping.
     # @!visibility private
     def self.openapi_types
@@ -834,13 +828,6 @@ module DatadogAPIClient::V1
           twol_ingested_events_bytes_agg_sum == o.twol_ingested_events_bytes_agg_sum &&
           usage == o.usage &&
           vsphere_host_top99p_sum == o.vsphere_host_top99p_sum
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
     end
 
     # Calculates hash code according to all attributes.

@@ -245,7 +245,7 @@ module DatadogAPIClient::V1
             return model if model
           else
             # raise if data contains keys that are not known to the model
-            raise unless (data.keys - const.acceptable_attributes).empty?
+            raise unless (data.keys - const.attribute_map.values).empty?
             model = const.build_from_hash(data)
             return model if model && model.valid?
           end
