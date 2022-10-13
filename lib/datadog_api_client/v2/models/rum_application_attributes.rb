@@ -153,6 +153,7 @@ module DatadogAPIClient::V2
       return false if @created_by_handle.nil?
       return false if @name.nil?
       return false if @org_id.nil?
+      return false if @org_id > 2147483647
       return false if @type.nil?
       return false if @updated_at.nil?
       return false if @updated_by_handle.nil?
@@ -205,6 +206,9 @@ module DatadogAPIClient::V2
     def org_id=(org_id)
       if org_id.nil?
         fail ArgumentError, 'invalid value for "org_id", org_id cannot be nil.'
+      end
+      if org_id > 2147483647
+        fail ArgumentError, 'invalid value for "org_id", must be smaller than or equal to 2147483647.'
       end
       @org_id = org_id
     end

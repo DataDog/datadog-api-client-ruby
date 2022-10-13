@@ -170,7 +170,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if !@group_status.nil? && @group_status > 2147483647
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param group_status [Object] Object to be assigned
+    # @!visibility private
+    def group_status=(group_status)
+      if !group_status.nil? && group_status > 2147483647
+        fail ArgumentError, 'invalid value for "group_status", must be smaller than or equal to 2147483647.'
+      end
+      @group_status = group_status
     end
 
     # Checks equality by comparing each attribute.
