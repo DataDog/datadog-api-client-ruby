@@ -335,6 +335,15 @@ module DatadogAPIClient::V2
       if @api_client.config.client_side_validation && metric_name.nil?
         fail ArgumentError, "Missing the required parameter 'metric_name' when calling MetricsAPI.estimate_metrics_output_series"
       end
+      if @api_client.config.client_side_validation && !opts[:'filter_hours_ago'].nil? && opts[:'filter_hours_ago'] > 2147483647
+        fail ArgumentError, 'invalid value for "opts[:"filter_hours_ago"]" when calling MetricsAPI.estimate_metrics_output_series, must be smaller than or equal to 2147483647.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'filter_num_aggregations'].nil? && opts[:'filter_num_aggregations'] > 9
+        fail ArgumentError, 'invalid value for "opts[:"filter_num_aggregations"]" when calling MetricsAPI.estimate_metrics_output_series, must be smaller than or equal to 9.'
+      end
+      if @api_client.config.client_side_validation && !opts[:'filter_timespan_h'].nil? && opts[:'filter_timespan_h'] > 2147483647
+        fail ArgumentError, 'invalid value for "opts[:"filter_timespan_h"]" when calling MetricsAPI.estimate_metrics_output_series, must be smaller than or equal to 2147483647.'
+      end
       # resource path
       local_var_path = '/api/v2/metrics/{metric_name}/estimate'.sub('{metric_name}', CGI.escape(metric_name.to_s).gsub('%2F', '/'))
 
