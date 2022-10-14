@@ -94,11 +94,12 @@ module DatadogAPIClient::V1
     # A Boolean indicating whether tagged users is notified on changes to this monitor.
     attr_accessor :notify_audit
 
-    # Controls what granularity a monitor alerts on. Only available for multi-alerts.
-    # For instance, a monitor grouped by `cluster`, `namespace`, `pod` can be configured to only notify on each
+    # Controls what granularity a monitor alerts on. Only available for monitors with groupings.
+    # For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each
     # new `cluster` violating the alert conditions by setting `notify_by` to `["cluster"]`. Tags mentioned
-    # in `notify_by` have to be a subset of the grouping tags in the query.
-    # For example, a query grouped by `cluster`, `namespace` cannot notify on `region`.
+    # in `notify_by` must be a subset of the grouping tags in the query.
+    # For example, a query grouped by `cluster` and `namespace` cannot notify on `region`.
+    # Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert.
     attr_accessor :notify_by
 
     # A Boolean indicating whether this monitor notifies when data stops reporting.
