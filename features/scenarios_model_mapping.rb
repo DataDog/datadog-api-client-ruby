@@ -938,6 +938,39 @@ ScenariosModelMappings = {
             "integration_service_id" => "String",
             "body" => "OpsgenieServiceUpdateRequest",
     },
+    "v2.CreateConfluentAccount" => {
+            "body" => "ConfluentAccountCreateRequest",
+    },
+    "v2.DeleteConfluentAccount" => {
+            "account_id" => "String",
+    },
+    "v2.GetConfluentAccount" => {
+            "account_id" => "String",
+    },
+    "v2.UpdateConfluentAccount" => {
+            "account_id" => "String",
+            "body" => "ConfluentAccountUpdateRequest",
+    },
+    "v2.ListConfluentResource" => {
+            "account_id" => "String",
+    },
+    "v2.CreateConfluentResource" => {
+            "account_id" => "String",
+            "body" => "ConfluentResourceRequest",
+    },
+    "v2.DeleteConfluentResource" => {
+            "account_id" => "String",
+            "resource_id" => "String",
+    },
+    "v2.GetConfluentResource" => {
+            "account_id" => "String",
+            "resource_id" => "String",
+    },
+    "v2.UpdateConfluentResource" => {
+            "account_id" => "String",
+            "resource_id" => "String",
+            "body" => "ConfluentResourceRequest",
+    },
     "v2.SubmitLog" => {
             "content_encoding" => "ContentEncoding",
             "ddtags" => "String",
