@@ -34,7 +34,7 @@ module DatadogAPIClient::V2
     # Index of the rule query used to retrieve the correlated field.
     attr_accessor :correlated_query_index
 
-    # Group of target fields to aggregate over when using the new value aggregations.
+    # Group of target fields to aggregate over.
     attr_accessor :metrics
 
     # Name of the query.
