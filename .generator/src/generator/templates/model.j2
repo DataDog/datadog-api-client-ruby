@@ -7,6 +7,10 @@ require 'time'
 
 module {{ module_name }}::{{ version|upper }}
   # {{ model.description.rstrip()|replace('\n', '\n# ')|indent(2) }}
+{%- if model.deprecated %}
+  #
+  # @deprecated This model is deprecated.
+{%- endif %}
 {% if "enum" in model -%}
 {% include "model_enum.j2" %}
 {%- elif "oneOf" in model -%}

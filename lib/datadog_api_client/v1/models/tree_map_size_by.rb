@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V1
   # (deprecated) The attribute formerly used to determine size in the widget.
+  #
+  # @deprecated This model is deprecated.
   class TreeMapSizeBy
     include BaseEnumModel
 

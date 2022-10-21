@@ -37,6 +37,8 @@ module DatadogAPIClient::V1
     # **Note:** This endpoint will be fully deprecated on December 1, 2022.
     # Refer to [Migrating from v1 to v2 of the Usage Attribution API](https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/) for the associated migration guide.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size The number of files to return in the response. `[default=60]`.
     # @option opts [Integer] :page_number The identifier of the first page to return. This parameter is used for the pagination feature `[default=0]`.
@@ -44,6 +46,7 @@ module DatadogAPIClient::V1
     # @option opts [UsageSort] :sort The field to sort by: `[computed_on, size, start_date, end_date]`.
     # @return [Array<(UsageCustomReportsResponse, Integer, Hash)>] UsageCustomReportsResponse data, response status code and response headers
     def get_daily_custom_reports_with_http_info(opts = {})
+      warn "[DEPRECATION] `GetDailyCustomReports` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_daily_custom_reports ...'
@@ -352,6 +355,8 @@ module DatadogAPIClient::V1
     # **Note:** This endpoint will be fully deprecated on December 1, 2022.
     # Refer to [Migrating from v1 to v2 of the Usage Attribution API](https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/) for the associated migration guide.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size The number of files to return in the response `[default=60].`
     # @option opts [Integer] :page_number The identifier of the first page to return. This parameter is used for the pagination feature `[default=0]`.
@@ -359,6 +364,7 @@ module DatadogAPIClient::V1
     # @option opts [UsageSort] :sort The field to sort by: `[computed_on, size, start_date, end_date]`.
     # @return [Array<(UsageCustomReportsResponse, Integer, Hash)>] UsageCustomReportsResponse data, response status code and response headers
     def get_monthly_custom_reports_with_http_info(opts = {})
+      warn "[DEPRECATION] `GetMonthlyCustomReports` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_monthly_custom_reports ...'
@@ -541,10 +547,13 @@ module DatadogAPIClient::V1
     # **Note:** This endpoint will be fully deprecated on December 1, 2022.
     # Refer to [Migrating from v1 to v2 of the Usage Attribution API](https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/) for the associated migration guide.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param report_id [String] Date of the report in the format `YYYY-MM-DD`.
     # @param opts [Hash] the optional parameters
     # @return [Array<(UsageSpecifiedCustomReportsResponse, Integer, Hash)>] UsageSpecifiedCustomReportsResponse data, response status code and response headers
     def get_specified_daily_custom_reports_with_http_info(report_id, opts = {})
+      warn "[DEPRECATION] `GetSpecifiedDailyCustomReports` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_specified_daily_custom_reports ...'
@@ -608,10 +617,13 @@ module DatadogAPIClient::V1
     # **Note:** This endpoint will be fully deprecated on December 1, 2022.
     # Refer to [Migrating from v1 to v2 of the Usage Attribution API](https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/) for the associated migration guide.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param report_id [String] Date of the report in the format `YYYY-MM-DD`.
     # @param opts [Hash] the optional parameters
     # @return [Array<(UsageSpecifiedCustomReportsResponse, Integer, Hash)>] UsageSpecifiedCustomReportsResponse data, response status code and response headers
     def get_specified_monthly_custom_reports_with_http_info(report_id, opts = {})
+      warn "[DEPRECATION] `GetSpecifiedMonthlyCustomReports` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_specified_monthly_custom_reports ...'
@@ -744,6 +756,8 @@ module DatadogAPIClient::V1
     # **Note:** This endpoint will be fully deprecated on December 1, 2022.
     # Refer to [Migrating from v1 to v2 of the Usage Attribution API](https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/) for the associated migration guide.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage beginning in this month. Maximum of 15 months ago.
     # @param fields [UsageAttributionSupportedMetrics] Comma-separated list of usage types to return, or `*` for all usage types.
     # @param opts [Hash] the optional parameters
@@ -755,6 +769,7 @@ module DatadogAPIClient::V1
     # @option opts [Integer] :limit Maximum number of records to be returned.
     # @return [Array<(UsageAttributionResponse, Integer, Hash)>] UsageAttributionResponse data, response status code and response headers
     def get_usage_attribution_with_http_info(start_month, fields, opts = {})
+      warn "[DEPRECATION] `GetUsageAttribution` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_attribution ...'
@@ -2426,11 +2441,14 @@ module DatadogAPIClient::V1
     # Get hourly usage for [synthetics checks](https://docs.datadoghq.com/synthetics/).
     # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageSyntheticsResponse, Integer, Hash)>] UsageSyntheticsResponse data, response status code and response headers
     def get_usage_synthetics_with_http_info(start_hr, opts = {})
+      warn "[DEPRECATION] `GetUsageSynthetics` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_synthetics ...'

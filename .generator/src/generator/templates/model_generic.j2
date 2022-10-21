@@ -48,6 +48,9 @@
     # @param attributes [Hash] Model attributes in the form of hash
     # @!visibility private
     def initialize(attributes = {})
+      {%- if model.deprecated %}
+      warn "[DEPRECATION] `{{ name }}` is deprecated."
+      {%- endif %}
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `{{ module_name }}::{{ version|upper }}::{{ name }}` initialize method"
       end

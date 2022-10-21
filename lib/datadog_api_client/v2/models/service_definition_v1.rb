@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Deprecated - Service definition V1 for providing additional service metadata and integrations.
+  #
+  # @deprecated This model is deprecated.
   class ServiceDefinitionV1
     include BaseGenericModel
 
@@ -90,6 +92,7 @@ module DatadogAPIClient::V2
     # @param attributes [Hash] Model attributes in the form of hash
     # @!visibility private
     def initialize(attributes = {})
+      warn "[DEPRECATION] `ServiceDefinitionV1` is deprecated."
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ServiceDefinitionV1` initialize method"
       end

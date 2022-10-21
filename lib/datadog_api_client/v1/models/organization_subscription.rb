@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V1
   # Subscription definition.
+  #
+  # @deprecated This model is deprecated.
   class OrganizationSubscription
     include BaseGenericModel
 
@@ -55,6 +57,7 @@ module DatadogAPIClient::V1
     # @param attributes [Hash] Model attributes in the form of hash
     # @!visibility private
     def initialize(attributes = {})
+      warn "[DEPRECATION] `OrganizationSubscription` is deprecated."
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::OrganizationSubscription` initialize method"
       end
