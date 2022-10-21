@@ -37,7 +37,7 @@ module DatadogAPIClient::V2
     # Default Rule ID to match on signals.
     attr_accessor :default_rule_id
 
-    # Group of target fields to aggregate over when using the new value aggregations.
+    # Group of target fields to aggregate over.
     attr_accessor :metrics
 
     # Name of the query.

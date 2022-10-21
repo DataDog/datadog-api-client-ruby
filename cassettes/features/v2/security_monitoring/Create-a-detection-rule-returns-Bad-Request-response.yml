@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Tue, 27 Sep 2022 13:06:48 GMT
+- recorded_at: Wed, 19 Oct 2022 13:36:33 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"cases":[{"status":"info"}],"isEnabled":true,"message":"Test rule","name":"Test-Create_a_detection_rule_returns_Bad_Request_response-1664284008","options":{},"queries":[{"query":""}],"tags":[]}'
+      string: '{"cases":[{"status":"info"}],"isEnabled":true,"message":"Test rule","name":"Test-Create_a_detection_rule_returns_Bad_Request_response-1666186593","options":{},"queries":[{"query":""}],"tags":[]}'
     headers:
       Accept:
       - application/json
