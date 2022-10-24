@@ -39,11 +39,14 @@ module DatadogAPIClient::V2
     # [`/historical_cost`](https://docs.datadoghq.com/api/latest/usage-metering/#get-historical-cost-across-your-account)
     # instead.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost beginning this month.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_month Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost ending this month.
     # @return [Array<(CostByOrgResponse, Integer, Hash)>] CostByOrgResponse data, response status code and response headers
     def get_cost_by_org_with_http_info(start_month, opts = {})
+      warn "[DEPRECATION] `GetCostByOrg` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_cost_by_org ...'

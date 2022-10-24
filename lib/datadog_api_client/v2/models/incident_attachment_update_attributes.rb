@@ -31,7 +31,7 @@ module DatadogAPIClient::V2
         ]
       end
       # Builds the object
-      # @param [Mixed] Data to be matched against the list of oneOf items
+      # @param data [Mixed] Data to be matched against the list of oneOf items
       # @return [Object] Returns the model or the data itself
       def build(data)
         # Go through the list of oneOf items and attempt to identify the appropriate one.

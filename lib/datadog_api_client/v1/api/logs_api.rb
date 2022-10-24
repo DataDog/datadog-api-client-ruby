@@ -128,12 +128,15 @@ module DatadogAPIClient::V1
     # - 413: Payload too large (batch is above 5MB uncompressed)
     # - 5xx: Internal error, request should be retried after some time
     #
+    # @deprecated This API is deprecated.
+    #
     # @param body [Array<HTTPLogItem>] Log to send (JSON format).
     # @param opts [Hash] the optional parameters
     # @option opts [ContentEncoding] :content_encoding HTTP header used to compress the media-type.
     # @option opts [String] :ddtags Log tags can be passed as query parameters with `text/plain` content type.
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def submit_log_with_http_info(body, opts = {})
+      warn "[DEPRECATION] `SubmitLog` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsAPI.submit_log ...'
