@@ -869,6 +869,34 @@ ScenariosModelMappings = {
             "authn_mapping_id" => "String",
             "body" => "AuthNMappingUpdateRequest",
     },
+    "v2.AggregateCIAppPipelineEvents" => {
+            "body" => "CIAppPipelinesAggregateRequest",
+    },
+    "v2.ListCIAppPipelineEvents" => {
+            "filter_query" => "String",
+            "filter_from" => "Time",
+            "filter_to" => "Time",
+            "sort" => "CIAppSort",
+            "page_cursor" => "String",
+            "page_limit" => "Integer",
+    },
+    "v2.SearchCIAppPipelineEvents" => {
+            "body" => "CIAppPipelineEventsRequest",
+    },
+    "v2.AggregateCIAppTestEvents" => {
+            "body" => "CIAppTestsAggregateRequest",
+    },
+    "v2.ListCIAppTestEvents" => {
+            "filter_query" => "String",
+            "filter_from" => "Time",
+            "filter_to" => "Time",
+            "sort" => "CIAppSort",
+            "page_cursor" => "String",
+            "page_limit" => "Integer",
+    },
+    "v2.SearchCIAppTestEvents" => {
+            "body" => "CIAppTestEventsRequest",
+    },
     "v2.DeleteDashboardListItems" => {
             "dashboard_list_id" => "Integer",
             "body" => "DashboardListDeleteItemsRequest",
