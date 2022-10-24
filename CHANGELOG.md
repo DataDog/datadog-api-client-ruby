@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## 2.3.0 / 2022-10-24
+
+### Fixed
+* Add Default Rule ID in SignalRuleResponseQuery by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1096
+* Remove incident's resolved attribute from update requests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1098
+* Fix event monitor created_at by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1099
+* Fix spectral rules by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1102
+### Added
+* Add notify_by monitor option by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1089
+* Add support for service definitions APIs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1103
+* Add support for confluent cloud integration by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1046
+### Changed
+* Validate models in BDD and cleanup serialization/deserialization of models by @skarimo in https://github.com/DataDog/datadog-api-client-ruby/pull/1045
+### Deprecated
+* Deprecate metric field of Security Monitoring Rules by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1107
+* Add deprecation warnings to API and models by @therve in https://github.com/DataDog/datadog-api-client-ruby/pull/1111
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-ruby/compare/v2.2.0...v2.3.0
+
 ## 2.2.0 / 2022-10-03
 
 ### Fixed
