@@ -34,6 +34,9 @@ module DatadogAPIClient::V2
     # The search query - following the log search syntax.
     attr_accessor :query
 
+    # Specifies storage type as indexes or online-archives
+    attr_accessor :storage_tier
+
     # The maximum time for the requested logs, supports date math and regular timestamps (milliseconds).
     attr_accessor :to
 
@@ -44,6 +47,7 @@ module DatadogAPIClient::V2
         :'from' => :'from',
         :'indexes' => :'indexes',
         :'query' => :'query',
+        :'storage_tier' => :'storage_tier',
         :'to' => :'to'
       }
     end
@@ -55,6 +59,7 @@ module DatadogAPIClient::V2
         :'from' => :'String',
         :'indexes' => :'Array<String>',
         :'query' => :'String',
+        :'storage_tier' => :'LogsStorageTier',
         :'to' => :'String'
       }
     end
@@ -96,6 +101,10 @@ module DatadogAPIClient::V2
         self.query = attributes[:'query']
       end
 
+      if attributes.key?(:'storage_tier')
+        self.storage_tier = attributes[:'storage_tier']
+      end
+
       if attributes.key?(:'to')
         self.to = attributes[:'to']
       end
@@ -117,6 +126,7 @@ module DatadogAPIClient::V2
           from == o.from &&
           indexes == o.indexes &&
           query == o.query &&
+          storage_tier == o.storage_tier &&
           to == o.to
     end
 
@@ -124,7 +134,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [from, indexes, query, to].hash
+      [from, indexes, query, storage_tier, to].hash
     end
   end
 end

@@ -1073,6 +1073,7 @@ module DatadogAPIClient
           "v2.logs_response_metadata_page" => "LogsResponseMetadataPage",
           "v2.logs_sort" => "LogsSort",
           "v2.logs_sort_order" => "LogsSortOrder",
+          "v2.logs_storage_tier" => "LogsStorageTier",
           "v2.logs_warning" => "LogsWarning",
           "v2.log_type" => "LogType",
           "v2.metric" => "Metric",
