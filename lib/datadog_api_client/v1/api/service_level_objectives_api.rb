@@ -457,12 +457,6 @@ module DatadogAPIClient::V1
     # @option opts [Boolean] :apply_correction Defaults to `true`. If any SLO corrections are applied and this parameter is set to `false`, then the corrections will not be applied and the SLI values will not be affected.
     # @return [Array<(SLOHistoryResponse, Integer, Hash)>] SLOHistoryResponse data, response status code and response headers
     def get_slo_history_with_http_info(slo_id, from_ts, to_ts, opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v1.get_slo_history".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v1.get_slo_history")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v1.get_slo_history"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceLevelObjectivesAPI.get_slo_history ...'
