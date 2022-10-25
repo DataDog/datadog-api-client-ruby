@@ -211,6 +211,7 @@ module DatadogAPIClient::V2
     # @option opts [String] :filter_index For customers with multiple indexes, the indexes to search Defaults to '*' which means all indexes
     # @option opts [Time] :filter_from Minimum timestamp for requested logs.
     # @option opts [Time] :filter_to Maximum timestamp for requested logs.
+    # @option opts [LogsStorageTier] :filter_storage_tier Specifies the storage type to be used
     # @option opts [LogsSort] :sort Order of logs in results.
     # @option opts [String] :page_cursor List following results with a cursor provided in the previous query.
     # @option opts [Integer] :page_limit Maximum number of logs in the response.
@@ -219,6 +220,10 @@ module DatadogAPIClient::V2
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogsAPI.list_logs_get ...'
+      end
+      allowable_values = ['indexes', 'online-archives']
+      if @api_client.config.client_side_validation && opts[:'filter_storage_tier'] && !allowable_values.include?(opts[:'filter_storage_tier'])
+        fail ArgumentError, "invalid value for \"filter_storage_tier\", must be one of #{allowable_values}"
       end
       allowable_values = ['timestamp', '-timestamp']
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
@@ -236,6 +241,7 @@ module DatadogAPIClient::V2
       query_params[:'filter[index]'] = opts[:'filter_index'] if !opts[:'filter_index'].nil?
       query_params[:'filter[from]'] = opts[:'filter_from'] if !opts[:'filter_from'].nil?
       query_params[:'filter[to]'] = opts[:'filter_to'] if !opts[:'filter_to'].nil?
+      query_params[:'filter[storage_tier]'] = opts[:'filter_storage_tier'] if !opts[:'filter_storage_tier'].nil?
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
       query_params[:'page[cursor]'] = opts[:'page_cursor'] if !opts[:'page_cursor'].nil?
       query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?

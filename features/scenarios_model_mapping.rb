@@ -1012,6 +1012,7 @@ ScenariosModelMappings = {
             "filter_index" => "String",
             "filter_from" => "Time",
             "filter_to" => "Time",
+            "filter_storage_tier" => "LogsStorageTier",
             "sort" => "LogsSort",
             "page_cursor" => "String",
             "page_limit" => "Integer",
