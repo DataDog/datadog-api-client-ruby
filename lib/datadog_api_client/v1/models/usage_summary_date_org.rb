@@ -208,8 +208,17 @@ module DatadogAPIClient::V1
     # Shows the sum of all browser and mobile RUM units over all hours in the current date for the given org.
     attr_accessor :rum_units_sum
 
+    # Sum of all APM bytes scanned with sensitive data scanner over all hours in the current date for the given org.
+    attr_accessor :sds_apm_scanned_bytes_sum
+
+    # Sum of all event stream events bytes scanned with sensitive data scanner over all hours in the current date for the given org.
+    attr_accessor :sds_events_scanned_bytes_sum
+
     # Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all hours in the current month for the given org.
     attr_accessor :sds_logs_scanned_bytes_sum
+
+    # Sum of all RUM bytes scanned with sensitive data scanner over all hours in the current date for the given org.
+    attr_accessor :sds_rum_scanned_bytes_sum
 
     # Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner over all hours in the current month for the given org.
     attr_accessor :sds_total_scanned_bytes_sum
@@ -294,7 +303,10 @@ module DatadogAPIClient::V1
         :'rum_session_count_sum' => :'rum_session_count_sum',
         :'rum_total_session_count_sum' => :'rum_total_session_count_sum',
         :'rum_units_sum' => :'rum_units_sum',
+        :'sds_apm_scanned_bytes_sum' => :'sds_apm_scanned_bytes_sum',
+        :'sds_events_scanned_bytes_sum' => :'sds_events_scanned_bytes_sum',
         :'sds_logs_scanned_bytes_sum' => :'sds_logs_scanned_bytes_sum',
+        :'sds_rum_scanned_bytes_sum' => :'sds_rum_scanned_bytes_sum',
         :'sds_total_scanned_bytes_sum' => :'sds_total_scanned_bytes_sum',
         :'synthetics_browser_check_calls_count_sum' => :'synthetics_browser_check_calls_count_sum',
         :'synthetics_check_calls_count_sum' => :'synthetics_check_calls_count_sum',
@@ -369,7 +381,10 @@ module DatadogAPIClient::V1
         :'rum_session_count_sum' => :'Integer',
         :'rum_total_session_count_sum' => :'Integer',
         :'rum_units_sum' => :'Integer',
+        :'sds_apm_scanned_bytes_sum' => :'Integer',
+        :'sds_events_scanned_bytes_sum' => :'Integer',
         :'sds_logs_scanned_bytes_sum' => :'Integer',
+        :'sds_rum_scanned_bytes_sum' => :'Integer',
         :'sds_total_scanned_bytes_sum' => :'Integer',
         :'synthetics_browser_check_calls_count_sum' => :'Integer',
         :'synthetics_check_calls_count_sum' => :'Integer',
@@ -646,8 +661,20 @@ module DatadogAPIClient::V1
         self.rum_units_sum = attributes[:'rum_units_sum']
       end
 
+      if attributes.key?(:'sds_apm_scanned_bytes_sum')
+        self.sds_apm_scanned_bytes_sum = attributes[:'sds_apm_scanned_bytes_sum']
+      end
+
+      if attributes.key?(:'sds_events_scanned_bytes_sum')
+        self.sds_events_scanned_bytes_sum = attributes[:'sds_events_scanned_bytes_sum']
+      end
+
       if attributes.key?(:'sds_logs_scanned_bytes_sum')
         self.sds_logs_scanned_bytes_sum = attributes[:'sds_logs_scanned_bytes_sum']
+      end
+
+      if attributes.key?(:'sds_rum_scanned_bytes_sum')
+        self.sds_rum_scanned_bytes_sum = attributes[:'sds_rum_scanned_bytes_sum']
       end
 
       if attributes.key?(:'sds_total_scanned_bytes_sum')
@@ -749,7 +776,10 @@ module DatadogAPIClient::V1
           rum_session_count_sum == o.rum_session_count_sum &&
           rum_total_session_count_sum == o.rum_total_session_count_sum &&
           rum_units_sum == o.rum_units_sum &&
+          sds_apm_scanned_bytes_sum == o.sds_apm_scanned_bytes_sum &&
+          sds_events_scanned_bytes_sum == o.sds_events_scanned_bytes_sum &&
           sds_logs_scanned_bytes_sum == o.sds_logs_scanned_bytes_sum &&
+          sds_rum_scanned_bytes_sum == o.sds_rum_scanned_bytes_sum &&
           sds_total_scanned_bytes_sum == o.sds_total_scanned_bytes_sum &&
           synthetics_browser_check_calls_count_sum == o.synthetics_browser_check_calls_count_sum &&
           synthetics_check_calls_count_sum == o.synthetics_check_calls_count_sum &&
@@ -762,7 +792,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [agent_host_top99p, apm_azure_app_service_host_top99p, apm_fargate_count_avg, apm_host_top99p, audit_logs_lines_indexed_sum, avg_profiled_fargate_tasks, aws_host_top99p, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p, billable_ingested_bytes_sum, browser_rum_lite_session_count_sum, browser_rum_replay_session_count_sum, browser_rum_units_sum, ci_pipeline_indexed_spans_sum, ci_test_indexed_spans_sum, ci_visibility_pipeline_committers_hwm, ci_visibility_test_committers_hwm, container_avg, container_hwm, cspm_aas_host_top99p, cspm_aws_host_top99p, cspm_azure_host_top99p, cspm_container_avg, cspm_container_hwm, cspm_host_top99p, custom_ts_avg, cws_container_count_avg, cws_host_top99p, dbm_host_top99p_sum, dbm_queries_avg_sum, fargate_tasks_count_avg, fargate_tasks_count_hwm, gcp_host_top99p, heroku_host_top99p, id, incident_management_monthly_active_users_hwm, indexed_events_count_sum, infra_host_top99p, ingested_events_bytes_sum, iot_device_agg_sum, iot_device_top99p_sum, mobile_rum_lite_session_count_sum, mobile_rum_session_count_android_sum, mobile_rum_session_count_ios_sum, mobile_rum_session_count_reactnative_sum, mobile_rum_session_count_sum, mobile_rum_units_sum, name, netflow_indexed_events_count_sum, npm_host_top99p, observability_pipelines_bytes_processed_sum, online_archive_events_count_sum, opentelemetry_host_top99p, profiling_host_top99p, public_id, region, rum_browser_and_mobile_session_count, rum_session_count_sum, rum_total_session_count_sum, rum_units_sum, sds_logs_scanned_bytes_sum, sds_total_scanned_bytes_sum, synthetics_browser_check_calls_count_sum, synthetics_check_calls_count_sum, trace_search_indexed_events_count_sum, twol_ingested_events_bytes_sum, vsphere_host_top99p].hash
+      [agent_host_top99p, apm_azure_app_service_host_top99p, apm_fargate_count_avg, apm_host_top99p, audit_logs_lines_indexed_sum, avg_profiled_fargate_tasks, aws_host_top99p, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p, billable_ingested_bytes_sum, browser_rum_lite_session_count_sum, browser_rum_replay_session_count_sum, browser_rum_units_sum, ci_pipeline_indexed_spans_sum, ci_test_indexed_spans_sum, ci_visibility_pipeline_committers_hwm, ci_visibility_test_committers_hwm, container_avg, container_hwm, cspm_aas_host_top99p, cspm_aws_host_top99p, cspm_azure_host_top99p, cspm_container_avg, cspm_container_hwm, cspm_host_top99p, custom_ts_avg, cws_container_count_avg, cws_host_top99p, dbm_host_top99p_sum, dbm_queries_avg_sum, fargate_tasks_count_avg, fargate_tasks_count_hwm, gcp_host_top99p, heroku_host_top99p, id, incident_management_monthly_active_users_hwm, indexed_events_count_sum, infra_host_top99p, ingested_events_bytes_sum, iot_device_agg_sum, iot_device_top99p_sum, mobile_rum_lite_session_count_sum, mobile_rum_session_count_android_sum, mobile_rum_session_count_ios_sum, mobile_rum_session_count_reactnative_sum, mobile_rum_session_count_sum, mobile_rum_units_sum, name, netflow_indexed_events_count_sum, npm_host_top99p, observability_pipelines_bytes_processed_sum, online_archive_events_count_sum, opentelemetry_host_top99p, profiling_host_top99p, public_id, region, rum_browser_and_mobile_session_count, rum_session_count_sum, rum_total_session_count_sum, rum_units_sum, sds_apm_scanned_bytes_sum, sds_events_scanned_bytes_sum, sds_logs_scanned_bytes_sum, sds_rum_scanned_bytes_sum, sds_total_scanned_bytes_sum, synthetics_browser_check_calls_count_sum, synthetics_check_calls_count_sum, trace_search_indexed_events_count_sum, twol_ingested_events_bytes_sum, vsphere_host_top99p].hash
     end
   end
 end
