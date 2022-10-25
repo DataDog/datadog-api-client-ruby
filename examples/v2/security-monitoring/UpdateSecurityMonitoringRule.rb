@@ -3,46 +3,36 @@
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
 
+# there is a valid "security_rule" in the system
+SECURITY_RULE_ID = ENV["SECURITY_RULE_ID"]
+
 body = DatadogAPIClient::V2::SecurityMonitoringRuleUpdatePayload.new({
-  cases: [
-    DatadogAPIClient::V2::SecurityMonitoringRuleCase.new({
-      notifications: [],
-      status: DatadogAPIClient::V2::SecurityMonitoringRuleSeverity::CRITICAL,
-    }),
-  ],
-  filters: [
-    DatadogAPIClient::V2::SecurityMonitoringFilter.new({
-      action: DatadogAPIClient::V2::SecurityMonitoringFilterAction::REQUIRE,
-    }),
-  ],
-  has_extended_title: true,
-  options: DatadogAPIClient::V2::SecurityMonitoringRuleOptions.new({
-    decrease_criticality_based_on_env: false,
-    detection_method: DatadogAPIClient::V2::SecurityMonitoringRuleDetectionMethod::THRESHOLD,
-    evaluation_window: DatadogAPIClient::V2::SecurityMonitoringRuleEvaluationWindow::ZERO_MINUTES,
-    hardcoded_evaluator_type: DatadogAPIClient::V2::SecurityMonitoringRuleHardcodedEvaluatorType::LOG4SHELL,
-    impossible_travel_options: DatadogAPIClient::V2::SecurityMonitoringRuleImpossibleTravelOptions.new({
-      baseline_user_locations: true,
-    }),
-    keep_alive: DatadogAPIClient::V2::SecurityMonitoringRuleKeepAlive::ZERO_MINUTES,
-    max_signal_duration: DatadogAPIClient::V2::SecurityMonitoringRuleMaxSignalDuration::ZERO_MINUTES,
-    new_value_options: DatadogAPIClient::V2::SecurityMonitoringRuleNewValueOptions.new({
-      forget_after: DatadogAPIClient::V2::SecurityMonitoringRuleNewValueOptionsForgetAfter::ONE_DAY,
-      learning_duration: DatadogAPIClient::V2::SecurityMonitoringRuleNewValueOptionsLearningDuration::ZERO_DAYS,
-      learning_method: DatadogAPIClient::V2::SecurityMonitoringRuleNewValueOptionsLearningMethod::DURATION,
-      learning_threshold: DatadogAPIClient::V2::SecurityMonitoringRuleNewValueOptionsLearningThreshold::ZERO_OCCURRENCES,
-    }),
-  }),
+  name: "Example-Update_an_existing_rule_returns_OK_response-Updated",
   queries: [
     DatadogAPIClient::V2::SecurityMonitoringStandardRuleQuery.new({
+      query: "@test:true",
       aggregation: DatadogAPIClient::V2::SecurityMonitoringRuleQueryAggregation::COUNT,
-      distinct_fields: [],
       group_by_fields: [],
+      distinct_fields: [],
       metrics: [],
-      query: "a > 3",
     }),
   ],
+  filters: [],
+  cases: [
+    DatadogAPIClient::V2::SecurityMonitoringRuleCase.new({
+      name: "",
+      status: DatadogAPIClient::V2::SecurityMonitoringRuleSeverity::INFO,
+      condition: "a > 0",
+      notifications: [],
+    }),
+  ],
+  options: DatadogAPIClient::V2::SecurityMonitoringRuleOptions.new({
+    evaluation_window: DatadogAPIClient::V2::SecurityMonitoringRuleEvaluationWindow::FIFTEEN_MINUTES,
+    keep_alive: DatadogAPIClient::V2::SecurityMonitoringRuleKeepAlive::ONE_HOUR,
+    max_signal_duration: DatadogAPIClient::V2::SecurityMonitoringRuleMaxSignalDuration::ONE_DAY,
+  }),
+  message: "Test rule",
   tags: [],
-  version: 1,
+  is_enabled: true,
 })
-p api_instance.update_security_monitoring_rule("rule_id", body)
+p api_instance.update_security_monitoring_rule(SECURITY_RULE_ID, body)
