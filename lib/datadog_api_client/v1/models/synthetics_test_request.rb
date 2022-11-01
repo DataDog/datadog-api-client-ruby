@@ -34,6 +34,9 @@ module DatadogAPIClient::V1
     # Body to include in the test.
     attr_accessor :body
 
+    # Request body type. Supported values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `GraphQL`, or `None`.
+    attr_accessor :body_type
+
     # Client certificate to use when performing the test request.
     attr_accessor :certificate
 
@@ -103,6 +106,7 @@ module DatadogAPIClient::V1
         :'allow_insecure' => :'allow_insecure',
         :'basic_auth' => :'basicAuth',
         :'body' => :'body',
+        :'body_type' => :'bodyType',
         :'certificate' => :'certificate',
         :'certificate_domains' => :'certificateDomains',
         :'dns_server' => :'dnsServer',
@@ -133,6 +137,7 @@ module DatadogAPIClient::V1
         :'allow_insecure' => :'Boolean',
         :'basic_auth' => :'SyntheticsBasicAuth',
         :'body' => :'String',
+        :'body_type' => :'String',
         :'certificate' => :'SyntheticsTestRequestCertificate',
         :'certificate_domains' => :'Array<String>',
         :'dns_server' => :'String',
@@ -189,6 +194,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'body')
         self.body = attributes[:'body']
+      end
+
+      if attributes.key?(:'body_type')
+        self.body_type = attributes[:'body_type']
       end
 
       if attributes.key?(:'certificate')
@@ -320,6 +329,7 @@ module DatadogAPIClient::V1
           allow_insecure == o.allow_insecure &&
           basic_auth == o.basic_auth &&
           body == o.body &&
+          body_type == o.body_type &&
           certificate == o.certificate &&
           certificate_domains == o.certificate_domains &&
           dns_server == o.dns_server &&
@@ -346,7 +356,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_insecure, basic_auth, body, certificate, certificate_domains, dns_server, dns_server_port, follow_redirects, headers, host, message, metadata, method, no_saving_response_body, number_of_packets, port, proxy, query, servername, service, should_track_hops, timeout, url].hash
+      [allow_insecure, basic_auth, body, body_type, certificate, certificate_domains, dns_server, dns_server_port, follow_redirects, headers, host, message, metadata, method, no_saving_response_body, number_of_packets, port, proxy, query, servername, service, should_track_hops, timeout, url].hash
     end
   end
 end
