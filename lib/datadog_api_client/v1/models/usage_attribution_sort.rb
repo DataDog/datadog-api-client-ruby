@@ -53,5 +53,7 @@ module DatadogAPIClient::V1
     ESTIMATED_INGESTED_SPANS_PERCENTAGE = "estimated_ingested_spans_percentage".freeze
     APM_FARGATE_USAGE = "apm_fargate_usage".freeze
     APM_FARGATE_PERCENTAGE = "apm_fargate_percentage".freeze
+    APPSEC_FARGATE_USAGE = "appsec_fargate_usage".freeze
+    APPSEC_FARGATE_PERCENTAGE = "appsec_fargate_percentage".freeze
   end
 end
