@@ -275,6 +275,8 @@ module DatadogAPIClient
           "v1.monitor_group_search_result" => "MonitorGroupSearchResult",
           "v1.monitor_options" => "MonitorOptions",
           "v1.monitor_options_aggregation" => "MonitorOptionsAggregation",
+          "v1.monitor_options_scheduling_options" => "MonitorOptionsSchedulingOptions",
+          "v1.monitor_options_scheduling_options_evaluation_window" => "MonitorOptionsSchedulingOptionsEvaluationWindow",
           "v1.monitor_overall_states" => "MonitorOverallStates",
           "v1.monitor_renotify_status_type" => "MonitorRenotifyStatusType",
           "v1.monitor_search_count_item" => "MonitorSearchCountItem",

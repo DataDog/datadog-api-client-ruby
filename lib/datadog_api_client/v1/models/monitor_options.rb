@@ -127,6 +127,9 @@ module DatadogAPIClient::V1
     # otherwise some evaluations are skipped. Default is false.
     attr_accessor :require_full_window
 
+    # Configuration options for scheduling.
+    attr_accessor :scheduling_options
+
     # Information about the downtime applied to the monitor.
     attr_accessor :silenced
 
@@ -171,6 +174,7 @@ module DatadogAPIClient::V1
         :'renotify_occurrences' => :'renotify_occurrences',
         :'renotify_statuses' => :'renotify_statuses',
         :'require_full_window' => :'require_full_window',
+        :'scheduling_options' => :'scheduling_options',
         :'silenced' => :'silenced',
         :'synthetics_check_id' => :'synthetics_check_id',
         :'threshold_windows' => :'threshold_windows',
@@ -206,6 +210,7 @@ module DatadogAPIClient::V1
         :'renotify_occurrences' => :'Integer',
         :'renotify_statuses' => :'Array<MonitorRenotifyStatusType>',
         :'require_full_window' => :'Boolean',
+        :'scheduling_options' => :'MonitorOptionsSchedulingOptions',
         :'silenced' => :'Hash<String, Integer>',
         :'synthetics_check_id' => :'String',
         :'threshold_windows' => :'MonitorThresholdWindowOptions',
@@ -343,6 +348,10 @@ module DatadogAPIClient::V1
         self.require_full_window = attributes[:'require_full_window']
       end
 
+      if attributes.key?(:'scheduling_options')
+        self.scheduling_options = attributes[:'scheduling_options']
+      end
+
       if attributes.key?(:'silenced')
         self.silenced = attributes[:'silenced']
       end
@@ -420,6 +429,7 @@ module DatadogAPIClient::V1
           renotify_occurrences == o.renotify_occurrences &&
           renotify_statuses == o.renotify_statuses &&
           require_full_window == o.require_full_window &&
+          scheduling_options == o.scheduling_options &&
           silenced == o.silenced &&
           synthetics_check_id == o.synthetics_check_id &&
           threshold_windows == o.threshold_windows &&
@@ -432,7 +442,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation, device_ids, enable_logs_sample, escalation_message, evaluation_delay, group_retention_duration, groupby_simple_monitor, include_tags, locked, min_failure_duration, min_location_failed, new_group_delay, new_host_delay, no_data_timeframe, notify_audit, notify_by, notify_no_data, on_missing_data, renotify_interval, renotify_occurrences, renotify_statuses, require_full_window, silenced, synthetics_check_id, threshold_windows, thresholds, timeout_h, variables].hash
+      [aggregation, device_ids, enable_logs_sample, escalation_message, evaluation_delay, group_retention_duration, groupby_simple_monitor, include_tags, locked, min_failure_duration, min_location_failed, new_group_delay, new_host_delay, no_data_timeframe, notify_audit, notify_by, notify_no_data, on_missing_data, renotify_interval, renotify_occurrences, renotify_statuses, require_full_window, scheduling_options, silenced, synthetics_check_id, threshold_windows, thresholds, timeout_h, variables].hash
     end
   end
 end
