@@ -34,6 +34,9 @@ module DatadogAPIClient::V1
     # The name of the step.
     attr_accessor :name
 
+    # A boolean set to not take a screenshot for the step.
+    attr_accessor :no_screenshot
+
     # The parameters of the step.
     attr_accessor :params
 
@@ -50,6 +53,7 @@ module DatadogAPIClient::V1
         :'allow_failure' => :'allowFailure',
         :'is_critical' => :'isCritical',
         :'name' => :'name',
+        :'no_screenshot' => :'noScreenshot',
         :'params' => :'params',
         :'timeout' => :'timeout',
         :'type' => :'type'
@@ -63,6 +67,7 @@ module DatadogAPIClient::V1
         :'allow_failure' => :'Boolean',
         :'is_critical' => :'Boolean',
         :'name' => :'String',
+        :'no_screenshot' => :'Boolean',
         :'params' => :'Object',
         :'timeout' => :'Integer',
         :'type' => :'SyntheticsStepType'
@@ -104,6 +109,10 @@ module DatadogAPIClient::V1
         self.name = attributes[:'name']
       end
 
+      if attributes.key?(:'no_screenshot')
+        self.no_screenshot = attributes[:'no_screenshot']
+      end
+
       if attributes.key?(:'params')
         self.params = attributes[:'params']
       end
@@ -133,6 +142,7 @@ module DatadogAPIClient::V1
           allow_failure == o.allow_failure &&
           is_critical == o.is_critical &&
           name == o.name &&
+          no_screenshot == o.no_screenshot &&
           params == o.params &&
           timeout == o.timeout &&
           type == o.type
@@ -142,7 +152,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_failure, is_critical, name, params, timeout, type].hash
+      [allow_failure, is_critical, name, no_screenshot, params, timeout, type].hash
     end
   end
 end
