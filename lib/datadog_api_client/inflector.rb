@@ -568,6 +568,7 @@ module DatadogAPIClient
           "v1.synthetics_test_pause_status" => "SyntheticsTestPauseStatus",
           "v1.synthetics_test_process_status" => "SyntheticsTestProcessStatus",
           "v1.synthetics_test_request" => "SyntheticsTestRequest",
+          "v1.synthetics_test_request_body_type" => "SyntheticsTestRequestBodyType",
           "v1.synthetics_test_request_certificate" => "SyntheticsTestRequestCertificate",
           "v1.synthetics_test_request_certificate_item" => "SyntheticsTestRequestCertificateItem",
           "v1.synthetics_test_request_proxy" => "SyntheticsTestRequestProxy",
