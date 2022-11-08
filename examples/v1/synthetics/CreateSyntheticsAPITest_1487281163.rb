@@ -26,6 +26,15 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
         }),
         type: DatadogAPIClient::V1::SyntheticsAssertionType::BODY,
       }),
+      DatadogAPIClient::V1::SyntheticsAssertionXPathTarget.new({
+        operator: DatadogAPIClient::V1::SyntheticsAssertionXPathOperator::VALIDATES_X_PATH,
+        target: DatadogAPIClient::V1::SyntheticsAssertionXPathTargetTarget.new({
+          x_path: "target-xpath",
+          target_value: "0",
+          operator: "contains",
+        }),
+        type: DatadogAPIClient::V1::SyntheticsAssertionType::BODY,
+      }),
     ],
     config_variables: [
       DatadogAPIClient::V1::SyntheticsConfigVariable.new({

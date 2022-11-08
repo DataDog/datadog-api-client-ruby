@@ -28,7 +28,8 @@ module DatadogAPIClient::V1
       def openapi_one_of
         [
           :'SyntheticsAssertionTarget',
-          :'SyntheticsAssertionJSONPathTarget'
+          :'SyntheticsAssertionJSONPathTarget',
+          :'SyntheticsAssertionXPathTarget'
         ]
       end
       # Builds the object
