@@ -29,7 +29,7 @@ module DatadogAPIClient::V1
     # certificates.
     attr_accessor :accept_self_signed
 
-    # Allows loading insecure content for an HTTP request.
+    # Allows loading insecure content for an HTTP request in an API test.
     attr_accessor :allow_insecure
 
     # For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
@@ -50,7 +50,7 @@ module DatadogAPIClient::V1
     # For API HTTP test, whether or not the test should follow redirects.
     attr_accessor :follow_redirects
 
-    # Ignore server certificate error.
+    # Ignore server certificate error for browser tests.
     attr_accessor :ignore_server_certificate_error
 
     # Timeout before declaring the initial step as failed (in seconds) for browser tests.
