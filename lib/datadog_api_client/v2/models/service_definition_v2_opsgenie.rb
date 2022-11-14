@@ -28,15 +28,15 @@ module DatadogAPIClient::V2
     # Opsgenie instance region.
     attr_accessor :region
 
-    # Opsgenie service id.
-    attr_accessor :service_id
+    # Opsgenie service url.
+    attr_accessor :service_url
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
         :'region' => :'region',
-        :'service_id' => :'service-id'
+        :'service_url' => :'service-url'
       }
     end
 
@@ -45,7 +45,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'region' => :'ServiceDefinitionV2OpsgenieRegion',
-        :'service_id' => :'String'
+        :'service_url' => :'String'
       }
     end
 
@@ -76,8 +76,8 @@ module DatadogAPIClient::V2
         self.region = attributes[:'region']
       end
 
-      if attributes.key?(:'service_id')
-        self.service_id = attributes[:'service_id']
+      if attributes.key?(:'service_url')
+        self.service_url = attributes[:'service_url']
       end
     end
 
@@ -85,18 +85,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @service_id.nil?
+      return false if @service_url.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param service_id [Object] Object to be assigned
+    # @param service_url [Object] Object to be assigned
     # @!visibility private
-    def service_id=(service_id)
-      if service_id.nil?
-        fail ArgumentError, 'invalid value for "service_id", service_id cannot be nil.'
+    def service_url=(service_url)
+      if service_url.nil?
+        fail ArgumentError, 'invalid value for "service_url", service_url cannot be nil.'
       end
-      @service_id = service_id
+      @service_url = service_url
     end
 
     # Checks equality by comparing each attribute.
@@ -106,14 +106,14 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           region == o.region &&
-          service_id == o.service_id
+          service_url == o.service_url
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [region, service_id].hash
+      [region, service_url].hash
     end
   end
 end
