@@ -26,7 +26,7 @@ body = DatadogAPIClient::V2::ServiceDefinitionV2.new({
   integrations: DatadogAPIClient::V2::ServiceDefinitionV2Integrations.new({
     opsgenie: DatadogAPIClient::V2::ServiceDefinitionV2Opsgenie.new({
       region: DatadogAPIClient::V2::ServiceDefinitionV2OpsgenieRegion::US,
-      service_id: "123e4567-e89b-12d3-a456-426614174000",
+      service_url: "https://my-org.opsgenie.com/service/123e4567-e89b-12d3-a456-426614174000",
     }),
     pagerduty: "https://my-org.pagerduty.com/service-directory/PMyService",
   }),

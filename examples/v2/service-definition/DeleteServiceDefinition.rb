@@ -2,4 +2,4 @@
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::ServiceDefinitionAPI.new
-api_instance.delete_service_definition("service-Example-Delete_a_single_service_definition_returns_OK_response")
+api_instance.delete_service_definition("service-definition-test")
