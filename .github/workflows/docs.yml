@@ -11,6 +11,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      DD_PROFILING_NO_EXTENSION: true
 
     steps:
       - uses: actions/checkout@v3
