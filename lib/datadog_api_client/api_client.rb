@@ -145,11 +145,15 @@ module DatadogAPIClient
       req_opts = {
         :method => http_method,
         :headers => header_params,
-        :query => query_params,
+        :query => transform_hash(query_params),
         :timeout => @config.timeout,
         :verify_peer => @config.verify_ssl,
         :verify => _verify_ssl_host,
-        :verbose => @config.debugging
+        :verbose => @config.debugging,
+        :http_proxyaddr => @config.http_proxyaddr,
+        :http_proxyport => @config.http_proxyport,
+        :http_proxyuser => @config.http_proxyuser,
+        :http_proxypass => @config.http_proxypass
       }
 
       req_opts[:pem] = File.read(@config.cert_file) if @config.cert_file
@@ -372,7 +376,32 @@ module DatadogAPIClient
       else
         local_body = object_to_hash(model)
       end
-      local_body.to_json
+      transform_hash(local_body).to_json
+    end
+
+    # Transform object (array, hash, object, etc) to serializable object.
+    # @param [Object] obj to transform
+    # @return [Object]
+    def transform_hash(obj)
+      if obj.is_a?(Array)
+        obj.map { |m| transform_hash(m) }
+      elsif obj.is_a?(Hash)
+        obj.each do | k, v |
+          if v.class == Time
+            t = v.strftime("%FT%T")
+            if v.nsec > 0
+              t << v.strftime(".%3N")
+            end
+            t << (v.utc? ? 'Z' : v.strftime("%:z"))
+
+            obj[k] = t
+          else
+            obj[k] = transform_hash(v)
+          end
+        end
+      end
+
+      obj
     end
 
     # Convert object(non-array) to hash.

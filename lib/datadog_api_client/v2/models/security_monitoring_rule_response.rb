@@ -17,263 +17,47 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Rule.
-  class SecurityMonitoringRuleResponse
-    include BaseGenericModel
+  # Create a new rule.
+  module SecurityMonitoringRuleResponse
+    class << self
+      include BaseOneOfModel
+      include BaseOneOfModelNoDiscriminator
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
-    # Cases for generating signals.
-    attr_accessor :cases
-
-    # When the rule was created, timestamp in milliseconds.
-    attr_accessor :created_at
-
-    # User ID of the user who created the rule.
-    attr_accessor :creation_author_id
-
-    # Additional queries to filter matched events before they are processed.
-    attr_accessor :filters
-
-    # Whether the notifications include the triggering group-by values in their title.
-    attr_accessor :has_extended_title
-
-    # The ID of the rule.
-    attr_accessor :id
-
-    # Whether the rule is included by default.
-    attr_accessor :is_default
-
-    # Whether the rule has been deleted.
-    attr_accessor :is_deleted
-
-    # Whether the rule is enabled.
-    attr_accessor :is_enabled
-
-    # Message for generated signals.
-    attr_accessor :message
-
-    # The name of the rule.
-    attr_accessor :name
-
-    # Options on rules.
-    attr_accessor :options
-
-    # Queries for selecting logs which are part of the rule.
-    attr_accessor :queries
-
-    # Tags for generated signals.
-    attr_accessor :tags
-
-    # The rule type.
-    attr_accessor :type
-
-    # User ID of the user who updated the rule.
-    attr_accessor :update_author_id
-
-    # The version of the rule.
-    attr_accessor :version
-
-    # Attribute mapping from ruby-style variable name to JSON key.
-    # @!visibility private
-    def self.attribute_map
-      {
-        :'cases' => :'cases',
-        :'created_at' => :'createdAt',
-        :'creation_author_id' => :'creationAuthorId',
-        :'filters' => :'filters',
-        :'has_extended_title' => :'hasExtendedTitle',
-        :'id' => :'id',
-        :'is_default' => :'isDefault',
-        :'is_deleted' => :'isDeleted',
-        :'is_enabled' => :'isEnabled',
-        :'message' => :'message',
-        :'name' => :'name',
-        :'options' => :'options',
-        :'queries' => :'queries',
-        :'tags' => :'tags',
-        :'type' => :'type',
-        :'update_author_id' => :'updateAuthorId',
-        :'version' => :'version'
-      }
-    end
-
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
-    end
-
-    # Attribute type mapping.
-    # @!visibility private
-    def self.openapi_types
-      {
-        :'cases' => :'Array<SecurityMonitoringRuleCase>',
-        :'created_at' => :'Integer',
-        :'creation_author_id' => :'Integer',
-        :'filters' => :'Array<SecurityMonitoringFilter>',
-        :'has_extended_title' => :'Boolean',
-        :'id' => :'String',
-        :'is_default' => :'Boolean',
-        :'is_deleted' => :'Boolean',
-        :'is_enabled' => :'Boolean',
-        :'message' => :'String',
-        :'name' => :'String',
-        :'options' => :'SecurityMonitoringRuleOptions',
-        :'queries' => :'Array<SecurityMonitoringRuleQuery>',
-        :'tags' => :'Array<String>',
-        :'type' => :'SecurityMonitoringRuleTypeRead',
-        :'update_author_id' => :'Integer',
-        :'version' => :'Integer'
-      }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
-    end
-
-    # Initializes the object
-    # @param attributes [Hash] Model attributes in the form of hash
-    # @!visibility private
-    def initialize(attributes = {})
-      if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringRuleResponse` initialize method"
+      # List of class defined in oneOf (OpenAPI v3)
+      def openapi_one_of
+        [
+          :'SecurityMonitoringStandardRuleResponse',
+          :'SecurityMonitoringSignalRuleResponse'
+        ]
       end
-
-      # check to see if the attribute exists and convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h|
-        if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::SecurityMonitoringRuleResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+      # Builds the object
+      # @param data [Mixed] Data to be matched against the list of oneOf items
+      # @return [Object] Returns the model or the data itself
+      def build(data)
+        # Go through the list of oneOf items and attempt to identify the appropriate one.
+        # Note:
+        # - We do not attempt to check whether exactly one item matches.
+        # - No advanced validation of types in some cases (e.g. "x: { type: string }" will happily match { x: 123 })
+        #   due to the way the deserialization is made in the base_object template (it just casts without verifying).
+        # - TODO: scalar values are de facto behaving as if they were nullable.
+        # - TODO: logging when debugging is set.
+        openapi_one_of.each do |klass|
+          begin
+            next if klass == :AnyType # "nullable: true"
+            typed_data = find_and_cast_into_type(klass, data)
+            next if typed_data._unparsed
+            return typed_data if typed_data
+          rescue # rescue all errors so we keep iterating even if the current item lookup raises
+          end
         end
-        h[k.to_sym] = v
-      }
 
-      if attributes.key?(:'cases')
-        if (value = attributes[:'cases']).is_a?(Array)
-          self.cases = value
+        if openapi_one_of.include?(:AnyType)
+          data
+        else
+          self._unparsed = true
+          DatadogAPIClient::UnparsedObject.new(data)
         end
       end
-
-      if attributes.key?(:'created_at')
-        self.created_at = attributes[:'created_at']
-      end
-
-      if attributes.key?(:'creation_author_id')
-        self.creation_author_id = attributes[:'creation_author_id']
-      end
-
-      if attributes.key?(:'filters')
-        if (value = attributes[:'filters']).is_a?(Array)
-          self.filters = value
-        end
-      end
-
-      if attributes.key?(:'has_extended_title')
-        self.has_extended_title = attributes[:'has_extended_title']
-      end
-
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'is_default')
-        self.is_default = attributes[:'is_default']
-      end
-
-      if attributes.key?(:'is_deleted')
-        self.is_deleted = attributes[:'is_deleted']
-      end
-
-      if attributes.key?(:'is_enabled')
-        self.is_enabled = attributes[:'is_enabled']
-      end
-
-      if attributes.key?(:'message')
-        self.message = attributes[:'message']
-      end
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'options')
-        self.options = attributes[:'options']
-      end
-
-      if attributes.key?(:'queries')
-        if (value = attributes[:'queries']).is_a?(Array)
-          self.queries = value
-        end
-      end
-
-      if attributes.key?(:'tags')
-        if (value = attributes[:'tags']).is_a?(Array)
-          self.tags = value
-        end
-      end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
-      end
-
-      if attributes.key?(:'update_author_id')
-        self.update_author_id = attributes[:'update_author_id']
-      end
-
-      if attributes.key?(:'version')
-        self.version = attributes[:'version']
-      end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      true
-    end
-
-    # Checks equality by comparing each attribute.
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          cases == o.cases &&
-          created_at == o.created_at &&
-          creation_author_id == o.creation_author_id &&
-          filters == o.filters &&
-          has_extended_title == o.has_extended_title &&
-          id == o.id &&
-          is_default == o.is_default &&
-          is_deleted == o.is_deleted &&
-          is_enabled == o.is_enabled &&
-          message == o.message &&
-          name == o.name &&
-          options == o.options &&
-          queries == o.queries &&
-          tags == o.tags &&
-          type == o.type &&
-          update_author_id == o.update_author_id &&
-          version == o.version
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
-    end
-
-    # Calculates hash code according to all attributes.
-    # @return [Integer] Hash code
-    # @!visibility private
-    def hash
-      [cases, created_at, creation_author_id, filters, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, tags, type, update_author_id, version].hash
     end
   end
 end

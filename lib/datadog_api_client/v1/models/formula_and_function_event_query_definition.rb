@@ -43,6 +43,9 @@ module DatadogAPIClient::V1
     # Search options.
     attr_accessor :search
 
+    # Option for storage location. Feature in Private Beta.
+    attr_accessor :storage
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
@@ -52,14 +55,9 @@ module DatadogAPIClient::V1
         :'group_by' => :'group_by',
         :'indexes' => :'indexes',
         :'name' => :'name',
-        :'search' => :'search'
+        :'search' => :'search',
+        :'storage' => :'storage'
       }
-    end
-
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
     end
 
     # Attribute type mapping.
@@ -71,7 +69,8 @@ module DatadogAPIClient::V1
         :'group_by' => :'Array<FormulaAndFunctionEventQueryGroupBy>',
         :'indexes' => :'Array<String>',
         :'name' => :'String',
-        :'search' => :'FormulaAndFunctionEventQueryDefinitionSearch'
+        :'search' => :'FormulaAndFunctionEventQueryDefinitionSearch',
+        :'storage' => :'String'
       }
     end
 
@@ -124,6 +123,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'search')
         self.search = attributes[:'search']
+      end
+
+      if attributes.key?(:'storage')
+        self.storage = attributes[:'storage']
       end
     end
 
@@ -178,21 +181,15 @@ module DatadogAPIClient::V1
           group_by == o.group_by &&
           indexes == o.indexes &&
           name == o.name &&
-          search == o.search
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
+          search == o.search &&
+          storage == o.storage
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [compute, data_source, group_by, indexes, name, search].hash
+      [compute, data_source, group_by, indexes, name, search, storage].hash
     end
   end
 end

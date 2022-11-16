@@ -58,7 +58,7 @@ module DatadogAPIClient::V2
     def build_from_hash(attributes)
       return nil unless attributes.is_a?(Hash)
       self.class.openapi_types.each_pair do |key, type|
-        if attributes[self.class.attribute_map[key]].nil? && self.class.openapi_nullable.include?(key)
+        if attributes.key?(self.class.attribute_map[key]) && attributes[self.class.attribute_map[key]].nil? && self.class.openapi_nullable.include?(key)
           self.send("#{key}=", nil)
         elsif type =~ /\AArray<(.*)>/i
           # check to ensure the input is an array given that the attribute
@@ -69,6 +69,14 @@ module DatadogAPIClient::V2
         elsif !attributes[self.class.attribute_map[key]].nil?
           self.send("#{key}=", _deserialize(type, attributes[self.class.attribute_map[key]]))
         end
+      end
+
+      if self.respond_to?(:additional_properties)
+        attributes.each_with_object({}) { |(k, v), h|
+          if (!self.class.attribute_map.key?(k.to_sym))
+            self.additional_properties[k.to_sym] = v
+          end
+        }
       end
 
       self
@@ -237,7 +245,7 @@ module DatadogAPIClient::V2
             return model if model
           else
             # raise if data contains keys that are not known to the model
-            raise unless (data.keys - const.acceptable_attributes).empty?
+            raise unless (data.keys - const.attribute_map.values).empty?
             model = const.build_from_hash(data)
             return model if model && model.valid?
           end

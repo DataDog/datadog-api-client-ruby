@@ -34,20 +34,18 @@ module DatadogAPIClient::V1
     # Widget query.
     attr_accessor :query_string
 
+    # Option for storage location. Feature in Private Beta.
+    attr_accessor :storage
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
         :'data_source' => :'data_source',
         :'indexes' => :'indexes',
-        :'query_string' => :'query_string'
+        :'query_string' => :'query_string',
+        :'storage' => :'storage'
       }
-    end
-
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
     end
 
     # Attribute type mapping.
@@ -56,7 +54,8 @@ module DatadogAPIClient::V1
       {
         :'data_source' => :'ListStreamSource',
         :'indexes' => :'Array<String>',
-        :'query_string' => :'String'
+        :'query_string' => :'String',
+        :'storage' => :'String'
       }
     end
 
@@ -85,8 +84,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'data_source')
         self.data_source = attributes[:'data_source']
-      else
-        self.data_source = 'apm_issue_stream'
       end
 
       if attributes.key?(:'indexes')
@@ -97,6 +94,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'query_string')
         self.query_string = attributes[:'query_string']
+      end
+
+      if attributes.key?(:'storage')
+        self.storage = attributes[:'storage']
       end
     end
 
@@ -137,21 +138,15 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           data_source == o.data_source &&
           indexes == o.indexes &&
-          query_string == o.query_string
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
+          query_string == o.query_string &&
+          storage == o.storage
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data_source, indexes, query_string].hash
+      [data_source, indexes, query_string, storage].hash
     end
   end
 end

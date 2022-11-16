@@ -44,12 +44,6 @@ module DatadogAPIClient::V2
       }
     end
 
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
-    end
-
     # Attribute type mapping.
     # @!visibility private
     def self.openapi_types
@@ -85,8 +79,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'cell_type')
         self.cell_type = attributes[:'cell_type']
-      else
-        self.cell_type = 'markdown'
       end
 
       if attributes.key?(:'content')
@@ -95,8 +87,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'important')
         self.important = attributes[:'important']
-      else
-        self.important = false
       end
     end
 
@@ -138,13 +128,6 @@ module DatadogAPIClient::V2
           cell_type == o.cell_type &&
           content == o.content &&
           important == o.important
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
     end
 
     # Calculates hash code according to all attributes.

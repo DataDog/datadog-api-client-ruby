@@ -28,8 +28,11 @@ module DatadogAPIClient::V1
     # The list of values that the template variable drop-down is limited to.
     attr_accessor :available_values
 
-    # The default value for the template variable on dashboard load.
+    # (deprecated) The default value for the template variable on dashboard load. Cannot be used in conjunction with `defaults`.
     attr_accessor :default
+
+    # One or many default values for template variables on load. If more than one default is specified, they will be unioned together with `OR`. Cannot be used in conjunction with `default`.
+    attr_accessor :defaults
 
     # The name of the variable.
     attr_accessor :name
@@ -43,15 +46,10 @@ module DatadogAPIClient::V1
       {
         :'available_values' => :'available_values',
         :'default' => :'default',
+        :'defaults' => :'defaults',
         :'name' => :'name',
         :'prefix' => :'prefix'
       }
-    end
-
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
     end
 
     # Attribute type mapping.
@@ -60,6 +58,7 @@ module DatadogAPIClient::V1
       {
         :'available_values' => :'Array<String>',
         :'default' => :'String',
+        :'defaults' => :'Array<String>',
         :'name' => :'String',
         :'prefix' => :'String'
       }
@@ -101,6 +100,12 @@ module DatadogAPIClient::V1
         self.default = attributes[:'default']
       end
 
+      if attributes.key?(:'defaults')
+        if (value = attributes[:'defaults']).is_a?(Array)
+          self.defaults = value
+        end
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -136,22 +141,16 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           available_values == o.available_values &&
           default == o.default &&
+          defaults == o.defaults &&
           name == o.name &&
           prefix == o.prefix
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [available_values, default, name, prefix].hash
+      [available_values, default, defaults, name, prefix].hash
     end
   end
 end

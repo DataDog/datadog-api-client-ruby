@@ -60,12 +60,6 @@ module DatadogAPIClient::V1
       }
     end
 
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
-    end
-
     # Attribute type mapping.
     # @!visibility private
     def self.openapi_types
@@ -105,8 +99,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'access_role')
         self.access_role = attributes[:'access_role']
-      else
-        self.access_role = 'st'
       end
 
       if attributes.key?(:'disabled')
@@ -154,13 +146,6 @@ module DatadogAPIClient::V1
           icon == o.icon &&
           name == o.name &&
           verified == o.verified
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
     end
 
     # Calculates hash code according to all attributes.

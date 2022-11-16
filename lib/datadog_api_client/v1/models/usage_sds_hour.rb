@@ -25,6 +25,12 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
+    # The total number of bytes scanned of APM usage across all usage types by the Sensitive Data Scanner from the start of the given hour’s month until the given hour.
+    attr_accessor :apm_scanned_bytes
+
+    # The total number of bytes scanned of Events usage across all usage types by the Sensitive Data Scanner from the start of the given hour’s month until the given hour.
+    attr_accessor :events_scanned_bytes
+
     # The hour for the usage.
     attr_accessor :hour
 
@@ -37,6 +43,9 @@ module DatadogAPIClient::V1
     # The organization public ID.
     attr_accessor :public_id
 
+    # The total number of bytes scanned of RUM usage across all usage types by the Sensitive Data Scanner from the start of the given hour’s month until the given hour.
+    attr_accessor :rum_scanned_bytes
+
     # The total number of bytes scanned across all usage types by the Sensitive Data Scanner from the start of the given hour’s month until the given hour.
     attr_accessor :total_scanned_bytes
 
@@ -44,28 +53,28 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'apm_scanned_bytes' => :'apm_scanned_bytes',
+        :'events_scanned_bytes' => :'events_scanned_bytes',
         :'hour' => :'hour',
         :'logs_scanned_bytes' => :'logs_scanned_bytes',
         :'org_name' => :'org_name',
         :'public_id' => :'public_id',
+        :'rum_scanned_bytes' => :'rum_scanned_bytes',
         :'total_scanned_bytes' => :'total_scanned_bytes'
       }
-    end
-
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
     end
 
     # Attribute type mapping.
     # @!visibility private
     def self.openapi_types
       {
+        :'apm_scanned_bytes' => :'Integer',
+        :'events_scanned_bytes' => :'Integer',
         :'hour' => :'Time',
         :'logs_scanned_bytes' => :'Integer',
         :'org_name' => :'String',
         :'public_id' => :'String',
+        :'rum_scanned_bytes' => :'Integer',
         :'total_scanned_bytes' => :'Integer'
       }
     end
@@ -93,6 +102,14 @@ module DatadogAPIClient::V1
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'apm_scanned_bytes')
+        self.apm_scanned_bytes = attributes[:'apm_scanned_bytes']
+      end
+
+      if attributes.key?(:'events_scanned_bytes')
+        self.events_scanned_bytes = attributes[:'events_scanned_bytes']
+      end
+
       if attributes.key?(:'hour')
         self.hour = attributes[:'hour']
       end
@@ -107,6 +124,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'public_id')
         self.public_id = attributes[:'public_id']
+      end
+
+      if attributes.key?(:'rum_scanned_bytes')
+        self.rum_scanned_bytes = attributes[:'rum_scanned_bytes']
       end
 
       if attributes.key?(:'total_scanned_bytes')
@@ -127,25 +148,21 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          apm_scanned_bytes == o.apm_scanned_bytes &&
+          events_scanned_bytes == o.events_scanned_bytes &&
           hour == o.hour &&
           logs_scanned_bytes == o.logs_scanned_bytes &&
           org_name == o.org_name &&
           public_id == o.public_id &&
+          rum_scanned_bytes == o.rum_scanned_bytes &&
           total_scanned_bytes == o.total_scanned_bytes
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [hour, logs_scanned_bytes, org_name, public_id, total_scanned_bytes].hash
+      [apm_scanned_bytes, events_scanned_bytes, hour, logs_scanned_bytes, org_name, public_id, rum_scanned_bytes, total_scanned_bytes].hash
     end
   end
 end

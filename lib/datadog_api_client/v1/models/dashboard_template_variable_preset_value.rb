@@ -28,22 +28,20 @@ module DatadogAPIClient::V1
     # The name of the variable.
     attr_accessor :name
 
-    # The value of the template variable within the saved view.
+    # (deprecated) The value of the template variable within the saved view. Cannot be used in conjunction with `values`.
     attr_accessor :value
+
+    # One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified. Cannot be used in conjunction with `value`.
+    attr_accessor :values
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
         :'name' => :'name',
-        :'value' => :'value'
+        :'value' => :'value',
+        :'values' => :'values'
       }
-    end
-
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
     end
 
     # Attribute type mapping.
@@ -51,7 +49,8 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'name' => :'String',
-        :'value' => :'String'
+        :'value' => :'String',
+        :'values' => :'Array<String>'
       }
     end
 
@@ -85,13 +84,30 @@ module DatadogAPIClient::V1
       if attributes.key?(:'value')
         self.value = attributes[:'value']
       end
+
+      if attributes.key?(:'values')
+        if (value = attributes[:'values']).is_a?(Array)
+          self.values = value
+        end
+      end
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if !@values.nil? && @values.length < 1
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param values [Object] Object to be assigned
+    # @!visibility private
+    def values=(values)
+      if !values.nil? && values.length < 1
+        fail ArgumentError, 'invalid value for "values", number of items must be greater than or equal to 1.'
+      end
+      @values = values
     end
 
     # Checks equality by comparing each attribute.
@@ -101,21 +117,15 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           name == o.name &&
-          value == o.value
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
+          value == o.value &&
+          values == o.values
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [name, value].hash
+      [name, value, values].hash
     end
   end
 end

@@ -18,7 +18,7 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
       service: "Hello",
       method: DatadogAPIClient::V1::HTTPMethod::GET,
       message: "",
-      metadata: DatadogAPIClient::V1::SyntheticsTestMetadata.new({}),
+      metadata: {},
     }),
   }),
   locations: [

@@ -3,9 +3,9 @@
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
 
-body = DatadogAPIClient::V2::SecurityMonitoringRuleCreatePayload.new({
+body = DatadogAPIClient::V2::SecurityMonitoringStandardRuleCreatePayload.new({
   queries: [
-    DatadogAPIClient::V2::SecurityMonitoringRuleQueryCreate.new({
+    DatadogAPIClient::V2::SecurityMonitoringStandardRuleQuery.new({
       aggregation: DatadogAPIClient::V2::SecurityMonitoringRuleQueryAggregation::GEO_DATA,
       group_by_fields: [
         "@usr.id",

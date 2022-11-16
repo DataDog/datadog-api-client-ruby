@@ -22,5 +22,6 @@ module DatadogAPIClient::V1
     include BaseEnumModel
 
     DEFLATE = "deflate".freeze
+    GZIP = "gzip".freeze
   end
 end

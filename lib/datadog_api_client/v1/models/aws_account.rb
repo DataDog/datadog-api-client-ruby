@@ -84,12 +84,6 @@ module DatadogAPIClient::V1
       }
     end
 
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
-    end
-
     # Attribute type mapping.
     # @!visibility private
     def self.openapi_types
@@ -145,8 +139,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'cspm_resource_collection_enabled')
         self.cspm_resource_collection_enabled = attributes[:'cspm_resource_collection_enabled']
-      else
-        self.cspm_resource_collection_enabled = false
       end
 
       if attributes.key?(:'excluded_regions')
@@ -169,14 +161,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'metrics_collection_enabled')
         self.metrics_collection_enabled = attributes[:'metrics_collection_enabled']
-      else
-        self.metrics_collection_enabled = true
       end
 
       if attributes.key?(:'resource_collection_enabled')
         self.resource_collection_enabled = attributes[:'resource_collection_enabled']
-      else
-        self.resource_collection_enabled = false
       end
 
       if attributes.key?(:'role_name')
@@ -212,13 +200,6 @@ module DatadogAPIClient::V1
           resource_collection_enabled == o.resource_collection_enabled &&
           role_name == o.role_name &&
           secret_access_key == o.secret_access_key
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
     end
 
     # Calculates hash code according to all attributes.

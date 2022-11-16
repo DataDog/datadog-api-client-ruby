@@ -31,8 +31,14 @@ module DatadogAPIClient::V1
     # Shows the 99th percentile of all Azure app services using APM over all hours in the current date all organizations.
     attr_accessor :apm_azure_app_service_host_top99p
 
+    # Shows the average of all APM ECS Fargate tasks over all hours in the current date for all organizations.
+    attr_accessor :apm_fargate_count_avg
+
     # Shows the 99th percentile of all distinct APM hosts over all hours in the current date for all organizations.
     attr_accessor :apm_host_top99p
+
+    # Shows the average of all Application Security Monitoring ECS Fargate tasks over all hours in the current date for all organizations.
+    attr_accessor :appsec_fargate_count_avg
 
     # Shows the sum of audit logs lines indexed over all hours in the current date for all organizations.
     attr_accessor :audit_logs_lines_indexed_sum
@@ -84,6 +90,9 @@ module DatadogAPIClient::V1
 
     # Shows the 99th percentile of all Cloud Security Posture Management Azure app services hosts over all hours in the current date for all organizations.
     attr_accessor :cspm_aas_host_top99p
+
+    # Shows the 99th percentile of all Cloud Security Posture Management AWS hosts over all hours in the current date for all organizations.
+    attr_accessor :cspm_aws_host_top99p
 
     # Shows the 99th percentile of all Cloud Security Posture Management Azure hosts over all hours in the current date for all organizations.
     attr_accessor :cspm_azure_host_top99p
@@ -196,8 +205,17 @@ module DatadogAPIClient::V1
     # Shows the sum of all browser and mobile RUM units over all hours in the current date for all organizations.
     attr_accessor :rum_units_sum
 
+    # Sum of all APM bytes scanned with sensitive data scanner over all hours in the current date for all organizations.
+    attr_accessor :sds_apm_scanned_bytes_sum
+
+    # Sum of all event stream events bytes scanned with sensitive data scanner over all hours in the current date for all organizations.
+    attr_accessor :sds_events_scanned_bytes_sum
+
     # Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all hours in the current month for all organizations.
     attr_accessor :sds_logs_scanned_bytes_sum
+
+    # Sum of all RUM bytes scanned with sensitive data scanner over all hours in the current date for all organizations.
+    attr_accessor :sds_rum_scanned_bytes_sum
 
     # Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner over all hours in the current month for all organizations.
     attr_accessor :sds_total_scanned_bytes_sum
@@ -223,7 +241,9 @@ module DatadogAPIClient::V1
       {
         :'agent_host_top99p' => :'agent_host_top99p',
         :'apm_azure_app_service_host_top99p' => :'apm_azure_app_service_host_top99p',
+        :'apm_fargate_count_avg' => :'apm_fargate_count_avg',
         :'apm_host_top99p' => :'apm_host_top99p',
+        :'appsec_fargate_count_avg' => :'appsec_fargate_count_avg',
         :'audit_logs_lines_indexed_sum' => :'audit_logs_lines_indexed_sum',
         :'avg_profiled_fargate_tasks' => :'avg_profiled_fargate_tasks',
         :'aws_host_top99p' => :'aws_host_top99p',
@@ -241,6 +261,7 @@ module DatadogAPIClient::V1
         :'container_avg' => :'container_avg',
         :'container_hwm' => :'container_hwm',
         :'cspm_aas_host_top99p' => :'cspm_aas_host_top99p',
+        :'cspm_aws_host_top99p' => :'cspm_aws_host_top99p',
         :'cspm_azure_host_top99p' => :'cspm_azure_host_top99p',
         :'cspm_container_avg' => :'cspm_container_avg',
         :'cspm_container_hwm' => :'cspm_container_hwm',
@@ -278,7 +299,10 @@ module DatadogAPIClient::V1
         :'rum_session_count_sum' => :'rum_session_count_sum',
         :'rum_total_session_count_sum' => :'rum_total_session_count_sum',
         :'rum_units_sum' => :'rum_units_sum',
+        :'sds_apm_scanned_bytes_sum' => :'sds_apm_scanned_bytes_sum',
+        :'sds_events_scanned_bytes_sum' => :'sds_events_scanned_bytes_sum',
         :'sds_logs_scanned_bytes_sum' => :'sds_logs_scanned_bytes_sum',
+        :'sds_rum_scanned_bytes_sum' => :'sds_rum_scanned_bytes_sum',
         :'sds_total_scanned_bytes_sum' => :'sds_total_scanned_bytes_sum',
         :'synthetics_browser_check_calls_count_sum' => :'synthetics_browser_check_calls_count_sum',
         :'synthetics_check_calls_count_sum' => :'synthetics_check_calls_count_sum',
@@ -288,19 +312,15 @@ module DatadogAPIClient::V1
       }
     end
 
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
-    end
-
     # Attribute type mapping.
     # @!visibility private
     def self.openapi_types
       {
         :'agent_host_top99p' => :'Integer',
         :'apm_azure_app_service_host_top99p' => :'Integer',
+        :'apm_fargate_count_avg' => :'Integer',
         :'apm_host_top99p' => :'Integer',
+        :'appsec_fargate_count_avg' => :'Integer',
         :'audit_logs_lines_indexed_sum' => :'Integer',
         :'avg_profiled_fargate_tasks' => :'Integer',
         :'aws_host_top99p' => :'Integer',
@@ -318,6 +338,7 @@ module DatadogAPIClient::V1
         :'container_avg' => :'Integer',
         :'container_hwm' => :'Integer',
         :'cspm_aas_host_top99p' => :'Integer',
+        :'cspm_aws_host_top99p' => :'Integer',
         :'cspm_azure_host_top99p' => :'Integer',
         :'cspm_container_avg' => :'Integer',
         :'cspm_container_hwm' => :'Integer',
@@ -355,7 +376,10 @@ module DatadogAPIClient::V1
         :'rum_session_count_sum' => :'Integer',
         :'rum_total_session_count_sum' => :'Integer',
         :'rum_units_sum' => :'Integer',
+        :'sds_apm_scanned_bytes_sum' => :'Integer',
+        :'sds_events_scanned_bytes_sum' => :'Integer',
         :'sds_logs_scanned_bytes_sum' => :'Integer',
+        :'sds_rum_scanned_bytes_sum' => :'Integer',
         :'sds_total_scanned_bytes_sum' => :'Integer',
         :'synthetics_browser_check_calls_count_sum' => :'Integer',
         :'synthetics_check_calls_count_sum' => :'Integer',
@@ -396,8 +420,16 @@ module DatadogAPIClient::V1
         self.apm_azure_app_service_host_top99p = attributes[:'apm_azure_app_service_host_top99p']
       end
 
+      if attributes.key?(:'apm_fargate_count_avg')
+        self.apm_fargate_count_avg = attributes[:'apm_fargate_count_avg']
+      end
+
       if attributes.key?(:'apm_host_top99p')
         self.apm_host_top99p = attributes[:'apm_host_top99p']
+      end
+
+      if attributes.key?(:'appsec_fargate_count_avg')
+        self.appsec_fargate_count_avg = attributes[:'appsec_fargate_count_avg']
       end
 
       if attributes.key?(:'audit_logs_lines_indexed_sum')
@@ -466,6 +498,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'cspm_aas_host_top99p')
         self.cspm_aas_host_top99p = attributes[:'cspm_aas_host_top99p']
+      end
+
+      if attributes.key?(:'cspm_aws_host_top99p')
+        self.cspm_aws_host_top99p = attributes[:'cspm_aws_host_top99p']
       end
 
       if attributes.key?(:'cspm_azure_host_top99p')
@@ -618,8 +654,20 @@ module DatadogAPIClient::V1
         self.rum_units_sum = attributes[:'rum_units_sum']
       end
 
+      if attributes.key?(:'sds_apm_scanned_bytes_sum')
+        self.sds_apm_scanned_bytes_sum = attributes[:'sds_apm_scanned_bytes_sum']
+      end
+
+      if attributes.key?(:'sds_events_scanned_bytes_sum')
+        self.sds_events_scanned_bytes_sum = attributes[:'sds_events_scanned_bytes_sum']
+      end
+
       if attributes.key?(:'sds_logs_scanned_bytes_sum')
         self.sds_logs_scanned_bytes_sum = attributes[:'sds_logs_scanned_bytes_sum']
+      end
+
+      if attributes.key?(:'sds_rum_scanned_bytes_sum')
+        self.sds_rum_scanned_bytes_sum = attributes[:'sds_rum_scanned_bytes_sum']
       end
 
       if attributes.key?(:'sds_total_scanned_bytes_sum')
@@ -662,7 +710,9 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           agent_host_top99p == o.agent_host_top99p &&
           apm_azure_app_service_host_top99p == o.apm_azure_app_service_host_top99p &&
+          apm_fargate_count_avg == o.apm_fargate_count_avg &&
           apm_host_top99p == o.apm_host_top99p &&
+          appsec_fargate_count_avg == o.appsec_fargate_count_avg &&
           audit_logs_lines_indexed_sum == o.audit_logs_lines_indexed_sum &&
           avg_profiled_fargate_tasks == o.avg_profiled_fargate_tasks &&
           aws_host_top99p == o.aws_host_top99p &&
@@ -680,6 +730,7 @@ module DatadogAPIClient::V1
           container_avg == o.container_avg &&
           container_hwm == o.container_hwm &&
           cspm_aas_host_top99p == o.cspm_aas_host_top99p &&
+          cspm_aws_host_top99p == o.cspm_aws_host_top99p &&
           cspm_azure_host_top99p == o.cspm_azure_host_top99p &&
           cspm_container_avg == o.cspm_container_avg &&
           cspm_container_hwm == o.cspm_container_hwm &&
@@ -717,7 +768,10 @@ module DatadogAPIClient::V1
           rum_session_count_sum == o.rum_session_count_sum &&
           rum_total_session_count_sum == o.rum_total_session_count_sum &&
           rum_units_sum == o.rum_units_sum &&
+          sds_apm_scanned_bytes_sum == o.sds_apm_scanned_bytes_sum &&
+          sds_events_scanned_bytes_sum == o.sds_events_scanned_bytes_sum &&
           sds_logs_scanned_bytes_sum == o.sds_logs_scanned_bytes_sum &&
+          sds_rum_scanned_bytes_sum == o.sds_rum_scanned_bytes_sum &&
           sds_total_scanned_bytes_sum == o.sds_total_scanned_bytes_sum &&
           synthetics_browser_check_calls_count_sum == o.synthetics_browser_check_calls_count_sum &&
           synthetics_check_calls_count_sum == o.synthetics_check_calls_count_sum &&
@@ -726,18 +780,11 @@ module DatadogAPIClient::V1
           vsphere_host_top99p == o.vsphere_host_top99p
     end
 
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
-    end
-
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [agent_host_top99p, apm_azure_app_service_host_top99p, apm_host_top99p, audit_logs_lines_indexed_sum, avg_profiled_fargate_tasks, aws_host_top99p, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p, billable_ingested_bytes_sum, browser_rum_lite_session_count_sum, browser_rum_replay_session_count_sum, browser_rum_units_sum, ci_pipeline_indexed_spans_sum, ci_test_indexed_spans_sum, ci_visibility_pipeline_committers_hwm, ci_visibility_test_committers_hwm, container_avg, container_hwm, cspm_aas_host_top99p, cspm_azure_host_top99p, cspm_container_avg, cspm_container_hwm, cspm_host_top99p, custom_ts_avg, cws_container_count_avg, cws_host_top99p, date, dbm_host_top99p, dbm_queries_count_avg, fargate_tasks_count_avg, fargate_tasks_count_hwm, gcp_host_top99p, heroku_host_top99p, incident_management_monthly_active_users_hwm, indexed_events_count_sum, infra_host_top99p, ingested_events_bytes_sum, iot_device_sum, iot_device_top99p, mobile_rum_lite_session_count_sum, mobile_rum_session_count_android_sum, mobile_rum_session_count_ios_sum, mobile_rum_session_count_reactnative_sum, mobile_rum_session_count_sum, mobile_rum_units_sum, netflow_indexed_events_count_sum, npm_host_top99p, observability_pipelines_bytes_processed_sum, online_archive_events_count_sum, opentelemetry_host_top99p, orgs, profiling_host_top99p, rum_browser_and_mobile_session_count, rum_session_count_sum, rum_total_session_count_sum, rum_units_sum, sds_logs_scanned_bytes_sum, sds_total_scanned_bytes_sum, synthetics_browser_check_calls_count_sum, synthetics_check_calls_count_sum, trace_search_indexed_events_count_sum, twol_ingested_events_bytes_sum, vsphere_host_top99p].hash
+      [agent_host_top99p, apm_azure_app_service_host_top99p, apm_fargate_count_avg, apm_host_top99p, appsec_fargate_count_avg, audit_logs_lines_indexed_sum, avg_profiled_fargate_tasks, aws_host_top99p, aws_lambda_func_count, aws_lambda_invocations_sum, azure_app_service_top99p, billable_ingested_bytes_sum, browser_rum_lite_session_count_sum, browser_rum_replay_session_count_sum, browser_rum_units_sum, ci_pipeline_indexed_spans_sum, ci_test_indexed_spans_sum, ci_visibility_pipeline_committers_hwm, ci_visibility_test_committers_hwm, container_avg, container_hwm, cspm_aas_host_top99p, cspm_aws_host_top99p, cspm_azure_host_top99p, cspm_container_avg, cspm_container_hwm, cspm_host_top99p, custom_ts_avg, cws_container_count_avg, cws_host_top99p, date, dbm_host_top99p, dbm_queries_count_avg, fargate_tasks_count_avg, fargate_tasks_count_hwm, gcp_host_top99p, heroku_host_top99p, incident_management_monthly_active_users_hwm, indexed_events_count_sum, infra_host_top99p, ingested_events_bytes_sum, iot_device_sum, iot_device_top99p, mobile_rum_lite_session_count_sum, mobile_rum_session_count_android_sum, mobile_rum_session_count_ios_sum, mobile_rum_session_count_reactnative_sum, mobile_rum_session_count_sum, mobile_rum_units_sum, netflow_indexed_events_count_sum, npm_host_top99p, observability_pipelines_bytes_processed_sum, online_archive_events_count_sum, opentelemetry_host_top99p, orgs, profiling_host_top99p, rum_browser_and_mobile_session_count, rum_session_count_sum, rum_total_session_count_sum, rum_units_sum, sds_apm_scanned_bytes_sum, sds_events_scanned_bytes_sum, sds_logs_scanned_bytes_sum, sds_rum_scanned_bytes_sum, sds_total_scanned_bytes_sum, synthetics_browser_check_calls_count_sum, synthetics_check_calls_count_sum, trace_search_indexed_events_count_sum, twol_ingested_events_bytes_sum, vsphere_host_top99p].hash
     end
   end
 end

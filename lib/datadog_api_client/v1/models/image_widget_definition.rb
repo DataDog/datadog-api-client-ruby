@@ -70,12 +70,6 @@ module DatadogAPIClient::V1
       }
     end
 
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
-    end
-
     # Attribute type mapping.
     # @!visibility private
     def self.openapi_types
@@ -117,14 +111,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'has_background')
         self.has_background = attributes[:'has_background']
-      else
-        self.has_background = true
       end
 
       if attributes.key?(:'has_border')
         self.has_border = attributes[:'has_border']
-      else
-        self.has_border = true
       end
 
       if attributes.key?(:'horizontal_align')
@@ -141,8 +131,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
-      else
-        self.type = 'image'
       end
 
       if attributes.key?(:'url')
@@ -202,13 +190,6 @@ module DatadogAPIClient::V1
           url == o.url &&
           url_dark_theme == o.url_dark_theme &&
           vertical_align == o.vertical_align
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
     end
 
     # Calculates hash code according to all attributes.

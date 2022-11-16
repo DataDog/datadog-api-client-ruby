@@ -64,12 +64,6 @@ module DatadogAPIClient::V2
       }
     end
 
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
-    end
-
     # Attribute type mapping.
     # @!visibility private
     def self.openapi_types
@@ -116,16 +110,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'metric_type')
         self.metric_type = attributes[:'metric_type']
-      else
-        self.metric_type = 'gauge'
       end
 
       if attributes.key?(:'tags')
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
         end
-      else
-        self.tags = []
       end
     end
 
@@ -168,13 +158,6 @@ module DatadogAPIClient::V2
           include_percentiles == o.include_percentiles &&
           metric_type == o.metric_type &&
           tags == o.tags
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
     end
 
     # Calculates hash code according to all attributes.

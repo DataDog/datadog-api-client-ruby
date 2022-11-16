@@ -1,4 +1,4 @@
-# Get usage across your multi-org account returns "OK" response
+# Get usage across your account returns "OK" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::UsageMeteringAPI.new

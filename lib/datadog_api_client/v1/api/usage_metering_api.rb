@@ -37,6 +37,8 @@ module DatadogAPIClient::V1
     # **Note:** This endpoint will be fully deprecated on December 1, 2022.
     # Refer to [Migrating from v1 to v2 of the Usage Attribution API](https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/) for the associated migration guide.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size The number of files to return in the response. `[default=60]`.
     # @option opts [Integer] :page_number The identifier of the first page to return. This parameter is used for the pagination feature `[default=0]`.
@@ -44,6 +46,7 @@ module DatadogAPIClient::V1
     # @option opts [UsageSort] :sort The field to sort by: `[computed_on, size, start_date, end_date]`.
     # @return [Array<(UsageCustomReportsResponse, Integer, Hash)>] UsageCustomReportsResponse data, response status code and response headers
     def get_daily_custom_reports_with_http_info(opts = {})
+      warn "[DEPRECATION] `GetDailyCustomReports` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_daily_custom_reports ...'
@@ -149,7 +152,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'usage_type' when calling UsageMeteringAPI.get_hourly_usage_attribution"
       end
       # verify enum value
-      allowable_values = ['api_usage', 'apm_host_usage', 'appsec_usage', 'browser_usage', 'container_usage', 'cspm_containers_usage', 'cspm_hosts_usage', 'custom_timeseries_usage', 'cws_containers_usage', 'cws_hosts_usage', 'dbm_hosts_usage', 'dbm_queries_usage', 'estimated_indexed_logs_usage', 'estimated_indexed_spans_usage', 'estimated_ingested_spans_usage', 'fargate_usage', 'functions_usage', 'indexed_logs_usage', 'infra_host_usage', 'invocations_usage', 'npm_host_usage', 'profiled_container_usage', 'profiled_host_usage', 'snmp_usage']
+      allowable_values = ['api_usage', 'apm_fargate_usage', 'apm_host_usage', 'appsec_fargate_usage', 'appsec_usage', 'browser_usage', 'container_usage', 'cspm_containers_usage', 'cspm_hosts_usage', 'custom_timeseries_usage', 'cws_containers_usage', 'cws_hosts_usage', 'dbm_hosts_usage', 'dbm_queries_usage', 'estimated_indexed_logs_usage', 'estimated_ingested_logs_usage', 'estimated_indexed_spans_usage', 'estimated_ingested_spans_usage', 'fargate_usage', 'functions_usage', 'indexed_logs_usage', 'infra_host_usage', 'invocations_usage', 'npm_host_usage', 'profiled_container_usage', 'profiled_host_usage', 'snmp_usage']
       if @api_client.config.client_side_validation && !allowable_values.include?(usage_type)
         fail ArgumentError, "invalid value for \"usage_type\", must be one of #{allowable_values}"
       end
@@ -352,6 +355,8 @@ module DatadogAPIClient::V1
     # **Note:** This endpoint will be fully deprecated on December 1, 2022.
     # Refer to [Migrating from v1 to v2 of the Usage Attribution API](https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/) for the associated migration guide.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param opts [Hash] the optional parameters
     # @option opts [Integer] :page_size The number of files to return in the response `[default=60].`
     # @option opts [Integer] :page_number The identifier of the first page to return. This parameter is used for the pagination feature `[default=0]`.
@@ -359,6 +364,7 @@ module DatadogAPIClient::V1
     # @option opts [UsageSort] :sort The field to sort by: `[computed_on, size, start_date, end_date]`.
     # @return [Array<(UsageCustomReportsResponse, Integer, Hash)>] UsageCustomReportsResponse data, response status code and response headers
     def get_monthly_custom_reports_with_http_info(opts = {})
+      warn "[DEPRECATION] `GetMonthlyCustomReports` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_monthly_custom_reports ...'
@@ -466,7 +472,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'fields' when calling UsageMeteringAPI.get_monthly_usage_attribution"
       end
       # verify enum value
-      allowable_values = ['api_usage', 'api_percentage', 'apm_host_usage', 'apm_host_percentage', 'appsec_usage', 'appsec_percentage', 'browser_usage', 'browser_percentage', 'container_usage', 'container_percentage', 'cspm_containers_percentage', 'cspm_containers_usage', 'cspm_hosts_percentage', 'cspm_hosts_usage', 'custom_timeseries_usage', 'custom_timeseries_percentage', 'cws_containers_percentage', 'cws_containers_usage', 'cws_hosts_percentage', 'cws_hosts_usage', 'dbm_hosts_percentage', 'dbm_hosts_usage', 'dbm_queries_percentage', 'dbm_queries_usage', 'estimated_indexed_logs_usage', 'estimated_indexed_logs_percentage', 'estimated_indexed_spans_usage', 'estimated_indexed_spans_percentage', 'estimated_ingested_spans_usage', 'estimated_ingested_spans_percentage', 'fargate_usage', 'fargate_percentage', 'functions_usage', 'functions_percentage', 'indexed_logs_usage', 'indexed_logs_percentage', 'infra_host_usage', 'infra_host_percentage', 'invocations_usage', 'invocations_percentage', 'npm_host_usage', 'npm_host_percentage', 'profiled_container_usage', 'profiled_container_percentage', 'profiled_host_usage', 'profiled_host_percentage', 'snmp_usage', 'snmp_percentage', '*']
+      allowable_values = ['api_usage', 'api_percentage', 'apm_fargate_usage', 'apm_fargate_percentage', 'appsec_fargate_usage', 'appsec_fargate_percentage', 'apm_host_usage', 'apm_host_percentage', 'appsec_usage', 'appsec_percentage', 'browser_usage', 'browser_percentage', 'container_usage', 'container_percentage', 'cspm_containers_percentage', 'cspm_containers_usage', 'cspm_hosts_percentage', 'cspm_hosts_usage', 'custom_timeseries_usage', 'custom_timeseries_percentage', 'cws_containers_percentage', 'cws_containers_usage', 'cws_hosts_percentage', 'cws_hosts_usage', 'dbm_hosts_percentage', 'dbm_hosts_usage', 'dbm_queries_percentage', 'dbm_queries_usage', 'estimated_indexed_logs_usage', 'estimated_indexed_logs_percentage', 'estimated_ingested_logs_usage', 'estimated_ingested_logs_percentage', 'estimated_indexed_spans_usage', 'estimated_indexed_spans_percentage', 'estimated_ingested_spans_usage', 'estimated_ingested_spans_percentage', 'fargate_usage', 'fargate_percentage', 'functions_usage', 'functions_percentage', 'indexed_logs_usage', 'indexed_logs_percentage', 'infra_host_usage', 'infra_host_percentage', 'invocations_usage', 'invocations_percentage', 'npm_host_usage', 'npm_host_percentage', 'profiled_container_usage', 'profiled_container_percentage', 'profiled_host_usage', 'profiled_host_percentage', 'snmp_usage', 'snmp_percentage', '*']
       if @api_client.config.client_side_validation && !allowable_values.include?(fields)
         fail ArgumentError, "invalid value for \"fields\", must be one of #{allowable_values}"
       end
@@ -474,7 +480,7 @@ module DatadogAPIClient::V1
       if @api_client.config.client_side_validation && opts[:'sort_direction'] && !allowable_values.include?(opts[:'sort_direction'])
         fail ArgumentError, "invalid value for \"sort_direction\", must be one of #{allowable_values}"
       end
-      allowable_values = ['api_usage', 'api_percentage', 'apm_host_usage', 'apm_host_percentage', 'appsec_usage', 'appsec_percentage', 'browser_usage', 'browser_percentage', 'container_usage', 'container_percentage', 'cspm_containers_percentage', 'cspm_containers_usage', 'cspm_hosts_percentage', 'cspm_hosts_usage', 'custom_timeseries_usage', 'custom_timeseries_percentage', 'cws_containers_percentage', 'cws_containers_usage', 'cws_hosts_percentage', 'cws_hosts_usage', 'dbm_hosts_percentage', 'dbm_hosts_usage', 'dbm_queries_percentage', 'dbm_queries_usage', 'estimated_indexed_logs_usage', 'estimated_indexed_logs_percentage', 'estimated_indexed_spans_usage', 'estimated_indexed_spans_percentage', 'estimated_ingested_spans_usage', 'estimated_ingested_spans_percentage', 'fargate_usage', 'fargate_percentage', 'functions_usage', 'functions_percentage', 'indexed_logs_usage', 'indexed_logs_percentage', 'infra_host_usage', 'infra_host_percentage', 'invocations_usage', 'invocations_percentage', 'npm_host_usage', 'npm_host_percentage', 'profiled_container_usage', 'profiled_container_percentage', 'profiled_host_usage', 'profiled_host_percentage', 'snmp_usage', 'snmp_percentage', '*']
+      allowable_values = ['api_usage', 'api_percentage', 'apm_fargate_usage', 'apm_fargate_percentage', 'appsec_fargate_usage', 'appsec_fargate_percentage', 'apm_host_usage', 'apm_host_percentage', 'appsec_usage', 'appsec_percentage', 'browser_usage', 'browser_percentage', 'container_usage', 'container_percentage', 'cspm_containers_percentage', 'cspm_containers_usage', 'cspm_hosts_percentage', 'cspm_hosts_usage', 'custom_timeseries_usage', 'custom_timeseries_percentage', 'cws_containers_percentage', 'cws_containers_usage', 'cws_hosts_percentage', 'cws_hosts_usage', 'dbm_hosts_percentage', 'dbm_hosts_usage', 'dbm_queries_percentage', 'dbm_queries_usage', 'estimated_indexed_logs_usage', 'estimated_indexed_logs_percentage', 'estimated_ingested_logs_usage', 'estimated_ingested_logs_percentage', 'estimated_indexed_spans_usage', 'estimated_indexed_spans_percentage', 'estimated_ingested_spans_usage', 'estimated_ingested_spans_percentage', 'fargate_usage', 'fargate_percentage', 'functions_usage', 'functions_percentage', 'indexed_logs_usage', 'indexed_logs_percentage', 'infra_host_usage', 'infra_host_percentage', 'invocations_usage', 'invocations_percentage', 'npm_host_usage', 'npm_host_percentage', 'profiled_container_usage', 'profiled_container_percentage', 'profiled_host_usage', 'profiled_host_percentage', 'snmp_usage', 'snmp_percentage', '*']
       if @api_client.config.client_side_validation && opts[:'sort_name'] && !allowable_values.include?(opts[:'sort_name'])
         fail ArgumentError, "invalid value for \"sort_name\", must be one of #{allowable_values}"
       end
@@ -541,10 +547,13 @@ module DatadogAPIClient::V1
     # **Note:** This endpoint will be fully deprecated on December 1, 2022.
     # Refer to [Migrating from v1 to v2 of the Usage Attribution API](https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/) for the associated migration guide.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param report_id [String] Date of the report in the format `YYYY-MM-DD`.
     # @param opts [Hash] the optional parameters
     # @return [Array<(UsageSpecifiedCustomReportsResponse, Integer, Hash)>] UsageSpecifiedCustomReportsResponse data, response status code and response headers
     def get_specified_daily_custom_reports_with_http_info(report_id, opts = {})
+      warn "[DEPRECATION] `GetSpecifiedDailyCustomReports` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_specified_daily_custom_reports ...'
@@ -608,10 +617,13 @@ module DatadogAPIClient::V1
     # **Note:** This endpoint will be fully deprecated on December 1, 2022.
     # Refer to [Migrating from v1 to v2 of the Usage Attribution API](https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/) for the associated migration guide.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param report_id [String] Date of the report in the format `YYYY-MM-DD`.
     # @param opts [Hash] the optional parameters
     # @return [Array<(UsageSpecifiedCustomReportsResponse, Integer, Hash)>] UsageSpecifiedCustomReportsResponse data, response status code and response headers
     def get_specified_monthly_custom_reports_with_http_info(report_id, opts = {})
+      warn "[DEPRECATION] `GetSpecifiedMonthlyCustomReports` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_specified_monthly_custom_reports ...'
@@ -744,6 +756,8 @@ module DatadogAPIClient::V1
     # **Note:** This endpoint will be fully deprecated on December 1, 2022.
     # Refer to [Migrating from v1 to v2 of the Usage Attribution API](https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/) for the associated migration guide.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage beginning in this month. Maximum of 15 months ago.
     # @param fields [UsageAttributionSupportedMetrics] Comma-separated list of usage types to return, or `*` for all usage types.
     # @param opts [Hash] the optional parameters
@@ -755,6 +769,7 @@ module DatadogAPIClient::V1
     # @option opts [Integer] :limit Maximum number of records to be returned.
     # @return [Array<(UsageAttributionResponse, Integer, Hash)>] UsageAttributionResponse data, response status code and response headers
     def get_usage_attribution_with_http_info(start_month, fields, opts = {})
+      warn "[DEPRECATION] `GetUsageAttribution` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_attribution ...'
@@ -768,7 +783,7 @@ module DatadogAPIClient::V1
         fail ArgumentError, "Missing the required parameter 'fields' when calling UsageMeteringAPI.get_usage_attribution"
       end
       # verify enum value
-      allowable_values = ['custom_timeseries_usage', 'container_usage', 'snmp_percentage', 'apm_host_usage', 'browser_usage', 'npm_host_percentage', 'infra_host_usage', 'custom_timeseries_percentage', 'container_percentage', 'api_usage', 'apm_host_percentage', 'infra_host_percentage', 'snmp_usage', 'browser_percentage', 'api_percentage', 'npm_host_usage', 'lambda_functions_usage', 'lambda_functions_percentage', 'lambda_invocations_usage', 'lambda_invocations_percentage', 'fargate_usage', 'fargate_percentage', 'profiled_host_usage', 'profiled_host_percentage', 'profiled_container_usage', 'profiled_container_percentage', 'dbm_hosts_usage', 'dbm_hosts_percentage', 'dbm_queries_usage', 'dbm_queries_percentage', 'estimated_indexed_logs_usage', 'estimated_indexed_logs_percentage', 'appsec_usage', 'appsec_percentage', 'estimated_indexed_spans_usage', 'estimated_indexed_spans_percentage', 'estimated_ingested_spans_usage', 'estimated_ingested_spans_percentage', '*']
+      allowable_values = ['custom_timeseries_usage', 'container_usage', 'snmp_percentage', 'apm_host_usage', 'browser_usage', 'npm_host_percentage', 'infra_host_usage', 'custom_timeseries_percentage', 'container_percentage', 'api_usage', 'apm_host_percentage', 'infra_host_percentage', 'snmp_usage', 'browser_percentage', 'api_percentage', 'npm_host_usage', 'lambda_functions_usage', 'lambda_functions_percentage', 'lambda_invocations_usage', 'lambda_invocations_percentage', 'fargate_usage', 'fargate_percentage', 'profiled_host_usage', 'profiled_host_percentage', 'profiled_container_usage', 'profiled_container_percentage', 'dbm_hosts_usage', 'dbm_hosts_percentage', 'dbm_queries_usage', 'dbm_queries_percentage', 'estimated_indexed_logs_usage', 'estimated_indexed_logs_percentage', 'estimated_ingested_logs_usage', 'estimated_ingested_logs_percentage', 'appsec_usage', 'appsec_percentage', 'estimated_indexed_spans_usage', 'estimated_indexed_spans_percentage', 'estimated_ingested_spans_usage', 'estimated_ingested_spans_percentage', 'apm_fargate_usage', 'apm_fargate_percentage', 'appsec_fargate_usage', 'appsec_fargate_percentage', '*']
       if @api_client.config.client_side_validation && !allowable_values.include?(fields)
         fail ArgumentError, "invalid value for \"fields\", must be one of #{allowable_values}"
       end
@@ -776,7 +791,7 @@ module DatadogAPIClient::V1
       if @api_client.config.client_side_validation && opts[:'sort_direction'] && !allowable_values.include?(opts[:'sort_direction'])
         fail ArgumentError, "invalid value for \"sort_direction\", must be one of #{allowable_values}"
       end
-      allowable_values = ['api_percentage', 'snmp_usage', 'apm_host_usage', 'api_usage', 'appsec_usage', 'appsec_percentage', 'container_usage', 'custom_timeseries_percentage', 'container_percentage', 'apm_host_percentage', 'npm_host_percentage', 'browser_percentage', 'browser_usage', 'infra_host_percentage', 'snmp_percentage', 'npm_host_usage', 'infra_host_usage', 'custom_timeseries_usage', 'lambda_functions_usage', 'lambda_functions_percentage', 'lambda_invocations_usage', 'lambda_invocations_percentage', 'estimated_indexed_logs_usage', 'estimated_indexed_logs_percentage', 'estimated_indexed_spans_usage', 'estimated_indexed_spans_percentage', 'estimated_ingested_spans_usage', 'estimated_ingested_spans_percentage']
+      allowable_values = ['api_percentage', 'snmp_usage', 'apm_host_usage', 'api_usage', 'appsec_usage', 'appsec_percentage', 'container_usage', 'custom_timeseries_percentage', 'container_percentage', 'apm_host_percentage', 'npm_host_percentage', 'browser_percentage', 'browser_usage', 'infra_host_percentage', 'snmp_percentage', 'npm_host_usage', 'infra_host_usage', 'custom_timeseries_usage', 'lambda_functions_usage', 'lambda_functions_percentage', 'lambda_invocations_usage', 'lambda_invocations_percentage', 'estimated_indexed_logs_usage', 'estimated_indexed_logs_percentage', 'estimated_ingested_logs_usage', 'estimated_ingested_logs_percentage', 'estimated_indexed_spans_usage', 'estimated_indexed_spans_percentage', 'estimated_ingested_spans_usage', 'estimated_ingested_spans_percentage', 'apm_fargate_usage', 'apm_fargate_percentage', 'appsec_fargate_usage', 'appsec_fargate_percentage']
       if @api_client.config.client_side_validation && opts[:'sort_name'] && !allowable_values.include?(opts[:'sort_name'])
         fail ArgumentError, "invalid value for \"sort_name\", must be one of #{allowable_values}"
       end
@@ -2343,7 +2358,7 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
-    # Get usage across your multi-org account.
+    # Get usage across your account.
     #
     # @see #get_usage_summary_with_http_info
     def get_usage_summary(start_month, opts = {})
@@ -2351,9 +2366,9 @@ module DatadogAPIClient::V1
       data
     end
 
-    # Get usage across your multi-org account.
+    # Get usage across your account.
     #
-    # Get usage across your multi-org account. You must have the multi-org feature enabled.
+    # Get all usage across your account.
     #
     # @param start_month [Time] Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage beginning in this month. Maximum of 15 months ago.
     # @param opts [Hash] the optional parameters
@@ -2426,11 +2441,14 @@ module DatadogAPIClient::V1
     # Get hourly usage for [synthetics checks](https://docs.datadoghq.com/synthetics/).
     # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
     #
+    # @deprecated This API is deprecated.
+    #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
     # @return [Array<(UsageSyntheticsResponse, Integer, Hash)>] UsageSyntheticsResponse data, response status code and response headers
     def get_usage_synthetics_with_http_info(start_hr, opts = {})
+      warn "[DEPRECATION] `GetUsageSynthetics` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_synthetics ...'

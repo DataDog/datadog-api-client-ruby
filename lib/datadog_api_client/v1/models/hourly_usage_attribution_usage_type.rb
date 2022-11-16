@@ -22,7 +22,9 @@ module DatadogAPIClient::V1
     include BaseEnumModel
 
     API_USAGE = "api_usage".freeze
+    APM_FARGATE_USAGE = "apm_fargate_usage".freeze
     APM_HOST_USAGE = "apm_host_usage".freeze
+    APPSEC_FARGATE_USAGE = "appsec_fargate_usage".freeze
     APPSEC_USAGE = "appsec_usage".freeze
     BROWSER_USAGE = "browser_usage".freeze
     CONTAINER_USAGE = "container_usage".freeze
@@ -34,6 +36,7 @@ module DatadogAPIClient::V1
     DBM_HOSTS_USAGE = "dbm_hosts_usage".freeze
     DBM_QUERIES_USAGE = "dbm_queries_usage".freeze
     ESTIMATED_INDEXED_LOGS_USAGE = "estimated_indexed_logs_usage".freeze
+    ESTIMATED_INGESTED_LOGS_USAGE = "estimated_ingested_logs_usage".freeze
     ESTIMATED_INDEXED_SPANS_USAGE = "estimated_indexed_spans_usage".freeze
     ESTIMATED_INGESTED_SPANS_USAGE = "estimated_ingested_spans_usage".freeze
     FARGATE_USAGE = "fargate_usage".freeze

@@ -24,12 +24,6 @@
       }
     end
 
-    # Returns all the JSON keys this model knows about{# TODO add parent #}
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
-    end
-
     # Attribute type mapping.
     # @!visibility private
     def self.openapi_types
@@ -54,6 +48,9 @@
     # @param attributes [Hash] Model attributes in the form of hash
     # @!visibility private
     def initialize(attributes = {})
+      {%- if model.deprecated %}
+      warn "[DEPRECATION] `{{ name }}` is deprecated."
+      {%- endif %}
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `{{ module_name }}::{{ version|upper }}::{{ name }}` initialize method"
       end
@@ -85,10 +82,6 @@
         {%- else %}
         self.{{ attr|attribute_name }} = attributes[:'{{ attr|attribute_name }}']
         {%- endif %}
-{%- if "default" in definition and definition.default != None %}
-      else
-        self.{{ attr|attribute_name }} = {{ definition.default|format_value }}
-{%- endif %}
       end
 {%- endfor %}
     end
@@ -234,13 +227,6 @@
 {%- if model.get("additionalProperties") %}
           additional_properties == o.additional_properties
 {%- endif %}
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
     end
 
     # Calculates hash code according to all attributes.

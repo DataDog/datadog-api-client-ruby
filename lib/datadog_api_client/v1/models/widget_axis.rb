@@ -52,12 +52,6 @@ module DatadogAPIClient::V1
       }
     end
 
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
-    end
-
     # Attribute type mapping.
     # @!visibility private
     def self.openapi_types
@@ -103,20 +97,14 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'max')
         self.max = attributes[:'max']
-      else
-        self.max = 'auto'
       end
 
       if attributes.key?(:'min')
         self.min = attributes[:'min']
-      else
-        self.min = 'auto'
       end
 
       if attributes.key?(:'scale')
         self.scale = attributes[:'scale']
-      else
-        self.scale = 'linear'
       end
     end
 
@@ -138,13 +126,6 @@ module DatadogAPIClient::V1
           max == o.max &&
           min == o.min &&
           scale == o.scale
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
     end
 
     # Calculates hash code according to all attributes.

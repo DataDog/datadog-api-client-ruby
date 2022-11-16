@@ -73,12 +73,6 @@ module DatadogAPIClient::V1
       }
     end
 
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
-    end
-
     # Attribute type mapping.
     # @!visibility private
     def self.openapi_types
@@ -129,8 +123,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'saml_autocreate_access_role')
         self.saml_autocreate_access_role = attributes[:'saml_autocreate_access_role']
-      else
-        self.saml_autocreate_access_role = 'st'
       end
 
       if attributes.key?(:'saml_autocreate_users_domains')
@@ -185,13 +177,6 @@ module DatadogAPIClient::V1
           saml_idp_metadata_uploaded == o.saml_idp_metadata_uploaded &&
           saml_login_url == o.saml_login_url &&
           saml_strict_mode == o.saml_strict_mode
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
     end
 
     # Calculates hash code according to all attributes.

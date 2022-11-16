@@ -94,13 +94,21 @@ module DatadogAPIClient::V1
     # A Boolean indicating whether tagged users is notified on changes to this monitor.
     attr_accessor :notify_audit
 
+    # Controls what granularity a monitor alerts on. Only available for monitors with groupings.
+    # For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each
+    # new `cluster` violating the alert conditions by setting `notify_by` to `["cluster"]`. Tags mentioned
+    # in `notify_by` must be a subset of the grouping tags in the query.
+    # For example, a query grouped by `cluster` and `namespace` cannot notify on `region`.
+    # Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert.
+    attr_accessor :notify_by
+
     # A Boolean indicating whether this monitor notifies when data stops reporting.
     attr_accessor :notify_no_data
 
     # Controls how groups or monitors are treated if an evaluation does not return any data points.
     # The default option results in different behavior depending on the monitor query type.
     # For monitors using Count queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions.
-    # For monitor using any query type other than Count, for example Gauge or Rate, the monitor shows the last known status.
+    # For monitors using any query type other than Count, for example Gauge, Measure, or Rate, the monitor shows the last known status.
     # This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
     attr_accessor :on_missing_data
 
@@ -118,6 +126,9 @@ module DatadogAPIClient::V1
     # We highly recommend you set this to `false` for sparse metrics,
     # otherwise some evaluations are skipped. Default is false.
     attr_accessor :require_full_window
+
+    # Configuration options for scheduling.
+    attr_accessor :scheduling_options
 
     # Information about the downtime applied to the monitor.
     attr_accessor :silenced
@@ -156,12 +167,14 @@ module DatadogAPIClient::V1
         :'new_host_delay' => :'new_host_delay',
         :'no_data_timeframe' => :'no_data_timeframe',
         :'notify_audit' => :'notify_audit',
+        :'notify_by' => :'notify_by',
         :'notify_no_data' => :'notify_no_data',
         :'on_missing_data' => :'on_missing_data',
         :'renotify_interval' => :'renotify_interval',
         :'renotify_occurrences' => :'renotify_occurrences',
         :'renotify_statuses' => :'renotify_statuses',
         :'require_full_window' => :'require_full_window',
+        :'scheduling_options' => :'scheduling_options',
         :'silenced' => :'silenced',
         :'synthetics_check_id' => :'synthetics_check_id',
         :'threshold_windows' => :'threshold_windows',
@@ -169,12 +182,6 @@ module DatadogAPIClient::V1
         :'timeout_h' => :'timeout_h',
         :'variables' => :'variables'
       }
-    end
-
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
     end
 
     # Attribute type mapping.
@@ -196,12 +203,14 @@ module DatadogAPIClient::V1
         :'new_host_delay' => :'Integer',
         :'no_data_timeframe' => :'Integer',
         :'notify_audit' => :'Boolean',
+        :'notify_by' => :'Array<String>',
         :'notify_no_data' => :'Boolean',
         :'on_missing_data' => :'OnMissingDataOption',
         :'renotify_interval' => :'Integer',
         :'renotify_occurrences' => :'Integer',
         :'renotify_statuses' => :'Array<MonitorRenotifyStatusType>',
         :'require_full_window' => :'Boolean',
+        :'scheduling_options' => :'MonitorOptionsSchedulingOptions',
         :'silenced' => :'Hash<String, Integer>',
         :'synthetics_check_id' => :'String',
         :'threshold_windows' => :'MonitorThresholdWindowOptions',
@@ -261,8 +270,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'escalation_message')
         self.escalation_message = attributes[:'escalation_message']
-      else
-        self.escalation_message = 'none'
       end
 
       if attributes.key?(:'evaluation_delay')
@@ -279,8 +286,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'include_tags')
         self.include_tags = attributes[:'include_tags']
-      else
-        self.include_tags = true
       end
 
       if attributes.key?(:'locked')
@@ -289,14 +294,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'min_failure_duration')
         self.min_failure_duration = attributes[:'min_failure_duration']
-      else
-        self.min_failure_duration = 0
       end
 
       if attributes.key?(:'min_location_failed')
         self.min_location_failed = attributes[:'min_location_failed']
-      else
-        self.min_location_failed = 1
       end
 
       if attributes.key?(:'new_group_delay')
@@ -305,8 +306,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'new_host_delay')
         self.new_host_delay = attributes[:'new_host_delay']
-      else
-        self.new_host_delay = 300
       end
 
       if attributes.key?(:'no_data_timeframe')
@@ -315,14 +314,16 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'notify_audit')
         self.notify_audit = attributes[:'notify_audit']
-      else
-        self.notify_audit = false
+      end
+
+      if attributes.key?(:'notify_by')
+        if (value = attributes[:'notify_by']).is_a?(Array)
+          self.notify_by = value
+        end
       end
 
       if attributes.key?(:'notify_no_data')
         self.notify_no_data = attributes[:'notify_no_data']
-      else
-        self.notify_no_data = false
       end
 
       if attributes.key?(:'on_missing_data')
@@ -345,6 +346,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'require_full_window')
         self.require_full_window = attributes[:'require_full_window']
+      end
+
+      if attributes.key?(:'scheduling_options')
+        self.scheduling_options = attributes[:'scheduling_options']
       end
 
       if attributes.key?(:'silenced')
@@ -417,12 +422,14 @@ module DatadogAPIClient::V1
           new_host_delay == o.new_host_delay &&
           no_data_timeframe == o.no_data_timeframe &&
           notify_audit == o.notify_audit &&
+          notify_by == o.notify_by &&
           notify_no_data == o.notify_no_data &&
           on_missing_data == o.on_missing_data &&
           renotify_interval == o.renotify_interval &&
           renotify_occurrences == o.renotify_occurrences &&
           renotify_statuses == o.renotify_statuses &&
           require_full_window == o.require_full_window &&
+          scheduling_options == o.scheduling_options &&
           silenced == o.silenced &&
           synthetics_check_id == o.synthetics_check_id &&
           threshold_windows == o.threshold_windows &&
@@ -431,18 +438,11 @@ module DatadogAPIClient::V1
           variables == o.variables
     end
 
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
-    end
-
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation, device_ids, enable_logs_sample, escalation_message, evaluation_delay, group_retention_duration, groupby_simple_monitor, include_tags, locked, min_failure_duration, min_location_failed, new_group_delay, new_host_delay, no_data_timeframe, notify_audit, notify_no_data, on_missing_data, renotify_interval, renotify_occurrences, renotify_statuses, require_full_window, silenced, synthetics_check_id, threshold_windows, thresholds, timeout_h, variables].hash
+      [aggregation, device_ids, enable_logs_sample, escalation_message, evaluation_delay, group_retention_duration, groupby_simple_monitor, include_tags, locked, min_failure_duration, min_location_failed, new_group_delay, new_host_delay, no_data_timeframe, notify_audit, notify_by, notify_no_data, on_missing_data, renotify_interval, renotify_occurrences, renotify_statuses, require_full_window, scheduling_options, silenced, synthetics_check_id, threshold_windows, thresholds, timeout_h, variables].hash
     end
   end
 end

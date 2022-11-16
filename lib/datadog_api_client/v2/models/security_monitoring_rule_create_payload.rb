@@ -18,258 +18,46 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Create a new rule.
-  class SecurityMonitoringRuleCreatePayload
-    include BaseGenericModel
+  module SecurityMonitoringRuleCreatePayload
+    class << self
+      include BaseOneOfModel
+      include BaseOneOfModelNoDiscriminator
 
-    # Whether the object has unparsed attributes
-    # @!visibility private
-    attr_accessor :_unparsed
-
-    # Cases for generating signals.
-    attr_accessor :cases
-
-    # Additional queries to filter matched events before they are processed.
-    attr_accessor :filters
-
-    # Whether the notifications include the triggering group-by values in their title.
-    attr_accessor :has_extended_title
-
-    # Whether the rule is enabled.
-    attr_accessor :is_enabled
-
-    # Message for generated signals.
-    attr_accessor :message
-
-    # The name of the rule.
-    attr_accessor :name
-
-    # Options on rules.
-    attr_accessor :options
-
-    # Queries for selecting logs which are part of the rule.
-    attr_accessor :queries
-
-    # Tags for generated signals.
-    attr_accessor :tags
-
-    # The rule type.
-    attr_accessor :type
-
-    # Attribute mapping from ruby-style variable name to JSON key.
-    # @!visibility private
-    def self.attribute_map
-      {
-        :'cases' => :'cases',
-        :'filters' => :'filters',
-        :'has_extended_title' => :'hasExtendedTitle',
-        :'is_enabled' => :'isEnabled',
-        :'message' => :'message',
-        :'name' => :'name',
-        :'options' => :'options',
-        :'queries' => :'queries',
-        :'tags' => :'tags',
-        :'type' => :'type'
-      }
-    end
-
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
-    end
-
-    # Attribute type mapping.
-    # @!visibility private
-    def self.openapi_types
-      {
-        :'cases' => :'Array<SecurityMonitoringRuleCaseCreate>',
-        :'filters' => :'Array<SecurityMonitoringFilter>',
-        :'has_extended_title' => :'Boolean',
-        :'is_enabled' => :'Boolean',
-        :'message' => :'String',
-        :'name' => :'String',
-        :'options' => :'SecurityMonitoringRuleOptions',
-        :'queries' => :'Array<SecurityMonitoringRuleQueryCreate>',
-        :'tags' => :'Array<String>',
-        :'type' => :'SecurityMonitoringRuleTypeCreate'
-      }
-    end
-
-    # List of attributes with nullable: true
-    # @!visibility private
-    def self.openapi_nullable
-      Set.new([
-      ])
-    end
-
-    # Initializes the object
-    # @param attributes [Hash] Model attributes in the form of hash
-    # @!visibility private
-    def initialize(attributes = {})
-      if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::SecurityMonitoringRuleCreatePayload` initialize method"
+      # List of class defined in oneOf (OpenAPI v3)
+      def openapi_one_of
+        [
+          :'SecurityMonitoringStandardRuleCreatePayload',
+          :'SecurityMonitoringSignalRuleCreatePayload'
+        ]
       end
-
-      # check to see if the attribute exists and convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h|
-        if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::SecurityMonitoringRuleCreatePayload`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+      # Builds the object
+      # @param data [Mixed] Data to be matched against the list of oneOf items
+      # @return [Object] Returns the model or the data itself
+      def build(data)
+        # Go through the list of oneOf items and attempt to identify the appropriate one.
+        # Note:
+        # - We do not attempt to check whether exactly one item matches.
+        # - No advanced validation of types in some cases (e.g. "x: { type: string }" will happily match { x: 123 })
+        #   due to the way the deserialization is made in the base_object template (it just casts without verifying).
+        # - TODO: scalar values are de facto behaving as if they were nullable.
+        # - TODO: logging when debugging is set.
+        openapi_one_of.each do |klass|
+          begin
+            next if klass == :AnyType # "nullable: true"
+            typed_data = find_and_cast_into_type(klass, data)
+            next if typed_data._unparsed
+            return typed_data if typed_data
+          rescue # rescue all errors so we keep iterating even if the current item lookup raises
+          end
         end
-        h[k.to_sym] = v
-      }
 
-      if attributes.key?(:'cases')
-        if (value = attributes[:'cases']).is_a?(Array)
-          self.cases = value
+        if openapi_one_of.include?(:AnyType)
+          data
+        else
+          self._unparsed = true
+          DatadogAPIClient::UnparsedObject.new(data)
         end
       end
-
-      if attributes.key?(:'filters')
-        if (value = attributes[:'filters']).is_a?(Array)
-          self.filters = value
-        end
-      end
-
-      if attributes.key?(:'has_extended_title')
-        self.has_extended_title = attributes[:'has_extended_title']
-      end
-
-      if attributes.key?(:'is_enabled')
-        self.is_enabled = attributes[:'is_enabled']
-      end
-
-      if attributes.key?(:'message')
-        self.message = attributes[:'message']
-      end
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'options')
-        self.options = attributes[:'options']
-      end
-
-      if attributes.key?(:'queries')
-        if (value = attributes[:'queries']).is_a?(Array)
-          self.queries = value
-        end
-      end
-
-      if attributes.key?(:'tags')
-        if (value = attributes[:'tags']).is_a?(Array)
-          self.tags = value
-        end
-      end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
-      end
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    # @!visibility private
-    def valid?
-      return false if @cases.nil?
-      return false if @is_enabled.nil?
-      return false if @message.nil?
-      return false if @name.nil?
-      return false if @options.nil?
-      return false if @queries.nil?
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param cases [Object] Object to be assigned
-    # @!visibility private
-    def cases=(cases)
-      if cases.nil?
-        fail ArgumentError, 'invalid value for "cases", cases cannot be nil.'
-      end
-      @cases = cases
-    end
-
-    # Custom attribute writer method with validation
-    # @param is_enabled [Object] Object to be assigned
-    # @!visibility private
-    def is_enabled=(is_enabled)
-      if is_enabled.nil?
-        fail ArgumentError, 'invalid value for "is_enabled", is_enabled cannot be nil.'
-      end
-      @is_enabled = is_enabled
-    end
-
-    # Custom attribute writer method with validation
-    # @param message [Object] Object to be assigned
-    # @!visibility private
-    def message=(message)
-      if message.nil?
-        fail ArgumentError, 'invalid value for "message", message cannot be nil.'
-      end
-      @message = message
-    end
-
-    # Custom attribute writer method with validation
-    # @param name [Object] Object to be assigned
-    # @!visibility private
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'invalid value for "name", name cannot be nil.'
-      end
-      @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param options [Object] Object to be assigned
-    # @!visibility private
-    def options=(options)
-      if options.nil?
-        fail ArgumentError, 'invalid value for "options", options cannot be nil.'
-      end
-      @options = options
-    end
-
-    # Custom attribute writer method with validation
-    # @param queries [Object] Object to be assigned
-    # @!visibility private
-    def queries=(queries)
-      if queries.nil?
-        fail ArgumentError, 'invalid value for "queries", queries cannot be nil.'
-      end
-      @queries = queries
-    end
-
-    # Checks equality by comparing each attribute.
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          cases == o.cases &&
-          filters == o.filters &&
-          has_extended_title == o.has_extended_title &&
-          is_enabled == o.is_enabled &&
-          message == o.message &&
-          name == o.name &&
-          options == o.options &&
-          queries == o.queries &&
-          tags == o.tags &&
-          type == o.type
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
-    end
-
-    # Calculates hash code according to all attributes.
-    # @return [Integer] Hash code
-    # @!visibility private
-    def hash
-      [cases, filters, has_extended_title, is_enabled, message, name, options, queries, tags, type].hash
     end
   end
 end

@@ -31,6 +31,9 @@ module DatadogAPIClient::V2
     # The unique identifier of the role.
     attr_accessor :id
 
+    # Relationships of the role object.
+    attr_accessor :relationships
+
     # Roles type.
     attr_accessor :type
 
@@ -40,14 +43,9 @@ module DatadogAPIClient::V2
       {
         :'attributes' => :'attributes',
         :'id' => :'id',
+        :'relationships' => :'relationships',
         :'type' => :'type'
       }
-    end
-
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
     end
 
     # Attribute type mapping.
@@ -56,6 +54,7 @@ module DatadogAPIClient::V2
       {
         :'attributes' => :'RoleUpdateAttributes',
         :'id' => :'String',
+        :'relationships' => :'RoleRelationships',
         :'type' => :'RolesType'
       }
     end
@@ -91,10 +90,12 @@ module DatadogAPIClient::V2
         self.id = attributes[:'id']
       end
 
+      if attributes.key?(:'relationships')
+        self.relationships = attributes[:'relationships']
+      end
+
       if attributes.key?(:'type')
         self.type = attributes[:'type']
-      else
-        self.type = 'roles'
       end
     end
 
@@ -146,21 +147,15 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           attributes == o.attributes &&
           id == o.id &&
+          relationships == o.relationships &&
           type == o.type
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, type].hash
+      [attributes, id, relationships, type].hash
     end
   end
 end

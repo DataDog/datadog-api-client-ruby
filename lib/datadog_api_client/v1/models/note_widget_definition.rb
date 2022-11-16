@@ -72,12 +72,6 @@ module DatadogAPIClient::V1
       }
     end
 
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
-    end
-
     # Attribute type mapping.
     # @!visibility private
     def self.openapi_types
@@ -132,8 +126,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'has_padding')
         self.has_padding = attributes[:'has_padding']
-      else
-        self.has_padding = true
       end
 
       if attributes.key?(:'show_tick')
@@ -154,8 +146,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
-      else
-        self.type = 'note'
       end
 
       if attributes.key?(:'vertical_align')
@@ -208,13 +198,6 @@ module DatadogAPIClient::V1
           tick_pos == o.tick_pos &&
           type == o.type &&
           vertical_align == o.vertical_align
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
     end
 
     # Calculates hash code according to all attributes.

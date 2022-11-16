@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Thu, 12 May 2022 09:53:08 GMT
+- recorded_at: Wed, 19 Oct 2022 13:36:34 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"cases":[{"name":"","notifications":[],"status":"info"}],"filters":[],"hasExtendedTitle":true,"isEnabled":true,"message":"test","name":"Test-Create_a_detection_rule_with_type_impossible_travel_returns_OK_response-1652349188","options":{"detectionMethod":"impossible_travel","evaluationWindow":900,"impossibleTravelOptions":{"baselineUserLocations":false},"keepAlive":3600,"maxSignalDuration":86400},"queries":[{"aggregation":"geo_data","distinctFields":[],"groupByFields":["@usr.id"],"metric":"@network.client.geoip","query":"*"}],"tags":[],"type":"log_detection"}'
+      string: '{"cases":[{"name":"","notifications":[],"status":"info"}],"filters":[],"hasExtendedTitle":true,"isEnabled":true,"message":"test","name":"Test-Create_a_detection_rule_with_type_impossible_travel_returns_OK_response-1666186594","options":{"detectionMethod":"impossible_travel","evaluationWindow":900,"impossibleTravelOptions":{"baselineUserLocations":false},"keepAlive":3600,"maxSignalDuration":86400},"queries":[{"aggregation":"geo_data","distinctFields":[],"groupByFields":["@usr.id"],"metric":"@network.client.geoip","query":"*"}],"tags":[],"type":"log_detection"}'
     headers:
       Accept:
       - application/json
@@ -14,7 +14,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"creationAuthorId":1445416,"tags":[],"isEnabled":true,"hasExtendedTitle":true,"message":"test","options":{"impossibleTravelOptions":{"baselineUserLocations":false},"detectionMethod":"impossible_travel","evaluationWindow":900,"maxSignalDuration":86400,"keepAlive":3600},"version":1,"createdAt":1652349188680,"filters":[],"queries":[{"distinctFields":[],"name":"","metric":"@network.client.geoip","aggregation":"geo_data","groupByFields":["@usr.id"],"query":"*"}],"isDeleted":false,"cases":[{"status":"info","notifications":[],"name":""}],"type":"log_detection","id":"gnq-slf-npc","isDefault":false,"name":"Test-Create_a_detection_rule_with_type_impossible_travel_returns_OK_response-1652349188"}
+      string: '{"creationAuthorId":1445416,"tags":[],"isEnabled":true,"hasExtendedTitle":true,"message":"test","options":{"impossibleTravelOptions":{"baselineUserLocations":false},"detectionMethod":"impossible_travel","evaluationWindow":900,"maxSignalDuration":86400,"keepAlive":3600},"version":1,"createdAt":1666186594819,"filters":[],"queries":[{"distinctFields":[],"name":"","metric":"@network.client.geoip","aggregation":"geo_data","metrics":["@network.client.geoip"],"groupByFields":["@usr.id"],"query":"*"}],"isDeleted":false,"cases":[{"status":"info","notifications":[],"name":""}],"type":"log_detection","id":"hrr-a7c-wzl","isDefault":false,"name":"Test-Create_a_detection_rule_with_type_impossible_travel_returns_OK_response-1666186594"}
 
         '
     headers:
@@ -23,14 +23,14 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Thu, 12 May 2022 09:53:08 GMT
+- recorded_at: Wed, 19 Oct 2022 13:36:34 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/security_monitoring/rules/gnq-slf-npc
+    uri: https://api.datadoghq.com/api/v2/security_monitoring/rules/hrr-a7c-wzl
   response:
     body:
       encoding: UTF-8

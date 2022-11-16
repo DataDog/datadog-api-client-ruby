@@ -23,6 +23,16 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
             target: 200,
           }),
         ],
+        extracted_values: [
+          DatadogAPIClient::V1::SyntheticsParsingOptions.new({
+            field: "server",
+            name: "EXTRACTED_VALUE",
+            parser: DatadogAPIClient::V1::SyntheticsVariableParser.new({
+              type: DatadogAPIClient::V1::SyntheticsGlobalVariableParserType::RAW,
+            }),
+            type: DatadogAPIClient::V1::SyntheticsGlobalVariableParseTestOptionsType::HTTP_HEADER,
+          }),
+        ],
         is_critical: true,
         name: "request is sent",
         request: DatadogAPIClient::V1::SyntheticsTestRequest.new({

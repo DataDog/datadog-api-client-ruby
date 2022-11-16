@@ -43,6 +43,9 @@ module DatadogAPIClient::V1
     # Shows usage aggregation for a billing period.
     attr_accessor :ratio_in_month
 
+    # The region of the organization.
+    attr_accessor :region
+
     # Shows the first date of usage.
     attr_accessor :start_date
 
@@ -59,15 +62,10 @@ module DatadogAPIClient::V1
         :'org_name' => :'org_name',
         :'public_id' => :'public_id',
         :'ratio_in_month' => :'ratio_in_month',
+        :'region' => :'region',
         :'start_date' => :'start_date',
         :'usage' => :'usage'
       }
-    end
-
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
     end
 
     # Attribute type mapping.
@@ -80,6 +78,7 @@ module DatadogAPIClient::V1
         :'org_name' => :'String',
         :'public_id' => :'String',
         :'ratio_in_month' => :'Float',
+        :'region' => :'String',
         :'start_date' => :'Time',
         :'usage' => :'UsageBillableSummaryKeys'
       }
@@ -132,6 +131,10 @@ module DatadogAPIClient::V1
         self.ratio_in_month = attributes[:'ratio_in_month']
       end
 
+      if attributes.key?(:'region')
+        self.region = attributes[:'region']
+      end
+
       if attributes.key?(:'start_date')
         self.start_date = attributes[:'start_date']
       end
@@ -160,22 +163,16 @@ module DatadogAPIClient::V1
           org_name == o.org_name &&
           public_id == o.public_id &&
           ratio_in_month == o.ratio_in_month &&
+          region == o.region &&
           start_date == o.start_date &&
           usage == o.usage
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [billing_plan, end_date, num_orgs, org_name, public_id, ratio_in_month, start_date, usage].hash
+      [billing_plan, end_date, num_orgs, org_name, public_id, ratio_in_month, region, start_date, usage].hash
     end
   end
 end

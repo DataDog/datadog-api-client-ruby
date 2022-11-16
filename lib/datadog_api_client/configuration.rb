@@ -136,6 +136,19 @@ module DatadogAPIClient
     # Set this to add accept encoding header for compression
     attr_accessor :compress
 
+    ### Proxy settings
+    # Address of proxy server to use
+    attr_accessor :http_proxyaddr
+
+    # Port of proxy server to use
+    attr_accessor :http_proxyport
+
+    # User for proxy server authentication
+    attr_accessor :http_proxyuser
+
+    # Password for proxy server authentication
+    attr_accessor :http_proxypass
+
     def initialize
       @scheme = 'https'
       @host = 'api.datadoghq.com'
@@ -156,17 +169,22 @@ module DatadogAPIClient
       @inject_format = false
       @force_ending_format = false
       @compress = true
+      @http_proxyaddr = nil
+      @http_proxyport = nil
+      @http_proxyuser = nil
+      @http_proxypass = nil
       @logger = defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
       @unstable_operations = {
-            "v1.get_slo_history": false,
             "v1.search_slo": false,
             "v2.list_events": false,
             "v2.search_events": false,
             "v2.create_incident": false,
             "v2.delete_incident": false,
             "v2.get_incident": false,
+            "v2.list_incident_attachments": false,
             "v2.list_incidents": false,
             "v2.update_incident": false,
+            "v2.update_incident_attachments": false,
             "v2.create_incident_service": false,
             "v2.delete_incident_service": false,
             "v2.get_incident_service": false,
@@ -177,7 +195,6 @@ module DatadogAPIClient
             "v2.get_incident_team": false,
             "v2.list_incident_teams": false,
             "v2.update_incident_team": false,
-            "v2.get_estimated_cost_by_org": false,
       }
       @server_variables[:site] = ENV['DD_SITE'] if ENV.key? 'DD_SITE'
       @api_key['apiKeyAuth'] = ENV['DD_API_KEY'] if ENV.key? 'DD_API_KEY'
@@ -377,6 +394,7 @@ module DatadogAPIClient
                 default_value: "datadoghq.com",
                 enum_values: [
                   "datadoghq.com",
+                  "datadoghq.eu",
                   "us3.datadoghq.com",
                   "us5.datadoghq.com",
                   "ddog-gov.com"

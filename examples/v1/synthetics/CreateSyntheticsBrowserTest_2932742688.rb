@@ -17,6 +17,9 @@ body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({
     request: DatadogAPIClient::V1::SyntheticsTestRequest.new({
       method: DatadogAPIClient::V1::HTTPMethod::GET,
       url: "https://datadoghq.com",
+      certificate_domains: [
+        "https://datadoghq.com",
+      ],
     }),
     set_cookie: "name:test",
   }),
@@ -49,6 +52,9 @@ body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({
     ci: DatadogAPIClient::V1::SyntheticsTestCiOptions.new({
       execution_rule: DatadogAPIClient::V1::SyntheticsTestExecutionRule::SKIPPED,
     }),
+    ignore_server_certificate_error: true,
+    disable_csp: true,
+    initial_navigation_timeout: 200,
   }),
   tags: [
     "testing:browser",

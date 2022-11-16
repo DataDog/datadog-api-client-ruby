@@ -18,6 +18,8 @@ require 'time'
 
 module DatadogAPIClient::V1
   # A JSON array of billing type.
+  #
+  # @deprecated This model is deprecated.
   class OrganizationBilling
     include BaseGenericModel
 
@@ -34,12 +36,6 @@ module DatadogAPIClient::V1
       {
         :'type' => :'type'
       }
-    end
-
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
     end
 
     # Attribute type mapping.
@@ -61,6 +57,7 @@ module DatadogAPIClient::V1
     # @param attributes [Hash] Model attributes in the form of hash
     # @!visibility private
     def initialize(attributes = {})
+      warn "[DEPRECATION] `OrganizationBilling` is deprecated."
       if (!attributes.is_a?(Hash))
         fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::OrganizationBilling` initialize method"
       end
@@ -92,13 +89,6 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           type == o.type
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
     end
 
     # Calculates hash code according to all attributes.

@@ -50,7 +50,7 @@ module DatadogAPIClient::V1
     # Synthetic test.
     attr_accessor :status
 
-    # The steps of the test.
+    # Array of steps for the test.
     attr_accessor :steps
 
     # Array of tags attached to the test.
@@ -75,12 +75,6 @@ module DatadogAPIClient::V1
         :'tags' => :'tags',
         :'type' => :'type'
       }
-    end
-
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
     end
 
     # Attribute type mapping.
@@ -172,8 +166,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
-      else
-        self.type = 'browser'
       end
     end
 
@@ -267,13 +259,6 @@ module DatadogAPIClient::V1
           steps == o.steps &&
           tags == o.tags &&
           type == o.type
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
     end
 
     # Calculates hash code according to all attributes.

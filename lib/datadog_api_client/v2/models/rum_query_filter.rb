@@ -25,13 +25,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The minimum time for the requested events; supports date, math, and regular timestamps (in milliseconds).
+    # The minimum time for the requested events; supports date (in [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format with full date, hours, minutes, and the `Z` UTC indicator - seconds and fractional seconds are optional), math, and regular timestamps (in milliseconds).
     attr_accessor :from
 
     # The search query following the RUM search syntax.
     attr_accessor :query
 
-    # The maximum time for the requested events; supports date, math, and regular timestamps (in milliseconds).
+    # The maximum time for the requested events; supports date (in [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format with full date, hours, minutes, and the `Z` UTC indicator - seconds and fractional seconds are optional), math, and regular timestamps (in milliseconds).
     attr_accessor :to
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -42,12 +42,6 @@ module DatadogAPIClient::V2
         :'query' => :'query',
         :'to' => :'to'
       }
-    end
-
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
     end
 
     # Attribute type mapping.
@@ -85,20 +79,14 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'from')
         self.from = attributes[:'from']
-      else
-        self.from = 'now-15m'
       end
 
       if attributes.key?(:'query')
         self.query = attributes[:'query']
-      else
-        self.query = '*'
       end
 
       if attributes.key?(:'to')
         self.to = attributes[:'to']
-      else
-        self.to = 'now'
       end
     end
 
@@ -118,13 +106,6 @@ module DatadogAPIClient::V2
           from == o.from &&
           query == o.query &&
           to == o.to
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
     end
 
     # Calculates hash code according to all attributes.

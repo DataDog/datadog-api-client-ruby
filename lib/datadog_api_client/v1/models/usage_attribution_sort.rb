@@ -45,9 +45,15 @@ module DatadogAPIClient::V1
     LAMBDA_INVOCATIONS_PERCENTAGE = "lambda_invocations_percentage".freeze
     ESTIMATED_INDEXED_LOGS_USAGE = "estimated_indexed_logs_usage".freeze
     ESTIMATED_INDEXED_LOGS_PERCENTAGE = "estimated_indexed_logs_percentage".freeze
+    ESTIMATED_INGESTED_LOGS_USAGE = "estimated_ingested_logs_usage".freeze
+    ESTIMATED_INGESTED_LOGS_PERCENTAGE = "estimated_ingested_logs_percentage".freeze
     ESTIMATED_INDEXED_SPANS_USAGE = "estimated_indexed_spans_usage".freeze
     ESTIMATED_INDEXED_SPANS_PERCENTAGE = "estimated_indexed_spans_percentage".freeze
     ESTIMATED_INGESTED_SPANS_USAGE = "estimated_ingested_spans_usage".freeze
     ESTIMATED_INGESTED_SPANS_PERCENTAGE = "estimated_ingested_spans_percentage".freeze
+    APM_FARGATE_USAGE = "apm_fargate_usage".freeze
+    APM_FARGATE_PERCENTAGE = "apm_fargate_percentage".freeze
+    APPSEC_FARGATE_USAGE = "appsec_fargate_usage".freeze
+    APPSEC_FARGATE_PERCENTAGE = "appsec_fargate_percentage".freeze
   end
 end

@@ -1,0 +1,22 @@
+http_interactions:
+- recorded_at: Thu, 01 Sep 2022 11:59:10 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/metrics?filter%5Btags%5D=TestGetalistofmetricswithatagfilterreturnsSuccessresponse1662033550
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":[]}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0

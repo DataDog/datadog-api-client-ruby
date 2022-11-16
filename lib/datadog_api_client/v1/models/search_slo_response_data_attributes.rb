@@ -29,21 +29,15 @@ module DatadogAPIClient::V1
     attr_accessor :facets
 
     # SLOs
-    attr_accessor :slo
+    attr_accessor :slos
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
         :'facets' => :'facets',
-        :'slo' => :'slo'
+        :'slos' => :'slos'
       }
-    end
-
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
     end
 
     # Attribute type mapping.
@@ -51,7 +45,7 @@ module DatadogAPIClient::V1
     def self.openapi_types
       {
         :'facets' => :'SearchSLOResponseDataAttributesFacets',
-        :'slo' => :'Array<ServiceLevelObjective>'
+        :'slos' => :'Array<SearchServiceLevelObjective>'
       }
     end
 
@@ -82,9 +76,9 @@ module DatadogAPIClient::V1
         self.facets = attributes[:'facets']
       end
 
-      if attributes.key?(:'slo')
-        if (value = attributes[:'slo']).is_a?(Array)
-          self.slo = value
+      if attributes.key?(:'slos')
+        if (value = attributes[:'slos']).is_a?(Array)
+          self.slos = value
         end
       end
     end
@@ -103,21 +97,14 @@ module DatadogAPIClient::V1
       return true if self.equal?(o)
       self.class == o.class &&
           facets == o.facets &&
-          slo == o.slo
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
+          slos == o.slos
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [facets, slo].hash
+      [facets, slos].hash
     end
   end
 end

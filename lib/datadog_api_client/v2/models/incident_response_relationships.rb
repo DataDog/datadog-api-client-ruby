@@ -25,6 +25,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
+    # A relationship reference for attachments.
+    attr_accessor :attachments
+
     # Relationship to user.
     attr_accessor :commander_user
 
@@ -37,36 +40,27 @@ module DatadogAPIClient::V2
     # Relationship to user.
     attr_accessor :last_modified_by_user
 
-    # A relationship reference for postmortems.
-    attr_accessor :postmortem
-
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
+        :'attachments' => :'attachments',
         :'commander_user' => :'commander_user',
         :'created_by_user' => :'created_by_user',
         :'integrations' => :'integrations',
-        :'last_modified_by_user' => :'last_modified_by_user',
-        :'postmortem' => :'postmortem'
+        :'last_modified_by_user' => :'last_modified_by_user'
       }
-    end
-
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
     end
 
     # Attribute type mapping.
     # @!visibility private
     def self.openapi_types
       {
+        :'attachments' => :'RelationshipToIncidentAttachment',
         :'commander_user' => :'NullableRelationshipToUser',
         :'created_by_user' => :'RelationshipToUser',
         :'integrations' => :'RelationshipToIncidentIntegrationMetadatas',
-        :'last_modified_by_user' => :'RelationshipToUser',
-        :'postmortem' => :'RelationshipToIncidentPostmortem'
+        :'last_modified_by_user' => :'RelationshipToUser'
       }
     end
 
@@ -93,6 +87,10 @@ module DatadogAPIClient::V2
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'attachments')
+        self.attachments = attributes[:'attachments']
+      end
+
       if attributes.key?(:'commander_user')
         self.commander_user = attributes[:'commander_user']
       end
@@ -107,10 +105,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'last_modified_by_user')
         self.last_modified_by_user = attributes[:'last_modified_by_user']
-      end
-
-      if attributes.key?(:'postmortem')
-        self.postmortem = attributes[:'postmortem']
       end
     end
 
@@ -127,25 +121,18 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          attachments == o.attachments &&
           commander_user == o.commander_user &&
           created_by_user == o.created_by_user &&
           integrations == o.integrations &&
-          last_modified_by_user == o.last_modified_by_user &&
-          postmortem == o.postmortem
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
+          last_modified_by_user == o.last_modified_by_user
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [commander_user, created_by_user, integrations, last_modified_by_user, postmortem].hash
+      [attachments, commander_user, created_by_user, integrations, last_modified_by_user].hash
     end
   end
 end

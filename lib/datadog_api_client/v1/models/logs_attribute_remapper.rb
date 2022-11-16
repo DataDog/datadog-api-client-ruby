@@ -76,12 +76,6 @@ module DatadogAPIClient::V1
       }
     end
 
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
-    end
-
     # Attribute type mapping.
     # @!visibility private
     def self.openapi_types
@@ -124,8 +118,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'is_enabled')
         self.is_enabled = attributes[:'is_enabled']
-      else
-        self.is_enabled = false
       end
 
       if attributes.key?(:'name')
@@ -134,20 +126,14 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'override_on_conflict')
         self.override_on_conflict = attributes[:'override_on_conflict']
-      else
-        self.override_on_conflict = false
       end
 
       if attributes.key?(:'preserve_source')
         self.preserve_source = attributes[:'preserve_source']
-      else
-        self.preserve_source = false
       end
 
       if attributes.key?(:'source_type')
         self.source_type = attributes[:'source_type']
-      else
-        self.source_type = 'attribute'
       end
 
       if attributes.key?(:'sources')
@@ -166,14 +152,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'target_type')
         self.target_type = attributes[:'target_type']
-      else
-        self.target_type = 'attribute'
       end
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
-      else
-        self.type = 'attribute-remapper'
       end
     end
 
@@ -233,13 +215,6 @@ module DatadogAPIClient::V1
           target_format == o.target_format &&
           target_type == o.target_type &&
           type == o.type
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
     end
 
     # Calculates hash code according to all attributes.

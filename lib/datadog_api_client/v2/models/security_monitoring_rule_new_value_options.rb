@@ -49,12 +49,6 @@ module DatadogAPIClient::V2
       }
     end
 
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
-    end
-
     # Attribute type mapping.
     # @!visibility private
     def self.openapi_types
@@ -95,20 +89,14 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'learning_duration')
         self.learning_duration = attributes[:'learning_duration']
-      else
-        self.learning_duration = 0
       end
 
       if attributes.key?(:'learning_method')
         self.learning_method = attributes[:'learning_method']
-      else
-        self.learning_method = 'duration'
       end
 
       if attributes.key?(:'learning_threshold')
         self.learning_threshold = attributes[:'learning_threshold']
-      else
-        self.learning_threshold = 0
       end
     end
 
@@ -129,13 +117,6 @@ module DatadogAPIClient::V2
           learning_duration == o.learning_duration &&
           learning_method == o.learning_method &&
           learning_threshold == o.learning_threshold
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
     end
 
     # Calculates hash code according to all attributes.

@@ -34,6 +34,9 @@ module DatadogAPIClient::V2
     # The search query - following the log search syntax.
     attr_accessor :query
 
+    # Specifies storage type as indexes or online-archives
+    attr_accessor :storage_tier
+
     # The maximum time for the requested logs, supports date math and regular timestamps (milliseconds).
     attr_accessor :to
 
@@ -44,14 +47,9 @@ module DatadogAPIClient::V2
         :'from' => :'from',
         :'indexes' => :'indexes',
         :'query' => :'query',
+        :'storage_tier' => :'storage_tier',
         :'to' => :'to'
       }
-    end
-
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
     end
 
     # Attribute type mapping.
@@ -61,6 +59,7 @@ module DatadogAPIClient::V2
         :'from' => :'String',
         :'indexes' => :'Array<String>',
         :'query' => :'String',
+        :'storage_tier' => :'LogsStorageTier',
         :'to' => :'String'
       }
     end
@@ -90,28 +89,24 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'from')
         self.from = attributes[:'from']
-      else
-        self.from = 'now-15m'
       end
 
       if attributes.key?(:'indexes')
         if (value = attributes[:'indexes']).is_a?(Array)
           self.indexes = value
         end
-      else
-        self.indexes = ['*']
       end
 
       if attributes.key?(:'query')
         self.query = attributes[:'query']
-      else
-        self.query = '*'
+      end
+
+      if attributes.key?(:'storage_tier')
+        self.storage_tier = attributes[:'storage_tier']
       end
 
       if attributes.key?(:'to')
         self.to = attributes[:'to']
-      else
-        self.to = 'now'
       end
     end
 
@@ -131,21 +126,15 @@ module DatadogAPIClient::V2
           from == o.from &&
           indexes == o.indexes &&
           query == o.query &&
+          storage_tier == o.storage_tier &&
           to == o.to
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [from, indexes, query, to].hash
+      [from, indexes, query, storage_tier, to].hash
     end
   end
 end

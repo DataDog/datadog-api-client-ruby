@@ -1,5 +1,93 @@
 # CHANGELOG
 
+## 2.4.0 / 2022-11-16
+
+### Fixed
+* Fix service catalog schema change by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1130
+### Added
+* Add support for CI Visibility API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1109
+* Add support for querying logs in Online Archives by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1100
+* Add new SDS fields to usage API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1110
+* Remove Beta status for SLO history endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1113
+* Update formula and function monitor enum datasource by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1118
+* Add scheduling_options to monitor definition by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1119
+* Appsec Fargate Public Documentation by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1121
+* Adds noScreenshot to SyntheticsStep by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1123
+* Add support for xpath assertions in synthetics tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1104
+* Add bodyType to Synthetics request by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1127
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-ruby/compare/v2.3.0...v2.4.0
+
+## 2.3.0 / 2022-10-24
+
+### Fixed
+* Add Default Rule ID in SignalRuleResponseQuery by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1096
+* Remove incident's resolved attribute from update requests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1098
+* Fix event monitor created_at by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1099
+* Fix spectral rules by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1102
+### Added
+* Add notify_by monitor option by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1089
+* Add support for service definitions APIs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1103
+* Add support for confluent cloud integration by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1046
+### Changed
+* Validate models in BDD and cleanup serialization/deserialization of models by @skarimo in https://github.com/DataDog/datadog-api-client-ruby/pull/1045
+### Deprecated
+* Deprecate metric field of Security Monitoring Rules by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1107
+* Add deprecation warnings to API and models by @therve in https://github.com/DataDog/datadog-api-client-ruby/pull/1111
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-ruby/compare/v2.2.0...v2.3.0
+
+## 2.2.0 / 2022-10-03
+
+### Fixed
+* Refactor RuleQuery models by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1082
+* Fix SearchSLO response structure by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1084
+### Added
+* Add ListActiveConfigurations endpoint and add new filter[queried] param to list tag configurations endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1017
+* Add doesNotExist to synthetics operator enum by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1059
+* Add TopologyMapWidget to dashboard schema by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1063
+* Add Overall Status support to SLO Search API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1065
+* Add support for proxy usage by @skarimo in https://github.com/DataDog/datadog-api-client-ruby/pull/1069
+* Add APM Fargate to Usage Metering API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1058
+* Add support for template variable multiselect in dashboards by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1068
+* Add storage option to widget query definitions by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1072
+* Add support for retrieving a security signal by ID by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1077
+* Add support for signal correlation API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1073
+* Add support for SLO List widget by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1076
+* Add new historical_cost endpoint, and update estimate_cost by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1071
+* Add support for incident attachment APIs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1083
+
+## New Contributors
+* @nkzou made their first contribution in https://github.com/DataDog/datadog-api-client-ruby/pull/1057
+* @dependabot made their first contribution in https://github.com/DataDog/datadog-api-client-ruby/pull/1091
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-ruby/compare/v2.1.0...v2.2.0
+
+## 2.1.0 / 2022-08-31
+
+### Added
+* Add support for digest auth in synthetics tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1021
+* Add support for RUM application endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1022
+* add priority parameters for dashboard monitor summary widget by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1026
+* Add `logs_pattern_stream` to `list_stream` widget source by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1028
+* Add group_retention_duration and on_missing_data monitor options by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1024
+* Expose CSPM aws host count in Usage Metering API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1041
+* Add estimated ingested logs attribution by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1005
+* Add org region to usage summary and billable usage summary by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1034
+* add compression methods to metric payloads by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1001
+* Add role relationships to RoleUpdateData by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1038
+* Add `ci_tests` enum to FormulaAndFunctionEventsDataSource by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1035
+* Add missing options and request option to synthetics test by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1027
+* Add support for global variable from multistep synthetics tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/993
+### Changed
+* update deprecated usage attribution API docs to direct users to migra… by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1029
+* [Synthetics] remove started form eventType enum by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1031
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-ruby/compare/v2.0.2...v2.1.0
+
 ## 2.0.2 / 2022-08-03
 
 ### Fixed

@@ -34,8 +34,14 @@ module DatadogAPIClient::V1
     # Body to include in the test.
     attr_accessor :body
 
+    # Type of the request body.
+    attr_accessor :body_type
+
     # Client certificate to use when performing the test request.
     attr_accessor :certificate
+
+    # By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificateDomains`.
+    attr_accessor :certificate_domains
 
     # DNS server to use for DNS tests.
     attr_accessor :dns_server
@@ -100,7 +106,9 @@ module DatadogAPIClient::V1
         :'allow_insecure' => :'allow_insecure',
         :'basic_auth' => :'basicAuth',
         :'body' => :'body',
+        :'body_type' => :'bodyType',
         :'certificate' => :'certificate',
+        :'certificate_domains' => :'certificateDomains',
         :'dns_server' => :'dnsServer',
         :'dns_server_port' => :'dnsServerPort',
         :'follow_redirects' => :'follow_redirects',
@@ -122,12 +130,6 @@ module DatadogAPIClient::V1
       }
     end
 
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
-    end
-
     # Attribute type mapping.
     # @!visibility private
     def self.openapi_types
@@ -135,7 +137,9 @@ module DatadogAPIClient::V1
         :'allow_insecure' => :'Boolean',
         :'basic_auth' => :'SyntheticsBasicAuth',
         :'body' => :'String',
+        :'body_type' => :'SyntheticsTestRequestBodyType',
         :'certificate' => :'SyntheticsTestRequestCertificate',
+        :'certificate_domains' => :'Array<String>',
         :'dns_server' => :'String',
         :'dns_server_port' => :'Integer',
         :'follow_redirects' => :'Boolean',
@@ -192,8 +196,18 @@ module DatadogAPIClient::V1
         self.body = attributes[:'body']
       end
 
+      if attributes.key?(:'body_type')
+        self.body_type = attributes[:'body_type']
+      end
+
       if attributes.key?(:'certificate')
         self.certificate = attributes[:'certificate']
+      end
+
+      if attributes.key?(:'certificate_domains')
+        if (value = attributes[:'certificate_domains']).is_a?(Array)
+          self.certificate_domains = value
+        end
       end
 
       if attributes.key?(:'dns_server')
@@ -315,7 +329,9 @@ module DatadogAPIClient::V1
           allow_insecure == o.allow_insecure &&
           basic_auth == o.basic_auth &&
           body == o.body &&
+          body_type == o.body_type &&
           certificate == o.certificate &&
+          certificate_domains == o.certificate_domains &&
           dns_server == o.dns_server &&
           dns_server_port == o.dns_server_port &&
           follow_redirects == o.follow_redirects &&
@@ -336,18 +352,11 @@ module DatadogAPIClient::V1
           url == o.url
     end
 
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
-    end
-
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_insecure, basic_auth, body, certificate, dns_server, dns_server_port, follow_redirects, headers, host, message, metadata, method, no_saving_response_body, number_of_packets, port, proxy, query, servername, service, should_track_hops, timeout, url].hash
+      [allow_insecure, basic_auth, body, body_type, certificate, certificate_domains, dns_server, dns_server_port, follow_redirects, headers, host, message, metadata, method, no_saving_response_body, number_of_packets, port, proxy, query, servername, service, should_track_hops, timeout, url].hash
     end
   end
 end

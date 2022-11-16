@@ -61,12 +61,6 @@ module DatadogAPIClient::V2
       }
     end
 
-    # Returns all the JSON keys this model knows about
-    # @!visibility private
-    def self.acceptable_attributes
-      attribute_map.values
-    end
-
     # Attribute type mapping.
     # @!visibility private
     def self.openapi_types
@@ -112,8 +106,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'include_tags')
         self.include_tags = attributes[:'include_tags']
-      else
-        self.include_tags = false
       end
 
       if attributes.key?(:'name')
@@ -181,13 +173,6 @@ module DatadogAPIClient::V2
           rehydration_max_scan_size_in_gb == o.rehydration_max_scan_size_in_gb &&
           rehydration_tags == o.rehydration_tags &&
           state == o.state
-    end
-
-    # @see the `==` method
-    # @param o [Object] Object to be compared
-    # @!visibility private
-    def eql?(o)
-      self == o
     end
 
     # Calculates hash code according to all attributes.
