@@ -82,7 +82,6 @@ jobs:
     if: github.event.pull_request.draft == false && !contains(github.event.pull_request.labels.*.name, 'ci/skip') && !contains(github.event.pull_request.head.ref, 'datadog-api-spec/test/')
     env:
       BUNDLE_WITHOUT: docs
-      DD_PROFILING_NO_EXTENSION: true
     steps:
       - uses: actions/checkout@v3
       - name: Set up Ruby ${{ matrix.ruby-version }}
@@ -99,6 +98,8 @@ jobs:
   examples:
     runs-on: ubuntu-latest
     if: github.event.pull_request.draft == false && !contains(github.event.pull_request.labels.*.name, 'ci/skip') && !contains(github.event.pull_request.head.ref, 'datadog-api-spec/test/')
+    env:
+      DD_PROFILING_NO_EXTENSION: true
     steps:
       - uses: actions/checkout@v3
       - name: Set up Ruby
