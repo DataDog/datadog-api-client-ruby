@@ -912,6 +912,26 @@ ScenariosModelMappings = {
             "dashboard_list_id" => "Integer",
             "body" => "DashboardListUpdateItemsRequest",
     },
+    "v2.GetDashboardReportConfigsList" => {
+            "dashboard_id" => "String",
+    },
+    "v2.CreateDashboardReportConfig" => {
+            "dashboard_id" => "String",
+            "body" => "DashboardReportCreateRequest",
+    },
+    "v2.DeleteDashboardReportConfig" => {
+            "dashboard_id" => "String",
+            "report_uuid" => "String",
+    },
+    "v2.GetDashboardReportConfig" => {
+            "dashboard_id" => "String",
+            "report_uuid" => "String",
+    },
+    "v2.UpdateDashboardReportConfig" => {
+            "dashboard_id" => "String",
+            "report_uuid" => "String",
+            "body" => "DashboardReportUpdateRequest",
+    },
     "v2.ListEvents" => {
             "filter_query" => "String",
             "filter_from" => "String",
