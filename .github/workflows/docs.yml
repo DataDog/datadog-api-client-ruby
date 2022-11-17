@@ -35,7 +35,7 @@ jobs:
           key: yardoc
 
       - name: Install
-        run: bundler install
+        run: gcc -v && bundler install; cat /home/runner/work/datadog-api-client-ruby/datadog-api-client-ruby/vendor/bundle/ruby/2.7.0/extensions/x86_64-linux/2.7.0/ddtrace-1.6.1/gem_make.out
 
       - name: Build documentation
         run: bundler exec rake docs
