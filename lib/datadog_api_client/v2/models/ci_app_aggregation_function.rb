@@ -33,5 +33,9 @@ module DatadogAPIClient::V2
     MAX = "max".freeze
     AVG = "avg".freeze
     MEDIAN = "median".freeze
+    LATEST = "latest".freeze
+    EARLIEST = "earliest".freeze
+    MOST_FREQUENT = "most_frequent".freeze
+    DELTA = "delta".freeze
   end
 end
