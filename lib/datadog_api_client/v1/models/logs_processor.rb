@@ -40,6 +40,7 @@ module DatadogAPIClient::V1
           :'LogsPipelineProcessor',
           :'LogsGeoIPParser',
           :'LogsLookupProcessor',
+          :'ReferenceTableLogsLookupProcessor',
           :'LogsTraceRemapper'
         ]
       end
