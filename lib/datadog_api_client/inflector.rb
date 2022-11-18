@@ -365,6 +365,7 @@ module DatadogAPIClient
           "v1.query_value_widget_definition" => "QueryValueWidgetDefinition",
           "v1.query_value_widget_definition_type" => "QueryValueWidgetDefinitionType",
           "v1.query_value_widget_request" => "QueryValueWidgetRequest",
+          "v1.reference_table_logs_lookup_processor" => "ReferenceTableLogsLookupProcessor",
           "v1.response_meta_attributes" => "ResponseMetaAttributes",
           "v1.scatterplot_dimension" => "ScatterplotDimension",
           "v1.scatter_plot_request" => "ScatterPlotRequest",
