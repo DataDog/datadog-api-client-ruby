@@ -17,30 +17,23 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The log-based metric properties that will be updated.
-  class LogsMetricUpdateAttributes
+  # The compute rule to compute the log-based metric.
+  class LogsMetricUpdateCompute
     include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The compute rule to compute the log-based metric.
-    attr_accessor :compute
-
-    # The log-based metric filter. Logs matching this filter will be aggregated in this metric.
-    attr_accessor :filter
-
-    # The rules for the group by.
-    attr_accessor :group_by
+    # Toggle to include or exclude percentile aggregations for distribution metrics.
+    # Only present when the `aggregation_type` is `distribution`.
+    attr_accessor :include_percentiles
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'compute' => :'compute',
-        :'filter' => :'filter',
-        :'group_by' => :'group_by'
+        :'include_percentiles' => :'include_percentiles'
       }
     end
 
@@ -48,9 +41,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'compute' => :'LogsMetricUpdateCompute',
-        :'filter' => :'LogsMetricFilter',
-        :'group_by' => :'Array<LogsMetricGroupBy>'
+        :'include_percentiles' => :'Boolean'
       }
     end
 
@@ -66,29 +57,19 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::LogsMetricUpdateAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::LogsMetricUpdateCompute` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::LogsMetricUpdateAttributes`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::LogsMetricUpdateCompute`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'compute')
-        self.compute = attributes[:'compute']
-      end
-
-      if attributes.key?(:'filter')
-        self.filter = attributes[:'filter']
-      end
-
-      if attributes.key?(:'group_by')
-        if (value = attributes[:'group_by']).is_a?(Array)
-          self.group_by = value
-        end
+      if attributes.key?(:'include_percentiles')
+        self.include_percentiles = attributes[:'include_percentiles']
       end
     end
 
@@ -105,16 +86,14 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          compute == o.compute &&
-          filter == o.filter &&
-          group_by == o.group_by
+          include_percentiles == o.include_percentiles
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [compute, filter, group_by].hash
+      [include_percentiles].hash
     end
   end
 end

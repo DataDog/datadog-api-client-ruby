@@ -1072,6 +1072,7 @@ module DatadogAPIClient
           "v2.logs_metrics_response" => "LogsMetricsResponse",
           "v2.logs_metric_type" => "LogsMetricType",
           "v2.logs_metric_update_attributes" => "LogsMetricUpdateAttributes",
+          "v2.logs_metric_update_compute" => "LogsMetricUpdateCompute",
           "v2.logs_metric_update_data" => "LogsMetricUpdateData",
           "v2.logs_metric_update_request" => "LogsMetricUpdateRequest",
           "v2.logs_query_filter" => "LogsQueryFilter",
