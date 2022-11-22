@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # A list of time series to submit to Datadog.
-    attr_accessor :series
+    attr_reader :series
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
