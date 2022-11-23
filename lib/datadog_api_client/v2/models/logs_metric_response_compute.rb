@@ -28,10 +28,6 @@ module DatadogAPIClient::V2
     # The type of aggregation to use.
     attr_accessor :aggregation_type
 
-    # Toggle to include or exclude percentile aggregations for distribution metrics.
-    # Only present when the `aggregation_type` is `distribution`.
-    attr_accessor :include_percentiles
-
     # The path to the value the log-based metric will aggregate on (only used if the aggregation type is a "distribution").
     attr_accessor :path
 
@@ -40,7 +36,6 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'aggregation_type' => :'aggregation_type',
-        :'include_percentiles' => :'include_percentiles',
         :'path' => :'path'
       }
     end
@@ -50,7 +45,6 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'aggregation_type' => :'LogsMetricResponseComputeAggregationType',
-        :'include_percentiles' => :'Boolean',
         :'path' => :'String'
       }
     end
@@ -82,10 +76,6 @@ module DatadogAPIClient::V2
         self.aggregation_type = attributes[:'aggregation_type']
       end
 
-      if attributes.key?(:'include_percentiles')
-        self.include_percentiles = attributes[:'include_percentiles']
-      end
-
       if attributes.key?(:'path')
         self.path = attributes[:'path']
       end
@@ -105,7 +95,6 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           aggregation_type == o.aggregation_type &&
-          include_percentiles == o.include_percentiles &&
           path == o.path
     end
 
@@ -113,7 +102,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation_type, include_percentiles, path].hash
+      [aggregation_type, path].hash
     end
   end
 end

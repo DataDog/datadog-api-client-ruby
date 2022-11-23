@@ -29,7 +29,7 @@ module DatadogAPIClient::V2
     # The time offset (in seconds) to apply to the query.
     attr_accessor :time_offset
 
-    # The timezone can be specified as GMT, UTC, an offset from UTC (like UTC+1), or as a Timezone Database identifier (like America/New_York).
+    # The timezone can be specified both as an offset, for example: "UTC+03:00".
     attr_accessor :timezone
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -69,9 +69,6 @@ module DatadogAPIClient::V1
     # (and were NOT running the Datadog Agent).
     attr_accessor :infra_azure_app_service
 
-    # Contains the total number of hosts using APM reported by Datadog exporter for the OpenTelemetry Collector.
-    attr_accessor :opentelemetry_apm_host_count
-
     # Contains the total number of hosts reported by Datadog exporter for the OpenTelemetry Collector.
     attr_accessor :opentelemetry_host_count
 
@@ -101,7 +98,6 @@ module DatadogAPIClient::V1
         :'host_count' => :'host_count',
         :'hour' => :'hour',
         :'infra_azure_app_service' => :'infra_azure_app_service',
-        :'opentelemetry_apm_host_count' => :'opentelemetry_apm_host_count',
         :'opentelemetry_host_count' => :'opentelemetry_host_count',
         :'org_name' => :'org_name',
         :'public_id' => :'public_id',
@@ -125,7 +121,6 @@ module DatadogAPIClient::V1
         :'host_count' => :'Integer',
         :'hour' => :'Time',
         :'infra_azure_app_service' => :'Integer',
-        :'opentelemetry_apm_host_count' => :'Integer',
         :'opentelemetry_host_count' => :'Integer',
         :'org_name' => :'String',
         :'public_id' => :'String',
@@ -204,10 +199,6 @@ module DatadogAPIClient::V1
         self.infra_azure_app_service = attributes[:'infra_azure_app_service']
       end
 
-      if attributes.key?(:'opentelemetry_apm_host_count')
-        self.opentelemetry_apm_host_count = attributes[:'opentelemetry_apm_host_count']
-      end
-
       if attributes.key?(:'opentelemetry_host_count')
         self.opentelemetry_host_count = attributes[:'opentelemetry_host_count']
       end
@@ -250,7 +241,6 @@ module DatadogAPIClient::V1
           host_count == o.host_count &&
           hour == o.hour &&
           infra_azure_app_service == o.infra_azure_app_service &&
-          opentelemetry_apm_host_count == o.opentelemetry_apm_host_count &&
           opentelemetry_host_count == o.opentelemetry_host_count &&
           org_name == o.org_name &&
           public_id == o.public_id &&
@@ -261,7 +251,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [agent_host_count, alibaba_host_count, apm_azure_app_service_host_count, apm_host_count, aws_host_count, azure_host_count, container_count, gcp_host_count, heroku_host_count, host_count, hour, infra_azure_app_service, opentelemetry_apm_host_count, opentelemetry_host_count, org_name, public_id, vsphere_host_count].hash
+      [agent_host_count, alibaba_host_count, apm_azure_app_service_host_count, apm_host_count, aws_host_count, azure_host_count, container_count, gcp_host_count, heroku_host_count, host_count, hour, infra_azure_app_service, opentelemetry_host_count, org_name, public_id, vsphere_host_count].hash
     end
   end
 end

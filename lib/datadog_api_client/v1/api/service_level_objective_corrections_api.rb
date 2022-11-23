@@ -233,8 +233,6 @@ module DatadogAPIClient::V1
     # Get all Service Level Objective corrections.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :offset The specific offset to use as the beginning of the returned response.
-    # @option opts [Integer] :limit The number of SLO corrections to return in the response. Default is 25.
     # @return [Array<(SLOCorrectionListResponse, Integer, Hash)>] SLOCorrectionListResponse data, response status code and response headers
     def list_slo_correction_with_http_info(opts = {})
 
@@ -246,8 +244,6 @@ module DatadogAPIClient::V1
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
-      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

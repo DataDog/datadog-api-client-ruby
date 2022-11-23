@@ -67,16 +67,6 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
         url: "https://datadoghq.com",
         headers: {},
       }),
-      basic_auth: DatadogAPIClient::V1::SyntheticsBasicAuthOauthClient.new({
-        access_token_url: "https://datadog-token.com",
-        audience: "audience",
-        client_id: "client-id",
-        client_secret: "client-secret",
-        resource: "resource",
-        scope: "yoyo",
-        token_api_authentication: DatadogAPIClient::V1::SyntheticsBasicAuthOauthTokenApiAuthentication::HEADER,
-        type: DatadogAPIClient::V1::SyntheticsBasicAuthOauthClientType::OAUTH_CLIENT,
-      }),
     }),
   }),
   locations: [

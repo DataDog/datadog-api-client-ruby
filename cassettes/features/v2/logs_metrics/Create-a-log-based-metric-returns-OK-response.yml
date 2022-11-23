@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Mon, 21 Nov 2022 15:36:05 GMT
+- recorded_at: Thu, 12 May 2022 09:52:22 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"compute":{"aggregation_type":"distribution","include_percentiles":true,"path":"@duration"}},"id":"Test-Create_a_log_based_metric_returns_OK_response-1669044965","type":"logs_metrics"}}'
+      string: '{"data":{"attributes":{"compute":{"aggregation_type":"count"}},"id":"Test-Create_a_log_based_metric_returns_OK_response-1652349142","type":"logs_metrics"}}'
     headers:
       Accept:
       - application/json
@@ -14,29 +14,25 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"filter":{"query":"*"},"group_by":[],"compute":{"path":"@duration","include_percentiles":true,"aggregation_type":"distribution"}},"type":"logs_metrics","id":"Test_Create_a_log_based_metric_returns_OK_response_1669044965"}}
-
-        '
+      string: '{"data":{"attributes":{"filter":{"query":"*"},"group_by":[],"compute":{"aggregation_type":"count"}},"type":"logs_metrics","id":"Test_Create_a_log_based_metric_returns_OK_response_1652349142"}}'
     headers:
       Content-Type:
       - application/json
     status:
       code: 200
       message: OK
-- recorded_at: Mon, 21 Nov 2022 15:36:05 GMT
+- recorded_at: Thu, 12 May 2022 09:52:22 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/logs/config/metrics/Test_Create_a_log_based_metric_returns_OK_response_1669044965
+    uri: https://api.datadoghq.com/api/v2/logs/config/metrics/Test_Create_a_log_based_metric_returns_OK_response_1652349142
   response:
     body:
       encoding: UTF-8
-      string: '{}
-
-        '
+      string: '{}'
     headers:
       Content-Type:
       - application/json

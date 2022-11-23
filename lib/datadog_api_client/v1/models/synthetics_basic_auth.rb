@@ -29,9 +29,7 @@ module DatadogAPIClient::V1
           :'SyntheticsBasicAuthWeb',
           :'SyntheticsBasicAuthSigv4',
           :'SyntheticsBasicAuthNTLM',
-          :'SyntheticsBasicAuthDigest',
-          :'SyntheticsBasicAuthOauthClient',
-          :'SyntheticsBasicAuthOauthROP'
+          :'SyntheticsBasicAuthDigest'
         ]
       end
       # Builds the object

@@ -9,9 +9,7 @@ body = DatadogAPIClient::V2::LogsMetricCreateRequest.new({
     type: DatadogAPIClient::V2::LogsMetricType::LOGS_METRICS,
     attributes: DatadogAPIClient::V2::LogsMetricCreateAttributes.new({
       compute: DatadogAPIClient::V2::LogsMetricCompute.new({
-        aggregation_type: DatadogAPIClient::V2::LogsMetricComputeAggregationType::DISTRIBUTION,
-        include_percentiles: true,
-        path: "@duration",
+        aggregation_type: DatadogAPIClient::V2::LogsMetricComputeAggregationType::COUNT,
       }),
     }),
   }),

@@ -40,9 +40,6 @@ module DatadogAPIClient::V1
     # The total number of Cloud Security Posture Management containers during a given hour.
     attr_accessor :container_count
 
-    # The number of Cloud Security Posture Management GCP hosts during a given hour.
-    attr_accessor :gcp_host_count
-
     # The total number of Cloud Security Posture Management hosts during a given hour.
     attr_accessor :host_count
 
@@ -64,7 +61,6 @@ module DatadogAPIClient::V1
         :'azure_host_count' => :'azure_host_count',
         :'compliance_host_count' => :'compliance_host_count',
         :'container_count' => :'container_count',
-        :'gcp_host_count' => :'gcp_host_count',
         :'host_count' => :'host_count',
         :'hour' => :'hour',
         :'org_name' => :'org_name',
@@ -81,7 +77,6 @@ module DatadogAPIClient::V1
         :'azure_host_count' => :'Float',
         :'compliance_host_count' => :'Float',
         :'container_count' => :'Float',
-        :'gcp_host_count' => :'Float',
         :'host_count' => :'Float',
         :'hour' => :'Time',
         :'org_name' => :'String',
@@ -98,7 +93,6 @@ module DatadogAPIClient::V1
         :'azure_host_count',
         :'compliance_host_count',
         :'container_count',
-        :'gcp_host_count',
         :'host_count',
       ])
     end
@@ -139,10 +133,6 @@ module DatadogAPIClient::V1
         self.container_count = attributes[:'container_count']
       end
 
-      if attributes.key?(:'gcp_host_count')
-        self.gcp_host_count = attributes[:'gcp_host_count']
-      end
-
       if attributes.key?(:'host_count')
         self.host_count = attributes[:'host_count']
       end
@@ -178,7 +168,6 @@ module DatadogAPIClient::V1
           azure_host_count == o.azure_host_count &&
           compliance_host_count == o.compliance_host_count &&
           container_count == o.container_count &&
-          gcp_host_count == o.gcp_host_count &&
           host_count == o.host_count &&
           hour == o.hour &&
           org_name == o.org_name &&
@@ -189,7 +178,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aas_host_count, aws_host_count, azure_host_count, compliance_host_count, container_count, gcp_host_count, host_count, hour, org_name, public_id].hash
+      [aas_host_count, aws_host_count, azure_host_count, compliance_host_count, container_count, host_count, hour, org_name, public_id].hash
     end
   end
 end

@@ -1,12 +1,12 @@
 http_interactions:
-- recorded_at: Mon, 21 Nov 2022 21:58:43 GMT
+- recorded_at: Mon, 26 Sep 2022 15:25:36 GMT
   request:
     body: null
     headers:
       Accept:
       - application/json;datetime-format=rfc3339
     method: GET
-    uri: https://api.datadoghq.com/api/v2/usage/historical_cost?start_month=2022-09-21T21%3A58%3A43.871Z&view=sub-org
+    uri: https://api.datadoghq.com/api/v2/usage/historical_cost?start_month=2022-09-26T15%3A24%3A36.139Z&view=sub-org
   response:
     body:
       encoding: UTF-8

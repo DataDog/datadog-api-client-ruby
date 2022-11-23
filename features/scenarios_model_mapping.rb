@@ -642,10 +642,6 @@ ScenariosModelMappings = {
             "target" => "Float",
             "apply_correction" => "Boolean",
     },
-    "v1.ListSLOCorrection" => {
-            "offset" => "Integer",
-            "limit" => "Integer",
-    },
     "v1.CreateSLOCorrection" => {
             "body" => "SLOCorrectionCreateRequest",
     },
