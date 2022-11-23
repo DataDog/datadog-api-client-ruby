@@ -29,7 +29,7 @@ module DatadogAPIClient::V1
     attr_accessor :attributes
 
     # SLO correction resource type.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

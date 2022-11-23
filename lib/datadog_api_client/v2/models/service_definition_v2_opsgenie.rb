@@ -29,7 +29,7 @@ module DatadogAPIClient::V2
     attr_accessor :region
 
     # Opsgenie service url.
-    attr_accessor :service_url
+    attr_reader :service_url
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

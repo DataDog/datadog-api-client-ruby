@@ -27,16 +27,16 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Count of submitted metrics.
-    attr_accessor :count
+    attr_reader :count
 
     # Query metadata.
     attr_accessor :metadata
 
     # Total sum of the query.
-    attr_accessor :sum
+    attr_reader :sum
 
     # The query values for each metric.
-    attr_accessor :values
+    attr_reader :values
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

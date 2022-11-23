@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # Cases for generating signals.
-    attr_accessor :cases
+    attr_reader :cases
 
     # Additional queries to filter matched events before they are processed.
     attr_accessor :filters
@@ -35,19 +35,19 @@ module DatadogAPIClient::V2
     attr_accessor :has_extended_title
 
     # Whether the rule is enabled.
-    attr_accessor :is_enabled
+    attr_reader :is_enabled
 
     # Message for generated signals.
-    attr_accessor :message
+    attr_reader :message
 
     # The name of the rule.
-    attr_accessor :name
+    attr_reader :name
 
     # Options on rules.
-    attr_accessor :options
+    attr_reader :options
 
     # Queries for selecting logs which are part of the rule.
-    attr_accessor :queries
+    attr_reader :queries
 
     # Tags for generated signals.
     attr_accessor :tags

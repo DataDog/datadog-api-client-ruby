@@ -32,7 +32,7 @@ module DatadogAPIClient::V1
     attr_accessor :custom_links
 
     # Widget definition.
-    attr_accessor :requests
+    attr_reader :requests
 
     # Time setting for the widget.
     attr_accessor :time
@@ -47,7 +47,7 @@ module DatadogAPIClient::V1
     attr_accessor :title_size
 
     # Type of the scatter plot widget.
-    attr_accessor :type
+    attr_reader :type
 
     # Axis controls for the widget.
     attr_accessor :xaxis

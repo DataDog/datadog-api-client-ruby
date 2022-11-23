@@ -26,10 +26,10 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # A client ID.
-    attr_accessor :client_id
+    attr_reader :client_id
 
     # A tenant ID.
-    attr_accessor :tenant_id
+    attr_reader :tenant_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

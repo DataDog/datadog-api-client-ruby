@@ -26,13 +26,13 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Access key for the `SIGV4` authentication.
-    attr_accessor :access_key
+    attr_reader :access_key
 
     # Region for the `SIGV4` authentication.
     attr_accessor :region
 
     # Secret key for the `SIGV4` authentication.
-    attr_accessor :secret_key
+    attr_reader :secret_key
 
     # Service name for the `SIGV4` authentication.
     attr_accessor :service_name
@@ -41,7 +41,7 @@ module DatadogAPIClient::V1
     attr_accessor :session_token
 
     # The type of authentication to use when performing the test.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

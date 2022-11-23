@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schema_registry`.
-    attr_accessor :resource_type
+    attr_reader :resource_type
 
     # A list of strings representing tags. Can be a single key, or key-value pairs separated by a colon.
     attr_accessor :tags

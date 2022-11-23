@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # The type of aggregation to use.
-    attr_accessor :aggregation_type
+    attr_reader :aggregation_type
 
     # Toggle to include or exclude percentile aggregations for distribution metrics.
     # Only present when the `aggregation_type` is `distribution`.

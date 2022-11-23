@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # Incident Service data from responses.
-    attr_accessor :data
+    attr_reader :data
 
     # Included objects from relationships.
     attr_accessor :included

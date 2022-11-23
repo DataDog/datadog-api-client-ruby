@@ -56,10 +56,10 @@ module DatadogAPIClient::V1
     attr_accessor :overall_state
 
     # Integer from 1 (high) to 5 (low) indicating alert severity.
-    attr_accessor :priority
+    attr_reader :priority
 
     # The monitor query.
-    attr_accessor :query
+    attr_reader :query
 
     # A list of unique role identifiers to define which roles are allowed to edit the monitor. The unique identifiers for all roles can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) and are located in the `data.id` field. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. `restricted_roles` is the successor of `locked`. For more information about `locked` and `restricted_roles`, see the [monitor options docs](https://docs.datadoghq.com/monitors/guide/monitor_api_options/#permissions-options).
     attr_accessor :restricted_roles
@@ -71,7 +71,7 @@ module DatadogAPIClient::V1
     attr_accessor :tags
 
     # The type of the monitor. For more information about `type`, see the [monitor options](https://docs.datadoghq.com/monitors/guide/monitor_api_options/) docs.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

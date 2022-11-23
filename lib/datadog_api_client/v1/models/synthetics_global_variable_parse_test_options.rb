@@ -35,7 +35,7 @@ module DatadogAPIClient::V1
     attr_accessor :parser
 
     # Property of the Synthetics Test Response to use for a Synthetics global variable.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

@@ -29,10 +29,10 @@ module DatadogAPIClient::V1
     attr_accessor :day_starts
 
     # The minute of the hour at which a one hour cumulative evaluation window starts.
-    attr_accessor :hour_starts
+    attr_reader :hour_starts
 
     # The day of the month at which a one month cumulative evaluation window starts.
-    attr_accessor :month_starts
+    attr_reader :month_starts
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

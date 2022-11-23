@@ -29,13 +29,13 @@ module DatadogAPIClient::V1
     attr_accessor :attributes
 
     # Description of the global variable.
-    attr_accessor :description
+    attr_reader :description
 
     # Unique identifier of the global variable.
     attr_accessor :id
 
     # Name of the global variable. Unique across Synthetics global variables.
-    attr_accessor :name
+    attr_reader :name
 
     # Parser options to use for retrieving a Synthetics global variable from a Synthetics Test. Used in conjunction with `parse_test_public_id`.
     attr_accessor :parse_test_options
@@ -44,10 +44,10 @@ module DatadogAPIClient::V1
     attr_accessor :parse_test_public_id
 
     # Tags of the global variable.
-    attr_accessor :tags
+    attr_reader :tags
 
     # Value of the global variable.
-    attr_accessor :value
+    attr_reader :value
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

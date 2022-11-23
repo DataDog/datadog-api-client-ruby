@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Assertion operator to apply.
-    attr_accessor :operator
+    attr_reader :operator
 
     # The associated assertion property.
     attr_accessor :property
@@ -35,7 +35,7 @@ module DatadogAPIClient::V1
     attr_accessor :target
 
     # Type of the assertion.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

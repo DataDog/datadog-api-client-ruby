@@ -26,13 +26,13 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Source from which to query items to display in the stream.
-    attr_accessor :data_source
+    attr_reader :data_source
 
     # List of indexes.
     attr_accessor :indexes
 
     # Widget query.
-    attr_accessor :query_string
+    attr_reader :query_string
 
     # Option for storage location. Feature in Private Beta.
     attr_accessor :storage

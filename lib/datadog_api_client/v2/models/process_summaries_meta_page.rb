@@ -30,7 +30,7 @@ module DatadogAPIClient::V2
     attr_accessor :after
 
     # Number of results returned.
-    attr_accessor :size
+    attr_reader :size
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

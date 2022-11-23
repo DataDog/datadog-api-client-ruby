@@ -29,7 +29,7 @@ module DatadogAPIClient::V1
     attr_accessor :billing
 
     # The name of the new child-organization, limited to 32 characters.
-    attr_accessor :name
+    attr_reader :name
 
     # Subscription definition.
     attr_accessor :subscription

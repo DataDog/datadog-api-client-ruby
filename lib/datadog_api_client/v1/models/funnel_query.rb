@@ -26,13 +26,13 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Source from which to query items to display in the funnel.
-    attr_accessor :data_source
+    attr_reader :data_source
 
     # The widget query.
-    attr_accessor :query_string
+    attr_reader :query_string
 
     # List of funnel steps.
-    attr_accessor :steps
+    attr_reader :steps
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

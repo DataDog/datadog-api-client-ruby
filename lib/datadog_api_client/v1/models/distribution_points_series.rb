@@ -29,10 +29,10 @@ module DatadogAPIClient::V1
     attr_accessor :host
 
     # The name of the distribution points metric.
-    attr_accessor :metric
+    attr_reader :metric
 
     # Points relating to the distribution point metric. All points must be tuples with timestamp and a list of values (cannot be a string). Timestamps should be in POSIX time in seconds.
-    attr_accessor :points
+    attr_reader :points
 
     # A list of tags associated with the distribution point metric.
     attr_accessor :tags

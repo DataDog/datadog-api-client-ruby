@@ -29,10 +29,10 @@ module DatadogAPIClient::V2
     attr_accessor :attributes
 
     # A text prefix to match against metric names.
-    attr_accessor :id
+    attr_reader :id
 
     # The metric bulk configure tags resource.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

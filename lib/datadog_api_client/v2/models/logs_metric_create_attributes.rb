@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # The compute rule to compute the log-based metric.
-    attr_accessor :compute
+    attr_reader :compute
 
     # The log-based metric filter. Logs matching this filter will be aggregated in this metric.
     attr_accessor :filter

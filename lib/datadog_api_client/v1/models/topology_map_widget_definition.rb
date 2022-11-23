@@ -29,7 +29,7 @@ module DatadogAPIClient::V1
     attr_accessor :custom_links
 
     # One or more Topology requests.
-    attr_accessor :requests
+    attr_reader :requests
 
     # Title of your widget.
     attr_accessor :title
@@ -41,7 +41,7 @@ module DatadogAPIClient::V1
     attr_accessor :title_size
 
     # Type of the topology map widget.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

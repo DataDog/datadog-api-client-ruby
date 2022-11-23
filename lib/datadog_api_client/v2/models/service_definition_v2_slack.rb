@@ -26,13 +26,13 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # Slack Channel.
-    attr_accessor :contact
+    attr_reader :contact
 
     # Contact Slack.
     attr_accessor :name
 
     # Contact type.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

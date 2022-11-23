@@ -32,7 +32,7 @@ module DatadogAPIClient::V1
     attr_accessor :created_by
 
     # API key.
-    attr_accessor :key
+    attr_reader :key
 
     # Name of your API key.
     attr_accessor :name

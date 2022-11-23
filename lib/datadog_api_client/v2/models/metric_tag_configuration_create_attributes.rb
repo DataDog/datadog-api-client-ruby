@@ -48,10 +48,10 @@ module DatadogAPIClient::V2
     attr_accessor :include_percentiles
 
     # The metric's type.
-    attr_accessor :metric_type
+    attr_reader :metric_type
 
     # A list of tag keys that will be queryable for your metric.
-    attr_accessor :tags
+    attr_reader :tags
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Name of the check to use in the widget.
-    attr_accessor :check
+    attr_reader :check
 
     # Group reporting a single check.
     attr_accessor :group
@@ -35,7 +35,7 @@ module DatadogAPIClient::V1
     attr_accessor :group_by
 
     # The kind of grouping to use.
-    attr_accessor :grouping
+    attr_reader :grouping
 
     # List of tags used to filter the groups reporting a cluster check.
     attr_accessor :tags
@@ -53,7 +53,7 @@ module DatadogAPIClient::V1
     attr_accessor :title_size
 
     # Type of the check status widget.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

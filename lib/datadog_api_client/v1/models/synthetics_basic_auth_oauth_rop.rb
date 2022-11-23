@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Access token URL to use when performing the authentication.
-    attr_accessor :access_token_url
+    attr_reader :access_token_url
 
     # Audience to use when performing the authentication.
     attr_accessor :audience
@@ -38,7 +38,7 @@ module DatadogAPIClient::V1
     attr_accessor :client_secret
 
     # Password to use when performing the authentication.
-    attr_accessor :password
+    attr_reader :password
 
     # Resource to use when performing the authentication.
     attr_accessor :resource
@@ -50,7 +50,7 @@ module DatadogAPIClient::V1
     attr_accessor :type
 
     # Username to use when performing the authentication.
-    attr_accessor :username
+    attr_reader :username
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

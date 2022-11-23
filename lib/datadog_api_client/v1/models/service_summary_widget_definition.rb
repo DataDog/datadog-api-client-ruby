@@ -29,10 +29,10 @@ module DatadogAPIClient::V1
     attr_accessor :display_format
 
     # APM environment.
-    attr_accessor :env
+    attr_reader :env
 
     # APM service.
-    attr_accessor :service
+    attr_reader :service
 
     # Whether to show the latency breakdown or not.
     attr_accessor :show_breakdown
@@ -56,7 +56,7 @@ module DatadogAPIClient::V1
     attr_accessor :size_format
 
     # APM span name.
-    attr_accessor :span_name
+    attr_reader :span_name
 
     # Time setting for the widget.
     attr_accessor :time
@@ -71,7 +71,7 @@ module DatadogAPIClient::V1
     attr_accessor :title_size
 
     # Type of the service summary widget.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

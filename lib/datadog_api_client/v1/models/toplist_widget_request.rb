@@ -32,7 +32,7 @@ module DatadogAPIClient::V1
     attr_accessor :audit_query
 
     # List of conditional formats.
-    attr_accessor :conditional_formats
+    attr_reader :conditional_formats
 
     # The log query.
     attr_accessor :event_query

@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # The top list visualization enables you to display a list of Tag value like hostname or service with the most or least of any metric value, such as highest consumers of CPU, hosts with the least disk space, etc.
-    attr_accessor :definition
+    attr_reader :definition
 
     # The size of the graph.
     attr_accessor :graph_size

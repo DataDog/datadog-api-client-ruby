@@ -32,7 +32,7 @@ module DatadogAPIClient::V1
     attr_accessor :cell_display_mode
 
     # Column name.
-    attr_accessor :name
+    attr_reader :name
 
     # Widget sorting methods.
     attr_accessor :order

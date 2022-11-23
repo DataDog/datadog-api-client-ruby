@@ -26,13 +26,13 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # The attributes from an Opsgenie service response.
-    attr_accessor :attributes
+    attr_reader :attributes
 
     # The ID of the Opsgenie service.
-    attr_accessor :id
+    attr_reader :id
 
     # Opsgenie service resource type.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

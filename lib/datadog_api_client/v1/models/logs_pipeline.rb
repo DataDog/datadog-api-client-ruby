@@ -42,7 +42,7 @@ module DatadogAPIClient::V1
     attr_accessor :is_read_only
 
     # Name of the pipeline.
-    attr_accessor :name
+    attr_reader :name
 
     # Ordered list of processors in this pipeline.
     attr_accessor :processors

@@ -39,7 +39,7 @@ module DatadogAPIClient::V1
     attr_accessor :exclusion_filters
 
     # Filter for logs.
-    attr_accessor :filter
+    attr_reader :filter
 
     # The number of days before logs are deleted from this index. Available values depend on
     # retention plans specified in your organization's contract/subscriptions.

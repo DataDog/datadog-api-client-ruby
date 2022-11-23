@@ -29,7 +29,7 @@ module DatadogAPIClient::V1
     attr_accessor :metadata
 
     # The public ID of the Synthetics test to trigger.
-    attr_accessor :public_id
+    attr_reader :public_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

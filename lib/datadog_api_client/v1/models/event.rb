@@ -64,7 +64,7 @@ module DatadogAPIClient::V1
     # The body of the event. Limited to 4000 characters. The text supports markdown.
     # To use markdown in the event text, start the text block with `%%% \n` and end the text block with `\n %%%`.
     # Use `msg_text` with the Datadog Ruby library.
-    attr_accessor :text
+    attr_reader :text
 
     # The event title.
     attr_accessor :title

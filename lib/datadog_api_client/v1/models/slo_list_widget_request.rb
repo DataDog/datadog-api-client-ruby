@@ -26,10 +26,10 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Updated SLO List widget.
-    attr_accessor :query
+    attr_reader :query
 
     # Widget request type.
-    attr_accessor :request_type
+    attr_reader :request_type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

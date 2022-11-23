@@ -26,10 +26,10 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # The API key associated with your Confluent account.
-    attr_accessor :api_key
+    attr_reader :api_key
 
     # The API secret associated with your Confluent account.
-    attr_accessor :api_secret
+    attr_reader :api_secret
 
     # A list of strings representing tags. Can be a single key, or key-value pairs separated by a colon.
     attr_accessor :tags

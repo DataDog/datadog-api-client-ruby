@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # Relationship to user.
-    attr_accessor :commander_user
+    attr_reader :commander_user
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

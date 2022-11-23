@@ -26,13 +26,13 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # The origin metric type code
-    attr_accessor :metric_type
+    attr_reader :metric_type
 
     # The origin product code
-    attr_accessor :product
+    attr_reader :product
 
     # The origin service code
-    attr_accessor :service
+    attr_reader :service
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Comparator to apply.
-    attr_accessor :comparator
+    attr_reader :comparator
 
     # Color palette to apply to the background, same values available as palette.
     attr_accessor :custom_bg_color
@@ -44,13 +44,13 @@ module DatadogAPIClient::V1
     attr_accessor :metric
 
     # Color palette to apply.
-    attr_accessor :palette
+    attr_reader :palette
 
     # Defines the displayed timeframe.
     attr_accessor :timeframe
 
     # Value for the comparator.
-    attr_accessor :value
+    attr_reader :value
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

@@ -32,7 +32,7 @@ module DatadogAPIClient::V2
     attr_accessor :id
 
     # The type of the resource. The value should always be archives.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

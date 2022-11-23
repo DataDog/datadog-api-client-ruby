@@ -44,7 +44,7 @@ module DatadogAPIClient::V1
     attr_accessor :monitor_ids
 
     # The name of the service level objective object.
-    attr_accessor :name
+    attr_reader :name
 
     # A metric-based SLO. **Required if type is `metric`**. Note that Datadog only allows the sum by aggregator
     # to be used because this will sum up all request counts instead of averaging them, or taking the max or
@@ -58,10 +58,10 @@ module DatadogAPIClient::V1
 
     # The thresholds (timeframes and associated targets) for this service level
     # objective object.
-    attr_accessor :thresholds
+    attr_reader :thresholds
 
     # The type of the service level objective.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

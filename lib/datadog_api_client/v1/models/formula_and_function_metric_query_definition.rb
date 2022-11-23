@@ -29,13 +29,13 @@ module DatadogAPIClient::V1
     attr_accessor :aggregator
 
     # Data source for metrics queries.
-    attr_accessor :data_source
+    attr_reader :data_source
 
     # Name of the query for use in formulas.
-    attr_accessor :name
+    attr_reader :name
 
     # Metrics query definition.
-    attr_accessor :query
+    attr_reader :query
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

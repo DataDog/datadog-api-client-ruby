@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # The Log Stream displays a log flow matching the defined query. Only available on FREE layout dashboards.
-    attr_accessor :definition
+    attr_reader :definition
 
     # The size of the graph.
     attr_accessor :graph_size

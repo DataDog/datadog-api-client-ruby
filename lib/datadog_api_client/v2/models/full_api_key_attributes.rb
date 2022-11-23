@@ -32,7 +32,7 @@ module DatadogAPIClient::V2
     attr_accessor :key
 
     # The last four characters of the API key.
-    attr_accessor :last4
+    attr_reader :last4
 
     # Date the API key was last modified.
     attr_accessor :modified_at

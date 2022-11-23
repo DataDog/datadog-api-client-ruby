@@ -44,7 +44,7 @@ module DatadogAPIClient::V1
     attr_accessor :modified
 
     # The name of the dashboard list.
-    attr_accessor :name
+    attr_reader :name
 
     # The type of dashboard list.
     attr_accessor :type

@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # An array of incident services.
-    attr_accessor :data
+    attr_reader :data
 
     # Included related resources which the user requested.
     attr_accessor :included

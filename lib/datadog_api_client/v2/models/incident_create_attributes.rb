@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # A flag indicating whether the incident caused customer impact.
-    attr_accessor :customer_impacted
+    attr_reader :customer_impacted
 
     # A condensed view of the user-defined fields for which to create initial selections.
     attr_accessor :fields
@@ -38,7 +38,7 @@ module DatadogAPIClient::V2
     attr_accessor :notification_handles
 
     # The title of the incident, which summarizes what happened.
-    attr_accessor :title
+    attr_reader :title
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

@@ -26,13 +26,13 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # The object describing the Datadog log-based metric to create.
-    attr_accessor :attributes
+    attr_reader :attributes
 
     # The name of the log-based metric.
-    attr_accessor :id
+    attr_reader :id
 
     # The type of the resource. The value should always be logs_metrics.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

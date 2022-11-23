@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # The email of the user.
-    attr_accessor :email
+    attr_reader :email
 
     # The name of the user.
     attr_accessor :name

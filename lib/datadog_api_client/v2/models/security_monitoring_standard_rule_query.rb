@@ -45,7 +45,7 @@ module DatadogAPIClient::V2
     attr_accessor :name
 
     # Query to run on logs.
-    attr_accessor :query
+    attr_reader :query
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Aggregation methods for event platform queries.
-    attr_accessor :aggregation
+    attr_reader :aggregation
 
     # A time interval in milliseconds.
     attr_accessor :interval

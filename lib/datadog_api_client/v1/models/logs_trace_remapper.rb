@@ -40,7 +40,7 @@ module DatadogAPIClient::V1
     attr_accessor :sources
 
     # Type of logs trace remapper.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

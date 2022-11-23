@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # Attributes of the created role.
-    attr_accessor :attributes
+    attr_reader :attributes
 
     # Relationships of the role object.
     attr_accessor :relationships

@@ -56,7 +56,7 @@ module DatadogAPIClient::V1
     attr_accessor :metadata
 
     # The public ID of the Synthetics test to trigger.
-    attr_accessor :public_id
+    attr_reader :public_id
 
     # Object describing the retry strategy to apply to a Synthetic test.
     attr_accessor :_retry

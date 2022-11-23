@@ -26,19 +26,19 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # The check.
-    attr_accessor :check
+    attr_reader :check
 
     # The host name correlated with the check.
-    attr_accessor :host_name
+    attr_reader :host_name
 
     # Message containing check status.
     attr_accessor :message
 
     # The status of a service check.
-    attr_accessor :status
+    attr_reader :status
 
     # Tags related to a check.
-    attr_accessor :tags
+    attr_reader :tags
 
     # Time of check.
     attr_accessor :timestamp

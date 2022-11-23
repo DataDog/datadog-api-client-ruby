@@ -29,10 +29,10 @@ module DatadogAPIClient::V1
     attr_accessor :_alias
 
     # Dimension of the Scatterplot.
-    attr_accessor :dimension
+    attr_reader :dimension
 
     # String expression built from queries, formulas, and functions.
-    attr_accessor :formula
+    attr_reader :formula
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

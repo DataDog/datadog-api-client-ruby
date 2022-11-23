@@ -30,7 +30,7 @@ module DatadogAPIClient::V1
     attr_accessor :index
 
     # Number of logs return in the response.
-    attr_accessor :limit
+    attr_reader :limit
 
     # The search query - following the log search syntax.
     attr_accessor :query
@@ -46,7 +46,7 @@ module DatadogAPIClient::V1
     attr_accessor :start_at
 
     # Timeframe to retrieve the log from.
-    attr_accessor :time
+    attr_reader :time
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

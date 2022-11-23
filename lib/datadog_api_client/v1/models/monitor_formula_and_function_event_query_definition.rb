@@ -26,10 +26,10 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Compute options.
-    attr_accessor :compute
+    attr_reader :compute
 
     # Data source for event platform-based queries.
-    attr_accessor :data_source
+    attr_reader :data_source
 
     # Group by options.
     attr_accessor :group_by
@@ -38,7 +38,7 @@ module DatadogAPIClient::V1
     attr_accessor :indexes
 
     # Name of the query for use in formulas.
-    attr_accessor :name
+    attr_reader :name
 
     # Search options.
     attr_accessor :search

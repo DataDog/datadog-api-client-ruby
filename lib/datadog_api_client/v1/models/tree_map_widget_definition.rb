@@ -35,7 +35,7 @@ module DatadogAPIClient::V1
     attr_accessor :group_by
 
     # List of treemap widget requests.
-    attr_accessor :requests
+    attr_reader :requests
 
     # (deprecated) The attribute formerly used to determine size in the widget.
     attr_accessor :size_by
@@ -47,7 +47,7 @@ module DatadogAPIClient::V1
     attr_accessor :title
 
     # Type of the treemap widget.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

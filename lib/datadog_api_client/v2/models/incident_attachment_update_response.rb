@@ -27,7 +27,7 @@ module DatadogAPIClient::V2
 
     # An array of incident attachments. Only the attachments that were created or updated by the request are
     # returned.
-    attr_accessor :data
+    attr_reader :data
 
     # Included related resources that the user requested.
     attr_accessor :included

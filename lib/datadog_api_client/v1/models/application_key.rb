@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Hash of an application key.
-    attr_accessor :hash
+    attr_reader :hash
 
     # Name of an application key.
     attr_accessor :name

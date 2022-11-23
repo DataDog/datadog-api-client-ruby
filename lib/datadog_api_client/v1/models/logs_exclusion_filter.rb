@@ -31,7 +31,7 @@ module DatadogAPIClient::V1
 
     # Sample rate to apply to logs going through this exclusion filter,
     # a value of 1.0 excludes all logs matching the query.
-    attr_accessor :sample_rate
+    attr_reader :sample_rate
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

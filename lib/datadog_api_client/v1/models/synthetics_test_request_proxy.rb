@@ -29,7 +29,7 @@ module DatadogAPIClient::V1
     attr_accessor :headers
 
     # URL of the proxy to perform the test.
-    attr_accessor :url
+    attr_reader :url
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

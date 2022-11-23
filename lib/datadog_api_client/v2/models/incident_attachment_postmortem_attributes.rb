@@ -26,10 +26,10 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # The postmortem attachment.
-    attr_accessor :attachment
+    attr_reader :attachment
 
     # The type of postmortem attachment attributes.
-    attr_accessor :attachment_type
+    attr_reader :attachment_type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

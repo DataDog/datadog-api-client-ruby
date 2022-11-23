@@ -32,7 +32,7 @@ module DatadogAPIClient::V1
     attr_accessor :hide_value
 
     # Whether to show the legend inline or let it be automatically generated.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

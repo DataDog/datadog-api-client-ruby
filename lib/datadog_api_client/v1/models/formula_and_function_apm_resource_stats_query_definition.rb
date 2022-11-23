@@ -26,16 +26,16 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Data source for APM resource stats queries.
-    attr_accessor :data_source
+    attr_reader :data_source
 
     # APM environment.
-    attr_accessor :env
+    attr_reader :env
 
     # Array of fields to group results by.
     attr_accessor :group_by
 
     # Name of this query to use in formulas.
-    attr_accessor :name
+    attr_reader :name
 
     # Name of operation on service.
     attr_accessor :operation_name
@@ -50,10 +50,10 @@ module DatadogAPIClient::V1
     attr_accessor :resource_name
 
     # APM service name.
-    attr_accessor :service
+    attr_reader :service
 
     # APM resource stat name.
-    attr_accessor :stat
+    attr_reader :stat
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

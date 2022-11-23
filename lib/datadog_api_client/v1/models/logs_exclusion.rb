@@ -32,7 +32,7 @@ module DatadogAPIClient::V1
     attr_accessor :is_enabled
 
     # Name of the index exclusion filter.
-    attr_accessor :name
+    attr_reader :name
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

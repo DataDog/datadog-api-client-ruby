@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # Name of the RUM application.
-    attr_accessor :name
+    attr_reader :name
 
     # Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`.
     attr_accessor :type

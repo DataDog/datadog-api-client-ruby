@@ -32,7 +32,7 @@ module DatadogAPIClient::V1
     attr_accessor :banner_img
 
     # Layout type of the group.
-    attr_accessor :layout_type
+    attr_reader :layout_type
 
     # Whether to show the title or not.
     attr_accessor :show_title
@@ -44,10 +44,10 @@ module DatadogAPIClient::V1
     attr_accessor :title_align
 
     # Type of the group widget.
-    attr_accessor :type
+    attr_reader :type
 
     # List of widget groups.
-    attr_accessor :widgets
+    attr_reader :widgets
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

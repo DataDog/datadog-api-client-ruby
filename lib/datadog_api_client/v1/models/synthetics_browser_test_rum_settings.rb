@@ -42,7 +42,7 @@ module DatadogAPIClient::V1
     attr_accessor :client_token_id
 
     # Determines whether RUM data is collected during test runs.
-    attr_accessor :is_enabled
+    attr_reader :is_enabled
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

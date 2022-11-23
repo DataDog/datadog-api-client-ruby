@@ -32,10 +32,10 @@ module DatadogAPIClient::V2
     attr_accessor :enabled
 
     # The SECL expression of the Agent rule.
-    attr_accessor :expression
+    attr_reader :expression
 
     # The name of the Agent rule.
-    attr_accessor :name
+    attr_reader :name
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

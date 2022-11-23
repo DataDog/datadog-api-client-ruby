@@ -43,10 +43,10 @@ module DatadogAPIClient::V1
     attr_accessor :source_type
 
     # Array of source attributes.
-    attr_accessor :sources
+    attr_reader :sources
 
     # Final attribute or tag name to remap the sources to.
-    attr_accessor :target
+    attr_reader :target
 
     # If the `target_type` of the remapper is `attribute`, try to cast the value to a new specific type.
     # If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types.
@@ -57,7 +57,7 @@ module DatadogAPIClient::V1
     attr_accessor :target_type
 
     # Type of logs attribute remapper.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

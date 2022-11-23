@@ -26,13 +26,13 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # The aggregation method.
-    attr_accessor :aggregation
+    attr_reader :aggregation
 
     # Facet name.
     attr_accessor :facet
 
     # Widget sorting methods.
-    attr_accessor :order
+    attr_reader :order
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

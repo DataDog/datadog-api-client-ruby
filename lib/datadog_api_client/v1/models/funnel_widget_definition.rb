@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Request payload used to query items.
-    attr_accessor :requests
+    attr_reader :requests
 
     # Time setting for the widget.
     attr_accessor :time
@@ -41,7 +41,7 @@ module DatadogAPIClient::V1
     attr_accessor :title_size
 
     # Type of funnel widget.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

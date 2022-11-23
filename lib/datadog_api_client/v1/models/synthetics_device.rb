@@ -26,19 +26,19 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Screen height of the device.
-    attr_accessor :height
+    attr_reader :height
 
     # The device ID.
-    attr_accessor :id
+    attr_reader :id
 
     # Whether or not the device is a mobile.
     attr_accessor :is_mobile
 
     # The device name.
-    attr_accessor :name
+    attr_reader :name
 
     # Screen width of the device.
-    attr_accessor :width
+    attr_reader :width
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

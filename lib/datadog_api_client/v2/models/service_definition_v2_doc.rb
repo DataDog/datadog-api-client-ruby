@@ -26,13 +26,13 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # Document name.
-    attr_accessor :name
+    attr_reader :name
 
     # Document provider.
     attr_accessor :provider
 
     # Document URL.
-    attr_accessor :url
+    attr_reader :url
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

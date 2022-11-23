@@ -29,7 +29,7 @@ module DatadogAPIClient::V2
     attr_accessor :archive_comment
 
     # Timestamp of the last edit to the comment.
-    attr_accessor :archive_comment_timestamp
+    attr_reader :archive_comment_timestamp
 
     # Object representing a given user entity.
     attr_accessor :archive_comment_user
@@ -38,16 +38,16 @@ module DatadogAPIClient::V2
     attr_accessor :archive_reason
 
     # Object representing a given user entity.
-    attr_accessor :assignee
+    attr_reader :assignee
 
     # Array of incidents that are associated with this signal.
-    attr_accessor :incident_ids
+    attr_reader :incident_ids
 
     # The new triage state of the signal.
-    attr_accessor :state
+    attr_reader :state
 
     # Timestamp of the last update to the signal state.
-    attr_accessor :state_update_timestamp
+    attr_reader :state_update_timestamp
 
     # Object representing a given user entity.
     attr_accessor :state_update_user

@@ -27,15 +27,15 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # The bin size of the histogram buckets
-    attr_accessor :interval
+    attr_reader :interval
 
     # The maximum value for the measure used in the histogram
     # (values greater than this one are filtered out)
-    attr_accessor :max
+    attr_reader :max
 
     # The minimum value for the measure used in the histogram
     # (values smaller than this one are filtered out)
-    attr_accessor :min
+    attr_reader :min
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

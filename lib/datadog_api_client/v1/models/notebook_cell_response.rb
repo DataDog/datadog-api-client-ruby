@@ -27,13 +27,13 @@ module DatadogAPIClient::V1
 
     # The attributes of a notebook cell response. Valid cell types are `markdown`, `timeseries`, `toplist`, `heatmap`, `distribution`,
     # `log_stream`. [More information on each graph visualization type.](https://docs.datadoghq.com/dashboards/widgets/)
-    attr_accessor :attributes
+    attr_reader :attributes
 
     # Notebook cell ID.
-    attr_accessor :id
+    attr_reader :id
 
     # Type of the Notebook Cell resource.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

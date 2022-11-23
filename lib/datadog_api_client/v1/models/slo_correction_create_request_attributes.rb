@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Category the SLO correction belongs to.
-    attr_accessor :category
+    attr_reader :category
 
     # Description of the correction being made.
     attr_accessor :description
@@ -42,10 +42,10 @@ module DatadogAPIClient::V1
     attr_accessor :rrule
 
     # ID of the SLO that this correction applies to.
-    attr_accessor :slo_id
+    attr_reader :slo_id
 
     # Starting time of the correction in epoch seconds.
-    attr_accessor :start
+    attr_reader :start
 
     # The timezone to display in the UI for the correction times (defaults to "UTC").
     attr_accessor :timezone

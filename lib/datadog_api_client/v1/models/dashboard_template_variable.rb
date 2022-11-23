@@ -35,7 +35,7 @@ module DatadogAPIClient::V1
     attr_accessor :defaults
 
     # The name of the variable.
-    attr_accessor :name
+    attr_reader :name
 
     # The tag prefix associated with the variable. Only tags with this prefix appear in the variable drop-down.
     attr_accessor :prefix

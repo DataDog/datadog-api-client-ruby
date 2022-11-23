@@ -29,7 +29,7 @@ module DatadogAPIClient::V1
     attr_accessor :alias_name
 
     # Expression name.
-    attr_accessor :expression
+    attr_reader :expression
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

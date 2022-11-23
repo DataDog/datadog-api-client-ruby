@@ -71,7 +71,7 @@ module DatadogAPIClient::V1
     attr_accessor :monitor_options
 
     # Integer from 1 (high) to 5 (low) indicating alert severity.
-    attr_accessor :monitor_priority
+    attr_reader :monitor_priority
 
     # Prevents saving screenshots of the steps.
     attr_accessor :no_screenshot
@@ -96,7 +96,7 @@ module DatadogAPIClient::V1
     attr_accessor :rum_settings
 
     # The frequency at which to run the Synthetic test (in seconds).
-    attr_accessor :tick_every
+    attr_reader :tick_every
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

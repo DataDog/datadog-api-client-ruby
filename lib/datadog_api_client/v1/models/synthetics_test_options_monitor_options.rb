@@ -28,7 +28,7 @@ module DatadogAPIClient::V1
 
     # Time interval before renotifying if the test is still failing
     # (in minutes).
-    attr_accessor :renotify_interval
+    attr_reader :renotify_interval
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

@@ -27,7 +27,7 @@ module DatadogAPIClient::V1
 
     # An arbitrary string to use for aggregation. Limited to 100 characters.
     # If you specify a key, all events using that key are grouped together in the Event Stream.
-    attr_accessor :aggregation_key
+    attr_reader :aggregation_key
 
     # If an alert event is enabled, set its type.
     # For example, `error`, `warning`, `info`, `success`, `user_update`,
@@ -61,10 +61,10 @@ module DatadogAPIClient::V1
     # The body of the event. Limited to 4000 characters. The text supports markdown.
     # To use markdown in the event text, start the text block with `%%% \n` and end the text block with `\n %%%`.
     # Use `msg_text` with the Datadog Ruby library.
-    attr_accessor :text
+    attr_reader :text
 
     # The event title.
-    attr_accessor :title
+    attr_reader :title
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

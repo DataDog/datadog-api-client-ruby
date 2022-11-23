@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Array of errors returned by the API.
-    attr_accessor :errors
+    attr_reader :errors
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

@@ -56,7 +56,7 @@ module DatadogAPIClient::V1
     attr_accessor :overall_state
 
     # Integer from 1 (high) to 5 (low) indicating alert severity.
-    attr_accessor :priority
+    attr_reader :priority
 
     # The monitor query.
     attr_accessor :query

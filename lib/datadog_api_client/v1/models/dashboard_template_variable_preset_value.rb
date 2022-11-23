@@ -32,7 +32,7 @@ module DatadogAPIClient::V1
     attr_accessor :value
 
     # One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified. Cannot be used in conjunction with `value`.
-    attr_accessor :values
+    attr_reader :values
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

@@ -29,7 +29,7 @@ module DatadogAPIClient::V1
     attr_accessor :author
 
     # List of cells to display in the notebook.
-    attr_accessor :cells
+    attr_reader :cells
 
     # UTC time stamp for when the notebook was created.
     attr_accessor :created
@@ -41,13 +41,13 @@ module DatadogAPIClient::V1
     attr_accessor :modified
 
     # The name of the notebook.
-    attr_accessor :name
+    attr_reader :name
 
     # Publication status of the notebook. For now, always "published".
     attr_accessor :status
 
     # Notebook global timeframe.
-    attr_accessor :time
+    attr_reader :time
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

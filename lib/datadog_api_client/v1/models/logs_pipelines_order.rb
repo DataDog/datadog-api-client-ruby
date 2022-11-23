@@ -27,7 +27,7 @@ module DatadogAPIClient::V1
 
     # Ordered Array of `<PIPELINE_ID>` strings, the order of pipeline IDs in the array
     # define the overall Pipelines order for Datadog.
-    attr_accessor :pipeline_ids
+    attr_reader :pipeline_ids
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

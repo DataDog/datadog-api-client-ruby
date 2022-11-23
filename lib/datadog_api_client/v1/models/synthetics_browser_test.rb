@@ -26,22 +26,22 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Configuration object for a Synthetic browser test.
-    attr_accessor :config
+    attr_reader :config
 
     # Array of locations used to run the test.
-    attr_accessor :locations
+    attr_reader :locations
 
     # Notification message associated with the test. Message can either be text or an empty string.
-    attr_accessor :message
+    attr_reader :message
 
     # The associated monitor ID.
     attr_accessor :monitor_id
 
     # Name of the test.
-    attr_accessor :name
+    attr_reader :name
 
     # Object describing the extra options for a Synthetic test.
-    attr_accessor :options
+    attr_reader :options
 
     # The public ID of the test.
     attr_accessor :public_id
@@ -57,7 +57,7 @@ module DatadogAPIClient::V1
     attr_accessor :tags
 
     # Type of the Synthetic test, `browser`.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

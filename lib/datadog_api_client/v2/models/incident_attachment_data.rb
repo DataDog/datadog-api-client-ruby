@@ -26,16 +26,16 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # The attributes object for an attachment.
-    attr_accessor :attributes
+    attr_reader :attributes
 
     # A unique identifier that represents the incident attachment.
-    attr_accessor :id
+    attr_reader :id
 
     # The incident attachment's relationships.
-    attr_accessor :relationships
+    attr_reader :relationships
 
     # The incident attachment resource type.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

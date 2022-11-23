@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # The name of the facet to use (required).
-    attr_accessor :facet
+    attr_reader :facet
 
     # Used to perform a histogram computation (only for measure facets).
     # Note: At most 100 buckets are allowed, the number of buckets is (max - min)/interval.

@@ -38,20 +38,20 @@ module DatadogAPIClient::V1
 
     # Mapping table of values for the source attribute and their associated target attribute values,
     # formatted as `["source_key1,target_value1", "source_key2,target_value2"]`
-    attr_accessor :lookup_table
+    attr_reader :lookup_table
 
     # Name of the processor.
     attr_accessor :name
 
     # Source attribute used to perform the lookup.
-    attr_accessor :source
+    attr_reader :source
 
     # Name of the attribute that contains the corresponding value in the mapping list
     # or the `default_lookup` if not found in the mapping list.
-    attr_accessor :target
+    attr_reader :target
 
     # Type of logs lookup processor.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

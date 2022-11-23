@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Event facet.
-    attr_accessor :facet
+    attr_reader :facet
 
     # Number of groups to return.
     attr_accessor :limit
