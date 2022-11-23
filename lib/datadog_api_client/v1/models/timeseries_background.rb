@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Timeseries is made using an area or bars.
-    attr_accessor :type
+    attr_reader :type
 
     # Axis controls for the widget.
     attr_accessor :yaxis

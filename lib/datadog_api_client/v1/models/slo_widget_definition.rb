@@ -47,13 +47,13 @@ module DatadogAPIClient::V1
     attr_accessor :title_size
 
     # Type of the SLO widget.
-    attr_accessor :type
+    attr_reader :type
 
     # Define how you want the SLO to be displayed.
     attr_accessor :view_mode
 
     # Type of view displayed by the widget.
-    attr_accessor :view_type
+    attr_reader :view_type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

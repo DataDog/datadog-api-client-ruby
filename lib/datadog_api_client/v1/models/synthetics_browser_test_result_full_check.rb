@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Configuration object for a Synthetic test.
-    attr_accessor :config
+    attr_reader :config
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

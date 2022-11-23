@@ -37,7 +37,7 @@ module DatadogAPIClient::V1
     #
     # See the dedicated [Request JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json)
     #  to learn how to build the `REQUEST_SCHEMA`.
-    attr_accessor :requests
+    attr_reader :requests
 
     # (Deprecated) The widget legend was replaced by a tooltip and sidebar.
     attr_accessor :show_legend
@@ -55,7 +55,7 @@ module DatadogAPIClient::V1
     attr_accessor :title_size
 
     # Type of the distribution widget.
-    attr_accessor :type
+    attr_reader :type
 
     # X Axis controls for the distribution widget.
     attr_accessor :xaxis

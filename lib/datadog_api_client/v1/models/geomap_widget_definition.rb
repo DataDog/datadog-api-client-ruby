@@ -32,10 +32,10 @@ module DatadogAPIClient::V1
     #
     # See the [Request JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json)
     # for information about building the `REQUEST_SCHEMA`.
-    attr_accessor :requests
+    attr_reader :requests
 
     # The style to apply to the widget.
-    attr_accessor :style
+    attr_reader :style
 
     # Time setting for the widget.
     attr_accessor :time
@@ -50,10 +50,10 @@ module DatadogAPIClient::V1
     attr_accessor :title_size
 
     # Type of the geomap widget.
-    attr_accessor :type
+    attr_reader :type
 
     # The view of the world that the map should render.
-    attr_accessor :view
+    attr_reader :view
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

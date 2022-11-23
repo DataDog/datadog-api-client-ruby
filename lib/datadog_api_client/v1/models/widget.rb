@@ -31,7 +31,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # [Definition of the widget](https://docs.datadoghq.com/dashboards/widgets/).
-    attr_accessor :definition
+    attr_reader :definition
 
     # ID of the widget.
     attr_accessor :id

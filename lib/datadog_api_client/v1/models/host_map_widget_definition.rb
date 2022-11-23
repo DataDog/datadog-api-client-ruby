@@ -44,7 +44,7 @@ module DatadogAPIClient::V1
     attr_accessor :notes
 
     # List of definitions.
-    attr_accessor :requests
+    attr_reader :requests
 
     # List of tags used to filter the map.
     attr_accessor :scope
@@ -62,7 +62,7 @@ module DatadogAPIClient::V1
     attr_accessor :title_size
 
     # Type of the host map widget.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

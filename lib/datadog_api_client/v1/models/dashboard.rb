@@ -45,7 +45,7 @@ module DatadogAPIClient::V1
     attr_accessor :is_read_only
 
     # Layout type of the dashboard.
-    attr_accessor :layout_type
+    attr_reader :layout_type
 
     # Modification date of the dashboard.
     attr_accessor :modified_at
@@ -68,13 +68,13 @@ module DatadogAPIClient::V1
     attr_accessor :template_variables
 
     # Title of the dashboard.
-    attr_accessor :title
+    attr_reader :title
 
     # The URL of the dashboard.
     attr_accessor :url
 
     # List of widgets to display on the dashboard.
-    attr_accessor :widgets
+    attr_reader :widgets
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

@@ -26,10 +26,10 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # A unique identifier that represents the postmortem.
-    attr_accessor :id
+    attr_reader :id
 
     # Incident postmortem resource type.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

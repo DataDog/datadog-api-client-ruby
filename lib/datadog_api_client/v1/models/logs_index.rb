@@ -34,14 +34,14 @@ module DatadogAPIClient::V1
     attr_accessor :exclusion_filters
 
     # Filter for logs.
-    attr_accessor :filter
+    attr_reader :filter
 
     # A boolean stating if the index is rate limited, meaning more logs than the daily limit have been sent.
     # Rate limit is reset every-day at 2pm UTC.
     attr_accessor :is_rate_limited
 
     # The name of the index.
-    attr_accessor :name
+    attr_reader :name
 
     # The number of days before logs are deleted from this index. Available values depend on
     # retention plans specified in your organization's contract/subscriptions.

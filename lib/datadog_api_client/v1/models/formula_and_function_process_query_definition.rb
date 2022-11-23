@@ -29,7 +29,7 @@ module DatadogAPIClient::V1
     attr_accessor :aggregator
 
     # Data sources that rely on the process backend.
-    attr_accessor :data_source
+    attr_reader :data_source
 
     # Whether to normalize the CPU percentages.
     attr_accessor :is_normalized_cpu
@@ -38,10 +38,10 @@ module DatadogAPIClient::V1
     attr_accessor :limit
 
     # Process metric name.
-    attr_accessor :metric
+    attr_reader :metric
 
     # Name of query for use in formulas.
-    attr_accessor :name
+    attr_reader :name
 
     # Direction of sort.
     attr_accessor :sort

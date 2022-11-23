@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Description of the private location.
-    attr_accessor :description
+    attr_reader :description
 
     # Unique identifier of the private location.
     attr_accessor :id
@@ -35,13 +35,13 @@ module DatadogAPIClient::V1
     attr_accessor :metadata
 
     # Name of the private location.
-    attr_accessor :name
+    attr_reader :name
 
     # Secrets for the private location. Only present in the response when creating the private location.
     attr_accessor :secrets
 
     # Array of tags attached to the private location.
-    attr_accessor :tags
+    attr_reader :tags
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

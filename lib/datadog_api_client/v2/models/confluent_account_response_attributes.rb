@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # The API key associated with your Confluent account.
-    attr_accessor :api_key
+    attr_reader :api_key
 
     # A list of Confluent resources associated with the Confluent account.
     attr_accessor :resources

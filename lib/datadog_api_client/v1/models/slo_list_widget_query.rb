@@ -26,10 +26,10 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Maximum number of results to display in the table.
-    attr_accessor :limit
+    attr_reader :limit
 
     # Widget query.
-    attr_accessor :query_string
+    attr_reader :query_string
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

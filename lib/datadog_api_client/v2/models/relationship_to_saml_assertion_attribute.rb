@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # Data of AuthN Mapping relationship to SAML Assertion Attribute.
-    attr_accessor :data
+    attr_reader :data
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

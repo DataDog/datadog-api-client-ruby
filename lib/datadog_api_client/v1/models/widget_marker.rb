@@ -39,7 +39,7 @@ module DatadogAPIClient::V1
     attr_accessor :time
 
     # Value to apply. Can be a single value y = 15 or a range of values 0 < y < 10.
-    attr_accessor :value
+    attr_reader :value
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

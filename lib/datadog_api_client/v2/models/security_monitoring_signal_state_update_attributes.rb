@@ -32,7 +32,7 @@ module DatadogAPIClient::V2
     attr_accessor :archive_reason
 
     # The new triage state of the signal.
-    attr_accessor :state
+    attr_reader :state
 
     # Version of the updated signal. If server side version is higher, update will be rejected.
     attr_accessor :version

@@ -29,7 +29,7 @@ module DatadogAPIClient::V1
     attr_accessor :allow_failure
 
     # Array of assertions used for the test.
-    attr_accessor :assertions
+    attr_reader :assertions
 
     # Array of values to parse and save as variables from the response.
     attr_accessor :extracted_values
@@ -39,16 +39,16 @@ module DatadogAPIClient::V1
     attr_accessor :is_critical
 
     # The name of the step.
-    attr_accessor :name
+    attr_reader :name
 
     # Object describing the Synthetic test request.
-    attr_accessor :request
+    attr_reader :request
 
     # Object describing the retry strategy to apply to a Synthetic test.
     attr_accessor :_retry
 
     # The subtype of the Synthetic multistep API test step, currently only supporting `http`.
-    attr_accessor :subtype
+    attr_reader :subtype
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

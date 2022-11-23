@@ -26,10 +26,10 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # The color palette to apply to the widget.
-    attr_accessor :palette
+    attr_reader :palette
 
     # Whether to flip the palette tones.
-    attr_accessor :palette_flip
+    attr_reader :palette_flip
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

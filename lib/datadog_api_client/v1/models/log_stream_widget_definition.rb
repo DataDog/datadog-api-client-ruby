@@ -62,7 +62,7 @@ module DatadogAPIClient::V1
     attr_accessor :title_size
 
     # Type of the log stream widget.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

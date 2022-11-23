@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # ID of the alert to use in the widget.
-    attr_accessor :alert_id
+    attr_reader :alert_id
 
     # Number of decimal to show. If not defined, will use the raw value.
     attr_accessor :precision
@@ -44,7 +44,7 @@ module DatadogAPIClient::V1
     attr_accessor :title_size
 
     # Type of the alert value widget.
-    attr_accessor :type
+    attr_reader :type
 
     # Unit to display with the value.
     attr_accessor :unit

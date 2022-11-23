@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Aggregation methods for event platform queries.
-    attr_accessor :aggregation
+    attr_reader :aggregation
 
     # Metric used for sorting group by results.
     attr_accessor :metric

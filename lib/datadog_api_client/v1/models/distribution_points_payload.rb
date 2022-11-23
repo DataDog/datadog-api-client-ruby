@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # A list of distribution points series to submit to Datadog.
-    attr_accessor :series
+    attr_reader :series
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

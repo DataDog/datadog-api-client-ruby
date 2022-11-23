@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # The 2-letter ISO code of a country to focus the map on. Or `WORLD`.
-    attr_accessor :focus
+    attr_reader :focus
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

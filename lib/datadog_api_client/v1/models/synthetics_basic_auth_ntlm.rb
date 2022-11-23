@@ -32,7 +32,7 @@ module DatadogAPIClient::V1
     attr_accessor :password
 
     # The type of authentication to use when performing the test.
-    attr_accessor :type
+    attr_reader :type
 
     # Username for the authentication to use when performing the test.
     attr_accessor :username

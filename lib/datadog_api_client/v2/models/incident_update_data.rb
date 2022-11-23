@@ -29,13 +29,13 @@ module DatadogAPIClient::V2
     attr_accessor :attributes
 
     # The team's ID.
-    attr_accessor :id
+    attr_reader :id
 
     # The incident's relationships for an update request.
     attr_accessor :relationships
 
     # Incident resource type.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

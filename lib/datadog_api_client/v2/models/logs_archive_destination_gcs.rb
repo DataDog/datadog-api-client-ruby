@@ -26,16 +26,16 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # The bucket where the archive will be stored.
-    attr_accessor :bucket
+    attr_reader :bucket
 
     # The GCS archive's integration destination.
-    attr_accessor :integration
+    attr_reader :integration
 
     # The archive path.
     attr_accessor :path
 
     # Type of the GCS archive destination.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

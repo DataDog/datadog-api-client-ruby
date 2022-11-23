@@ -41,7 +41,7 @@ module DatadogAPIClient::V2
     attr_accessor :query
 
     # The version of the security filter to update.
-    attr_accessor :version
+    attr_reader :version
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

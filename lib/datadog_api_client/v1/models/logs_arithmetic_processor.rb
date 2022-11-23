@@ -46,7 +46,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Arithmetic operation between one or more log attributes.
-    attr_accessor :expression
+    attr_reader :expression
 
     # Whether or not the processor is enabled.
     attr_accessor :is_enabled
@@ -59,10 +59,10 @@ module DatadogAPIClient::V1
     attr_accessor :name
 
     # Name of the attribute that contains the result of the arithmetic operation.
-    attr_accessor :target
+    attr_reader :target
 
     # Type of logs arithmetic processor.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

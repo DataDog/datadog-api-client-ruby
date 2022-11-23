@@ -33,10 +33,10 @@ module DatadogAPIClient::V1
     attr_accessor :interval
 
     # The name of the timeseries.
-    attr_accessor :metric
+    attr_reader :metric
 
     # Points relating to a metric. All points must be tuples with timestamp and a scalar value (cannot be a string). Timestamps should be in POSIX time in seconds, and cannot be more than ten minutes in the future or more than one hour in the past.
-    attr_accessor :points
+    attr_reader :points
 
     # A list of tags associated with the metric.
     attr_accessor :tags

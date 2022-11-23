@@ -35,7 +35,7 @@ module DatadogAPIClient::V1
     # The name of the webhook. It corresponds with `<WEBHOOK_NAME>`.
     # Learn more on how to use it in
     # [monitor notifications](https://docs.datadoghq.com/monitors/notify).
-    attr_accessor :name
+    attr_reader :name
 
     # If `null`, uses the default payload.
     # If given a JSON payload, the webhook returns the payload
@@ -44,7 +44,7 @@ module DatadogAPIClient::V1
     attr_accessor :payload
 
     # URL of the webhook.
-    attr_accessor :url
+    attr_reader :url
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

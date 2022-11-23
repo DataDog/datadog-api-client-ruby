@@ -26,13 +26,13 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # Model representation of a Confluent Cloud resource.
-    attr_accessor :attributes
+    attr_reader :attributes
 
     # The ID associated with the Confluent resource.
-    attr_accessor :id
+    attr_reader :id
 
     # The JSON:API type for this request.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

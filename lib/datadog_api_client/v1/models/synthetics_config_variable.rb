@@ -32,13 +32,13 @@ module DatadogAPIClient::V1
     attr_accessor :id
 
     # Name of the variable.
-    attr_accessor :name
+    attr_reader :name
 
     # Pattern of the variable.
     attr_accessor :pattern
 
     # Type of the configuration variable.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

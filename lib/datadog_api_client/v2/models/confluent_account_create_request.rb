@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # The data body for adding a Confluent account.
-    attr_accessor :data
+    attr_reader :data
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

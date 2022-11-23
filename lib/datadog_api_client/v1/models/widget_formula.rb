@@ -35,7 +35,7 @@ module DatadogAPIClient::V1
     attr_accessor :conditional_formats
 
     # String expression built from queries, formulas, and functions.
-    attr_accessor :formula
+    attr_reader :formula
 
     # Options for limiting results returned.
     attr_accessor :limit

@@ -26,10 +26,10 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # Attributes associated with the account creation request.
-    attr_accessor :attributes
+    attr_reader :attributes
 
     # The JSON:API type for this API. Should always be `confluent-cloud-accounts`.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

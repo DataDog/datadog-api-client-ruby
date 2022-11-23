@@ -29,7 +29,7 @@ module DatadogAPIClient::V1
     attr_accessor :background_color
 
     # Content of the note.
-    attr_accessor :content
+    attr_reader :content
 
     # Size of the text.
     attr_accessor :font_size
@@ -50,7 +50,7 @@ module DatadogAPIClient::V1
     attr_accessor :tick_pos
 
     # Type of the note widget.
-    attr_accessor :type
+    attr_reader :type
 
     # Vertical alignment.
     attr_accessor :vertical_align

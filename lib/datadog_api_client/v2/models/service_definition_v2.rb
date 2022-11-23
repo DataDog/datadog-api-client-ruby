@@ -29,7 +29,7 @@ module DatadogAPIClient::V2
     attr_accessor :contacts
 
     # Unique identifier of the service. Must be unique across all services and is used to match with a service in Datadog.
-    attr_accessor :dd_service
+    attr_reader :dd_service
 
     # Experimental feature. A Team handle that matches a Team in the Datadog Teams product.
     attr_accessor :dd_team
@@ -50,7 +50,7 @@ module DatadogAPIClient::V2
     attr_accessor :repos
 
     # Schema version being used.
-    attr_accessor :schema_version
+    attr_reader :schema_version
 
     # A set of custom tags.
     attr_accessor :tags

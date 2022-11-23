@@ -26,10 +26,10 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # The ID of the SAML assertion attribute.
-    attr_accessor :id
+    attr_reader :id
 
     # SAML assertion attributes resource type.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

@@ -32,7 +32,7 @@ module DatadogAPIClient::V2
     attr_accessor :modified_at
 
     # Name of the role.
-    attr_accessor :name
+    attr_reader :name
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

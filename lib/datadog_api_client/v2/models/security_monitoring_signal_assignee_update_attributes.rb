@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # Object representing a given user entity.
-    attr_accessor :assignee
+    attr_reader :assignee
 
     # Version of the updated signal. If server side version is higher, update will be rejected.
     attr_accessor :version

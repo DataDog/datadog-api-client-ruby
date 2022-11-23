@@ -48,13 +48,13 @@ module DatadogAPIClient::V1
     attr_accessor :name
 
     # The name of the attribute that contains the result of the template.
-    attr_accessor :target
+    attr_reader :target
 
     # A formula with one or more attributes and raw text.
-    attr_accessor :template
+    attr_reader :template
 
     # Type of logs string builder processor.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

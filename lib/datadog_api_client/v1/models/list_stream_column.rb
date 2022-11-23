@@ -26,10 +26,10 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Widget column field.
-    attr_accessor :field
+    attr_reader :field
 
     # Widget column width.
-    attr_accessor :width
+    attr_reader :width
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

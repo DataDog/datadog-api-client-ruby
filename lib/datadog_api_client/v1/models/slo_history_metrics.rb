@@ -29,29 +29,29 @@ module DatadogAPIClient::V1
 
     # A representation of `metric` based SLO time series for the provided queries.
     # This is the same response type from `batch_query` endpoint.
-    attr_accessor :denominator
+    attr_reader :denominator
 
     # The aggregated query interval for the series data. It's implicit based on the query time window.
-    attr_accessor :interval
+    attr_reader :interval
 
     # Optional message if there are specific query issues/warnings.
     attr_accessor :message
 
     # A representation of `metric` based SLO time series for the provided queries.
     # This is the same response type from `batch_query` endpoint.
-    attr_accessor :numerator
+    attr_reader :numerator
 
     # The combined numerator and denominator query CSV.
-    attr_accessor :query
+    attr_reader :query
 
     # The series result type. This mimics `batch_query` response type.
-    attr_accessor :res_type
+    attr_reader :res_type
 
     # The series response version type. This mimics `batch_query` response type.
-    attr_accessor :resp_version
+    attr_reader :resp_version
 
     # An array of query timestamps in EPOCH milliseconds.
-    attr_accessor :times
+    attr_reader :times
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

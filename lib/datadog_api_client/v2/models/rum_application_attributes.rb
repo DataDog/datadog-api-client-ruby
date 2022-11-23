@@ -26,31 +26,31 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # ID of the RUM application.
-    attr_accessor :application_id
+    attr_reader :application_id
 
     # Timestamp in ms of the creation date.
-    attr_accessor :created_at
+    attr_reader :created_at
 
     # Handle of the creator user.
-    attr_accessor :created_by_handle
+    attr_reader :created_by_handle
 
     # Client token of the RUM application.
     attr_accessor :hash
 
     # Name of the RUM application.
-    attr_accessor :name
+    attr_reader :name
 
     # Org ID of the RUM application.
-    attr_accessor :org_id
+    attr_reader :org_id
 
     # Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`.
-    attr_accessor :type
+    attr_reader :type
 
     # Timestamp in ms of the last update date.
-    attr_accessor :updated_at
+    attr_reader :updated_at
 
     # Handle of the updater user.
-    attr_accessor :updated_by_handle
+    attr_reader :updated_by_handle
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

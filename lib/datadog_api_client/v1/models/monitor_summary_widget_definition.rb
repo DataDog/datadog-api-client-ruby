@@ -38,7 +38,7 @@ module DatadogAPIClient::V1
     attr_accessor :hide_zero_counts
 
     # Query to filter the monitors with.
-    attr_accessor :query
+    attr_reader :query
 
     # Whether to show the time that has elapsed since the monitor/group triggered.
     attr_accessor :show_last_triggered
@@ -65,7 +65,7 @@ module DatadogAPIClient::V1
     attr_accessor :title_size
 
     # Type of the monitor summary widget.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

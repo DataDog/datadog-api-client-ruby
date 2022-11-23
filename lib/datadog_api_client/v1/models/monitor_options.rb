@@ -65,7 +65,7 @@ module DatadogAPIClient::V1
     attr_accessor :locked
 
     # How long the test should be in failure before alerting (integer, number of seconds, max 7200).
-    attr_accessor :min_failure_duration
+    attr_reader :min_failure_duration
 
     # The minimum number of locations in failure at the same time during
     # at least one moment in the `min_failure_duration` period (`min_location_failed` and `min_failure_duration`

@@ -36,13 +36,13 @@ module DatadogAPIClient::V1
     attr_accessor :name
 
     # Array of source attributes.
-    attr_accessor :sources
+    attr_reader :sources
 
     # Name of the parent attribute that contains all the extracted details from the `sources`.
-    attr_accessor :target
+    attr_reader :target
 
     # Type of logs User-Agent parser.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

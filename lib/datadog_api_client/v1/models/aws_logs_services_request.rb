@@ -26,10 +26,10 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Your AWS Account ID without dashes.
-    attr_accessor :account_id
+    attr_reader :account_id
 
     # Array of services IDs set to enable automatic log collection. Discover the list of available services with the get list of AWS log ready services API endpoint.
-    attr_accessor :services
+    attr_reader :services
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

@@ -37,7 +37,7 @@ module DatadogAPIClient::V2
     attr_accessor :external_resources
 
     # Basic information about a service.
-    attr_accessor :info
+    attr_reader :info
 
     # Third party integrations that Datadog supports.
     attr_accessor :integrations
@@ -46,7 +46,7 @@ module DatadogAPIClient::V2
     attr_accessor :org
 
     # Schema version being used.
-    attr_accessor :schema_version
+    attr_reader :schema_version
 
     # A set of custom tags.
     attr_accessor :tags

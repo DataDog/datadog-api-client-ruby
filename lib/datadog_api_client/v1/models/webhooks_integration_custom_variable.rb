@@ -27,13 +27,13 @@ module DatadogAPIClient::V1
 
     # Make custom variable is secret or not.
     # If the custom variable is secret, the value is not returned in the response payload.
-    attr_accessor :is_secret
+    attr_reader :is_secret
 
     # The name of the variable. It corresponds with `<CUSTOM_VARIABLE_NAME>`.
-    attr_accessor :name
+    attr_reader :name
 
     # Value of the custom variable.
-    attr_accessor :value
+    attr_reader :value
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

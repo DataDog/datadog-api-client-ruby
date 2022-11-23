@@ -53,7 +53,7 @@ module DatadogAPIClient::V2
     attr_accessor :tags
 
     # The version of the rule being updated.
-    attr_accessor :version
+    attr_reader :version
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

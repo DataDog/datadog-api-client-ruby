@@ -35,19 +35,19 @@ module DatadogAPIClient::V1
     attr_accessor :is_enabled
 
     # Name of the Reference Table for the source attribute and their associated target attribute values.
-    attr_accessor :lookup_enrichment_table
+    attr_reader :lookup_enrichment_table
 
     # Name of the processor.
     attr_accessor :name
 
     # Source attribute used to perform the lookup.
-    attr_accessor :source
+    attr_reader :source
 
     # Name of the attribute that contains the corresponding value in the mapping list.
-    attr_accessor :target
+    attr_reader :target
 
     # Type of logs lookup processor.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

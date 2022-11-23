@@ -47,7 +47,7 @@ module DatadogAPIClient::V1
     attr_accessor :dns_server
 
     # DNS server port to use for DNS tests.
-    attr_accessor :dns_server_port
+    attr_reader :dns_server_port
 
     # Specifies whether or not the request follows redirects.
     attr_accessor :follow_redirects
@@ -71,7 +71,7 @@ module DatadogAPIClient::V1
     attr_accessor :no_saving_response_body
 
     # Number of pings to use per test.
-    attr_accessor :number_of_packets
+    attr_reader :number_of_packets
 
     # Port to use when performing the test.
     attr_accessor :port

@@ -29,7 +29,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Query definition.
-    attr_accessor :q
+    attr_reader :q
 
     # The execution method for multi-value filters.
     attr_accessor :tags_execution

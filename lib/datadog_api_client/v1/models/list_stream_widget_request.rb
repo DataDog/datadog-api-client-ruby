@@ -26,13 +26,13 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Widget columns.
-    attr_accessor :columns
+    attr_reader :columns
 
     # Updated list stream widget.
-    attr_accessor :query
+    attr_reader :query
 
     # Widget response format.
-    attr_accessor :response_format
+    attr_reader :response_format
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

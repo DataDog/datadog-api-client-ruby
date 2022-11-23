@@ -36,7 +36,7 @@ module DatadogAPIClient::V2
     attr_accessor :notifications
 
     # Severity of the Security Signal.
-    attr_accessor :status
+    attr_reader :status
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

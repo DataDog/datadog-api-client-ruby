@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Type of parser for a Synthetics global variable from a synthetics test.
-    attr_accessor :type
+    attr_reader :type
 
     # Regex or JSON path used for the parser. Not used with type `raw`.
     attr_accessor :value

@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Facet name.
-    attr_accessor :facet
+    attr_reader :facet
 
     # Maximum number of items in the group.
     attr_accessor :limit

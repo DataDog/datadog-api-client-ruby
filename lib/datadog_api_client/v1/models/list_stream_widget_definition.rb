@@ -30,7 +30,7 @@ module DatadogAPIClient::V1
     attr_accessor :legend_size
 
     # Request payload used to query items.
-    attr_accessor :requests
+    attr_reader :requests
 
     # Whether or not to display the legend on this widget.
     attr_accessor :show_legend
@@ -48,7 +48,7 @@ module DatadogAPIClient::V1
     attr_accessor :title_size
 
     # Type of the list stream widget.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

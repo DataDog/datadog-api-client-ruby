@@ -26,13 +26,13 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # Attributes used to update an application Key.
-    attr_accessor :attributes
+    attr_reader :attributes
 
     # ID of the application key.
-    attr_accessor :id
+    attr_reader :id
 
     # Application Keys resource type.
-    attr_accessor :type
+    attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

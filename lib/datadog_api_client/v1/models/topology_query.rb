@@ -29,7 +29,7 @@ module DatadogAPIClient::V1
     attr_accessor :data_source
 
     # Your environment and primary tag (or * if enabled for your account).
-    attr_accessor :filters
+    attr_reader :filters
 
     # Name of the service
     attr_accessor :service

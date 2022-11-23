@@ -26,10 +26,10 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Keys to split on.
-    attr_accessor :keys
+    attr_reader :keys
 
     # Tags to split on.
-    attr_accessor :tags
+    attr_reader :tags
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

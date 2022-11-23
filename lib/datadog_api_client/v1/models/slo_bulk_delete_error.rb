@@ -27,14 +27,14 @@ module DatadogAPIClient::V1
 
     # The ID of the service level objective object associated with
     # this error.
-    attr_accessor :id
+    attr_reader :id
 
     # The error message.
-    attr_accessor :message
+    attr_reader :message
 
     # The timeframe of the threshold associated with this error
     # or "all" if all thresholds are affected.
-    attr_accessor :timeframe
+    attr_reader :timeframe
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

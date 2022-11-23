@@ -29,7 +29,7 @@ module DatadogAPIClient::V2
     attr_accessor :cursor
 
     # Maximum number of logs in the response.
-    attr_accessor :limit
+    attr_reader :limit
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private

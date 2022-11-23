@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # The UUID of the user being assigned. Use empty string to return signal to unassigned.
-    attr_accessor :assignee
+    attr_reader :assignee
 
     # Version of the updated signal. If server side version is higher, update will be rejected.
     attr_accessor :version

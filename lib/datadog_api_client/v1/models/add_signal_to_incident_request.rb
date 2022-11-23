@@ -29,7 +29,7 @@ module DatadogAPIClient::V1
     attr_accessor :add_to_signal_timeline
 
     # Public ID attribute of the incident to which the signal will be added.
-    attr_accessor :incident_id
+    attr_reader :incident_id
 
     # Version of the updated signal. If server side version is higher, update will be rejected.
     attr_accessor :version

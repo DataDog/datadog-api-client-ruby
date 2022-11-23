@@ -41,7 +41,7 @@ module DatadogAPIClient::V1
     attr_accessor :modified
 
     # The name of the notebook.
-    attr_accessor :name
+    attr_reader :name
 
     # Publication status of the notebook. For now, always "published".
     attr_accessor :status

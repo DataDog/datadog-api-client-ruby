@@ -26,7 +26,7 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # An aggregation function.
-    attr_accessor :aggregation
+    attr_reader :aggregation
 
     # The time buckets' size (only used for type=timeseries)
     # Defaults to a resolution of 150 points.

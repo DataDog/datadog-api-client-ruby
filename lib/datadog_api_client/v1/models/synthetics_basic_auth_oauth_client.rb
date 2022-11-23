@@ -26,16 +26,16 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Access token URL to use when performing the authentication.
-    attr_accessor :access_token_url
+    attr_reader :access_token_url
 
     # Audience to use when performing the authentication.
     attr_accessor :audience
 
     # Client ID to use when performing the authentication.
-    attr_accessor :client_id
+    attr_reader :client_id
 
     # Client secret to use when performing the authentication.
-    attr_accessor :client_secret
+    attr_reader :client_secret
 
     # Resource to use when performing the authentication.
     attr_accessor :resource
@@ -44,7 +44,7 @@ module DatadogAPIClient::V1
     attr_accessor :scope
 
     # Type of token to use when performing the authentication.
-    attr_accessor :token_api_authentication
+    attr_reader :token_api_authentication
 
     # The type of basic authentication to use when performing the test.
     attr_accessor :type
