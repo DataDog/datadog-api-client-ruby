@@ -1,10 +1,10 @@
 http_interactions:
-- recorded_at: Fri, 21 Oct 2022 09:04:03 GMT
+- recorded_at: Mon, 28 Nov 2022 11:57:44 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"compute":[{"aggregation":"pc90","metric":"@duration","type":"total"}],"filter":{"from":"now-15m","query":"@ci.provider.name:github
-        AND @ci.provider.instance:github-actions","to":"now"},"group_by":[{"facet":"@ci.status","limit":10,"total":false}],"options":{"timezone":"GMT"},"page":{"limit":25}}'
+      string: '{"compute":[{"aggregation":"pc90","metric":"@duration","type":"total"}],"filter":{"from":"now-15m","query":"@ci.provider.name:(gitlab
+        OR github)","to":"now"},"group_by":[{"facet":"@ci.status","limit":10,"total":false}],"options":{"timezone":"GMT"},"page":{"limit":25}}'
     headers:
       Accept:
       - application/json
@@ -15,7 +15,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"meta":{"elapsed":113,"request_id":"pddv1ChYwUEN0YnZ5dFNrdVZEbHhuSTliVEpnIiwKHGMtY3c8ixDp3d4CWjg8UkGmZ1-bi7LFmSWOebUSDClmkByOFEin86vlJg","status":"done"},"data":{"buckets":[{"by":{"@ci.status":"canceled"},"computes":{"c0":149536704640.0603}},{"by":{"@ci.status":"error"},"computes":{"c0":423086456660.7128}},{"by":{"@ci.status":"skipped"},"computes":{"c0":0.0}},{"by":{"@ci.status":"success"},"computes":{"c0":190099929600.14703}}]}}
+      string: '{"meta":{"elapsed":11,"request_id":"pddv1ChZqQzVJUE9vVlNBLVFpRk84Vko5MmFRIi0KHbc5utz89Y10MZzALoXnFE9Iv7tPhZgvKgIWyiodEgzXWdD8rQBC2y027fc","status":"done"},"data":{"buckets":[]}}
 
         '
     headers:
