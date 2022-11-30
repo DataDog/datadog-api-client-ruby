@@ -47,7 +47,13 @@ module DatadogAPIClient::V1
     attr_accessor :apm_trace_search_sum
 
     # Response with properties for each aggregated usage type.
+    attr_accessor :application_security_fargate_average
+
+    # Response with properties for each aggregated usage type.
     attr_accessor :application_security_host_sum
+
+    # Response with properties for each aggregated usage type.
+    attr_accessor :application_security_host_top99
 
     # Response with properties for each aggregated usage type.
     attr_accessor :ci_pipeline_indexed_spans_sum
@@ -66,6 +72,12 @@ module DatadogAPIClient::V1
 
     # Response with properties for each aggregated usage type.
     attr_accessor :ci_testing_sum
+
+    # Response with properties for each aggregated usage type.
+    attr_accessor :cloud_cost_management_average
+
+    # Response with properties for each aggregated usage type.
+    attr_accessor :cloud_cost_management_sum
 
     # Response with properties for each aggregated usage type.
     attr_accessor :cspm_container_sum
@@ -161,6 +173,9 @@ module DatadogAPIClient::V1
     attr_accessor :lambda_function_sum
 
     # Response with properties for each aggregated usage type.
+    attr_accessor :logs_forwarding_sum
+
+    # Response with properties for each aggregated usage type.
     attr_accessor :logs_indexed_15day_sum
 
     # Response with properties for each aggregated usage type.
@@ -242,6 +257,15 @@ module DatadogAPIClient::V1
     attr_accessor :sensitive_data_scanner_sum
 
     # Response with properties for each aggregated usage type.
+    attr_accessor :serverless_apm_sum
+
+    # Response with properties for each aggregated usage type.
+    attr_accessor :serverless_infra_average
+
+    # Response with properties for each aggregated usage type.
+    attr_accessor :serverless_infra_sum
+
+    # Response with properties for each aggregated usage type.
     attr_accessor :serverless_invocation_sum
 
     # Response with properties for each aggregated usage type.
@@ -252,6 +276,9 @@ module DatadogAPIClient::V1
 
     # Response with properties for each aggregated usage type.
     attr_accessor :synthetics_api_tests_sum
+
+    # Response with properties for each aggregated usage type.
+    attr_accessor :synthetics_app_testing_maximum
 
     # Response with properties for each aggregated usage type.
     attr_accessor :synthetics_browser_checks_sum
@@ -273,13 +300,17 @@ module DatadogAPIClient::V1
         :'apm_profiler_host_sum' => :'apm_profiler_host_sum',
         :'apm_profiler_host_top99p' => :'apm_profiler_host_top99p',
         :'apm_trace_search_sum' => :'apm_trace_search_sum',
+        :'application_security_fargate_average' => :'application_security_fargate_average',
         :'application_security_host_sum' => :'application_security_host_sum',
+        :'application_security_host_top99' => :'application_security_host_top99',
         :'ci_pipeline_indexed_spans_sum' => :'ci_pipeline_indexed_spans_sum',
         :'ci_pipeline_maximum' => :'ci_pipeline_maximum',
         :'ci_pipeline_sum' => :'ci_pipeline_sum',
         :'ci_test_indexed_spans_sum' => :'ci_test_indexed_spans_sum',
         :'ci_testing_maximum' => :'ci_testing_maximum',
         :'ci_testing_sum' => :'ci_testing_sum',
+        :'cloud_cost_management_average' => :'cloud_cost_management_average',
+        :'cloud_cost_management_sum' => :'cloud_cost_management_sum',
         :'cspm_container_sum' => :'cspm_container_sum',
         :'cspm_host_sum' => :'cspm_host_sum',
         :'cspm_host_top99p' => :'cspm_host_top99p',
@@ -311,6 +342,7 @@ module DatadogAPIClient::V1
         :'iot_top99p' => :'iot_top99p',
         :'lambda_function_average' => :'lambda_function_average',
         :'lambda_function_sum' => :'lambda_function_sum',
+        :'logs_forwarding_sum' => :'logs_forwarding_sum',
         :'logs_indexed_15day_sum' => :'logs_indexed_15day_sum',
         :'logs_indexed_180day_sum' => :'logs_indexed_180day_sum',
         :'logs_indexed_30day_sum' => :'logs_indexed_30day_sum',
@@ -338,10 +370,14 @@ module DatadogAPIClient::V1
         :'rum_sum' => :'rum_sum',
         :'rum_units_sum' => :'rum_units_sum',
         :'sensitive_data_scanner_sum' => :'sensitive_data_scanner_sum',
+        :'serverless_apm_sum' => :'serverless_apm_sum',
+        :'serverless_infra_average' => :'serverless_infra_average',
+        :'serverless_infra_sum' => :'serverless_infra_sum',
         :'serverless_invocation_sum' => :'serverless_invocation_sum',
         :'siem_sum' => :'siem_sum',
         :'standard_timeseries_average' => :'standard_timeseries_average',
         :'synthetics_api_tests_sum' => :'synthetics_api_tests_sum',
+        :'synthetics_app_testing_maximum' => :'synthetics_app_testing_maximum',
         :'synthetics_browser_checks_sum' => :'synthetics_browser_checks_sum',
         :'timeseries_average' => :'timeseries_average',
         :'timeseries_sum' => :'timeseries_sum'
@@ -359,13 +395,17 @@ module DatadogAPIClient::V1
         :'apm_profiler_host_sum' => :'UsageBillableSummaryBody',
         :'apm_profiler_host_top99p' => :'UsageBillableSummaryBody',
         :'apm_trace_search_sum' => :'UsageBillableSummaryBody',
+        :'application_security_fargate_average' => :'UsageBillableSummaryBody',
         :'application_security_host_sum' => :'UsageBillableSummaryBody',
+        :'application_security_host_top99' => :'UsageBillableSummaryBody',
         :'ci_pipeline_indexed_spans_sum' => :'UsageBillableSummaryBody',
         :'ci_pipeline_maximum' => :'UsageBillableSummaryBody',
         :'ci_pipeline_sum' => :'UsageBillableSummaryBody',
         :'ci_test_indexed_spans_sum' => :'UsageBillableSummaryBody',
         :'ci_testing_maximum' => :'UsageBillableSummaryBody',
         :'ci_testing_sum' => :'UsageBillableSummaryBody',
+        :'cloud_cost_management_average' => :'UsageBillableSummaryBody',
+        :'cloud_cost_management_sum' => :'UsageBillableSummaryBody',
         :'cspm_container_sum' => :'UsageBillableSummaryBody',
         :'cspm_host_sum' => :'UsageBillableSummaryBody',
         :'cspm_host_top99p' => :'UsageBillableSummaryBody',
@@ -397,6 +437,7 @@ module DatadogAPIClient::V1
         :'iot_top99p' => :'UsageBillableSummaryBody',
         :'lambda_function_average' => :'UsageBillableSummaryBody',
         :'lambda_function_sum' => :'UsageBillableSummaryBody',
+        :'logs_forwarding_sum' => :'UsageBillableSummaryBody',
         :'logs_indexed_15day_sum' => :'UsageBillableSummaryBody',
         :'logs_indexed_180day_sum' => :'UsageBillableSummaryBody',
         :'logs_indexed_30day_sum' => :'UsageBillableSummaryBody',
@@ -424,10 +465,14 @@ module DatadogAPIClient::V1
         :'rum_sum' => :'UsageBillableSummaryBody',
         :'rum_units_sum' => :'UsageBillableSummaryBody',
         :'sensitive_data_scanner_sum' => :'UsageBillableSummaryBody',
+        :'serverless_apm_sum' => :'UsageBillableSummaryBody',
+        :'serverless_infra_average' => :'UsageBillableSummaryBody',
+        :'serverless_infra_sum' => :'UsageBillableSummaryBody',
         :'serverless_invocation_sum' => :'UsageBillableSummaryBody',
         :'siem_sum' => :'UsageBillableSummaryBody',
         :'standard_timeseries_average' => :'UsageBillableSummaryBody',
         :'synthetics_api_tests_sum' => :'UsageBillableSummaryBody',
+        :'synthetics_app_testing_maximum' => :'UsageBillableSummaryBody',
         :'synthetics_browser_checks_sum' => :'UsageBillableSummaryBody',
         :'timeseries_average' => :'UsageBillableSummaryBody',
         :'timeseries_sum' => :'UsageBillableSummaryBody'
@@ -485,8 +530,16 @@ module DatadogAPIClient::V1
         self.apm_trace_search_sum = attributes[:'apm_trace_search_sum']
       end
 
+      if attributes.key?(:'application_security_fargate_average')
+        self.application_security_fargate_average = attributes[:'application_security_fargate_average']
+      end
+
       if attributes.key?(:'application_security_host_sum')
         self.application_security_host_sum = attributes[:'application_security_host_sum']
+      end
+
+      if attributes.key?(:'application_security_host_top99')
+        self.application_security_host_top99 = attributes[:'application_security_host_top99']
       end
 
       if attributes.key?(:'ci_pipeline_indexed_spans_sum')
@@ -511,6 +564,14 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'ci_testing_sum')
         self.ci_testing_sum = attributes[:'ci_testing_sum']
+      end
+
+      if attributes.key?(:'cloud_cost_management_average')
+        self.cloud_cost_management_average = attributes[:'cloud_cost_management_average']
+      end
+
+      if attributes.key?(:'cloud_cost_management_sum')
+        self.cloud_cost_management_sum = attributes[:'cloud_cost_management_sum']
       end
 
       if attributes.key?(:'cspm_container_sum')
@@ -637,6 +698,10 @@ module DatadogAPIClient::V1
         self.lambda_function_sum = attributes[:'lambda_function_sum']
       end
 
+      if attributes.key?(:'logs_forwarding_sum')
+        self.logs_forwarding_sum = attributes[:'logs_forwarding_sum']
+      end
+
       if attributes.key?(:'logs_indexed_15day_sum')
         self.logs_indexed_15day_sum = attributes[:'logs_indexed_15day_sum']
       end
@@ -745,6 +810,18 @@ module DatadogAPIClient::V1
         self.sensitive_data_scanner_sum = attributes[:'sensitive_data_scanner_sum']
       end
 
+      if attributes.key?(:'serverless_apm_sum')
+        self.serverless_apm_sum = attributes[:'serverless_apm_sum']
+      end
+
+      if attributes.key?(:'serverless_infra_average')
+        self.serverless_infra_average = attributes[:'serverless_infra_average']
+      end
+
+      if attributes.key?(:'serverless_infra_sum')
+        self.serverless_infra_sum = attributes[:'serverless_infra_sum']
+      end
+
       if attributes.key?(:'serverless_invocation_sum')
         self.serverless_invocation_sum = attributes[:'serverless_invocation_sum']
       end
@@ -759,6 +836,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'synthetics_api_tests_sum')
         self.synthetics_api_tests_sum = attributes[:'synthetics_api_tests_sum']
+      end
+
+      if attributes.key?(:'synthetics_app_testing_maximum')
+        self.synthetics_app_testing_maximum = attributes[:'synthetics_app_testing_maximum']
       end
 
       if attributes.key?(:'synthetics_browser_checks_sum')
@@ -794,13 +875,17 @@ module DatadogAPIClient::V1
           apm_profiler_host_sum == o.apm_profiler_host_sum &&
           apm_profiler_host_top99p == o.apm_profiler_host_top99p &&
           apm_trace_search_sum == o.apm_trace_search_sum &&
+          application_security_fargate_average == o.application_security_fargate_average &&
           application_security_host_sum == o.application_security_host_sum &&
+          application_security_host_top99 == o.application_security_host_top99 &&
           ci_pipeline_indexed_spans_sum == o.ci_pipeline_indexed_spans_sum &&
           ci_pipeline_maximum == o.ci_pipeline_maximum &&
           ci_pipeline_sum == o.ci_pipeline_sum &&
           ci_test_indexed_spans_sum == o.ci_test_indexed_spans_sum &&
           ci_testing_maximum == o.ci_testing_maximum &&
           ci_testing_sum == o.ci_testing_sum &&
+          cloud_cost_management_average == o.cloud_cost_management_average &&
+          cloud_cost_management_sum == o.cloud_cost_management_sum &&
           cspm_container_sum == o.cspm_container_sum &&
           cspm_host_sum == o.cspm_host_sum &&
           cspm_host_top99p == o.cspm_host_top99p &&
@@ -832,6 +917,7 @@ module DatadogAPIClient::V1
           iot_top99p == o.iot_top99p &&
           lambda_function_average == o.lambda_function_average &&
           lambda_function_sum == o.lambda_function_sum &&
+          logs_forwarding_sum == o.logs_forwarding_sum &&
           logs_indexed_15day_sum == o.logs_indexed_15day_sum &&
           logs_indexed_180day_sum == o.logs_indexed_180day_sum &&
           logs_indexed_30day_sum == o.logs_indexed_30day_sum &&
@@ -859,10 +945,14 @@ module DatadogAPIClient::V1
           rum_sum == o.rum_sum &&
           rum_units_sum == o.rum_units_sum &&
           sensitive_data_scanner_sum == o.sensitive_data_scanner_sum &&
+          serverless_apm_sum == o.serverless_apm_sum &&
+          serverless_infra_average == o.serverless_infra_average &&
+          serverless_infra_sum == o.serverless_infra_sum &&
           serverless_invocation_sum == o.serverless_invocation_sum &&
           siem_sum == o.siem_sum &&
           standard_timeseries_average == o.standard_timeseries_average &&
           synthetics_api_tests_sum == o.synthetics_api_tests_sum &&
+          synthetics_app_testing_maximum == o.synthetics_app_testing_maximum &&
           synthetics_browser_checks_sum == o.synthetics_browser_checks_sum &&
           timeseries_average == o.timeseries_average &&
           timeseries_sum == o.timeseries_sum
@@ -872,7 +962,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [apm_fargate_average, apm_fargate_sum, apm_host_sum, apm_host_top99p, apm_profiler_host_sum, apm_profiler_host_top99p, apm_trace_search_sum, application_security_host_sum, ci_pipeline_indexed_spans_sum, ci_pipeline_maximum, ci_pipeline_sum, ci_test_indexed_spans_sum, ci_testing_maximum, ci_testing_sum, cspm_container_sum, cspm_host_sum, cspm_host_top99p, custom_event_sum, cws_container_sum, cws_host_sum, cws_host_top99p, dbm_host_sum, dbm_host_top99p, dbm_normalized_queries_average, dbm_normalized_queries_sum, fargate_container_apm_and_profiler_average, fargate_container_apm_and_profiler_sum, fargate_container_average, fargate_container_profiler_average, fargate_container_profiler_sum, fargate_container_sum, incident_management_maximum, incident_management_sum, infra_and_apm_host_sum, infra_and_apm_host_top99p, infra_container_sum, infra_host_sum, infra_host_top99p, ingested_spans_sum, ingested_timeseries_average, ingested_timeseries_sum, iot_sum, iot_top99p, lambda_function_average, lambda_function_sum, logs_indexed_15day_sum, logs_indexed_180day_sum, logs_indexed_30day_sum, logs_indexed_360day_sum, logs_indexed_3day_sum, logs_indexed_45day_sum, logs_indexed_60day_sum, logs_indexed_7day_sum, logs_indexed_90day_sum, logs_indexed_custom_retention_sum, logs_indexed_sum, logs_ingested_sum, network_device_sum, network_device_top99p, npm_flow_sum, npm_host_sum, npm_host_top99p, observability_pipeline_sum, online_archive_sum, prof_container_sum, prof_host_sum, prof_host_top99p, rum_lite_sum, rum_replay_sum, rum_sum, rum_units_sum, sensitive_data_scanner_sum, serverless_invocation_sum, siem_sum, standard_timeseries_average, synthetics_api_tests_sum, synthetics_browser_checks_sum, timeseries_average, timeseries_sum].hash
+      [apm_fargate_average, apm_fargate_sum, apm_host_sum, apm_host_top99p, apm_profiler_host_sum, apm_profiler_host_top99p, apm_trace_search_sum, application_security_fargate_average, application_security_host_sum, application_security_host_top99, ci_pipeline_indexed_spans_sum, ci_pipeline_maximum, ci_pipeline_sum, ci_test_indexed_spans_sum, ci_testing_maximum, ci_testing_sum, cloud_cost_management_average, cloud_cost_management_sum, cspm_container_sum, cspm_host_sum, cspm_host_top99p, custom_event_sum, cws_container_sum, cws_host_sum, cws_host_top99p, dbm_host_sum, dbm_host_top99p, dbm_normalized_queries_average, dbm_normalized_queries_sum, fargate_container_apm_and_profiler_average, fargate_container_apm_and_profiler_sum, fargate_container_average, fargate_container_profiler_average, fargate_container_profiler_sum, fargate_container_sum, incident_management_maximum, incident_management_sum, infra_and_apm_host_sum, infra_and_apm_host_top99p, infra_container_sum, infra_host_sum, infra_host_top99p, ingested_spans_sum, ingested_timeseries_average, ingested_timeseries_sum, iot_sum, iot_top99p, lambda_function_average, lambda_function_sum, logs_forwarding_sum, logs_indexed_15day_sum, logs_indexed_180day_sum, logs_indexed_30day_sum, logs_indexed_360day_sum, logs_indexed_3day_sum, logs_indexed_45day_sum, logs_indexed_60day_sum, logs_indexed_7day_sum, logs_indexed_90day_sum, logs_indexed_custom_retention_sum, logs_indexed_sum, logs_ingested_sum, network_device_sum, network_device_top99p, npm_flow_sum, npm_host_sum, npm_host_top99p, observability_pipeline_sum, online_archive_sum, prof_container_sum, prof_host_sum, prof_host_top99p, rum_lite_sum, rum_replay_sum, rum_sum, rum_units_sum, sensitive_data_scanner_sum, serverless_apm_sum, serverless_infra_average, serverless_infra_sum, serverless_invocation_sum, siem_sum, standard_timeseries_average, synthetics_api_tests_sum, synthetics_app_testing_maximum, synthetics_browser_checks_sum, timeseries_average, timeseries_sum].hash
     end
   end
 end
