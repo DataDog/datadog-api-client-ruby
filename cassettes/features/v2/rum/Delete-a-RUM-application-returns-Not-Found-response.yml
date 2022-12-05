@@ -1,5 +1,5 @@
 http_interactions:
-- recorded_at: Mon, 08 Aug 2022 16:05:32 GMT
+- recorded_at: Mon, 05 Dec 2022 18:19:50 GMT
   request:
     body: null
     headers:
@@ -10,9 +10,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"errors":["Application Not Found not found"]}
-
-        '
+      string: '{"errors":["Application Not Found not found"]}'
     headers:
       Content-Type:
       - application/json
