@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # RUM application attributes.
-  class RUMApplicationAttributes
+  # RUM application list attributes.
+  class RUMApplicationListAttributes
     include BaseGenericModel
 
     # Whether the object has unparsed attributes
@@ -27,9 +27,6 @@ module DatadogAPIClient::V2
 
     # ID of the RUM application.
     attr_reader :application_id
-
-    # Client token of the RUM application.
-    attr_reader :client_token
 
     # Timestamp in ms of the creation date.
     attr_reader :created_at
@@ -63,7 +60,6 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'application_id' => :'application_id',
-        :'client_token' => :'client_token',
         :'created_at' => :'created_at',
         :'created_by_handle' => :'created_by_handle',
         :'hash' => :'hash',
@@ -81,7 +77,6 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'application_id' => :'String',
-        :'client_token' => :'String',
         :'created_at' => :'Integer',
         :'created_by_handle' => :'String',
         :'hash' => :'String',
@@ -106,23 +101,19 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMApplicationAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RUMApplicationListAttributes` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::RUMApplicationAttributes`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::RUMApplicationListAttributes`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
       if attributes.key?(:'application_id')
         self.application_id = attributes[:'application_id']
-      end
-
-      if attributes.key?(:'client_token')
-        self.client_token = attributes[:'client_token']
       end
 
       if attributes.key?(:'created_at')
@@ -167,7 +158,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @application_id.nil?
-      return false if @client_token.nil?
       return false if @created_at.nil?
       return false if @created_by_handle.nil?
       return false if @name.nil?
@@ -187,16 +177,6 @@ module DatadogAPIClient::V2
         fail ArgumentError, 'invalid value for "application_id", application_id cannot be nil.'
       end
       @application_id = application_id
-    end
-
-    # Custom attribute writer method with validation
-    # @param client_token [Object] Object to be assigned
-    # @!visibility private
-    def client_token=(client_token)
-      if client_token.nil?
-        fail ArgumentError, 'invalid value for "client_token", client_token cannot be nil.'
-      end
-      @client_token = client_token
     end
 
     # Custom attribute writer method with validation
@@ -279,7 +259,6 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           application_id == o.application_id &&
-          client_token == o.client_token &&
           created_at == o.created_at &&
           created_by_handle == o.created_by_handle &&
           hash == o.hash &&
@@ -295,7 +274,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [application_id, client_token, created_at, created_by_handle, hash, is_active, name, org_id, type, updated_at, updated_by_handle].hash
+      [application_id, created_at, created_by_handle, hash, is_active, name, org_id, type, updated_at, updated_by_handle].hash
     end
   end
 end
