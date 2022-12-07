@@ -69,10 +69,9 @@ describe 'Deserialization', skip_before: true do
       data = @api_instance.get_api_test("public_id")
 
       expect(data).to be_a DatadogAPIClient::V1::SyntheticsAPITest
-      expect(data.config.request).to be_a DatadogAPIClient::V1::SyntheticsTestRequest
-      expect(data.config.request._unparsed).to be true
-      expect(data.config.request.timeout).to eq 30
-      expect(data.config.request.method.to_hash).to eq "A non existent method"
+      expect(data.config.assertions[0]).to be_a DatadogAPIClient::UnparsedObject
+      expect(data.config.assertions[0].to_hash[:target]).to eq 200
+      expect(data.config.assertions[0].to_hash[:operator]).to eq "not-an-operator"
     end
   end
 
