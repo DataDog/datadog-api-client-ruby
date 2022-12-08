@@ -46,6 +46,9 @@ module DatadogAPIClient::V1
     # Scope to use when performing the authentication.
     attr_accessor :scope
 
+    # Type of token to use when performing the authentication.
+    attr_reader :token_api_authentication
+
     # The type of basic authentication to use when performing the test.
     attr_accessor :type
 
@@ -63,6 +66,7 @@ module DatadogAPIClient::V1
         :'password' => :'password',
         :'resource' => :'resource',
         :'scope' => :'scope',
+        :'token_api_authentication' => :'tokenApiAuthentication',
         :'type' => :'type',
         :'username' => :'username'
       }
@@ -79,6 +83,7 @@ module DatadogAPIClient::V1
         :'password' => :'String',
         :'resource' => :'String',
         :'scope' => :'String',
+        :'token_api_authentication' => :'SyntheticsBasicAuthOauthTokenApiAuthentication',
         :'type' => :'SyntheticsBasicAuthOauthROPType',
         :'username' => :'String'
       }
@@ -135,6 +140,10 @@ module DatadogAPIClient::V1
         self.scope = attributes[:'scope']
       end
 
+      if attributes.key?(:'token_api_authentication')
+        self.token_api_authentication = attributes[:'token_api_authentication']
+      end
+
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
@@ -150,6 +159,7 @@ module DatadogAPIClient::V1
     def valid?
       return false if @access_token_url.nil?
       return false if @password.nil?
+      return false if @token_api_authentication.nil?
       return false if @username.nil?
       true
     end
@@ -175,6 +185,16 @@ module DatadogAPIClient::V1
     end
 
     # Custom attribute writer method with validation
+    # @param token_api_authentication [Object] Object to be assigned
+    # @!visibility private
+    def token_api_authentication=(token_api_authentication)
+      if token_api_authentication.nil?
+        fail ArgumentError, 'invalid value for "token_api_authentication", token_api_authentication cannot be nil.'
+      end
+      @token_api_authentication = token_api_authentication
+    end
+
+    # Custom attribute writer method with validation
     # @param username [Object] Object to be assigned
     # @!visibility private
     def username=(username)
@@ -197,6 +217,7 @@ module DatadogAPIClient::V1
           password == o.password &&
           resource == o.resource &&
           scope == o.scope &&
+          token_api_authentication == o.token_api_authentication &&
           type == o.type &&
           username == o.username
     end
@@ -205,7 +226,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [access_token_url, audience, client_id, client_secret, password, resource, scope, type, username].hash
+      [access_token_url, audience, client_id, client_secret, password, resource, scope, token_api_authentication, type, username].hash
     end
   end
 end
