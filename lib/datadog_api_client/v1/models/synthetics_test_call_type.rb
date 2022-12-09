@@ -17,16 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # The HTTP method.
-  class HTTPMethod
+  # The type of gRPC call to perform.
+  class SyntheticsTestCallType
     include BaseEnumModel
 
-    GET = "GET".freeze
-    POST = "POST".freeze
-    PATCH = "PATCH".freeze
-    PUT = "PUT".freeze
-    DELETE = "DELETE".freeze
-    HEAD = "HEAD".freeze
-    OPTIONS = "OPTIONS".freeze
+    HEALTHCHECK = "healthcheck".freeze
+    UNARY = "unary".freeze
   end
 end

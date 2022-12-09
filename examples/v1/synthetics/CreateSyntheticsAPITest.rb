@@ -13,7 +13,7 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
       }),
     ],
     request: DatadogAPIClient::V1::SyntheticsTestRequest.new({
-      method: DatadogAPIClient::V1::HTTPMethod::GET,
+      method: "GET",
       url: "https://example.com",
     }),
   }),

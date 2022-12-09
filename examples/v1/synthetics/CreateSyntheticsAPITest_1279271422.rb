@@ -36,7 +36,7 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
         is_critical: true,
         name: "request is sent",
         request: DatadogAPIClient::V1::SyntheticsTestRequest.new({
-          method: DatadogAPIClient::V1::HTTPMethod::GET,
+          method: "GET",
           timeout: 10,
           url: "https://datadoghq.com",
         }),
