@@ -329,7 +329,7 @@ module DatadogAPIClient::V2
     #
     # @param opts [Hash] the optional parameters
     # @option opts [Array<IncidentRelatedObject>] :include Specifies which types of related objects should be included in the response.
-    # @option opts [Integer] :page_size Size for a given page.
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 5000.
     # @option opts [Integer] :page_offset Specific offset to use as the beginning of the returned page.
     # @return [Array<(IncidentsResponse, Integer, Hash)>] IncidentsResponse data, response status code and response headers
     def list_incidents_with_http_info(opts = {})

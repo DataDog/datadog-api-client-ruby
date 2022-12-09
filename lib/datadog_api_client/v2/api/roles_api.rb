@@ -574,7 +574,7 @@ module DatadogAPIClient::V2
     # Returns all roles, including their names and their unique identifiers.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page.
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 5000.
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [RolesSort] :sort Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: `sort=-name`.
     # @option opts [String] :filter Filter all roles by the given string.
@@ -647,7 +647,7 @@ module DatadogAPIClient::V2
     #
     # @param role_id [String] The unique identifier of the role.
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page.
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 5000.
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [String] :sort User attribute to order results by. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example `sort=-name`. Options: `name`, `email`, `status`.
     # @option opts [String] :filter Filter all users by the given string. Defaults to no filtering.
