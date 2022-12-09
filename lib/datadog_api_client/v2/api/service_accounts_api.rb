@@ -249,7 +249,7 @@ module DatadogAPIClient::V2
     #
     # @param service_account_id [String] The ID of the service account.
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page.
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 5000.
     # @option opts [Integer] :page_number Specific page number to return.
     # @option opts [ApplicationKeysSort] :sort Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
     # @option opts [String] :filter Filter application keys by the specified string.
