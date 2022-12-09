@@ -60,7 +60,7 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
       headers: {
         unique: "examplecreateanapihttpwithoauthroptestreturnsokreturnsthecreatedtestdetailsresponse",
       },
-      method: "GET",
+      method: DatadogAPIClient::V1::HTTPMethod::GET,
       timeout: 10,
       url: "https://datadoghq.com",
       proxy: DatadogAPIClient::V1::SyntheticsTestRequestProxy.new({

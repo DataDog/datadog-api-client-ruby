@@ -52,7 +52,7 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
       headers: {
         unique: "exampleeditanapitestreturnsokresponse",
       },
-      method: "GET",
+      method: DatadogAPIClient::V1::HTTPMethod::GET,
       timeout: 10,
       url: "https://datadoghq.com",
     }),

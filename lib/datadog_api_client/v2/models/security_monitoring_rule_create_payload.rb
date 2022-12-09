@@ -27,7 +27,8 @@ module DatadogAPIClient::V2
       def openapi_one_of
         [
           :'SecurityMonitoringStandardRuleCreatePayload',
-          :'SecurityMonitoringSignalRuleCreatePayload'
+          :'SecurityMonitoringSignalRuleCreatePayload',
+          :'CloudConfigurationRuleCreatePayload'
         ]
       end
       # Builds the object

@@ -16,7 +16,7 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
       host: "localhost",
       port: 50051,
       service: "Hello",
-      method: "GET",
+      method: DatadogAPIClient::V1::HTTPMethod::GET,
       message: "",
       metadata: {},
     }),
