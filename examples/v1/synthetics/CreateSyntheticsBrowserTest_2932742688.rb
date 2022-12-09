@@ -15,7 +15,7 @@ body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({
       }),
     ],
     request: DatadogAPIClient::V1::SyntheticsTestRequest.new({
-      method: DatadogAPIClient::V1::HTTPMethod::GET,
+      method: "GET",
       url: "https://datadoghq.com",
       certificate_domains: [
         "https://datadoghq.com",
