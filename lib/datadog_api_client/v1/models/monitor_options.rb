@@ -34,6 +34,9 @@ module DatadogAPIClient::V1
     # Whether or not to send a log sample when the log monitor triggers.
     attr_accessor :enable_logs_sample
 
+    # Whether or not to send a list of samples when the monitor triggers. This is only used by CI Test and Pipeline monitors.
+    attr_accessor :enable_samples
+
     # We recommend using the [is_renotify](https://docs.datadoghq.com/monitors/notify/?tab=is_alert#renotify),
     # block in the original message instead.
     # A message to include with a re-notification. Supports the `@username` notification we allow elsewhere.
@@ -155,6 +158,7 @@ module DatadogAPIClient::V1
         :'aggregation' => :'aggregation',
         :'device_ids' => :'device_ids',
         :'enable_logs_sample' => :'enable_logs_sample',
+        :'enable_samples' => :'enable_samples',
         :'escalation_message' => :'escalation_message',
         :'evaluation_delay' => :'evaluation_delay',
         :'group_retention_duration' => :'group_retention_duration',
@@ -191,6 +195,7 @@ module DatadogAPIClient::V1
         :'aggregation' => :'MonitorOptionsAggregation',
         :'device_ids' => :'Array<MonitorDeviceID>',
         :'enable_logs_sample' => :'Boolean',
+        :'enable_samples' => :'Boolean',
         :'escalation_message' => :'String',
         :'evaluation_delay' => :'Integer',
         :'group_retention_duration' => :'String',
@@ -266,6 +271,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'enable_logs_sample')
         self.enable_logs_sample = attributes[:'enable_logs_sample']
+      end
+
+      if attributes.key?(:'enable_samples')
+        self.enable_samples = attributes[:'enable_samples']
       end
 
       if attributes.key?(:'escalation_message')
@@ -410,6 +419,7 @@ module DatadogAPIClient::V1
           aggregation == o.aggregation &&
           device_ids == o.device_ids &&
           enable_logs_sample == o.enable_logs_sample &&
+          enable_samples == o.enable_samples &&
           escalation_message == o.escalation_message &&
           evaluation_delay == o.evaluation_delay &&
           group_retention_duration == o.group_retention_duration &&
@@ -442,7 +452,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation, device_ids, enable_logs_sample, escalation_message, evaluation_delay, group_retention_duration, groupby_simple_monitor, include_tags, locked, min_failure_duration, min_location_failed, new_group_delay, new_host_delay, no_data_timeframe, notify_audit, notify_by, notify_no_data, on_missing_data, renotify_interval, renotify_occurrences, renotify_statuses, require_full_window, scheduling_options, silenced, synthetics_check_id, threshold_windows, thresholds, timeout_h, variables].hash
+      [aggregation, device_ids, enable_logs_sample, enable_samples, escalation_message, evaluation_delay, group_retention_duration, groupby_simple_monitor, include_tags, locked, min_failure_duration, min_location_failed, new_group_delay, new_host_delay, no_data_timeframe, notify_audit, notify_by, notify_no_data, on_missing_data, renotify_interval, renotify_occurrences, renotify_statuses, require_full_window, scheduling_options, silenced, synthetics_check_id, threshold_windows, thresholds, timeout_h, variables].hash
     end
   end
 end
