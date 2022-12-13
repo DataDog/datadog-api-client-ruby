@@ -732,6 +732,7 @@ module DatadogAPIClient
           "v1.widget_field_sort" => "WidgetFieldSort",
           "v1.widget_formula" => "WidgetFormula",
           "v1.widget_formula_limit" => "WidgetFormulaLimit",
+          "v1.widget_formula_style" => "WidgetFormulaStyle",
           "v1.widget_grouping" => "WidgetGrouping",
           "v1.widget_horizontal_align" => "WidgetHorizontalAlign",
           "v1.widget_image_sizing" => "WidgetImageSizing",
