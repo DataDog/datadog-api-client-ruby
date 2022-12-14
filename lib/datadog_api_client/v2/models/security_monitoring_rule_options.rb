@@ -25,6 +25,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
+    # Options for cloud_configuration rules.
+    attr_accessor :compliance_rule_options
+
     # If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce signal noise.
     # The severity is decreased by one level: `CRITICAL` in production becomes `HIGH` in non-production, `HIGH` becomes `MEDIUM` and so on. `INFO` remains `INFO`.
     # The decrement is applied when the environment tag of the signal starts with `staging`, `test` or `dev`.
@@ -58,6 +61,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.attribute_map
       {
+        :'compliance_rule_options' => :'complianceRuleOptions',
         :'decrease_criticality_based_on_env' => :'decreaseCriticalityBasedOnEnv',
         :'detection_method' => :'detectionMethod',
         :'evaluation_window' => :'evaluationWindow',
@@ -73,6 +77,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
+        :'compliance_rule_options' => :'CloudConfigurationComplianceRuleOptions',
         :'decrease_criticality_based_on_env' => :'Boolean',
         :'detection_method' => :'SecurityMonitoringRuleDetectionMethod',
         :'evaluation_window' => :'SecurityMonitoringRuleEvaluationWindow',
@@ -106,6 +111,10 @@ module DatadogAPIClient::V2
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'compliance_rule_options')
+        self.compliance_rule_options = attributes[:'compliance_rule_options']
+      end
 
       if attributes.key?(:'decrease_criticality_based_on_env')
         self.decrease_criticality_based_on_env = attributes[:'decrease_criticality_based_on_env']
@@ -153,6 +162,7 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          compliance_rule_options == o.compliance_rule_options &&
           decrease_criticality_based_on_env == o.decrease_criticality_based_on_env &&
           detection_method == o.detection_method &&
           evaluation_window == o.evaluation_window &&
@@ -167,7 +177,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [decrease_criticality_based_on_env, detection_method, evaluation_window, hardcoded_evaluator_type, impossible_travel_options, keep_alive, max_signal_duration, new_value_options].hash
+      [compliance_rule_options, decrease_criticality_based_on_env, detection_method, evaluation_window, hardcoded_evaluator_type, impossible_travel_options, keep_alive, max_signal_duration, new_value_options].hash
     end
   end
 end
