@@ -28,6 +28,9 @@ module DatadogAPIClient::V2
     # Cases for generating signals.
     attr_accessor :cases
 
+    # How to generate compliance signals. Useful for cloud_configuration rules only.
+    attr_accessor :compliance_signal_options
+
     # When the rule was created, timestamp in milliseconds.
     attr_accessor :created_at
 
@@ -81,6 +84,7 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'cases' => :'cases',
+        :'compliance_signal_options' => :'complianceSignalOptions',
         :'created_at' => :'createdAt',
         :'creation_author_id' => :'creationAuthorId',
         :'filters' => :'filters',
@@ -105,6 +109,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'cases' => :'Array<SecurityMonitoringRuleCase>',
+        :'compliance_signal_options' => :'CloudConfigurationRuleComplianceSignalOptions',
         :'created_at' => :'Integer',
         :'creation_author_id' => :'Integer',
         :'filters' => :'Array<SecurityMonitoringFilter>',
@@ -151,6 +156,10 @@ module DatadogAPIClient::V2
         if (value = attributes[:'cases']).is_a?(Array)
           self.cases = value
         end
+      end
+
+      if attributes.key?(:'compliance_signal_options')
+        self.compliance_signal_options = attributes[:'compliance_signal_options']
       end
 
       if attributes.key?(:'created_at')
@@ -238,6 +247,7 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           cases == o.cases &&
+          compliance_signal_options == o.compliance_signal_options &&
           created_at == o.created_at &&
           creation_author_id == o.creation_author_id &&
           filters == o.filters &&
@@ -260,7 +270,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cases, created_at, creation_author_id, filters, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, tags, type, update_author_id, version].hash
+      [cases, compliance_signal_options, created_at, creation_author_id, filters, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, tags, type, update_author_id, version].hash
     end
   end
 end
