@@ -1271,6 +1271,31 @@ ScenariosModelMappings = {
             "signal_id" => "String",
             "body" => "SecurityMonitoringSignalStateUpdateRequest",
     },
+    "v2.ReorderScanningGroups" => {
+            "body" => "SensitiveDataScannerConfigRequest",
+    },
+    "v2.CreateScanningGroup" => {
+            "body" => "SensitiveDataScannerGroupCreateRequest",
+    },
+    "v2.DeleteScanningGroup" => {
+            "group_id" => "String",
+            "body" => "SensitiveDataScannerGroupDeleteRequest",
+    },
+    "v2.UpdateScanningGroup" => {
+            "group_id" => "String",
+            "body" => "SensitiveDataScannerGroupUpdateRequest",
+    },
+    "v2.CreateScanningRule" => {
+            "body" => "SensitiveDataScannerRuleCreateRequest",
+    },
+    "v2.DeleteScanningRule" => {
+            "rule_id" => "String",
+            "body" => "SensitiveDataScannerRuleDeleteRequest",
+    },
+    "v2.UpdateScanningRule" => {
+            "rule_id" => "String",
+            "body" => "SensitiveDataScannerRuleUpdateRequest",
+    },
     "v2.CreateServiceAccount" => {
             "body" => "ServiceAccountCreateRequest",
     },
