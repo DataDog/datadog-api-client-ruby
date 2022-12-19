@@ -17,6 +17,7 @@ body = DatadogAPIClient::V2::CloudConfigurationRuleCreatePayload.new({
   ],
   options: DatadogAPIClient::V2::CloudConfigurationRuleOptions.new({
     compliance_rule_options: DatadogAPIClient::V2::CloudConfigurationComplianceRuleOptions.new({
+      resource_type: "gcp_compute_disk",
       complex_rule: false,
       rego_rule: DatadogAPIClient::V2::CloudConfigurationRegoRule.new({
         policy: 'package datadog\n',
