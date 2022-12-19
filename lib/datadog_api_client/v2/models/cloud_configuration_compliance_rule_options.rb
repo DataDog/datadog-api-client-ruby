@@ -33,17 +33,12 @@ module DatadogAPIClient::V2
     # Rule details.
     attr_reader :rego_rule
 
-    # Main resource type to be checked by the rule. It should be specified again in `regoRule.resourceTypes`.
-    #
-    attr_reader :resource_type
-
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
         :'complex_rule' => :'complexRule',
-        :'rego_rule' => :'regoRule',
-        :'resource_type' => :'resourceType'
+        :'rego_rule' => :'regoRule'
       }
     end
 
@@ -52,8 +47,7 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'complex_rule' => :'Boolean',
-        :'rego_rule' => :'CloudConfigurationRegoRule',
-        :'resource_type' => :'String'
+        :'rego_rule' => :'CloudConfigurationRegoRule'
       }
     end
 
@@ -87,10 +81,6 @@ module DatadogAPIClient::V2
       if attributes.key?(:'rego_rule')
         self.rego_rule = attributes[:'rego_rule']
       end
-
-      if attributes.key?(:'resource_type')
-        self.resource_type = attributes[:'resource_type']
-      end
     end
 
     # Check to see if the all the properties in the model are valid
@@ -98,7 +88,6 @@ module DatadogAPIClient::V2
     # @!visibility private
     def valid?
       return false if @rego_rule.nil?
-      return false if @resource_type.nil?
       true
     end
 
@@ -112,16 +101,6 @@ module DatadogAPIClient::V2
       @rego_rule = rego_rule
     end
 
-    # Custom attribute writer method with validation
-    # @param resource_type [Object] Object to be assigned
-    # @!visibility private
-    def resource_type=(resource_type)
-      if resource_type.nil?
-        fail ArgumentError, 'invalid value for "resource_type", resource_type cannot be nil.'
-      end
-      @resource_type = resource_type
-    end
-
     # Checks equality by comparing each attribute.
     # @param o [Object] Object to be compared
     # @!visibility private
@@ -129,15 +108,14 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           complex_rule == o.complex_rule &&
-          rego_rule == o.rego_rule &&
-          resource_type == o.resource_type
+          rego_rule == o.rego_rule
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [complex_rule, rego_rule, resource_type].hash
+      [complex_rule, rego_rule].hash
     end
   end
 end

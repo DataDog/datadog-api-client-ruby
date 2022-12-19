@@ -1,4 +1,4 @@
-# Get the list of all Synthetic tests returns "OK - Returns the list of all Synthetic tests." response
+# Get the list of all tests returns "OK - Returns the list of all Synthetic tests." response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::SyntheticsAPI.new
