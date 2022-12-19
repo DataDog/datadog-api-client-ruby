@@ -675,6 +675,10 @@ ScenariosModelMappings = {
             "location_id" => "String",
             "body" => "SyntheticsPrivateLocation",
     },
+    "v1.ListTests" => {
+            "page_size" => "String",
+            "page_number" => "String",
+    },
     "v1.CreateSyntheticsAPITest" => {
             "body" => "SyntheticsAPITest",
     },
