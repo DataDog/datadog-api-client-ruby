@@ -1,5 +1,32 @@
 # CHANGELOG
 
+## 2.5.0 / 2022-12-20
+
+### Fixed
+* Fix method redefined warnings by @therve in https://github.com/DataDog/datadog-api-client-ruby/pull/1154
+* Add missing response fields to MTD usage attribution endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1160
+* Fix missing field in Synthetics tests authentication configuration by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1164
+* Mark `hosts` response version fields as nullable by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1162
+### Added
+* Add fields for CSPM GCP usage by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1136
+* Add offset and limit parameter to SLO correction API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1142
+* Add documentation for Logs Pipelines ReferenceTableLogsLookupProcessor  by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1141
+* Adding new field for the usage metering infra hosts by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1145
+* Add `include_percentiles` field in Logs Custom Metrics by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1124
+* Add OAuth support for Synthetics tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1148
+* Add new billable summary fields by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1158
+* RUM Applications Management API add client_token by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1144
+* Support GRPC unary calls in Synthetics by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1155
+* Add style object to dashboard widget formulas by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1170
+* Add enable_samples monitor option by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1171
+* Update security_monitoring endpoints for cloud_configuration rules by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1172
+* Add support for sensitive data scanner APIs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1167
+* Add synthetics_parallel_testing to Usage Metering API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1174
+* Synthetics add pagination params to get all tests endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1175
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-ruby/compare/v2.4.0...v2.5.0
+
 ## 2.4.0 / 2022-11-16
 
 ### Fixed
