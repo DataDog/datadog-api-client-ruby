@@ -18,6 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Options for cloud_configuration rules.
+  # Fields `resourceType` and `regoRule` are mandatory when managing custom `cloud_configuration` rules.
   class CloudConfigurationComplianceRuleOptions
     include BaseGenericModel
 
@@ -31,11 +32,11 @@ module DatadogAPIClient::V2
     attr_accessor :complex_rule
 
     # Rule details.
-    attr_reader :rego_rule
+    attr_accessor :rego_rule
 
     # Main resource type to be checked by the rule. It should be specified again in `regoRule.resourceTypes`.
     #
-    attr_reader :resource_type
+    attr_accessor :resource_type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
@@ -97,29 +98,7 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @rego_rule.nil?
-      return false if @resource_type.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param rego_rule [Object] Object to be assigned
-    # @!visibility private
-    def rego_rule=(rego_rule)
-      if rego_rule.nil?
-        fail ArgumentError, 'invalid value for "rego_rule", rego_rule cannot be nil.'
-      end
-      @rego_rule = rego_rule
-    end
-
-    # Custom attribute writer method with validation
-    # @param resource_type [Object] Object to be assigned
-    # @!visibility private
-    def resource_type=(resource_type)
-      if resource_type.nil?
-        fail ArgumentError, 'invalid value for "resource_type", resource_type cannot be nil.'
-      end
-      @resource_type = resource_type
     end
 
     # Checks equality by comparing each attribute.

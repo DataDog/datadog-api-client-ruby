@@ -26,6 +26,8 @@ module DatadogAPIClient::V2
     attr_accessor :_unparsed
 
     # Options for cloud_configuration rules.
+    # Fields `resourceType` and `regoRule` are mandatory when managing custom `cloud_configuration` rules.
+    #
     attr_reader :compliance_rule_options
 
     # Attribute mapping from ruby-style variable name to JSON key.
