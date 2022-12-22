@@ -732,6 +732,154 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Scalar cross product query.
+    #
+    # @see #query_scalar_data_with_http_info
+    def query_scalar_data(body, opts = {})
+      data, _status_code, _headers = query_scalar_data_with_http_info(body, opts)
+      data
+    end
+
+    # Scalar cross product query.
+    #
+    # The internal endpoint to query scalar/table data for multiple data sources and
+    # process the data using formulas and functions.
+    #
+    # @param body [ScalarFormulaQueryRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(ScalarFormulaQueryResponse, Integer, Hash)>] ScalarFormulaQueryResponse data, response status code and response headers
+    def query_scalar_data_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.query_scalar_data".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.query_scalar_data")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.query_scalar_data"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MetricsAPI.query_scalar_data ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling MetricsAPI.query_scalar_data"
+      end
+      # resource path
+      local_var_path = '/api/v2/query/scalar'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ScalarFormulaQueryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :query_scalar_data,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MetricsAPI#query_scalar_data\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Timeseries cross product query.
+    #
+    # @see #query_timeseries_data_with_http_info
+    def query_timeseries_data(body, opts = {})
+      data, _status_code, _headers = query_timeseries_data_with_http_info(body, opts)
+      data
+    end
+
+    # Timeseries cross product query.
+    #
+    # The internal endpoint to query timeseries data for multiple data sources and
+    # process the data by applying formulas and functions.
+    #
+    # @param body [TimeseriesFormulaQueryRequest] 
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(TimeseriesFormulaQueryResponse, Integer, Hash)>] TimeseriesFormulaQueryResponse data, response status code and response headers
+    def query_timeseries_data_with_http_info(body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.query_timeseries_data".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.query_timeseries_data")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.query_timeseries_data"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MetricsAPI.query_timeseries_data ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling MetricsAPI.query_timeseries_data"
+      end
+      # resource path
+      local_var_path = '/api/v2/query/timeseries'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TimeseriesFormulaQueryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+
+      new_options = opts.merge(
+        :operation => :query_timeseries_data,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MetricsAPI#query_timeseries_data\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Submit metrics.
     #
     # @see #submit_metrics_with_http_info
