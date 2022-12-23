@@ -65,6 +65,8 @@ module DatadogAPIClient::V1
     APM_FARGATE_PERCENTAGE = "apm_fargate_percentage".freeze
     APPSEC_FARGATE_USAGE = "appsec_fargate_usage".freeze
     APPSEC_FARGATE_PERCENTAGE = "appsec_fargate_percentage".freeze
+    ESTIMATED_RUM_USAGE_ATTRIBUTION_USAGE = "estimated_rum_usage_attribution_usage".freeze
+    ESTIMATED_RUM_USAGE_ATTRIBUTION_PERCENTAGE = "estimated_rum_usage_attribution_percentage".freeze
     ALL = "*".freeze
   end
 end
