@@ -1115,6 +1115,12 @@ ScenariosModelMappings = {
     "v2.ListVolumesByMetricName" => {
             "metric_name" => "String",
     },
+    "v2.QueryScalarData" => {
+            "body" => "ScalarFormulaQueryRequest",
+    },
+    "v2.QueryTimeseriesData" => {
+            "body" => "TimeseriesFormulaQueryRequest",
+    },
     "v2.SubmitMetrics" => {
             "content_encoding" => "MetricContentEncoding",
             "body" => "MetricPayload",
