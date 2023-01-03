@@ -37,6 +37,9 @@ module DatadogAPIClient::V1
     # Pattern of the variable.
     attr_accessor :pattern
 
+    # Whether the value of this variable will be obfuscated in test results.
+    attr_accessor :secure
+
     # Type of the configuration variable.
     attr_reader :type
 
@@ -48,6 +51,7 @@ module DatadogAPIClient::V1
         :'id' => :'id',
         :'name' => :'name',
         :'pattern' => :'pattern',
+        :'secure' => :'secure',
         :'type' => :'type'
       }
     end
@@ -60,6 +64,7 @@ module DatadogAPIClient::V1
         :'id' => :'String',
         :'name' => :'String',
         :'pattern' => :'String',
+        :'secure' => :'Boolean',
         :'type' => :'SyntheticsConfigVariableType'
       }
     end
@@ -94,6 +99,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'pattern')
         self.pattern = attributes[:'pattern']
+      end
+
+      if attributes.key?(:'secure')
+        self.secure = attributes[:'secure']
       end
 
       if attributes.key?(:'type')
@@ -140,6 +149,7 @@ module DatadogAPIClient::V1
           id == o.id &&
           name == o.name &&
           pattern == o.pattern &&
+          secure == o.secure &&
           type == o.type
     end
 
@@ -147,7 +157,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [example, id, name, pattern, type].hash
+      [example, id, name, pattern, secure, type].hash
     end
   end
 end

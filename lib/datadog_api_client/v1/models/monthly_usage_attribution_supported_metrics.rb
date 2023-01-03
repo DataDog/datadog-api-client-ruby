@@ -75,6 +75,10 @@ module DatadogAPIClient::V1
     PROFILED_HOST_PERCENTAGE = "profiled_host_percentage".freeze
     SNMP_USAGE = "snmp_usage".freeze
     SNMP_PERCENTAGE = "snmp_percentage".freeze
+    ESTIMATED_RUM_SESSIONS_USAGE = "estimated_rum_sessions_usage".freeze
+    ESTIMATED_RUM_SESSIONS_PERCENTAGE = "estimated_rum_sessions_percentage".freeze
+    CONT_USAGE = "cont_usage".freeze
+    CONT_PERCENTAGE = "cont_percentage".freeze
     ALL = "*".freeze
   end
 end

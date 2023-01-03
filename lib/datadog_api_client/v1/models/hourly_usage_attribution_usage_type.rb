@@ -48,5 +48,7 @@ module DatadogAPIClient::V1
     PROFILED_CONTAINER_USAGE = "profiled_container_usage".freeze
     PROFILED_HOST_USAGE = "profiled_host_usage".freeze
     SNMP_USAGE = "snmp_usage".freeze
+    ESTIMATED_RUM_SESSIONS_USAGE = "estimated_rum_sessions_usage".freeze
+    CONT_USAGE = "cont_usage".freeze
   end
 end

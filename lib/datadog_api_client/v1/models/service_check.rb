@@ -34,7 +34,7 @@ module DatadogAPIClient::V1
     # Message containing check status.
     attr_accessor :message
 
-    # The status of a service check.
+    # The status of a service check. Set to `0` for OK, `1` for warning, `2` for critical, and `3` for unknown.
     attr_reader :status
 
     # Tags related to a check.
