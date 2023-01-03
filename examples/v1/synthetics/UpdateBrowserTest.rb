@@ -9,6 +9,7 @@ body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({
     config_variables: [
       DatadogAPIClient::V1::SyntheticsConfigVariable.new({
         name: "VARIABLE_NAME",
+        secure: false,
         type: DatadogAPIClient::V1::SyntheticsConfigVariableType::TEXT,
       }),
     ],

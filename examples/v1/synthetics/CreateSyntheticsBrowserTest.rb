@@ -12,6 +12,7 @@ body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({
         name: "PROPERTY",
         pattern: "content-type",
         type: DatadogAPIClient::V1::SyntheticsConfigVariableType::TEXT,
+        secure: true,
       }),
     ],
     request: DatadogAPIClient::V1::SyntheticsTestRequest.new({
