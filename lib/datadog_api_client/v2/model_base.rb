@@ -191,6 +191,12 @@ module DatadogAPIClient::V2
       def build_from_hash(attributes)
         new.build_from_hash(attributes)
       end
+
+      # List of attributes with nullable: true
+      # @!visibility private
+      def openapi_nullable
+        Set[]
+      end
     end
 
     def self.included(base)

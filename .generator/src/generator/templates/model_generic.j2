@@ -45,22 +45,24 @@
     # @!visibility private
     def self.openapi_types
       {
-{%- for attr in model.properties %}
+{%- set nullables = [] %}
+{%- for attr, spec in model.properties.items() %}
+    {%- if spec.nullable %}{%- set tmp = nullables.append(attr) %}{%- endif %}
         :'{{ attr|attribute_name }}' => :'{{ get_type_for_attribute(model, attr, current_name=name) }}'{% if not loop.last %},{% endif %}
 {%- endfor %}
       }
     end
-
+{% if nullables %}
     # List of attributes with nullable: true
     # @!visibility private
     def self.openapi_nullable
       Set.new([
-      {%- for attr, spec in model.properties.items() if spec.nullable %}
+      {%- for attr in nullables %}
         :'{{ attr|attribute_name }}',
       {%- endfor %}
       ])
     end
-
+{% endif %}
     # Initializes the object
     # @param attributes [Hash] Model attributes in the form of hash
     # @!visibility private
