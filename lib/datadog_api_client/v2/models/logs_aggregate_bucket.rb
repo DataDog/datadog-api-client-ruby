@@ -44,7 +44,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'by' => :'Hash<String, String>',
+        :'by' => :'Hash<String, Object>',
         :'computes' => :'Hash<String, LogsAggregateBucketValue>'
       }
     end
