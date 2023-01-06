@@ -183,6 +183,7 @@ module DatadogAPIClient
             "v2.get_incident": false,
             "v2.list_incident_attachments": false,
             "v2.list_incidents": false,
+            "v2.search_incidents": false,
             "v2.update_incident": false,
             "v2.update_incident_attachments": false,
             "v2.query_scalar_data": false,

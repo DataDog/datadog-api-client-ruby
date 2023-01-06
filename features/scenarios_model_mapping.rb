@@ -939,6 +939,11 @@ ScenariosModelMappings = {
     "v2.CreateIncident" => {
             "body" => "IncidentCreateRequest",
     },
+    "v2.SearchIncidents" => {
+            "include" => "IncidentRelatedObject",
+            "query" => "String",
+            "sort" => "IncidentSearchSortOrder",
+    },
     "v2.DeleteIncident" => {
             "incident_id" => "String",
     },
