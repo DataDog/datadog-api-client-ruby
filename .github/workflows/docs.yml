@@ -29,7 +29,7 @@ jobs:
           cache-version: ${{ secrets.CACHE_VERSION }}
 
       - name: Cache yardoc
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: |
             .yardoc
@@ -45,7 +45,7 @@ jobs:
       - name: Compress docs
         run: tar czf doc.tar.gz doc
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: documentation
           path: doc.tar.gz
@@ -58,7 +58,7 @@ jobs:
       - build
 
     steps:
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v3
         with:
           name: documentation
           path: doc
