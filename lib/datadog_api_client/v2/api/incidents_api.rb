@@ -408,6 +408,90 @@ module DatadogAPIClient::V2
         end
     end
 
+    # Search for incidents.
+    #
+    # @see #search_incidents_with_http_info
+    def search_incidents(query, opts = {})
+      data, _status_code, _headers = search_incidents_with_http_info(query, opts)
+      data
+    end
+
+    # Search for incidents.
+    #
+    # Search for incidents matching a certain query.
+    #
+    # @param query [String] Specifies which incidents should be returned. After entering a search query in your [Incidents page][1], use the query parameter value in the URL of the page as the value for this parameter.  The query can contain any number of incident facets joined by `ANDs`, along with multiple values for each of those facets joined by `OR`s, for instance: `query="state:active AND severity:(SEV-2 OR SEV-1)"`.  [1]: https://app.datadoghq.com/incidents
+    # @param opts [Hash] the optional parameters
+    # @option opts [IncidentRelatedObject] :include Specifies which types of related objects should be included in the response.
+    # @option opts [IncidentSearchSortOrder] :sort Specifies the order of returned incidents.
+    # @return [Array<(IncidentSearchResponse, Integer, Hash)>] IncidentSearchResponse data, response status code and response headers
+    def search_incidents_with_http_info(query, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.search_incidents".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.search_incidents")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.search_incidents"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IncidentsAPI.search_incidents ...'
+      end
+      allowable_values = ['users', 'attachments']
+      if @api_client.config.client_side_validation && opts[:'include'] && !allowable_values.include?(opts[:'include'])
+        fail ArgumentError, "invalid value for \"include\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'query' is set
+      if @api_client.config.client_side_validation && query.nil?
+        fail ArgumentError, "Missing the required parameter 'query' when calling IncidentsAPI.search_incidents"
+      end
+      allowable_values = ['created', '-created']
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/api/v2/incidents/search'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'query'] = query
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'IncidentSearchResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :search_incidents,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IncidentsAPI#search_incidents\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update an existing incident.
     #
     # @see #update_incident_with_http_info
