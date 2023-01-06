@@ -41,7 +41,6 @@ module DatadogAPIClient::V1
     ESTIMATED_INGESTED_SPANS_USAGE = "estimated_ingested_spans_usage".freeze
     FARGATE_USAGE = "fargate_usage".freeze
     FUNCTIONS_USAGE = "functions_usage".freeze
-    INDEXED_LOGS_USAGE = "indexed_logs_usage".freeze
     INFRA_HOST_USAGE = "infra_host_usage".freeze
     INVOCATIONS_USAGE = "invocations_usage".freeze
     NPM_HOST_USAGE = "npm_host_usage".freeze

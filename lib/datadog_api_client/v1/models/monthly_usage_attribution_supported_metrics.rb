@@ -61,8 +61,6 @@ module DatadogAPIClient::V1
     FARGATE_PERCENTAGE = "fargate_percentage".freeze
     FUNCTIONS_USAGE = "functions_usage".freeze
     FUNCTIONS_PERCENTAGE = "functions_percentage".freeze
-    INDEXED_LOGS_USAGE = "indexed_logs_usage".freeze
-    INDEXED_LOGS_PERCENTAGE = "indexed_logs_percentage".freeze
     INFRA_HOST_USAGE = "infra_host_usage".freeze
     INFRA_HOST_PERCENTAGE = "infra_host_percentage".freeze
     INVOCATIONS_USAGE = "invocations_usage".freeze
