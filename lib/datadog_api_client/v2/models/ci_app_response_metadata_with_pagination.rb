@@ -17,35 +17,39 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The object sent with the request to retrieve aggregation buckets of test events from your organization.
-  class CIAppTestsAggregateRequest
+  # The metadata associated with a request.
+  class CIAppResponseMetadataWithPagination
     include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The list of metrics or timeseries to compute for the retrieved buckets.
-    attr_accessor :compute
+    # The time elapsed in milliseconds.
+    attr_accessor :elapsed
 
-    # The search and filter query settings.
-    attr_accessor :filter
+    # Paging attributes.
+    attr_accessor :page
 
-    # The rules for the group-by.
-    attr_accessor :group_by
+    # The identifier of the request.
+    attr_accessor :request_id
 
-    # Global query options that are used during the query.
-    # Only supply timezone or time offset, not both. Otherwise, the query fails.
-    attr_accessor :options
+    # The status of the response.
+    attr_accessor :status
+
+    # A list of warnings (non-fatal errors) encountered. Partial results may return if
+    # warnings are present in the response.
+    attr_accessor :warnings
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'compute' => :'compute',
-        :'filter' => :'filter',
-        :'group_by' => :'group_by',
-        :'options' => :'options'
+        :'elapsed' => :'elapsed',
+        :'page' => :'page',
+        :'request_id' => :'request_id',
+        :'status' => :'status',
+        :'warnings' => :'warnings'
       }
     end
 
@@ -53,10 +57,11 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'compute' => :'Array<CIAppCompute>',
-        :'filter' => :'CIAppTestsQueryFilter',
-        :'group_by' => :'Array<CIAppTestsGroupBy>',
-        :'options' => :'CIAppQueryOptions'
+        :'elapsed' => :'Integer',
+        :'page' => :'CIAppResponsePage',
+        :'request_id' => :'String',
+        :'status' => :'CIAppResponseStatus',
+        :'warnings' => :'Array<CIAppWarning>'
       }
     end
 
@@ -65,35 +70,37 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CIAppTestsAggregateRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CIAppResponseMetadataWithPagination` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::CIAppTestsAggregateRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::CIAppResponseMetadataWithPagination`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'compute')
-        if (value = attributes[:'compute']).is_a?(Array)
-          self.compute = value
+      if attributes.key?(:'elapsed')
+        self.elapsed = attributes[:'elapsed']
+      end
+
+      if attributes.key?(:'page')
+        self.page = attributes[:'page']
+      end
+
+      if attributes.key?(:'request_id')
+        self.request_id = attributes[:'request_id']
+      end
+
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
+      end
+
+      if attributes.key?(:'warnings')
+        if (value = attributes[:'warnings']).is_a?(Array)
+          self.warnings = value
         end
-      end
-
-      if attributes.key?(:'filter')
-        self.filter = attributes[:'filter']
-      end
-
-      if attributes.key?(:'group_by')
-        if (value = attributes[:'group_by']).is_a?(Array)
-          self.group_by = value
-        end
-      end
-
-      if attributes.key?(:'options')
-        self.options = attributes[:'options']
       end
     end
 
@@ -110,17 +117,18 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          compute == o.compute &&
-          filter == o.filter &&
-          group_by == o.group_by &&
-          options == o.options
+          elapsed == o.elapsed &&
+          page == o.page &&
+          request_id == o.request_id &&
+          status == o.status &&
+          warnings == o.warnings
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [compute, filter, group_by, options].hash
+      [elapsed, page, request_id, status, warnings].hash
     end
   end
 end

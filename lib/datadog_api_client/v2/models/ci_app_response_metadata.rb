@@ -28,9 +28,6 @@ module DatadogAPIClient::V2
     # The time elapsed in milliseconds.
     attr_accessor :elapsed
 
-    # Paging attributes.
-    attr_accessor :page
-
     # The identifier of the request.
     attr_accessor :request_id
 
@@ -46,7 +43,6 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'elapsed' => :'elapsed',
-        :'page' => :'page',
         :'request_id' => :'request_id',
         :'status' => :'status',
         :'warnings' => :'warnings'
@@ -58,7 +54,6 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'elapsed' => :'Integer',
-        :'page' => :'CIAppResponsePage',
         :'request_id' => :'String',
         :'status' => :'CIAppResponseStatus',
         :'warnings' => :'Array<CIAppWarning>'
@@ -83,10 +78,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'elapsed')
         self.elapsed = attributes[:'elapsed']
-      end
-
-      if attributes.key?(:'page')
-        self.page = attributes[:'page']
       end
 
       if attributes.key?(:'request_id')
@@ -118,7 +109,6 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           elapsed == o.elapsed &&
-          page == o.page &&
           request_id == o.request_id &&
           status == o.status &&
           warnings == o.warnings
@@ -128,7 +118,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [elapsed, page, request_id, status, warnings].hash
+      [elapsed, request_id, status, warnings].hash
     end
   end
 end
