@@ -13,6 +13,12 @@ body = DatadogAPIClient::V1::SyntheticsGlobalVariable.new({
   value: DatadogAPIClient::V1::SyntheticsGlobalVariableValue.new({
     secure: false,
     value: "",
+    options: DatadogAPIClient::V1::SyntheticsGlobalVariableOptions.new({
+      totp_parameters: DatadogAPIClient::V1::SyntheticsGlobalVariableTOTPParameters.new({
+        digits: 6,
+        refresh_interval: 30,
+      }),
+    }),
   }),
   parse_test_public_id: SYNTHETICS_API_TEST_MULTI_STEP_PUBLIC_ID,
   parse_test_options: DatadogAPIClient::V1::SyntheticsGlobalVariableParseTestOptions.new({

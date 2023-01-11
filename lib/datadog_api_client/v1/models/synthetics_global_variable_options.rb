@@ -17,31 +17,22 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Value of the global variable.
-  class SyntheticsGlobalVariableValue
+  # Options for the Global Variable for MFA.
+  class SyntheticsGlobalVariableOptions
     include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Options for the Global Variable for MFA.
-    attr_accessor :options
-
-    # Determines if the value of the variable is hidden.
-    attr_accessor :secure
-
-    # Value of the global variable. When reading a global variable,
-    # the value will not be present if the variable is hidden with the `secure` property.
-    attr_accessor :value
+    # Parameters for the TOTP/MFA variable
+    attr_accessor :totp_parameters
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'options' => :'options',
-        :'secure' => :'secure',
-        :'value' => :'value'
+        :'totp_parameters' => :'totp_parameters'
       }
     end
 
@@ -49,9 +40,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'options' => :'SyntheticsGlobalVariableOptions',
-        :'secure' => :'Boolean',
-        :'value' => :'String'
+        :'totp_parameters' => :'SyntheticsGlobalVariableTOTPParameters'
       }
     end
 
@@ -60,27 +49,19 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsGlobalVariableValue` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SyntheticsGlobalVariableOptions` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SyntheticsGlobalVariableValue`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SyntheticsGlobalVariableOptions`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'options')
-        self.options = attributes[:'options']
-      end
-
-      if attributes.key?(:'secure')
-        self.secure = attributes[:'secure']
-      end
-
-      if attributes.key?(:'value')
-        self.value = attributes[:'value']
+      if attributes.key?(:'totp_parameters')
+        self.totp_parameters = attributes[:'totp_parameters']
       end
     end
 
@@ -97,16 +78,14 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          options == o.options &&
-          secure == o.secure &&
-          value == o.value
+          totp_parameters == o.totp_parameters
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [options, secure, value].hash
+      [totp_parameters].hash
     end
   end
 end
