@@ -50,7 +50,7 @@ module DatadogAPIClient::V2
       {
         :'data' => :'Array<CIAppPipelineEvent>',
         :'links' => :'CIAppResponseLinks',
-        :'meta' => :'CIAppResponseMetadataWithPagination'
+        :'meta' => :'CIAppResponseMetadata'
       }
     end
 

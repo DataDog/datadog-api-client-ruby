@@ -842,7 +842,6 @@ module DatadogAPIClient
           "v2.ci_app_query_page_options" => "CIAppQueryPageOptions",
           "v2.ci_app_response_links" => "CIAppResponseLinks",
           "v2.ci_app_response_metadata" => "CIAppResponseMetadata",
-          "v2.ci_app_response_metadata_with_pagination" => "CIAppResponseMetadataWithPagination",
           "v2.ci_app_response_page" => "CIAppResponsePage",
           "v2.ci_app_response_status" => "CIAppResponseStatus",
           "v2.ci_app_sort" => "CIAppSort",

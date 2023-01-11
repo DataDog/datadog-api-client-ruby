@@ -38,6 +38,9 @@ module DatadogAPIClient::V2
     # Only supply timezone or time offset, not both. Otherwise, the query fails.
     attr_accessor :options
 
+    # Paging attributes for listing events.
+    attr_accessor :page
+
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
@@ -45,7 +48,8 @@ module DatadogAPIClient::V2
         :'compute' => :'compute',
         :'filter' => :'filter',
         :'group_by' => :'group_by',
-        :'options' => :'options'
+        :'options' => :'options',
+        :'page' => :'page'
       }
     end
 
@@ -56,7 +60,8 @@ module DatadogAPIClient::V2
         :'compute' => :'Array<CIAppCompute>',
         :'filter' => :'CIAppTestsQueryFilter',
         :'group_by' => :'Array<CIAppTestsGroupBy>',
-        :'options' => :'CIAppQueryOptions'
+        :'options' => :'CIAppQueryOptions',
+        :'page' => :'CIAppQueryPageOptions'
       }
     end
 
@@ -95,6 +100,10 @@ module DatadogAPIClient::V2
       if attributes.key?(:'options')
         self.options = attributes[:'options']
       end
+
+      if attributes.key?(:'page')
+        self.page = attributes[:'page']
+      end
     end
 
     # Check to see if the all the properties in the model are valid
@@ -113,14 +122,15 @@ module DatadogAPIClient::V2
           compute == o.compute &&
           filter == o.filter &&
           group_by == o.group_by &&
-          options == o.options
+          options == o.options &&
+          page == o.page
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [compute, filter, group_by, options].hash
+      [compute, filter, group_by, options, page].hash
     end
   end
 end

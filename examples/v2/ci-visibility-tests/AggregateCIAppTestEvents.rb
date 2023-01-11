@@ -29,5 +29,8 @@ body = DatadogAPIClient::V2::CIAppTestsAggregateRequest.new({
   options: DatadogAPIClient::V2::CIAppQueryOptions.new({
     timezone: "GMT",
   }),
+  page: DatadogAPIClient::V2::CIAppQueryPageOptions.new({
+    limit: 25,
+  }),
 })
 p api_instance.aggregate_ci_app_test_events(body)
