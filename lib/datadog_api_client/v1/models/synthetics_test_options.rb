@@ -50,9 +50,6 @@ module DatadogAPIClient::V1
     # For API HTTP test, whether or not the test should follow redirects.
     attr_accessor :follow_redirects
 
-    # HTTP version to use for a Synthetic test.
-    attr_accessor :http_version
-
     # Ignore server certificate error for browser tests.
     attr_accessor :ignore_server_certificate_error
 
@@ -113,7 +110,6 @@ module DatadogAPIClient::V1
         :'disable_cors' => :'disableCors',
         :'disable_csp' => :'disableCsp',
         :'follow_redirects' => :'follow_redirects',
-        :'http_version' => :'httpVersion',
         :'ignore_server_certificate_error' => :'ignoreServerCertificateError',
         :'initial_navigation_timeout' => :'initialNavigationTimeout',
         :'min_failure_duration' => :'min_failure_duration',
@@ -141,7 +137,6 @@ module DatadogAPIClient::V1
         :'disable_cors' => :'Boolean',
         :'disable_csp' => :'Boolean',
         :'follow_redirects' => :'Boolean',
-        :'http_version' => :'SyntheticsTestOptionsHTTPVersion',
         :'ignore_server_certificate_error' => :'Boolean',
         :'initial_navigation_timeout' => :'Integer',
         :'min_failure_duration' => :'Integer',
@@ -205,10 +200,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'follow_redirects')
         self.follow_redirects = attributes[:'follow_redirects']
-      end
-
-      if attributes.key?(:'http_version')
-        self.http_version = attributes[:'http_version']
       end
 
       if attributes.key?(:'ignore_server_certificate_error')
@@ -313,7 +304,6 @@ module DatadogAPIClient::V1
           disable_cors == o.disable_cors &&
           disable_csp == o.disable_csp &&
           follow_redirects == o.follow_redirects &&
-          http_version == o.http_version &&
           ignore_server_certificate_error == o.ignore_server_certificate_error &&
           initial_navigation_timeout == o.initial_navigation_timeout &&
           min_failure_duration == o.min_failure_duration &&
@@ -332,7 +322,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [accept_self_signed, allow_insecure, check_certificate_revocation, ci, device_ids, disable_cors, disable_csp, follow_redirects, http_version, ignore_server_certificate_error, initial_navigation_timeout, min_failure_duration, min_location_failed, monitor_name, monitor_options, monitor_priority, no_screenshot, restricted_roles, _retry, rum_settings, tick_every].hash
+      [accept_self_signed, allow_insecure, check_certificate_revocation, ci, device_ids, disable_cors, disable_csp, follow_redirects, ignore_server_certificate_error, initial_navigation_timeout, min_failure_duration, min_location_failed, monitor_name, monitor_options, monitor_priority, no_screenshot, restricted_roles, _retry, rum_settings, tick_every].hash
     end
   end
 end

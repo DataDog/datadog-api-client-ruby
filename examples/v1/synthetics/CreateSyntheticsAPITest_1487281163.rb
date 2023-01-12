@@ -97,7 +97,6 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
       interval: 10,
     }),
     tick_every: 60,
-    http_version: DatadogAPIClient::V1::SyntheticsTestOptionsHTTPVersion::HTTP2,
   }),
   subtype: DatadogAPIClient::V1::SyntheticsTestDetailsSubType::HTTP,
   tags: [
