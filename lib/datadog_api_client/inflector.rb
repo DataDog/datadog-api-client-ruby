@@ -571,6 +571,7 @@ module DatadogAPIClient
           "v1.synthetics_test_execution_rule" => "SyntheticsTestExecutionRule",
           "v1.synthetics_test_monitor_status" => "SyntheticsTestMonitorStatus",
           "v1.synthetics_test_options" => "SyntheticsTestOptions",
+          "v1.synthetics_test_options_http_version" => "SyntheticsTestOptionsHTTPVersion",
           "v1.synthetics_test_options_monitor_options" => "SyntheticsTestOptionsMonitorOptions",
           "v1.synthetics_test_options_retry" => "SyntheticsTestOptionsRetry",
           "v1.synthetics_test_pause_status" => "SyntheticsTestPauseStatus",

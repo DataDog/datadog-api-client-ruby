@@ -51,6 +51,7 @@ body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({
     device_ids: [
       DatadogAPIClient::V1::SyntheticsDeviceID::LAPTOP_LARGE,
     ],
+    http_version: DatadogAPIClient::V1::SyntheticsTestOptionsHTTPVersion::HTTP1,
     monitor_options: DatadogAPIClient::V1::SyntheticsTestOptionsMonitorOptions.new({}),
     restricted_roles: [
       "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
