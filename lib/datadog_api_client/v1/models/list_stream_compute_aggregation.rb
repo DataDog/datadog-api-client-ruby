@@ -17,15 +17,24 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Source from which to query items to display in the stream.
-  class ListStreamSource
+  # Aggregation value.
+  class ListStreamComputeAggregation
     include BaseEnumModel
 
-    LOGS_STREAM = "logs_stream".freeze
-    AUDIT_STREAM = "audit_stream".freeze
-    RUM_ISSUE_STREAM = "rum_issue_stream".freeze
-    APM_ISSUE_STREAM = "apm_issue_stream".freeze
-    LOGS_PATTERN_STREAM = "logs_pattern_stream".freeze
-    LOGS_TRANSACTION_STREAM = "logs_transaction_stream".freeze
+    COUNT = "count".freeze
+    CARDINALITY = "cardinality".freeze
+    MEDIAN = "median".freeze
+    PC75 = "pc75".freeze
+    PC90 = "pc90".freeze
+    PC95 = "pc95".freeze
+    PC98 = "pc98".freeze
+    PC99 = "pc99".freeze
+    SUM = "sum".freeze
+    MIN = "min".freeze
+    MAX = "max".freeze
+    AVG = "avg".freeze
+    EARLIEST = "earliest".freeze
+    LATEST = "latest".freeze
+    MOST_FREQUENT = "most_frequent".freeze
   end
 end

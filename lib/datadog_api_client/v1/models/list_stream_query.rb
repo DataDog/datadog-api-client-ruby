@@ -25,8 +25,14 @@ module DatadogAPIClient::V1
     # @!visibility private
     attr_accessor :_unparsed
 
+    # Compute configuration for the List Stream Widget. Compute can be used only with the logs_transaction_stream (from 1 to 5 items) list stream source.
+    attr_reader :compute
+
     # Source from which to query items to display in the stream.
     attr_reader :data_source
+
+    # Group by configuration for the List Stream Widget. Group by can be used only with logs_pattern_stream (up to 3 items) or logs_transaction_stream (one group by item is required) list stream source.
+    attr_reader :group_by
 
     # List of indexes.
     attr_accessor :indexes
@@ -41,7 +47,9 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
+        :'compute' => :'compute',
         :'data_source' => :'data_source',
+        :'group_by' => :'group_by',
         :'indexes' => :'indexes',
         :'query_string' => :'query_string',
         :'storage' => :'storage'
@@ -52,7 +60,9 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
+        :'compute' => :'Array<ListStreamComputeItems>',
         :'data_source' => :'ListStreamSource',
+        :'group_by' => :'Array<ListStreamGroupByItems>',
         :'indexes' => :'Array<String>',
         :'query_string' => :'String',
         :'storage' => :'String'
@@ -75,8 +85,20 @@ module DatadogAPIClient::V1
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'compute')
+        if (value = attributes[:'compute']).is_a?(Array)
+          self.compute = value
+        end
+      end
+
       if attributes.key?(:'data_source')
         self.data_source = attributes[:'data_source']
+      end
+
+      if attributes.key?(:'group_by')
+        if (value = attributes[:'group_by']).is_a?(Array)
+          self.group_by = value
+        end
       end
 
       if attributes.key?(:'indexes')
@@ -98,9 +120,25 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if !@compute.nil? && @compute.length > 5
+      return false if !@compute.nil? && @compute.length < 1
       return false if @data_source.nil?
+      return false if !@group_by.nil? && @group_by.length > 3
       return false if @query_string.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param compute [Object] Object to be assigned
+    # @!visibility private
+    def compute=(compute)
+      if !compute.nil? && compute.length > 5
+        fail ArgumentError, 'invalid value for "compute", number of items must be less than or equal to 5.'
+      end
+      if !compute.nil? && compute.length < 1
+        fail ArgumentError, 'invalid value for "compute", number of items must be greater than or equal to 1.'
+      end
+      @compute = compute
     end
 
     # Custom attribute writer method with validation
@@ -111,6 +149,16 @@ module DatadogAPIClient::V1
         fail ArgumentError, 'invalid value for "data_source", data_source cannot be nil.'
       end
       @data_source = data_source
+    end
+
+    # Custom attribute writer method with validation
+    # @param group_by [Object] Object to be assigned
+    # @!visibility private
+    def group_by=(group_by)
+      if !group_by.nil? && group_by.length > 3
+        fail ArgumentError, 'invalid value for "group_by", number of items must be less than or equal to 3.'
+      end
+      @group_by = group_by
     end
 
     # Custom attribute writer method with validation
@@ -129,7 +177,9 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          compute == o.compute &&
           data_source == o.data_source &&
+          group_by == o.group_by &&
           indexes == o.indexes &&
           query_string == o.query_string &&
           storage == o.storage
@@ -139,7 +189,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data_source, indexes, query_string, storage].hash
+      [compute, data_source, group_by, indexes, query_string, storage].hash
     end
   end
 end
