@@ -577,6 +577,8 @@ module DatadogAPIClient
           "v1.synthetics_test_options_http_version" => "SyntheticsTestOptionsHTTPVersion",
           "v1.synthetics_test_options_monitor_options" => "SyntheticsTestOptionsMonitorOptions",
           "v1.synthetics_test_options_retry" => "SyntheticsTestOptionsRetry",
+          "v1.synthetics_test_options_scheduling" => "SyntheticsTestOptionsScheduling",
+          "v1.synthetics_test_options_scheduling_timeframe" => "SyntheticsTestOptionsSchedulingTimeframe",
           "v1.synthetics_test_pause_status" => "SyntheticsTestPauseStatus",
           "v1.synthetics_test_process_status" => "SyntheticsTestProcessStatus",
           "v1.synthetics_test_request" => "SyntheticsTestRequest",

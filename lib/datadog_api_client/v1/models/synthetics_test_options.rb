@@ -98,6 +98,9 @@ module DatadogAPIClient::V1
     # RUM data is collected using the specified application.
     attr_accessor :rum_settings
 
+    # Object containing timeframes and timezone used for advanced scheduling.
+    attr_accessor :scheduling
+
     # The frequency at which to run the Synthetic test (in seconds).
     attr_reader :tick_every
 
@@ -125,6 +128,7 @@ module DatadogAPIClient::V1
         :'restricted_roles' => :'restricted_roles',
         :'_retry' => :'retry',
         :'rum_settings' => :'rumSettings',
+        :'scheduling' => :'scheduling',
         :'tick_every' => :'tick_every'
       }
     end
@@ -153,6 +157,7 @@ module DatadogAPIClient::V1
         :'restricted_roles' => :'Array<String>',
         :'_retry' => :'SyntheticsTestOptionsRetry',
         :'rum_settings' => :'SyntheticsBrowserTestRumSettings',
+        :'scheduling' => :'SyntheticsTestOptionsScheduling',
         :'tick_every' => :'Integer'
       }
     end
@@ -257,6 +262,10 @@ module DatadogAPIClient::V1
         self.rum_settings = attributes[:'rum_settings']
       end
 
+      if attributes.key?(:'scheduling')
+        self.scheduling = attributes[:'scheduling']
+      end
+
       if attributes.key?(:'tick_every')
         self.tick_every = attributes[:'tick_every']
       end
@@ -325,6 +334,7 @@ module DatadogAPIClient::V1
           restricted_roles == o.restricted_roles &&
           _retry == o._retry &&
           rum_settings == o.rum_settings &&
+          scheduling == o.scheduling &&
           tick_every == o.tick_every
     end
 
@@ -332,7 +342,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [accept_self_signed, allow_insecure, check_certificate_revocation, ci, device_ids, disable_cors, disable_csp, follow_redirects, http_version, ignore_server_certificate_error, initial_navigation_timeout, min_failure_duration, min_location_failed, monitor_name, monitor_options, monitor_priority, no_screenshot, restricted_roles, _retry, rum_settings, tick_every].hash
+      [accept_self_signed, allow_insecure, check_certificate_revocation, ci, device_ids, disable_cors, disable_csp, follow_redirects, http_version, ignore_server_certificate_error, initial_navigation_timeout, min_failure_duration, min_location_failed, monitor_name, monitor_options, monitor_priority, no_screenshot, restricted_roles, _retry, rum_settings, scheduling, tick_every].hash
     end
   end
 end

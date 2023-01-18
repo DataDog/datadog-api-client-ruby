@@ -62,6 +62,21 @@ body = DatadogAPIClient::V1::SyntheticsBrowserTest.new({
       client_token_id: 12345,
       is_enabled: true,
     }),
+    scheduling: DatadogAPIClient::V1::SyntheticsTestOptionsScheduling.new({
+      timeframes: [
+        DatadogAPIClient::V1::SyntheticsTestOptionsSchedulingTimeframe.new({
+          day: 1,
+          from: "07:00",
+          to: "16:00",
+        }),
+        DatadogAPIClient::V1::SyntheticsTestOptionsSchedulingTimeframe.new({
+          day: 3,
+          from: "07:00",
+          to: "16:00",
+        }),
+      ],
+      timezone: "America/New_York",
+    }),
   }),
   status: DatadogAPIClient::V1::SyntheticsTestPauseStatus::LIVE,
   steps: [
