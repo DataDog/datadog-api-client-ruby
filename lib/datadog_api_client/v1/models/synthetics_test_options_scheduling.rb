@@ -28,7 +28,7 @@ module DatadogAPIClient::V1
     # Array containing objects describing the scheduling pattern to apply to each day.
     attr_accessor :timeframes
 
-    # Timezone on which the timeframe are based.
+    # Timezone in which the timeframe is based.
     attr_accessor :timezone
 
     # Attribute mapping from ruby-style variable name to JSON key.
