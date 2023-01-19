@@ -94,6 +94,9 @@ module DatadogAPIClient::V1
     # If omitted, 2x the evaluation timeframe is used for query alerts, and 24 hours is used for service checks.
     attr_accessor :no_data_timeframe
 
+    # Toggles the display of additional content sent in the monitor notification.
+    attr_accessor :notification_preset_name
+
     # A Boolean indicating whether tagged users is notified on changes to this monitor.
     attr_accessor :notify_audit
 
@@ -170,6 +173,7 @@ module DatadogAPIClient::V1
         :'new_group_delay' => :'new_group_delay',
         :'new_host_delay' => :'new_host_delay',
         :'no_data_timeframe' => :'no_data_timeframe',
+        :'notification_preset_name' => :'notification_preset_name',
         :'notify_audit' => :'notify_audit',
         :'notify_by' => :'notify_by',
         :'notify_no_data' => :'notify_no_data',
@@ -207,6 +211,7 @@ module DatadogAPIClient::V1
         :'new_group_delay' => :'Integer',
         :'new_host_delay' => :'Integer',
         :'no_data_timeframe' => :'Integer',
+        :'notification_preset_name' => :'MonitorOptionsNotificationPresets',
         :'notify_audit' => :'Boolean',
         :'notify_by' => :'Array<String>',
         :'notify_no_data' => :'Boolean',
@@ -321,6 +326,10 @@ module DatadogAPIClient::V1
         self.no_data_timeframe = attributes[:'no_data_timeframe']
       end
 
+      if attributes.key?(:'notification_preset_name')
+        self.notification_preset_name = attributes[:'notification_preset_name']
+      end
+
       if attributes.key?(:'notify_audit')
         self.notify_audit = attributes[:'notify_audit']
       end
@@ -431,6 +440,7 @@ module DatadogAPIClient::V1
           new_group_delay == o.new_group_delay &&
           new_host_delay == o.new_host_delay &&
           no_data_timeframe == o.no_data_timeframe &&
+          notification_preset_name == o.notification_preset_name &&
           notify_audit == o.notify_audit &&
           notify_by == o.notify_by &&
           notify_no_data == o.notify_no_data &&
@@ -452,7 +462,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation, device_ids, enable_logs_sample, enable_samples, escalation_message, evaluation_delay, group_retention_duration, groupby_simple_monitor, include_tags, locked, min_failure_duration, min_location_failed, new_group_delay, new_host_delay, no_data_timeframe, notify_audit, notify_by, notify_no_data, on_missing_data, renotify_interval, renotify_occurrences, renotify_statuses, require_full_window, scheduling_options, silenced, synthetics_check_id, threshold_windows, thresholds, timeout_h, variables].hash
+      [aggregation, device_ids, enable_logs_sample, enable_samples, escalation_message, evaluation_delay, group_retention_duration, groupby_simple_monitor, include_tags, locked, min_failure_duration, min_location_failed, new_group_delay, new_host_delay, no_data_timeframe, notification_preset_name, notify_audit, notify_by, notify_no_data, on_missing_data, renotify_interval, renotify_occurrences, renotify_statuses, require_full_window, scheduling_options, silenced, synthetics_check_id, threshold_windows, thresholds, timeout_h, variables].hash
     end
   end
 end
