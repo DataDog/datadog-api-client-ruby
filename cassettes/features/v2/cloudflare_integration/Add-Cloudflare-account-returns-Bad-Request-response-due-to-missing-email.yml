@@ -1,0 +1,25 @@
+http_interactions:
+- recorded_at: Wed, 18 Jan 2023 15:35:47 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"api_key":"test-api-key","name":"test-name"},"type":"cloudflare-accounts"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/integrations/cloudflare/accounts
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["{u''_schema'': [''Email address is required if providing
+        an api key and not an api token.'']}"]}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0
