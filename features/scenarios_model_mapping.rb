@@ -979,6 +979,19 @@ ScenariosModelMappings = {
             "integration_service_id" => "String",
             "body" => "OpsgenieServiceUpdateRequest",
     },
+    "v2.CreateCloudflareAccount" => {
+            "body" => "CloudflareAccountCreateRequest",
+    },
+    "v2.DeleteCloudflareAccount" => {
+            "account_id" => "String",
+    },
+    "v2.GetCloudflareAccount" => {
+            "account_id" => "String",
+    },
+    "v2.UpdateCloudflareAccount" => {
+            "account_id" => "String",
+            "body" => "CloudflareAccountUpdateRequest",
+    },
     "v2.CreateConfluentAccount" => {
             "body" => "ConfluentAccountCreateRequest",
     },
