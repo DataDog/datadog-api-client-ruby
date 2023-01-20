@@ -1025,6 +1025,39 @@ ScenariosModelMappings = {
             "resource_id" => "String",
             "body" => "ConfluentResourceRequest",
     },
+    "v2.CreateFastlyAccount" => {
+            "body" => "FastlyAccountCreateRequest",
+    },
+    "v2.DeleteFastlyAccount" => {
+            "account_id" => "String",
+    },
+    "v2.GetFastlyAccount" => {
+            "account_id" => "String",
+    },
+    "v2.UpdateFastlyAccount" => {
+            "account_id" => "String",
+            "body" => "FastlyAccountUpdateRequest",
+    },
+    "v2.ListFastlyServices" => {
+            "account_id" => "String",
+    },
+    "v2.CreateFastlyService" => {
+            "account_id" => "String",
+            "body" => "FastlyServiceRequest",
+    },
+    "v2.DeleteFastlyService" => {
+            "account_id" => "String",
+            "service_id" => "String",
+    },
+    "v2.GetFastlyService" => {
+            "account_id" => "String",
+            "service_id" => "String",
+    },
+    "v2.UpdateFastlyService" => {
+            "account_id" => "String",
+            "service_id" => "String",
+            "body" => "FastlyServiceRequest",
+    },
     "v2.SubmitLog" => {
             "content_encoding" => "ContentEncoding",
             "ddtags" => "String",
