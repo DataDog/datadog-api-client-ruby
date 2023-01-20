@@ -1,0 +1,68 @@
+http_interactions:
+- recorded_at: Wed, 04 Jan 2023 18:06:55 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"api_key":"TestUpdateFastlyaccountreturnsOKresponse1672855615","name":"test-name","services":[]},"type":"fastly-accounts"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/integrations/fastly/accounts
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"services":[],"name":"test-name"},"type":"fastly-accounts","id":"42ed7da188c8af4a6964376d49bb7caa"}}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 201
+      message: Created
+- recorded_at: Wed, 04 Jan 2023 18:06:55 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"api_key":"update-secret"},"type":"fastly-accounts"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: PATCH
+    uri: https://api.datadoghq.com/api/v2/integrations/fastly/accounts/42ed7da188c8af4a6964376d49bb7caa
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"services":[],"name":"test-name"},"type":"fastly-accounts","id":"42ed7da188c8af4a6964376d49bb7caa"}}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Wed, 04 Jan 2023 18:06:55 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/integrations/fastly/accounts/42ed7da188c8af4a6964376d49bb7caa
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - text/html; charset=utf-8
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0
