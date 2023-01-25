@@ -28,14 +28,18 @@ module DatadogAPIClient::V2
     # Description of the rule.
     attr_accessor :description
 
-    # Attributes excluded from the scan.
-    attr_accessor :excluded_attributes
+    # Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.
+    attr_accessor :excluded_namespaces
 
     # Whether or not the rule is enabled.
     attr_accessor :is_enabled
 
     # Name of the rule.
     attr_accessor :name
+
+    # Attributes included in the scan. If namespaces is empty or missing, all attributes except excluded_namespaces are scanned.
+    # If both are missing the whole event is scanned.
+    attr_accessor :namespaces
 
     # Not included if there is a relationship to a standard pattern.
     attr_accessor :pattern
@@ -51,9 +55,10 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'description' => :'description',
-        :'excluded_attributes' => :'excluded_attributes',
+        :'excluded_namespaces' => :'excluded_namespaces',
         :'is_enabled' => :'is_enabled',
         :'name' => :'name',
+        :'namespaces' => :'namespaces',
         :'pattern' => :'pattern',
         :'tags' => :'tags',
         :'text_replacement' => :'text_replacement'
@@ -65,9 +70,10 @@ module DatadogAPIClient::V2
     def self.openapi_types
       {
         :'description' => :'String',
-        :'excluded_attributes' => :'Array<String>',
+        :'excluded_namespaces' => :'Array<String>',
         :'is_enabled' => :'Boolean',
         :'name' => :'String',
+        :'namespaces' => :'Array<String>',
         :'pattern' => :'String',
         :'tags' => :'Array<String>',
         :'text_replacement' => :'SensitiveDataScannerTextReplacement'
@@ -94,9 +100,9 @@ module DatadogAPIClient::V2
         self.description = attributes[:'description']
       end
 
-      if attributes.key?(:'excluded_attributes')
-        if (value = attributes[:'excluded_attributes']).is_a?(Array)
-          self.excluded_attributes = value
+      if attributes.key?(:'excluded_namespaces')
+        if (value = attributes[:'excluded_namespaces']).is_a?(Array)
+          self.excluded_namespaces = value
         end
       end
 
@@ -106,6 +112,12 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'namespaces')
+        if (value = attributes[:'namespaces']).is_a?(Array)
+          self.namespaces = value
+        end
       end
 
       if attributes.key?(:'pattern')
@@ -137,9 +149,10 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           description == o.description &&
-          excluded_attributes == o.excluded_attributes &&
+          excluded_namespaces == o.excluded_namespaces &&
           is_enabled == o.is_enabled &&
           name == o.name &&
+          namespaces == o.namespaces &&
           pattern == o.pattern &&
           tags == o.tags &&
           text_replacement == o.text_replacement
@@ -149,7 +162,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, excluded_attributes, is_enabled, name, pattern, tags, text_replacement].hash
+      [description, excluded_namespaces, is_enabled, name, namespaces, pattern, tags, text_replacement].hash
     end
   end
 end
