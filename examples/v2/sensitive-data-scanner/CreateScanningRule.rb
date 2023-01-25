@@ -13,6 +13,12 @@ body = DatadogAPIClient::V2::SensitiveDataScannerRuleCreateRequest.new({
     attributes: DatadogAPIClient::V2::SensitiveDataScannerRuleAttributes.new({
       name: "Example-Create_Scanning_Rule_returns_OK_response",
       pattern: "pattern",
+      namespaces: [
+        "admin",
+      ],
+      excluded_namespaces: [
+        "admin.name",
+      ],
       text_replacement: DatadogAPIClient::V2::SensitiveDataScannerTextReplacement.new({
         type: DatadogAPIClient::V2::SensitiveDataScannerTextReplacementType::NONE,
       }),
