@@ -30,7 +30,7 @@ body = DatadogAPIClient::V1::ServiceLevelObjectiveRequest.new({
     }),
   ],
   timeframe: DatadogAPIClient::V1::SLOTimeframe::SEVEN_DAYS,
-  target_threshold: 97.0,
+  target_threshold: 95,
   warning_threshold: 98,
 })
 p api_instance.create_slo(body)
