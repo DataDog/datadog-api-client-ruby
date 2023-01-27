@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Wed, 18 Jan 2023 15:35:52 GMT
+- recorded_at: Fri, 27 Jan 2023 08:59:31 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"api_key":"6Zm7WEgKzAlCnt_4exfEK0mSoeHHAaDf41O1AAfu","email":"dev@datadog.com","name":"datadog-dev"},"type":"cloudflare-accounts"}}'
+      string: '{"data":{"attributes":{"api_key":"6Zm7WEgKzAlCnt_4exfEK0mSoeHHAaDf41O1AAfu","email":"dev@datadog.com","name":"testupdatecloudflareaccountreturnsbadrequestresponseduetoinvalidapikey1674809971"},"type":"cloudflare-accounts"}}'
     headers:
       Accept:
       - application/json
@@ -14,7 +14,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"email":"dev@datadog.com","name":"datadog-dev"},"type":"cloudflare-accounts","id":"683184a71c14fb788635d4a977ffb541"}}
+      string: '{"data":{"attributes":{"email":"dev@datadog.com","name":"testupdatecloudflareaccountreturnsbadrequestresponseduetoinvalidapikey1674809971"},"type":"cloudflare-accounts","id":"56a7295bd711e0aea34906a3bea8a2b3"}}
 
         '
     headers:
@@ -23,7 +23,7 @@ http_interactions:
     status:
       code: 201
       message: Created
-- recorded_at: Wed, 18 Jan 2023 15:35:52 GMT
+- recorded_at: Fri, 27 Jan 2023 08:59:31 GMT
   request:
     body:
       encoding: UTF-8
@@ -34,26 +34,27 @@ http_interactions:
       Content-Type:
       - application/json
     method: PATCH
-    uri: https://api.datadoghq.com/api/v2/integrations/cloudflare/accounts/683184a71c14fb788635d4a977ffb541
+    uri: https://api.datadoghq.com/api/v2/integrations/cloudflare/accounts/56a7295bd711e0aea34906a3bea8a2b3
   response:
     body:
       encoding: UTF-8
       string: '{"errors":["Invalid account. Your Cloudflare configuration is invalid.
-        Impossible to get zones for the account datadog-dev: API key or email is unknown."]}'
+        Impossible to get zones for the account testupdatecloudflareaccountreturnsbadrequestresponseduetoinvalidapikey1674809971:
+        API key or email is unknown."]}'
     headers:
       Content-Type:
       - application/json
     status:
       code: 400
       message: Bad Request
-- recorded_at: Wed, 18 Jan 2023 15:35:52 GMT
+- recorded_at: Fri, 27 Jan 2023 08:59:31 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/integrations/cloudflare/accounts/683184a71c14fb788635d4a977ffb541
+    uri: https://api.datadoghq.com/api/v2/integrations/cloudflare/accounts/56a7295bd711e0aea34906a3bea8a2b3
   response:
     body:
       encoding: UTF-8

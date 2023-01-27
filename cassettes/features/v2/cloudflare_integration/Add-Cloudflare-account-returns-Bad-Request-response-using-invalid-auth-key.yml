@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Wed, 18 Jan 2023 15:35:49 GMT
+- recorded_at: Thu, 26 Jan 2023 10:54:47 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"api_key":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","name":"test-name"},"type":"cloudflare-accounts"}}'
+      string: '{"data":{"attributes":{"api_key":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","name":"testaddcloudflareaccountreturnsbadrequestresponseusinginvalidauthkey1674730487"},"type":"cloudflare-accounts"}}'
     headers:
       Accept:
       - application/json
@@ -15,7 +15,8 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"errors":["Invalid account. Your Cloudflare configuration is invalid.
-        Impossible to get zones for the account test-name: API key or email is unknown."]}'
+        Impossible to get zones for the account testaddcloudflareaccountreturnsbadrequestresponseusinginvalidauthkey1674730487:
+        API key or email is unknown."]}'
     headers:
       Content-Type:
       - application/json
