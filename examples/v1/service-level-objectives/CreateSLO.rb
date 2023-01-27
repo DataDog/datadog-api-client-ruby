@@ -22,8 +22,8 @@ body = DatadogAPIClient::V1::ServiceLevelObjectiveRequest.new({
   ],
   thresholds: [
     DatadogAPIClient::V1::SLOThreshold.new({
-      target: 95.0,
-      target_display: "95.0",
+      target: 97.0,
+      target_display: "97.0",
       timeframe: DatadogAPIClient::V1::SLOTimeframe::SEVEN_DAYS,
       warning: 98,
       warning_display: "98.0",
