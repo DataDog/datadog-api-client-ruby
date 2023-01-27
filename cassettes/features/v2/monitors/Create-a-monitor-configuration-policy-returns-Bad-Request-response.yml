@@ -1,0 +1,25 @@
+http_interactions:
+- recorded_at: Thu, 19 Jan 2023 19:59:39 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"policy":{"tag_key":"datacenter","tag_key_required":true,"valid_tag_values":["prod","staging"]},"policy_type":"INVALID"},"type":"monitor-config-policy"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/monitor/policy
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["Value of parameter ''policy_type'' should be any of these
+        [''tag'']"]}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0

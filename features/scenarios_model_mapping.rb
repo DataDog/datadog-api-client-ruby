@@ -1176,6 +1176,19 @@ ScenariosModelMappings = {
             "content_encoding" => "MetricContentEncoding",
             "body" => "MetricPayload",
     },
+    "v2.CreateMonitorConfigPolicy" => {
+            "body" => "MonitorConfigPolicyCreateRequest",
+    },
+    "v2.DeleteMonitorConfigPolicy" => {
+            "policy_id" => "String",
+    },
+    "v2.GetMonitorConfigPolicy" => {
+            "policy_id" => "String",
+    },
+    "v2.UpdateMonitorConfigPolicy" => {
+            "policy_id" => "String",
+            "body" => "MonitorConfigPolicyEditRequest",
+    },
     "v2.ListRoles" => {
             "page_size" => "Integer",
             "page_number" => "Integer",

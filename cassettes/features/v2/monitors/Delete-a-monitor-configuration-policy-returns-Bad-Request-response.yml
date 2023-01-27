@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Thu, 19 Jan 2023 19:59:40 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/monitor/policy/INVALID_UUID
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["Invalid URL param: policy_id must be an uuid"]}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0

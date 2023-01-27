@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Thu, 19 Jan 2023 19:59:41 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/monitor/policy/12340000-0000-0000-0000-000000000000
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["Monitor configuration policy not found"]}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 404
+      message: Not Found
+recorded_with: VCR 6.0.0
