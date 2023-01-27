@@ -17,22 +17,30 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # The object describing a scalar response.
-  class ScalarFormulaResponseAtrributes
+  # A column containing the tag keys and values in a group.
+  class GroupScalarColumn
     include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
-    # List of response columns, each corresponding to an individual formula or query in the request and with values in parallel arrays matching the series list.
-    attr_accessor :columns
+    # The name of the tag key or group.
+    attr_accessor :name
+
+    # The type of column present.
+    attr_accessor :type
+
+    # The array of tag values for each group found for the results of the formulas or queries.
+    attr_accessor :values
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'columns' => :'columns'
+        :'name' => :'name',
+        :'type' => :'type',
+        :'values' => :'values'
       }
     end
 
@@ -40,7 +48,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'columns' => :'Array<ScalarColumn>'
+        :'name' => :'String',
+        :'type' => :'String',
+        :'values' => :'Array<Array<String>>'
       }
     end
 
@@ -49,20 +59,28 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::ScalarFormulaResponseAtrributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::GroupScalarColumn` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::ScalarFormulaResponseAtrributes`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::GroupScalarColumn`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'columns')
-        if (value = attributes[:'columns']).is_a?(Array)
-          self.columns = value
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      end
+
+      if attributes.key?(:'values')
+        if (value = attributes[:'values']).is_a?(Array)
+          self.values = value
         end
       end
     end
@@ -80,14 +98,16 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          columns == o.columns
+          name == o.name &&
+          type == o.type &&
+          values == o.values
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [columns].hash
+      [name, type, values].hash
     end
   end
 end

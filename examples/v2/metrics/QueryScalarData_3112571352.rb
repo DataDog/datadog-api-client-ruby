@@ -1,4 +1,4 @@
-# Query scalar data across multiple products returns "OK" response
+# Scalar cross product query returns "OK" response
 
 require "datadog_api_client"
 DatadogAPIClient::V2.configure do |config|
@@ -11,22 +11,23 @@ body = DatadogAPIClient::V2::ScalarFormulaQueryRequest.new({
     attributes: DatadogAPIClient::V2::ScalarFormulaRequestAttributes.new({
       formulas: [
         DatadogAPIClient::V2::QueryFormula.new({
-          formula: "a+b",
+          formula: "a",
           limit: DatadogAPIClient::V2::FormulaLimit.new({
             count: 10,
             order: DatadogAPIClient::V2::QuerySortOrder::DESC,
           }),
         }),
       ],
-      from: 1568899800000,
+      from: 1671612804000,
       queries: [
         DatadogAPIClient::V2::MetricsScalarQuery.new({
           aggregator: DatadogAPIClient::V2::MetricsAggregator::AVG,
           data_source: DatadogAPIClient::V2::MetricsDataSource::METRICS,
-          query: "avg:system.cpu.user{*} by {env}",
+          query: "avg:system.cpu.user{*}",
+          name: "a",
         }),
       ],
-      to: 1568923200000,
+      to: 1671620004000,
     }),
     type: DatadogAPIClient::V2::ScalarFormulaRequestType::SCALAR_REQUEST,
   }),

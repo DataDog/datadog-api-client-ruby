@@ -732,7 +732,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Scalar cross product query.
+    # Query scalar data across multiple products.
     #
     # @see #query_scalar_data_with_http_info
     def query_scalar_data(body, opts = {})
@@ -740,9 +740,10 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Scalar cross product query.
+    # Query scalar data across multiple products.
     #
-    # The internal endpoint to query scalar/table data for multiple data sources and
+    # Query scalar values (as seen on Query Value, Table and Toplist widgets).
+    # Multiple data sources are supported with the ability to
     # process the data using formulas and functions.
     #
     # @param body [ScalarFormulaQueryRequest] 
@@ -806,7 +807,7 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Timeseries cross product query.
+    # Query timeseries data across multiple products.
     #
     # @see #query_timeseries_data_with_http_info
     def query_timeseries_data(body, opts = {})
@@ -814,9 +815,9 @@ module DatadogAPIClient::V2
       data
     end
 
-    # Timeseries cross product query.
+    # Query timeseries data across multiple products.
     #
-    # The internal endpoint to query timeseries data for multiple data sources and
+    # Query timeseries data across various data sources and
     # process the data by applying formulas and functions.
     #
     # @param body [TimeseriesFormulaQueryRequest] 

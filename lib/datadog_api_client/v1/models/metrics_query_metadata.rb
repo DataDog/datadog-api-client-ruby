@@ -62,8 +62,9 @@ module DatadogAPIClient::V1
     attr_accessor :tag_set
 
     # Detailed information about the metric unit.
-    # First element describes the "primary unit" (for example, `bytes` in `bytes per second`),
-    # second describes the "per unit" (for example, `second` in `bytes per second`).
+    # The first element describes the "primary unit" (for example, `bytes` in `bytes per second`).
+    # The second element describes the "per unit" (for example, `second` in `bytes per second`).
+    # If the second element is not present, the API returns null.
     attr_reader :unit
 
     # Attribute mapping from ruby-style variable name to JSON key.
