@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Wed, 18 Jan 2023 15:35:54 GMT
+- recorded_at: Fri, 27 Jan 2023 08:58:49 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"api_key":"6Zm7WEgKzAlCnt_4exfEK0mSoeHHAaDf41O1AAfu","email":"dev@datadog.com","name":"datadog-dev"},"type":"cloudflare-accounts"}}'
+      string: '{"data":{"attributes":{"api_key":"6Zm7WEgKzAlCnt_4exfEK0mSoeHHAaDf41O1AAfu","email":"dev@datadog.com","name":"testupdatecloudflareaccountreturnsokresponse1674809929"},"type":"cloudflare-accounts"}}'
     headers:
       Accept:
       - application/json
@@ -14,7 +14,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"email":"dev@datadog.com","name":"datadog-dev"},"type":"cloudflare-accounts","id":"683184a71c14fb788635d4a977ffb541"}}
+      string: '{"data":{"attributes":{"email":"dev@datadog.com","name":"testupdatecloudflareaccountreturnsokresponse1674809929"},"type":"cloudflare-accounts","id":"4d22579092049210a1db06b632485219"}}
 
         '
     headers:
@@ -23,7 +23,7 @@ http_interactions:
     status:
       code: 201
       message: Created
-- recorded_at: Wed, 18 Jan 2023 15:35:54 GMT
+- recorded_at: Fri, 27 Jan 2023 08:58:49 GMT
   request:
     body:
       encoding: UTF-8
@@ -34,11 +34,11 @@ http_interactions:
       Content-Type:
       - application/json
     method: PATCH
-    uri: https://api.datadoghq.com/api/v2/integrations/cloudflare/accounts/683184a71c14fb788635d4a977ffb541
+    uri: https://api.datadoghq.com/api/v2/integrations/cloudflare/accounts/4d22579092049210a1db06b632485219
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"email":"new@email","name":"datadog-dev"},"type":"cloudflare-accounts","id":"683184a71c14fb788635d4a977ffb541"}}
+      string: '{"data":{"attributes":{"email":"new@email","name":"testupdatecloudflareaccountreturnsokresponse1674809929"},"type":"cloudflare-accounts","id":"4d22579092049210a1db06b632485219"}}
 
         '
     headers:
@@ -47,14 +47,14 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Wed, 18 Jan 2023 15:35:54 GMT
+- recorded_at: Fri, 27 Jan 2023 08:58:49 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/integrations/cloudflare/accounts/683184a71c14fb788635d4a977ffb541
+    uri: https://api.datadoghq.com/api/v2/integrations/cloudflare/accounts/4d22579092049210a1db06b632485219
   response:
     body:
       encoding: UTF-8
