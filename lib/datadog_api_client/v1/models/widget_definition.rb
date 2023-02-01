@@ -44,6 +44,7 @@ module DatadogAPIClient::V1
           :'MonitorSummaryWidgetDefinition',
           :'NoteWidgetDefinition',
           :'QueryValueWidgetDefinition',
+          :'RunWorkflowWidgetDefinition',
           :'ScatterPlotWidgetDefinition',
           :'SLOWidgetDefinition',
           :'SLOListWidgetDefinition',
