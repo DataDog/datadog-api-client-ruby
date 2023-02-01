@@ -118,6 +118,15 @@ module APIWorld
 
     return if operation["type"] != "unsafe"
 
+    if operation["tags"] != nil
+      given_api = Object.const_get("DatadogAPIClient")
+      given_configuration = from_env(given_api::Configuration.new)
+      given_configuration.api_key = ENV["DD_TEST_CLIENT_API_KEY"]
+      given_configuration.application_key = ENV["DD_TEST_CLIENT_APP_KEY"]
+      given_api_client = given_api::APIClient.new given_configuration
+      api_instance = given_api.const_get("V#{version}").const_get("#{operation["tags"][0]}API").new given_api_client
+    end
+
     api_instance ||= @api_instance
     operation_name = operation["operationId"].snakecase
     method = api_instance.method("#{operation_name}_with_http_info".to_sym)
