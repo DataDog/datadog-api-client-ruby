@@ -51,6 +51,9 @@ module DatadogAPIClient::V1
     # Only hosts that match one of the defined tags are imported into Datadog.
     attr_accessor :host_filters
 
+    # When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
+    attr_accessor :is_cspm_enabled
+
     # Your private key name found in your JSON service account key.
     attr_accessor :private_key
 
@@ -78,6 +81,7 @@ module DatadogAPIClient::V1
         :'client_x509_cert_url' => :'client_x509_cert_url',
         :'errors' => :'errors',
         :'host_filters' => :'host_filters',
+        :'is_cspm_enabled' => :'is_cspm_enabled',
         :'private_key' => :'private_key',
         :'private_key_id' => :'private_key_id',
         :'project_id' => :'project_id',
@@ -98,6 +102,7 @@ module DatadogAPIClient::V1
         :'client_x509_cert_url' => :'String',
         :'errors' => :'Array<String>',
         :'host_filters' => :'String',
+        :'is_cspm_enabled' => :'Boolean',
         :'private_key' => :'String',
         :'private_key_id' => :'String',
         :'project_id' => :'String',
@@ -156,6 +161,10 @@ module DatadogAPIClient::V1
         self.host_filters = attributes[:'host_filters']
       end
 
+      if attributes.key?(:'is_cspm_enabled')
+        self.is_cspm_enabled = attributes[:'is_cspm_enabled']
+      end
+
       if attributes.key?(:'private_key')
         self.private_key = attributes[:'private_key']
       end
@@ -198,6 +207,7 @@ module DatadogAPIClient::V1
           client_x509_cert_url == o.client_x509_cert_url &&
           errors == o.errors &&
           host_filters == o.host_filters &&
+          is_cspm_enabled == o.is_cspm_enabled &&
           private_key == o.private_key &&
           private_key_id == o.private_key_id &&
           project_id == o.project_id &&
@@ -209,7 +219,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auth_provider_x509_cert_url, auth_uri, automute, client_email, client_id, client_x509_cert_url, errors, host_filters, private_key, private_key_id, project_id, token_uri, type].hash
+      [auth_provider_x509_cert_url, auth_uri, automute, client_email, client_id, client_x509_cert_url, errors, host_filters, is_cspm_enabled, private_key, private_key_id, project_id, token_uri, type].hash
     end
   end
 end
