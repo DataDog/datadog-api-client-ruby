@@ -1373,39 +1373,6 @@ ScenariosModelMappings = {
     "v2.CreateServiceAccount" => {
             "body" => "ServiceAccountCreateRequest",
     },
-    "v2.SendInvitations" => {
-            "body" => "UserInvitationsRequest",
-    },
-    "v2.GetInvitation" => {
-            "user_invitation_uuid" => "String",
-    },
-    "v2.ListUsers" => {
-            "page_size" => "Integer",
-            "page_number" => "Integer",
-            "sort" => "String",
-            "sort_dir" => "QuerySortOrder",
-            "filter" => "String",
-            "filter_status" => "String",
-    },
-    "v2.CreateUser" => {
-            "body" => "UserCreateRequest",
-    },
-    "v2.DisableUser" => {
-            "user_id" => "String",
-    },
-    "v2.GetUser" => {
-            "user_id" => "String",
-    },
-    "v2.UpdateUser" => {
-            "user_id" => "String",
-            "body" => "UserUpdateRequest",
-    },
-    "v2.ListUserOrganizations" => {
-            "user_id" => "String",
-    },
-    "v2.ListUserPermissions" => {
-            "user_id" => "String",
-    },
     "v2.ListServiceAccountApplicationKeys" => {
             "service_account_id" => "String",
             "page_size" => "Integer",
@@ -1517,5 +1484,38 @@ ScenariosModelMappings = {
     "v2.GetUsageObservabilityPipelines" => {
             "start_hr" => "Time",
             "end_hr" => "Time",
+    },
+    "v2.SendInvitations" => {
+            "body" => "UserInvitationsRequest",
+    },
+    "v2.GetInvitation" => {
+            "user_invitation_uuid" => "String",
+    },
+    "v2.ListUsers" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "sort" => "String",
+            "sort_dir" => "QuerySortOrder",
+            "filter" => "String",
+            "filter_status" => "String",
+    },
+    "v2.CreateUser" => {
+            "body" => "UserCreateRequest",
+    },
+    "v2.DisableUser" => {
+            "user_id" => "String",
+    },
+    "v2.GetUser" => {
+            "user_id" => "String",
+    },
+    "v2.UpdateUser" => {
+            "user_id" => "String",
+            "body" => "UserUpdateRequest",
+    },
+    "v2.ListUserOrganizations" => {
+            "user_id" => "String",
+    },
+    "v2.ListUserPermissions" => {
+            "user_id" => "String",
     },
 }
