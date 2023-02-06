@@ -1,7 +1,7 @@
 # Create a service account returns "OK" response
 
 require "datadog_api_client"
-api_instance = DatadogAPIClient::V2::ServiceAccountsAPI.new
+api_instance = DatadogAPIClient::V2::UsersAPI.new
 
 # there is a valid "role" in the system
 ROLE_DATA_ID = ENV["ROLE_DATA_ID"]
