@@ -26,5 +26,6 @@ module DatadogAPIClient::V2
     ANOMALY_DETECTION = "anomaly_detection".freeze
     IMPOSSIBLE_TRAVEL = "impossible_travel".freeze
     HARDCODED = "hardcoded".freeze
+    THIRD_PARTY = "third_party".freeze
   end
 end
