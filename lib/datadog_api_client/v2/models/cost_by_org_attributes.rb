@@ -37,6 +37,9 @@ module DatadogAPIClient::V2
     # The organization public ID.
     attr_accessor :public_id
 
+    # The region of the Datadog instance that the organization belongs to.
+    attr_accessor :region
+
     # The total cost of products for the month.
     attr_accessor :total_cost
 
@@ -48,6 +51,7 @@ module DatadogAPIClient::V2
         :'date' => :'date',
         :'org_name' => :'org_name',
         :'public_id' => :'public_id',
+        :'region' => :'region',
         :'total_cost' => :'total_cost'
       }
     end
@@ -60,6 +64,7 @@ module DatadogAPIClient::V2
         :'date' => :'Time',
         :'org_name' => :'String',
         :'public_id' => :'String',
+        :'region' => :'String',
         :'total_cost' => :'Float'
       }
     end
@@ -98,6 +103,10 @@ module DatadogAPIClient::V2
         self.public_id = attributes[:'public_id']
       end
 
+      if attributes.key?(:'region')
+        self.region = attributes[:'region']
+      end
+
       if attributes.key?(:'total_cost')
         self.total_cost = attributes[:'total_cost']
       end
@@ -120,6 +129,7 @@ module DatadogAPIClient::V2
           date == o.date &&
           org_name == o.org_name &&
           public_id == o.public_id &&
+          region == o.region &&
           total_cost == o.total_cost
     end
 
@@ -127,7 +137,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [charges, date, org_name, public_id, total_cost].hash
+      [charges, date, org_name, public_id, region, total_cost].hash
     end
   end
 end
