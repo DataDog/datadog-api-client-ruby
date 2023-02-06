@@ -37,7 +37,7 @@ module DatadogAPIClient::V1
     # Pattern of the variable.
     attr_accessor :pattern
 
-    # Whether the value of this variable will be obfuscated in test results.
+    # Whether the value of this variable will be obfuscated in test results. Only for config variables of type `text`.
     attr_accessor :secure
 
     # Type of the configuration variable.
