@@ -102,7 +102,7 @@ module DatadogAPIClient::V1
         :'fbsd_v' => :'Array<String>',
         :'gohai' => :'String',
         :'install_method' => :'HostMetaInstallMethod',
-        :'mac_v' => :'Array<String>',
+        :'mac_v' => :'Array<Object>',
         :'machine' => :'String',
         :'nix_v' => :'Array<String>',
         :'platform' => :'String',
