@@ -27,6 +27,7 @@ module DatadogAPIClient::V1
     APPSEC_FARGATE_USAGE = "appsec_fargate_usage".freeze
     APPSEC_USAGE = "appsec_usage".freeze
     BROWSER_USAGE = "browser_usage".freeze
+    CONTAINER_EXCL_AGENT_USAGE = "container_excl_agent_usage".freeze
     CONTAINER_USAGE = "container_usage".freeze
     CSPM_CONTAINERS_USAGE = "cspm_containers_usage".freeze
     CSPM_HOSTS_USAGE = "cspm_hosts_usage".freeze
@@ -48,6 +49,5 @@ module DatadogAPIClient::V1
     PROFILED_HOST_USAGE = "profiled_host_usage".freeze
     SNMP_USAGE = "snmp_usage".freeze
     ESTIMATED_RUM_SESSIONS_USAGE = "estimated_rum_sessions_usage".freeze
-    CONT_USAGE = "cont_usage".freeze
   end
 end
