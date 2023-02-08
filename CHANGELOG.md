@@ -1,5 +1,32 @@
 # CHANGELOG
 
+## 2.7.0 / 2023-02-08
+
+### Fixed
+* Mark timeseries values as nullable by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1197
+* Add namespaces attribute and rename excluded_attributes in SDS Public API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1209
+* Set macV as `type any` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1224
+### Added
+* Add httpVersion option to Synthetics API tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1202
+* Add deprecationDate to security monitoring rule response by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1203
+* Add new group by configuration to list stream widget by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1199
+* Add synthetics advanced scheduling by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1188
+* Add notification preset enum field to monitor options by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1206
+* Add support for Cloudflare integration API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1205
+* Add support for Fastly account API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1131
+* Add monitor configuration policies by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1208
+* Support is_cspm_enabled field in GCP integrations by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1217
+* Add run workflow widget to dashboard schema by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1210
+* Add new missing enum values for `aggregation` and `detectionMethod` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1226
+* Add region to estimated cost and historical cost response by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1227
+* Add Usage Metering container_excl_agent_usage fields by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1229
+* Add event_stream fields to dashboard list stream widget by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1230
+### Changed
+* Move Service account create from users to service accounts by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1214
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-ruby/compare/v2.6.0...v2.7.0
+
 ## 2.6.0 / 2023-01-11
 
 ### Fixed
