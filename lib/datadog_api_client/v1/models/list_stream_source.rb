@@ -27,5 +27,6 @@ module DatadogAPIClient::V1
     APM_ISSUE_STREAM = "apm_issue_stream".freeze
     LOGS_PATTERN_STREAM = "logs_pattern_stream".freeze
     LOGS_TRANSACTION_STREAM = "logs_transaction_stream".freeze
+    EVENT_STREAM = "event_stream".freeze
   end
 end

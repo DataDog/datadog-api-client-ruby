@@ -31,6 +31,9 @@ module DatadogAPIClient::V1
     # Source from which to query items to display in the stream.
     attr_reader :data_source
 
+    # Size to use to display an event.
+    attr_accessor :event_size
+
     # Group by configuration for the List Stream Widget. Group by can be used only with logs_pattern_stream (up to 3 items) or logs_transaction_stream (one group by item is required) list stream source.
     attr_reader :group_by
 
@@ -49,6 +52,7 @@ module DatadogAPIClient::V1
       {
         :'compute' => :'compute',
         :'data_source' => :'data_source',
+        :'event_size' => :'event_size',
         :'group_by' => :'group_by',
         :'indexes' => :'indexes',
         :'query_string' => :'query_string',
@@ -62,6 +66,7 @@ module DatadogAPIClient::V1
       {
         :'compute' => :'Array<ListStreamComputeItems>',
         :'data_source' => :'ListStreamSource',
+        :'event_size' => :'WidgetEventSize',
         :'group_by' => :'Array<ListStreamGroupByItems>',
         :'indexes' => :'Array<String>',
         :'query_string' => :'String',
@@ -93,6 +98,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'data_source')
         self.data_source = attributes[:'data_source']
+      end
+
+      if attributes.key?(:'event_size')
+        self.event_size = attributes[:'event_size']
       end
 
       if attributes.key?(:'group_by')
@@ -179,6 +188,7 @@ module DatadogAPIClient::V1
       self.class == o.class &&
           compute == o.compute &&
           data_source == o.data_source &&
+          event_size == o.event_size &&
           group_by == o.group_by &&
           indexes == o.indexes &&
           query_string == o.query_string &&
@@ -189,7 +199,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [compute, data_source, group_by, indexes, query_string, storage].hash
+      [compute, data_source, event_size, group_by, indexes, query_string, storage].hash
     end
   end
 end
