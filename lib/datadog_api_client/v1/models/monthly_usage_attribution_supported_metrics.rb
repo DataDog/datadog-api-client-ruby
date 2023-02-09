@@ -33,8 +33,6 @@ module DatadogAPIClient::V1
     APPSEC_PERCENTAGE = "appsec_percentage".freeze
     BROWSER_USAGE = "browser_usage".freeze
     BROWSER_PERCENTAGE = "browser_percentage".freeze
-    CONTAINER_EXCL_AGENT_USAGE = "container_excl_agent_usage".freeze
-    CONTAINER_EXCL_AGENT_PERCENTAGE = "container_excl_agent_percentage".freeze
     CONTAINER_USAGE = "container_usage".freeze
     CONTAINER_PERCENTAGE = "container_percentage".freeze
     CSPM_CONTAINERS_PERCENTAGE = "cspm_containers_percentage".freeze
@@ -77,6 +75,8 @@ module DatadogAPIClient::V1
     SNMP_PERCENTAGE = "snmp_percentage".freeze
     ESTIMATED_RUM_SESSIONS_USAGE = "estimated_rum_sessions_usage".freeze
     ESTIMATED_RUM_SESSIONS_PERCENTAGE = "estimated_rum_sessions_percentage".freeze
+    CONT_USAGE = "cont_usage".freeze
+    CONT_PERCENTAGE = "cont_percentage".freeze
     ALL = "*".freeze
   end
 end

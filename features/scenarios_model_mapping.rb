@@ -1246,6 +1246,9 @@ ScenariosModelMappings = {
             "page_limit" => "Integer",
             "page_cursor" => "String",
     },
+    "v2.GetRestrictionPolicy" => {
+            "resource_id" => "String",
+    },
     "v2.AggregateRUMEvents" => {
             "body" => "RUMAggregateRequest",
     },

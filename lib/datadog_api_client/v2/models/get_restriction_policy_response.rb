@@ -17,38 +17,22 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Cost attributes data.
-  class CostByOrgAttributes
+  # Response containing information about a single restriction policy.
+  class GetRestrictionPolicyResponse
     include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
-    # List of charges data reported for the requested month.
-    attr_accessor :charges
-
-    # The month requested.
-    attr_accessor :date
-
-    # The organization name.
-    attr_accessor :org_name
-
-    # The organization public ID.
-    attr_accessor :public_id
-
-    # The total cost of products for the month.
-    attr_accessor :total_cost
+    # Restriction policy object.
+    attr_reader :data
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'charges' => :'charges',
-        :'date' => :'date',
-        :'org_name' => :'org_name',
-        :'public_id' => :'public_id',
-        :'total_cost' => :'total_cost'
+        :'data' => :'data'
       }
     end
 
@@ -56,11 +40,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'charges' => :'Array<ChargebackBreakdown>',
-        :'date' => :'Time',
-        :'org_name' => :'String',
-        :'public_id' => :'String',
-        :'total_cost' => :'Float'
+        :'data' => :'RestrictionPolicy'
       }
     end
 
@@ -69,37 +49,19 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::CostByOrgAttributes` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::GetRestrictionPolicyResponse` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::CostByOrgAttributes`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::GetRestrictionPolicyResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'charges')
-        if (value = attributes[:'charges']).is_a?(Array)
-          self.charges = value
-        end
-      end
-
-      if attributes.key?(:'date')
-        self.date = attributes[:'date']
-      end
-
-      if attributes.key?(:'org_name')
-        self.org_name = attributes[:'org_name']
-      end
-
-      if attributes.key?(:'public_id')
-        self.public_id = attributes[:'public_id']
-      end
-
-      if attributes.key?(:'total_cost')
-        self.total_cost = attributes[:'total_cost']
+      if attributes.key?(:'data')
+        self.data = attributes[:'data']
       end
     end
 
@@ -107,7 +69,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if @data.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param data [Object] Object to be assigned
+    # @!visibility private
+    def data=(data)
+      if data.nil?
+        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
+      end
+      @data = data
     end
 
     # Checks equality by comparing each attribute.
@@ -116,18 +89,14 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          charges == o.charges &&
-          date == o.date &&
-          org_name == o.org_name &&
-          public_id == o.public_id &&
-          total_cost == o.total_cost
+          data == o.data
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [charges, date, org_name, public_id, total_cost].hash
+      [data].hash
     end
   end
 end
