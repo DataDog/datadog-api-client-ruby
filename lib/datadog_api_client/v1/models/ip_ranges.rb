@@ -40,6 +40,9 @@ module DatadogAPIClient::V1
     # Date when last updated, in the form `YYYY-MM-DD-hh-mm-ss`.
     attr_accessor :modified
 
+    # Available prefix information for the Orchestrator endpoints.
+    attr_accessor :orchestrator
+
     # Available prefix information for the Process endpoints.
     attr_accessor :process
 
@@ -64,6 +67,7 @@ module DatadogAPIClient::V1
         :'apm' => :'apm',
         :'logs' => :'logs',
         :'modified' => :'modified',
+        :'orchestrator' => :'orchestrator',
         :'process' => :'process',
         :'synthetics' => :'synthetics',
         :'synthetics_private_locations' => :'synthetics-private-locations',
@@ -81,6 +85,7 @@ module DatadogAPIClient::V1
         :'apm' => :'IPPrefixesAPM',
         :'logs' => :'IPPrefixesLogs',
         :'modified' => :'String',
+        :'orchestrator' => :'IPPrefixesOrchestrator',
         :'process' => :'IPPrefixesProcess',
         :'synthetics' => :'IPPrefixesSynthetics',
         :'synthetics_private_locations' => :'IPPrefixesSyntheticsPrivateLocations',
@@ -125,6 +130,10 @@ module DatadogAPIClient::V1
         self.modified = attributes[:'modified']
       end
 
+      if attributes.key?(:'orchestrator')
+        self.orchestrator = attributes[:'orchestrator']
+      end
+
       if attributes.key?(:'process')
         self.process = attributes[:'process']
       end
@@ -164,6 +173,7 @@ module DatadogAPIClient::V1
           apm == o.apm &&
           logs == o.logs &&
           modified == o.modified &&
+          orchestrator == o.orchestrator &&
           process == o.process &&
           synthetics == o.synthetics &&
           synthetics_private_locations == o.synthetics_private_locations &&
@@ -175,7 +185,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [agents, api, apm, logs, modified, process, synthetics, synthetics_private_locations, version, webhooks].hash
+      [agents, api, apm, logs, modified, orchestrator, process, synthetics, synthetics_private_locations, version, webhooks].hash
     end
   end
 end
