@@ -174,6 +174,7 @@ module DatadogAPIClient
           "v1.ip_prefixes_api" => "IPPrefixesAPI",
           "v1.ip_prefixes_apm" => "IPPrefixesAPM",
           "v1.ip_prefixes_logs" => "IPPrefixesLogs",
+          "v1.ip_prefixes_orchestrator" => "IPPrefixesOrchestrator",
           "v1.ip_prefixes_process" => "IPPrefixesProcess",
           "v1.ip_prefixes_synthetics" => "IPPrefixesSynthetics",
           "v1.ip_prefixes_synthetics_private_locations" => "IPPrefixesSyntheticsPrivateLocations",
