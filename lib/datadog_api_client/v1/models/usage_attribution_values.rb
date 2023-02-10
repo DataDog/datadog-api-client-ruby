@@ -109,34 +109,34 @@ module DatadogAPIClient::V1
     # The Database Monitoring normalized queries usage by tag(s).
     attr_accessor :dbm_queries_usage
 
-    # The percentage of estimated live indexed logs usage by tag(s). Note this field is in private beta.
+    # The percentage of estimated live indexed logs usage by tag(s).
     attr_accessor :estimated_indexed_logs_percentage
 
-    # The estimated live indexed logs usage by tag(s). Note this field is in private beta.
+    # The estimated live indexed logs usage by tag(s).
     attr_accessor :estimated_indexed_logs_usage
 
-    # The percentage of estimated indexed spans usage by tag(s). Note this field is in private beta.
+    # The percentage of estimated indexed spans usage by tag(s).
     attr_accessor :estimated_indexed_spans_percentage
 
-    # The estimated indexed spans usage by tag(s). Note this field is in private beta.
+    # The estimated indexed spans usage by tag(s).
     attr_accessor :estimated_indexed_spans_usage
 
-    # The percentage of estimated live ingested logs usage by tag(s). Note this field is in private beta.
+    # The percentage of estimated live ingested logs usage by tag(s).
     attr_accessor :estimated_ingested_logs_percentage
 
-    # The estimated live ingested logs usage by tag(s). Note this field is in private beta.
+    # The estimated live ingested logs usage by tag(s).
     attr_accessor :estimated_ingested_logs_usage
 
-    # The percentage of estimated ingested spans usage by tag(s). Note this field is in private beta.
+    # The percentage of estimated ingested spans usage by tag(s).
     attr_accessor :estimated_ingested_spans_percentage
 
-    # The estimated ingested spans usage by tag(s). Note this field is in private beta.
+    # The estimated ingested spans usage by tag(s).
     attr_accessor :estimated_ingested_spans_usage
 
-    # The percentage of estimated rum sessions usage by tag(s). This field is in private beta.
+    # The percentage of estimated rum sessions usage by tag(s).
     attr_accessor :estimated_rum_sessions_percentage
 
-    # The estimated rum sessions usage by tag(s). This field is in private beta.
+    # The estimated rum sessions usage by tag(s).
     attr_accessor :estimated_rum_sessions_usage
 
     # The percentage of infrastructure host usage by tag(s).
