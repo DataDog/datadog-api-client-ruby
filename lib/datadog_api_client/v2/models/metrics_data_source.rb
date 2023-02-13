@@ -17,10 +17,11 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A data source that is powered by the Metrics backend.
+  # A data source that is powered by the Metrics platform.
   class MetricsDataSource
     include BaseEnumModel
 
     METRICS = "metrics".freeze
+    CLOUD_COST = "cloud_cost".freeze
   end
 end
