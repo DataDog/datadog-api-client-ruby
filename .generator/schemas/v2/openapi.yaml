@@ -2850,8 +2850,6 @@ components:
           type: string
         values:
           description: The array of numerical values for one formula or query.
-          example:
-          - 0.5
           items:
             description: An individual value for a given column and group-by.
             example: 0.5
@@ -3276,8 +3274,6 @@ components:
           $ref: '#/components/schemas/EventsQueryGroupBys'
         indexes:
           description: The indexes in which to search.
-          example:
-          - main
           items:
             description: The unique index name.
             example: main
@@ -3329,8 +3325,6 @@ components:
           $ref: '#/components/schemas/EventsQueryGroupBys'
         indexes:
           description: The indexes in which to search.
-          example:
-          - main
           items:
             description: The unique index name.
             example: main
@@ -3676,9 +3670,6 @@ components:
         values:
           description: The array of tag values for each group found for the results
             of the formulas or queries.
-          example:
-          - - production
-          - - staging
           items:
             description: An individual tag value for a given group column.
             items:
@@ -3692,7 +3683,6 @@ components:
       description: List of tags that apply to a single response value.
       items:
         description: A single tag that applies to a single response value.
-        example: env:production
         type: string
       type: array
     HTTPLog:
@@ -7228,15 +7218,13 @@ components:
       type: object
     MetricsDataSource:
       default: metrics
-      description: A data source that is powered by the Metrics platform.
+      description: A data source that is powered by the Metrics backend.
       enum:
       - metrics
-      - cloud_cost
       example: metrics
       type: string
       x-enum-varnames:
       - METRICS
-      - CLOUD_COST
     MetricsScalarQuery:
       description: An individual scalar metrics query.
       properties:
@@ -17026,13 +17014,12 @@ paths:
       tags:
       - Metrics
       x-codegen-request-body-name: body
-      x-unstable: '**Note**: This endpoint is GA for the metrics and cloud cost data
-        sources. Logs is
+      x-unstable: '**Note**: This endpoint is GA for the metrics data source. Logs
+        is in beta.
 
-        in beta. We are gradually onboarding support for more sources. If you have
-        any
+        We are gradually onboarding support for more sources. If you have any feedback,
 
-        feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+        contact [Datadog support](https://docs.datadoghq.com/help/).'
   /api/v2/query/timeseries:
     post:
       description: 'Query timeseries data across various data sources and
@@ -17064,13 +17051,12 @@ paths:
       tags:
       - Metrics
       x-codegen-request-body-name: body
-      x-unstable: '**Note**: This endpoint is GA for the metrics and cloud cost data
-        sources. Logs is
+      x-unstable: '**Note**: This endpoint is GA for the metrics data source. Logs
+        is in beta.
 
-        in beta. We are gradually onboarding support for more sources. If you have
-        any
+        We are gradually onboarding support for more sources. If you have any feedback,
 
-        feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+        contact [Datadog support](https://docs.datadoghq.com/help/).'
   /api/v2/roles:
     get:
       description: Returns all roles, including their names and their unique identifiers.
