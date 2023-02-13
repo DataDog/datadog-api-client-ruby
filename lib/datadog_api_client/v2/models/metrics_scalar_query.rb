@@ -28,7 +28,7 @@ module DatadogAPIClient::V2
     # The type of aggregation that can be performed on metrics queries.
     attr_reader :aggregator
 
-    # A data source that is powered by the Metrics platform.
+    # A data source that is powered by the Metrics backend.
     attr_reader :data_source
 
     # The variable name for use in formulas.
