@@ -25,7 +25,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     attr_accessor :_unparsed
 
-    # A data source that is powered by the Metrics backend.
+    # A data source that is powered by the Metrics platform.
     attr_reader :data_source
 
     # The variable name for use in formulas.
