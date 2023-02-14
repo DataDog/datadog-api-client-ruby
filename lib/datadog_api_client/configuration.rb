@@ -175,7 +175,6 @@ module DatadogAPIClient
       @http_proxypass = nil
       @logger = defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
       @unstable_operations = {
-            "v1.search_slo": false,
             "v2.list_events": false,
             "v2.search_events": false,
             "v2.create_incident": false,

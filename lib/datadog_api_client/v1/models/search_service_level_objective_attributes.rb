@@ -77,6 +77,9 @@ module DatadogAPIClient::V1
     # The type of the service level objective.
     attr_accessor :slo_type
 
+    # Status of the SLO's primary timeframe.
+    attr_accessor :status
+
     # Tags with the `team` tag key.
     attr_accessor :team_tags
 
@@ -101,6 +104,7 @@ module DatadogAPIClient::V1
         :'query' => :'query',
         :'service_tags' => :'service_tags',
         :'slo_type' => :'slo_type',
+        :'status' => :'status',
         :'team_tags' => :'team_tags',
         :'thresholds' => :'thresholds'
       }
@@ -123,6 +127,7 @@ module DatadogAPIClient::V1
         :'query' => :'SearchSLOQuery',
         :'service_tags' => :'Array<String>',
         :'slo_type' => :'SLOType',
+        :'status' => :'SLOStatus',
         :'team_tags' => :'Array<String>',
         :'thresholds' => :'Array<SearchSLOThreshold>'
       }
@@ -220,6 +225,10 @@ module DatadogAPIClient::V1
         self.slo_type = attributes[:'slo_type']
       end
 
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
+      end
+
       if attributes.key?(:'team_tags')
         if (value = attributes[:'team_tags']).is_a?(Array)
           self.team_tags = value
@@ -259,6 +268,7 @@ module DatadogAPIClient::V1
           query == o.query &&
           service_tags == o.service_tags &&
           slo_type == o.slo_type &&
+          status == o.status &&
           team_tags == o.team_tags &&
           thresholds == o.thresholds
     end
@@ -267,7 +277,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [all_tags, created_at, creator, description, env_tags, groups, modified_at, monitor_ids, name, overall_status, query, service_tags, slo_type, team_tags, thresholds].hash
+      [all_tags, created_at, creator, description, env_tags, groups, modified_at, monitor_ids, name, overall_status, query, service_tags, slo_type, status, team_tags, thresholds].hash
     end
   end
 end

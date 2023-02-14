@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V1
-  # Overall status of the SLO by timeframes.
-  class SLOOverallStatuses
+  # Status of the SLO's primary timeframe.
+  class SLOStatus
     include BaseGenericModel
 
     # Whether the object has unparsed attributes
@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Error message if SLO status or error budget could not be calculated.
-    attr_accessor :error
+    attr_accessor :calculation_error
 
     # Remaining error budget of the SLO in percentage.
     attr_accessor :error_budget_remaining
@@ -38,34 +38,26 @@ module DatadogAPIClient::V1
     # Error budget remaining for an SLO.
     attr_accessor :raw_error_budget_remaining
 
-    # The amount of decimal places the SLI value is accurate to.
+    # The current service level indicator (SLI) of the SLO, also known as 'status'. This is a percentage value from 0-100 (inclusive).
+    attr_accessor :sli
+
+    # The number of decimal places the SLI value is accurate to.
     attr_accessor :span_precision
 
     # State of the SLO.
     attr_accessor :state
 
-    # The status of the SLO.
-    attr_accessor :status
-
-    # The target of the SLO.
-    attr_accessor :target
-
-    # The SLO time window options.
-    attr_accessor :timeframe
-
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'error' => :'error',
+        :'calculation_error' => :'calculation_error',
         :'error_budget_remaining' => :'error_budget_remaining',
         :'indexed_at' => :'indexed_at',
         :'raw_error_budget_remaining' => :'raw_error_budget_remaining',
+        :'sli' => :'sli',
         :'span_precision' => :'span_precision',
-        :'state' => :'state',
-        :'status' => :'status',
-        :'target' => :'target',
-        :'timeframe' => :'timeframe'
+        :'state' => :'state'
       }
     end
 
@@ -73,15 +65,13 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'error' => :'String',
+        :'calculation_error' => :'String',
         :'error_budget_remaining' => :'Float',
         :'indexed_at' => :'Integer',
         :'raw_error_budget_remaining' => :'SLORawErrorBudgetRemaining',
+        :'sli' => :'Float',
         :'span_precision' => :'Integer',
-        :'state' => :'SLOState',
-        :'status' => :'Float',
-        :'target' => :'Float',
-        :'timeframe' => :'SLOTimeframe'
+        :'state' => :'SLOState'
       }
     end
 
@@ -89,11 +79,11 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_nullable
       Set.new([
-        :'error',
+        :'calculation_error',
         :'error_budget_remaining',
         :'raw_error_budget_remaining',
+        :'sli',
         :'span_precision',
-        :'status',
       ])
     end
 
@@ -102,19 +92,19 @@ module DatadogAPIClient::V1
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SLOOverallStatuses` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V1::SLOStatus` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SLOOverallStatuses`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V1::SLOStatus`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'error')
-        self.error = attributes[:'error']
+      if attributes.key?(:'calculation_error')
+        self.calculation_error = attributes[:'calculation_error']
       end
 
       if attributes.key?(:'error_budget_remaining')
@@ -129,24 +119,16 @@ module DatadogAPIClient::V1
         self.raw_error_budget_remaining = attributes[:'raw_error_budget_remaining']
       end
 
+      if attributes.key?(:'sli')
+        self.sli = attributes[:'sli']
+      end
+
       if attributes.key?(:'span_precision')
         self.span_precision = attributes[:'span_precision']
       end
 
       if attributes.key?(:'state')
         self.state = attributes[:'state']
-      end
-
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
-      end
-
-      if attributes.key?(:'target')
-        self.target = attributes[:'target']
-      end
-
-      if attributes.key?(:'timeframe')
-        self.timeframe = attributes[:'timeframe']
       end
     end
 
@@ -163,22 +145,20 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          error == o.error &&
+          calculation_error == o.calculation_error &&
           error_budget_remaining == o.error_budget_remaining &&
           indexed_at == o.indexed_at &&
           raw_error_budget_remaining == o.raw_error_budget_remaining &&
+          sli == o.sli &&
           span_precision == o.span_precision &&
-          state == o.state &&
-          status == o.status &&
-          target == o.target &&
-          timeframe == o.timeframe
+          state == o.state
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [error, error_budget_remaining, indexed_at, raw_error_budget_remaining, span_precision, state, status, target, timeframe].hash
+      [calculation_error, error_budget_remaining, indexed_at, raw_error_budget_remaining, sli, span_precision, state].hash
     end
   end
 end
