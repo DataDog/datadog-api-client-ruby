@@ -787,7 +787,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'ScalarFormulaQueryResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :query_scalar_data,
@@ -861,7 +861,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'TimeseriesFormulaQueryResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
         :operation => :query_timeseries_data,

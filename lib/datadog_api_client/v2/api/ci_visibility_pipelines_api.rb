@@ -70,7 +70,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'CIAppPipelinesAnalyticsAggregateResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :aggregate_ci_app_pipeline_events,
@@ -152,7 +152,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'CIAppPipelineEventsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :list_ci_app_pipeline_events,
@@ -239,7 +239,7 @@ module DatadogAPIClient::V2
       return_type = opts[:debug_return_type] || 'CIAppPipelineEventsResponse'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]
 
       new_options = opts.merge(
         :operation => :search_ci_app_pipeline_events,
