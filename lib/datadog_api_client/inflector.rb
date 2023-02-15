@@ -454,6 +454,8 @@ module DatadogAPIClient
           "v1.slo_raw_error_budget_remaining" => "SLORawErrorBudgetRemaining",
           "v1.slo_response" => "SLOResponse",
           "v1.slo_response_data" => "SLOResponseData",
+          "v1.slo_state" => "SLOState",
+          "v1.slo_status" => "SLOStatus",
           "v1.slo_threshold" => "SLOThreshold",
           "v1.slo_timeframe" => "SLOTimeframe",
           "v1.slo_type" => "SLOType",

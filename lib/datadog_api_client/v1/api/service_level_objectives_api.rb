@@ -615,12 +615,6 @@ module DatadogAPIClient::V1
     # @option opts [Boolean] :include_facets Whether or not to return facet information in the response `[default=false]`.
     # @return [Array<(SearchSLOResponse, Integer, Hash)>] SearchSLOResponse data, response status code and response headers
     def search_slo_with_http_info(opts = {})
-      unstable_enabled = @api_client.config.unstable_operations["v1.search_slo".to_sym]
-      if unstable_enabled
-        @api_client.config.logger.warn format("Using unstable operation '%s'", "v1.search_slo")
-      else
-        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v1.search_slo"))
-      end
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceLevelObjectivesAPI.search_slo ...'
