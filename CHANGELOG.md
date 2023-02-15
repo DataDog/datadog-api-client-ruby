@@ -1,5 +1,20 @@
 # CHANGELOG
 
+## 2.8.0 / 2023-02-15
+
+### Fixed
+* Set hosts versions as `type any` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1240
+### Added
+* Add orchestrator section in IP ranges by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1232
+* Add Cloud Cost Management fields to Usage Metering endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1236
+* Add cloud-cost as a supported query data source by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1228
+* Add Cloud Cost And Container Excl Agent Usage Fields by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1241
+* Add SLO status and error budget remaining to search API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1245
+* Add `sort` field to SLOListWidgetQuery by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1243
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-ruby/compare/v2.7.0...v2.8.0
+
 ## 2.7.0 / 2023-02-08
 
 ### Fixed
