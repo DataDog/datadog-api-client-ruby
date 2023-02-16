@@ -1,0 +1,20 @@
+http_interactions:
+- recorded_at: Tue, 14 Feb 2023 03:05:45 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/restriction_policy/dashboard%3Aabc-def-ghi
+  response:
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 204
+      message: No Content
+recorded_with: VCR 6.0.0
