@@ -26,5 +26,9 @@ module DatadogAPIClient::V2
     MAX = "max".freeze
     SUM = "sum".freeze
     LAST = "last".freeze
+    PERCENTILE = "percentile".freeze
+    MEAN = "mean".freeze
+    L2NORM = "l2norm".freeze
+    AREA = "area".freeze
   end
 end
