@@ -22,5 +22,6 @@ module DatadogAPIClient::V2
     include BaseEnumModel
 
     LOGS = "logs".freeze
+    RUM = "rum".freeze
   end
 end
