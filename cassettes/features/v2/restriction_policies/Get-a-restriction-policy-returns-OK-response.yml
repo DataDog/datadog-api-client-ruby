@@ -1,0 +1,22 @@
+http_interactions:
+- recorded_at: Wed, 08 Feb 2023 21:43:24 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+    method: GET
+    uri: https://api.datadoghq.com/api/v2/restriction_policy/dashboard%3Aabc-def-ghi
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"restriction_policy","id":"dashboard:abc-def-ghi","attributes":{"bindings":[]}}}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0
