@@ -1438,6 +1438,9 @@ ScenariosModelMappings = {
     "v2.GetServiceDefinition" => {
             "service_name" => "String",
     },
+    "v2.SetOnDemandConcurrencyCap" => {
+            "body" => "OnDemandConcurrencyCapAttributes",
+    },
     "v2.ListIncidentTeams" => {
             "include" => "IncidentRelatedObject",
             "page_size" => "Integer",

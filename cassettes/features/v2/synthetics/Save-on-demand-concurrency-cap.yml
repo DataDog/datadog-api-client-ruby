@@ -1,0 +1,26 @@
+http_interactions:
+- recorded_at: Tue, 14 Feb 2023 13:37:09 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"on_demand_concurrency_cap":20}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/synthetics/settings/on_demand_concurrency_cap
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"on_demand_concurrency_cap","attributes":{"on_demand_concurrency_cap":20}}}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0
