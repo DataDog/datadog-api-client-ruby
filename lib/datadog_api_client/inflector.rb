@@ -1245,6 +1245,9 @@ module DatadogAPIClient
           "v2.monitor_type" => "MonitorType",
           "v2.nullable_relationship_to_user" => "NullableRelationshipToUser",
           "v2.nullable_relationship_to_user_data" => "NullableRelationshipToUserData",
+          "v2.on_demand_concurrency_cap" => "OnDemandConcurrencyCap",
+          "v2.on_demand_concurrency_cap_attributes" => "OnDemandConcurrencyCapAttributes",
+          "v2.on_demand_concurrency_cap_response" => "OnDemandConcurrencyCapResponse",
           "v2.opsgenie_service_create_attributes" => "OpsgenieServiceCreateAttributes",
           "v2.opsgenie_service_create_data" => "OpsgenieServiceCreateData",
           "v2.opsgenie_service_create_request" => "OpsgenieServiceCreateRequest",
@@ -1648,6 +1651,7 @@ module DatadogAPIClient
         "v2.sensitive_data_scanner_api" => "SensitiveDataScannerAPI",
         "v2.service_accounts_api" => "ServiceAccountsAPI",
         "v2.service_definition_api" => "ServiceDefinitionAPI",
+        "v2.synthetics_api" => "SyntheticsAPI",
         "v2.usage_metering_api" => "UsageMeteringAPI",
         "v2.users_api" => "UsersAPI"
         }
