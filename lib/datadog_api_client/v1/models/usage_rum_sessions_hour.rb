@@ -43,6 +43,9 @@ module DatadogAPIClient::V1
     # Contains the number of mobile RUM Sessions on Android (data available beginning December 1, 2020).
     attr_accessor :session_count_android
 
+    # Contains the number of mobile RUM Sessions on Flutter (data available beginning March 1, 2023).
+    attr_accessor :session_count_flutter
+
     # Contains the number of mobile RUM Sessions on iOS (data available beginning December 1, 2020).
     attr_accessor :session_count_ios
 
@@ -59,6 +62,7 @@ module DatadogAPIClient::V1
         :'replay_session_count' => :'replay_session_count',
         :'session_count' => :'session_count',
         :'session_count_android' => :'session_count_android',
+        :'session_count_flutter' => :'session_count_flutter',
         :'session_count_ios' => :'session_count_ios',
         :'session_count_reactnative' => :'session_count_reactnative'
       }
@@ -74,6 +78,7 @@ module DatadogAPIClient::V1
         :'replay_session_count' => :'Integer',
         :'session_count' => :'Integer',
         :'session_count_android' => :'Integer',
+        :'session_count_flutter' => :'Integer',
         :'session_count_ios' => :'Integer',
         :'session_count_reactnative' => :'Integer'
       }
@@ -85,6 +90,7 @@ module DatadogAPIClient::V1
       Set.new([
         :'session_count',
         :'session_count_android',
+        :'session_count_flutter',
         :'session_count_ios',
         :'session_count_reactnative',
       ])
@@ -130,6 +136,10 @@ module DatadogAPIClient::V1
         self.session_count_android = attributes[:'session_count_android']
       end
 
+      if attributes.key?(:'session_count_flutter')
+        self.session_count_flutter = attributes[:'session_count_flutter']
+      end
+
       if attributes.key?(:'session_count_ios')
         self.session_count_ios = attributes[:'session_count_ios']
       end
@@ -158,6 +168,7 @@ module DatadogAPIClient::V1
           replay_session_count == o.replay_session_count &&
           session_count == o.session_count &&
           session_count_android == o.session_count_android &&
+          session_count_flutter == o.session_count_flutter &&
           session_count_ios == o.session_count_ios &&
           session_count_reactnative == o.session_count_reactnative
     end
@@ -166,7 +177,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [hour, org_name, public_id, replay_session_count, session_count, session_count_android, session_count_ios, session_count_reactnative].hash
+      [hour, org_name, public_id, replay_session_count, session_count, session_count_android, session_count_flutter, session_count_ios, session_count_reactnative].hash
     end
   end
 end
