@@ -1058,6 +1058,9 @@ ScenariosModelMappings = {
             "service_id" => "String",
             "body" => "FastlyServiceRequest",
     },
+    "v2.UpdateIPAllowlist" => {
+            "body" => "IPAllowlistUpdateRequest",
+    },
     "v2.SubmitLog" => {
             "content_encoding" => "ContentEncoding",
             "ddtags" => "String",

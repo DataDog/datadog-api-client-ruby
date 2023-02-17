@@ -1,0 +1,25 @@
+http_interactions:
+- recorded_at: Fri, 10 Feb 2023 16:26:52 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"enabled":true,"entries":[]},"type":"ip_allowlist"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: PATCH
+    uri: https://api.datadoghq.com/api/v2/ip_allowlist
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"errors":["Cannot enable or keep enabled an IP Allowlist without the
+        current IP address in it"]}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 400
+      message: Bad Request
+recorded_with: VCR 6.0.0
