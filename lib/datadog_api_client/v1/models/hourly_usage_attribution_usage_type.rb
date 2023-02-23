@@ -46,6 +46,7 @@ module DatadogAPIClient::V1
     INVOCATIONS_USAGE = "invocations_usage".freeze
     NPM_HOST_USAGE = "npm_host_usage".freeze
     PROFILED_CONTAINER_USAGE = "profiled_container_usage".freeze
+    PROFILED_FARGATE_USAGE = "profiled_fargate_usage".freeze
     PROFILED_HOST_USAGE = "profiled_host_usage".freeze
     SNMP_USAGE = "snmp_usage".freeze
     ESTIMATED_RUM_SESSIONS_USAGE = "estimated_rum_sessions_usage".freeze

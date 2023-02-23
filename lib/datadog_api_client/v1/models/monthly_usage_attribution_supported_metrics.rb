@@ -71,6 +71,8 @@ module DatadogAPIClient::V1
     NPM_HOST_PERCENTAGE = "npm_host_percentage".freeze
     PROFILED_CONTAINER_USAGE = "profiled_container_usage".freeze
     PROFILED_CONTAINER_PERCENTAGE = "profiled_container_percentage".freeze
+    PROFILED_FARGATE_USAGE = "profiled_fargate_usage".freeze
+    PROFILED_FARGATE_PERCENTAGE = "profiled_fargate_percentage".freeze
     PROFILED_HOST_USAGE = "profiled_host_usage".freeze
     PROFILED_HOST_PERCENTAGE = "profiled_host_percentage".freeze
     SNMP_USAGE = "snmp_usage".freeze
