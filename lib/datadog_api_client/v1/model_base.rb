@@ -67,7 +67,13 @@ module DatadogAPIClient::V1
             self.send("#{key}=", attributes[self.class.attribute_map[key]].map { |v| _deserialize($1, v) })
           end
         elsif !attributes[self.class.attribute_map[key]].nil?
-          self.send("#{key}=", _deserialize(type, attributes[self.class.attribute_map[key]]))
+          res = _deserialize(type, attributes[self.class.attribute_map[key]])
+          if res.instance_of? DatadogAPIClient::UnparsedObject
+            self._unparsed = true
+          elsif (res.kind_of? DatadogAPIClient::V1::BaseGenericModel) && res._unparsed
+            self._unparsed = true
+          end
+          self.send("#{key}=", res)
         end
       end
 
