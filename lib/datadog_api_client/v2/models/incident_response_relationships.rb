@@ -125,7 +125,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attachments, commander_user, created_by_user, integrations, last_modified_by_user].hash
+      [:attachments, :commander_user, :created_by_user, :integrations, :last_modified_by_user].hash
     end
   end
 end

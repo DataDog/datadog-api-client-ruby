@@ -214,7 +214,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [is_enabled, name, override_on_conflict, preserve_source, source_type, sources, target, target_format, target_type, type].hash
+      [:is_enabled, :name, :override_on_conflict, :preserve_source, :source_type, :sources, :target, :target_format, :target_type, :type].hash
     end
   end
 end

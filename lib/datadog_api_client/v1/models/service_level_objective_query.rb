@@ -119,7 +119,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [denominator, numerator].hash
+      [:denominator, :numerator].hash
     end
   end
 end

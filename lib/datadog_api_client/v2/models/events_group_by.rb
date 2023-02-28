@@ -127,7 +127,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [facet, limit, sort].hash
+      [:facet, :limit, :sort].hash
     end
   end
 end

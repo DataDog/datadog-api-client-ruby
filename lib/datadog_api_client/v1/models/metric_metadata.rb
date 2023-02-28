@@ -145,7 +145,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, integration, per_unit, short_name, statsd_interval, type, unit].hash
+      [:description, :integration, :per_unit, :short_name, :statsd_interval, :type, :unit].hash
     end
   end
 end

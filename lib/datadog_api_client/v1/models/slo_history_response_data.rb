@@ -192,7 +192,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [from_ts, group_by, groups, monitors, overall, series, thresholds, to_ts, type, type_id].hash
+      [:from_ts, :group_by, :groups, :monitors, :overall, :series, :thresholds, :to_ts, :type, :type_id].hash
     end
   end
 end

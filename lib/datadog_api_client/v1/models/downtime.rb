@@ -321,7 +321,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [active, active_child, canceled, creator_id, disabled, downtime_type, _end, id, message, monitor_id, monitor_tags, mute_first_recovery_notification, parent_id, recurrence, scope, start, timezone, updater_id].hash
+      [:active, :active_child, :canceled, :creator_id, :disabled, :downtime_type, :_end, :id, :message, :monitor_id, :monitor_tags, :mute_first_recovery_notification, :parent_id, :recurrence, :scope, :start, :timezone, :updater_id].hash
     end
   end
 end

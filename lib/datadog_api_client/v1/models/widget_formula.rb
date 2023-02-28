@@ -148,7 +148,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [_alias, cell_display_mode, conditional_formats, formula, limit, style].hash
+      [:_alias, :cell_display_mode, :conditional_formats, :formula, :limit, :style].hash
     end
   end
 end

@@ -153,7 +153,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [assertions, config_variables, request, set_cookie, variables].hash
+      [:assertions, :config_variables, :request, :set_cookie, :variables].hash
     end
   end
 end

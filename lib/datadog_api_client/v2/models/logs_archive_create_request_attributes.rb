@@ -179,7 +179,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [destination, include_tags, name, query, rehydration_max_scan_size_in_gb, rehydration_tags].hash
+      [:destination, :include_tags, :name, :query, :rehydration_max_scan_size_in_gb, :rehydration_tags].hash
     end
   end
 end

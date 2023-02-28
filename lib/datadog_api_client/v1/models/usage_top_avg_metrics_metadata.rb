@@ -105,7 +105,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [day, month, pagination].hash
+      [:day, :month, :pagination].hash
     end
   end
 end

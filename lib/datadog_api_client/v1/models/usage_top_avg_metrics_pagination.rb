@@ -113,7 +113,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [limit, next_record_id, total_number_of_records].hash
+      [:limit, :next_record_id, :total_number_of_records].hash
     end
   end
 end

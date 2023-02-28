@@ -147,7 +147,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [critical, critical_recovery, ok, unknown, warning, warning_recovery].hash
+      [:critical, :critical_recovery, :ok, :unknown, :warning, :warning_recovery].hash
     end
   end
 end

@@ -186,7 +186,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [height, is_column_break, width, x, y].hash
+      [:height, :is_column_break, :width, :x, :y].hash
     end
   end
 end

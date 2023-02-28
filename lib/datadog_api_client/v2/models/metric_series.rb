@@ -194,7 +194,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [interval, metadata, metric, points, resources, source_type_name, tags, type, unit].hash
+      [:interval, :metadata, :metric, :points, :resources, :source_type_name, :tags, :type, :unit].hash
     end
   end
 end

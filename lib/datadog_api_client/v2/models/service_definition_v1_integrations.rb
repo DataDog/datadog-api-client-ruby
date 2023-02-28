@@ -85,7 +85,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [pagerduty].hash
+      [:pagerduty].hash
     end
   end
 end

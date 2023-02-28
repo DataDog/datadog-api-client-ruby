@@ -115,7 +115,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [github_html_url, ingested_schema_version, ingestion_source, last_modified_time].hash
+      [:github_html_url, :ingested_schema_version, :ingestion_source, :last_modified_time].hash
     end
   end
 end

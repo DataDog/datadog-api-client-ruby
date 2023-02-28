@@ -105,7 +105,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [line_type, line_width, palette].hash
+      [:line_type, :line_width, :palette].hash
     end
   end
 end

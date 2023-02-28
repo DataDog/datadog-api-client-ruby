@@ -158,7 +158,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [calculation_error, error_budget_remaining, indexed_at, raw_error_budget_remaining, sli, span_precision, state].hash
+      [:calculation_error, :error_budget_remaining, :indexed_at, :raw_error_budget_remaining, :sli, :span_precision, :state].hash
     end
   end
 end

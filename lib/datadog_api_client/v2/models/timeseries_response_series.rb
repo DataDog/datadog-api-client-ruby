@@ -123,7 +123,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [group_tags, query_index, unit].hash
+      [:group_tags, :query_index, :unit].hash
     end
   end
 end

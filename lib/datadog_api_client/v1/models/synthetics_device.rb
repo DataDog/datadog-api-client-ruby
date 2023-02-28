@@ -169,7 +169,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [height, id, is_mobile, name, width].hash
+      [:height, :id, :is_mobile, :name, :width].hash
     end
   end
 end

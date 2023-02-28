@@ -125,7 +125,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [limit, offset, sort_direction, sort_name, total_number_of_records].hash
+      [:limit, :offset, :sort_direction, :sort_name, :total_number_of_records].hash
     end
   end
 end

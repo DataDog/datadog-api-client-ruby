@@ -197,7 +197,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cipher, exponent, ext_key_usage, fingerprint, fingerprint256, issuer, modulus, protocol, serial_number, subject, valid_from, valid_to].hash
+      [:cipher, :exponent, :ext_key_usage, :fingerprint, :fingerprint256, :issuer, :modulus, :protocol, :serial_number, :subject, :valid_from, :valid_to].hash
     end
   end
 end

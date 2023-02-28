@@ -178,7 +178,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [period, rrule, type, until_date, until_occurrences, week_days].hash
+      [:period, :rrule, :type, :until_date, :until_occurrences, :week_days].hash
     end
   end
 end

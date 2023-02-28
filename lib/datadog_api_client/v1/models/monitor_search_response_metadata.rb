@@ -115,7 +115,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [page, page_count, per_page, total_count].hash
+      [:page, :page_count, :per_page, :total_count].hash
     end
   end
 end

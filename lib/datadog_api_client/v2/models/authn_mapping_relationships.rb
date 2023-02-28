@@ -95,7 +95,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [role, saml_assertion_attribute].hash
+      [:role, :saml_assertion_attribute].hash
     end
   end
 end

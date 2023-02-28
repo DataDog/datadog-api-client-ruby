@@ -126,7 +126,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [dd_service, description, display_name, service_tier].hash
+      [:dd_service, :description, :display_name, :service_tier].hash
     end
   end
 end

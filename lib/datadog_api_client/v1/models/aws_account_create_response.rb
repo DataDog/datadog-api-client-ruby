@@ -85,7 +85,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [external_id].hash
+      [:external_id].hash
     end
   end
 end

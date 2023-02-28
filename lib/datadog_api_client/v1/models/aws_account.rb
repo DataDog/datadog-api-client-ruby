@@ -199,7 +199,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [access_key_id, account_id, account_specific_namespace_rules, cspm_resource_collection_enabled, excluded_regions, filter_tags, host_tags, metrics_collection_enabled, resource_collection_enabled, role_name, secret_access_key].hash
+      [:access_key_id, :account_id, :account_specific_namespace_rules, :cspm_resource_collection_enabled, :excluded_regions, :filter_tags, :host_tags, :metrics_collection_enabled, :resource_collection_enabled, :role_name, :secret_access_key].hash
     end
   end
 end

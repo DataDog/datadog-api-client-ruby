@@ -104,7 +104,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [recovery_window, trigger_window].hash
+      [:recovery_window, :trigger_window].hash
     end
   end
 end

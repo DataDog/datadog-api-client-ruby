@@ -96,7 +96,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [time_offset, timezone].hash
+      [:time_offset, :timezone].hash
     end
   end
 end

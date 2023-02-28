@@ -135,7 +135,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [day_starts, hour_starts, month_starts].hash
+      [:day_starts, :hour_starts, :month_starts].hash
     end
   end
 end

@@ -135,7 +135,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [last_nodata_ts, last_notified_ts, last_resolved_ts, last_triggered_ts, name, status].hash
+      [:last_nodata_ts, :last_notified_ts, :last_resolved_ts, :last_triggered_ts, :name, :status].hash
     end
   end
 end

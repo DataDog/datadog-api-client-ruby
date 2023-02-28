@@ -99,7 +99,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [prefixes_ipv4, prefixes_ipv6].hash
+      [:prefixes_ipv4, :prefixes_ipv6].hash
     end
   end
 end

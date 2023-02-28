@@ -221,7 +221,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [custom_links, events, legend_size, requests, show_legend, time, title, title_align, title_size, type, yaxis].hash
+      [:custom_links, :events, :legend_size, :requests, :show_legend, :time, :title, :title_align, :title_size, :type, :yaxis].hash
     end
   end
 end

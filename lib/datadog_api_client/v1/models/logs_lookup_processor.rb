@@ -198,7 +198,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [default_lookup, is_enabled, lookup_table, name, source, target, type].hash
+      [:default_lookup, :is_enabled, :lookup_table, :name, :source, :target, :type].hash
     end
   end
 end

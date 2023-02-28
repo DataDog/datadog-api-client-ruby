@@ -162,7 +162,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [index, limit, query, sort, start_at, time].hash
+      [:index, :limit, :query, :sort, :start_at, :time].hash
     end
   end
 end

@@ -105,7 +105,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cpu, iowait, load].hash
+      [:cpu, :iowait, :load].hash
     end
   end
 end

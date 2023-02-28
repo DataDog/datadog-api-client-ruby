@@ -99,7 +99,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [active_aggregations, active_tags].hash
+      [:active_aggregations, :active_tags].hash
     end
   end
 end

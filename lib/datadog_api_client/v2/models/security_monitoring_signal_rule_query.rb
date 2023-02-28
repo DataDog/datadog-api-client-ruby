@@ -161,7 +161,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation, correlated_by_fields, correlated_query_index, metrics, name, rule_id].hash
+      [:aggregation, :correlated_by_fields, :correlated_query_index, :metrics, :name, :rule_id].hash
     end
   end
 end

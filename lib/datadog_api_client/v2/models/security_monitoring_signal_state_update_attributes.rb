@@ -126,7 +126,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [archive_comment, archive_reason, state, version].hash
+      [:archive_comment, :archive_reason, :state, :version].hash
     end
   end
 end

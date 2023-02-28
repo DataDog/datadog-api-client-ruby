@@ -133,7 +133,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [browser_rum_units, mobile_rum_units, org_name, public_id, rum_units].hash
+      [:browser_rum_units, :mobile_rum_units, :org_name, :public_id, :rum_units].hash
     end
   end
 end

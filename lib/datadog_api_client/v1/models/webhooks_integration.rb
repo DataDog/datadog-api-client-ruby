@@ -162,7 +162,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [custom_headers, encode_as, name, payload, url].hash
+      [:custom_headers, :encode_as, :name, :payload, :url].hash
     end
   end
 end

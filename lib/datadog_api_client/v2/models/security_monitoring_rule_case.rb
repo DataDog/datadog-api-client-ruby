@@ -118,7 +118,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [condition, name, notifications, status].hash
+      [:condition, :name, :notifications, :status].hash
     end
   end
 end

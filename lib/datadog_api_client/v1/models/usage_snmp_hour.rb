@@ -115,7 +115,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [hour, org_name, public_id, snmp_devices].hash
+      [:hour, :org_name, :public_id, :snmp_devices].hash
     end
   end
 end

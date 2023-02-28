@@ -166,7 +166,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [dns, download, first_byte, handshake, redirect, ssl, tcp, total, wait].hash
+      [:dns, :download, :first_byte, :handshake, :redirect, :ssl, :tcp, :total, :wait].hash
     end
   end
 end

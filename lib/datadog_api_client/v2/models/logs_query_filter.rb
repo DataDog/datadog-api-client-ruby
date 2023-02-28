@@ -127,7 +127,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [from, indexes, query, storage_tier, to].hash
+      [:from, :indexes, :query, :storage_tier, :to].hash
     end
   end
 end

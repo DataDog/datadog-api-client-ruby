@@ -117,7 +117,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [palette, palette_flip].hash
+      [:palette, :palette_flip].hash
     end
   end
 end

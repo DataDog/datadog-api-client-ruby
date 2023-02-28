@@ -166,7 +166,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cert, event_type, failure, http_status_code, request_headers, response_body, response_headers, response_size, timings].hash
+      [:cert, :event_type, :failure, :http_status_code, :request_headers, :response_body, :response_headers, :response_size, :timings].hash
     end
   end
 end

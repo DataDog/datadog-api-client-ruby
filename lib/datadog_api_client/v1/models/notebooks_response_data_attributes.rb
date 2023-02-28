@@ -176,7 +176,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [author, cells, created, metadata, modified, name, status, time].hash
+      [:author, :cells, :created, :metadata, :modified, :name, :status, :time].hash
     end
   end
 end

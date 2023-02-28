@@ -219,7 +219,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [auth_provider_x509_cert_url, auth_uri, automute, client_email, client_id, client_x509_cert_url, errors, host_filters, is_cspm_enabled, private_key, private_key_id, project_id, token_uri, type].hash
+      [:auth_provider_x509_cert_url, :auth_uri, :automute, :client_email, :client_id, :client_x509_cert_url, :errors, :host_filters, :is_cspm_enabled, :private_key, :private_key_id, :project_id, :token_uri, :type].hash
     end
   end
 end

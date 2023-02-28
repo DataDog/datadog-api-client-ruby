@@ -85,7 +85,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [live_span].hash
+      [:live_span].hash
     end
   end
 end

@@ -120,7 +120,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [billing, name, subscription].hash
+      [:billing, :name, :subscription].hash
     end
   end
 end

@@ -158,7 +158,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [automute, client_id, client_secret, errors, host_filters, new_client_id, new_tenant_name, tenant_name].hash
+      [:automute, :client_id, :client_secret, :errors, :host_filters, :new_client_id, :new_tenant_name, :tenant_name].hash
     end
   end
 end

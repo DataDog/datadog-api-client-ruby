@@ -85,7 +85,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [totp_parameters].hash
+      [:totp_parameters].hash
     end
   end
 end

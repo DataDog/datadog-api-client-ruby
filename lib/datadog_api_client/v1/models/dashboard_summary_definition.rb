@@ -173,7 +173,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [author_handle, created_at, description, id, is_read_only, layout_type, modified_at, title, url].hash
+      [:author_handle, :created_at, :description, :id, :is_read_only, :layout_type, :modified_at, :title, :url].hash
     end
   end
 end

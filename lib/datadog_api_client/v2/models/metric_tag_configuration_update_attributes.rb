@@ -125,7 +125,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregations, include_percentiles, tags].hash
+      [:aggregations, :include_percentiles, :tags].hash
     end
   end
 end

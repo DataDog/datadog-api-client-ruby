@@ -125,7 +125,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [family, name, plural, scale_factor, short_name].hash
+      [:family, :name, :plural, :scale_factor, :short_name].hash
     end
   end
 end

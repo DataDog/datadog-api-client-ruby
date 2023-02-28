@@ -105,7 +105,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [estimate_type, estimated_at, estimated_output_series].hash
+      [:estimate_type, :estimated_at, :estimated_output_series].hash
     end
   end
 end

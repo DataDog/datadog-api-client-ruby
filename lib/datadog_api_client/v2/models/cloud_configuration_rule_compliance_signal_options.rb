@@ -97,7 +97,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [user_activation_status, user_group_by_fields].hash
+      [:user_activation_status, :user_group_by_fields].hash
     end
   end
 end

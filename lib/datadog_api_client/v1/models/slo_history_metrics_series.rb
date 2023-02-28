@@ -151,7 +151,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [count, metadata, sum, values].hash
+      [:count, :metadata, :sum, :values].hash
     end
   end
 end

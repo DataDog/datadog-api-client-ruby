@@ -222,7 +222,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [archive_comment, archive_comment_timestamp, archive_comment_user, archive_reason, assignee, incident_ids, state, state_update_timestamp, state_update_user].hash
+      [:archive_comment, :archive_comment_timestamp, :archive_comment_user, :archive_reason, :assignee, :incident_ids, :state, :state_update_timestamp, :state_update_user].hash
     end
   end
 end

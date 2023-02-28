@@ -109,7 +109,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [complex_rule, rego_rule, resource_type].hash
+      [:complex_rule, :rego_rule, :resource_type].hash
     end
   end
 end

@@ -119,7 +119,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [policy, resource_types].hash
+      [:policy, :resource_types].hash
     end
   end
 end

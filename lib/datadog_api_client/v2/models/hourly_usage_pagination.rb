@@ -93,7 +93,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [next_record_id].hash
+      [:next_record_id].hash
     end
   end
 end

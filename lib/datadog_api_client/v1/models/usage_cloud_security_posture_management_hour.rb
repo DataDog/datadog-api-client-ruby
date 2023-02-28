@@ -189,7 +189,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aas_host_count, aws_host_count, azure_host_count, compliance_host_count, container_count, gcp_host_count, host_count, hour, org_name, public_id].hash
+      [:aas_host_count, :aws_host_count, :azure_host_count, :compliance_host_count, :container_count, :gcp_host_count, :host_count, :hour, :org_name, :public_id].hash
     end
   end
 end

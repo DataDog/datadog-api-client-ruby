@@ -157,7 +157,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cmdline, host, pid, ppid, start, tags, timestamp, user].hash
+      [:cmdline, :host, :pid, :ppid, :start, :tags, :timestamp, :user].hash
     end
   end
 end

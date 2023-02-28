@@ -115,7 +115,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [logs_indexed_logs_usage_sum, logs_live_indexed_logs_usage_sum, logs_rehydrated_indexed_logs_usage_sum, retention].hash
+      [:logs_indexed_logs_usage_sum, :logs_live_indexed_logs_usage_sum, :logs_rehydrated_indexed_logs_usage_sum, :retention].hash
     end
   end
 end

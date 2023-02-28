@@ -273,7 +273,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregator, _alias, apm_query, apm_stats_query, cell_display_mode, conditional_formats, event_query, formulas, limit, log_query, network_query, order, process_query, profile_metrics_query, q, queries, response_format, rum_query, security_query].hash
+      [:aggregator, :_alias, :apm_query, :apm_stats_query, :cell_display_mode, :conditional_formats, :event_query, :formulas, :limit, :log_query, :network_query, :order, :process_query, :profile_metrics_query, :q, :queries, :response_format, :rum_query, :security_query].hash
     end
   end
 end

@@ -135,7 +135,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [hour, num_custom_input_timeseries, num_custom_output_timeseries, num_custom_timeseries, org_name, public_id].hash
+      [:hour, :num_custom_input_timeseries, :num_custom_output_timeseries, :num_custom_timeseries, :org_name, :public_id].hash
     end
   end
 end

@@ -135,7 +135,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [indexed_events_count, live_indexed_events_count, org_name, public_id, rehydrated_indexed_events_count, retention].hash
+      [:indexed_events_count, :live_indexed_events_count, :org_name, :public_id, :rehydrated_indexed_events_count, :retention].hash
     end
   end
 end

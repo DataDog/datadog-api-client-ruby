@@ -220,7 +220,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [columns, indexes, logset, message_display, query, show_date_column, show_message_column, sort, time, title, title_align, title_size, type].hash
+      [:columns, :indexes, :logset, :message_display, :query, :show_date_column, :show_message_column, :sort, :time, :title, :title_align, :title_size, :type].hash
     end
   end
 end

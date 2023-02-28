@@ -102,7 +102,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [deleted, updated].hash
+      [:deleted, :updated].hash
     end
   end
 end

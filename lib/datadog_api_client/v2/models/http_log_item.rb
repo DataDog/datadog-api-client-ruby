@@ -167,7 +167,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [ddsource, ddtags, hostname, message, service, additional_properties].hash
+      [:ddsource, :ddtags, :hostname, :message, :service, additional_properties].hash
     end
   end
 end

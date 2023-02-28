@@ -108,7 +108,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [logs, next_log_id, status].hash
+      [:logs, :next_log_id, :status].hash
     end
   end
 end

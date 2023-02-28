@@ -146,7 +146,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [daily_limit, disable_daily_limit, exclusion_filters, filter, num_retention_days].hash
+      [:daily_limit, :disable_daily_limit, :exclusion_filters, :filter, :num_retention_days].hash
     end
   end
 end

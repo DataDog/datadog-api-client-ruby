@@ -212,7 +212,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [check, group, group_by, grouping, tags, time, title, title_align, title_size, type].hash
+      [:check, :group, :group_by, :grouping, :tags, :time, :title, :title_align, :title_size, :type].hash
     end
   end
 end

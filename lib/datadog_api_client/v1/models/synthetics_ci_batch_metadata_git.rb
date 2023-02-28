@@ -95,7 +95,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [branch, commit_sha].hash
+      [:branch, :commit_sha].hash
     end
   end
 end

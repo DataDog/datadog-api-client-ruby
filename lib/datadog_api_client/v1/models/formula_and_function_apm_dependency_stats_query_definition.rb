@@ -252,7 +252,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data_source, env, is_upstream, name, operation_name, primary_tag_name, primary_tag_value, resource_name, service, stat].hash
+      [:data_source, :env, :is_upstream, :name, :operation_name, :primary_tag_name, :primary_tag_value, :resource_name, :service, :stat].hash
     end
   end
 end

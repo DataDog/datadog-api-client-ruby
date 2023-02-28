@@ -86,7 +86,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [include_percentiles].hash
+      [:include_percentiles].hash
     end
   end
 end

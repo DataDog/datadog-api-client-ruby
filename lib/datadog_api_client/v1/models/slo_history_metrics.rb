@@ -238,7 +238,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [denominator, interval, message, numerator, query, res_type, resp_version, times].hash
+      [:denominator, :interval, :message, :numerator, :query, :res_type, :resp_version, :times].hash
     end
   end
 end

@@ -97,7 +97,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregates, pagination].hash
+      [:aggregates, :pagination].hash
     end
   end
 end

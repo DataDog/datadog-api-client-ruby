@@ -95,7 +95,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [total_count, total_filtered_count].hash
+      [:total_count, :total_filtered_count].hash
     end
   end
 end

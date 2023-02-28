@@ -150,7 +150,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [available_values, default, defaults, name, prefix].hash
+      [:available_values, :default, :defaults, :name, :prefix].hash
     end
   end
 end

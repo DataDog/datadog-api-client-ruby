@@ -177,7 +177,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [alert_id, precision, text_align, title, title_align, title_size, type, unit].hash
+      [:alert_id, :precision, :text_align, :title, :title_align, :title_size, :type, :unit].hash
     end
   end
 end

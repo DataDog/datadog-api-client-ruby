@@ -189,7 +189,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [has_background, has_border, horizontal_align, margin, sizing, type, url, url_dark_theme, vertical_align].hash
+      [:has_background, :has_border, :horizontal_align, :margin, :sizing, :type, :url, :url_dark_theme, :vertical_align].hash
     end
   end
 end

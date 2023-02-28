@@ -125,7 +125,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [dbm_host_count, dbm_queries_count, hour, org_name, public_id].hash
+      [:dbm_host_count, :dbm_queries_count, :hour, :org_name, :public_id].hash
     end
   end
 end

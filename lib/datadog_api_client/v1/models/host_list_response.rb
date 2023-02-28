@@ -107,7 +107,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [host_list, total_matching, total_returned].hash
+      [:host_list, :total_matching, :total_returned].hash
     end
   end
 end

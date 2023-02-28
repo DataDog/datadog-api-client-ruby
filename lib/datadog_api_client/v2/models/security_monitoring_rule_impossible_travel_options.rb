@@ -86,7 +86,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [baseline_user_locations].hash
+      [:baseline_user_locations].hash
     end
   end
 end

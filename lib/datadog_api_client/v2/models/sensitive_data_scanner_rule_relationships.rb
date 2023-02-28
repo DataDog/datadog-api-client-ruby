@@ -95,7 +95,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [group, standard_pattern].hash
+      [:group, :standard_pattern].hash
     end
   end
 end

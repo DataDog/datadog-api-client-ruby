@@ -115,7 +115,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [device, location, public_id, result_id].hash
+      [:device, :location, :public_id, :result_id].hash
     end
   end
 end

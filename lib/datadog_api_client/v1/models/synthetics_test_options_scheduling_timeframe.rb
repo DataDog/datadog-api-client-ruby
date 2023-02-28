@@ -120,7 +120,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [day, from, to].hash
+      [:day, :from, :to].hash
     end
   end
 end

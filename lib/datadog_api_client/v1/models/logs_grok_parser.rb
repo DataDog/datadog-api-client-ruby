@@ -182,7 +182,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [grok, is_enabled, name, samples, source, type].hash
+      [:grok, :is_enabled, :name, :samples, :source, :type].hash
     end
   end
 end

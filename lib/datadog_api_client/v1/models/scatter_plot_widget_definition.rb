@@ -201,7 +201,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [color_by_groups, custom_links, requests, time, title, title_align, title_size, type, xaxis, yaxis].hash
+      [:color_by_groups, :custom_links, :requests, :time, :title, :title_align, :title_size, :type, :xaxis, :yaxis].hash
     end
   end
 end

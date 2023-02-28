@@ -204,7 +204,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_failure, assertions, extracted_values, is_critical, name, request, _retry, subtype].hash
+      [:allow_failure, :assertions, :extracted_values, :is_critical, :name, :request, :_retry, :subtype].hash
     end
   end
 end

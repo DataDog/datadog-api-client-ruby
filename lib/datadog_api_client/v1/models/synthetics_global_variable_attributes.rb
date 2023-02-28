@@ -87,7 +87,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [restricted_roles].hash
+      [:restricted_roles].hash
     end
   end
 end

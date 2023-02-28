@@ -273,7 +273,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created, customer_impact_duration, customer_impact_end, customer_impact_scope, customer_impact_start, customer_impacted, detected, fields, modified, notification_handles, public_id, resolved, time_to_detect, time_to_internal_response, time_to_repair, time_to_resolve, title].hash
+      [:created, :customer_impact_duration, :customer_impact_end, :customer_impact_scope, :customer_impact_start, :customer_impacted, :detected, :fields, :modified, :notification_handles, :public_id, :resolved, :time_to_detect, :time_to_internal_response, :time_to_repair, :time_to_resolve, :title].hash
     end
   end
 end

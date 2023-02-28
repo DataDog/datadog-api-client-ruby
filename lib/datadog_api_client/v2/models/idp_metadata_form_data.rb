@@ -85,7 +85,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [idp_file].hash
+      [:idp_file].hash
     end
   end
 end

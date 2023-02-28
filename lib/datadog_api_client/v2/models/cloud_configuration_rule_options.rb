@@ -98,7 +98,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [compliance_rule_options].hash
+      [:compliance_rule_options].hash
     end
   end
 end

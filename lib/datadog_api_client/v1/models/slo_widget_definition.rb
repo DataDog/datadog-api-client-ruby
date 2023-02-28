@@ -199,7 +199,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [global_time_target, show_error_budget, slo_id, time_windows, title, title_align, title_size, type, view_mode, view_type].hash
+      [:global_time_target, :show_error_budget, :slo_id, :time_windows, :title, :title_align, :title_size, :type, :view_mode, :view_type].hash
     end
   end
 end

@@ -128,7 +128,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [elapsed, page, request_id, status, warnings].hash
+      [:elapsed, :page, :request_id, :status, :warnings].hash
     end
   end
 end

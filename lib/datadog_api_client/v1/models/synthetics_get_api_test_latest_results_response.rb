@@ -97,7 +97,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [last_timestamp_fetched, results].hash
+      [:last_timestamp_fetched, :results].hash
     end
   end
 end

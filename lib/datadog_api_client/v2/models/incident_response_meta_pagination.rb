@@ -105,7 +105,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [next_offset, offset, size].hash
+      [:next_offset, :offset, :size].hash
     end
   end
 end

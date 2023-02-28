@@ -105,7 +105,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cls, lcp, url].hash
+      [:cls, :lcp, :url].hash
     end
   end
 end

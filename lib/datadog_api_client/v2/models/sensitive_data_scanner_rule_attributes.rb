@@ -162,7 +162,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [description, excluded_namespaces, is_enabled, name, namespaces, pattern, tags, text_replacement].hash
+      [:description, :excluded_namespaces, :is_enabled, :name, :namespaces, :pattern, :tags, :text_replacement].hash
     end
   end
 end

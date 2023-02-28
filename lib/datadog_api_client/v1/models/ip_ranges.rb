@@ -185,7 +185,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [agents, api, apm, logs, modified, orchestrator, process, synthetics, synthetics_private_locations, version, webhooks].hash
+      [:agents, :api, :apm, :logs, :modified, :orchestrator, :process, :synthetics, :synthetics_private_locations, :version, :webhooks].hash
     end
   end
 end

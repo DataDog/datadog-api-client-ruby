@@ -95,7 +95,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [filter, name].hash
+      [:filter, :name].hash
     end
   end
 end

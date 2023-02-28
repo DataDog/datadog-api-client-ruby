@@ -133,7 +133,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [limit, query_string, sort].hash
+      [:limit, :query_string, :sort].hash
     end
   end
 end

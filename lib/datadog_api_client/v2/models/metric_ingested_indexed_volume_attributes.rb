@@ -95,7 +95,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [indexed_volume, ingested_volume].hash
+      [:indexed_volume, :ingested_volume].hash
     end
   end
 end

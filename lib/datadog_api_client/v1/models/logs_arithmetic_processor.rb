@@ -189,7 +189,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [expression, is_enabled, is_replace_missing, name, target, type].hash
+      [:expression, :is_enabled, :is_replace_missing, :name, :target, :type].hash
     end
   end
 end

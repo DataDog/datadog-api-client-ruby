@@ -254,7 +254,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [agent_host_count, alibaba_host_count, apm_azure_app_service_host_count, apm_host_count, aws_host_count, azure_host_count, container_count, gcp_host_count, heroku_host_count, host_count, hour, infra_azure_app_service, opentelemetry_apm_host_count, opentelemetry_host_count, org_name, public_id, vsphere_host_count].hash
+      [:agent_host_count, :alibaba_host_count, :apm_azure_app_service_host_count, :apm_host_count, :aws_host_count, :azure_host_count, :container_count, :gcp_host_count, :heroku_host_count, :host_count, :hour, :infra_azure_app_service, :opentelemetry_apm_host_count, :opentelemetry_host_count, :org_name, :public_id, :vsphere_host_count].hash
     end
   end
 end

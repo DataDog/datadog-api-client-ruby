@@ -103,7 +103,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [usage_type, value].hash
+      [:usage_type, :value].hash
     end
   end
 end

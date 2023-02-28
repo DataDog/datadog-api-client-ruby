@@ -125,7 +125,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [digits, refresh_interval].hash
+      [:digits, :refresh_interval].hash
     end
   end
 end

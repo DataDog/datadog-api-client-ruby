@@ -116,7 +116,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [forget_after, learning_duration, learning_method, learning_threshold].hash
+      [:forget_after, :learning_duration, :learning_method, :learning_threshold].hash
     end
   end
 end

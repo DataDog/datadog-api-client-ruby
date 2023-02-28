@@ -125,7 +125,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attribute_key, attribute_value, created_at, modified_at, saml_assertion_attribute_id].hash
+      [:attribute_key, :attribute_value, :created_at, :modified_at, :saml_assertion_attribute_id].hash
     end
   end
 end

@@ -134,7 +134,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [definition, graph_size, split_by, time].hash
+      [:definition, :graph_size, :split_by, :time].hash
     end
   end
 end

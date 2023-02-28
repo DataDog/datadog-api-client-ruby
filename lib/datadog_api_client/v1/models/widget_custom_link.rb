@@ -115,7 +115,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [is_hidden, label, link, override_label].hash
+      [:is_hidden, :label, :link, :override_label].hash
     end
   end
 end

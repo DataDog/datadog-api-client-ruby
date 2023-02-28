@@ -125,7 +125,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [device, duration, error_count, step_count_completed, step_count_total].hash
+      [:device, :duration, :error_count, :step_count_completed, :step_count_total].hash
     end
   end
 end

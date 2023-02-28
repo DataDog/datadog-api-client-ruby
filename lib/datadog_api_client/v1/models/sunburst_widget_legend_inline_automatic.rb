@@ -116,7 +116,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [hide_percent, hide_value, type].hash
+      [:hide_percent, :hide_value, :type].hash
     end
   end
 end

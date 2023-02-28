@@ -182,7 +182,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [exclusion_filters, filtered_data_type, is_enabled, name, query].hash
+      [:exclusion_filters, :filtered_data_type, :is_enabled, :name, :query].hash
     end
   end
 end

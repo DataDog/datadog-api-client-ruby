@@ -221,7 +221,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aliases, apps, aws_name, host_name, id, is_muted, last_reported_time, meta, metrics, mute_timeout, name, sources, tags_by_source, up].hash
+      [:aliases, :apps, :aws_name, :host_name, :id, :is_muted, :last_reported_time, :meta, :metrics, :mute_timeout, :name, :sources, :tags_by_source, :up].hash
     end
   end
 end

@@ -198,7 +198,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [comparator, custom_bg_color, custom_fg_color, hide_value, image_url, metric, palette, timeframe, value].hash
+      [:comparator, :custom_bg_color, :custom_fg_color, :hide_value, :image_url, :metric, :palette, :timeframe, :value].hash
     end
   end
 end

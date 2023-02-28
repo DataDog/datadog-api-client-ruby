@@ -118,7 +118,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [tag_key, tag_key_required, valid_tag_values].hash
+      [:tag_key, :tag_key_required, :valid_tag_values].hash
     end
   end
 end

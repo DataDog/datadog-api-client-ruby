@@ -168,7 +168,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [access_key, region, secret_key, service_name, session_token, type].hash
+      [:access_key, :region, :secret_key, :service_name, :session_token, :type].hash
     end
   end
 end

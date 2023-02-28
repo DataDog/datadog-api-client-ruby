@@ -136,7 +136,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [count_limit, group_count_limit, has_highlight_enabled, is_pci_compliant, version].hash
+      [:count_limit, :group_count_limit, :has_highlight_enabled, :is_pci_compliant, :version].hash
     end
   end
 end

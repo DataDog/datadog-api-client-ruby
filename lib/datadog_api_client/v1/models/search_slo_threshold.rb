@@ -165,7 +165,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [target, target_display, timeframe, warning, warning_display].hash
+      [:target, :target_display, :timeframe, :warning, :warning_display].hash
     end
   end
 end

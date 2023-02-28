@@ -85,7 +85,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [deleted_dashboard_id].hash
+      [:deleted_dashboard_id].hash
     end
   end
 end

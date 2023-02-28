@@ -141,7 +141,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [interval, max, min].hash
+      [:interval, :max, :min].hash
     end
   end
 end

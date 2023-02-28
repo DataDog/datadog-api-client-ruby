@@ -115,7 +115,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [created_at, expires_at, invite_type, uuid].hash
+      [:created_at, :expires_at, :invite_type, :uuid].hash
     end
   end
 end

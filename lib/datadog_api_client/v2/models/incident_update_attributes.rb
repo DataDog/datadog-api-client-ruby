@@ -167,7 +167,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [customer_impact_end, customer_impact_scope, customer_impact_start, customer_impacted, detected, fields, notification_handles, title].hash
+      [:customer_impact_end, :customer_impact_scope, :customer_impact_start, :customer_impacted, :detected, :fields, :notification_handles, :title].hash
     end
   end
 end

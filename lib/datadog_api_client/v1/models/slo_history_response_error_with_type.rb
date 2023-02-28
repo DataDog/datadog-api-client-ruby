@@ -117,7 +117,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [error_message, error_type].hash
+      [:error_message, :error_type].hash
     end
   end
 end

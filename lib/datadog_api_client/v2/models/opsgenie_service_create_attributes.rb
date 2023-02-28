@@ -148,7 +148,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [custom_url, name, opsgenie_api_key, region].hash
+      [:custom_url, :name, :opsgenie_api_key, :region].hash
     end
   end
 end

@@ -219,7 +219,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [access_token_url, audience, client_id, client_secret, password, resource, scope, token_api_authentication, type, username].hash
+      [:access_token_url, :audience, :client_id, :client_secret, :password, :resource, :scope, :token_api_authentication, :type, :username].hash
     end
   end
 end

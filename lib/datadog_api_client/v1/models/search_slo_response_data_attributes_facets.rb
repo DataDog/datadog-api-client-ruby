@@ -171,7 +171,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [all_tags, creator_name, env_tags, service_tags, slo_type, target, team_tags, timeframe].hash
+      [:all_tags, :creator_name, :env_tags, :service_tags, :slo_type, :target, :team_tags, :timeframe].hash
     end
   end
 end

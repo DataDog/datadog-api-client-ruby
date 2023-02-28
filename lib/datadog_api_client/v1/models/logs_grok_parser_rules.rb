@@ -106,7 +106,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [match_rules, support_rules].hash
+      [:match_rules, :support_rules].hash
     end
   end
 end

@@ -169,7 +169,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [error, from_date, group_by, message, query, res_type, series, status, to_date].hash
+      [:error, :from_date, :group_by, :message, :query, :res_type, :series, :status, :to_date].hash
     end
   end
 end

@@ -102,7 +102,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [renotify_interval].hash
+      [:renotify_interval].hash
     end
   end
 end

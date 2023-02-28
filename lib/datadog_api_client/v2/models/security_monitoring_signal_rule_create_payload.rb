@@ -249,7 +249,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cases, filters, has_extended_title, is_enabled, message, name, options, queries, tags, type].hash
+      [:cases, :filters, :has_extended_title, :is_enabled, :message, :name, :options, :queries, :tags, :type].hash
     end
   end
 end

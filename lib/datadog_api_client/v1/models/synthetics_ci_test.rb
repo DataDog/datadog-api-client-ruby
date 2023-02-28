@@ -230,7 +230,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_insecure_certificates, basic_auth, body, body_type, cookies, device_ids, follow_redirects, headers, locations, metadata, public_id, _retry, start_url, variables].hash
+      [:allow_insecure_certificates, :basic_auth, :body, :body_type, :cookies, :device_ids, :follow_redirects, :headers, :locations, :metadata, :public_id, :_retry, :start_url, :variables].hash
     end
   end
 end

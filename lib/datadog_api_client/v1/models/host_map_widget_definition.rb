@@ -233,7 +233,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [custom_links, group, no_group_hosts, no_metric_hosts, node_type, notes, requests, scope, style, title, title_align, title_size, type].hash
+      [:custom_links, :group, :no_group_hosts, :no_metric_hosts, :node_type, :notes, :requests, :scope, :style, :title, :title_align, :title_size, :type].hash
     end
   end
 end

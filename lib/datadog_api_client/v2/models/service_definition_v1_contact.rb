@@ -95,7 +95,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [email, slack].hash
+      [:email, :slack].hash
     end
   end
 end

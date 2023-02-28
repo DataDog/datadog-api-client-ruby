@@ -286,7 +286,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation_key, date_happened, device_name, duration, event_object, evt, hostname, monitor, monitor_groups, monitor_id, priority, related_event_id, service, source_type_name, sourcecategory, status, tags, timestamp, title].hash
+      [:aggregation_key, :date_happened, :device_name, :duration, :event_object, :evt, :hostname, :monitor, :monitor_groups, :monitor_id, :priority, :related_event_id, :service, :source_type_name, :sourcecategory, :status, :tags, :timestamp, :title].hash
     end
   end
 end

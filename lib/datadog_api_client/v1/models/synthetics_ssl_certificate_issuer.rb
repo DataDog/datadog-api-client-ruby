@@ -135,7 +135,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [c, cn, l, o, ou, st].hash
+      [:c, :cn, :l, :o, :ou, :st].hash
     end
   end
 end

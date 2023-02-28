@@ -182,7 +182,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [compute, data_source, group_by, indexes, name, search, storage].hash
+      [:compute, :data_source, :group_by, :indexes, :name, :search, :storage].hash
     end
   end
 end

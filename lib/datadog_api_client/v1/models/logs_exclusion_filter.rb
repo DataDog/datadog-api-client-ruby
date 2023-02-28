@@ -108,7 +108,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [query, sample_rate].hash
+      [:query, :sample_rate].hash
     end
   end
 end

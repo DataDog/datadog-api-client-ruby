@@ -105,7 +105,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [installer_version, tool, tool_version].hash
+      [:installer_version, :tool, :tool_version].hash
     end
   end
 end

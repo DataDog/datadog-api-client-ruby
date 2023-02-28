@@ -172,7 +172,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [compliance_rule_options, decrease_criticality_based_on_env, detection_method, evaluation_window, hardcoded_evaluator_type, impossible_travel_options, keep_alive, max_signal_duration, new_value_options].hash
+      [:compliance_rule_options, :decrease_criticality_based_on_env, :detection_method, :evaluation_window, :hardcoded_evaluator_type, :impossible_travel_options, :keep_alive, :max_signal_duration, :new_value_options].hash
     end
   end
 end

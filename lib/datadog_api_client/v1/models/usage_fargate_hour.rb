@@ -145,7 +145,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [apm_fargate_count, appsec_fargate_count, avg_profiled_fargate_tasks, hour, org_name, public_id, tasks_count].hash
+      [:apm_fargate_count, :appsec_fargate_count, :avg_profiled_fargate_tasks, :hour, :org_name, :public_id, :tasks_count].hash
     end
   end
 end

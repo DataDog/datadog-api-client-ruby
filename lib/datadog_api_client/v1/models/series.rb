@@ -170,7 +170,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [host, interval, metric, points, tags, type].hash
+      [:host, :interval, :metric, :points, :tags, :type].hash
     end
   end
 end

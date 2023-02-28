@@ -155,7 +155,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [group, group_tags, last_nodata_ts, last_triggered_ts, monitor_id, monitor_name, status].hash
+      [:group, :group_tags, :last_nodata_ts, :last_triggered_ts, :monitor_id, :monitor_name, :status].hash
     end
   end
 end

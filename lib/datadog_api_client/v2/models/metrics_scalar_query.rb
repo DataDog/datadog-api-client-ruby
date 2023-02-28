@@ -148,7 +148,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregator, data_source, name, query].hash
+      [:aggregator, :data_source, :name, :query].hash
     end
   end
 end

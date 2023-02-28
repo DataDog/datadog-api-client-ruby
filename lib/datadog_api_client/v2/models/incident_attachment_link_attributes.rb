@@ -117,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attachment, attachment_type].hash
+      [:attachment, :attachment_type].hash
     end
   end
 end

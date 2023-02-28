@@ -140,7 +140,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data_source, query_string, steps].hash
+      [:data_source, :query_string, :steps].hash
     end
   end
 end

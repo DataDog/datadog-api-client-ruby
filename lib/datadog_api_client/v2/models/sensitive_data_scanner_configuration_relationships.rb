@@ -85,7 +85,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [groups].hash
+      [:groups].hash
     end
   end
 end

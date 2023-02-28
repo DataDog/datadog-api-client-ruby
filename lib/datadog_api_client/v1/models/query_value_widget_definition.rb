@@ -229,7 +229,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [autoscale, custom_links, custom_unit, precision, requests, text_align, time, timeseries_background, title, title_align, title_size, type].hash
+      [:autoscale, :custom_links, :custom_unit, :precision, :requests, :text_align, :time, :timeseries_background, :title, :title_align, :title_size, :type].hash
     end
   end
 end

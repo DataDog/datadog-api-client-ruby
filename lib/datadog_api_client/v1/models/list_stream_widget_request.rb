@@ -140,7 +140,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [columns, query, response_format].hash
+      [:columns, :query, :response_format].hash
     end
   end
 end

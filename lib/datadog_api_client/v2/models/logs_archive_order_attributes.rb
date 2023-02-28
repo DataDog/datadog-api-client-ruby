@@ -99,7 +99,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [archive_ids].hash
+      [:archive_ids].hash
     end
   end
 end

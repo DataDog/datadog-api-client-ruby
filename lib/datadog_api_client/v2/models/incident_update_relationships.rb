@@ -105,7 +105,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [commander_user, integrations, postmortem].hash
+      [:commander_user, :integrations, :postmortem].hash
     end
   end
 end

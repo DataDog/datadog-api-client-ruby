@@ -134,7 +134,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [first, last, _next, prev, _self].hash
+      [:first, :last, :_next, :prev, :_self].hash
     end
   end
 end

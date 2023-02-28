@@ -116,7 +116,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [add_to_signal_timeline, incident_id, version].hash
+      [:add_to_signal_timeline, :incident_id, :version].hash
     end
   end
 end

@@ -163,7 +163,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregation, distinct_fields, group_by_fields, metric, metrics, name, query].hash
+      [:aggregation, :distinct_fields, :group_by_fields, :metric, :metrics, :name, :query].hash
     end
   end
 end

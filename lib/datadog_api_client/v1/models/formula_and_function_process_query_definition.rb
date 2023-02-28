@@ -200,7 +200,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [aggregator, data_source, is_normalized_cpu, limit, metric, name, sort, tag_filters, text_filter].hash
+      [:aggregator, :data_source, :is_normalized_cpu, :limit, :metric, :name, :sort, :tag_filters, :text_filter].hash
     end
   end
 end

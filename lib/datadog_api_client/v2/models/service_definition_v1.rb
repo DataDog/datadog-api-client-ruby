@@ -184,7 +184,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [contact, extensions, external_resources, info, integrations, org, schema_version, tags].hash
+      [:contact, :extensions, :external_resources, :info, :integrations, :org, :schema_version, :tags].hash
     end
   end
 end

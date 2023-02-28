@@ -254,7 +254,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [browser_errors, check_type, description, duration, error, playing_tab, screenshot_bucket_key, skipped, snapshot_bucket_key, step_id, sub_test_step_details, time_to_interactive, type, url, value, vitals_metrics, warnings].hash
+      [:browser_errors, :check_type, :description, :duration, :error, :playing_tab, :screenshot_bucket_key, :skipped, :snapshot_bucket_key, :step_id, :sub_test_step_details, :time_to_interactive, :type, :url, :value, :vitals_metrics, :warnings].hash
     end
   end
 end

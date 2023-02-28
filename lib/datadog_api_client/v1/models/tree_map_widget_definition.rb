@@ -189,7 +189,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [color_by, custom_links, group_by, requests, size_by, time, title, type].hash
+      [:color_by, :custom_links, :group_by, :requests, :size_by, :time, :title, :type].hash
     end
   end
 end

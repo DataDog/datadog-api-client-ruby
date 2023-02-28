@@ -100,7 +100,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [index_names].hash
+      [:index_names].hash
     end
   end
 end

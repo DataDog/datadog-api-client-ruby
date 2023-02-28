@@ -263,7 +263,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [cases, created_at, creation_author_id, deprecation_date, filters, has_extended_title, id, is_default, is_deleted, is_enabled, message, name, options, queries, tags, type, update_author_id, version].hash
+      [:cases, :created_at, :creation_author_id, :deprecation_date, :filters, :has_extended_title, :id, :is_default, :is_deleted, :is_enabled, :message, :name, :options, :queries, :tags, :type, :update_author_id, :version].hash
     end
   end
 end

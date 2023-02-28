@@ -97,7 +97,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [resource_type, tags].hash
+      [:resource_type, :tags].hash
     end
   end
 end

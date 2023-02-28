@@ -117,7 +117,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [account_id, lambda_arn].hash
+      [:account_id, :lambda_arn].hash
     end
   end
 end

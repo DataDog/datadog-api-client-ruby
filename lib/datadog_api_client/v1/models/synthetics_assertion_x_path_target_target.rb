@@ -105,7 +105,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [operator, target_value, x_path].hash
+      [:operator, :target_value, :x_path].hash
     end
   end
 end

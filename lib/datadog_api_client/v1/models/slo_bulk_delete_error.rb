@@ -140,7 +140,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [id, message, timeframe].hash
+      [:id, :message, :timeframe].hash
     end
   end
 end

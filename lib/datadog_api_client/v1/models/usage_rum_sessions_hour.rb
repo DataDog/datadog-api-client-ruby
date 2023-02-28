@@ -177,7 +177,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [hour, org_name, public_id, replay_session_count, session_count, session_count_android, session_count_flutter, session_count_ios, session_count_reactnative].hash
+      [:hour, :org_name, :public_id, :replay_session_count, :session_count, :session_count_android, :session_count_flutter, :session_count_ios, :session_count_reactnative].hash
     end
   end
 end

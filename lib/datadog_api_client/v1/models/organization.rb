@@ -166,7 +166,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [billing, created, description, name, public_id, settings, subscription, trial].hash
+      [:billing, :created, :description, :name, :public_id, :settings, :subscription, :trial].hash
     end
   end
 end

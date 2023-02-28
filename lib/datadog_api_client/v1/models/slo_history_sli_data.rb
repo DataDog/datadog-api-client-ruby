@@ -201,7 +201,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [error_budget_remaining, errors, group, history, monitor_modified, monitor_type, name, precision, preview, sli_value, span_precision, uptime].hash
+      [:error_budget_remaining, :errors, :group, :history, :monitor_modified, :monitor_type, :name, :precision, :preview, :sli_value, :span_precision, :uptime].hash
     end
   end
 end
