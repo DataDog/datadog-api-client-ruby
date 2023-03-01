@@ -26,7 +26,7 @@ module DatadogAPIClient::V1
     attr_accessor :_unparsed
 
     # Hash of an application key.
-    attr_reader :hash
+    attr_reader :_hash
 
     # Name of an application key.
     attr_accessor :name
@@ -38,7 +38,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.attribute_map
       {
-        :'hash' => :'hash',
+        :'_hash' => :'hash',
         :'name' => :'name',
         :'owner' => :'owner'
       }
@@ -48,7 +48,7 @@ module DatadogAPIClient::V1
     # @!visibility private
     def self.openapi_types
       {
-        :'hash' => :'String',
+        :'_hash' => :'String',
         :'name' => :'String',
         :'owner' => :'String'
       }
@@ -70,8 +70,8 @@ module DatadogAPIClient::V1
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'hash')
-        self.hash = attributes[:'hash']
+      if attributes.key?(:'_hash')
+        self._hash = attributes[:'_hash']
       end
 
       if attributes.key?(:'name')
@@ -87,22 +87,22 @@ module DatadogAPIClient::V1
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if !@hash.nil? && @hash.to_s.length > 40
-      return false if !@hash.nil? && @hash.to_s.length < 40
+      return false if !@_hash.nil? && @_hash.to_s.length > 40
+      return false if !@_hash.nil? && @_hash.to_s.length < 40
       true
     end
 
     # Custom attribute writer method with validation
-    # @param hash [Object] Object to be assigned
+    # @param _hash [Object] Object to be assigned
     # @!visibility private
-    def hash=(hash)
-      if !hash.nil? && hash.to_s.length > 40
-        fail ArgumentError, 'invalid value for "hash", the character length must be smaller than or equal to 40.'
+    def _hash=(_hash)
+      if !_hash.nil? && _hash.to_s.length > 40
+        fail ArgumentError, 'invalid value for "_hash", the character length must be smaller than or equal to 40.'
       end
-      if !hash.nil? && hash.to_s.length < 40
-        fail ArgumentError, 'invalid value for "hash", the character length must be great than or equal to 40.'
+      if !_hash.nil? && _hash.to_s.length < 40
+        fail ArgumentError, 'invalid value for "_hash", the character length must be great than or equal to 40.'
       end
-      @hash = hash
+      @_hash = _hash
     end
 
     # Checks equality by comparing each attribute.
@@ -111,7 +111,7 @@ module DatadogAPIClient::V1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          hash == o.hash &&
+          _hash == o._hash &&
           name == o.name &&
           owner == o.owner
     end
@@ -120,7 +120,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [hash, name, owner].hash
+      [_hash, name, owner].hash
     end
   end
 end

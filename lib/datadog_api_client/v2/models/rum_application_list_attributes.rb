@@ -35,7 +35,7 @@ module DatadogAPIClient::V2
     attr_reader :created_by_handle
 
     # Hash of the RUM application. Optional.
-    attr_accessor :hash
+    attr_accessor :_hash
 
     # Indicates if the RUM application is active.
     attr_accessor :is_active
@@ -62,7 +62,7 @@ module DatadogAPIClient::V2
         :'application_id' => :'application_id',
         :'created_at' => :'created_at',
         :'created_by_handle' => :'created_by_handle',
-        :'hash' => :'hash',
+        :'_hash' => :'hash',
         :'is_active' => :'is_active',
         :'name' => :'name',
         :'org_id' => :'org_id',
@@ -79,7 +79,7 @@ module DatadogAPIClient::V2
         :'application_id' => :'String',
         :'created_at' => :'Integer',
         :'created_by_handle' => :'String',
-        :'hash' => :'String',
+        :'_hash' => :'String',
         :'is_active' => :'Boolean',
         :'name' => :'String',
         :'org_id' => :'Integer',
@@ -117,8 +117,8 @@ module DatadogAPIClient::V2
         self.created_by_handle = attributes[:'created_by_handle']
       end
 
-      if attributes.key?(:'hash')
-        self.hash = attributes[:'hash']
+      if attributes.key?(:'_hash')
+        self._hash = attributes[:'_hash']
       end
 
       if attributes.key?(:'is_active')
@@ -254,7 +254,7 @@ module DatadogAPIClient::V2
           application_id == o.application_id &&
           created_at == o.created_at &&
           created_by_handle == o.created_by_handle &&
-          hash == o.hash &&
+          _hash == o._hash &&
           is_active == o.is_active &&
           name == o.name &&
           org_id == o.org_id &&
@@ -267,7 +267,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [application_id, created_at, created_by_handle, hash, is_active, name, org_id, type, updated_at, updated_by_handle].hash
+      [application_id, created_at, created_by_handle, _hash, is_active, name, org_id, type, updated_at, updated_by_handle].hash
     end
   end
 end
