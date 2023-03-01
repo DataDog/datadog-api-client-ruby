@@ -47,6 +47,7 @@ KEYWORDS = {
     "return",
     "undef",
     "yield",
+    "hash",
 }
 
 with (pathlib.Path(__file__).parent / "replacement.json").open() as f:
