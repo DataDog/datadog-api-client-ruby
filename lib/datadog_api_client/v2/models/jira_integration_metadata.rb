@@ -17,22 +17,22 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A relationship reference for multiple integration metadata objects.
-  class RelationshipToIncidentIntegrationMetadatas
+  # Incident integration metadata for the Jira integration.
+  class JiraIntegrationMetadata
     include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Integration metadata relationship array
-    attr_reader :data
+    # Array of Jira issues in this integration metadata.
+    attr_reader :issues
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'issues' => :'issues'
       }
     end
 
@@ -40,7 +40,7 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<RelationshipToIncidentIntegrationMetadataData>'
+        :'issues' => :'Array<JiraIntegrationMetadataIssuesItem>'
       }
     end
 
@@ -49,20 +49,20 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RelationshipToIncidentIntegrationMetadatas` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::JiraIntegrationMetadata` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::RelationshipToIncidentIntegrationMetadatas`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::JiraIntegrationMetadata`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
+      if attributes.key?(:'issues')
+        if (value = attributes[:'issues']).is_a?(Array)
+          self.issues = value
         end
       end
     end
@@ -71,18 +71,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @data.nil?
+      return false if @issues.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param data [Object] Object to be assigned
+    # @param issues [Object] Object to be assigned
     # @!visibility private
-    def data=(data)
-      if data.nil?
-        fail ArgumentError, 'invalid value for "data", data cannot be nil.'
+    def issues=(issues)
+      if issues.nil?
+        fail ArgumentError, 'invalid value for "issues", issues cannot be nil.'
       end
-      @data = data
+      @issues = issues
     end
 
     # Checks equality by comparing each attribute.
@@ -91,14 +91,14 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data
+          issues == o.issues
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data].hash
+      [issues].hash
     end
   end
 end

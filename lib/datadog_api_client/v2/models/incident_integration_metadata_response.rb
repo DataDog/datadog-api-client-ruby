@@ -17,22 +17,26 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # A relationship reference for multiple integration metadata objects.
-  class RelationshipToIncidentIntegrationMetadatas
+  # Response with an incident integration metadata.
+  class IncidentIntegrationMetadataResponse
     include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
-    # Integration metadata relationship array
+    # Incident integration metadata from a response.
     attr_reader :data
+
+    # Included related resources that the user requested.
+    attr_accessor :included
 
     # Attribute mapping from ruby-style variable name to JSON key.
     # @!visibility private
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'data' => :'data',
+        :'included' => :'included'
       }
     end
 
@@ -40,7 +44,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'data' => :'Array<RelationshipToIncidentIntegrationMetadataData>'
+        :'data' => :'IncidentIntegrationMetadataResponseData',
+        :'included' => :'Array<IncidentIntegrationMetadataResponseIncludedItem>'
       }
     end
 
@@ -49,20 +54,24 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::RelationshipToIncidentIntegrationMetadatas` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentIntegrationMetadataResponse` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::RelationshipToIncidentIntegrationMetadatas`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::IncidentIntegrationMetadataResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
       if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
+        self.data = attributes[:'data']
+      end
+
+      if attributes.key?(:'included')
+        if (value = attributes[:'included']).is_a?(Array)
+          self.included = value
         end
       end
     end
@@ -91,14 +100,15 @@ module DatadogAPIClient::V2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data
+          data == o.data &&
+          included == o.included
     end
 
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [data].hash
+      [data, included].hash
     end
   end
 end

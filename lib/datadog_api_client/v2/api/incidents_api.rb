@@ -96,6 +96,84 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Create an incident integration metadata.
+    #
+    # @see #create_incident_integration_with_http_info
+    def create_incident_integration(incident_id, body, opts = {})
+      data, _status_code, _headers = create_incident_integration_with_http_info(incident_id, body, opts)
+      data
+    end
+
+    # Create an incident integration metadata.
+    #
+    # Create an incident integration metadata.
+    #
+    # @param incident_id [String] The UUID of the incident.
+    # @param body [IncidentIntegrationMetadataCreateRequest] Incident integration metadata payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(IncidentIntegrationMetadataResponse, Integer, Hash)>] IncidentIntegrationMetadataResponse data, response status code and response headers
+    def create_incident_integration_with_http_info(incident_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.create_incident_integration".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.create_incident_integration")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.create_incident_integration"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IncidentsAPI.create_incident_integration ...'
+      end
+      # verify the required parameter 'incident_id' is set
+      if @api_client.config.client_side_validation && incident_id.nil?
+        fail ArgumentError, "Missing the required parameter 'incident_id' when calling IncidentsAPI.create_incident_integration"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling IncidentsAPI.create_incident_integration"
+      end
+      # resource path
+      local_var_path = '/api/v2/incidents/{incident_id}/relationships/integrations'.sub('{incident_id}', CGI.escape(incident_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'IncidentIntegrationMetadataResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_incident_integration,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IncidentsAPI#create_incident_integration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete an existing incident.
     #
     # @see #delete_incident_with_http_info
@@ -163,6 +241,82 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: IncidentsAPI#delete_incident\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete an incident integration metadata.
+    #
+    # @see #delete_incident_integration_with_http_info
+    def delete_incident_integration(incident_id, integration_metadata_id, opts = {})
+      delete_incident_integration_with_http_info(incident_id, integration_metadata_id, opts)
+      nil
+    end
+
+    # Delete an incident integration metadata.
+    #
+    # Delete an incident integration metadata.
+    #
+    # @param incident_id [String] The UUID of the incident.
+    # @param integration_metadata_id [String] The UUID of the incident integration metadata.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_incident_integration_with_http_info(incident_id, integration_metadata_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.delete_incident_integration".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.delete_incident_integration")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.delete_incident_integration"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IncidentsAPI.delete_incident_integration ...'
+      end
+      # verify the required parameter 'incident_id' is set
+      if @api_client.config.client_side_validation && incident_id.nil?
+        fail ArgumentError, "Missing the required parameter 'incident_id' when calling IncidentsAPI.delete_incident_integration"
+      end
+      # verify the required parameter 'integration_metadata_id' is set
+      if @api_client.config.client_side_validation && integration_metadata_id.nil?
+        fail ArgumentError, "Missing the required parameter 'integration_metadata_id' when calling IncidentsAPI.delete_incident_integration"
+      end
+      # resource path
+      local_var_path = '/api/v2/incidents/{incident_id}/relationships/integrations/{integration_metadata_id}'.sub('{incident_id}', CGI.escape(incident_id.to_s).gsub('%2F', '/')).sub('{integration_metadata_id}', CGI.escape(integration_metadata_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_incident_integration,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IncidentsAPI#delete_incident_integration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -240,6 +394,82 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
+    # Get incident integration metadata details.
+    #
+    # @see #get_incident_integration_with_http_info
+    def get_incident_integration(incident_id, integration_metadata_id, opts = {})
+      data, _status_code, _headers = get_incident_integration_with_http_info(incident_id, integration_metadata_id, opts)
+      data
+    end
+
+    # Get incident integration metadata details.
+    #
+    # Get incident integration metadata details.
+    #
+    # @param incident_id [String] The UUID of the incident.
+    # @param integration_metadata_id [String] The UUID of the incident integration metadata.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(IncidentIntegrationMetadataResponse, Integer, Hash)>] IncidentIntegrationMetadataResponse data, response status code and response headers
+    def get_incident_integration_with_http_info(incident_id, integration_metadata_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.get_incident_integration".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.get_incident_integration")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.get_incident_integration"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IncidentsAPI.get_incident_integration ...'
+      end
+      # verify the required parameter 'incident_id' is set
+      if @api_client.config.client_side_validation && incident_id.nil?
+        fail ArgumentError, "Missing the required parameter 'incident_id' when calling IncidentsAPI.get_incident_integration"
+      end
+      # verify the required parameter 'integration_metadata_id' is set
+      if @api_client.config.client_side_validation && integration_metadata_id.nil?
+        fail ArgumentError, "Missing the required parameter 'integration_metadata_id' when calling IncidentsAPI.get_incident_integration"
+      end
+      # resource path
+      local_var_path = '/api/v2/incidents/{incident_id}/relationships/integrations/{integration_metadata_id}'.sub('{incident_id}', CGI.escape(incident_id.to_s).gsub('%2F', '/')).sub('{integration_metadata_id}', CGI.escape(integration_metadata_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'IncidentIntegrationMetadataResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_incident_integration,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IncidentsAPI#get_incident_integration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a list of attachments.
     #
     # @see #list_incident_attachments_with_http_info
@@ -311,6 +541,77 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: IncidentsAPI#list_incident_attachments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a list of an incident's integration metadata.
+    #
+    # @see #list_incident_integrations_with_http_info
+    def list_incident_integrations(incident_id, opts = {})
+      data, _status_code, _headers = list_incident_integrations_with_http_info(incident_id, opts)
+      data
+    end
+
+    # Get a list of an incident's integration metadata.
+    #
+    # Get all integration metadata for an incident.
+    #
+    # @param incident_id [String] The UUID of the incident.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(IncidentIntegrationMetadataListResponse, Integer, Hash)>] IncidentIntegrationMetadataListResponse data, response status code and response headers
+    def list_incident_integrations_with_http_info(incident_id, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.list_incident_integrations".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.list_incident_integrations")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.list_incident_integrations"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IncidentsAPI.list_incident_integrations ...'
+      end
+      # verify the required parameter 'incident_id' is set
+      if @api_client.config.client_side_validation && incident_id.nil?
+        fail ArgumentError, "Missing the required parameter 'incident_id' when calling IncidentsAPI.list_incident_integrations"
+      end
+      # resource path
+      local_var_path = '/api/v2/incidents/{incident_id}/relationships/integrations'.sub('{incident_id}', CGI.escape(incident_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'IncidentIntegrationMetadataListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :list_incident_integrations,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IncidentsAPI#list_incident_integrations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -648,6 +949,89 @@ module DatadogAPIClient::V2
       data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: IncidentsAPI#update_incident_attachments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update an existing incident integration metadata.
+    #
+    # @see #update_incident_integration_with_http_info
+    def update_incident_integration(incident_id, integration_metadata_id, body, opts = {})
+      data, _status_code, _headers = update_incident_integration_with_http_info(incident_id, integration_metadata_id, body, opts)
+      data
+    end
+
+    # Update an existing incident integration metadata.
+    #
+    # Update an existing incident integration metadata.
+    #
+    # @param incident_id [String] The UUID of the incident.
+    # @param integration_metadata_id [String] The UUID of the incident integration metadata.
+    # @param body [IncidentIntegrationMetadataPatchRequest] Incident integration metadata payload.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(IncidentIntegrationMetadataResponse, Integer, Hash)>] IncidentIntegrationMetadataResponse data, response status code and response headers
+    def update_incident_integration_with_http_info(incident_id, integration_metadata_id, body, opts = {})
+      unstable_enabled = @api_client.config.unstable_operations["v2.update_incident_integration".to_sym]
+      if unstable_enabled
+        @api_client.config.logger.warn format("Using unstable operation '%s'", "v2.update_incident_integration")
+      else
+        raise DatadogAPIClient::APIError.new(message: format("Unstable operation '%s' is disabled", "v2.update_incident_integration"))
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IncidentsAPI.update_incident_integration ...'
+      end
+      # verify the required parameter 'incident_id' is set
+      if @api_client.config.client_side_validation && incident_id.nil?
+        fail ArgumentError, "Missing the required parameter 'incident_id' when calling IncidentsAPI.update_incident_integration"
+      end
+      # verify the required parameter 'integration_metadata_id' is set
+      if @api_client.config.client_side_validation && integration_metadata_id.nil?
+        fail ArgumentError, "Missing the required parameter 'integration_metadata_id' when calling IncidentsAPI.update_incident_integration"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling IncidentsAPI.update_incident_integration"
+      end
+      # resource path
+      local_var_path = '/api/v2/incidents/{incident_id}/relationships/integrations/{integration_metadata_id}'.sub('{incident_id}', CGI.escape(incident_id.to_s).gsub('%2F', '/')).sub('{integration_metadata_id}', CGI.escape(integration_metadata_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'IncidentIntegrationMetadataResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_incident_integration,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Patch, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IncidentsAPI#update_incident_integration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

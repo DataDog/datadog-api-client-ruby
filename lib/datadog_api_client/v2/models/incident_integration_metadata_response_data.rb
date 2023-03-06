@@ -17,24 +17,21 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Incident data for an update request.
-  class IncidentUpdateData
+  # Incident integration metadata from a response.
+  class IncidentIntegrationMetadataResponseData
     include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The incident's attributes for an update request.
+    # Incident integration metadata's attributes for a create request.
     attr_accessor :attributes
 
-    # The incident's ID.
+    # The incident integration metadata's ID.
     attr_reader :id
 
-    # The incident's relationships for an update request.
-    attr_accessor :relationships
-
-    # Incident resource type.
+    # Integration metadata resource type.
     attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -43,7 +40,6 @@ module DatadogAPIClient::V2
       {
         :'attributes' => :'attributes',
         :'id' => :'id',
-        :'relationships' => :'relationships',
         :'type' => :'type'
       }
     end
@@ -52,10 +48,9 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'IncidentUpdateAttributes',
+        :'attributes' => :'IncidentIntegrationMetadataAttributes',
         :'id' => :'String',
-        :'relationships' => :'IncidentUpdateRelationships',
-        :'type' => :'IncidentType'
+        :'type' => :'IncidentIntegrationMetadataType'
       }
     end
 
@@ -64,13 +59,13 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentUpdateData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentIntegrationMetadataResponseData` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::IncidentUpdateData`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::IncidentIntegrationMetadataResponseData`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -81,10 +76,6 @@ module DatadogAPIClient::V2
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'relationships')
-        self.relationships = attributes[:'relationships']
       end
 
       if attributes.key?(:'type')
@@ -129,7 +120,6 @@ module DatadogAPIClient::V2
       self.class == o.class &&
           attributes == o.attributes &&
           id == o.id &&
-          relationships == o.relationships &&
           type == o.type
     end
 
@@ -137,7 +127,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, relationships, type].hash
+      [attributes, id, type].hash
     end
   end
 end
