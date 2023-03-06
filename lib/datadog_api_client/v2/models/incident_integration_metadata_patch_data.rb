@@ -17,24 +17,18 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Incident data for an update request.
-  class IncidentUpdateData
+  # Incident integration metadata data for a patch request.
+  class IncidentIntegrationMetadataPatchData
     include BaseGenericModel
 
     # Whether the object has unparsed attributes
     # @!visibility private
     attr_accessor :_unparsed
 
-    # The incident's attributes for an update request.
-    attr_accessor :attributes
+    # Incident integration metadata's attributes for a create request.
+    attr_reader :attributes
 
-    # The incident's ID.
-    attr_reader :id
-
-    # The incident's relationships for an update request.
-    attr_accessor :relationships
-
-    # Incident resource type.
+    # Integration metadata resource type.
     attr_reader :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -42,8 +36,6 @@ module DatadogAPIClient::V2
     def self.attribute_map
       {
         :'attributes' => :'attributes',
-        :'id' => :'id',
-        :'relationships' => :'relationships',
         :'type' => :'type'
       }
     end
@@ -52,10 +44,8 @@ module DatadogAPIClient::V2
     # @!visibility private
     def self.openapi_types
       {
-        :'attributes' => :'IncidentUpdateAttributes',
-        :'id' => :'String',
-        :'relationships' => :'IncidentUpdateRelationships',
-        :'type' => :'IncidentType'
+        :'attributes' => :'IncidentIntegrationMetadataAttributes',
+        :'type' => :'IncidentIntegrationMetadataType'
       }
     end
 
@@ -64,27 +54,19 @@ module DatadogAPIClient::V2
     # @!visibility private
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentUpdateData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DatadogAPIClient::V2::IncidentIntegrationMetadataPatchData` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::IncidentUpdateData`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DatadogAPIClient::V2::IncidentIntegrationMetadataPatchData`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
       if attributes.key?(:'attributes')
         self.attributes = attributes[:'attributes']
-      end
-
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'relationships')
-        self.relationships = attributes[:'relationships']
       end
 
       if attributes.key?(:'type')
@@ -96,19 +78,19 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
-      return false if @id.nil?
+      return false if @attributes.nil?
       return false if @type.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param id [Object] Object to be assigned
+    # @param attributes [Object] Object to be assigned
     # @!visibility private
-    def id=(id)
-      if id.nil?
-        fail ArgumentError, 'invalid value for "id", id cannot be nil.'
+    def attributes=(attributes)
+      if attributes.nil?
+        fail ArgumentError, 'invalid value for "attributes", attributes cannot be nil.'
       end
-      @id = id
+      @attributes = attributes
     end
 
     # Custom attribute writer method with validation
@@ -128,8 +110,6 @@ module DatadogAPIClient::V2
       return true if self.equal?(o)
       self.class == o.class &&
           attributes == o.attributes &&
-          id == o.id &&
-          relationships == o.relationships &&
           type == o.type
     end
 
@@ -137,7 +117,7 @@ module DatadogAPIClient::V2
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [attributes, id, relationships, type].hash
+      [attributes, type].hash
     end
   end
 end

@@ -966,6 +966,26 @@ ScenariosModelMappings = {
             "include" => "Array<IncidentAttachmentRelatedObject>",
             "body" => "IncidentAttachmentUpdateRequest",
     },
+    "v2.ListIncidentIntegrations" => {
+            "incident_id" => "String",
+    },
+    "v2.CreateIncidentIntegration" => {
+            "incident_id" => "String",
+            "body" => "IncidentIntegrationMetadataCreateRequest",
+    },
+    "v2.DeleteIncidentIntegration" => {
+            "incident_id" => "String",
+            "integration_metadata_id" => "String",
+    },
+    "v2.GetIncidentIntegration" => {
+            "incident_id" => "String",
+            "integration_metadata_id" => "String",
+    },
+    "v2.UpdateIncidentIntegration" => {
+            "incident_id" => "String",
+            "integration_metadata_id" => "String",
+            "body" => "IncidentIntegrationMetadataPatchRequest",
+    },
     "v2.CreateOpsgenieService" => {
             "body" => "OpsgenieServiceCreateRequest",
     },
