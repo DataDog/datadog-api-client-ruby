@@ -8,7 +8,7 @@ USER_DATA_RELATIONSHIPS_ORG_DATA_ID = ENV["USER_DATA_RELATIONSHIPS_ORG_DATA_ID"]
 
 body = DatadogAPIClient::V2::RestrictionPolicyUpdateRequest.new({
   data: DatadogAPIClient::V2::RestrictionPolicy.new({
-    id: "dashboard:abc-def-ghi",
+    id: "dashboard:test-update",
     type: DatadogAPIClient::V2::RestrictionPolicyType::RESTRICTION_POLICY,
     attributes: DatadogAPIClient::V2::RestrictionPolicyAttributes.new({
       bindings: [
@@ -22,4 +22,4 @@ body = DatadogAPIClient::V2::RestrictionPolicyUpdateRequest.new({
     }),
   }),
 })
-p api_instance.update_restriction_policy("dashboard:abc-def-ghi", body)
+p api_instance.update_restriction_policy("dashboard:test-update", body)
