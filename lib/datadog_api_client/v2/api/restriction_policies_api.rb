@@ -35,7 +35,7 @@ module DatadogAPIClient::V2
     #
     # Deletes the restriction policy associated with a specified resource.
     #
-    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `security-rule`.
+    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `security-rule`, `slo`.
     # @param opts [Hash] the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_restriction_policy_with_http_info(resource_id, opts = {})
@@ -100,7 +100,7 @@ module DatadogAPIClient::V2
     #
     # Retrieves the restriction policy associated with a specified resource.
     #
-    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `security-rule`.
+    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `security-rule`, `slo`.
     # @param opts [Hash] the optional parameters
     # @return [Array<(RestrictionPolicyResponse, Integer, Hash)>] RestrictionPolicyResponse data, response status code and response headers
     def get_restriction_policy_with_http_info(resource_id, opts = {})
@@ -171,8 +171,9 @@ module DatadogAPIClient::V2
     # - Dashboards: `dashboard`
     # - Notebooks: `notebook`
     # - Security Rules: `security-rule`
+    # - Service Level Objectives: `slo`
     #
-    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `security-rule`.
+    # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `security-rule`, `slo`.
     # @param body [RestrictionPolicyUpdateRequest] Restriction policy payload
     # @param opts [Hash] the optional parameters
     # @return [Array<(RestrictionPolicyResponse, Integer, Hash)>] RestrictionPolicyResponse data, response status code and response headers
