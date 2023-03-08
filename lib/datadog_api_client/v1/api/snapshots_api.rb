@@ -36,8 +36,8 @@ module DatadogAPIClient::V1
     # Take graph snapshots.
     # **Note**: When a snapshot is created, there is some delay before it is available.
     #
-    # @param start [Integer] The POSIX timestamp of the start of the query in seconds.
-    # @param _end [Integer] The POSIX timestamp of the end of the query in seconds.
+    # @param start [Integer] The POSIX timestamp of the start of the query.
+    # @param _end [Integer] The POSIX timestamp of the end of the query.
     # @param opts [Hash] the optional parameters
     # @option opts [String] :metric_query The metric query.
     # @option opts [String] :event_query A query that adds event bands to the graph.
