@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Fri, 11 Nov 2022 16:54:36 GMT
+- recorded_at: Mon, 13 Mar 2023 10:11:14 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"api_key":"TestGetFastlyaccountreturnsOKresponse1668185676","name":"test-name","services":[]},"type":"fastly-accounts"}}'
+      string: '{"data":{"attributes":{"api_key":"TestGetFastlyaccountreturnsOKresponse1678702274","name":"Test-Get_Fastly_account_returns_OK_response-1678702274","services":[]},"type":"fastly-accounts"}}'
     headers:
       Accept:
       - application/json
@@ -14,7 +14,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"services":[],"name":"test-name"},"type":"fastly-accounts","id":"42ed7da188c8af4a6964376d49bb7caa"}}
+      string: '{"data":{"type":"fastly-accounts","id":"6d8f2860f9f3e953fb46d554b9a19627","attributes":{"services":[],"name":"Test-Get_Fastly_account_returns_OK_response-1678702274"}}}
 
         '
     headers:
@@ -23,18 +23,18 @@ http_interactions:
     status:
       code: 201
       message: Created
-- recorded_at: Fri, 11 Nov 2022 16:54:36 GMT
+- recorded_at: Mon, 13 Mar 2023 10:11:14 GMT
   request:
     body: null
     headers:
       Accept:
       - application/json
     method: GET
-    uri: https://api.datadoghq.com/api/v2/integrations/fastly/accounts/42ed7da188c8af4a6964376d49bb7caa
+    uri: https://api.datadoghq.com/api/v2/integrations/fastly/accounts/6d8f2860f9f3e953fb46d554b9a19627
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"services":[],"name":"test-name"},"type":"fastly-accounts","id":"42ed7da188c8af4a6964376d49bb7caa"}}
+      string: '{"data":{"type":"fastly-accounts","id":"6d8f2860f9f3e953fb46d554b9a19627","attributes":{"name":"Test-Get_Fastly_account_returns_OK_response-1678702274","services":[]}}}
 
         '
     headers:
@@ -43,14 +43,14 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Fri, 11 Nov 2022 16:54:36 GMT
+- recorded_at: Mon, 13 Mar 2023 10:11:14 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/integrations/fastly/accounts/42ed7da188c8af4a6964376d49bb7caa
+    uri: https://api.datadoghq.com/api/v2/integrations/fastly/accounts/6d8f2860f9f3e953fb46d554b9a19627
   response:
     body:
       encoding: UTF-8
