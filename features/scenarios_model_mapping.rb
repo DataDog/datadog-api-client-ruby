@@ -986,6 +986,26 @@ ScenariosModelMappings = {
             "integration_metadata_id" => "String",
             "body" => "IncidentIntegrationMetadataPatchRequest",
     },
+    "v2.ListIncidentTodos" => {
+            "incident_id" => "String",
+    },
+    "v2.CreateIncidentTodo" => {
+            "incident_id" => "String",
+            "body" => "IncidentTodoCreateRequest",
+    },
+    "v2.DeleteIncidentTodo" => {
+            "incident_id" => "String",
+            "todo_id" => "String",
+    },
+    "v2.GetIncidentTodo" => {
+            "incident_id" => "String",
+            "todo_id" => "String",
+    },
+    "v2.UpdateIncidentTodo" => {
+            "incident_id" => "String",
+            "todo_id" => "String",
+            "body" => "IncidentTodoPatchRequest",
+    },
     "v2.CreateOpsgenieService" => {
             "body" => "OpsgenieServiceCreateRequest",
     },
