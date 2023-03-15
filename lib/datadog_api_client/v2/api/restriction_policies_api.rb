@@ -173,6 +173,15 @@ module DatadogAPIClient::V2
     # - Security Rules: `security-rule`
     # - Service Level Objectives: `slo`
     #
+    # #### Supported relations for resources
+    # Resource Type            | Supported Relations
+    # -------------------------|--------------------------
+    # Connections              | `viewer`, `editor`, `resolver`
+    # Dashboards               | `viewer`, `editor`
+    # Notebooks                | `viewer`, `editor`
+    # Security Rules           | `viewer`, `editor`
+    # Service Level Objectives | `viewer`, `editor`
+    #
     # @param resource_id [String] Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `security-rule`, `slo`.
     # @param body [RestrictionPolicyUpdateRequest] Restriction policy payload
     # @param opts [Hash] the optional parameters
