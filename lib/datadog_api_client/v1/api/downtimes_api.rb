@@ -301,6 +301,7 @@ module DatadogAPIClient::V1
     #
     # @param opts [Hash] the optional parameters
     # @option opts [Boolean] :current_only Only return downtimes that are active when the request is made.
+    # @option opts [Boolean] :with_creator Return creator information.
     # @return [Array<(Array<Downtime>, Integer, Hash)>] Array<Downtime> data, response status code and response headers
     def list_downtimes_with_http_info(opts = {})
 
@@ -313,6 +314,7 @@ module DatadogAPIClient::V1
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'current_only'] = opts[:'current_only'] if !opts[:'current_only'].nil?
+      query_params[:'with_creator'] = opts[:'with_creator'] if !opts[:'with_creator'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
