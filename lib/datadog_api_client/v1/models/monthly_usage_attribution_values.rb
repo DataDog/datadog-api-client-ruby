@@ -85,10 +85,16 @@ module DatadogAPIClient::V1
     # The CSPM host usage by tag(s).
     attr_accessor :cspm_hosts_usage
 
-    # The percentage of custom metrics usage by tag(s).
+    # The percentage of ingested custom metrics usage by tag(s).
+    attr_accessor :custom_ingested_timeseries_percentage
+
+    # The ingested custom metrics usage by tag(s).
+    attr_accessor :custom_ingested_timeseries_usage
+
+    # The percentage of indexed custom metrics usage by tag(s).
     attr_accessor :custom_timeseries_percentage
 
-    # The custom metrics usage by tag(s).
+    # The indexed custom metrics usage by tag(s).
     attr_accessor :custom_timeseries_usage
 
     # The percentage of Cloud Workload Security container usage by tag(s).
@@ -223,6 +229,8 @@ module DatadogAPIClient::V1
         :'cspm_containers_usage' => :'cspm_containers_usage',
         :'cspm_hosts_percentage' => :'cspm_hosts_percentage',
         :'cspm_hosts_usage' => :'cspm_hosts_usage',
+        :'custom_ingested_timeseries_percentage' => :'custom_ingested_timeseries_percentage',
+        :'custom_ingested_timeseries_usage' => :'custom_ingested_timeseries_usage',
         :'custom_timeseries_percentage' => :'custom_timeseries_percentage',
         :'custom_timeseries_usage' => :'custom_timeseries_usage',
         :'cws_containers_percentage' => :'cws_containers_percentage',
@@ -288,6 +296,8 @@ module DatadogAPIClient::V1
         :'cspm_containers_usage' => :'Float',
         :'cspm_hosts_percentage' => :'Float',
         :'cspm_hosts_usage' => :'Float',
+        :'custom_ingested_timeseries_percentage' => :'Float',
+        :'custom_ingested_timeseries_usage' => :'Float',
         :'custom_timeseries_percentage' => :'Float',
         :'custom_timeseries_usage' => :'Float',
         :'cws_containers_percentage' => :'Float',
@@ -423,6 +433,14 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'cspm_hosts_usage')
         self.cspm_hosts_usage = attributes[:'cspm_hosts_usage']
+      end
+
+      if attributes.key?(:'custom_ingested_timeseries_percentage')
+        self.custom_ingested_timeseries_percentage = attributes[:'custom_ingested_timeseries_percentage']
+      end
+
+      if attributes.key?(:'custom_ingested_timeseries_usage')
+        self.custom_ingested_timeseries_usage = attributes[:'custom_ingested_timeseries_usage']
       end
 
       if attributes.key?(:'custom_timeseries_percentage')
@@ -611,6 +629,8 @@ module DatadogAPIClient::V1
           cspm_containers_usage == o.cspm_containers_usage &&
           cspm_hosts_percentage == o.cspm_hosts_percentage &&
           cspm_hosts_usage == o.cspm_hosts_usage &&
+          custom_ingested_timeseries_percentage == o.custom_ingested_timeseries_percentage &&
+          custom_ingested_timeseries_usage == o.custom_ingested_timeseries_usage &&
           custom_timeseries_percentage == o.custom_timeseries_percentage &&
           custom_timeseries_usage == o.custom_timeseries_usage &&
           cws_containers_percentage == o.cws_containers_percentage &&
@@ -655,7 +675,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [api_percentage, api_usage, apm_fargate_percentage, apm_fargate_usage, apm_host_percentage, apm_host_usage, appsec_fargate_percentage, appsec_fargate_usage, appsec_percentage, appsec_usage, browser_percentage, browser_usage, container_excl_agent_percentage, container_excl_agent_usage, container_percentage, container_usage, cspm_containers_percentage, cspm_containers_usage, cspm_hosts_percentage, cspm_hosts_usage, custom_timeseries_percentage, custom_timeseries_usage, cws_containers_percentage, cws_containers_usage, cws_hosts_percentage, cws_hosts_usage, dbm_hosts_percentage, dbm_hosts_usage, dbm_queries_percentage, dbm_queries_usage, estimated_indexed_logs_percentage, estimated_indexed_logs_usage, estimated_indexed_spans_percentage, estimated_indexed_spans_usage, estimated_ingested_logs_percentage, estimated_ingested_logs_usage, estimated_ingested_spans_percentage, estimated_ingested_spans_usage, estimated_rum_sessions_percentage, estimated_rum_sessions_usage, fargate_percentage, fargate_usage, functions_percentage, functions_usage, infra_host_percentage, infra_host_usage, invocations_percentage, invocations_usage, npm_host_percentage, npm_host_usage, profiled_container_percentage, profiled_container_usage, profiled_fargate_percentage, profiled_fargate_usage, profiled_host_percentage, profiled_host_usage, snmp_percentage, snmp_usage].hash
+      [api_percentage, api_usage, apm_fargate_percentage, apm_fargate_usage, apm_host_percentage, apm_host_usage, appsec_fargate_percentage, appsec_fargate_usage, appsec_percentage, appsec_usage, browser_percentage, browser_usage, container_excl_agent_percentage, container_excl_agent_usage, container_percentage, container_usage, cspm_containers_percentage, cspm_containers_usage, cspm_hosts_percentage, cspm_hosts_usage, custom_ingested_timeseries_percentage, custom_ingested_timeseries_usage, custom_timeseries_percentage, custom_timeseries_usage, cws_containers_percentage, cws_containers_usage, cws_hosts_percentage, cws_hosts_usage, dbm_hosts_percentage, dbm_hosts_usage, dbm_queries_percentage, dbm_queries_usage, estimated_indexed_logs_percentage, estimated_indexed_logs_usage, estimated_indexed_spans_percentage, estimated_indexed_spans_usage, estimated_ingested_logs_percentage, estimated_ingested_logs_usage, estimated_ingested_spans_percentage, estimated_ingested_spans_usage, estimated_rum_sessions_percentage, estimated_rum_sessions_usage, fargate_percentage, fargate_usage, functions_percentage, functions_usage, infra_host_percentage, infra_host_usage, invocations_percentage, invocations_usage, npm_host_percentage, npm_host_usage, profiled_container_percentage, profiled_container_usage, profiled_fargate_percentage, profiled_fargate_usage, profiled_host_percentage, profiled_host_usage, snmp_percentage, snmp_usage].hash
     end
   end
 end

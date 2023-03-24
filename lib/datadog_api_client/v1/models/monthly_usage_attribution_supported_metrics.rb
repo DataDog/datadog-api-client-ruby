@@ -43,6 +43,8 @@ module DatadogAPIClient::V1
     CSPM_HOSTS_USAGE = "cspm_hosts_usage".freeze
     CUSTOM_TIMESERIES_USAGE = "custom_timeseries_usage".freeze
     CUSTOM_TIMESERIES_PERCENTAGE = "custom_timeseries_percentage".freeze
+    CUSTOM_INGESTED_TIMESERIES_USAGE = "custom_ingested_timeseries_usage".freeze
+    CUSTOM_INGESTED_TIMESERIES_PERCENTAGE = "custom_ingested_timeseries_percentage".freeze
     CWS_CONTAINERS_PERCENTAGE = "cws_containers_percentage".freeze
     CWS_CONTAINERS_USAGE = "cws_containers_usage".freeze
     CWS_HOSTS_PERCENTAGE = "cws_hosts_percentage".freeze

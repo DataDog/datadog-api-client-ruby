@@ -31,6 +31,7 @@ module DatadogAPIClient::V1
     CONTAINER_USAGE = "container_usage".freeze
     CSPM_CONTAINERS_USAGE = "cspm_containers_usage".freeze
     CSPM_HOSTS_USAGE = "cspm_hosts_usage".freeze
+    CUSTOM_INGESTED_TIMESERIES_USAGE = "custom_ingested_timeseries_usage".freeze
     CUSTOM_TIMESERIES_USAGE = "custom_timeseries_usage".freeze
     CWS_CONTAINERS_USAGE = "cws_containers_usage".freeze
     CWS_HOSTS_USAGE = "cws_hosts_usage".freeze
