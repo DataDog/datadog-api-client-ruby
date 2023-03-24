@@ -6,7 +6,7 @@ api_instance = DatadogAPIClient::V2::AuditAPI.new
 body = DatadogAPIClient::V2::AuditLogsSearchEventsRequest.new({
   filter: DatadogAPIClient::V2::AuditLogsQueryFilter.new({
     from: "now-15m",
-    query: "@type:session AND @session.type:user",
+    query: "@evt.name:Request @auth_method:API_AND_APP_KEY",
     to: "now",
   }),
   options: DatadogAPIClient::V2::AuditLogsQueryOptions.new({
