@@ -353,7 +353,7 @@ def format_data_with_schema_dict(
 
     if name == "dict":
         if not parameters and data:
-            parameters = ", ".join(f"{k}: \"{v}\"" for k, v in data.items())
+            parameters = ", ".join(f"\"{k}\": \"{v}\"" for k, v in data.items())
         return f"{{\n{parameters}}}"
     elif name:
         return f"{name_prefix}{name}.new({{\n{parameters}}})"
