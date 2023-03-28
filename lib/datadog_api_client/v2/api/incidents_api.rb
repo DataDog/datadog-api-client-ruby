@@ -1026,6 +1026,8 @@ module DatadogAPIClient::V2
     # @param opts [Hash] the optional parameters
     # @option opts [IncidentRelatedObject] :include Specifies which types of related objects should be included in the response.
     # @option opts [IncidentSearchSortOrder] :sort Specifies the order of returned incidents.
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 5000.
+    # @option opts [Integer] :page_offset Specific offset to use as the beginning of the returned page.
     # @return [Array<(IncidentSearchResponse, Integer, Hash)>] IncidentSearchResponse data, response status code and response headers
     def search_incidents_with_http_info(query, opts = {})
       unstable_enabled = @api_client.config.unstable_operations["v2.search_incidents".to_sym]
@@ -1058,6 +1060,8 @@ module DatadogAPIClient::V2
       query_params[:'query'] = query
       query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page[offset]'] = opts[:'page_offset'] if !opts[:'page_offset'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -1092,6 +1096,27 @@ module DatadogAPIClient::V2
         @api_client.config.logger.debug "API called: IncidentsAPI#search_incidents\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
+    end
+
+    # Search for incidents.
+    #
+    # Provide a paginated version of {#search_incidents}, returning all items.
+    #
+    # To use it you need to use a block: search_incidents_with_pagination { |item| p item }
+    #
+    # @yield [IncidentSearchResponseIncidentsData] Paginated items
+    def search_incidents_with_pagination(query, opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(opts, "page_size", 10)
+        @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
+        while true do
+            response = search_incidents(query, opts)
+            @api_client.get_attribute_from_path(response, "data.attributes.incidents").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data.attributes.incidents").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page_offset", Integer, @api_client.get_attribute_from_path(opts, "page_offset", 0) + page_size)
+        end
     end
 
     # Update an existing incident.
