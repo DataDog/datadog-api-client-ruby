@@ -74,7 +74,7 @@ jobs:
   test:
     strategy:
       matrix:
-        ruby-version: ["2.6", "3.1", "jruby"]
+        ruby-version: ["2.6", "3.2", "jruby"]
         platform: [ubuntu-latest]
     runs-on: ${{ matrix.platform }}
     if: (github.event.pull_request.draft == false && !contains(github.event.pull_request.labels.*.name, 'ci/skip') && !contains(github.event.pull_request.head.ref, 'datadog-api-spec/test/')) || github.event_name == 'schedule'
