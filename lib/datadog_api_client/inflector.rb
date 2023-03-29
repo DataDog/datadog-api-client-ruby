@@ -1057,6 +1057,7 @@ module DatadogAPIClient
           "v2.incident_search_response_facets_data" => "IncidentSearchResponseFacetsData",
           "v2.incident_search_response_field_facet_data" => "IncidentSearchResponseFieldFacetData",
           "v2.incident_search_response_incidents_data" => "IncidentSearchResponseIncidentsData",
+          "v2.incident_search_response_meta" => "IncidentSearchResponseMeta",
           "v2.incident_search_response_numeric_facet_data" => "IncidentSearchResponseNumericFacetData",
           "v2.incident_search_response_numeric_facet_data_aggregates" => "IncidentSearchResponseNumericFacetDataAggregates",
           "v2.incident_search_response_property_field_facet_data" => "IncidentSearchResponsePropertyFieldFacetData",

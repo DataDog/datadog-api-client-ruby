@@ -944,6 +944,8 @@ ScenariosModelMappings = {
             "include" => "IncidentRelatedObject",
             "query" => "String",
             "sort" => "IncidentSearchSortOrder",
+            "page_size" => "Integer",
+            "page_offset" => "Integer",
     },
     "v2.DeleteIncident" => {
             "incident_id" => "String",
