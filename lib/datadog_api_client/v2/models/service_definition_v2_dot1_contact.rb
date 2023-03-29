@@ -17,8 +17,8 @@ require 'date'
 require 'time'
 
 module DatadogAPIClient::V2
-  # Create service definitions request.
-  module ServiceDefinitionsCreateRequest
+  # Service owner's contacts information.
+  module ServiceDefinitionV2Dot1Contact
     class << self
       include BaseOneOfModel
       include BaseOneOfModelNoDiscriminator
@@ -26,9 +26,8 @@ module DatadogAPIClient::V2
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'ServiceDefinitionV2Dot1',
-          :'ServiceDefinitionV2',
-          :'String'
+          :'ServiceDefinitionV2Dot1Email',
+          :'ServiceDefinitionV2Dot1Slack'
         ]
       end
       # Builds the object

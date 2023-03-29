@@ -27,7 +27,8 @@ module DatadogAPIClient::V2
       def openapi_one_of
         [
           :'ServiceDefinitionV1',
-          :'ServiceDefinitionV2'
+          :'ServiceDefinitionV2',
+          :'ServiceDefinitionV2Dot1'
         ]
       end
       # Builds the object

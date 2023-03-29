@@ -1,10 +1,9 @@
-# Create or update service definition returns "CREATED" response
+# Create or update service definition using schema v2-1 returns "CREATED" response
 
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::ServiceDefinitionAPI.new
 
 body = DatadogAPIClient::V2::ServiceDefinitionV2Dot1.new({
-  application: "my-app",
   contacts: [
     DatadogAPIClient::V2::ServiceDefinitionV2Dot1Email.new({
       contact: "contact@datadoghq.com",
@@ -12,10 +11,9 @@ body = DatadogAPIClient::V2::ServiceDefinitionV2Dot1.new({
       type: DatadogAPIClient::V2::ServiceDefinitionV2Dot1EmailType::EMAIL,
     }),
   ],
-  dd_service: "my-service",
-  description: "My service description",
+  dd_service: "service-Example-Create_or_update_service_definition_using_schema_v2_1_returns_CREATED_response",
   extensions: {
-    "myorg/extension": "extensionValue",
+    "myorgextension": "extensionvalue",
   },
   integrations: DatadogAPIClient::V2::ServiceDefinitionV2Dot1Integrations.new({
     opsgenie: DatadogAPIClient::V2::ServiceDefinitionV2Dot1Opsgenie.new({
@@ -26,12 +24,22 @@ body = DatadogAPIClient::V2::ServiceDefinitionV2Dot1.new({
       service_url: "https://my-org.pagerduty.com/service-directory/PMyService",
     }),
   }),
-  lifecycle: "sandbox",
   links: [
     DatadogAPIClient::V2::ServiceDefinitionV2Dot1Link.new({
       name: "Runbook",
-      provider: "Github",
       type: DatadogAPIClient::V2::ServiceDefinitionV2Dot1LinkType::RUNBOOK,
+      url: "https://my-runbook",
+    }),
+    DatadogAPIClient::V2::ServiceDefinitionV2Dot1Link.new({
+      name: "Source Code",
+      type: DatadogAPIClient::V2::ServiceDefinitionV2Dot1LinkType::REPO,
+      provider: "GitHub",
+      url: "https://github.com/DataDog/schema",
+    }),
+    DatadogAPIClient::V2::ServiceDefinitionV2Dot1Link.new({
+      name: "Architecture",
+      type: DatadogAPIClient::V2::ServiceDefinitionV2Dot1LinkType::DOC,
+      provider: "Gigoogle drivetHub",
       url: "https://my-runbook",
     }),
   ],
@@ -41,6 +49,5 @@ body = DatadogAPIClient::V2::ServiceDefinitionV2Dot1.new({
     "service:tag",
   ],
   team: "my-team",
-  tier: "High",
 })
 p api_instance.create_or_update_service_definitions(body)
