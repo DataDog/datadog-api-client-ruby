@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Fri, 24 Mar 2023 18:06:23 GMT
+- recorded_at: Fri, 24 Mar 2023 19:21:51 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"contacts":[{"contact":"contact@datadoghq.com","name":"Team Email","type":"email"}],"dd-service":"service-testcreateorupdateservicedefinitionreturnscreatedresponse1679681183","dd-team":"my-team","docs":[{"name":"Architecture","provider":"google
+      string: '{"contacts":[{"contact":"contact@datadoghq.com","name":"Team Email","type":"email"}],"dd-service":"service-testcreateorupdateservicedefinitionusingschemav2returnscreatedresponse1679685711","dd-team":"my-team","docs":[{"name":"Architecture","provider":"google
         drive","url":"https://gdrive/mydoc"}],"extensions":{"myorgextension":"extensionvalue"},"integrations":{"opsgenie":{"region":"US","service-url":"https://my-org.opsgenie.com/service/123e4567-e89b-12d3-a456-426614174000"},"pagerduty":"https://my-org.pagerduty.com/service-directory/PMyService"},"links":[{"name":"Runbook","type":"runbook","url":"https://my-runbook"}],"repos":[{"name":"Source
         Code","provider":"GitHub","url":"https://github.com/DataDog/schema"}],"schema-version":"v2","tags":["my:tag","service:tag"],"team":"my-team"}'
     headers:
@@ -16,7 +16,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":[{"type":"service-definition","attributes":{"meta":{"last-modified-time":"2023-03-24T18:06:24.041193351Z","github-html-url":"","ingestion-source":"api","origin":"unknown","origin-detail":"","warnings":[],"ingested-schema-version":"v2"},"schema":{"schema-version":"v2","dd-service":"service-testcreateorupdateservicedefinitionreturnscreatedresponse1679681183","dd-team":"my-team","team":"my-team","contacts":[{"name":"Team
+      string: '{"data":[{"type":"service-definition","attributes":{"meta":{"last-modified-time":"2023-03-24T19:21:52.44477064Z","github-html-url":"","ingestion-source":"api","origin":"unknown","origin-detail":"","warnings":[],"ingested-schema-version":"v2"},"schema":{"schema-version":"v2","dd-service":"service-testcreateorupdateservicedefinitionusingschemav2returnscreatedresponse1679685711","dd-team":"my-team","team":"my-team","contacts":[{"name":"Team
         Email","type":"email","contact":"contact@datadoghq.com"}],"links":[{"name":"Runbook","type":"runbook","url":"https://my-runbook"}],"repos":[{"name":"Source
         Code","provider":"GitHub","url":"https://github.com/DataDog/schema"}],"docs":[{"name":"Architecture","provider":"google
         drive","url":"https://gdrive/mydoc"}],"tags":["my:tag","service:tag"],"integrations":{"pagerduty":"https://my-org.pagerduty.com/service-directory/PMyService","opsgenie":{"service-url":"https://my-org.opsgenie.com/service/123e4567-e89b-12d3-a456-426614174000","region":"US"}},"extensions":{"myorgextension":"extensionvalue"}}}}]}
@@ -28,14 +28,14 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Fri, 24 Mar 2023 18:06:23 GMT
+- recorded_at: Fri, 24 Mar 2023 19:21:51 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/services/definitions/service-testcreateorupdateservicedefinitionreturnscreatedresponse1679681183
+    uri: https://api.datadoghq.com/api/v2/services/definitions/service-testcreateorupdateservicedefinitionusingschemav2returnscreatedresponse1679685711
   response:
     body:
       encoding: UTF-8
