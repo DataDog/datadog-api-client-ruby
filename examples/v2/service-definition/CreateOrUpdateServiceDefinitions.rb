@@ -21,7 +21,7 @@ body = DatadogAPIClient::V2::ServiceDefinitionV2.new({
     }),
   ],
   extensions: {
-    myorgextension: "extensionvalue",
+    "myorgextension": "extensionvalue",
   },
   integrations: DatadogAPIClient::V2::ServiceDefinitionV2Integrations.new({
     opsgenie: DatadogAPIClient::V2::ServiceDefinitionV2Opsgenie.new({
