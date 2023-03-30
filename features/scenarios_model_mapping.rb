@@ -1487,6 +1487,75 @@ ScenariosModelMappings = {
     "v2.SetOnDemandConcurrencyCap" => {
             "body" => "OnDemandConcurrencyCapAttributes",
     },
+    "v2.GetAllTeams" => {
+            "page_number" => "Integer",
+            "page_size" => "Integer",
+            "sort" => "GetAllTeamsSort",
+            "include" => "Array<GetAllTeamsInclude>",
+            "filter_keyword" => "String",
+            "filter_me" => "Boolean",
+    },
+    "v2.CreateTeam" => {
+            "body" => "TeamCreateRequest",
+    },
+    "v2.RemoveTeam" => {
+            "team_id" => "String",
+    },
+    "v2.GetTeam" => {
+            "team_id" => "String",
+    },
+    "v2.UpdateTeam" => {
+            "team_id" => "String",
+            "body" => "TeamUpdateRequest",
+    },
+    "v2.GetTeamLinks" => {
+            "team_id" => "String",
+    },
+    "v2.CreateTeamLink" => {
+            "team_id" => "String",
+            "body" => "TeamLinkCreateRequest",
+    },
+    "v2.RemoveTeamLink" => {
+            "team_id" => "String",
+            "link_id" => "String",
+    },
+    "v2.GetTeamLink" => {
+            "team_id" => "String",
+            "link_id" => "String",
+    },
+    "v2.UpdateTeamLink" => {
+            "team_id" => "String",
+            "link_id" => "String",
+            "body" => "TeamLinkCreateRequest",
+    },
+    "v2.GetTeamMemberships" => {
+            "team_id" => "String",
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+            "sort" => "GetTeamMembershipsSort",
+            "filter_keyword" => "String",
+    },
+    "v2.CreateTeamMembership" => {
+            "team_id" => "String",
+            "body" => "UserTeamRequest",
+    },
+    "v2.RemoveTeamMembership" => {
+            "team_id" => "String",
+            "user_id" => "String",
+    },
+    "v2.UpdateTeamMembership" => {
+            "team_id" => "String",
+            "user_id" => "String",
+            "body" => "UserTeamUpdateRequest",
+    },
+    "v2.GetTeamPermissionSettings" => {
+            "team_id" => "String",
+    },
+    "v2.UpdateTeamPermissionSetting" => {
+            "team_id" => "String",
+            "action" => "String",
+            "body" => "TeamPermissionSettingUpdateRequest",
+    },
     "v2.ListIncidentTeams" => {
             "include" => "IncidentRelatedObject",
             "page_size" => "Integer",
