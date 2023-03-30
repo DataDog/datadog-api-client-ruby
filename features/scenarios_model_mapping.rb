@@ -848,6 +848,19 @@ ScenariosModelMappings = {
             "app_key_id" => "String",
             "body" => "ApplicationKeyUpdateRequest",
     },
+    "v2.CreateSpansMetric" => {
+            "body" => "SpansMetricCreateRequest",
+    },
+    "v2.DeleteSpansMetric" => {
+            "metric_id" => "String",
+    },
+    "v2.GetSpansMetric" => {
+            "metric_id" => "String",
+    },
+    "v2.UpdateSpansMetric" => {
+            "metric_id" => "String",
+            "body" => "SpansMetricUpdateRequest",
+    },
     "v2.ListAuditLogs" => {
             "filter_query" => "String",
             "filter_from" => "Time",

@@ -1,0 +1,48 @@
+http_interactions:
+- recorded_at: Tue, 28 Mar 2023 14:55:24 GMT
+  request:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"compute":{"aggregation_type":"distribution","include_percentiles":false,"path":"@duration"},"filter":{"query":"@http.status_code:200
+        service:my-service"},"group_by":[{"path":"resource_name","tag_name":"resource_name"}]},"id":"TestCreateaspanbasedmetricreturnsOKresponse1680015324","type":"spans_metrics"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.datadoghq.com/api/v2/apm/config/metrics
+  response:
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"TestCreateaspanbasedmetricreturnsOKresponse1680015324","attributes":{"filter":{"query":"@http.status_code:200
+        service:my-service"},"group_by":[{"path":"resource_name","tag_name":"resource_name"}],"compute":{"aggregation_type":"distribution","path":"@duration","include_percentiles":false}},"type":"spans_metrics"}}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- recorded_at: Tue, 28 Mar 2023 14:55:24 GMT
+  request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+    method: DELETE
+    uri: https://api.datadoghq.com/api/v2/apm/config/metrics/TestCreateaspanbasedmetricreturnsOKresponse1680015324
+  response:
+    body:
+      encoding: UTF-8
+      string: '{}
+
+        '
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+recorded_with: VCR 6.0.0
