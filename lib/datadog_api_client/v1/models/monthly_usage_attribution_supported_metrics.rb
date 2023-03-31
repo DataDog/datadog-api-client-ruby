@@ -81,6 +81,8 @@ module DatadogAPIClient::V1
     SNMP_PERCENTAGE = "snmp_percentage".freeze
     ESTIMATED_RUM_SESSIONS_USAGE = "estimated_rum_sessions_usage".freeze
     ESTIMATED_RUM_SESSIONS_PERCENTAGE = "estimated_rum_sessions_percentage".freeze
+    UNIVERSAL_SERVICE_MONITORING_USAGE = "universal_service_monitoring_usage".freeze
+    UNIVERSAL_SERVICE_MONITORING_PERCENTAGE = "universal_service_monitoring_percentage".freeze
     ALL = "*".freeze
   end
 end
