@@ -1500,18 +1500,18 @@ ScenariosModelMappings = {
     "v2.SetOnDemandConcurrencyCap" => {
             "body" => "OnDemandConcurrencyCapAttributes",
     },
-    "v2.GetAllTeams" => {
+    "v2.ListTeams" => {
             "page_number" => "Integer",
             "page_size" => "Integer",
-            "sort" => "GetAllTeamsSort",
-            "include" => "Array<GetAllTeamsInclude>",
+            "sort" => "ListTeamsSort",
+            "include" => "Array<ListTeamsInclude>",
             "filter_keyword" => "String",
             "filter_me" => "Boolean",
     },
     "v2.CreateTeam" => {
             "body" => "TeamCreateRequest",
     },
-    "v2.RemoveTeam" => {
+    "v2.DeleteTeam" => {
             "team_id" => "String",
     },
     "v2.GetTeam" => {
@@ -1528,7 +1528,7 @@ ScenariosModelMappings = {
             "team_id" => "String",
             "body" => "TeamLinkCreateRequest",
     },
-    "v2.RemoveTeamLink" => {
+    "v2.DeleteTeamLink" => {
             "team_id" => "String",
             "link_id" => "String",
     },
@@ -1552,7 +1552,7 @@ ScenariosModelMappings = {
             "team_id" => "String",
             "body" => "UserTeamRequest",
     },
-    "v2.RemoveTeamMembership" => {
+    "v2.DeleteTeamMembership" => {
             "team_id" => "String",
             "user_id" => "String",
     },
