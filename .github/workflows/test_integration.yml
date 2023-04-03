@@ -54,10 +54,10 @@ jobs:
         run: |
           sudo apt-get -y install zstd
           echo "ZSTANDARD_LIBRARY=$(find /usr/lib -iname libzstd.so.1)" >> $GITHUB_ENV
-      - name: Set up Ruby 3.1
+      - name: Set up Ruby 3.2
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.1
+          ruby-version: "3.2"
           bundler-cache: true
           cache-version: ${{ secrets.CACHE_VERSION }}
       - name: Install deps
