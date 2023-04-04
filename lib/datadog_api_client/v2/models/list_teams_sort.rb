@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Specifies the order of the returned teams
-  class GetAllTeamsSort
+  class ListTeamsSort
     include BaseEnumModel
 
     NAME = "name".freeze

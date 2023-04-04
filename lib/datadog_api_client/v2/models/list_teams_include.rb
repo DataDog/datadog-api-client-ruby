@@ -18,7 +18,7 @@ require 'time'
 
 module DatadogAPIClient::V2
   # Included related resources optionally requested.
-  class GetAllTeamsInclude
+  class ListTeamsInclude
     include BaseEnumModel
 
     TEAM_LINKS = "team_links".freeze

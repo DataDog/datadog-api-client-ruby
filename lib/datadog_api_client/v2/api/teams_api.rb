@@ -235,52 +235,40 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Get all teams.
+    # Remove a team.
     #
-    # @see #get_all_teams_with_http_info
-    def get_all_teams(opts = {})
-      data, _status_code, _headers = get_all_teams_with_http_info(opts)
-      data
+    # @see #delete_team_with_http_info
+    def delete_team(team_id, opts = {})
+      delete_team_with_http_info(team_id, opts)
+      nil
     end
 
-    # Get all teams.
+    # Remove a team.
     #
-    # Get all teams.
-    # Can be used to search for teams using the `filter[keyword]` and `filter[me]` query parameters.
+    # Remove a team using the team's `id`.
     #
+    # @param team_id [String] None
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_number Specific page number to return.
-    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 5000.
-    # @option opts [GetAllTeamsSort] :sort Specifies the order of the returned teams
-    # @option opts [Array<GetAllTeamsInclude>] :include Included related resources optionally requested. Allowed enum values: `team_links, user_team_permissions`
-    # @option opts [String] :filter_keyword Search query. Can be team name, team handle, or email of team member
-    # @option opts [Boolean] :filter_me When true, only returns teams the current user belongs to
-    # @return [Array<(TeamsResponse, Integer, Hash)>] TeamsResponse data, response status code and response headers
-    def get_all_teams_with_http_info(opts = {})
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_team_with_http_info(team_id, opts = {})
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TeamsAPI.get_all_teams ...'
+        @api_client.config.logger.debug 'Calling API: TeamsAPI.delete_team ...'
       end
-      allowable_values = ['name', '-name', 'user_count', '-user_count']
-      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
-        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      # verify the required parameter 'team_id' is set
+      if @api_client.config.client_side_validation && team_id.nil?
+        fail ArgumentError, "Missing the required parameter 'team_id' when calling TeamsAPI.delete_team"
       end
       # resource path
-      local_var_path = '/api/v2/team'
+      local_var_path = '/api/v2/team/{team_id}'.sub('{team_id}', CGI.escape(team_id.to_s).gsub('%2F', '/'))
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
-      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
-      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
-      query_params[:'include'] = @api_client.build_collection_param(opts[:'include'], :multi) if !opts[:'include'].nil?
-      query_params[:'filter[keyword]'] = opts[:'filter_keyword'] if !opts[:'filter_keyword'].nil?
-      query_params[:'filter[me]'] = opts[:'filter_me'] if !opts[:'filter_me'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -289,13 +277,13 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'TeamsResponse'
+      return_type = opts[:debug_return_type]
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
-        :operation => :get_all_teams,
+        :operation => :delete_team,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -305,9 +293,149 @@ module DatadogAPIClient::V2
         :api_version => "V2"
       )
 
-      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TeamsAPI#get_all_teams\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: TeamsAPI#delete_team\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Remove a team link.
+    #
+    # @see #delete_team_link_with_http_info
+    def delete_team_link(team_id, link_id, opts = {})
+      delete_team_link_with_http_info(team_id, link_id, opts)
+      nil
+    end
+
+    # Remove a team link.
+    #
+    # Remove a link from a team.
+    #
+    # @param team_id [String] None
+    # @param link_id [String] None
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_team_link_with_http_info(team_id, link_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeamsAPI.delete_team_link ...'
+      end
+      # verify the required parameter 'team_id' is set
+      if @api_client.config.client_side_validation && team_id.nil?
+        fail ArgumentError, "Missing the required parameter 'team_id' when calling TeamsAPI.delete_team_link"
+      end
+      # verify the required parameter 'link_id' is set
+      if @api_client.config.client_side_validation && link_id.nil?
+        fail ArgumentError, "Missing the required parameter 'link_id' when calling TeamsAPI.delete_team_link"
+      end
+      # resource path
+      local_var_path = '/api/v2/team/{team_id}/links/{link_id}'.sub('{team_id}', CGI.escape(team_id.to_s).gsub('%2F', '/')).sub('{link_id}', CGI.escape(link_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_team_link,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeamsAPI#delete_team_link\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Remove a user from a team.
+    #
+    # @see #delete_team_membership_with_http_info
+    def delete_team_membership(team_id, user_id, opts = {})
+      delete_team_membership_with_http_info(team_id, user_id, opts)
+      nil
+    end
+
+    # Remove a user from a team.
+    #
+    # Remove a user from a team.
+    #
+    # @param team_id [String] None
+    # @param user_id [String] None
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_team_membership_with_http_info(team_id, user_id, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeamsAPI.delete_team_membership ...'
+      end
+      # verify the required parameter 'team_id' is set
+      if @api_client.config.client_side_validation && team_id.nil?
+        fail ArgumentError, "Missing the required parameter 'team_id' when calling TeamsAPI.delete_team_membership"
+      end
+      # verify the required parameter 'user_id' is set
+      if @api_client.config.client_side_validation && user_id.nil?
+        fail ArgumentError, "Missing the required parameter 'user_id' when calling TeamsAPI.delete_team_membership"
+      end
+      # resource path
+      local_var_path = '/api/v2/team/{team_id}/memberships/{user_id}'.sub('{team_id}', CGI.escape(team_id.to_s).gsub('%2F', '/')).sub('{user_id}', CGI.escape(user_id.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_team_membership,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V2"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeamsAPI#delete_team_membership\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -654,40 +782,52 @@ module DatadogAPIClient::V2
       return data, status_code, headers
     end
 
-    # Remove a team.
+    # Get all teams.
     #
-    # @see #remove_team_with_http_info
-    def remove_team(team_id, opts = {})
-      remove_team_with_http_info(team_id, opts)
-      nil
+    # @see #list_teams_with_http_info
+    def list_teams(opts = {})
+      data, _status_code, _headers = list_teams_with_http_info(opts)
+      data
     end
 
-    # Remove a team.
+    # Get all teams.
     #
-    # Remove a team using the team's `id`.
+    # Get all teams.
+    # Can be used to search for teams using the `filter[keyword]` and `filter[me]` query parameters.
     #
-    # @param team_id [String] None
     # @param opts [Hash] the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def remove_team_with_http_info(team_id, opts = {})
+    # @option opts [Integer] :page_number Specific page number to return.
+    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 5000.
+    # @option opts [ListTeamsSort] :sort Specifies the order of the returned teams
+    # @option opts [Array<ListTeamsInclude>] :include Included related resources optionally requested. Allowed enum values: `team_links, user_team_permissions`
+    # @option opts [String] :filter_keyword Search query. Can be team name, team handle, or email of team member
+    # @option opts [Boolean] :filter_me When true, only returns teams the current user belongs to
+    # @return [Array<(TeamsResponse, Integer, Hash)>] TeamsResponse data, response status code and response headers
+    def list_teams_with_http_info(opts = {})
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TeamsAPI.remove_team ...'
+        @api_client.config.logger.debug 'Calling API: TeamsAPI.list_teams ...'
       end
-      # verify the required parameter 'team_id' is set
-      if @api_client.config.client_side_validation && team_id.nil?
-        fail ArgumentError, "Missing the required parameter 'team_id' when calling TeamsAPI.remove_team"
+      allowable_values = ['name', '-name', 'user_count', '-user_count']
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/v2/team/{team_id}'.sub('{team_id}', CGI.escape(team_id.to_s).gsub('%2F', '/'))
+      local_var_path = '/api/v2/team'
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'include'] = @api_client.build_collection_param(opts[:'include'], :multi) if !opts[:'include'].nil?
+      query_params[:'filter[keyword]'] = opts[:'filter_keyword'] if !opts[:'filter_keyword'].nil?
+      query_params[:'filter[me]'] = opts[:'filter_me'] if !opts[:'filter_me'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -696,13 +836,13 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'TeamsResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
 
       new_options = opts.merge(
-        :operation => :remove_team,
+        :operation => :list_teams,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -712,149 +852,9 @@ module DatadogAPIClient::V2
         :api_version => "V2"
       )
 
-      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TeamsAPI#remove_team\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Remove a team link.
-    #
-    # @see #remove_team_link_with_http_info
-    def remove_team_link(team_id, link_id, opts = {})
-      remove_team_link_with_http_info(team_id, link_id, opts)
-      nil
-    end
-
-    # Remove a team link.
-    #
-    # Remove a link from a team.
-    #
-    # @param team_id [String] None
-    # @param link_id [String] None
-    # @param opts [Hash] the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def remove_team_link_with_http_info(team_id, link_id, opts = {})
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TeamsAPI.remove_team_link ...'
-      end
-      # verify the required parameter 'team_id' is set
-      if @api_client.config.client_side_validation && team_id.nil?
-        fail ArgumentError, "Missing the required parameter 'team_id' when calling TeamsAPI.remove_team_link"
-      end
-      # verify the required parameter 'link_id' is set
-      if @api_client.config.client_side_validation && link_id.nil?
-        fail ArgumentError, "Missing the required parameter 'link_id' when calling TeamsAPI.remove_team_link"
-      end
-      # resource path
-      local_var_path = '/api/v2/team/{team_id}/links/{link_id}'.sub('{team_id}', CGI.escape(team_id.to_s).gsub('%2F', '/')).sub('{link_id}', CGI.escape(link_id.to_s).gsub('%2F', '/'))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type]
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
-
-      new_options = opts.merge(
-        :operation => :remove_team_link,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type,
-        :api_version => "V2"
-      )
-
-      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TeamsAPI#remove_team_link\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Remove a user from a team.
-    #
-    # @see #remove_team_membership_with_http_info
-    def remove_team_membership(team_id, user_id, opts = {})
-      remove_team_membership_with_http_info(team_id, user_id, opts)
-      nil
-    end
-
-    # Remove a user from a team.
-    #
-    # Remove a user from a team.
-    #
-    # @param team_id [String] None
-    # @param user_id [String] None
-    # @param opts [Hash] the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def remove_team_membership_with_http_info(team_id, user_id, opts = {})
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TeamsAPI.remove_team_membership ...'
-      end
-      # verify the required parameter 'team_id' is set
-      if @api_client.config.client_side_validation && team_id.nil?
-        fail ArgumentError, "Missing the required parameter 'team_id' when calling TeamsAPI.remove_team_membership"
-      end
-      # verify the required parameter 'user_id' is set
-      if @api_client.config.client_side_validation && user_id.nil?
-        fail ArgumentError, "Missing the required parameter 'user_id' when calling TeamsAPI.remove_team_membership"
-      end
-      # resource path
-      local_var_path = '/api/v2/team/{team_id}/memberships/{user_id}'.sub('{team_id}', CGI.escape(team_id.to_s).gsub('%2F', '/')).sub('{user_id}', CGI.escape(user_id.to_s).gsub('%2F', '/'))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type]
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
-
-      new_options = opts.merge(
-        :operation => :remove_team_membership,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type,
-        :api_version => "V2"
-      )
-
-      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TeamsAPI#remove_team_membership\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: TeamsAPI#list_teams\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
