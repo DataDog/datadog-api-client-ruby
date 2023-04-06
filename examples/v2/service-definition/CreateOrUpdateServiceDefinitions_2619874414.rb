@@ -11,7 +11,7 @@ body = DatadogAPIClient::V2::ServiceDefinitionV2Dot1.new({
       type: DatadogAPIClient::V2::ServiceDefinitionV2Dot1EmailType::EMAIL,
     }),
   ],
-  dd_service: "service-examplecreateorupdateservicedefinitionusingschemav21returnscreatedresponse",
+  dd_service: "service-exampleservicedefinition",
   extensions: {
     "myorgextension": "extensionvalue",
   },

@@ -7,7 +7,7 @@ api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
 SECURITY_RULE_ID = ENV["SECURITY_RULE_ID"]
 
 body = DatadogAPIClient::V2::SecurityMonitoringRuleUpdatePayload.new({
-  name: "Example-Update_an_existing_rule_returns_OK_response-Updated",
+  name: "Example-Security-Monitoring-Updated",
   queries: [
     DatadogAPIClient::V2::SecurityMonitoringStandardRuleQuery.new({
       query: "@test:true",

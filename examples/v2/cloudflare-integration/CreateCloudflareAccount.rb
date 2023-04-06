@@ -8,7 +8,7 @@ body = DatadogAPIClient::V2::CloudflareAccountCreateRequest.new({
     attributes: DatadogAPIClient::V2::CloudflareAccountCreateRequestAttributes.new({
       api_key: "6Zm7WEgKzAlCnt_4exfEK0mSoeHHAaDf41O1AAfu",
       email: "new@email",
-      name: "exampleaddcloudflareaccountreturnscreatedresponse",
+      name: "examplecloudflareintegration",
     }),
     type: DatadogAPIClient::V2::CloudflareAccountType::CLOUDFLARE_ACCOUNTS,
   }),

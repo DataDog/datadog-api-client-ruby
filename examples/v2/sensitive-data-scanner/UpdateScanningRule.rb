@@ -15,7 +15,7 @@ body = DatadogAPIClient::V2::SensitiveDataScannerRuleUpdateRequest.new({
     id: RULE_DATA_ID,
     type: DatadogAPIClient::V2::SensitiveDataScannerRuleType::SENSITIVE_DATA_SCANNER_RULE,
     attributes: DatadogAPIClient::V2::SensitiveDataScannerRuleAttributes.new({
-      name: "Example-Update_Scanning_Rule_returns_OK_response",
+      name: "Example-Sensitive-Data-Scanner",
       pattern: "pattern",
       text_replacement: DatadogAPIClient::V2::SensitiveDataScannerTextReplacement.new({
         type: DatadogAPIClient::V2::SensitiveDataScannerTextReplacementType::NONE,

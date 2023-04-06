@@ -8,7 +8,7 @@ DASHBOARD_ID = ENV["DASHBOARD_ID"]
 
 body = DatadogAPIClient::V1::Dashboard.new({
   layout_type: DatadogAPIClient::V1::DashboardLayoutType::ORDERED,
-  title: "Example-Update_a_dashboard_with_tags_returns_OK_response with list_stream widget",
+  title: "Example-Dashboard with list_stream widget",
   description: "Updated description",
   tags: [
     "team:foo",

@@ -11,7 +11,7 @@ body = DatadogAPIClient::V2::ServiceDefinitionV2.new({
       type: DatadogAPIClient::V2::ServiceDefinitionV2EmailType::EMAIL,
     }),
   ],
-  dd_service: "service-examplecreateorupdateservicedefinitionusingschemav2returnscreatedresponse",
+  dd_service: "service-exampleservicedefinition",
   dd_team: "my-team",
   docs: [
     DatadogAPIClient::V2::ServiceDefinitionV2Doc.new({

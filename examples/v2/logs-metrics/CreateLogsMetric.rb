@@ -5,7 +5,7 @@ api_instance = DatadogAPIClient::V2::LogsMetricsAPI.new
 
 body = DatadogAPIClient::V2::LogsMetricCreateRequest.new({
   data: DatadogAPIClient::V2::LogsMetricCreateData.new({
-    id: "ExampleCreatealogbasedmetricreturnsOKresponse",
+    id: "ExampleLogsMetric",
     type: DatadogAPIClient::V2::LogsMetricType::LOGS_METRICS,
     attributes: DatadogAPIClient::V2::LogsMetricCreateAttributes.new({
       compute: DatadogAPIClient::V2::LogsMetricCompute.new({

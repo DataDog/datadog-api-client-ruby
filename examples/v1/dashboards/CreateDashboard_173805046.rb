@@ -7,7 +7,7 @@ api_instance = DatadogAPIClient::V1::DashboardsAPI.new
 SLO_DATA_0_ID = ENV["SLO_DATA_0_ID"]
 
 body = DatadogAPIClient::V1::Dashboard.new({
-  title: "Example-Create_a_new_dashboard_with_slo_widget",
+  title: "Example-Dashboard",
   description: "",
   widgets: [
     DatadogAPIClient::V1::Widget.new({

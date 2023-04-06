@@ -8,7 +8,7 @@ SYNTHETICS_API_TEST_MULTI_STEP_PUBLIC_ID = ENV["SYNTHETICS_API_TEST_MULTI_STEP_P
 
 body = DatadogAPIClient::V1::SyntheticsGlobalVariable.new({
   description: "",
-  name: "GLOBAL_VARIABLE_PAYLOAD_EXAMPLECREATEAGLOBALVARIABLEFROMTESTRETURNSOKRESPONSE",
+  name: "GLOBAL_VARIABLE_PAYLOAD_EXAMPLESYNTHETIC",
   tags: [],
   value: DatadogAPIClient::V1::SyntheticsGlobalVariableValue.new({
     secure: false,

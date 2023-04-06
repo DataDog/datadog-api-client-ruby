@@ -3,6 +3,6 @@
 require "datadog_api_client"
 api_instance = DatadogAPIClient::V2::MetricsAPI.new
 opts = {
-  filter_tags: "ExampleGetalistofmetricswithatagfilterreturnsSuccessresponse",
+  filter_tags: "ExampleMetric",
 }
 p api_instance.list_tag_configurations(opts)

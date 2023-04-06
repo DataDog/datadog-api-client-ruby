@@ -11,7 +11,7 @@ body = DatadogAPIClient::V2::APIKeyUpdateRequest.new({
     type: DatadogAPIClient::V2::APIKeysType::API_KEYS,
     id: API_KEY_DATA_ID,
     attributes: DatadogAPIClient::V2::APIKeyUpdateAttributes.new({
-      name: "Example-Edit_an_API_key_returns_OK_response",
+      name: "Example-Key-Management",
     }),
   }),
 })
