@@ -27,7 +27,8 @@ module DatadogAPIClient::V2
       def openapi_one_of
         [
           :'ServiceDefinitionV2Email',
-          :'ServiceDefinitionV2Slack'
+          :'ServiceDefinitionV2Slack',
+          :'ServiceDefinitionV2MSTeams'
         ]
       end
       # Builds the object
