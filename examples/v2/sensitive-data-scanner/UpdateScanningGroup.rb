@@ -15,7 +15,7 @@ body = DatadogAPIClient::V2::SensitiveDataScannerGroupUpdateRequest.new({
     id: GROUP_DATA_ID,
     type: DatadogAPIClient::V2::SensitiveDataScannerGroupType::SENSITIVE_DATA_SCANNER_GROUP,
     attributes: DatadogAPIClient::V2::SensitiveDataScannerGroupAttributes.new({
-      name: "Example-Update_Scanning_Group_returns_OK_response",
+      name: "Example-Sensitive-Data-Scanner",
       is_enabled: false,
       product_list: [
         DatadogAPIClient::V2::SensitiveDataScannerProduct::LOGS,

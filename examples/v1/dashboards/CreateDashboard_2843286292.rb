@@ -5,7 +5,7 @@ api_instance = DatadogAPIClient::V1::DashboardsAPI.new
 
 body = DatadogAPIClient::V1::Dashboard.new({
   layout_type: DatadogAPIClient::V1::DashboardLayoutType::ORDERED,
-  title: "Example-Create_a_new_dashboard_with_logs_transaction_stream_list_stream_widget with list_stream widget",
+  title: "Example-Dashboard with list_stream widget",
   widgets: [
     DatadogAPIClient::V1::Widget.new({
       definition: DatadogAPIClient::V1::ListStreamWidgetDefinition.new({

@@ -21,7 +21,7 @@ body = DatadogAPIClient::V2::SpansMetricCreateRequest.new({
         }),
       ],
     }),
-    id: "ExampleCreateaspanbasedmetricreturnsOKresponse",
+    id: "ExampleSpansMetric",
     type: DatadogAPIClient::V2::SpansMetricType::SPANS_METRICS,
   }),
 })

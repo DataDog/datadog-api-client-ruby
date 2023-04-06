@@ -5,7 +5,7 @@ api_instance = DatadogAPIClient::V1::DashboardsAPI.new
 
 body = DatadogAPIClient::V1::Dashboard.new({
   layout_type: DatadogAPIClient::V1::DashboardLayoutType::ORDERED,
-  title: "Example-Create_a_new_dashboard_with_logs_query_table_widget_and_storage_parameter with query table widget and storage parameter",
+  title: "Example-Dashboard with query table widget and storage parameter",
   widgets: [
     DatadogAPIClient::V1::Widget.new({
       definition: DatadogAPIClient::V1::TableWidgetDefinition.new({

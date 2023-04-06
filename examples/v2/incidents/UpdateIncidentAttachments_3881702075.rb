@@ -17,7 +17,7 @@ body = DatadogAPIClient::V2::IncidentAttachmentUpdateRequest.new({
         attachment_type: DatadogAPIClient::V2::IncidentAttachmentLinkAttachmentType::LINK,
         attachment: DatadogAPIClient::V2::IncidentAttachmentLinkAttributesAttachmentObject.new({
           document_url: "https://www.example.com/doc",
-          title: "Example-Create_an_incident_attachment_returns_OK_response",
+          title: "Example-Incident",
         }),
       }),
     }),

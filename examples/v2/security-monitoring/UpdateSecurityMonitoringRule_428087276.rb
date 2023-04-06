@@ -7,7 +7,7 @@ api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
 CLOUD_CONFIGURATION_RULE_ID = ENV["CLOUD_CONFIGURATION_RULE_ID"]
 
 body = DatadogAPIClient::V2::SecurityMonitoringRuleUpdatePayload.new({
-  name: "Example-Update_a_cloud_configuration_rule_s_details_returns_OK_response_cloud_updated",
+  name: "Example-Security-Monitoring_cloud_updated",
   is_enabled: false,
   cases: [
     DatadogAPIClient::V2::SecurityMonitoringRuleCase.new({

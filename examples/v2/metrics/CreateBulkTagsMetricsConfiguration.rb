@@ -14,7 +14,7 @@ body = DatadogAPIClient::V2::MetricBulkTagConfigCreateRequest.new({
       ],
       tags: [
         "test",
-        "exampleconfiguretagsformultiplemetricsreturnsacceptedresponse",
+        "examplemetric",
       ],
     }),
     id: "system.load.1",

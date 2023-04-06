@@ -4,7 +4,7 @@ require "datadog_api_client"
 api_instance = DatadogAPIClient::V1::MonitorsAPI.new
 
 body = DatadogAPIClient::V1::Monitor.new({
-  name: "Example-Create_a_metric_monitor_returns_OK_response",
+  name: "Example-Monitor",
   type: DatadogAPIClient::V1::MonitorType::METRIC_ALERT,
   query: "avg(current_1mo):avg:system.load.5{*} > 0.5",
   message: "some message Notify: @hipchat-channel",

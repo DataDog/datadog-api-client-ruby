@@ -10,7 +10,7 @@ body = DatadogAPIClient::V2::IncidentTeamCreateRequest.new({
   data: DatadogAPIClient::V2::IncidentTeamCreateData.new({
     type: DatadogAPIClient::V2::IncidentTeamType::TEAMS,
     attributes: DatadogAPIClient::V2::IncidentTeamCreateAttributes.new({
-      name: "Example-Create_a_new_incident_team_returns_CREATED_response",
+      name: "Example-Incident-Team",
     }),
   }),
 })

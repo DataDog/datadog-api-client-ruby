@@ -46,7 +46,7 @@ body = DatadogAPIClient::V1::NotebookCreateRequest.new({
           type: DatadogAPIClient::V1::NotebookCellResourceType::NOTEBOOK_CELLS,
         }),
       ],
-      name: "Example-Create_a_notebook_returns_OK_response",
+      name: "Example-Notebook",
       status: DatadogAPIClient::V1::NotebookStatus::PUBLISHED,
       time: DatadogAPIClient::V1::NotebookRelativeTime.new({
         live_span: DatadogAPIClient::V1::WidgetLiveSpan::PAST_ONE_HOUR,

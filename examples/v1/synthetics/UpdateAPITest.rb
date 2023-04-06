@@ -50,7 +50,7 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
         }),
       }),
       headers: {
-        unique: "exampleeditanapitestreturnsokresponse",
+        unique: "examplesynthetic",
       },
       method: "GET",
       timeout: 10,
@@ -61,7 +61,7 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
     "aws:us-east-2",
   ],
   message: "BDD test payload: synthetics_api_test_payload.json",
-  name: "Example-Edit_an_API_test_returns_OK_response-updated",
+  name: "Example-Synthetic-updated",
   options: DatadogAPIClient::V1::SyntheticsTestOptions.new({
     accept_self_signed: false,
     allow_insecure: true,

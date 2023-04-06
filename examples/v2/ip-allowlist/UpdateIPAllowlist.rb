@@ -10,7 +10,7 @@ body = DatadogAPIClient::V2::IPAllowlistUpdateRequest.new({
         DatadogAPIClient::V2::IPAllowlistEntry.new({
           data: DatadogAPIClient::V2::IPAllowlistEntryData.new({
             attributes: DatadogAPIClient::V2::IPAllowlistEntryAttributes.new({
-              note: "Example-Update_IP_Allowlist_returns_OK_response",
+              note: "Example-IP-Allowlist",
               cidr_block: "127.0.0.1",
             }),
             type: DatadogAPIClient::V2::IPAllowlistEntryType::IP_ALLOWLIST_ENTRY,

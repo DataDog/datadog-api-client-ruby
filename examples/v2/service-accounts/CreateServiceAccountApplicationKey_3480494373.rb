@@ -9,7 +9,7 @@ SERVICE_ACCOUNT_USER_DATA_ID = ENV["SERVICE_ACCOUNT_USER_DATA_ID"]
 body = DatadogAPIClient::V2::ApplicationKeyCreateRequest.new({
   data: DatadogAPIClient::V2::ApplicationKeyCreateData.new({
     attributes: DatadogAPIClient::V2::ApplicationKeyCreateAttributes.new({
-      name: "Example-Create_an_application_key_with_scopes_for_this_service_account_returns_Created_response",
+      name: "Example-Service-Account",
       scopes: [
         "dashboards_read",
         "dashboards_write",

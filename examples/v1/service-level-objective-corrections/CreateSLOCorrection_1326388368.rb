@@ -10,7 +10,7 @@ body = DatadogAPIClient::V1::SLOCorrectionCreateRequest.new({
   data: DatadogAPIClient::V1::SLOCorrectionCreateData.new({
     attributes: DatadogAPIClient::V1::SLOCorrectionCreateRequestAttributes.new({
       category: DatadogAPIClient::V1::SLOCorrectionCategory::SCHEDULED_MAINTENANCE,
-      description: "Example-Create_an_SLO_correction_with_rrule_returns_OK_response",
+      description: "Example-Service-Level-Objective-Correction",
       slo_id: SLO_DATA_0_ID,
       start: Time.now.to_i,
       duration: 3600,

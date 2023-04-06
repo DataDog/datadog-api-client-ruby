@@ -11,7 +11,7 @@ body = DatadogAPIClient::V2::SensitiveDataScannerRuleCreateRequest.new({
   data: DatadogAPIClient::V2::SensitiveDataScannerRuleCreate.new({
     type: DatadogAPIClient::V2::SensitiveDataScannerRuleType::SENSITIVE_DATA_SCANNER_RULE,
     attributes: DatadogAPIClient::V2::SensitiveDataScannerRuleAttributes.new({
-      name: "Example-Create_Scanning_Rule_returns_OK_response",
+      name: "Example-Sensitive-Data-Scanner",
       pattern: "pattern",
       namespaces: [
         "admin",

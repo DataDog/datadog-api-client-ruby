@@ -5,7 +5,7 @@ api_instance = DatadogAPIClient::V2::SecurityMonitoringAPI.new
 
 body = DatadogAPIClient::V2::CloudConfigurationRuleCreatePayload.new({
   type: DatadogAPIClient::V2::CloudConfigurationRuleType::CLOUD_CONFIGURATION,
-  name: "Example-Create_a_cloud_configuration_rule_returns_OK_response_cloud",
+  name: "Example-Security-Monitoring_cloud",
   is_enabled: false,
   cases: [
     DatadogAPIClient::V2::CloudConfigurationRuleCaseCreate.new({
