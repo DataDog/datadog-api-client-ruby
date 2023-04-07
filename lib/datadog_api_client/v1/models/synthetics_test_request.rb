@@ -46,9 +46,6 @@ module DatadogAPIClient::V1
     # By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificateDomains`.
     attr_accessor :certificate_domains
 
-    # A protobuf JSON descriptor that needs to be gzipped first then base64 encoded.
-    attr_accessor :compressed_json_descriptor
-
     # DNS server to use for DNS tests.
     attr_accessor :dns_server
 
@@ -116,7 +113,6 @@ module DatadogAPIClient::V1
         :'call_type' => :'callType',
         :'certificate' => :'certificate',
         :'certificate_domains' => :'certificateDomains',
-        :'compressed_json_descriptor' => :'compressedJsonDescriptor',
         :'dns_server' => :'dnsServer',
         :'dns_server_port' => :'dnsServerPort',
         :'follow_redirects' => :'follow_redirects',
@@ -149,7 +145,6 @@ module DatadogAPIClient::V1
         :'call_type' => :'SyntheticsTestCallType',
         :'certificate' => :'SyntheticsTestRequestCertificate',
         :'certificate_domains' => :'Array<String>',
-        :'compressed_json_descriptor' => :'String',
         :'dns_server' => :'String',
         :'dns_server_port' => :'Integer',
         :'follow_redirects' => :'Boolean',
@@ -215,10 +210,6 @@ module DatadogAPIClient::V1
         if (value = attributes[:'certificate_domains']).is_a?(Array)
           self.certificate_domains = value
         end
-      end
-
-      if attributes.key?(:'compressed_json_descriptor')
-        self.compressed_json_descriptor = attributes[:'compressed_json_descriptor']
       end
 
       if attributes.key?(:'dns_server')
@@ -344,7 +335,6 @@ module DatadogAPIClient::V1
           call_type == o.call_type &&
           certificate == o.certificate &&
           certificate_domains == o.certificate_domains &&
-          compressed_json_descriptor == o.compressed_json_descriptor &&
           dns_server == o.dns_server &&
           dns_server_port == o.dns_server_port &&
           follow_redirects == o.follow_redirects &&
@@ -369,7 +359,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [allow_insecure, basic_auth, body, body_type, call_type, certificate, certificate_domains, compressed_json_descriptor, dns_server, dns_server_port, follow_redirects, headers, host, message, metadata, method, no_saving_response_body, number_of_packets, port, proxy, query, servername, service, should_track_hops, timeout, url].hash
+      [allow_insecure, basic_auth, body, body_type, call_type, certificate, certificate_domains, dns_server, dns_server_port, follow_redirects, headers, host, message, metadata, method, no_saving_response_body, number_of_packets, port, proxy, query, servername, service, should_track_hops, timeout, url].hash
     end
   end
 end

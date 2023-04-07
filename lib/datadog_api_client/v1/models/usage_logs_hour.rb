@@ -37,9 +37,6 @@ module DatadogAPIClient::V1
     # Contains the number of log bytes ingested.
     attr_accessor :ingested_events_bytes
 
-    # Contains the number of logs forwarded bytes (data available as of April 1st 2023)
-    attr_accessor :logs_forwarding_events_bytes
-
     # Contains the number of live log events indexed (data available as of December 1, 2020).
     attr_accessor :logs_live_indexed_count
 
@@ -66,7 +63,6 @@ module DatadogAPIClient::V1
         :'hour' => :'hour',
         :'indexed_events_count' => :'indexed_events_count',
         :'ingested_events_bytes' => :'ingested_events_bytes',
-        :'logs_forwarding_events_bytes' => :'logs_forwarding_events_bytes',
         :'logs_live_indexed_count' => :'logs_live_indexed_count',
         :'logs_live_ingested_bytes' => :'logs_live_ingested_bytes',
         :'logs_rehydrated_indexed_count' => :'logs_rehydrated_indexed_count',
@@ -84,7 +80,6 @@ module DatadogAPIClient::V1
         :'hour' => :'Time',
         :'indexed_events_count' => :'Integer',
         :'ingested_events_bytes' => :'Integer',
-        :'logs_forwarding_events_bytes' => :'Integer',
         :'logs_live_indexed_count' => :'Integer',
         :'logs_live_ingested_bytes' => :'Integer',
         :'logs_rehydrated_indexed_count' => :'Integer',
@@ -124,10 +119,6 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'ingested_events_bytes')
         self.ingested_events_bytes = attributes[:'ingested_events_bytes']
-      end
-
-      if attributes.key?(:'logs_forwarding_events_bytes')
-        self.logs_forwarding_events_bytes = attributes[:'logs_forwarding_events_bytes']
       end
 
       if attributes.key?(:'logs_live_indexed_count')
@@ -172,7 +163,6 @@ module DatadogAPIClient::V1
           hour == o.hour &&
           indexed_events_count == o.indexed_events_count &&
           ingested_events_bytes == o.ingested_events_bytes &&
-          logs_forwarding_events_bytes == o.logs_forwarding_events_bytes &&
           logs_live_indexed_count == o.logs_live_indexed_count &&
           logs_live_ingested_bytes == o.logs_live_ingested_bytes &&
           logs_rehydrated_indexed_count == o.logs_rehydrated_indexed_count &&
@@ -185,7 +175,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [billable_ingested_bytes, hour, indexed_events_count, ingested_events_bytes, logs_forwarding_events_bytes, logs_live_indexed_count, logs_live_ingested_bytes, logs_rehydrated_indexed_count, logs_rehydrated_ingested_bytes, org_name, public_id].hash
+      [billable_ingested_bytes, hour, indexed_events_count, ingested_events_bytes, logs_live_indexed_count, logs_live_ingested_bytes, logs_rehydrated_indexed_count, logs_rehydrated_ingested_bytes, org_name, public_id].hash
     end
   end
 end

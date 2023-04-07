@@ -233,8 +233,6 @@ module DatadogAPIClient::V2
     # Get a list of all service definitions from the Datadog Service Catalog.
     #
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :page_size Size for a given page. The maximum allowed value is 5000.
-    # @option opts [Integer] :page_number Specific page number to return.
     # @return [Array<(ServiceDefinitionsListResponse, Integer, Hash)>] ServiceDefinitionsListResponse data, response status code and response headers
     def list_service_definitions_with_http_info(opts = {})
 
@@ -246,8 +244,6 @@ module DatadogAPIClient::V2
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'page[size]'] = opts[:'page_size'] if !opts[:'page_size'].nil?
-      query_params[:'page[number]'] = opts[:'page_number'] if !opts[:'page_number'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -282,27 +278,6 @@ module DatadogAPIClient::V2
         @api_client.config.logger.debug "API called: ServiceDefinitionAPI#list_service_definitions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
-    end
-
-    # Get all service definitions.
-    #
-    # Provide a paginated version of {#list_service_definitions}, returning all items.
-    #
-    # To use it you need to use a block: list_service_definitions_with_pagination { |item| p item }
-    #
-    # @yield [ServiceDefinitionData] Paginated items
-    def list_service_definitions_with_pagination(opts = {})
-        api_version = "V2"
-        page_size = @api_client.get_attribute_from_path(opts, "page_size", 10)
-        @api_client.set_attribute_from_path(api_version, opts, "page_size", Integer, page_size)
-        while true do
-            response = list_service_definitions(opts)
-            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
-            if @api_client.get_attribute_from_path(response, "data").length < page_size
-              break
-            end
-            @api_client.set_attribute_from_path(api_version, opts, "page_number", Integer, @api_client.get_attribute_from_path(opts, "page_number", 0) + page_size)
-        end
     end
   end
 end

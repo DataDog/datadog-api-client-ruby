@@ -1488,10 +1488,6 @@ ScenariosModelMappings = {
             "service_id" => "String",
             "body" => "IncidentServiceUpdateRequest",
     },
-    "v2.ListServiceDefinitions" => {
-            "page_size" => "Integer",
-            "page_number" => "Integer",
-    },
     "v2.CreateOrUpdateServiceDefinitions" => {
             "body" => "ServiceDefinitionsCreateRequest",
     },
