@@ -316,6 +316,7 @@ module DatadogAPIClient
                 "datadoghq.com",
                 "us3.datadoghq.com",
                 "us5.datadoghq.com",
+                "ap1.datadoghq.com",
                 "datadoghq.eu",
                 "ddog-gov.com"
               ]
@@ -371,6 +372,7 @@ module DatadogAPIClient
                   "datadoghq.com",
                   "us3.datadoghq.com",
                   "us5.datadoghq.com",
+                  "ap1.datadoghq.com",
                   "datadoghq.eu",
                   "ddog-gov.com"
                 ]
@@ -419,6 +421,7 @@ module DatadogAPIClient
                   "datadoghq.eu",
                   "us3.datadoghq.com",
                   "us5.datadoghq.com",
+                  "ap1.datadoghq.com",
                   "ddog-gov.com"
                 ]
               },
@@ -469,6 +472,7 @@ module DatadogAPIClient
                   "datadoghq.com",
                   "us3.datadoghq.com",
                   "us5.datadoghq.com",
+                  "ap1.datadoghq.com",
                   "datadoghq.eu",
                   "ddog-gov.com"
                 ]
@@ -520,6 +524,7 @@ module DatadogAPIClient
                   "datadoghq.com",
                   "us3.datadoghq.com",
                   "us5.datadoghq.com",
+                  "ap1.datadoghq.com",
                   "datadoghq.eu",
                   "ddog-gov.com"
                 ]
