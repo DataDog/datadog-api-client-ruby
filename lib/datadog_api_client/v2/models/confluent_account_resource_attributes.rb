@@ -29,7 +29,7 @@ module DatadogAPIClient::V2
     attr_accessor :id
 
     # The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schema_registry`.
-    attr_accessor :resource_type
+    attr_reader :resource_type
 
     # A list of strings representing tags. Can be a single key, or key-value pairs separated by a colon.
     attr_accessor :tags
@@ -89,7 +89,18 @@ module DatadogAPIClient::V2
     # @return true if the model is valid
     # @!visibility private
     def valid?
+      return false if @resource_type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param resource_type [Object] Object to be assigned
+    # @!visibility private
+    def resource_type=(resource_type)
+      if resource_type.nil?
+        fail ArgumentError, 'invalid value for "resource_type", resource_type cannot be nil.'
+      end
+      @resource_type = resource_type
     end
 
     # Checks equality by comparing each attribute.
