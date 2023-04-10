@@ -34,6 +34,9 @@ module DatadogAPIClient::V1
     # The organization public ID.
     attr_accessor :public_id
 
+    # The region of the Datadog instance that the organization belongs to.
+    attr_accessor :region
+
     # The source of the usage attribution tag configuration and the selected tags in the format `<source_org_name>:::<selected tag 1>///<selected tag 2>///<selected tag 3>`.
     attr_accessor :tag_config_source
 
@@ -57,6 +60,7 @@ module DatadogAPIClient::V1
         :'month' => :'month',
         :'org_name' => :'org_name',
         :'public_id' => :'public_id',
+        :'region' => :'region',
         :'tag_config_source' => :'tag_config_source',
         :'tags' => :'tags',
         :'updated_at' => :'updated_at',
@@ -71,6 +75,7 @@ module DatadogAPIClient::V1
         :'month' => :'Time',
         :'org_name' => :'String',
         :'public_id' => :'String',
+        :'region' => :'String',
         :'tag_config_source' => :'String',
         :'tags' => :'Hash<String, Array<String>>',
         :'updated_at' => :'Time',
@@ -106,6 +111,10 @@ module DatadogAPIClient::V1
         self.public_id = attributes[:'public_id']
       end
 
+      if attributes.key?(:'region')
+        self.region = attributes[:'region']
+      end
+
       if attributes.key?(:'tag_config_source')
         self.tag_config_source = attributes[:'tag_config_source']
       end
@@ -139,6 +148,7 @@ module DatadogAPIClient::V1
           month == o.month &&
           org_name == o.org_name &&
           public_id == o.public_id &&
+          region == o.region &&
           tag_config_source == o.tag_config_source &&
           tags == o.tags &&
           updated_at == o.updated_at &&
@@ -149,7 +159,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [month, org_name, public_id, tag_config_source, tags, updated_at, values].hash
+      [month, org_name, public_id, region, tag_config_source, tags, updated_at, values].hash
     end
   end
 end

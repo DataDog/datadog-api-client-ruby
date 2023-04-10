@@ -34,6 +34,9 @@ module DatadogAPIClient::V1
     # The organization public ID.
     attr_accessor :public_id
 
+    # The region of the Datadog instance that the organization belongs to.
+    attr_accessor :region
+
     # The source of the usage attribution tag configuration and the selected tags in the format of `<source_org_name>:::<selected tag 1>///<selected tag 2>///<selected tag 3>`.
     attr_accessor :tag_config_source
 
@@ -60,6 +63,7 @@ module DatadogAPIClient::V1
         :'hour' => :'hour',
         :'org_name' => :'org_name',
         :'public_id' => :'public_id',
+        :'region' => :'region',
         :'tag_config_source' => :'tag_config_source',
         :'tags' => :'tags',
         :'total_usage_sum' => :'total_usage_sum',
@@ -75,6 +79,7 @@ module DatadogAPIClient::V1
         :'hour' => :'Time',
         :'org_name' => :'String',
         :'public_id' => :'String',
+        :'region' => :'String',
         :'tag_config_source' => :'String',
         :'tags' => :'Hash<String, Array<String>>',
         :'total_usage_sum' => :'Float',
@@ -109,6 +114,10 @@ module DatadogAPIClient::V1
 
       if attributes.key?(:'public_id')
         self.public_id = attributes[:'public_id']
+      end
+
+      if attributes.key?(:'region')
+        self.region = attributes[:'region']
       end
 
       if attributes.key?(:'tag_config_source')
@@ -148,6 +157,7 @@ module DatadogAPIClient::V1
           hour == o.hour &&
           org_name == o.org_name &&
           public_id == o.public_id &&
+          region == o.region &&
           tag_config_source == o.tag_config_source &&
           tags == o.tags &&
           total_usage_sum == o.total_usage_sum &&
@@ -159,7 +169,7 @@ module DatadogAPIClient::V1
     # @return [Integer] Hash code
     # @!visibility private
     def hash
-      [hour, org_name, public_id, tag_config_source, tags, total_usage_sum, updated_at, usage_type].hash
+      [hour, org_name, public_id, region, tag_config_source, tags, total_usage_sum, updated_at, usage_type].hash
     end
   end
 end
