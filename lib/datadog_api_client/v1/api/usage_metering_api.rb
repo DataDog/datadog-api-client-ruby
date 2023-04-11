@@ -855,13 +855,16 @@ module DatadogAPIClient::V1
     # Get hourly usage for audit logs.
     #
     # Get hourly usage for audit logs.
-    # **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
+    # **Note:** This endpoint has been deprecated.
+    #
+    # @deprecated This API is deprecated.
     #
     # @param start_hr [Time] Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
     # @param opts [Hash] the optional parameters
     # @option opts [Time] :end_hr Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     # @return [Array<(UsageAuditLogsResponse, Integer, Hash)>] UsageAuditLogsResponse data, response status code and response headers
     def get_usage_audit_logs_with_http_info(start_hr, opts = {})
+      warn "[DEPRECATION] `GetUsageAuditLogs` is deprecated."
 
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageMeteringAPI.get_usage_audit_logs ...'
