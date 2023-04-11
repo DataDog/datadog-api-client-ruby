@@ -6,7 +6,7 @@ api_instance = DatadogAPIClient::V2::CloudflareIntegrationAPI.new
 body = DatadogAPIClient::V2::CloudflareAccountCreateRequest.new({
   data: DatadogAPIClient::V2::CloudflareAccountCreateRequestData.new({
     attributes: DatadogAPIClient::V2::CloudflareAccountCreateRequestAttributes.new({
-      api_key: "6Zm7WEgKzAlCnt_4exfEK0mSoeHHAaDf41O1AAfu",
+      api_key: "fakekey",
       email: "new@email",
       name: "examplecloudflareintegration",
     }),
