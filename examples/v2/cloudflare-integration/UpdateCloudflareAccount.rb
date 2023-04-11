@@ -9,7 +9,7 @@ CLOUDFLARE_ACCOUNT_DATA_ID = ENV["CLOUDFLARE_ACCOUNT_DATA_ID"]
 body = DatadogAPIClient::V2::CloudflareAccountUpdateRequest.new({
   data: DatadogAPIClient::V2::CloudflareAccountUpdateRequestData.new({
     attributes: DatadogAPIClient::V2::CloudflareAccountUpdateRequestAttributes.new({
-      api_key: "6Zm7WEgKzAlCnt_4exfEK0mSoeHHAaDf41O1AAfu",
+      api_key: "fakekey",
       email: "new@email",
     }),
     type: DatadogAPIClient::V2::CloudflareAccountType::CLOUDFLARE_ACCOUNTS,
