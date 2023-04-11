@@ -628,7 +628,7 @@
 </li>
 
       
-        <li class="public ">
+        <li class="public deprecated">
   <span class="summary_signature">
     
       <a href="#get_usage_audit_logs_with_http_info-instance_method" title="#get_usage_audit_logs_with_http_info (instance method)">#<strong>get_usage_audit_logs_with_http_info</strong>(start_hr, opts = {})  &#x21d2; Array&lt;(UsageAuditLogsResponse, Integer, Hash)&gt; </a>
@@ -641,11 +641,11 @@
   
   
   
-  
+  <span class="deprecated note title">deprecated</span>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Get hourly usage for audit logs.</p>
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'><p>This API is deprecated.</p>
 </div></span>
   
 </li>
@@ -5152,10 +5152,12 @@ Refer to <a href="https://docs.datadoghq.com/account_management/guide/usage-attr
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Get hourly usage for audit logs.</p>
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'><p>This API is deprecated.</p>
+</div></div>
+<p>Get hourly usage for audit logs.</p>
 
 <p>Get hourly usage for audit logs.
-<strong>Note:</strong> hourly usage data for all products is now available in the <a href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get hourly usage by product family API</a>. Refer to <a href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.</p>
+<strong>Note:</strong> This endpoint has been deprecated.</p>
 
 
   </div>
@@ -5656,13 +5658,13 @@ Refer to <a href="https://docs.datadoghq.com/account_management/guide/usage-attr
       <pre class="lines">
 
 
-981
-982
-983
-984</pre>
+984
+985
+986
+987</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/usage_metering_api.rb', line 981</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/usage_metering_api.rb', line 984</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_usage_ci_app'>get_usage_ci_app</span><span class='lparen'>(</span><span class='id identifier rubyid_start_hr'>start_hr</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_get_usage_ci_app_with_http_info'>get_usage_ci_app_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_start_hr'>start_hr</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -5777,9 +5779,6 @@ Refer to <a href="https://docs.datadoghq.com/account_management/guide/usage-attr
       <pre class="lines">
 
 
-995
-996
-997
 998
 999
 1000
@@ -5827,10 +5826,13 @@ Refer to <a href="https://docs.datadoghq.com/account_management/guide/usage-attr
 1042
 1043
 1044
-1045</pre>
+1045
+1046
+1047
+1048</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/usage_metering_api.rb', line 995</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/usage_metering_api.rb', line 998</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_usage_ci_app_with_http_info'>get_usage_ci_app_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_start_hr'>start_hr</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -9573,13 +9575,13 @@ Refer to <a href="https://docs.datadoghq.com/account_management/guide/usage-attr
       <pre class="lines">
 
 
-1948
-1949
-1950
-1951</pre>
+1951
+1952
+1953
+1954</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/usage_metering_api.rb', line 1948</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/usage_metering_api.rb', line 1951</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_usage_online_archive'>get_usage_online_archive</span><span class='lparen'>(</span><span class='id identifier rubyid_start_hr'>start_hr</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid__status_code'>_status_code</span><span class='comma'>,</span> <span class='id identifier rubyid__headers'>_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_get_usage_online_archive_with_http_info'>get_usage_online_archive_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_start_hr'>start_hr</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -9694,9 +9696,6 @@ Refer to <a href="https://docs.datadoghq.com/account_management/guide/usage-attr
       <pre class="lines">
 
 
-1962
-1963
-1964
 1965
 1966
 1967
@@ -9744,10 +9743,13 @@ Refer to <a href="https://docs.datadoghq.com/account_management/guide/usage-attr
 2009
 2010
 2011
-2012</pre>
+2012
+2013
+2014
+2015</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/usage_metering_api.rb', line 1962</span>
+      <pre class="code"><span class="info file"># File 'lib/datadog_api_client/v1/api/usage_metering_api.rb', line 1965</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_usage_online_archive_with_http_info'>get_usage_online_archive_with_http_info</span><span class='lparen'>(</span><span class='id identifier rubyid_start_hr'>start_hr</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -12963,7 +12965,7 @@ Refer to <a href="https://docs.datadoghq.com/account_management/guide/usage-attr
 </div>
 
       <div id="footer">
-  Generated on Tue Apr 11 20:08:18 2023 by
+  Generated on Tue Apr 11 21:45:34 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.32 (ruby-2.7.8).
 </div>
