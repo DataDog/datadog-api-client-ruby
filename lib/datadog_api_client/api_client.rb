@@ -312,7 +312,7 @@ module DatadogAPIClient
     # @param [String] filename the filename to be sanitized
     # @return [String] the sanitized filename
     def sanitize_filename(filename)
-      filename.gsub(/.*[\/\\]/, '')
+      filename.split(/\\|\//)[-1]
     end
 
     def build_request_url(path, opts = {})
