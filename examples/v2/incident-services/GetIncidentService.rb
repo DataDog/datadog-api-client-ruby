@@ -1,7 +1,7 @@
 # Get details of an incident service returns "OK" response
 
 require "datadog_api_client"
-DatadogAPIClient::V2.configure do |config|
+DatadogAPIClient.configure do |config|
   config.unstable_operations["v2.get_incident_service".to_sym] = true
 end
 api_instance = DatadogAPIClient::V2::IncidentServicesAPI.new
