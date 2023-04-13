@@ -1,7 +1,7 @@
 # Create an incident integration metadata returns "CREATED" response
 
 require "datadog_api_client"
-DatadogAPIClient::V2.configure do |config|
+DatadogAPIClient.configure do |config|
   config.unstable_operations["v2.create_incident_integration".to_sym] = true
 end
 api_instance = DatadogAPIClient::V2::IncidentsAPI.new
