@@ -636,7 +636,7 @@ module DatadogAPIClient::V1
 
     # Get an API test's latest results summaries.
     #
-    # Get the last 50 test results summaries for a given Synthetics API test.
+    # Get the last 150 test results summaries for a given Synthetics API test.
     #
     # @param public_id [String] The public ID of the test for which to search results for.
     # @param opts [Hash] the optional parameters
@@ -843,7 +843,7 @@ module DatadogAPIClient::V1
 
     # Get a browser test's latest results summaries.
     #
-    # Get the last 50 test results summaries for a given Synthetics Browser test.
+    # Get the last 150 test results summaries for a given Synthetics Browser test.
     #
     # @param public_id [String] The public ID of the browser test for which to search results for.
     # @param opts [Hash] the optional parameters
