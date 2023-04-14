@@ -95,8 +95,8 @@ module DatadogAPIClient::V2
     #
     # @see #delete_spans_metric_with_http_info
     def delete_spans_metric(metric_id, opts = {})
-      delete_spans_metric_with_http_info(metric_id, opts)
-      nil
+      data, _status_code, _headers = delete_spans_metric_with_http_info(metric_id, opts)
+      data
     end
 
     # Delete a span-based metric.
@@ -105,7 +105,7 @@ module DatadogAPIClient::V2
     #
     # @param metric_id [String] The name of the span-based metric.
     # @param opts [Hash] the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def delete_spans_metric_with_http_info(metric_id, opts = {})
 
       if @api_client.config.debugging
@@ -124,7 +124,7 @@ module DatadogAPIClient::V2
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -133,7 +133,7 @@ module DatadogAPIClient::V2
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'Object'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth]

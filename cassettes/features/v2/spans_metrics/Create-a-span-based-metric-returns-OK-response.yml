@@ -1,10 +1,10 @@
 http_interactions:
-- recorded_at: Tue, 28 Mar 2023 14:55:24 GMT
+- recorded_at: Fri, 14 Apr 2023 19:55:28 GMT
   request:
     body:
       encoding: UTF-8
       string: '{"data":{"attributes":{"compute":{"aggregation_type":"distribution","include_percentiles":false,"path":"@duration"},"filter":{"query":"@http.status_code:200
-        service:my-service"},"group_by":[{"path":"resource_name","tag_name":"resource_name"}]},"id":"TestCreateaspanbasedmetricreturnsOKresponse1680015324","type":"spans_metrics"}}'
+        service:my-service"},"group_by":[{"path":"resource_name","tag_name":"resource_name"}]},"id":"TestCreateaspanbasedmetricreturnsOKresponse1681502128","type":"spans_metrics"}}'
     headers:
       Accept:
       - application/json
@@ -15,7 +15,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"TestCreateaspanbasedmetricreturnsOKresponse1680015324","attributes":{"filter":{"query":"@http.status_code:200
+      string: '{"data":{"id":"TestCreateaspanbasedmetricreturnsOKresponse1681502128","attributes":{"filter":{"query":"@http.status_code:200
         service:my-service"},"group_by":[{"path":"resource_name","tag_name":"resource_name"}],"compute":{"aggregation_type":"distribution","path":"@duration","include_percentiles":false}},"type":"spans_metrics"}}
 
         '
@@ -25,14 +25,14 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Tue, 28 Mar 2023 14:55:24 GMT
+- recorded_at: Fri, 14 Apr 2023 19:55:28 GMT
   request:
     body: null
     headers:
       Accept:
-      - '*/*'
+      - application/json
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/apm/config/metrics/TestCreateaspanbasedmetricreturnsOKresponse1680015324
+    uri: https://api.datadoghq.com/api/v2/apm/config/metrics/TestCreateaspanbasedmetricreturnsOKresponse1681502128
   response:
     body:
       encoding: UTF-8
