@@ -91,6 +91,73 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
+    # Create a shared dashboard.
+    #
+    # @see #create_public_dashboard_with_http_info
+    def create_public_dashboard(body, opts = {})
+      data, _status_code, _headers = create_public_dashboard_with_http_info(body, opts)
+      data
+    end
+
+    # Create a shared dashboard.
+    #
+    # Share a specified private dashboard, generating a URL at which it can be publicly viewed.
+    #
+    # @param body [SharedDashboard] Create a shared dashboard request body.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SharedDashboard, Integer, Hash)>] SharedDashboard data, response status code and response headers
+    def create_public_dashboard_with_http_info(body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DashboardsAPI.create_public_dashboard ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling DashboardsAPI.create_public_dashboard"
+      end
+      # resource path
+      local_var_path = '/api/v1/dashboard/public'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SharedDashboard'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :create_public_dashboard,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V1"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DashboardsAPI#create_public_dashboard\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete a dashboard.
     #
     # @see #delete_dashboard_with_http_info
@@ -223,6 +290,143 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
+    # Revoke a shared dashboard URL.
+    #
+    # @see #delete_public_dashboard_with_http_info
+    def delete_public_dashboard(token, opts = {})
+      data, _status_code, _headers = delete_public_dashboard_with_http_info(token, opts)
+      data
+    end
+
+    # Revoke a shared dashboard URL.
+    #
+    # Revoke the public URL for a dashboard (rendering it private) associated with the specified token.
+    #
+    # @param token [String] The token of the shared dashboard.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(DeleteSharedDashboardResponse, Integer, Hash)>] DeleteSharedDashboardResponse data, response status code and response headers
+    def delete_public_dashboard_with_http_info(token, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DashboardsAPI.delete_public_dashboard ...'
+      end
+      # verify the required parameter 'token' is set
+      if @api_client.config.client_side_validation && token.nil?
+        fail ArgumentError, "Missing the required parameter 'token' when calling DashboardsAPI.delete_public_dashboard"
+      end
+      # resource path
+      local_var_path = '/api/v1/dashboard/public/{token}'.sub('{token}', CGI.escape(token.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DeleteSharedDashboardResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_public_dashboard,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V1"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DashboardsAPI#delete_public_dashboard\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Revoke shared dashboard invitations.
+    #
+    # @see #delete_public_dashboard_invitation_with_http_info
+    def delete_public_dashboard_invitation(token, body, opts = {})
+      delete_public_dashboard_invitation_with_http_info(token, body, opts)
+      nil
+    end
+
+    # Revoke shared dashboard invitations.
+    #
+    # Revoke previously sent invitation emails and active sessions used to access a given shared dashboard for specific email addresses.
+    #
+    # @param token [String] The token of the shared dashboard.
+    # @param body [SharedDashboardInvites] Shared Dashboard Invitation deletion request body.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_public_dashboard_invitation_with_http_info(token, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DashboardsAPI.delete_public_dashboard_invitation ...'
+      end
+      # verify the required parameter 'token' is set
+      if @api_client.config.client_side_validation && token.nil?
+        fail ArgumentError, "Missing the required parameter 'token' when calling DashboardsAPI.delete_public_dashboard_invitation"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling DashboardsAPI.delete_public_dashboard_invitation"
+      end
+      # resource path
+      local_var_path = '/api/v1/dashboard/public/{token}/invitation'.sub('{token}', CGI.escape(token.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :delete_public_dashboard_invitation,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V1"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Delete, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DashboardsAPI#delete_public_dashboard_invitation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a dashboard.
     #
     # @see #get_dashboard_with_http_info
@@ -284,6 +488,140 @@ module DatadogAPIClient::V1
       data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: DashboardsAPI#get_dashboard\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a shared dashboard.
+    #
+    # @see #get_public_dashboard_with_http_info
+    def get_public_dashboard(token, opts = {})
+      data, _status_code, _headers = get_public_dashboard_with_http_info(token, opts)
+      data
+    end
+
+    # Get a shared dashboard.
+    #
+    # Fetch an existing shared dashboard's sharing metadata associated with the specified token.
+    #
+    # @param token [String] The token of the shared dashboard. Generated when a dashboard is shared.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SharedDashboard, Integer, Hash)>] SharedDashboard data, response status code and response headers
+    def get_public_dashboard_with_http_info(token, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DashboardsAPI.get_public_dashboard ...'
+      end
+      # verify the required parameter 'token' is set
+      if @api_client.config.client_side_validation && token.nil?
+        fail ArgumentError, "Missing the required parameter 'token' when calling DashboardsAPI.get_public_dashboard"
+      end
+      # resource path
+      local_var_path = '/api/v1/dashboard/public/{token}'.sub('{token}', CGI.escape(token.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SharedDashboard'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_public_dashboard,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V1"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DashboardsAPI#get_public_dashboard\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get all invitations for a shared dashboard.
+    #
+    # @see #get_public_dashboard_invitations_with_http_info
+    def get_public_dashboard_invitations(token, opts = {})
+      data, _status_code, _headers = get_public_dashboard_invitations_with_http_info(token, opts)
+      data
+    end
+
+    # Get all invitations for a shared dashboard.
+    #
+    # Describe the invitations that exist for the given shared dashboard (paginated).
+    #
+    # @param token [String] Token of the shared dashboard for which to fetch invitations.
+    # @param opts [Hash] the optional parameters
+    # @option opts [Integer] :page_size The number of records to return in a single request.
+    # @option opts [Integer] :page_number The page to access (base 0).
+    # @return [Array<(SharedDashboardInvites, Integer, Hash)>] SharedDashboardInvites data, response status code and response headers
+    def get_public_dashboard_invitations_with_http_info(token, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DashboardsAPI.get_public_dashboard_invitations ...'
+      end
+      # verify the required parameter 'token' is set
+      if @api_client.config.client_side_validation && token.nil?
+        fail ArgumentError, "Missing the required parameter 'token' when calling DashboardsAPI.get_public_dashboard_invitations"
+      end
+      # resource path
+      local_var_path = '/api/v1/dashboard/public/{token}/invitation'.sub('{token}', CGI.escape(token.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'page_number'] = opts[:'page_number'] if !opts[:'page_number'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SharedDashboardInvites'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :get_public_dashboard_invitations,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V1"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Get, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DashboardsAPI#get_public_dashboard_invitations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -422,6 +760,78 @@ module DatadogAPIClient::V1
       return data, status_code, headers
     end
 
+    # Send shared dashboard invitation email.
+    #
+    # @see #send_public_dashboard_invitation_with_http_info
+    def send_public_dashboard_invitation(token, body, opts = {})
+      data, _status_code, _headers = send_public_dashboard_invitation_with_http_info(token, body, opts)
+      data
+    end
+
+    # Send shared dashboard invitation email.
+    #
+    # Send emails to specified email addresses containing links to access a given authenticated shared dashboard. Email addresses must already belong to the authenticated shared dashboard's share_list.
+    #
+    # @param token [String] The token of the shared dashboard.
+    # @param body [SharedDashboardInvites] Shared Dashboard Invitation request body.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SharedDashboardInvites, Integer, Hash)>] SharedDashboardInvites data, response status code and response headers
+    def send_public_dashboard_invitation_with_http_info(token, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DashboardsAPI.send_public_dashboard_invitation ...'
+      end
+      # verify the required parameter 'token' is set
+      if @api_client.config.client_side_validation && token.nil?
+        fail ArgumentError, "Missing the required parameter 'token' when calling DashboardsAPI.send_public_dashboard_invitation"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling DashboardsAPI.send_public_dashboard_invitation"
+      end
+      # resource path
+      local_var_path = '/api/v1/dashboard/public/{token}/invitation'.sub('{token}', CGI.escape(token.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SharedDashboardInvites'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :send_public_dashboard_invitation,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V1"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Post, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DashboardsAPI#send_public_dashboard_invitation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update a dashboard.
     #
     # @see #update_dashboard_with_http_info
@@ -490,6 +900,78 @@ module DatadogAPIClient::V1
       data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: DashboardsAPI#update_dashboard\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a shared dashboard.
+    #
+    # @see #update_public_dashboard_with_http_info
+    def update_public_dashboard(token, body, opts = {})
+      data, _status_code, _headers = update_public_dashboard_with_http_info(token, body, opts)
+      data
+    end
+
+    # Update a shared dashboard.
+    #
+    # Update a shared dashboard associated with the specified token.
+    #
+    # @param token [String] The token of the shared dashboard.
+    # @param body [SharedDashboardUpdateRequest] Update Dashboard request body.
+    # @param opts [Hash] the optional parameters
+    # @return [Array<(SharedDashboard, Integer, Hash)>] SharedDashboard data, response status code and response headers
+    def update_public_dashboard_with_http_info(token, body, opts = {})
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DashboardsAPI.update_public_dashboard ...'
+      end
+      # verify the required parameter 'token' is set
+      if @api_client.config.client_side_validation && token.nil?
+        fail ArgumentError, "Missing the required parameter 'token' when calling DashboardsAPI.update_public_dashboard"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling DashboardsAPI.update_public_dashboard"
+      end
+      # resource path
+      local_var_path = '/api/v1/dashboard/public/{token}'.sub('{token}', CGI.escape(token.to_s).gsub('%2F', '/'))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SharedDashboard'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || [:apiKeyAuth, :appKeyAuth, :AuthZ]
+
+      new_options = opts.merge(
+        :operation => :update_public_dashboard,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type,
+        :api_version => "V1"
+      )
+
+      data, status_code, headers = @api_client.call_api(Net::HTTP::Put, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DashboardsAPI#update_public_dashboard\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
