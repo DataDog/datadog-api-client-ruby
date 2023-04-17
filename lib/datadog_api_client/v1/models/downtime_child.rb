@@ -142,6 +142,7 @@ module DatadogAPIClient::V1
       Set.new([
         :'canceled',
         :'_end',
+        :'message',
         :'monitor_id',
         :'parent_id',
         :'recurrence',
