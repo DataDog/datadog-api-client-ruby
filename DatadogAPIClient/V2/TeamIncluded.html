@@ -287,7 +287,7 @@
     <span class='kw'>begin</span>
       <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_klass'>klass</span> <span class='op'>==</span> <span class='symbol'>:AnyType</span> <span class='comment'># &quot;nullable: true&quot;
 </span>      <span class='id identifier rubyid_typed_data'>typed_data</span> <span class='op'>=</span> <span class='id identifier rubyid_find_and_cast_into_type'>find_and_cast_into_type</span><span class='lparen'>(</span><span class='id identifier rubyid_klass'>klass</span><span class='comma'>,</span> <span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
-      <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_typed_data'>typed_data</span><span class='period'>.</span><span class='id identifier rubyid__unparsed'>_unparsed</span>
+      <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_typed_data'>typed_data</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:_unparsed</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_typed_data'>typed_data</span><span class='period'>.</span><span class='id identifier rubyid__unparsed'>_unparsed</span>
       <span class='kw'>return</span> <span class='id identifier rubyid_typed_data'>typed_data</span> <span class='kw'>if</span> <span class='id identifier rubyid_typed_data'>typed_data</span>
     <span class='kw'>rescue</span> <span class='comment'># rescue all errors so we keep iterating even if the current item lookup raises
 </span>    <span class='kw'>end</span>
@@ -358,7 +358,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Apr 14 16:44:14 2023 by
+  Generated on Mon Apr 17 15:31:59 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-2.7.8).
 </div>
