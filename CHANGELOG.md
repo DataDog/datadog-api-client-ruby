@@ -1,5 +1,41 @@
 # CHANGELOG
 
+## 2.10.0 / 2023-04-18
+
+### Fixed
+* Fix application_security_host_top99p usage field by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1284
+* Mark `resource_type` attribute as required for Confluent Account by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1305
+* Fix spec errors caught with prism validation by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1319
+* Fix spans/logs custom metrics delete operation responses by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1326
+### Added
+* Add support for Incident Todo APIs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1272
+* Add supported relations in restriction policy  by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1280
+* Add parameter to downtime API for returning creator info by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1283
+* Publish the new ingested timeseries metrics for usage attribution by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1269
+* Add tags field to dashboard API spec by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1277
+* Add pagination support to SearchIncidents by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1294
+* Add service catalog v2.1 schema by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1288
+* Add team API specs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1286
+* Add spans metrics API endpoints specification by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1295
+* Add universal service monitoring to usage metering API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1299
+* Add a new contact type in service catalog api for schema v2 and v2.1 by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1303
+* Add pagination support for the GET service_definitions endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1308
+* Publish logs forwarding fields in summary usage API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1307
+* Add compressedJsonDescriptor to Synthetics gRPC tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1306
+* Add region field and note about multiregion start by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1287
+* Add AP1 support by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1314
+* Add support for shared dashboards endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1300
+### Deprecated
+* Deprecate audit logs usage by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-ruby/pull/1316
+### Security
+* Simplify content type parsing by @therve in https://github.com/DataDog/datadog-api-client-ruby/pull/1285
+
+## New Contributors
+* @jonhyman made their first contribution in https://github.com/DataDog/datadog-api-client-ruby/pull/1289
+* @petergoldstein made their first contribution in https://github.com/DataDog/datadog-api-client-ruby/pull/1291
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-ruby/compare/v2.9.0...v2.10.0
+
 ## 2.9.0 / 2023-03-14
 
 ### Fixed
