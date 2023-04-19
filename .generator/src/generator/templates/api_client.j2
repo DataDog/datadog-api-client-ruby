@@ -210,7 +210,7 @@ module {{ module_name }}
     # @param [String] mime MIME
     # @return [Boolean] True if the MIME is application/json
     def json_mime?(mime)
-      mime == '*/*' || (mime && mime.downcase().split(';')[0] == 'application/json') || mime == 'text/json'
+      (mime && mime.downcase.include?('json')) || mime == '*/*'
     end
 
     # Deserialize the response to the given return type.
