@@ -1323,6 +1323,79 @@ ScenariosModelMappings = {
             "role_id" => "String",
             "body" => "RelationshipToUser",
     },
+    "v2.ListFindings" => {
+            "limit" => "Integer",
+            "snapshot_timestamp" => "Integer",
+            "page_cursor" => "String",
+            "filter_tags" => "String",
+            "filter_evaluation_changed_at" => "String",
+            "filter_muted" => "Boolean",
+            "filter_rule_id" => "String",
+            "filter_rule_name" => "String",
+            "filter_resource_type" => "String",
+            "filter_discovery_timestamp" => "String",
+            "filter_evaluation" => "FindingEvaluation",
+            "filter_status" => "FindingStatus",
+    },
+    "v2.GetFinding" => {
+            "finding_id" => "String",
+    },
+    "v2.CreateSecurityFilter" => {
+            "body" => "SecurityFilterCreateRequest",
+    },
+    "v2.DeleteSecurityFilter" => {
+            "security_filter_id" => "String",
+    },
+    "v2.GetSecurityFilter" => {
+            "security_filter_id" => "String",
+    },
+    "v2.UpdateSecurityFilter" => {
+            "security_filter_id" => "String",
+            "body" => "SecurityFilterUpdateRequest",
+    },
+    "v2.ListSecurityMonitoringRules" => {
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+    },
+    "v2.CreateSecurityMonitoringRule" => {
+            "body" => "SecurityMonitoringRuleCreatePayload",
+    },
+    "v2.DeleteSecurityMonitoringRule" => {
+            "rule_id" => "String",
+    },
+    "v2.GetSecurityMonitoringRule" => {
+            "rule_id" => "String",
+    },
+    "v2.UpdateSecurityMonitoringRule" => {
+            "rule_id" => "String",
+            "body" => "SecurityMonitoringRuleUpdatePayload",
+    },
+    "v2.ListSecurityMonitoringSignals" => {
+            "filter_query" => "String",
+            "filter_from" => "Time",
+            "filter_to" => "Time",
+            "sort" => "SecurityMonitoringSignalsSort",
+            "page_cursor" => "String",
+            "page_limit" => "Integer",
+    },
+    "v2.SearchSecurityMonitoringSignals" => {
+            "body" => "SecurityMonitoringSignalListRequest",
+    },
+    "v2.GetSecurityMonitoringSignal" => {
+            "signal_id" => "String",
+    },
+    "v2.EditSecurityMonitoringSignalAssignee" => {
+            "signal_id" => "String",
+            "body" => "SecurityMonitoringSignalAssigneeUpdateRequest",
+    },
+    "v2.EditSecurityMonitoringSignalIncidents" => {
+            "signal_id" => "String",
+            "body" => "SecurityMonitoringSignalIncidentsUpdateRequest",
+    },
+    "v2.EditSecurityMonitoringSignalState" => {
+            "signal_id" => "String",
+            "body" => "SecurityMonitoringSignalStateUpdateRequest",
+    },
     "v2.ListProcesses" => {
             "search" => "String",
             "tags" => "String",
@@ -1383,62 +1456,6 @@ ScenariosModelMappings = {
     "v2.UpdateCloudWorkloadSecurityAgentRule" => {
             "agent_rule_id" => "String",
             "body" => "CloudWorkloadSecurityAgentRuleUpdateRequest",
-    },
-    "v2.CreateSecurityFilter" => {
-            "body" => "SecurityFilterCreateRequest",
-    },
-    "v2.DeleteSecurityFilter" => {
-            "security_filter_id" => "String",
-    },
-    "v2.GetSecurityFilter" => {
-            "security_filter_id" => "String",
-    },
-    "v2.UpdateSecurityFilter" => {
-            "security_filter_id" => "String",
-            "body" => "SecurityFilterUpdateRequest",
-    },
-    "v2.ListSecurityMonitoringRules" => {
-            "page_size" => "Integer",
-            "page_number" => "Integer",
-    },
-    "v2.CreateSecurityMonitoringRule" => {
-            "body" => "SecurityMonitoringRuleCreatePayload",
-    },
-    "v2.DeleteSecurityMonitoringRule" => {
-            "rule_id" => "String",
-    },
-    "v2.GetSecurityMonitoringRule" => {
-            "rule_id" => "String",
-    },
-    "v2.UpdateSecurityMonitoringRule" => {
-            "rule_id" => "String",
-            "body" => "SecurityMonitoringRuleUpdatePayload",
-    },
-    "v2.ListSecurityMonitoringSignals" => {
-            "filter_query" => "String",
-            "filter_from" => "Time",
-            "filter_to" => "Time",
-            "sort" => "SecurityMonitoringSignalsSort",
-            "page_cursor" => "String",
-            "page_limit" => "Integer",
-    },
-    "v2.SearchSecurityMonitoringSignals" => {
-            "body" => "SecurityMonitoringSignalListRequest",
-    },
-    "v2.GetSecurityMonitoringSignal" => {
-            "signal_id" => "String",
-    },
-    "v2.EditSecurityMonitoringSignalAssignee" => {
-            "signal_id" => "String",
-            "body" => "SecurityMonitoringSignalAssigneeUpdateRequest",
-    },
-    "v2.EditSecurityMonitoringSignalIncidents" => {
-            "signal_id" => "String",
-            "body" => "SecurityMonitoringSignalIncidentsUpdateRequest",
-    },
-    "v2.EditSecurityMonitoringSignalState" => {
-            "signal_id" => "String",
-            "body" => "SecurityMonitoringSignalStateUpdateRequest",
     },
     "v2.ReorderScanningGroups" => {
             "body" => "SensitiveDataScannerConfigRequest",
