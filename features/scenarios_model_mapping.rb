@@ -216,6 +216,32 @@ ScenariosModelMappings = {
     "v1.CreateDashboard" => {
             "body" => "Dashboard",
     },
+    "v1.CreatePublicDashboard" => {
+            "body" => "SharedDashboard",
+    },
+    "v1.DeletePublicDashboard" => {
+            "token" => "String",
+    },
+    "v1.GetPublicDashboard" => {
+            "token" => "String",
+    },
+    "v1.UpdatePublicDashboard" => {
+            "token" => "String",
+            "body" => "SharedDashboardUpdateRequest",
+    },
+    "v1.DeletePublicDashboardInvitation" => {
+            "token" => "String",
+            "body" => "SharedDashboardInvites",
+    },
+    "v1.GetPublicDashboardInvitations" => {
+            "token" => "String",
+            "page_size" => "Integer",
+            "page_number" => "Integer",
+    },
+    "v1.SendPublicDashboardInvitation" => {
+            "token" => "String",
+            "body" => "SharedDashboardInvites",
+    },
     "v1.DeleteDashboard" => {
             "dashboard_id" => "String",
     },

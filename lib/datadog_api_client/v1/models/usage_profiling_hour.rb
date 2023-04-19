@@ -64,6 +64,15 @@ module DatadogAPIClient::V1
       }
     end
 
+    # List of attributes with nullable: true
+    # @!visibility private
+    def self.openapi_nullable
+      Set.new([
+        :'avg_container_agent_count',
+        :'host_count',
+      ])
+    end
+
     # Initializes the object
     # @param attributes [Hash] Model attributes in the form of hash
     # @!visibility private

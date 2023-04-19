@@ -151,6 +151,7 @@ module DatadogAPIClient::V1
         :'active_child',
         :'canceled',
         :'_end',
+        :'message',
         :'monitor_id',
         :'parent_id',
         :'recurrence',
