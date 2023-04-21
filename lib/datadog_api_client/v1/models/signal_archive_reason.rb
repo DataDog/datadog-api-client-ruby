@@ -24,6 +24,7 @@ module DatadogAPIClient::V1
     NONE = "none".freeze
     FALSE_POSITIVE = "false_positive".freeze
     TESTING_OR_MAINTENANCE = "testing_or_maintenance".freeze
+    INVESTIGATED_CASE_OPENED = "investigated_case_opened".freeze
     OTHER = "other".freeze
   end
 end
