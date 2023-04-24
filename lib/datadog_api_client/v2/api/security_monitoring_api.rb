@@ -787,8 +787,36 @@ module DatadogAPIClient::V2
     #
     # Get a list of CSPM findings.
     #
+    # ### Filtering
+    #
+    # Filters can be applied by appending query parameters to the URL.
+    #
+    #   - Using a single filter: `?filter[attribute_key]=attribute_value`
+    #   - Chaining filters: `?filter[attribute_key]=attribute_value&filter[attribute_key]=attribute_value...`
+    #   - Filtering on tags: `?filter[tags]=tag_key:tag_value&filter[tags]=tag_key_2:tag_value_2`
+    #
+    # Here, `attribute_key` can be any of the filter keys described further below.
+    #
+    # Query parameters of type `integer` support comparison operators (`>`, `>=`, `<`, `<=`). This is particularly useful when filtering by `evaluation_changed_at` or `resource_discovery_timestamp`. For example: `?filter[evaluation_changed_at]=>20123123121`.
+    #
+    # You can also use the negation operator on strings. For example, use `filter[resource_type]=-aws*` to filter for any non-AWS resources.
+    #
+    # The operator must come after the equal sign. For example, to filter with the `>=` operator, add the operator after the equal sign: `filter[evaluation_changed_at]=>=1678809373257`.
+    #
+    # ### Response
+    #
+    # The response includes an array of finding objects, pagination metadata, and a count of items that match the query.
+    #
+    # Each finding object contains the following:
+    #
+    # - The finding ID that can be used in a `GetFinding` request to retrieve the full finding details.
+    # - Core attributes, including status, evaluation, high-level resource details, muted state, and rule details.
+    # - `evaluation_changed_at` and `resource_discovery_date` time stamps.
+    # - An array of associated tags.
+    #
+    #
     # @param opts [Hash] the optional parameters
-    # @option opts [Integer] :limit Limit the number of findings returned.
+    # @option opts [Integer] :page_limit Limit the number of findings returned. Must be <= 1000.
     # @option opts [Integer] :snapshot_timestamp Return findings for a given snapshot of time (Unix ms).
     # @option opts [String] :page_cursor Return the next page of findings pointed to by the cursor.
     # @option opts [String] :filter_tags Return findings that have these associated tags (repeatable).
@@ -812,11 +840,11 @@ module DatadogAPIClient::V2
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecurityMonitoringAPI.list_findings ...'
       end
-      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SecurityMonitoringAPI.list_findings, must be smaller than or equal to 1000.'
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling SecurityMonitoringAPI.list_findings, must be smaller than or equal to 1000.'
       end
-      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SecurityMonitoringAPI.list_findings, must be greater than or equal to 1.'
+      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling SecurityMonitoringAPI.list_findings, must be greater than or equal to 1.'
       end
       if @api_client.config.client_side_validation && !opts[:'snapshot_timestamp'].nil? && opts[:'snapshot_timestamp'] < 1
         fail ArgumentError, 'invalid value for "opts[:"snapshot_timestamp"]" when calling SecurityMonitoringAPI.list_findings, must be greater than or equal to 1.'
@@ -834,7 +862,7 @@ module DatadogAPIClient::V2
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
       query_params[:'snapshot_timestamp'] = opts[:'snapshot_timestamp'] if !opts[:'snapshot_timestamp'].nil?
       query_params[:'page[cursor]'] = opts[:'page_cursor'] if !opts[:'page_cursor'].nil?
       query_params[:'filter[tags]'] = opts[:'filter_tags'] if !opts[:'filter_tags'].nil?
@@ -880,6 +908,27 @@ module DatadogAPIClient::V2
         @api_client.config.logger.debug "API called: SecurityMonitoringAPI#list_findings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
+    end
+
+    # List findings.
+    #
+    # Provide a paginated version of {#list_findings}, returning all items.
+    #
+    # To use it you need to use a block: list_findings_with_pagination { |item| p item }
+    #
+    # @yield [Finding] Paginated items
+    def list_findings_with_pagination(opts = {})
+        api_version = "V2"
+        page_size = @api_client.get_attribute_from_path(opts, "page_limit", 100)
+        @api_client.set_attribute_from_path(api_version, opts, "page_limit", FindingStatus, page_size)
+        while true do
+            response = list_findings(opts)
+            @api_client.get_attribute_from_path(response, "data").each { |item| yield(item) }
+            if @api_client.get_attribute_from_path(response, "data").length < page_size
+              break
+            end
+            @api_client.set_attribute_from_path(api_version, opts, "page_cursor", FindingStatus, @api_client.get_attribute_from_path(response, "meta.page.cursor"))
+        end
     end
 
     # Get all security filters.
