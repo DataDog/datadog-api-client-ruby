@@ -1324,7 +1324,7 @@ ScenariosModelMappings = {
             "body" => "RelationshipToUser",
     },
     "v2.ListFindings" => {
-            "limit" => "Integer",
+            "page_limit" => "Integer",
             "snapshot_timestamp" => "Integer",
             "page_cursor" => "String",
             "filter_tags" => "String",
