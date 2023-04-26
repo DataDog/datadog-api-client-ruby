@@ -11,6 +11,17 @@ body = DatadogAPIClient::V1::SyntheticsAPITest.new({
         target: 1,
         type: DatadogAPIClient::V1::SyntheticsAssertionType::GRPC_HEALTHCHECK_STATUS,
       }),
+      DatadogAPIClient::V1::SyntheticsAssertionTarget.new({
+        operator: DatadogAPIClient::V1::SyntheticsAssertionOperator::IS,
+        target: "proto target",
+        type: DatadogAPIClient::V1::SyntheticsAssertionType::GRPC_PROTO,
+      }),
+      DatadogAPIClient::V1::SyntheticsAssertionTarget.new({
+        operator: DatadogAPIClient::V1::SyntheticsAssertionOperator::IS,
+        target: "123",
+        property: "property",
+        type: DatadogAPIClient::V1::SyntheticsAssertionType::GRPC_METADATA,
+      }),
     ],
     request: DatadogAPIClient::V1::SyntheticsTestRequest.new({
       host: "localhost",
