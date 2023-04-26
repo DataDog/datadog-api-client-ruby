@@ -228,7 +228,7 @@ module DatadogAPIClient::V2
       when 'Boolean'
         return data if data.instance_of?(TrueClass) || data.instance_of?(FalseClass)
       when 'Float'
-        return data if data.instance_of?(Float)
+        return data if data.instance_of?(Float) || data.instance_of?(Integer)
       when 'Integer'
         return data if data.instance_of?(Integer)
       when 'Time'
