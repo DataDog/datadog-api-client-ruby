@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Thu, 27 Apr 2023 20:35:01 GMT
+- recorded_at: Thu, 19 Jan 2023 19:59:40 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"policy":{"tag_key":"datacenter","tag_key_required":false,"valid_tag_values":["prod","staging"]},"policy_type":"tag"},"id":"00000000-0000-1234-0000-000000000000","type":"monitor-config-policy"}}'
+      string: '{"data":{"attributes":{"policy":{"tag_key":"datacenter","tag_key_required":true,"valid_tag_values":["prod","staging"]},"policy_type":"tag"},"id":"00000000-0000-1234-0000-000000000000","type":"monitor-config-policy"}}'
     headers:
       Accept:
       - application/json

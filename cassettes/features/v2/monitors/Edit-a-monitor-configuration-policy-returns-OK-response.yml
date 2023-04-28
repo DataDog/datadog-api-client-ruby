@@ -1,9 +1,9 @@
 http_interactions:
-- recorded_at: Thu, 27 Apr 2023 20:35:01 GMT
+- recorded_at: Thu, 19 Jan 2023 19:59:41 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"policy":{"tag_key":"testeditamonitorconfigurationpolicyreturnsokresponse1682627701","tag_key_required":false,"valid_tag_values":["prod","staging"]},"policy_type":"tag"},"type":"monitor-config-policy"}}'
+      string: '{"data":{"attributes":{"policy":{"tag_key":"dc","tag_key_required":true,"valid_tag_values":["prod","staging"]},"policy_type":"tag"},"type":"monitor-config-policy"}}'
     headers:
       Accept:
       - application/json
@@ -14,7 +14,7 @@ http_interactions:
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"monitor-config-policy","id":"fbdb67de-e53a-11ed-9e4a-da7ad0900002","attributes":{"policy":{"valid_tag_values":["prod","staging"],"tag_key_required":false,"tag_key":"testeditamonitorconfigurationpolicyreturnsokresponse1682627701"},"policy_type":"tag"}}}
+      string: '{"data":{"type":"monitor-config-policy","attributes":{"policy":{"tag_key_required":true,"tag_key":"dc","valid_tag_values":["prod","staging"]},"policy_type":"tag"},"id":"cf99b4f4-9833-11ed-84c5-da7ad0900002"}}
 
         '
     headers:
@@ -23,22 +23,22 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Thu, 27 Apr 2023 20:35:01 GMT
+- recorded_at: Thu, 19 Jan 2023 19:59:41 GMT
   request:
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"policy":{"tag_key":"testeditamonitorconfigurationpolicyreturnsokresponse1682627701","tag_key_required":false,"valid_tag_values":["prod","staging"]},"policy_type":"tag"},"id":"fbdb67de-e53a-11ed-9e4a-da7ad0900002","type":"monitor-config-policy"}}'
+      string: '{"data":{"attributes":{"policy":{"tag_key":"datacenter","tag_key_required":true,"valid_tag_values":["prod","staging"]},"policy_type":"tag"},"id":"cf99b4f4-9833-11ed-84c5-da7ad0900002","type":"monitor-config-policy"}}'
     headers:
       Accept:
       - application/json
       Content-Type:
       - application/json
     method: PATCH
-    uri: https://api.datadoghq.com/api/v2/monitor/policy/fbdb67de-e53a-11ed-9e4a-da7ad0900002
+    uri: https://api.datadoghq.com/api/v2/monitor/policy/cf99b4f4-9833-11ed-84c5-da7ad0900002
   response:
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"monitor-config-policy","attributes":{"policy_type":"tag","policy":{"valid_tag_values":["prod","staging"],"tag_key":"testeditamonitorconfigurationpolicyreturnsokresponse1682627701","tag_key_required":false}},"id":"fbdb67de-e53a-11ed-9e4a-da7ad0900002"}}
+      string: '{"data":{"type":"monitor-config-policy","attributes":{"policy":{"tag_key_required":true,"tag_key":"datacenter","valid_tag_values":["prod","staging"]},"policy_type":"tag"},"id":"cf99b4f4-9833-11ed-84c5-da7ad0900002"}}
 
         '
     headers:
@@ -47,14 +47,14 @@ http_interactions:
     status:
       code: 200
       message: OK
-- recorded_at: Thu, 27 Apr 2023 20:35:01 GMT
+- recorded_at: Thu, 19 Jan 2023 19:59:41 GMT
   request:
     body: null
     headers:
       Accept:
       - '*/*'
     method: DELETE
-    uri: https://api.datadoghq.com/api/v2/monitor/policy/fbdb67de-e53a-11ed-9e4a-da7ad0900002
+    uri: https://api.datadoghq.com/api/v2/monitor/policy/cf99b4f4-9833-11ed-84c5-da7ad0900002
   response:
     body:
       encoding: UTF-8

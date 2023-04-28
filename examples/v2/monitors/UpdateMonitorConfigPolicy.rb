@@ -10,8 +10,8 @@ body = DatadogAPIClient::V2::MonitorConfigPolicyEditRequest.new({
   data: DatadogAPIClient::V2::MonitorConfigPolicyEditData.new({
     attributes: DatadogAPIClient::V2::MonitorConfigPolicyAttributeEditRequest.new({
       policy: DatadogAPIClient::V2::MonitorConfigPolicyTagPolicy.new({
-        tag_key: "examplemonitor",
-        tag_key_required: false,
+        tag_key: "datacenter",
+        tag_key_required: true,
         valid_tag_values: [
           "prod",
           "staging",
