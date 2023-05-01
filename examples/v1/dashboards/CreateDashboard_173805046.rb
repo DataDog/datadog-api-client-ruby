@@ -29,6 +29,7 @@ body = DatadogAPIClient::V1::Dashboard.new({
         show_error_budget: true,
         view_mode: DatadogAPIClient::V1::WidgetViewMode::OVERALL,
         global_time_target: "0",
+        additional_query_filters: "!host:excluded_host",
       }),
     }),
   ],
