@@ -8,8 +8,8 @@ body = DatadogAPIClient::V2::MonitorConfigPolicyCreateRequest.new({
     attributes: DatadogAPIClient::V2::MonitorConfigPolicyAttributeCreateRequest.new({
       policy_type: DatadogAPIClient::V2::MonitorConfigPolicyType::TAG,
       policy: DatadogAPIClient::V2::MonitorConfigPolicyTagPolicyCreateRequest.new({
-        tag_key: "datacenter",
-        tag_key_required: true,
+        tag_key: "examplemonitor",
+        tag_key_required: false,
         valid_tag_values: [
           "prod",
           "staging",
